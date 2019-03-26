@@ -33,7 +33,8 @@
         <meta name="description" content="{{ config.site_description }}">
       {% endif %}
       {% if page and page.meta and page.meta.redirect %}
-        <script>var anchor=window.location.hash.substr(1);location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
+        <script>var anchor=window.location.hash.substr(1);
+          location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
         <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
         <meta name="robots" content="noindex">
         <link rel="canonical" href="{{ page.meta.redirect }}">
@@ -93,7 +94,8 @@
               font.text | replace(' ', '+')  + ':300,400,400i,700|' +
               font.code | replace(' ', '+')
             }}">
-        <style>body,input{font-family:"{{ font.text }}","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"{{ font.code }}","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"{{ font.text }}","Helvetica Neue",Helvetica,Arial,sans-serif}
+          code,kbd,pre{font-family:"{{ font.code }}","Courier New",Courier,monospace}</style>
       {% endif %}
     {% endblock %}
     <link rel="stylesheet" href="{{ 'assets/fonts/material-icons.css' | url }}">
@@ -113,7 +115,8 @@
   {% if palette.primary or palette.accent %}
     {% set primary = palette.primary | replace(" ", "-") | lower %}
     {% set accent  = palette.accent  | replace(" ", "-") | lower %}
-    <body dir="{{ lang.t('direction') }}" data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}">
+    <body dir="{{ lang.t('direction') }}" data-md-color-primary="{{ primary }}" 
+          data-md-color-accent="{{ accent }}">
   {% else %}
     <body dir="{{ lang.t('direction') }}">
   {% endif %}
@@ -175,7 +178,8 @@
             <article class="md-content__inner md-typeset">
               {% block content %}
                 {% if page.edit_url %}
-                  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" 
+                     class="md-icon md-content__icon">&#xE3C9;</a>
                 {% endif %}
                 {% if not "\x3ch1" in page.content %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
@@ -190,7 +194,8 @@
                     {% endif %}
                     {% set path = page.meta.path | default([""]) %}
                     {% set file = page.meta.source %}
-                    <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" class="md-source-file">
+                    <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" 
+                       class="md-source-file">
                       {{ file }}
                     </a>
                   {% endif %}
