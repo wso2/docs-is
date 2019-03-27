@@ -56,9 +56,9 @@ request.onload = function() {
       // Current released version update
       document.getElementById('current-version-number').innerHTML = 
               data.current;
-      document.getElementById('current-version-documentation-link').innerHTML
+      document.getElementById('current-version-documentation-link')
               .setAttribute('href', data.all[data.current].doc);
-      document.getElementById('current-version-release-notes-link').innerHTML
+      document.getElementById('current-version-release-notes-link')
               .setAttribute('href', data.all[data.current].notes);
       
       // Pre-release version update
