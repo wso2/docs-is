@@ -49,3 +49,47 @@ for (var i = 0; i < dropdowns.length; i++) {
         }
     };
 };
+
+function showDiv() {
+    document.getElementById('anonymous').style.display = "none";
+    document.getElementById('form_fields').style.display = "block";
+}
+
+function hideDiv() {
+    document.getElementById('form_fields').style.display = "none";
+    document.getElementById('anonymous').style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var modalWrapper = document.getElementById("modal_wrapper");
+    var modalWindow  = document.getElementById("modal_window");
+
+    var openModal = function(event)
+    {
+      modalWrapper.className = "overlay";
+      modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
+      modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+      event.preventDefault();
+    };
+
+    var closeModal = function(event)
+    {
+      modalWrapper.className = "";
+      event.preventDefault();
+    };
+
+    var clickHandler = function(event) {
+      if(event.target.tagName == "DIV") {
+        if(event.target.id != "modal_window") closeModal(event);
+      }
+    };
+
+    var keyHandler = function(event) {
+      if(event.keyCode == 27) closeModal(event);
+    };
+
+    document.getElementById("modal_open").addEventListener("click", openModal, false);
+    document.getElementById("modal_close").addEventListener("click", closeModal, false);
+    document.addEventListener("click", clickHandler, false);
+    document.addEventListener("keydown", keyHandler, false);
+}, false);

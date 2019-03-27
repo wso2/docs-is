@@ -103,10 +103,9 @@
       <link rel="stylesheet" href="{{ path | url }}">
     {% endfor %}
     {% block extrahead %}{% endblock %}
-
     {% if config.repo_name %}
-      <a id="modal_open" class="feedback">Provide Feedback</a>
-      <div id="modal_wrapper">
+    <a id="modal_open" class="feedback">Provide Feedback</a>
+    <div id="modal_wrapper">
           <div id="modal_window">
               <div class="closeModel"><a id="modal_close" href="#">close <b>X</b></a></div>
               <header class="header">
@@ -135,84 +134,34 @@
           </div>
       </div>
       {% endif %}
-    <script type="text/javascript">
-    function showDiv() {
-      document.getElementById('anonymous').style.display = "none";
-      document.getElementById('form_fields').style.display = "block";
-    }
-
-    </script>
-    <script type="text/javascript">
-    function hideDiv() {
-      document.getElementById('form_fields').style.display = "none";
-      document.getElementById('anonymous').style.display = "block";
-    }
-
-    </script>
-    <script type="text/javascript">
-   document.addEventListener("DOMContentLoaded", function() {
-    var modalWrapper = document.getElementById("modal_wrapper");
-    var modalWindow  = document.getElementById("modal_window");
-
-    var openModal = function(event)
-    {
-      modalWrapper.className = "overlay";
-      modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
-      modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    $("#modal_feedback").submit(function(event) {
       event.preventDefault();
-    };
-
-    var closeModal = function(event)
-    {
-      modalWrapper.className = "";
-      event.preventDefault();
-    };
-
-    var clickHandler = function(event) {
-      if(event.target.tagName == "DIV") {
-        if(event.target.id != "modal_window") closeModal(event);
-      }
-    };
-
-    var keyHandler = function(event) {
-      if(event.keyCode == 27) closeModal(event);
-    };
-
-  document.getElementById("modal_open").addEventListener("click", openModal, false);
-  document.getElementById("modal_close").addEventListener("click", closeModal, false);
-  document.addEventListener("click", clickHandler, false);
-  document.addEventListener("keydown", keyHandler, false);
-  }, false);
-
-  </script>
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-  <script language="javascript" type="text/javascript">
-      $("#modal_feedback").submit(function(event) {
-          event.preventDefault();
-        $.ajax({
+      $.ajax({
           url: 'https://api.github.com/repos/'+"{{config.repo_name}}"+'/issues',
           type: 'POST',
           dataType: 'json',
           headers: {
-          Authorization: '',
-          Accept: 'application/json'
-        },
-        data: JSON.stringify({
-          "title": $("#summary").val(),
-          "body": $("#description").val() + "<br>" + " Location : " + window.location.href,
-          "labels": ["Type/Docs"]
-        }),
-        success: function (response) {
-          console.log(response);
-          $("#modal_window").hide();
-          alert('Thank you for your feedback!. Your record has been created as Git Issue : ' + response['html_url']);
-        },
-        error: function(response) {
-          alert('Please try again later');
-        }
+              Authorization: '',
+              Accept: 'application/json'
+          },
+          data: JSON.stringify({
+              "title": $("#summary").val(),
+              "body": $("#description").val() + "<br>" + " Location : " + window.location.href,
+              "labels": ["Type/Docs"]
+          }),
+          success: function (response) {
+              console.log(response);
+              $("#modal_window").hide();
+              alert('Thank you for your feedback!. Your record has been created as Git Issue : ' + response['html_url']);
+          },
+          error: function(response) {
+              console.log(response);
+              alert('Please try again later');
+           }
       });
     });
-
   </script>
   </head>
   {% if palette.primary or palette.accent %}
