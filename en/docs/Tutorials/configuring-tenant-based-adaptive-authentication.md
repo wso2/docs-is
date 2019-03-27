@@ -32,23 +32,23 @@ credentials (basic authentication) to access a resource.
     domain " **abc.com** ".
 4.  Select **Demo** as the **Usage Plan for Tenant** and enter user
     details for the tenant admin.  
-    ![](/attachments/tutorials/register-new-tenant-1.png)
+    ![](/assets/attachments/tutorials/register-new-tenant-1.png)
 5.  Similarly, register a new tenant for the domain "123.com" with a
     different tenant admin.  
-    ![](/attachments/tutorials/register-new-tenant-2.png)
+    ![](/assets/attachments/tutorials/register-new-tenant-2.png)
 
 6.  Navigate to the **Main** tab of the management console and click
     **List** under **Service Providers** .
 7.  Edit the **saml2-web-app-dispatch.com** service provider and select
     **Saas application** . This enables users from other tenant domains
     such as **abc.com** or **123.com** to log in to the application.  
-    ![](/attachments/tutorials/enable-saas-app.png)
+    ![](/assets/attachments/tutorials/enable-saas-app.png)
 8.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication** .
 9.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Tenant-Based**
     .  
-    ![](/attachments/tutorials/tenant-based-template.png)
+    ![](/assets/attachments/tutorials/tenant-based-template.png)
 10. Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users that belong to the tenant domains named "
@@ -62,32 +62,32 @@ credentials (basic authentication) to access a resource.
     add the following sample authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![](/attachments/tutorials/delete-totp-authenticator.png)
+        ![](/assets/attachments/tutorials/delete-totp-authenticator.png)
     2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
-        ![](/attachments/tutorials/add-new-authenticator.png)
+        ![](/assets/attachments/tutorials/add-new-authenticator.png)
 12. Click **Update** .
 
 ### Trying out the sample scenario
 
 1.  Log out of the management console and log in with the **abc.com**
     tenant admin's credentials (alex@abc.com).  
-    ![](/attachments/tutorials/mgt-console-login-alex.png)
+    ![](/assets/attachments/tutorials/mgt-console-login-alex.png)
 2.  Create a new user in the abc.com tenant named "chris" and ensure
     that he has login permissions.
 3.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
 4.  Click **Login** and enter Chris's credentials. Enter the username
     with the appended tenant domain (i.e., chris@abc.com).  
-    ![](/attachments/tutorials/pickup-sign-in-chris.png)  
+    ![](/assets/attachments/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for harware key authentication because
     **abc.com** is a whitelisted tenant domain.
 5.  Enter the 4 digit key and click **Sign In** . You are successfully
     logged in to the application.  
-    ![](/attachments/tutorials/hardware-key-authenticator.png)
+    ![](/assets/attachments/tutorials/hardware-key-authenticator.png)
 6.  Log out and log in with Kim's credentials. Kim is the admin of the
     **123.com** tenant domain, which is not one of the whitelisted
     domains.  
-    ![](/attachments/tutorials/pickup-sign-in-kim.png)
+    ![](/assets/attachments/tutorials/pickup-sign-in-kim.png)
 7.  Provide consent.  
     Note that you are successfully logged in to the application after
     going through the basic authentication step only.
