@@ -42,6 +42,17 @@ theme:
   feature:
     tabs: true
   language: 'en'
+  
+# Navigation
+nav:
+- Basic Tutorials:
+      - 'Adaptive Authentication': 
+        - 'Adaptive Authentication Overview': 'Tutorials/adaptive-authentication-overview.md'
+        - 'Configuring a Service Provider for Adaptive Authentication': 'Tutorials/configuring-a-service-provider-for-adaptive-authentication.md'
+        - Adaptive Authentication Scenarios:
+          - 'Configuring Role-Based Adaptive Authentication': 'Tutorials/configuring-role-based-adaptive-authentication.md'
+          - 'Configuring User-Age-Based Adaptive Authentication': 'Tutorials/configuring-user-age-based-adaptive-authentication.md'
+          - 'Configuring Tenant-Based Adaptive Authentication': 'Tutorials/configuring-tenant-based-adaptive-authentication.md'
 
 # Extensions
 markdown_extensions:
