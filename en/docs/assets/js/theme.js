@@ -49,3 +49,40 @@ for (var i = 0; i < dropdowns.length; i++) {
         }
     };
 };
+
+var request = new XMLHttpRequest();
+
+request.open('GET', './versions/assets/versions.json', true);
+
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
+
+      var data = JSON.parse(request.responseText);
+      var dropdown =  document.getElementById('version-select-dropdown');
+      
+      data.list.sort().forEach(function(key, index){
+          var liElem = document.createElement('li');
+          var docLinkType = data.all[key].doc.split(':')[0];
+          var target = '_self';
+
+          if ((docLinkType == 'https') || (docLinkType == 'http')) {
+              target = '_blank'
+          }
+          
+          liElem.className = 'md-tabs__item mb-tabs__dropdown';
+          liElem.innerHTML =  '<a href="' + data.all[key].doc + '" target="' + 
+              target + '">' + key + '</a>';
+          
+          dropdown.insertBefore(liElem, dropdown.firstChild);
+      });
+      
+  } else {
+      console.error("We reached our target server, but it returned an error");
+  }
+};
+
+request.onerror = function() {
+    console.error("There was a connection error of some sort");
+};
+
+request.send();
