@@ -36,7 +36,7 @@ sample authenticators required to try out the scenario.
 4.  Expand **Script Based Conditional Authentication** .
 5.  Click **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Role-Based** .  
-    ![](/attachments/tutorials/role-based-authentication-template.png)
+    ![](/assets/attachments/tutorials/role-based-authentication-template.png)
 6.  Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script defines a conditional step
     that executes the second authentication step (i.e., hardware key
@@ -51,9 +51,9 @@ sample authenticators required to try out the scenario.
     1.  Click **Delete** to remove the `            totp           ` and
         `            fido           ` authenticators from Step 2 (the
         second authentication step).  
-        ![](/attachments/tutorials/delete-authenticators.png)
+        ![](/assets/attachments/tutorials/delete-authenticators.png)
     2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
-        ![](/attachments/tutorials/add-new-authenticator.png)
+        ![](/assets/attachments/tutorials/add-new-authenticator.png)
 8.  Click **Update** .
 
 ### Testing the sample scenario
@@ -63,14 +63,14 @@ sample authenticators required to try out the scenario.
 2.  Click **Login** and enter admin/admin credentials.  You are prompted
     to use the hardware key after basic authentication according to the
     authentication step defined in the JavaScript above.  
-    ![](/attachments/tutorials/pickup-sign-in.png)
+    ![](/assets/attachments/tutorials/pickup-sign-in.png)
 3.  Enter the 4 digit key given on the screen and click **Sign In** .  
-    ![](attachments/tutorials/hardware-key-authenticator.png)
+    ![](/assetsattachments/tutorials/hardware-key-authenticator.png)
 4.  Next, log out of the application and log in again as 'Alex'. Note
     that this user is not assigned to any role. You will see that
     authentication is successful only after going through the basic
     authentication step.  
-    ![](/attachments/tutorials/pickup-homepage.png)
+    ![](/assets/attachments/tutorials/pickup-homepage.png)
 
 ### What's Next?
 
