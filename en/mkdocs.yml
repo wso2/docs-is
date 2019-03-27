@@ -16,7 +16,7 @@
 
 # Project information
 site_name: WSO2 Identity Server Documentation
-site_description: 'Documentation for WSO2 Identity & Access Management Solution'
+site_description: 'Documentation for WSO2 Identity Server'
 site_author: 'WSO2'
 site_url: 'https://wso2.com/'
 site_version: 5.8.0
@@ -47,6 +47,10 @@ theme:
 markdown_extensions:
     - fenced_code
     - codehilite
+    - admonition
+    - pymdownx.details
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
     
 # Customization
 extra_css:
