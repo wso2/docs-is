@@ -1,0 +1,348 @@
+<!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+{% import "partials/language.html" as lang with context %}
+{% set feature = config.theme.feature %}
+{% set palette = config.theme.palette %}
+{% set font = config.theme.font %}
+<!doctype html>
+<html lang="{{ lang.t('language') }}" class="no-js">
+  <head>
+    {% block site_meta %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      {% if page and page.meta and page.meta.description %}
+        <meta name="description" content="{{ page.meta.description }}">
+      {% elif config.site_description %}
+        <meta name="description" content="{{ config.site_description }}">
+      {% endif %}
+      {% if page and page.meta and page.meta.redirect %}
+        <script>var anchor=window.location.hash.substr(1);location.href="{{ page.meta.redirect }}"+(anchor?"#"+anchor:"")</script>
+        <meta http-equiv="refresh" content="0; url={{ page.meta.redirect }}">
+        <meta name="robots" content="noindex">
+        <link rel="canonical" href="{{ page.meta.redirect }}">
+      {% elif page.canonical_url %}
+        <link rel="canonical" href="{{ page.canonical_url }}">
+      {% endif %}
+      {% if page and page.meta and page.meta.author %}
+        <meta name="author" content="{{ page.meta.author | first }}">
+      {% elif config.site_author %}
+        <meta name="author" content="{{ config.site_author }}">
+      {% endif %}
+      {% for key in [
+        "clipboard.copy",
+        "clipboard.copied",
+        "search.language",
+        "search.pipeline.stopwords",
+        "search.pipeline.trimmer",
+        "search.result.none",
+        "search.result.one",
+        "search.result.other",
+        "search.tokenizer"
+      ] %}
+        <meta name="lang:{{ key }}" content="{{ lang.t(key) }}">
+      {% endfor %}
+      <link rel="shortcut icon" href="{{ config.theme.favicon | url }}">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-3.2.0">
+    {% endblock %}
+    {% block htmltitle %}
+      {% if page and page.meta and page.meta.title %}
+        <title>{{ page.meta.title }}</title>
+      {% elif page and page.title and not page.is_homepage %}
+        <title>{{ page.title }} - {{ config.site_name }}</title>
+      {% else %}
+        <title>{{ config.site_name }}</title>
+      {% endif %}
+    {% endblock %}
+    {% block styles %}
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/application.572ca0f0.css' | url }}">
+      {% if palette.primary or palette.accent %}
+        <link rel="stylesheet" href="{{ 'assets/stylesheets/application-palette.22915126.css' | url }}">
+      {% endif %}
+      {% if palette.primary %}
+        {% import "partials/palette.html" as map %}
+        {% set primary = map.primary(
+          palette.primary | replace(" ", "-") | lower
+        ) %}
+        <meta name="theme-color" content="{{ primary }}">
+      {% endif %}
+    {% endblock %}
+    {% block libs %}
+      <script src="{{ 'assets/javascripts/modernizr.8c900955.js' | url }}"></script>
+    {% endblock %}
+    {% block fonts %}
+      {% if font != false %}
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{
+              font.text | replace(' ', '+')  + ':300,400,400i,700|' +
+              font.code | replace(' ', '+')
+            }}">
+        <style>body,input{font-family:"{{ font.text }}","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"{{ font.code }}","Courier New",Courier,monospace}</style>
+      {% endif %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ 'assets/fonts/material-icons.css' | url }}">
+    {% if config.extra.manifest %}
+      <link rel="manifest" href="{{ config.extra.manifest | url }}">
+    {% endif %}
+    {% for path in config["extra_css"] %}
+      <link rel="stylesheet" href="{{ path | url }}">
+    {% endfor %}
+    {% block extrahead %}{% endblock %}
+
+    {% if config.repo_name %}
+      <a id="modal_open" class="feedback">Provide Feedback</a>
+      <div id="modal_wrapper">
+          <div id="modal_window">
+              <div class="closeModel"><a id="modal_close" href="#">close <b>X</b></a></div>
+              <header class="header">
+                  <h1 class="h1">Send Feedback</h1>
+              </header>
+              <form id="modal_feedback">
+                  <button type="button" id="gitIssue" class="button"
+                          onclick=window.open("https://github.com/"+"{{config.repo_name}}"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href);>
+                      Submit as Git Issue
+                  </button>
+                  <button type="button" id="anonymous" class="button" onclick="showDiv()">Anonymous Submit</button>
+                  <div id="form_fields" class="formFields">
+                      <p>
+                          <label for="summary">Summary<span class="required">*</span></label>
+                          <input required autofocus id="summary" name="summary" type="text" value="">
+                      </p>
+                      <p>
+                          <label>Description<span class="required">*</span></label>
+                          <textarea required name="description" id="description" cols="48" rows="8"
+                                    placeholder="Description"></textarea>
+                      </p>
+                      <button type="submit" id="submit" class="button">Submit</button>
+                      <button type="button" id="close" class="button" onclick="hideDiv()">Close</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      {% endif %}
+    <script type="text/javascript">
+    function showDiv() {
+      document.getElementById('anonymous').style.display = "none";
+      document.getElementById('form_fields').style.display = "block";
+    }
+
+    </script>
+    <script type="text/javascript">
+    function hideDiv() {
+      document.getElementById('form_fields').style.display = "none";
+      document.getElementById('anonymous').style.display = "block";
+    }
+
+    </script>
+    <script type="text/javascript">
+   document.addEventListener("DOMContentLoaded", function() {
+    var modalWrapper = document.getElementById("modal_wrapper");
+    var modalWindow  = document.getElementById("modal_window");
+
+    var openModal = function(event)
+    {
+      modalWrapper.className = "overlay";
+      modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
+      modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+      event.preventDefault();
+    };
+
+    var closeModal = function(event)
+    {
+      modalWrapper.className = "";
+      event.preventDefault();
+    };
+
+    var clickHandler = function(event) {
+      if(event.target.tagName == "DIV") {
+        if(event.target.id != "modal_window") closeModal(event);
+      }
+    };
+
+    var keyHandler = function(event) {
+      if(event.keyCode == 27) closeModal(event);
+    };
+
+  document.getElementById("modal_open").addEventListener("click", openModal, false);
+  document.getElementById("modal_close").addEventListener("click", closeModal, false);
+  document.addEventListener("click", clickHandler, false);
+  document.addEventListener("keydown", keyHandler, false);
+  }, false);
+
+  </script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script language="javascript" type="text/javascript">
+      $("#modal_feedback").submit(function(event) {
+          event.preventDefault();
+        $.ajax({
+          url: 'https://api.github.com/repos/'+"{{config.repo_name}}"+'/issues',
+          type: 'POST',
+          dataType: 'json',
+          headers: {
+          Authorization: '',
+          Accept: 'application/json'
+        },
+        data: JSON.stringify({
+          "title": $("#summary").val(),
+          "body": $("#description").val() + "<br>" + " Location : " + window.location.href,
+          "labels": ["Type/Docs"]
+        }),
+        success: function (response) {
+          console.log(response);
+          $("#modal_window").hide();
+          alert('Thank you for your feedback!. Your record has been created as Git Issue : ' + response['html_url']);
+        },
+        error: function(response) {
+          alert('Please try again later');
+        }
+      });
+    });
+
+  </script>
+  </head>
+  {% if palette.primary or palette.accent %}
+    {% set primary = palette.primary | replace(" ", "-") | lower %}
+    {% set accent  = palette.accent  | replace(" ", "-") | lower %}
+    <body dir="{{ lang.t('direction') }}" data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}">
+  {% else %}
+    <body dir="{{ lang.t('direction') }}">
+  {% endif %}
+    <svg class="md-svg">
+      <defs>
+        {% set platform = config.extra.repo_icon or config.repo_url %}
+        {% if "github" in platform %}
+          {% include "assets/images/icons/github.f0b8504a.svg" %}
+        {% elif "gitlab" in platform %}
+          {% include "assets/images/icons/gitlab.6dd19c00.svg" %}
+        {% elif "bitbucket" in platform %}
+          {% include "assets/images/icons/bitbucket.1b09e088.svg" %}
+        {% endif %}
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    {% if page.toc | first is defined %}
+      <a href="{{ (page.toc | first).url }}" tabindex="1" class="md-skip">
+        {{ lang.t('skip.link.title') }}
+      </a>
+    {% endif %}
+    {% block header %}
+      {% include "partials/header.html" %}
+    {% endblock %}
+    <div class="md-container">
+      {% block hero %}
+        {% if page and page.meta and page.meta.hero %}
+          {% include "partials/hero.html" with context %}
+        {% endif %}
+      {% endblock %}
+      {% if feature.tabs %}
+        {% include "partials/tabs.html" %}
+      {% endif %}
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          {% block site_nav %}
+            {% if nav %}
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    {% include "partials/nav.html" %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if page.toc %}
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    {% include "partials/toc.html" %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endblock %}
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              {% block content %}
+                {% if page.edit_url %}
+                  <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
+                {% endif %}
+                {% if not "\x3ch1" in page.content %}
+                  <h1>{{ page.title | default(config.site_name, true)}}</h1>
+                {% endif %}
+                {{ page.content }}
+                {% block source %}
+                  {% if page and page.meta and page.meta.source %}
+                    <h2 id="__source">{{ lang.t("meta.source") }}</h2>
+                    {% set repo = config.repo_url %}
+                    {% if repo | last == "/" %}
+                      {% set repo = repo[:-1] %}
+                    {% endif %}
+                    {% set path = page.meta.path | default([""]) %}
+                    {% set file = page.meta.source %}
+                    <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" class="md-source-file">
+                      {{ file }}
+                    </a>
+                  {% endif %}
+                {% endblock %}
+              {% endblock %}
+              {% block disqus %}
+                {% include "partials/integrations/disqus.html" %}
+              {% endblock %}
+            </article>
+          </div>
+        </div>
+      </main>
+      {% block footer %}
+        {% include "partials/footer.html" %}
+      {% endblock %}
+    </div>
+    {% block scripts %}
+      <script src="{{ 'assets/javascripts/application.b3a2063f.js' | url }}"></script>
+      {% if lang.t("search.language") != "en" %}
+        {% set languages = lang.t("search.language").split(",") %}
+        {% if languages | length and languages[0] != "" %}
+          {% set path = "assets/javascripts/lunr/" %}
+          <script src="{{ (path ~ 'lunr.stemmer.support.js') | url }}"></script>
+          {% for language in languages | map("trim") %}
+            {% if language != "en" %}
+              {% if language == "jp" %}
+                <script src="{{ (path ~ 'tinyseg.js') | url }}"></script>
+              {% endif %}
+              {% if language in ("da", "de", "du", "es", "fi", "fr", "hu", "it", "jp", "no", "pt", "ro", "ru", "sv", "tr") %}
+                <script src="{{ (path ~ 'lunr.' ~ language ~ '.js') | url }}"></script>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if languages | length > 1 %}
+            <script src="{{ (path ~ 'lunr.multi.js') | url }}"></script>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
+      {% for path in config["extra_javascript"] %}
+        <script src="{{ path | url }}"></script>
+      {% endfor %}
+    {% endblock %}
+    {% block analytics %}
+      {% if config.google_analytics %}
+        {% include "partials/integrations/analytics.html" %}
+      {% endif %}
+    {% endblock %}
+  </body>
+</html>

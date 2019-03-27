@@ -215,3 +215,118 @@
     transform: scale(1);
     transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
 }
+
+.feedback {
+    background-color: #555555;
+    border-radius: 0px;
+    color: #ffffff;
+    display: inline-block;
+    position:fixed;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 1em;
+    margin-left: 0px;
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    text-transform: uppercase;
+    top: 68% !important;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    left: 100%;
+}
+
+.header {
+    background-color: rgb(96, 125, 139);
+    box-sizing: border-box;
+    color: white;
+    position: relative;
+}
+
+.h1 {
+    color: white;
+    font: 300 20px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    margin: 0px;
+    padding: 16px;
+}
+
+.closeModel {
+    text-align: right;
+}
+
+.required {
+    color:red;
+}
+
+.formFields {
+    display:none;
+}
+
+#modal_wrapper.overlay::before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0,0,0,0.7);
+}
+
+#modal_window {
+    display: none;
+    z-index: 200;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 360px;
+    overflow: auto;
+    padding: 10px 20px;
+    background: #fff;
+    border: 5px solid #999;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#modal_wrapper.overlay #modal_window {
+    display: block;
+}
+
+input {
+   width: 100%;
+   border: 1px solid gray;
+}
+
+.close {
+   position: absolute;
+   top: 0;
+   right: 10px;
+   font-size: 42px;
+   color: #333;
+   transform: rotate(45deg);
+   cursor: pointer;
+   &:hover {
+      color: #666;
+   }
+}
+
+.button {
+   background: #3572b0;
+   border: 2px solid white;
+   border-radius: 30px;
+   text-decoration: none;
+   padding: 10px 28px;
+   color: white;
+   margin-top: 10px;
+   font-weight: bold;
+   display: inline-block;
+   &:hover {
+      background-color: white;
+      color: blue;
+      border: 2px solid #3572b0;
+   }
+}
