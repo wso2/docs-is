@@ -19,14 +19,13 @@ site_name: WSO2 Identity Server Documentation
 site_description: 'Documentation for WSO2 Identity Server'
 site_author: 'WSO2'
 site_url: 'https://wso2.com/'
-site_version: 5.8.0
 
 # Repository
-repo_name: 'wso2/docs-is'
-repo_url: 'https://github.com/wso2/docs-is'
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
 
 # Copyright
-copyright: 'WSO2 Identity Server - Documentation'
+copyright: WSO2 Identity Server - Documentation
 
 # Configuration
 base_url: /
@@ -76,3 +75,5 @@ extra:
       link: 'https://twitter.com/wso2'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/wso2'
+  base_url: /
+  site_version: 5.3.0
