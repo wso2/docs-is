@@ -52,6 +52,11 @@ nav:
           - 'Configuring Role-Based Adaptive Authentication': 'tutorials/configuring-role-based-adaptive-authentication.md'
           - 'Configuring User-Age-Based Adaptive Authentication': 'tutorials/configuring-user-age-based-adaptive-authentication.md'
           - 'Configuring Tenant-Based Adaptive Authentication': 'tutorials/configuring-tenant-based-adaptive-authentication.md'
+- References:
+      - 'Configuration Catalog': 'references/config-catalog.md'
+      - 'Default Ports of WSO2 Products': 'references/default-ports-of-wso2-products.md'
+      - 'API Permissions': 'references/api-permissions.md'
+      - 'Adaptive Authentication JS API Reference': 'references/adaptive-authentication-js-api-reference.md'
 
 # Extensions
 markdown_extensions:
