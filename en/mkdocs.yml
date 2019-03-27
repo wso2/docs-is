@@ -38,7 +38,7 @@ theme:
   logo: 'images/logo.svg'
   highlightjs: true
   feature:
-    tabs: true
+    tabs: false
   language: 'en'
 
 # Extensions
