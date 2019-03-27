@@ -16,10 +16,9 @@
 
 # Project information
 site_name: WSO2 Identity Server Documentation
-site_description: Documentation for WSO2 Identity & Access Management Solution
-site_author: WSO2
-site_url: https://wso2.com/
-site_version: 5.8.0
+site_description: 'Documentation for WSO2 Identity Server'
+site_author: 'WSO2'
+site_url: 'https://wso2.com/'
 
 # Repository
 repo_name: wso2/docs-is
@@ -42,11 +41,26 @@ theme:
   feature:
     tabs: true
   language: 'en'
+  
+# Navigation
+nav:
+- Basic Tutorials:
+      - 'Adaptive Authentication': 
+        - 'Adaptive Authentication Overview': 'tutorials/adaptive-authentication-overview.md'
+        - 'Configuring a Service Provider for Adaptive Authentication': 'tutorials/configuring-a-service-provider-for-adaptive-authentication.md'
+        - Adaptive Authentication Scenarios:
+          - 'Configuring Role-Based Adaptive Authentication': 'tutorials/configuring-role-based-adaptive-authentication.md'
+          - 'Configuring User-Age-Based Adaptive Authentication': 'tutorials/configuring-user-age-based-adaptive-authentication.md'
+          - 'Configuring Tenant-Based Adaptive Authentication': 'tutorials/configuring-tenant-based-adaptive-authentication.md'
 
 # Extensions
 markdown_extensions:
-  - fenced_code
-  - codehilite
+    - fenced_code
+    - codehilite
+    - admonition
+    - pymdownx.details
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
     
 # Customization
 extra_css:
