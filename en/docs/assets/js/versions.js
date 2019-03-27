@@ -18,7 +18,7 @@
 
 var request = new XMLHttpRequest();
 
-request.open('GET', 'assets/versions.json', true);
+request.open('GET', window.location.origin + '/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
