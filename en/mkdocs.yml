@@ -57,7 +57,12 @@ nav:
       - 'Identity Provisioning and its Standards': 'identity-provisioning-and-its-standards.md'
       - 'Access Control and Entitlement Management': 'access-control-and-entitlement-management.md'
       - 'Identity Anti-patterns and the Identity Bus': 'identity-anti-patterns-and-the-identity-bus.md'
-      
+- References:
+      - 'Configuration Catalog': 'references/config-catalog.md'
+      - 'Default Ports of WSO2 Products': 'references/default-ports-of-wso2-products.md'
+      - 'API Permissions': 'references/api-permissions.md'
+      - 'Adaptive Authentication JS API Reference': 'references/adaptive-authentication-js-api-reference.md'
+     
 # Extensions
 markdown_extensions:
     - fenced_code
@@ -81,4 +86,4 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/wso2'
   base_url: /
-  site_version: 5.3.0
+  site_version: 5.7.0
