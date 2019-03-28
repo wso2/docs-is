@@ -16,7 +16,7 @@ more information on Access control.
 
 ### Types of access control
 
-![The various types of access control](assets/attachments/concepts/types-of-access-control.png)
+![The various types of access control](/assets/attachments/concepts/types-of-access-control.png)
 
 The following table describes the various types of access control.
 
@@ -196,7 +196,7 @@ descriptive attributes about the user or any other missing attribute in
 the request. Policy Administration Point (PAP) is used to manage the PDP
 and PIP functionality.
 
-![XACML system architecture](assets/attachments/concepts/xacml-system-architecture.png)
+![XACML system architecture](/assets/attachments/concepts/xacml-system-architecture.png)
 
 ------------------------------------------------------------------------
 
@@ -240,7 +240,7 @@ Point (PDP).
 
 The following diagram represents the component architecture of the PDP.
 
-![Component architecture of the policy decision point](assets/attachments/concepts/xacml-engine-architecture.png)
+![Component architecture of the policy decision point](/assets/attachments/concepts/xacml-engine-architecture.png)
 
 The following provides a more detailed information on the various
 components available in the PDP architecture.
@@ -288,7 +288,7 @@ PDP is exposed via the Entitlement Admin Service with method name
 This module finds policies from different policy stores to evaluate a
 XACML request. The following is a high-level diagram of how this works.
 
-![Carbon policy finder](assets/attachments/concepts/carbon-policy-finder.png)
+![Carbon policy finder](/assets/attachments/concepts/carbon-policy-finder.png)
 
 Any number of policy finder modules can be plugged with the Carbon
 policy finder. You need to implement the CarbonPolicyFinderModule
@@ -438,7 +438,7 @@ This module helps to find the missing attribute for a given XACML
 request. The following is the high-level diagram for both the Carbon
 attribute and resource finders.
 
-![Carbon attribute finder](assets/attachments/concepts/carbon-attribute-finder.png)
+![Carbon attribute finder](/assets/attachments/concepts/carbon-attribute-finder.png)
 
 Any number of PIP attribute finder modules can be plugged with the
 Carbon attribute finder. You need to implement the PIPAttributeFinder
@@ -709,8 +709,8 @@ action” by using the `         Target        ` element.
 </Target>
 ```
 
-XACML 3.0 has an `         AND        ` relationship between “ **foo** ”
-resource and “ **bar1** ″ role and an `         OR        ` relationship
+XACML 3.0 has an `AND` relationship between “ **foo** ”
+resource and “ **bar1** ″ role and an `OR` relationship
 between “ **bar2** ″ action. So we cannot define something as “Target
 would be matched, when Bob can access **foo** resource and do **bar1**
 action or do **bar2** action”.
@@ -1118,7 +1118,7 @@ instead of XML element tags:
 </Request>
 ```
 
-The `         <Subject>        ` element in XACML 2.0 becomes
+The `<Subject>` element in XACML 2.0 becomes
 `         <Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">        `
 in XACML 3.0, for example. This is the same for the resource,
 environment, and action categories.
