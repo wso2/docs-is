@@ -74,10 +74,13 @@ markdown_extensions:
     - pymdownx.superfences
     - markdown_include.include:
         base_path: docs
+    - markdown_fenced_code_tabs:
+        template: 'default' 
     
 # Customization
 extra_css:
   - 'assets/css/theme.css'
+  - 'assets/css/code-tabs.css'
 extra_javascript:
   - 'assets/js/theme.js'
 extra:
