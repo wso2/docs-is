@@ -72,6 +72,8 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.inlinehilite
     - pymdownx.superfences
+    - markdown_include.include:
+        base_path: docs
     
 # Customization
 extra_css:
