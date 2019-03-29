@@ -44,6 +44,11 @@ theme:
   
 # Navigation
 nav:
+- Key Concepts:
+      - 'Single Sign-On and Identity Federation': 'key-concepts/single-sign-on-and-identity-federation_.md'
+      - 'Identity Provisioning and its Standards': 'key-concepts/identity-provisioning-and-its-standards.md'
+      - 'Access Control and Entitlement Management': 'key-concepts/access-control-and-entitlement-management.md'
+      - 'Identity Anti-patterns and the Identity Bus': 'key-concepts/identity-anti-patterns-and-the-identity-bus.md'
 - Basic Tutorials:
       - 'Adaptive Authentication': 
         - 'Adaptive Authentication Overview': 'tutorials/adaptive-authentication-overview.md'
@@ -52,11 +57,6 @@ nav:
           - 'Configuring Role-Based Adaptive Authentication': 'tutorials/configuring-role-based-adaptive-authentication.md'
           - 'Configuring User-Age-Based Adaptive Authentication': 'tutorials/configuring-user-age-based-adaptive-authentication.md'
           - 'Configuring Tenant-Based Adaptive Authentication': 'tutorials/configuring-tenant-based-adaptive-authentication.md'
-- Key Concepts:
-      - 'Single Sign-On and Identity Federation': 'single-sign-on-and-identity-federation_.md'
-      - 'Identity Provisioning and its Standards': 'identity-provisioning-and-its-standards.md'
-      - 'Access Control and Entitlement Management': 'access-control-and-entitlement-management.md'
-      - 'Identity Anti-patterns and the Identity Bus': 'identity-anti-patterns-and-the-identity-bus.md'
 - References:
       - 'Configuration Catalog': 'references/config-catalog.md'
       - 'Default Ports of WSO2 Products': 'references/default-ports-of-wso2-products.md'
