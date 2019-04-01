@@ -1,3 +1,7 @@
+---
+template: templates/2-column.html
+---
+
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 Identity Server. 
 
@@ -5,87 +9,126 @@ This document describes all the configuration parameters that are used in WSO2 I
 
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 
-```
+```toml
 # This is an example .toml file.
 
-[deployment]             #Config section.
-pattern="value"          #Parameter-value pair.
-node_act_as="value"      #Parameter-value pair.
+[deployment]                            # Config section.
+pattern="value"                         # Parameter-value pair.
+node_act_as="value"                     # Parameter-value pair.
 
-[key_mgr_node]           #Config section.
-endpoints="value"        #Parameter-value pair.
+[key_mgr_node]                          # Config section.
+endpoints="value"                       # Parameter-value pair.
 
-[gateway].               #Config section.
-gateway_environments=["dev","test"]   #Parameter-value pair.
+[gateway].                              # Config section.
+gateway_environments=["dev","test"]     # Parameter-value pair.
 
-[[database]]               #Config section
+[[database]]                            # Config section
 pool_options.maxActiv="5"
 
 ```
-## Configuring the default deployment settings
 
-<table>
-	<tr>
-		<th colspan="2"> Config Heading</th>
-	</tr>
-	<tr>
-		<td style="width: 20%"><b><code>[server]</code></b></td>
-		<td>
-			This toml header groups the parameters that define the server node details.
-			<ul>
-				<li><b>Default</b> Enabled with default parameters.</li>
-				<li><b>Mandatory</b> </li>
-			</ul>			
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2">Parameters</th>
-	</tr>
-	<tr>
-		<td><b><code>hostname</code></b></td>
-		<td>
-			The hostname of the WSO2 EI server instance.
-			<ul>
-				<li><b>Default</b> "localhost"</li>
-				<li><b>Possible Values</b> Use the IP address of the server</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>node_ip</code></b></td>
-		<td>
-			The IP address of the server node.
-			<ul>
-				<li><b>Default</b> "127.0.0.1" </li>
-				<li><b>Possible Values</b></li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>enable_mtom</code></b></td>
-		<td>
-			Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server. When MTOM is enabled, ..........
-			<ul>
-				<li><b>Default</b> MTOM is disabled.</li>
-				<li><b>Possible Values</b> "true" to enable MTOM.</li>
-				<li><b>Optional</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>enable_swa</code></b></td>
-		<td>
-			Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the ESB will process the files attached to SOAP messages.
-			<ul>
-				<li><b>Default</b> SwA is disabled.</li>
-				<li><b>Possible Values</b> "true" to enable SwA.</li>
-				<li><b>Optional</b></li>
-			</ul>
-		</td>
-	</tr>
-</table>
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Configuring the default deployment settings</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <code>[server]</code>
+                <span class="badge-required">Required</span>
+                <p>
+                    This toml header groups the parameters that define the server node details.
+                </p>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>hostname</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean" title=""> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"localhost"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The hostname of the WSO2 EI server instance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>node_ip</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean" title=""> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"127.0.0.1"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The IP address of the server node.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_mtom</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean" title=""> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server. When MTOM is enabled.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_swa</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean" title=""> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the ESB will process the files attached to SOAP messages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+            <code class="codehilite toml">[deployment]
+            hostname="localhost"
+            node_ip="127.0.0.1"
+            enable_mtom=false
+            enable_swa=false</code>
+        </div>
+    </section>
+</div>
 
 ## Connecting to the primary data store
 

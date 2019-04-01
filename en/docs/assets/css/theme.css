@@ -41,7 +41,7 @@
 }
 
 .md-header {
-    height: 5.4rem;
+    height: 2.6rem;
 }
 
 [data-md-color-primary=deep-orange] .md-header {
@@ -55,14 +55,14 @@
 }
 
 .md-header__version-select {
-    padding: 0 2rem;
+    width: 3.5rem;
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
     display: inline-block;
-    padding: 1rem;
-    margin-top: 0.5rem;
-    border-radius: 0.2rem;
+    padding: .45rem;
+    margin-top: .3rem;
+    border-radius: 0.1rem;
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link:hover,
@@ -72,7 +72,7 @@
 }
 
 .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
-    top: 3rem;
+    top: .8rem;
 }
 
 @media only screen and (min-width: 76.25em) {
@@ -151,7 +151,7 @@
     content: "\E313";
     display: inline-block;
     vertical-align: middle;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
 }
 
 .mb-tabs__dropdown.group-select {
@@ -188,22 +188,24 @@
     display: block;
     width: 100%;
     opacity: 0;
-    transform: translate(-20px, 0px);
+    transform: translate(-20px, 0);
 }
 
 .mb-tabs__dropdown.open .mb-tabs__dropdown-content li {
     display: block;
     transition: all .4s;
     opacity: 1;
-    transform: translate(0px, 0);
+    transform: translate(0, 0);
+  height: auto;
 }
 
 .mb-tabs__dropdown ul li a {
     width: 100%;
-    padding: 1em 18px;
+    padding: .5rem;
     white-space: pre;
     box-sizing: border-box;
     display: block;
+    font-size: .7rem;
 }
 
 .mb-tabs__dropdown ul li a:hover {
@@ -214,4 +216,204 @@
     -webkit-transform: scale(1);
     transform: scale(1);
     transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
+}
+
+.mb-config-catalog {
+    display: table;
+}
+
+.mb-config-catalog > section {
+    display: table-row;
+}
+
+.mb-config-catalog > section > .mb-config-options,
+.mb-config-catalog > section > .mb-config-example {
+    display: table-cell;
+}
+
+.mb-config-catalog > section:not(.title) > .mb-config-options {
+    border-bottom: 1px solid #444;
+    padding-top: 1em;
+    padding-bottom: 5em;
+}
+
+.mb-config-catalog > section:last-child > .mb-config-options {
+    border-bottom: none;
+}
+
+.mb-config-catalog > section:not(.title) > .mb-config-example {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.mb-config-catalog > section.title > .mb-config-options > h2 {
+    margin: 0 0 3rem;
+}
+
+.mb-config-catalog > section > .mb-config-example {
+    background: #676767;
+    width: 40%;
+    padding: 1em;
+    vertical-align: top;
+}
+
+.mb-config-catalog > section > .mb-config-example > code {
+    background: transparent;
+    color: #fff;
+    box-shadow: none;
+    white-space: pre-line;
+}
+
+.mb-config-catalog .badge-required {
+    margin: 0 .29412em;
+    padding: .07353em .3em;
+    border-radius: .2rem;
+    background-color: #ff7043;
+    color: #fff;
+    font-size: 75%;
+}
+
+.mb-config-catalog .mb-config > .params-wrap {
+    display: table;
+    width: 100%;
+}
+
+.mb-config-catalog .mb-config > code {
+    font-weight: bold;
+    font-size: 105%;
+}
+
+.mb-config-catalog .mb-config .param {
+    display: table-row;
+}
+
+.mb-config-catalog .mb-config .param > .param-name {
+    display: table-cell;
+    vertical-align: top;
+    border-left: 2px solid #ff7043;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1.7em 0;
+    vertical-align: top;
+    line-height: 20px;
+    white-space: nowrap;
+    font-size: 0.929em;
+    font-weight: 400;
+}
+
+.mb-config-catalog .mb-config .param .param-name-wrap {
+    display: inline-block;
+    padding-right: 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.mb-config-catalog .mb-config .param > .param-name > span::before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 8px;
+    background-color: #ff7043;
+    margin: -4px 10px 0;
+    vertical-align: middle;
+}
+
+.mb-config-catalog .mb-config .param > .param-name > span::after {
+    content: '';
+    position: absolute;
+    border-top: 2px solid #ff7043;
+    width: 10px;
+    left: 0;
+    top: 2.3em;
+}
+
+.mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: 0;
+    border-left: 3px solid #fff;
+    height: 34px;
+}
+
+.mb-config-catalog .mb-config .param:last-of-type > .param-name,
+.mb-config-catalog .mb-config .param.last > .param-name {
+    position: relative;
+}
+
+.mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
+.mb-config-catalog .mb-config .param.last > .param-name::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2px;
+    border-left: 3px solid #fff;
+    top: 36px;
+    background-color: #fff;
+    bottom: 0;
+}
+
+.mb-config-catalog .mb-config .param > .param-info {
+    display: table-cell;
+    width: 100%;
+    border-bottom: 1px solid #9fb4be;
+    padding: 10px 10px 10px 0;
+    box-sizing: border-box;
+}
+
+.mb-config-catalog .mb-config .param > .param-info > div {
+    line-height: 1;
+}
+
+.mb-config-catalog .mb-config .param-default {
+    font-size: 0.95em;
+}
+
+.mb-config-catalog .mb-config .param-default::before {
+    content: 'Default: ';
+}
+
+.mb-config-catalog .mb-config .param-type {
+    color: #b5b5b5;
+}
+
+@media only screen and (min-width: 100em) {
+    .mb-config-catalog .mb-config .param > .param-name > span::before {
+        margin: 0 10px;
+    }
+
+    .mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
+        height: 38px;
+    }
+    
+    .mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
+    .mb-config-catalog .mb-config .param.last > .param-name::after {
+        top: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .mb-config-catalog {
+        margin-bottom: 3rem;
+    }
+
+    .mb-config-catalog,
+    .mb-config-catalog > section,
+    .mb-config-catalog > section > .mb-config-options,
+    .mb-config-catalog > section > .mb-config-example {
+        display: block;
+        width: 100% !important;
+    }
+    
+    .mb-config-catalog > section.title > .mb-config-example {
+        display: none;
+    }
+    
+    .mb-config-catalog > section.title > .mb-config-options > h2 {
+        margin-bottom: 1rem;
+    }
+    
+    .mb-config-catalog > section:not(.title) > .mb-config-options {
+        padding-bottom: 1rem;
+    }
 }
