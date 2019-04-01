@@ -65,13 +65,17 @@ request.onload = function() {
           var liElem = document.createElement('li');
           var docLinkType = data.all[key].doc.split(':')[0];
           var target = '_self';
+          var url = data.all[key].doc;
 
           if ((docLinkType == 'https') || (docLinkType == 'http')) {
               target = '_blank'
           }
+          else {
+              url = dropdown.getAttribute('data-url') + url;
+          }
           
           liElem.className = 'md-tabs__item mb-tabs__dropdown';
-          liElem.innerHTML =  '<a href="' + data.all[key].doc + '" target="' + 
+          liElem.innerHTML =  '<a href="' + url + '" target="' + 
               target + '">' + key + '</a>';
           
           dropdown.insertBefore(liElem, dropdown.firstChild);
