@@ -269,12 +269,16 @@
     font-size: 75%;
 }
 
+.mb-config-catalog .mb-config > .config-wrap {
+    margin-right: 1em;
+}
+
 .mb-config-catalog .mb-config > .params-wrap {
     display: table;
     width: 100%;
 }
 
-.mb-config-catalog .mb-config > code {
+.mb-config-catalog .mb-config > .config-wrap > code {
     font-weight: bold;
     font-size: 105%;
 }
@@ -355,10 +359,6 @@
     border-bottom: 1px solid #9fb4be;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
-}
-
-.mb-config-catalog .mb-config .param > .param-info > div {
-    line-height: 1;
 }
 
 .mb-config-catalog .mb-config .param-default {

@@ -37,11 +37,13 @@ pool_options.maxActiv="5"
     <section>
         <div class="mb-config-options">
             <div class="mb-config">
-                <code>[server]</code>
-                <span class="badge-required">Required</span>
-                <p>
-                    This toml header groups the parameters that define the server node details.
-                </p>
+                <div class="config-wrap">
+                    <code>[server]</code>
+                    <span class="badge-required">Required</span>
+                    <p>
+                        This toml header groups the parameters that define the server node details.
+                    </p>
+                </div>
                 <div class="params-wrap">
                     <div class="param">
                         <div class="param-name">
@@ -50,7 +52,7 @@ pool_options.maxActiv="5"
                         <div class="param-info">
                             <div>
                                 <p>
-                                    <span class="param-type boolean" title=""> string </span>
+                                    <span class="param-type string"> string </span>
                                     <span class="badge-required">Required</span>
                                 </p>
                                 <div class="param-default">
@@ -69,7 +71,7 @@ pool_options.maxActiv="5"
                         <div class="param-info">
                             <div>
                                 <p>
-                                    <span class="param-type boolean" title=""> string </span>
+                                    <span class="param-type string"> string </span>
                                     <span class="badge-required">Required</span>
                                 </p>
                                 <div class="param-default">
@@ -88,7 +90,7 @@ pool_options.maxActiv="5"
                         <div class="param-info">
                             <div>
                                 <p>
-                                    <span class="param-type boolean" title=""> boolean </span>
+                                    <span class="param-type boolean"> boolean </span>
                                 </p>
                                 <div class="param-default">
                                     <span class="param-default-value"><code>false</code></span>
@@ -106,7 +108,7 @@ pool_options.maxActiv="5"
                         <div class="param-info">
                             <div>
                                 <p>
-                                    <span class="param-type boolean" title=""> boolean </span>
+                                    <span class="param-type boolean"> boolean </span>
                                 </p>
                                 <div class="param-default">
                                     <span class="param-default-value"><code>false</code></span>
@@ -121,7 +123,7 @@ pool_options.maxActiv="5"
             </div>
         </div>
         <div class="mb-config-example">
-            <code class="codehilite toml">[deployment]
+            <code class="codehilite toml">[server]
             hostname="localhost"
             node_ip="127.0.0.1"
             enable_mtom=false
@@ -130,70 +132,117 @@ pool_options.maxActiv="5"
     </section>
 </div>
 
-## Connecting to the primary data store
-
-<table>
-	<tr>
-		<th colspan="2"> Config Heading</th>
-	</tr>
-	<tr>
-		<td style="width: 20%"><b><code>[database.shared_db]</code></b></td>
-		<td>
-			The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
-			<ul>
-				<li><b>Default</b> Enabled with default parameters</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2">Parameters</th>
-	</tr>
-	<tr>
-		<td><b><code>type</code></b></td>
-		<td>
-			The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.
-			<ul>
-				<li><b>Default</b>: The embedded "H2" database is used.</li>
-				<li><b>Possible Values</b></br>"H2" (not recommended for production environments), </br>"MySql", "Oracle", "Postgre"</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>url</code></b></td>
-		<td>
-			The connection URL of the database. Note that this is specific to the database type you are using.
-			<ul>
-				<li><b>Default</b> </li>
-				<li><b>Possible Values</b> Use the URL pattern for the database type.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>username</code></b></td>
-		<td>
-			The user name for connecting to the database.
-			<ul>
-				<li><b>Default</b>: "wso2carbon"</li>
-				<li><b>Possible Values</b> Any alpha numeric value.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>password</code></b></td>
-		<td>
-			The password for connecting to the database.
-			<ul>
-				<li><b>Default</b>: "wso2carbon"</li>
-				<li><b>Possible Values</b> Any alpha numeric value.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-</table>
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Connecting to the primary data store</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <div class="config-wrap">
+                    <code>[database.shared_db]</code>
+                    <span class="badge-required">Required</span>
+                    <p>
+                        The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
+                    </p>
+                </div>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>type</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"H2"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.</p>
+                                <p>E.g. "MySql", "Oracle", "Postgre"</p>
+                                <p>"H2" (not recommended for production environments). So please change when going on production.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>url</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"http://localhost:8082"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The connection URL of the database. Note that this is specific to the database type you are using.</p>
+                                <p>Use the URL pattern for the database type.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>username</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The user name for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>password</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The password for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+            <code class="codehilite toml">[database.shared_db]
+            type="H2"
+            url="http://localhost:8082"
+            username=wso2carbon
+            password=wso2carbon</code>
+        </div>
+    </section>
+</div>
 
 ## Tuning the primary data store connection
 
