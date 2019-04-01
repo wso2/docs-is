@@ -24,20 +24,12 @@
     transition: margin 0.2s linear;
 }
 
-.md-main.hide-toc .md-content {
-    margin-right: 0;
-}
-
 .md-main .md-sidebar.md-sidebar--secondary {
     -webkit-transition: width 0.2s linear;
     -khtml-transition: width 0.2s linear;
     -moz-transition: width 0.2s linear;
     -ms-transition: width 0.2s linear;
     transition: width 0.2s linear;
-}
-
-.md-main.hide-toc .md-sidebar.md-sidebar--secondary {
-    width: 0;
 }
 
 .md-header {
@@ -246,8 +238,12 @@
     border-bottom: 1px solid #eee;
 }
 
+.mb-config-catalog > section.title > .mb-config-example {
+    display: none;
+}
+
 .mb-config-catalog > section.title > .mb-config-options > h2 {
-    margin: 0 0 3rem;
+    margin-bottom: 1rem;
 }
 
 .mb-config-catalog > section > .mb-config-example {
@@ -403,14 +399,6 @@
     .mb-config-catalog > section > .mb-config-example {
         display: block;
         width: 100% !important;
-    }
-    
-    .mb-config-catalog > section.title > .mb-config-example {
-        display: none;
-    }
-    
-    .mb-config-catalog > section.title > .mb-config-options > h2 {
-        margin-bottom: 1rem;
     }
     
     .mb-config-catalog > section:not(.title) > .mb-config-options {
