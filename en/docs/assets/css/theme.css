@@ -54,7 +54,7 @@
     display: inline-block;
     padding: .45rem;
     margin-top: .3rem;
-    border-radius: 0.1rem;
+    border-radius: .1rem;
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link:hover,
@@ -143,7 +143,7 @@
     content: "\E313";
     display: inline-block;
     vertical-align: middle;
-    margin-left: 0.2rem;
+    margin-left: .2rem;
 }
 
 .mb-tabs__dropdown.group-select {
@@ -158,13 +158,13 @@
     position: absolute;
     left: 0;
     top: 3.5em;
-    -webkit-transition: all 0.2s cubic-bezier(0.680, 0, 0.265, 1);
-    transition: all 0.2s;
+    -webkit-transition: all .2s cubic-bezier(.680, 0, .265, 1);
+    transition: all .2s;
     -webkit-transform: scale(0);
     transform: scale(0);
     -webkit-transform-origin: 0 0;
     transform-origin: top left;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .16), 0 2px 8px 0 rgba(0, 0, 0, .12);
     background: #fff;
     font-size: 1.4rem;
     color: #242424;
@@ -207,7 +207,7 @@
 .mb-tabs__dropdown.open .mb-tabs__dropdown-content {
     -webkit-transform: scale(1);
     transform: scale(1);
-    transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
+    transition-timing-function: cubic-bezier(.680, 0, .265, 1);
 }
 
 .mb-config-catalog {
@@ -297,7 +297,7 @@
     vertical-align: top;
     line-height: 20px;
     white-space: nowrap;
-    font-size: 0.929em;
+    font-size: .929em;
     font-weight: 400;
 }
 
@@ -362,7 +362,7 @@
 }
 
 .mb-config-catalog .mb-config .param-default {
-    font-size: 0.95em;
+    font-size: .95em;
 }
 
 .mb-config-catalog .mb-config .param-default::before {

@@ -19,7 +19,7 @@ node_act_as="value"                     # Parameter-value pair.
 [key_mgr_node]                          # Config section.
 endpoints="value"                       # Parameter-value pair.
 
-[gateway].                              # Config section.
+[gateway]                               # Config section.
 gateway_environments=["dev","test"]     # Parameter-value pair.
 
 [[database]]                            # Config section
