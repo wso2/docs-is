@@ -37,7 +37,7 @@
             {{ config.site_name }}
           {% else %}
             <span class="md-header-nav__topic">
-              {{ config.site_name }}
+              {{ config.site_name | replace('WSO2', '') }}
             </span>
             <span class="md-header-nav__topic">
               {{ page.title }}
@@ -47,10 +47,10 @@
         <div class="md-flex__ellipsis md-header__version-select">
             <div class="mb-tabs__dropdown version-select">
                 <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">{{ config.extra.site_version }}</a>
-                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0" data-url="{{ url }}">
                     <!-- Versions will added here dynamically -->
                     <li class="md-tabs__item mb-tabs__dropdown">
-                        <a href="./versions">Show all</a>
+                        <a href="{{ 'versions' | url }}">Show all</a>
                     </li>
                 </ul>
             </div>
