@@ -1,3 +1,7 @@
+---
+template: templates/2-column.html
+---
+
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 Identity Server. 
 
@@ -5,152 +9,240 @@ This document describes all the configuration parameters that are used in WSO2 I
 
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 
-```
+```toml
 # This is an example .toml file.
 
-[deployment]             #Config section.
-pattern="value"          #Parameter-value pair.
-node_act_as="value"      #Parameter-value pair.
+[deployment]                            # Config section.
+pattern="value"                         # Parameter-value pair.
+node_act_as="value"                     # Parameter-value pair.
 
-[key_mgr_node]           #Config section.
-endpoints="value"        #Parameter-value pair.
+[key_mgr_node]                          # Config section.
+endpoints="value"                       # Parameter-value pair.
 
-[gateway].               #Config section.
-gateway_environments=["dev","test"]   #Parameter-value pair.
+[gateway]                               # Config section.
+gateway_environments=["dev","test"]     # Parameter-value pair.
 
-[[database]]               #Config section
+[[database]]                            # Config section
 pool_options.maxActiv="5"
 
 ```
-## Configuring the default deployment settings
 
-<table>
-	<tr>
-		<th colspan="2"> Config Heading</th>
-	</tr>
-	<tr>
-		<td style="width: 20%"><b><code>[server]</code></b></td>
-		<td>
-			This toml header groups the parameters that define the server node details.
-			<ul>
-				<li><b>Default</b> Enabled with default parameters.</li>
-				<li><b>Mandatory</b> </li>
-			</ul>			
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2">Parameters</th>
-	</tr>
-	<tr>
-		<td><b><code>hostname</code></b></td>
-		<td>
-			The hostname of the WSO2 EI server instance.
-			<ul>
-				<li><b>Default</b> "localhost"</li>
-				<li><b>Possible Values</b> Use the IP address of the server</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>node_ip</code></b></td>
-		<td>
-			The IP address of the server node.
-			<ul>
-				<li><b>Default</b> "127.0.0.1" </li>
-				<li><b>Possible Values</b></li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>enable_mtom</code></b></td>
-		<td>
-			Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server. When MTOM is enabled, ..........
-			<ul>
-				<li><b>Default</b> MTOM is disabled.</li>
-				<li><b>Possible Values</b> "true" to enable MTOM.</li>
-				<li><b>Optional</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>enable_swa</code></b></td>
-		<td>
-			Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the ESB will process the files attached to SOAP messages.
-			<ul>
-				<li><b>Default</b> SwA is disabled.</li>
-				<li><b>Possible Values</b> "true" to enable SwA.</li>
-				<li><b>Optional</b></li>
-			</ul>
-		</td>
-	</tr>
-</table>
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Configuring the default deployment settings</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <div class="config-wrap">
+                    <code>[server]</code>
+                    <span class="badge-required">Required</span>
+                    <p>
+                        This toml header groups the parameters that define the server node details.
+                    </p>
+                </div>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>hostname</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"localhost"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The hostname of the WSO2 EI server instance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>node_ip</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"127.0.0.1"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The IP address of the server node.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_mtom</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean"> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server. When MTOM is enabled.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_swa</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean"> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the ESB will process the files attached to SOAP messages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+            <code class="codehilite toml">[server]
+            hostname="localhost"
+            node_ip="127.0.0.1"
+            enable_mtom=false
+            enable_swa=false</code>
+        </div>
+    </section>
+</div>
 
-## Connecting to the primary data store
-
-<table>
-	<tr>
-		<th colspan="2"> Config Heading</th>
-	</tr>
-	<tr>
-		<td style="width: 20%"><b><code>[database.shared_db]</code></b></td>
-		<td>
-			The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
-			<ul>
-				<li><b>Default</b> Enabled with default parameters</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2">Parameters</th>
-	</tr>
-	<tr>
-		<td><b><code>type</code></b></td>
-		<td>
-			The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.
-			<ul>
-				<li><b>Default</b>: The embedded "H2" database is used.</li>
-				<li><b>Possible Values</b></br>"H2" (not recommended for production environments), </br>"MySql", "Oracle", "Postgre"</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>url</code></b></td>
-		<td>
-			The connection URL of the database. Note that this is specific to the database type you are using.
-			<ul>
-				<li><b>Default</b> </li>
-				<li><b>Possible Values</b> Use the URL pattern for the database type.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>username</code></b></td>
-		<td>
-			The user name for connecting to the database.
-			<ul>
-				<li><b>Default</b>: "wso2carbon"</li>
-				<li><b>Possible Values</b> Any alpha numeric value.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td><b><code>password</code></b></td>
-		<td>
-			The password for connecting to the database.
-			<ul>
-				<li><b>Default</b>: "wso2carbon"</li>
-				<li><b>Possible Values</b> Any alpha numeric value.</li>
-				<li><b>Mandatory</b></li>
-			</ul>
-		</td>
-	</tr>
-</table>
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Connecting to the primary data store</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <div class="config-wrap">
+                    <code>[database.shared_db]</code>
+                    <span class="badge-required">Required</span>
+                    <p>
+                        The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
+                    </p>
+                </div>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>type</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"H2"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.</p>
+                                <p>E.g. "MySql", "Oracle", "Postgre"</p>
+                                <p>"H2" (not recommended for production environments). So please change when going on production.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>url</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"http://localhost:8082"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The connection URL of the database. Note that this is specific to the database type you are using.</p>
+                                <p>Use the URL pattern for the database type.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>username</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The user name for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>password</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The password for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+            <code class="codehilite toml">[database.shared_db]
+            type="H2"
+            url="http://localhost:8082"
+            username=wso2carbon
+            password=wso2carbon</code>
+        </div>
+    </section>
+</div>
 
 ## Tuning the primary data store connection
 
