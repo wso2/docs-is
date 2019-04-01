@@ -167,7 +167,10 @@ pool_options.maxActiv="5"
                             <div class="param-description">
                                 <p>The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.</p>
                                 <p>E.g. "MySql", "Oracle", "Postgre"</p>
-                                <p>"H2" (not recommended for production environments). So please change when going on production.</p>
+                                <details class="warning classes" open="open">
+                                    <summary>Warning</summary>
+                                    <p>"H2" (not recommended for production environments). So please change when going on production.</p>
+                                </details>
                             </div>
                         </div>
                     </div>
