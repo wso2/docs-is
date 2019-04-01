@@ -16,9 +16,9 @@
 
 # Project information
 site_name: WSO2 Identity Server Documentation
-site_description: 'Documentation for WSO2 Identity Server'
-site_author: 'WSO2'
-site_url: 'https://wso2.com/'
+site_description: Documentation for WSO2 Identity Server
+site_author: WSO2
+site_url: https://wso2.com/
 
 # Repository
 repo_name: wso2/docs-is
@@ -29,62 +29,83 @@ edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 copyright: WSO2 Identity Server - Documentation
 
 # Configuration
-base_url: /
 theme: material
 theme:
   name: material
   palette:
-    primary: 'deep-orange'
-    accent: 'deep-orange'
-  custom_dir: 'theme/material'
-  logo: 'images/logo.svg'
+    primary: deep-orange
+    accent: deep-orange
+  custom_dir: theme/material
+  logo: images/logo.svg
   highlightjs: true
   feature:
     tabs: true
   language: 'en'
+  highlightjs: true
+  hljs_languages:
+    - toml
+  hljs_style: github
   
 # Navigation
 nav:
-- Key Concepts:
-      - 'Single Sign-On and Identity Federation': 'key-concepts/single-sign-on-and-identity-federation_.md'
-      - 'Identity Provisioning and its Standards': 'key-concepts/identity-provisioning-and-its-standards.md'
-      - 'Access Control and Entitlement Management': 'key-concepts/access-control-and-entitlement-management.md'
-      - 'Identity Anti-patterns and the Identity Bus': 'key-concepts/identity-anti-patterns-and-the-identity-bus.md'
-- Basic Tutorials:
-      - 'Adaptive Authentication': 
-        - 'Adaptive Authentication Overview': 'tutorials/adaptive-authentication-overview.md'
-        - 'Configuring a Service Provider for Adaptive Authentication': 'tutorials/configuring-a-service-provider-for-adaptive-authentication.md'
-        - Adaptive Authentication Scenarios:
-          - 'Configuring Role-Based Adaptive Authentication': 'tutorials/configuring-role-based-adaptive-authentication.md'
-          - 'Configuring User-Age-Based Adaptive Authentication': 'tutorials/configuring-user-age-based-adaptive-authentication.md'
-          - 'Configuring Tenant-Based Adaptive Authentication': 'tutorials/configuring-tenant-based-adaptive-authentication.md'
-- References:
-      - 'Configuration Catalog': 'references/config-catalog.md'
-      - 'Default Ports of WSO2 Products': 'references/default-ports-of-wso2-products.md'
-      - 'API Permissions': 'references/api-permissions.md'
-      - 'Adaptive Authentication JS API Reference': 'references/adaptive-authentication-js-api-reference.md'
+  - 'Key Concepts':
+    - 'Single Sign-On and Identity Federation': single-sign-on-and-identity-federation_.md
+    - 'Identity Provisioning and its Standards': identity-provisioning-and-its-standards.md
+    - 'Access Control and Entitlement Management': access-control-and-entitlement-management.md
+    - 'Identity Anti patterns and the Identity Bus': identity-anti-patterns-and-the-identity-bus.md
+  - 'Basic Tutorials':
+    - 'Adaptive Authentication': 
+      - 'Adaptive Authentication Overview': tutorials/adaptive-authentication-overview.md
+      - 'Configuring a Service Provider for Adaptive Authentication': tutorials/configuring-a-service-provider-for-adaptive-authentication.md
+      - 'Adaptive Authentication Scenarios':
+        - 'Configuring Role-Based Adaptive Authentication': tutorials/configuring-role-based-adaptive-authentication.md
+        - 'Configuring User-Age-Based Adaptive Authentication': tutorials/configuring-user-age-based-adaptive-authentication.md
+        - 'Configuring Tenant-Based Adaptive Authentication': tutorials/configuring-tenant-based-adaptive-authentication.md
+  - 'References':
+    - 'Configuration Catalog': references/config-catalog.md
+    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'API Permissions': references/api-permissions.md
+    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
      
 # Extensions
 markdown_extensions:
-    - fenced_code
-    - codehilite
-    - admonition
-    - pymdownx.details
-    - pymdownx.inlinehilite
-    - pymdownx.superfences
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
     
-# Customization
+# Extra
 extra_css:
-  - 'assets/css/theme.css'
+  - assets/css/theme.css
 extra_javascript:
-  - 'assets/js/theme.js'
+  - assets/js/theme.js
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/wso2'
-    - type: 'twitter'
-      link: 'https://twitter.com/wso2'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/company/wso2'
+    - type: github
+      link: https://github.com/wso2
+    - type: twitter
+      link: https://twitter.com/wso2
+    - type: linkedin
+      link: https://www.linkedin.com/company/wso2
   base_url: /
-  site_version: 5.7.0
+  site_version: 5.8.0
