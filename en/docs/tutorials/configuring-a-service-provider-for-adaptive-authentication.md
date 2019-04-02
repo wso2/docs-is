@@ -44,7 +44,7 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  Download the [saml2-web-app-pickup-dispatch.com.war](../../assets/img/tutorials/saml2-web-app-pickup-dispatch.com.war)
+    1.  Download the [saml2-web-app-pickup-dispatch.com.war](../../assets/file/tutorials/saml2-web-app-pickup-dispatch.com.war)
         file and paste it inside the
         `              <TOMCAT_HOME>/webapps             ` directory.
 
