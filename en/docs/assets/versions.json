@@ -18,11 +18,11 @@
         "doc": "https://docs.wso2.com/display/IS530/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS530/About+this+Release"
     },
-    "5.4.0": {
+    "5.0.0": {
         "doc": "https://docs.wso2.com/display/IS540/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS540/About+this+Release"
     },
-    "5.5.0": {
+    "4.0.0": {
         "doc": "https://docs.wso2.com/display/IS550/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS550/About+this+Release"
     }
