@@ -242,20 +242,29 @@
     display: none;
 }
 
+.mb-config-catalog .mb-config-example code,
+.mb-config-catalog .mb-config-example pre {
+    background-color: transparent;
+    margin: 0;
+}
+
+.mb-config-catalog .mb-config-example:hover .md-clipboard:before {
+    color: rgba(0,0,0,.54);
+}
+
 .mb-config-catalog > section.title > .mb-config-options > h2 {
     margin-bottom: 1rem;
 }
 
 .mb-config-catalog > section > .mb-config-example {
-    background: #676767;
+    background: #f5f5f5;
     width: 40%;
-    padding: 1em;
+    padding: .5em;
     vertical-align: top;
 }
 
-.mb-config-catalog > section > .mb-config-example > code {
+.mb-config-catalog > section > .mb-config-example code {
     background: transparent;
-    color: #fff;
     box-shadow: none;
     white-space: pre-line;
 }

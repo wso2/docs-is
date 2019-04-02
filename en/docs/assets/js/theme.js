@@ -91,3 +91,5 @@ request.onerror = function() {
 };
 
 request.send();
+
+hljs.initHighlightingOnLoad();
