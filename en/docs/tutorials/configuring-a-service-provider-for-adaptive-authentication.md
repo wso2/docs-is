@@ -44,7 +44,7 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  Download the [saml2-web-app-pickup-dispatch.com.war](/assets/attachments/tutorials/saml2-web-app-pickup-dispatch.com.war)
+    1.  Download the [saml2-web-app-pickup-dispatch.com.war](../../assets/img/tutorials/saml2-web-app-pickup-dispatch.com.war)
         file and paste it inside the
         `              <TOMCAT_HOME>/webapps             ` directory.
 
@@ -53,7 +53,7 @@ adaptive authentication using a sample application.
 
         Note that a login screen appears.
         
-        ![saml2-pickup-dispath-login](/assets/attachments/tutorials/saml2-pickup-dispath-login.png)
+        ![saml2-pickup-dispath-login](../../assets/img/tutorials/saml2-pickup-dispath-login.png)
 
 2.  Deploy the sample authenticator dependency and web application in
     WSO2 IS.
@@ -85,10 +85,10 @@ adaptive authentication using a sample application.
 
         2.  On the **Main** tab, click **Service Providers &gt; Add**
             .  
-            ![](/assets/attachments/tutorials/add-service-providers.png)
+            ![](../../assets/img/tutorials/add-service-providers.png)
         3.  Enter `               test              ` as the **Service
             Provider Name** and click **Register.** **  
-            ** ![](/assets/attachments/tutorials/add-new-sp-1.png)
+            ** ![](../../assets/img/tutorials/add-new-sp-1.png)
         4.  Expand the **Local and Outbound Configuration** section.  
             The following authenticators should be available in the
             local authenticators list.
@@ -97,7 +97,7 @@ adaptive authentication using a sample application.
             -   Demo Hardware-Key Authenticator
             -   Demo Face ID Authenticator
 
-            ![](/assets/attachments/tutorials/demo-authenticators.png)
+            ![](../../assets/img/tutorials/demo-authenticators.png)
 
             Remain in the Management Console.
 
@@ -132,7 +132,7 @@ Provider](https://docs.wso2.com/display/IS570/Configuring+Inbound+Authentication
 
 2.  Expand the **Inbound Authentication configuration&gt; SAML2 Web SSO
     configuration** section, and click **Configure** .  
-    ![](/assets/attachments/tutorials/configure-saml-sso.png)
+    ![](../../assets/img/tutorials/configure-saml-sso.png)
 3.  Fill in the following fields.  
     -   **Issuer:**
         `             saml2-web-app-pickup-dispatch.com            `
@@ -140,14 +140,14 @@ Provider](https://docs.wso2.com/display/IS570/Configuring+Inbound+Authentication
         `             http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer            `
 4.  Leave the rest of the default configurations as it is and click
     **Register** .  
-    ![](/assets/attachments/tutorials/register-new-sp.png)
+    ![](../../assets/img/tutorials/register-new-sp.png)
 5.  Expand **Local and Outbound Authentication Configuration** and click
     **Advanced Configuration** .  
-    ![](/assets/attachments/tutorials/advanced-config.png)
+    ![](../../assets/img/tutorials/advanced-config.png)
 6.  You can add authentication steps or use a template to configure
     adaptive authentication depending on your requirement. For example,
     add Demo HardwareKey Authenticator.  
-    ![](/assets/attachments/tutorials/adaptive-auth-templates.png)
+    ![](../../assets/img/tutorials/adaptive-auth-templates.png)
 
 ## What's Next?
 
