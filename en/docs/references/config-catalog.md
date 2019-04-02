@@ -12,18 +12,18 @@ This document describes all the configuration parameters that are used in WSO2 I
 ```toml
 # This is an example .toml file.
 
-[deployment]                            # Config section.
-pattern="value"                         # Parameter-value pair.
-node_act_as="value"                     # Parameter-value pair.
+[server]
+pattern="value"                         
+enable_port_forward=true
 
-[key_mgr_node]                          # Config section.
-endpoints="value"                       # Parameter-value pair.
+[key_mgr_node]
+endpoints="value"
 
-[gateway]                               # Config section.
-gateway_environments=["dev","test"]     # Parameter-value pair.
+[gateway]
+gateway_environments=["dev","test"]
 
-[[database]]                            # Config section
-pool_options.maxActiv="5"
+[[database]]
+pool_options.maxActiv=5
 
 ```
 
@@ -123,11 +123,11 @@ pool_options.maxActiv="5"
             </div>
         </div>
         <div class="mb-config-example">
-            <code class="codehilite toml">[server]
-            hostname="localhost"
-            node_ip="127.0.0.1"
-            enable_mtom=false
-            enable_swa=false</code>
+<pre><code class="toml">[server]
+hostname="localhost"
+node_ip="127.0.0.1"
+enable_mtom=false
+enable_swa=false</code></pre>
         </div>
     </section>
 </div>
@@ -238,11 +238,11 @@ pool_options.maxActiv="5"
             </div>
         </div>
         <div class="mb-config-example">
-            <code class="codehilite toml">[database.shared_db]
-            type="H2"
-            url="http://localhost:8082"
-            username=wso2carbon
-            password=wso2carbon</code>
+<pre><code class="toml">[database.shared_db]
+type="H2"
+url="http://localhost:8082"
+username=wso2carbon
+password=wso2carbon</code></pre>
         </div>
     </section>
 </div>

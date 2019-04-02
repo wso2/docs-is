@@ -14,7 +14,7 @@ add a new user and this user is provisioned to various applications that
 are configured with the Identity Server. This process is illustrated in
 the following diagram.
 
-![User and identity provisioning using WSO2 Identity Server](/assets/attachments/concepts/identity-provisioning.png)
+![User and identity provisioning using WSO2 Identity Server](../../assets/img/concepts/identity-provisioning.png)
 
 ***Figure** : User and identity provisioning using WSO2 Identity Server*
 
@@ -25,14 +25,14 @@ user identities to the Identity Server. This can be done using the REST
 API available for SCIM. The following figure is an example of this
 process.
 
-![Inbound provisioning using WSO2 Identity Server](/assets/attachments/concepts/inbound-provisioning.png)
+![Inbound provisioning using WSO2 Identity Server](../../assets/img/concepts/inbound-provisioning.png)
 
 ***Figure** : Inbound provisioning*
 
 Outbound provisioning involves provisioning users, user groups, and user
 identities to external systems or SaaS applications.
 
-![Outbound provisioning using WSO2 Identity Server](/assets/attachments/concepts/outbound-provisioning.png)
+![Outbound provisioning using WSO2 Identity Server](../../assets/img/concepts/outbound-provisioning.png)
 
 ***Figure** : Outbound provisioning*
 
@@ -95,7 +95,7 @@ specific emphasis on simplicity and interoperability.
 	   The following diagram illustrates the progressive development that has
 	   taken place in the history of identity provisioning.
 
-	   ![Provisioning evolution and history](/assets/attachments/concepts/provisioning-evolution.png)
+	   ![Provisioning evolution and history](../../assets/img/concepts/provisioning-evolution.png)
 
 	   ***Figure** : Provisioning evolution and history*
 
