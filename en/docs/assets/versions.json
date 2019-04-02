@@ -1,12 +1,12 @@
 {
   "pre-release": "5.5.0",
-  "current": "5.4.0",
+  "current": "5.7.0",
   "list": [
     "5.5.0",
     "5.4.0"
   ],
   "all": {
-    "5.1.0": {
+    "5.7.0": {
         "doc": "https://docs.wso2.com/display/IS510/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS510/About+this+Release"
     },
