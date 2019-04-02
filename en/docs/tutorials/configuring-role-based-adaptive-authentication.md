@@ -65,7 +65,7 @@ sample authenticators required to try out the scenario.
     authentication step defined in the JavaScript above.  
     ![](../../assets/img/tutorials/pickup-sign-in.png)
 3.  Enter the 4 digit key given on the screen and click **Sign In** .  
-    ![](/assetsattachments/tutorials/hardware-key-authenticator.png)
+    ![](../../assets/img/tutorials/hardware-key-authenticator.png)
 4.  Next, log out of the application and log in again as 'Alex'. Note
     that this user is not assigned to any role. You will see that
     authentication is successful only after going through the basic
@@ -76,5 +76,3 @@ sample authenticators required to try out the scenario.
 
 The following scenarios demonstrate the use of adaptive authentication
 templates and scripts to try out other use cases.
-
-  

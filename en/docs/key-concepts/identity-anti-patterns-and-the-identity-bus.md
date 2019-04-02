@@ -35,7 +35,7 @@ The diagram below illustrates how a silo of SAML federation and OpenID
 Connect federation interact within the respective silo and how it cannot
 interact with different silos.
 
-![spaghetti identity and federation silos](../../assets/img/concepts/spaghetti-identity-and-federation-silos)
+![spaghetti identity and federation silos](../../assets/img/concepts/spaghetti-identity-and-federation-silos.png)
 
 Also consider the scalability of a specific federation silo. Within the
 SAML federation silo, for example, there can be an increasing number of
@@ -108,7 +108,3 @@ pattern.
     a proprietary federation protocol, then you only need to add that
     capability to the identity bus. No need to implement it at each and
     every identity provider or service provider.
-
-  
-
-  
