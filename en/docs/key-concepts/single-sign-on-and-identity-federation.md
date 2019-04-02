@@ -36,7 +36,7 @@ To understand how single sign-on works, it is useful to first examine
 how authentication works in a non SSO environment. The following diagram
 depicts this flow.
 
-![Authentication in a non SSO environment](/assets/attachments/concepts/authentication-in-non-sso.png)
+![Authentication in a non SSO environment](../../assets/img/concepts/authentication-in-non-sso.png)
 
 ***Figure** : Authentication in a non SSO environment*
 
@@ -51,7 +51,7 @@ for **Application 2** to access the cookie stored in the browser for
 The following diagram depicts how this story differs in a SSO
 environment.
 
-![Authentication in a SSO environment](/assets/attachments/concepts/authentication-in-sso.png)
+![Authentication in a SSO environment](../../assets/img/concepts/authentication-in-sso.png)
 
 ***Figure** : Authentication in a SSO environment*
 
@@ -180,7 +180,7 @@ If the user accesses the identity provider directly, then only the steps
 
 The following diagram depicts this flow.
 
-![SAML 2.0 authentication flow](/assets/attachments/concepts/saml-authentication-flow.png)
+![SAML 2.0 authentication flow](../../assets/img/concepts/saml-authentication-flow.png)
 
 ***Figure** : SAML 2.0 authentication flow*
 
