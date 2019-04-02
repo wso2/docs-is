@@ -196,7 +196,7 @@ descriptive attributes about the user or any other missing attribute in
 the request. Policy Administration Point (PAP) is used to manage the PDP
 and PIP functionality.
 
-![XACML system architecture](assets/attachments/concepts/xacml-system-architecture.png)
+![XACML system architecture](../../assets/attachments/concepts/xacml-system-architecture.png)
 
 ------------------------------------------------------------------------
 
