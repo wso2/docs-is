@@ -16,13 +16,14 @@
 
 # Project information
 site_name: WSO2 Identity Server Documentation
-site_description: Documentation for WSO2 Identity & Access Management Solution
+site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
 site_url: https://wso2.com/
 
 # Repository
 repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is/
+repo_url: https://github.com/wso2/docs-is
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -32,13 +33,13 @@ theme: material
 theme:
   name: material
   palette:
-    primary: 'deep-orange'
-    accent: 'deep-orange'
-  custom_dir: 'theme/material'
-  logo: 'images/logo.svg'
+    primary: deep-orange
+    accent: deep-orange
+  custom_dir: theme/material
+  logo: images/logo.svg
   highlightjs: true
   feature:
-    tabs: false
+    tabs: true
   language: 'en'
 
 # Extensions
@@ -52,7 +53,7 @@ extra_css:
   - 'assets/css/versions.css'
 extra_javascript:
   - 'assets/js/theme.js'
-  - 'assets/js/versions.js'
+
 extra:
   social:
     - type: 'github'

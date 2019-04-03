@@ -46,7 +46,7 @@ These are the latest changes that have yet to be released.
 <table>
     <tbody>
         <tr>
-            <th>master (<span id="pre-release-version-number"><!-- latest-version --></span>)</th>
+            <th>next</th>
             <td>
                 <a id="pre-release-version-documentation-link">Documentation</a>
             </td>
