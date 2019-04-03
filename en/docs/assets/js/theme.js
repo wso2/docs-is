@@ -50,10 +50,18 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
+var pageHeader =  document.getElementById('page-header');
+var docSetLang = pageHeader.getAttribute('data-lang') + '/';
+
+if (window.location.pathname.split('/')[1] !== docSetLang){
+    docSetLang = '';
+}
+
+var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
-request.open('GET', window.location.origin + 
-             '/versions/assets/versions.json', true);
+request.open('GET', docSetUrl +
+             'versions/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
@@ -71,7 +79,7 @@ request.onload = function() {
               target = '_blank'
           }
           else {
-              url = dropdown.getAttribute('data-url') + url;
+              url = docSetUrl + url;
           }
           
           liElem.className = 'md-tabs__item mb-tabs__dropdown';
@@ -80,6 +88,9 @@ request.onload = function() {
           
           dropdown.insertBefore(liElem, dropdown.firstChild);
       });
+    
+      document.getElementById('show-all-versions-link')
+          .setAttribute('href', docSetUrl + 'versions');
       
   } else {
       console.error("We reached our target server, but it returned an error");
