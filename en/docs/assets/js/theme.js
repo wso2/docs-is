@@ -16,6 +16,9 @@
  * under the License.
  */
 
+/* 
+ * Initialize custom dropdown component 
+ */
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
 var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
 
@@ -50,36 +53,102 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
+/* 
+ * Reading versions
+ */
+var pageHeader =  document.getElementById('page-header');
+var docSetLang = pageHeader.getAttribute('data-lang') + '/';
+
+if (window.location.pathname.split('/')[1] !== docSetLang){
+    docSetLang = '';
+}
+
+var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
-request.open('GET', window.location.origin + 
-             '/versions/assets/versions.json', true);
+request.open('GET', docSetUrl +
+             'versions/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
 
       var data = JSON.parse(request.responseText);
       var dropdown =  document.getElementById('version-select-dropdown');
+      var checkVersionsPage = document.getElementById('current-version-stable');
       
-      data.list.sort().forEach(function(key, index){
-          var liElem = document.createElement('li');
-          var docLinkType = data.all[key].doc.split(':')[0];
-          var target = '_self';
-          var url = data.all[key].doc;
+      /* 
+       * Appending versions to the version selector dropdown 
+       */
+      if (dropdown){
+          data.list.sort().forEach(function(key, index){
+              var liElem = document.createElement('li');
+              var docLinkType = data.all[key].doc.split(':')[0];
+              var target = '_self';
+              var url = data.all[key].doc;
 
-          if ((docLinkType == 'https') || (docLinkType == 'http')) {
-              target = '_blank'
-          }
-          else {
-              url = dropdown.getAttribute('data-url') + url;
-          }
-          
-          liElem.className = 'md-tabs__item mb-tabs__dropdown';
-          liElem.innerHTML =  '<a href="' + url + '" target="' + 
-              target + '">' + key + '</a>';
-          
-          dropdown.insertBefore(liElem, dropdown.firstChild);
-      });
+              if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                  target = '_blank'
+              }
+              else {
+                  url = docSetUrl + url;
+              }
+
+              liElem.className = 'md-tabs__item mb-tabs__dropdown';
+              liElem.innerHTML =  '<a href="' + url + '" target="' + 
+                  target + '">' + key + '</a>';
+
+              dropdown.insertBefore(liElem, dropdown.firstChild);
+          });
+
+          document.getElementById('show-all-versions-link')
+              .setAttribute('href', docSetUrl + 'versions');
+      }
+      
+      /* 
+       * Appending versions to the version tables in versions page
+       */
+      if (checkVersionsPage){
+          var previousVersions = [];
+
+          Object.keys(data.all).forEach(function(key, index){
+              if ((key !== data.current) && (key !== data['pre-release'])) {
+                  var docLinkType = data.all[key].doc.split(':')[0];
+                  var target = '_self';
+
+                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                      target = '_blank'
+                  }
+
+                  previousVersions.push('<tr>' +
+                    '<th>' + key + '</th>' +
+                        '<td>' +
+                            '<a href="' + data.all[key].doc + '" target="' + 
+                                target + '">Documentation</a>' +
+                        '</td>' +
+                        '<td>' +
+                            '<a href="' + data.all[key].notes + '" target="' + 
+                                target + '">Release Notes</a>' +
+                        '</td>' +
+                    '</tr>');
+              }
+          });
+
+          // Past releases update
+          document.getElementById('previous-versions').innerHTML = 
+                  previousVersions.join(' ');
+
+          // Current released version update
+          document.getElementById('current-version-number').innerHTML = 
+                  data.current;
+          document.getElementById('current-version-documentation-link')
+                  .setAttribute('href', data.all[data.current].doc);
+          document.getElementById('current-version-release-notes-link')
+                  .setAttribute('href', data.all[data.current].notes);
+        
+          // Pre-release version update
+          document.getElementById('pre-release-version-documentation-link')
+              .setAttribute('href', docSetUrl + 'next/');
+      }
       
   } else {
       console.error("We reached our target server, but it returned an error");
@@ -92,4 +161,7 @@ request.onerror = function() {
 
 request.send();
 
+/* 
+ * Initialize highlightjs 
+ */
 hljs.initHighlightingOnLoad();

@@ -224,9 +224,8 @@
 }
 
 .mb-config-catalog > section:not(.title) > .mb-config-options {
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #f5f5f5;
     padding-top: 1em;
-    padding-bottom: 5em;
 }
 
 .mb-config-catalog > section:last-child > .mb-config-options {
@@ -252,13 +251,18 @@
     color: rgba(0, 0, 0, .54);
 }
 
+[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:active:before,
+[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:hover:before {
+    color: #ff6e40;
+}
+
 .mb-config-catalog > section.title > .mb-config-options > h2 {
     margin-bottom: 1rem;
 }
 
 .mb-config-catalog > section > .mb-config-example {
     background: #f5f5f5;
-    width: 40%;
+    width: 35%;
     padding: .5em;
     vertical-align: top;
 }
@@ -365,7 +369,7 @@
 .mb-config-catalog .mb-config .param > .param-info {
     display: table-cell;
     width: 100%;
-    border-bottom: 1px solid #9fb4be;
+    border-bottom: 1px solid #eee;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
 }
@@ -413,4 +417,21 @@
     .mb-config-catalog > section:not(.title) > .mb-config-options {
         padding-bottom: 1rem;
     }
+}
+
+.hljs-title,
+.hljs-section {
+    color: #ff7043;
+    font-weight: normal;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+    color: #ff7043;
 }
