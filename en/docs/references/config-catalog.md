@@ -144,7 +144,6 @@ enable_swa=false</code></pre>
             <div class="mb-config">
                 <div class="config-wrap">
                     <code>[database.shared_db]</code>
-                    <span class="badge-required">Required</span>
                     <p>
                         The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
                     </p>
