@@ -10,7 +10,7 @@
         "doc": "https://docs.wso2.com/display/IS510/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS510/About+this+Release"
     },
-    "5.2.0": {
+    "master": {
         "doc": "https://docs.wso2.com/display/IS520/WSO2+Identity+Server+Documentation",
         "notes": "https://docs.wso2.com/display/IS520/About+this+Release"
     },
