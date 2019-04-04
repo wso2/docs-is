@@ -62,6 +62,7 @@ nav:
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'API Permissions': references/api-permissions.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
+  - '': page-not-found.md
      
 # Extensions
 markdown_extensions:
@@ -102,5 +103,4 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  base_url: /
   site_version: 5.8.0
