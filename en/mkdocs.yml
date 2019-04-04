@@ -49,18 +49,19 @@ markdown_extensions:
     
 # Customization
 extra_css:
-  - 'assets/css/theme.css'
-  - 'assets/css/versions.css'
+  - assets/lib/highlightjs/default.min.css
+  - assets/css/theme.css
+  - assets/css/versions.css
 extra_javascript:
-  - 'assets/js/theme.js'
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
 
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/wso2'
-    - type: 'twitter'
-      link: 'https://twitter.com/wso2'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/company/wso2'
-  base_url: /
-  site_version: 5.8.0
+    - type: github
+      link: https://github.com/wso2
+    - type: twitter
+      link: https://twitter.com/wso2
+    - type: linkedin
+      link: https://www.linkedin.com/company/wso2
+  site_version: versions
