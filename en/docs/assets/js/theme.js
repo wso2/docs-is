@@ -81,23 +81,27 @@ request.onload = function() {
        */
       if (dropdown){
           data.list.sort().forEach(function(key, index){
-              var liElem = document.createElement('li');
-              var docLinkType = data.all[key].doc.split(':')[0];
-              var target = '_self';
-              var url = data.all[key].doc;
+              var versionData = data.all[key];
+              
+              if(versionData) {
+                  var liElem = document.createElement('li');
+                  var docLinkType = data.all[key].doc.split(':')[0];
+                  var target = '_self';
+                  var url = data.all[key].doc;
 
-              if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                  target = '_blank'
+                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                      target = '_blank'
+                  }
+                  else {
+                      url = docSetUrl + url;
+                  }
+
+                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
+                      target + '">' + key + '</a>';
+
+                  dropdown.insertBefore(liElem, dropdown.firstChild);
               }
-              else {
-                  url = docSetUrl + url;
-              }
-
-              liElem.className = 'md-tabs__item mb-tabs__dropdown';
-              liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                  target + '">' + key + '</a>';
-
-              dropdown.insertBefore(liElem, dropdown.firstChild);
           });
 
           document.getElementById('show-all-versions-link')
@@ -141,9 +145,9 @@ request.onload = function() {
           document.getElementById('current-version-number').innerHTML = 
                   data.current;
           document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', data.all[data.current].doc);
+                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
           document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', data.all[data.current].notes);
+                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
         
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
