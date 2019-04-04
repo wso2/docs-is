@@ -28,3 +28,16 @@
     content: "";
     vertical-align: text-bottom;
 }
+
+[data-md-component=tabs] {
+    display: none;
+}
+
+.md-header {
+    transition: background-color .25s,color .25s, box-shadow .25s;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, .1), 0 0.2rem 0.4rem rgba(0, 0, 0, .2);
+}
+
+.md-content__inner h3:first-child {
+    margin-top: 0;
+}
