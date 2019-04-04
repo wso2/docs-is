@@ -56,12 +56,12 @@ for (var i = 0; i < dropdowns.length; i++) {
 /* 
  * Reading versions
  */
-var pageHeader =  document.getElementById('page-header');
-var docSetLang = pageHeader.getAttribute('data-lang') + '/';
+var pageHeader = document.getElementById('page-header');
+var docSetLang = pageHeader.getAttribute('data-lang');
 
-if (window.location.pathname.split('/')[1] !== docSetLang){
-    docSetLang = '';
-}
+(window.location.pathname.split('/')[1] !== docSetLang) ? 
+    docSetLang = '' :
+    docSetLang = docSetLang + '/';
 
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
