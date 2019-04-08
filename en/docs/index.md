@@ -15,3 +15,14 @@
  * specific language governing permissions and limitations
  * under the License.
 -->
+
+# Welcome to WSO2 Identity Server documentation
+
+WSO2 Identity Server is an identity and access management server that facilitates security, while connecting and managing multiple identities across different applications. It enables enterprise architects and developers to improve customer experience through a secure single sign-on environment.
+
+## Deep dive into WSO2 Identity Server
+
+- [Installation Guide](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
+- [Product Administration Guide](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
+- [Tutorials](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
+
