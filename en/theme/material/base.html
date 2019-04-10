@@ -108,19 +108,19 @@
     <div id="modal_wrapper">
           <div id="modal_window">
               <div class="closeModel"><a id="modal_close" href="#">close <b>X</b></a></div>
-              <header class="header">
-                  <h1 class="h1">Send Feedback</h1>
+              <header class="feedback_header">
+                  <h1 class="feedback_heading">Send Feedback</h1>
               </header>
               <form id="modal_feedback">
                   <button type="button" id="gitIssue" class="button"
                           onclick=window.open("https://github.com/"+"{{config.repo_name}}"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href);>
                       Submit as Git Issue
                   </button>
-                  <button type="button" id="anonymous" class="button" onclick="showDiv()">Anonymous Submit</button>
+                  <button type="button" id="anonymous" class="button" onclick="showAnonymousSubmitDiv()">Anonymous Submit</button>
                   <div id="form_fields" class="formFields">
                       <p>
                           <label for="summary">Summary<span class="required">*</span></label>
-                          <input required autofocus id="summary" name="summary" type="text" value="">
+                          <input class="feedback_summary" required autofocus id="summary" name="summary" type="text" value="">
                       </p>
                       <p>
                           <label>Description<span class="required">*</span></label>
@@ -128,7 +128,7 @@
                                     placeholder="Description"></textarea>
                       </p>
                       <button type="submit" id="submit" class="button">Submit</button>
-                      <button type="button" id="close" class="button" onclick="hideDiv()">Close</button>
+                      <button type="button" id="close" class="button" onclick="hideAnonymousSubmitDiv()">Close</button>
                   </div>
               </form>
           </div>

@@ -239,14 +239,14 @@
     left: 100%;
 }
 
-.header {
+.feedback_header {
     background-color: rgb(96, 125, 139);
     box-sizing: border-box;
     color: white;
     position: relative;
 }
 
-.h1 {
+.feedback_heading {
     color: white;
     font: 300 20px/24px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     margin: 0px;
@@ -296,7 +296,7 @@
     display: block;
 }
 
-input {
+.feedback_summary {
    width: 100%;
    border: 1px solid gray;
 }
@@ -324,9 +324,4 @@ input {
    margin-top: 10px;
    font-weight: bold;
    display: inline-block;
-   &:hover {
-      background-color: white;
-      color: blue;
-      border: 2px solid #3572b0;
-   }
 }

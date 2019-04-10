@@ -18,6 +18,8 @@
 
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
 var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
+var anonymousElement = document.getElementById('anonymous');
+var anonymousFormField = document.getElementById('form_fields');
 
 function indexInParent(node) {
     var children = node.parentNode.childNodes;
@@ -50,14 +52,14 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-function showDiv() {
-    document.getElementById('anonymous').style.display = "none";
-    document.getElementById('form_fields').style.display = "block";
+function showAnonymousSubmitDiv() {
+    anonymousElement.style.display = "none";
+    anonymousFormField.style.display = "block";
 }
 
-function hideDiv() {
-    document.getElementById('form_fields').style.display = "none";
-    document.getElementById('anonymous').style.display = "block";
+function hideAnonymousSubmitDiv() {
+    anonymousFormField.style.display = "none";
+    anonymousElement.style.display = "block";
 }
 
 document.addEventListener("DOMContentLoaded", function() {
