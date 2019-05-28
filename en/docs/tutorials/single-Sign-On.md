@@ -1,0 +1,155 @@
+# Single Sign-On
+
+Single sign-on (SSO) is one of the key features of WSO2 Identity Server
+that enables users to provide their credentials once and obtain access
+to multiple applications. The users are not prompted for their
+credentials when accessing each application until their session is
+terminated. Additionally, the user can access all these applications
+without having to log into each and every one of them individually. So,
+if users log into application A, for example, they would automatically
+have access to application B as well for the duration of that session
+without having to re-enter their credentials.
+
+WSO2 Identity Server can act as the identity provider of a single
+sign-on system with minimal configurations. This topic briefly
+introduces single-sign-on and how to configure the WSO2 Identity Server
+with different inbound authenticators by [Configuring a Service
+Provider](_Adding_and_Configuring_a_Service_Provider_) to achieve this.
+
+!!! note
+    
+    **Note:** For a tutorial on how to configure single sign on with a
+    sample application, see [Configuring Single
+    Sign-On](_Configuring_Single_Sign-On_) .
+    
+
+### About SSO
+
+Single Sign-On which is known as SSO, is a property of access control
+for independent software systems which are multiple related. With this
+property, a user can access to a connected system or systems using one
+user name and password without using a different user name or password.
+
+In a single sign-on system there are two roles; Service Providers and
+Identity Providers (IP). The important characteristic of a single
+sign-on system is the pre-defined trust relationship between the service
+providers and the identity providers. Service providers trust the
+assertions issued by identity providers which are essentially statements
+reading the authentication, authorization, and attributes related to the
+principal. Identity providers issue assertions based on the results of
+authentication and authorization of principles which access services on
+the service provider's side.
+
+The following are some of the advantages you can have with SSO:
+
+-   Users need only a single username/password pair to access multiple
+    services. Thus they do not have the issue of remembering multiple
+    username/password pairs.
+-   Users are authenticated only once at the identity provider and then
+    they are automatically logged into all services within that
+    "trust-domain". This process is more convenient to users since they
+    do not have to provide their username/password at every service
+    provider.
+-   Service providers do not have the overhead of managing user
+    identities, which is more convenient for them.
+-   User identities are managed at a central point. This is more secure,
+    less complex and easily manageable.
+
+### SSO in reality
+
+Single Sign-On is widely used in web technologies. Google is one of the
+best examples.
+
+Try this simple exercise,
+
+1.  Visit [www.google.com](http://www.google.com/) from your web
+    browser.
+2.  Click on the **SIGN IN** button on the top right of the page.
+3.  Once you sign in, you are redirected to
+    <https://accounts.google.com/ServiceLogin> . There you are requested
+    to enter your Username and Password. Enter your Google credentials
+    there.
+4.  Once you enter your Username and Password, you are directed back to
+    [www.google.com](http://www.google.com/) where you started.
+5.  Next visit [www.gmail.com](http://www.gmail.com/) , the Google mail
+    server.
+6.  Notice that you are automatically signed in and you directly access
+    your Gmail Inbox. You did not have to enter your Username and
+    Password at Gmail.
+7.  In addition to that; now try
+    [www.youtube.com](http://www.youtube.com/) .
+8.  You are automatically signed in. You do not have to enter your
+    username and password at YouTube.
+
+    !!! tip
+    
+        Note the URL of the web browser. Each time you access an
+        application, you see that you are being redirected to
+        <https://accounts.google.com/ServiceLogin> just before you return to
+        the website.
+    
+
+Single Sign-On (SSO) requires you to sign in only once but provides
+access to multiple resources without having to re-enter your username
+and password.
+
+### SSO and Federation
+
+You use SSO on it's own or use SSO and Federation coupled together.
+Identity Federation involves configuring a third party identity provider
+as the federated authenticator to login to an application. When
+federation is coupled with SSO, the user can log in to one application
+using the credentials of the federated authenticator, and simultaneously
+be authenticated to other connected applications without having to
+provide credentials again.
+
+For instance, you can set up google as a federated authenticator and
+then set up SSO between App1 and App2.  This will allow users to log in
+to App1 using their google credentials. Once the user is logged in, when
+the user attempts to access App2, he/she will not be prompted for
+credentails again and is logged in automatically.
+
+For more information on Identity Federation on it's own (without SSO),
+see the [Identity
+Federation](https://docs.wso2.com/display/IS530/Identity+Federation)
+topic.
+
+### Configuring SSO
+
+The following topics discuss the various protocols that can be used to
+configure Single-Sign-On (SSO).
+
+-   [Configuring Single Sign-On](_Configuring_Single_Sign-On_)
+-   [Single Sign-On for Native iOS Applications with WSO2 Identity
+    Server](_Single_Sign-On_for_Native_iOS_Applications_with_WSO2_Identity_Server_)
+-   [SAML 2.0 Web SSO](_SAML_2.0_Web_SSO_)
+-   [WS-Trust](_WS-Trust_)
+-   [WS-Federation](_WS-Federation_)
+-   [Integrated Windows
+    Authentication](_Integrated_Windows_Authentication_)
+-   [OAuth2-OpenID Connect](_OAuth2-OpenID_Connect_)
+
+!!! warning
+    
+    Removed Feature!
+    
+    OpenID 2.0 has been removed from the base product in WSO2 Identity
+    Server version 5.3.0 onwards as it is now an obsolete specification and
+    has been superseded by OpenID Connect. Alternatively, we recommend that
+    you use [OpenID
+    Connect](https://docs.wso2.com/display/IS510/OAuth2-OpenID+Connect)
+    instead.
+    
+
+**Related Topics**
+
+-   See [Configuring a Service
+    Provider](_Adding_and_Configuring_a_Service_Provider_) for more
+    information on using single sign-on with a service provider.
+-   See [Configuring Single Sign-On](_Configuring_Single_Sign-On_) for a
+    tutorial on how this works with a sample application.
+-   See [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with
+    WSO2 Identity
+    Server](http://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
+    to configure single sign on for Microsoft Sharepoint web
+    applications with the WSO2 Identity Server.
