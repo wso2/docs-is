@@ -1,0 +1,220 @@
+# JWT Token Generation
+
+This section provides instructions on how to get the user claims of the
+authorized user as a
+[JWT](https://openid.net/specs/draft-jones-json-web-token-07.html) token
+with the validation response.
+
+-   [Configurations](#JWTTokenGeneration-Configurations)
+-   [Signature verification](#JWTTokenGeneration-Signatureverification)
+-   [Validating the ID token
+    signature](#JWTTokenGeneration-ValidatingtheIDtokensignature)
+
+### **Configurations**
+
+Open the
+`           <IS_HOME>/repository/conf/identity/identity.xml          `
+file and set the `           <Enabled>          ` element (found under
+the
+`           <OAuth>,           <AuthorizationContextTokenGeneration>          `
+elements) to true as shown in the code block below.
+
+``` xml
+<AuthorizationContextTokenGeneration>
+            <Enabled>true</Enabled>
+            <TokenGeneratorImplClass>org.wso2.carbon.identity.oauth2.authcontext.JWTTokenGenerator</TokenGeneratorImplClass>
+            <ClaimsRetrieverImplClass>org.wso2.carbon.identity.oauth2.authcontext.DefaultClaimsRetriever</ClaimsRetrieverImplClass>
+            <ConsumerDialectURI>http://wso2.org/claims</ConsumerDialectURI>
+            <SignatureAlgorithm>SHA256withRSA</SignatureAlgorithm>
+            <AuthorizationContextTTL>15</AuthorizationContextTTL>
+ </AuthorizationContextTokenGeneration> 
+```
+
+Add the following property under \<OAUTH\> section to use the JWT Token
+Builder instead of the default Token Builder.
+
+``` java
+<IdentityOAuthTokenGenerator>org.wso2.carbon.identity.oauth2.token.JWTTokenIssuer</IdentityOAuthTokenGenerator> 
+```
+
+!!! note
+    
+    If you need to use a self-contained access token generator, make sure
+    you change the above values accordingly.
+    
+
+The following configurations are optional and can be configured as
+needed.
+
+1.  See the [Extension Points for
+    OAuth](Extension-Points-for-OAuth_103329664.html#ExtensionPointsforOAuth-AuthorizationContextTokenGenerator)
+    topic for more details about the usage of the '
+    `            TokenGeneratorImplClass           ` ' and '
+    `            ClaimsRetrieverImplClass           ` '.
+
+2.  ConsumerDialectURI: Defines the URI for the claim dialect under
+    which the user attributes need to be retrieved.
+
+3.  SignatureAlgorithm: Defines the algorithm to be used in signing the
+    payload that carries user claims. If you want to disable signing of
+    the JWT token, set this element to "NONE".
+
+    ``` xml
+    <SignatureAlgorithm>NONE</SignatureAlgorithm>
+    ```
+
+4.  AuthorizationContextTTL: Defines the expiry time for JWT token in
+    minutes.
+
+!!! note
+    
+    Instead of configuring the JWT token in the
+    `         identity.xml        ` file, you can also choose to configure
+    it using the management console while configuring the OAuth application.
+    
+    Select **JWT** as the Token Issuer for a new or existing OAuth/OpenID
+    connect consumer application. See [Configuring inbound authentication
+    with OAuth/OpenID
+    Connect](https://docs.wso2.com/display/IS580/Configuring+Inbound+Authentication+for+a+Service+Provider#ConfiguringInboundAuthenticationforaServiceProvider-OauthOpenIDConfiguringinboundauthenticationwithOAuth/OpenIDConnect)
+    for more information.
+    
+    ![](attachments/103329595/119128541.png){width="500"}
+    
+
+**Calling the OAuth2ValidationService with a valid token**
+
+After configuring the elements mentioned above, see the [OAuth2 Token
+Validation and
+Introspection](_OAuth2_Token_Validation_and_Introspection_) topic
+to call the `         OAuth2ValidationService        ` . The following
+screenshot is the request and response of the
+`         OAuth2ValidationService        ` from the SOAP
+UI. Additionally, it shows the required claims of the user as required
+claim URIs. In the response, you can see the received JWT token under
+the `         <tokenString>        ` element.
+
+!!! note
+    
+    If there are no requested claim URIs defined, all the claims that carry
+    values for the user are returned.
+    
+
+![](attachments/103329595/103329596.png){width="1201" height="460"}
+
+**Header Metadata:**  
+The header contains the metadata for the token as seen below.
+
+\<header\> . \<payload\> . \<signature\>
+
+eyJhbGciOiJSUzI1NiIsIng1dCI6Ik5tSm1PR1V4TXpabFlqTTJaRFJoTlRabFlUQTFZemRoWlRSaU9XRTBOV0kyTTJKbU9UYzFaQSJ9
+.
+eyJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheVwvYXBwbGljYXRpb25uYW1lIjoiT2F1dGg3IiwiZXhwIjoxNDUyNTk0ODkyLCJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheVwvc3Vic2NyaWJlciI6ImFkbWluQGNhcmJvbi5zdXBlciIsImlzcyI6Imh0dHA6XC9cL3dzbzIub3JnXC9nYXRld2F5IiwiaHR0cDpcL1wvd3NvMi5vcmdcL2dhdGV3YXlcL2VuZHVzZXIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9yb2xlIjoiYWRtaW4sQXBwbGljYXRpb25cL2Rld3ZkZXcsQXBwbGljYXRpb25cL09hdXRoNyxJbnRlcm5hbFwvZXZlcnlvbmUiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9lbWFpbGFkZHJlc3MiOiJhZG1pbkB3c28yLmNvbSIsImlhdCI6MTQ1MjU5MzI1NCwiaHR0cDpcL1wvd3NvMi5vcmdcL2NsYWltc1wvb3JnYW5pemF0aW9uIjoiV1NPMiJ9
+.
+WRo2p92f-pt1vH9xfLgmrPWNKJfmST2QSPYcth7gXKz64LdP9zAMUtfAk9DVRdHTIQR3gX0jF4Ohb4UbNN4Oo97a35oTL1iRxIRTKUkh8L1dpt3H03Z0Ze7Q2giHGZikMIQv3gavHRYKjNMoU\_1MuB90jiK7
+
+**Decoded Header:**
+
+{"alg":"RS256","x5t":"NmJmOGUxMzZlYjM2ZDRhNTZlYTA1YzdhZTRiOWE0NWI2M2JmOTc1ZA"}
+
+x5t : T his header provides a base64url encoded SHA-256 thumbprint
+(a.k.a. digest) of the DER encoding of an X.509 certificate that can be
+used to match a certificate to validate the signature.
+
+**Decoded Payload:**
+
+``` groovy
+{  
+   "http:\/\/wso2.org\/gateway\/applicationname":"Oauth7",
+   "exp":1452594892,
+   "sub":"admin@carbon.super",
+   "http:\/\/wso2.org\/gateway\/subscriber":"admin@carbon.super",
+   "iss":"http:\/\/wso2.org\/gateway",
+   "http:\/\/wso2.org\/gateway\/enduser":"admin@carbon.super",
+   "http:\/\/wso2.org\/claims\/role":"admin,Application\/dewvdew,Application\/Oauth7,Internal\/everyone",
+   "http:\/\/wso2.org\/claims\/emailaddress":"admin@wso2.com",
+   "iat":1452593254,
+   "http:\/\/wso2.org\/claims\/organization":"WSO2"
+}
+```
+
+### Signature verification
+
+The signature verification can be done similar to the ID token signature
+verification.
+
+The WSO2 Identity Server is shipped with a signed ID Token. This is
+provided in order to address some security vulnerabilities in a typical
+production environment. This topic provides information about using this
+signed ID Token for signature verification.
+
+The portions of each token are separated by the full stop. To see the
+exact JSON values, do a Base64 decode for
+`           <header>.<body>          ` .
+
+-   **If the unsigned ID token contains only 2 portions:**  
+    `            <header>.<body>           `  
+
+    **Sample of unsigned ID token**
+
+    eyJhbGciOiJSUzI1NiJ9 .
+    eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0dHBzOlwvXC9jMmlkLmNvbSIsImlhdCI6MTQxNjE1ODU0MX0
+
+-   **If the signed ID token contains 3 portions:  
+    ** `            <header>.<body>.<signature>           `
+
+    **Sample of signed ID token**
+
+    eyJhbGciOiJSUzI1NiJ9 .
+    eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0dHBzOlwvXC9jMmlkLmNvbSIsImlhdCI6MTQxNjE1ODU0MX0
+    .
+    iTf0eDBF-6-OlJwBNxCK3nqTUjwC71-KpqXVr21tlIQq4\_ncoPODQxuxfzIEwl3Ko\_Mkt030zJs-d36J4UCxVSU21hlMOscNbuVIgdnyWhVYzh\_-v2SZGfye9GxAhKOWL-\_xoZQCRF9fZ1j3dWleRqIcPBFHVeFseD\_64PNemyg
+
+### Validating the ID token signature
+
+The following code segment is a simple Java program that can be used to
+validate the ID token signature against the default
+`          wso2carbon.jks         ` public key in WSO2 products.
+
+``` java
+package org.sample;
+
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.interfaces.RSAPublicKey;
+
+import com.nimbusds.jose.JWSVerifier;
+import com.nimbusds.jose.crypto.RSASSAVerifier;
+import com.nimbusds.jwt.SignedJWT;
+
+public class ValidateRSASignature {
+
+    public static void main(String[] args) throws Exception {
+        RSAPublicKey publicKey = null;
+        InputStream file = ClassLoader
+                .getSystemResourceAsStream("wso2carbon.jks");
+        KeyStore keystore = KeyStore.getInstance(KeyStore.getDefaultType());
+        keystore.load(file, "wso2carbon".toCharArray());
+
+        String alias = "wso2carbon";
+
+        // Get certificate of public key
+        Certificate cert = keystore.getCertificate(alias);
+        // Get public key
+        publicKey = (RSAPublicKey) cert.getPublicKey();
+
+        // Enter JWT String here
+        String signedJWTAsString = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0d";
+
+        SignedJWT signedJWT = SignedJWT.parse(signedJWTAsString);
+
+        JWSVerifier verifier = new RSASSAVerifier(publicKey);
+
+        if (signedJWT.verify(verifier)) {
+            System.out.println("Signature is Valid");
+        } else {
+            System.out.println("Signature is NOT Valid");
+        }
+    }
+}
+```
