@@ -1,24 +1,5 @@
 # General Data Protection Regulation
 
--   [About GDPR
-    compliance](#GeneralDataProtectionRegulation-AboutGDPRcompliance)
--   [Privacy by design and privacy by
-    default](#GeneralDataProtectionRegulation-Privacybydesignandprivacybydefault)
--   [Consent identity
-    management](#GeneralDataProtectionRegulation-Consentidentitymanagement)
--   [Consent life cycle
-    management](#GeneralDataProtectionRegulation-Consentlifecyclemanagement)
--   [Consent receipt specification
-    (draft)](#GeneralDataProtectionRegulation-Consentreceiptspecification(draft))
--   [Right to be
-    forgotten](#GeneralDataProtectionRegulation-Righttobeforgotten)
--   [Exercising individual
-    rights](#GeneralDataProtectionRegulation-Exercisingindividualrights)
--   [Personal data
-    portability](#GeneralDataProtectionRegulation-Personaldataportability)
--   [Personal data
-    protection](#GeneralDataProtectionRegulation-Personaldataprotection)
-
 #### About GDPR compliance
 
 The General Data Protection Regulation (GDPR) is a new legal framework
@@ -35,34 +16,30 @@ Server. This section outlines the major GDPR related features that WSO2
 Identity Server supports, and also provides necessary references to
 specific concepts within the section.
 
-This section also includes an
-[FAQ](https://docs.wso2.com/display/IS580/GDPR+FAQ) page that can give
-you more specific and direct answers to any question you may have on
-GDPR as well as on GDPR compliance that WSO2 offers.
+!!! Info
 
-Do you want to learn more about GDPR?
+	  Do you want to learn more about GDPR?
 
-If you are new to GDPR, we recommend that you take a look at our
-tutorial series on ***Creating a Winning GDPR Strategy.***
+	  If you are new to GDPR, we recommend that you take a look at our
+	  tutorial series on *Creating a Winning GDPR Strategy*.
 
--   Part 1 - [Introduction to
-    GDPR](https://wso2.com/library/article/2017/12/introduction-to-gdpr/)
+	  -   Part 1 - [Introduction to
+    	  GDPR](https://wso2.com/library/article/2017/12/introduction-to-gdpr/)
 
--   Part 2 - [7 Steps for GDPR
-    Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/)
+	  -   Part 2 - [7 Steps for GDPR
+  	  Compliance](https://wso2.com/library/article/2017/12/7-steps-for-gdpr-compliance/)
 
--   Part 3 - [Identity and Access Management to the
-    Rescue](https://wso2.com/library/article/2018/2/identity-and-access-management-to-the-rescue/)
+	  -   Part 3 - [Identity and Access Management to the
+    	  Rescue](https://wso2.com/library/article/2018/2/identity-and-access-management-to-the-rescue/)
 
--   Part 4 - [GDPR Compliant Consent
-    Design](https://wso2.com/library/articles/2018/03/creating-a-winning-gdpr-strategypart-4-gdpr-compliant-consent-design/)
+	  -   Part 4 - [GDPR Compliant Consent
+    	  Design](https://wso2.com/library/articles/2018/03/creating-a-winning-gdpr-strategypart-4-gdpr-compliant-consent-design/)
 
-For more resources on GDPR, see the white papers, case studies, solution
-briefs, webinars, and talks published on our [WSO2 GDPR
-homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/) . You
-can also find the original GDPR legal text
-[here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679)
-.
+	  For more resources on GDPR, see the white papers, case studies, solution
+	  briefs, webinars, and talks published on our [WSO2 GDPR
+	  homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/) . You
+	  can also find the original GDPR legal text
+	  [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679).
 
 #### Privacy by design and privacy by default
 
@@ -76,12 +53,6 @@ performance and user experience. WSO2 IS provides all privacy features
 enabled in the product as default options, and uses up-to-date
 algorithms and frameworks for all cryptographic operations such as data
 encryption, signing, and hashing etc.
-
-I want direct answers to my question
-
-Didn't find a proper answer related to GDPR & WSO2 products from this
-page OR Don’t want to go through the complete documentation? Visit our
-GDPR FAQ page.
 
 #### Consent identity management
 
@@ -181,7 +152,7 @@ the scope of this document.
 
 For more information on the topic, refer [Removing References to Deleted
 User
-Identities](https://docs.wso2.com/display/IS550/Removing+References+to+Deleted+User+Identities)
+Identities](https://docs.wso2.com/display/IS550/Removing+References+to+Deleted+User+Identities).
 
 ####  Exercising individual rights
 
@@ -197,44 +168,37 @@ Following features are supported as part of Self-care User Portal:
     processing activities carried out by the organization, their
     purposes, and time-limits and what data are stored can be made
     transparent to users via the IS Self-care User Portal.  
-      
+<br/>     
 -   **The right of access -** Via the IS Self-care User Portal, users
     can access and review what personal data are stored in the
     processing organization.  
-    **  
-    **
+<br/>
 -   **The right to rectification -** Individuals can rectify incorrect
     data on their user profiles by themselves by logging into Self-care
     User Portal.  
-    **  
-    **
+<br/>
 -   **The right to restrict processing -** Individuals can make
     restrictions on their user profiles by themselves by logging into
     Self-care User Portal. Generally, this is done through by revoking
     an already given consent but can be extended to other usages as
     well.  
-    **  
-    **
+<br/>
 -   **The right to be forgotten -** Individuals can remove their profile
     data or can be extended to send *forget-me* requests via the
     Self-care User portal.  
-    **  
-    **
+<br/>
 -   **The right for notification obligation -** The Self-care User
     Portal can be extended to act as the notification center for
     individuals.  
-    **  
-    **
+<br/>
 -   **The right to data portability -** Individuals can download their
     user profile in a structured, commonly used and machine-readable
     JSON document format through the Self-care User Portal.  
-    **  
-    **
+<br/>
 -   **The right to object -** The Self-care User Portal can be extended
     to act as a communication channel to make objections on
     processing.  
-    **  
-    **
+<br/>
 -   **Rights in relation to automated decision making and profiling -**
     The Self-care User Portal can be extended to act as a communication
     channel to make objections on automated decision making and
@@ -292,6 +256,6 @@ profile data from individuals. Access control features supported in WSO2
 IS  such as role-based access control (RBAC), attribute-based access
 control can be used to cater this requirement.
 
-For more information on Role-based Access control, Attribute-based
-Access Control, and XACML, refer [Access Control and
-Entitlement](_Access_Control_and_Entitlement_Management_) page.
+!!! Info
+	  For more information on Role-based Access control, Attribute-based
+	  Access Control, and XACML, refer [Access Control and Entitlement](/key-concepts/access-control-and-entitlement-management) page.
