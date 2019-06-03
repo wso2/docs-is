@@ -152,7 +152,7 @@ the scope of this document.
 
 For more information on the topic, refer [Removing References to Deleted
 User
-Identities](https://docs.wso2.com/display/IS550/Removing+References+to+Deleted+User+Identities).
+Identities](removing-references-to-deleted-user-identities).
 
 ####  Exercising individual rights
 
