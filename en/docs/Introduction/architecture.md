@@ -9,7 +9,7 @@ without configuration changes.
 
 WSO2 Identity Server is used directly by multiple users, through its
 user-friendly
-[Management Console](_Getting_Started_with_the_Management_Console_) .
+[Management Console](/installation-guide/getting-started-with-the-management-console) .
 Apart from the default admin user (with the user name ‘admin’), other
 users can be created later by the admin users that have the privileges
 to create a new user, or by signing up. Each user can have roles, where
