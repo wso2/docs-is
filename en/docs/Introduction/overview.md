@@ -87,8 +87,8 @@ efficiency.
 
 WSO2 Identity Server has the ‘ [Jaggery](http://jaggeryjs.org/) ’ user
 interface for end users. Apart from the [Management
-Console](_Getting_Started_with_the_Management_Console_) , an [end user
-view](_Using_the_End_User_Dashboard_) is available to manage profiles,
+Console](/installation-guide/getting-started-with-the-management-console) , an [end user
+view](/using-wso2-identity-server/using-the-end-user-dashboard) is available to manage profiles,
 to recover accounts and to manage authorized apps. The log in and
 consent pages in the UI can be completely customized because they run on
 a separate context as a separate web application. These web applications
