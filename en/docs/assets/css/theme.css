@@ -489,6 +489,8 @@ html .md-typeset .superfences-tabs > label:hover {
 
 .md-tabs__list {
     display: inline-block;
+    width: calc(100% - 55px);
+    overflow: hidden;
 }
 
 .nav_link {
