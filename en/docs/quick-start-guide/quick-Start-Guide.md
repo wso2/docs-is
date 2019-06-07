@@ -577,23 +577,12 @@ Pickup Manager applications using WSO2 IS.
 
     A message appears to pick a scenario.
 
-2.  Open the
-    `               <IS_HOME>/repository/conf/output-event-adapters.xml file              `
-    .
-
-3.  Locate the adapter configurations for emails and update the
-    `               email address              ` ,
-    `               username              ` , and
-    `               password              ` parameters with the values
-    of a valid email account.
+2.  Add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
 
     ``` java
-        <adapterConfig type="email">        
-                <property key="mail.smtp.from"><<email address>></property>
-                <property key="mail.smtp.user"><<username>></property>
-                <property key="mail.smtp.password"><<password>></property>
-                ...
-        </adapterConfig>
+        mail.publisher.address = 
+        mail.publisher.username = 
+        mail.publisher.password =          
     ```
 
 4.  Restart WSO2 IS.

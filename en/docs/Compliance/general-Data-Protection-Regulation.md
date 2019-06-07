@@ -37,7 +37,7 @@ specific concepts within the section.
 
 	  For more resources on GDPR, see the white papers, case studies, solution
 	  briefs, webinars, and talks published on our [WSO2 GDPR
-	  homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/) . You
+	  homepage](https://wso2.com/solutions/regulatory-compliance/gdpr/). You
 	  can also find the original GDPR legal text
 	  [here](http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32016R0679).
 
@@ -150,7 +150,7 @@ Additionally, WSO2 Privacy Toolkit can be extended to clear privacy data
 in any relational database or any textual log file but that is out of
 the scope of this document.
 
-For more information on the topic, refer [Removing References to Deleted
+For more information on the topic, see [Removing References to Deleted
 User
 Identities](removing-references-to-deleted-user-identities).
 
@@ -174,7 +174,7 @@ Following features are supported as part of Self-care User Portal:
     processing organization.  
 <br/>
 -   **The right to rectification -** Individuals can rectify incorrect
-    data on their user profiles by themselves by logging into Self-care
+    data on their user profiles by themselves by logging in to the Self-care
     User Portal.  
 <br/>
 -   **The right to restrict processing -** Individuals can make
@@ -258,4 +258,4 @@ control can be used to cater this requirement.
 
 !!! Info
 	  For more information on Role-based Access control, Attribute-based
-	  Access Control, and XACML, refer [Access Control and Entitlement](/key-concepts/access-control-and-entitlement-management) page.
+	  Access Control, and XACML, see [Access Control and Entitlement](/key-concepts/access-control-and-entitlement-management) page.
