@@ -1,7 +1,3 @@
----
-template: templates/2-column.html
----
-
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 Identity Server. 
 
