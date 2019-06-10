@@ -16,8 +16,6 @@ the following diagram.
 
 ![User and identity provisioning using WSO2 Identity Server](../../assets/img/concepts/identity-provisioning.png)
 
-***Figure** : User and identity provisioning using WSO2 Identity Server*
-
 ### Inbound and outbound provisioning
 
 Inbound provisioning focuses on how to provision users, user groups, and
@@ -27,14 +25,11 @@ process.
 
 ![Inbound provisioning using WSO2 Identity Server](../../assets/img/concepts/inbound-provisioning.png)
 
-***Figure** : Inbound provisioning*
-
 Outbound provisioning involves provisioning users, user groups, and user
 identities to external systems or SaaS applications.
 
 ![Outbound provisioning using WSO2 Identity Server](../../assets/img/concepts/outbound-provisioning.png)
 
-***Figure** : Outbound provisioning*
 
 ### Introducing SPML
 
@@ -97,8 +92,6 @@ specific emphasis on simplicity and interoperability.
 
 	   ![Provisioning evolution and history](../../assets/img/concepts/provisioning-evolution.png)
 
-	   ***Figure** : Provisioning evolution and history*
-
 	   The OASIS Technical Committee for Service Provisioning was formed in
 	   2001 to define an XML-based framework for exchanging user, resource, and
 	   service provisioning information. As a result, the SPML (Service
@@ -107,19 +100,17 @@ specific emphasis on simplicity and interoperability.
 	   played a major role in building the SPML 1.0. The following are
 	   the three proprietary provisioning standards.
 
-	   -   [Information Technology Markup Language
-    	   (ITML)](http://xml.coverpages.org/itml.html)
-	   -   [Active Digital Profile (ADPr)](http://xml.coverpages.org/adpr.html)
-	   -   [eXtensible Resource Provisioning Management
-    	   (XRPM)](http://xml.coverpages.org/xrpm.html)
+       -   <a href="http://xml.coverpages.org/itml.html" target="_blank">Information Technology Markup Language(ITML)</a>
+	   -   <a href="http://xml.coverpages.org/adpr.html" target="_blank">Active Digital Profile (ADPr)</a>
+	   -   <a href="http://xml.coverpages.org/xrpm.html" target="_blank">eXtensible Resource Provisioning Management
+    	   (XRPM))</a>
 
-	   [SPML
-	   1.0](https://www.oasis-open.org/committees/download.php/3032/cs-pstc-spml-	core-1.0.pdf)
-	   defined a Request/Response protocol as well as couple of bindings.
+	   <a href="https://www.oasis-open.org/committees/download.php/3032/cs-pstc-spml-	core-1.0.pdf" target="_blank">SPML
+	   1.0</a> defined a Request/Response protocol as well as couple of bindings.
 	   Requests/Responses are all based on XML and each operation has it own
 	   schema.
 
-	   One of the [bindings](http://xml.coverpages.org/SPML-Bindings10-OS.pdf)
+	   One of the <a href="http://xml.coverpages.org/SPML-Bindings10-OS.pdf" target="_blank">bindings</a>
 	   defined in SPML 1.0 is the SOAP binding. It specifies how to transfer
 	   SPML requests and responses wrapped in a SOAP message. All the SPML
 	   operations supported by the provisioning entity should be declared in
@@ -189,11 +180,11 @@ specific emphasis on simplicity and interoperability.
 	   SCIM introduced a REST API for provisioning and also a core schema
 	   (which also can be extended) for provisioning objects. SCIM 1.1 was
 	   finalized in 2012 - and then it was donated to the
-	   [IETF](http://tools.ietf.org/wg/scim/) . Once in IETF, it changed the
-	   definition of SCIM to System for Cross-domain Identity Management and it
+	   <a href="http://tools.ietf.org/wg/scim/" target="_blank">IETF</a>
+	   . Once in IETF, it changed the definition of SCIM to System for Cross-domain Identity Management and it
 	   supports only JSON and now XML.
 
 	   As a result of the increasing pressure on OASIS PSTC, they started
 	   working on a REST binding for SPML, which is known as
-	   [RESTPML](https://wiki.oasis-open.org/provision/restpml) , around 2011.
-	   This is still based on XML and not yet active so far.
+	   <a href="https://wiki.oasis-open.org/provision/restpml" target="_blank">RESTPML</a>
+	   , around 2011. This is still based on XML and not yet active so far.

@@ -27,14 +27,14 @@ Any user management system has the following basic components:
     and access data, security-conscious organizations need to
     define which data and functionality each user can access by
     assigning permissions.
--   **Permissions:** A **permission** is a delegation of authority or a
+-   **Permissions:** A permission is a delegation of authority or a
     right that is assigned to a user or a group of users to perform an
     action on a system. Permissions can be granted to or revoked from a
     user, user group, or user role automatically or by a system
     administrator. For example, if a user has the permission to log in
     to a system, the permission to log out is automatically granted as
     well.
--   **User roles:** A **user role** is a grouping of permissions. In
+-   **User roles:** A user role is a grouping of permissions. In
     addition to assigning individual permissions to users, admins can
     create user roles and assign those roles to users. For example, you
     might create user roles called VP, Manager, and Employee, each of
@@ -47,14 +47,15 @@ Any user management system has the following basic components:
 The following diagram illustrates how the user management functionality
 is structured to work in WSO2 products:
 
-![](attachments/45941256/46202979.png){.image-center}
+![user-management](/assets/img/introduction/user-management.png)
 
--   **User stores:** A **user store** is the database where information
+-   **User stores:** A user store is the database where information
     about the users and user roles is stored, including log-in name,
     password, first name, last name, and e-mail address.
 -   **RDBMS (for Authentication and Authorization):** This RDBMS stores
     information of the role-based permissions.  
 
+!!! Info
     According to the default configuration in WSO2 products, the
     embedded H2 RDBMS that is shipped with the product is used as the
     user store as well as the RDBMS for storing information related to
@@ -71,8 +72,8 @@ is structured to work in WSO2 products:
 
     <table>
     <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
+    <col style="width: 30%" />
+    <col style="width: 70%" />
     </colgroup>
     <tbody>
     <tr class="odd">
@@ -83,7 +84,7 @@ is structured to work in WSO2 products:
     <li><code>                  LDAPUserStoreManager                 </code> (read-only)</li>
     <li><code>                  ApacheDSUserStoreManager                 </code> (read and write)</li>
     </ul>
-    <p><img src="attachments/33134346/33345382.jpg" width="500" /></p>
+    <p><img src="/assets/img/introduction/user-store-manager-types.png" title="types of user store managers" alt="types of user store managers" /></p>
     <p>You can write a custom user store manager implementation by implementing <code>                 UserStoreManager                </code> or by extending <code>                 AbstractUserStoreManager                </code> or one of the default implementations.</p>
     <h5 id="UserManagementArchitecture-UsingJDBCUserStoreManager">Using JDBCUserStoreManager</h5>
     <p>The <code>                 JDBCUserStoreManager                </code> class uses a schema that is specific to WSO2 Carbon. It contains the following tables:</p>
@@ -108,13 +109,13 @@ is structured to work in WSO2 products:
 
 #### Related Topics
 
--   [Configuring the Realm](_Configuring_the_Realm_) : The topics in
+-   [Configuring the Realm](/using-wso2-identity-server/configuring-the-realm) : The topics in
     this section explain how you can set up and configure the user
     management realm.
 -   [Configuring Users, Roles and
-    Permissions](_Configuring_Users_Roles_and_Permissions_) : The topics
+    Permissions](/using-wso2-identity-server/configuring-users-roles-and-permissions) : The topics
     in this section explain how you can manage the Users, Roles and
     Permissions using the management console.
 -   [Engaging a Workflow in an
-    Operation](_Engaging_a_Workflow_in_an_Operation_) : This topic
+    Operation](/using-wso2-identity-server/engaging-a-workflow-in-an-operation) : This topic
     explains how to engage workflows for user-related operations.

@@ -21,9 +21,9 @@ site_author: WSO2
 site_url: https://wso2.com/
 
 # Repository
-repo_name: gomathyk/docs-is
-repo_url: https://github.com/gomathyk/docs-is.git
-edit_uri: https://github.com/gomathyk/docs-is.git/edit/master/en/docs/
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is.git
+edit_uri: https://github.com/wso2/docs-is/tree/master/en/docs
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -73,11 +73,10 @@ nav:
     - 'Customizing the Management Console': installation-guide/customizing-the-Management-Console.md
     - 'Shutting Down and Restarting the Server': installation-guide/shutting-Down-and-Restarting-the-Server.md
   - 'Key Concepts':
-    - 'Key Concepts': key-concepts/key-Concepts.md
     - 'Single Sign-On and Identity Federation': key-concepts/single-sign-on-and-identity-federation.md
     - 'Identity Provisioning and its Standards': key-concepts/identity-provisioning-and-its-standards.md
     - 'Access Control and Entitlement Management': key-concepts/access-control-and-entitlement-management.md
-    - 'Identity Anti-patterns and the Identity Bus': key concepts/identity-anti-patterns-and-the-identity-bus.md
+    - 'Identity Anti-patterns and the Identity Bus': key-concepts/identity-anti-patterns-and-the-identity-bus.md
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
@@ -123,7 +122,7 @@ nav:
       - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-Sign-On-for-Native-iOS-Applications-with-WSO2-Identity-Server.md
       - 'SAML 2.0 Web SSO':
         - 'SAML 2.0 Web SSO': tutorials/sAML-2.0-Web-SSO.md
-        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML-2.0-Web-SSO.md
+        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML2-Web-Single-Sign-On.md
         - 'Querying SAML Assertions': tutorials/querying-SAML-Assertions.md
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':

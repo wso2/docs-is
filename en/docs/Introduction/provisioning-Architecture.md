@@ -3,24 +3,8 @@
 The provisioning framework is responsible for all provisioning work done
 by the WSO2 Identity Server. This framework integrates with the User
 Store Manager component and also receives provisioning requests from the
-authentication framework. See the following topics for more information
-on the provisioning architecture in the Identity Server.
+authentication framework. 
 
--   [Inbound
-    provisioning](#ProvisioningArchitecture-Inboundprovisioning)
--   [JIT provisioning](#ProvisioningArchitecture-JITprovisioning)
--   [Outbound
-    provisioning](#ProvisioningArchitecture-Outboundprovisioning)
--   [Conditional provisioning with
-    roles](#ProvisioningArchitecture-Conditionalprovisioningwithroles)
--   [SCIM implementation using WSO2
-    Charon](#ProvisioningArchitecture-SCIMimplementationusingWSO2Charon)
--   [Extensible SCIM user
-    schemas](#ProvisioningArchitecture-ExtensibleSCIMuserschemas)
--   [Enable Extension](#ProvisioningArchitecture-EnableExtension)
--   [Claims Mapping](#ProvisioningArchitecture-ClaimsMapping)
--   [cURL commands](#ProvisioningArchitecture-cURLcommands)
--   [Related links](#ProvisioningArchitecture-Relatedlinks)
 
 ### Inbound provisioning
 
@@ -112,7 +96,7 @@ and Group resources in a RESTful way.
 The following is a high level overview of SCIM Service Provider
 architecture of IS.
 
-![](attachments/103329088/103329096.png)
+![scim-service-provider-architecture](/assets/img/introduction/scim-service-provider-architecture.png)
 
 WSO2 Charon is one of the SCIM implementations that are made available
 under Apache 2.0 license. Charon includes libraries used by SCIM in the
@@ -121,7 +105,7 @@ WSO2 Identity Server.
 The following diagram provides an overview on the module breakdown of
 Charon along with purpose of each module and planned tasks of them.
 
-![](attachments/103329088/103329095.png){width="650"}
+![charon-module-breakdown](/assets/img/introduction/charon-module-breakdown.png)
 
 The following includes a brief introduction on each of the modules.
 
@@ -179,7 +163,7 @@ The following is a deployment diagram of Charon-SCIM service provider
 high level idea on how Charon-Core and Charon-Utils modules are
 utilized.
 
-![](attachments/103329088/103329094.png)
+![charon-scim-deployment](/assets/img/introduction/charon-scim-deployment.png)
 
 As this diagram of the reference implementation illustrates, a SCIM
 service provider can be developed using any REST implementation and
@@ -197,13 +181,13 @@ and it can cater to most of the industry's identity management
 requirements. Given below is a sample user object with the default
 attributes set.
 
-![](attachments/103329088/103329093.png)
+![user-object-with-default-attribute-set](/assets/img/introduction/user-object-with-default-attribute-set.png)
 
 However the SCIM specification itself introduces the [Enterprise User
 Extension](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.3)
 to support extra attributes for the SCIM user object.
 
-![](attachments/103329088/103329091.png)
+![extra-attributes](/assets/img/introduction/extra-attributes.png)
 
 However the reality in the industry is that organizations have their own
 attributes defined for the users. These attributes are already there in
@@ -221,14 +205,14 @@ Model](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-4)
 . Given below is a sample extended user object with the default schema
 configuration.
 
-![](attachments/103329088/103329092.png)
+![default-schema-configuration](/assets/img/introduction/default-schema-configuration.png)
 
 ### Enable Extension
 
 1.  Locate the **provisioning-config.xml** file in the path
     `          [IS-HOME]/repository/conf/identity/provisioning-config.xml         `
     .
-2.  Open the file and locate the " **user-schema-extension-enabled** "
+2.  Open the file and locate the **user-schema-extension-enabled** 
     property. Ensure that the property value is set to **true** .
 3.  Save the file and restart the server.
 
@@ -236,7 +220,7 @@ configuration.
 
 Log into the Identity Server and do the claim mapping for the following
 claim URIs (see
-[here](_Configuring_Active_Directory_User_Stores_for_Inbound_Provisioning_)
+[here](/using-wso2-identity-server/configuring-active-directory-user-stores-for-inbound-provisioning)
 for more information on how to do claim mappings).
 
 -   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.costCenter                             `
@@ -254,19 +238,20 @@ attributes.
 Create a new user with the new schema. The following screen depicts the
 user to be added with the **wso2Extension** attributes.
 
-![](attachments/103329088/103329089.png)
+![wso2-extension-attributes](/assets/img/introduction/wso2-extension-attributes.png)
 
 ### cURL commands
 
-The following is the cURL command to add a user. The attribute name for
-the wso2Extension is " **EnterpriseUser** ".
+Given below are the cURL commands to add a user. The attribute name for
+the wso2Extension is **EnterpriseUser**.
 
--   [**Primary Userstore Command**](#3bd36fd9474446f0a2e6f0dd6f80bbb1)
--   [**Secondary Userstore Command**](#25eb06d9d9364ee3acb156cb372057de)
+-   **Primary Userstore Command**
 
 ``` java
 curl -v -k --user admin:admin --data "{"schemas":[],"userName":"SureshAtt","password":"Wso2@123","EnterpriseUser":{"employeeNumber":"000111","costCenter":"111111","organization":"WSO2Org","division":"Engineering","department":"Intigration","manager":{"managerId":"111000","displayName":"Prabath"}}}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
 ```
+
+-   **Secondary Userstore Command**
 
 ``` java
 curl -v -k --user admin:admin --data "{"schemas":[],"userName":'mysql/uresh67',"password":"Wso2@123"}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users 
@@ -276,14 +261,15 @@ Note that the user name is preceded by the domain and is within single
 quotes 'mysql/uresh67'. Also note that 'mysql' here is a reference to a
 domain name.
 
-The above command provides the following result:
+The above command provides the following results:
 
--   [**Primary Userstore Output**](#ebaea9293e9f448fad83fa891a4d33d8)
--   [**Secondary Userstore Output**](#40eb924ac680460a801a970296530545)
+-   **Primary Userstore Output**
 
 ``` java
 {"id":"db4f9c15-8426-4381-a669-270975d50421","EnterpriseUser":{"organization":"WSO2Org","manager":{"managerId":"111000","displayName":"Prabath"},"division":"Engineering","department":"Intigration","costCenter":"111111","employeeNumber":"73"},"schemas":["urn:scim:schemas:core:1.0","urn:scim:schemas:extension:wso2:1.0"],"userName":"SureshAtt","meta":{"lastModified":"2013-07-09T13:27:58","location":"https://localhost:9443/wso2/scim/Users/db4f9c15-8426-4381-a669-270975d50421","created":"2013-07-09T13:27:58"}}
 ```
+
+-   **Secondary Userstore Output**
 
 ``` java
 {"id":"2e89cac0-17f3-40e7-8a07-ff1047a70cf1","schemas":["urn:scim:schemas:core:1.0"],"userName":"mysql/uresh67","meta":{"lastModified":"2013-12-17T14:31:30","location":"https://localhost:9443/wso2/scim/Users/2e89cac0-17f3-40e7-8a07-ff1047a70cf1","created":"2013-12-17T14:31:30"}}* Closing connection #0
@@ -291,9 +277,9 @@ The above command provides the following result:
 
 The created SCIM user object can be viewed in the following screen:
 
-![](attachments/103329088/103329090.png)
+![scim-user-object](/assets/img/introduction/scim-user-object.png)
 
 ### Related links
 
--   See [SCIM 1.1 APIs](_SCIM_1.1_APIs_) for more cURL commands that can
+-   See [SCIM 1.1 APIs](/using-wso2-identity-server/scim-1.1-apis) for more cURL commands that can
     be used to do various functions using the SCIM endpoints available.

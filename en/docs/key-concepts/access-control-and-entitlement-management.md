@@ -11,7 +11,7 @@ entitlement management systems are governed by industry standard
 specifications, hence supporting security requirements for heterogeneous
 applications becomes easy.
 
-Click [here](access-control.md) for
+Click [here](/tutorials/access-control.md) for
 more information on Access control.
 
 ### Types of access control
@@ -36,7 +36,7 @@ The following table describes the various types of access control.
 <td><p>Role-based Access Control</p></td>
 <td><p>Role-based Access Control (RBAC) is an approach used to restrict access to authorized users based on their role. This is a static permission model which provides access control. It is used by the majority of enterprises with more than 500 users.</p>
 <p>This access control type is used when all users are categorized into different roles. The roles define the resources that can be accessed by users assigned to that role. This type of access control reduces management overhead. These users and roles can also be externalized using user stores. These roles need to be managed carefully. There can be instances where a user is assigned to multiple roles. This is a subset of ABAC.</p>
-<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="https://docs.wso2.com/display/IS570/Configuring+Roles+and+Permissions">here</a> for information on Configuring roles and permissions.</p></td>
+<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="/using-wso2-identity-server/configuring-roles-and-permissions.md">here</a> for information on Configuring roles and permissions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Attribute-based Access Control</p></td>
@@ -94,11 +94,10 @@ allow efficient enforcement of policies.
 WSO2 Identity Server uses XACML as a tool for controlling access to
 applications.
 
-**Recommended reading**
-
-For more information on XACML specifications and other related
-information, see [the OASIS
-website](http://oasis-open.org/committees/xacml) .
+!!! Info "Recommended reading"
+    For more information on XACML specifications and other related
+    information, see [the OASIS 
+    website](http://oasis-open.org/committees/xacml) .
 
   
 
@@ -162,9 +161,7 @@ help to achieve all of these goals, because XACML:
     
     	##### Attribute-based Access Control(ABAC)
     
-    	ABAC is an [access
-    	control](https://en.wikipedia.org/wiki/Access_control)
-    	paradigm whereby access rights are granted to users through the use of
+    	ABAC is an access control paradigm whereby access rights are granted to users through the use of
     	policies which combine attributes together. The policies can use any
     	type of attributes (user attributes, resource attributes, object,
     	environment attributes etc.). This model supports boolean logic , in
@@ -172,7 +169,6 @@ help to achieve all of these goals, because XACML:
     	request, the resource, and the action. For example: IF the requestor is
     	a manager, THEN allow read/write access to sensitive data.
     
-
 -   contains reference architecture which is provided to externalize the
     authorization system. The Policy Decision Point (PDP) offers
     authorization as a service in your infrastructure. Authorization
@@ -285,7 +281,7 @@ PDP is exposed via the Entitlement Admin Service with method name
 
 **Carbon Policy Finder**
 
-This module finds policies from different policy stores to evaluate a
+This module finds  from different policy stores to evaluate a
 XACML request. The following is a high-level diagram of how this works.
 
 ![Carbon policy finder](../../assets/img/concepts/carbon-policy-finder.png)
@@ -296,7 +292,7 @@ interface to write a new module and register it using the configuration
 file called `entitlement.properties.xml` in 
 `<IS_HOME>/repository/components/features/org.wso2.carbon.identity.xacml.server_5.8.145 directory`
 . By default, WSO2 Identity Server is shipped with a Carbon
-registry-based policy finder module that can retrieve policies from a
+registry-based policy finder module that can retrieve ppoliciesolicies from a
 registry collection, where the collection path is configurable using a
 property value in the entitlement.properties.xml file.
 
@@ -323,112 +319,99 @@ addition to policy retrieving and re-initializing.
 -   Policy combining algorithm
 	  
 	!!! note   
-        There are **Policy Combining Algorithms** which are used by *Policy
-        Sets* and **Rule Combining Algorithms** which are used by *Policies*
-        . Each of the algorithms mentioned below has its Policy Combining
-        algorithm and its Rule Combining algorithms as follows:
-    
-        -   Standard combining algorithms defined in XACML 3.0:
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-overrides
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-overrides
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:permit-overrides
-            -   urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable
-            -   urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable
-            -   urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:only-one-applicable
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:ordered-deny-overrides
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:ordered-permit-overrides
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit
-            -   urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-unless-deny
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit
-            -   urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:permit-unless-deny
-    
-        These algorithms are explained in detail as follows,
-    
-        -   **Deny Overrides:**  
-            This combining algorithm combines decisions in such a way that
-            if any decision is a Deny, then that decision wins.  
-            Deny overrides is one of the safest combining algorithms since
-            it favors a Deny decision. However, if none of the children
-            return a Deny decision, then the combining algorithm will never
-            produce a Deny.  
-              
-        -   **Permit Overrides:**  
-            This combining algorithm combines decisions in such a way that
-            if any decision is a Permit, then that decision wins.
-    
-        The permit overrides combining algorithm can be interesting when:
-    
-        At least one child must return a Permit for access to be granted
-        overall regardless of restrictions.
-    
-        One wants to return all the reasons why access is being denied. This
-        is what one could call a “greedy deny overrides”.Forinstanceifthe
-        reason for not being able to view a resource is that(a) you are not
-        the owner and (b) you are in the wrong department, then we could
-        rework the previous example as follows. When any of the deny reason
-        triggers, the response would be denied with all the applicable
-        reasons for access being denied:
-    
-        -   -   Policy Set (deny overrides): role==manager AND action==view
-                AND resourceType==resource
-                -   Policy 1 (permit overrides)
-                    -   Rule 1: deny if resourceOwner != userId +
-                        Advice(“you are not the owner of the resource”)
-                    -   Rule 2: deny if rsourceDepartment != userDepartment+
-                        Advice(“you are not in the same department as the
-                        resource)
-                -   Policy 2
-                    -   Rule 1: permit
-    
-        <!-- -->
-    
-        -   **First Applicable:**  
-            This combining algorithm combines decisions in such a way that
-            the final decision returned is the first one produced either of
-            Permit or Deny. **  
-            **  
-            First applicable is useful to shortcut policy evaluation. For
-            instance, if a policy set contains a long series of not
-            applicable policies and one applicable policy which returns
-            either of Permit or Deny, then if that policy comes first and
-            does produce Permit or Deny, the PDP will stop there and not
-            process the other siblings.  
-    
-        **  
-        **
-    
-        -   **Deny Unless Permit \| Permit Unless Deny:**  
-    
-            In XACML there are 4 possible decisions: Permit, Deny,
-            NotApplicable, and Indeterminate. Sometimes, it is desirable to
-            hide the NotApplicable and Indeterminate decisions to only allow
-            for Permit or Deny. It makes the PEP logic potentially simpler.
-    
-        **  
-        **
-    
-        -   **Only One Applicable:**
-    
-        This combining algorithm exists only for policy sets to combine
-        policy sets and policies. It cannot be used to combine rules. With
-        this combining algorithm, in order for either of a Permit or Deny to
-        be returned, then only one of the children must produce a valid
-        decision – whether Deny or Permit.
-    
-        -   **Ordered Deny Overrides \| Ordered Permit Overrides:**  
-            The ordered combining algorithms combine decisions in the same
-            way as their (unordered) cousins. In, addition they bring the
-            guarantee that policies, policy sets, and rules are considered
-            in the order in which they are defined. The need to define an
-            ordered combining algorithm stems from the fact the XACML
-            specification does not specify whether order matters in the
-            deny-overrides and permit-overrides combining algorithms.
-    
+		There are **Policy Combining Algorithms** which are used by *Policy
+		Sets* and **Rule Combining Algorithms** which are used by *Policies*
+		. Each of the algorithms mentioned below has its Policy Combining
+		algorithm and its Rule Combining algorithms as follows:
 
-<!-- -->
+		-   Standard combining algorithms defined in XACML 3.0:
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:deny-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:permit-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:1.0:rule-combining-algorithm:first-applicable
+			-   urn:oasis:names:<zero-width space>tc:xacml:1.0:policy-combining-algorithm:first-applicable
+			-   urn:oasis:names:<zero-width space>tc:xacml:1.0:policy-combining-algorithm:only-one-applicable
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:ordered-deny-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:ordered-permit-overrides
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-unless-deny
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit
+			-   urn:oasis:names:<zero-width space>tc:xacml:3.0:policy-combining-algorithm:permit-unless-deny
+	
+		These algorithms are explained in detail as follows,
+		
+		-   **Deny Overrides:**  
+			This combining algorithm combines decisions in such a way that
+			if any decision is a Deny, then that decision wins.  
+			Deny overrides is one of the safest combining algorithms since
+			it favors a Deny decision. However, if none of the children
+			return a Deny decision, then the combining algorithm will never
+			produce a Deny.  
+		  
+		-   **Permit Overrides:**  
+			This combining algorithm combines decisions in such a way that
+			if any decision is a Permit, then that decision wins.
+
+		The permit overrides combining algorithm can be interesting when:
+
+		At least one child must return a Permit for access to be granted
+		overall, regardless of restrictions.
+
+		One wants to return all the reasons why access is being denied. This
+		is what one could call a “greedy deny overrides”.For instance, if the
+		reason for not being able to view a resource is that (a) you are not
+		the owner and (b) you are in the wrong department, we could
+		rework the previous example as follows. 
+		When a deny reason triggers, the response would be denied with all the applicable
+		reasons for access being denied:
+
+		-   Policy Set (deny overrides): role==manager AND action==view
+			AND resourceType==resource
+			-   Policy 1 (permit overrides)
+				-   Rule 1: deny if resourceOwner != userId +
+						Advice(“you are not the owner of the resource”)
+				-   Rule 2: deny if rsourceDepartment != userDepartment+
+						Advice(“you are not in the same department as the
+						resource)
+			-   Policy 2
+				-   Rule 1: permit
+ 
+		-   **First Applicable:**  
+			This combining algorithm combines decisions in such a way that
+			the final decision returned is the first one produced either of
+			Permit or Deny. 
+			First applicable is useful to shortcut policy evaluation. For
+			instance, if a policy set contains a long series of not
+			applicable policies and one applicable policy which returns
+			either of Permit or Deny, then if that policy comes first and
+			does produce Permit or Deny, the PDP will stop there and not
+			process the other siblings.  
+
+		-   **Deny Unless Permit \| Permit Unless Deny:**  
+			In XACML there are 4 possible decisions: Permit, Deny,
+			NotApplicable, and Indeterminate. Sometimes, it is desirable to
+			hide the NotApplicable and Indeterminate decisions to only allow
+			for Permit or Deny. It makes the PEP logic potentially simpler.
+
+		-   **Only One Applicable:**
+			This combining algorithm exists only for policy sets to combine
+			policy sets and policies. It cannot be used to combine rules. With
+			this combining algorithm, in order for either of a Permit or Deny to
+			be returned, then only one of the children must produce a valid
+			decision – whether Deny or Permit.
+
+		-   **Ordered Deny Overrides \| Ordered Permit Overrides:**  
+			The ordered combining algorithms combine decisions in the same
+			way as their (unordered) cousins. In, addition they bring the
+			guarantee that policies, policy sets, and rules are considered
+			in the order in which they are defined. The need to define an
+			ordered combining algorithm stems from the fact the XACML
+			specification does not specify whether order matters in the
+			deny-overrides and permit-overrides combining algorithms.
+    
 
 -   How to retrieve referenced policies
 
@@ -471,7 +454,7 @@ PIPResourceFinder) that communicates with Carbon registry resources.
 
 ### XACML policy language structure and syntax
 
-In order to render an authorization decision , it is possible to combine
+In order to render an authorization decision, it is possible to combine
 the two separate policies to form the single policy applicable to the
 request.
 
@@ -479,18 +462,18 @@ XACML defines three top-level policy elements:
 
 -   Element that contains a *boolean* expression that can be
     evaluated in isolation, but that is not intended to be accessed in
-    isolation by a PDP .  So, it is not intended to form the basis of an
-    authorization decision by itself.  It is intended to exist in
-    isolation only within an XACML PAP , where it may form the basic
+    isolation by a PDP. So, it is not intended to form the basis of an
+    authorization decision by itself. It is intended to exist in
+    isolation only within an XACML PAP, where it may form the basic
     unit of management.  
 -   Element that contains a set of elements and a specified procedure
-    for combining the results of their evaluation.  It is the basic unit
-    of policy used by the PDP , and so it is intended to form the basis
+    for combining the results of their evaluation. It is the basic unit
+    of policy used by the PDP, and so it is intended to form the basis
     of an authorization decision.  
 -   Element that contains a set of or other elements and a specified
-    procedure for combining the results of their evaluation.  It is the
+    procedure for combining the results of their evaluation. It is the
     standard means for combining separate policies into a single
-    combined policy .
+    combined policy.
 
 As XACML is used in Attribute-based Access Controlling, in XACML all the
 attributes are categorized into the following four main categories: But
@@ -501,24 +484,23 @@ from XACML 3.0, custom categories are also supported.
 -   Action
 -   Environment
 
-A Rule is the most elementary unit of policy .  It may exist in
+A Rule is the most elementary unit of policy. It may exist in
 isolation only within one of the major actors of the XACML domain. The
 main components of a Rule are as follows:
 
--   This defines the set of requests to which the rule is intended to
+-   <<zero-width space>Target<zero-width space>>- This defines the set of requests to which the rule is intended to
     apply in the form of a logical expression on attributes in the
     request.
--   The effect of the rule indicates the rule -writer's intended
-    consequence of a "True" evaluation of the rule .  Two values are
-    allowed: "Permit" and "Deny".
--   A Boolean expression that refines the applicability of the rule
-    beyond the predicates implied by its target .  Therefore, it may be
+-   <<zero-width space>Effect<zero-width space>>- The effect of the rule indicates the rule-writer's intended
+    consequence of a "True" evaluation of the rule. Two values are allowed: "Permit" and "Deny".
+-   <<zero-width space>Condition<zero-width space>>- A Boolean expression that refines the applicability of the rule
+    beyond the predicates implied by its target. Therefore, it may be
     absent.
--   Obligation expressions may be added by the writer of the policy.
+-   <<zero-width space>ObligationExpressions<zero-width space>>- Obligation expressions may be added by the writer of the policy.
     When a PDP evaluates a policy containing obligation expressions, it
     evaluates the obligation expressions into obligations and returns
     certain of those obligations to the PEP in the response context.
--   &lt; `          AttributeSelector         ` &gt; - This allows the
+-   <<zero-width space>AttributeSelector<zero-width space>>- This allows the
     policy to specify an attribute with given identifier, category and
     data type. The AttributeSelector on the other hand, provides a mean
     to lookup the value of attributes using a XPath query by specifying
@@ -710,8 +692,8 @@ action” by using the `         Target        ` element.
 ```
 
 XACML 3.0 has an `AND` relationship between “ **foo** ”
-resource and “ **bar1** ″ role and an `OR` relationship
-between “ **bar2** ″ action. So we cannot define something as “Target
+resource and **bar1** role and an `OR` relationship
+between **bar2** action. So we cannot define something as “Target
 would be matched, when Bob can access **foo** resource and do **bar1**
 action or do **bar2** action”.
 
@@ -849,19 +831,18 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
     Following are the supported identifier URIs and the short name for
     each:
 
-    | Identifier URI                                                       | Short name          |
-    |----------------------------------------------------------------------|---------------------|
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:resource             | Resource            |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:action               | Action              |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:environment          | Environment         |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:access-subject       | AccessSubject       |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:recipient-subject    | RecipientSubject    |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:intermediary-subject | IntermediarySubject |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:codebase             | Codebase            |
-    | urn:oasis:names:tc:xacml:3.0:attribute-category:requesting-machine   | RequestingMachine   |
+    | Identifier URI                                                                         | Short name          |
+    |----------------------------------------------------------------------------------------|---------------------|
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:resource             | Resource            |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:action               | Action              |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:environment          | Environment         |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:access-subject       | AccessSubject       |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:recipient-subject    | RecipientSubject    |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:intermediary-subject | IntermediarySubject |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:codebase             | Codebase            |
+    | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:requesting-machine   | RequestingMachine   |
 
--   The JSON format supports the fully qualified XACML data-type URI,
-    and also supports the short name of the data-type.
+-   ### <a name="shortnames"></a>The JSON format supports the fully qualified XACML data-type URI, and also supports the short name of the data-type.
 
     | XACML data type identifier                                                                                                               | JSON shorthand type code | Mapping/inference rule                                                                                                 |
     |------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -872,16 +853,16 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
     | `                                                http://www.w3.org/2001/XMLSchema#time                                             `     | time                     | None. Inference must fail.                                                                                             |
     | `                                                http://www.w3.org/2001/XMLSchema#date                                             `     | date                     | None. Inference must fail.                                                                                             |
     | `                                                http://www.w3.org/2001/XMLSchema#dateTime                                             ` | dateTime                 | None. Inference must fail.                                                                                             |
-    | http://www.w3.org/2001/XMLSchema\#dayTimeDuration                                                                                        | dayTimeDuration          | None. Inference must fail.                                                                                             |
-    | http://www.w3.org/2001/XMLSchema\#yearMonthDuration                                                                                      | yearMonthDuration        | None. Inference must fail.                                                                                             |
-    | http://www.w3.org/2001/XMLSchema\#anyURI                                                                                                 | anyURI                   | None. Inference must fail.                                                                                             |
-    | http://www.w3.org/2001/XMLSchema\#hexBinary                                                                                              | hexBinary                | None. Inference must fail.                                                                                             |
-    | http://www.w3.org/2001/XMLSchema\#base64Binary                                                                                           | base64Binary             | None. Inference must fail.                                                                                             |
-    | urn:oasis:names:tc:xacml:1.0:data-type:rfc822Name                                                                                        | rfc822Name               | None. Inference must fail.                                                                                             |
-    | urn:oasis:names:tc:xacml:1.0:data-type:x500Name                                                                                          | x500Name                 | None. Inference must fail.                                                                                             |
-    | urn:oasis:names:tc:xacml:1.0:data-type:ipAddress                                                                                         | ipAddress                | None. Inference must fail.                                                                                             |
-    | urn:oasis:names:tc:xacml:1.0:data-type:dnsName                                                                                           | dnsName                  | None. Inference must fail.                                                                                             |
-    | urn:oasis:names:tc:xacml:1.0:data-type:xpathExpression                                                                                   | xpathExpression          | None. Inference must fail.                                                                                             |
+    | `                                                http://www.w3.org/2001/XMLSchema\#dayTimeDuration`                                      | dayTimeDuration          | None. Inference must fail.                                                                                             |
+    | `												   http://www.w3.org/2001/XMLSchema\#yearMonthDuration`                                    | yearMonthDuration        | None. Inference must fail.                                                                                             |
+    | `												   http://www.w3.org/2001/XMLSchema\#anyURI`                                               | anyURI                   | None. Inference must fail.                                                                                             |
+    | `												   http://www.w3.org/2001/XMLSchema\#hexBinary`                                            | hexBinary                | None. Inference must fail.                                                                                             |
+    | `												   http://www.w3.org/2001/XMLSchema\#base64Binary`                                         | base64Binary             | None. Inference must fail.                                                                                             |
+    | urn:oasis:names:<zero-width space>tc:xacml:1.0:data-type:rfc822Name                                                                                        | rfc822Name               | None. Inference must fail.                                                                                             |
+    | urn:oasis:names:<zero-width space>tc:xacml:1.0:data-type:x500Name                                                                                          | x500Name                 | None. Inference must fail.                                                                                             |
+    | urn:oasis:names:<zero-width space>tc:xacml:1.0:data-type:ipAddress                                                                                         | ipAddress                | None. Inference must fail.                                                                                             |
+    | urn:oasis:names:<zero-width space>tc:xacml:1.0:data-type:dnsName                                                                                           | dnsName                  | None. Inference must fail.                                                                                             |
+    | urn:oasis:names:<zero-width space>tc:xacml:1.0:data-type:xpathExpression                                                                                   | xpathExpression          | None. Inference must fail.                                                                                             |
 
 -   `           xpathExpression          ` data-type values are
     represented as JSON objects, and each object contains the following
@@ -889,7 +870,7 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
 
     | Attribute     | Type                            | Required                                                                                                                         | Default value |
     |---------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------|
-    | XPathCategory | URI                             | Yes. You can use the [short names defined for identifier URIs](#AccessControlandEntitlementManagement-shortName) as values here. | None          |
+    | XPathCategory | URI                             | Yes. You can use the [short names defined for identifier URIs](#shortnames) as values here. | None          |
     | Namespaces    | Array of namespace declarations | No                                                                                                                               | None          |
     | XPath         | String                          | Yes                                                                                                                              | None          |
 
@@ -1045,8 +1026,7 @@ above request:
 For a tutorial that demonstrate how WSO2 IS supports fine-grained
 authorization using XACML requests in JSON format, see [Fine-grained
 Authorization using XACML Requests in JSON
-Format](https://docs.wso2.com/display/IS570/Fine-grained+Authorization+using+XACML+Requests+in+JSON+Format)
-.
+Format](/tutorials/fine-grained-authorization-using-xacml-requests-in-json-format).
 
 #### Administrative Delegation Profile
 
