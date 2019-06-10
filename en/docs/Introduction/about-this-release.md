@@ -7,30 +7,25 @@ version **5.7.0,** and contains the following new features and
 enhancements:
 
 -   Support for [OpenID Connect backchannel
-    logout](_OpenID_Connect_Single_Logout_) .
+    logout](/using-wso2-identity-server/openid-connect-single-logout) .
 -   Support for [SAML frontchannel
-    logout](_Configuring_SAML2_Web_Single-Sign-On_) .
+    logout](/tutorials/configuring-SAML-2.0-Web-SSO/) .
 -   Improvements for [product
-    observability](_Working_with_Product_Observability_) .
+    observability](/using-wso2-identity-server/working-with-product-observability) .
 -   Support for [X509 certificate-based
-    authentication](https://docs.wso2.com/display/ISCONNECTORS/Configuring+X509+Authenticator+with+SSL+Termination)
+    authentication](/connectors/configuring-x509-authenticator-with-ssl-termination)
     for passing the client certificate in the request header from the
     proxy over SSL tunneling.
--   Support for i [ssuing access tokens per token
-    request](_Issuing_New_Tokens_Per_Request_) .
+-   Support for [issuing access tokens per token
+    request](/using-wso2-identity-server/issuing-new-tokens-per-request) .
 -   Support for [configuring a JWKS endpoint for a OAuth or OIDC based
-    service provider](_Private_Key_JWT_Client_Authentication_for_OIDC_)
-    .
+    service provider](/using-wso2-identity-server/private-key-jwt-client-authentication-for-oidc).
 -   Support for [configuring SAML metadata validity period for the
-    resident identity
-    provider](Adding-and-Configuring-an-Identity-Provider_103329675.html#AddingandConfiguringanIdentityProvider-ExportingSAML2metadataoftheresidentIdP)
-    .
--   Includes [OAuth transaction logs](_OAuth_Transaction_Logs_) for
+    resident identity provider](/using-wso2-identity-server/adding-and-configuring-an-identity-provider/#exporting-saml2-metadata-of-the-resident-idP)
+-   Includes [OAuth transaction logs](/using-wso2-identity-server/oauth-transaction-logs) for
     token generation and introspection.
-
--   Supports recaptcha for [password
-    recovery](_Configuring_reCaptcha_for_Password_Recovery_) and
-    [username recovery](_Configuring_reCaptcha_for_Username_Recovery_) .
+-   Supports recaptcha for [password recovery](/using-wso2-identity-server/configuring-reCaptcha-for-password-recovery) and
+    [username recovery](/using-wso2-identity-server/configuring-reCaptcha-for-username-recovery).
 
 ### What has changed in this release
 
@@ -42,7 +37,7 @@ changed in this release.The new implementation consists of event
 handlers that subscribe to authentication events.
 
 For more information, see [Migrating Data
-Publishers](_Migrating_Data_Publishers_) .
+Publishers](/using-wso2-identity-server/migrating-data-publishers) .
 
 ### Compatible versions
 

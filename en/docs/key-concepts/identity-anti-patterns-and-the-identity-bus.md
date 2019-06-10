@@ -82,9 +82,9 @@ pattern.
     provider registration. In the Identity Bus, each service provider
     can be configured based on how it authenticates users.
 4.  **Claim transformations.** Your service provider may read user's
-    email address from the " http://sp1.org/claims/email " attribute
+    email address from the "http://sp1.org/claims/email" attribute
     id - but the identity provider of the user may send it as "
-    http://idp1.org/claims/emai " . Identity bus can transform the
+    http://idp1.org/claims/emai". Identity bus can transform the
     claims it receives from the identity provider to the format expected
     by the service provider.
 5.  **Role mapping.** Your service provider needs to authorize users

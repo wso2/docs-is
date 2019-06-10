@@ -6,18 +6,6 @@ as you use the product. This serves to provide an introduction into
 concepts in the identity and access management domain and also enhance
 understanding of these concepts.
 
-------------------------------------------------------------------------
-
-\[ [Single Sign-On and Identity
-Federation](#KeyConcepts-SingleSign-OnandIdentityFederation) \] \[
-[Identity Provisioning and its
-Standards](#KeyConcepts-IdentityProvisioninganditsStandards) \] \[
-[Access Control and Entitlement
-Management](#KeyConcepts-AccessControlandEntitlementManagement) \] \[
-[Identity Anti-patterns and the Identity
-Bus](#KeyConcepts-IdentityAnti-patternsandtheIdentityBus) \]
-
-------------------------------------------------------------------------
 
 ### Single Sign-On and Identity Federation
 
@@ -27,11 +15,13 @@ applications, and also list out the various specifications supported by
 the Identity Server as a solution. Click the button below to view this
 content.
 
-[configure SSO and Identity
-Federation](/display/IS580/Single+Sign-On+and+Identity+Federation){.contentf-button
-.aui-button}
+Lorem ipsum dolor sit amet.
 
-  
+[button url="http://www.google.com"]
+
+[configure SSO and Identity
+Federation](/key-concepts/single-sign-on-and-identity-federation){.contentf-button
+.aui-button}
 
 ------------------------------------------------------------------------
 
@@ -44,7 +34,7 @@ also delves into the history of provisioning standards and how these
 progressed over time. Click the button below to view this content.
 
 [configure Identity Provisioning and its
-Standards](/display/IS580/Identity+Provisioning+and+its+Standards){.contentf-button
+Standards](/key-concepts/identity-provisioning-and-its-standards){.contentf-button
 .aui-button}
 
   
@@ -60,7 +50,7 @@ including the concept, terminology, and architecture. Click the button
 below to view this content.
 
 [configure Access Control and Entitlement
-Management](/display/IS580/Access+Control+and+Entitlement+Management){.contentf-button
+Management](/key-concepts/access-control-and-entitlement-management){.contentf-button
 .aui-button}
 
   
@@ -75,7 +65,7 @@ within the WSO2 Identity Server solves this problem. Click the button
 below to view this content.
 
 [configure Identity Anti-patterns and the Identity
-Bus](/display/IS580/Identity+Anti-patterns+and+the+Identity+Bus){.contentf-button
+Bus](/key-concepts/identity-anti-patterns-and-the-identity-bus){.contentf-button
 .aui-button}
 
   
