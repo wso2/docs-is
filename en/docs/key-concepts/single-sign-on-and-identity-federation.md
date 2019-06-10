@@ -38,7 +38,6 @@ depicts this flow.
 
 ![Authentication in a non SSO environment](../../assets/img/concepts/authentication-in-non-sso.png)
 
-***Figure** : Authentication in a non SSO environment*
 
 In the above figure, the users access **Application 1** first and then
 **Application 2** using the same browser. The user is authenticated in
@@ -53,7 +52,6 @@ environment.
 
 ![Authentication in a SSO environment](../../assets/img/concepts/authentication-in-sso.png)
 
-***Figure** : Authentication in a SSO environment*
 
 In this second figure, the users access **Application 1** first followed
 by **Application 2** . Once again, the users use the same browser to
@@ -93,10 +91,10 @@ best examples. Try this simple exercise.
 
     !!! tip
     
-        **Tip** : Notice the URL of the web browser. Each time you access an
+        Notice the URL of the web browser. Each time you access an
         application, you see that you are being redirected to
-        <https://accounts.google.com/ServiceLogin> and return immediately
-        back to the website.
+        <https://accounts.google.com/ServiceLogin> and returned immediately
+        to the website.
     
 
 Single Sign-On (SSO) allows you to sign in only once but provides access
@@ -182,8 +180,6 @@ The following diagram depicts this flow.
 
 ![SAML 2.0 authentication flow](../../assets/img/concepts/saml-authentication-flow.png)
 
-***Figure** : SAML 2.0 authentication flow*
-
 The message MUST contain an element that uniquely identifies the service
 provider who created the message. Optionally, the message may contain
 elements such as Issuer, NameIDPolicy, etc. More information regarding
@@ -198,7 +194,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 	   Service providers act as SAML assertion consumers. They have two basic
 	   functions:
 
-    	   -   Create messages and redirect users to the identity provider with the
+       -   Create messages and redirect users to the identity provider with the
     	   created message.
 	   -   Process messages from the identity provider and make decisions based
     	   on them.
@@ -236,7 +232,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 	   is passed to the `             SamlConsumer            ` instance for
 	   processing.
 
-	   ** &lt;AuthnRequest&gt; message**
+	   **AuthnRequest message**
 
 	   To create an `             <AuthnRequest>            ` message using the
 	   OpenSAML library, do the following.
@@ -282,6 +278,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 	   5.  Next encode the message.
 
     	   ``` java
+    	   
         	   Marshaller marshaller = 	Configuration.getMarshallerFactory().getMarshaller(authnRequest);
         	   Element authDOM = marshaller.marshall(authnRequest);
     
@@ -295,9 +292,10 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
         	   deflaterOutputStream.write(requestMessage.getBytes());
         	   deflaterOutputStream.close();
                  
-        /* Encoding the compressed message */
+               /* Encoding the compressed message */
         	   String encodedRequestMessage = Base64.encodeBytes(byteArrayOutputStream.toByteArray(), Base64.DONT_BREAK_LINES);
         	   String encodedAuthnRequest = URLEncoder.encode(encodedRequestMessage,"UTF-8").trim();
+    	   
     	   ```
 
 	   6.  Construct the redirection URL.
@@ -312,7 +310,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
         	   response.sendRedirect(redirectionUrl);
     	   ```
 
-	   ** &lt;Response&gt; message**
+	   **Response message**
 
 	   The Identity provider must use HTTP POST or artifact binding to transfer
 	   the `             <SAMLResponse>            ` message to the service
@@ -378,19 +376,19 @@ The `         RelayState        ` parameter must be URL encoded. This
 request will authenticate and redirect the user to the URL in the
 RelayState parameter itself.
 
-Either you could have service provider initiated SSO only, or service
-provider initiated SSO and identity provider initiated SSO. You cannot
-have only identity provider initiated SSO. By design, service provider
-initiated SSO is more restrictive and secure. If a service provider is
-allowed to do identity provider initiated SSO, it would automatically
-imply that this service provider is allowed to do service provider
-initiated SSO as well.
+!!! Info
+    Either you could have service provider initiated SSO only, or service
+    provider initiated SSO and identity provider initiated SSO. You cannot
+    have only identity provider initiated SSO. By design, service provider
+    initiated SSO is more restrictive and secure. If a service provider is
+    allowed to do identity provider initiated SSO, it would automatically
+    imply that this service provider is allowed to do service provider
+    initiated SSO as well.
 
-**Recommended reading**
-
-See [SAML 2.0 specification
-documentation](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
-for more information.
+!!! Info "Recommended reading"
+    See [SAML 2.0 specification
+    documentation](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
+    for more information.
 
   
 
@@ -406,11 +404,10 @@ Security Token Service (STS) by providing mechanisms that facilitate
 interactions. In the WS-Federation Model, an Identity Provider is a
 Security Token Service (STS).
 
-**Recommended reading**
-
-See [WS-Federation specification
-documentation](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html)
-for more information.
+!!! Info "Recommended reading"
+    See [WS-Federation specification
+    documentation](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html)
+    for more information.
 
   
 
@@ -431,13 +428,10 @@ extensible, allowing participants to use optional features such as
 encryption of identity data, discovery of OpenID Providers, and session
 management, when it makes sense for them.
 
-**Recommended reading**
-
-See [OpenID Connect specification
-documentation](http://openid.net/specs/openid-connect-core-1_0.html) for
-more information.
-
-  
+!!! Info "Recommended reading"
+    See [OpenID Connect specification
+    documentation](http://openid.net/specs/openid-connect-core-1_0.html) for
+    more information.
 
 ------------------------------------------------------------------------
 
@@ -468,14 +462,13 @@ information about the subject. These claims can be extracted from the
 profiles or through custom claim callbacks which can be registered to
 the Carbon runtime.
 
-**Related Topics**
-
--   See [WS-Trust specification
-    documentation](http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html)
-    for more information.
--   See [Configuring WS-Trust Security Token
-    Service](https://docs.wso2.com/display/IS570/Configuring+WS-Trust+Security+Token+Service)
-    to configure WS-Trust in WSO2 Identity Server.
+!!! Info "Related Topics"
+    -   See [WS-Trust specification
+        documentation](http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html)
+        for more information.
+    -   See [Configuring WS-Trust Security Token
+        Service](https://docs.wso2.com/display/IS570/Configuring+WS-Trust+Security+Token+Service)
+        to configure WS-Trust in WSO2 Identity Server.
 
   
 
