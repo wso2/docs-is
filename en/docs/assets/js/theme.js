@@ -185,7 +185,6 @@ tocBtn.onclick = function () {
 /* 
  * TOC position highlight on scroll
  */
-
 var observeeList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary .md-nav__link");
 var listElems = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li");
 var config = { attributes: true, childList: true, subtree: true };
@@ -199,6 +198,7 @@ var callback = function(mutationsList, observer) {
         }
     }
 };
+
 var observer = new MutationObserver(callback);
 
 listElems[0].classList.add('active');
@@ -256,7 +256,6 @@ function scrollerPosition(mutation) {
 /* 
  * Handle edit icon on scroll
  */
-
 var editIcon = document.getElementById('editIcon');
 
 window.addEventListener('scroll', function() {
