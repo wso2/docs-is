@@ -169,3 +169,100 @@ request.send();
  * Initialize highlightjs 
  */
 hljs.initHighlightingOnLoad();
+
+/* 
+ * Handle TOC toggle 
+ */
+var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
+var tocClass = document.getElementsByTagName('main')[0];
+
+tocBtn.onclick = function () {
+    event.preventDefault();
+    tocClass.classList.toggle('hide-toc');
+};
+
+
+/* 
+ * TOC position highlight on scroll
+ */
+var observeeList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary .md-nav__link");
+var listElems = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li");
+var config = { attributes: true, childList: true, subtree: true };
+
+var callback = function(mutationsList, observer) {
+    for(var mutation of mutationsList) {
+        if (mutation.type == 'attributes') {
+            mutation.target.parentNode.setAttribute(mutation.attributeName, 
+                mutation.target.getAttribute(mutation.attributeName));
+            scrollerPosition(mutation);
+        }
+    }
+};
+
+var observer = new MutationObserver(callback);
+
+listElems[0].classList.add('active');
+
+for (var i = 0; i < observeeList.length; i++) {
+    var el = observeeList[i];
+
+    observer.observe(el, config); 
+
+    el.onclick = function(e) {
+        listElems.forEach(function(elm) {
+            if (elm.classList) {
+                elm.classList.remove('active');
+            }
+        });
+
+        e.target.parentNode.classList.add('active');
+    }
+};
+
+function scrollerPosition(mutation) {
+    var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > " +
+        ".md-nav__link[data-md-state='blur']");
+
+    listElems.forEach(function(el) {
+        if (el.classList) {
+            el.classList.remove('active');
+        }
+    });
+    
+    if (blurList.length > 0) {
+        if (mutation.target.getAttribute('data-md-state') === 'blur') {
+            if (mutation.target.parentNode.querySelector('ul li')) {
+                mutation.target.parentNode.querySelector('ul li').classList.add('active');
+            } else if (mutation.target.parentNode.nextElementSibling) {
+                mutation.target.parentNode.nextElementSibling.classList.add('active');
+            } else {
+                if(mutation.target.parentNode.parentNode){
+                    mutation.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling.classList.add('active');
+                }
+            }
+        }
+        else {
+            mutation.target.parentNode.classList.add('active');
+        }
+    }
+    else {
+        if (listElems.length > 0) {
+            listElems[0].classList.add('active');
+        }
+    }
+};
+
+
+/* 
+ * Handle edit icon on scroll
+ */
+var editIcon = document.getElementById('editIcon');
+
+window.addEventListener('scroll', function() {
+    var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    if (scrollPosition >= 90) {
+        editIcon.classList.add('active');
+    } else {
+        editIcon.classList.remove('active');
+    }
+});
