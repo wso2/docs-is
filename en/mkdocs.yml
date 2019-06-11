@@ -21,9 +21,9 @@ site_author: WSO2
 site_url: https://wso2.com/
 
 # Repository
-repo_name: gomathyk/docs-is
-repo_url: https://github.com/gomathyk/docs-is.git
-edit_uri: https://github.com/gomathyk/docs-is.git/edit/master/en/docs/
+repo_name: wso2/docs-is
+repo_url: https://github.com/wso2/docs-is
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -117,9 +117,9 @@ nav:
     - 'Single Sign-On':
       - 'Single Sign-On': tutorials/single-Sign-On.md
       - 'Configuring Single Sign-On': 
-        - 'Configuring Single Sign-On': tutorials/configuring-Single-Sign-On.md
-        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-reCaptcha-for-Single-Sign-On.md
-      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-Sign-On-for-Native-iOS-Applications-with-WSO2-Identity-Server.md
+        - 'Configuring Single Sign-On': tutorials/configuring-single-sign-on.md
+        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-recaptcha-for-single-sign-on.md
+      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
       - 'SAML 2.0 Web SSO':
         - 'SAML 2.0 Web SSO': tutorials/sAML-2.0-Web-SSO.md
         - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML-2.0-Web-SSO.md
@@ -215,7 +215,6 @@ nav:
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
       - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md
   - 'Using WSO2 Identity Server': 
-    - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
       - 'Migration Guide':
@@ -857,8 +856,6 @@ nav:
       - 'Supported Cipher Suites': admin-guide/supported-Cipher-Suites.md
       - 'Directory Structure of WSO2 Products': admin-guide/directory-Structure-of-WSO2-Products.md
       - 'WSO2 Patch Application Process': admin-guide/wSO2-Patch-Application-Process.md
-  - 'FAQ':
-    - 'FAQ': faq/fAQ.md
   - '': page-not-found.md
      
 # Extensions
