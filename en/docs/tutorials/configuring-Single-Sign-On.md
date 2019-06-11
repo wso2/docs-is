@@ -22,7 +22,7 @@ provider.
 	  [saml-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-	  os.pdf)
 	  specification.
 
-!!! tip
+!!! Note
 
     Before you begin!
 
@@ -30,7 +30,7 @@ provider.
         sample Travelocity application is used in this use case. Therefore,
         make sure to [download the samples](/using-wso2-identity-server/downloading-a-sample) before
         you begin.
-    -   [Download Tomcat 7.x](https://tomcat.apache.org/download-70.cgi) .
+    -   [Download Tomcat 7.x](https://tomcat.apache.org/download-70.cgi).
         The  samples are written on Servlet 3.0. Therefore, they need to be
         deployed on Tomcat 7.x.
     -   Install Apache Maven. For more information, see [Installation
@@ -97,7 +97,7 @@ the steps below.
     `            target           ` directory. Deploy this sample web
     app on a web container. To do this, use the Apache Tomcat server.
 
-    !!! tip
+    !!! info
 
         Since this sample is written based on Servlet 3.0 it needs to be
         deployed on [Tomcat 7.x](https://tomcat.apache.org/download-70.cgi)
@@ -113,7 +113,7 @@ the steps below.
         directory.
     3.  Start the Apache Tomcat server.
 
-!!! tip
+!!! Note
 
     If you wish to change properties like the issuer ID, consumer URL, and
     IdP URL, you can edit the **travelocity.properties** file found in the
@@ -160,7 +160,7 @@ provider. The following steps instruct you on how to do this.
     database and can be directly added via the management console using
     the **Application Certificate** field.
 
-    !!! tip
+    !!! info
 
         If the **Application Certificate** field is left blank, WSO2 
         Identity server is backward compatible and follows
@@ -224,8 +224,8 @@ provider. The following steps instruct you on how to do this.
 	      </tr>
 	      <tr class="even">
 	         <td><strong>NameID format</strong></td>
-	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
-	         <td><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                  </code></td>
+	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
+	         <td><code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code></td>
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Certificate Alias</strong></td>
@@ -246,7 +246,11 @@ provider. The following steps instruct you on how to do this.
 	         <td><strong>Response Signing Algorithm</strong></td>
 	         <td>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding.<br />
 	            <br />
-	            The default value can be configured in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                  </code> file, in the <code>                   SSOService                  </code> element with <code>                   SAMLDefaultSigningAlgorithmURI                  </code> tag. If it is not provided, the default algorithm is RSA­SHA 1, at URI ‘ <code>                   http://www.w3.org/2000/09/xmldsig#rsasha1                  </code> ’.
+	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided, the default algorithm is RSA­SHA 1, at URI  <code>                   http://www.w3.org/2000/09/xmldsig#rsasha1                  </code> .
+```
+[saml] 
+signing_alg= 
+```
 	         </td>
 	         <td><code>                   http://www.w3.org/2000/09/xmldsig#rsasha1                  </code></td>
 	      </tr>
@@ -254,7 +258,11 @@ provider. The following steps instruct you on how to do this.
 	         <td><strong>Response Digest Algorithm</strong></td>
 	         <td>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding.<br />
 	            <br />
-	            The default value can be configured in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                  </code> file, in the <code>                   SSOService                  </code> element with <code>                   SAMLDefaultDigestAlgorithmURI                  </code> tag. If it is not provided the default algorithm is SHA 1, at URI ‘ <code>                   http://www.w3.org/2000/09/xmldsig#sha1                  </code> ’.
+	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is SHA 1, at URI <code>                   http://www.w3.org/2000/09/xmldsig#sha1                  </code> .
+```
+[saml] 
+digest_alg= 
+```
 	         </td>
 	         <td><code>                   http://www.w3.org/2000/09/xmldsig#sha1                  </code></td>
 	      </tr>
@@ -262,13 +270,22 @@ provider. The following steps instruct you on how to do this.
 	         <td><strong>Assertion Encryption Algorithm</strong></td>
 	         <td>The algorithm that the SAML2 assertion is encrypted.<br />
 	            <br />
-	            The default value can be configured in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                  </code> file, in the <code>                   SSOService                  </code> element with the <code>                   SAMLDefaultAssertionEncryptionAlgorithmURI                  </code> tag. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
+	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
+```
+[saml] 
+assertion_encryption_alg= 
+```
 	         </td>
 	         <td><code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code></td>
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Key Encryption Algorithm</strong></td>
-	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                  </code> file, in the <code>                   SSOService                  </code> element with the <code>                   SAMLDefaultKeyEncryptionAlgorithmURI                  </code> tag. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .</td>
+	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
+```
+[saml] 
+key_encryption_alg= 
+```
+</td>
 	         <td><code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code></td>
 	      </tr>
 	      <tr class="even">
@@ -367,18 +384,18 @@ provider. The following steps instruct you on how to do this.
 	      </tr>
 	      <tr class="even">
 	         <td><strong>Enable Assertion Query Request Profile</strong></td>
-	         <td>Enable Assertion Query Request Profile can used for query assertions following SAML2.0 specification. This can query assertions that are persisted to the database when you login to the service provider application. For more information, see <a href="_Querying_SAML_Assertions_">Querying SAML Assertions</a> .</td>
+	         <td>Enable Assertion Query Request Profile can used for query assertions following SAML2.0 specification. This can query assertions that are persisted to the database when you login to the service provider application. For more information, see <a href="/tutorials/querying-saml-asssertions">Querying SAML Assertions</a> .</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Enable SAML2 Artifact Binding</strong></td>
-	         <td>This is to define SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see <a href="_Configuring_SAML_2.0_Artifact_Binding_">Configuring SAML 2.0 Artifact Binding</a> .</td>
+	         <td>This is to define SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see <a href="/tutorials/configuring-saml-2.0-artifact-binding">Configuring SAML 2.0 Artifact Binding</a> .</td>
 	         <td>Unselected</td>
 	      </tr>
 	   </tbody>
 	</table>
 
-!!! Tip
+!!! Note
 		To add the correct tenant domain with the username as the
 		subject identifier in tenant mode,
 
@@ -390,31 +407,27 @@ provider. The following steps instruct you on how to do this.
 		-   Select **Use user store domain in local subject identifier**
 		    to append the user store domain that the user resides in the
 		    local subject identifier.  
-		    ![](attachments/103330852/103330885.png){width="468"
-		    height="250"}
+		    ![local-and-outbound-config](/assets/img/tutorials/local-and-outbound-config.png)
 
-		!!! note
 		    For **super tenant mode** , this step is not required and the two
 		    options mentioned above should remain disabled by default.
 
-8.  Click **Update** to register.
+### Configuring claims
 
-### Configuring Claims
+1. Configure claims for the service provider. To do this, do the
+   following.
 
-1.  Configure claims for the service provider. To do this, do the
-    following. For more information on configuring this, see
-    [Configuring Claims for a Service
-    Provider](_Configuring_Claims_for_a_Service_Provider_) .
-    1.  Expand the **Claim Configuration** section in the service
-        provider form.
-    2.  You can select the claims that must be sent to the service
-        provider. If you just want to send them as claim URIs, select
-        **Use Local Claim Dialect** .
-    3.  Alternatively, if you want to define new claim URIs for the
+    !!! Info
+        For more information on configuring this, see
+        [Configuring Claims for a Service
+        Provider](/using-wso2-identity-server/configuring-claims-for-a-service-provider).
+1. Expand the **Claim Configuration** section in the service provider form.
+2. You can select the claims that must be sent to the service provider. If you just want to send them as claim URIs, select **Use Local Claim Dialect** .
+3. Alternatively, if you want to define new claim URIs for the
         attributes that are sent, you can define any values for them and
         map these values with the claim URIs local to WSO2.  
 
-        For example, you want to set the email address of the user as
+        For example, if you want to set the email address of the user as
         `            http://serviceprovider.org/claims/emailaddress           `
         claim URI, you can define it here and map it in to
         `            http://wso2.org/claims/emailaddress           ` .
@@ -422,14 +435,18 @@ provider. The following steps instruct you on how to do this.
         option and click **Add Claim URI** . Enter the **Service
         Provider Claim** URIs and select the matching local claim from
         the drop down. You can also mark them as a **Requested Claim**
-        or a **Mandatory Claim** . For more information, see
+        or a **Mandatory Claim** .
+
+        For more information, see
         [Configuring Claims for a Service
-        Provider](_Configuring_Claims_for_a_Service_Provider_) .  
-        ![](attachments/103330852/103330853.png){width="800"}
+        Provider](/using-wso2-identity-server/configuring-claims-for-a-service-provider) .  
+        ![configure-sso-claims](/assets/img/tutorials/configure-sso-claims.png)
+
 2.  Configure outbound authentication as **Default** authentication
     type. This specifies that the identity provider authenticates the
     users with the username/password by validating with the identity
     provider's user store.
+
 3.  After providing the above information, click **Register** .
 
 After successfully registering the service provider, log out from
@@ -439,7 +456,7 @@ management console. The next step is to run the sample.
 
 1.  Visit `          http://wso2is.local:8080/travelocity.com         `
     . You are directed to the following page:  
-    ![](attachments/103330852/103330880.jpeg){width="701" height="534"}
+    ![travelocity-login](/assets/img/tutorials/travelocity-login.png)
 2.  Since you need to use SAML2 for this sample, click the first link,
     i.e., **Click here to login with SAML from Identity Server** . You
     are redirected to the Identity Server for authentication.
@@ -447,9 +464,9 @@ management console. The next step is to run the sample.
 4.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.
 
-    !!! tip
+    !!! Note
 
-        **Note:** This screen will appear at this point if WSO2 Identity
+        This screen will appear at this point if WSO2 Identity
         Server has all the mandatory claim values of the user in the system.
         If not, the user will be redirected to the relevant screen and
         prompted to provide the missing mandatory claim values before
@@ -457,21 +474,21 @@ management console. The next step is to run the sample.
 
         For more information about user consent in the SSO authentication
         flow, see [Consent Management with
-        Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+        Single-Sign-On](/using-wso2-identity-server/consent-management-with-single-sign-on).
 
 
-    ![](attachments/103330852/103330854.png){width="500" height="448"}
+    ![travelocity-user-consent](/assets/img/tutorials/travelocity-user-consent.png)
 
 5.  Select the claims that you consent to share with the Travelocity
     application and click **Approve** . You have to provide consent for
     all the mandatory claims at a minimum to complete authentication.
 
-6.  After providing consent, you are redirected to the travelocity
+6.  After providing consent, you are redirected to the Travelocity
     application home page.
 
 !!! note
 
-    1.  If you need to view the SAML request and response, add the following
+    1.  To view the SAML request and response, add the following
         debug log to the `           log4j.properties          ` file found
         inside `           <PRODUCT_HOME>/repository/conf          ` .
 
@@ -482,24 +499,27 @@ management console. The next step is to run the sample.
     2.  Since single log out is enabled, if you click the logout button in
         the travelocity.com home page, you will successfully log out.
 
+!!! Info "Related Topics"
+	   To configure single sign on with different standards or protocols,see the following topics:
 
-**Related Topics**
+	   * [Configuring Single Sign-On](/tutorials/configuring-single-sign-on)
 
--   To configure single sign on with different standards or protocols,
-    see the following topics:
-    -   [Configuring Single Sign-On](_Configuring_Single_Sign-On_)
-    -   [SAML 2.0 Web SSO](_SAML_2.0_Web_SSO_)
-    -   [WS-Trust](_WS-Trust_)
-    -   [WS-Federation](https://docs.wso2.com/display/IS530/WS-Federation)
-    -   [Integrated Windows
-        Authentication](_Integrated_Windows_Authentication_)
-    -   [OAuth2-OpenID Connect](_OAuth2-OpenID_Connect_)
--   To set up reCaptcha for single sign on, see the following page:
-    -   [Configuring reCaptcha for Single Sign
-        On](_Configuring_reCaptcha_for_Single_Sign_On_) .
--   To configure single sign on for Microsoft Sharepoint web
-    applications with the WSO2 Identity Server, see the following
-    article:
-    -   [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with
-        WSO2 Identity
-        Server](http://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
+	   * [SAML 2.0 Web SSO](/tutorials/saml-2.0-web-sso)
+
+	   * [WS-Trust](/tutorials/ws-trust)
+
+	   * [WS-Federation](/tutorials/ws-federation)
+
+           * [Integrated Windows Authentication](/tutorials/integrated-windows-authentication)
+
+           * [OAuth2-OpenID Connect](tutorials/oauth2-openid-connect)
+	  
+	   To set up reCaptcha for single sign on, see the following page:
+
+	   * [Configuring reCaptcha for Single Sign On](/tutorials/configuring-recaptcha-for-single-sign-on).
+
+	  To configure single sign on for Microsoft Sharepoint web applications with the WSO2 Identity Server, see the following article:
+
+	   * [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with
+		        WSO2 Identity
+		        Server](http://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
