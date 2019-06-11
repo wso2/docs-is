@@ -1,3 +1,7 @@
+---
+template: templates/single-column.html
+---
+
 <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
@@ -25,4 +29,3 @@ WSO2 Identity Server is an identity and access management server that facilitate
 - [Installation Guide](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
 - [Product Administration Guide](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
 - [Tutorials](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
-
