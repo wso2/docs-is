@@ -11,18 +11,6 @@ using WSO2 Identity Server as an identity provider.
 This tutorial demonstrates how you can add SSO support to a sample iOS
 application using WSO2 Identity Server as the Identity Provider.
 
-The tutorial includes the following sections:
-
--   [Prerequisites](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-Prerequisites)
--   [Setting up WSO2 Identity
-    Server](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-SettingupWSO2IdentityServer)
--   [Setting up the sample
-    application](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-Settingupthesampleapplication)
--   [Configuring the sample
-    application](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-Configuringthesampleapplication)
--   [Running the sample
-    application](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-Runningthesampleapplication)
-
 ### Prerequisites
 
 Before you start the tutorial, be sure to complete the following
@@ -32,10 +20,10 @@ prerequisites:
 -   Download and install WSO2 Identity Server, which will act as the
     identity provider in the tutorial. You can download the product
     installer from
-    [here](https://wso2.com/identity-and-access-management/install/) ,
+    [here](https://wso2.com/identity-and-access-management/install/),
     and run it.
 -   Download or clone the [WSO2 Identity Server samples
-    repository](https://github.com/wso2/samples-is) .
+    repository](https://github.com/wso2/samples-is).
 -   Download and install Xcode 9+ to work with the iOS client app
     sample.
 
@@ -54,7 +42,7 @@ Since WSO2 Identity Server acts as the identity provider in this
 tutorial, first you need to configure WSO2 Identity Server as an
 identity provider.
 
-!!! tip
+!!! Info
     
     Let’s refer to the WSO2 Identity Server installation location as
     `         <IS_HOME>        ` throughout the tutorial.
@@ -69,16 +57,16 @@ add a self-signed certificate to both WSO2 Identity Server and the
 simulator.
 
 1.  Follow the steps
-    [here](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores)
+    [here](/admin-guide/creating-new-keystores#adding-ca-signed-certificate-to-keystores)
     to add a self-signed certificate to WSO2 Identity Server.
 
-    !!! tip
+    !!! note
     
         If you are running WSO2 Identity Server locally, you can add a local
         DNS entry to a custom domain name and generate self-signed
         certificates to that particular domain. If you are doing this, you
         also need to [change the WSO2 Identity Server
-        host](https://docs.wso2.com/display/IS580/Running+the+Product#RunningtheProduct-Accessingthemanagementconsolerun)
+        host](/installation-guide/running-the-product#accessing-the-management-console)
         accordingly and add the local DNS entry to your hosts file.
     
 
@@ -86,30 +74,30 @@ simulator.
     can sign in using `          admin         ` as the username and
     password. For detailed instructions on accessing the management
     console of WSO2 Identity Server, see [Accessing the Management
-    Console](Running-the-Product_103328959.html#RunningtheProduct-run) .
+    Console](/installation-guide/running-the-product#accessing-the-management-console).
 3.  On the **Main** tab of the management console, go to **Identity**
-    -\> **Service Provider** and click **Add** .
+    -\> **Service Provider** and click **Add**.
 4.  Enter an appropriate name for the new service provider and click
-    **Register** .
+    **Register**.
 5.  Expand the **Inbound Authentication Configuration** section, and
     then expand the **OAuth2/OpenID Connect Configuration.**
 6.  Click **Configure** and set the following values in addition to the
     values that are set by default:
     1.  Specify `            wso2issample://oauth           ` as the
-        **Callback Url** . This is the sample application’s URL.
-    2.  Select **PKCE Mandatory** . This is recommended because you need
+        **Callback Url**. This is the sample application’s URL.
+    2.  Select **PKCE Mandatory**. This is recommended because you need
         to adhere to the PKCE protocol as a best practice when
         developing native mobile applications.
-    3.  Select **Allow authentication without the client secret** .
+    3.  Select **Allow authentication without the client secret**.
         This allows the native mobile application to bypass the
         authentication phase. For information on how native applications
         should interact with an authorization endpoint, see [OAuth 2.0
         for native apps
-        specification](https://tools.ietf.org/html/rfc8252) .
-7.  Click **Add** . You will see an information message that says
-    **Application registered successfully** .
-8.  Click **OK** .
-9.  Make a note of the generated **OAuth Client Key** . You need this
+        specification](https://tools.ietf.org/html/rfc8252).
+7.  Click **Add**. You will see an information message that says
+    **Application registered successfully**.
+8.  Click **OK**.
+9.  Make a note of the generated **OAuth Client Key**. You need this
     value when you set up the sample application.
 
 Now you have set up WSO2 Identity Server. Next you need to set up the
@@ -140,9 +128,7 @@ sample iOS application.
 
 Following is the directory structure of the sample application project:
 
-![](attachments/106955092/106956968.png){width="750"}
-
-  
+![sample-app-directory-structure](/assets/img/tutorials/sample-app-directory-structure.png)
 
 Following are descriptions of the key components of the sample
 application project:
@@ -177,15 +163,15 @@ required.
     dependencies are already included along with the sample application
     source code.
 
-    !!! tip
+    !!! note
     
         If you are using your own sample application, you have to navigate
         to the project root folder and run the following command to install
         dependencies:
     
         ``` java
-            pod install
-    ```
+        pod install
+        ```
 
 
 -   The sample client application project uses
@@ -194,8 +180,6 @@ required.
     The AppAuth library is added as a dependency in the pod file.
 
     !!! note
-    
-        Note
     
         The sample client application uses the [dev-logout development
         branch](https://github.com/openid/AppAuth-iOS/tree/dev-logout) of
@@ -214,16 +198,14 @@ required.
         AppAuth library from the master branch:
     
         ``` java
-            pod 'AppAuth'
+        pod 'AppAuth'
         ```
-    
-        !!! tip
         
-            Since there are ongoing discussions about the issues and
-            complexities exposed by the AppAuth for iOS library, the recommended
-            approach is to use the dependencies that are already included in the
-            sample source code. Installing dependencies from scratch is not
-            recommended until the issues and complexities are resolved.
+        **Note:** Since there are ongoing discussions about the issues and
+        complexities exposed by the AppAuth for iOS library, the recommended
+        approach is to use the dependencies that are already included in the
+        sample source code. Installing dependencies from scratch is not
+        recommended until the issues and complexities are resolved.
         
 
 ### Configuring the sample application
@@ -232,9 +214,9 @@ There are two key configuration steps that you need to perform before
 you run the application.
 
 -   [Configuring application
-    settings](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-Configuringapplicationsettings)
+    settings](#configuring-application-settings)
 -   [Configuring endpoints and OAuth client
-    settings](#SingleSign-OnforNativeiOSApplicationswithWSO2IdentityServer-ConfiguringendpointsandOAuthclientsettings)
+    settings](#configuring-endpoints-and-oauth-client-settings)
 
 ##### Configuring application settings
 
@@ -262,7 +244,7 @@ file and open it with a source code editor.
     the URL scheme of the application. The URL scheme defines the manner
     in which applications communicate with each other. The sample
     application uses a custom URL scheme called
-    `           wso2issample          ` .
+    `           wso2issample          `.
 
     This is why you had to specify
     `           wso2issample://oauth          ` as the callback URL when
@@ -271,7 +253,7 @@ file and open it with a source code editor.
     redirected to the sample application through the
     `           wso2issample://oauth          ` URL.
 
-    !!! tip
+    !!! info
     
         You can register any URL scheme that you want by defining it as
         above. If you are running WSO2 Identity Server locally, you must
@@ -342,7 +324,7 @@ file and open it with a source code editor.
         client ID that you obtained in the Setting up WSO2 Identity
         Server section.
 
-        !!! tip
+        !!! info
         
                 You do not need to specify the client secret anywhere in the
                 code because this sample application is considered as a public
@@ -362,27 +344,29 @@ application:
     followed the steps in the Setting up the iOS client sample
     application section.
 
-2.  Click Run on the Xcode toolbar to build the sample application and
+2.  Click **Run** on the Xcode toolbar to build the sample application and
     run it via the simulator. This will launch the sample application in
     the simulator.  
-    ![](attachments/106955092/106957007.png){width="300"}
+    ![pickup-login](/assets/img/tutorials/pickup-login.png)
 
-3.  Click **LOGIN** . You will see the following message on the
+3.  Click **LOGIN**. You will see the following message on the
     screen:  
-    ![](attachments/106955092/106957008.png){width="300"}
+    ![confirm-pickup-login](/assets/img/tutorials/confirm-pickup-login.png)
 
-4.  Click **Continue** . You will be redirected to the sign-in screen so
-    that you can sign-in via WSO2 identity Server.  
-    ![](attachments/106955092/106957057.png){width="300"}
-5.  Enter your credentials and click **SIGN IN** . This will take you to
+4.  Click **Continue**. You will be redirected to the sign-in screen so
+    that you can sign-in via WSO2 Identity Server.  
+    ![sign-in](/assets/img/tutorials/sign-in-via-identity-server.png)
+
+5.  Enter your credentials and click **SIGN IN**. This will take you to
     the consent screen.  
-    ![](attachments/106955092/106957058.png){width="300"}
+    ![oidc-claims-approval](/assets/img/tutorials/oidc-claims-approval.png)
+
 6.  Select a required approval mechanism, then select the attributes you
     want to share with the service provider, and then click **Continue**
     to allow the sample application access your information. This will
     redirect you to the sample application profile screen that displays
     your user name and a **Sign out** button.  
-    ![](attachments/106955092/106957081.png){width="300"}
+    ![pickup-welcome-screen](/assets/img/tutorials/pickup-welcome-screen.png)
 
 Now you have successfully signed in to the sample application using WSO2
 Identity Server as an identity provider.
@@ -393,47 +377,45 @@ Server for native iOS applications.
 
 Follow the steps below to sign out of the sample application:
 
-1.  On the sample application profile screen, click **Sign out** . You
+1.  On the sample application profile screen, click **Sign out**. You
     will see the following message on the screen:  
       
-    ![](attachments/106955092/106957154.png){width="300"}
-2.  Click **Yes** . This will sign you out from the sample application.
+    ![confirm-pickup-signout](/assets/img/tutorials/confirm-pickup-signout.png)
+
+2.  Click **Yes**. This will sign you out from the sample application.
     You will also see a message as follows notifying that you are going
     to be redirected to a page to log out of WSO2 Identity Server.  
-    ![](attachments/106955092/106957155.png){width="300"}
-3.  Click **Ok** .  You will see a message as follows:
+    ![pickup-logout-redirection-notice](/assets/img/tutorials/pickup-logout-redirection-notice.png)
 
-    !!! warning
-    
-        Important
+3.  Click **Ok**. You will see a message as follows:
+
+    !!! warning "Important"
     
         -   The following message displays the identity provider name as
-            `            (null)           ` . This happens when you run WSO2
+            `            (null)           `. This happens when you run WSO2
             Identity Server in your local machine and use a host entry to
             resolve DNS.
         -   The message says `            Sign In           ` although you
             are performing a log out action This is due to a known iOS
             application log out issue. For more information on this known
             issue, see the [Apple developer
-            forum](https://forums.developer.apple.com/thread/91647) .  
+            forum](https://forums.developer.apple.com/thread/91647).  
             However, you can continue to log out of the application.
     
 
-    ![](attachments/106955092/106957157.png){width="300"}
+    ![pickup-logout-signin-error](/assets/img/tutorials/pickup-logout-signin-error.png)
 
-4.  Click **Continue** . This will redirect you to the OpenID Connect
+4.  Click **Continue**. This will redirect you to the OpenID Connect
     logout page of WSO2 Identity Server. Once you click ‘Yes’ you will
     be logged out from the server and will be redirected to the login
     page of the application.
 
-    ![](attachments/106955092/106957158.png){width="300"}
+    ![oidc-logout](/assets/img/tutorials/oidc-logout.png)
 
-5.  Click **Yes** . This will log you out from the server and will
+5.  Click **Yes**. This will log you out from the server and will
     redirect you to the sign-in page of the sample application.
 
     !!! warning
-    
-        Note
     
         -   If you do not log out from WSO2 Identity Server and the
             application is not cleared from memory, you can access the
@@ -443,15 +425,15 @@ Follow the steps below to sign out of the sample application:
         -   If you sign in to the sample application and then close the
             application, clear it from memory and try to log out, you will
             not be able to perform external log out from the server side
-            because cookie data will not be available . This is a result of
+            because cookie data will not be available. This is a result of
             not having a proper mechanism to persist cookie data due to a
             [known iOS application log out
-            issue](https://forums.developer.apple.com/thread/91647) .
+            issue](https://forums.developer.apple.com/thread/91647).
     
         The issues mentioned above are unresolved issues in the AppAuth for
         iOS library. There are no workarounds for these issues at the moment
         because Apple does not allow access to the Safari view controllers
-        cookie storage . For more information on the issues, see the
+        cookie storage. For more information on the issues, see the
         following:
     
         -   <https://forums.developer.apple.com/thread/91647>
@@ -462,5 +444,3 @@ Follow the steps below to sign out of the sample application:
 Now that you understand how to add SSO capability to an iOS application,
 you can implement your own iOS application and configure SSO for the
 application using WSO2 Identity Server as the identity provider.
-
-  
