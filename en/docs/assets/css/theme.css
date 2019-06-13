@@ -720,6 +720,30 @@ html .md-typeset .superfences-tabs > label:hover {
     padding-left: 30px;
 }
 
+.md-sidebar--secondary .md-nav--secondary > ul ul ul {
+    margin-left: -31px;
+}
+
+.md-sidebar--secondary .md-nav--secondary > ul ul ul > li {
+    padding-left: 45px;
+}
+
+.md-sidebar--secondary .md-nav--secondary > ul ul ul ul {
+    margin-left: -46px;
+}
+
+.md-sidebar--secondary .md-nav--secondary > ul ul ul ul > li {
+    padding-left: 60px;
+}
+
+.md-sidebar--secondary .md-nav--secondary > ul ul ul ul ul {
+    margin-left: -61px;
+}
+
+.md-sidebar--secondary .md-nav--secondary > ul ul ul ul ul > li {
+    padding-left: 75px;
+}
+
 .md-sidebar--secondary .md-nav--secondary {
     padding: 3px 0 0 10px;
 }
