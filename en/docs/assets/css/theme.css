@@ -30,6 +30,7 @@
     -moz-transition: width 0.2s linear;
     -ms-transition: width 0.2s linear;
     transition: width 0.2s linear;
+    padding-bottom: 80px;
 }
 
 .md-main__inner {

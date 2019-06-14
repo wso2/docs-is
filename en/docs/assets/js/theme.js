@@ -228,30 +228,35 @@ function scrollerPosition(mutation) {
             el.classList.remove('active');
         }
     });
-    
+
     if (blurList.length > 0) {
         if (mutation.target.getAttribute('data-md-state') === 'blur') {
             if (mutation.target.parentNode.querySelector('ul li')) {
                 mutation.target.parentNode.querySelector('ul li').classList.add('active');
-            } else if (mutation.target.parentNode.nextElementSibling) {
-                mutation.target.parentNode.nextElementSibling.classList.add('active');
             } else {
-                if(mutation.target.parentNode.parentNode){
-                    mutation.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling.classList.add('active');
-                }
+                setActive(mutation.target.parentNode);
             }
-        }
-        else {
+        } else {
             mutation.target.parentNode.classList.add('active');
         }
-    }
-    else {
+    } else {
         if (listElems.length > 0) {
             listElems[0].classList.add('active');
         }
     }
 };
 
+function setActive(parentNode, i) {
+    i = i || 0;
+    if (i === 5) {
+        return;
+    }
+    if (parentNode.nextElementSibling) {
+        parentNode.nextElementSibling.classList.add('active');
+        return;
+    }
+    setActive(parentNode.parentNode.parentNode.parentNode, ++i);
+}
 
 /* 
  * Handle edit icon on scroll
