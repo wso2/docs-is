@@ -10,29 +10,18 @@ or browser is identified by a cookie, therefore, once the cookie expires
 (this expiry time is specified in the authentication script) , the same
 browser or device is considered as a new device.
 
-Follow the instructions given in the sections below to set this up:
+Follow the instructions given in the sections below to set this up.
 
--   [Configuring the sample
-    scenario](#ConfiguringNew-Device-BasedAdaptiveAuthentication-Configuringthesamplescenario)
--   [Trying out the sample
-    scenario](#ConfiguringNew-Device-BasedAdaptiveAuthentication-Tryingoutthesamplescenario)
--   [What's
-    Next?](#ConfiguringNew-Device-BasedAdaptiveAuthentication-What'sNext?)
-
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
-        .
+        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](_Adaptive_Authentication_) .
+        Authentication](/tutorials/adaptive-authentication).
     
-
 ### Configuring the sample scenario
 
 1.  Log in to the management console.
@@ -41,12 +30,12 @@ Follow the instructions given in the sections below to set this up:
     [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
     service provider.
 4.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication** .
-5.  C lick on **Templates** on the right side of the **Script Based
+    **Advanced Authentication**.
+5.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click
-    **New-Device-Based.**  
-    ![](attachments/103330789/103330790.png){width="767" height="329"}
-6.  Click **Ok** . The authentication script and authentication steps
+    **New-Device-Based**.  
+    ![template-config-for-new-device-based-authentication](/assets/img/tutorials/template-config-for-new-device-based-authentication.png)
+6.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication if the user logs in using a new device or browser
     that they have not used before. The new device or browser is
@@ -54,15 +43,14 @@ Follow the instructions given in the sections below to set this up:
 
     !!! tip
     
-        **Tip:** You can set the `           device          `
+        You can set the `           device          `
         `           Remember          ` `           Period          ` to
         specify how long the device should be considered as a trusted
         device. Once this time period has elapsed, the device is considered
         as a new device. The time period is set to two years by default.
     
         ``` java
-            var deviceRememberPeriod = 60 * 60 * 24 * 365 * 2;
-    ```
+            var deviceRememberPeriod = 60 * 60 * 24 * 365 * 2; ```
 
 
 7.  The second authentication step that is added is
@@ -73,12 +61,10 @@ Follow the instructions given in the sections below to set this up:
     add the following demo authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![](attachments/103330789/103330795.png){width="697"
-        height="185"}
-    2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
-        ![](attachments/103330789/103330791.png){width="614"
-        height="195"}
-8.  Click **Update** .
+        ![second-step-for-new-device-authentication](/assets/img/tutorials/second-step-for-new-device-authentication.png)
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
+        ![demo-hardware-key-authenticator](/assets/img/tutorials/demo-hardware-key-authenticator.png)
+8.  Click **Update**.
 
 ### Trying out the sample scenario
 
@@ -87,10 +73,10 @@ Follow the instructions given in the sections below to set this up:
 2.  Click **Login** and enter Kim's credentials. Note that you are
     prompted for hardware key authentication because Kim has never
     logged in from this device or browser before.  
-    ![](attachments/103330789/103330793.png){width="336"}
-3.  Enter the 4 digit key and click **Sign-In** . You are successfully
+    ![login-attempt-for-new-device-based-authentication](/assets/img/tutorials/login-attempt-for-new-device-based-authentication.png)
+3.  Enter the 4 digit key and click **Sign-In**. You are successfully
     logged in to the application.  
-    ![](attachments/103330789/103330794.png)  
+    ![signing-in-with-four-digit-key](/assets/img/tutorials/signing-in-with-four-digit-key.png)  
 4.  Log out and log in again using Kim's credentials on the same browser
     window. Note that you are logged in successfully without being
     prompted for hardware key authentication again. This is because this
@@ -101,10 +87,6 @@ Follow the instructions given in the sections below to set this up:
 6.  Click Login and enter Kim's credentials. Note that you are now
     prompted for hardware key authentication again since Kim has never
     logged in using this particular browser before.
-7.  Enter the 4 digit key and click **Sign In** . You are successfully
+7.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.
 
-### What's Next?
-
-The following scenarios demonstrate the use of adaptive authentication
-templates and scripts to try out other usecases.

@@ -23,17 +23,6 @@ runtime to run the script. Follow the instructions given in the sections
 below to create and deploy a Siddhi application that can be used with
 WSO2 Identity Server for risk-based login.
 
--   [Creating a Siddhi
-    application](#UsingWSO2StreamProcessorforAdaptiveAuthentication-CreatingaSiddhiapplication)
--   [Testing the Siddhi
-    application](#UsingWSO2StreamProcessorforAdaptiveAuthentication-TestingtheSiddhiapplication)
--   [Configuring the analytics engine in WSO2
-    IS](#UsingWSO2StreamProcessorforAdaptiveAuthentication-ConfiguringtheanalyticsengineinWSO2IS)
--   [Deploying the Siddhi
-    application](#UsingWSO2StreamProcessorforAdaptiveAuthentication-DeployingtheSiddhiapplication)
--   [What's
-    Next?](#UsingWSO2StreamProcessorforAdaptiveAuthentication-What'sNext?)
-
 ### Creating a Siddhi application
 
 1.  Download the latest version of [WSO2 Stream
@@ -48,7 +37,8 @@ WSO2 Identity Server for risk-based login.
 4.  Access the Stream Processor Studio through the following URL:
     http://\<HOST\_NAME\>:\<EDITOR\_PORT\>/editor.
 
-    The default URL is: <http://localhost:9390/editor> .
+    !!! info 
+        The default URL is: <http://localhost:9390/editor>.
 
     The Stream Processor Studio opens as shown below.
 
@@ -62,69 +52,68 @@ WSO2 Identity Server for risk-based login.
     @App:name("RiskBasedLogin")
     ```
 
-    ![](attachments/103330698/103330701.png)
+    ![sp-risk-based-login](/assets/img/tutorials/sp-risk-based-login.png)
 
 7.  Add the following HTTP source to the Siddhi application.
 
-    Siddhi sources are usually asynchronous, which means you will
-    receive an acknowledgement with a `            200 OK           `
-    response when you publish an event to a source. The code block given
-    below shows the sample HTTP source used in this tutorial. For more
-    information, see [HTTP
-    sources](https://wso2-extensions.github.io/siddhi-io-http/api/1.0.24/#http-source)
-    .
+	!!! info 
+		Siddhi sources are usually asynchronous, which means you will
+		receive an acknowledgement with a `            200 OK           `
+		response when you publish an event to a source. The code block given
+		below shows the sample HTTP source used in this tutorial. For more
+		information, see [HTTP
+		sources](https://wso2-extensions.github.io/siddhi-io-http/api/1.0.24/#http-source).
 
     **Sample HTTP Source**
 
     ``` java
-        @Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
-        define stream TransactionInputStream (transaction double, username string);
+	@Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
+	define stream TransactionInputStream (transaction double, username string);
     ```
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    to see more information about streams, sources, and sinks
+    ??? note "Click to see more information about streams, sources, and sinks"
 
-    **Streams**
+		**Streams**
 
-    A logical series of events ordered in time with a uniquely
-    identifiable name, and a set of defined attributes with specific
-    data types defining its schema.
+		A logical series of events ordered in time with a uniquely
+		identifiable name, and a set of defined attributes with specific
+		data types defining its schema.
 
-    **Sources**
+		**Sources**
 
-    A contract that consumes data from external sources (such as TCP,
-    Kafka, HTTP, etc.,) in the form of events, then converts each event
-    (which can be in XML, JSON, binary, etc. format) to a Siddhi event,
-    and passes that to a Stream for processing.
+		A contract that consumes data from external sources (such as TCP,
+		Kafka, HTTP, etc.,) in the form of events, then converts each event
+		(which can be in XML, JSON, binary, etc. format) to a Siddhi event,
+		and passes that to a Stream for processing.
 
-    **Sink**
+		**Sink**
 
-    A contract that takes events arriving at a stream, maps them to a
-    predefined data format (such as XML, JSON, binary, etc), and
-    publishes them to external endpoints (such as E-mail, TCP, Kafka,
-    HTTP, etc).
+		A contract that takes events arriving at a stream, maps them to a
+		predefined data format (such as XML, JSON, binary, etc), and
+		publishes them to external endpoints (such as E-mail, TCP, Kafka,
+		HTTP, etc).
 
-    ![](attachments/103330698/103330705.png){width="721" height="208"}
+	![http-source-in-siddhi](/assets/img/tutorials/http-source-in-siddhi.png)
 
-    In this tutorial, the source you just created is considered as the
-    stream used to publish events about the transaction that a user has
-    made.
+	In this tutorial, the source you just created is considered as the
+	stream used to publish events about the transaction that a user has
+	made.
 
 8.  Click on **File\>Save** to save the application.
 
 9.  Click **Run** or the play button
-    ![](attachments/103330698/103330703.png) to run the script using the
+    ![sp-play](/assets/img/tutorials/sp-play.png) to run the script using the
     editor. If the application starts successfully, you will see the
     following log in the Stream Processor Studio console.
 
-    ![](attachments/103330698/103330702.png){width="272" height="15"}
+    ![sp-studio-console.png](/assets/img/tutorials/sp-studio-console.png)
 
 10. Run the following cURL command on a new terminal window to test the
     source.  
 
     !!! tip
     
-        **Tip:** Replace the \<username\> tag in the cURL command given
+        Replace the \<username\> tag in the cURL command given
         below with the username of the user you have added in WSO2 Identity
         Server.
     
@@ -142,49 +131,50 @@ WSO2 Identity Server for risk-based login.
     }'
     ```
 
-    You will receive a response similar to the response shown below.
+	You will receive a response similar to the response shown below.
 
     ``` java
-        < HTTP/1.1 200 OK
-        < content-length: 0
-        < server: wso2-http-transport
-        < date: Wed, 6 Jun 2018 14:20:53 +0530
+	< HTTP/1.1 200 OK
+	< content-length: 0
+	< server: wso2-http-transport
+	< date: Wed, 6 Jun 2018 14:20:53 +0530
     ```
+    
+	!!! info 
+		Since all sources in Siddhi are asynchronous, the client does not
+		receive any data from events that are published to the source
+		streams (i.e., the only response to the client is a
+		`            200 OK           ` message). In this tutorial, the
+		user's risk score needs to be calculated based on transactions that
+		the user has made over the last five minutes. To achieve this, you
+		must use an HTTP-request source and an HTTP-response sink. The
+		HTTP-request source and HTTP-response sink always comes in pairs.
 
-    Since all sources in Siddhi are asynchronous, the client does not
-    receive any data from events that are published to the source
-    streams (i.e., the only response to the client is a
-    `            200 OK           ` message). In this tutorial, the
-    user's risk score needs to be calculated based on transactions that
-    the user has made over the last five minutes. To achieve this, you
-    must use an HTTP-request source and an HTTP-response sink. The
-    HTTP-request source and HTTP-response sink always comes in pairs.
+	  
 
-      
-
-    The difference between the normal HTTP source and an HTTP-request
-    source is that the HTTP-request source sends a response event to the
-    request using the matching HTTP-response sink.
+		The difference between the normal HTTP source and an HTTP-request
+		source is that the HTTP-request source sends a response event to the
+		request using the matching HTTP-response sink.
 
 11. Add the following HTTP-request source and HTTP-response sink.
 
     **HTTP-request source**
 
     ``` java
-        @Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
-        define stream InputStream (messageId string, username string);
+	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
+	define stream InputStream (messageId string, username string);
     ```
 
     **HTTP-response sink**
 
     ``` java
-        @sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
-        define stream OutputStream (messageId string, username string, riskScore int)
+	@sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
+	define stream OutputStream (messageId string, username string, riskScore int)
     ```
 
     !!! tip
     
-        **Note** the following in the HTTP-request source and HTTP-response
+        Note the following in the HTTP-request source and HTTP-response
         sink code blocks.
     
         -   The `             source.id            ` in the source stream
@@ -211,47 +201,47 @@ WSO2 Identity Server for risk-based login.
     source to the sink.
 
     ``` java
-    define stream TempStream (messageId string, username string, sumTransactions double);
+	define stream TempStream (messageId string, username string, sumTransactions double);
 
-    from TransactionInputStream#window.time(5 min)
-    right outer join InputStream#window.length(1) unidirectional 
-    on TransactionInputStream.username == InputStream.username
-    select InputStream.messageId, InputStream.username, sum(transaction) as sumTransactions
-    group by messageId, InputStream.username
-    insert into TempStream;
+	from TransactionInputStream#window.time(5 min)
+	right outer join InputStream#window.length(1) unidirectional 
+	on TransactionInputStream.username == InputStream.username
+	select InputStream.messageId, InputStream.username, sum(transaction) as sumTransactions
+	group by messageId, InputStream.username
+	insert into TempStream;
 
-    from TempStream
-    select messageId, username, ifThenElse(sumTransactions > 10000, 1, 0) as riskScore
-    insert into OutputStream;
-    ```
+	from TempStream
+	select messageId, username, ifThenElse(sumTransactions > 10000, 1, 0) as riskScore
+	insert into OutputStream;
+	```
 
 13. The final Siddhi application is as follows.
 
     ``` java
-        @App:name("RiskBasedLogin")
-        @App:description("Description of the plan")
-    
-        @Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
-        define stream TransactionInputStream (transaction double, username string);
-    
-        @Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
-        define stream InputStream (messageId string, username string);
-    
-        @sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
-        define stream OutputStream (messageId string, username string, riskScore int);
-    
-        define stream TempStream (messageId string, username string, sumTransactions double);
-    
-        from TransactionInputStream#window.time(5 min)
-        right outer join InputStream#window.length(1) unidirectional 
-        on TransactionInputStream.username == InputStream.username
-        select InputStream.messageId, InputStream.username, sum(transaction) as sumTransactions
-        group by messageId, InputStream.username
-        insert into TempStream;
-    
-        from TempStream
-        select messageId, username, ifThenElse(sumTransactions > 10000, 1, 0) as riskScore
-        insert into OutputStream;
+	@App:name("RiskBasedLogin")
+	@App:description("Description of the plan")
+
+	@Source(type = 'http', receiver.url="http://localhost:8281/RiskBasedLogin/TransactionInputStream", basic.auth.enabled='false', @map(type='json', @attributes(username='$.event.username', transaction='$.event.transaction')))
+	define stream TransactionInputStream (transaction double, username string);
+
+	@Source(type = 'http-request', source.id='testsource', basic.auth.enabled='true', parameters="'ciphers:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'sslEnabledProtocols:TLSv1.1,TLSv1.2'", receiver.url="https://localhost:8280/RiskBasedLogin/InputStream", @map(type='json', @attributes(messageId='trp:messageId',username='$.event.username')))
+	define stream InputStream (messageId string, username string);
+
+	@sink(type='http-response', source.id='testsource', message.id='{{messageId}}', @map(type='json'))
+	define stream OutputStream (messageId string, username string, riskScore int);
+
+	define stream TempStream (messageId string, username string, sumTransactions double);
+
+	from TransactionInputStream#window.time(5 min)
+	right outer join InputStream#window.length(1) unidirectional 
+	on TransactionInputStream.username == InputStream.username
+	select InputStream.messageId, InputStream.username, sum(transaction) as sumTransactions
+	group by messageId, InputStream.username
+	insert into TempStream;
+
+	from TempStream
+	select messageId, username, ifThenElse(sumTransactions > 10000, 1, 0) as riskScore
+	insert into OutputStream;
     ```
 
 You have successfully created the Siddhi application. Use the
@@ -259,52 +249,52 @@ instructions given in the next section to test it out.
 
 ### Testing the Siddhi application
 
-1.  Run the Siddhi application from the **Editor** .
+1.  Run the Siddhi application from the **Editor**.
 
 2.  Execute the following cURL command on a terminal window to calculate
     the user's risk score.
 
     ``` java
-        curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
-            "event": {
-                "username": "admin"
-            }
-        }' -kv -u admin:admin
+	curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
+		"event": {
+			"username": "admin"
+		}
+	}' -kv -u admin:admin
     ```
 
     You will see a response similar to the response given below.
 
     ``` java
-        {"event":{"messageId":"6ec82e38-8c8a-47dd-b5e2-da3c55975766","username":"admin","riskScore":0}
+    {"event":{"messageId":"6ec82e38-8c8a-47dd-b5e2-da3c55975766","username":"admin","riskScore":0}
     ```
 
 3.  Execute the following cURL command to send an event about a
     transaction made by the user.
 
     ``` java
-        curl -kv -X POST http://localhost:8281/RiskBasedLogin/TransactionInputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
-            "event": {
-                "username": "admin",
-                "transaction": 12000
-            }
-        }'
+	curl -kv -X POST http://localhost:8281/RiskBasedLogin/TransactionInputStream -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{
+		"event": {
+			"username": "admin",
+			"transaction": 12000
+		}
+	}'
     ```
 
 4.  Next, execute the same cURL command you executed in step 1 to
     re-evaluate the risk score after a new transaction was added.
 
     ``` java
-        curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json'   -d '{
-            "event": {
-                "username": "admin"
-            }
-        }' -kv -u admin:admin
+	curl -X POST  https://localhost:8280/RiskBasedLogin/InputStream -H 'Accept: application/json' -H 'Content-Type: application/json'   -d '{
+		"event": {
+			"username": "admin"
+		}
+	}' -kv -u admin:admin
     ```
 
     You will receive a response similar to the response given below.
 
     ``` java
-        "event":{"messageId":"6ec82e38-8c8a-47dd-b5e2-da3c55975766","username":"admin","riskScore":1}}
+    "event":{"messageId":"6ec82e38-8c8a-47dd-b5e2-da3c55975766","username":"admin","riskScore":1}}
     ```
 
     Note that the user's risk score has now changed to 1.
@@ -318,10 +308,10 @@ Server and WSO2 Stream Processor.
 1.  Start the WSO2 Identity Server and log in to the management console
     using admin/admin credentials.
 2.  Click **Resident** under **Identity Providers** and expand
-    **Adaptive Engine\>Analytics Engine** .
+    **Adaptive Engine\>Analytics Engine**.
 3.  Configure the following properties accordingly. For this tutorial
     scenario, you can leave the default configurations as they are.  
-    ![](attachments/103330698/103330699.png){width="700" height="527"}
+    ![analytics-engine-properties](/assets/img/tutorials/analytics-engine-properties.png)
 
     <table>
     <thead>
@@ -379,30 +369,31 @@ Server and WSO2 Stream Processor.
         command.
 
         ``` java
-                keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.pem
+        keytool -export -alias wso2carbon -keystore wso2carbon.jks -file sp.pem
         ```
 
     2.  Navigate to the
         `             <IS_HOME>/repository/resources/security            `
         directory and run the following command.
 
-        Replace the `              <SP_HOME>             ` placeholder
-        in the command with the filepath location of your
-        `              <SP_HOME>             ` folder.
+        !!! info 
+			Replace the `              <SP_HOME>             ` placeholder
+			in the command with the filepath location of your
+			`              <SP_HOME>             ` folder.
 
         ``` java
-                keytool -import -alias certalias -file <SP_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -alias certalias -file <SP_HOME>/resources/security/sp.pem -keystore client-truststore.jks -storepass wso2carbon
         ```
 
 ### Deploying the Siddhi application
 
 You have successfully created the Siddhi application and tested the
-functionality using the **Editor** . The **Editor** is useful for
+functionality using the **Editor**. The **Editor** is useful for
 testing purposes however, you must deploy the application properly in
 WSO2 SP to use it in production. Follow these instructions to deploy the
 application.
 
-1.  On the Editor, click **File\>Export File** .
+1.  On the Editor, click **File\>Export File**.
 2.  A file named
     `                     RiskBasedLogin.siddhi                   ` is
     downloaded onto your machine. Place it in the
@@ -414,23 +405,23 @@ application.
         in the `             <SP_HOME>/conf/worker/            ` folder.
 
     2.  Change the `             Port: 9443            ` to
-        **`              9444             `** under
+        `              9444             ` under
         `             listenerConfigurations            ` .
 
         ``` java
-                  listenerConfigurations:
-                    -
-                      id: "default"
-                      host: "0.0.0.0"
-                      port: 9090
-                    -
-                      id: "msf4j-https"
-                      host: "0.0.0.0"
-                      port: 9444
-                      scheme: https
-                      keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
-                      keyStorePassword: wso2carbon
-                      certPass: wso2carbon
+	  	listenerConfigurations:
+		-
+		  id: "default"
+		  host: "0.0.0.0"
+		  port: 9090
+		-
+		  id: "msf4j-https"
+		  host: "0.0.0.0"
+		  port: 9444
+		  scheme: https
+		  keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
+		  keyStorePassword: wso2carbon
+		  certPass: wso2carbon
         ```
 
 4.  Stop the **Editor** and start WSO2 Stream Processor in a **Worker**
@@ -444,5 +435,5 @@ Now that you have successfully deployed a Siddhi application for risk
 based login, you can configure WSO2 Identity Server to receive data from
 this Siddhi application and set up rules for adaptive authentication.
 Follow the [Configuring Risk-Based Adaptive
-Authentication](_Configuring_Risk-Based_Adaptive_Authentication_)
+Authentication](/tutorials/configuring-risk-based-adaptive-authentication)
 tutorial to set this up.
