@@ -49,14 +49,14 @@ nav:
     - 'Overview': introduction/overview.md
     - 'Architecture':
       - 'Architecture': introduction/architecture.md
-      - 'Provisioning Architecture': introduction/provisioning-Architecture.md
-      - 'User Management Architecture': introduction/user-Management-Architecture.md
+      - 'Provisioning Architecture': introduction/provisioning-architecture.md
+      - 'User Management Architecture': introduction/user-management-architecture.md
     - 'About this Release': introduction/about-this-release.md
   - 'Quick Start Guide': 
-    - 'Quick Start Guide': quick-start-guide/quick-Start-Guide.md
+    - 'Quick Start Guide': quick-start-guide/quick-start-guide.md
   - 'Compliance':
     - 'Compliance': compliance/compliance.md
-    - 'General Data Protection Regulation': compliance/general-Data-Protection-Regulation.md
+    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-Identification-Authentication-and-Trust-Services-Regulation.md
   - 'Installation Guide':
     - 'Installation Guide': installation-guide/installation-Guide.md 
@@ -113,7 +113,7 @@ nav:
         - 'Configuring New-Device-Based Adaptive Authentication': tutorials/configuring-New-Device-Based-Adaptive-Authentication.md
         - 'Configuring ACR-Based Adaptive Authentication': tutorials/configuring-ACR-Based-Adaptive-Authentication.md
         - 'Configuring Risk-Based Adaptive Authentication': tutorials/configuring-Risk-Based-Adaptive-Authentication.md
-        - 'Using WSO2 Stream Processor for Adaptive Authentication': tutorials/using-WSO2-Stream-Processor-for-Adaptive-Authentication.md
+        - 'Using WSO2 Stream Processor for Adaptive Authentication': tutorials/using-wso2-stream-processor-for-adaptive-authentication.md
     - 'Single Sign-On':
       - 'Single Sign-On': tutorials/single-Sign-On.md
       - 'Configuring Single Sign-On': 

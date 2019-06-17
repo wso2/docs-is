@@ -11,25 +11,16 @@ authentication, while users logging in from the internal configured
 network specified on the script can simply provide their
 credentials (basic authentication) to access a resource.
 
-Follow the instructions in the sections given below:
+Follow the instructions given below:
 
--   [Configuring the sample
-    scenario](#ConfiguringIP-BasedAdaptiveAuthentication-Configuringthesamplescenario)
--   [Trying out the sample
-    scenario](#ConfiguringIP-BasedAdaptiveAuthentication-Tryingoutthesamplescenario)
-
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
-        .
-    -   For more information about adaptive authentication with WSO2
-        Identity Server, see [Adaptive
-        Authentication](_Adaptive_Authentication_) .
+        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+    -   For more information about adaptive authentication with WSO2 Identity Server, see [Adaptive
+        Authentication](/tutorials/adaptive-authentication) .
     
 
 ### Configuring the sample scenario
@@ -39,10 +30,12 @@ Follow the instructions in the sections given below:
     [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com/)
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication** .
-4.  C lick on **Templates** on the right side of the **Script Based
-    Conditional Authentication** field and then click **IP-Based** .  
-    ![](attachments/103330769/103330770.png){width="766" height="328"}
+    **Advanced Authentication**.
+4.  Click on **Templates** on the right side of the **Script Based
+    Conditional Authentication** field and then click **IP-Based**. 
+     
+    ![ip-based-template-config](/assets/img/tutorials/ip-based-template-config.png)
+    
 5.  Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users who log in from an IP address that is not
@@ -62,11 +55,11 @@ Follow the instructions in the sections given below:
     add the following sample authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![](attachments/103330769/103330773.png){width="697"
-        height="185"}
-    2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
-        ![](attachments/103330769/103330771.png){width="614"
-        height="195"}
+        ![second-step-login-ip-based](/assets/img/tutorials/second-step-login-ip-based.png)
+        
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
+        ![demo-hardware-key-authenticator](/assets/img/tutorials/demo-hardware-key-authenticator.png)
+        
 7.  Click **Update** .
 
 ### Trying out the sample scenario
@@ -99,12 +92,5 @@ Follow the instructions in the sections given below:
     network.
 
     !!! tip
-    
-        **Tip:** You can also try this scenario with two different machines
+        You can also try this scenario with two different machines
         in different networks to simulate a real world scenario.
-    
-
-## What's Next?
-
-The following scenarios demonstrate the use of adaptive authentication
-templates and scripts to try out other usecases.

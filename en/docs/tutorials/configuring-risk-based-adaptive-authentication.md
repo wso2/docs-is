@@ -21,24 +21,13 @@ Identity Server (WSO2 IS).
 
 Follow the instructions given in the sections below to set this up.
 
--   [Risk profiling
-    flow](#ConfiguringRisk-BasedAdaptiveAuthentication-Riskprofilingflow)
--   [Configuring WSO2 Stream
-    Processor](#ConfiguringRisk-BasedAdaptiveAuthentication-ConfiguringWSO2StreamProcessor)
--   [Configuring WSO2 Identity
-    Server](#ConfiguringRisk-BasedAdaptiveAuthentication-ConfiguringWSO2IdentityServer)
--   [Trying it
-    out](#ConfiguringRisk-BasedAdaptiveAuthentication-Tryingitout)
-
-------------------------------------------------------------------------
-
 ### Risk profiling flow
 
 The diagram below shows how the connection between the client
 applications, WSO2 Stream Processor, and WSO2 Identity Server works to
 assess risk and provide adaptive authentication to users.
 
-![](attachments/103330686/103330687.png){width="650" height="457"}
+![risk-based-adaptive-authentication](/assets/img/tutorials/risk-based-adaptive-authentication.png)
 
 1.  The user performs bank transactions through different applications.
 2.  Transactional data from all these applications are published to the
@@ -69,8 +58,7 @@ get the user's risk score.
     worker node.  
     For more detailed instructions on how to create and deploy the
     Siddhi application, see [Using WSO2 Stream Processor for Adaptive
-    Authentication](_Using_WSO2_Stream_Processor_for_Adaptive_Authentication_)
-    .
+    Authentication](/tutorials/using-wso2-stream-processor-for-adaptive-authentication).
 
     ``` java
     @App:name("RiskBasedLogin")
@@ -103,18 +91,14 @@ get the user's risk score.
 
 Next, configure WSO2 IS to communicate with the Siddhi application.
 
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
-        a Service Provider for Adaptive
-        Authentication](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
-        .
+        a Service Provider for Adaptive Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](_Adaptive_Authentication_) .
+        Authentication](/tutorials/adaptive-authentication).
     
 
 1.  Login to the management console and c reate a new user called "Alex"
@@ -123,11 +107,11 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication** .
-4.  C lick on **Templates** on the right side of the **Script Based
+    **Advanced Authentication**.
+4.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Risk-Based** .
-    ![](attachments/103330686/103330688.png){width="765" height="327"}
-5.  Click **Ok** . The authentication script and authentication steps
+    ![template-for-risk-based-authentication](/assets/img/tutorials/template-for-risk-based-authentication.png)
+5.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script defines a conditional step
     that executes the second step of authentication (the hardware key
     authenticator) if the `          riskScore         ` is greater
@@ -140,12 +124,11 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     add the following sample authenticator instead.  
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![](attachments/103330686/103330693.png){width="697"
-        height="185"}
+        ![second-step-risk-based-authentication](/assets/img/tutorials/second-step-risk-based-authentication.png)
     2.  Select **Sample Hardware Key Authenticator** and click
-        **Add.**  
-        **![](attachments/103330686/103330691.png){width="697"
-        height="194"}**
+        **Add**.  
+        ![sample-hardware-key-authenticator](/assets/img/tutorials/sample-hardware-key-authenticator.png)
+        
 7.  Save the service provider configurations.
 
 8.  Restart WSO2 Identity Server.
@@ -166,19 +149,19 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
         `             listenerConfigurations            ` .  
 
         ``` java
-          listenerConfigurations:
-            -
-              id: "default"
-              host: "0.0.0.0"
-              port: 9090
-            -
-              id: "msf4j-https"
-              host: "0.0.0.0"
-              port: 9444
-              scheme: https
-              keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
-              keyStorePassword: wso2carbon
-              certPass: wso2carbon
+        listenerConfigurations:
+          -
+		   id: "default"
+		   host: "0.0.0.0"
+		   port: 9090
+          -
+           id: "msf4j-https"
+           host: "0.0.0.0"
+           port: 9444
+		   scheme: https
+	       keyStoreFile: "${carbon.home}/resources/security/wso2carbon.jks"
+		   keyStorePassword: wso2carbon
+		   certPass: wso2carbon
         ```
 
 3.  Start the WSO2 SP server in a **Worker** profile.  
@@ -187,7 +170,8 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 4.  Log in by giving username and password credentials. You are logged
     in to the application.
 
-    Note that the user is authenticated with basic authentication only.
+    !!! note 
+        The user is authenticated with basic authentication only.
 
 5.  Log out of the application.
 
@@ -196,7 +180,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 
     !!! tip
     
-        **Tip:** Replace the \<username\> tag in the cURL command given
+        Replace the \<username\> tag in the cURL command given
         below with a valid username and ensure that the WSO2 SP Worker
         profile is running.
     
@@ -212,21 +196,18 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 7.  Log in to the sample PickUp application. You are prompted with the
     hardware key authentication after the basic authentication step.
 
-    Before executing the cURL command given in step 4, the user had no
-    transaction history and the user's riskScore was 0. The
-    authentication script is programmed to prompt only basic
-    authentication if the risk score is 0.
+    !!! info 
+		Before executing the cURL command given in step 4, the user had no
+		transaction history and the user's riskScore was 0. The
+		authentication script is programmed to prompt only basic
+		authentication if the risk score is 0.
 
-    After executing the command, a transaction event that indicates the
-    user spending more than $10,000 is published and recorded in the
-    Siddhi application. Therefore, when the user now attempts to log in
-    again, the user's riskScore is evaluated to 1 and the user is
-    prompted for an extra step of authentication.
+		After executing the command, a transaction event that indicates the
+		user spending more than $10,000 is published and recorded in the
+		Siddhi application. Therefore, when the user now attempts to log in
+		again, the user's riskScore is evaluated to 1 and the user is
+		prompted for an extra step of authentication.
 
-8.  Re-enter the number given on the screen and click **Sign In** . You
+8.  Re-enter the number given on the screen and click **Sign In**. You
     are logged into the application.
 
-## What's Next?
-
-The following scenarios demonstrate the use of adaptive authentication
-templates and scripts to try out different usecases.
