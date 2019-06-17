@@ -17,6 +17,23 @@
  */
 
 /*
+* Handle opening external links in a new tab
+*/
+
+(function() {
+    var links = document.links;
+    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+        if (links[i].hostname != window.location.hostname) {
+            links[i].target = "_blank";
+            links[i].setAttribute("rel", "noopener noreferrer");
+            links[i].className += " externalLink";
+        } else {
+            links[i].className += " localLink";
+        }
+    }
+})();
+
+/*
  * Initialize custom dropdown component
  */
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
@@ -220,8 +237,7 @@ for (var i = 0; i < observeeList.length; i++) {
 };
 
 function scrollerPosition(mutation) {
-    var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > " +
-        ".md-nav__link[data-md-state='blur']");
+    var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > .md-nav__link[data-md-state='blur']");
 
     listElems.forEach(function(el) {
         if (el.classList) {
@@ -233,24 +249,30 @@ function scrollerPosition(mutation) {
         if (mutation.target.getAttribute('data-md-state') === 'blur') {
             if (mutation.target.parentNode.querySelector('ul li')) {
                 mutation.target.parentNode.querySelector('ul li').classList.add('active');
-            } else if (mutation.target.parentNode.nextElementSibling) {
-                mutation.target.parentNode.nextElementSibling.classList.add('active');
             } else {
-                if(mutation.target.parentNode.parentNode){
-                    mutation.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling.classList.add('active');
-                }
+                setActive(mutation.target.parentNode);
             }
-        }
-        else {
+        } else {
             mutation.target.parentNode.classList.add('active');
         }
-    }
-    else {
+    } else {
         if (listElems.length > 0) {
             listElems[0].classList.add('active');
         }
     }
 };
+
+function setActive(parentNode, i) {
+    i = i || 0;
+    if (i === 5) {
+        return;
+    }
+    if (parentNode.nextElementSibling) {
+        parentNode.nextElementSibling.classList.add('active');
+        return;
+    }
+    setActive(parentNode.parentNode.parentNode.parentNode, ++i);
+}
 
 
 /*
@@ -267,19 +289,3 @@ window.addEventListener('scroll', function() {
     }
 });
 
-/*
-* Handle opening external links in a new tab
-*/
-
-(function() {
-  var links = document.links;
-  for (var i = 0, linksLength = links.length; i < linksLength; i++) {
-    if (links[i].hostname != window.location.hostname) {
-      links[i].target = "_blank";
-      links[i].setAttribute("rel", "noopener noreferrer");
-      links[i].className += " externalLink";
-    } else {
-      links[i].className += " localLink";
-    }
-  }
-})();
