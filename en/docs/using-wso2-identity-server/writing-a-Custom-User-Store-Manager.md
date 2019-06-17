@@ -483,8 +483,15 @@ Do the following steps to write the custom user store manager.
                                isAuthenticated = passwordEncryptor.checkPassword(candidatePassword, storedPassword);
                            }
                        }
+                       dbConnection.commit();
                        log.info(userName + " is authenticated? " + isAuthenticated);
                    } catch (SQLException exp) {
+                       try {
+                           connection.rollback();
+                       } catch (SQLException e1) {
+                           throw new UserStoreException("Transaction rollback connection error occurred while" + 
+                               " retrieving user authentication info. Authentication Failure.", e1);
+                       }
                        log.error("Error occurred while retrieving user authentication info.", exp);
                        throw new UserStoreException("Authentication Failure");
                    }

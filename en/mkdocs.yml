@@ -18,12 +18,12 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://wso2.com/
+site_url: https://wso2.com/identity-and-access-management/
 
 # Repository
 repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is.git
-edit_uri: https://github.com/wso2/docs-is/tree/master/en/docs
+repo_url: https://github.com/wso2/docs-is
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -37,6 +37,7 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
+  favicon: images/favicon.png
   highlightjs: true
   feature:
     tabs: true
@@ -44,6 +45,7 @@ theme:
   
 # Navigation
 nav:
+  - 'Home': index.md
   - 'Introduction':
     - 'Introduction': introduction/introduction.md
     - 'Overview': introduction/overview.md
@@ -57,7 +59,7 @@ nav:
   - 'Compliance':
     - 'Compliance': compliance/compliance.md
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
-    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-Identification-Authentication-and-Trust-Services-Regulation.md
+    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Installation Guide':
     - 'Installation Guide': installation-guide/installation-Guide.md 
     - 'Installing the Product': 
@@ -115,11 +117,11 @@ nav:
         - 'Configuring Risk-Based Adaptive Authentication': tutorials/configuring-Risk-Based-Adaptive-Authentication.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': tutorials/using-wso2-stream-processor-for-adaptive-authentication.md
     - 'Single Sign-On':
-      - 'Single Sign-On': tutorials/single-Sign-On.md
+      - 'Single Sign-On': tutorials/single-sign-on.md
       - 'Configuring Single Sign-On': 
-        - 'Configuring Single Sign-On': tutorials/configuring-Single-Sign-On.md
-        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-reCaptcha-for-Single-Sign-On.md
-      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-Sign-On-for-Native-iOS-Applications-with-WSO2-Identity-Server.md
+        - 'Configuring Single Sign-On': tutorials/configuring-single-sign-on.md
+        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-recaptcha-for-single-sign-on.md
+      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
       - 'SAML 2.0 Web SSO':
         - 'SAML 2.0 Web SSO': tutorials/sAML-2.0-Web-SSO.md
         - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML2-Web-Single-Sign-On.md
@@ -896,6 +898,8 @@ extra_css:
 extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
+  - assets/lib/backtotop/js/util.js
+  - assets/lib/backtotop/js/main.js
 extra:
   social:
     - type: github
