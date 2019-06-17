@@ -1,6 +1,6 @@
 # Electronic Identification, Authentication and Trust Services Regulation
 
-eIDAS (electronic IDentification, Authentication and trust Services) is
+eIDAS (electronic IDentification, Authentication and Trust Services) is
 an EU regulation on electronic identification and trust services for
 electronic transactions in the internal market. For a set of eIDAS
 compliant technical specifications that the member states of EU to
@@ -22,7 +22,7 @@ service or eIDAS middleware service).
 Following is an example eIDAS network with proxy to proxy connection
 between two member states(MS).
 
-![](attachments/103331653/103331654.png){width="500"}  
+![](/assets/img/compliance/eidas-diagram.png)
   
 What happens here is as follows:
 
@@ -50,12 +50,8 @@ What happens here is as follows:
 7.  The service provider grants access to the user.
 
 For more information on how eIDAS works, see [How does eIDAS
-work?](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/How+does+it+work+-+eIDAS+solution)
+work?](https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=82773030)
 
-For a tutorial that describes how WSO2 Identity Server supports
-the eIDAS SAML attribute profile, see [eIDAS SAML Attribute Profile
-Support via WSO2 Identity
-Server](_eIDAS_SAML_Attribute_Profile_Support_via_WSO2_Identity_Server_)
-.
-
-  
+!!! Info
+	  For a tutorial that describes how WSO2 Identity Server supports
+	  the eIDAS SAML attribute profile, see [eIDAS SAML Attribute Profile Support via 	  WSO2 Identity Server](_eidas_saml_attribute_profile_support_via_wso2_identity_server_).
