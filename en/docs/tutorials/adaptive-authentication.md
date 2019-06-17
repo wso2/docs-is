@@ -7,7 +7,7 @@ are used for validation can depend on the risk probability associated
 with the particular user access request. This enables adjusting the
 authentication strength based on the context at hand.
 
-![](attachments/103330626/103330627.png){width="800"}
+![adaptive authentication](/assets/img/tutorials/adaptive-authentication.png)
 
 WSO2 Identity Server (WSO2 IS) supports script-based adaptive
 authentication, which allows you to use a script to set up appropriate
@@ -22,7 +22,7 @@ supports adaptive authentication.
     To learn more about adaptive authentication, see the following articles:
     
     -   [Four reasons to upgrade your MFA to adaptive
-        authentication](https://wso2.com/library/article/2018/10/4-reasons-to-upgrade-your-mfa-to-adaptive-authentication/)
+        authentication](https://wso2.com/library/article/2018/10/4-reasons-to-upgrade-your-mfa-to-adaptive-authentication)
     -   [Five instances to use adaptive
         authentication](https://wso2.com/library/article/2018/10/5-instances-to-use-adaptive-authentication/)
     -   [Four reasons to use WSO2 Identity Server for adaptive
@@ -94,16 +94,14 @@ function someCommonFunction(context) {
 
 -   To try out adaptive authentication, see [Configuring a Service
     Provider for Adaptive
-    Authentication](_Configuring_a_Service_Provider_for_Adaptive_Authentication_)
-    .
+    Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
 -   To set up common adaptive authentication scenarios, see [Adaptive
-    Authentication Scenarios](_Adaptive_Authentication_Scenarios_) .
+    Authentication Scenarios](/tutorials/adaptive-authentication-scenarios) .
 -   To learn about the functions and fields related to authentication
     scripts, see [Adaptive Authentication JS API
-    Reference](_Adaptive_Authentication_JS_API_Reference_) .
+    Reference](/references/adaptive-authentication-js-api-reference) .
 -   To learn about the guidelines on writing custom functions for
     adaptive authentication, see [Writing Custom Functions for Adaptive
-    Authentication](_Writing_Custom_Functions_for_Adaptive_Authentication_)
-    .
+    Authentication](/using-wso2-identity-server/writing-custom-functions-for-adaptive-authentication).
 
   
