@@ -9,7 +9,7 @@ location causes the adaptive authentication mechanism to prompt an extra
 authentication in order to increase security.
 
 For more information on adaptive authentication with WSO2 IS, see
-[Adaptive Authentication](adaptive-authentication-overview.md) .
+[Adaptive Authentication](/tutorials/adaptive-authentication) .
 
 This tutorial guides you through setting up a sample application to try
 out adaptive authentication and configuring it as a service provider in
@@ -44,7 +44,7 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  Download the [saml2-web-app-pickup-dispatch.com.war](../../assets/file/tutorials/saml2-web-app-pickup-dispatch.com.war)
+    1.  Download the [saml2-web-app-pickup-dispatch.com.war](/assets/attachments/saml2-web-app-pickup-dispatch.com.war)
         file and paste it inside the
         `              <TOMCAT_HOME>/webapps             ` directory.
 
@@ -53,21 +53,15 @@ adaptive authentication using a sample application.
 
         Note that a login screen appears.
         
-        ![saml2-pickup-dispath-login](../../assets/img/tutorials/saml2-pickup-dispath-login.png)
+        ![saml2-pickup-dispath-login](/assets/img/tutorials/saml2-pickup-dispatch-login.png)
 
 2.  Deploy the sample authenticator dependency and web application in
     WSO2 IS.
 
-    1.  Download the
-        `                             org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar                           `
-        file and paste inside the
-        `              <IS_HOME>/repository/components/dropins             `
-        directory.
+    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](/assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+        `              <IS_HOME>/repository/components/dropins             ` directory.
 
-    2.  Download the
-        `                           sample-auth.war                         `
-        file and paste it inside the
-        `             <IS_HOME>/repository/deployment/server/webapps            `
+    2.  Download the [sample-auth.war](/assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
         folder.  
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
@@ -85,10 +79,10 @@ adaptive authentication using a sample application.
 
         2.  On the **Main** tab, click **Service Providers &gt; Add**
             .  
-            ![](../../assets/img/tutorials/add-service-providers.png)
+            ![Add Service Providers](/assets/img/tutorials/add-service-providers.png)
         3.  Enter `               test              ` as the **Service
-            Provider Name** and click **Register.** **  
-            ** ![](../../assets/img/tutorials/add-new-sp-1.png)
+            Provider Name** and click **Register.**  
+            ![Register New Service Provider](/assets/img/tutorials/add-new-sp-1.png)
         4.  Expand the **Local and Outbound Configuration** section.  
             The following authenticators should be available in the
             local authenticators list.
@@ -97,7 +91,7 @@ adaptive authentication using a sample application.
             -   Demo Hardware-Key Authenticator
             -   Demo Face ID Authenticator
 
-            ![](../../assets/img/tutorials/demo-authenticators.png)
+            ![Demo Authenticators](/assets/img/tutorials/demo-authenticators.png)
 
             Remain in the Management Console.
 
@@ -114,12 +108,11 @@ adaptive authentication using a sample application.
 In this step, let's configure a service provider for the sample
 application by setting up inbound authentication.
 
-This tutorial guides you through setting up a service provider for a
-SAML application. To configure a service provider with other protocols
-such as OAuth and WS-Federation, see [Configuring Inbound Authentication
-for a Service
-Provider](https://docs.wso2.com/display/IS570/Configuring+Inbound+Authentication+for+a+Service+Provider)
-.
+!!! info
+    This tutorial guides you through setting up a service provider for a
+    SAML application. To configure a service provider with other protocols
+    such as OAuth and WS-Federation, see [Configuring Inbound Authentication
+    for a Service Provider](using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
 
 1.  On the **Main** tab, click **Service Providers &gt; Add** and add a
     new service provider called
@@ -127,12 +120,11 @@ Provider](https://docs.wso2.com/display/IS570/Configuring+Inbound+Authentication
 
     For more information about configuring a service provider, see
     [Adding and Configuring a Service
-    Provider](https://docs.wso2.com/display/IS570/Adding+and+Configuring+a+Service+Provider)
-    .
+    Provider](/using-wso2-identity-server/adding-and-configuring-a-service-provider).
 
 2.  Expand the **Inbound Authentication configuration&gt; SAML2 Web SSO
     configuration** section, and click **Configure** .  
-    ![](../../assets/img/tutorials/configure-saml-sso.png)
+    ![Configure a Service Provider](/assets/img/tutorials/configure-saml-sso.png)
 3.  Fill in the following fields.  
     -   **Issuer:**
         `             saml2-web-app-pickup-dispatch.com            `
@@ -140,18 +132,18 @@ Provider](https://docs.wso2.com/display/IS570/Configuring+Inbound+Authentication
         `             http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer            `
 4.  Leave the rest of the default configurations as it is and click
     **Register** .  
-    ![](../../assets/img/tutorials/register-new-sp.png)
+    ![Register a New Service Provider](/assets/img/tutorials/registering-a-service-provider.png)
 5.  Expand **Local and Outbound Authentication Configuration** and click
     **Advanced Configuration** .  
-    ![](../../assets/img/tutorials/advanced-config.png)
+    ![Advanced Authentication Configuration](/assets/img/tutorials/advanced-auth-config.png)
 6.  You can add authentication steps or use a template to configure
     adaptive authentication depending on your requirement. For example,
     add Demo HardwareKey Authenticator.  
-    ![](../../assets/img/tutorials/adaptive-auth-templates.png)
+    ![Adaptive Authentication Templates](/assets/img/tutorials/adaptive-auth-templates.png)
 
 ## What's Next?
 
 Now that you have set up the service provider, the sample application,
-and the demo authenticators, you can try out the following scenarios
+and the demo authenticators, you can try out the [scenarios](/tutorials/adaptive-authentication-scenarios)
 that use pre-defined templates for different adaptive authentication use
 cases.
