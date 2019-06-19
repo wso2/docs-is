@@ -1167,7 +1167,7 @@ Follow the instructions below to configure a resident identity provider:
         value in the SAML request with the URL in the above configuration.
     
 
-### Exporting SAML2 metadata of the resident IdP
+### <a name="exporting-saml2-metadata-of-the-resident-idp"></a> Exporting SAML2 metadata of the resident IdP
 
 To configure WSO2 Identity Server as a trusted identity provider in a
 service provider application, export the SAML2 metadata of the resident
