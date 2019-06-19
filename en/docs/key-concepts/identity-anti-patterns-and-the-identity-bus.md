@@ -35,7 +35,7 @@ The diagram below illustrates how a silo of SAML federation and OpenID
 Connect federation interact within the respective silo and how it cannot
 interact with different silos.
 
-![spaghetti identity and federation silos](../../assets/img/concepts/spaghetti-identity-and-federation-silos.png)
+![spaghetti identity and federation silos](/assets/img/concepts/spaghetti-identity-and-federation-silos.png)
 
 Also consider the scalability of a specific federation silo. Within the
 SAML federation silo, for example, there can be an increasing number of
@@ -43,7 +43,7 @@ service providers and identity providers. Each service provider has to
 trust each identity provider and this leads to the Spaghetti Identity
 anti-pattern. The following diagram depicts the complexity of this.
 
-![Complexity in scaling a specific federation silo](../../assets/img/concepts/scalability-of-saml-federation-silo.png)
+![Complexity in scaling a specific federation silo](/assets/img/concepts/scalability-of-saml-federation-silo.png)
 
 ### The identity bus
 
@@ -82,9 +82,9 @@ pattern.
     provider registration. In the Identity Bus, each service provider
     can be configured based on how it authenticates users.
 4.  **Claim transformations.** Your service provider may read user's
-    email address from the " http://sp1.org/claims/email " attribute
+    email address from the "http://sp1.org/claims/email" attribute
     id - but the identity provider of the user may send it as "
-    http://idp1.org/claims/emai " . Identity bus can transform the
+    http://idp1.org/claims/emai". Identity bus can transform the
     claims it receives from the identity provider to the format expected
     by the service provider.
 5.  **Role mapping.** Your service provider needs to authorize users
