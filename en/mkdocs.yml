@@ -235,7 +235,7 @@ nav:
         - 'Sending Notifications to External PEP Endpoints': tutorials/sending-Notifications-to-External-PEP-Endpoints.md
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
       - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md
-  - 'Features/Use cases': 
+  - 'Using WSO2 Identity Server': 
     - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
