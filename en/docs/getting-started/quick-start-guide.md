@@ -24,7 +24,7 @@ to the employees and any security vulnerabilities.
 resolving these issues using WSO2 IS. **Alex** is a junior manager
 attending to day-to-day tasks and **Rowan** is the HR manager.
 
-![](/assets/img/quick-start-guide/qsg-overall-scenario.png)
+![qsg-overall-scenario](../../assets/img/getting-started/qsg-overall-scenario.png)
 
 Let's assume that you are Cameron, and you want to resolve these issues
 using WSO2 IS.
@@ -58,7 +58,7 @@ using WSO2 IS.
         * If you are planning to use Single Sign-On (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
         * Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
 
-7. [Start](https://docs.wso2.com/display/IS570/Running+the+Product) WSO2 IS. You are now ready to deploy the sample.
+7. [Start](../../setup/running-the-product) WSO2 IS. You are now ready to deploy the sample.
 
 **Steps to configure and run the samples**
 
@@ -159,7 +159,7 @@ The first problem that Pickup faces is that each employee has to use
 separate sets of user names and passwords (credentials) to log in to
 Pickup Dispatch and Pickup Manager.
 
-![](/assets/img/quick-start-guide/qsg-sso-scenario.png)
+![qsg-sso-scenario](../../assets/img/getting-started/qsg-sso-scenario.png)
 
 When the number of applications that are used in Pickup increases, the
 employees have to maintain more credentials. This is not scalable.
@@ -170,7 +170,7 @@ the need to maintain multiple credentials.
 
 Cameron decides to use WSO2 IS to configure SSO.
 
-![](/assets/img/quick-start-guide/qsg-sso-scenario2.png)
+![qsg-sso-scenario2](../../assets/img/getting-started/qsg-sso-scenario2.png)
 
 Let's use the command-line to check the SSO functionality with SAML2 or
 OIDC.
@@ -188,10 +188,10 @@ protocol, follow the steps below:
     3.  Create service providers for Pickup Dispatch and Pickup Manager.
     4.  Configure SAML2 web SSO for Pickup Dispatch and Pickup
         Manager.  
-        ![](/assets/img/quick-start-guide/qsg-configure-sso.png)
+        ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
     5.  Note that a message with the user and web application details
         appears.  
-        ![](/assets/img/quick-start-guide/qsg-sso-configure-saml-2.png)
+        ![qsg-sso-configure-saml-2](../../assets/img/getting-started/qsg-sso-configure-saml-2.png)
 
       
 
@@ -210,7 +210,7 @@ protocol, follow the steps below:
     a web browser to access the Dispatch application.
 
 3.  Click **Log in** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-login.png)
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 4.  Enter either of the following credentials to sign in to the
     application.
 
@@ -219,12 +219,12 @@ protocol, follow the steps below:
     Junior Manager --> Username: alex    | Password: alex123
     ```
 
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Select the attributes that you want to share with Dispatch and click
     **Approve** .
 
-    ![](/assets/img/quick-start-guide/qsg-sso-consent.png)
+    ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)
 
     !!! note
     
@@ -232,7 +232,7 @@ protocol, follow the steps below:
         the GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](https://docs.wso2.com/display/IS570/Consent+Management)
+        Management](../../using-wso2-identity-server/consent-management)
         .
     
 
@@ -240,23 +240,23 @@ protocol, follow the steps below:
 
       
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+    ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
 6.  Similarly, go to the URL
     <http://localhost.com:8080/saml2-web-app-pickup-manager.com> Using
     your browser to access the Pickup Manager application.
 
 7.  Click **Log in** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-manager-login.png)
+    ![qsg-sso-manager-login](../../assets/img/getting-started/qsg-sso-manager-login.png)
 
 8.  Note that the Pickup Manager application opens without having to
     enter the user credentials again.
-    ![](attachments/103329099/qsg-sso-manager-home.png)
+    ![qsg-sso-manager-home](../../assets/img//quick-start-guide/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter
     `              y             ` to clean the setup.  
-    ![](/assets/img/quick-start-guide/qsg-sso-cleanup.png)
+    ![qsg-sso-cleanup](../../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ##### **Configuring SSO with OIDC**
 
@@ -271,17 +271,17 @@ follow the steps below:
     3.  Create service providers for Pickup Dispatch and Pickup Manager.
     4.  Configure SAML2 web SSO for Pickup Dispatch and Pickup Manager.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-sso.png)  
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)  
     Note that a message with the user and web application details
     appears.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-sso-2.png)
+    ![qsg-configure-sso-2](../../assets/img/getting-started/qsg-configure-sso-2.png)
 
 2.  Enter the
     [http://localhost.com:8080/pickup-dispatch](http://localhost:8080/Dispatch/)
     URL on a web browser to access the Pickup Dispatch application.
 3.  Click **Log in** .  
-    ![](attachments/103329099/qsg-sso-dispatch-login.png)
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 4.  Enter either of the following credentials to sign in to the
     application.
 
@@ -290,12 +290,12 @@ follow the steps below:
     Junior Manager --> Username: alex    | Password: alex123
     ```
 
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Select the approval type that you wish provide and the attributes
     that you wish to share with the application and click **Continue**
     .  
-    ![](/assets/img/quick-start-guide/qsg-oidc-consent.png)
+    ![qsg-oidc-consent](../../assets/img/getting-started/qsg-oidc-consent.png)
 
     !!! note
     
@@ -303,13 +303,13 @@ follow the steps below:
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](https://docs.wso2.com/display/IS570/Consent+Management)
+        Management](../../using-wso2-identity-server/consent-management)
         .
     
 
     Note that the Pickup Dispatch home screen appears.
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+    ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
 6.  Similarly, enter
     [http://localhost:8080/pickup-manager](http://localhost:8080/Swift/)
@@ -317,14 +317,14 @@ follow the steps below:
     the Pickup Manager application opens without having to enter the
     user credentials.  
       
-    ![](/assets/img/quick-start-guide/qsg-sso-manager-home.png) 
+    ![qsg-sso-manager-home](../../assets/img/getting-started/qsg-sso-manager-home.png) 
     You have set up SSO and your employees are happy with their
     experience as they only have to provide credentials once in order to
     access both Pickup Dispatch and Pickup Manager.
 7.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
     `              y             ` to clean the setup.  
-    ![](/assets/img/quick-start-guide/qsg-sso-cleanup.png)
+    ![qsg-sso-cleanup](../../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ### Multi-factor Authentication
 ##### Problem Scenario
@@ -368,28 +368,28 @@ A message appears to pick a scenario.
 
 1.  Enter `              3             ` as the scenario number at the
     command prompt.  
-    ![](/assets/img/quick-start-guide/qsg-configure-sso.png)
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 2.  Enter `               y              ` to confirm that you have
     already registered an app in Twitter. (See the **Prerequisites**
     tab)
 
-    ![](/assets/img/quick-start-guide/qsg-configure-twitter-mfa.png.png)
+    ![qsg-configure-twitter-mfa](../../assets/img/getting-started/qsg-configure-twitter-mfa.png)
 
 3.  Enter the `               API key              ` and the secret of
     the Twitter application when prompted.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-mfa-2.png)
+    ![qsg-configure-mfa-2](../../assets/img/getting-started/qsg-configure-mfa-2.png)
 
 4.  Note that a message with the user and application details appears.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-mfa-3.png)
+    ![qsg-configure-mfa-3](../../assets/img/getting-started/qsg-configure-mfa-3.png)
 
 5.  Go to the Enter the
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
 6.  Click **Log in** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-login.png)
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 7.  Enter either of the following credentials to sign in to the
     application.
 
@@ -398,14 +398,14 @@ A message appears to pick a scenario.
     Employee --> Username: alex    | Password: alex123 
     ```
 
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
     The Twitter login page appears as Twitter is the second
     authentication factor.
 
 8.  Enter your Twitter `               username              ` and
     `               password              ` and click **Sign In** .
-    ![](/assets/img/quick-start-guide/qsg-authorize-twitterapp.png)
+    ![qsg-authorize-twitterapp](../../assets/img/getting-started/qsg-authorize-twitterapp.png)
 
     After successful authentication, the **User Consents** form of the
     Dispatch application appears.
@@ -413,7 +413,7 @@ A message appears to pick a scenario.
 9.  Select the attributes that you want to share with Dispatch and click
     **Approve** .
 
-    ![](/assets/img/quick-start-guide/qsg-sso-consent.png)      
+    ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)      
 
     !!! note
     
@@ -421,18 +421,18 @@ A message appears to pick a scenario.
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](https://docs.wso2.com/display/IS570/Consent+Management)
+        Management](../../using-wso2-identity-server/consent-management)
         .
     
 
 10. Note that the Dispatch home screen appears.
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+    ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
 11. To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter
     `               y              ` to clean the setup.
-    ![](/assets/img/quick-start-guide/qsg-sso-cleanup.png)
+    ![qsg-sso-cleanup](../../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ### Federated Authentication
 ##### Problem Scenario
@@ -480,30 +480,30 @@ A message appears to pick a scenario.
     3.  Create service providers for Pickup Dispatch and Pickup Manager.
     4.  Configure SAML2 web SSO for Pickup Dispatch and Pickup Manager.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-sso.png)
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 
 2.  Enter `               y              ` to confirm that you have
     already registered an app in Twitter. (See **Prerequisites** tab)
 
-    ![](/assets/img/quick-start-guide/qsg-configure-federated-auth.png)
+    ![qsg-configure-federated-auth](../../assets/img/getting-started/qsg-configure-federated-auth.png)
 
       
 
 3.  Enter the `               API key              ` and the secret of
     the Twitter application when prompted.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-federated-auth-2.png)
+    ![qsg-configure-federated-auth-2](../../assets/img/getting-started/qsg-configure-federated-auth-2.png)
 
     Note that a message with the user and application details appears.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-federated-auth-3.png)
+    ![qsg-configure-federated-auth-3](../../assets/img/getting-started/qsg-configure-federated-auth-3.png)
 
 4.  Enter the
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
 5.  Click **Log in** .
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-login.png)  
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)  
     The Twitter login page appears.
 
 6.  Enter your Twitter `               username              ` and
@@ -515,7 +515,7 @@ A message appears to pick a scenario.
 7.  Select the attributes that you wish to share with Pickup Dispatch
     and click **Approve** .
 
-    ![](/assets/img/quick-start-guide/qsg-sso-consent.png)
+    ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)
 
     !!! note
     
@@ -523,20 +523,20 @@ A message appears to pick a scenario.
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](https://docs.wso2.com/display/IS570/Consent+Management)
+        Management](../../using-wso2-identity-server/consent-management)
         .
     
 
     Note that the Pickup Dispatch home screen appears.
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+    ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
     You have just signed in to the Pickup Dispatch application
     as an external consultant using your Twitter credentials.
 
 8.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
     `              y             ` to clean the setup.  
-    ![](/assets/img/quick-start-guide/qsg-sso-cleanup.png)
+    ![qsg-sso-cleanup](../../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ### Self Sign-up
 ##### Problem Scenario
@@ -605,7 +605,7 @@ Pickup Manager applications using WSO2 IS.
 1.  Enter `               5              ` as the scenario number at the
     command prompt.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-sso.png)
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 
     A prompt appears to choose the user sign-up approach.
 
@@ -621,28 +621,28 @@ Pickup Manager applications using WSO2 IS.
         account by clicking on the account confirmation mail sent by
         WSO2 IS.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-self-sign-up.png)
+    ![qsg-configure-self-sign-up](../../assets/img/getting-started/qsg-configure-self-sign-up.png)
 2.  Enter `               number              ` that matches with the
     approach you would like to try.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-self-sign-up-2.png)
+    ![qsg-configure-self-sign-up-2](../../assets/img/getting-started/qsg-configure-self-sign-up-2.png)
 
 3.  Enter the
     [http://localhost.com:8080/pickup-dispatch](http://localhost.com:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
 4.  Click **Log in** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-login.png)
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 5.  Click **Register Now** .
 
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-register.png)
+    ![qsg-self-sign-up-register](../../assets/img/getting-started/qsg-self-sign-up-register.png)
 
       
 
 6.  Enter a `               username              ` for your user
     account and click **Proceed to Self Register** .
 
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-username.png)
+    ![qsg-self-sign-up-username](../../assets/img/getting-started/qsg-self-sign-up-username.png)
     !!! note
     
         If you want a user to self register for a specific tenant, provide
@@ -652,11 +652,11 @@ Pickup Manager applications using WSO2 IS.
 
 7.  Provide the `               user profile details              ` ,
     agree to the **Privacy Policy** , and click **Register** .  
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-new-account.png)
+    ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     A confirmation message appears.
 
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-confirmation.png)
+    ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-confirmation.png)
 
 8.  Click **Close** .
 
@@ -678,11 +678,11 @@ Pickup Manager applications using WSO2 IS.
         2.  Navigate back to the Pickup Dispatch application and sign in
             using the new user credentials.
 
-        ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+        ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
         Note that the Dispatch home screen appears.
 
-        ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+        ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
         You have just self-signed up to a Pickup web
         application.
@@ -690,7 +690,7 @@ Pickup Manager applications using WSO2 IS.
 9.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
     `               y              ` to clean the setup.
-    ![](/assets/img/quick-start-guide/qsg-sso-cleanup.png)
+    ![qsg-sso-cleanup](../../assets/img/getting-started/qsg-sso-cleanup.png)
 
 ### Workflows
 ##### Problem Scenario
@@ -735,27 +735,27 @@ A message appears to pick a scenario.
 
 1.  Enter `              6             ` as the scenario number at the
     command prompt.  
-    ![](/assets/img/quick-start-guide/qsg-configure-sso.png)
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 
     Note that a message with the user and web application details
     appears.
 
-    ![](/assets/img/quick-start-guide/qsg-configure-a-workflow.png)
+    ![qsg-configure-a-workflow](../../assets/img/getting-started/qsg-configure-a-workflow.png)
 
 2.  Enter the
     [http://localhost.com:8080/pickup-dispatch](http://localhost.com:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
 
 3.  Click **Log in** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-login.png)
+    ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 4.  Click **Register Now** .
 
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Enter a `               username              ` for your user
     account and click **Proceed to Self Register** .
 
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-username.png)
+    ![qsg-self-sign-up-username](../../assets/img/getting-started/qsg-self-sign-up-username.png)
 
     !!! note
     
@@ -766,7 +766,7 @@ A message appears to pick a scenario.
 
 6.  Provide the `               user profile details              ` ,
     agree to the **Privacy Policy** , and click **Register** .  
-    ![](/assets/img/quick-start-guide/qsg-self-sign-up-new-account.png)
+    ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     Even though a new user account is created successfully, it is in
     disabled state. To enable the user, you need to sign in to the WSO2
@@ -775,7 +775,7 @@ A message appears to pick a scenario.
 7.  Enter the
     [http://localhost:9443/dashboard](http://localhost:9443/dasjboard)
     URL on a web browser to access **WSO2 Dashboard** .  
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 8.  Enter the following credentials to sign in as Alex and click **Sign
     In** .
@@ -786,25 +786,25 @@ A message appears to pick a scenario.
 
 9.  Provide the consents.
 
-    ![](/assets/img/quick-start-guide/qsg-workflow-consent.png)
+    ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 
 10. Click **Pending Approvals \> View Details** .  
-    ![](/assets/img/quick-start-guide/qsg-workflow-approvals.png)
+    ![qsg-workflow-approvals](../../assets/img/getting-started/qsg-workflow-approvals.png)
 
 11. Click the **Task ID** .
 
-    ![](/assets/img/quick-start-guide/qsg-user-portal-tasks.png)
+    ![qsg-user-portal-tasks](../../assets/img/getting-started/qsg-user-portal-tasks.png)
 
 12. Click **Approve** to approve the user account creation.  
-    ![](/assets/img/quick-start-guide/qsg-workflow-approve-task.png)
+    ![qsg-workflow-approve-task](../../assets/img/getting-started/qsg-workflow-approve-task.png)
 
     Note that a confirmation message appears.  
-    ![](/assets/img/quick-start-guide/qsg-workflow-approval-confirmation.png)
+    ![qsg-workflow-approval-confirmation](../../assets/img/getting-started/qsg-workflow-approval-confirmation.png)
 
     Click **OK** .
 
 13. Click **Sign out** to sign out of WSO2 Dashboard as Alex.  
-    ![](/assets/img/quick-start-guide/qsg-sign-out.png)
+    ![qsg-sign-out](../../assets/img/getting-started/qsg-sign-out.png)
 
 14. Enter the following credentials to sign in as Cameron and click
     **Sign In** .
@@ -815,44 +815,44 @@ A message appears to pick a scenario.
 
 15. Provide consents.
 
-    ![](/assets/img/quick-start-guide/qsg-workflow-consent.png)
+    ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 
 16. Click **Pending Approvals \> View Details** .
 
-    ![](/assets/img/quick-start-guide/qsg-workflow-approvals.png)
+    ![qsg-workflow-approvals](../../assets/img/getting-started/qsg-workflow-approvals.png)
 
 17. Click the **Task ID** .
 
-    ![](/assets/img/quick-start-guide/qsg-user-portal-tasks.png)
+    ![qsg-user-portal-tasks](../../assets/img/getting-started/qsg-user-portal-tasks.png)
 
 18. Click **Approve** to approve the user account creation.
 
-    ![](/assets/img/quick-start-guide/qsg-workflow-approve-task-2.png)
+    ![qsg-workflow-approve-task-2](../../assets/img/getting-started/qsg-workflow-approve-task-2.png)
 
 19. Navigate back to the Pickup Dispatch application and sign in using
     the new user credentials.
 
-    ![](/assets/img/quick-start-guide/qsg-sso-login-credentials.png)
+    ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
     Select the attributes that you wish to share with Pickup Dispatch
     and click **Approve** .
 
-    ![](/assets/img/quick-start-guide/qsg-workflow-consent.png)
+    ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 
     !!! note
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](https://docs.wso2.com/display/IS570/Consent+Management)
+        Management](../../using-wso2-identity-server/consent-management)
         .
     
     Note that the Pickup Dispatch home screen appears.
 
-    ![](/assets/img/quick-start-guide/qsg-sso-dispatch-home.png)
+    ![qsg-sso-dispatch-home](../../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
 This concludes the Quick Start Guide!
 
 You have set up WSO2 IS and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](https://docs.wso2.com/display/IS570/Tutorials) .
+[Tutorials](../../tutorials/tutorials) .

@@ -46,39 +46,58 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Introduction':
-    - 'Introduction': introduction/introduction.md
-    - 'Overview': introduction/overview.md
+  - 'Getting Started':
+    - 'Introduction': getting-started/overview.md
     - 'Architecture':
-      - 'Architecture': introduction/architecture.md
-      - 'Provisioning Architecture': introduction/provisioning-architecture.md
-      - 'User Management Architecture': introduction/user-management-architecture.md
-    - 'About this Release': introduction/about-this-release.md
-  - 'Quick Start Guide': 
-    - 'Quick Start Guide': quick-start-guide/quick-start-guide.md
+      - 'Architecture': getting-started/architecture.md
+      - 'Provisioning Architecture': getting-started/provisioning-architecture.md
+      - 'User Management Architecture': getting-started/user-Management-architecture.md
+    - 'About this Release': getting-started/about-this-release.md
+    - 'Quick Start Guide': getting-started/quick-start-guide.md
+    - 'Key Concepts':
+      - 'Key Concepts': getting-started/key-concepts.md
+      - 'Single Sign-On and Identity Federation': getting-started/single-sign-on-and-identity-federation.md
+      - 'Identity Provisioning and its Standards': getting-started/identity-provisioning-and-its-standards.md
+      - 'Access Control and Entitlement Management': getting-started/access-control-and-entitlement-management.md
+      - 'Identity Anti-patterns and the Identity Bus': getting-started/identity-anti-patterns-and-the-identity-bus.md
   - 'Compliance':
-    - 'Compliance': compliance/compliance.md
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
-  - 'Installation Guide':
-    - 'Installation Guide': installation-guide/installation-Guide.md 
-    - 'Installing the Product': 
-      - 'Installing the Product': installation-guide/installing-the-Product.md
-      - 'Installation Prerequisites': installation-guide/installation-Prerequisites.md
-      - 'Installing on Linux or OS X': installation-guide/installing-on-Linux-or-OS-X.md
-      - 'Installing on Solaris': installation-guide/installing-on-Solaris.md
-      - 'Installing on Windows': installation-guide/installing-on-Windows.md
-      - 'Installing as a Linux Service': installation-guide/installing-as-a-Linux-Service.md
-      - 'Installing as a Windows Service': installation-guide/installing-as-a-Windows-Service.md
-    - 'Running the Product': installation-guide/running-the-Product.md
-    - 'Getting Started with the Management Console': installation-guide/getting-Started-with-the-Management-Console.md
-    - 'Customizing the Management Console': installation-guide/customizing-the-Management-Console.md
-    - 'Shutting Down and Restarting the Server': installation-guide/shutting-Down-and-Restarting-the-Server.md
-  - 'Key Concepts':
-    - 'Single Sign-On and Identity Federation': key-concepts/single-sign-on-and-identity-federation.md
-    - 'Identity Provisioning and its Standards': key-concepts/identity-provisioning-and-its-standards.md
-    - 'Access Control and Entitlement Management': key-concepts/access-control-and-entitlement-management.md
-    - 'Identity Anti-patterns and the Identity Bus': key-concepts/identity-anti-patterns-and-the-identity-bus.md
+  - 'Setup':
+    - 'Installation Guide': 
+      - 'Installing the Product': 
+        - 'Installing the Product': setup/installing-the-Product.md
+        - 'Installation Prerequisites': setup/installation-Prerequisites.md
+        - 'Installing on Linux or OS X': setup/installing-on-Linux-or-OS-X.md
+        - 'Installing on Solaris': setup/installing-on-Solaris.md
+        - 'Installing on Windows': setup/installing-on-Windows.md
+        - 'Installing as a Linux Service': setup/installing-as-a-Linux-Service.md
+        - 'Installing as a Windows Service': setup/installing-as-a-Windows-Service.md
+      - 'Running the Product': setup/running-the-Product.md
+      - 'Getting Started with the Management Console': setup/getting-Started-with-the-Management-Console.md
+      - 'Customizing the Management Console': setup/customizing-the-Management-Console.md
+      - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
+    - 'Deployment Guide':
+      - 'Deployment Patterns':
+        - 'Deployment Patterns': setup/deployment-Patterns.md
+        - 'Setting Up Deployment Pattern 1': setup/setting-Up-Deployment-Pattern-1.md
+        - 'Setting Up Deployment Pattern 2': setup/setting-Up-Deployment-Pattern-2.md
+        - 'Setting Up Separate Databases for Clustering': setup/setting-Up-Separate-Databases-for-Clustering.md
+      - 'Deployment Guidelines in Production': setup/deployment-Guidelines-in-Production.md
+      - 'Changing the hostname': setup/changing-the-hostname.md
+      - 'Adding High Availability for LDAP': setup/adding-High-Availability-for-LDAP.md
+      - 'File Based Configurations': 
+        - 'File Based Configurations': setup/file-Based-Configurations.md
+        - 'Configuring a SP and IdP Using Configuration Files': setup/configuring-a-SP-and-IdP-Using-Configuration-Files.md
+      - 'Token Persistence': setup/token-Persistence.md
+      - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': setup/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
+    - 'Migration Guide':
+      - 'Migration Guide': setup/migration-Guide.md
+      - 'Upgrading from the Previous Release':
+        - 'Upgrading from the Previous Release': setup/upgrading-from-the-Previous-Release.md
+        - 'Migrating Data Publishers': setup/migrating-Data-Publishers.md
+        - 'Understanding What Has Changed': setup/understanding-What-Has-Changed.md
+      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-From-an-Older-Version-of-WSO2-IS.md
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
@@ -103,18 +122,18 @@ nav:
       - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-OIDC-Authentication-Request-Parameters-in-a-Request-Object.md
       - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-Signature-Validation-for-Request-Objects.md
     - 'Adaptive Authentication':
-      - 'Adaptive Authentication': tutorials/adaptive-Authentication.md
+      - 'Adaptive Authentication': tutorials/adaptive-authentication.md
       - 'Configuring a Service Provider for Adaptive Authentication': tutorials/configuring-a-service-provider-for-adaptive-authentication.md
       - 'Adaptive Authentication Scenarios':
         - 'Adaptive Authentication Scenarios': tutorials/adaptive-authentication-scenarios.md
         - 'Configuring Role-Based Adaptive Authentication': tutorials/configuring-role-based-adaptive-authentication.md
         - 'Configuring User-Age-Based Adaptive Authentication': tutorials/configuring-user-age-based-adaptive-authentication.md
         - 'Configuring Tenant-Based Adaptive Authentication': tutorials/configuring-tenant-based-adaptive-authentication.md
-        - 'Configuring User Store-Based Adaptive Authentication': tutorials/configuring-User-Store-Based-Adaptive-Authentication.md
-        - 'Configuring IP-Based Adaptive Authentication': tutorials/configuring-IP-Based-Adaptive-Authentication.md
-        - 'Configuring New-Device-Based Adaptive Authentication': tutorials/configuring-New-Device-Based-Adaptive-Authentication.md
-        - 'Configuring ACR-Based Adaptive Authentication': tutorials/configuring-ACR-Based-Adaptive-Authentication.md
-        - 'Configuring Risk-Based Adaptive Authentication': tutorials/configuring-Risk-Based-Adaptive-Authentication.md
+        - 'Configuring User Store-Based Adaptive Authentication': tutorials/configuring-user-store-based-adaptive-authentication.md
+        - 'Configuring IP-Based Adaptive Authentication': tutorials/configuring-ip-based-adaptive-authentication.md
+        - 'Configuring New-Device-Based Adaptive Authentication': tutorials/configuring-new-device-based-adaptive-authentication.md
+        - 'Configuring ACR-Based Adaptive Authentication': tutorials/configuring-acr-based-adaptive-authentication.md
+        - 'Configuring Risk-Based Adaptive Authentication': tutorials/configuring-risk-based-adaptive-authentication.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': tutorials/using-wso2-stream-processor-for-adaptive-authentication.md
     - 'Single Sign-On':
       - 'Single Sign-On': tutorials/single-sign-on.md
@@ -124,7 +143,7 @@ nav:
       - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
       - 'SAML 2.0 Web SSO':
         - 'SAML 2.0 Web SSO': tutorials/sAML-2.0-Web-SSO.md
-        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML2-Web-Single-Sign-On.md
+        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML-2.0-Web-SSO.md
         - 'Querying SAML Assertions': tutorials/querying-SAML-Assertions.md
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
@@ -216,32 +235,10 @@ nav:
         - 'Sending Notifications to External PEP Endpoints': tutorials/sending-Notifications-to-External-PEP-Endpoints.md
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
       - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md
-  - 'Using WSO2 Identity Server': 
+  - 'Features/Use cases': 
     - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
-      - 'Migration Guide':
-        - 'Migration Guide': using-wso2-identity-server/migration-Guide.md
-        - 'Upgrading from the Previous Release':
-          - 'Upgrading from the Previous Release': using-wso2-identity-server/upgrading-from-the-Previous-Release.md
-          - 'Migrating Data Publishers': using-wso2-identity-server/migrating-Data-Publishers.md
-          - 'Understanding What Has Changed': using-wso2-identity-server/understanding-What-Has-Changed.md
-        - 'Upgrading From an Older Version of WSO2 IS': using-wso2-identity-server/upgrading-From-an-Older-Version-of-WSO2-IS.md
-      - 'Deploying the Identity Server':
-        - 'Deploying the Identity Server': using-wso2-identity-server/deploying-the-Identity-Server.md
-        - 'Deployment Patterns':
-          - 'Deployment Patterns': using-wso2-identity-server/deployment-Patterns.md
-          - 'Setting Up Deployment Pattern 1': using-wso2-identity-server/setting-Up-Deployment-Pattern-1.md
-          - 'Setting Up Deployment Pattern 2': using-wso2-identity-server/setting-Up-Deployment-Pattern-2.md
-          - 'Setting Up Separate Databases for Clustering': using-wso2-identity-server/setting-Up-Separate-Databases-for-Clustering.md
-        - 'Deployment Guidelines in Production': using-wso2-identity-server/deployment-Guidelines-in-Production.md
-        - 'Changing the hostname': using-wso2-identity-server/changing-the-hostname.md
-        - 'Adding High Availability for LDAP': using-wso2-identity-server/adding-High-Availability-for-LDAP.md
-        - 'File Based Configurations': 
-          - 'File Based Configurations': using-wso2-identity-server/file-Based-Configurations.md
-          - 'Configuring a SP and IdP Using Configuration Files': using-wso2-identity-server/configuring-a-SP-and-IdP-Using-Configuration-Files.md
-        - 'Token Persistence': using-wso2-identity-server/token-Persistence.md
-        - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': using-wso2-identity-server/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': using-wso2-identity-server/configuring-the-Identity-Server.md 
         - 'Role-based Permissions': using-wso2-identity-server/role-based-Permissions.md
@@ -532,13 +529,6 @@ nav:
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
       - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-Authentication-Endpoint-on-a-Different-Server.md
     - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md
-  - 'References': 
-    - 'References': references/references.md
-    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
-    - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
-    - 'API Permissions': references/api-permissions.md
-    - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
-    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - 'Connectors':
     - 'Authenticators and Connectors': 
       - 'Authenticators and Connectors': connectors/authenticators-and-Connectors.md
@@ -859,6 +849,14 @@ nav:
       - 'Supported Cipher Suites': admin-guide/supported-Cipher-Suites.md
       - 'Directory Structure of WSO2 Products': admin-guide/directory-Structure-of-WSO2-Products.md
       - 'WSO2 Patch Application Process': admin-guide/wSO2-Patch-Application-Process.md
+  - 'References': 
+    - 'References': references/references.md
+    - 'Configuration Catalog': references/config_catalog.md
+    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
+    - 'API Permissions': references/api-permissions.md
+    - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
+    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - 'FAQ':
     - 'FAQ': faq/fAQ.md
   - '': page-not-found.md
