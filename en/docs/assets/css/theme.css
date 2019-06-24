@@ -619,8 +619,8 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .md-footer-nav__inner {
-    padding: 0;
-    height: 52px;
+    padding: 13px 0;
+    height: 65px;
 }
 
 .md-footer-nav__direction {
