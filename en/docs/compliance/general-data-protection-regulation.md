@@ -258,4 +258,4 @@ control can be used to cater this requirement.
 
 !!! Info
 	  For more information on Role-based Access control, Attribute-based
-	  Access Control, and XACML, see [Access Control and Entitlement](/key-concepts/access-control-and-entitlement-management) page.
+	  Access Control, and XACML, see [Access Control and Entitlement](../../getting-started/access-control-and-entitlement-management) page.
