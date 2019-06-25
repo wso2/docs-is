@@ -96,7 +96,7 @@ and Group resources in a RESTful way.
 The following is a high level overview of SCIM Service Provider
 architecture of IS.
 
-![scim-service-provider-architecture](../../assets/img/introduction/scim-service-provider-architecture.png)
+![scim-service-provider-architecture](../../assets/img/getting-started/scim-service-provider-architecture.png)
 
 WSO2 Charon is one of the SCIM implementations that are made available
 under Apache 2.0 license. Charon includes libraries used by SCIM in the
@@ -105,7 +105,7 @@ WSO2 Identity Server.
 The following diagram provides an overview on the module breakdown of
 Charon along with purpose of each module and planned tasks of them.
 
-![charon-module-breakdown](../../assets/img/introduction/charon-module-breakdown.png)
+![charon-module-breakdown](../../assets/img/getting-started/charon-module-breakdown.png)
 
 The following includes a brief introduction on each of the modules.
 
@@ -163,7 +163,7 @@ The following is a deployment diagram of Charon-SCIM service provider
 high level idea on how Charon-Core and Charon-Utils modules are
 utilized.
 
-![charon-scim-deployment](../../assets/img/introduction/charon-scim-deployment.png)
+![charon-scim-deployment](../../assets/img/getting-started/charon-scim-deployment.png)
 
 As this diagram of the reference implementation illustrates, a SCIM
 service provider can be developed using any REST implementation and
@@ -181,13 +181,13 @@ and it can cater to most of the industry's identity management
 requirements. Given below is a sample user object with the default
 attributes set.
 
-![user-object-with-default-attribute-set](../../assets/img/introduction/user-object-with-default-attribute-set.png)
+![user-object-with-default-attribute-set](../../assets/img/getting-started/user-object-with-default-attribute-set.png)
 
 However the SCIM specification itself introduces the [Enterprise User
 Extension](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.3)
 to support extra attributes for the SCIM user object.
 
-![extra-attributes](../../assets/img/introduction/extra-attributes.png)
+![extra-attributes](../../assets/img/getting-started/extra-attributes.png)
 
 However the reality in the industry is that organizations have their own
 attributes defined for the users. These attributes are already there in
@@ -205,7 +205,7 @@ Model](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-4)
 . Given below is a sample extended user object with the default schema
 configuration.
 
-![default-schema-configuration](../../assets/img/introduction/default-schema-configuration.png)
+![default-schema-configuration](../../assets/img/getting-started/default-schema-configuration.png)
 
 ### Enable Extension
 
@@ -238,7 +238,7 @@ attributes.
 Create a new user with the new schema. The following screen depicts the
 user to be added with the **wso2Extension** attributes.
 
-![wso2-extension-attributes](../../assets/img/introduction/wso2-extension-attributes.png)
+![wso2-extension-attributes](../../assets/img/getting-started/wso2-extension-attributes.png)
 
 ### cURL commands
 
@@ -277,7 +277,7 @@ The above command provides the following results:
 
 The created SCIM user object can be viewed in the following screen:
 
-![scim-user-object](../../assets/img/introduction/scim-user-object.png)
+![scim-user-object](../../assets/img/getting-started/scim-user-object.png)
 
 ### Related links
 
