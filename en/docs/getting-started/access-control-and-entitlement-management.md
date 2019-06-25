@@ -16,7 +16,7 @@ more information on Access control.
 
 ### Types of access control
 
-![The various types of access control](../../assets/img/concepts/types-of-access-control.png)
+![The various types of access control](../../assets/img/getting-started/types-of-access-control.png)
 
 The following table describes the various types of access control.
 
@@ -192,7 +192,7 @@ descriptive attributes about the user or any other missing attribute in
 the request. Policy Administration Point (PAP) is used to manage the PDP
 and PIP functionality.
 
-![XACML system architecture](../../assets/img/concepts/xacml-system-architecture.png)
+![XACML system architecture](../../assets/img/getting-started/xacml-system-architecture.png)
 
 ------------------------------------------------------------------------
 
@@ -236,7 +236,7 @@ Point (PDP).
 
 The following diagram represents the component architecture of the PDP.
 
-![Component architecture of the policy decision point](../../assets/img/concepts/xacml-engine-architecture.png)
+![Component architecture of the policy decision point](../../assets/img/getting-started/xacml-engine-architecture.png)
 
 The following provides a more detailed information on the various
 components available in the PDP architecture.
@@ -284,7 +284,7 @@ PDP is exposed via the Entitlement Admin Service with method name
 This module finds  from different policy stores to evaluate a
 XACML request. The following is a high-level diagram of how this works.
 
-![Carbon policy finder](../../assets/img/concepts/carbon-policy-finder.png)
+![Carbon policy finder](../../assets/img/getting-started/carbon-policy-finder.png)
 
 Any number of policy finder modules can be plugged with the Carbon
 policy finder. You need to implement the CarbonPolicyFinderModule
@@ -421,7 +421,7 @@ This module helps to find the missing attribute for a given XACML
 request. The following is the high-level diagram for both the Carbon
 attribute and resource finders.
 
-![Carbon attribute finder](../../assets/img/concepts/carbon-attribute-finder.png)
+![Carbon attribute finder](../../assets/img/getting-started/carbon-attribute-finder.png)
 
 Any number of PIP attribute finder modules can be plugged with the
 Carbon attribute finder. You need to implement the PIPAttributeFinder
