@@ -19,9 +19,9 @@ sample authenticators required to try out the scenario.
     -   Set up the service provider and sample application for adaptive
         authentication if you have not done so already. For instructions on
         how to do this, see [Configuring a Service Provider for Adaptive
-        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
-        Identity Server, see [Adaptive Authentication](/tutorials/adaptive-authentication).
+        Identity Server, see [Adaptive Authentication](../../tutorials/adaptive-authentication).
 
 ### Configuring the sample scenario
 
@@ -34,7 +34,7 @@ sample authenticators required to try out the scenario.
 4.  Expand **Script Based Conditional Authentication**.
 5.  Click **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Role-Based**.  
-    ![role based authentication template](/assets/img/tutorials/role-based-authentication-template.png)
+    ![role based authentication template](../../assets/img/tutorials/role-based-authentication-template.png)
 6.  Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script defines a conditional step
     that executes the second authentication step (i.e., hardware key
@@ -50,10 +50,10 @@ sample authenticators required to try out the scenario.
         `            fido           ` authenticators from Step 2 (the
         second authentication step).
           
-        ![delete authenticators](/assets/img/tutorials/delete-authenticators.png)
+        ![delete authenticators](../../assets/img/tutorials/delete-authenticators.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![add new authenticator](/assets/img/tutorials/add-new-authenticator.png)
+        ![add new authenticator](../../assets/img/tutorials/add-new-authenticator.png)
 8.  Click **Update**.
 
 ### Testing the sample scenario
@@ -64,11 +64,11 @@ sample authenticators required to try out the scenario.
 2.  Click **Login** and enter admin/admin credentials.  You are prompted
     to use the hardware key after basic authentication according to the
     authentication step defined in the JavaScript above.  
-    ![pickup sign in](/assets/img/tutorials/pickup-sign-in.png)
+    ![pickup sign in](../../assets/img/tutorials/pickup-sign-in.png)
     
     
 3.  Enter the 4 digit key given on the screen and click **Sign In**.  
-    ![hardware key authenticator](/assets/img/tutorials/hardware-key-authenticator.png)
+    ![hardware key authenticator](../../assets/img/tutorials/hardware-key-authenticator.png)
     
     
     
@@ -77,4 +77,4 @@ sample authenticators required to try out the scenario.
     that this user is not assigned to any role. You will see that
     authentication is successful only after going through the basic
     authentication step.  
-    ![pickup homepage](/assets/img/tutorials/pickup-homepage.png)
+    ![pickup homepage](../../assets/img/tutorials/pickup-homepage.png)

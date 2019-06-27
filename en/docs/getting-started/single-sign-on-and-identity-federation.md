@@ -36,7 +36,7 @@ To understand how single sign-on works, it is useful to first examine
 how authentication works in a non SSO environment. The following diagram
 depicts this flow.
 
-![Authentication in a non SSO environment](/assets/img/concepts/authentication-in-non-sso.png)
+![Authentication in a non SSO environment](../../assets/img/getting-started/authentication-in-non-sso.png)
 
 
 In the above figure, the users access **Application 1** first and then
@@ -50,7 +50,7 @@ for **Application 2** to access the cookie stored in the browser for
 The following diagram depicts how this story differs in a SSO
 environment.
 
-![Authentication in a SSO environment](/assets/img/concepts/authentication-in-sso.png)
+![Authentication in a SSO environment](../../assets/img/getting-started/authentication-in-sso.png)
 
 
 In this second figure, the users access **Application 1** first followed
@@ -178,7 +178,7 @@ If the user accesses the identity provider directly, then only the steps
 
 The following diagram depicts this flow.
 
-![SAML 2.0 authentication flow](/assets/img/concepts/saml-authentication-flow.png)
+![SAML 2.0 authentication flow](../../assets/img/getting-started/saml-authentication-flow.png)
 
 The message MUST contain an element that uniquely identifies the service
 provider who created the message. Optionally, the message may contain

@@ -24,12 +24,12 @@ of authentication.
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   Download and install [Apache Directory
         Studio](http://directory.apache.org/studio/downloads.html) .
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](/tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication) .
     
 
 1.  Login to the mangement console.
@@ -42,7 +42,7 @@ of authentication.
 4.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **User
     Store-Based**.  
-    ![script-based-conditional-authentication](/assets/img/tutorials/script-based-conditional-authentication.png)
+    ![script-based-conditional-authentication](../../assets/img/tutorials/script-based-conditional-authentication.png)
 5.  Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users that belong to the user stores named "
@@ -57,9 +57,9 @@ of authentication.
     add the following sample authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![delete-totp-authenticator](/assets/img/tutorials/delete-totp-authenticator.png)
+        ![delete-totp-authenticator](../../assets/img/tutorials/delete-totp-authenticator.png)
     2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
-        ![demo-hardware-key-authenticator](/assets/img/tutorials/demo-hardware-key-authenticator.png)
+        ![demo-hardware-key-authenticator](../../assets/img/tutorials/demo-hardware-key-authenticator.png)
 7.  Click **Update** .
 8.  Next, set up the database. This database will be connected to WSO2
     Identity Server as a user store named "
@@ -77,30 +77,30 @@ of authentication.
 	1.  Open Apache Directory Studio.
 	2.  In the **LDAP Servers** tab found on the bottom left corner,
 		click **New Server** .  
-		![new-server](/assets/img/tutorials/new-server.png)
+		![new-server](../../assets/img/tutorials/new-server.png)
 	3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish** .  
-		![](/assets/img/tutorials/select-ldap-server.png)
+		![select-ldap-server](../../assets/img/tutorials/select-ldap-server.png)
 	4.  Right-click on the newly created server and click **Open
 		Configuration** .
 
-		![ldap-server-config](/assets/img/tutorials/ldap-server-config.png)
+		![ldap-server-config](../../assets/img/tutorials/ldap-server-config.png)
 
 	5.  Port offset the LDAP and LDAP server ports by changing the LDAP
 		port to 10390 and the LDAP server port to 10637. This ensures
 		that the embedded LDAP server running in the prior installation
 		of WSO2 IS does not conflict with the current installation.
 
-		![ldap-port-offset](/assets/img/tutorials/ldap-port-offset.png)
+		![ldap-port-offset](../../assets/img/tutorials/ldap-port-offset.png)
 
 	6.  Right-click on the new server and click **Create a Connection**.  
-		![create-an-ldap-connection](/assets/img/tutorials/create-an-ldap-connection.png)
+		![create-an-ldap-connection](../../assets/img/tutorials/create-an-ldap-connection.png)
 	7.  Right-click on the server and click **Run** to start the server.
-		![run-ldap-server](/assets/img/tutorials/run-ldap-server.png) 
+		![run-ldap-server](../../assets/img/tutorials/run-ldap-server.png) 
 
 9\. Click **Add** under **User Stores** on the **Main** tab and add a new secondary user store named
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"EMPLOYEES". 
 
-![add-secondary-user-store](/assets/img/tutorials/add-secondary-user-store.png)
+![add-secondary-user-store](../../assets/img/tutorials/add-secondary-user-store.png)
      
 10\. Configure the user store properties as follows. 
 
@@ -111,7 +111,7 @@ of authentication.
         accordingly.
     -   For more information about secondary user store properties, see
         [Configuring Secondary User
-        Stores](/using-wso2-identity-server/configuring-secondary-user-stores).
+        Stores](../../using-wso2-identity-server/configuring-secondary-user-stores).
 
 1.  **Connection URL:** ldap://localhost:10390
 2.  **Connection Name:** uid=admin,ou=system
@@ -122,12 +122,12 @@ of authentication.
 7.  **User Search Filter:** (&(objectClass=person)(uid=?))
 8.  **User List Filter:** (objectClass=person) 
 
-	![secondary-user-store-properties](/assets/img/tutorials/secondary-user-store-properties.png) 
+	![secondary-user-store-properties](../../assets/img/tutorials/secondary-user-store-properties.png) 
 
 11\. Expand the **Optional** tab and set the **Group Search Base** property as follows.  
 &nbsp; &nbsp; &nbsp; &nbsp; **Group Search Base:** ou=groups,ou=system  
 	
-![group-search-base-property](/assets/img/tutorials/group-search-base-property.png)
+![group-search-base-property](../../assets/img/tutorials/group-search-base-property.png)
 	
 12\. Click **Update** to save the configurations.
 
@@ -140,7 +140,7 @@ of authentication.
     `          EMPLOYEES         ` user store. Select
     `          EMPLOYEES         ` as the **Domain** when creating the
     user.  
-    ![creating-users](/assets/img/tutorials/creating-users.png)
+    ![creating-users](../../assets/img/tutorials/creating-users.png)
     
 3.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
@@ -154,17 +154,17 @@ of authentication.
     authenticator) since she belongs to the whitelisted user store
     domain " `           EMPLOYEES          ` ".  
     
-    ![second-step-of-authentication](/assets/img/tutorials/second-step-of-authentication.png) 
+    ![second-step-of-authentication](../../assets/img/tutorials/second-step-of-authentication.png) 
     
     Enter the 4 digit key and click **Sign In** .  
     
-    ![signing-in-with-four-digit-key](/assets/img/tutorials/signing-in-with-four-digit-key.png) 
+    ![signing-in-with-four-digit-key](../../assets/img/tutorials/signing-in-with-four-digit-key.png) 
     
     
     Provide consent and you will be successfully logged in to the
     application.  
     
-    ![log-in-successful](/assets/img/tutorials/log-in-successful.png)
+    ![log-in-successful](../../assets/img/tutorials/log-in-successful.png)
 
     !!! tip
     
