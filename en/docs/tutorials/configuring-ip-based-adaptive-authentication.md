@@ -18,9 +18,9 @@ Follow the instructions given below:
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2 Identity Server, see [Adaptive
-        Authentication](/tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication) .
     
 
 ### Configuring the sample scenario
@@ -34,7 +34,7 @@ Follow the instructions given below:
 4.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **IP-Based**. 
      
-    ![ip-based-template-config](/assets/img/tutorials/ip-based-template-config.png)
+    ![ip-based-template-config](../../assets/img/tutorials/ip-based-template-config.png)
     
 5.  Click **Ok** . The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
@@ -55,10 +55,10 @@ Follow the instructions given below:
     add the following sample authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![second-step-login-ip-based](/assets/img/tutorials/second-step-login-ip-based.png)
+        ![second-step-login-ip-based](../../assets/img/tutorials/second-step-login-ip-based.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![demo-hardware-key-authenticator](/assets/img/tutorials/demo-hardware-key-authenticator.png)
+        ![demo-hardware-key-authenticator](../../assets/img/tutorials/demo-hardware-key-authenticator.png)
         
 7.  Click **Update** .
 
