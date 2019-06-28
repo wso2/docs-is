@@ -51,7 +51,7 @@ nav:
     - 'Architecture':
       - 'Architecture': getting-started/architecture.md
       - 'Provisioning Architecture': getting-started/provisioning-architecture.md
-      - 'User Management Architecture': getting-started/user-Management-architecture.md
+      - 'User Management Architecture': getting-started/user-management-architecture.md
     - 'About this Release': getting-started/about-this-release.md
     - 'Quick Start Guide': getting-started/quick-start-guide.md
     - 'Key Concepts':
