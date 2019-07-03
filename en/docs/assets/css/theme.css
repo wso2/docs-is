@@ -631,13 +631,34 @@ html .md-typeset .superfences-tabs > label:hover {
     background-color: #3c464c;
 }
 
+.md-footer-nav__inner {
+    overflow: hidden;
+}
 .md-footer-nav {
     background-color: rgba(0, 0, 0, 0.67);
 }
 
 .md-footer-nav__link {
-    padding-top: 1rem;
-    padding-bottom: 0.1rem;
+    padding-top: .1rem;
+    padding-bottom: 0;
+}
+
+.md-footer-nav__inner {
+    padding: 13px 0;
+    height: 65px;
+}
+
+.md-footer-nav__direction {
+    font-size: .5rem;
+    top: 3px;
+}
+
+.md-footer-nav__title {
+    font-size: .7rem;
+}
+
+.md-footer-nav .md-flex__cell {
+    vertical-align: baseline;
 }
 
 .md-footer-copyright__highlight {
