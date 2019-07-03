@@ -28,13 +28,13 @@ provider.
 
     -   To ensure you get the full understanding of this tutorial, the
         sample Travelocity application is used in this use case. Therefore,
-        make sure to [download the samples](/using-wso2-identity-server/downloading-a-sample) before
+        make sure to [download the samples](../../using-wso2-identity-server/downloading-a-sample) before
         you begin.
     -   [Download Tomcat 7.x](https://tomcat.apache.org/download-70.cgi).
         The  samples are written on Servlet 3.0. Therefore, they need to be
         deployed on Tomcat 7.x.
     -   Install Apache Maven. For more information, see [Installation
-        Prerequisites](/installation-guide/installation-prerequisites) .
+        Prerequisites](../../setup/installation-prerequisites) .
 
 
 ### Configuring the SSO web application
@@ -144,7 +144,7 @@ The next step is to configure **travelocity.com** as the service
 provider. The following steps instruct you on how to do this.
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](/installation-guide/getting-started-with-the-management-console) using
+    Console](../../setup/getting-started-with-the-management-console) using
     default administrator credentials (the username and password are
     both `          admin         ` ). If you need to create the service
     provider in a tenant space, you need to login with tenants user.
@@ -171,7 +171,7 @@ provider. The following steps instruct you on how to do this.
         the Application Certificate field is left blank.
 
         For more information on Application Certificate and its usage, click
-    	[here](/using-wso2-identity-server/adding-and-configuring-a-service-		provider/#app-cert).
+    	[here](../../using-wso2-identity-server/adding-and-configuring-a-service-		provider/#app-cert).
 
 5.  Expand the **Inbound Authentication Configuration** section and then
     expand **SAML2 Web SSO Configuration** .
@@ -180,7 +180,7 @@ provider. The following steps instruct you on how to do this.
 
 7.  Select **Manual Configuration** and register the new service
     provider by providing the following values.  
-    ![](/assets/img/tutorials/register-new-service-provider-manual-config.png)
+    ![register-new-service-provider-manual-config](../../assets/img/tutorials/register-new-service-provider-manual-config.png)
 
     ??? Info "Click here for more information on each attribute"
 		 <table>
@@ -407,7 +407,7 @@ key_encryption_alg=
 		-   Select **Use user store domain in local subject identifier**
 		    to append the user store domain that the user resides in the
 		    local subject identifier.  
-		    ![local-and-outbound-config](/assets/img/tutorials/local-and-outbound-config.png)
+		    ![local-and-outbound-config](../../assets/img/tutorials/local-and-outbound-config.png)
 
 		    For **super tenant mode** , this step is not required and the two
 		    options mentioned above should remain disabled by default.
@@ -420,7 +420,7 @@ key_encryption_alg=
     !!! Info
         For more information on configuring this, see
         [Configuring Claims for a Service
-        Provider](/using-wso2-identity-server/configuring-claims-for-a-service-provider).
+        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider).
 1. Expand the **Claim Configuration** section in the service provider form.
 2. You can select the claims that must be sent to the service provider. If you just want to send them as claim URIs, select **Use Local Claim Dialect** .
 3. Alternatively, if you want to define new claim URIs for the
@@ -439,8 +439,8 @@ key_encryption_alg=
 
         For more information, see
         [Configuring Claims for a Service
-        Provider](/using-wso2-identity-server/configuring-claims-for-a-service-provider) .  
-        ![configure-sso-claims](/assets/img/tutorials/configure-sso-claims.png)
+        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) .  
+        ![configure-sso-claims](../../assets/img/tutorials/configure-sso-claims.png)
 
 2.  Configure outbound authentication as **Default** authentication
     type. This specifies that the identity provider authenticates the
@@ -456,7 +456,7 @@ management console. The next step is to run the sample.
 
 1.  Visit `          http://wso2is.local:8080/travelocity.com         `
     . You are directed to the following page:  
-    ![travelocity-login](/assets/img/tutorials/travelocity-login.png)
+    ![travelocity-login](../../assets/img/tutorials/travelocity-login.png)
 2.  Since you need to use SAML2 for this sample, click the first link,
     i.e., **Click here to login with SAML from Identity Server** . You
     are redirected to the Identity Server for authentication.
@@ -474,10 +474,10 @@ management console. The next step is to run the sample.
 
         For more information about user consent in the SSO authentication
         flow, see [Consent Management with
-        Single-Sign-On](/using-wso2-identity-server/consent-management-with-single-sign-on).
+        Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
 
 
-    ![travelocity-user-consent](/assets/img/tutorials/travelocity-user-consent.png)
+    ![travelocity-user-consent](../../assets/img/tutorials/travelocity-user-consent.png)
 
 5.  Select the claims that you consent to share with the Travelocity
     application and click **Approve** . You have to provide consent for

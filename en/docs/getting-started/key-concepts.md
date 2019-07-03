@@ -20,7 +20,7 @@ Lorem ipsum dolor sit amet.
 [button url="http://www.google.com"]
 
 [configure SSO and Identity
-Federation](/key-concepts/single-sign-on-and-identity-federation){.contentf-button
+Federation](../../getting-started/single-sign-on-and-identity-federation){.contentf-button
 .aui-button}
 
 ------------------------------------------------------------------------
@@ -34,7 +34,7 @@ also delves into the history of provisioning standards and how these
 progressed over time. Click the button below to view this content.
 
 [configure Identity Provisioning and its
-Standards](/key-concepts/identity-provisioning-and-its-standards){.contentf-button
+Standards](../../key-concepts/identity-provisioning-and-its-standards){.contentf-button
 .aui-button}
 
   
@@ -50,7 +50,7 @@ including the concept, terminology, and architecture. Click the button
 below to view this content.
 
 [configure Access Control and Entitlement
-Management](/key-concepts/access-control-and-entitlement-management){.contentf-button
+Management](../../getting-started/access-control-and-entitlement-management){.contentf-button
 .aui-button}
 
   
@@ -65,7 +65,7 @@ within the WSO2 Identity Server solves this problem. Click the button
 below to view this content.
 
 [configure Identity Anti-patterns and the Identity
-Bus](/key-concepts/identity-anti-patterns-and-the-identity-bus){.contentf-button
+Bus](../../getting-started/identity-anti-patterns-and-the-identity-bus){.contentf-button
 .aui-button}
 
   
