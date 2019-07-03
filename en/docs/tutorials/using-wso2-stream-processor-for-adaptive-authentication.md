@@ -52,7 +52,7 @@ WSO2 Identity Server for risk-based login.
     @App:name("RiskBasedLogin")
     ```
 
-    ![sp-risk-based-login](/assets/img/tutorials/sp-risk-based-login.png)
+    ![sp-risk-based-login](../../assets/img/tutorials/sp-risk-based-login.png)
 
 7.  Add the following HTTP source to the Siddhi application.
 
@@ -93,7 +93,7 @@ WSO2 Identity Server for risk-based login.
 		publishes them to external endpoints (such as E-mail, TCP, Kafka,
 		HTTP, etc).
 
-	![http-source-in-siddhi](/assets/img/tutorials/http-source-in-siddhi.png)
+	![http-source-in-siddhi](../../assets/img/tutorials/http-source-in-siddhi.png)
 
 	In this tutorial, the source you just created is considered as the
 	stream used to publish events about the transaction that a user has
@@ -102,11 +102,11 @@ WSO2 Identity Server for risk-based login.
 8.  Click on **File\>Save** to save the application.
 
 9.  Click **Run** or the play button
-    ![sp-play](/assets/img/tutorials/sp-play.png) to run the script using the
+    ![sp-play](../../assets/img/tutorials/sp-play.png) to run the script using the
     editor. If the application starts successfully, you will see the
     following log in the Stream Processor Studio console.
 
-    ![sp-studio-console.png](/assets/img/tutorials/sp-studio-console.png)
+    ![sp-studio-console.png](../../assets/img/tutorials/sp-studio-console.png)
 
 10. Run the following cURL command on a new terminal window to test the
     source.  
@@ -311,7 +311,7 @@ Server and WSO2 Stream Processor.
     **Adaptive Engine\>Analytics Engine**.
 3.  Configure the following properties accordingly. For this tutorial
     scenario, you can leave the default configurations as they are.  
-    ![analytics-engine-properties](/assets/img/tutorials/analytics-engine-properties.png)
+    ![analytics-engine-properties](../../assets/img/tutorials/analytics-engine-properties.png)
 
     <table>
     <thead>
@@ -435,5 +435,5 @@ Now that you have successfully deployed a Siddhi application for risk
 based login, you can configure WSO2 Identity Server to receive data from
 this Siddhi application and set up rules for adaptive authentication.
 Follow the [Configuring Risk-Based Adaptive
-Authentication](/tutorials/configuring-risk-based-adaptive-authentication)
+Authentication](../../tutorials/configuring-risk-based-adaptive-authentication)
 tutorial to set this up.
