@@ -17,10 +17,10 @@ Follow the instructions given in the sections below to set this up.
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](/tutorials/adaptive-authentication).
+        Authentication](../../tutorials/adaptive-authentication).
     
 ### Configuring the sample scenario
 
@@ -34,7 +34,7 @@ Follow the instructions given in the sections below to set this up.
 5.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click
     **New-Device-Based**.  
-    ![template-config-for-new-device-based-authentication](/assets/img/tutorials/template-config-for-new-device-based-authentication.png)
+    ![template-config-for-new-device-based-authentication](../../assets/img/tutorials/template-config-for-new-device-based-authentication.png)
 6.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication if the user logs in using a new device or browser
@@ -61,9 +61,9 @@ Follow the instructions given in the sections below to set this up.
     add the following demo authenticator instead.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![second-step-for-new-device-authentication](/assets/img/tutorials/second-step-for-new-device-authentication.png)
+        ![second-step-for-new-device-authentication](../../assets/img/tutorials/second-step-for-new-device-authentication.png)
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
-        ![demo-hardware-key-authenticator](/assets/img/tutorials/demo-hardware-key-authenticator.png)
+        ![demo-hardware-key-authenticator](../../assets/img/tutorials/demo-hardware-key-authenticator.png)
 8.  Click **Update**.
 
 ### Trying out the sample scenario
@@ -73,10 +73,10 @@ Follow the instructions given in the sections below to set this up.
 2.  Click **Login** and enter Kim's credentials. Note that you are
     prompted for hardware key authentication because Kim has never
     logged in from this device or browser before.  
-    ![login-attempt-for-new-device-based-authentication](/assets/img/tutorials/login-attempt-for-new-device-based-authentication.png)
+    ![login-attempt-for-new-device-based-authentication](../../assets/img/tutorials/login-attempt-for-new-device-based-authentication.png)
 3.  Enter the 4 digit key and click **Sign-In**. You are successfully
     logged in to the application.  
-    ![signing-in-with-four-digit-key](/assets/img/tutorials/signing-in-with-four-digit-key.png)  
+    ![signing-in-with-four-digit-key](../../assets/img/tutorials/signing-in-with-four-digit-key.png)  
 4.  Log out and log in again using Kim's credentials on the same browser
     window. Note that you are logged in successfully without being
     prompted for hardware key authentication again. This is because this
