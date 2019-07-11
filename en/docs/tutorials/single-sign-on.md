@@ -14,14 +14,15 @@ WSO2 Identity Server can act as the identity provider of a single
 sign-on system with minimal configurations. This topic briefly
 introduces single-sign-on and how to configure the WSO2 Identity Server
 with different inbound authenticators by [Configuring a Service
-Provider](/using-wso2-identity-server/adding-and-configuring-a-service-provider) to achieve this.
+Provider](_Adding_and_Configuring_a_Service_Provider_) to achieve this.
 
-!!! Info
+!!! note
     
     **Note:** For a tutorial on how to configure single sign on with a
     sample application, see [Configuring Single
-    Sign-On](/tutorials/configuring-single-sign-on) .
+    Sign-On](_Configuring_Single_Sign-On_) .
     
+
 ### About SSO
 
 Single Sign-On which is known as SSO, is a property of access control
@@ -113,40 +114,41 @@ see the [Identity
 Federation](https://docs.wso2.com/display/IS530/Identity+Federation)
 topic.
 
-    
 ### Configuring SSO
-The following topics discuss the various protocols that can be used to configure SSO:
- 
- - [SAML 2.0 Web SSO](/tutorials/saml-2.0-web-sso)
 
- - [WS-Trust](/tutorials/ws-trust)
+The following topics discuss the various protocols that can be used to
+configure Single-Sign-On (SSO).
 
- - [WS-Federation](/tutorials/ws-federation)
+-   [Configuring Single Sign-On](_Configuring_Single_Sign-On_)
+-   [Single Sign-On for Native iOS Applications with WSO2 Identity
+    Server](_Single_Sign-On_for_Native_iOS_Applications_with_WSO2_Identity_Server_)
+-   [SAML 2.0 Web SSO](_SAML_2.0_Web_SSO_)
+-   [WS-Trust](_WS-Trust_)
+-   [WS-Federation](_WS-Federation_)
+-   [Integrated Windows
+    Authentication](_Integrated_Windows_Authentication_)
+-   [OAuth2-OpenID Connect](_OAuth2-OpenID_Connect_)
 
- - [Integrated Windows
-    Authentication](/tutorials/integrated-windows-authentication)
-
- - [OAuth2-OpenID Connect](/tutorials/oauth-openid-connect)
-	   
-!!! warning "Removed Feature!"
+!!! warning
+    
+    Removed Feature!
     
     OpenID 2.0 has been removed from the base product in WSO2 Identity
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
     you use [OpenID
-    Connect](/tutorials/oauth-openid-connect)
+    Connect](https://docs.wso2.com/display/IS510/OAuth2-OpenID+Connect)
     instead.
+    
 
+**Related Topics**
 
-!!! Info "Related Topics"
-	   -   See [Configuring a Service
-    Provider](/tutorials/configuring-a-service-provider) for more
+-   See [Configuring a Service
+    Provider](_Adding_and_Configuring_a_Service_Provider_) for more
     information on using single sign-on with a service provider.
-	   -   See [Configuring Single Sign-On](/tutorials/configuring-single-sign-on) for a
+-   See [Configuring Single Sign-On](_Configuring_Single_Sign-On_) for a
     tutorial on how this works with a sample application.
-	   -   See [Single Sign-On for Native iOS Applications with WSO2 Identity
-    Server](/tutorials/single-sign-on-for-native-ios-applications-wit-wso2-identity-server) to configure SSO with native iOS applications.
-	   -   See [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with
+-   See [\[Tutorial\] SSO for Microsoft Sharepoint Web Applications with
     WSO2 Identity
     Server](http://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/)
     to configure single sign on for Microsoft Sharepoint web
