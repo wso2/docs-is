@@ -18,12 +18,12 @@
 site_name: WSO2 Identity Server Documentation
 site_description: Documentation for WSO2 Identity Server
 site_author: WSO2
-site_url: https://wso2.com/identity-and-access-management/
+site_url: https://wso2.com/
 
 # Repository
 repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+repo_url: https://github.com/wso2/docs-is.git
+edit_uri: https://github.com/wso2/docs-is/tree/master/en/docs
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -37,7 +37,6 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
-  favicon: images/favicon.png
   highlightjs: true
   feature:
     tabs: true
@@ -45,82 +44,60 @@ theme:
   
 # Navigation
 nav:
-  - 'Home': index.md
-  - 'Getting Started':
-    - 'Introduction': getting-started/overview.md
+  - 'Introduction':
+    - 'Introduction': introduction/introduction.md
+    - 'Overview': introduction/overview.md
     - 'Architecture':
-      - 'Architecture': getting-started/architecture.md
-      - 'Provisioning Architecture': getting-started/provisioning-architecture.md
-      - 'User Management Architecture': getting-started/user-management-architecture.md
-    - 'About this Release': getting-started/about-this-release.md
-    - 'Quick Start Guide': getting-started/quick-start-guide.md
-    - 'Key Concepts':
-      - 'Key Concepts': getting-started/key-concepts.md
-      - 'Single Sign-On and Identity Federation': getting-started/single-sign-on-and-identity-federation.md
-      - 'Identity Provisioning and its Standards': getting-started/identity-provisioning-and-its-standards.md
-      - 'Access Control and Entitlement Management': getting-started/access-control-and-entitlement-management.md
-      - 'Identity Anti-patterns and the Identity Bus': getting-started/identity-anti-patterns-and-the-identity-bus.md
+      - 'Architecture': introduction/architecture.md
+      - 'Provisioning Architecture': introduction/provisioning-Architecture.md
+      - 'User Management Architecture': introduction/user-Management-Architecture.md
+    - 'About this Release': introduction/about-this-release.md
+  - 'Quick Start Guide': 
+    - 'Quick Start Guide': quick-start-guide/quick-Start-Guide.md
   - 'Compliance':
-    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
-    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
-  - 'Setup':
-    - 'Installation Guide': 
-      - 'Installing the Product': 
-        - 'Installing the Product': setup/installing-the-Product.md
-        - 'Installation Prerequisites': setup/installation-Prerequisites.md
-        - 'Installing on Linux or OS X': setup/installing-on-Linux-or-OS-X.md
-        - 'Installing on Solaris': setup/installing-on-Solaris.md
-        - 'Installing on Windows': setup/installing-on-Windows.md
-        - 'Installing as a Linux Service': setup/installing-as-a-Linux-Service.md
-        - 'Installing as a Windows Service': setup/installing-as-a-Windows-Service.md
-      - 'Running the Product': setup/running-the-Product.md
-      - 'Getting Started with the Management Console': setup/getting-Started-with-the-Management-Console.md
-      - 'Customizing the Management Console': setup/customizing-the-Management-Console.md
-      - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
-    - 'Deployment Guide':
-      - 'Deployment Patterns':
-        - 'Deployment Patterns': setup/deployment-Patterns.md
-        - 'Setting Up Deployment Pattern 1': setup/setting-Up-Deployment-Pattern-1.md
-        - 'Setting Up Deployment Pattern 2': setup/setting-Up-Deployment-Pattern-2.md
-        - 'Setting Up Separate Databases for Clustering': setup/setting-Up-Separate-Databases-for-Clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-Guidelines-in-Production.md
-      - 'Changing the hostname': setup/changing-the-hostname.md
-      - 'Adding High Availability for LDAP': setup/adding-High-Availability-for-LDAP.md
-      - 'File Based Configurations': 
-        - 'File Based Configurations': setup/file-Based-Configurations.md
-        - 'Configuring a SP and IdP Using Configuration Files': setup/configuring-a-SP-and-IdP-Using-Configuration-Files.md
-      - 'Token Persistence': setup/token-Persistence.md
-      - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': setup/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
-    - 'Migration Guide':
-      - 'Migration Guide': setup/migration-Guide.md
-      - 'Upgrading from the Previous Release':
-        - 'Upgrading from the Previous Release': setup/upgrading-from-the-Previous-Release.md
-        - 'Migrating Data Publishers': setup/migrating-Data-Publishers.md
-        - 'Understanding What Has Changed': setup/understanding-What-Has-Changed.md
-      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-From-an-Older-Version-of-WSO2-IS.md
+    - 'Compliance': compliance/compliance.md
+    - 'General Data Protection Regulation': compliance/general-Data-Protection-Regulation.md
+    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-Identification-Authentication-and-Trust-Services-Regulation.md
+  - 'Installation Guide':
+    - 'Installation Guide': installation-guide/installation-Guide.md 
+    - 'Installing the Product': 
+      - 'Installing the Product': installation-guide/installing-the-Product.md
+      - 'Installation Prerequisites': installation-guide/installation-Prerequisites.md
+      - 'Installing on Linux or OS X': installation-guide/installing-on-Linux-or-OS-X.md
+      - 'Installing on Solaris': installation-guide/installing-on-Solaris.md
+      - 'Installing on Windows': installation-guide/installing-on-Windows.md
+      - 'Installing as a Linux Service': installation-guide/installing-as-a-Linux-Service.md
+      - 'Installing as a Windows Service': installation-guide/installing-as-a-Windows-Service.md
+    - 'Running the Product': installation-guide/running-the-Product.md
+    - 'Getting Started with the Management Console': installation-guide/getting-Started-with-the-Management-Console.md
+    - 'Customizing the Management Console': installation-guide/customizing-the-Management-Console.md
+    - 'Shutting Down and Restarting the Server': installation-guide/shutting-Down-and-Restarting-the-Server.md
+  - 'Key Concepts':
+    - 'Single Sign-On and Identity Federation': key-concepts/single-sign-on-and-identity-federation.md
+    - 'Identity Provisioning and its Standards': key-concepts/identity-provisioning-and-its-standards.md
+    - 'Access Control and Entitlement Management': key-concepts/access-control-and-entitlement-management.md
+    - 'Identity Anti-patterns and the Identity Bus': key-concepts/identity-anti-patterns-and-the-identity-bus.md
   - 'Tutorials':
-    - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
-      - 'Authentication': tutorials/authentication.md
-      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-Identity-Server-using-Facebook-Credentials.md
-      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-Shibboleth-IdP-as-a-Trusted-Identity-Provider.md
-      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-SimpleSAMLphp-using-Identity-Server.md
-      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-SSO-for-Management-Console-using-OpenSSO-as-the-IDP.md
-      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-Salesforce-using-the-Identity-Server.md
-      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-Salesforce-with-Facebook.md
-      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-Salesforce-with-Integrated-Windows-Authentication.md
-      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-WSO2-Products-via-the-Identity-Server.md
-      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-Workday-using-the-Identity-Server.md
-      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-Microsoft-Dynamics-CRM-with-WS-Federation.md
-      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-Microsoft-Sharepoint-Web-Applications-using-Identity-Server.md
-      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-Office365-with-WS-Trust.md
-      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.NET-application-using-the-Identity-Server.md
-      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-REST-APIs-via-XACML-to-Manage-Entitlement.md
-      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-Google-using-the-Identity-Server.md
-      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-Application-Using-Google.md
-      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-OIDC-Encrypted-ID-Token-with-IS.md
-      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-OIDC-Authentication-Request-Parameters-in-a-Request-Object.md
-      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-Signature-Validation-for-Request-Objects.md
+      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
+      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
+      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-simplesamlphp-using-identity-server.md
+      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-sso-for-management-console-using-opensso-as-the-idp.md
+      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-salesforce-using-the-identity-server.md
+      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-salesforce-with-facebook.md
+      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-salesforce-with-integrated-windows-authentication.md
+      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-wso2-products-via-the-identity-server.md
+      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-workday-using-the-identity-server.md
+      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-microsoft-dynamics-crm-with-ws-federation.md
+      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-microsoft-sharepoint-web-applications-using-identity-server.md
+      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-office365-with-ws-trust.md
+      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.net-application-using-the-identity-server.md
+      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-rest-apis-via-xacml-to-manage-entitlement.md
+      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-google-using-the-identity-server.md
+      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-application-using-google.md
+      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-oidc-encrypted-id-token-with-is.md
+      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-oidc-authentication-request-parameters-in-a-request-object.md
+      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-signature-validation-for-request-objects.md
     - 'Adaptive Authentication':
       - 'Adaptive Authentication': tutorials/adaptive-authentication.md
       - 'Configuring a Service Provider for Adaptive Authentication': tutorials/configuring-a-service-provider-for-adaptive-authentication.md
@@ -136,22 +113,22 @@ nav:
         - 'Configuring Risk-Based Adaptive Authentication': tutorials/configuring-risk-based-adaptive-authentication.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': tutorials/using-wso2-stream-processor-for-adaptive-authentication.md
     - 'Single Sign-On':
-      - 'Single Sign-On': tutorials/single-sign-on.md
+      - 'Single Sign-On': tutorials/single-Sign-On.md
       - 'Configuring Single Sign-On': 
-        - 'Configuring Single Sign-On': tutorials/configuring-single-sign-on.md
-        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-recaptcha-for-single-sign-on.md
-      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+        - 'Configuring Single Sign-On': tutorials/configuring-Single-Sign-On.md
+        - 'Configuring reCaptcha for Single Sign On': tutorials/configuring-reCaptcha-for-Single-Sign-On.md
+      - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': tutorials/single-Sign-On-for-Native-iOS-Applications-with-WSO2-Identity-Server.md
       - 'SAML 2.0 Web SSO':
         - 'SAML 2.0 Web SSO': tutorials/sAML-2.0-Web-SSO.md
-        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML-2.0-Web-SSO.md
+        - 'Configuring SAML2 Web Single-Sign-On': tutorials/configuring-SAML2-Web-Single-Sign-On.md
         - 'Querying SAML Assertions': tutorials/querying-SAML-Assertions.md
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
-        - 'WS-Trust': tutorials/wS-Trust.md
-        - 'Configuring WS-Trust Security Token Service': configuring-WS-Trust-Security-Token-Service.md
+        - 'WS-Trust': tutorials/ws-trust.md
+        - 'Configuring WS-Trust Security Token Service': tutorials/configuring-ws-trust-security-token-service.md
       - 'WS-Federation':
-        - 'WS-Federation': tutorials/wS-Federation.md
-        - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-WS-Federation-Single-Sign-On.md 
+        - 'WS-Federation': tutorials/ws-federation.md
+        - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 
       - 'Integrated Windows Authentication':
         - 'Integrated Windows Authentication': tutorials/integrated-Windows-Authentication.md
         - 'Configuring IWA Single-Sign-On': tutorials/configuring-IWA-Single-Sign-On.md
@@ -159,21 +136,21 @@ nav:
         - 'OAuth2-OpenID Connect': tutorials/oAuth2-OpenID-Connect.md
         - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-OAuth2-OpenID-Connect-Single-Sign-On.md
     - 'Identity Federation': 
-      - 'Identity Federation': tutorials/identity-Federation.md 
+      - 'Identity Federation': tutorials/identity-federation.md 
       - 'Configuring Federated Authentication':
-        - 'Configuring Federated Authentication': tutorials/configuring-Federated-Authentication.md
-        - 'Configuring SAML 2.0 Web SSO': tutorials/configuring-SAML-2.0-Web-SSO.md
-        - 'Configuring OAuth2-OpenID Connect': tutorials/configuring-OAuth2-OpenID-Connect.md
-        - 'Configuring WS-Federation': tutorials/configuring-WS-Federation.md
-        - 'Configuring Facebook': tutorials/configuring-Facebook.md
-        - 'Configuring Yahoo': tutorials/configuring-Yahoo.md
-        - 'Configuring Google': tutorials/configuring-Google.md
-        - 'Configuring Microsoft Windows Live': tutorials/configuring-Microsoft-Windows-Live.md
-        - 'Configuring IWA on Linux': tutorials/configuring-IWA-on-Linux.md
-        - 'Configuring AD FS as a Federated Authenticator': tutorials/configuring-AD-FS-as-a-Federated-Authenticator.md
-        - 'Configuring Twitter': tutorials/configuring-Twitter.md
-        - 'Configuring SMS OTP': tutorials/configuring-SMS-OTP.md
-        - 'Configuring Email OTP': tutorials/configuring-Email-OTP.md
+        - 'Configuring Federated Authentication': tutorials/configuring-federated-authentication.md
+        - 'Configuring SAML 2.0 Web SSO': tutorials/configuring-saml-2.0-web-sso.md
+        - 'Configuring OAuth2-OpenID Connect': tutorials/configuring-oauth2-openid-connect.md
+        - 'Configuring WS-Federation': tutorials/configuring-ws-federation.md
+        - 'Configuring Facebook': tutorials/configuring-facebook.md
+        - 'Configuring Yahoo': tutorials/configuring-yahoo.md
+        - 'Configuring Google': tutorials/configuring-google.md
+        - 'Configuring Microsoft Windows Live': tutorials/configuring-microsoft-windows-live.md
+        - 'Configuring IWA on Linux': tutorials/configuring-iwa-on-linux.md
+        - 'Configuring AD FS as a Federated Authenticator': tutorials/configuring-ad-fs-as-a-federated-authenticator.md
+        - 'Configuring Twitter': tutorials/configuring-twitter.md
+        - 'Configuring SMS OTP': tutorials/configuring-sms-otp.md
+        - 'Configuring Email OTP': tutorials/configuring-email-otp.md
       - 'Identity Federation with WS-Trust':
         - 'Identity Federation with WS-Trust': tutorials/wS-Trust.md
         - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-STS-for-Obtaining-Tokens-with-Holder-Of-Key-Subject-Confirmation.md
@@ -186,21 +163,20 @@ nav:
     - 'Access Control':
       - 'Access Control': tutorials/access-Control.md
       - 'Working with Entitlement':
-        - 'Working with Entitlement': tutorials/working-with-Entitlement.md 
         - 'Configuring the Policy Administration Point':
-          - 'Configuring the Policy Administration Point': tutorials/configuring-the-Policy-Administration-Point.md
-          - 'Creating a XACML Policy': tutorials/creating-a-XACML-Policy.md
-          - 'Editing a XACML Policy': tutorials/editing-a-XACML-Policy.md
-          - 'Managing the Version of a XACML Policy': tutorials/managing-the-Version-of-a-XACML-Policy.md
-          - 'Publishing a XACML Policy': tutorials/publishing-a-XACML-Policy.md
-          - 'Viewing the Status of a XACML Policy': tutorials/viewing-the-Status-of-a-XACML-Policy.md
-          - 'Writing a XACML Policy using a Policy Template': tutorials/writing-a-XACML-Policy-using-a-Policy-Template.md
+          - 'Configuring the Policy Administration Point': tutorials/configuring-the-policy-administration-point.md
+          - 'Creating a XACML Policy': tutorials/creating-a-xacml-policy.md
+          - 'Editing a XACML Policy': tutorials/editing-a-xacml-policy.md
+          - 'Managing the Version of a XACML Policy': tutorials/managing-the-version-of-a-xacml-policy.md
+          - 'Publishing a XACML Policy': tutorials/publishing-a-xacml-policy.md
+          - 'Viewing the Status of a XACML Policy': tutorials/viewing-the-status-of-a-xacml-policy.md
+          - 'Writing a XACML Policy using a Policy Template': tutorials/writing-a-xacml-policy-using-a-policy-template.md
         - 'Configuring the Policy Decision Point':
-          - 'Configuring the Policy Decision Point': tutorials/configuring-the-Policy-Decision-Point.md
-          - 'Clearing a Cache': tutorials/clearing-a-Cache.md
-          - 'Enabling and Disabling a XACML Policy': tutorials/enabling-and-Disabling-a-XACML-Policy.md
-        - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-Access-Control-Policy-for-a-Service-Provider.md
-        - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-Scope-of-OAuth-Access-Tokens-using-XACML-Policies.md
+          - 'Configuring the Policy Decision Point': tutorials/configuring-the-policy-decision-point.md
+          - 'Clearing a Cache': tutorials/clearing-a-cache.md
+          - 'Enabling and Disabling a XACML Policy': tutorials/enabling-and-disabling-a-xacml-policy.md
+        - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-access-control-policy-for-a-service-provider.md
+        - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
       - 'Working with XACML':
         - 'Working with XACML': tutorials/working-with-XACML.md
         - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-WSO2-EI-Entitlement-Mediator-with-Identity-Server.md
@@ -239,6 +215,28 @@ nav:
     - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
+      - 'Migration Guide':
+        - 'Migration Guide': using-wso2-identity-server/migration-Guide.md
+        - 'Upgrading from the Previous Release':
+          - 'Upgrading from the Previous Release': using-wso2-identity-server/upgrading-from-the-Previous-Release.md
+          - 'Migrating Data Publishers': using-wso2-identity-server/migrating-Data-Publishers.md
+          - 'Understanding What Has Changed': using-wso2-identity-server/understanding-What-Has-Changed.md
+        - 'Upgrading From an Older Version of WSO2 IS': using-wso2-identity-server/upgrading-From-an-Older-Version-of-WSO2-IS.md
+      - 'Deploying the Identity Server':
+        - 'Deploying the Identity Server': using-wso2-identity-server/deploying-the-Identity-Server.md
+        - 'Deployment Patterns':
+          - 'Deployment Patterns': using-wso2-identity-server/deployment-Patterns.md
+          - 'Setting Up Deployment Pattern 1': using-wso2-identity-server/setting-Up-Deployment-Pattern-1.md
+          - 'Setting Up Deployment Pattern 2': using-wso2-identity-server/setting-Up-Deployment-Pattern-2.md
+          - 'Setting Up Separate Databases for Clustering': using-wso2-identity-server/setting-Up-Separate-Databases-for-Clustering.md
+        - 'Deployment Guidelines in Production': using-wso2-identity-server/deployment-Guidelines-in-Production.md
+        - 'Changing the hostname': using-wso2-identity-server/changing-the-hostname.md
+        - 'Adding High Availability for LDAP': using-wso2-identity-server/adding-High-Availability-for-LDAP.md
+        - 'File Based Configurations': 
+          - 'File Based Configurations': using-wso2-identity-server/file-Based-Configurations.md
+          - 'Configuring a SP and IdP Using Configuration Files': using-wso2-identity-server/configuring-a-SP-and-IdP-Using-Configuration-Files.md
+        - 'Token Persistence': using-wso2-identity-server/token-Persistence.md
+        - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': using-wso2-identity-server/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': using-wso2-identity-server/configuring-the-Identity-Server.md 
         - 'Role-based Permissions': using-wso2-identity-server/role-based-Permissions.md
@@ -529,6 +527,13 @@ nav:
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
       - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-Authentication-Endpoint-on-a-Different-Server.md
     - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md
+  - 'References': 
+    - 'References': references/references.md
+    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
+    - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
+    - 'API Permissions': references/api-permissions.md
+    - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
+    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - 'Connectors':
     - 'Authenticators and Connectors': 
       - 'Authenticators and Connectors': connectors/authenticators-and-Connectors.md
@@ -849,14 +854,6 @@ nav:
       - 'Supported Cipher Suites': admin-guide/supported-Cipher-Suites.md
       - 'Directory Structure of WSO2 Products': admin-guide/directory-Structure-of-WSO2-Products.md
       - 'WSO2 Patch Application Process': admin-guide/wSO2-Patch-Application-Process.md
-  - 'References': 
-    - 'References': references/references.md
-    - 'Configuration Catalog': references/config_catalog.md
-    - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
-    - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
-    - 'API Permissions': references/api-permissions.md
-    - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
-    - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - 'FAQ':
     - 'FAQ': faq/fAQ.md
   - '': page-not-found.md
@@ -896,8 +893,6 @@ extra_css:
 extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
-  - assets/lib/backtotop/js/util.js
-  - assets/lib/backtotop/js/main.js
 extra:
   social:
     - type: github
