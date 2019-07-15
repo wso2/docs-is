@@ -147,11 +147,11 @@ nav:
         - 'Querying SAML Assertions': tutorials/querying-SAML-Assertions.md
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
-        - 'WS-Trust': tutorials/wS-Trust.md
-        - 'Configuring WS-Trust Security Token Service': configuring-WS-Trust-Security-Token-Service.md
+        - 'WS-Trust': tutorials/ws-trust.md
+        - 'Configuring WS-Trust Security Token Service': configuring-ws-trust-security-token-service.md
       - 'WS-Federation':
-        - 'WS-Federation': tutorials/wS-Federation.md
-        - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-WS-Federation-Single-Sign-On.md 
+        - 'WS-Federation': tutorials/ws-federation.md
+        - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 
       - 'Integrated Windows Authentication':
         - 'Integrated Windows Authentication': tutorials/integrated-Windows-Authentication.md
         - 'Configuring IWA Single-Sign-On': tutorials/configuring-IWA-Single-Sign-On.md
@@ -159,21 +159,21 @@ nav:
         - 'OAuth2-OpenID Connect': tutorials/oAuth2-OpenID-Connect.md
         - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-OAuth2-OpenID-Connect-Single-Sign-On.md
     - 'Identity Federation': 
-      - 'Identity Federation': tutorials/identity-Federation.md 
+      - 'Identity Federation': tutorials/identity-federation.md 
       - 'Configuring Federated Authentication':
-        - 'Configuring Federated Authentication': tutorials/configuring-Federated-Authentication.md
-        - 'Configuring SAML 2.0 Web SSO': tutorials/configuring-SAML-2.0-Web-SSO.md
-        - 'Configuring OAuth2-OpenID Connect': tutorials/configuring-OAuth2-OpenID-Connect.md
-        - 'Configuring WS-Federation': tutorials/configuring-WS-Federation.md
-        - 'Configuring Facebook': tutorials/configuring-Facebook.md
-        - 'Configuring Yahoo': tutorials/configuring-Yahoo.md
-        - 'Configuring Google': tutorials/configuring-Google.md
-        - 'Configuring Microsoft Windows Live': tutorials/configuring-Microsoft-Windows-Live.md
-        - 'Configuring IWA on Linux': tutorials/configuring-IWA-on-Linux.md
-        - 'Configuring AD FS as a Federated Authenticator': tutorials/configuring-AD-FS-as-a-Federated-Authenticator.md
-        - 'Configuring Twitter': tutorials/configuring-Twitter.md
-        - 'Configuring SMS OTP': tutorials/configuring-SMS-OTP.md
-        - 'Configuring Email OTP': tutorials/configuring-Email-OTP.md
+        - 'Configuring Federated Authentication': tutorials/configuring-federated-authentication.md
+        - 'Configuring SAML 2.0 Web SSO': tutorials/configuring-saml-2.0-web-sso.md
+        - 'Configuring OAuth2-OpenID Connect': tutorials/configuring-oauth2-openid-connect.md
+        - 'Configuring WS-Federation': tutorials/configuring-ws-federation.md
+        - 'Configuring Facebook': tutorials/configuring-facebook.md
+        - 'Configuring Yahoo': tutorials/configuring-yahoo.md
+        - 'Configuring Google': tutorials/configuring-google.md
+        - 'Configuring Microsoft Windows Live': tutorials/configuring-microsoft-windows-live.md
+        - 'Configuring IWA on Linux': tutorials/configuring-iwa-on-linux.md
+        - 'Configuring AD FS as a Federated Authenticator': tutorials/configuring-ad-fs-as-a-federated-authenticator.md
+        - 'Configuring Twitter': tutorials/configuring-twitter.md
+        - 'Configuring SMS OTP': tutorials/configuring-sms-otp.md
+        - 'Configuring Email OTP': tutorials/configuring-email-otp.md
       - 'Identity Federation with WS-Trust':
         - 'Identity Federation with WS-Trust': tutorials/wS-Trust.md
         - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-STS-for-Obtaining-Tokens-with-Holder-Of-Key-Subject-Confirmation.md
@@ -184,23 +184,22 @@ nav:
         - 'Client-side Support for SAML Artifact Binding': tutorials/client-side-Support-for-SAML-Artifact-Binding.md
         - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': tutorials/eIDAS-SAML-Attribute-Profile-Support-via-WSO2-Identity-Server.md
     - 'Access Control':
-      - 'Access Control': tutorials/access-Control.md
+      - 'Access Control': tutorials/access-control.md
       - 'Working with Entitlement':
-        - 'Working with Entitlement': tutorials/working-with-Entitlement.md 
         - 'Configuring the Policy Administration Point':
-          - 'Configuring the Policy Administration Point': tutorials/configuring-the-Policy-Administration-Point.md
-          - 'Creating a XACML Policy': tutorials/creating-a-XACML-Policy.md
-          - 'Editing a XACML Policy': tutorials/editing-a-XACML-Policy.md
-          - 'Managing the Version of a XACML Policy': tutorials/managing-the-Version-of-a-XACML-Policy.md
-          - 'Publishing a XACML Policy': tutorials/publishing-a-XACML-Policy.md
-          - 'Viewing the Status of a XACML Policy': tutorials/viewing-the-Status-of-a-XACML-Policy.md
-          - 'Writing a XACML Policy using a Policy Template': tutorials/writing-a-XACML-Policy-using-a-Policy-Template.md
+          - 'Configuring the Policy Administration Point': tutorials/configuring-the-policy-administration-point.md
+          - 'Creating a XACML Policy': tutorials/creating-a-xacml-policy.md
+          - 'Editing a XACML Policy': tutorials/editing-a-xacml-policy.md
+          - 'Managing the Version of a XACML Policy': tutorials/managing-the-version-of-a-xacml-policy.md
+          - 'Publishing a XACML Policy': tutorials/publishing-a-xacml-policy.md
+          - 'Viewing the Status of a XACML Policy': tutorials/viewing-the-status-of-a-xacml-policy.md
+          - 'Writing a XACML Policy using a Policy Template': tutorials/writing-a-xacml-policy-using-a-policy-template.md
         - 'Configuring the Policy Decision Point':
-          - 'Configuring the Policy Decision Point': tutorials/configuring-the-Policy-Decision-Point.md
-          - 'Clearing a Cache': tutorials/clearing-a-Cache.md
-          - 'Enabling and Disabling a XACML Policy': tutorials/enabling-and-Disabling-a-XACML-Policy.md
-        - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-Access-Control-Policy-for-a-Service-Provider.md
-        - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-Scope-of-OAuth-Access-Tokens-using-XACML-Policies.md
+          - 'Configuring the Policy Decision Point': tutorials/configuring-the-policy-decision-point.md
+          - 'Clearing a Cache': tutorials/clearing-a-cache.md
+          - 'Enabling and Disabling a XACML Policy': tutorials/enabling-and-disabling-a-xacml-policy.md
+        - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-access-control-policy-for-a-service-provider.md
+        - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
       - 'Working with XACML':
         - 'Working with XACML': tutorials/working-with-XACML.md
         - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-WSO2-EI-Entitlement-Mediator-with-Identity-Server.md
