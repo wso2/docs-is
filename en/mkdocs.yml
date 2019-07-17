@@ -153,11 +153,12 @@ nav:
         - 'WS-Federation': tutorials/ws-federation.md
         - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 
       - 'Integrated Windows Authentication':
-        - 'Integrated Windows Authentication': tutorials/integrated-Windows-Authentication.md
-        - 'Configuring IWA Single-Sign-On': tutorials/configuring-IWA-Single-Sign-On.md
-      - 'OAuth2-OpenID Connect':    
-        - 'OAuth2-OpenID Connect': tutorials/oAuth2-OpenID-Connect.md
-        - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-OAuth2-OpenID-Connect-Single-Sign-On.md
+        - 'Integrated Windows Authentication Overview': tutorials/integrated-windows-authentication-overview.md
+        - 'Configuring IWA Single-Sign-On': tutorials/configuring-iwa-single-sign-on.md
+      - 'OAuth2-OpenID Connect':
+        - 'OAuth2-OpenID Connect Overview': tutorials/oauth2-openid-connect-overview.md
+        - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-oauth2-openid-connect-single-sign-on.md
+        - 'Configuring OpenID Connect Single Logout': tutorials/configuring-openid-connect-single-logout.md
     - 'Identity Federation': 
       - 'Identity Federation': tutorials/identity-federation.md 
       - 'Configuring Federated Authentication':
