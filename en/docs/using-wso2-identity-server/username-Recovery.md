@@ -130,7 +130,7 @@ with the WSO2 IS.
             ![](attachments/103330552/103330553.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps** .  
+            **Allow less secure apps**.  
             ![](attachments/103330552/103330554.png){width="597"
             height="171"}
     
@@ -145,7 +145,7 @@ with the WSO2 IS.
     address given here.
 3.  Access the [WSO2 Identity Server dashboard](https://loca/) .
 4.  Click the **Forgot Username** link.
-5.  Enter the required fields and click **Submit** .  
+5.  Enter the required fields and click **Submit**.  
     ![](attachments/103330552/103330555.png){width="447"}
 
       

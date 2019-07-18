@@ -671,7 +671,7 @@ been modified to 1440.
 ```
 
 The default value of the following property has been changed from false
-to **true** .
+to **true**.
 
 ``` java
 <SignJWTWithSPKey>true</SignJWTWithSPKey>

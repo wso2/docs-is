@@ -99,11 +99,11 @@ artifacts.
 6.  Log in to Management Console and Add the [service
     provider](_Adding_and_Configuring_a_Service_Provider_) .
 7.  **Expand** the OAuth/OpenID Connect Configuration under Inbound
-    Authentication section and click **Configure** .
+    Authentication section and click **Configure**.
 
 8.  Enter a callback url (ex:
     `                       http://localhost:8080/playground2/oauth2client                     `
-    ) and click **Add** . (The OAuth Client Key and OAuth Client Secret
+    ) and click **Add**. (The OAuth Client Key and OAuth Client Secret
     will now be visible.)
 
 9.  Import the public key of the private\_key\_jwt issuer by executing

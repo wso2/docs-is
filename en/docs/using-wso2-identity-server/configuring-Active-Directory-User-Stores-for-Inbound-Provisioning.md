@@ -49,12 +49,12 @@ Management Feature.
 
 1.  Log in to WSO2 Identity Server using your credentials.
 2.  Go to the **Main** menu in the Management Console menu and click
-    **List** under **Claims** .
+    **List** under **Claims**.
 3.  Select `          urn:scim:schemas:core:1.0         ` from the list.
-4.  Choose the **Id** claim and click on **Edit** .  
+4.  Choose the **Id** claim and click on **Edit**.  
     ![](attachments/103330195/103330197.png){width="750"}
 5.  Change the **Mapped Attribute** value to **homePostalAddress** and
-    click **Update** .  
+    click **Update**.  
     ![](attachments/103330195/103330196.png)
 6.  Edit the other four claims in the same way.
 7.  Now the basic claim mapping is done. You can now add a user using

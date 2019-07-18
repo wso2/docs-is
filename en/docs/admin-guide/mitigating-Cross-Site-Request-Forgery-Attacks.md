@@ -87,7 +87,7 @@ contains a CSRF token.
         from working for your product. Therefore, until this issue is fixed,
         we recommend one of the following approaches:
         -   Be sure that your product is running on **JDK1.8.0\_144** or
-            **JDK1.8.0\_077** . We have verified that these JDK versions are
+            **JDK1.8.0\_077**. We have verified that these JDK versions are
             not affected by the [known
             issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
         -   Alternatively, you can disable GZIP decoding for your product by

@@ -73,8 +73,8 @@ resource owner:
     password. For detailed instructions on starting WSO2 Identity Server
     and accessing the management console, see [Running the
     Product](_Running_the_Product_) .
-2.  On the **Main** tab, click **Add** under **Users and Roles** .
-3.  Click **Add New User** .
+2.  On the **Main** tab, click **Add** under **Users and Roles**.
+3.  Click **Add New User**.
 4.  Specify the following values to create a new user.
 
     |                  |                                        |
@@ -84,18 +84,18 @@ resource owner:
     | Password         | `               kate123              ` |
     | Confirm password | `               kate123              ` |
 
-5.  Click **Next** .
+5.  Click **Next**.
 
-6.  Select **admin** .
-7.  Click **Finish** .
+6.  Select **admin**.
+7.  Click **Finish**.
 
 #### Create the requesting party
 
 Follow the steps below to create a user named Sam who will act as the
 requesting party:
 
-1.  On the **Main** tab, click **Add** under **Users and Roles** .
-2.  Click **Add New User** .
+1.  On the **Main** tab, click **Add** under **Users and Roles**.
+2.  Click **Add New User**.
 3.  Specify the following values to create a new user:
 
     |                  |                                        |
@@ -105,7 +105,7 @@ requesting party:
     | Password         | `               sam123              `  |
     | Confirm password | `               sam123              `  |
 
-4.  Click **Finish** .
+4.  Click **Finish**.
 
 Now that you have the resource owner and requesting party to try out the
 scenario, next step is to configure one service provider for the
@@ -116,29 +116,29 @@ behalf of the requesting party.
 
 1.  Follow the steps below to configure a service provider for the
     resource server:
-    1.  On the **Main** tab, click **Add** under **Service Providers** .
+    1.  On the **Main** tab, click **Add** under **Service Providers**.
     2.  Enter `            kateSP           ` as the **Service Provider
-        Name** and click **Register** .
+        Name** and click **Register**.
     3.  Expand **Inbound Authentication Configuration** , then expand
         **OAuth/OpenID Connect Configuration** , and then click
-        **Configure** .
+        **Configure**.
     4.  Enter `            https://localhost/callback           ` as the
-        value for the **Callback Url** .  
+        value for the **Callback Url**.  
         ![](attachments/103329672/106960574.png){width="600"}
-    5.  Click **Add** .
+    5.  Click **Add**.
 2.  Follow the steps below to configuring a service provider for the
     client acting on behalf of the requesting party:  
-    1.  On the **Main** tab, click **Add** under **Service Providers** .
+    1.  On the **Main** tab, click **Add** under **Service Providers**.
     2.  Enter `            samSP           ` as the **Service Provider
-        Name** and click **Register** .
+        Name** and click **Register**.
     3.  Expand **Inbound Authentication Configuration** , then expand
         **OAuth/OpenID Connect Configuration** , and then click
-        **Configure** .
+        **Configure**.
     4.  Enter
         `                         https://localhost/callback                       `
-        as the value for the **Callback Url** .  
+        as the value for the **Callback Url**.  
         ![](attachments/103329672/106960574.png){width="600"}
-    5.  Click **Add** .
+    5.  Click **Add**.
 
 Note down the **Client ID** and **Client Secret** values. You need those
 values to obtain the Protection API Access Token (PAT).
@@ -241,9 +241,9 @@ Follow the steps given below to create, register and publish a policy:
     `          kate123         ` as the password:
     `          https://localhost:9443/carbon         `
 2.  On the **Main** tab, go to the **Entitlement** section and click
-    **Policy Administration** under **PAP** .
+    **Policy Administration** under **PAP**.
 3.  Click **Add New Entitlement Policy** and then click **Write Policy
-    in XML** .
+    in XML**.
 4.  Copy the following sample policy and paste it on the **Source View**
     pane:
 
@@ -294,13 +294,13 @@ Follow the steps given below to create, register and publish a policy:
     listed in the **Policy Administration** page.  
     ![](attachments/103329672/106960600.png){width="700" height="490"}
 
-6.  Select the policy and click **Publish To My PDP** . This displays
+6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
 
-7.  Click **Publish** . This displays a message for confirmation to
+7.  Click **Publish**. This displays a message for confirmation to
     publish the policy.
-8.  Click **Yes** . This publishes the policy. If you want to view the
-    published policy, click **Policy View** under **PDP** .  
+8.  Click **Yes**. This publishes the policy. If you want to view the
+    published policy, click **Policy View** under **PDP**.  
     ![](attachments/103329672/106960601.png){width="650" height="188"}
 
 #### Obtain a permission ticket

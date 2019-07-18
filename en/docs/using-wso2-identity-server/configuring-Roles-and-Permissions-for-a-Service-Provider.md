@@ -36,7 +36,7 @@ permission for the service provider:
 
     -   If you want to add another permission entry, click **Add
         Permission** again.
-    -   If you want to delete an entry, click **Delete** .
+    -   If you want to delete an entry, click **Delete**.
 
     Once you add/update service provider specific permission details,
     the permission details will be listed as available permission when
@@ -45,11 +45,11 @@ permission for the service provider:
     via WSO2 IS.
 
 3.  Click **Add Role Mapping** and enter appropriate values for the
-    **Local Role** as well as the **Service Provider Role** .
+    **Local Role** as well as the **Service Provider Role**.
 
     -   If you want to add another role mapping entry, click **Add Role
         Mapping** again.
-    -   If you want to delete a role mapping entry, click **Delete** .
+    -   If you want to delete a role mapping entry, click **Delete**.
 
     !!! tip
     

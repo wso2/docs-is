@@ -20,7 +20,7 @@ Authentication and Authorization work in Liferay.
 
 Liferay has a chain of authenticators. When you enter your
 username/password, the chain of authenticators are invoked. This is the
-place where we plugged in the **WSO2ISAuthenticator** .
+place where we plugged in the **WSO2ISAuthenticator**.
 
 auth.pipeline.pre=org.wso2.liferay.is.authenticator.WSO2ISAuthenticator  
 auth.pipeline.enable.liferay.check=false  
@@ -81,7 +81,7 @@ the JSR too. The following are the disadvantages:
 Liferay, also has it's own way of permission checking, which is within a
 portlet via the **PermissionChecker** API. See
 [here](http://www.liferay.com/web/joseph.shum/blog/-/blogs/960320) for
-more details on the **PermissionChecker** .
+more details on the **PermissionChecker**.
 
 Our approach was to write a utility function called
 `         hasPermission()        ` . If you extend your portlet from

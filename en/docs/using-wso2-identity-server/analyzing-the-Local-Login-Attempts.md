@@ -20,7 +20,7 @@ login attempts that are performed via local identity providers over time
 as well as the local login attempts filtered based on service providers,
 user stores, user roles, and users
 
-Follow the steps below to view the **Local Login Attempts** .
+Follow the steps below to view the **Local Login Attempts**.
 
 !!! tip
     
@@ -31,7 +31,7 @@ Follow the steps below to view the **Local Login Attempts** .
         Dashboard](_Accessing_the_Analytics_Dashboard_) .
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Local Login Attempts Summary** tile.
-        2.  Click **menu** icon \> **Local** .
+        2.  Click **menu** icon \> **Local**.
     
 
 Let's analyze the local login attempts with the following widgets.
@@ -51,7 +51,7 @@ downtime, etc.
 
 ##### Description
 
-This chart presents a **summary of the local login attempts** .
+This chart presents a **summary of the local login attempts**.
 
 ##### Purpose
 

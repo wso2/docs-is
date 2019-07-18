@@ -193,7 +193,7 @@ Once the product server is started, you can start the JC
         the **admin** role can log in to JMX.
 
 4.  Click **Connect** to open the **Java Monitoring & Management
-    Console** . The following tabs will be available:  
+    Console**. The following tabs will be available:  
 
     -   [**Overview**](#358f5d72df9d491ab5ec406f1adf27f4)
     -   [**Memory**](#52832e2943ef4411ad65eed0e1dad0bd)

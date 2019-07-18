@@ -206,9 +206,9 @@ for instructions on how to do this.
 The next step is to configure the service provider.
 
 1.  Return to the management console. In the **Service Providers**
-    section under the **Main** tab, click **Add** .
+    section under the **Main** tab, click **Add**.
 2.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 3.  Now set the configuration as follows:  
     ![](attachments/52528427/57004462.png)  
     Do the following configurations.  
@@ -218,10 +218,10 @@ The next step is to configure the service provider.
 
       
     Select the following check-boxes:  
-    -   **Enable Response Signing** .
-    -   **Enable Single Logout** .
-    -   **Enable Attribute Profile** .
-    -   **Include Attributes in the Response Always** .
+    -   **Enable Response Signing**.
+    -   **Enable Single Logout**.
+    -   **Enable Attribute Profile**.
+    -   **Include Attributes in the Response Always**.
 
 4.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.

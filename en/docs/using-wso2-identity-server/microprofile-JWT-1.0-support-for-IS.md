@@ -116,7 +116,7 @@ Let's see how this can be done.
 
 2.  Configure a service provider.
 
-    1.  Give a name and a description and click **Register** .
+    1.  Give a name and a description and click **Register**.
 
         ![](attachments/103329643/103329646.png){width="700"
         height="183"}

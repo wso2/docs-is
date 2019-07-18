@@ -63,7 +63,7 @@ automated process:
     `            cipher-text.properties           ` files that are
     shipped with your product will contain information on the most
     common passwords that require encryption. If a required password is
-    missing in the default files, you can **add them manually** .
+    missing in the default files, you can **add them manually**.
 
     Follow the steps given below.
 
@@ -96,7 +96,7 @@ automated process:
             you are encrypting the value of an **XML element,** or the
             value of an **XML attribute's tag.** The flag should be
             'true' if you are encrypting the **tag** of an **XML**
-            **attribute** . See the examples given below.
+            **attribute**. See the examples given below.
 
         -   When using Secure Vault, as you use the password aliases in
             the
@@ -199,7 +199,7 @@ automated process:
         updated as shown below. Note that there are two possible alias
         values you can use for this attribute. In this example, the
         'Property' **element** of the XML file uses the 'name'
-        **attribute** with the "ConnectionPassword" **tag** . The
+        **attribute** with the "ConnectionPassword" **tag**. The
         password we are encrypting is the value of this
         "ConnectionPassword" tag. This is denoted in the XPath as
         'Property\[@name='ConnectionPassword'\]', and the flag that

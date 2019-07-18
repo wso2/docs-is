@@ -19,7 +19,7 @@ be logged in as a super user.
     ![](attachments/53125481/53287366.png)
 
 2.  Enter the tenant information in **Register A New Organization**
-    screen as follows, and click **Save** .
+    screen as follows, and click **Save**.
 
     | Parameter Name                   | Description                                                                                                                                                                                                                                                                                       |
     |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -36,7 +36,7 @@ be logged in as a super user.
     of the management console to see information of all the tenants that
     currently exist in the system. If you want to view only tenants of a
     specific domain, enter the domain name in the **Enter the Tenant
-    Domain** parameter and click **Find** .  
+    Domain** parameter and click **Find**.  
     ![](attachments/53125481/87718672.png){width="1172" height="163"}
 
 ### Managing tenants using Admin Services

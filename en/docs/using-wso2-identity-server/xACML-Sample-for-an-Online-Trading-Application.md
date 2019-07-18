@@ -70,7 +70,7 @@ sample.
 
 1.  The code for the sample can be checked out from the GitHub
     repository. To do this, follow the instructions on the [Downloading
-    a Sample](_Downloading_a_Sample_) topic.
+    a Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
 
 2.  Start up [Identity Server](_Running_the_Product_) and log in to the
     management console.
@@ -79,7 +79,7 @@ sample.
     and click on **Import Existing Policy**
 4.  Click **Choose File** and upload the three policies found
     [here](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/kmarket/resources/)
-    (one by one) and click **Upload** . The policies can also be found
+    (one by one) and click **Upload**. The policies can also be found
     in your checked out folder in the
     `          <Sample_Home>/kmarket-trading-sample/resources         `
     directory.

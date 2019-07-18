@@ -20,7 +20,7 @@ authenticate users using their Google user accounts.
     [Google API Console](https://console.developers.google.com)
     and navigate to the **Credentials** tab from the sidebar. You can
     configure OAuth web application in Google by selecting **OAuth
-    Client ID** . You can find more details from
+    Client ID**. You can find more details from
     [here](https://developers.google.com/identity/protocols/OpenIDConnect).
       
     ![register-oauth2](../../assets/img/tutorials/register-oauth2.png)

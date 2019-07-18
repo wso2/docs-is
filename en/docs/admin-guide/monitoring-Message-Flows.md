@@ -18,7 +18,7 @@ the message flows in real time.
 Follow the instructions below to access the Message Flows.
 
 1.  Log in to the management console and select **Monitor -\> Message
-    Flows** .
+    Flows**.
 2.  The **Message Flows** page displays a graphical view of the message
     flows. There are four different flows defined in the system:
     1.  **In Flow** : A correct message coming into the system.
@@ -36,7 +36,7 @@ Follow the instructions below to access the Message Flows.
     start up.  
     ![](attachments/53125407/53287299.png)
 5.  You can see the text view of message flows by clicking **Show Text
-    View** .  
+    View**.  
     ![](attachments/53125407/53287296.png)
 6.  The page with the text view of message flows appears. The textual
     view provides the name and the fully qualified classes of all

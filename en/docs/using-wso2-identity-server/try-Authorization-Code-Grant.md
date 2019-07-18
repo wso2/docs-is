@@ -29,7 +29,7 @@ to configure PKCE for an OAuth application.
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-2.  Enter the following details and click **Authorize** . For
+2.  Enter the following details and click **Authorize**. For
     information on how to obtain these authorization details, see
     [Configuring OAuth2-OpenID
     Connect](_Configuring_OAuth2-OpenID_Connect_) .
@@ -50,12 +50,12 @@ to configure PKCE for an OAuth application.
 
 4.  Select **Approve Once** or **Approve Always** in Access to profile
     information section. Also, select the attributes you agree to share.
-    Click **Continue** .  
+    Click **Continue**.  
     ![](attachments/103329947/103329951.png){width="434" height="494"}
 
       
 
-5.  Provide the following details and click on **Get Access Token** .
+5.  Provide the following details and click on **Get Access Token**.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
@@ -110,7 +110,7 @@ to configure PKCE for an OAuth application.
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the application
@@ -133,7 +133,7 @@ to configure PKCE for an OAuth application.
     ![3.png](https://lh5.googleusercontent.com/dpfRmmoe097JTIVOqEZHYwXrgX9j9q7wOvOe_Rq2WB48qnr6k937maFlZkF8iqP2yAELMkvclM-7y08EcQyTpAyJqyZ56P1t1JyPsEQUNjoHuuYin3Tu6KgpP1GSU_OIX-FI5B7v){width="434"
     height="203"}
 
-5.  Provide the following details and click on **Get Access Token** .
+5.  Provide the following details and click on **Get Access Token**.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  

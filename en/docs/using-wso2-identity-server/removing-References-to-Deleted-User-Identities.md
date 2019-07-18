@@ -77,7 +77,7 @@ in the Product Administration Guide.
 You can change the default location of the tool configurations if
 desired. You may want to do this if you are working with a multi-product
 environment where you want to manage configurations in a single location
-for ease of use. Note that this is **optional** .
+for ease of use. Note that this is **optional**.
 
 To change the default configurations location for the embedded tool, do
 the following:

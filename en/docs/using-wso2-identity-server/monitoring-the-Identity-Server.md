@@ -6,7 +6,7 @@ information.
 Follow the instructions below to access the statistics features.
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Monitor** menu.
 
@@ -15,7 +15,7 @@ topics:
 
 -   [System Statistics](_System_Statistics_)
 -   [System Logs](_System_Logs_)
--   [SOAP Tracer](_SOAP_Tracer_)
+-   [SOAP Tracer](../../using-wso2-identity-server/soap-tracer_)
 -   [Application Logs](_Application_Logs_)
 
 **Recommended reading**

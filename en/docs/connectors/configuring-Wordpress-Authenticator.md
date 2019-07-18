@@ -46,7 +46,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
         credentials or your own Google account credentials to log in.
     
 
-3.  Click **Create New Application** .
+3.  Click **Create New Application**.
 
     ![](attachments/49092145/76747300.png){width="871"}
 
@@ -64,7 +64,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
                 (e.g., What is 5+2 ?).
         
 
-5.  Click **Create** .  
+5.  Click **Create**.  
     Now you have finished configuring Wordpress so copy the **Client
     ID** and **Client Secret** for use in the Identity Server.  
     ![](attachments/49092145/49226414.png){width="693"}
@@ -91,7 +91,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .  
+    management console, click **Add**.  
     ![](attachments/49092145/76747356.png){width="242"}
 4.  Enter the following details for the Identity Provider.
 
@@ -118,7 +118,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     | Client Secret | This is the password from the Wordpress application. Click the **Show** button to view the value you enter.                                                                                          | LxLvRoWplkvva4WMdOWAxrcghOVlxrH8RHJ96XWlXVaZi6pZDgXsvPhLHhzGqeCF |
     | Callback URL  | This is the URL to which the browser should be redirected after the authentication is successful. It should have the following format: `               https://(host-name):(port)/acs              ` | <https://localhost:9443/commonauth>                              |
 
-6.  Click **Register** .
+6.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -128,9 +128,9 @@ The next step is to configure the service provider.
 
 1.  Return to the management console.
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
       
@@ -140,16 +140,16 @@ The next step is to configure the service provider.
     2.  **Assertion Consumer URL** :
         <http://localhost:8080/travelocity.com/home.jsp>
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
-    2.  **Enable Single Logout** .
-    3.  **Enable Attribute Profile** .
-    4.  **Include Attributes in the Response Always** .
+    1.  **Enable Response Signing**.
+    2.  **Enable Single Logout**.
+    3.  **Enable Attribute Profile**.
+    4.  **Include Attributes in the Response Always**.
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
     section.
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .  
+    under **Federated Authentication**.  
       
     ![](attachments/49092145/49226418.png){width="500"}
 10. Ensure that the **Federated Authentication** radio button is

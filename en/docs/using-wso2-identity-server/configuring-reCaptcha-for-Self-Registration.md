@@ -34,7 +34,7 @@ The instructions for both these approaches are as follows.
     .
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **List** under **Identity Providers** on the **Main** tab
-    and then click **Resident Identity Provider** .
+    and then click **Resident Identity Provider**.
 4.  Expand the **Account Management Policies** tab and then expand the
     **User Self Registration** tab.
 5.  Select the **Enable reCaptcha** checkbox to enable reCaptcha for the

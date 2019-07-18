@@ -52,7 +52,7 @@ Follow the instructions given in the sections below to set this up.
 7.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **ACR-Based**.  
     ![acr-based-template-config](../../assets/img/tutorials/acr-based-template-config.png)
-8.  Click **Ok** . The authentication script and authentication steps
+8.  Click **Ok**. The authentication script and authentication steps
     are configured.
 
 9.  The authentication steps that are added are

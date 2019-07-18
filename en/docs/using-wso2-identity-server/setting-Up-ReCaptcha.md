@@ -28,7 +28,7 @@ Follow the steps provided below to configure this.
 1.  Go to <https://www.google.com/recaptcha/admin> .
 
 2.  You will see the following window. Fill in the fields to register
-    your identity server domain and click **Register** . The following
+    your identity server domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 Identity Server
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.

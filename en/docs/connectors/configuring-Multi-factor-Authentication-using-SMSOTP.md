@@ -319,16 +319,16 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     as an administrator.
 
 5.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
+    console, click **Add** under **Identity Providers**.
 
 6.  Give a suitable name (e.g., SMSOTP) as the **Identity Provider
-    Name** .
+    Name**.
 
 7.  Go to the **SMSOTP Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 8.  Select both checkboxes to **Enable SMSOTP Authenticator** and make
-    it the **Default** .
+    it the **Default**.
 
 9.  Enter the SMS URL and the HTTP Method used (e.g., GET or POST).
     Include the headers and payload if the API uses any. If the text
@@ -465,10 +465,10 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
-    Provider Name** text box and click **Register** .
+    Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -525,7 +525,7 @@ You have now added and configured the service provider.
     ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn){width="500"}  
     **Note:** If you wish to use the backup codes to authenticate, you
     can add the following claim, otherwise you can leave it.
-3.  In the **Main** menu, click **Add** under **Claims** .
+3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add New
     Claim](https://docs.wso2.com/display/IS510/Adding+New+Claim+Mapping)
     .

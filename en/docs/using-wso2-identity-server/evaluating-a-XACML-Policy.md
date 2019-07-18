@@ -27,10 +27,10 @@ Evaluation. You can create a request using one of the following methods:
 #### Create request using editor
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click **Tools** to access the **XACML** menu.
-3.  Click **TryIt** .
+3.  Click **TryIt**.
 4.  Click on the **Create Request Using Editor** link.  
     ![](attachments/103329504/103329511.png)
 5.  Use the "Toggle editor" to create a request in XML. The default
@@ -93,7 +93,7 @@ Evaluation. You can create a request using one of the following methods:
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Click **Tools** to access the **XACML** menu.
-3.  Click **TryIt** .
+3.  Click **TryIt**.
 4.  Fill in the following fields and click the **Create Request**
     button.  
 

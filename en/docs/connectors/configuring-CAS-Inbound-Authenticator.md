@@ -148,14 +148,14 @@ service provider .
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 4.  Enter **cas-client-webapp** in the **Service Provider Name** text
-    box and click **Register** .  
+    box and click **Register**.  
     ![](attachments/57005726/57008598.png){width="644" height="250"}
 
 5.  In the **Inbound Authentication Configuration** section, click **CAS
-    Configuration** .
+    Configuration**.
 
 6.  Configure the **Service Url** :
     [https://localhost:8443/cas-client-webapp/](https://localhost:8080/cas-sample-java-webapp/)  
@@ -171,7 +171,7 @@ service provider .
     requested claims as user attributes in the cas-client-webapp;
     otherwise, no attributes will be shown.) Add the **Service Provider
     Claim** name that corresponds to the **Local Claim** URI and mark it
-    as **Requested Claim** .  
+    as **Requested Claim**.  
     ![](attachments/57005726/72418344.png){width="750"}
 
 8.  Click **Update** to save the changes. Now you have configured the

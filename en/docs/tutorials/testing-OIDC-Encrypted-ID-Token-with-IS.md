@@ -81,7 +81,7 @@ certificate:
 4.  Navigate to service provider.
 
 5.  **Edit** and paste the certificate content copied in the above step
-    and Click **Update** .
+    and Click **Update**.
 
 ### Enable ID Token Encryption
 
@@ -89,7 +89,7 @@ Follow the below steps to enable ID Token Encryption:
 
 1.  Navigate to **Service Provider \> Inbound Authentication
     Configuration \> OAuth/OpenID Connect Configuration** and Click
-    **Edit** .
+    **Edit**.
 
 2.  Click **Enable ID Token Encryption** to enable id\_token encryption.
 
@@ -112,7 +112,7 @@ Follow the below steps to enable ID Token Encryption:
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     -   **Authorization Grant Type:** Authorization Code
     -   **Client ID:** (the client id received at the application
@@ -131,7 +131,7 @@ Follow the below steps to enable ID Token Encryption:
 
       
 
-5.  Provide the following details and click **Get Access Token** .  
+5.  Provide the following details and click **Get Access Token**.  
 
     -   **Callback URL:**
         <http://wso2is.local:8080/playground2/oauth2client>
@@ -188,7 +188,7 @@ Follow the below steps to enable ID Token Encryption:
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-3.  Enter the following details and click **Authorize** .
+3.  Enter the following details and click **Authorize**.
 
     -   **Authorization Grant Type:** Implicit
     -   **Client ID:** (the client id received at the application
@@ -248,7 +248,7 @@ Follow the below steps to enable ID Token Encryption:
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-3.  Enter the following details and click **Authorize** .
+3.  Enter the following details and click **Authorize**.
 
     -   **Authorization Grant Type:** Resource Owner
     -   **Client ID:** (the client id received at the application

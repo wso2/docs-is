@@ -53,7 +53,7 @@ login and revoke application authorization.
     button. The dashboard appears.
 4.  Click the **View details** button to access the components.
 5.  Once you have logged in, click **View details** under **Authorized
-    Apps** . The following page appears, listing out the available
+    Apps**. The following page appears, listing out the available
     apps.  
     ![](attachments/103329616/103329617.png)
 

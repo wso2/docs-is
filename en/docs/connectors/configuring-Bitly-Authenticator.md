@@ -75,11 +75,11 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-5.  Give a suitable name for **Identity Provider Name** .  
+    management console, click **Add**.
+5.  Give a suitable name for **Identity Provider Name**.  
     ![](attachments/50518515/51251655.png){width="864"}
 6.  Navigate to **Bitly Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 7.  Enter the values as given in the above figure.
 
@@ -94,7 +94,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 8.  Select both checkboxes to **Enable** the Bitly authenticator and
     make it the **Default** authenticator.
 
-9.  Click **Register** .
+9.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -109,7 +109,7 @@ The next step is to configure the service provider.
 
 3.  Since you are using travelocity as the sample, enter
     `           travelocity.com          ` in the **Service Provider
-    Name** text box and click **Register** .
+    Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -122,13 +122,13 @@ The next step is to configure the service provider.
         <http://localhost:8080/travelocity.com/home.jsp>
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -137,7 +137,7 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the drop-down list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
     ![](attachments/50518515/51252329.png){width="761" height="320"}
 

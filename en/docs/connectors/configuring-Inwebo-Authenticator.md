@@ -80,10 +80,10 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
+    console, click **Add** under **Identity Providers**.
 4.  Give a suitable name as the **Identity Provider Name** and fill out
     the form to configure Inwebo by expanding **Inwebo Configuration**
-    under **Federated Authenticators** .  
+    under **Federated Authenticators**.  
     ![](attachments/48276420/48214226.png) Fill in the following.  
 
     <table>
@@ -124,7 +124,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     </tbody>
     </table>
 
-5.  Click **Register** .
+5.  Click **Register**.
 
 You have now added the identity provider.
 

@@ -86,7 +86,7 @@ disabling. The following section explain how to configure this.
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts** .
+        of **Maximum Failed Login Attempts**.
     
         !!! note
             

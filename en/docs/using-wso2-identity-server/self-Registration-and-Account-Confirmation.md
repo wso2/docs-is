@@ -156,7 +156,7 @@ which is `         carbon.super        ` .
     ![](attachments/103330519/103330525.png){width="831" height="250"}
 
 5.  Expand the **Login Policies** tab, then the **Account Locking** tab
-    and select **Account Lock Enabled** .  
+    and select **Account Lock Enabled**.  
     This allows the account to be locked until the user confirms the
     account. Once the user activates the account through the email
     received, the account is unlocked. For more information about
@@ -186,7 +186,7 @@ purposes and appropriate user attributes:
     .
 
 2.  Click the **Main** tab, go to **Identity** -\> **Identity
-    Providers** and then click **Resident** . This displays the
+    Providers** and then click **Resident**. This displays the
     **Resident Identity Provider** screen.  
     Expand the **Account Management Policies** section, and then expand
     the **User Self Registration** section. Under **User Self
@@ -198,7 +198,7 @@ purposes and appropriate user attributes:
     This displays the **Consent Purposes** screen that allows you to add
     consent purposes.
 
-4.  Click **Add New Purpose** . This displays the **Add New Purpose**
+4.  Click **Add New Purpose**. This displays the **Add New Purpose**
     screen.
 
 5.  Specify appropriate values for the **Purpose** and **Description**
@@ -233,14 +233,14 @@ purposes and appropriate user attributes:
             attributes.
     
 
-7.  Click **Finish** . This displays details related to the purpose and
+7.  Click **Finish**. This displays details related to the purpose and
     user attributes you added.
 
 8.  Depending on your requirement, you can either add another new
     purpose and related user attributes, or click **Finish** if you have
     added all the purposes you want.
 
-9.  Click **Update** .
+9.  Click **Update**.
 
 Now you have configured required self-registration purposes and user
 attributes for which you require user consent.
@@ -267,7 +267,7 @@ Next, you can try out self-registration.
     ![](attachments/103330519/103330522.png){width="489" height="250"}
 
 3.  Fill in the user details, provide consent to share the requested
-    information and then click **Register** .
+    information and then click **Register**.
 
 4.  Once the user has registered, first you receive an account lock
     email because the account is locked until you confirm the account

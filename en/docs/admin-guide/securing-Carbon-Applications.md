@@ -93,7 +93,7 @@ through HTTP. Use the following URL:
 [http://localhost:\<port\>/carbon/admin/login.jsp](http://localhost:9763/carbon/admin/login.jsp)
 , where `         <port>        ` corresponds to the [HTTP port
 configured](_HTTP_Servlet_Transport_) for the server. The default HTTP
-port for all WSO2 servers is **9763** . However, this may change if a
+port for all WSO2 servers is **9763**. However, this may change if a
 port offset is applied to your server as explained
 [here](_Changing_the_Default_Ports_) .
 

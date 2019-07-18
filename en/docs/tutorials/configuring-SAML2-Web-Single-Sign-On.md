@@ -2,7 +2,7 @@
 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure** .
+1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
 2.  Select one of the following modes:  
     -   [Manual
         configuration](#ConfiguringSAML2WebSingle-Sign-On-Manualconfiguration)
@@ -182,7 +182,7 @@ supports SAML metadata download for the resident identity provider.
     </tbody>
     </table>
 
-2.  Click **Register** .
+2.  Click **Register**.
 
 #### Metadata file configuration
 
@@ -198,7 +198,7 @@ instances of entity configuration.
 2.  Click **Choose File** , and select the `          .xml         `
     file containing the metadata for the service provider SAML
     configuration.
-3.  Click **Upload** .
+3.  Click **Upload**.
 
     !!! tip
     
@@ -259,7 +259,7 @@ of entity configuration.
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
     ![](attachments/103330801/112392410.png){width="750"}
-2.  Click **Upload** .
+2.  Click **Upload**.
 
 !!! note
     

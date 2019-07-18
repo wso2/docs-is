@@ -79,7 +79,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 4.  Give a suitable name for **Identity Provider Name** and configure
     Pinterest as the identity provider. Refer
     [this](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider#ConfiguringanIdentityProvider-Addinganidentityprovider)
@@ -97,7 +97,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     | Callback URL  | This is the URL to which the browser should be redirected after the authentication is successful. It should have this format: https://(host-name):(port)/acs.                                          | https://localhost:9443/commonauth                                |
 
 5.  Go to **Pinterest Authenticator Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 6.  Enter the values as given in the above figure.  
     -   **Client Id** : App ID for your app.
     -   **Client Secret** : App secret for your app.
@@ -112,9 +112,9 @@ The next step is to configure the service provider.
 
 1.  Return to the management console.
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
     ![](attachments/60096589/60096633.png){width="750"}
@@ -123,16 +123,16 @@ The next step is to configure the service provider.
     -   **Assertion Consumer URL** :
         <http://localhost:8080/travelocity.com/home.jsp>
 6.  Select the following check-boxes:
-    -   **Enable Response Signing** .
-    -   **Enable Single Logout** .
-    -   **Enable Attribute Profile** .
-    -   **Include Attributes in the Response Always** .
+    -   **Enable Response Signing**.
+    -   **Enable Single Logout**.
+    -   **Enable Attribute Profile**.
+    -   **Include Attributes in the Response Always**.
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
     section.
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .  
+    under **Federated Authentication**.  
     ![](attachments/60096589/60096634.png){width="750"}
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -142,7 +142,7 @@ The next step is to configure the service provider.
 1.  Sign into the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Pinterest authenticator
     specific claim dialect.
 
@@ -206,13 +206,13 @@ The next step is to configure the service provider.
       
 
     1.  In the **Identity** section under the **Main** tab, click
-        **List** under **Identity Providers** .
+        **List** under **Identity Providers**.
     2.  Click **Edit** to edit the pinterest identity provider you
         created.
     3.  Under **Claim Configuration** , go to **Basic Claim
-        Configuration** .
+        Configuration**.
     4.  Select the **Define Custom Claim Dialect** option under **Select
-        Claim mapping Dialect** .
+        Claim mapping Dialect**.
     5.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.  
         ![](attachments/60096589/61047736.png){height="400"}
@@ -229,10 +229,10 @@ the service provider for different purposes.
 ### Configuring requested claims for travelocity.com
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
+    under **Service Providers**.
 2.  Click **Edit** to edit the [travelocity.com](http://travelocity.com)
     service provider.
-3.  Go to **Claim Configuration** .
+3.  Go to **Claim Configuration**.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as follows. Here you should add the claims you
     mapped in the Identity Provider claim configuration.  
@@ -246,9 +246,9 @@ the service provider for different purposes.
     ![](attachments/60096589/60096639.png){height="400"}
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Pinterest sign in page. Enter your
-    Pinterest credentials and click **Log in** .  
+    Pinterest credentials and click **Log in**.  
     ![](attachments/60096589/60096640.png){height="400"}
-4.  Authenticate the user by clicking **Allow access** .
+4.  Authenticate the user by clicking **Allow access**.
 5.  You are taken to the home page of the travelocity.com app.  
     ![](attachments/60096589/60490392.png){height="400"}
 

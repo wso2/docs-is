@@ -19,15 +19,15 @@ Follow the steps below to set up a PostgreSQL database.
     [PGAdminIII tool](http://www.pgadmin.org/download/) .
 4.  To connect PGAdminIII to a PostgreSQL database server, locate the
     server from the object browser, right-click the client and click
-    **Connect** . This will show you the databases, tablespaces, and
+    **Connect**. This will show you the databases, tablespaces, and
     login roles as follows:  
     ![](attachments/53125515/53287590.png){width="800"}
 5.  To create a database, click **Databases** in the tree (inside the
-    object browser), and click **New Database** .
+    object browser), and click **New Database**.
 6.  In the **New Database** dialog box, give a name to the database,
-    e.g., gregdb and click **OK** .
+    e.g., gregdb and click **OK**.
 7.  To create a login role, click **Login Roles** in the tree (inside
-    the object browser), and click **New Login Role** . Enter the role
+    the object browser), and click **New Login Role**. Enter the role
     name and a password.
 
     These values will be used in the product configurations as described

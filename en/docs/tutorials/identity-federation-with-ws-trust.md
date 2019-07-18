@@ -26,7 +26,7 @@ profiles or through custom claim callbacks which can be registered to
 the Carbon runtime.
 
 See [Configuring WS-Trust Security Token
-Service](_Configuring_WS-Trust_Security_Token_Service_) for more details
+Service](../../tutorials/configuring-ws-trust-security-token-service) for more details
 on how to implement the Security Token Service with WS-Trust using the
 resident identity provider and a service provider.
 
@@ -34,10 +34,10 @@ Please see the following pages to learn more information about the
 Security Token Service:
 
 -   [Configuring STS for Obtaining Tokens with Holder-Of-Key Subject
-    Confirmation](_Configuring_STS_for_Obtaining_Tokens_with_Holder-Of-Key_Subject_Confirmation_)
+    Confirmation](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)
 -   [WSO2 Identity Server and Claim Aware Proxy Services with
-    ESB](_WSO2_Identity_Server_and_Claim_Aware_Proxy_Services_with_ESB_)
+    ESB](../../tutorials/wso2-identity-server-and-claim-aware-proxy-services-with-esb)
 -   [Accessing Claim Aware Services using STS Secured with
-    Non-repudiation](_Accessing_Claim_Aware_Services_using_STS_Secured_with_Non-repudiation_)
+    Non-repudiation](../../tutorials/accessing-claim-aware-services-using-sts-secured-with-non-repudiation)
 -   [Requesting and Renewing Received SAML2 Bearer Type
-    Tokens](_Requesting_and_Renewing_Received_SAML2_Bearer_Type_Tokens_)
+    Tokens](../../tutorials/requesting-and-renewing-received-saml2-bearer-type-tokens)

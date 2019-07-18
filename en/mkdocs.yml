@@ -148,7 +148,7 @@ nav:
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
         - 'WS-Trust': tutorials/ws-trust.md
-        - 'Configuring WS-Trust Security Token Service': configuring-ws-trust-security-token-service.md
+        - 'Configuring WS-Trust Security Token Service': tutorials/configuring-ws-trust-security-token-service.md
       - 'WS-Federation':
         - 'WS-Federation': tutorials/ws-federation.md
         - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 

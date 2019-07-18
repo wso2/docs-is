@@ -17,9 +17,9 @@ This section guides you through enabling the logger for OAuth endpoints.
     !!! tip
     
         **Tip:** You can disable logging by setting the
-        `           enable          ` property to **false** .  
+        `           enable          ` property to **false**.  
         Optionally, you can enable logging the token by setting the
-        `           Log.Token          ` property to **true** .
+        `           Log.Token          ` property to **true**.
     
 
     ``` java

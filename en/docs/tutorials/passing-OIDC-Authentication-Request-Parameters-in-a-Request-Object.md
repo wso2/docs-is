@@ -84,7 +84,7 @@ parameters in a request object via WSO2 IS:
                 ![image2019-4-23\_13-34-33.png](attachments/92524687/119114653.png){width="800"}
         
 
-    8.  Click **Update** .
+    8.  Click **Update**.
 
 3.  Follow the steps below to configure claims:
     1.  Add two new external claims as follows for the
@@ -113,15 +113,15 @@ parameters in a request object via WSO2 IS:
         registration:
         1.  On the management console, click **List** under **Claims** ,
             This displays the Claims screen with the **Available claim
-            dialects** .
+            dialects**.
         2.  Click
             `                             http://wso2.org/claims                           `
-            under **Available claim dialects** .
+            under **Available claim dialects**.
         3.  Edit `              challengeQuestion1             `
-            , select **Support by default** . and then click **Update**
+            , select **Support by default**. and then click **Update**
             .
         4.  Edit `              challengeQuestion2             ` ,
-            select **Support by default** . and then click **Update** .
+            select **Support by default**. and then click **Update**.
     3.  Edit the service provider that you created above, expand **Claim
         Configuration** , and add the following as **Requested Claims**
         :  
@@ -138,7 +138,7 @@ parameters in a request object via WSO2 IS:
                 changes/additions to the requested claims will not apply. If you
                 are facing this issue, do one of the following.
         
-                -   Mark the claims given above as **Mandatory Claims** . This
+                -   Mark the claims given above as **Mandatory Claims**. This
                     will ensure that the user will be prompted once again to
                     provide consent for the newly added/changed claims.
                 -   Log in to the end-user dashboard, revoke the consent reciept
@@ -152,7 +152,7 @@ parameters in a request object via WSO2 IS:
                     .
         
 
-    4.  Click **Update** .
+    4.  Click **Update**.
 
 4.  Create a new user with the name `          tom         ` , and enter
     values for the **email** , **country** , **challenge Question1** as

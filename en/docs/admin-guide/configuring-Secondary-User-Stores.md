@@ -101,7 +101,7 @@ or using the management console:
     
 
 6.  Ensure that all the mandatory fields are filled and a valid domain
-    name is given and click **Add** .
+    name is given and click **Add**.
 
 7.  A message appears saying that the user stores are being added.  
     ![](attachments/31130739/31359112.png)

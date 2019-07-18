@@ -4,9 +4,9 @@ This scenario involves obtaining the username first and validating that
 prior to autenticating the user using the password.
 
 1.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console) .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
@@ -19,7 +19,7 @@ prior to autenticating the user using the password.
     2.  Click **Register** to add the new service provider.
 
 4.  Access the service provider you just created and expand **Local &
-    Outbound Authentication Configuration** .
+    Outbound Authentication Configuration**.
 
     For more information on configuring the local and outbound
     authentication configuration, see [Configuring Local and Outbound
@@ -33,7 +33,7 @@ prior to autenticating the user using the password.
 
 5.  Select **Advanced Configuration** to configure multi-factor
     authentication.
-6.  Click **Add Authentication Step** . Then add a local authenticator
+6.  Click **Add Authentication Step**. Then add a local authenticator
     from **Local Authenticators** section. Select **identifier** from
     the dropdown. This is used to identify the user.
 
@@ -70,9 +70,9 @@ to `          true         ` .
 
 1.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
-2.  Enter the username and click **NEXT** .  
+2.  Enter the username and click **NEXT**.  
     ![](attachments/103329856/103329857.png)
-3.  Enter the password and click **SIGN IN** .  
+3.  Enter the password and click **SIGN IN**.  
     ![](attachments/103329856/103329858.png)
 
   

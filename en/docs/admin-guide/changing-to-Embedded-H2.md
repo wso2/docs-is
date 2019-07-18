@@ -291,7 +291,7 @@ Follow the steps below to run the script in Web console:
     console.
 2.  Copy the script text from the SQL file.
 3.  Paste it into the console.
-4.  Click **Run** .
+4.  Click **Run**.
 5.  Restart the server.
 
     You can create database tables automatically **when starting the

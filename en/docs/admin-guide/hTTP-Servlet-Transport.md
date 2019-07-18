@@ -188,7 +188,7 @@ valid mime types</p></td>
 </table>
 
 This servlet transport implementation can be further tuned up using the
-following parameters for **outbound connections** .
+following parameters for **outbound connections**.
 
 <table style="width:100%;">
 <colgroup>

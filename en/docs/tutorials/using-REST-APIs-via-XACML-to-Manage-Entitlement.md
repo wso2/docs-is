@@ -98,7 +98,7 @@ to accomplish this. First you need to install the Postman plugin.
     <https://localhost:9443/api/identity/entitlement/decision/home> . In
     the **Authorization** tab, for **Type** select 'Basic Auth' **,**
     and provide admin/admin as user ID and password. Then click **Update
-    Request** .  
+    Request**.  
     ![](attachments/103331477/103331490.png){width="700"}
 2.  In the **Headers** tab, provide the values as below, and click
     **Send.**
@@ -123,8 +123,8 @@ The XML response you get is similar to the following:
 1.  Select the request type as **POST** and provide the resource path as
     <https://localhost:9443/api/identity/entitlement/decision/pdp> .
 2.  In the **Authorization** tab, for **Type** , select **Basic Auth** ,
-    and provide admin/admin as the **Username** and **Password** . Click
-    **Update Request** .  
+    and provide admin/admin as the **Username** and **Password**. Click
+    **Update Request**.  
     ![](attachments/103331477/103331480.png){width="700"}
 3.  In the **Headers** tab, provide the values as indicated below:
 
@@ -167,7 +167,7 @@ The XML response you get is similar to the following:
 
     ![](attachments/103331477/103331482.png){width="700"}  
     If you are using XML, copy the following XML code, paste it in the
-    body, and click **Send** .
+    body, and click **Send**.
 
     ``` java
         <Request CombinedDecision="false" ReturnPolicyIdList="false" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17">

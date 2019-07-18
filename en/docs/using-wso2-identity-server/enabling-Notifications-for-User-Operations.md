@@ -79,7 +79,7 @@ information on how to send an email when a user operation takes place.
             ![](attachments/103330460/103330461.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps** .  
+            **Allow less secure apps**.  
             ![](attachments/103330460/103330462.png){width="597"
             height="171"}
     

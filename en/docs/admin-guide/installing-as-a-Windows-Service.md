@@ -401,8 +401,8 @@ services and follow the instructions given below.
     2.  Run `            startService.bat           ` to start the
         service.
 11. Do the same above for the 'dss\_service' as well.
-12. Right click on **My Computer -\> Manage** . Then click **Services
-    and Applications -\> Services** . You can see both ESB and DSS
+12. Right click on **My Computer -\> Manage**. Then click **Services
+    and Applications -\> Services**. You can see both ESB and DSS
     services running.  
     ![](attachments/53125425/53287331.png)
 

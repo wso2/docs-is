@@ -36,12 +36,12 @@ together.
 Follow the instructions below to add a user role.
 
 1.  On the **Main** tab in the management console, click **Add** under
-    **Users and Roles** .
-2.  Click **Roles** . This link is only visible to users with
+    **Users and Roles**.
+2.  Click **Roles**. This link is only visible to users with
     **Security** level permissions role. By default, the admin user has
     this permission enabled. For more information on permissions, see
     [Role-based Permissions](_Role-based_Permissions_) .
-3.  Click **Add New Role** . The following screen appears:  
+3.  Click **Add New Role**. The following screen appears:  
     ![](attachments/53125497/53287369.png)
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
@@ -52,7 +52,7 @@ Follow the instructions below to add a user role.
         up and configured, see [Configuring User
         Stores](_Configuring_User_Stores_) .
     2.  Enter a unique name for this role.
-    3.  Click **Next** .
+    3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
     have. For more information on permissions, see [Role-based
     Permissions](_Role-based_Permissions_) .  
@@ -64,7 +64,7 @@ Follow the instructions below to add a user role.
     you must assign it to at least one user. You can search for a user
     by name, or view all users by entering `          *         ` in the
     search field.
-7.  Click **Finish** .
+7.  Click **Finish**.
 
 The role is created and is listed on the **Roles** page. You can now
 edit the role as needed.

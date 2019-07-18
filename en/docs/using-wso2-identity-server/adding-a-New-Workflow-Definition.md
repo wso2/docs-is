@@ -49,10 +49,10 @@ To add a new workflow, do the following.
         radio button.
     3.  Select the user store that your user or role resides in by
         choosing it from the **Select Domain** drop-down.
-    4.  Enter the role name or username and click **Search Roles** .
+    4.  Enter the role name or username and click **Search Roles**.
     5.  Select the check-box associated with the username or role name
         that you require and click **Add Selected Roles** or **Add
-        Selected Users** .
+        Selected Users**.
     6.  Click **Next** to move to the next step.  
         ![](attachments/103330289/103330291.png)
 

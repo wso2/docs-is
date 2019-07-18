@@ -84,7 +84,7 @@ for instructions
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts** .
+        of **Maximum Failed Login Attempts**.
     
         !!! note
             
@@ -123,7 +123,7 @@ for instructions
     claim dialect.  
     For more information about claims, see [Claim
     Management](_Claim_Management_) .
-2.  Select the Account Locked claim and click **Edit** .  
+2.  Select the Account Locked claim and click **Edit**.  
     ![](attachments/103330598/103330600.png){width="565"}
 3.  Select the **Supported by Default** check box and click **Update**
     .  
@@ -162,7 +162,7 @@ profile in the management console.
     If it is not the first time you are locking this user account, there
     will be a check box instead of the text box (as shown above) in front of
     the **Account Locked** field. Select the check box to lock the account
-    or deselect it to unlock the account and click **Update** .
+    or deselect it to unlock the account and click **Update**.
     
 
 ###### Using the AdminService

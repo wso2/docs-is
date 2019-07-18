@@ -57,7 +57,7 @@ Follow the steps below to change the type of the default
         
             **Note:** If you are using WSO2 Identity Server 5.7.0 or a later
             version, set the `           <defaultAutoCommit>          ` property
-            to **true** .
+            to **true**.
         
 
     ``` xml

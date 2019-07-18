@@ -36,7 +36,7 @@ distribution.
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
 
-    2.  To download the pack without updates, click **DOWNLOAD** .
+    2.  To download the pack without updates, click **DOWNLOAD**.
 
     !!! note
     
@@ -164,7 +164,7 @@ Follow the steps below to configure the event publishers:
         `             <IS_HOME>/repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-SessionData.xml            `
 
         The configurations for login analytics and session analytics are
-        almost the same except for **event streams** . This is because
+        almost the same except for **event streams**. This is because
         the format in which the events are captured for the two
         analytics are different. For more information event streams, see
         [WSO2 SP Quick Start

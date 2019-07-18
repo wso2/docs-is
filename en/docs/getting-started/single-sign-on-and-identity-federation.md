@@ -54,12 +54,12 @@ environment.
 
 
 In this second figure, the users access **Application 1** first followed
-by **Application 2** . Once again, the users use the same browser to
+by **Application 2**. Once again, the users use the same browser to
 access these applications. The users are redirected to the WSO2 Identity
 Server (or any authentication server that is configured for this task).
 If the users are already logged in to the Identity Server, the user is
 authenticated in **Application 1** via an authentication token sent by
-the Identity Server to **Application 1** . When **Application 2** is
+the Identity Server to **Application 1**. When **Application 2** is
 accessed, the same thing happens and the users are redirected to the
 Identity Server and authenticated. This is how SSO works.
 

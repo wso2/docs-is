@@ -182,7 +182,7 @@ met.
 ### Configuration management architecture
 
 The configuration manager exposed with the configuration management REST
-APIs manages configurations as **Resources** .
+APIs manages configurations as **Resources**.
 
 ![](attachments/119111748/119111749.png){.image-left width="252"}
 
@@ -205,7 +205,7 @@ APIs manages configurations as **Resources** .
 What is a resource?
 
 -   A **Resource** belongs to a **Resource Type** and a tenant domain.
--   Each **Resource** has a set of **Attributes** .
+-   Each **Resource** has a set of **Attributes**.
 -   Each **Attribute** has a key and a respective value.
 
 The section below describes each concept in more detail.
