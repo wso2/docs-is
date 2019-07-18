@@ -5,10 +5,10 @@ the Management Console. Refer to the steps below for detailed
 instructions.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click **Main** to access the **Main** menu and click **List** under
-    **Claims** .
+    **Claims**.
 3.  Click on any available dialect links.  
     ![](attachments/43986713/48204512.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for

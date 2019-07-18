@@ -291,7 +291,7 @@ Cluster](https://docs.wso2.com/display/ADMIN44x/Sharing+Databases+in+a+Cluster)
     
     **Note:** The production recommendation is to set the
     `          <versionResourcesOnChange>         ` property in the
-    `          registry.xml         ` file to **false** . This is because
+    `          registry.xml         ` file to **false**. This is because
     automatic versioning of resources can be an extremely expensive
     operation.
     
@@ -304,7 +304,7 @@ In the registry browser, verify that the governance collection is shown
 with the symlink icon.
 
 1.  Log in to the management console.
-2.  Navigate to **Home \> Registry \> Browse** .  
+2.  Navigate to **Home \> Registry \> Browse**.  
     ![](attachments/103329476/103329488.png)
 
 ------------------------------------------------------------------------
@@ -1427,7 +1427,7 @@ should be done for both nodes.
 
         The datasource name specified in this configuration should be
         the same as the datasource used by user manager that you
-        configured in sub step **a, i** .
+        configured in sub step **a, i**.
 
     4.  In the
         `             <IS Analytics_HOME>/repository/conf/registry.xml            `
@@ -2144,5 +2144,5 @@ The HA deployment you configured can be tested as follows.
 6.  [Log into the IS Analytics Management
     Console](https://docs.wso2.com/display/DAS300/Running+the+Product)
     and navigate to **Main** =\> **Manage** =\> **Batch Analytics** =\>
-    **Console** to open the **Interactive Analytics Console** . Run a
+    **Console** to open the **Interactive Analytics Console**. Run a
     query in this console.

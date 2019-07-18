@@ -15,7 +15,7 @@ of Identity Server's Passive STS.
     website](http://tomcat.apache.org/) .
 -   Passive STS Sample - This can be downloaded from the GitHub
     repository by following the instructions in the [Downloading a
-    Sample](_Downloading_a_Sample_) topic.
+    Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
 
 ### Configuring the sample
 
@@ -68,7 +68,7 @@ file.
 
 1.  [Log in to the Identity Server](_Running_the_Product_) and go to
     **Service Providers\>Add** in the **Main** menu in the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console) .
 2.  Enter a unique name for the service provider and click **Register.**
     The following form appears.  
 

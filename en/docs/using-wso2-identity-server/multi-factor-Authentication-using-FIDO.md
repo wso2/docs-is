@@ -143,7 +143,7 @@ multi-factor authentication using the WSO2 Identity Server.
     dashboard](_Using_the_End_User_Dashboard_) .
 2.  Navigate to the **My Profile** section by clicking the associated
     **View Details** button.
-3.  Click **Manage U2F Authentication** .
+3.  Click **Manage U2F Authentication**.
 
     !!! tip
     
@@ -172,9 +172,9 @@ multi-factor authentication using the WSO2 Identity Server.
 #### Configuring FIDO U2F as an authenticator
 
 1.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console) .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
@@ -187,7 +187,7 @@ multi-factor authentication using the WSO2 Identity Server.
     2.  Click **Register** to add the new service provider.
 
 4.  Access the service provider you just created and expand **Local &
-    Outbound Authentication Configuration** .
+    Outbound Authentication Configuration**.
 
     For more information on configuring the local and outbound
     authentication configuration, see [Configuring Local and Outbound
@@ -199,7 +199,7 @@ multi-factor authentication using the WSO2 Identity Server.
 
 5.  Select **Advanced Configuration** to configure multi-factor
     authentication.
-6.  Click **Add Authentication Step** . Then add a local authenticator
+6.  Click **Add Authentication Step**. Then add a local authenticator
     from **Local Authenticators** section.  
     ![](attachments/103329822/103329833.png){height="250"}  
     Select " **Use subject identifier from this step"** and **"Use

@@ -23,12 +23,12 @@ Server.
 
 1.  Open Apache Directory Studio.
 2.  In the **LDAP Servers** tab found on the bottom left corner, click
-    **New Server** .  
+    **New Server**.  
     ![](attachments/103331635/103331645.png){width="306" height="168"}
-3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish** .  
+3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish**.  
     ![](attachments/103331635/103331646.png){width="422"}
 4.  Right-click on the newly created server and click **Open
-    Configuration** .  
+    Configuration**.  
     ![](attachments/103331635/103331644.png){width="231"}
 
 5.  Port offset the LDAP and LDAP server ports by changing the LDAP port
@@ -37,7 +37,7 @@ Server.
     does not conflict with the current installation.  
     ![](attachments/103331635/103331649.png){width="254" height="250"}
 
-6.  Right-click on the new server and click **Create a Connection** .  
+6.  Right-click on the new server and click **Create a Connection**.  
     ![](attachments/103331635/103331647.png){width="407" height="250"}
 7.  Right-click on the server and click **Run** to start the server.   
     ![](attachments/103331635/103331648.png){width="343" height="250"}
@@ -55,7 +55,7 @@ Server.
 
     1.  **Connection URL** - <ldap://localhost:10390> **  
         ** Right-click on the connection in ApacheDS and click **Open
-        Configuration** . Since the LDAP server will run on your local
+        Configuration**. Since the LDAP server will run on your local
         machine, you can use the connection URL
         `             localhost:10390            ` according to the
         configured port.
@@ -120,7 +120,7 @@ Server.
     and password, disable the password quality check.
 
     1.  Right-click on the connection in ApacheDS and click **Open
-        Configuration** .
+        Configuration**.
 
     2.  Click on the **Password Policies** tab of the configuration
         window.

@@ -99,13 +99,13 @@ things.
                                                     `                  address.                 ` prefix.
                                     
                                                 1.  1.  Click **Add** under Claims.
-                                                    2.  Click **Add External Claim** .
+                                                    2.  Click **Add External Claim**.
                                                     3.  Select
                                                         `                                                               http://wso2.ord/oidc/claim                                                            `
-                                                        as the value for **Dialect URI** .
+                                                        as the value for **Dialect URI**.
                                                     4.  Enter
                                                         `                     address.street                    `
-                                                        as the value for **External Claim URI** .
+                                                        as the value for **External Claim URI**.
                                     
                                                         You can enter any value with the prefix
                                                         `                      address.                     `
@@ -186,12 +186,12 @@ things.
                         4.  Run the travelocity sample and try the SAML login.
             
                         5.  Log in with the user credentials of the user who has a
-                            few mandatory claims missing, and click **Submit** .
+                            few mandatory claims missing, and click **Submit**.
                         6.  A claim request will be prompted, Similiar to the image
                             below. At this point, the mandatory claim rule is
                             enforced and you cannot proceed without providing the
                             necessary claim values. Provide the necessary claim
-                            values and click **Submit** .
+                            values and click **Submit**.
                         7.  You will be successfully logged in to the application.
             
 

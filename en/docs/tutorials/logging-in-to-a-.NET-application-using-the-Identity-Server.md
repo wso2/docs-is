@@ -9,13 +9,13 @@ using a sample OpenID Connect application.
     .
 2.  Start the Identity Server and log in to the management console.
 3.  Navigate to the **Main** tab and click on **Add** under **Service
-    Providers** .
+    Providers**.
 4.  Enter a name for the service provider and expand the **Inbound
     Authentication and Configuration** section.  
     ![](attachments/103331453/103331459.png){width="614"}
 5.  Expand the **OAuth/OpenID Connect Configuration** section and
     configure it with the following callback URL
-    format: \[server-url\]/callback.aspx. Click **Add** .  
+    format: \[server-url\]/callback.aspx. Click **Add**.  
     For more information on configuring OAuth/OpenID Connect, see
     [Configuring OAuth2-OpenID Connect
     Single-Sign-On](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_)
@@ -26,7 +26,7 @@ using a sample OpenID Connect application.
     `          <SAMPLE_HOME>         ` directory using [Visual
     Studio](https://www.visualstudio.com/downloads/) and run the .NET
     application.
-8.  Fill in the following fields and click **Submit** .
+8.  Fill in the following fields and click **Submit**.
     -   **Client Id:** \<client key of service provider\>
     -   **Request URI:** http://localhost:50420/callback.aspx
     -   **Response Type:** code

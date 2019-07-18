@@ -48,7 +48,7 @@ with SAML token parsing.
 OpenSSO provides two options to register a service provider:
 
 1.  Creating an SP fedlet.
-2.  Setting up an SP using a meta file called **sp.xml** .
+2.  Setting up an SP using a meta file called **sp.xml**.
 
 This section focuses on the latter approach. Use the following steps to
 configure OpenSSO:
@@ -110,7 +110,7 @@ configure OpenSSO:
 4.  Select the response signing attribute.  
     ![](attachments/103331279/103331280.png)
 5.  Under the **NameID** **Format** list, make sure you specify the ‘
-    **transient** ’ and ‘ **unspecified** ’ **Name ID** **Formats** .  
+    **transient** ’ and ‘ **unspecified** ’ **Name ID** **Formats**.  
     ![](attachments/103331279/103331281.png)
 
 #### Setting up the WSO2 product

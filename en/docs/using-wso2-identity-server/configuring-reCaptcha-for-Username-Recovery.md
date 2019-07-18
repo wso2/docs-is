@@ -38,7 +38,7 @@ reCaptcha for a specific tenant.
     console](https://localhost:9443/carbon/admin/login.jsp) as tenant
     admin.
 4.  On the **Main** tab, click on **Identity Provider** → **Resident
-    Identity Provider** .
+    Identity Provider**.
 
 5.  Expand the **Account Management Policies** tab, then click on
     **Account Recovery.**
@@ -59,7 +59,7 @@ reCaptcha for a specific tenant.
         the port or hostname accordingly.
     
 
-8.  Click on **Forgot Username** .
+8.  Click on **Forgot Username**.
 
 ![](https://lh3.googleusercontent.com/Q62vVVWsshUM8-yjDJpOi4WXv_tDjMwC2ylDOFfD9HBpYdDQE9p6eNExhP4ytEcpLjZsWKoSlch64XXEhaM67bbScBGbtXXomNlS0zye4xXbaPzwbGD0aiTUF0ONcuIQq2bsu0Ha){width="368"
 height="478"}

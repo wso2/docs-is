@@ -70,7 +70,7 @@ adaptive authentication using a sample application.
 
         1.  Sign in to the WSO2 IS Management Console with one of the
             following URLs using `                admin               `
-            as the **username** and **password** .
+            as the **username** and **password**.
 
             ``` java
             For HTTP  --> http://<HTTP_HOST>:9776/carbon
@@ -123,7 +123,7 @@ application by setting up inbound authentication.
     Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
 
 2.  Expand the **Inbound Authentication configuration&gt; SAML2 Web SSO
-    configuration** section, and click **Configure** .  
+    configuration** section, and click **Configure**.  
     ![Configure a Service Provider](../../assets/img/tutorials/configure-saml-sso.png)
 3.  Fill in the following fields.  
     -   **Issuer:**
@@ -131,10 +131,10 @@ application by setting up inbound authentication.
     -   **Assertion Consumer URL:**
         `             http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer            `
 4.  Leave the rest of the default configurations as it is and click
-    **Register** .  
+    **Register**.  
     ![Register a New Service Provider](../../assets/img/tutorials/registering-a-service-provider.png)
 5.  Expand **Local and Outbound Authentication Configuration** and click
-    **Advanced Configuration** .  
+    **Advanced Configuration**.  
     ![Advanced Authentication Configuration](../../assets/img/tutorials/advanced-auth-config.png)
 6.  You can add authentication steps or use a template to configure
     adaptive authentication depending on your requirement. For example,

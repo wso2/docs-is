@@ -29,7 +29,7 @@ is now possible directly through the management console.
     Templates** , which is available under the **Manage** section **.**
 3.  Click **Add Email Template Type.**
 4.  Enter the name that you want to be displayed for the new email
-    template type in the **Template Type Display Name** .
+    template type in the **Template Type Display Name**.
 5.  Click **Add.**
 
 ### Adding an email template
@@ -203,17 +203,17 @@ configure this.
 
 1.  Click on **List** under **Claims** and select
     <http://wso2.org/claims> .
-2.  Select the **Locality** claim and click **Edit** . Select the
-    **Supported by Default** checkbox and click **Update** .
+2.  Select the **Locality** claim and click **Edit**. Select the
+    **Supported by Default** checkbox and click **Update**.
 3.  Logout as admin and login as a user with user profile management
     permissions.
 4.  Click on **List** under **Users and Roles** and then select
-    **Users** .
+    **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in
     user.  
     ![](attachments/103330503/103330504.png){width="758" height="250"}
 6.  Enter the locale code for the **Locality** field and click
-    **Update** .
+    **Update**.
 
     !!! tip
     

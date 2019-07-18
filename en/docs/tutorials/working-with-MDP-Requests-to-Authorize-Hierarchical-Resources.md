@@ -54,9 +54,9 @@ Identity Server:
 2.  Click the **Main** tab on the Management Console, go to
     **Entitlement** -\> **PAP** and then click **Policy Administration**
     . The **Policy Administration** screen appears.
-3.  Click **Add New Entitlement Policy** . This displays the available
+3.  Click **Add New Entitlement Policy**. This displays the available
     policy creation methods.
-4.  Click **Write Policy in XML** . This allows you to write a XACML
+4.  Click **Write Policy in XML**. This allows you to write a XACML
     policy based on your requirement using the XML editor.
 5.  Add the sample policy and click **Save Policy.** This adds the
     sample policy to the **Available Entitlement Policies** list.
@@ -64,9 +64,9 @@ Identity Server:
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
     ![](attachments/103331165/103331166.png){height="250"}
-7.  Click **Publish** . This displays a confirmation message asking
+7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
-8.  Click **Yes** . This publishes the policy to the PDP.
+8.  Click **Yes**. This publishes the policy to the PDP.
 
 After you publish all the sample policies from the given location, you
 need to create and send a multiple decision request with the scope

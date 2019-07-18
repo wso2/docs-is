@@ -117,10 +117,10 @@ authentication.
 
     ![](https://lh5.googleusercontent.com/EGzBSgIVPp8EnX-7Jfd1xsCwhkbLvTGUSBXI7_33PWJVPfph_dPYMXaiCIHInXpUIgHLOUhMQjI7oHPbKA3-3rh_4zJRywCi-7r9Y8kdl8BpelacJMEDoGtj-VbD42uBzx_CDuNR){width="600"}
 
-3.  Click **Click here to login with SAML from Identity Server** . You
+3.  Click **Click here to login with SAML from Identity Server**. You
     are redirected to the WSO2 Identity Server for authentication.
 
-4.  Enter the user credentials and click **Submit** .
+4.  Enter the user credentials and click **Submit**.
 
     ![](attachments/103329798/103329799.png){width="334"}  
 
@@ -139,7 +139,7 @@ authentication.
     ![](attachments/103329798/103329802.png){width="500"}
 
 6.  Select the claims that you consent to share with the Travelocity
-    application and click **Approve** . You must select all mandatory
+    application and click **Approve**. You must select all mandatory
     claims to successfully complete the authentication. After providing
     consent, you are redirected to the Travelocity application home
     page.
@@ -162,7 +162,7 @@ authentication.
 Open the `          identity.xml         ` file found in the in
 `          <IS_HOME>/repository/conf/identity         ` directory.
 Locate the `          <Consent>         ` tag and set the following
-property to **false** .
+property to **false**.
 
 ``` java
 <Consent>
@@ -172,4 +172,4 @@ property to **false** .
 ```
 
 To re-enable consent management for SSO, you can set the above
-configuration to **true** .
+configuration to **true**.

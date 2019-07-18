@@ -27,7 +27,7 @@ Let's get started!
 
 1.  Go to your domain's admin console via
     `                     https://admin.google.com                   ` .
-2.  Click **Security** .
+2.  Click **Security**.
 
     Can't see the Security section? Click the **MORE CONTROLS** bar at
     the bottom and you can see the Security section.
@@ -35,7 +35,7 @@ Let's get started!
     ![](attachments/103331496/103331502.png){width="600"}
 
 3.  Click **Set up single sign-on (SSO)** and select ****Setup SSO with
-    third party identity provider**** .
+    third party identity provider****.
 
 4.  Enter the following URLs to your third-party Identity Provider
     (IdP).
@@ -99,16 +99,16 @@ email address, configure the service provider.
 ### Configuring the Service Provider
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console) .
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
-    **Add** .
+    **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and you can use Google-SP as the name for
     this example.
-4.  Click **Register** .
+4.  Click **Register**.
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration** , and click **Configure** .
+    Web SSO Configuration** , and click **Configure**.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
@@ -186,18 +186,18 @@ Let's look at how you can try it out:
     is in the Google domain that is used for this tutorial. Therefore,
     we create the same user in WSO2 Identity Server.  
     1.  On the **Main** tab in the Management Console, click **Add**
-        under **Users and Roles** .
-    2.  Click **Users** . This link is only visible to users with the
+        under **Users and Roles**.
+    2.  Click **Users**. This link is only visible to users with the
         Admin role.
-    3.  Click **Add New User** . The following screen appears.  
+    3.  Click **Add New User**. The following screen appears.  
         ![](attachments/103331496/103331499.png){width="348"
         height="250"}
 
-    4.  Click **Next \>** .
+    4.  Click **Next \>**.
     5.  Optionally, select the role(s) you want this user to have. If
         you have many roles in your system, you can search for them by
         name.
-    6.  Click **Finish** .
+    6.  Click **Finish**.
 
 2.  Navigate to
     `          https://google.com/a/<ENTER_YOUR_DOMAIN>/acs         `

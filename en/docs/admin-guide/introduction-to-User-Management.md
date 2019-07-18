@@ -58,7 +58,7 @@ is structured to work in WSO2 products:
     `           <PRODUCT_HOME>/repository/conf/          ` directory is
     used as the realm configuration XML. This includes setting up the
     **User Store Manager** , the **Authorization Manager** and the
-    **System Administrator** . These configurations are explained
+    **System Administrator**. These configurations are explained
     below.  
 
     <table>

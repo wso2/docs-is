@@ -99,7 +99,7 @@ You can follow the steps in this section to create a new keystore with a
 private key and a new public key certificate. We will be using the
 keytool that is available with your JDK installation. Note that
 the pubic key certificate we generate for the keystore is
-**self-signed** . Therefore, if you need a public key certificate that
+**self-signed**. Therefore, if you need a public key certificate that
 is CA-signed, you need to generate a CA-signed certificate and import it
 to the keystore as explained in the [next
 section](#CreatingNewKeystores-ca_certificate) . Alternatively, you can

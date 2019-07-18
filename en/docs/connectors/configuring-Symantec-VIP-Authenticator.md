@@ -50,15 +50,15 @@ Authenticator..
 4.  Click on 'Credentials' tab and search the Credential by the ID (the
     Credential ID appears in **VIP Access** ). Enable the credential
     by selecting the option **Enable Credential** under the **Credential
-    Status** .  
+    Status**.  
     ![](attachments/50510041/50686885.png){width="500"}
 5.  Navigate to **Accounts** tab and click on **Manage VIP
     Certificates** from tabs pane in right side of the page.
-6.  Click on **Request a Certificate** and then hit **Continue** .
+6.  Click on **Request a Certificate** and then hit **Continue**.
 7.  Enter the certificate name for the certificate and hit **Submit
-    Request** .
+    Request**.
 8.  Select the format as **PKCS\#12** and give a valid password finally
-    hit **Download Certificate** . Place this certificate in a location
+    hit **Download Certificate**. Place this certificate in a location
     and use the path in the **Identity Provider** configuration.  
     ![](attachments/50510041/50686887.png){width="500"}
 9.  In the properties file placed in resources folder, you can configure
@@ -94,8 +94,8 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
-4.  Give a suitable name as the **Identity Provider Name** .
+    console, click **Add** under **Identity Providers**.
+4.  Give a suitable name as the **Identity Provider Name**.
 5.  Go to Symantec VIP Configuration under Federated Authenticators.
 
 6.  Enter the P12File and P12Password.
@@ -163,7 +163,7 @@ You have now added and configured the service provider.
     <http://wso2.org/claims/vipcredentialid> ).  
       
     ![](attachments/50510041/50686891.png){width="500"}
-4.  Now go to **Users and Roles** .
+4.  Now go to **Users and Roles**.
 5.  Enter the **VIP Credential ID** and update the profile.  
     ![](attachments/50510041/50686892.png){width="500"}
 
@@ -181,7 +181,7 @@ You have now added and configured the service provider.
     password.  
     ![](attachments/50510041/50686894.png){width="500"}
 
-4.  You will be asked to enter the **Security Code** .Type the Security
+4.  You will be asked to enter the **Security Code**.Type the Security
     Code generated in **VIP Access** , If the authentication success,
     you will be taken to the home page of the travelocity.com app.
 

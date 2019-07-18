@@ -241,7 +241,7 @@ Let's get started!
 To try out the sample implementation that was used in this guide, follow
 the steps given below to successfully get the token.
 
-1.  [Download the samples](_Downloading_a_Sample_) .
+1.  [Download the samples](../../using-wso2-identity-server/downloading-a-sample) .
 2.  Navigate to the
     `           is-samples/oauth-sample-client-authenticator          `
     directory.

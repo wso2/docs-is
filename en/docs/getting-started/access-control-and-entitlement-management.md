@@ -573,7 +573,7 @@ There are several improvements with Obligations in XACML 3.0 when
 compared to 2.0.
 
 One of the main improvements is the introduction of **Obligation
-Expressions** . This adds dynamic expressions into the obligation
+Expressions**. This adds dynamic expressions into the obligation
 statements. For a more in-depth understanding, see the following
 example:
 

@@ -236,7 +236,7 @@ with a sample.
                 keytool -import -trustcacerts -alias wso2carbon -file wso2-certificate.crt -keystore truststore.jks -storepass client-password
         ```
 
-    6.  Click **Update** .
+    6.  Click **Update**.
 
 7.  Restart WSO2 Identity Server.
 
@@ -248,10 +248,10 @@ Follow the steps below to test the configurations.
 
     1.  Access the WSO2 Identity Server Management Console.
     2.  On the **Main** menu, click **Identity \> Service Providers \>
-        Add** .  
+        Add**.  
         ![](attachments/103329642/119114809.png){width="250"}
     3.  Enter `            playground2           ` as the **Service
-        Provider Name** and click **Register** .  
+        Provider Name** and click **Register**.  
         ![](attachments/103329642/119114810.png){width="750"}
     4.  Copy the content in your client application's certificate in PEM
         format into the **Application Certificate** text field.  
@@ -266,13 +266,13 @@ Follow the steps below to test the configurations.
         
 
     5.  Expand **Inbound Authentication Configuration \> OAuth/OpenID
-        Connect Configuration** and click **Configure** .  
+        Connect Configuration** and click **Configure**.  
         ![](attachments/103329642/119114812.png){width="700"}
     6.  Enter
         `                         http://localhost:8080/playground2/oauth2client                       `
-        as the **Callback URL** .  
+        as the **Callback URL**.  
         ![](attachments/103329642/119114813.png){width="750"}
-    7.  Click **Add** .  
+    7.  Click **Add**.  
         Note that the OAuth `            client key           ` and
         `            client secret           ` get generated.  
         ![](attachments/103329642/119114814.png){height="250"}

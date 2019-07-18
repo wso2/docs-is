@@ -14,7 +14,7 @@ See the following topics for detailed configuration options:
 
 ### Testing SSL version 3 configuration for the Identity Server
 
-**SSL version 3 is disabled by default from IS 5.1.0 onwards** . It is
+**SSL version 3 is disabled by default from IS 5.1.0 onwards**. It is
 necessary to disable SSL version 3 in Carbon servers because of a bug (
 [Poodle Attack](https://www.openssl.org/~bodo/ssl-poodle.pdf) ) in the
 SSL version 3 protocol that could expose critical data encrypted between

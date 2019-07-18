@@ -62,7 +62,7 @@ locking and disabling. Follow the below steps to do this configuration.
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts** .
+        of **Maximum Failed Login Attempts**.
     
         ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
         here to see more information
@@ -100,7 +100,7 @@ management console.
     ![](attachments/103330604/103330606.png){width="1147" height="463"}
 4.  Navigate to **Main\>Users and Roles\>List\>Users** and click on
     **User Profile** of the user account that you want to disable.
-5.  Tick the **Account Disabled** checkbox and click **Update** .
+5.  Tick the **Account Disabled** checkbox and click **Update**.
 
 !!! tip
     

@@ -7,7 +7,7 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 1.  Log in to the WSO2 Identity Server management console using your
     tenant credentials.
 2.  Under the **Configure** menu of the management console, click
-    **Email Templates** .
+    **Email Templates**.
 3.  In the resulting screen, you can customize the email templates that
     are sent to the users in your tenant.
 

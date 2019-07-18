@@ -31,7 +31,7 @@ attacks.
     ![](attachments/103330575/103330576.png){width="758"}
 
 6.  Enable account locking and Configure the **Max Failed Attempts for
-    ReCaptcha** .
+    ReCaptcha**.
 
     !!! note
     

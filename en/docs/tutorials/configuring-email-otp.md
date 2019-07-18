@@ -507,7 +507,7 @@ Follow the steps below add a service provider:
 
     3.  Select the following check-boxes: **Enable Response Signing** ,
         **Enable Single Logout** , **Enable Attribute Profile** , and
-        **Include Attributes in the Response Always** .
+        **Include Attributes in the Response Always**.
 
 8.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.

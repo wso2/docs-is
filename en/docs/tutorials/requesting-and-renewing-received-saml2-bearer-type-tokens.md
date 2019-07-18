@@ -3,17 +3,7 @@
 WSO2 Security Token Service is shipped as the resident identity provider
 of WSO2 Identity Server. The responsibility of a Security Token Service
 (STS) is to provide tokens that are trusted by a relying party to a
-requester or service consumer. This topic includes the following
-sections.
-
--   [Terms and
-    concepts](#RequestingandRenewingReceivedSAML2BearerTypeTokens-Termsandconcepts)
--   [How STS
-    works](#RequestingandRenewingReceivedSAML2BearerTypeTokens-HowSTSworks)
--   [Requesting
-    tokens](#RequestingandRenewingReceivedSAML2BearerTypeTokens-Requestingtokens)
--   [Renewing received
-    tokens](#RequestingandRenewingReceivedSAML2BearerTypeTokens-Renewingreceivedtokens)
+requester or service consumer. 
 
 ### Terms and concepts
 
@@ -47,7 +37,7 @@ The following terminology is used extensively in this topic:
 
 ### How STS works
 
-![](attachments/103331097/103331100.png)
+![sts-flow](../../assets/img/tutorials/sts-flow.png)
 
 The following communication paths are illustrated in the above figure
 using arrows.
@@ -84,23 +74,23 @@ simulation of the scenario.
 Do the following to configure this.
 
 1.  Run WSO2 Identity Server on the default port (9443). See the
-    [Installation Guide](_Installation_Guide_) guide for information on
+    [Installation Guide](../../setup/installation-guide) guide for information on
     how to download and run the product.
 2.  Navigate to the resident identity provider section from **Main**
     menu, by clicking **Resident** under **Identity Providers.**
 3.  Expand the **Security Token Service Configuration** section under
-    **Inbound Authentication Configuration** .  
-    ![](attachments/103331097/103331098.png){width="750"}
+    **Inbound Authentication Configuration**.  
+    ![sts-configuration](../../assets/img/tutorials/sts-configuration.png)
 4.  Set inbound authentication properties by providing the username
     token to authenticate requesters before issuing tokens. This is done
     to secure the STS from issuing tokens to every individual who sends
-    a RSTs. To do this, click **Apply Security Policy** .
+    a RSTs. To do this, click **Apply Security Policy**.
 5.  Select UserNameToken (in this security scenario, the requester
     should submit a username and a password in order to get a security
     token, as described in WS-Security. By default, the username and
     password are similar to management console user name and password
     (“admin”,”admin”).
-6.  Add all user groups from the next window and click **Finish** .
+6.  Add all user groups from the next window and click **Finish**.
 
 #### Running the requester
 
@@ -112,7 +102,7 @@ party to grant the security token from the STS.
     
     Before you begin!
     
-    [Download the samples directory](_Downloading_a_Sample_) .
+    [Download the samples directory](../../using-wso2-identity-server/downloading-a-sample) .
     
 
 1.  Navigate to
@@ -136,7 +126,7 @@ party to grant the security token from the STS.
 
     It prints the received SAML assertion on the terminal. You can also
     view the RST and RSTR on the [SOAP
-    tracer](https://docs.wso2.com/display/IS530/SOAP+Tracer) of the
+    tracer](../../using-wso2-identity-server/soap-tracer) of the
     Management Console in the Identity Server.
 
 #### Changing the client properties

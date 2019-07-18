@@ -106,7 +106,7 @@ mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
     [management
     console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     .
-2.  Click **Add** under **Claims** and then click **Add Local Claim** .
+2.  Click **Add** under **Claims** and then click **Add Local Claim**.
 3.  Add a new claim for
     `           lastPasswordChangedTimestamp          ` with
     `                       http://wso2.org/claims/lastPasswordChangedTimestamp                     `
@@ -140,10 +140,10 @@ The next step is to configure the service provider.
 1.  Return to the Management Console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter travelocity.com in the **Service Provider Name** text box and
-    click **Register** .
+    click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.

@@ -30,15 +30,15 @@ attributes of a user in the Identity Server.
 
 1.  By accessing the profile of the user and changing the attributes
     using the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console) .
     1.  Log into the WSO2 Identity Server.
     2.  On the **Main** tab in the Management Console, click **List**
-        under **Users and Roles** .  
-    3.  Click **Users** . This link is only visible to users with the
+        under **Users and Roles**.  
+    3.  Click **Users**. This link is only visible to users with the
         Admin role.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
-        **User Profile** .  
+        **User Profile**.  
         ![](attachments/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the REST Web service according to the SCIM provisioning

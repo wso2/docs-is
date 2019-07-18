@@ -275,4 +275,4 @@ These two alternative configurations can be done as explained below.
 ### Step 3: Starting the server
 
 Start your server and try to log in as the admin user you specified in
-**Step 2** .
+**Step 2**.

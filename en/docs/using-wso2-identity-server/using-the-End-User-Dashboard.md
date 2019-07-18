@@ -93,7 +93,7 @@ To export the user's personal information, do the following.
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **My
     Profile.**
-3.  Click **Export** . A `           userInfo.json          ` file
+3.  Click **Export**. A `           userInfo.json          ` file
     containing the JSON representation of the user information on your
     profile will be downloaded onto your machine.
 
@@ -136,7 +136,7 @@ following.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Account
-    Recovery** .
+    Recovery**.
 3.  Set the challenge question from the drop-down and enter an answer
     for the question you choose.  
     ![](attachments/103330474/103330494.png){width="750" height="454"}
@@ -151,7 +151,7 @@ To change your password, do the following.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Change
-    Password** .
+    Password**.
 3.  In the resulting screen, enter your **Current Password** , fill in
     the **New Password** and confirm it by filling out the **Confirm New
     Password** field.  
@@ -165,7 +165,7 @@ Identity Server account, do the following.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Associated
-    Accounts** . The list of social identities linked to your account
+    Accounts**. The list of social identities linked to your account
     appear.
 
 See [Associating User Accounts](_Associating_User_Accounts_) for more
@@ -178,7 +178,7 @@ account, do the following.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Authorized
-    Apps** . A list of available authorized apps appears.
+    Apps**. A list of available authorized apps appears.
 3.  Click **Remove Application** if you wish to disassociate the
     application from your account.
 
@@ -189,7 +189,7 @@ following.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Pending
-    Approvals** . The following page appears, listing out the pending
+    Approvals**. The following page appears, listing out the pending
     account approval requests.
 3.  Select the requests you want to approve. Click on the relevant
     **Task Id** to access the details of the selected task and click on
@@ -222,7 +222,7 @@ via WSO2 Identity Server. Follow the steps below to configure this.
 
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
 2.  Once you have logged in, click **View details** under **Consent
-    Management** .
+    Management**.
 
     ![](attachments/103330474/103330487.png){width="600"}
 
@@ -262,7 +262,7 @@ New users can do the following actions from this screen:
     detailed view of the consent receipt. It contains brief information
     about the service and shows the consented attributes for this
     service. Deselect claims accordingly to revoke consent. Click
-    **Update** .
+    **Update**.
 
     !!! tip
     

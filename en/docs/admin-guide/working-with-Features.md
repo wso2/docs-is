@@ -84,9 +84,9 @@ new feature:
 Follow the instructions below:
 
 1.  Log in to the product's management console.
-2.  On the **Configure** menu, click **Features** . The **Feature
+2.  On the **Configure** menu, click **Features**. The **Feature
     Management** page will appear.
-3.  Click **Available Features** .
+3.  Click **Available Features**.
 4.  Select a relevant repository. You can add the
     <http://product-dist.wso2.com/p2/carbon/releases/wilkes/>
     repository to get the WSO2 product features of the Carbon 4.4.x
@@ -96,9 +96,9 @@ Follow the instructions below:
     To add a new repository:
 
     1.  Go to the **Configure** menu on the management console, and
-        click **Features** .
+        click **Features**.
     2.  Go to the **Repository Management** tab, and click **Add
-        Repository** .
+        Repository**.
     3.  Provide a convenient name for the repository being added.
     4.  Enter the repository location using one of the following
         methods:  
@@ -112,7 +112,7 @@ Follow the instructions below:
             -   Select the **Local** option.
             -   Enter the directory path of the repository on your local
                 machine.
-    5.  Click **Add** . The newly added repository will appear in the
+    5.  Click **Add**. The newly added repository will appear in the
         list of available repositories.
 
     Once you have added the new repository, go back to the **Available
@@ -120,7 +120,7 @@ Follow the instructions below:
 
 5.  Some repositories contain multiple versions of features. If you are
     only interested in the latest versions, click **Show only the latest
-    versions** .
+    versions**.
 6.  A feature category is a logical grouping of the features that
     constitute a particular Carbon-based product. Selecting the **Group
     features by category** option enables you to easily view and select
@@ -128,7 +128,7 @@ Follow the instructions below:
     do not select this option when looking for features, you will see an
     uncategorized, flat feature list from which individual features can
     be selected separately.
-7.  Click **Find Features** . The available features will be listed.
+7.  Click **Find Features**. The available features will be listed.
 8.  Select the features you wish to install.
 
     To find a particular feature, you can use the search function. Enter
@@ -137,12 +137,12 @@ Follow the instructions below:
     ![](attachments/53125432/85387849.png) This search will return only
     available features; excluding the ones already installed.
 
-9.  Click **Install** .
-10. Verify the feature to be installed and click **Next** .
+9.  Click **Install**.
+10. Verify the feature to be installed and click **Next**.
 11. Read and accept the terms of the license agreement.
-12. Click **Next** . The installation process starts. It may take a few
+12. Click **Next**. The installation process starts. It may take a few
     minutes to download the necessary components.
-13. Once the installation process is complete, click **Finish** .
+13. Once the installation process is complete, click **Finish**.
 14. Restart the server for the changes to take effect. Based on the
     newly added features, you will be able to see the additional
     functionalities.
@@ -323,15 +323,15 @@ You can uninstall features from the management console, by following the
 steps given below.
 
 1.  Log in to the product's management console.
-2.  Go to the **Configure** menu, and click **Features** . The **Feature
+2.  Go to the **Configure** menu, and click **Features**. The **Feature
     Management** page will appear.
 3.  Click **Installed Features.** The **Installed Features** page allows
     you to browse through the list of installed features.
 4.  Select the features that you need to uninstall. If you wish to
-    uninstall all the features, click **Select all in this page** .
-5.  Click **Uninstall** . A page will appear containing details of the
+    uninstall all the features, click **Select all in this page**.
+5.  Click **Uninstall**. A page will appear containing details of the
     features to be uninstalled.
-6.  Verify the information and click **Next** . If the feature is
+6.  Verify the information and click **Next**. If the feature is
     successfully removed, a success message will appear.
 
     If there are other features that depend on the feature that needs to
@@ -354,7 +354,7 @@ process, some features might get installed and some uninstalled.
 #### Reverting using the management console
 
 1.  Log in to the management console.
-2.  Go to the **Configure** menu, and click **Features** .
+2.  Go to the **Configure** menu, and click **Features**.
 3.  Click on the **Installation History** tab **.** The **Installation
     History** page appears. See the example below.  
     ![](attachments/53125432/85387850.png){width="900"}

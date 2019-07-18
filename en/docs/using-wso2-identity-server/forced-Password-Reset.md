@@ -100,7 +100,7 @@ to see a sample of how this works.
 1.  Configure the properties mentioned above, start the Identity Server
     and navigate to the relevant interface.
 2.  Select **Enable Password Reset via Recovery Email** from the three
-    options listed, and click **Update** .
+    options listed, and click **Update**.
 3.  Once the option is selected, admin users can force a password reset
     flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -169,7 +169,7 @@ template for this option can be configured in the
 1.  Configure the properties mentioned above, start the IS server and
     navigate to the relevant interface.
 2.  Select **Enable Password Reset via OTP** from the three options
-    listed, and click **Update** .
+    listed, and click **Update**.
 3.  Once the option is selected, admin users can force a password reset
     flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -234,7 +234,7 @@ template for this option can be configured in the
 1.  Configure the properties mentioned above, start the identity server
     and navigate to the relevant interface.
 2.  Select **Enable Password Reset Offline** from the three options
-    listed, and click **Update** .
+    listed, and click **Update**.
 3.  Click on **List** under **Claims** found in the **Main** tab and
     select http://wso2.org/claims .
 4.  Select the **One Time Password** claim, click **Edit** and select

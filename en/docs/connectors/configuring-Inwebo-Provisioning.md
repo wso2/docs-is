@@ -79,11 +79,11 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Claims** .
+    console, click **Add** under **Claims**.
 4.  Add a new claim for **Language.**  
     **  
     ** ****![](attachments/50505066/50685963.png){width="500"}****
-5.  Click **Add** under **Identity Providers** .
+5.  Click **Add** under **Identity Providers**.
 6.  Expand the **Claim Configuration** section and select **Define
     Custom Claim Dialect** under **Basic Claim Configuration** section.
     **  
@@ -93,7 +93,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     ![](attachments/50505066/50685960.png){width="500"}
 8.  Expand the **Advanced Claim Configuration** section.
 9.  Select the Claim URI you added from the **Provisioning Claim
-    Filter** dropdown and click **Add Claim** . Enter a default value
+    Filter** dropdown and click **Add Claim**. Enter a default value
     for each **Claim URI** as shown in the following image.  
       
     ![](attachments/50505066/50685961.png){width="500"}  
@@ -146,7 +146,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
             LoginSendByMail must be used immediately after
 
 11. Go to **Inwebo Provisioning Configuration** under **Outbound
-    Provisioning Connectors** .
+    Provisioning Connectors**.
 
 12. Enter the values for the required fields. You should use Service Id,
     P12Password and P12FILE path values of the Inwebo app which you

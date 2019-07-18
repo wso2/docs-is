@@ -209,7 +209,7 @@ protocol, follow the steps below:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> using
     a web browser to access the Dispatch application.
 
-3.  Click **Log in** .  
+3.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 4.  Enter either of the following credentials to sign in to the
     application.
@@ -222,7 +222,7 @@ protocol, follow the steps below:
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Select the attributes that you want to share with Dispatch and click
-    **Approve** .
+    **Approve**.
 
     ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)
 
@@ -246,7 +246,7 @@ protocol, follow the steps below:
     <http://localhost.com:8080/saml2-web-app-pickup-manager.com> Using
     your browser to access the Pickup Manager application.
 
-7.  Click **Log in** .  
+7.  Click **Log in**.  
     ![qsg-sso-manager-login](../../assets/img/getting-started/qsg-sso-manager-login.png)
 
 8.  Note that the Pickup Manager application opens without having to
@@ -280,7 +280,7 @@ follow the steps below:
 2.  Enter the
     [http://localhost.com:8080/pickup-dispatch](http://localhost:8080/Dispatch/)
     URL on a web browser to access the Pickup Dispatch application.
-3.  Click **Log in** .  
+3.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 4.  Enter either of the following credentials to sign in to the
     application.
@@ -388,7 +388,7 @@ A message appears to pick a scenario.
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
-6.  Click **Log in** .  
+6.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
 7.  Enter either of the following credentials to sign in to the
     application.
@@ -404,14 +404,14 @@ A message appears to pick a scenario.
     authentication factor.
 
 8.  Enter your Twitter `               username              ` and
-    `               password              ` and click **Sign In** .
+    `               password              ` and click **Sign In**.
     ![qsg-authorize-twitterapp](../../assets/img/getting-started/qsg-authorize-twitterapp.png)
 
     After successful authentication, the **User Consents** form of the
     Dispatch application appears.
 
 9.  Select the attributes that you want to share with Dispatch and click
-    **Approve** .
+    **Approve**.
 
     ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)      
 
@@ -501,19 +501,19 @@ A message appears to pick a scenario.
 4.  Enter the
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
-5.  Click **Log in** .
+5.  Click **Log in**.
 
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)  
     The Twitter login page appears.
 
 6.  Enter your Twitter `               username              ` and
-    `               password              ` and click **Sign In** .
+    `               password              ` and click **Sign In**.
 
     After a successful authentication, the **User Consents** form of the
     Dispatch application appears.
 
 7.  Select the attributes that you wish to share with Pickup Dispatch
-    and click **Approve** .
+    and click **Approve**.
 
     ![qsg-sso-consent](../../assets/img/getting-started/qsg-sso-consent.png)
 
@@ -632,16 +632,16 @@ Pickup Manager applications using WSO2 IS.
     [http://localhost.com:8080/pickup-dispatch](http://localhost.com:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
-4.  Click **Log in** .  
+4.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
-5.  Click **Register Now** .
+5.  Click **Register Now**.
 
     ![qsg-self-sign-up-register](../../assets/img/getting-started/qsg-self-sign-up-register.png)
 
       
 
 6.  Enter a `               username              ` for your user
-    account and click **Proceed to Self Register** .
+    account and click **Proceed to Self Register**.
 
     ![qsg-self-sign-up-username](../../assets/img/getting-started/qsg-self-sign-up-username.png)
     !!! note
@@ -652,14 +652,14 @@ Pickup Manager applications using WSO2 IS.
     
 
 7.  Provide the `               user profile details              ` ,
-    agree to the **Privacy Policy** , and click **Register** .  
+    agree to the **Privacy Policy** , and click **Register**.  
     ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     A confirmation message appears.
 
     ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-confirmation.png)
 
-8.  Click **Close** .
+8.  Click **Close**.
 
     1.  If you selected **Enable User Registration (without any
         config)** at [step 1](#QuickStartGuide-WFStep01) , navigate back
@@ -747,14 +747,14 @@ A message appears to pick a scenario.
     [http://localhost.com:8080/pickup-dispatch](http://localhost.com:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
 
-3.  Click **Log in** .  
+3.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)
-4.  Click **Register Now** .
+4.  Click **Register Now**.
 
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Enter a `               username              ` for your user
-    account and click **Proceed to Self Register** .
+    account and click **Proceed to Self Register**.
 
     ![qsg-self-sign-up-username](../../assets/img/getting-started/qsg-self-sign-up-username.png)
 
@@ -766,7 +766,7 @@ A message appears to pick a scenario.
     
 
 6.  Provide the `               user profile details              ` ,
-    agree to the **Privacy Policy** , and click **Register** .  
+    agree to the **Privacy Policy** , and click **Register**.  
     ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     Even though a new user account is created successfully, it is in
@@ -775,11 +775,11 @@ A message appears to pick a scenario.
 
 7.  Enter the
     [http://localhost:9443/dashboard](http://localhost:9443/dasjboard)
-    URL on a web browser to access **WSO2 Dashboard** .  
+    URL on a web browser to access **WSO2 Dashboard**.  
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 8.  Enter the following credentials to sign in as Alex and click **Sign
-    In** .
+    In**.
 
     ``` java
     Username: alex    | Password: alex123
@@ -789,10 +789,10 @@ A message appears to pick a scenario.
 
     ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 
-10. Click **Pending Approvals \> View Details** .  
+10. Click **Pending Approvals \> View Details**.  
     ![qsg-workflow-approvals](../../assets/img/getting-started/qsg-workflow-approvals.png)
 
-11. Click the **Task ID** .
+11. Click the **Task ID**.
 
     ![qsg-user-portal-tasks](../../assets/img/getting-started/qsg-user-portal-tasks.png)
 
@@ -802,13 +802,13 @@ A message appears to pick a scenario.
     Note that a confirmation message appears.  
     ![qsg-workflow-approval-confirmation](../../assets/img/getting-started/qsg-workflow-approval-confirmation.png)
 
-    Click **OK** .
+    Click **OK**.
 
 13. Click **Sign out** to sign out of WSO2 Dashboard as Alex.  
     ![qsg-sign-out](../../assets/img/getting-started/qsg-sign-out.png)
 
 14. Enter the following credentials to sign in as Cameron and click
-    **Sign In** .
+    **Sign In**.
 
     ``` java
         Username: cameron    | Password: cameron123
@@ -818,11 +818,11 @@ A message appears to pick a scenario.
 
     ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 
-16. Click **Pending Approvals \> View Details** .
+16. Click **Pending Approvals \> View Details**.
 
     ![qsg-workflow-approvals](../../assets/img/getting-started/qsg-workflow-approvals.png)
 
-17. Click the **Task ID** .
+17. Click the **Task ID**.
 
     ![qsg-user-portal-tasks](../../assets/img/getting-started/qsg-user-portal-tasks.png)
 
@@ -836,7 +836,7 @@ A message appears to pick a scenario.
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
     Select the attributes that you wish to share with Pickup Dispatch
-    and click **Approve** .
+    and click **Approve**.
 
     ![qsg-workflow-consent](../../assets/img/getting-started/qsg-workflow-consent.png)
 

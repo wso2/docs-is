@@ -67,16 +67,16 @@ sure you have the following permissions set:
 -   `            /permission/admin/manage/identity/claimmgt/metadata/view           `
 
 1.  Log into the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .  
+    Console](../../setup/getting-started-with-the-management-console) .  
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
-2.  Navigate to Home\> Manage\> Consent Purposes and click **Add** .  
+2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
     ![](attachments/103330607/103330612.png){width="220" height="569"}  
     The following window will be displayed.
 
     ![](attachments/103330607/103330611.png){width="1000" height="308"}
 
-3.  Add a **Purpose Name** and a **Description** .
+3.  Add a **Purpose Name** and a **Description**.
 
     1.  **Purpose Name:** A short name for the requirement of why the
         PII item is required.
@@ -120,8 +120,8 @@ you have the following permissions set:
 -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
 1.  Log into the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
-2.  Navigate to Home\> Manage\> Consent Purposes and click **List** .  
+    Console](../../setup/getting-started-with-the-management-console) .
+2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
     ![](attachments/103330607/103330610.png){width="220" height="513"}
 
 3.  The following window will be displayed.
@@ -136,7 +136,7 @@ you have the following permissions set:
 
     ![](attachments/103330607/103330609.png){width="1001" height="305"}
 
-4.  You can delete a purpose by clicking **Delete** . You can also view
+4.  You can delete a purpose by clicking **Delete**. You can also view
     the PII categories associated with the **Purpose** by clicking
     **View PII Categories** in the **Action** column. The following
     window will be displayed when you click **View PII Categories.**

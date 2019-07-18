@@ -89,7 +89,7 @@ you through the entire process.
     ![](attachments/103331468/103331476.png){width="880"}
 
 4.  Navigate to **Claims\>Add** in the **Main** menu and click **Add New
-    Claim** . Set 'User Principle' and 'ImmutableID' as claims as seen
+    Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
     below. See [Adding Claim Mapping](_Adding_Claim_Mapping_) for more
     information.
 
@@ -121,11 +121,11 @@ you through the entire process.
 
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **WS-Trust Security Token Service Configuration** and click
-    **Configure** .
+    **Configure**.
 
 4.  Enter the following details in the form that appears and click
-    **Apply** . See [Configuring WS-Trust Security Token
-    Service](_Configuring_WS-Trust_Security_Token_Service_) for more
+    **Apply**. See [Configuring WS-Trust Security Token
+    Service](../../tutorials/configuring-ws-trust-security-token-service) for more
     information about these fields.
 
     -   **Endpoint Address:**
@@ -179,17 +179,17 @@ you through the entire process.
 7.  Click **Resident** under **Identity Providers** in the **Main**
     menu. Expand the **Inbound Authentication Configuration** section,
     then the **Security Token Service Configuration** section and click
-    **Apply Security Policy** .
+    **Apply Security Policy**.
 
 8.  Select **Y** **es** in the **Enable Security** dropdown.
 
 9.  Select **UsernameToken** under **Basic Scenarios** and click
-    **Next** .
+    **Next**.
 
     ![](attachments/103331468/103331472.png)  
 
 10. Select the **Admin** role checkbox from the User Groups and click
-    **Finish** .
+    **Finish**.
 
     !!! note
     

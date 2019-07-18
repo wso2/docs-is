@@ -108,11 +108,11 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
 5.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-6.  Give a suitable name for **Identity Provider Name** .  
+    management console, click **Add**.
+6.  Give a suitable name for **Identity Provider Name**.  
     ![](attachments/50520620/51252182.png){width="750"}
 7.  Navigate to **RedditAuthenticator Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 8.  Enter the values as given in the above figure.
 
     -   **Client Id** : Client Id for your web app.
@@ -121,9 +121,9 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
         sent .
 
 9.  Select both checkboxes to **Enable** the Reddit authenticator and
-    make it the **Default** .
+    make it the **Default**.
 
-10. Click **Register** .
+10. Click **Register**.
 
 You have now added the identity provider.
 
@@ -137,7 +137,7 @@ The next step is to configure the service provider.
     **Main** tab.
 
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -150,13 +150,13 @@ The next step is to configure the service provider.
         http://localhost:8080/travelocity.com/home.jsp
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
         ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="800"
         height="796"}
 
@@ -167,7 +167,7 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .  
+    under **Federated Authentication**.  
     ![](attachments/50520620/51252181.png){width="750"}
 
 10. Ensure that the **Federated Authentication** radio button is

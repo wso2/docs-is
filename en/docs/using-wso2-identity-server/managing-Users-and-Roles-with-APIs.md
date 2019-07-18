@@ -359,7 +359,7 @@ The following operations are available in the
     **Note:** This operation retrieves a list of all the users. The users
     assigned to the specified role will be indicated in the list. Users
     belonging to the role are shown as **selected = true** and users not
-    belonging to the role are show as **selected = false** .
+    belonging to the role are show as **selected = false**.
     
 
 ##### updateCredential()

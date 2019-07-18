@@ -17,10 +17,10 @@ Integrator](_Configuring_the_BPM_Profile_of_WSO2_EI_as_a_Workflow_Engine_)
 with the Identity Server.
 
 1.  To create a BPM profile click on **Configure \> Workflow Engine
-    Profiles \> Add** . The window below will be displayed.
+    Profiles \> Add**. The window below will be displayed.
 
 2.  Fill in the details using the descriptions below to guide you and
-    click **Add** .  
+    click **Add**.  
     ![](attachments/103330286/103330287.png){width="700"}
 
     | Attribute                     | Description                                                                                                                                                                                                                                       | Sample Value                                                                                                                                                         |

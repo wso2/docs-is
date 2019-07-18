@@ -12,10 +12,10 @@ The following steps describe how you can configure the Identity Server
 as an XACML engine.
 
 1.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) using your
+    Console](../../setup/getting-started-with-the-management-console) using your
     username and password.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
-    Click **Policy Administration** under **PAP** . For more information
+    Click **Policy Administration** under **PAP**. For more information
     on policy administration, see [Configuring the Policy Administration
     Point](_Configuring_the_Policy_Administration_Point_) .  
     ![](attachments/103331142/103331143.png){width="250"}  

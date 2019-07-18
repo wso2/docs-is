@@ -369,7 +369,7 @@ below steps:
     Once you navigate to
     `          /_system/config/identity/config         ` , follow the
     steps below to add a registry resource.
-4.  Click **Add Resource** .  
+4.  Click **Add Resource**.  
     ![](attachments/103330101/103330106.png){width="422"}
 5.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
@@ -385,7 +385,7 @@ below steps:
     ![](attachments/103330101/103330103.png){width="700"}
 8.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
-9.  Click **Add New Property** .  
+9.  Click **Add New Property**.  
     ![](attachments/103330101/103330102.png)
 10. Enter the relying party name for name and the redirect URL for
     value.  

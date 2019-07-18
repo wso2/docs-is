@@ -51,8 +51,8 @@ sections below to set this up.
 1.  Access the Google Admin console by navigating to this URL:
     <https://admin.google.com/> .
 2.  Log in using your administrator account.
-3.  Click **Admin Console** .
-4.  Click **Apps** and then click **SAML apps** .
+3.  Click **Admin Console**.
+4.  Click **Apps** and then click **SAML apps**.
 
     If you do not see the Apps button on the home page, click **More
     Controls** at the bottom of the page.
@@ -87,9 +87,9 @@ sections below to set this up.
         `                       `
         ![](attachments/103331619/103331629.png){width="525"}
 
-10. Click **Next** and then click **Finish** .
+10. Click **Next** and then click **Finish**.
 11. Once the application is configured, click **Edit Service** and
-    change the **Service Status** to **ON** . You can turn on the
+    change the **Service Status** to **ON**. You can turn on the
     service for everyone or for some users only.
 
 ### Configure Google as a SAML IdP in WSO2 IS
@@ -112,9 +112,9 @@ sections below to set this up.
 2.  Log in to the management console using admin/admin credentials.
 3.  Click **Add** under **Identity Providers** on the **Main** tab.
 4.  Enter "GoogleIdP" as the identity provider name and expand
-    **Federated Authenticators\>SAML2 Web SSO Configuration** .
+    **Federated Authenticators\>SAML2 Web SSO Configuration**.
 5.  Select **Enable SAML2 Web SSO** and enter "wso2is1" as the **Service
-    Provider Entity ID** .
+    Provider Entity ID**.
 
     The **Service Provider Entity ID** value should be equal to the
     value you entered as the Entity ID when configuring Google.
@@ -126,7 +126,7 @@ sections below to set this up.
 7.  Click **Register** to save the identity provider configurations.
 8.  Once the IdP is registered, it is listed under Identity
     Providers. Click **Edit** and expand **Federated
-    Authenticators\>SAML2 Web SSO Configuration** .  
+    Authenticators\>SAML2 Web SSO Configuration**.  
     ![](attachments/103331619/103331627.png){width="667"}
 9.  Select **Enable Logout** and enter "
     https://accounts.google.com/logout" as the Logout URL .
@@ -158,7 +158,7 @@ sections below to set this up.
     Provider](_Adding_and_Configuring_a_Service_Provider_) .
 
 5.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
-    configuration** section, and click **Configure** .
+    configuration** section, and click **Configure**.
 6.  Fill in the following fields.
 
     -   **Issuer:**
@@ -167,10 +167,10 @@ sections below to set this up.
         `                           http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer                         `
 
 7.  Leave the rest of the default configurations as it is and click
-    **Register** .
+    **Register**.
 
 8.  Expand **Local and Outbound Configuration** and select **Federated
-    Authentication** .
+    Authentication**.
 9.  Select "GoogleIdP" (the identity provider you created before) as the
     federated authenticator.
     ![](attachments/103331619/103331621.png){width="455" height="256"}
@@ -180,7 +180,7 @@ sections below to set this up.
 
 1.  Access the Pickup sample application URL:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
-2.  Click **Login** . You are redirected to the Google login page.  
+2.  Click **Login**. You are redirected to the Google login page.  
     ![](attachments/103331619/103331620.png){width="222"}
 3.  Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.
@@ -191,6 +191,6 @@ sections below to set this up.
     sign-on (SSO).
 
 5.  Next, logout from the Pickup application. To logout, click on your
-    username on the top-left corner and click **Logout** .
+    username on the top-left corner and click **Logout**.
 6.  Access the Gmail tab. Note that you are logged out of Gmail using
     single logout.

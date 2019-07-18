@@ -46,7 +46,7 @@ Server and as well as the Resource Server.
 
 3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to
     modify the service provider you just created. Modify the following
-    fields of the SAML configuration and click **Update** .
+    fields of the SAML configuration and click **Update**.
 
     Select the **Enable Audience Restriction** and **Enable Recipient
     Validation** fields and enter the following values:
@@ -125,9 +125,9 @@ Server and as well as the Resource Server.
     You are directed to the following page.  
     ![](attachments/103329974/103329981.png){width="600"}
 2.  Click **Click here to login with SAML from Identity Server (Post
-    binding or Redirect Binding)** . You are redirected to the Identity
+    binding or Redirect Binding)**. You are redirected to the Identity
     Server for authentication.
-3.  Enter the username and password and click **SIGN IN** .  
+3.  Enter the username and password and click **SIGN IN**.  
     ![](attachments/103329974/103329980.png){width="300"}
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
     ![](attachments/103329974/103329979.png){width="600"}  

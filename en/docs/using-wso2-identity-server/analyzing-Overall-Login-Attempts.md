@@ -28,7 +28,7 @@ visualization.
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Overall Login Attempts Summary**
             tile.
-        2.  Click **menu** icon \> **Overall** .
+        2.  Click **menu** icon \> **Overall**.
     
 
 Let's analyze the overall authentication activities with the following
@@ -53,7 +53,7 @@ etc.
 
 ##### Description
 
-This chart presents a **summary of the overall login attempts** .
+This chart presents a **summary of the overall login attempts**.
 
 ##### Purpose
 
