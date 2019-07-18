@@ -15,7 +15,7 @@ Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Client Credentials  
     Client ID: (the client id received at the application

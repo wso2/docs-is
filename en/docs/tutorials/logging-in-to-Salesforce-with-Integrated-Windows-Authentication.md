@@ -46,7 +46,7 @@ See the following links for related documentation.
         
         Configuring the email address as the username in an **already running
         Identity Server** is not the production recommended way. Therefore,
-        **make sure to configure it before you begin working with WSO2 IS** .
+        **make sure to configure it before you begin working with WSO2 IS**.
         
 
 1.  Open the \<
@@ -258,7 +258,7 @@ this.
     Salesforce.
     1.  Fill out the relevant information found in the following URL:
         <https://developer.salesforce.com/signup>
-    2.  Click **Sign me up** .
+    2.  Click **Sign me up**.
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email successfully, you will
         be able to reset it by following the steps given
@@ -282,11 +282,11 @@ this.
         lightning theme.
     
         1.  Click your username to expand the drop down.
-        2.  Click **Switch to Lightning Experience** .  
+        2.  Click **Switch to Lightning Experience**.  
             ![](attachments/103331354/103331355.png){width="200"
             height="153"}
         3.  Click the settings icon on the top-right-hand corner, and click
-            **Set Up** .  
+            **Set Up**.  
             ![](attachments/103331354/103331356.png){width="150"}
     
         Now you are navigated to the lightening theme of Salesforce.
@@ -308,7 +308,7 @@ this.
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
         ![](attachments/103331301/103331324.png){width="200"}
-    2.  Click **My Domain** .
+    2.  Click **My Domain**.
     3.  In the page that appears, come up with a name for your domain.
         You can check if the domain is available by clicking the **Check
         Availability** button.
@@ -327,12 +327,12 @@ this.
         here to login** button to test this out.
 
 5.  On the left navigation menu, go to **Security Controls** and click
-    **Single Sign-On Settings** .
+    **Single Sign-On Settings**.
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** checkbox to enable federated single sign-on using SAML.  
     ![](attachments/103331333/103331341.png){width="750"}
 7.  Click **Save** to save this configuration change.
-8.  Click **New** under **SAML Single Sign-On Settings** . The following
+8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
     ![](attachments/103331333/103331340.png){width="750"} Ensure that
     you configure the following properties.
@@ -432,16 +432,16 @@ this.
 
 9.  Click **Save** to save your configurations.
 10. Go to **Domain Management** in the left navigation pane and click
-    **My Domain** .
-11. Click **Deploy to Users** . Click **Ok** to the confirmation message
+    **My Domain**.
+11. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
 12. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
-    **Edit** .
+    **Edit**.
 13. Under **Authentication Service** , select **SSO** instead of **Login
-    Page** .  
+    Page**.  
     ![](attachments/103331333/103331339.png)
-14. Click **Save** .
+14. Click **Save**.
 15. Next you need to obtain the Salesforce certificate and upload it to
     the Identity Server.
 
@@ -455,10 +455,10 @@ this.
     Do the following steps to obtain the certificate.
 
     1.  On the left navigation menu, go to **Security Controls** and
-        click **Certificate and Key Management** .
+        click **Certificate and Key Management**.
     2.  If you have not done so already, you must create the certificate
         first. Do the following steps to create this.
-        1.  Click **Create Self-Signed Certificate** .
+        1.  Click **Create Self-Signed Certificate**.
         2.  Enter the **Label** and a **Unique Name** and click **Save**
             . The certificate is generated.
     3.  Click the **Download Certificate** button to download the
@@ -467,18 +467,18 @@ this.
 ### Configuring the service provider
 
 1.  Sign in. Enter your username and password to log on to the
-    [management console](_Getting_Started_with_the_Management_Console_)
+    [management console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
     ![](attachments/103331333/103331338.png)
-4.  Click **Register** .
+4.  Click **Register**.
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration** and click **Configure** .
+    Web SSO Configuration** and click **Configure**.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on.  
     ![](attachments/103331354/103331357.png){width="611"}  
@@ -487,7 +487,7 @@ this.
     | Field                                      | Value                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
     |--------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Issuer                                     | https://saml.salesforce.com/                                             | This is the `               <saml:Issuer>              ` element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the **ServiceProviderID** value mentioned in the `               <IS_HOME>/repository/conf/security/authenticators.xml              ` file of the relying party Carbon server.                                                                                                                                                                                                           |
-    | Assertion Consumer URL                     | https://identityprovisioning-dev-ed.my.salesforce.com?so=00D90000000ySEn | This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click **Security Controls** on your left menu and then click **Single Sign-On Settings** . In the page that appears, click on the SSO settings that you created to view the details. Use the **Salesforce Login URL** listed there for this value. |
+    | Assertion Consumer URL                     | https://identityprovisioning-dev-ed.my.salesforce.com?so=00D90000000ySEn | This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click **Security Controls** on your left menu and then click **Single Sign-On Settings**. In the page that appears, click on the SSO settings that you created to view the details. Use the **Salesforce Login URL** listed there for this value. |
     | NameID Format                              | The default value can be used here.                                      | This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.                                                                                                                                                                                                                                                                               |
     | Use fully qualified username in the NameID | Selected                                                                 | A fully qualified username is basically the user name with the user store domain. In short, the username must be in the following format: `               {user store domain}{user name}              ` .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | Enable Response Signing                    | Selected                                                                 | Select **Enable Response Signing** to sign the SAML2 Responses returned after the authentication process.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |

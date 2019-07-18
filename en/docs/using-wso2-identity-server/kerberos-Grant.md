@@ -121,7 +121,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
         to add a new OAuth2 application.
 
         1.  Expand the **OAuth/OpenID Connect Configuration** and click
-            **Configure** .
+            **Configure**.
         2.  Fill in the form that appears. For the **Allowed Grant
             Types** you can disable the ones you do not require or wish
             to block.  
@@ -129,7 +129,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
             ![](attachments/103329609/103329610.png){width="855"}
 
-        3.  Click **Add** . The following information is added to your
+        3.  Click **Add**. The following information is added to your
             service provider.
 
             ![](attachments/103329609/103329613.png){width="774"}

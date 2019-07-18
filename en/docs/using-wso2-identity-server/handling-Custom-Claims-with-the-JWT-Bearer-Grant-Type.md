@@ -183,14 +183,14 @@ with the configuration steps.
     1.  Sign in to the management console of IS-SP. For detailed
         instructions on starting the management console, see [Getting
         Started with the Management
-        Console](_Getting_Started_with_the_Management_Console_) .
+        Console](../../setup/getting-started-with-the-management-console) .
     2.  On the **Main** tab, go to **Identity** -\> **Identity
-        Providers** , and click **Add** .
+        Providers** , and click **Add**.
     3.  Provide appropriate values to configure IS-IP as the identity
         provider. For detailed instructions on how to add a new identity
         provider, see [Adding and Configuring an Identity
         Provider](_Adding_and_Configuring_an_Identity_Provider_) .
-    4.  Click **Register** .
+    4.  Click **Register**.
 
 Now that you have configured IS-IP and IS-SP, let's take a look at how
 WSO2 Identity Server handles custom claims with the JWT bearer grant

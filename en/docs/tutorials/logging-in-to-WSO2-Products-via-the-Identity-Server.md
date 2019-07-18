@@ -217,7 +217,7 @@ authenticator of the WSO2 Enterprise Service Bus.
     Console](https://docs.wso2.org/display/IS500/Working+with+the+Management+Console)
     .
 7.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .  
+    **Add** under **Service Providers**.  
     ![](attachments/103331358/103331361.png)
 8.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider in the resulting screen. If
@@ -243,9 +243,9 @@ authenticator of the WSO2 Enterprise Service Bus.
         TB, TC users are able to log into the web application.
 
 9.  Expand the **SAML2 Web SSO Configuration** under **Inbound
-    Authentication Configuration** .  
+    Authentication Configuration**.  
     ![](attachments/34611892/38768347.png){width="750"}
-10. Click **Configure** . Fill in the form that appears.  
+10. Click **Configure**. Fill in the form that appears.  
     ![](attachments/103331358/103331360.png)
 11. Fill up this page with the following configurations. You must
     register different service providers for WSO2 Application Server,

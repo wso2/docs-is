@@ -97,7 +97,7 @@ one of the nodes (at a given time) in a clustered environment. The task
 will failover to another node only if the first node fails. This
 parameter determines how nodes are selected for task failover.
 
-One of the following options can be used for the **location resolver** .
+One of the following options can be used for the **location resolver**.
 
 -   `                       RoundRobinTaskLocationResolver                     `
     : Cluster nodes are selected on a round-robin basis and the tasks

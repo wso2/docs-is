@@ -361,7 +361,7 @@ provider.
 			</tbody>
 			</table></html>
 
-11. Click **Register** .
+11. Click **Register**.
 
 ### Configuring the service provider
 

@@ -24,7 +24,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
         
         Configuring the email address as the username in an **already running
         Identity Server** is not the production recommended way. Therefore,
-        **make sure to configure it before you begin working with WSO2 IS** .
+        **make sure to configure it before you begin working with WSO2 IS**.
         
 
 1.  Open the \<
@@ -241,7 +241,7 @@ Let's get started!
     Salesforce.
     1.  Fill out the relevant information found in the following URL:
         <https://developer.salesforce.com/signup>
-    2.  Click **Sign me up** .
+    2.  Click **Sign me up**.
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email successfully, you will
         be able to reset it by following the steps given
@@ -265,11 +265,11 @@ Let's get started!
         lightning theme.
     
         1.  Click your username to expand the drop down.
-        2.  Click **Switch to Lightning Experience** .  
+        2.  Click **Switch to Lightning Experience**.  
             ![](attachments/103331301/103331302.png){width="200"
             height="153"}
         3.  Click the settings icon on the top-right-hand corner, and click
-            **Set Up** .  
+            **Set Up**.  
             ![](attachments/103331301/103331303.png){width="150"}
     
         Now you are navigated to the lightening theme of Salesforce.
@@ -284,7 +284,7 @@ Let's get started!
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
         ![](attachments/103331301/103331324.png){width="200"}
-    2.  Click **My Domain** .
+    2.  Click **My Domain**.
     3.  In the page that appears, come up with a name for your domain.
         You can check if the domain is available by clicking the **Check
         Availability** button.
@@ -320,16 +320,16 @@ Let's get started!
     request.
 
     1.  On the left navigation menu, go to **Security Controls** and
-        click **Certificate and Key Management** .
+        click **Certificate and Key Management**.
     2.  If you have not done so already, you must create the certificate
         first. Do the following steps to create this.
-        1.  Click **Create Self-Signed Certificate** .
+        1.  Click **Create Self-Signed Certificate**.
         2.  Enter the **Label** and a **Unique Name** , and click
-            **Save** . The certificate is generated.
+            **Save**. The certificate is generated.
     3.  Click the **Download Certificate** button to download the
         certificate.
 
-9.  Click **New** under **SAML Single Sign-On Settings** . The following
+9.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
     ![](attachments/103331301/103331332.png){width="900"} Ensure that
     you configure the following properties.
@@ -453,18 +453,18 @@ Let's get started!
 
 10. Click **Save** to save your configurations.
 11. Search for My Domain in the search bar that is on the left
-    navigation pane and click **My Domain** .
+    navigation pane and click **My Domain**.
 12. Go to **Domain Management** in the left navigation pane and click
-    **My Domain** .  
+    **My Domain**.  
     ![](attachments/103331301/103331320.png){width="200"}
-13. Click **Deploy to Users** . Click **Ok** to the confirmation message
+13. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
 14. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
-    **Edit** .  
+    **Edit**.  
     ![](attachments/103331301/103331319.png){width="900"}
 15. Under **Authentication Service** , select **SSO** and deselect
-    **Login Page** .  
+    **Login Page**.  
     ![](attachments/103331333/103331339.png){width="400"}
 
     SSO is the SAML user authentication method you created in
@@ -473,25 +473,25 @@ Let's get started!
     configured to direct users to WSO2 Identity server, which in turn
     direct the request to Facebook as Facebook acts as the IdP.
 
-16. Click **Save** .
+16. Click **Save**.
 
 ### Configuring the service provider
 
 1.  Sign in. Enter your username and password to log on to the
-    [management console](_Getting_Started_with_the_Management_Console_)
+    [management console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
     ![](attachments/103331333/103331338.png){width="635" height="264"}
-4.  Click **Register** .
+4.  Click **Register**.
 5.  Configuring claim mapping for Salesforce:
     1.  Expand the **Claim Configuration** section.
     2.  Select the **Define Custom Claim Dialect** option under **Select
-        Claim mapping Dialect** .
+        Claim mapping Dialect**.
     3.  Click **Add Claim URI** to add custom claim mappings as
         follows.  
         Add the following claim URIs.
@@ -502,7 +502,7 @@ Let's get started!
         | first\_name            | `                                   http://wso2.org/claims/givenname                                 `                                         |
         | last\_name             | `                                   http://wso2.org/claims/lastname                                 `                                          |
 
-    4.  Select all of these claims as **Requested Claims** .  
+    4.  Select all of these claims as **Requested Claims**.  
         Select **email** from the **Subject Claim URI** dropdown. The
         **Subject Claim URI** is important to define as it is the unique
         value used to identify the user. In cases where you have a user
@@ -513,7 +513,7 @@ Let's get started!
         Management](_Claim_Management_) .
 
 6.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration** and click **Configure** .
+    Web SSO Configuration** and click **Configure**.
 7.  In the form that appears, fill out the following configuration
     details required for single sign-on.  
     See the following table for details.
@@ -579,12 +579,12 @@ Let's get started!
 
 1.  Go to <https://developers.facebook.com/> and log in using your
     Facebook credentials.
-2.  Click on **Create App** .  
+2.  Click on **Create App**.  
     ![](attachments/103331384/103331446.png){width="800" height="46"}
 3.  Enter a **Display Name** , Contact Email, and click **Create App
-    ID** .  
+    ID**.  
     ![](attachments/103331384/103331426.png){width="569" height="250"}
-4.  Enter code for security check, and click **Submit** .
+4.  Enter code for security check, and click **Submit**.
 5.  On Select product page, click **Set up** under **Facebook Login**
     .  
     ![](attachments/103331384/103331447.png){width="260" height="250"}
@@ -592,7 +592,7 @@ Let's get started!
     sample.  
     ![](attachments/103331384/103331448.png){width="500" height="139"}
 7.  Enter **`             https://localhost:9443/            `** as the
-    Site URL and click **Save** .
+    Site URL and click **Save**.
 
     If you have configured [WSO2 Identity Server to run using the IP or
     hostname](https://docs.wso2.com/display/IS530/Running+the+Product#RunningtheProduct-ChangeIPorHostname)
@@ -602,18 +602,18 @@ Let's get started!
     ![](attachments/103331384/103331439.png){width="600"}
 
 8.  Under Products on the left navigation panel, Click **Facebook
-    Login** .
+    Login**.
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.  
     ![](attachments/103331384/103331437.png){width="520" height="263"}
 
-    1.  **Client OAuth Login** should be set to **Yes** .  
+    1.  **Client OAuth Login** should be set to **Yes**.  
         Client OAuth Login is the global on-off switch for using OAuth
         client token flows. It helps to secure your application and
         prevent abuse by locking down which token redirect URIs are
         allowed.
-    2.  **Web OAuth Login** should be set to **Yes** .  
+    2.  **Web OAuth Login** should be set to **Yes**.  
         Web OAuth Login settings enables any OAuth client token flows
         that use the Facebook web login dialog to return tokens to your
         own website.
@@ -628,7 +628,7 @@ Let's get started!
 
 11. Click on **Dashboard.** You can see the **App ID** and **App
     Secret** as shown in the image below. Click **Show** to view the
-    **App Secret** .
+    **App Secret**.
 
     **App ID** is the Client ID and the **App Secret** is the Client
     Secret in OAuth terminology. The API Version is Facebook’s API that
@@ -640,7 +640,7 @@ Let's get started!
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
     you can add localhost as the App Domain)
 
-13. Click **Save Changes** .
+13. Click **Save Changes**.
 
 Now you have finished configuring Facebook as an Identity Provider.
 
@@ -668,8 +668,8 @@ new identity provider.
 
 1.  Log in to the management console as an administrator.
 2.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
-3.  Give a suitable name as the **Identity Provider Name** . In this
+    console, click **Add** under **Identity Providers**.
+3.  Give a suitable name as the **Identity Provider Name**. In this
     case we can have Facebook as the identity provider name for clarity.
 
     For detailed information on the Identity Provider configurations,
@@ -678,13 +678,13 @@ new identity provider.
 
 4.  Choose the salesforce certificate you downloaded in [step8 under
     Configuring Salesforce](#LoggingintoSalesforcewithFacebook-S) for
-    **Identity Provider Public Certificate** .
+    **Identity Provider Public Certificate**.
 5.  Configuring claim mapping for Facebook:
 
     1.  Expand **Claim Configuration** , go to **Basic Claim
-        Configuration** .
+        Configuration**.
     2.  Select the **Define Custom Claim Dialect** option under **Select
-        Claim mapping Dialect** .
+        Claim mapping Dialect**.
     3.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.  
         ![](attachments/103331301/103331313.png){width="750"}
@@ -713,7 +713,7 @@ new identity provider.
         
                 If WSO2 Identity server sends roles instead of users and if you
                 want to use those roles to be JIT provisioned to the users of
-                the local userstore, you need to configure **Role Claim URI** .
+                the local userstore, you need to configure **Role Claim URI**.
                 This configuration is not required for this tutorial.
         
 
@@ -741,7 +741,7 @@ new identity provider.
     .
 
 7.  Select both check-boxes to **Enable Facebook Authenticator** and
-    make it the **Default** .
+    make it the **Default**.
 
 8.  Enter the **App ID** and **App Secret** values from the Facebook app
     you created in the **Client ID** and **Client Secret** fields
@@ -795,7 +795,7 @@ new identity provider.
 
     ![](attachments/103331301/103331330.png){width="500"}
 
-9.  Click **Register** .
+9.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -806,12 +806,12 @@ service provider. In this case, the service provider is Salesforce
 
 1.  Return to the management console.
 2.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
-3.  Go to the service provider that you created and click **Edit** .
+    under **Service Providers**.
+3.  Go to the service provider that you created and click **Edit**.
 4.  Go to **Local and Outbound Authentication Configuration** section.
 
 5.  Select the Identity Provider you created from the dropdown list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
 6.  Ensure that the **Federated Authentication** radio button is
     selected and select **Facebook** from the dropdown. This is the name
@@ -835,7 +835,7 @@ Salesforce and the Identity Server.
         [https://login.salesforce.com/](https://login.salesforce.com/?lt=de)
         .
     2.  On the left navigation pane, click **Users** under **Manage
-        Users** .
+        Users**.
     3.  On the page that appears, click the **New User** button to
         create a new user.
     4.  Create a user with the same email address as the user on
@@ -874,9 +874,9 @@ Salesforce and the Identity Server.
         navigated to a new page having the following URl:
         `             https://<DOMAIN_NAME>/domainname/EditLogin.apexp            `
     4.  On the left navigation menu, expand **Security Controls** , and
-        click, **Single Sign-On Settings** .
+        click, **Single Sign-On Settings**.
     5.  Click on the name of the Single Sign-On Setting you created. In
-        this use case click **SSO** .  
+        this use case click **SSO**.  
         ![](attachments/103331301/103331318.png){width="900"}
     6.  Copy the URL that is defined for Login URL to access
         Salesforce.  

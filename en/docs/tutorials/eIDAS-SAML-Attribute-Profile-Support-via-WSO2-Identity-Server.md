@@ -75,7 +75,7 @@ proxy service using the private key.
         1.  Sign in to the the management console as the tenant admin.
         2.  On the **Main** tab of the management console, go to
             **Home** -\> **Manage** -\> **Keystores** , and click
-            **List** . This displays all available keystores.
+            **List**. This displays all available keystores.
         3.  On the list, click **Import Cert** in the tenant keystore to
             import the certificate to it.
 
@@ -199,7 +199,7 @@ Follow the steps below to configure the sample application:
     `           https://localhost:9443/carbon/          ` .
 
 2.  Navigate to **Service Providers** -\> **Add** , enter a name for the
-    new service provider and click **Register** .
+    new service provider and click **Register**.
 
 3.  Expand the **Claim Configuration** section.
 
@@ -283,7 +283,7 @@ Follow the steps below to configure the sample application:
     Default** when you update the local claim.
 
 5.  Expand **Inbound Authentication Configuration** , then expand
-    **SAML2 Web SSO Configuration** , and click **Configure** .
+    **SAML2 Web SSO Configuration** , and click **Configure**.
 
 6.  Provide values as follows:
     1.  **Issuer** :
@@ -302,7 +302,7 @@ Follow the steps below to configure the sample application:
         -   **Enable Signature Validation inAuthentication Requests and
             Logout Requests**
         -   **Enable Assertion Encryption.**
-7.  Click **Register** . This configures the service provider with the
+7.  Click **Register**. This configures the service provider with the
     provided SAML2 Web SSO configuration.
 
 ### Testing eIDAS profile support
@@ -318,8 +318,8 @@ citizen MS is also CA
     consoleof WSO2 IS, and send the request via the sample service
     provider:  
     1.  On the **Main** tab on the management console, click **Add**
-        under **Users and Roles** .
-    2.  Click **Users** . This link is only visible to users with the
+        under **Users and Roles**.
+    2.  Click **Users**. This link is only visible to users with the
         Admin role.
     3.  Click **Add New User** , and  create a new user with all the
         natural person user attributes.
@@ -329,7 +329,7 @@ citizen MS is also CA
         for authentication.  
         ![](attachments/103331110/103331124.png){width="330"}
     5.  Specify values for the **Username** and **Password** , and then
-        click **SIGN IN** .
+        click **SIGN IN**.
     6.  On successful authentication, you are asked to provide consent
         for the requested attributes. You need to provide consent, to
         continue.  

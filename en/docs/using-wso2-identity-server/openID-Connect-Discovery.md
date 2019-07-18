@@ -59,7 +59,7 @@ location.
 
 1.  Open the `            identity.xm           ` l file found in the
     `            <IS_HOME>/repository/conf/identity/           ` folder
-    and set the following property to **true** .
+    and set the following property to **true**.
 
     ``` java
     <UseEntityIdAsIssuerInOidcDiscovery>true</UseEntityIdasIssuerInOidcDiscovery> 

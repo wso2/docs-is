@@ -15,10 +15,10 @@ Dialect** " link. Follow the instructions below to add a new claim
 dialect.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
-2.  From the **Main** menu, click **Add** under **Claims** .
-3.  Click **Add Claim Dialect** . Enter the **Dialect URI.**
+2.  From the **Main** menu, click **Add** under **Claims**.
+3.  Click **Add Claim Dialect**. Enter the **Dialect URI.**
 
     The Dialect URI is a unique URI identifying the dialect (for
     example,

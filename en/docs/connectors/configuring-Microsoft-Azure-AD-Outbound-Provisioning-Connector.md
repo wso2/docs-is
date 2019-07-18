@@ -300,7 +300,7 @@ Follow the instructions below to try out this scenario.
 
     ![](attachments/97567237/97568307.png){width="302" height="250"}
 
-3.  Click **Finish** . You will see the user you just created listed on
+3.  Click **Finish**. You will see the user you just created listed on
     the screen.
 4.  Click **User Profile** to edit John's user profile and add claim
     values for the claims you configured in the Office365 connector IdP
@@ -349,7 +349,7 @@ Follow the instructions below to try out this scenario.
 
 1.  Login to the WSO2 IS management console.
 2.  Click **Add** under **Users and Roles** and then click **Create New
-    Role** .
+    Role**.
 3.  Create two new roles named ' `          office365role         ` '
     and ' `          Engineering         ` '.  
     ![](attachments/97567237/97568332.png){width="234" height="189"}

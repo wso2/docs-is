@@ -27,7 +27,7 @@ request objects that are signed:
 
 4.  Select **Enable Request Object Signature Validation** to enforce
     signature validation for request object.
-5.  Click **Add** .
+5.  Click **Add**.
 
 To verify that signature validation is successfully enforced, send a
 plain JWT instead of a signed one in the authorization code grant

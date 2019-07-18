@@ -298,7 +298,7 @@ Follow the steps below to run the script in Web console:
     console.
 2.  Copy the script text from the SQL file.
 3.  Paste it into the console.
-4.  Click **Run** .  
+4.  Click **Run**.  
     ![](attachments/53125507/53287421.png){width="900"}
 5.  Restart the server.
 

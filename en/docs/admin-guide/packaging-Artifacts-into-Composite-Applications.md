@@ -81,7 +81,7 @@ server](_Deploying_Composite_Applications_in_the_Server_) .
 You can also create separate deployable artifacts for each individual
 artifact in your project. For example, suppose you created an Apache
 Axis2 Service. When you right-click the Axis2 Service Project, there is
-an option called **Export Project as Deployable Archive** . It creates
+an option called **Export Project as Deployable Archive**. It creates
 the relevant deployable archive in a location you specify.
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to

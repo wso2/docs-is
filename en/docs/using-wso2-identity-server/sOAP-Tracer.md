@@ -13,11 +13,11 @@ Hence, this option should be used with caution.
 Follow the instructions below to access the SOAP Tracer.
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click on **Monitor** on the left side of the screen to access the
-    **Monitor** menu and click on **SOAP Tracer** .
-3.  In the drop-down menu, select **Yes** .  
+    **Monitor** menu and click on **SOAP Tracer**.
+3.  In the drop-down menu, select **Yes**.  
     ![](attachments/103329418/103329420.png){width="750"}
 4.  The Tracer will show the messages of the operations that were
     invoked.

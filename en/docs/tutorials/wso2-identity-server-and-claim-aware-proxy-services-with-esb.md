@@ -49,7 +49,7 @@ Follow the instructions below to achieve this.
 
     3.  Select `            wso2carbon.cert           ` as the
         **Certificate Alias** when adding the trusted **Endpoint
-        Address** .
+        Address**.
     4.  When applying the security policy to the STS, make sure you
         select the group that LDAP users ("ldapuserole") belong to.
 

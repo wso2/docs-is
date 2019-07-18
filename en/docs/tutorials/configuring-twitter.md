@@ -20,7 +20,7 @@ authenticate users using their Twitter login credentials:
 
 1.  Navigate to the **Identity Provider** section under **Main \>
     Identity** menu-item.
-2.  Click **Add** .
+2.  Click **Add**.
 3.  Provide values for the following fields under the **Basic
     Information** section:
 
@@ -30,7 +30,7 @@ authenticate users using their Twitter login credentials:
     providers and identity providers, WSO2 Identity Server can act as a
     service provider and an identity provider. When WSO2 Identity Server
     acts as an identity provider, it is called the **resident identity
-    provider** .
+    provider**.
 
     !!! note
     
@@ -53,7 +53,7 @@ authenticate users using their Twitter login credentials:
     1.  Access the WSO2 Identity Server Management Console.
     2.  Sign in as an admin user.
     3.  On the **Main** tab, click **Identity \> Identity Providers \>
-        Resident** .  
+        Resident**.  
         ![main-tab-resident](../../assets/img/tutorials/main-tab-resident.png) 
         
         The Resident Identity Provider page appears.  
@@ -94,7 +94,7 @@ authenticate users using their Twitter login credentials:
     5.  You may configure inbound authentication by expanding the
         **Inbound Authentication Configuration** section.  
         1.  To configure SAML2 configurations:
-            -  Click **SAML2 Web SSO Configuration** .  
+            -  Click **SAML2 Web SSO Configuration**.  
                 ![saml2-web-sso-config](../../assets/img/tutorials/saml2-web-sso-config.png)  
                 The SAML2 Web SSO Configuration form appears.  
                 ![saml2-web-sso-config](../../assets/img/tutorials/saml2-web-sso-config.png)
@@ -112,7 +112,7 @@ authenticate users using their Twitter login credentials:
                 | **Enable metadata signing**     | This facilitates to enable or disable metadata signing                                                                                                                                  | `                     false                    `                                                                            |
 
         2.  To configure OAuth2 or OIDC, click **OAuth2/OpenID Connect
-            Configuration** .  
+            Configuration**.  
             ![oauth2-openid-connect-config](../../assets/img/tutorials/oauth2-openid-connect-config.png)
 
             | Field                                        | Description                                                                                                                                                                                         | Sample/Fixed Value                                                                                                                         |
@@ -146,7 +146,7 @@ authenticate users using their Twitter login credentials:
         | **SCIM User Endpoint**  | This is the identity provider's endpoint for SCIM user operations, e.g., creating and managing users.                                                          | `                                   https://localhost:9443/wso2/scim/Users                                 `  |
         | **SCIM Group Endpoint** | This is the identity provider's endpoint for the SCIM user role operations, e.g., creating user roles, assigning user roles to users, and managing user roles. | `                                   https://localhost:9443/wso2/scim/Groups                                 ` |
 
-    7.  Click **Update** .
+    7.  Click **Update**.
 
     !!! note
     
@@ -191,8 +191,8 @@ authenticate users using their Twitter login credentials:
     
 
     1.  Expand the **Inbound Authentication Configuration** section and
-        then expand **SAML2 Web SSO Configuration** .
-    2.  Click **Download SAML2 metadata** . A
+        then expand **SAML2 Web SSO Configuration**.
+    2.  Click **Download SAML2 metadata**. A
         `            metadata.xml           ` file will be downloaded on
         to your machine.
     3.  Import the `             metadata.xml            ` file to the
@@ -246,4 +246,4 @@ authenticate users using their Twitter login credentials:
     </tbody>
     </table>
 
-5.  Click **Register** .
+5.  Click **Register**.

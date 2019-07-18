@@ -69,13 +69,13 @@ and 5.3.0.
             Azure credentials.  
         2.  Select the **Active Directory** node, then select the
             **Directory** tab and, at the bottom of the screen, select
-            **New** .  
+            **New**.  
             ![](attachments/50520581/51252169.png){width="600"}
         3.  On the **New** menu, select **Active Directory** \>
-            **Directory** \> **Custom Create** .  
+            **Directory** \> **Custom Create**.  
             ![](attachments/50520581/51252170.png){width="600"}
         4.  In **Add directory** , in the **Directory** drop-down box,
-            select **Use existing directory** . Select **I am ready to
+            select **Use existing directory**. Select **I am ready to
             be signed out** , and then select the check mark in the
             lower-right corner.  
             ![](attachments/50520581/51252171.png){width="600"}  
@@ -107,7 +107,7 @@ and 5.3.0.
             **Admin** icon to open the Office 365 admin center.  
             ![](attachments/50520581/51252172.png){width="600"}
         2.  In the **menu** page on the left side of the page, scroll
-            down to **Admin** and select **Azure **AD** .**  
+            down to **Admin** and select **Azure **AD**.**  
             **![](attachments/50520581/51252173.png){width="600"}**
 
             !!! warning
@@ -124,15 +124,15 @@ and 5.3.0.
             will need to perform a few extra steps:  
             ![](attachments/50520581/51252174.png){width="600"}
             1.  Select your country or region, and then choose
-                **Azure subscription** .
+                **Azure subscription**.
             2.  Enter your personal information. For verification
                 purposes, enter a telephone number at which you can be
                 reached, and specify whether you want to be sent a text
                 message or called.
             3.  Once you have received your verification code, enter it
-                and choose **Verify code** .
+                and choose **Verify code**.
             4.  Enter the payment information, check the agreement, and
-                select **Sign up** . Your credit card will not be
+                select **Sign up**. Your credit card will not be
                 charged.
             5.  Once your Azure subscription is created, choose
                 **Portal .**
@@ -151,10 +151,10 @@ and 5.3.0.
         **
     4.  Click **Add** from the bottom menu.  
         ![](attachments/50520581/51252176.png){width="600"}
-    5.  Click **Add an application my organization is developing** .  
+    5.  Click **Add an application my organization is developing**.  
         ![](attachments/50520581/51252177.png){width="600"}
     6.  Specify the application name and select **WEB APPLICATION AND/OR
-        WEB API** for **Type** .  
+        WEB API** for **Type**.  
     7.  Click the arrow icon on the bottom-right corner of the page.  
         ![](attachments/50520581/51252178.png){width="600"}
     8.  Specify a sign-on URL. You can specify
@@ -213,14 +213,14 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-5.  Give a suitable name for **Identity Provider Name** . Refer
+    management console, click **Add**.
+5.  Give a suitable name for **Identity Provider Name**. Refer
     [this](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider#ConfiguringanIdentityProvider-Addinganidentityprovider)
     document for more information regarding the identity provider
     configurations.  
     ![](attachments/50520581/51252816.png){width="600"}
 6.  Navigate to **Office365 Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 7.  Enter the values as given in the above figure.  
     -   **Client Id** : Client Id for your app.
     -   **Client Secret** : Client Secret for your app.
@@ -229,8 +229,8 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
         `                                          https://localhost:9443/commonauth                                       `
         ) .
 8.  Select both checkboxes to **Enable** the Microsoft Azure AD
-    authenticator and make it the **Default** .  
-9.  Click **Register** .
+    authenticator and make it the **Default**.  
+9.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -241,7 +241,7 @@ You have now added the identity provider.
     **Main** tab.
 3.  Since you are using travelocity as the sample, enter
     [travelocity.com](http://travelocity.com) in the **Service Provider
-    Name** text box and click **Register** .
+    Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
 5.  Now set the configuration as follows:  
@@ -251,13 +251,13 @@ You have now added the identity provider.
         http://localhost:8080/travelocity.com/home.jsp
 
 6.  Select the following check-boxes:  
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
         ![](attachments/50520581/51252142.png){width="600"}
 
 7.  Click **Update** to save the changes. Now you will be sent back to
@@ -265,7 +265,7 @@ You have now added the identity provider.
 8.  Navigate to the **Local and Outbound Authentication Configuration**
     section.
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .  
+    under **Federated Authentication**.  
     ![](attachments/50520581/51252143.png){width="600"}
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

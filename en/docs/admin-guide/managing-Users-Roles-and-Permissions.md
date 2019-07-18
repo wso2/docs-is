@@ -28,7 +28,7 @@ More roles may be configured by default, depending on the type of
 features installed in your product. For example, in WSO2 Storage Server
 (which has the Cassandra feature and RSS Manager feature installed), the
 following roles will also be defined by default: **Internal/Cassandra**
-and **Internal/RSSManager** .
+and **Internal/RSSManager**.
 
 Permissions assigned to the Admin role cannot be modified.
 

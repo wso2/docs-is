@@ -109,7 +109,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
 4.  Click on **Templates** on the right side of the **Script Based
-    Conditional Authentication** field and then click **Risk-Based** .
+    Conditional Authentication** field and then click **Risk-Based**.
     ![template-for-risk-based-authentication](../../assets/img/tutorials/template-for-risk-based-authentication.png)
 5.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script defines a conditional step

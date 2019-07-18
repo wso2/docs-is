@@ -276,7 +276,7 @@ To set up this implementation, do the following.
         that the particular product version is compatible with. For example,
         WSO2 IS 5.3.0 is built on top of carbon kernel version **4.4.11**
         therefore, the version given in the sample pom file below is
-        **4.4.11** . Change this value accordingly based on the relevant
+        **4.4.11**. Change this value accordingly based on the relevant
         carbon kernel version of the product you are using by reffering to
         this [release
         matrix](https://wso2.com/products/carbon/release-matrix/) .

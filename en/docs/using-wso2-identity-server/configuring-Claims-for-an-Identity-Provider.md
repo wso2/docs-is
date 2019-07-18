@@ -58,7 +58,7 @@ in the identity provider that must be mapped to the Identity Server).
     the outbound provisioning request. Do the following to configure
     this.  
     1.  Click the **Add Claim Mapping** button under **Identity Provider
-        Claim URIs** . Clicking this button again enables you to perform
+        Claim URIs**. Clicking this button again enables you to perform
         more claim mapping.
     2.  Map the value of the corresponding claim in the identity
         provider to the claim in the Identity Server. Click the
@@ -152,7 +152,7 @@ Use the following instructions to configure advanced claims.
         Filter** to filter out the user attributes you need to send from
         the other available attributes. To use the **Provisioning Claim
         Filter** , select the claims that exist in the Identity Server
-        from the dropdown list and click **Add Claim** . Clicking this
+        from the dropdown list and click **Add Claim**. Clicking this
         button again enables you to add a new entry.  
         ![Advanced Claim for local
         claims](attachments/103329700/103329707.png "Advanced Claim for local claims"){width="750"}
@@ -165,7 +165,7 @@ Use the following instructions to configure advanced claims.
 -   If you chose to **Define Custom Claim Dialect** in the **Basic Claim
     Configuration** , do the following.
     1.  Select the **Identity Provider Claim URI** you defined from the
-        dropdown list and click **Add Claim** . Clicking this button
+        dropdown list and click **Add Claim**. Clicking this button
         again will add a new entry.  
         ![Advanced Claim for custom
         claims](attachments/103329700/103329708.png "Advanced Claim for custom claims"){width="750"}

@@ -81,9 +81,9 @@ authenticator with WSO2 Identity Server:
         the **Consumers** tab.
     3.  Click **Add** under the **OAuth2 Clients** section.
     4.  Specify values for the **Name** , **Client ID** , **Client
-        Secret** , and **Redirect URI** . You can use
-        <https://localhost:9443/commonauth> as the **Redirect URI** .
-    5.  Click **Create** .  
+        Secret** , and **Redirect URI**. You can use
+        <https://localhost:9443/commonauth> as the **Redirect URI**.
+    5.  Click **Create**.  
         ![](attachments/92526518/92534118.png){width="700"}
 
   
@@ -149,7 +149,7 @@ console of WSO2 Identity Server.
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add.**
-5.  Specify an appropriate name as the **Identity Provider Name** .  
+5.  Specify an appropriate name as the **Identity Provider Name**.  
     ![](attachments/92526518/112363883.png){width="700"}
 6.  Expand the **Federated Authenticators** section, and then expand the
     **Nuxeo Configuration** section.
@@ -160,7 +160,7 @@ console of WSO2 Identity Server.
 9.  Specify appropriate values for the following fields depending on
     the  
     1.  Select both checkboxes to **Enable** the Nuxeo authenticator and
-        make it the **Default** .
+        make it the **Default**.
     2.  **Client Id** **:** The client Id of the Nuxeo application you
         created.
 
@@ -222,7 +222,7 @@ console of WSO2 Identity Server.
         </tbody>
         </table>
 
-10. Click **Register** .
+10. Click **Register**.
 
 Now that you have added the identity provider. Next, let's configure the
 service provider.
@@ -232,14 +232,14 @@ service provider.
 Follow the steps below to configure the service provider.
 
 1.  On the WSO2 IS management console, click **Add** under **Service
-    Providers** .
+    Providers**.
 2.  Since you are using travelocity as the sample, enter
     [travelocity.com](http://travelocity.com/) as the **Service Provider
-    Name** .
-3.  Click **Register** .
+    Name**.
+3.  Click **Register**.
 4.  Expand the **Inbound Authentication Configuration** section, then
     expand the **SAML2 Web SSO Configuration** section, and then click
-    **Configure** .
+    **Configure**.
 5.  Specify values as follows:
     1.  **Issuer** : [travelocity.com](http://travelocity.com)
     2.  **Assertion Consumer URL** :
@@ -272,7 +272,7 @@ the WSO2 IS documentation.
 1.  Sign in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     with your username and password.
-2.  On the **Main** menu, click **Add** under **Claims** .
+2.  On the **Main** menu, click **Add** under **Claims**.
 
 3.  Click **Add Claim Dialect** to create the Nuxeo authenticator
     specific claim dialect.
@@ -287,7 +287,7 @@ the WSO2 IS documentation.
     sure to map at least one claim under the new dialect. Here, let's
     map the claim for the last name.
 
-    1.  On the **Main** menu, click **Add** under **Claims** .
+    1.  On the **Main** menu, click **Add** under **Claims**.
 
     2.  Click **Add External Claim** to add a new claim to the Nuxeo
         claim dialect.
@@ -371,12 +371,12 @@ the WSO2 IS documentation.
     | **External Claim URI** | http://wso2.org/nuxeo/claims/entity-type |
     | **Mapped Local Claim** | http://wso2.org/claims/userType          |
 
-8.  Click **Update** .
+8.  Click **Update**.
 
 ### Configuring requested claims for travelocity.com
 
 1.  On the Main tab of the management console, click **List** under
-    **Service Providers** .
+    **Service Providers**.
 
 2.  Click **Edit** to edit the [travelocity.com](http://travelocity.com)
     service provider.
@@ -393,7 +393,7 @@ the WSO2 IS documentation.
     to define the authenticated user identifier that will return with
     the authentication response to the service provider.
 
-6.  Click **Update** . This saves the service provider changes.
+6.  Click **Update**. This saves the service provider changes.
 
 ### Testing the sample
 

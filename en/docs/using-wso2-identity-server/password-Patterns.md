@@ -9,10 +9,10 @@ multi-tenant environment.
 1.  Start the WSO2 IS server and login to the management console.
 2.  Click **Resident** under **Identity Providers** found in the
     **Main** tab of the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console) .
 3.  Expand the **Password Policies** tab.
 4.  Expand the **Password Patterns** tab and select **Enable Password
-    Policy Feature** . Update the default values and click **Update** .
+    Policy Feature**. Update the default values and click **Update**.
 
     !!! note
     

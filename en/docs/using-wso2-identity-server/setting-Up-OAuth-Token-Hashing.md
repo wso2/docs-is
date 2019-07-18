@@ -90,18 +90,18 @@ Follow the instructions below to set up OAuth token hashing:
         start WSO2 IS, see [Running the Product](_Running_the_Product_)
         .
     2.  Navigate to **Service Providers** \> **Add** , enter a name for
-        the new service provider, and then click **Register** .
+        the new service provider, and then click **Register**.
 
     3.  Expand the **Inbound Authentication Configuration** section,
         then expand the **OAuth2/OpenID Connect Configuration** , and
-        click **Configure** .
+        click **Configure**.
 
     4.  Specify appropriate values for the required fields.
 
         ![](attachments/103329661/103329662.png){width="500"
         height="656"}
 
-    5.  Click **Add** . This displays values of the **Consumer Key** and
+    5.  Click **Add**. This displays values of the **Consumer Key** and
         the **Consumer Secret** for your service provider.
 
         ![](attachments/103329661/103329663.png){width="950"}
@@ -117,7 +117,7 @@ Follow the instructions below to set up OAuth token hashing:
         
 
 4.  Click **Show** to view the exact **Consumer Key** and **Consumer
-    Secret** .
+    Secret**.
 
     !!! note
     

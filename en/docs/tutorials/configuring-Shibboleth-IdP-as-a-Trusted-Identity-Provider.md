@@ -364,7 +364,7 @@ in the Identity Server.
 
     The other configurations all have default values.
 
-6.  Click **Register** . Now you have configured Shibboleth as an
+6.  Click **Register**. Now you have configured Shibboleth as an
     identity provider.
 
 ### Configuring travelocity as the service provider
@@ -409,7 +409,7 @@ To configure the service provider, do the following.
         for authentication within the same authentication step. Select
         **basic** under **Local Authenticators** for authenticating
         users against the enterprise user store and select
-        **Shibboleth-IDP** under **Federated Authenticators** .  
+        **Shibboleth-IDP** under **Federated Authenticators**.  
         ![](attachments/103331374/103331376.png){width="750"}
 3.  Click **Update** to update the details for your service provider.
 

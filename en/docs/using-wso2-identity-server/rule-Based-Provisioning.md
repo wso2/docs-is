@@ -139,7 +139,7 @@ Follow the steps given below:
     Service Provider configurations, Click **Resident** under **Service
     Providers** and expand the **Outbound Provisioning Configuration**
     section. Select the **Enable Rules** and **Blocking** checkboxes and
-    click **Update** . Blocking will block the provisioning(user
+    click **Update**. Blocking will block the provisioning(user
     creation in the second IDP) till the rule completely evaluate and
     get the response back to the WSO2 IDP.
 
@@ -279,7 +279,7 @@ the policy according to our requirement.
     policy.  
     ![](attachments/103330154/103330160.png)
 8.  On the UI that appears, leave the default selected values as they
-    are and click **Publish** .  
+    are and click **Publish**.  
     ![](attachments/103330154/103330166.png){height="250"}
 
     !!! note

@@ -51,11 +51,11 @@ following.
 
 3.  Click **Add** under **Service Providers** on the **Main** tab to
     create a new service provider.
-4.  Enter a name for the service provider and click **Register** .
+4.  Enter a name for the service provider and click **Register**.
 5.  Configure the service provider according to your requirements and
     click **Update** to save the configurations.  
     You will see the service provider you just created listed under
-    **Service Providers** .
+    **Service Providers**.
 6.  Click **Export** against the respective service provider. You are
     prompted to confirm the export.  
     ![](attachments/103329882/103329888.png){width="748" height="129"}
@@ -169,7 +169,7 @@ required.
     the xml configuration file of the service provider you wish to
     import.  
     ![](attachments/103329882/103329886.png){width="673" height="212"}
-5.  Upload the xml file and click **Import** .  
+5.  Upload the xml file and click **Import**.  
     ![](attachments/103329882/103329885.png){width="588" height="76"}
 6.  You can make changes to the service provider configurations if
     required and click **Update** to save.  

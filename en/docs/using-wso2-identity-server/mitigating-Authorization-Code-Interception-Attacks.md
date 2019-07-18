@@ -116,7 +116,7 @@ steps below to do this.
     provider.](_Adding_and_Configuring_a_Service_Provider_)
 2.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** section. Click
-    **Configure** .
+    **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
     ![](attachments/103329533/103329534.png)

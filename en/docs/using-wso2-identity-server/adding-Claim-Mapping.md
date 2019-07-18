@@ -17,9 +17,9 @@ external claim:
 ### Add local claim
 
 1.  Sign in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) by entering
+    Console](../../setup/getting-started-with-the-management-console) by entering
     your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Local Claim** to add a new claim to the
     https://wso2.org/claims (local) claim dialect.
 
@@ -99,9 +99,9 @@ external claim:
 ### Add external claim
 
 1.  Sign in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) by entering
+    Console](../../setup/getting-started-with-the-management-console) by entering
     your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add External Claim** to add a new claim to any existing
     dialect other than the local dialect, i.e, https://wso2.org/claims .
 4.  Select the **Dialect URI** of the dialect you want to add the claim

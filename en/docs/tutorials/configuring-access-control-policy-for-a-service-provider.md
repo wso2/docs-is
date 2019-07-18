@@ -220,7 +220,7 @@ our requirement.
     policy.  
     ![publish-to-pdp](../../assets/img/tutorials/publish-to-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
-    are and click **Publish** .  
+    are and click **Publish**.  
     ![publishing-a-xacml-policy](../../assets/img/tutorials/publishing-a-xacml-policy.png)
 
     !!! note

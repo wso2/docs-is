@@ -30,7 +30,7 @@ Follow the instructions below to upload a keystore file to the
 management console.
 
 1.  Log in to the WSO2 product with your username and password.
-2.  Go to the **Configure** tab and click **Key Stores** .
+2.  Go to the **Configure** tab and click **Key Stores**.
 3.  The **Key Store Management** page appears. Click the **Add New Key
     store** link.
 4.  Specify the **Provider** and the **Keystore Password** , which
@@ -45,7 +45,7 @@ management console.
         that keystore. However, you cannot modify the keystore. This is
         used to import certificates from different browsers into your
         Java Key store.
-6.  Click **Next** and provide the **Private Key Password** .
+6.  Click **Next** and provide the **Private Key Password**.
 7.  Click **Finish** to add the new keystore to the list.
 
 8.  The keystore file is saved to the registry of your product. To see
@@ -57,7 +57,7 @@ Follow the instructions below to view details of the keystore you
 uploaded.
 
 1.  Log in to the WSO2 product with your user name and password.
-2.  Go to the **Configure** tab and click **Key Stores** .
+2.  Go to the **Configure** tab and click **Key Stores**.
 3.  The **Key Store Management** page appears. All the keystores that
     are currently added to the product will be listed here.  
 4.  Click **View** in the list of actions. The **View Key Store** screen

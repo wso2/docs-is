@@ -128,8 +128,8 @@ task that checks for idle accounts is common to all tenants.
     Enabled** checkbox. Click **Update** to save changes.  
 4.  Expand the **Account Management Policies** tab.
 
-5.  Expand the **Lock Idle Accounts** tab and select **Enable** . Fill
-    in the following fields and click **Update** .
+5.  Expand the **Lock Idle Accounts** tab and select **Enable**. Fill
+    in the following fields and click **Update**.
 
     | Field              | Description                                                                                                                                                                                                                                                                                                                                                                                   | Sample Value |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|

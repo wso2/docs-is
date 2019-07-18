@@ -218,7 +218,7 @@ If you are configuring the connector on an existing WSO2 Identity
 Server, add the claim dialects manually.
 
 1.  Start the WSO2 IS and login to the management console.
-2.  Navigate to **Claims\>Add** and click **Add Claim Dialect** . Add
+2.  Navigate to **Claims\>Add** and click **Add Claim Dialect**. Add
     the following claim dialects through the WSO2 IS management
     console.  
     For more information on how to add a claim dialect, see [Adding
@@ -228,12 +228,12 @@ Server, add the claim dialects manually.
     -   urn:ietf:params:scim:schemas:core:2.0
     -   urn:ietf:params:scim:schemas:core:2.0:User
     -   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
-3.  Navigate to **Claims\>Add** and click **Add Local Claim** . Add the
+3.  Navigate to **Claims\>Add** and click **Add Local Claim**. Add the
     following claim:  
     -   **Claim URI:** <http://wso2.org/claims/resourceType>
     -   **Display Name:** Resource Type
     -   **Mapped Attribute(s):** ref
-4.  Navigate to **Claims\>Add** and click **Add External Claim** . Add
+4.  Navigate to **Claims\>Add** and click **Add External Claim**. Add
     the claims listed in step ii) of the
     `          claim-config-diff.txt         ` file, which comes with
     the connector artifacts pack, to the relevant claim dialect.  

@@ -62,7 +62,7 @@ prompt](#InstallingonWindows-cmd) .
 **Setting up JAVA\_HOME using the system properties**
 
 1.  Right-click the **My Computer** icon on the desktop and choose
-    **Properties** .  
+    **Properties**.  
 
     ![](attachments/thumbnails/26838941/27042151){width="200"}
 
