@@ -2,10 +2,11 @@
 
 This article addresses the following authorization requirements.
 
-1\. The operations `         getVesrion1        ` and
+1. The operations `         getVersion1        ` and
 `         getVersion2        ` in the service "
 http://localhost:8280/services/Customers " should be accessed by any
 user.  
+
 2. Requests to any other service or operation should only be accessed by
 users belonging to the group(s) `         admin_emps        ` and/or
 `         admin        ` .
