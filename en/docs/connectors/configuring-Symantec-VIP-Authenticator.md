@@ -182,7 +182,7 @@ You have now added and configured the service provider.
     ![](attachments/50510041/50686894.png){width="500"}
 
 4.  You will be asked to enter the **Security Code**.Type the Security
-    Code generated in **VIP Access** , If the authentication success,
+    Code generated in **VIP Access**, If the authentication success,
     you will be taken to the home page of the travelocity.com app.
 
     ![](attachments/50510041/50686895.png){width="500"}  

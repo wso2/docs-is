@@ -197,7 +197,7 @@ Follow the recommendations given below when you set up your keystores.
     
     For information on creating new keystores with the
     required certificates, see [Creating New
-    Keystores](_Creating_New_Keystores_) , and for information on how to
+    Keystores](_Creating_New_Keystores_), and for information on how to
     update configuration files in your product with keystore information,
     see [Configuring Keystores in WSO2
     Products](_Configuring_Keystores_in_WSO2_Products_)

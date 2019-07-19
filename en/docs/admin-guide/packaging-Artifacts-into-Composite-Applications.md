@@ -29,7 +29,7 @@ Applications](#PackagingArtifactsintoCompositeApplications-Packagingindividualar
     available projects below. For example,  
     ![](attachments/50521962/119114537.png){width="500" height="548"}
 5.  In the **Composite Application Project POM Editor** that opens,
-    under **Dependencies** , note the information for each of the
+    under **Dependencies**, note the information for each of the
     projects you selected earlier. You can also change the project
     details here.  
     ![](attachments/50521962/119114534.png){width="800" height="392"}
@@ -37,7 +37,7 @@ Applications](#PackagingArtifactsintoCompositeApplications-Packagingindividualar
 #### Creating a Composite Application Archive (CAR) file
 
 To [deploy a C-App via the product's management
-console](_Deploying_Composite_Applications_in_the_Server_) , you will
+console](_Deploying_Composite_Applications_in_the_Server_), you will
 need to first create a Composite Application Archive (CAR) file of that
 C-App.
 

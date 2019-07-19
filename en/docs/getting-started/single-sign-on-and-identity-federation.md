@@ -42,7 +42,7 @@ depicts this flow.
 In the above figure, the users access **Application 1** first and then
 **Application 2** using the same browser. The user is authenticated in
 **Application 1** first and can access this application. When the users
-attempt to access **Application 2** , they must enter their credentials
+attempt to access **Application 2**, they must enter their credentials
 again and get access to **Application 2** separately. There is no way
 for **Application 2** to access the cookie stored in the browser for
 **Application 1** and authenticate the user by that means.
@@ -79,7 +79,7 @@ best examples. Try this simple exercise.
     there.
 4.  Once you enter your Username and Password, you are directed back to
     [www.google.com](http://www.google.com/) where you started.
-5.  Next visit [www.gmail.com](http://www.gmail.com/) , the Google mail
+5.  Next visit [www.gmail.com](http://www.gmail.com/), the Google mail
     server.
 6.  Notice that you are automatically signed in and you directly access
     your Gmail Inbox. You did not have to enter your Username and

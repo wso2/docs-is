@@ -1,6 +1,6 @@
 # HTTPS Servlet Transport
 
-Similar to the [HTTP transport](_HTTP_Servlet_Transport_) , the HTTPS
+Similar to the [HTTP transport](_HTTP_Servlet_Transport_), the HTTPS
 transport is also based on Apache Tomcat's connector implementation.
 Both the HTTP and HTTPS connector configurations are available in the
 `         catalina-server.xml        ` file (stored in the
@@ -23,7 +23,7 @@ See the following topics for instructions on configuring this transport:
 ### Configuring the HTTPS connector parameters
 
 In addition to the configuration parameters supported by the [HTTP
-servlet transport](_HTTP_Servlet_Transport_) , the HTTPS servlet
+servlet transport](_HTTP_Servlet_Transport_), the HTTPS servlet
 transport supports the configuration parameters listed below. You can
 configure these parameters in the `         catalina-server.xml        `
 file (stored in the

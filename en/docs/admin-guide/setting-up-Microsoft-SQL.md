@@ -16,7 +16,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
 
 1.  In the start menu, click **Programs** and launch **Microsoft SQL
     Server 2012.**
-2.  Click **Configuration Tools** , and then click **SQL Server
+2.  Click **Configuration Tools**, and then click **SQL Server
     Configuration Manager**.
 3.  Enable **TCP/IP** and disable **Named Pipes** from protocols of your
     Microsoft SQL server.

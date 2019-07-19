@@ -19,7 +19,7 @@ request objects that are signed:
 1.  Start WSO2 Identity Server and access the Management Console via
     `                     https://localhost:9443/carbon/                   `
     .
-2.  Navigate to **Service Providers\>Add** , enter a name for the new
+2.  Navigate to **Service Providers\>Add**, enter a name for the new
     service provider and click **Register.**
 3.  Expand the **Inbound Authentication Configuration** section, then
     expand the **OAuth2/OpenID Connect Configuration,** and click

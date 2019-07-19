@@ -187,4 +187,4 @@ specific emphasis on simplicity and interoperability.
 	   As a result of the increasing pressure on OASIS PSTC, they started
 	   working on a REST binding for SPML, which is known as
 	   <a href="https://wiki.oasis-open.org/provision/restpml" target="_blank">RESTPML</a>
-	   , around 2011. This is still based on XML and not yet active so far.
+	  , around 2011. This is still based on XML and not yet active so far.

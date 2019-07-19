@@ -19,7 +19,7 @@ used in access control.
 
 -   [Working with Entitlement](_Working_with_Entitlement_)
     -   [Configuring the Policy Administration
-        Point](_Configuring_the_Policy_Administration_Point_)
+        Point](../../tutorials/configuring-the-policy-administration-point)
     -   [Configuring the Policy Decision
         Point](_Configuring_the_Policy_Decision_Point_)
     -   [Configuring Access Control Policy for a Service
@@ -28,24 +28,24 @@ used in access control.
         Policies](_Validating_the_Scope_of_OAuth_Access_Tokens_using_XACML_Policies_)
 -   [Working with XACML](_Working_with_XACML_)
     -   [Configuring WSO2 EI Entitlement Mediator with Identity
-        Server](_Configuring_WSO2_EI_Entitlement_Mediator_with_Identity_Server_)
+        Server](../../tutorials/configuring-wso2-ei-entitlement-mediator-with-identity-server)
     -   [Enabling REST Notifications For XACML Policy
-        Updates](_Enabling_REST_Notifications_For_XACML_Policy_Updates_)
+        Updates](../../tutorials/enabling-rest-notifications-for-xacml-policy-updates)
     -   [Identity Server as an XACML
-        Engine](_Identity_Server_as_an_XACML_Engine_)
+        Engine](../../tutorials/identity-server-as-an-xacml-engine)
     -   [Working with XACML Multiple Decision Profile
-        Requests](_Working_with_XACML_Multiple_Decision_Profile_Requests_)
+        Requests](../../tutorials/working-with-xacml-multiple-decision-profile-requests)
     -   [Fine-grained Authorization using XACML Requests in JSON
-        Format](_Fine-grained_Authorization_using_XACML_Requests_in_JSON_Format_)
+        Format](../../tutorials/fine-grained-authorization-using-xacml-requests-in-json-format)
     -   [Improving XACML PDP Performance with Caching
-        Techniques](_Improving_XACML_PDP_Performance_with_Caching_Techniques_)
+        Techniques](../../tutorials/improving-xacml-pdp-performance-with-caching-techniques)
     -   [Integrating WSO2 Identity Server with
-        Liferay](_Integrating_WSO2_Identity_Server_with_Liferay_)
+        Liferay](../../tutorials/integrating-wso2-identity-server-with-liferay)
     -   [Writing XACML2.0 Policies in WSO2 Identity
-        Server](_Writing_XACML2.0_Policies_in_WSO2_Identity_Server_)
+        Server](../../tutorials/writing-xacml2.0-policies-in-wso2-identity-server)
     -   [Writing XACML3 Policies in WSO2 Identity
-        Server](_Writing_XACML3_Policies_in_WSO2_Identity_Server_)
+        Server](../../tutorials/writing-xacml3-policies-in-wso2-identity-server)
     -   [Sending Notifications to External PEP
-        Endpoints](_Sending_Notifications_to_External_PEP_Endpoints_)
+        Endpoints](../../tutorials/sending-notifications-to-external-pep-endpoints)
     -   [Writing an XACML 3.0 Policy Using
-        XPath](_Writing_an_XACML_3.0_Policy_Using_XPath_)
+        XPath](../../tutorials/writing-an-xacml-3.0-policy-using-xpath)

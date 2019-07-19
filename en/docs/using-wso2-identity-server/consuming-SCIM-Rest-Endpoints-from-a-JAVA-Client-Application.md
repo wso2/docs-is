@@ -8,7 +8,7 @@
         -   `              wso2server.bat             ` for Windows
 
 2.  Download and Install [Apache
-    Ant](https://ant.apache.org/bindownload.cgi) , if you have not
+    Ant](https://ant.apache.org/bindownload.cgi), if you have not
     already done so.
 3.  Refer the `          client.properties         ` file for SCIM user
     endpoint, group endpoint URLs, username and password. Modify it if

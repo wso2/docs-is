@@ -103,8 +103,8 @@ as the primary or secondary user store in WSO2 Identity Server:
         Note
     
         If you are going to maintain a set of claims such as
-        `           givenName          ` , `           mail          ` ,
-        `           sn          ` , and
+        `           givenName          `, `           mail          `,
+        `           sn          `, and
         `           profileConfiguration          ` in the user profile, you
         need to update the sample schema above as follows:
     
@@ -386,7 +386,7 @@ have to create the following typed links:
   
 
 **Scenario 2 :** Let's take a look at how you can maintain different
-object relationship details (i.e., `         Users        ` ,
+object relationship details (i.e., `         Users        `,
 `         Roles        ` ) as an attribute inside the
 `         Users        ` object and `         Roles        ` object.
 
@@ -446,7 +446,7 @@ In the two scenarios described above, the additional attributes are kept
 inside each object as follows:
 
 -   The `          Users         ` object will include
-    `          UserName         ` , `          Password         ` and
+    `          UserName         `, `          Password         ` and
     the set of claims.
 -   The `          Roles         ` object will include
     `          RoleName         ` .
@@ -503,8 +503,8 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 <td><p><code>              MembershipTypeOfRoles             </code></p></td>
 <td><p>Indicates how you are going to maintain user and role object relationships. Possible values are <code>              link             </code> and <code>              attribute             </code> .</p>
 <ul>
-<li>If you use <code>               link              </code> , you can establish a relationship between objects in Cloud Directory using typed links. You can then use these relationships to query for information. For example, to list the roles that are assigned to a particular user, to list the users who are assigned to a particular role.</li>
-<li>If you use <code>               attribute              </code> , you can list the roles assigned to a particular user and list users who have a particular role. This maintains relationship between objects in an attribute inside the node using <code>               MembershipAttribute              </code> and <code>               MemberOfAttribute              </code> .</li>
+<li>If you use <code>               link              </code>, you can establish a relationship between objects in Cloud Directory using typed links. You can then use these relationships to query for information. For example, to list the roles that are assigned to a particular user, to list the users who are assigned to a particular role.</li>
+<li>If you use <code>               attribute              </code>, you can list the roles assigned to a particular user and list users who have a particular role. This maintains relationship between objects in an attribute inside the node using <code>               MembershipAttribute              </code> and <code>               MemberOfAttribute              </code> .</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -559,7 +559,7 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 </tr>
 <tr class="odd">
 <td><p><code>              MembershipAttribute             </code></p></td>
-<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code> , you need to set this property and define the attribute that contain the distinguished names of user objects that are in a role.</p></td>
+<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code>, you need to set this property and define the attribute that contain the distinguished names of user objects that are in a role.</p></td>
 </tr>
 <tr class="even">
 <td><p><code>              RoleNameAttribute             </code></p></td>
@@ -567,7 +567,7 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 </tr>
 <tr class="odd">
 <td><p><code>              MemberOfAttribute             </code></p></td>
-<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code> , you need to set this property and define the attribute that contain the distinguished names of role objects that the user is assigned to.</p></td>
+<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code>, you need to set this property and define the attribute that contain the distinguished names of role objects that the user is assigned to.</p></td>
 </tr>
 <tr class="even">
 <td><p><code>              UserNameJavaRegEx             </code></p></td>

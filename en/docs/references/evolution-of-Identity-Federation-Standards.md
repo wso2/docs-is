@@ -112,7 +112,7 @@ Try this simple exercise,
     your Google credentials there.
 4.  Once you enter your Username and Password, you are directed back to
     [www.google.com](http://www.google.com/) where you started.
-5.  Next visit [www.gmail.com](http://www.gmail.com/) , the Google mail
+5.  Next visit [www.gmail.com](http://www.gmail.com/), the Google mail
     server.
 6.  Notice that you are automatically signed in and you directly access
     your Gmail Inbox. You did not have to enter your Username and
@@ -166,7 +166,7 @@ If the user accesses the identity provider directly, then only the steps
 
 The message MUST contain an element which uniquely identifies the
 service provider who created the message. Optionally the message may
-contain elements such as , etc. More information regarding the message
+contain elements such as, etc. More information regarding the message
 can be found in [SAML Core
 Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf)
 .
@@ -257,7 +257,7 @@ OpenSAML library:
         authnRequest.setVersion(SAMLVersion.VERSION_20); 
     ```
 
-    The message may contain many other elements like , etc. those
+    The message may contain many other elements like, etc. those
     elements can be created and added to the message in the same way.
 
 5.  Next encode the message.

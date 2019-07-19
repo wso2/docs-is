@@ -91,15 +91,15 @@ See the following sections for more information.
     </tr>
     <tr class="odd">
     <td><pre><code>MepinEnableByUserClaim</code></pre></td>
-    <td>This field makes it possible to disable the 'Mepin disabling by user' functionality. The value can be <code>                true               </code> or <code>                false               </code> . If the value is <code>                true               </code> , user can enable and disable the Mepin according to admin selection ( <code>                                 MepinMandatory                </code> parameter value).</td>
+    <td>This field makes it possible to disable the 'Mepin disabling by user' functionality. The value can be <code>                true               </code> or <code>                false               </code> . If the value is <code>                true               </code>, user can enable and disable the Mepin according to admin selection ( <code>                                 MepinMandatory                </code> parameter value).</td>
     </tr>
     <tr class="even">
     <td><pre><code>MepinMandatory</code></pre></td>
-    <td>If the value is <code>                true               </code> , the second step will be enabled by the admin. The user cannot be authenticated without Mepin authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be <code>                true               </code> or <code>                false.               </code></td>
+    <td>If the value is <code>                true               </code>, the second step will be enabled by the admin. The user cannot be authenticated without Mepin authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be <code>                true               </code> or <code>                false.               </code></td>
     </tr>
     <tr class="odd">
     <td><code>                usecase               </code></td>
-    <td>This field can take one of the following values: <code>                local               </code> , <code>                association               </code> , <code>                userAttribute               </code> , <code>                subjectUri               </code> . If you do not specify any <code>                usecase               </code> , the default value is <code>                local               </code> . See below for more details.</td>
+    <td>This field can take one of the following values: <code>                local               </code>, <code>                association               </code>, <code>                userAttribute               </code>, <code>                subjectUri               </code> . If you do not specify any <code>                usecase               </code>, the default value is <code>                local               </code> . See below for more details.</td>
     </tr>
     <tr class="even">
     <td><pre><code>secondaryUserstore</code></pre></td>
@@ -115,7 +115,7 @@ See the following sections for more information.
 
     -   If Admin specify that Mepin is mandatory (
         `             <Parameter name="MepinMandatory">true</Parameter>            `
-        , then you must enable Mepin in the user’s profile by adding
+       , then you must enable Mepin in the user’s profile by adding
         claim value true in order to authenticate the user. If this is
         not done, the Mepin error page appears.
     -   If Admin specify that Mepin is optional (
@@ -202,12 +202,12 @@ See the following sections for more information.
 
     <!-- -->
 
-    -   If you use a **tenant** , upload the same XML file (
+    -   If you use a **tenant**, upload the same XML file (
         `              application-authentication.xml             ` )
         into a specific registry location (
         `              /_system/governance/MePINAuthenticator)             `
         . Create the collection named `              Mepin             `
-        , add the resource and upload the
+       , add the resource and upload the
         `              application-authentication.xml             ` file
         into the registry). While doing the authentication, first it
         checks whether there is an XML file uploaded to the registry. If

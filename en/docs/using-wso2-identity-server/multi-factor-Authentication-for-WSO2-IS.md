@@ -131,7 +131,7 @@ For a complete list of readily available authenticators, click
 
     ![](attachments/103329838/103329843.png)
 
-7.  Select **Use** s **ubject identifier from this step** , **Use** a
+7.  Select **Use** s **ubject identifier from this step**, **Use** a
     **ttributes from this step** or both. In the case of multiple steps,
     you can have only one step as the subject step and one as the
     attribute step.

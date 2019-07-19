@@ -153,7 +153,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     <tr class="odd">
     <td><code>                usecase               </code></td>
     <td><div class="content-wrapper">
-    <p>This field can take one of the following values: <code>                                     local                                   </code> , <code>                                     association                                   </code> , <code>                                     userAttribute                                   </code> , <code>                                     subjectUri                                   </code> . If you do not specify any <code>                  usecase                 </code> , the default value is <code>                  local                 </code> .</p>
+    <p>This field can take one of the following values: <code>                                     local                                   </code>, <code>                                     association                                   </code>, <code>                                     userAttribute                                   </code>, <code>                                     subjectUri                                   </code> . If you do not specify any <code>                  usecase                 </code>, the default value is <code>                  local                 </code> .</p>
     !!! tip
         <p>If you have chosen <code>                  userAttribute                 </code> as the <code>                  usecase,                 </code> add the following parmeter to specify the user attribute.</p>
         <div class="code panel pdl" style="border-width: 1px;">
@@ -228,7 +228,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     2.  If you specify that the user can't enable TOTP in the
         authentication flow (
         `             <Parameter name="enrolUserInAuthenticationFlow">false</Parameter>            `
-        ) and the TOTP is not enabled to the user's profile , the TOTP
+        ) and the TOTP is not enabled to the user's profile, the TOTP
         error page appears .
 
 6.  Replace the
@@ -281,11 +281,11 @@ The user store configuration is maintained per tenant:
 
 <!-- -->
 
--   If you use a **tenant** , upload the same XML file (
+-   If you use a **tenant**, upload the same XML file (
     `            application-authentication.xml           ` ) into a
     specific registry location (
     `            /_system/governance/totp)           ` . Create the
-    collection named `            totp           ` , add the resource
+    collection named `            totp           `, add the resource
     and upload the
     `            application-authentication.xml           ` file into
     the registry). While doing the authentication, first it checks
@@ -379,8 +379,8 @@ The following is a sample response that is obtained.
     to send an email notification. Enable the
     `            mailto           ` transport sender by adding the
     following configuration. Replace your sender email credentials (
-    `            USER_NAME           ` ,
-    `            PASSWORD           ` , and
+    `            USER_NAME           `,
+    `            PASSWORD           `, and
     `            SENDER'S_MAIL           ` ) in the configuration.
 
     **SMTP Transport Sender**
@@ -500,7 +500,7 @@ The next step is to configure the service provider.
         <tbody>
         <tr class="odd">
         <td><code>                  usecase                 </code></td>
-        <td><p>This field can take one of the following values: <code>                                       local                                     </code> , <code>                                       association                                     </code> , <code>                                       userAttribute                                     </code> , and <code>                                       subjectUri                                     </code> . If you do not specify any usecase, the default value is <code>                   local                  </code> .</p></td>
+        <td><p>This field can take one of the following values: <code>                                       local                                     </code>, <code>                                       association                                     </code>, <code>                                       userAttribute                                     </code>, and <code>                                       subjectUri                                     </code> . If you do not specify any usecase, the default value is <code>                   local                  </code> .</p></td>
         </tr>
         <tr class="even">
         <td><code>                  local                 </code></td>

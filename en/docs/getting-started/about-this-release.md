@@ -30,7 +30,7 @@ enhancements:
 ### What has changed in this release
 
 The design architecture of the current data publishers in WSO2 Identity
-Server (i.e. the `         analyticsSessionDataPublisher        ` ,
+Server (i.e. the `         analyticsSessionDataPublisher        `,
 `         analyticsLoginDataPublisher        ` and
 `         AuthenticationAuditLogger        ` ) have been deprecated and
 changed in this release.The new implementation consists of event

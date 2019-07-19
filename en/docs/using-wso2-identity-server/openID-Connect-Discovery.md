@@ -40,7 +40,7 @@ the location of the OpenID Provider.
     `         oidcdiscovery/.well-known/openid-configuration        ` .
     
     To move the OpenID provider issuer location path to the root
-    `         <issuer>/.well-known/openid-configuration        ` , edit the
+    `         <issuer>/.well-known/openid-configuration        `, edit the
     `         <IS_HOME>/repository/conf/identity/identity.xml        ` file,
     and change the value of `         <OIDCDiscoveryEPUrl>        ` to the
     issuer URL as shown below.

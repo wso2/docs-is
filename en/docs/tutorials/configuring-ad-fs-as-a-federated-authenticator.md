@@ -132,7 +132,7 @@ tutorial.
 
 	f.  Save the certificate to a desired location and click **Finish**.  
 
-You have successfully configured AF DS. Next , you need to configure
+You have successfully configured AF DS. Next, you need to configure
 WSO2 IS for federated authentication.
 
 ### Configuring WSO2 IS for Federated Authentication

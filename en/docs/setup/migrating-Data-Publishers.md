@@ -70,7 +70,7 @@ instead.
 
 2.  In order to support backward compatibility, override the
     `           isEnabled          ` method in the event handler class
-    that extends the `           AbstractEventHandler          ` , such
+    that extends the `           AbstractEventHandler          `, such
     that if the listener property is not defined in the
     `           identity.xml,          ` it will return false.  
 
@@ -251,7 +251,7 @@ instead.
     to the Analytics Engine. In this example, similar to the
     implementation of the
     [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java)
-    , the event payload of the
+   , the event payload of the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
     is populated and published. The final implementation of the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)

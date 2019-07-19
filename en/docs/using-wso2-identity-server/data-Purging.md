@@ -19,9 +19,9 @@ Persistence](_Authentication_Session_Persistence_).
     issues. For more information on setting up a database dump, go to
     the
     [MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax)
-    , [SQL
+   , [SQL
     Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)
-    , and
+   , and
     [Oracle](https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmbckba.htm#BRADV8138)
     offical documentation.
 

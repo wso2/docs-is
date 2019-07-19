@@ -88,7 +88,7 @@ This feature is disabled by default. To enable the API, set the
 
 !!! tip
     
-    If the feature has not been enabled successfully , a request to the API
+    If the feature has not been enabled successfully, a request to the API
     will only return a 200 OK response.
     
 

@@ -23,7 +23,7 @@ product instance.
 ### The structure of a C-App
 
 A typical C-App contains individual directories for its artifacts, along
-with a file named `         artifacts.xml        ` , which contains
+with a file named `         artifacts.xml        `, which contains
 metadata about the artifacts that are inside the C-App. The diagram
 below depicts the structure of a sample C-App:
 
@@ -38,7 +38,7 @@ artifact type according to which the deployer for the artifact is
 identified. For C-Apps, the artifact type of the sample is "
 `         carbon/application"        ` . In addition, it also contains
 details about the artifacts that are bundled in the CAR file. If it's an
-Axis2 service, the file extension used is `         .aar        ` , if
+Axis2 service, the file extension used is `         .aar        `, if
 it is a web app, it is `         .war        ` etc. The artifact type
 changes accordingly. For example, if it's an Axis2 service, the type is
 " `         service/axis2        ` " and if it's a web app, the type is
@@ -89,7 +89,7 @@ server roles.
 
 1.  Log in to the Management Console of your product and click **Server
     Roles** in the **Configure** tab.
-2.  Click **Add New Server Role** , e nter the r ole name and click
+2.  Click **Add New Server Role**, e nter the r ole name and click
     **Add**. You can add any textual name as a server role without
     special characters except underscore.  
     ![](attachments/41255091/41517078.png)

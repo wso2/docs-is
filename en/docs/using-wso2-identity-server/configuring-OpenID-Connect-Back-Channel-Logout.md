@@ -46,7 +46,7 @@ in WSO2 Identity Server:
         ![](attachments/112390325/112391336.png){width="750"}
     3.  Click **Register**. Note that you will be redirected to the
         **Service Providers** screen.
-    4.  Under **Inbound Authentication Configuration** , click
+    4.  Under **Inbound Authentication Configuration**, click
         **OAuth/OpenID Connect Configuration \> Configure**.  
         ![](attachments/112390325/112391332.png){width="700"}
     5.  Enter the configurations as follows:  
@@ -80,7 +80,7 @@ in WSO2 Identity Server:
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
         Resident**.  
         ![](attachments/112390325/112391342.png){width="200"}
-    2.  Under **Inbound Authentication Configuration** , click
+    2.  Under **Inbound Authentication Configuration**, click
         **OAuth2/OpenID Connect Configuration**.  
         ![](attachments/112390325/112391343.png){width="750"}  
         Note that the identity provider's logout endpoint URL is listed

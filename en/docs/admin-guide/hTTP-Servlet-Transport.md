@@ -67,7 +67,7 @@ reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html).
 </tr>
 <tr class="odd">
 <td>bindOnInit</td>
-<td>Controls when the socket used by the connector is bound. By default it is bound when the connector is initiated and unbound when the connector is destroyed. If set to <code>             false            </code> , the socket will be bound when the connector is started and unbound when it is stopped.</td>
+<td>Controls when the socket used by the connector is bound. By default it is bound when the connector is initiated and unbound when the connector is destroyed. If set to <code>             false            </code>, the socket will be bound when the connector is started and unbound when it is stopped.</td>
 <td><br />
 </td>
 <td>false</td>

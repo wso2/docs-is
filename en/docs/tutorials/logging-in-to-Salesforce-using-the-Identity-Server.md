@@ -294,7 +294,7 @@ Let's get started!
         here to login** button to test this out.
 
 5.  On the left navigation menu, search for **Single Sign-On Settings**
-    , and click it.
+   , and click it.
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
     ![](attachments/103331333/103331341.png){width="750" height="126"}
@@ -394,7 +394,7 @@ Let's get started!
 11. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
     **Edit**.
-12. Under **Authentication Service** , select **SSO** instead of **Login
+12. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
     ![](attachments/103331333/103331339.png){width="450"}
 13. Click **Save**.
@@ -453,7 +453,7 @@ provider in WSO2 IS.
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#LoggingintoSalesforceusingtheIdentityServer-ConfiguringSalesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
-    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
+    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong>, and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong> . <img src="attachments/103331333/103331352.png" width="900" /></li>
     <li>Copy the URL that is defined for Login URL to access Salesforce. <img src="attachments/103331333/103331353.png" width="900" /></li>
     </ol>
@@ -465,7 +465,7 @@ provider in WSO2 IS.
     <tr class="odd">
     <td>NameID Format</td>
     <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
+    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
     </tr>
     <tr class="even">
     <td>Enable Response Signing</td>
@@ -475,7 +475,7 @@ provider in WSO2 IS.
     <tr class="odd">
     <td>Enable Attribute Profile</td>
     <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the check box to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the check box to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     </tr>
     </tbody>
     </table>
@@ -502,7 +502,7 @@ Salesforce and the Identity Server.
     1.  Log in to the Salesforce developer account:
         [https://login.salesforce.com/](https://login.salesforce.com/?lt=de)
         .
-    2.  On the left navigation pane, under **ADMINISTRATION** , click
+    2.  On the left navigation pane, under **ADMINISTRATION**, click
         **Users** under **Users**.
     3.  On the page that appears, click the **New User** button to
         create a new user.
@@ -533,7 +533,7 @@ Salesforce and the Identity Server.
     3.  Click **Edit** under Authentication Configurations and you are
         navigated to a new page having the following URl:
         `              https://<DOMAIN_NAME>/domainname/EditLogin.apexp             `
-    4.  On the left navigation menu, expand **Security Controls** , and
+    4.  On the left navigation menu, expand **Security Controls**, and
         click, **Single Sign-On Settings**.
     5.  Click on the name of the Single Sign-On Setting you created. In
         this use case click **SSO**.  

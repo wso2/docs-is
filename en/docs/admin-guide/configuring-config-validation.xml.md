@@ -98,7 +98,7 @@ The following JVM heap size values are recommended by default in the
 | maxPermGenSize | The maximum heap size of the permanent generation of heap.                                       | 256             |
 
 These parameters are specified in the product startup script as shown
-below, where, " `         -Xms"        ` , " `         -Xmx"        `
+below, where, " `         -Xms"        `, " `         -Xmx"        `
 and " `         -XX"        ` correspond to "initHeapSize",
 "maxHeapSize" and "maxPermGenSize" respectively. For example, see the
 product startup script for Linux:

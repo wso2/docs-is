@@ -25,11 +25,11 @@ before running `          -Dsetup         ` .
 
 Follow the steps below to set up an Oracle RAC database.
 
-1.  Set environment variables \< `          ORACLE_HOME>         ` ,
-    `          PATH         ` , `         ` and
+1.  Set environment variables \< `          ORACLE_HOME>         `,
+    `          PATH         `, `         ` and
     `          ORACLE_SID         ` with the corresponding values (
-    `          /oracle/app/oracle/product/11.2.0/dbhome_1         ` ,
-    `          $PATH:<ORACLE_HOME>/bin         ` , and
+    `          /oracle/app/oracle/product/11.2.0/dbhome_1         `,
+    `          $PATH:<ORACLE_HOME>/bin         `, and
     `          orcl1         ` ) as follows:  
     ![](attachments/53125514/53287565.png){width="600"}
 2.  Connect to Oracle using SQL\*Plus as SYSDBA.  

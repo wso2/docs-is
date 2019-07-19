@@ -589,7 +589,7 @@ claims received from the federated Identity Provider to local claims.
 <td><p>claimMappings.localClaim.claimUri</p>
 <p>claimMappings.remoteClaim.claimUri</p></td>
 <td><p>String</p></td>
-<td><p>URI specific to the claim. It applies to both <code>                 localClaim                </code> and <code>                 remoteClaim                </code> elements. When defined under <code>                 localClaim                </code> , this is a URI defined under the dialect specific to the claim. If defined under the <code>                 remoteClaim                </code> , this is a remote claim URI which maps with the local claim defined under the same parent claimMappings element. If only the local claim dialect is used, the same claimURI in localClaim should be used with claimURI in <code>                 remoteClaim                </code> , since there are no explicit local to remote claim mappings.</p></td>
+<td><p>URI specific to the claim. It applies to both <code>                 localClaim                </code> and <code>                 remoteClaim                </code> elements. When defined under <code>                 localClaim                </code>, this is a URI defined under the dialect specific to the claim. If defined under the <code>                 remoteClaim                </code>, this is a remote claim URI which maps with the local claim defined under the same parent claimMappings element. If only the local claim dialect is used, the same claimURI in localClaim should be used with claimURI in <code>                 remoteClaim                </code>, since there are no explicit local to remote claim mappings.</p></td>
 </tr>
 <tr class="odd">
 <td><p>claimMappings.requested</p></td>
@@ -1225,7 +1225,7 @@ Request...
 <tr class="even">
 <td><p>authenticationType</p></td>
 <td><p>String</p></td>
-<td><p>Depending on the requirement, the authentication type can be specified. The available types are: <a href="#UsingtheServiceProviderAPI-authtype_D">default</a> , <a href="#UsingtheServiceProviderAPI-authtype_L">local</a> , <a href="#UsingtheServiceProviderAPI-authtype_F">federated</a> , <a href="#UsingtheServiceProviderAPI-authtype_A">flow</a> .</p>
+<td><p>Depending on the requirement, the authentication type can be specified. The available types are: <a href="#UsingtheServiceProviderAPI-authtype_D">default</a>, <a href="#UsingtheServiceProviderAPI-authtype_L">local</a>, <a href="#UsingtheServiceProviderAPI-authtype_F">federated</a>, <a href="#UsingtheServiceProviderAPI-authtype_A">flow</a> .</p>
 <br />
 
 <p>Refer the sample requests below on each authentication type configuration.</p></td>
@@ -1313,7 +1313,7 @@ Request...
 
 Since there is only one `          <authenticationSteps>         `
 element configured here, there is no need to set the
-`          authenticationSteps.stepOrder         ` ,
+`          authenticationSteps.stepOrder         `,
 `          authenticationSteps.subjectStep, authenticationSteps.attributeStep         `
 attributes.
 
@@ -1536,7 +1536,7 @@ Request...
 
 Multiple `          <         `
 `          authenticationSteps>         ` can be configured here.
-Therefore, in each `          <authenticationSteps>         ` , the
+Therefore, in each `          <authenticationSteps>         `, the
 stepOrder and whether the subject identifiers and attributes should be
 used from that particular step.
 

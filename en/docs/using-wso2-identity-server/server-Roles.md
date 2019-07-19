@@ -41,7 +41,7 @@ always given priority over others.
 
 1.  Log in to the management console of your product and click **Server
     Roles** menu under the **Configure** menu.
-2.  Click **Add New Server Role** , e nter the Role Name and click
+2.  Click **Add New Server Role**, e nter the Role Name and click
     **Add.** You can add any textual name as a server role without
     special characters except underscore.  
     ![](attachments/34611390/34742427.png)

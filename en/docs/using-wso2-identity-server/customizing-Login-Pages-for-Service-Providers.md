@@ -198,7 +198,7 @@ called
 `         org.wso2.carbon.identity.application.authentication.endpoint.util        `
 . This bundle includes a filter called the
 `         org.wso2.carbon.identity.application.authentication.endpoint.util.filter        `
-. `         AuthenticationEndpointFilter        ` , `        ` which
+. `         AuthenticationEndpointFilter        `, `        ` which
 acts as the Front Controller.
 
 When a request is made to the **authenticationendpoint** web
@@ -288,5 +288,5 @@ When customizing the pages, ensure that the following is applied.
 4.  Log in to the [Travelocity.com](http://Travelocity.com) web app
     again. You are presented with a different page.  
     ![](attachments/103330112/103330130.png){width="713"}  
-    If you access [Avis.com](http://Avis.com) , it still displays the
+    If you access [Avis.com](http://Avis.com), it still displays the
     default login page.

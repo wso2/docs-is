@@ -216,7 +216,7 @@ things.
 1.  In the **Claim Configuration** form, s elect the claim mapping
     dialect by either choosing to use a local claim dialect or define
     your own custom claim dialect.  
-    -   If you choose to **Use Local Claim Dialect** , you need to fill
+    -   If you choose to **Use Local Claim Dialect**, you need to fill
         in the following details.
 
     1.  1.  Fill in your requested claims by clicking the **Add Claim
@@ -227,7 +227,7 @@ things.
             ![](attachments/103329786/103329789.png){width="817"
             height="79"}
 
-    -   If you choose to **Define Custom Claim Dialect** , you need to
+    -   If you choose to **Define Custom Claim Dialect**, you need to
         do the following.
 
     1.  1.  Add a custom claim URI by clicking on the **Add Claim URI**
@@ -311,11 +311,11 @@ things.
                                     
                                                         You can enter any value with the prefix
                                                         `                         address.                        `
-                                                        , such as
+                                                       , such as
                                                         `                         address.country                        `
-                                                        ,
+                                                       ,
                                                         `                         address.lane                        `
-                                                        , and much more.
+                                                       , and much more.
                                     
                                                     5.  Map the claim you are creating to any claim within
                                                         WSO2 Identity server.  
@@ -797,7 +797,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="even">
     <td><strong>NameID format</strong></td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <p>About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
@@ -861,7 +861,7 @@ supports SAML metadata download for the resident identity provider.
     </tr>
     <tr class="even">
     <td><strong>Enable Assertion Encryption</strong></td>
-    <td>Enable <strong>Assertion Encryption</strong> , if you wish to encrypt the assertion.</td>
+    <td>Enable <strong>Assertion Encryption</strong>, if you wish to encrypt the assertion.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -872,7 +872,7 @@ supports SAML metadata download for the resident identity provider.
     </tr>
     <tr class="even">
     <td><strong>Enable Attribute Profile</strong></td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -921,7 +921,7 @@ instances of entity configuration.
 1.  Select **Metadata File Configuration.**  
     **![](attachments/103330801/112392408.png){width="750"}  
     **
-2.  Click **Choose File** , and select the
+2.  Click **Choose File**, and select the
     `                .xml               ` file containing the metadata
     for the service provider SAML configuration.
 3.  Click **Upload**.
@@ -1609,11 +1609,11 @@ You can configure the following for local and outbound authentication.
 
 2.  Select the **Authentication Type** you require from the available
     options. This is a required field.  
-    -   If you choose **Local Authentication** , you need to select the
+    -   If you choose **Local Authentication**, you need to select the
         local authentication option from the dropdown list.
-    -   If you choose **Federated Authentication** , you need to select
+    -   If you choose **Federated Authentication**, you need to select
         the identity provider from the dropdown list.
-    -   If you choose **Advanced Configurations** , you can configure
+    -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
         ![](attachments/103329813/103329818.png){width="750"}
@@ -1631,7 +1631,7 @@ You can configure the following for local and outbound authentication.
                 Adding more than one of these within a single step
                 enables multi-option authentication.
         2.  Select whether to **Use subject identifier from this step**
-            , **Use attributes from this step** or both. In the case of
+           , **Use attributes from this step** or both. In the case of
             multiple steps, you can have only one step to use subject
             identifier from this step and one to use attributes from
             this step.  
@@ -1813,7 +1813,7 @@ Do the following to configure outbound provisioning.
 3.  Click **Update** to save your changes.  
     ![](attachments/103329864/103329865.png){width="900"}
 
-    -   If you select **Blocking** , the authentication flow is blocked
+    -   If you select **Blocking**, the authentication flow is blocked
         until the provisioning finishes. If **Blocking** is not
         selected, provisioning happens in a different thread. In the
         blocking mode, the authentication flow will be blocked till the
@@ -1825,7 +1825,7 @@ Do the following to configure outbound provisioning.
         user gets provisioned or not in order to access your application
         you can use non-blocking mode.
 
-    -   If you select **Enable JIT Outbound** , the users are
+    -   If you select **Enable JIT Outbound**, the users are
         provisioned to the WSO2 IS user store on-the-fly as and when
         they are authenticated using just-in-time provisioning. To
         enable this, you need to configure JIT provisioning for the
@@ -1833,7 +1833,7 @@ Do the following to configure outbound provisioning.
         Just-In-Time
         Provisioning](https://docs.wso2.com/display/IS530/Configuring+Just-In-Time+Provisioning+for+an+Identity+Provider)
         .
-    -   If you select **Enable Rules** , the users are provisioned based
+    -   If you select **Enable Rules**, the users are provisioned based
         on the pre-defined XACML rules. For more information, see [Rule
         Based
         Provisioning](https://docs.wso2.com/display/IS530/Rule+Based+Provisioning)

@@ -221,7 +221,7 @@ CRL validation by the self signed CA as mentioned below.
     
     As mentioned in [Configure CRL and OCSP
     URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-    , the <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
+   , the <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
     CA. In order to test the revocation of certificates through a CRL from
     our end, generate an own CRL and upload it to the own CRL URL. The CRL
     URL should be configured in the
@@ -266,7 +266,7 @@ OCSP validation by the self signed CA as mentioned below.
     
     As mentioned in [Configure CRL and OCSP
     URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-    , the <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
+   , the <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
     CA. In order to test the revocation of certificates through OCSP from
     our end, generate an own OCSP. This OCSP should be configured in the
     `             validation.cnf            ` file.

@@ -15,22 +15,12 @@ on a resource named `         index.jsp        ` . Assume that the web
 application sends only the root resources, and needs to filter out the
 actions that are permitted in the response and allow them to the user.
 
-The following topics walk you through the steps you need to follow to
-try out the sample scenario:
-
--   [Prerequisites](#WorkingwithMDPRequeststoAuthorizeHierarchicalResources-Prerequisites)
--   [Procedure](#WorkingwithMDPRequeststoAuthorizeHierarchicalResources-Procedure)
--   [Testing the authorization
-    flow](#WorkingwithMDPRequeststoAuthorizeHierarchicalResources-Testingtheauthorizationflow)
--   [Analyzing the
-    response](#WorkingwithMDPRequeststoAuthorizeHierarchicalResources-Analyzingtheresponse)
-
 ### Prerequisites
 
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instruction on how to install
     WSO2 Identity Server, see [Installing the
-    Product](_Installing_the_Product_).
+    Product](../../setup/installing-the-product).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.
@@ -48,7 +38,7 @@ Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
 
 1.  Access the WSO2 IS Management Console via
-    <https://localhost:9443/carbon/> , and sign in using
+    <https://localhost:9443/carbon/>, and sign in using
     `          admin         ` / `          admin         ` as
     credentials.
 2.  Click the **Main** tab on the Management Console, go to
@@ -63,7 +53,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![](attachments/103331165/103331166.png){height="250"}
+    ![publish-policy-to-pdp](../../assets/img/tutorials/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.

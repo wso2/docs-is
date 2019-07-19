@@ -45,7 +45,7 @@ directory). The following steps describe how you can configure this:
 
 If you want to have internationalization of error messages coming from
 `         authentication-framework/        ` oauth
-`         -framework        ` , Follow the below steps:
+`         -framework        `, Follow the below steps:
 
 First, you need to generate a key from the message itself for the
 i18n, properties file. following steps below:

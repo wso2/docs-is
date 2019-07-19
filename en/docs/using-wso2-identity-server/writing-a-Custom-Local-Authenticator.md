@@ -470,7 +470,7 @@ authenticator.
 </tr>
 <tr class="even">
 <td>process()</td>
-<td><p>This method is used to process or carry out the user authentication process. It calls the <strong>super.process()</strong> , so that the super class will handle the authentication process, and it calls <strong>processAuthenticationResponse()</strong> method in the custom authenticator class to execute the custom authentication logic.</p></td>
+<td><p>This method is used to process or carry out the user authentication process. It calls the <strong>super.process()</strong>, so that the super class will handle the authentication process, and it calls <strong>processAuthenticationResponse()</strong> method in the custom authenticator class to execute the custom authentication logic.</p></td>
 </tr>
 <tr class="odd">
 <td>processAuthenticationResponse()</td>

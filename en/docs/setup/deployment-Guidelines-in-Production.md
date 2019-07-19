@@ -97,7 +97,7 @@ have the appropriate hardware and software for running the product.
 
 ####  Environment compatibility
 
--   By default, WSO2 products are installed with **OpenJDK** , which
+-   By default, WSO2 products are installed with **OpenJDK**, which
     allows you to run the product as soon as it is installed.
 
     !!! tip
@@ -321,14 +321,14 @@ manage the product.
     server.
 -   The Management Console uses the default [HTTP-NIO
     transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport)
-    , which is configured in the
+   , which is configured in the
     `           catalina-server.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/tomcat          `
     directory. This transport must be properly configured in this file
     for the management console to be accessible.
 -   As explained in the [installation
     prerequisites](#DeploymentGuidelinesinProduction-installation_prerequisites)
-    , the default product installation uses OpenJDK. Therefore, you
+   , the default product installation uses OpenJDK. Therefore, you
     don't require a different JDK. However, if you have set up Oracle
     JDK or IBM JDK, be sure to apply the following settings to your
     product distribution.
@@ -736,7 +736,7 @@ We recommend that you use a proper artifact management system such as
 before deploying them in the WSO2 Carbon runtime. Also, use the **[WSO2
 Update Manager
 (WUM)](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products)**
-tool , which is a command-line utility that allows you to get the latest
+tool, which is a command-line utility that allows you to get the latest
 updates ( bug fixes and security fixes ) of a particular product
 release.
 

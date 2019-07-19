@@ -64,7 +64,7 @@ disabling. The following section explain how to configure this.
 
     !!! tip
     
-        **Alternatively** , you can also use the
+        **Alternatively**, you can also use the
         `                         IdentityGovernanceAdminService                       `
         SOAP service to do this instead of using the management console UI.
         See [Calling Admin Services](_Calling_Admin_Services_) for more
@@ -127,7 +127,7 @@ descriptions you need to configure:
 <tr class="even">
 <td><p>Lock Timeout Increment Factor</p></td>
 <td><div class="content-wrapper">
-<p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong> , the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
+<p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong>, the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
 <div class="panel" style="border-width: 1px;">
 <div class="panelContent">
 <p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * ( <strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>

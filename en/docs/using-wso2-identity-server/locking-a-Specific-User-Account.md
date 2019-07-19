@@ -61,7 +61,7 @@ for instructions
 
     !!! tip
     
-        **Alternatively** , you can also use the
+        **Alternatively**, you can also use the
         `                             IdentityGovernanceAdminService                           `
         SOAP service to do this instead of using the management console UI.
         See [Calling Admin

@@ -99,7 +99,7 @@ or with an existing service provider.
 
 !!! tip
     
-    **Before you begin** ,
+    **Before you begin**,
     
     -   [Download](https://tomcat.apache.org/download-80.cgi) and
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat

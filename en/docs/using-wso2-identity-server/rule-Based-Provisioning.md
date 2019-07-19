@@ -1,9 +1,9 @@
 # Rule Based Provisioning
 
-Under [Outbound Provisioning](_Outbound_Provisioning_) , in general, we
+Under [Outbound Provisioning](_Outbound_Provisioning_), in general, we
 have discussed how to provision users to trusted identity providers. In
 this document, we discuss how to provision users based on defined
-[XACML](_Access_Control_and_Entitlement_Management_) rules. This is the
+[XACML](../../getting-started/access-control-and-entitlement-management) rules. This is the
 rule-based method of role-based provisioning
 
 To get a better understanding of rule-based provisioning, let's look a
@@ -131,7 +131,7 @@ Follow the steps given below:
     select the provisioning connector you just configured above. Let's
     say we have configured an IDP named "wso2IDP" which used Google
     outbound provisioning connector.
-8.  Click on the **+** button and add **wso2IDP** ,  then select the
+8.  Click on the **+** button and add **wso2IDP**,  then select the
     ****Enable Rules**** in order to enable rules during provisioning.
     Click **Update** to save.  
     ![](attachments/103330154/103330158.png)  
@@ -163,12 +163,12 @@ the policy according to our requirement.
     placeholders for different types of policies. For a full list of the
     available XACML policy templates, see [Writing an XACML Policy using
     a Policy
-    Template](https://docs.wso2.com/display/IS540/Writing+a+XACML+Policy+using+a+Policy+Template)
+    Template](../../tutorials/writing-a-xacml-policy-using-a-policy-template)
     .
 
     ![](attachments/103330154/103330162.png){width="900"}
 
-3.  Once you click **Edit** , the XML based policy will appear in the
+3.  Once you click **Edit**, the XML based policy will appear in the
     policy editor. There are placeholders in capitals for entering the
     service provider and role names.
 
@@ -285,7 +285,7 @@ the policy according to our requirement.
     !!! note
     
         For more information on Publishing an XACML policy, click
-        [here](https://docs.wso2.com/display/IS540/Publishing+a+XACML+Policy)
+        [here](../../tutorials/publishing-a-xacml-policy)
         .
     
 
@@ -301,7 +301,7 @@ the policy according to our requirement.
 If you want to write a more complicated policy, you can use the XACML
 policy editors available. For more information, read [How to create
 XACML
-Policy](https://docs.wso2.com/display/IS540/Creating+a+XACML+Policy)
+Policy](../../tutorials/creating-a-xacml-policy)
 
 #### Step3: Try it out
 
