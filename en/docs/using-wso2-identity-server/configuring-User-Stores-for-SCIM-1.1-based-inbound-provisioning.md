@@ -129,13 +129,13 @@ curl -v -k --user admin:admin --data '{"displayName": "demo/SoftwareEngineer","m
 user-store domain.
 
 ``` java
-curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}" ,"members": [{MEMBERS}}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
+curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMBERS}}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
 ```
 
 **Request: Sample**
 
 ``` java
-curl -v -k --user admin:admin -X PUT -d '{"displayName": "demo/SoftwareEngineer" ,"members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}, {"value":"p09okhyt-5e68-4594-8mkj-356ade12we34","display": "testUser"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
+curl -v -k --user admin:admin -X PUT -d '{"displayName": "demo/SoftwareEngineer","members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}, {"value":"p09okhyt-5e68-4594-8mkj-356ade12we34","display": "testUser"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
 **Filter Group -** This will filter the groups that are equal to a given

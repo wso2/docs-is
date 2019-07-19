@@ -50,7 +50,7 @@ and G-Reg 3 respectively.
 Database configurations are stored in
 $CARBON\_HOME/repository/conf/datasources/ master-datasources.xml file
 for all carbon servers. By default, all WSO2 products use the in-built
-H2 database. Since the Governance Registry nodes ( G-Reg 1 , G-Reg 2 and
+H2 database. Since the Governance Registry nodes ( G-Reg 1, G-Reg 2 and
 G-Reg 3) in this example are using MySQL databases ( 'registrydb',
 'registrydb2' and 'registrydb3' respectively ) the
 master-datasources.xml file of each node needs to be configured so that

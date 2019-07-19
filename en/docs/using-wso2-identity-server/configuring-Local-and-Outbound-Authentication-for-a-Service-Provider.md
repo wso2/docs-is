@@ -58,11 +58,11 @@ You can configure the following for local and outbound authentication.
 
 2.  Select the **Authentication Type** you require from the available
     options. This is a required field.  
-    -   If you choose **Local Authentication** , you need to select the
+    -   If you choose **Local Authentication**, you need to select the
         local authentication option from the dropdown list.
-    -   If you choose **Federated Authentication** , you need to select
+    -   If you choose **Federated Authentication**, you need to select
         the identity provider from the dropdown list.
-    -   If you choose **Advanced Configurations** , you can configure
+    -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
         ![](attachments/103329813/103329818.png){width="750"}
@@ -80,7 +80,7 @@ You can configure the following for local and outbound authentication.
                 Adding more than one of these within a single step
                 enables multi-option authentication.
         2.  Select whether to **Use subject identifier from this step**
-            , **Use attributes from this step** or both. In the case of
+           , **Use attributes from this step** or both. In the case of
             multiple steps, you can have only one step to use subject
             identifier from this step and one to use attributes from
             this step.  

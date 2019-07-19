@@ -7,7 +7,7 @@ This article addresses the following authorization requirements.
     by users belonging to both the `          admin_emps         ` and
     `          admin         ` groups.
 2.  If the user belongs to a group other than
-    `          admin_emps         ` or `          admin         ` , the
+    `          admin_emps         ` or `          admin         `, the
     request should fail.
 3.  Requests to any other service or operation should fail.
 

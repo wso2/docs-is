@@ -17,7 +17,7 @@ Windows Authentication](_Integrated_Windows_Authentication_) page.
     -   WSO2 Identity Server 5.1.0 or a later version
 -   Client
     -   Microsoft Windows Operating System (XP, Vista, 7)
-    -   Internet Explorer 7+ , Mozilla Firefox, Google Chrome (or any
+    -   Internet Explorer 7+, Mozilla Firefox, Google Chrome (or any
         other web browser that support IWA)
     -   Following are the steps to configure IWA in WSO2 Identity
         Server.

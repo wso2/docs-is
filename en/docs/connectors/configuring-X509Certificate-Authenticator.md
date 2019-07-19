@@ -491,7 +491,7 @@ your use case:
 #### Using an identity claim for the X509 certificate or working with read only user stores
 
 If you are using an identity claim to store X509 Certificates, e.g.,
-`                   http://wso2.org/claims/identity                  ,        `
+`                   http://wso2.org/claims/identity                 ,        `
 or if you are working with a read only user store, the certificate gets
 stored in the `         DATA_VALUE        ` column of the
 `         IDN_IDENTITY_USER_DATA        ` table. The default DB script
@@ -547,7 +547,7 @@ or above 5.4.0.
 #### Using a wso2 claim for the X509 certificate
 
 If you use are using a wso2 claim to store X509 Certificate, e.g.,
-`                   http://wso2.org/claims                 ` , the
+`                   http://wso2.org/claims                 `, the
 certificate gets stored as a user attribute in the
 `         UM_ATTR_VALUE        ` column of the
 `         UM_USER_ATTRIBUTE        ` table. The default DB script sets
@@ -672,7 +672,7 @@ You have now added and configured the service provider.
 CA provides a CRL that is valid for a limited duration, which is defined
 in the **Next Update** CRL field. This field indicates the date by which
 the next CRL will be issued. According to the [Internet X.509 PKI
-Certificate and CRL Profile](https://tools.ietf.org/html/rfc5280) , the
+Certificate and CRL Profile](https://tools.ietf.org/html/rfc5280), the
 next CRL could be issued before but not later than the indicated date.
 This property is considered to validate the returned CRL from cache as a
 certificate in the CRL can be temporarily invalidated (Hold) rather than

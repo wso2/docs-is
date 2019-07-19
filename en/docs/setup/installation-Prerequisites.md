@@ -149,7 +149,7 @@ is recommended for most users.
 ##### Running samples and building from source
 
 These applications are required for [building the product from the
-source distribution](https://wso2.github.io/using-maven.html) ,
+source distribution](https://wso2.github.io/using-maven.html),
 and compiling and running product samples.
 
 <table style="width:100%;">

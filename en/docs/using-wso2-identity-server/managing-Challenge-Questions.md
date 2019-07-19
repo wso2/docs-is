@@ -106,12 +106,12 @@ follow the steps below.
 2.  Click on **Add** under **Challenge Questions** and then click **Add
     Challenge Question**.
 3.  Select the relevant challenge question set, e.g.,
-    http://wso2.org/claims/Set1 , and select **Yes** for the **Add
+    http://wso2.org/claims/Set1, and select **Yes** for the **Add
     Locale Mapping to a question** field.
 
 4.  Enter the same **Challenge Question Id** (Q1) and select the
     **Challenge Question Locale** as **French**.
-5.  Enter the Q1 challenge question in French, click **Add** , and click
+5.  Enter the Q1 challenge question in French, click **Add**, and click
     **Finish**.  
     ![](attachments/103330542/103330546.png)
 6.  Click on the **Edit** button corresponding to the relevant set (

@@ -133,7 +133,7 @@ those listed below** with your values when configuring the steps.
 7.  Enable Amin SDK.
     1.  On the Open the [Google developers
         console](https://console.developers.google.com/cloud-resource-manager)
-        , click the menu icon, and click **APIs & Services**.
+       , click the menu icon, and click **APIs & Services**.
     2.  Click **Dashboards \> + ENABLE API AND SERVICES**.  
         ![](attachments/103330252/103330262.png){width="900"}
     3.  Search for Admin SDK and click **Enable**.
@@ -182,7 +182,7 @@ Provider.
 2.  On the Management Console, click on **Add** under **Identity
     Providers**.
 3.  In the form that appears, provide a name for your identity provider
-    by filling in the **Identity Provider Name** , such as Google.com,
+    by filling in the **Identity Provider Name**, such as Google.com,
     and a description.
 
     See [Configuring an Identity
@@ -260,7 +260,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     down and click the
     ![](attachments/103330252/103330258.png){width="30"} button.
 
-    If you enable **Blocking** , Identity Server will wait for the
+    If you enable **Blocking**, Identity Server will wait for the
     response from the Identity Provider to continue.
 
     If you enable **Enable Rules** and **Blocking,** blocking will block

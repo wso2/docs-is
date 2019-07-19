@@ -152,7 +152,7 @@ To change your password, do the following.
 1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Change
     Password**.
-3.  In the resulting screen, enter your **Current Password** , fill in
+3.  In the resulting screen, enter your **Current Password**, fill in
     the **New Password** and confirm it by filling out the **Confirm New
     Password** field.  
     ![](attachments/103330474/103330492.png){width="577" height="312"}

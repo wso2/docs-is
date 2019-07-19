@@ -15,7 +15,7 @@ that Identity Server 5.5.0 resides in.
     updated through the WSO2 Update Manager (WUM).
     
     -   **If you are upgrading to this version to use this version in your
-        production environment** , use the WSO2 Update Manager and get the
+        production environment**, use the WSO2 Update Manager and get the
         latest available updates for WSO2 IS 5.5.0. For more information on
         how to do this, see [Updating WSO2
         Products](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products)
@@ -189,7 +189,7 @@ Follow the steps below as needed to complete the migration process.
         <td><div class="content-wrapper">
         <p>Replace the following property found within the <code>                          &lt;Extensions&gt;                         </code> list.</p>
         !!! warning
-                <p>If you are using a custom <code>                          &lt;StepBasedSequenceHandler&gt;                         </code> , skip this step.</p>
+                <p>If you are using a custom <code>                          &lt;StepBasedSequenceHandler&gt;                         </code>, skip this step.</p>
         <div class="code panel pdl" style="border-width: 1px;">
         <div class="codeContent panelContent pdl">
         <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;StepBasedSequenceHandler&gt;org.<span class="fu">wso2</span>.<span class="fu">carbon</span>.<span class="fu">identity</span>.<span class="fu">application</span>.<span class="fu">authentication</span>.<span class="fu">framework</span>.<span class="fu">handler</span>.<span class="fu">sequence</span>.<span class="fu">impl</span>.<span class="fu">DefaultStepBasedSequenceHandler</span>&lt;/StepBasedSequenceHandler&gt;</a></code></pre></div>

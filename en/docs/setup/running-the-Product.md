@@ -12,7 +12,7 @@ following sections:
 
 Before you begin
 
--   The Management Console uses the default HTTP-NIO transport , which
+-   The Management Console uses the default HTTP-NIO transport, which
     is configured in the `           catalina-server.xml          ` file
     in the `           <IS_HOME>/repository/conf/tomcat          `
     directory. This transport must be properly configured in this file
@@ -70,7 +70,7 @@ To start and stop the server in the background mode of Linux, run
     
 
 1.  Open a command prompt:
-    -   On Windows, choose **Start -\> Run** , type
+    -   On Windows, choose **Start -\> Run**, type
         `            cmd           ` at the prompt, and press Enter.
     -   On Linux/Mac OS, establish a SSH connection to the server or log
         in to the text Linux console.
@@ -113,7 +113,7 @@ the Command Prompt as described below.
 
 1.  Click **Launch -\>** **Run Applications,** type
     `          dtterm         ` at the Prompt, and then press **Enter**
-    , to open a Command Prompt.
+   , to open a Command Prompt.
 2.  Execute the following command:
     `          <PRODUCT_HOME>/bin/          bash          wso2server.sh.         `
 3.  The operation log appears in the command window. When the product

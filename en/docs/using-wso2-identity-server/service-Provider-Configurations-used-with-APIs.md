@@ -74,7 +74,7 @@ port number, for example,
 <td>nameIDFormat</td>
 <td>String</td>
 <td><div class="content-wrapper">
-<p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+<p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
 <div>
 <p>About NameID formats</p>
 <p>For SSO interactions, you can use the following types of NameID formats.</p>

@@ -11,7 +11,7 @@ identity management.
     be downloaded from the [WSO2 Identity Server product
     page](http://wso2.com/products/identity-server/) and installed by
     following the instructions in the [Installing the
-    Product](_Installing_the_Product_) topic.
+    Product](../../setup/installing-the-product) topic.
 -   Apache Tomcat 6 - To deploy the sample web application.
 -   InfoRecoverySample (located in
     `          /is-samples/modules/samples/identity-mgt/info-recovery-sample         `

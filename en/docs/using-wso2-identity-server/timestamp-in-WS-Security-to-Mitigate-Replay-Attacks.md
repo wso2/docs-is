@@ -181,7 +181,7 @@ Timestamp is invalid if:
   
 Because of the consistent way timestamp is verified in Rampart level
 considering both `         created        ` and
-`         expires        ` , the validation at the WSS4J is disabled by
+`         expires        `, the validation at the WSS4J is disabled by
 default with `         timestampstrict        ` set to false.
 
 ### Other ways to avoid replay attacks

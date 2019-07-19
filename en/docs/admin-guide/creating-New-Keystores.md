@@ -1,7 +1,7 @@
 # Creating New Keystores
 
 WSO2 Carbon-based products are shipped with a default
-[keystore](_Using_Asymmetric_Encryption_) named **wso2carbon.jks** ,
+[keystore](_Using_Asymmetric_Encryption_) named **wso2carbon.jks**,
 which is stored in the
 `         <PRODUCT_HOME>/repository/resources/security        `
 directory. This keystore comes with a private/public key pair that is
@@ -48,7 +48,7 @@ the time of generating the keystore. See the instructions given below.
     **Important!**
     
     If you are creating a new keystore for [data
-    encryption](_Securing_Passwords_in_Configuration_Files_) , be sure to
+    encryption](_Securing_Passwords_in_Configuration_Files_), be sure to
     acquire a public key certificate that contains the **Data Encipherment**
     key usage as explained in the [keystore
     recommendations](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
@@ -184,9 +184,9 @@ certificates. These certificates certify the ownership of a public key.
     
         It is preferable to have a wildcard certificate or multiple domain
         certificates if you wish to have multiple subdomains like
-        *[gateway.sampledomain.org](http://gateway.sampledomain.org/)* ,
-        *[publisher.sampledomain.org](http://publisher.sampledomain.org/)* ,
-        *[identity.sampledomain.org](http://identity.sampledomain.org/)* ,
+        *[gateway.sampledomain.org](http://gateway.sampledomain.org/)*,
+        *[publisher.sampledomain.org](http://publisher.sampledomain.org/)*,
+        *[identity.sampledomain.org](http://identity.sampledomain.org/)*,
         etc., for the deployment. For such requirements, you must modify the
         CSR request by adding subject alternative names. Most of the SSL
         providers give instructions to generate the CSR in such cases.
@@ -201,7 +201,7 @@ certificates. These certificates certify the ownership of a public key.
     The Root certificate of the CA:
     `              AddTrustExternalCARoot.crt             `  
     Intermediate certificates:
-    `              COMODORSAAddTrustCA.crt ,             `
+    `              COMODORSAAddTrustCA.crt,             `
     `              COMODORSADomainValidationSecureServerCA.crt             `  
     SSL Certificate signed by CA:
     `              test_sampleapp_org.crt             `

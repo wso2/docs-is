@@ -147,7 +147,7 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhance
 product rolls back the pending transactions if defaultAutoCommit =true .
 However, if required you can disable the latter mentioned default
 behavior by disabling the
-`          ConnectionRollbackOnReturnInterceptor         ` , which is a
+`          ConnectionRollbackOnReturnInterceptor         `, which is a
 JDBC-Pool JDBC interceptor, and setting the connection pool behavior on
 return via the datasource configurations by using the following options.
 
@@ -292,7 +292,7 @@ follows:
     database tables:
 
     -   To create tables for the **registry and user manager database (
-        `              WSO2CARBON_DB             ` )** , run the below
+        `              WSO2CARBON_DB             ` )**, run the below
         command:
 
         ``` powershell

@@ -42,7 +42,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
         instructions.](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions)
     
 
-2.  Navigate to <http://login.amazon.com/> , click **App Console.**
+2.  Navigate to <http://login.amazon.com/>, click **App Console.**
 
 3.  Click **Sign in to App Console** and sign in.
 
@@ -142,7 +142,7 @@ Identity Server version that you are working on.
 3.  As you are using travelocity as the sample, enter travelocity.com in
     the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO** **Configuration** , and then click **Configure**.
+    **SAML2 Web SSO** **Configuration**, and then click **Configure**.
 5.  Add the service provider details as follows:  
     1.  **Select Mode** : Manual Configuration  
         For more information on the SAML2 Web Single-Sign-On

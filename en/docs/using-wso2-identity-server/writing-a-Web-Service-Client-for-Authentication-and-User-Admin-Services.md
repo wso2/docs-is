@@ -13,7 +13,7 @@ to perform different operations.
 
 You can learn more about the admin services used in this sample by
 referring [Calling Admin
-Services](https://docs.wso2.com/display/IS540/Calling+Admin+Services) ,
+Services](https://docs.wso2.com/display/IS540/Calling+Admin+Services),
 [Managing Users and Roles with
 APIs](https://docs.wso2.com/display/IS540/Managing+Users+and+Roles+with+APIs)
 and [Managing Permissions with

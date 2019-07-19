@@ -209,7 +209,7 @@ The next step is to configure the service provider.
         **List** under **Identity Providers**.
     2.  Click **Edit** to edit the pinterest identity provider you
         created.
-    3.  Under **Claim Configuration** , go to **Basic Claim
+    3.  Under **Claim Configuration**, go to **Basic Claim
         Configuration**.
     4.  Select the **Define Custom Claim Dialect** option under **Select
         Claim mapping Dialect**.

@@ -16,8 +16,8 @@ provisioning key concepts that are used in WSO2 Identity Server.
 The identity provisioning framework is the main component that handles
 user/ role provisioning in WSO2 Identity Server. The WSO2 Identity
 Provisioning framework can be separated into three main components, such
-as [Inbound provisioning](_Inbound_Provisioning_) , [Outbound
-provisioning](_Outbound_Provisioning_) , and [User store
+as [Inbound provisioning](_Inbound_Provisioning_), [Outbound
+provisioning](_Outbound_Provisioning_), and [User store
 management](_Configuring_User_Stores_).
 
 The inbound provisioning component is used by the external applications
@@ -97,7 +97,7 @@ provisioning connectors.
 
 That's not all, you can plug custom connectors to WSO2 Identity Server.
 See [Writing an Outbound Provisioning
-Connector](_Writing_an_Outbound_Provisioning_Connector_) , for more
+Connector](_Writing_an_Outbound_Provisioning_Connector_), for more
 information on writing an extension for a custom connector. Outbound
 provisioning configurations can be found under the **Identity Provider
 configuration** user interface of the WSO2 Identity Server management

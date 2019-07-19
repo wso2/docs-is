@@ -158,10 +158,10 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     can select either the primary IS instance or secondary IS instance
     as the identity provider and therefore has access to both user
     spaces.
-5.  Go to <https://localhost:9443/carbon> , the primary IS instance, and
+5.  Go to <https://localhost:9443/carbon>, the primary IS instance, and
     create a user named 'primaryuser' and set the password as
     'primepass'.
-6.  Go to <https://localhost:9444/carbon> , the secondary IS instance
+6.  Go to <https://localhost:9444/carbon>, the secondary IS instance
     and create a user named 'secondaryuser' and set the password as
     'secondpass'.
 7.  Test your application.

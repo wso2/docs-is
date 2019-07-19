@@ -43,7 +43,7 @@ This toolkit consists of two modules:
         inside the form data. Copy and paste only the encoded request
         without " `            SAMLRequest=           ` " to the given
         text area. If the request binding used is
-        `            HTTP Redirect           ` , you can also get the
+        `            HTTP Redirect           `, you can also get the
         SAML Request from the developer tools. However, in this instance
         you have to copy the URL instead of the encoded request. This is
         required because parameters like "

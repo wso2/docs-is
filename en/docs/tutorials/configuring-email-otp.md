@@ -505,8 +505,8 @@ Follow the steps below add a service provider:
     2.  **Assertion Consumer URL** :
         `                           http://localhost:8080/travelocity.com/home.jsp                         `
 
-    3.  Select the following check-boxes: **Enable Response Signing** ,
-        **Enable Single Logout** , **Enable Attribute Profile** , and
+    3.  Select the following check-boxes: **Enable Response Signing**,
+        **Enable Single Logout**, **Enable Attribute Profile**, and
         **Include Attributes in the Response Always**.
 
 8.  Click **Update** to save the changes. Now you will be sent back to

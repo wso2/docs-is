@@ -37,7 +37,7 @@ to the default  H2 database, which stores registry and user management
 data. After setting up the Embedded H2 database to replace the default
 H2 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) , or
+datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase), or
 [configure a
 new datasource](#ChangingtoEmbeddedH2-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 to point it to the new database as explained below.
@@ -160,7 +160,7 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhance
 product rolls back the pending transactions if defaultAutoCommit =true .
 However, if required you can disable the latter mentioned default
 behavior by disabling the
-`          ConnectionRollbackOnReturnInterceptor         ` , which is a
+`          ConnectionRollbackOnReturnInterceptor         `, which is a
 JDBC-Pool JDBC interceptor, and setting the connection pool behavior on
 return via the datasource configurations by using the following options.
 

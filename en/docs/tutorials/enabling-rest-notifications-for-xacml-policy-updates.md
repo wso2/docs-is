@@ -49,8 +49,8 @@ XACML policy changes.
 
     <table>
     <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
+    <col style="width: 20%" />
+    <col style="width: 80%" />
     </colgroup>
     <thead>
     <tr class="header">
@@ -77,13 +77,16 @@ XACML policy changes.
     <p>{"TargetID":"(targetId)","Username":"(username)", "Target":"(target)","Action":"(action)"}</p>
     </div>
     </div>
-    !!! note
-        <p><strong>Note</strong> : The dynamic data that comes to the <code>                policyUpdate               </code> event can be of the following types.</p>
-        <p>- operation: The type of user operation that took place<br />
-        - targetId<br />
-        - username<br />
-        - target<br />
-        - action</p>
+    <div class="admonition note">
+               <p class="admonition-title">Note</p>
+               <p> The dynamic data that comes to the <code>                policyUpdate               </code> event can be of the following types.</p>
+        <p>    - operation<br />
+               - targetId<br />
+               - username<br />
+               - target<br />
+               - action</p> 
+        </p>
+    </div>
     </tr>
     <tr class="even">
     <td><code>               json.subscription.policyUpdate.endpoint.1=pepEndpoint1              </code></td>
@@ -95,7 +98,7 @@ XACML policy changes.
     </tr>
     <tr class="even">
     <td><code>               json.subscription.policyUpdate.endpoint.pepEndpoint1.AuthenticationRequired=true              </code></td>
-    <td>This is an optional property that you can use to authenticate to the rest endpoint you are calling using basic auth. If you set this property to <code>               true              </code> , it is essential to have the username and password defined for your endpoint.</td>
+    <td>This is an optional property that you can use to authenticate to the rest endpoint you are calling using basic auth. If you set this property to <code>               true              </code>, it is essential to have the username and password defined for your endpoint.</td>
     </tr>
     <tr class="odd">
     <td><code>               json.subscription.policyUpdate.endpoint.pepEndpoint1.username=admin              </code></td>
@@ -106,11 +109,11 @@ XACML policy changes.
     <td>The password required to access the endpoint.</td>
     </tr>
     <tr class="odd">
-    <td><pre><code>json.subscription.policyUpdate.jsonId=3232</code></pre></td>
+    <td><code>json.subscription.policyUpdate.jsonId=3232</code></td>
     <td></td>
     </tr>
     <tr class="even">
-    <td><pre><code>json.subscription.policyUpdate.endpoint.pepEndpoint1.address=https\://localhost\:9443/wso2/scim/Users</code></pre></td>
+    <td><code>json.subscription.policyUpdate.endpoint.pepEndpoint1.address=https\://localhost\:9443/wso2/scim/Users</code></td>
     <td>This is an endpoint configuration that is used to define the address to which the content will be posted.</td>
     </tr>
     </tbody>

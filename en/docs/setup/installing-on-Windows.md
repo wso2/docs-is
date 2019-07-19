@@ -2,7 +2,7 @@
 
 !!! tip
     
-    **Before you begin** , [please see our compatibility
+    **Before you begin**, [please see our compatibility
     matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
     to find out if this version of the product is fully tested on Windows.
     
@@ -21,7 +21,7 @@ Windows.
     [Installation Prerequisites](_Installation_Prerequisites_).  Java
     Development Kit (JDK) is essential to run the product.
 2.  Ensure that the `          PATH         ` environment variable is
-    set to `          C:\Windows\System32         ` , because the
+    set to `          C:\Windows\System32         `, because the
     `          findstr         ` Windows.exe file is stored in this
     path.
 
@@ -43,7 +43,7 @@ Windows.
 You must set your `         JAVA_HOME        ` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer. Typically, the JDK is installed in a directory under
-`         C:/Program Files/Java        ` , such as
+`         C:/Program Files/Java        `, such as
 `         C:/Program Files/Java/jdk1.8.0_141        ` . If you have
 multiple versions installed, choose the latest one, which you can find
 by sorting by date.
@@ -91,7 +91,7 @@ windows running, you must close and reopen them for the JAVA\_HOME
 variable to take effect, or manually set the JAVA\_HOME variable in
 those command prompt windows as described in the next section. To verify
 that the `         JAVA_HOME        ` variable is set correctly, open a
-command window (from the **Start** menu, click **Run** , and then type
+command window (from the **Start** menu, click **Run**, and then type
 `         CMD        ` and click **Enter** ) and execute the following
 command:
 

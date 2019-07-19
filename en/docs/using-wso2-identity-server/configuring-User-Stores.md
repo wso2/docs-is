@@ -4,7 +4,7 @@ WSO2 products allow configuring multiple user stores to your system that
 are used to store users and their roles (Groups). Out of the box WSO2
 products support JDBC, LDAP and Active Directory user stores with the
 capability of configuring custom user stores. There are different user
-store adapters called *User store managers* , which are used to connect
+store adapters called *User store managers*, which are used to connect
 with these users store types.
 
 There are two types of user stores - Primary User store (Mandatory) and

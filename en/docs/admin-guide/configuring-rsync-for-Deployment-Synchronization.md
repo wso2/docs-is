@@ -1,7 +1,7 @@
 # Configuring rsync for Deployment Synchronization
 
 Deployment synchronization can be done using
-[rsync](https://download.samba.org/pub/rsync/rsync.html) , which is a
+[rsync](https://download.samba.org/pub/rsync/rsync.html), which is a
 file copying tool. These changes must be done in the manager node and in
 the same directory.
 

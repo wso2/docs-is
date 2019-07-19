@@ -13,7 +13,7 @@ customized product on your own.
     !!! tip
     
         Click [Repositories used to build WSO2
-        products](https://wso2.github.io/github-repositories.html#IS) , and
+        products](https://wso2.github.io/github-repositories.html#IS), and
         clone the repositories that are listed for WSO2 Identity Server.
     
 

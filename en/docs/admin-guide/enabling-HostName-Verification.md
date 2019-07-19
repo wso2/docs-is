@@ -55,7 +55,7 @@ instructions on how to apply this configuration.
 For all other product versions (that are not listed above), this
 configuration will apply based on the Carbon version. Therefore, check
 the [Carbon version of your WSO2
-product](https://wso2.com/products/carbon/release-matrix/) , and then
+product](https://wso2.com/products/carbon/release-matrix/), and then
 following the instructions given below.
 
 ### Configuring hostname verification (Carbon 4.4.6 to Carbon 4.4.16)
@@ -136,14 +136,14 @@ options.
         **Important!**
     
         If you are disabling hostname verification for **WSO2 AM 2.0.0** or
-        **2.1.0** , you need to use both system properties listed below.
+        **2.1.0**, you need to use both system properties listed below.
     
         ``` java
             -Dorg.wso2.ignoreHostnameVerification=true \
             -Dhttpclient.hostnameVerifier=AllowAll \
         ```
     
-        If you are disabling hostname verification for **WSO2 EI 6.1.1** ,
+        If you are disabling hostname verification for **WSO2 EI 6.1.1**,
         you need to use both system properties listed below.
     
         ``` java
@@ -151,7 +151,7 @@ options.
             -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
         ```
     
-        If you are disabling hostname verification for **WSO2 IS** , use the
+        If you are disabling hostname verification for **WSO2 IS**, use the
         following system properties.
     
         ``` java

@@ -42,7 +42,7 @@ claim dialect (i.e., a claim dialect local to the Identity Server) or
 define your own custom claim dialect (i.e., a claim dialect which exists
 in the identity provider that must be mapped to the Identity Server).
 
--   If you choose to **Use Local Claim Dialect** , select the claim you
+-   If you choose to **Use Local Claim Dialect**, select the claim you
     require from the **User ID Claim URI** dropdown that includes a list
     of all the claims defined in the Identity Server.  
     ![](attachments/103329700/103329701.png){width="710"}  
@@ -145,13 +145,13 @@ Identity Server.
 Use the following instructions to configure advanced claims.
 
 -   If you chose to **Use Local Claim Dialect** in the **Basic Claim
-    Configuration** , do the following.
+    Configuration**, do the following.
     1.  When you send provisioning requests from the Identity Server to
         the external identity provider, it may not be necessary to send
         all the requests. So, you can use the **Provisioning Claim
         Filter** to filter out the user attributes you need to send from
         the other available attributes. To use the **Provisioning Claim
-        Filter** , select the claims that exist in the Identity Server
+        Filter**, select the claims that exist in the Identity Server
         from the dropdown list and click **Add Claim**. Clicking this
         button again enables you to add a new entry.  
         ![Advanced Claim for local
@@ -163,7 +163,7 @@ Use the following instructions to configure advanced claims.
         organization as a default value using this field. Clicking the
         **Delete** button will remove this advanced claim.
 -   If you chose to **Define Custom Claim Dialect** in the **Basic Claim
-    Configuration** , do the following.
+    Configuration**, do the following.
     1.  Select the **Identity Provider Claim URI** you defined from the
         dropdown list and click **Add Claim**. Clicking this button
         again will add a new entry.  

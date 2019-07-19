@@ -260,7 +260,7 @@ executed.
     
     If you implement a `           CustomRequestObjectBuilder          ` to
     obtain Request Object from request\_uri, you need to register it as a
-    new `           RequestObjectBuilder          ` , in
+    new `           RequestObjectBuilder          `, in
     `           $IS_HOME/repository/conf/identity/identity.xml.          `
     
     ``` java

@@ -29,7 +29,7 @@ documentation.
 <td><p>Apply security updates</p></td>
 <td><p>Apply all the security patches relevant to your product version. If your WSO2 product version is supported by WSO2 Update Manager (WUM), you need to use WUM to get the latest fixes.</p>
 <ul>
-<li>If your WSO2 product is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a> , follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> .</li>
+<li>If your WSO2 product is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> .</li>
 <li><p>If you are using an older WSO2 product version, which is not WUM-supported, you need to download the security patches relevant to your product from the <a href="http://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and apply them to your system manually. The instructions are given in <a href="_WSO2_Patch_Application_Process_">WSO2 Patch Application Process</a> .</p></li>
 </ul>
 !!! note

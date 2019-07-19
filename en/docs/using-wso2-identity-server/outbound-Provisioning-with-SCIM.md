@@ -62,7 +62,7 @@ identity provider in the Identity Server.
     -   Enter the **Username** and **Password** used in the SCIM
         application.
 
-    -   Select the **User Endpoint** and **Group Endpoint** , which are
+    -   Select the **User Endpoint** and **Group Endpoint**, which are
         SCIM endpoints.
 
     -   **User Store Domain** is the user store that you need to

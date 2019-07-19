@@ -26,7 +26,7 @@ is now possible directly through the management console.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Click **Add Email Template Type.**
 4.  Enter the name that you want to be displayed for the new email
     template type in the **Template Type Display Name**.
@@ -43,7 +43,7 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Click **Add Email Template.**
 4.  Select/enter the email template details.  
 
@@ -62,7 +62,7 @@ template.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 
@@ -114,7 +114,7 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select the email template type.
 4.  Click **Delete Template Type** and click **ok.**
 
@@ -124,7 +124,7 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select/enter the email template details based on the fields that you
     want to update in the email template.  
 
@@ -143,7 +143,7 @@ template.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 
@@ -191,7 +191,7 @@ corresponds to an email template type.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select the email template type and the respective email template.
 4.  Click **Delete Template** and click **ok.**
 

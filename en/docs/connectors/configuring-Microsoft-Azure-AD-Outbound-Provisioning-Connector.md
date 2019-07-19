@@ -172,7 +172,7 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     </tr>
     <tr class="even">
     <td><p>Append Domain Name to UPN</p></td>
-    <td><p>If this is set to <strong>true</strong> , the domain name is appended to the UPN if it is not already there.</p></td>
+    <td><p>If this is set to <strong>true</strong>, the domain name is appended to the UPN if it is not already there.</p></td>
     <td><p>true</p>
     <br />
 
@@ -307,8 +307,8 @@ Follow the instructions below to try out this scenario.
     configurations.
 
     In this scenario,
-    `                         Username                       ` ,
-    `                         Display Name                       ` , and
+    `                         Username                       `,
+    `                         Display Name                       `, and
     `                         User ID                       `
     `                                   ` are mandatory attributes for
     user provisioning and group assigning.

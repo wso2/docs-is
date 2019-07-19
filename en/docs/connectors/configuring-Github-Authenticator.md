@@ -47,7 +47,7 @@ Github Authenticator  is supported by Identity Server 5.1.0 upwards.
 
 ### Configuring the Github App
 
-1.  Go to <https://www.github.com/> , and create a github account.
+1.  Go to <https://www.github.com/>, and create a github account.
 2.  Register your app at <https://github.com/settings/applications/new>
     .  
     ![](attachments/49774670/49971235.png){width="600"}

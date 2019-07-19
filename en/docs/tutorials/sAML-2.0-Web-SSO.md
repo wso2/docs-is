@@ -153,7 +153,7 @@ OpenSAML library:
         authnRequest.setVersion(SAMLVersion.VERSION_20); 
     ```
 
-    The message may contain many other elements like , etc. those
+    The message may contain many other elements like, etc. those
     elements can be created and added to the message in the same way.
 
 5.  Next encode the message.
