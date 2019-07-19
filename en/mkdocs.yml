@@ -224,14 +224,14 @@ nav:
           - 'Writing XACML policies in WSO2 Identity Server - 6': tutorials/writing-xacml-policies-in-wso2-identity-server-6.md
           - 'Writing XACML policies in WSO2 Identity Server - 7': tutorials/writing-xacml-policies-in-wso2-identity-server-7.md
         - 'Writing XACML3 Policies in WSO2 Identity Server':
-          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---1.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---2.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---3.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---4.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---5.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---6.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---7.md
+          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-xacml3-policies-in-wso2-identity-server.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-xacml-3-policies-in-wso2-identity-server-1.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-xacml-3-policies-in-wso2-identity-server-2.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-xacml-3-policies-in-wso2-identity-server-3.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-xacml-3-policies-in-wso2-identity-server-4.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-xacml-3-policies-in-wso2-identity-server-5.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-xacml-3-policies-in-wso2-identity-server-6.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-xacml-3-policies-in-wso2-identity-server-7.md
         - 'Sending Notifications to External PEP Endpoints': tutorials/sending-Notifications-to-External-PEP-Endpoints.md
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
       - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md
