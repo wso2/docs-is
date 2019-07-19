@@ -15,7 +15,7 @@ which is configured in the **catalina-server.xml** file in the
 essential for this transport to be properly configured in this file for
 the Management Console to be accessible to users. For information on how
 to access the management console, see [Running the
-Product](_Running_the_Product_) .
+Product](_Running_the_Product_).
 
 !!! warning
     
@@ -130,7 +130,7 @@ menu items.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to monitoring the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](_Monitoring_the_Identity_Server_) .
+[monitoring the Identity Server](_Monitoring_the_Identity_Server_).
 
 ![](attachments/103328985/103328987.png)
 
@@ -162,6 +162,6 @@ menu items.
 
 The tools menu includes SAML and XACML tools. For more details on each
 of these tools and their usage, see the topics on [working with
-tools](_Using_Tools_) .
+tools](_Using_Tools_).
 
 ![](attachments/103328985/103328989.png)

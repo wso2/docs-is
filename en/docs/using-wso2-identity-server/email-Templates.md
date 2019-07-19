@@ -36,4 +36,4 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 
 -   For an example of how email templates are used, see [Creating Users
     Using the Ask Password
-    Option](_Creating_Users_Using_the_Ask_Password_Option_) .
+    Option](_Creating_Users_Using_the_Ask_Password_Option_).

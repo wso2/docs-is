@@ -23,7 +23,7 @@ supported by Identity Server 5.1.0 upwards.
 ### Deploying Reddit artifacts
 
 -   Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 -   Download the Reddit authenticator from
     [here](https://store.wso2.com/store/assets/isconnector/details/45092602-8b7b-4f29-9d66-cc5b39990907)
@@ -62,7 +62,7 @@ Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](#ConfiguringRedditAuthenticator-ConfiguringanIdentityProvider)
 and [service
-provider](#ConfiguringRedditAuthenticator-ConfiguringaServiceProvider) .
+provider](#ConfiguringRedditAuthenticator-ConfiguringaServiceProvider).
 
 ### Configuring the identity provider
 
@@ -103,7 +103,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     The default password of the client-truststore.jks is "wso2carbon".
 
 3.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 4.  Log in to the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.

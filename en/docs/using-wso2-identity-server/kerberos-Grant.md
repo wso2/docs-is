@@ -172,7 +172,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
         !!! note
         
                 The IDP name should be the name of the realm as specified in the
-                token request in [step 3](#KerberosGrant-MessageFormat) . Based
+                token request in [step 3](#KerberosGrant-MessageFormat). Based
                 on this example, it should be
                 `                           example.com                         `
                 .
@@ -247,4 +247,4 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
     the OAuth token.
 
 7.  Invoke the token endpoint using the message format discussed in
-    [step 3](#KerberosGrant-MessageFormat) .
+    [step 3](#KerberosGrant-MessageFormat).

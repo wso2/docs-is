@@ -6,7 +6,7 @@
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
     service given below, see [Using the SCIM 2.0 REST
-    APIs](_Using_the_SCIM_2.0_REST_APIs_) .
+    APIs](_Using_the_SCIM_2.0_REST_APIs_).
     
 
 This section guides you through invoking and working with the

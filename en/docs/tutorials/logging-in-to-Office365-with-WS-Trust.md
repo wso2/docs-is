@@ -29,7 +29,7 @@ provider. The MetadataExchange service endpoint is shipped with WSO2
 Identity Server to cater to the authentication requirements of the
 Office365 active clients. For more information on understanding
 WS-MetaData Exchange, see the following
-[article](http://wso2.com/library/2794/) .
+[article](http://wso2.com/library/2794/).
 
 #### Secure Token Service (STS)
 

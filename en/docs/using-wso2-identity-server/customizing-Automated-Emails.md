@@ -221,7 +221,7 @@ configure this.
         **pt\_br** for Brazil locale and **it\_it** for the Italian locale.
         This is the format used for country locales in the Identity Server.
         For more information on country locales, see
-        [here](http://www.science.co.il/language/Locale-codes.php) .
+        [here](http://www.science.co.il/language/Locale-codes.php).
     
 
 Now that this is done, any email notifications you receive will be in

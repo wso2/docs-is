@@ -156,7 +156,7 @@ SCIM is purely RESTful. The initial version supported both JSON and XML.
 SCIM introduced a REST API for provisioning and also a core schema
 (which also can be extended) for provisioning objects. SCIM 1.1 was
 finalized in 2012 - and then it was donated to the
-[IETF](http://tools.ietf.org/wg/scim/) . Once in IETF, it changed the
+[IETF](http://tools.ietf.org/wg/scim/). Once in IETF, it changed the
 definition of SCIM to System for Cross-domain Identity Management and it
 supports only JSON and now XML.
 

@@ -413,7 +413,7 @@ below steps:
 
     Following are two sample values for Name and value:
 
-    Name : [wso2.my](http://wso2.my/) .dashboard
+    Name : [wso2.my](http://wso2.my/).dashboard
 
     Value : <https://localhost:9443/dashboard/index.jag>
 

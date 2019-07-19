@@ -213,7 +213,7 @@ Server credentials.
 
 For more information on how to configure primary and secondary user
 stores, see [Configuring User
-Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores) .
+Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores).
 
 
 Let's get started!

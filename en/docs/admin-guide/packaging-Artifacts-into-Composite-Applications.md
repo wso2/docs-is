@@ -62,7 +62,7 @@ OR
 
 You have now exported all your project's artifacts into a single CAR
 file. Next, [deploy the Composite Application in the
-server](_Deploying_Composite_Applications_in_the_Server_) .
+server](_Deploying_Composite_Applications_in_the_Server_).
 
 !!! note
     

@@ -1,12 +1,12 @@
 # Adding and Configuring a Service Provider
 
 This topic provides instructions on how to add a new [service
-provider](Architecture_103329008.html#Architecture-Serviceprovider) .
+provider](Architecture_103329008.html#Architecture-Serviceprovider).
 You must provide configuration details to add this service provider in
 the WSO2 Identity Server so that the authentication and/or provisioning
 happens as expected. For more information on how the service provider
 fits into the WSO2 IS architecture, see
-[Architecture](https://docs.wso2.com/display/IS550/Architecture) .
+[Architecture](https://docs.wso2.com/display/IS550/Architecture).
 
 The responsibility of the service provider configuration is to represent
 external service providers. The service provider configurations cover
@@ -44,7 +44,7 @@ the following:
     for more information about response builder. Now the response
     builder will receive the claims in a manner understood by the
     corresponding service provider. [Read more about claim
-    management](https://docs.wso2.com/display/IS550/Claim+Management) .
+    management](https://docs.wso2.com/display/IS550/Claim+Management).
 
 This topic contains the following sections.
 
@@ -64,15 +64,15 @@ This topic contains the following sections.
     
     -   Export an existing service provider and import it using the
         management console. For instructions, see [Importing or Exporting a
-        Service Provider](_Importing_or_Exporting_a_Service_Provider_) .
+        Service Provider](_Importing_or_Exporting_a_Service_Provider_).
     -   Add a new service provider using a configuration file instead of
         using the management console. For instructions, see [Configuring a
         SP and IdP Using Configuration
-        Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_) .
+        Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_).
     
 
 1.  Sign in to the [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
     .  
     ![](attachments/103329740/112392337.png){width="200"}
@@ -530,7 +530,7 @@ Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
 any user who should be able to view and manage the service provider. For
 information on how to assign roles to a user, see [Configuring
-Users](https://docs.wso2.com/display/IS580/Configuring+Users) .
+Users](https://docs.wso2.com/display/IS580/Configuring+Users).
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here
 for details on how to configure inbound authentication
@@ -556,7 +556,7 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](https://docs.wso2.com/display/IS580/Architecture) .
+[Architecture](https://docs.wso2.com/display/IS580/Architecture).
 
 Let's learn how to configure inbound authentication for a service
 provider.
@@ -707,7 +707,7 @@ provider.
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
     you use [OpenID
-    Connect](https://docs.wso2.com/display/IS580/OAuth2-OpenID+Connect) .
+    Connect](https://docs.wso2.com/display/IS580/OAuth2-OpenID+Connect).
     
 
 You can configure inbound authentication in following ways:
@@ -867,7 +867,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="odd">
     <td><strong>Enable Single Logout</strong></td>
     <td><p>Select <strong>Enable Single Logout</strong> so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a <strong>SLO Response URL</strong> and <strong>SLO Request URL</strong> for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.<br />
-    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding) .</strong></p></td>
+    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding).</strong></p></td>
     <td>Selected</td>
     </tr>
     <tr class="even">
@@ -1351,7 +1351,7 @@ To configure WS-Federation SSO:
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS) .
+    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS).
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
@@ -1530,7 +1530,7 @@ party.
 
     Run the STS client after configuring the service provider. For
     instructions on trying out a sample STS client, see [Running an STS
-    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client) .
+    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client).
 
   
 

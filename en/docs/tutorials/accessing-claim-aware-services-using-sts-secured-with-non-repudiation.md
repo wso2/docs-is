@@ -103,7 +103,7 @@ The end service is successfully configured now.
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](../../setup/getting-started-with-the-management-console) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Navigate to the **Service Providers** section by clicking **Add** in
     the **Main** menu under **Service Providers**.
 4.  Add a **Service Provider Name** and **Description** and click

@@ -115,7 +115,7 @@ task that checks for idle accounts is common to all tenants.
     
         For more information on how to edit and customize the email
         templates, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 #### Configuring account suspension settings

@@ -72,7 +72,7 @@ features.
 
 -   RESTful consent APIs to manage consents remotely. For more
     infomation, see [Using the Consent Management REST
-    APIs](_Using_the_Consent_Management_REST_APIs_) .
+    APIs](_Using_the_Consent_Management_REST_APIs_).
 -   Consent portal for individuals to review, modify, and revoke already
     given consents. For more information, see [Configuring consent for
     services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
@@ -80,11 +80,11 @@ features.
 -   Admin portal support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. For more
     information, see [Managing Consent
-    Purposes](_Managing_Consent_Purposes_) .
+    Purposes](_Managing_Consent_Purposes_).
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. For more information,
     see [Consent Management with
-    Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+    Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
 -   Support for the Kantara consent receipt specification. For more
     information, see the [Kantara Consent Receipt
     Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
@@ -166,7 +166,7 @@ supported in WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Consent Management with
-    Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+    Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
     
 
 ##### Manage consents that belong to third party applications
@@ -196,5 +196,5 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     
     For more information and instructions for setting up this use case, see
     [Using the Consent Management REST
-    APIs](_Using_the_Consent_Management_REST_APIs_) .
+    APIs](_Using_the_Consent_Management_REST_APIs_).
     

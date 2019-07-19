@@ -8,14 +8,14 @@ replace the default H2 database in your WSO2 product:
 Follow the steps below to set up an embedded Derby database:
 
 1.  Download [Apache
-    Derby](http://apache.mesi.com.ar/db/derby/db-derby-10.8.2.2/) .
+    Derby](http://apache.mesi.com.ar/db/derby/db-derby-10.8.2.2/).
 2.  Install Apache Derby on your computer.
 
     For instructions on installing Apache Derby, see the [Apache Derby
-    documentation](http://db.apache.org/derby/manuals/) .
+    documentation](http://db.apache.org/derby/manuals/).
 
 ## What's next
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with it, see [Changing to Embedded
-Derby](_Changing_to_Embedded_Derby_) .
+Derby](_Changing_to_Embedded_Derby_).

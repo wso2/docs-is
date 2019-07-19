@@ -26,7 +26,7 @@ with Embedded H2:
     
     You need to set up Embedded H2 before following the steps to configure
     your product with it. For more information, see [Setting up Embedded
-    H2](_Setting_up_Embedded_H2_) .
+    H2](_Setting_up_Embedded_H2_).
     
 
 ### Setting up datasource configurations
@@ -147,7 +147,7 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhance
     This WUM update is only applicable to Carbon 4.4.11 and will be shipped
     out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more
     information on Carbon compatibility, see [Release
-    Matrix](https://wso2.com/products/carbon/release-matrix/) .
+    Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
 | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                |

@@ -93,7 +93,7 @@ setup.
 For single sign-on to work, you need to configure the WSO2 products to
 share a common user store. For more information on configuring this, see
 [Configuring the Primary User
-Store](_Configuring_the_Primary_User_Store_) .
+Store](_Configuring_the_Primary_User_Store_).
 
 #### Step 4 - Configuring the Identity Server as the Single Sign-On provider
 

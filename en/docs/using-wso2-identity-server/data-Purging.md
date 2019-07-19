@@ -6,7 +6,7 @@ authentication purposes. A s the volume of the data stored grows over
 time, the authentication operations may also eventually consume more
 time. You can apply data purging to mitigate this. For more information
 about session persistence, see [Authentication Session
-Persistence](_Authentication_Session_Persistence_) .
+Persistence](_Authentication_Session_Persistence_).
 
 !!! tip
     

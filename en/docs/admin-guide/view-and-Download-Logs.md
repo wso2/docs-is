@@ -24,7 +24,7 @@ appender. Therefore, the severity (log level) of the displayed log
 messages are equal to or higher than the threshold of the memory
 appender. For more information on appenders, loggers, their log levels
 and logging, go to
-[http://logging.apache.org/log4j](http://logging.apache.org/log4j/) .
+[http://logging.apache.org/log4j](http://logging.apache.org/log4j/).
 
 See the following topics on system logs and application logs:
 

@@ -13,7 +13,7 @@ attacks.
     Recovery](Password-Recovery_103330558.html#PasswordRecovery-Recoveryusingchallengequestions)
     .
 -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](_Mitigating_Brute_Force_Attacks_) .
+    Force Attacks](_Mitigating_Brute_Force_Attacks_).
 
   
 

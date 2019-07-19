@@ -176,7 +176,7 @@ Ubuntu.
         Response is signed with this certificate.
 
 10. Install WSO2 Identity Server. The WSO2 Identity Server is available
-    for download [here](http://wso2.com/products/identity-server) .
+    for download [here](http://wso2.com/products/identity-server).
 11. [Start WSO2 Identity
     Server](https://docs.wso2.com/display/IS530/Running+the+Product) and
     add a Service Provider under SAML SSO.

@@ -15,14 +15,14 @@ revised specification that offered upgraded security to users. In 2009,
 recognizing the value of more formalized standardization, that community
 contributed OAuth 1.0 to the IETF. It was within the IETF Working Group
 that the original OAuth 1.0 was reworked and clarified to become the
-Informative [RFC 5849](http://tools.ietf.org/html/rfc5849) .
+Informative [RFC 5849](http://tools.ietf.org/html/rfc5849).
 
 ![](attachments/103329571/103329572.png)
 
 After more standardization, in 2010, Microsoft, Yahoo!, and Google
 created the Web Resource Authentication Protocol (WRAP), which was soon
 submitted into the IETF WG as input for [OAuth
-2.0](http://tools.ietf.org/html/draft-ietf-oauth-v2-22) . WRAP proposed
+2.0](http://tools.ietf.org/html/draft-ietf-oauth-v2-22). WRAP proposed
 significant reworking of the OAuth 1.0a model. Among the changes were
 the deprecation of message signatures in favor of SSL, and a formal
 separation between the roles of ‘token issuance’ and ‘token reliance.’
@@ -168,7 +168,7 @@ This specification defines the following four grant types:
 4.  Client credentials
 
 More information about the grant types can found from
-[here](https://docs.wso2.com/display/IS540/OAuth+2.0+Grant+Types) .
+[here](https://docs.wso2.com/display/IS540/OAuth+2.0+Grant+Types).
 
 Client Credentials is the grant type which goes closely with 2-legged
 OAuth. With the Client Credentials grant type, the client can request an
@@ -206,7 +206,7 @@ GET /resource/1?b=1&a=2 HTTP/1.1
 ```
 
 Bearer type is defined
-[here](http://tools.ietf.org/html/draft-ietf-oauth-v2-bearer-08) . It is
+[here](http://tools.ietf.org/html/draft-ietf-oauth-v2-bearer-08). It is
 a security token with the property that any party in possession of the
 token (a "bearer") can use the token in any way that any other party in
 possession of it can. Using a bearer token does not require a bearer to

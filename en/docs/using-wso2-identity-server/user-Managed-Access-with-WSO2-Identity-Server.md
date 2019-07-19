@@ -72,7 +72,7 @@ resource owner:
     can sign in using `          admin         ` as the username and
     password. For detailed instructions on starting WSO2 Identity Server
     and accessing the management console, see [Running the
-    Product](_Running_the_Product_) .
+    Product](_Running_the_Product_).
 2.  On the **Main** tab, click **Add** under **Users and Roles**.
 3.  Click **Add New User**.
 4.  Specify the following values to create a new user.
@@ -154,7 +154,7 @@ values to obtain the Protection API Access Token (PAT).
         -   Be sure to replace the `            <CLIENT_ID>           ` and
             `            <CLIENT_SECRET>           ` tags with the values
             you obtained when you [configured the service provider for the
-            client](#UserManagedAccesswithWSO2IdentityServer-kapte_sp) .
+            client](#UserManagedAccesswithWSO2IdentityServer-kapte_sp).
         -   In this tutorial, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have
@@ -367,7 +367,7 @@ party user name is required).
     Be sure to replace the `             <CLIENT_ID>            ` and
     `             <CLIENT_SECRET>            ` tags with the values you
     got when you [Configured the service provider for the
-    client](#UserManagedAccesswithWSO2IdentityServer-client_sp) .
+    client](#UserManagedAccesswithWSO2IdentityServer-client_sp).
 
     ``` java
         curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=sam&password=sam123&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
@@ -405,7 +405,7 @@ claim token.
         `              <CLIENT_ID>             ` and
         `              <CLIENT_SECRET>             ` tags with the
         values you got after [Configuring service provider for the
-        client](#UserManagedAccesswithWSO2IdentityServer-client_sp) .
+        client](#UserManagedAccesswithWSO2IdentityServer-client_sp).
     -   Replace `              <PERMISSION_TICKET>             ` with
         the value you generated under the [Obtaining a permission
         ticket](#UserManagedAccesswithWSO2IdentityServer-Obtainingapermissionticket)

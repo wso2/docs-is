@@ -299,7 +299,7 @@ in the Identity Server.
     [install](https://docs.wso2.com/display/IS530/Installing+the+Product)
     the WSO2 Identity Server.
 2.  [Start the Identity
-    Server](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 3.  Log in to the Identity Server [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .

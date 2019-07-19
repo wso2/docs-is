@@ -62,7 +62,7 @@ authentication, with authenticators available for **SMSOTP, FIDO,
 MEPin** and more.
 
 For a complete list of readily available authenticators, click
-[here](https://store.wso2.com/store/assets/isconnector/list) .
+[here](https://store.wso2.com/store/assets/isconnector/list).
 
 !!! note
     

@@ -100,7 +100,7 @@ required because the WSO2 Identity Server needs to know if the password
 is expired or not for this flow to work.
 
 For more information about claim mappings, see [Adding a claim
-mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 
 1.  Navigate to the **Identity** section under the **Main** tab of the
     [management

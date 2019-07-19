@@ -18,7 +18,7 @@ WSO2 Identity Server:
     Before you begin,
     
     Download and install WSO2 Identity Server. For detailed information on
-    how to install, see [Installing the Product](_Installing_the_Product_) .
+    how to install, see [Installing the Product](_Installing_the_Product_).
     
 
 1.  Start WSO2 Identity Server and access the management console via

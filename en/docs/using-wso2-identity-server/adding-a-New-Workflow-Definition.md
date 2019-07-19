@@ -64,7 +64,7 @@ To add a new workflow, do the following.
         for some users, get approval from a user to continue). Identity
         Server supports custom templates that can be deployed as OSGi
         services. More information on writing workflow templates can be
-        found [here](_Writing_a_Custom_Workflow_Template_) .
+        found [here](_Writing_a_Custom_Workflow_Template_).
 
 4.  Fill in the deployment information of the template as described
     below. Use the screen capture as a guide for the sample values to
@@ -94,4 +94,4 @@ To add a new workflow, do the following.
 
 Now you need to add the workflow you created to an operation. For more
 information, see [Engaging a Workflow in an
-Operation](_Engaging_a_Workflow_in_an_Operation_) .
+Operation](_Engaging_a_Workflow_in_an_Operation_).

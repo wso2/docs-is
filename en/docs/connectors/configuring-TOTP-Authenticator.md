@@ -35,7 +35,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     by entering your username and password.
 3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add Local
-    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     This displays the **Add Local Claim** screen.
 
     !!! note
@@ -288,7 +288,7 @@ The user store configuration is maintained per tenant:
     collection named `            totp           ` , add the resource
     and upload the
     `            application-authentication.xml           ` file into
-    the registry) . While doing the authentication, first it checks
+    the registry). While doing the authentication, first it checks
     whether there is an XML file uploaded to the registry. If that is
     so, it reads it from the registry but does not take the local file.
     If there is no file in the registry, then it only takes the property

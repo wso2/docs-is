@@ -155,7 +155,7 @@ for the request.
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating
     and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_) .
+    APIs](_Authenticating_and_Authorizing_REST_APIs_).
 
 Sample requests and responses are given below:
 

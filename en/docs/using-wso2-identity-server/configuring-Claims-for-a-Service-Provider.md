@@ -218,7 +218,7 @@ things.
 
             For more information about consent management during
             authentication, see [Consent Management with
-            Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+            Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
 
 2.  Select the **Subject Claim URI** and the **Role Claim URI** (for
     custom claims)from the drop-down. The claims you mapped are listed

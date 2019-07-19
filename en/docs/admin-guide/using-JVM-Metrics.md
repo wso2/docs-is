@@ -7,7 +7,7 @@ dashboard in a WSO2 product.
 
 For detailed instructions on enabling/disabling JVM metrics and
 configuring the metric gauges, see [Setting up Carbon
-Metrics](_Setting_Up_Carbon_Metrics_) .
+Metrics](_Setting_Up_Carbon_Metrics_).
 
 1.  Log in to the management console of your WSO2 product. Click
     **Monitor -\> Metrics -\> JVM Metrics** to open the **View Metrics**

@@ -21,7 +21,7 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](_Architecture_) .
+[Architecture](_Architecture_).
 
 Let's learn how to configure inbound authentication for a service
 provider.
@@ -171,7 +171,7 @@ provider.
     OpenID 2.0 has been removed from the base product in WSO2 Identity
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
-    you use [OpenID Connect](_OAuth2-OpenID_Connect_) .
+    you use [OpenID Connect](_OAuth2-OpenID_Connect_).
     
 
 You can configure inbound authentication in following ways:
@@ -331,7 +331,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="odd">
     <td><strong>Enable Single Logout</strong></td>
     <td><p>Select <strong>Enable Single Logout</strong> so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a <strong>SLO Response URL</strong> and <strong>SLO Request URL</strong> for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.<br />
-    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding) .</strong></p></td>
+    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding).</strong></p></td>
     <td>Selected</td>
     </tr>
     <tr class="even">
@@ -813,7 +813,7 @@ To configure WS-Federation SSO:
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS) .
+    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS).
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
@@ -992,7 +992,7 @@ party.
 
     Run the STS client after configuring the service provider. For
     instructions on trying out a sample STS client, see [Running an STS
-    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client) .
+    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client).
 
   
 

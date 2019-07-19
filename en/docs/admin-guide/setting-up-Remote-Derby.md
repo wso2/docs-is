@@ -12,11 +12,11 @@ replace the default H2 database in your WSO2 product:
 Follow the steps below to set up a remote Derby database.
 
 1.  Download [Apache
-    Derby](http://apache.mesi.com.ar/db/derby/db-derby-10.8.2.2/) .
+    Derby](http://apache.mesi.com.ar/db/derby/db-derby-10.8.2.2/).
 2.  Install Apache Derby on your computer.
 
     For instructions on installing Apache Derby, see the [Apache Derby
-    documentation](http://db.apache.org/derby/manuals/) .
+    documentation](http://db.apache.org/derby/manuals/).
 
 3.  Go to the `          <DERBY_HOME>/bin         ` / directory and run
     the Derby network server start script. Usually, it is named

@@ -34,7 +34,7 @@ protocol.
 To monitor messages from client to server using TCPMon:
 
 1.  Start TCPMon. Follow the instructions on [Starting
-    TCPMon](https://docs.wso2.com/display/Carbon440/Starting+TCPMon) .
+    TCPMon](https://docs.wso2.com/display/Carbon440/Starting+TCPMon).
 2.  Give 8081 (the listening port of TCPMon) in the **Listen Port**
     field (This could be any unused port in your local machine).
 3.  Give the address of the back end server as the target hostname. For
@@ -46,7 +46,7 @@ To monitor messages from client to server using TCPMon:
     ![](attachments/56986697/56986700.png)
 5.  Click **Add** to save the setting.
 6.  Now, p oint the browser to 'localhost:8081' instead of
-    [www.apache.org](http://www.apache.org) .  
+    [www.apache.org](http://www.apache.org).  
     ![](attachments/56986697/56986701.png)
 7.  A new tab in TCPMon will indicate the 8081 port. You can view the
     requests and responses passing through TCPMon as shown below.  

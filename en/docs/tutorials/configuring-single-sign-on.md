@@ -34,7 +34,7 @@ provider.
         The  samples are written on Servlet 3.0. Therefore, they need to be
         deployed on Tomcat 7.x.
     -   Install Apache Maven. For more information, see [Installation
-        Prerequisites](../../setup/installation-prerequisites) .
+        Prerequisites](../../setup/installation-prerequisites).
 
 
 ### Configuring the SSO web application
@@ -439,7 +439,7 @@ key_encryption_alg=
 
         For more information, see
         [Configuring Claims for a Service
-        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) .  
+        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider).  
         ![configure-sso-claims](../../assets/img/tutorials/configure-sso-claims.png)
 
 2.  Configure outbound authentication as **Default** authentication

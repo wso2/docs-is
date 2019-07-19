@@ -61,7 +61,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [Deploying the Sample
-App](_Deploying_the_Sample_App_) .
+App](_Deploying_the_Sample_App_).
 
 ### Configuring the identity provider
 
@@ -74,7 +74,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     [axis2\_inwebo.xml](https://github.com/wso2-extensions/identity-outbound-provisioning-inwebo/blob/master/component/provisioning-connector/resources/axis2_inwebo.xml)
     into the `           <IS-HOME>/repository/conf/axis2          `
     directory and [start  up the Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.

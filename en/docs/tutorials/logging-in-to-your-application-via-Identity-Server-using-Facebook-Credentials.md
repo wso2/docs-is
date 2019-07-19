@@ -228,7 +228,7 @@ in WSO2 Identity Server.
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS580/Running+the+Product) .  
+    it](https://docs.wso2.com/display/IS580/Running+the+Product).  
     Log in to the [Management
     Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management+Console)
     as administrator.
@@ -361,7 +361,7 @@ You have now added and configured the service provider.
 
 **Related Topics**
 
-For more information on SSO, see [Single Sign-On](_Single_Sign-On_) .
+For more information on SSO, see [Single Sign-On](_Single_Sign-On_).
 
 ### Configuring claim mappings for Facebook (optional)
 

@@ -9,7 +9,7 @@ location causes the adaptive authentication mechanism to prompt an extra
 authentication in order to increase security.
 
 For more information on adaptive authentication with WSO2 IS, see
-[Adaptive Authentication](../../tutorials/adaptive-authentication) .
+[Adaptive Authentication](../../tutorials/adaptive-authentication).
 
 This tutorial guides you through setting up a sample application to try
 out adaptive authentication and configuring it as a service provider in

@@ -95,7 +95,7 @@ store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%
     
         You may have done this step already if you configured the [Duo
         Security Provisioning
-        Connector](_Configuring_Duo_Security_Provisioning_Connector_) . If
+        Connector](_Configuring_Duo_Security_Provisioning_Connector_). If
         so, you can skip this step.
     
 
@@ -130,7 +130,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To do this, see the topic on [deploying the travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Configuring the identity provider
 
@@ -140,7 +140,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.

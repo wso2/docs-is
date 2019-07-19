@@ -340,5 +340,5 @@ the user session at the server end. A sample iframe is shown below.
     particular page after the RP sends the OpenID Connect logout request.
     For more information on how to configure the redirect logout, see
     [OpenID Connect Logout URL
-    Redirection](_OpenID_Connect_Logout_URL_Redirection_) .
+    Redirection](_OpenID_Connect_Logout_URL_Redirection_).
     

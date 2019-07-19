@@ -1,7 +1,7 @@
 # Changing the Carbon Database
 
 WSO2 products are shipped with an H2 database, which serves as the
-default [Carbon database](_Working_with_Databases_) . You can change
+default [Carbon database](_Working_with_Databases_). You can change
 this default database to one of the standard databases. See the links
 given below.
 

@@ -143,7 +143,7 @@ Now, you are ready to configure WSO2 Identity Server by adding a new
 service provider .
 
 1.  [Run WSO2 Identity
-    Server](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.

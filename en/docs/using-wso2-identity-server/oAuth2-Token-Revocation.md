@@ -2,7 +2,7 @@
 
 The OAuth Token Revocation functionality is available with WSO2 Identity
 Server and follows [this
-specification](http://tools.ietf.org/html/rfc7009) . There are two
+specification](http://tools.ietf.org/html/rfc7009). There are two
 endpoints exposed as a result of the token revocation feature.
 
 1.  **REST** endpoint at `          /oauth2/revoke         `
@@ -65,7 +65,7 @@ The token revocation end-point also supports CORS (Cross-Origin Resource
 Sharing) specification and also JSONP (Remote JSON – JSONP).
 
 CORS is supported through CORS-Filter which can be found
-[here](http://software.dzhuvinov.com/cors-filter.html) . The CORS Filter
+[here](http://software.dzhuvinov.com/cors-filter.html). The CORS Filter
 is designed to be plugged to a webapp using its deployment descriptor (
 `         web.xml        ` ). Since the OAuth 2.0 endpoints in WSO2
 Identity Server have been written as JAX-RS endpoints, you can add the

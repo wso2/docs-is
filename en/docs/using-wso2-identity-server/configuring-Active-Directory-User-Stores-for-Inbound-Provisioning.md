@@ -2,7 +2,7 @@
 
 WSO2 Identity Server can act both as a SCIM Provider and as a SCIM
 consumer at the same time. You can test the WSO2 Identity Server's SCIM
-Provider API as described [here](_SCIM_1.1_APIs_) . The WSO2 Identity
+Provider API as described [here](_SCIM_1.1_APIs_). The WSO2 Identity
 Server build includes the ApacheDS embedded LDAP server. The LDAP
 server's schema is customized to have the mandatory SCIM attributes,
 therefore SCIM implementation works by default with the WSO2 Identity
@@ -33,7 +33,7 @@ considered. The SCIM claim dialect (
 hold their values. So, when mapping any SCIM claim to an attribute in
 the Active Directory, make sure to use the attributes which are having
 the String type. You can find all Active Directory attributes
-[here](http://www.kouti.com/tables/userattributes.htm) . Given below is
+[here](http://www.kouti.com/tables/userattributes.htm). Given below is
 a plausible example for claim mapping,
 
 | CLAIM URI                                                              | MAPPED ATTRIBUTE                             |

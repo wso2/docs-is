@@ -5,7 +5,7 @@ This page consists of the procedure to secure a RESTful service with
 
 1.  Download [WSO2 Identity
     Server](http://wso2.com/products/identity-server) and [WSO2
-    ESB](http://wso2.com/products/enterprise-service-bus) .
+    ESB](http://wso2.com/products/enterprise-service-bus).
 2.  Extract the WSO2 Identity Server and WSO2 ESB ZIP files into a
     directory in your file system. Call them IS\_HOME and ESB\_HOME
     respectively.

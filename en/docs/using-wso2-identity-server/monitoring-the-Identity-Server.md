@@ -22,13 +22,13 @@ topics:
 
 -   For a detailed list of monitoring options, see the [Monitoring
     section in the WSO2 Administration
-    Guide](https://docs.wso2.com/display/ADMIN44x/Monitoring) .
+    Guide](https://docs.wso2.com/display/ADMIN44x/Monitoring).
 -   For information on the Carbon Health Check API to monitor server
     health, see [Monitoring Server Health in the WSO2 Administration
     Guide](https://docs.wso2.com/display/ADMIN44x/Monitoring+Server+Health)
     .
 -   For information on monitoring workflows, see [Monitoring Workflow
-    Requests](_Monitoring_Workflow_Requests_) .
+    Requests](_Monitoring_Workflow_Requests_).
 -   For information on configuring metrics properties, see [Configuring
     Metrics Properties in the WSO2 Administration
     Guide](https://docs.wso2.com/display/ADMIN44x/Configuring+Metrics+Properties)

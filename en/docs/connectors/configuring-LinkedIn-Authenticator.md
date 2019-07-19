@@ -41,7 +41,7 @@ This is tested for the LinkedIn API version 1.0. LinkedIn Authenticator
     
 
 2.  Create a new app as described in the [LinkedIn Services
-    documentation](https://developer.linkedin.com/docs/oauth2) .
+    documentation](https://developer.linkedin.com/docs/oauth2).
     1.  Navigate to the following URL:  
         <https://www.linkedin.com/developer/apps/new>
     2.  Enter the required details.
@@ -69,7 +69,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Step 3 - Configure the identity provider (IdP)
 
@@ -79,7 +79,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
@@ -357,7 +357,7 @@ WSO2 IS guide.
     ![](attachments/50507126/76748975.png){width="400"}
 
 4.  Click [Add New
-    Claim](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
 5.  Select the **Dialect** from the dropdown provided and enter the
     required information. You must add the following claims under the
     dialect <http://wso2.org/linkedin/claims>

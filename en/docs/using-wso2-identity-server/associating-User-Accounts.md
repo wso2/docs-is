@@ -40,7 +40,7 @@ The first approach is to use the `         AdminService        ` . You
 can access this admin service using the following URL: '
 `         https://<HOST_NAME>:9443/services/UserAccountAssociationService?wsdl        `
 '. If you are new to admin services, see [Calling Admin
-Services](_Calling_Admin_Services_) .
+Services](_Calling_Admin_Services_).
 
 The following actions can be performed using above admin service.
 
@@ -104,7 +104,7 @@ account from the end user dashboard. To set this up, do the following.
     
     You need to setup an Identity Provider before continuing this process.
     For more information on how to do this, see [Adding and Configuring an
-    Identity Provider](_Adding_and_Configuring_an_Identity_Provider_) .
+    Identity Provider](_Adding_and_Configuring_an_Identity_Provider_).
     
 
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>

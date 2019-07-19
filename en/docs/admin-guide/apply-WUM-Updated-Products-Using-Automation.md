@@ -83,7 +83,7 @@ purpose:
     deployment script for this purpose. However, remember to increase
     the deployment time interval in your existing product nodes before
     running this script as explained
-    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying) .
+    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying).
 
 Let's start!
 

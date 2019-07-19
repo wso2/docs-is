@@ -25,7 +25,7 @@ Windows Authentication](../../tutorials/integrated-windows-authentication-overvi
 **To configure IWA in WSO2 Identity Server:**
 
 1.  Download the WSO2 Identity Server from the [product
-    page](http://wso2.com/products/identity-server) .
+    page](http://wso2.com/products/identity-server).
 2.  Extract the ZIP file in the file system.
 3.  Configure WSO2 IS to use your Active Directory as the user store
     (WSO2 is configured to use a built-in LDAP server by default). See

@@ -11,7 +11,7 @@ for Travelocity sample application over [SAML 2.0](_SAML_2.0_Web_SSO_)
 via WSO2 Identity Server. You will also see how Travelocity application
 exchanges the SAML assertion received, with the WSO2 Identity Server to
 receive an OAuth access token using [SAML2 Bearer Assertion
-Profile](_SAML2_Bearer_Assertion_Profile_for_OAuth_2.0_) . Finally, you
+Profile](_SAML2_Bearer_Assertion_Profile_for_OAuth_2.0_). Finally, you
 will see how an OAuth protected resource can be accessed using the
 access token received.
 

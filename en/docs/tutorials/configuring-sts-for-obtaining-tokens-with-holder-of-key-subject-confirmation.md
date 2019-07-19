@@ -12,7 +12,7 @@ Holder-Of-Key subject confirmation (Symmetric Key).
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](../../setup/getting-started-with-the-management-console) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Follow the steps given below to configure the Holder of Key
     confirmation method.  
     1.  Navigate to the **Service Providers** section by clicking

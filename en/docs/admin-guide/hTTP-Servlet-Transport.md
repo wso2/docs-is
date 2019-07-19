@@ -32,7 +32,7 @@ implementation from Apache Tomcat. So the servlet HTTP transport
 actually accepts any parameter accepted by the connector implementation.
 For the complete list of supported parameters, see [Apache Tomcat's
 connector configuration
-reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html) .
+reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html).
 
 !!! tip
     

@@ -18,7 +18,7 @@ Windows.
 ### Installing the required applications
 
 1.  Ensure that your system meets the requirements specified in the
-    [Installation Prerequisites](_Installation_Prerequisites_) .  Java
+    [Installation Prerequisites](_Installation_Prerequisites_).  Java
     Development Kit (JDK) is essential to run the product.
 2.  Ensure that the `          PATH         ` environment variable is
     set to `          C:\Windows\System32         ` , because the
@@ -36,7 +36,7 @@ Windows.
 3.  Set the `          CARBON_HOME         ` environment variable by
     pointing it to the directory where you download WSO2 Identity Server
     into. For more information on how to do this, see
-    [here](https://www.java.com/en/download/help/path.xml) .
+    [here](https://www.java.com/en/download/help/path.xml).
 
 ### Setting up JAVA\_HOME
 
@@ -57,7 +57,7 @@ logged in.
 You set up JAVA\_HOME using the System Properties, as described below.
 Alternatively, if you just want to set JAVA\_HOME temporarily for the
 current command prompt window, [set it at the command
-prompt](#InstallingonWindows-cmd) .
+prompt](#InstallingonWindows-cmd).
 
 **Setting up JAVA\_HOME using the system properties**
 
@@ -147,4 +147,4 @@ you can take the following approaches:
     vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
     .
 
-You are now ready to [run the product](_Running_the_Product_) .
+You are now ready to [run the product](_Running_the_Product_).

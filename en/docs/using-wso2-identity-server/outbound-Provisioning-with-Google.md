@@ -148,7 +148,7 @@ other tasks such as provisioning of resources associated with enabling
 new users.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  When you log into Google, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order
@@ -178,7 +178,7 @@ Provider.
     log in using the email you configured for the realm configurations
     as instructed above in [step 2 of Configuring the Identity Server to
     use the email address as the
-    username](#OutboundProvisioningwithGoogle-email) .
+    username](#OutboundProvisioningwithGoogle-email).
 2.  On the Management Console, click on **Add** under **Identity
     Providers**.
 3.  In the form that appears, provide a name for your identity provider
@@ -308,4 +308,4 @@ from WSO2 IS to Google.
     .
 -   You can configure WSO2 IS to outbound provision users only if a
     given XACML rule is met. For more information, see [Rule-Based
-    Provisioning](_Rule_Based_Provisioning_) .
+    Provisioning](_Rule_Based_Provisioning_).

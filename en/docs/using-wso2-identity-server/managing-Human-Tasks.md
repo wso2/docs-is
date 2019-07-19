@@ -39,7 +39,7 @@ IS as well. To test the workflow, follow the steps below.
     move the state of the selected task to a new state  and to complete
     the workflow approval process (e.g. clicking **Start** and then
     **Approve** will approve the pending task and complete the workflow
-    process) .  
+    process).  
     ![](attachments/103330281/103330285.png){width="700"}  
 
     | Operation  | Description                                                                                                                                                               |

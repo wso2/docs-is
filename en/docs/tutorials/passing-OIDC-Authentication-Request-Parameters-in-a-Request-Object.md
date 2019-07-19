@@ -4,7 +4,7 @@ WSO2 Identity Server (WSO2 IS) supports passing OIDC authentication
 request parameters in a self contained JWT, instead of passing plain
 request parameters. For more information on OIDC request object support
 in WSO2 IS, see [Request Object Support in WSO2 Identity
-Server](_Request_Object_Support_) .
+Server](_Request_Object_Support_).
 
 !!! tip
     
@@ -27,15 +27,15 @@ parameters in a request object via WSO2 IS:
 
 -   Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_) .
+    Product](_Installing_the_Product_).
 -   Download and install [Apache Tomcat
-    7.x](https://tomcat.apache.org/download-70.cgi) .
+    7.x](https://tomcat.apache.org/download-70.cgi).
 
 ### Procedure
 
 1.  Set up the playground sample. For instructions on how to set up the
     playground sample, see [Basic Client Profile with
-    Playground](_Basic_Client_Profile_with_Playground_) .
+    Playground](_Basic_Client_Profile_with_Playground_).
 2.  Follow the steps below to configure a public certificate for the
     service provider:  
     1.  Execute the following command from the
@@ -91,7 +91,7 @@ parameters in a request object via WSO2 IS:
         `             http://wso2.org/oidc/claim            ` dialect.
         For detailed instructions on how to add a new claim mapping to a
         claim dialect, see [Adding Claim
-        Mapping](_Adding_Claim_Mapping_) .  
+        Mapping](_Adding_Claim_Mapping_).  
         ![](attachments/103331271/103331273.png)
         ![](attachments/103331271/103331272.png)
 
@@ -158,7 +158,7 @@ parameters in a request object via WSO2 IS:
     values for the **email** , **country** , **challenge Question1** as
     well as **challenge Question 2** in the user profile. For detailed
     instructions on creating a user and customizing a user's profile,
-    see [Configuring Users](_Configuring_Users_) .
+    see [Configuring Users](_Configuring_Users_).
 5.  Create a JWT with the following payload and sign(RSA256) it with the
     private key of the keystore created in step 2. (You can use
     <https://jwt.io/> for this)
@@ -244,7 +244,7 @@ parameters in a signed request object via WSO2 IS, you can configure a
 service provider to only accept signed request objects. For a tutorial
 on how to enforce signature validation for request objects, See
 [Enforcing Signature Validation for Request
-Objects](_Enforcing_Signature_Validation_for_Request_Objects_) .
+Objects](_Enforcing_Signature_Validation_for_Request_Objects_).
 
   
 

@@ -25,7 +25,7 @@ Windows Authentication](_Integrated_Windows_Authentication_) page.
 **To configure IWA in WSO2 Identity Server:**
 
 1.  Download the WSO2 Identity Server from the [product
-    page](http://wso2.com/products/identity-server) .
+    page](http://wso2.com/products/identity-server).
 2.  Extract the ZIP file in the file system.
 3.  Open the
     `          <wso2is_home>/repository/conf/user-mgt.xml         ` file

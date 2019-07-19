@@ -16,7 +16,7 @@ The following items are things to note before you begin.
 
 -   Only system administrators can add, modify and remove users and
     roles. To set up administrators, see [Configuring the System
-    Administrator](_Configuring_the_System_Administrator_) .  
+    Administrator](_Configuring_the_System_Administrator_).  
       
 
 -   Your product has a primary user store where the users/roles that you

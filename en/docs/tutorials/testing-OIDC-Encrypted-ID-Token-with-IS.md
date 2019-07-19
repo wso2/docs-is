@@ -21,7 +21,7 @@ Token with Identity Server 5.5.0
 ### Setup Playground Sample
 
 First, you should [setup the Playground sample
-app](_Basic_Client_Profile_with_Playground_) .
+app](_Basic_Client_Profile_with_Playground_).
 
 ### Configuring the service provider
 

@@ -17,7 +17,7 @@ credentials (basic authentication) to access a resource.
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 ### Configuring the sample scenario

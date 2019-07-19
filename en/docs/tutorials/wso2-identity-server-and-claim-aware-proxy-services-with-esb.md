@@ -68,7 +68,7 @@ copy the two .jar files from the extracted `         jce        `
 directory ( `         local_policy.jar        ` and
 `         US_export_policy.jar        ` ) to
 `         $JAVA_HOME/jre/lib/security        ` . For JDK 6, it is found
-[here](index) .
+[here](index).
 
 -   Perform the above actions on both the client side as well as on the
     server side if you are running it on two machines.

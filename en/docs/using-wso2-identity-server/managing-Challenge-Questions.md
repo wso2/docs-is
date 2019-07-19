@@ -115,7 +115,7 @@ follow the steps below.
     **Finish**.  
     ![](attachments/103330542/103330546.png)
 6.  Click on the **Edit** button corresponding to the relevant set (
-    http://wso2.org/claims/Set1) . You will see Q1 listed twice in the
+    http://wso2.org/claims/Set1). You will see Q1 listed twice in the
     two different languages as seen below.  
     ![](attachments/103330542/103330545.png){height="250"}
 7.  Click **Finish**.
