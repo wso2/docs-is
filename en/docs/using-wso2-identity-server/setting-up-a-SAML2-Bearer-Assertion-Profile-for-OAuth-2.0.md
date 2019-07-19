@@ -27,7 +27,7 @@ Server and as well as the Resource Server.
 1.  See the [Configuring Inbound Authentication for a Service
     Provider](https://docs.wso2.com/display/IS530/Configuring+Inbound+Authentication+for+a+Service+Provider)
     to configure the OAuth/OpenID Connect service provider. Access token
-    will be issued for this application , exchanging with SAML2
+    will be issued for this application, exchanging with SAML2
     assertion .
 
     !!! note
@@ -60,7 +60,7 @@ Server and as well as the Resource Server.
     If you have configured the service provider in a tenant, you have to
     add the tenant domain as a query parameter to the access token
     endpoint. If the tenant domain is
-    `             wso2.com            ` , enter the following values:
+    `             wso2.com            `, enter the following values:
 
     **Audience** :
     `                                          https://localhost:9443/oauth2/token?tenantDomain=wso2.com                                       `

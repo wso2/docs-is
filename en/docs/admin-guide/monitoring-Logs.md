@@ -81,8 +81,8 @@ the `          <PRODUCT_HOME>/repository/logs         ` directory .
 
 ### Configuring products for log monitoring
 
-See the following information on configuring **Carbon logs** , **Audit
-logs,** **HTTP access logs** , and **Service/Event logs** for your WSO2
+See the following information on configuring **Carbon logs**, **Audit
+logs,** **HTTP access logs**, and **Service/Event logs** for your WSO2
 product.
 
 -   ****Configuring Carbon logs****
@@ -336,7 +336,7 @@ and monitor the logs:
     script.
 -   Alternatively, all log files can be viewed from the
     `          <PRODUCT_HOME>/repository/logs         ` folder. This
-    folder contains **Audit logs** , **HTTP access logs** as well as the
+    folder contains **Audit logs**, **HTTP access logs** as well as the
     **Carbon logs** in separate log files with time stamps . Note that
     older Carbon logs are archived in the
     `          wso2carbon.log         ` file.

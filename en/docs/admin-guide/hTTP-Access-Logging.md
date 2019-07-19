@@ -184,7 +184,7 @@ pattern="%{Content-Type}o %{Content-Length}o %{Date}o %{Server}o"
 ```
 
 The a bove configuration sample logs the `         Content-type        `
-, `         Content-Length        ` , `         Date,        ` and
+, `         Content-Length        `, `         Date,        ` and
 `         Server        ` headers of every response coming from the
 server as follows:
 
@@ -219,7 +219,7 @@ server as follows:
 You cannot use the `         AccessLogValve        ` to log URL encoded
 parameters. However, you can use the
 `         ExtendedAccessLogValve        ` attribute for this purpose. In
-this example only two values (namely, `         className        ` , and
+this example only two values (namely, `         className        `, and
 `         pattern        ` ) are modified from the previous
 configuration.
 

@@ -45,7 +45,7 @@ There are two possible solutions to apply the CORS header.
     approach leads to some security risks.
 
     ``` java
-        respBuilder.header("Access-Control-Allow-origin" , 'http://example.com')
+        respBuilder.header("Access-Control-Allow-origin", 'http://example.com')
     ```
 
     !!! tip

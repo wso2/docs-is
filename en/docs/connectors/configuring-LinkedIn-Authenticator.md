@@ -89,7 +89,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     LinkedIn).  
     As our resident Identity Provider is WSO2 IS, the Alias will appear
     as follows - https://(host-name):(port)/oauth2/token
-5.  **Optionally** , you can add the LinkedIn public certificate by
+5.  **Optionally**, you can add the LinkedIn public certificate by
     uploading it. **  
     ** You can do this by clicking the **Browse** button next to the
     **Identity Provider Public Certificate** field, and uploading the
@@ -98,8 +98,8 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 
     !!! note
     
-        In cryptography, a **public** **key** **certificate** , also known
-        as a **digital** **certificate** or **identity** **certificate** ,
+        In cryptography, a **public** **key** **certificate**, also known
+        as a **digital** **certificate** or **identity** **certificate**,
         is an electronic document used to prove the ownership of a
         **public** **key**.
     
@@ -181,7 +181,7 @@ As you are using travelocity as the sample, enter
 Name** text box and click **Register**.
 
 In the **Inbound Authentication Configuration** section, click **SAML2
-Web SSO** **Configuration** , and then click **Configure**.
+Web SSO** **Configuration**, and then click **Configure**.
 
 Add the service provider details as follows:  
 

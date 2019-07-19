@@ -146,7 +146,7 @@ If you have configured the service provider and identity provider in a
 tenant, you have to add the tenant domain as a query parameter to the
 access token endpoint.
 
-If the tenant domain is *wso2.com* , the access token endpoint will be
+If the tenant domain is *wso2.com*, the access token endpoint will be
 as follows.
 
 Access Token Endpoint:

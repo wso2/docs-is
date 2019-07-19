@@ -145,7 +145,7 @@ According to privacy best practices and privacy standards, sharing user
 attributes to external parties should be based on clear and active
 consent (unless there is clear legal background support for information
 sharing). WSO2 IS shares user attributes with other applications in the
-form of security tokens such as SAML2 , OpenID Connect IDToken, or JWT
+form of security tokens such as SAML2, OpenID Connect IDToken, or JWT
 and all of this user information sharing is based on consent. The
 following points give a high level description of how this usecase is
 supported in WSO2 IS.

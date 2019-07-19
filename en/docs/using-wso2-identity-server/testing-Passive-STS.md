@@ -9,7 +9,7 @@ of Identity Server's Passive STS.
     Identity Server product
     page](http://wso2.com/products/identity-server/) and installed by
     following the instructions in the [Installing the
-    Product](_Installing_the_Product_) topic.
+    Product](../../setup/installing-the-product) topic.
 -   Apache Tomcat 6/7 - To deploy the sample web application. This can
     be downloaded from the [Apache Tomcat
     website](http://tomcat.apache.org/).

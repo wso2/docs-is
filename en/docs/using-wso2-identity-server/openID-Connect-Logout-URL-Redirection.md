@@ -27,7 +27,7 @@ Follow the steps below to send an OIDC logout request:
 
 1.  Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_).
+    Product](../../setup/installing-the-product).
 
 2.  Access the Management Console via
     `           https://localhost:9443/carbon/          ` .
@@ -55,7 +55,7 @@ Follow the steps below to send an OIDC logout request:
     `           true          ` in the
     `           <IS_HOME>/repository/conf/identity/identity.xml          `
     file, JWT is signed with the application tenant key. If the property
-    is set to `           false          ` , the tenant is decided by
+    is set to `           false          `, the tenant is decided by
     the subject of the id token, although the subject would not contain
     the tenant domain by default. Therefore, you need to enable, **Use
     tenant domain in local subject identifier** in Service Provider
@@ -117,7 +117,7 @@ Follow the steps below to send an OIDC logout request:
     </tr>
     <tr class="even">
     <td><code>               state              </code></td>
-    <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code> , the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
+    <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code>, the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
     <td>No</td>
     </tr>
     </tbody>

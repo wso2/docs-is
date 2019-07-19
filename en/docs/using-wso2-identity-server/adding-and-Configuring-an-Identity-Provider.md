@@ -4,8 +4,8 @@
 
 An Identity Provider (IdP) is responsible for authenticating users and
 issuing identification information by using security tokens like [SAML
-2.0](https://docs.wso2.com/display/IS570/SAML+2.0+Web+SSO) , [OpenID
-Connect](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect) ,
+2.0](https://docs.wso2.com/display/IS570/SAML+2.0+Web+SSO), [OpenID
+Connect](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect),
 [OAuth 2.0](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect)
 and [WS-Trust](https://docs.wso2.com/display/IS570/WS-Trust). This is a
 favourable alternative to explicitly authenticating a user within a
@@ -311,7 +311,7 @@ Follow the instructions below to add a new identity provider.
     exists in the identity provider that must be mapped to the Identity
     Server).
 
-    -   If you choose to **Use Local Claim Dialect** , select the claim
+    -   If you choose to **Use Local Claim Dialect**, select the claim
         you require from the **User ID Claim URI** dropdown that
         includes a list of all the claims defined in the Identity
         Server.  
@@ -416,13 +416,13 @@ Follow the instructions below to add a new identity provider.
     Use the following instructions to configure advanced claims.
 
     -   If you chose to **Use Local Claim Dialect** in the **Basic Claim
-        Configuration** , do the following.
+        Configuration**, do the following.
         1.  When you send provisioning requests from the Identity Server
             to the external identity provider, it may not be necessary
             to send all the requests. So, you can use the **Provisioning
             Claim Filter** to filter out the user attributes you need to
             send from the other available attributes. To use the
-            **Provisioning Claim Filter** , select the claims that exist
+            **Provisioning Claim Filter**, select the claims that exist
             in the Identity Server from the dropdown list and click
             **Add Claim**. Clicking this button again enables you to
             add a new entry.  
@@ -436,7 +436,7 @@ Follow the instructions below to add a new identity provider.
             Clicking the **Delete** button will remove this advanced
             claim.
     -   If you chose to **Define Custom Claim Dialect** in the **Basic
-        Claim Configuration** , do the following.
+        Claim Configuration**, do the following.
         1.  Select the **Identity Provider Claim URI** you defined from
             the dropdown list and click **Add Claim**. Clicking this
             button again will add a new entry.  
@@ -495,7 +495,7 @@ Follow the instructions below to add a new identity provider.
     following.
 
     1.  Expand the **Role Configuration** section.
-    2.  To configure **Identity Provider Roles** , click **Add Role
+    2.  To configure **Identity Provider Roles**, click **Add Role
         Mapping**. The following screen appears.  
         ![Role
         Mapping](attachments/103329728/103329729.png "Role Mapping"){width="750"}
@@ -621,7 +621,7 @@ Follow the instructions below to add a new identity provider.
     blocking mode, the authentication flow is blocked until the
     provisioning happens while in the non-blocking mode, provisioning
     happens in a different thread. If you want to allow a user to access
-    your application only if the user is authenticated and provisioned ,
+    your application only if the user is authenticated and provisioned,
     then you should use blocking mode.
 
     ### Configuring JIT provisioning for an identity provider
@@ -652,7 +652,7 @@ Follow the instructions below to add a new identity provider.
             Provisioning**. This is selected by default.
         -   If you want to always provision users to a selected user
             store domain, select **Always provision to User Store
-            Domain** , and then select a required user store domain from
+            Domain**, and then select a required user store domain from
             the list of available user store domains.
 
             !!! tip
@@ -675,10 +675,10 @@ Follow the instructions below to add a new identity provider.
                                                         For example,
                                         
                                                         -   If you specify the user name as
-                    , the user is provisioned to the
+                   , the user is provisioned to the
                     user store domain.
                 -   If you specify the user name as
-                    `                     user1                    ` ,
+                    `                     user1                    `,
                     the user is provisioned to the PRIMARY user store
                     domain.
 
@@ -690,7 +690,7 @@ Follow the instructions below to add a new identity provider.
                 to select.
 
 
-        -   When you select **Always provision to User Store Domain** ,
+        -   When you select **Always provision to User Store Domain**,
             you should also select one of the following provisioning
             options depending on how you want to prompt users for
             relevant credentials at the time of JIT provisioning. The
@@ -1180,7 +1180,7 @@ service provider.
     
     -   Start the server and download the SAML2 metadata by accessing this
         URL: <https://localhost:9443/identity/metadata/saml2> .
-    -   **Alternatively** , access the management console and follow the
+    -   **Alternatively**, access the management console and follow the
         steps given below to download the metadata.
     
 

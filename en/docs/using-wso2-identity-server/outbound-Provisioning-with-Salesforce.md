@@ -479,7 +479,7 @@ Provider.
         `             <password><security_token            ` \>  
         For example, if your password is
         `             testpassword            ` and your security token
-        is `             37f37f4433123            ` , the value you
+        is `             37f37f4433123            `, the value you
         would enter here is
         `             testpassword37f37f4433123            ` .
 
@@ -522,7 +522,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     click the (+).  
     ![](attachments/103330205/103330236.png){width="800"}
 
-    If you enable **Blocking** , Identity Server will wait for the
+    If you enable **Blocking**, Identity Server will wait for the
     response from the Identity Provider to continue.
 
     If you enable **Enable Rules** and **Blocking,** will block the

@@ -30,7 +30,7 @@ Follow the instructions below to edit a claim.
         Note
     
         When you are using [more than one user
-        store](_Configuring_Secondary_User_Stores_) , you must map the
+        store](_Configuring_Secondary_User_Stores_), you must map the
         attributes correctly using claim management. Under “Mapped
         Attribute(s)” you need to follow the pattern.
     

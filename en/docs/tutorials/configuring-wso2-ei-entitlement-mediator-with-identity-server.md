@@ -17,17 +17,10 @@ WSO2 product platform relieves this burden on the system architect and
 allows you to integrate XACML-based authorization into a deployment and
 have a full blown authorization scheme in place with minimum effort.
 
-For more information about the WSO2 EI, please visit the [WSO2
-Enterprise Integrator
-Documentation](http://docs.wso2.com/enterprise-integrator).
-
-The following sections provide more information on how to configure
-this.
-
--   [Configure Identity Server as an XACML
-    Engine](#ConfiguringWSO2EIEntitlementMediatorwithIdentityServer-ConfigureIdentityServerasanXACMLEngine)
--   [Configuring the EI entitlement
-    mediator](#ConfiguringWSO2EIEntitlementMediatorwithIdentityServer-ConfiguringtheEIentitlementmediator)
+!!! info    
+    For more information about the WSO2 EI, please visit the [WSO2
+    nterprise Integrator
+    Documentation](http://docs.wso2.com/enterprise-integrator).
 
 ### Configure Identity Server as an XACML Engine
 
@@ -35,7 +28,7 @@ The first step is to configure the WSO2 Identity Server to act as a
 XACML engine. XACML support for fine-grained authorization comes with
 WSO2 Identity Server. For this, configure your Identity Server as a
 XACML engine as explained in [Identity Server as an XACML
-Engine](_Identity_Server_as_an_XACML_Engine_).
+Engine](../../tutorials/identity-server-as-an-xacml-engine).
 
 ### Configuring the EI entitlement mediator
 
@@ -44,13 +37,15 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
 1.  Create a Proxy Service. Under "In Sequence," create an Anonymous
     sequence to include the Entitlement, Header, and Send mediators. Add
     the Advanced/Entitlement Mediator to `          InSequence         `
-    . See [Adding a Proxy
-    Service](http://docs.wso2.com/enterprise-integrator/Adding+a+Proxy+Service)
-    . The Entitlement Server should be the endpoint for the Identity
+    . For instructions, see [Adding a Proxy
+    Service in the WSO2 EI documentation](http://docs.wso2.com/enterprise-integrator/Adding+a+Proxy+Service). 
+    
+    The Entitlement Server should be the endpoint for the Identity
     Server where the entitlement engine is running
     `          https://IDENTITY_SERVER:PORT/services/         ` .
     Additionally, the user should have the login and "manage
     configuration" permissions in the Identity Server.
+
 2.  Add the Transform/Header mediator. See [Adding a Mediator to a
     Sequence](http://docs.wso2.com/enterprise-integrator/Adding+a+Mediation+Sequence)
     and
@@ -61,10 +56,13 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
     -   **URI** -
         <http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd>
         .
+
 3.  Create a Core/Send mediator, and save to return to the main flow.
+
 4.  Add a Core/Send mediator to the "Out Sequence" as an "Anonymous"
     sequence, and save to return to the main flow to complete the
     creation of the Proxy Service.
+
 5.  Apply the `          UsernameToken         ` security policy to the
     Proxy Service you just created as mentioned
     [here.](https://docs.wso2.com/display/EI611/Security+Implementation#SecurityImplementation-1.UsernameToken)
@@ -74,6 +72,7 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
     the Proxy Service, and then select "Policies." Remove the applied
     policies from the Binding Hierarchy, and add the security policy to
     the Service Hierarchy.
+    
 6.  You are ready to use the Proxy Service. Write a client to invoke the
     secured Proxy Service.
 

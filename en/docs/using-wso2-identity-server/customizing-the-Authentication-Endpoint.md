@@ -31,7 +31,7 @@ Follow the steps below to customize the authentication endpoint URL:
     ```
 
     For example, If you specify the value as
-    `           /sso/login          ` , the web application runs on
+    `           /sso/login          `, the web application runs on
     `           https://<host_name>:port_number>/sso/login          ` .
 
     !!! note
@@ -257,7 +257,7 @@ Do the following configurations to enable this feature.
                 `                <CARBON_PATCH_HOME>/patch0073               `
                 folder.
             -   If you have **not** applied the
-                `                WSO2-CARBON-PATCH               ` , copy
+                `                WSO2-CARBON-PATCH               `, copy
                 the `                .jar               ` file found in the
                 \<
                 `                IS_HOME>/repository/components/plugins               `
@@ -359,7 +359,7 @@ below steps:
 
 1.  Start the Identity Server and l og in to the Admin Console.
 
-2.  Click on **Main Menu** , under **Registry** , click **Browse** to
+2.  Click on **Main Menu**, under **Registry**, click **Browse** to
     see the registry browser.  
     ![](attachments/103330101/103330108.png)
 
@@ -367,7 +367,7 @@ below steps:
     `          /_system/config/identity/config.         `  
     ![](attachments/103330101/103330107.png){height="250"}  
     Once you navigate to
-    `          /_system/config/identity/config         ` , follow the
+    `          /_system/config/identity/config         `, follow the
     steps below to add a registry resource.
 4.  Click **Add Resource**.  
     ![](attachments/103330101/103330106.png){width="422"}

@@ -117,7 +117,7 @@ store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%
     authentication to ensure secure login.
     
     
-    **Important** : When you update the mobile claim in user profile , use
+    **Important** : When you update the mobile claim in user profile, use
     the same format of mobile number with country code as you registered in
     the DUO site. (i.e +9477\*\*\*\*\*\*\*)
     
@@ -149,9 +149,9 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 4.  Give a suitable name as the **Identity Provider Name**.
 5.  Go to **Duo Configuration** under **Federated Authenticators**.  
     ![](attachments/51486739/51451222.png){width="700" height="689"}
-6.  Enter the values for **Integration Key** , **Secret Key** , **Admin
-    Integration Key** , **Admin Secret Key** ( Admin Integration Key
-    and Admin Secret Key are optional) and **Host** , as indicated in
+6.  Enter the values for **Integration Key**, **Secret Key**, **Admin
+    Integration Key**, **Admin Secret Key** ( Admin Integration Key
+    and Admin Secret Key are optional) and **Host**, as indicated in
     the above figure.
 7.  Select both check-boxes to **Enable** the Duo Authenticator and make
     it the **Default**.

@@ -13,21 +13,11 @@ enforced policy will be evaluated and the Policy Decision Point (PDP) in
 WSO2 Identity Server decides whether or not to grant the user access to
 the resource.
 
-The following topics walk you through the steps you need to follow to
-try out the sample scenario:
-
--   [Prerequisites](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Prerequisites)
--   [Procedure](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Procedure)
--   [Testing the authorization
-    flow](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Testingtheauthorizationflow)
--   [Analyzing the
-    response](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Analyzingtheresponse)
-
 ### Prerequisites
 
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instrction on how to install WSO2
-    IS, see [Installing the Product](_Installing_the_Product_).
+    IS, see [Installing the Product](../../setup/installing-the-product).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.
@@ -38,7 +28,7 @@ Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
 
 1.  Access the WSO2 IS Management Console via
-    <https://localhost:9443/carbon/> , and sign in using
+    <https://localhost:9443/carbon/>, and sign in using
     `          admin         ` / `          admin         ` as
     credentials.
 2.  Click the **Main** tab on the Management Console, go to
@@ -140,7 +130,7 @@ Identity Server:
 
 6.  Click **Publish to My PDP** applicable to the sample policy that you
     added. This takes you to the **Publish Policy** screen.  
-    ![](attachments/103331159/103331160.png){height="250"}
+    ![publish-policy-to-pdp](../../assets/img/tutorials/publish-policy-to-pdp.png)
 7.  Click **Publish**. This displays a confirmation message asking
     whether you want to continue publishing to PDP.
 8.  Click **Yes**. This publishes the policy to the PDP.
@@ -150,8 +140,7 @@ see how the policy evaluates the request.
 
 ### Testing the authorization flow
 
-!!! tip
-    
+!!! tip 
     You can use any REST client to send a sample request. In this tutorial
     we are going to use the Google Chrome Postman app.
     
@@ -160,8 +149,7 @@ see how the policy evaluates the request.
 First, send a sample request that the policy can evaluate and provides a
 response with the decision as deny.
 
-!!! note
-    
+!!! note 
     Ensure that you specify the following when you send the sample request
     using the REST client:
     
@@ -171,9 +159,8 @@ response with the decision as deny.
         .
     -   Authorization should be basic base64Encoded username and password.
     -   Content type should be `          application/json         ` .
-    
 
-  
+<a name="request1"></a>
 You can send the following as the first sample request:
 
 ``` java
@@ -221,16 +208,17 @@ custom XACML category in WSO2 Identity Server. This category has
 as a custom attribute Id.
 
 In the above request since the `         IncludeInResult        `
-property of each attribute is set to `         true        ` , each
+property of each attribute is set to `         true        `, each
 attribute will be included in the the response. If you do not want each
 attribute to be included in the response you can set the
 `         IncludeInResult        ` property of each attribute to
 `         false        ` . Then the response will be short.
 
 Next, send a sample request that the policy can evaluate and provides a
-response with the decision as `         Deny        ` .
+response with the decision as `         Deny        ` .<a name="request2"></a>
 
 You can send the following as the sample request:
+
 
 ``` java
 {
@@ -274,7 +262,7 @@ You can send the following as the sample request:
 
 You will see the following response whe you send the first sample
 request given
-[above](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Request1)
+[above](#request1)
 :
 
 ``` java
@@ -369,7 +357,7 @@ You will see that the response is comparatively short.
 
 You will see the following response when you send the second sample
 request given
-[above](#Fine-grainedAuthorizationusingXACMLRequestsinJSONFormat-Request2)
+[above](#request2)
 .
 
 ``` java

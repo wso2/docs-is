@@ -2,7 +2,7 @@
 
 When you work with WSO2 products, you may host multiple applications
 (Web applications and Jaggery applications) and expose them to external
-users. The **management console** , which is shipped with every WSO2
+users. The **management console**, which is shipped with every WSO2
 product is also an application that is deployed in the Carbon server.
 Before you expose the applications to the external network, be sure to
 configure the security settings for all your applications.
@@ -238,7 +238,7 @@ If the `         HttpHeaderSecurityFilter        ` element is available
 in the web.xml file (stored in the
 `         <         PRODUCT_HOME>        `
 `         /repository/conf/tomcat/carbon/WEB-INF/        ` directory) as
-shown below , it implies that security headers are by default configured
+shown below, it implies that security headers are by default configured
 for the management consoles of all of your profiles. However, in a
 production deployment, ‘Strict-Transport-Security’ needs to be
 explicitly enabled by replacing the default

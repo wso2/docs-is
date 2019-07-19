@@ -7,7 +7,7 @@ external provider.
 
 ### Default datasource provider
 
-To use the default datasource provider, select **default** , and then
+To use the default datasource provider, select **default**, and then
 enter the Driver, URL, User Name, and Password connection properties  as
 follows:
 
@@ -17,8 +17,8 @@ follows:
 
 If you need to add a datasource supported by an external provider class
 such as
-`         com.mysql.jdbc.jdbc2.optional.MysqlXADataSource        ` ,
-select **External Data Source** , click **Add Property** , and then
+`         com.mysql.jdbc.jdbc2.optional.MysqlXADataSource        `,
+select **External Data Source**, click **Add Property**, and then
 enter the name and value of each connection property you need to
 configure. Following is an example datasource for an external datasource
 provider:

@@ -218,13 +218,13 @@ provider. The following steps instruct you on how to do this.
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Default Assertion Consumer URL</strong></td>
-	         <td>This must be the same value defined above. If you have defined multiple <strong>Assertion Consumer URLs</strong> , this value must be the same as the <code>                   SAML2.AssertionConsumerURL                  </code> value mentioned inside the <code>                   travelocity.com/WEB-INF/classes/travelocity.properties                  </code> file as that is the default.</td>
+	         <td>This must be the same value defined above. If you have defined multiple <strong>Assertion Consumer URLs</strong>, this value must be the same as the <code>                   SAML2.AssertionConsumerURL                  </code> value mentioned inside the <code>                   travelocity.com/WEB-INF/classes/travelocity.properties                  </code> file as that is the default.</td>
 	         <td><br />
 	         </td>
 	      </tr>
 	      <tr class="even">
 	         <td><strong>NameID format</strong></td>
-	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
+	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
 	         <td><code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code></td>
 	      </tr>
 	      <tr class="odd">
@@ -270,7 +270,7 @@ digest_alg=
 	         <td><strong>Assertion Encryption Algorithm</strong></td>
 	         <td>The algorithm that the SAML2 assertion is encrypted.<br />
 	            <br />
-	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
+	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code>, at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
 ```
 [saml] 
 assertion_encryption_alg= 
@@ -280,7 +280,7 @@ assertion_encryption_alg=
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Key Encryption Algorithm</strong></td>
-	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
+	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code>, at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
 ```
 [saml] 
 key_encryption_alg= 
@@ -353,7 +353,7 @@ key_encryption_alg=
 	               <p>Depending on your application flow you can choose whether to enable IdP initiated SSO. The IdP initiated SSO profile enables to start an authentication flow by sending a GET request to the Identity server with the following format.</p>
 	               <code>                    https://{Hostname}:{Port}/samlsso?spEntityID={SAML2 SSO Issuer name}                   </code> !!! note
 	               <p>If your SAML2 SSO issuer has been configured in any other separate tenant other than super tenant, then you need to append the <em><strong>tenantDomain</strong></em> parameter as well.</p>
-	               <p>If the tenant domain is <code>                     soasecurity.org                    </code> , the GET request would be as follows: <code>                     https://localhost:9443/samlsso?spEntityID=travelocity.com&amp;tenantDomain=soasecurity.org                    </code></p>
+	               <p>If the tenant domain is <code>                     soasecurity.org                    </code>, the GET request would be as follows: <code>                     https://localhost:9443/samlsso?spEntityID=travelocity.com&amp;tenantDomain=soasecurity.org                    </code></p>
 	               <p><br />
 	               </p>
 	            </div>
@@ -409,7 +409,7 @@ key_encryption_alg=
 		    local subject identifier.  
 		    ![local-and-outbound-config](../../assets/img/tutorials/local-and-outbound-config.png)
 
-		    For **super tenant mode** , this step is not required and the two
+		    For **super tenant mode**, this step is not required and the two
 		    options mentioned above should remain disabled by default.
 
 ### Configuring claims

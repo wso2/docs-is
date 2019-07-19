@@ -149,7 +149,7 @@ resources as follows:
 ### Editing resources
 
 If you select a resource, in its detailed view, you can see the Content
-panel , which provides a UI to edit, upload, and download the content as
+panel, which provides a UI to edit, upload, and download the content as
 follows:
 
 ![](attachments/22185137/22514094.png)

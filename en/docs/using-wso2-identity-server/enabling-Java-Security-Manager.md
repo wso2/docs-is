@@ -10,7 +10,7 @@ modify this file to change the Java security permissions as required.
 The steps below show how to enable the Java Security Manager for WSO2
 products.
 
-**Before you begin** , ensure that you have installed Java 1.8.
+**Before you begin**, ensure that you have installed Java 1.8.
 
 1.  Download the WSO2 product to any location (e.g.,
     `           <HOME>/user/<product-pack>          ` folder).
@@ -29,7 +29,7 @@ products.
     ```
 
     The default keystore of the WSO2 products is
-    `           wso2carbon.jks          ` , which is in the
+    `           wso2carbon.jks          `, which is in the
     `           <PRODUCT_HOME>/repository/resources/security          `
     folder. It is used for signing JARs.
 

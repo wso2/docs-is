@@ -36,7 +36,7 @@ The following are the high level steps required for this scenario.
     step 1) as a federated authenticator.
 
 The above processes can be easily done using the [Management
-Console](../../setup/getting-started-with-the-management-console) , but the
+Console](../../setup/getting-started-with-the-management-console), but the
 service provider and identity provider created in
 **`          service provider IS         `** are only visible to the
 tenant who creates them. So the difference here is that the identity
@@ -64,7 +64,7 @@ Do the following steps to setup the two WSO2 Identity Server instances
 for the scenario.
 
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install](_Installing_the_Product_) the two Identity Server
+    [install](../../setup/installing-the-product) the two Identity Server
     instances.
 2.  In the
     `            <IDENTITY_PROVIDER_IS_HOME>/repository/conf/carbon.xml           `

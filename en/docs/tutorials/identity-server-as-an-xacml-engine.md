@@ -4,9 +4,10 @@ WSO2 Identity Server comes with XACML support for fine-grained
 authorization. It includes full support for policies based on XACML
 2.0 and 3.0.
 
-For more information on XACML and the concept of XACML engine, see
-[Access Control and Entitlement
-Management](_Access_Control_and_Entitlement_Management_).
+!!! info
+    For more information on XACML and the concept of XACML engine, see
+    [Access Control and Entitlement
+    Management](../../getting-started/access-control-and-entitlement-management).
 
 The following steps describe how you can configure the Identity Server
 as an XACML engine.
@@ -17,21 +18,21 @@ as an XACML engine.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**. For more information
     on policy administration, see [Configuring the Policy Administration
-    Point](_Configuring_the_Policy_Administration_Point_).  
-    ![](attachments/103331142/103331143.png){width="250"}  
+    Point](../../tutorials/configuring-the-policy-administration-point).  
+    ![entitlement-policy-administration](../../assets/img/tutorials/entitlement-policy-administration.png) 
     \|
 3.  Add a new policy or import external policy files to the system. Once
-    you click **Add** , a  policy will be added. You can [edit a
+    you click **Add**, a  policy will be added. You can [edit a
     template
-    policy](https://docs.wso2.com/display/IS540/Writing+a+XACML+Policy+using+a+Policy+Template)
+    policy](../../tutorials/writing-a-xacml-policy-using-a-policy-template)
     it to suit your requirements, or you may [add a completely new
-    policy](https://docs.wso2.com/display/IS540/Creating+a+XACML+Policy)
+    policy](../../tutorials/creating-a-xacml-policy)
     .
 4.  After adding you can [publish the policy to Policy Decision
-    Point(PDP)](https://docs.wso2.com/display/IS540/Publishing+a+XACML+Policy)
+    Point(PDP)](../../tutorials/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
-    tool.](https://docs.wso2.com/display/IS540/Evaluating+a+XACML+Policy)
+    tool.](../../using-wso2-identity-server/evaluating-a-xacml-policy)
 
 Here you can build your own XACML request to evaluate the policy you
 just added. Copy and paste the following on the above screen and click

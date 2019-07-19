@@ -131,7 +131,7 @@ The end service is successfully configured now.
 
 1.  Click **Apply** on the above screen.
 2.  Select " **Yes** " in the " **Enable Security?** " option.
-3.  Select **scenario 2 - Non-repudiation** , and click **Next**.
+3.  Select **scenario 2 - Non-repudiation**, and click **Next**.
 4.  On the following page, as we did for ESB, select '
     **wso2carbon.jks** ' as the **Trusted Key Store**.
 5.  Change the `           path.policy.sts property          ` to

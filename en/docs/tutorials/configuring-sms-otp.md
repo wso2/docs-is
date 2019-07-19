@@ -152,7 +152,7 @@ provider.
     providers website on your browser, and clicking the HTTPS trust icon
     on the address bar.  
     For example, navigate to
-    [https://www.nexmo.com](https://www.nexmo.com/) , and click the
+    [https://www.nexmo.com](https://www.nexmo.com/), and click the
     padlock next to the URL on Chrome.
 3.  Navigate to the
     `           <IS_HOME>/repository/resources/security          `
@@ -268,7 +268,7 @@ provider.
 
 		3.  The Plivo API is authenticated with Basic Auth using your
 			`                AUTH ID               ` and
-			`                AUTH TOKEN               ` , Your Plivo
+			`                AUTH TOKEN               `, Your Plivo
 			`                AUTH ID               ` and
 			`                AUTH TOKEN               ` can be found when
 			you log in to your
@@ -483,7 +483,7 @@ console](../../using-wso2-identity-server/configuring-users#adding-a-new-user-an
 
     ![configuring-claims](../../assets/img/tutorials/configuring-claims.png)
     
-2.  Optionally , you can add a claim to allow users to use back up codes
+2.  Optionally, you can add a claim to allow users to use back up codes
     when SMS OTP is disabled.  
     Adding the OTP backup codes claim:  
     1.  In the **Main** menu, click **Add** under **Claims**.

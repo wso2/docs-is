@@ -82,7 +82,7 @@ the regions of the users authenticated though WSO2 Identity Server.
 
 5.  Download a JDBC provider depending on the database you are using
     (MySQL in this example) from
-    [here](https://www.mysql.com/products/connector/) , and extract it.
+    [here](https://www.mysql.com/products/connector/), and extract it.
 6.  Copy the `          mysql-connector-java-<VERSION>.jar         ` to
     `          <IS_ANALYTICS_HOME>/lib         ` directory.
 7.  Configure the following in

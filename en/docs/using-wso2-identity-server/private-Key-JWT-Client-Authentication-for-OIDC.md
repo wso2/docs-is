@@ -118,7 +118,7 @@ artifacts.
     ```
 
 10. Rename the public key certificate file of the
-    `           private_key_jwt issuer          ` , with the ClientID
+    `           private_key_jwt issuer          `, with the ClientID
     (mentioned as 'alias' below) of the above auth app.
 
     ``` java

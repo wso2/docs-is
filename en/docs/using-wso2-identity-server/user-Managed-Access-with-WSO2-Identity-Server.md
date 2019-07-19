@@ -119,8 +119,8 @@ behalf of the requesting party.
     1.  On the **Main** tab, click **Add** under **Service Providers**.
     2.  Enter `            kateSP           ` as the **Service Provider
         Name** and click **Register**.
-    3.  Expand **Inbound Authentication Configuration** , then expand
-        **OAuth/OpenID Connect Configuration** , and then click
+    3.  Expand **Inbound Authentication Configuration**, then expand
+        **OAuth/OpenID Connect Configuration**, and then click
         **Configure**.
     4.  Enter `            https://localhost/callback           ` as the
         value for the **Callback Url**.  
@@ -131,8 +131,8 @@ behalf of the requesting party.
     1.  On the **Main** tab, click **Add** under **Service Providers**.
     2.  Enter `            samSP           ` as the **Service Provider
         Name** and click **Register**.
-    3.  Expand **Inbound Authentication Configuration** , then expand
-        **OAuth/OpenID Connect Configuration** , and then click
+    3.  Expand **Inbound Authentication Configuration**, then expand
+        **OAuth/OpenID Connect Configuration**, and then click
         **Configure**.
     4.  Enter
         `                         https://localhost/callback                       `
@@ -160,7 +160,7 @@ values to obtain the Protection API Access Token (PAT).
             resource owners credentials in the curl command. Since [you have
             configured Kate as the resource
             owner](#UserManagedAccesswithWSO2IdentityServer-Configuringtheresourceowner)
-            , you need to pass Kate's user name and password in the curl
+           , you need to pass Kate's user name and password in the curl
             command.
     
 

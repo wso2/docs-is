@@ -165,7 +165,7 @@ is parallelized and is taking advantage of the threading within the CPU.
     `           -p          ` options, like
     `           prstat -L -p pid          ` . This displays a line for
     each thread sorted by CPU activity. In that case, the last column is
-    labeled `           PROCESS/LWPID          ` , where LWPID is the
+    labeled `           PROCESS/LWPID          `, where LWPID is the
     thread ID. If more than one thread shows significant activity, your
     process is actively taking advantage of multi-threading.
 

@@ -20,7 +20,7 @@ In order to consume the request, follow the steps given below.
     </EventListener>
     ```
 
-3.  For the authentication to be successful , the certificate which is
+3.  For the authentication to be successful, the certificate which is
     imported to the `           client-truststore.jks          ` in
     `           <IS_Home>/repository/resources/security          `
     should be the same as the certificate which is available in the

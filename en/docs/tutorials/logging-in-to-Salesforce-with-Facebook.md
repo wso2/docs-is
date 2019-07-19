@@ -303,7 +303,7 @@ Let's get started!
         here to login** button to test this out.
 
 5.  On the left navigation menu, search for **Single Sign-On Settings**
-    , and click it.
+   , and click it.
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
     ![](attachments/103331333/103331341.png){width="750"}
@@ -324,7 +324,7 @@ Let's get started!
     2.  If you have not done so already, you must create the certificate
         first. Do the following steps to create this.
         1.  Click **Create Self-Signed Certificate**.
-        2.  Enter the **Label** and a **Unique Name** , and click
+        2.  Enter the **Label** and a **Unique Name**, and click
             **Save**. The certificate is generated.
     3.  Click the **Download Certificate** button to download the
         certificate.
@@ -463,7 +463,7 @@ Let's get started!
     Configuration** section. Scroll down to this section and click
     **Edit**.  
     ![](attachments/103331301/103331319.png){width="900"}
-15. Under **Authentication Service** , select **SSO** and deselect
+15. Under **Authentication Service**, select **SSO** and deselect
     **Login Page**.  
     ![](attachments/103331333/103331339.png){width="400"}
 
@@ -546,7 +546,7 @@ Let's get started!
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#LoggingintoSalesforcewithFacebook-ConfiguringSalesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
-    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
+    <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong>, and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong> . <img src="attachments/103331333/103331352.png" width="900" /></li>
     <li>Copy the URL that is defined for Login URL to access Salesforce. <img src="attachments/103331333/103331353.png" width="900" /></li>
     </ol>
@@ -558,7 +558,7 @@ Let's get started!
     <tr class="odd">
     <td>NameID Format</td>
     <td>The default value can be used here.</td>
-    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
+    <td>This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</td>
     </tr>
     <tr class="even">
     <td>Enable Response Signing</td>
@@ -568,7 +568,7 @@ Let's get started!
     <tr class="odd">
     <td>Enable Attribute Profile</td>
     <td>Selected</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the check box to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the check box to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     </tr>
     </tbody>
     </table>
@@ -581,7 +581,7 @@ Let's get started!
     Facebook credentials.
 2.  Click on **Create App**.  
     ![](attachments/103331384/103331446.png){width="800" height="46"}
-3.  Enter a **Display Name** , Contact Email, and click **Create App
+3.  Enter a **Display Name**, Contact Email, and click **Create App
     ID**.  
     ![](attachments/103331384/103331426.png){width="569" height="250"}
 4.  Enter code for security check, and click **Submit**.
@@ -596,7 +596,7 @@ Let's get started!
 
     If you have configured [WSO2 Identity Server to run using the IP or
     hostname](https://docs.wso2.com/display/IS530/Running+the+Product#RunningtheProduct-ChangeIPorHostname)
-    , you need to provide the IP or hostname instead of
+   , you need to provide the IP or hostname instead of
     `             localhost            ` .
 
     ![](attachments/103331384/103331439.png){width="600"}
@@ -681,7 +681,7 @@ new identity provider.
     **Identity Provider Public Certificate**.
 5.  Configuring claim mapping for Facebook:
 
-    1.  Expand **Claim Configuration** , go to **Basic Claim
+    1.  Expand **Claim Configuration**, go to **Basic Claim
         Configuration**.
     2.  Select the **Define Custom Claim Dialect** option under **Select
         Claim mapping Dialect**.
@@ -873,7 +873,7 @@ Salesforce and the Identity Server.
     3.  Click **Edit** under Authentication Configurations and you are
         navigated to a new page having the following URl:
         `             https://<DOMAIN_NAME>/domainname/EditLogin.apexp            `
-    4.  On the left navigation menu, expand **Security Controls** , and
+    4.  On the left navigation menu, expand **Security Controls**, and
         click, **Single Sign-On Settings**.
     5.  Click on the name of the Single Sign-On Setting you created. In
         this use case click **SSO**.  

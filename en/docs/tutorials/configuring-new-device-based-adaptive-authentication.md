@@ -7,7 +7,7 @@ that the user uses to log in to the application. In this example, if the
 user uses a new device or a new browser to log in to the application,
 the user is prompted for a second step of authentication. The new device
 or browser is identified by a cookie, therefore, once the cookie expires
-(this expiry time is specified in the authentication script) , the same
+(this expiry time is specified in the authentication script), the same
 browser or device is considered as a new device.
 
 Follow the instructions given in the sections below to set this up.
