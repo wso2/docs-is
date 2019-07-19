@@ -45,12 +45,12 @@ following sections for more information.
 
 1.  Go to <https://developers.facebook.com/> and log in using your
     Facebook credentials.
-2.  Click on **Create App** .  
+2.  Click on **Create App**.  
     ![](attachments/103331384/103331446.png){width="800" height="46"}
 3.  Enter a **Display Name** , Contact Email, and click **Create App
-    ID** .  
+    ID**.  
     ![](attachments/103331384/103331426.png){width="569" height="250"}
-4.  Enter code for security check, and click **Submit** .
+4.  Enter code for security check, and click **Submit**.
 5.  On Select product page, click **Set up** under **Facebook Login**
     .  
     ![](attachments/103331384/103331447.png){width="260" height="250"}
@@ -58,7 +58,7 @@ following sections for more information.
     sample.  
     ![](attachments/103331384/103331448.png){width="500" height="139"}
 7.  Enter **`             https://localhost:9443/            `** as the
-    Site URL and click **Save** .
+    Site URL and click **Save**.
 
     If you have configured [WSO2 Identity Server to run using the IP or
     hostname](https://docs.wso2.com/display/IS530/Running+the+Product#RunningtheProduct-ChangeIPorHostname)
@@ -68,18 +68,18 @@ following sections for more information.
     ![](attachments/103331384/103331439.png){width="600"}
 
 8.  Under Products on the left navigation panel, Click **Facebook
-    Login** .
+    Login**.
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.  
     ![](attachments/103331384/103331437.png){width="520" height="263"}
 
-    1.  **Client OAuth Login** should be set to **Yes** .  
+    1.  **Client OAuth Login** should be set to **Yes**.  
         Client OAuth Login is the global on-off switch for using OAuth
         client token flows. It helps to secure your application and
         prevent abuse by locking down which token redirect URIs are
         allowed.
-    2.  **Web OAuth Login** should be set to **Yes** .  
+    2.  **Web OAuth Login** should be set to **Yes**.  
         Web OAuth Login settings enables any OAuth client token flows
         that use the Facebook web login dialog to return tokens to your
         own website.
@@ -94,7 +94,7 @@ following sections for more information.
 
 11. Click on **Dashboard.** You can see the **App ID** and **App
     Secret** as shown in the image below. Click **Show** to view the
-    **App Secret** .
+    **App Secret**.
 
     **App ID** is the Client ID and the **App Secret** is the Client
     Secret in OAuth terminology. The API Version is Facebook’s API that
@@ -106,7 +106,7 @@ following sections for more information.
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
     you can add localhost as the App Domain)
 
-13. Click **Save Changes** .
+13. Click **Save Changes**.
 
 Now you have finished configuring Facebook as an Identity Provider.
 
@@ -228,13 +228,13 @@ in WSO2 Identity Server.
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS580/Running+the+Product) .  
+    it](https://docs.wso2.com/display/IS580/Running+the+Product).  
     Log in to the [Management
     Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management+Console)
     as administrator.
 2.  In the **Identity** section under the **Main** tab of the Management
-    Console, click **Add** under **Identity Providers** .
-3.  Give a suitable name as the **Identity Provider Name** .  
+    Console, click **Add** under **Identity Providers**.
+3.  Give a suitable name as the **Identity Provider Name**.  
     ![](attachments/103330993/103330995.png){width="678" height="383"}
 4.  Go to **Facebook Configuration** under **Federated Authenticators**
     .
@@ -300,9 +300,9 @@ in WSO2 Identity Server.
     ![](attachments/103330993/103330996.png){width="630"}
 
 6.  Select both checkboxes to **Enable Facebook Authenticator** and make
-    it the **Default** .
+    it the **Default**.
 
-7.  Click **Register** .
+7.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -313,9 +313,9 @@ provider.](https://docs.wso2.com/display/IS530/Adding+and+Configuring+a+Service+
 
 1.  Return to the Management Console.
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 3.  Enter travelocity.com in the **Service Provider Name** text box and
-    click **Register** .
+    click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section and
     set the configuration as follows:
@@ -337,7 +337,7 @@ provider.](https://docs.wso2.com/display/IS530/Adding+and+Configuring+a+Service+
         Include Attributes in the Response Always
 
     ![](attachments/103331384/103331442.png){width="900"}
-5.  Click **Register** . Now you will be sent back to the **Service
+5.  Click **Register**. Now you will be sent back to the **Service
     Providers** page.
 
 6.  Go to the **Local and Outbound Authentication Configuration**
@@ -345,7 +345,7 @@ provider.](https://docs.wso2.com/display/IS530/Adding+and+Configuring+a+Service+
 
 7.  Select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
-    **Federated Authentication** .  
+    **Federated Authentication**.  
     ![](attachments/103331384/103331429.png){width="506" height="225"}
 
 8.  Click **Update** to save the changes.
@@ -361,7 +361,7 @@ You have now added and configured the service provider.
 
 **Related Topics**
 
-For more information on SSO, see [Single Sign-On](_Single_Sign-On_) .
+For more information on SSO, see [Single Sign-On](_Single_Sign-On_).
 
 ### Configuring claim mappings for Facebook (optional)
 
@@ -378,12 +378,12 @@ So our next step is to configure claims in the Identity Server and map
 them with Facebook.
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Identity Providers** .
+    under **Identity Providers**.
 2.  Click **Edit** to edit the facebook identity provider you created.
 3.  Under **Claim Configuration** , go to **Basic Claim Configuration**
     .
 4.  Select the **Define Custom Claim Dialect** option under **Select
-    Claim mapping Dialect** .
+    Claim mapping Dialect**.
 5.  Click **Add Claim Mapping.** The following screen will be
     displayed.  
     ![](attachments/103331384/103331444.png){height="250"}
@@ -423,9 +423,9 @@ on the service provider side.
 For that follow the below steps :
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
+    under **Service Providers**.
 2.  Click **Edit** to edit the travelocity.com service provider.
-3.  Go to **Claim Configuration** .
+3.  Go to **Claim Configuration**.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as follows. Here you should add the claims you
     mapped in the Identity Provider claim configuration. Select the

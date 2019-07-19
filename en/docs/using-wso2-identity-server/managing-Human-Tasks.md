@@ -23,7 +23,7 @@ IS as well. To test the workflow, follow the steps below.
         as a manager at this link: <https://localhost:9443/dashboard>  
         ![](attachments/103330281/103330283.jpg){width="700"}  
           
-    2.  Click **View details** under **Pending Approvals** .
+    2.  Click **View details** under **Pending Approvals**.
     3.  In the resulting screen, select the **Workflow Profile engine**
         you want to access from the drop down menu. You can also filter
         the tasks from it’s current status by selecting the required
@@ -39,7 +39,7 @@ IS as well. To test the workflow, follow the steps below.
     move the state of the selected task to a new state  and to complete
     the workflow approval process (e.g. clicking **Start** and then
     **Approve** will approve the pending task and complete the workflow
-    process) .  
+    process).  
     ![](attachments/103330281/103330285.png){width="700"}  
 
     | Operation  | Description                                                                                                                                                               |

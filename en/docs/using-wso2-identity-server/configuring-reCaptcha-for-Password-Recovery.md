@@ -8,7 +8,7 @@ verification.
 By configuring reCaptcha, you can mitigate or block brute force attacks.
 
 For more information on setting up password recovery, see [Password
-Recovery](https://docs.wso2.com/display/IS570/Username+Recovery) .
+Recovery](https://docs.wso2.com/display/IS570/Username+Recovery).
 
 For more information on brute force attacks, see [Mitigating Brute Force
 Attacks](https://docs.wso2.com/display/IS550/Mitigating+Brute+Force+Attacks)
@@ -37,7 +37,7 @@ reCaptcha for a specific tenant.
     admin.
 
 4.  On the **Main** tab, click on **Identity Provider** → **Resident
-    Identity Provider** .
+    Identity Provider**.
 
 5.  Expand the **Account Management Policies** tab, then click on
     **Account Recovery.**
@@ -49,7 +49,7 @@ reCaptcha for a specific tenant.
 
 7.  You have now successfully configured reCaptcha for the password
     recovery flow. Start WSO2 Identity Server and log into the end user
-    [dashboard](https://localhost:9443/dashboard) .
+    [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     
@@ -57,7 +57,7 @@ reCaptcha for a specific tenant.
         the port or hostname accordingly.
     
 
-8.  Click on **Forgot Password** .
+8.  Click on **Forgot Password**.
 
 ![](https://lh6.googleusercontent.com/W3hrI3O5Gb_VSEzNvBTw5PBKmvc8VIcS1toWSKsq3UqKo0zKGwUFLH4NpOR5U47iNivK8YxVxaJ-8G6wVumznKN4-sfc8CNjLSJ9zyZNPbFFW1_Sc8-BrZl4phqZ4GcPH-yROtuC){width="368"
 height="478"}
@@ -65,7 +65,7 @@ height="478"}
   
 
 Enter your username in the page that appears next and select **Proceed
-to Password Recovery** .
+to Password Recovery**.
 
 ![](https://lh3.googleusercontent.com/ppE9_Zzy0aBMxvY-m4TN99rgvrF_Fm8fu0ilJcC_n1v4Tq-iPkzwyWzRwBgMggpNiraFZyQYXIg3DEvyiJq_0VM_T_kG_Kigtm5anp4PUnwHjOLtiwfQmSWOlYI-LlUbpBjhjIAG){width="624"
 height="227"}
@@ -126,7 +126,7 @@ reCaptcha globally.
         the port or hostname accordingly.
     
 
-4.  Click on **Forgot Password** .
+4.  Click on **Forgot Password**.
 
 ![](https://lh6.googleusercontent.com/W3hrI3O5Gb_VSEzNvBTw5PBKmvc8VIcS1toWSKsq3UqKo0zKGwUFLH4NpOR5U47iNivK8YxVxaJ-8G6wVumznKN4-sfc8CNjLSJ9zyZNPbFFW1_Sc8-BrZl4phqZ4GcPH-yROtuC){width="341"
 height="444"}

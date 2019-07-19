@@ -37,6 +37,6 @@ users using the Microsoft Azure AD authenticator.
 ### Additional information
 
 Download the authenticator and other artifacts from [the
-store](https://store.wso2.com/store/assets/isconnector/list) .
+store](https://store.wso2.com/store/assets/isconnector/list).
 
   

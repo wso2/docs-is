@@ -148,7 +148,7 @@ nav:
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
         - 'WS-Trust': tutorials/ws-trust.md
-        - 'Configuring WS-Trust Security Token Service': configuring-ws-trust-security-token-service.md
+        - 'Configuring WS-Trust Security Token Service': tutorials/configuring-ws-trust-security-token-service.md
       - 'WS-Federation':
         - 'WS-Federation': tutorials/ws-federation.md
         - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 
@@ -176,11 +176,11 @@ nav:
         - 'Configuring SMS OTP': tutorials/configuring-sms-otp.md
         - 'Configuring Email OTP': tutorials/configuring-email-otp.md
       - 'Identity Federation with WS-Trust':
-        - 'Identity Federation with WS-Trust': tutorials/wS-Trust.md
-        - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-STS-for-Obtaining-Tokens-with-Holder-Of-Key-Subject-Confirmation.md
-        - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': tutorials/wSO2-Identity-Server-and-Claim-Aware-Proxy-Services-with-ESB.md
-        - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': tutorials/accessing-Claim-Aware-Services-using-STS-Secured-with-Non-repudiation.md
-        - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': tutorials/requesting-and-Renewing-Received-SAML2-Bearer-Type-Tokens.md
+        - 'Identity Federation with WS-Trust': tutorials/identity-federation-with-ws-trust.md
+        - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
+        - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': tutorials/wso2-identity-server-and-claim-aware-proxy-services-with-esb.md
+        - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': tutorials/accessing-claim-aware-services-using-sts-secured-with-non-repudiation.md
+        - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': tutorials/requesting-and-renewing-received-saml2-bearer-type-tokens.md
         - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': tutorials/configuring-SAML2-Single-Sign-On-Across-Different-WSO2-Products.md
         - 'Client-side Support for SAML Artifact Binding': tutorials/client-side-Support-for-SAML-Artifact-Binding.md
         - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': tutorials/eIDAS-SAML-Attribute-Profile-Support-via-WSO2-Identity-Server.md

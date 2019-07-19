@@ -15,7 +15,7 @@ or Mac OS X.
 
 1.  Log in to the command line (Terminal on Mac).
 2.  Ensure that your system meets the [Installation
-    Prerequisites](_Installation_Prerequisites_) .  Java Development Kit
+    Prerequisites](_Installation_Prerequisites_).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server
@@ -120,4 +120,4 @@ following line above `          127.0.0.1 localhost         ` in the
 `          /etc/hosts         ` file: `          <ip_address>         `
 `          <machine_name> localhost         `
 
-You are now ready to [run the product](_Running_the_Product_) .
+You are now ready to [run the product](_Running_the_Product_).

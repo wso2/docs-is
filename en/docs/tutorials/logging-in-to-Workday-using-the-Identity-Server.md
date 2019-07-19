@@ -70,7 +70,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 ### Configuring Workday
 
 1.  Login to the Workday account as an administrator.
-2.  Open the **Edit Tenant Setup** and click **Security** .
+2.  Open the **Edit Tenant Setup** and click **Security**.
 3.  Select the **Enable SAML Authentication** checkbox.  
     ![](attachments/103331363/103331366.png)
 4.  Enter the identity provider name and the issuer as follows.  
@@ -92,7 +92,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 6.  Click on create and insert Name, Valid To, Valid from, and the
     certificate in the interface that appears.  
     You can get the certificate's info and validate it
-    [here](https://www.sslshopper.com/certificate-decoder.html) .
+    [here](https://www.sslshopper.com/certificate-decoder.html).
 
 7.  Enable the Workday initiated logout as seen below.
 
@@ -117,8 +117,8 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
     Restart WSO2 Identity Server after the certificate import.
 
 
-10. Enter the following details and click **OK** . Finally, click
-    **Done** .
+10. Enter the following details and click **OK**. Finally, click
+    **Done**.
 
     <table>
     <colgroup>
@@ -174,7 +174,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
     the **SAML2 Web SSO Configuration** Section and click **Configure**
     .
 4.  In the form that appears, fill out the following configuration
-    details required for single sign-on and click **Register** .  
+    details required for single sign-on and click **Register**.  
     ![](attachments/103331363/103331369.png)  
     See the following table for the details.
 

@@ -51,9 +51,9 @@ This is tested for the Duo Security API version V2.
 1.  Log into the WSO2 Identity Server [Management
     Console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click [Add New
-    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 4.  Select the **Dialect** from the dropdown provided and enter the
     required information.
 5.  Add the following user claims under ' http://wso2.org/claims' .
@@ -95,19 +95,19 @@ provider](https://docs.wso2.com/identity-server/Configuring+an+Identity+Provider
 1.  Log in to the [management
     console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     as an administrator.
-2.  In the **Main** menu, click **Add** under **Identity Providers** .
+2.  In the **Main** menu, click **Add** under **Identity Providers**.
 3.  Expand the **Claim Configuration** section and select **Define
     Custom Claim Dialect** under **Basic Claim Configuration** section.
 4.  Click **Add Claim Mapping** and add the following claims.  
     ![](attachments/51486808/51451231.png){width="700" height="239"}
 5.  Go to **Duo Provisioning Configuration** under **Outbound
-    Provisioning Connectors** . Give a suitable name as the **Identity
+    Provisioning Connectors**. Give a suitable name as the **Identity
     Provider Name** and fill out the fields.  
     ![](attachments/51486808/53284965.png){width="700" height="605"}
 6.  Enter the values for the required fields. You should use Integration
     key, Secret key and Host values of the Duo app that you created.
 
-7.  Click **Register** .
+7.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -117,7 +117,7 @@ The next step is to configure the service provider.
 
 1.  Return to the management console.
 
-2.  In the **Main** menu, click **Add** under **Service Providers** .
+2.  In the **Main** menu, click **Add** under **Service Providers**.
 3.  Select **Resident Service Provider** in the Service Providers page
     and add the created Duo identity provider in the **Outbound
     Provisioning Configuration** as indicated in the figure below.  
@@ -133,7 +133,7 @@ You have now added and configured the service provider.
     create a new user.
 
 2.  Enter the **User Name** and **Password** for the new user and click
-    **Finish** .  
+    **Finish**.  
     ![](attachments/51486808/51451233.png){width="400"}
 
 3.  Go to <https://admin-xxxxxxxx.duosecurity.com/users> and check the

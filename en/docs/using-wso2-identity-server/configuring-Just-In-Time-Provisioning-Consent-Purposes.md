@@ -18,25 +18,25 @@ WSO2 Identity Server:
     Before you begin,
     
     Download and install WSO2 Identity Server. For detailed information on
-    how to install, see [Installing the Product](_Installing_the_Product_) .
+    how to install, see [Installing the Product](_Installing_the_Product_).
     
 
 1.  Start WSO2 Identity Server and access the management console via
     `           https://localhost:9443/carbon/          ` .
 
 2.  Click the **Main** tab, go to **Identity** -\> **Identity
-    Providers** and then click **Resident** . This displays the
+    Providers** and then click **Resident**. This displays the
     **Resident Identity Provider** screen.
 3.  Expand the **Account Management Policies** section, and then expand
     the **User Onboarding** section. Under **User Onboarding** you will
-    see **Manage just-in-time provisioning purposes** .
+    see **Manage just-in-time provisioning purposes**.
 
 4.  Click to configure JIT provisioning purposes and user attributes.  
     ![](attachments/103329736/103329737.png){width="700"}  
     This displays the **Consent Purposes** screen where you can add
     consent purposes.
 
-5.  Click **Add New Purpose** . This displays the **Add New Purpose**
+5.  Click **Add New Purpose**. This displays the **Add New Purpose**
     screen.
 6.  Specify appropriate values for the **Purpose** and **Description**
     fields, and then click **Add PII Category** to add a user attribute
@@ -69,14 +69,14 @@ WSO2 Identity Server:
             attributes.
     
 
-7.  Click **Finish** . This displays details related to the purpose that
+7.  Click **Finish**. This displays details related to the purpose that
     you added.
 
 8.  Depending on your requirement, you can either add another new
     purposes and related user attributes, or click **Finish** if you
     have added all the purposes you need.
 
-9.  Click **Update** .
+9.  Click **Update**.
 
 Now you have configured the required JIT provisioning purposes and user
 attributes for which you require users to provide consent.

@@ -90,12 +90,12 @@ server roles.
 1.  Log in to the Management Console of your product and click **Server
     Roles** in the **Configure** tab.
 2.  Click **Add New Server Role** , e nter the r ole name and click
-    **Add** . You can add any textual name as a server role without
+    **Add**. You can add any textual name as a server role without
     special characters except underscore.  
     ![](attachments/41255091/41517078.png)
 3.  Note that the newly added server role is displayed in the list.  
     ![](attachments/41255091/41517077.png) You can delete the server
-    role by clicking **Delete** .
+    role by clicking **Delete**.
 
     !!! tip
     

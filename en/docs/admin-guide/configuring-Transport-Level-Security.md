@@ -74,7 +74,7 @@ layer.
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar) .
+    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar).
 
     ``` java
         java -jar TestSSLServer.jar localhost 9443
@@ -266,7 +266,7 @@ ciphers by JSSE. This will enable the weak ciphers.
 
 4.  Start the server.
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar) .
+    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar).
 
     ``` java
         $ java -jar TestSSLServer.jar localhost 9443

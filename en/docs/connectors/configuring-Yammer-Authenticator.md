@@ -82,22 +82,22 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-    1.  Give a suitable name for **Identity Provider Name** .  
+    management console, click **Add**.
+    1.  Give a suitable name for **Identity Provider Name**.  
         ![](attachments/48290733/76747696.png){width="850" height="515"}
 4.  Next, navigate to the **Federated Authenticators \> Yammer
-    Configuration** .
+    Configuration**.
 
     1.  Select the **Enable** and **Default** checkboxes. This will
         enable the Yammer authenticator and make it the default Identity
         provider.
 
-    2.  Enter the following values and click **Register** .
+    2.  Enter the following values and click **Register**.
 
 | Field             | Description                                                                                                             | Sample Value                                                                                                               |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -120,7 +120,7 @@ The next step is to configure the service provider.
 
 3.  Since you are using travelocity as the sample, enter
     `                         travelocity.com                       `
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
     1.  In the **Inbound Authentication Configuration** section, click
         **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -152,7 +152,7 @@ The next step is to configure the service provider.
             Configuration** section.
 
         2.  Select the identity provider you created from the dropdown
-            list under **Federated Authentication** .
+            list under **Federated Authentication**.
 
         3.  Ensure that the **Federated Authentication** radio button is
             selected and click **Update** to save the changes.

@@ -45,7 +45,7 @@ mutual SSL](#ProductAdministration-EnablingmutualSSL) \]
 
 If you are upgrading from WSO2 IS 5.4.0 to WSO2 IS 5.5.0 version, see
 the [upgrade instructions for WSO2 Identity
-Server](_Upgrading_from_a_Previous_Release_) .
+Server](_Upgrading_from_a_Previous_Release_).
 
 ------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ management.
     permissions.
 -   For information on how to remove references to a deleted user's
     identity, see [Removing References to Deleted User
-    Identities](_Removing_References_to_Deleted_User_Identities_) .  
+    Identities](_Removing_References_to_Deleted_User_Identities_).  
 
 #### Configuring security
 

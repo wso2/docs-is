@@ -4,7 +4,7 @@
 
 OAuth 2.0 authorization servers provide support for four main grant
 types according to the [OAuth 2.0
-specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-22) . It
+specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-22). It
 also has the flexibility to support any custom grant types. This topic
 provides instructions on how to implement a custom grant type for OAuth
 2.0 authorization server and how to extend the behavior of default grant
@@ -129,16 +129,16 @@ directly used as well.
         Console](https://docs.wso2.com/display/IS500/Getting+Started+with+the+Management+Console)
         .
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. See [Adding a Service
         Provider](https://docs.wso2.com/display/IS500/Adding+a+Service+Provider)
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
-        **Configure** .
+        **Configure**.
     5.  Enter a callback URL. For example,
         http://localhost:8080/playground2/oauth2client .
-    6.  Click **Add** . **  
+    6.  Click **Add**. **  
         **
     7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
         visible.
@@ -208,16 +208,16 @@ This section provides instructions on how to
         Console](https://docs.wso2.com/display/IS500/Getting+Started+with+the+Management+Console)
         .
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. See [Adding a Service
         Provider](https://docs.wso2.com/display/IS500/Adding+a+Service+Provider)
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
-        **Configure** .
+        **Configure**.
     5.  Enter a callback URL. For example,
         http://localhost:8080/playground2/oauth2client.
-    6.  Click **Add** .
+    6.  Click **Add**.
     7.  The **OAuth Client Key** and **OAuth Client Secret** will now be
         visible.
 5.  Send the password grant request to the `           /token          `

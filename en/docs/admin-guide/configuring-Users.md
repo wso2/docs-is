@@ -38,25 +38,25 @@ Follow the instructions below to add a new user account and configure
 its role.
 
 1.  On the **Main** tab in the management console, and click **Add**
-    under **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    under **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.  
-3.  Click **Add New User** . The following screen will open:  
+3.  Click **Add New User**. The following screen will open:  
     ![](attachments/53125498/53287370.png)
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
         create this user account. This list includes the primary user
         store and any other secondary user stores that are configured
         for your product. For information on configuring user stores,
-        see [Configuring User Stores](_Configuring_User_Stores_) .
+        see [Configuring User Stores](_Configuring_User_Stores_).
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters and should have at least one character with a capital
         letter, characters, numbers and special characters.
-    3.  Click **Next** .
+    3.  Click **Next**.
 5.  Optionally, select the role(s) you want this user to have. If you
     have many roles in your system, you can search for them by name.
-6.  Click **Finish** .
+6.  Click **Finish**.
 
 A new user account is created with the specified roles and is listed on
 the **Users** page.
@@ -120,7 +120,7 @@ user5,password123, role=devops:tester
 In addition to importing users with their passwords and roles, you can
 import other user attributes such as **email address** , **full name** ,
 **last name, mobile** , **given name etc.** using [claim URls that are
-defined for attributes](_Managing_User_Attributes_) . Here's an example
+defined for attributes](_Managing_User_Attributes_). Here's an example
 of claim URls that you can defined for your product:
 
 ``` java
@@ -158,7 +158,7 @@ To import users in bulk:
 1.  Log in to the management console of your WSO2 product.
 2.  In the **Configure** menu, Under **Users and Roles** , click
     **Add.**  
-3.  Click **Bulk Import Users** .  
+3.  Click **Bulk Import Users**.  
 4.  The user stores configured for your product will be listed in the
     **Domain** field. Select the user store to which you want to import
     the users from the list, upload the CSV or excel sheet, and click
@@ -189,7 +189,7 @@ Permissions](https://docs.wso2.com/display/Carbon443/Role-based+Permissions)
 
 Each individual user has a profile that can be updated to include
 various details. To do this, click **User Profile** on the **Users**
-screen. Make the changes required and click **Update** . You can also
+screen. Make the changes required and click **Update**. You can also
 add multiple profiles for a user.
 
 !!! note
@@ -201,8 +201,8 @@ add multiple profiles for a user.
 Do the following in order to add new profiles.
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  Click the **User Profile** link.
 4.  You can add multiple profiles using the **Add New Profile** link and
@@ -216,8 +216,8 @@ Follow the instructions below to delete a user.
 Deleting a user cannot be undone.
 
 1.  On the **Main** tab in the management console click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with **User
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with **User
     Management** level permissions. For information on permissions, see
     [Role-based
     Permissions](https://docs.wso2.com/display/Carbon443/Role-based+Permissions)
@@ -229,7 +229,7 @@ Deleting a user cannot be undone.
     
     Once a user is deleted, you can remove all references to the deleted
     user's identity via the [Identity Anonymization
-    tool](https://github.com/wso2/identity-anonymization-tool) . For
+    tool](https://github.com/wso2/identity-anonymization-tool). For
     information on building and running the tool, see [Removing References
     to Deleted User Identities in WSO2
     Products](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)

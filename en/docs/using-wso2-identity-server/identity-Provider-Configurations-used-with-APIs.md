@@ -35,7 +35,7 @@ configuring an Identity Provider.
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
 custom federated authenticator, see [Writing a Custom Federated
-Authenticator](_Writing_a_Custom_Federated_Authenticator_) .
+Authenticator](_Writing_a_Custom_Federated_Authenticator_).
 
 !!! warning
     
@@ -412,7 +412,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_) .
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](_Writing_an_Outbound_Provisioning_Connector_) .
+Connector](_Writing_an_Outbound_Provisioning_Connector_).
 
 !!! warning
     

@@ -14,7 +14,7 @@ following.
 
 1.  Expand the **Role Configuration** section.
 2.  To configure **Identity Provider Roles** , click **Add Role
-    Mapping** . The following screen appears.  
+    Mapping**. The following screen appears.  
     ![Role
     Mapping](attachments/103329728/103329729.png "Role Mapping"){width="750"}
 3.  Enter the **Identity Provider Role** and map it to the **Local
@@ -22,7 +22,7 @@ following.
     [here](Configuring-Roles-and-Permissions_103330369.html#ConfiguringRolesandPermissions-addU)
     for information on how the local role can be created in the Identity
     Server. Click the **Delete** button to remove the mapping.
-4.  Enter the **Identity Provider Provisioning Role** . This
+4.  Enter the **Identity Provider Provisioning Role**. This
     configuration is very useful if you wish to only provision some
     users and not others. All users who are assigned to this role will
     be provisioned from the Identity Server to the identity provider.

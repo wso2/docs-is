@@ -34,10 +34,10 @@ the secondary user store. For this, you need to change the "Mapped
 Attribute" value as indicated below.
 
 1.  Log in to the WSO2 Identity Server and access the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 2.  In the **Main** menu of the management console, click **List** under
-    **Claims** . For more information on configuring claims, see [Claim
-    Management](_Claim_Management_) .
+    **Claims**. For more information on configuring claims, see [Claim
+    Management](_Claim_Management_).
 3.  Click on **urn:scim:schemas:core:1.0** claim dialect and find the
     mapped local claim to the SCIM claim that you need to edit. You can
     alternatively [Add a New Claim](_Adding_Claim_Mapping_) if the claim
@@ -54,7 +54,7 @@ those as well. To do that just click Add, Attribute Mappings and set
 values for user store domain name and mapped attribute.
 
 For information about Local Claim Dialect attributes, click
-[here](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) .
+[here](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
 
 Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user

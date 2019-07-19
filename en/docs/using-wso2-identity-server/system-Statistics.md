@@ -9,7 +9,7 @@ response time.
 Follow the instructions below to access the system statistics.
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Monitor** menu and click on **System Statistics**
     . The **System Statistics** page appears with statistics related to
@@ -51,12 +51,12 @@ view.
         of the Memory graph.
         -   **X-Scale (units)**
         -   **X-Width (px)**
-2.  Click **Update** .  
+2.  Click **Update**.  
     ![](attachments/9372728/9440986.png)
 3.  Refresh your page.
 
 If you want to restore to the previous values after editing, click
-**Reset** .
+**Reset**.
 
 ![](attachments/9372728/9440985.png)
 

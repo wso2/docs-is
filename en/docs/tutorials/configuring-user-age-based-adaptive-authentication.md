@@ -17,7 +17,7 @@ prevented from logging in to the application.
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 ### Configuring the sample scenario
@@ -42,16 +42,16 @@ prevented from logging in to the application.
 6.  Navigate to **Service Providers&gt;List** and click **Edit** on
     the saml2-web-app-dispatch.com service provider.
 7.  Expand the **Local and Outbound Authentication Configuration**
-    section and click **Advanced Configuration** .
+    section and click **Advanced Configuration**.
 8.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **User-Age-Based**.  
     ![user age based template](../../assets/img/tutorials/user-age-based-template.png)
-9.  Click **Ok** . The authentication script and authentication steps
+9.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script grants access only to
     users who are 18 years or above and restricts underage users.
     Underage users are redirected to an error page.
 
-10. Click **Update** .
+10. Click **Update**.
 
 ### Trying out the sample scenario
 

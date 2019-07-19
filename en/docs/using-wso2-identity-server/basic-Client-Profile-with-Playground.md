@@ -25,7 +25,7 @@ to use this sample.
         Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management+Console)
         .
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.
@@ -209,7 +209,7 @@ application.
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **OAuth/OpenID Connect Configuration.** Click **Configure** .
+    expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
 2.  Fill in the form that appears. For the **Allowed Grant Types** you
     can disable the ones you do not require or wish to block.
 
@@ -363,7 +363,7 @@ Let's get started to configure the service provider you created!
     </tbody>
     </table>
 
-3.  Click **Add** . Note that `             client key            ` and
+3.  Click **Add**. Note that `             client key            ` and
     `             client secret            ` get generated.  
     ![](attachments/103330833/103330840.png){width="774"}
 
@@ -428,9 +428,9 @@ following topics for samples of configuring delegated access control:
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Complete
 the user profile
 
-1.  [Create a user](_Configuring_Users_) .
+1.  [Create a user](_Configuring_Users_).
 2.  Log in as the user you created and go to the
-    [dashboard](_Using_the_End_User_Dashboard_) .
+    [dashboard](_Using_the_End_User_Dashboard_).
 3.  [Update your
     profile](Configuring-Users_103330327.html#ConfiguringUsers-Updateusers)
     filling the user attributes.
@@ -447,7 +447,7 @@ the user profile
 1.  Visit the URL
     `                       http://wso2is.local:8080/playground2/oauth2.jsp                     `
     to start the scenario with the sample application.
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     -   **Authorization Grant Type:** Authorization Code
     -   **Client ID:** (the client id received at the application
@@ -504,7 +504,7 @@ the user profile
 
 
 5.  Enter the following details in the form that appears and click **Get
-    Access Token** .
+    Access Token**.
 
     -   **Callback URL:**
         http://wso2is.local:8080/playground2/oauth2client

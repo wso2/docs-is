@@ -9,7 +9,7 @@ resources such as memory and hardware and also secures each tenant's
 personal data.
 
 You can register tenant domains using the [Management
-Console](_Getting_Started_with_the_Management_Console_) of WSO2
+Console](../../setup/getting-started-with-the-management-console) of WSO2
 products.
 
 ### About tenants in the Identity Server
@@ -54,7 +54,7 @@ To create a new tenant, take the following steps:
 
 1.  Use admin as the username and password to log in as a super tenant.
 2.  On the **Configure** tab of the Management Console, click **Add New
-    Tenant** .
+    Tenant**.
 3.  Enter the information about this tenant as follows:  
     -   **Domain** -  The domain name for the organization, which should
         be a unique name (e.g., abc.com). This is used as a unique
@@ -84,7 +84,7 @@ tenant URL.
 ### Viewing tenants
 
 To view existing tenants, on the **Configure** tab in the Identity
-Server Management Console, click **View Tenants** .
+Server Management Console, click **View Tenants**.
 
 **Related links**
 

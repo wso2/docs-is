@@ -101,9 +101,9 @@ with the configuration steps.
 
     2.  Restart IS-IP.
     3.  Configure an [OAuth service
-        provider](_Adding_and_Configuring_a_Service_Provider_) .
+        provider](_Adding_and_Configuring_a_Service_Provider_).
     4.  Initiate an access token request to IS-IP over a known [grant
-        type](_OAuth_2.0_Grant_Types_) . The following cURL command
+        type](_OAuth_2.0_Grant_Types_). The following cURL command
         illustrates the syntax of an access token request that can be
         initiated using the [Resource Owner Password
         Credential](_Resource_Owner_Password_Credentials_Grant_) grant
@@ -183,14 +183,14 @@ with the configuration steps.
     1.  Sign in to the management console of IS-SP. For detailed
         instructions on starting the management console, see [Getting
         Started with the Management
-        Console](_Getting_Started_with_the_Management_Console_) .
+        Console](../../setup/getting-started-with-the-management-console).
     2.  On the **Main** tab, go to **Identity** -\> **Identity
-        Providers** , and click **Add** .
+        Providers** , and click **Add**.
     3.  Provide appropriate values to configure IS-IP as the identity
         provider. For detailed instructions on how to add a new identity
         provider, see [Adding and Configuring an Identity
-        Provider](_Adding_and_Configuring_an_Identity_Provider_) .
-    4.  Click **Register** .
+        Provider](_Adding_and_Configuring_an_Identity_Provider_).
+    4.  Click **Register**.
 
 Now that you have configured IS-IP and IS-SP, let's take a look at how
 WSO2 Identity Server handles custom claims with the JWT bearer grant

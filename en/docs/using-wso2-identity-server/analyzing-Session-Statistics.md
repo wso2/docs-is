@@ -4,7 +4,7 @@ The **Login Sessions** statistical visualization displays statistics
 relating to the sessions of the different applications that accessed via
 WSO2 IS.
 
-Follow the steps below to view the **Login Sessions** .
+Follow the steps below to view the **Login Sessions**.
 
 !!! tip
     
@@ -12,8 +12,8 @@ Follow the steps below to view the **Login Sessions** .
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
-    2.  Click **menu** icon \> **Login Sessions** .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
+    2.  Click **menu** icon \> **Login Sessions**.
     
 
 Let's analyze the login sessions with the following widgets.
@@ -33,7 +33,7 @@ for each event that is coming from WSO2 IS.
 
 ##### Description
 
--   This chart presents the **session count over time** .
+-   This chart presents the **session count over time**.
 -   The **Active** line indicates the number of active sessions over the
     selected time interval. A session needs to be active at the end of
     the selected time bucket in order to be counted as an active

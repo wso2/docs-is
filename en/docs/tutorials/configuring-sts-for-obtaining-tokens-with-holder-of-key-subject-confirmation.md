@@ -12,19 +12,18 @@ Holder-Of-Key subject confirmation (Symmetric Key).
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Follow the steps given below to configure the Holder of Key
     confirmation method.  
     1.  Navigate to the **Service Providers** section by clicking
-        **Add** in the **Main** menu under **Service Providers** .
+        **Add** in the **Main** menu under **Service Providers**.
     2.  Add a **Service Provider Name** and **Description** and click
-        **Register** .  
-        ![](attachments/103331086/103331091.png){width="900"
-        height="201"}
+        **Register**.  
+        ![add-new-service-provider](../../assets/img/tutorials/add-new-service-provider.png)
     3.  In the resulting page, expand the **Inbound Authentication
         Configuration** and the **WS-Trust Security Token Service
         Configuration** sections.
-    4.  Click **Configure** .
+    4.  Click **Configure**.
     5.  Enter the trusted relying party and upload the public
         certificate of the trusted relying party (against its
         end-point).
@@ -38,9 +37,9 @@ Holder-Of-Key subject confirmation (Symmetric Key).
         token.  
         Example: Enter the endpoint address of the service that you are
         running.  
-        ![](attachments/103331086/103331090.png){width="400"}
+        ![configure-sts](../../assets/img/tutorials/configure-sts.png)
 
-    6.  Click **Apply** .
+    6.  Click **Apply**.
 
 4.  A new trusted service is added to the service provider.
 

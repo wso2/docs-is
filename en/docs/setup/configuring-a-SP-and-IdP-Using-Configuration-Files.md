@@ -14,7 +14,7 @@ the service provider. From this point onwards, the Identity Server
 instance that acts as the external identity provider will be referred to
 as **`          identity provider IS         `** and the instance that
 acts as the service provider will be referred to as
-**`          service provider IS         `** . Once we are done with the
+**`          service provider IS         `**. Once we are done with the
 configuration, the **`          service provider IS         `** will
 have the travelocity application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
@@ -36,7 +36,7 @@ The following are the high level steps required for this scenario.
     step 1) as a federated authenticator.
 
 The above processes can be easily done using the [Management
-Console](_Getting_Started_with_the_Management_Console_) , but the
+Console](../../setup/getting-started-with-the-management-console) , but the
 service provider and identity provider created in
 **`          service provider IS         `** are only visible to the
 tenant who creates them. So the difference here is that the identity
@@ -72,7 +72,7 @@ for the scenario.
     this to 1. This is done to increment the port values in the
     **`             identity provider IS            `** so that there is
     no port conflict with the
-    **`             service provider IS            `** . Port conflicts
+    **`             service provider IS            `**. Port conflicts
     occur when multiple WSO2 product instances run on the same machine.
 
     ``` xml
@@ -86,24 +86,24 @@ the configuration steps.
 
 This section involves adding the
 **`          service provider IS         `** as a service provider in
-the **`          identity provider IS         `** .
+the **`          identity provider IS         `**.
 
 1.  [Start the **`            identity provider IS           `** and
-    access the Management Console](_Running_the_Product_) .
+    access the Management Console](_Running_the_Product_).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. For the purposes of this
     scenario, enter the **Service Provider Name** as
     `          ServiceProviderSP_IS         ` .
 4.  Click **Register** to add the service provider.
 5.  Expand the **Inbound Authentication** and **SAML2 Web SSO
-    Configuration** sections and click **Configure** .
+    Configuration** sections and click **Configure**.
 6.  Do the following configurations.
 
     | Configurations to be done                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
     |-------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Issuer** :­ `                travelocitySP               `                                                                  | This must be the same as the value you enter for the **Service Provider Entity Id** when configuring the identity provider in the **`                 service provider IS                `** .                                                                                                                                                                                                                                                                                                       |
+    | **Issuer** :­ `                travelocitySP               `                                                                  | This must be the same as the value you enter for the **Service Provider Entity Id** when configuring the identity provider in the **`                 service provider IS                `**.                                                                                                                                                                                                                                                                                                       |
     | **Assertion Consumer URL** ­: `                               https://localhost:9443/commonauth                             ` | This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should be defined in this format: `               https://(host-name):(port)/acs              ` . |
     | Use fully qualified username in the NameID                                                                                    | A fully qualified username is basically the username with the user store domain. In short, the username must be in the following format: `               {user store domain}{user name}              ` .                                                                                                                                                                                                                                                                                             |
     | Enable Single Logout                                                                                                          | When single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile.                                                                                                                                                                                                                                                                                                                   |
@@ -114,14 +114,14 @@ the **`          identity provider IS         `** .
 
 This section involves adding the
 **`          identity provider IS         `** as an identity provider in
-the **`          service provider IS         `** .
+the **`          service provider IS         `**.
 
 Create a file named `         identityProviderIDP_IS.xml        ` inside
 the
 `         <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/identity­-providers        `
 directory and add the following content into it. These configurations
 basically add the identity provider in the
-**`          service provider IS         `** . Additionally, this has
+**`          service provider IS         `**. Additionally, this has
 the configurations necessary for a federated authentication scenario.
 
 !!! note
@@ -238,7 +238,7 @@ the configurations necessary for a federated authentication scenario.
 
 Here, `         travelocitySP        ` must be the same value as the
 value configured as the **Issuer** in the
-**`          identity provider IS         `** .
+**`          identity provider IS         `**.
 
 **About certificates** : The following is a sample command if the
 identity provider is WSO2 Identity Server where you can export the
@@ -262,7 +262,7 @@ copy the entire content of the PEM file and place it within the
 ### Adding the service provider in the service provider IS
 
 This section involves adding the travelocity application as a service
-provider in the **`          service provider IS         `** .
+provider in the **`          service provider IS         `**.
 
 1.  Open the
     `           <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/sso-idp-config.xml          `
@@ -439,7 +439,7 @@ provider in the **`          service provider IS         `** .
 Do the following steps to run the travelocity application.
 
 1.  Check out the single sign on sample from the following GitHub
-    repository. See the [Downloading a Sample](_Downloading_a_Sample_)
+    repository. See the [Downloading a Sample](../../using-wso2-identity-server/downloading-a-sample)
     topic for more information.
 
     ``` java
@@ -504,7 +504,7 @@ Now you can test if the configurations you have done work in a tenant
 scenario.
 
 1.  [Create new tenants](_Creating_and_Managing_Tenants_) in the
-    **`            service provider IS           `** .
+    **`            service provider IS           `**.
 
     !!! note
     

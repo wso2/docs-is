@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
-its [identity provisioning framework](_Provisioning_Architecture_) .
+its [identity provisioning framework](_Provisioning_Architecture_).
 
 This topic provides instructions on how to configure Salesforce as the
 Identity Provider to provision users from WSO2 Identity Server. The
@@ -29,7 +29,7 @@ too.
     1.  Fill out the relevant information found in the following URL:
         [https://developer.salesforce.com/signup  
         ](https://developer.salesforce.com/signup)
-    2.  Click **Sign me up** .
+    2.  Click **Sign me up**.
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email, you can reset it by
         following the steps given
@@ -51,11 +51,11 @@ too.
         lightning theme.
     
         1.  Click your username to expand the drop down.
-        2.  Click **Switch to Lightning Experience** .  
+        2.  Click **Switch to Lightning Experience**.  
             ![](attachments/103330205/103330206.png){width="200"
             height="153"}
         3.  Click the settings icon on the top-right-hand corner, and click
-            **Set Up** .  
+            **Set Up**.  
             ![](attachments/103330205/103330207.png){width="150"}
     
         Now you are navigated to the lightening theme of Salesforce.
@@ -83,7 +83,7 @@ too.
     Provider in WSO2 Identity Server with these values to successfully
     configure outbound provisioning with Salesforce.
 
-    1.  Expand **Apps** and click **App Manager** .  
+    1.  Expand **Apps** and click **App Manager**.  
         ![](attachments/103330205/103330224.png){width="200"}
     2.  In the window that appears, click **New** **Connected Apps**
         that is on the top right corner.
@@ -166,7 +166,7 @@ too.
         server before using the connected app.
     
 
-    1.  Expand **Users** and click **Profiles** . A list of existing
+    1.  Expand **Users** and click **Profiles**. A list of existing
         profiles can be viewed.  
         ![](attachments/103330205/103330211.png){width="800"}
 
@@ -176,7 +176,7 @@ too.
         Example:  
         ![](attachments/103330205/103330228.png){width="1000"}
 
-    3.  Click **Save** . Make a note of the profile ID (or address URL)
+    3.  Click **Save**. Make a note of the profile ID (or address URL)
         of the Chatter Free User profile.
 
         !!! tip
@@ -201,8 +201,8 @@ too.
         **Certificate and Key Management** or you can search for
         Certificate and Key Management in the Quick Find search box.  
         ![](attachments/103330205/103330222.png){width="200"}
-    2.  Click **Create Self-Signed Certificate** .
-    3.  Enter the **Label** and a **Unique Name** and click **Save** .
+    2.  Click **Create Self-Signed Certificate**.
+    3.  Enter the **Label** and a **Unique Name** and click **Save**.
         The certificate is generated.  
         ![](attachments/103330205/103330221.png){width="900"}
     4.  Click the **Download Certificate** button to download the
@@ -219,9 +219,9 @@ new users.
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](_Running_the_Product_) .
+    it](_Running_the_Product_).
 2.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) as an
+    Console](../../setup/getting-started-with-the-management-console) as an
     administrator.
 3.  When you log into Salesforce, you normally use an email address. So,
     to integrate this with the Identity Server, you need to configure
@@ -243,11 +243,11 @@ Provider.
 
 1.  Start the WSO2 Identity Server if it is not started up already and
     log in using the email you configured in the realm as instructed
-    above in step 3 of **Configuring the Identity Server** .
+    above in step 3 of **Configuring the Identity Server**.
 2.  On the Management Console, click on **Add** under **Identity
-    Providers** .
+    Providers**.
 3.  In the form that appears, provide a name for your identity provider
-    by filling in the **Identity Provider Name** . You can use
+    by filling in the **Identity Provider Name**. You can use
     "Salesforce.com" as an example, but this can be any name you choose.
     See [Configuring an Identity
     Provider](_Adding_and_Configuring_an_Identity_Provider_) for
@@ -257,7 +257,7 @@ Provider.
     Salesforce](#OutboundProvisioningwithSalesforce-Salesforce-Certificate)
     .  
     Do this by clicking the **Choose File** button next to **Identity
-    Provider Public Certificate** .
+    Provider Public Certificate**.
 
     Why is the certificate needed?
 
@@ -270,14 +270,14 @@ Provider.
 
 5.  Expand the **Claim Configuration** section of the form, followed by
     the **Basic Claim Configuration** section, and select **Define
-    Custom Claim Dialect** .
+    Custom Claim Dialect**.
 
     We are adding a claim map in order to provision the users claim
     values to salesforce when outbound provisioning users to salesforce
     via WSO2 Identity Server. Here, the **Identity Provider Claim URI**
     is the claim URI in Salesforce, which maps local claim URI in WSO2
     Identity Server. Read more about [Claim
-    Management](https://docs.wso2.com/display/IS530/Claim+Management) .
+    Management](https://docs.wso2.com/display/IS530/Claim+Management).
 
     For more information on configuring advanced claims, see
     [Configuring Claims for an Identity
@@ -311,14 +311,14 @@ Provider.
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
-    Filter** dropdown and click **Add Claim** .  
+    Filter** dropdown and click **Add Claim**.  
     ![](attachments/103330205/103330215.png){width="512" height="96"}
 9.  For each Claim URI, enter a default value as shown in the following
     table. The default values are used when creating the role in
     Salesforce.  
     For example, the alias, email, profile ID and all the values listed
     below are [shown when a user is
-    created](#OutboundProvisioningwithSalesforce-user) .  
+    created](#OutboundProvisioningwithSalesforce-user).  
     These are sample values to help you understand better about claim
     URI and its value types.
 
@@ -397,7 +397,7 @@ Provider.
     provisioning](Configuring-Outbound-Provisioning-Connectors-for-an-Identity-Provider_103329711.html#ConfiguringOutboundProvisioningConnectorsforanIdentityProvider-ConfiguringSalesforceprovisioning)
     .
     1.  Select **Enable Connector** to enable the Salesforce connector.
-    2.  Enter the **API version** . This is the version of the API you
+    2.  Enter the **API version**. This is the version of the API you
         are using in Salesforce.  
         Follow the steps given below to get the API version:  
         1.  To obtain this, log into <https://login.salesforce.com> .
@@ -412,9 +412,9 @@ Provider.
         5.  Enter this value for the API version in the following
             format: `              v<VERSION_NUMBER>             ` . For
             example: `              v41.0             ` .
-    3.  Enter the **Domain** . If you do not have a Salesforce domain,
+    3.  Enter the **Domain**. If you do not have a Salesforce domain,
         you need to create a domain by logging into
-        [https://login.salesforce.com](https://login.salesforce.com/) .
+        [https://login.salesforce.com](https://login.salesforce.com/).
 
         ![](images/icons/grey_arrow_down.png){.expand-control-image}
         Click here for more information on creating the domain on
@@ -423,7 +423,7 @@ Provider.
         1.  Search for My Domain in the search bar that is on the left
             navigation panel.  
             ![](attachments/103331301/103331324.png){width="200"}
-        2.  Click **My Domain** .
+        2.  Click **My Domain**.
         3.  In the page that appears, come up with a name for your
             domain. You can check if the domain is available by clicking
             the **Check Availability** button.
@@ -442,7 +442,7 @@ Provider.
             **Click here to login** button to test this out.
 
         1.  Search for **My Domain** using the Quick Find search box and
-            click **My Domain** .  
+            click **My Domain**.  
             You see the domain as follows: Your domain name is
             `                               <DOMAIN>-dev-ed.my.salesforce.com                             `
         2.  Make sure you enter the domain with an HTTPS prefix so that
@@ -450,7 +450,7 @@ Provider.
             `               https://<DOMAIN>-dev-ed.my.salesforce.com              `
             .
 
-    4.  Enter the **Client ID** . This is the Consumer Key obtained in
+    4.  Enter the **Client ID**. This is the Consumer Key obtained in
         [step 5 when configuring
         Salesforce](#OutboundProvisioningwithSalesforce-Client-ID-KEY-Salesforce)
         .
@@ -460,20 +460,20 @@ Provider.
         the details.
 
         1.  Search for **App Manager** using the Quick Find search box
-            and click **App Manager** .
+            and click **App Manager**.
         2.  Click the expand button for your Connected App and click
-            **View** .  
+            **View**.  
             ![](attachments/103330205/103330240.png){width="800"}
         3.  You are navigated to the page that has the Client ID and
             Client Secret of the app under **API (Enable OAuth
-            Settings)** .
+            Settings)**.
 
-    5.  Enter the **Client Secret** . This is the Consumer Secret
+    5.  Enter the **Client Secret**. This is the Consumer Secret
         obtained in [step 5 when configuring
         Salesforce](#OutboundProvisioningwithSalesforce-Client-ID-KEY-Salesforce)
         .
-    6.  Enter the **Username** . This is the Salesforce username.
-    7.  Enter the **Password** . This is the Salesforce password and
+    6.  Enter the **Username**. This is the Salesforce username.
+    7.  Enter the **Password**. This is the Salesforce password and
         must be entered along with the security token. So you would
         enter this in the following format:
         `             <password><security_token            ` \>  
@@ -495,14 +495,14 @@ Provider.
                 3.  On the left navigation, click **Reset My Security Token**
                     .  
                     ![](attachments/103330205/103330238.png){width="200"}
-                4.  Click **Reset Security Token** .  
+                4.  Click **Reset Security Token**.  
                     An email is sent to you with the new security token. Check
                     the email of the email address you configured for
                     Salesforce.  
                     ![](attachments/103330205/103330237.png){width="800"}
         
 
-12. Click **Register** .
+12. Click **Register**.
 
 **[\[Back to the top\]](#OutboundProvisioningwithSalesforce-top)**
 
@@ -515,7 +515,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
 .
 
 1.  In the **Main** menu under the **Identity** section, click
-    **Resident** under **Service Providers** .
+    **Resident** under **Service Providers**.
 2.  Expand the **Outbound Provisioning Configuration** in the screen
     that appears.
 3.  Select the identity provider you configured from the drop down and
@@ -531,7 +531,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     policy. For more information, see [Rule Based
     Provisioning](_Rule_Based_Provisioning_)
 
-4.  Click **Update** .
+4.  Click **Update**.
 
 **[\[Back to the top\]](#OutboundProvisioningwithSalesforce-top)**
 
@@ -542,8 +542,8 @@ Identity Server. If you add a user to the Identity Server via the
 management console, this user should also appear in Salesforce.
 
 1.  On the **Main** tab in the Management Console, click **Add** under
-    **Users and Roles** .
-2.  Click **Add New User** .
+    **Users and Roles**.
+2.  Click **Add New User**.
 3.  Enter the username in the form of an email and enter the password.
 
     **NOTE:** Later on, if you want to update the user details, you
@@ -551,9 +551,9 @@ management console, this user should also appear in Salesforce.
 
 4.  Assign a role to the user.  
     ![](attachments/103330205/103330219.png){width="477" height="253"}
-5.  Click **Finish** .
+5.  Click **Finish**.
 6.  In Salesforce, log into <https://login.salesforce.com/> .  
-    On the left navigation pane, expand **Users** and click **Users** .
+    On the left navigation pane, expand **Users** and click **Users**.
     You will see that the user you created in the Identity Server has
     been added to Salesforce as well.  
     ![](attachments/103330205/103330216.png){width="933" height="295"}
@@ -566,7 +566,7 @@ You can also add users to Salesforce using SCIM.  If you use SCIM you
 must do the following.
 
 1.  In the **Main** menu under the **Identity** section, click
-    **Resident** under **Identity Providers** .
+    **Resident** under **Identity Providers**.
 2.  Expand the **Inbound Provisioning Configuration** in the screen that
     appears.  
     ![](attachments/103330205/103330229.png){width="900"}

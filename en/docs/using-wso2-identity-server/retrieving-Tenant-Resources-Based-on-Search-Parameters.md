@@ -35,7 +35,7 @@ Here, the value of `         {search-query}        ` should be in the
 form of a configuration management search query. For information on how
 to write a search condition that is in the form of a configuration
 management search query, see [Writing a configuration management search
-query](#RetrievingTenantResourcesBasedonSearchParameters-SearchQuery) .
+query](#RetrievingTenantResourcesBasedonSearchParameters-SearchQuery).
 
 ### Writing a configuration management search query
 

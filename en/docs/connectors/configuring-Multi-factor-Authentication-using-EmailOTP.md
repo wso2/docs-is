@@ -38,7 +38,7 @@ Email OTP:
         with WSO2 IS, the sample travelocity application is used in this use
         case. The samples run on the Apache Tomcat server and are written
         based on Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](https://docs.wso2.com/identity-server/Installation+Prerequisites)
@@ -347,7 +347,7 @@ Email OTP is enabled.
     </table>
 
 7.  [Start WSO2
-    IS](https://docs.wso2.com/identity-server/Running+the+Product) .
+    IS](https://docs.wso2.com/identity-server/Running+the+Product).
 
 ### Configure the Email OTP provider
 
@@ -355,10 +355,10 @@ You can send the One Time Password (OTP) using Gmail APIs or using
 SendGrid. Follow the steps given below to configure Gmail APIs as the
 mechanisam to send the OTP.
 
-1.  Create a Google account at [https://gmail.com](https://gmail.com/) .
+1.  Create a Google account at [https://gmail.com](https://gmail.com/).
 2.  Got to
     [https://console.developers.google.com](https://console.developers.google.com/)
-    and click **ENABLE APIS AND SERVICES** .
+    and click **ENABLE APIS AND SERVICES**.
 3.  Search for Gmail API and click on it.  
 4.  Click **Enable** to enable the Gmail APIs.  
 
@@ -377,13 +377,13 @@ mechanisam to send the OTP.
 
     ![](attachments/50504065/76749378.png){width="600"}
 
-8.  Click **Configure consent screen** .  
+8.  Click **Configure consent screen**.  
     ![](attachments/50504065/80728982.png)
 9.  Enter the Product name that needs to be shown to users, enter values
-    to any other fields you prefer to update, and click **Save** .
+    to any other fields you prefer to update, and click **Save**.
 10. Select the **Web application** option.  
     Enter `           https://localhost:9443/commonauth          ` as
-    the **Authorize redirect URIs** text-box, and click **Create** .  
+    the **Authorize redirect URIs** text-box, and click **Create**.  
     ![](attachments/50504065/80728977.png){width="800"}
 
     The `           client ID          ` and the
@@ -410,7 +410,7 @@ mechanisam to send the OTP.
     1.  Select the preferred Gmail account with which you wish to
         proceed.
 
-    2.  Click **Allow** .
+    2.  Click **Allow**.
     3.  Obtain the `             authorization code            ` using a
         SAML tracer on your browser.
 
@@ -646,7 +646,7 @@ Deploy this sample web app on a web container.
 
 1.  Use the Apache Tomcat server to do this. If you have not downloaded
     Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi) .
+    [here](https://tomcat.apache.org/download-70.cgi).
 2.  Copy the .war file into the `           webapps          `
     folder. For example,
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
@@ -682,16 +682,16 @@ Follow the steps below to add an [identity
 provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identity+Provider)
 :
 
-1.  Click **Add** under **Main \> Identity \> Identity Providers** .  
+1.  Click **Add** under **Main \> Identity \> Identity Providers**.  
     ![](attachments/50504065/76749441.png){width="200"}
 2.  Provide a suitable name for the identity provider.  
     ![](attachments/50504065/76749432.png){width="600"}
 3.  Expand the **EmailOTPAuthenticator Configuration** under **Federated
-    Authenticators** .  
+    Authenticators**.  
 
     1.  Select the **Enable** and **Default** check boxes .
 
-    2.  Click **Register** .
+    2.  Click **Register**.
 
         ![](attachments/50504065/76749434.png){width="700"}
 
@@ -709,19 +709,19 @@ Follow the steps below add a service provider:
 1.  Return to the Management Console home screen.
 
 2.  Click **Add** under **Add** under **Main \> Identity \> Service
-    Providers** .  
+    Providers**.  
     ![](attachments/50504065/76749440.png){width="200"}
 
 3.  Enter `           travelocity.com          ` as the **Service
-    Provider Name** .  
+    Provider Name**.  
     ![](attachments/50504065/76749442.png){width="700"}
 
-4.  Click **Register** .
+4.  Click **Register**.
 
 5.  Expand **SAML2 Web SSO Configuration** under **Inbound
-    Authentication Configuration** .
+    Authentication Configuration**.
 
-6.  Click **Configure** .
+6.  Click **Configure**.
 
     ![](attachments/50504065/50684302.png){width="600"}
 
@@ -734,7 +734,7 @@ Follow the steps below add a service provider:
 
     3.  Select the following check-boxes: **Enable Response Signing** ,
         **Enable Single Logout** , **Enable Attribute Profile** , and
-        **Include Attributes in the Response Always** .
+        **Include Attributes in the Response Always**.
 
 8.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -750,7 +750,7 @@ Follow the steps below add a service provider:
 
     2.  Creating the first authentication step:
 
-        1.  Click **Add Authentication Step** .
+        1.  Click **Add Authentication Step**.
 
         2.  Click **Add Authenticator** that is under Local
             Authenticators of Step 1 to add the basic authentication as
@@ -762,7 +762,7 @@ Follow the steps below add a service provider:
 
     3.  Creating the second authentication step:
 
-        1.  Click **Add Authentication Step** .
+        1.  Click **Add Authentication Step**.
 
         2.  Click **Add Authenticator** that is under Federated
             Authenticators of Step 2 to add the SMSOTP identity provider
@@ -772,7 +772,7 @@ Follow the steps below add a service provider:
 
     ![](attachments/50504065/50684304.png){width="800"}
 
-11. Click **Update** .
+11. Click **Update**.
 
     You have now added and configured the service provider.
 
@@ -795,15 +795,15 @@ Follow the steps given below to update the user's email address.
 
 1.  Return to the WSO2 Identity Server Management Console home screen.
 2.  Click **List** under **Add** under **Main \> Identity \> Users and
-    Roles** .  
+    Roles**.  
     ![](attachments/50504065/76749451.png){width="200"}
-    1.  Click **Users** .  
+    1.  Click **Users**.  
         ![](attachments/50504065/76749454.png){width="800"}
-    2.  Click **User Profile** under **Admin** .  
+    2.  Click **User Profile** under **Admin**.  
         ![](attachments/50504065/76749456.png){width="800"}
-    3.  Update the **email address** .  
+    3.  Update the **email address**.  
         ![](attachments/50504065/50684305.png){width="800"}
-    4.  Click **Update** .
+    4.  Click **Update**.
 
 \[ [Back to
 Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
@@ -817,12 +817,12 @@ Follow the steps below to map the user claims:
 !!! note
     
     For more information about claims, see [Adding Claim
-    Mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     
 
-1.  Click **Add** under **Main \> Identity \> Claims** .  
+1.  Click **Add** under **Main \> Identity \> Claims**.  
     ![](attachments/50504065/76749457.png){width="250"}  
-    1.  Click **Add Local Claim** .  
+    1.  Click **Add Local Claim**.  
         ![](attachments/50504065/76749458.png){width="800"}
     2.  Select the **Dialect** from the drop down provided and enter the
         required information.
@@ -839,7 +839,7 @@ Follow the steps below to map the user claims:
 
         ![](attachments/50504065/75107402.png){width="700"}
 
-    4.  Click **Add** .
+    4.  Click **Add**.
 
         To disable this claim for the admin user, navigate to **Users
         and Roles \> List** and click **Users.** Click on the **User

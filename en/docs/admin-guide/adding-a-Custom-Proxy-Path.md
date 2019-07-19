@@ -58,7 +58,7 @@ Prior to this solution, it was necessary to host these products as sub
 domains of the "wso2.com" domain as:
 [https://apim.wso2.com](https://apim.wso2test.com) ,
 [https://esb.wso2.com](https://esb.wso2test.com) ,
-[https://as.wso2.com](https://as.wso2test.com) .
+[https://as.wso2.com](https://as.wso2test.com).
 
 ### Access WSO2 products through a custom proxy path
 
@@ -78,7 +78,7 @@ Follow the steps given below.
 
 #### Step 1: Install and configure a reverse proxy
 
-1.  Download [nginx server](http://nginx.org/) .
+1.  Download [nginx server](http://nginx.org/).
 2.  Install the nginx server in your deployment server by executing the
     following command:
 

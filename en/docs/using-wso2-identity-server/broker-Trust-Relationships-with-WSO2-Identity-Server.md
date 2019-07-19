@@ -33,7 +33,7 @@ relationships.
 
 Once the consumer possesses the necessary security tokens, these tokens
 are presented in order to authenticate to a Web Service deployed in
-[WSO2 Application Server](http://wso2.com/products/application-server) .
+[WSO2 Application Server](http://wso2.com/products/application-server).
 
 ![](attachments/103329905/103329914.png)
 
@@ -80,14 +80,14 @@ The following are the steps to follow in order to use this feature:
     Consumer](#BrokerTrustRelationshipswithWSO2IdentityServer-Step3-PreparingtheServiceConsumer)
 
 After this you simply need to [run the
-client](#BrokerTrustRelationshipswithWSO2IdentityServer-RunClient) .
+client](#BrokerTrustRelationshipswithWSO2IdentityServer-RunClient).
 
 #### Step 1 - Secure Web Service with a Claim-aware Security Policy
 
 1.  Start [WSO2 Application
     Server](http://wso2.com/products/application-server) and log in to
     the management console as a default admin user.
-2.  Go to **Manage** \> **Services** \> **Add** \> **AAR Service** .
+2.  Go to **Manage** \> **Services** \> **Add** \> **AAR Service**.
 3.  Deploy **Axis2Service.aar** which can be downloaded from
     [here](https://svn.wso2.org/repos/wso2/trunk/commons/qa/qa-artifacts/app-server/Axis2Service.aar)
     .
@@ -187,11 +187,11 @@ With this, we should have an understanding of all elements of the
 upload the policy to embedded the registry in WSO2 Application Service.
 
 1.  Locate **/\_system/config** collection in registry browser and click
-    on **Add Resource** .
+    on **Add Resource**.
 2.  Navigate to the **axis2service.policy.xml** which you have
     downloaded from the above location.
-3.  Click **Add** . Now, we have our custom policy in WSO2 Application
-    Server. We can associate the policy to **Axis2Service** .
+3.  Click **Add**. Now, we have our custom policy in WSO2 Application
+    Server. We can associate the policy to **Axis2Service**.
 4.  Click on the **Unsecured** link associated with **Axis2Service** in
     the **Deployed Services** page. You are directed to the **Security
     for the service** page.
@@ -218,19 +218,19 @@ Now, we have our Web Service secured with a claim-aware security policy.
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Do the following steps if you are using a Holder of Key confirmation
     method. See
-    [here](_Configuring_STS_for_Obtaining_Tokens_with_Holder-Of-Key_Subject_Confirmation_)
+    [here](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)
     for more information.
     1.  Navigate to the **Service Providers** section by clicking
-        **Add** in the **Main** menu under **Service Providers** .
+        **Add** in the **Main** menu under **Service Providers**.
     2.  Add a **Service Provider Name** and **Description** and click
-        **Register** .  
+        **Register**.  
         ![](attachments/103329905/103329909.png){width="900"}
     3.  In the resulting page, expand the **Inbound Authentication
         Configuration** and the **WS-Trust Security Token Service
-        Configuration** sections. Click **Configure** .
+        Configuration** sections. Click **Configure**.
     4.  Enter the trusted relying parties and upload the public
         certificate of the trusted relying party (against its
         end-point).
@@ -244,11 +244,11 @@ Now, we have our Web Service secured with a claim-aware security policy.
         the token to send to the RP has no visibility to the included
         token.
 
-    5.  Click **Apply** .
+    5.  Click **Apply**.
 
 4.  Configure STS to add **Axis2Service** as a trusted service. Enter
     the HTTP endpoint url of the **Axis2Service** as the **Endpoint
-    Address** .
+    Address**.
 
     Endpoint Address =
     `                           http://localhost:9765/services/Axis2Service/                         `
@@ -278,8 +278,8 @@ Now, we have our Web Service secured with a claim-aware security policy.
     1.  Select **Yes** from the **Enable Security?** dropdown.
     2.  Select **UsernameToken** from the **Basic Scenarios** list.  
         ![](attachments/103329905/103329907.png)
-    3.  Click **Next** .
-8.  Select **admin** as the user group and click on **Finish** .
+    3.  Click **Next**.
+8.  Select **admin** as the user group and click on **Finish**.
 
 9.  Now, check the user profile of admin user who is going to
     authenticate to the STS. Click on **My Profiles** at the left menu.
@@ -289,7 +289,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
     address** fields since we are going to use those as the required
     claims.
 11. Click on **Configure** in the left menu and select **Claim
-    Management** . You find a set of claim dialects associated with the
+    Management**. You find a set of claim dialects associated with the
     internal user store in IS. Click on the default claim dialect:
     `                     http://wso2.org/claims                   ` .
 12. Click on the **First Name** claim mapping.
@@ -306,7 +306,7 @@ as the **Claim Uri** for **First Name** attribute in the service policy.
 Now, all what left is to work on the service consumer. Basically, you
 need to generate the **RequestSecurityToken** programmatically using a
 client, insert this into the Web Service request, and send it to
-**Axis2Service** . The `         wst:RequestSecurityToken        `
+**Axis2Service**. The `         wst:RequestSecurityToken        `
 element is used to request a security token from STS.
 
 This is a child of SOAP body. At the minimum level, the
@@ -367,7 +367,7 @@ SoapUI still supports sender vouches confirmation method only.
 
 Because of this limitation, we need to follow a programmatic approach to
 insert the token into the Web Service request and forward to
-**Axis2Service** . You can find the complete working client in this
+**Axis2Service**. You can find the complete working client in this
 [sourceforge
 account](https://sourceforge.net/p/charithablogsam/code/ci/master/tree/)
 .
@@ -377,7 +377,7 @@ account](https://sourceforge.net/p/charithablogsam/code/ci/master/tree/)
 1.  Check out the complete source from
     `                     https://sourceforge.net/p/charithablogsam/code/ci/master/tree/                   `
     and import the source into your IDE.
-2.  Go to `          <IS_HOME>/bin         ` and type **ant** . This
+2.  Go to `          <IS_HOME>/bin         ` and type **ant**. This
     copies the necessary client libraries into
     `          <IS_HOME>/repository/lib directory         ` .
 3.  Add `          <IS_HOME>/repository/lib         ` directory to your

@@ -20,7 +20,7 @@ Email OTP:
         before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more infomation, see
         [Installation Prerequisites](../../setup/installation-prerequisites).
     
@@ -507,7 +507,7 @@ Follow the steps below add a service provider:
 
     3.  Select the following check-boxes: **Enable Response Signing** ,
         **Enable Single Logout** , **Enable Attribute Profile** , and
-        **Include Attributes in the Response Always** .
+        **Include Attributes in the Response Always**.
 
 8.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.

@@ -83,7 +83,7 @@ purpose:
     deployment script for this purpose. However, remember to increase
     the deployment time interval in your existing product nodes before
     running this script as explained
-    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying) .
+    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying).
 
 Let's start!
 
@@ -181,7 +181,7 @@ distribution is deployed. To increase the deployment time interval:
 6.  If the merge is successful, you will be asked if you want to deploy
     the updates in the deployment directory of your tool that manages
     the customizations. Select **Yes** and provide the location of your
-    **deployment script** . If you are using SVN-based deployment
+    **deployment script**. If you are using SVN-based deployment
     synchronization, you can use the [deployment script for
     SVN](attachments/72429776/76750721.sh) (
     `           deploy_v1.sh          ` ).

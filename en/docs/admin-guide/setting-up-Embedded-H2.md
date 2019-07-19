@@ -47,4 +47,4 @@ driver, take the following steps:
 
 Next, you need to configure your product with Embedded H2 database. For
 more information, see [Changing to Embedded
-H2](_Changing_to_Embedded_H2_) .
+H2](_Changing_to_Embedded_H2_).

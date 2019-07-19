@@ -40,7 +40,7 @@ as the primary or secondary user store in WSO2 Identity Server:
 ### Prerequisites
 
 1.  Create a cloud directory by uploading the schema for the objects via
-    the [AWS console](https://console.aws.amazon.com/console/home) . You
+    the [AWS console](https://console.aws.amazon.com/console/home). You
     can take a look at following sample schema to configure the sample
     user store configuration.
 
@@ -228,9 +228,9 @@ user store extension to WSO2 Identity Server:
 4.  Access the Management Console via
     `          https://localhost:9443/carbon/         ` .
 5.  Click the **Main** tab on the Management Console, and then click
-    **Add** under **User Stores** . This displays the **Add New User
+    **Add** under **User Stores**. This displays the **Add New User
     Store** screen.
-6.  Click the list of items related to **User Store Manager Class** .
+6.  Click the list of items related to **User Store Manager Class**.
     You will see
     `          org.wso2.carbon.aws.user.store.mgt.AWSUserStoreManager         `
     in the list. This confirms that you have successfully added the AWS
@@ -246,12 +246,12 @@ Follow the steps below to configure AWS as the secondary user store.
 
 1.  In the **Add New User Store** screen, select
     `          org.wso2.carbon.aws.user.store.mgt.AWSUserStoreManager         `
-    as the **User Store Manager Class** .
+    as the **User Store Manager Class**.
 2.  Enter appropriate values in the **Domain Name** and **Description**
     fields.
 3.  Enter appropriate values for all the mandatory properties. For
     information on each property, see [AWS user store manager
-    properties](#AWSCloudDirectoryUserStore-properties) .
+    properties](#AWSCloudDirectoryUserStore-properties).
 
 ### Configuring AWS as the primary user store
 
@@ -267,7 +267,7 @@ Follow the steps below to configure AWS as the primary user store in
 WSO2 Identity Server:
 
 1.  Follow steps 1 and 2 under [Adding AWS user store extension to WSO2
-    Identity Server](#AWSCloudDirectoryUserStore-add) .
+    Identity Server](#AWSCloudDirectoryUserStore-add).
 
 2.  Edit the
     `           <IS_HOME>/repository/conf/user-mgt.xml          ` file

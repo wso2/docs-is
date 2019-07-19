@@ -1,6 +1,6 @@
 # Creating a XACML Policy
 
-At the root of all XACML policies is a **Policy** or a **PolicySet** . A
+At the root of all XACML policies is a **Policy** or a **PolicySet**. A
 **Policy** represents a single access control policy, expressed through
 a set of rules. A **PolicySet** is a container that can hold other
 Policies or PolicySets, as well as references to policies found in
@@ -319,7 +319,7 @@ You can click on “finish” and finish policy creation.
 #### Policy Set Editor
 
 When you want to create a set of policies to evaluate at one time, you
-can create a **Policy Set** . You can add policies as shown in the
+can create a **Policy Set**. You can add policies as shown in the
 figure and Click "Finish" to create the policy set.  
 ![policy-set-editor](../../assets/img/tutorials/policy-set-editor.png)
 

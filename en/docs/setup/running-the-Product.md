@@ -29,7 +29,7 @@ Before you begin
 !!! note
     
     For information on installation prerequisites, click
-    [here](https://docs.wso2.com/display/IS540/Installation+Prerequisites) .
+    [here](https://docs.wso2.com/display/IS540/Installation+Prerequisites).
     
 
 ### Starting the server
@@ -49,7 +49,7 @@ To start the server, you run the script
 `         wso2server.bat        ` (on Windows) or
 `         wso2server.sh        ` (on Linux/Mac OS) from the
 `         bin        ` folder. Alternatively, you can install and run
-the server [as a Windows service](_Installing_as_a_Windows_Service_) .
+the server [as a Windows service](_Installing_as_a_Windows_Service_).
 
 To start and stop the server in the background mode of Linux, run
 **`           wso2server.sh start          `** and
@@ -139,7 +139,7 @@ product as a service/nohup mode in Solaris.
     
 
 4.  Start the product by following the [above
-    instructions](#RunningtheProduct-instructions) .
+    instructions](#RunningtheProduct-instructions).
 
 ### Accessing the management console
 

@@ -28,7 +28,7 @@ More roles may be configured by default, depending on the type of
 features installed in your product. For example, in WSO2 Storage Server
 (which has the Cassandra feature and RSS Manager feature installed), the
 following roles will also be defined by default: **Internal/Cassandra**
-and **Internal/RSSManager** .
+and **Internal/RSSManager**.
 
 Permissions assigned to the Admin role cannot be modified.
 
@@ -37,7 +37,7 @@ Before you begin your configurations, note the following:
 -   Only system administrators or other users with **Security** level
     permissions can add, modify and remove users and roles. For more
     information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_) .
+    Permissions](_Role-based_Permissions_).
 -   Your product has a primary user store where the users/roles that you
     create using the management console are stored by default. The
     default `           RegEx          ` configurations for this user

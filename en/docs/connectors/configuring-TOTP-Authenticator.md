@@ -33,9 +33,9 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
 2.  Sign in to the [Management
     Console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-3.  In the **Main** menu, click **Add** under **Claims** .
+3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add Local
-    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     This displays the **Add Local Claim** screen.
 
     !!! note
@@ -288,7 +288,7 @@ The user store configuration is maintained per tenant:
     collection named `            totp           ` , add the resource
     and upload the
     `            application-authentication.xml           ` file into
-    the registry) . While doing the authentication, first it checks
+    the registry). While doing the authentication, first it checks
     whether there is an XML file uploaded to the registry. If that is
     so, it reads it from the registry but does not take the local file.
     If there is no file in the registry, then it only takes the property
@@ -315,7 +315,7 @@ Now you have to configure WSO2 Identity Server.
     as an administrator.
 3.  Login to the [end user
     dashboard](https://docs.wso2.com/identity-server/Using+the+End+User+Dashboard)
-    and go to **My Profile** by clicking **View details** .  
+    and go to **My Profile** by clicking **View details**.  
     ![](attachments/50502913/50680097.png){width="700"}
 4.  Update your email address (this email address is used to send the
     token).
@@ -428,7 +428,7 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 
 3.  Since you are using travelocityas the sample, enter travelocity.com
     in the **Service Provider Name** text box.
@@ -448,13 +448,13 @@ The next step is to configure the service provider.
         http://localhost:8080/travelocity.com/home.jsp
 
 7.  Selectthefollowingcheck-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
         ![](attachments/50502913/50680092.png){width="700"}
 
 8.  Click **Update** to save the changes. Now you are sent back to the
