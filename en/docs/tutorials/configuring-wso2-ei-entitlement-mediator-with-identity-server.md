@@ -19,7 +19,7 @@ have a full blown authorization scheme in place with minimum effort.
 
 !!! info    
     For more information about the WSO2 EI, please visit the [WSO2
-    nterprise Integrator
+    Enterprise Integrator
     Documentation](http://docs.wso2.com/enterprise-integrator).
 
 ### Configure Identity Server as an XACML Engine
