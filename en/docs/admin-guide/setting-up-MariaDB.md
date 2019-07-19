@@ -21,7 +21,7 @@ information on the MariaDB versions that are tested with WSO2 products.
     Database clustering is independent of WSO2 product clustering.
 
     For instructions on installing MariaDB on MAC OS, go to
-    [Homebrew](http://brew.sh/) .
+    [Homebrew](http://brew.sh/).
 
 2.  Log in to MariaDB as the root user (or any other user with database
     creation privileges).
@@ -84,4 +84,4 @@ directory.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MariaDB, see [Changing to
-MariaDB](_Changing_to_MariaDB_) .
+MariaDB](_Changing_to_MariaDB_).

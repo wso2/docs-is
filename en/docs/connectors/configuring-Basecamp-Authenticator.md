@@ -87,7 +87,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  Go to <https://basecamp.com> in your browser, and then click the
     HTTPS trust icon on the address bar (e.g., the padlock next to the
     URL) to download the certificate.
@@ -100,7 +100,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     The default password of the client-truststore.jks is "wso2carbon"
 
 4.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 5.  Log in to the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.

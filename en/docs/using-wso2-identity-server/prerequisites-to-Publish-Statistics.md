@@ -44,7 +44,7 @@ distribution.
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,
         see [WSO2 SP Installation
-        Guide](https://docs.wso2.com/display/SP420/Installation+Guide) .
+        Guide](https://docs.wso2.com/display/SP420/Installation+Guide).
     
 
 ### Step 02: Enable Analytics in WSO2 IS
@@ -168,7 +168,7 @@ Follow the steps below to configure the event publishers:
         the format in which the events are captured for the two
         analytics are different. For more information event streams, see
         [WSO2 SP Quick Start
-        Guide](https://docs.wso2.com/display/SP420/Quick+Start+Guide) .
+        Guide](https://docs.wso2.com/display/SP420/Quick+Start+Guide).
 
         !!! warning
         
@@ -358,7 +358,7 @@ Follow the steps below to change the admin password.
 Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
 
 1.  Run WSO2 IS. For detailed instructions, see [Running the
-    Product](_Running_the_Product_) .
+    Product](_Running_the_Product_).
 2.  Run the WSO2 IS Analytics profiles.
 
     !!! note
@@ -366,13 +366,13 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
         -   If you are using geolocation-based statistics, do the necessary
             configurations prior to the restart. For more information, see
             [Enabling Geolocation Based
-            Statistics](_Enabling_Geolocation_Based_Statistics_) .
+            Statistics](_Enabling_Geolocation_Based_Statistics_).
     
         <!-- -->
     
         -   If you are running WSO2 IS Analytics in a clustered setup, see
             [WSO2 Stream Processor Deployment
-            Guide](https://docs.wso2.com/display/SP420/Deployment+Guide) .
+            Guide](https://docs.wso2.com/display/SP420/Deployment+Guide).
     
 
     1.  Run the Worker node of WSO2 IS Analytics. For detailed

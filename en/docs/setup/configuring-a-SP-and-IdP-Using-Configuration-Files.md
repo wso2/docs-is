@@ -89,7 +89,7 @@ This section involves adding the
 the **`          identity provider IS         `**.
 
 1.  [Start the **`            identity provider IS           `** and
-    access the Management Console](_Running_the_Product_) .
+    access the Management Console](_Running_the_Product_).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief

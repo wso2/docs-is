@@ -127,7 +127,7 @@ requirements.
     
     To set up and configure clustered deployment of WSO2 Identity Server
     according to clustering pattern 1, see [Setting Up Deployment Pattern
-    1](_Setting_Up_Deployment_Pattern_1_) .
+    1](_Setting_Up_Deployment_Pattern_1_).
     
 
 **Open ports**
@@ -183,7 +183,7 @@ Analytics cluster as well.
     
     To set up and configure clustered deployment of WSO2 Identity Server
     according to clustering pattern 2, see [Setting Up Deployment Pattern
-    2](_Setting_Up_Deployment_Pattern_2_) .
+    2](_Setting_Up_Deployment_Pattern_2_).
     
 
 **Open ports**

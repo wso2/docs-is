@@ -13,7 +13,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 This connector is supported by default from WSO2 Identity Server 5.4.0
 onwards. For more information, see [Configuring SMS
-OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP) .
+OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP).
 
 -   [Deploying SMS OTP
     artifacts](#ConfiguringMulti-factorAuthenticationusingSMSOTP-DeployingSMSOTPartifacts)
@@ -294,7 +294,7 @@ in order to use it in this scenario.
 O nce this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and a [service provider](https://docs.wso2.com/display/IS510) .
+and a [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -304,7 +304,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and
-    [run it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    [run it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Download the certificate of the SMS provider. Go to the link (eg:-
     [https://www.nexmo.com)](https://www.nexmo.com/) in your browser,
     and then click the HTTPS trust icon on the address bar (e.g., the
@@ -440,7 +440,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     1.  Go to <https://www.twilio.com/try-twilio> and create an account.
     2.  While registering the account, verify your mobile number and
         click on console home <https://www.twilio.com/console> to get
-        free credits (Account SID and Auth Token) .
+        free credits (Account SID and Auth Token).
 
     3.  Twilio uses a POST method with headers and the text message and
         phone number are sent as the payload. So the fields would be as

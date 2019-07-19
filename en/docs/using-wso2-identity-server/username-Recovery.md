@@ -28,7 +28,7 @@ with the WSO2 IS.
     Alternatively, to see steps on how to enable this identity management
     feature using the **old implementation** , see [Username Recovery
     documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Username+Recovery) . The old
+    5.2.0](https://docs.wso2.com/display/IS520/Username+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
     
@@ -79,7 +79,7 @@ with the WSO2 IS.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 2.  Start the WSO2 IS server and login to the management console.
@@ -143,7 +143,7 @@ with the WSO2 IS.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given here.
-3.  Access the [WSO2 Identity Server dashboard](https://loca/) .
+3.  Access the [WSO2 Identity Server dashboard](https://loca/).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
     ![](attachments/103330552/103330555.png){width="447"}

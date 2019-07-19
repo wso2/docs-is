@@ -8,7 +8,7 @@ be configured using FIDO U2F.
 
 For more information on Multi-factor Authentication concepts with
 Identity Server, refer [Multi-factor Authentication for WSO2
-IS](_Multi-factor_Authentication_for_WSO2_IS_) . For more information on
+IS](_Multi-factor_Authentication_for_WSO2_IS_). For more information on
 FIDO alliance, refer [What is
 FIDO](https://fidoalliance.org/about/what-is-fido/) page.
 
@@ -140,7 +140,7 @@ multi-factor authentication using the WSO2 Identity Server.
 #### Setting up an account for MFA
 
 1.  Log in to the [WSO2 Identity Server end-user
-    dashboard](_Using_the_End_User_Dashboard_) .
+    dashboard](_Using_the_End_User_Dashboard_).
 2.  Navigate to the **My Profile** section by clicking the associated
     **View Details** button.
 3.  Click **Manage U2F Authentication**.
@@ -172,14 +172,14 @@ multi-factor authentication using the WSO2 Identity Server.
 #### Configuring FIDO U2F as an authenticator
 
 1.  Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
     Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) .
+    Provider](_Adding_and_Configuring_a_Service_Provider_).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider

@@ -17,7 +17,7 @@ Alternatively, you can also do this using one of the following options:
     plug-in](#DeployingCompositeApplicationsintheServer-DeployingusingtheMavenplug-in)
 
 **Before you begin** , [package your artifacts into a Composite
-Application](_Packaging_Artifacts_into_Composite_Applications_) . Note
+Application](_Packaging_Artifacts_into_Composite_Applications_). Note
 that the examples here are given using WSO2 ESB, but the steps are the
 same for any WSO2 server.
 

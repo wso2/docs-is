@@ -79,4 +79,4 @@ start up** of the WSO2 Identity Server instance.
 
 For information on how to add an external claim to this claim dialect,
 or add a local claim to the wso2 local claim dialect, see [Adding Claim
-Mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping) .
+Mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping).

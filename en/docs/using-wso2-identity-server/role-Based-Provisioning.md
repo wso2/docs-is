@@ -15,7 +15,7 @@ Step 1: Configuring an identity provider
 
 1.  Download the [WSO2 Identity
     Server](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS540/Getting+Started+with+the+Management+Console)
     as an administrator.

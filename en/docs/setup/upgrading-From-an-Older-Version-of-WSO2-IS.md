@@ -289,7 +289,7 @@ of the admin service.
 1.  Removed authorization and changed input parameters of the
     `                                                   changePasswordByUser                                                 `
     operation exposed through the [userAdmin
-    service](https://localhost:9443/services/UserAdmin?wsdl) .
+    service](https://localhost:9443/services/UserAdmin?wsdl).
 
     **Changes to the changePasswordByUser operation**
 
@@ -646,7 +646,7 @@ element:
 
 The following code was updated. To add audiences to the JWT token, use
 the code block below. For more information, see [JWT Token
-Generation](https://docs.wso2.com/display/IS520/JWT+Token+Generation) .
+Generation](https://docs.wso2.com/display/IS520/JWT+Token+Generation).
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here
 to expand...
@@ -4447,7 +4447,7 @@ attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) . For
+specification](https://tools.ietf.org/html/rfc7643#section-3.3). For
 more details, see [behavioral change \#1 in the behavioral changes
 table](#UpgradingFromanOlderVersionofWSO2IS-1) given above.
 
@@ -4837,7 +4837,7 @@ and token introspection. Adding this property allows you to disable
 logging, else if this property is not present in the configuration file,
 logging is enabled by default. For more information about auditing, see
 [OAuth Transaction
-Logs](https://docs.wso2.com/display/IS580/OAuth+Transaction+Logs) .
+Logs](https://docs.wso2.com/display/IS580/OAuth+Transaction+Logs).
 
 `                             UserOperationEventListener                            `
 - This event listener is used to support session termination at the
@@ -4931,7 +4931,7 @@ tag has been modified as shown below.
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) .
+specification](https://tools.ietf.org/html/rfc7643#section-3.3).
 
 The following resource found under the \<
 `                             ResourceAccessControl>                            `

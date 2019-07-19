@@ -26,9 +26,9 @@ users receive the latest updates for the product.
 
 -   For a high level overview of what has been added, changed, or
     deprecated in this release, see [About this
-    release](_About_this_release_) .
+    release](_About_this_release_).
 -   For a detailed overview of behavioral changes in this release, see
-    [Understanding What Has Changed](_Understanding_What_Has_Changed_) .
+    [Understanding What Has Changed](_Understanding_What_Has_Changed_).
 
 ### Preparing for migration
 
@@ -36,7 +36,7 @@ Follow this guide before you begin migration.
 
 1.  Review what has been changed in this release. For a detailed list of
     the behavioral and architectural changes from 5.7.0 to 5.8.0, see
-    [Behavioral Changes](_Understanding_What_Has_Changed_) .
+    [Behavioral Changes](_Understanding_What_Has_Changed_).
 
 2.  This release is a WUM-only release. This means that there are no
     manual patches. You can use WSO2 Update Manager (WUM) to get any
@@ -129,7 +129,7 @@ production environment.
         directory with your own configurations.
     2.  For a detailed list of the behavioral changes and configuration
         changes from 5.7.0 to 5.8.0, see [Understanding What Has
-        Changed](_Understanding_What_Has_Changed_) . You can scroll
+        Changed](_Understanding_What_Has_Changed_). You can scroll
         through each table for details about what has changed in this
         release.
     3.  Proceed to the [Migrating the embedded LDAP user

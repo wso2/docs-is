@@ -42,7 +42,7 @@ exchanged and also protected with Basic Auth Authentication.
     quick start. **In a production environment, we recommend that you use
     OAuth Authentication instead.** For instructions, see [Setting Up
     Service Provider for Inbound
-    Provisioning](_Setting_Up_Service_Provider_for_Inbound_Provisioning_) .
+    Provisioning](_Setting_Up_Service_Provider_for_Inbound_Provisioning_).
     
 
 Before you begin working with SCIM APIs, make sure that the following

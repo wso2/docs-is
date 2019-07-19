@@ -155,7 +155,7 @@ sections below to set this up.
     `           saml2-web-app-pickup-dispatch.com          `  
     For more information about configuring a service provider, see
     [Adding and Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) .
+    Provider](_Adding_and_Configuring_a_Service_Provider_).
 
 5.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
     configuration** section, and click **Configure**.
@@ -185,7 +185,7 @@ sections below to set this up.
 3.  Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.
 4.  On a new tab on your browser, access the following URL:
-    [https://mail.google.com](https://mail.google.com/) .
+    [https://mail.google.com](https://mail.google.com/).
 
     Note that you are automatically logged in to your Gmail using single
     sign-on (SSO).

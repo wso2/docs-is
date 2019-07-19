@@ -1142,7 +1142,7 @@ the following needs to be carried out.
 
 1.  Download the WSO2 IS Analytics distribution. Click **DOWNLOAD
     ANALYTICS** in the [WSO2 Identity and Access Management
-    page](https://wso2.com/identity-and-access-management#download) .
+    page](https://wso2.com/identity-and-access-management#download).
 2.  Take the following steps to install WSO2 IS Analytics. Sicne this
     procedure is identical to installing WSO2 Data Analytics Server
     (DAS), these steps take you to the DAS documentation for details.
@@ -1161,10 +1161,10 @@ the following needs to be carried out.
             Service](http://docs.wso2.com/data-analytics-server/Installing%20as%20a%20Linux%20Service)
 3.  Follow the steps below to set up MySQL.
     1.  Download and install [MySQL
-        Server](http://dev.mysql.com/downloads/) .
+        Server](http://dev.mysql.com/downloads/).
 
     2.  Download the [MySQL JDBC
-        driver](http://dev.mysql.com/downloads/connector/j/) .
+        driver](http://dev.mysql.com/downloads/connector/j/).
 
     3.  Unzip the downloaded MySQL driver zipped archive, and copy the
         MySQL JDBC driver JAR (

@@ -93,7 +93,7 @@ and 5.3.0.
 
         6.  Select **Continue** **,** and then **Sign out** now .
         7.  Close the browser and reopen the
-            [portal](https://manage.windowsazure.com/) . Otherwise, you
+            [portal](https://manage.windowsazure.com/). Otherwise, you
             will get an access denied error.
         8.  Log in again with your existing Azure credentials.
         9.  Navigate to the **Active Directory** node and, under
@@ -206,9 +206,9 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
@@ -227,7 +227,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     -   **Callback Url** : Service Provider's URL where code needs to be
         sent (
         `                                          https://localhost:9443/commonauth                                       `
-        ) .
+        ).
 8.  Select both checkboxes to **Enable** the Microsoft Azure AD
     authenticator and make it the **Default**.  
 9.  Click **Register**.

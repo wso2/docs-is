@@ -134,7 +134,7 @@ provider.
     blocked until the provisioning finishes - while in the non-blocking
     mode, provisioning happens in a different thread. This can be specified
     in the [service provider
-    configuration](_Adding_and_Configuring_a_Service_Provider_) .
+    configuration](_Adding_and_Configuring_a_Service_Provider_).
     
 
 In both these scenarios, only some specific user attributes must be

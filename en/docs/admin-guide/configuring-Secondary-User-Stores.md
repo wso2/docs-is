@@ -90,7 +90,7 @@ or using the management console:
     additional properties in Optional or Advanced sections at the bottom
     of the screen. For information on the properties that are used when
     defining user stores, see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_) .
+    Stores](_Working_with_Properties_of_User_Stores_).
 
     ![](attachments/53125491/72424354.png){width="900" height="455"}
 

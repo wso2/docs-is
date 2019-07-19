@@ -11,4 +11,4 @@
 **Related Links:**
 
 For information on password and username recovery via the UI instead,
-see [Account Recovery](_Account_Recovery_) .
+see [Account Recovery](_Account_Recovery_).

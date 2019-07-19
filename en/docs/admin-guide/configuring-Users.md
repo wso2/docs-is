@@ -48,7 +48,7 @@ its role.
         create this user account. This list includes the primary user
         store and any other secondary user stores that are configured
         for your product. For information on configuring user stores,
-        see [Configuring User Stores](_Configuring_User_Stores_) .
+        see [Configuring User Stores](_Configuring_User_Stores_).
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters and should have at least one character with a capital
@@ -120,7 +120,7 @@ user5,password123, role=devops:tester
 In addition to importing users with their passwords and roles, you can
 import other user attributes such as **email address** , **full name** ,
 **last name, mobile** , **given name etc.** using [claim URls that are
-defined for attributes](_Managing_User_Attributes_) . Here's an example
+defined for attributes](_Managing_User_Attributes_). Here's an example
 of claim URls that you can defined for your product:
 
 ``` java
@@ -229,7 +229,7 @@ Deleting a user cannot be undone.
     
     Once a user is deleted, you can remove all references to the deleted
     user's identity via the [Identity Anonymization
-    tool](https://github.com/wso2/identity-anonymization-tool) . For
+    tool](https://github.com/wso2/identity-anonymization-tool). For
     information on building and running the tool, see [Removing References
     to Deleted User Identities in WSO2
     Products](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)

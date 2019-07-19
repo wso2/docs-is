@@ -44,7 +44,7 @@ server starts automatically when you start a particular product.
  Additionally, you can enable JMX separately for the various datasources
 that are used by the product. Once JMX is enabled, you can log in to the
 JConsole tool and monitor your product as explained in the [next
-section](#JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole) .
+section](#JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole).
 
 #### Configuring JMX ports for the server
 
@@ -71,7 +71,7 @@ shown below. You can disable the JMX server for your product by setting
 the `         <StartRMIServer>        ` property to
 `         false        ` . Note that this configuration refers to the
 [JMX ports configured in the `          carbon.         ` xml
-file](#JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .  
+file](#JMX-BasedMonitoring-ConfiguringJMXportsfortheserver).  
 
 ``` java
 <JMX xmlns="http://wso2.org/projects/carbon/jmx.xml">
@@ -160,7 +160,7 @@ Once the product server is started, you can start the JC
     1.  Enter the **JMX server URL** in the **Remote Process** field.
         This URL is published on the command prompt when you start the
         WSO2 server as explained
-        [above](#JMX-BasedMonitoring-start_jconsole) .
+        [above](#JMX-BasedMonitoring-start_jconsole).
 
         Tip
 
@@ -363,7 +363,7 @@ fine-grained security policies.
 
 Follow the steps below to use Jolokia to monitor a WSO2 product.
 
-1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html) .
+1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html).
     (These instructions are tested with the Jolokia OSGI Agent version
     1.3.6 by downloading the `          jolokia-osgi-1.3.6.jar         `
     file.)
@@ -391,4 +391,4 @@ Following are a few examples.
 
 For more information on the JMX MBeans that are available in WSO2
 products, see [Monitoring a WSO2 product with
-JConsole](#JMX-BasedMonitoring-mbeans) .
+JConsole](#JMX-BasedMonitoring-mbeans).

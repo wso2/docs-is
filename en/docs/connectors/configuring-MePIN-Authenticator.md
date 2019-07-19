@@ -128,7 +128,7 @@ See the following sections for more information.
         log the user in as the first step (basic authentication).
 
     The first step may be local authenticator (basic) or a federated
-    authenticator (e.g., Facebook, Twitter, etc.) . In federated
+    authenticator (e.g., Facebook, Twitter, etc.). In federated
     authenticator support in first step, the following parameters are
     used according to the scenario.
 
@@ -343,7 +343,7 @@ You have now added and configured the service provider.
     Profile**.
 4.  In the **Main** menu, click **Add** under **Claims**.
 5.  Click [Add New
-    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 6.  Select the **Dialect** from the drop down provided and enter the
     required information.
 7.  Add the user claim <http://wso2.org/claims/identity/mepinid> as

@@ -132,7 +132,7 @@ available in the Identity Server.
 -   See [here](https://dev.twitter.com/web/sign-in/implementing) for
     information on implementing the sign in functionality using Twitter.
 -   If you are doing this using Java, there is a library you can use
-    called [twitter4j](index) . See the link for code samples on signing
+    called [twitter4j](index). See the link for code samples on signing
     in with Twitter.
 
 The following code block represents the structure of an authenticator

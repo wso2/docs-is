@@ -122,7 +122,7 @@ for instructions
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
     claim dialect.  
     For more information about claims, see [Claim
-    Management](_Claim_Management_) .
+    Management](_Claim_Management_).
 2.  Select the Account Locked claim and click **Edit**.  
     ![](attachments/103330598/103330600.png){width="565"}
 3.  Select the **Supported by Default** check box and click **Update**

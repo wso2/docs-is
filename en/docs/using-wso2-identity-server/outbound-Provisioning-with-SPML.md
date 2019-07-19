@@ -8,7 +8,7 @@ providers. The following steps illustrate how to do this.
     some examples for SPML compliant providers.
 2.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](_Running_the_Product_) .
+    it](_Running_the_Product_).
 3.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console) as an
     administrator.
@@ -47,7 +47,7 @@ providers. The following steps illustrate how to do this.
 
     -   If **Enable Rules** is enabled, the users will be provisioned
         based on pre-defined XACML rules. For more information about
-        this, see [Rule Based Provisioning](_Rule_Based_Provisioning_) .
+        this, see [Rule Based Provisioning](_Rule_Based_Provisioning_).
 
 10. Click **Update**.
 11. On the **Main** tab in the management console, click **Add** under

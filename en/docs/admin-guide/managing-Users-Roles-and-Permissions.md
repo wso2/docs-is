@@ -37,7 +37,7 @@ Before you begin your configurations, note the following:
 -   Only system administrators or other users with **Security** level
     permissions can add, modify and remove users and roles. For more
     information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_) .
+    Permissions](_Role-based_Permissions_).
 -   Your product has a primary user store where the users/roles that you
     create using the management console are stored by default. The
     default `           RegEx          ` configurations for this user

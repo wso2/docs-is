@@ -422,7 +422,7 @@ below to encrypt it manually.
     log4j.properties file. For example, the jndi.properties file used in
     WSO2 ESB contains the password in the connection URL. In such cases,
     you need to encrypt the entire connection URL as explained
-    [here](#EncryptingPasswordswithCipherTool-encrypting_jndi) .
+    [here](#EncryptingPasswordswithCipherTool-encrypting_jndi).
 
 7.  You will receive the encrypted value. For example:
 
@@ -508,7 +508,7 @@ connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) '). To encrypt this
 password, you can follow the same manual process [explained
-above](#EncryptingPasswordswithCipherTool-encrypting_log4j) . However,
+above](#EncryptingPasswordswithCipherTool-encrypting_log4j). However,
 you must encrypt the entire connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) ') and not just the
@@ -550,7 +550,7 @@ topic.MyTopic = example.MyTopic
         have to send it as `          adm%25in         ` .  
           
         For a list of possible URL parsing patterns, see [URL encoding
-        reference](http://www.w3schools.com/tags/ref_urlencode.asp) .
+        reference](http://www.w3schools.com/tags/ref_urlencode.asp).
     
 
 ### Changing encrypted passwords
@@ -576,7 +576,7 @@ steps:
         will first initialize the tool for your product. The tool will then
         encrypt any plain text passwords that are specified in the
         `           cipher-text.properties          ` file for [automatic
-        encryption](#EncryptingPasswordswithCipherTool-automated) .
+        encryption](#EncryptingPasswordswithCipherTool-automated).
     
 
 4.  It will prompt for the primary keystore password. Enter

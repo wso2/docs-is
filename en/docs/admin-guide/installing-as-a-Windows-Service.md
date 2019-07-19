@@ -342,7 +342,7 @@ services and follow the instructions given below.
 
 1.  Download and unzip WSO2 ESB and WSO2 DSS.
 2.  Download and unzip
-    [yajsw](http://sourceforge.net/projects/yajsw/files/) .
+    [yajsw](http://sourceforge.net/projects/yajsw/files/).
 3.  Create two directories 'esb\_service' and 'dss\_service'.
 4.  Copy the `          <YAJSW_HOME>         ` directory to
     'esb\_service' and 'dss\_service' separately. Now you will have two

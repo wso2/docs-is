@@ -97,7 +97,7 @@ applications.
 !!! Info "Recommended reading"
     For more information on XACML specifications and other related
     information, see [the OASIS 
-    website](http://oasis-open.org/committees/xacml rel="noopener") .
+    website](http://oasis-open.org/committees/xacml rel="noopener").
 
   
 
@@ -221,11 +221,11 @@ the following four 'building blocks'.
 
 The WSO2 Identity Server is a major player in the XACML and open source
 world. The Identity Server supports XACML 3.0, which is based on [Balana
-XACML implementation](https://github.com/wso2/balana) . As the source
+XACML implementation](https://github.com/wso2/balana). As the source
 code, distribution and documentation are available for free, it is
 possible to analyze and understand the architecture behind it. You can
 find source code from
-[here](https://svn.wso2.org/repos/wso2/trunk/commons/balana/) .
+[here](https://svn.wso2.org/repos/wso2/trunk/commons/balana/).
 
 This section provides some information regarding the architecture of the
 XACML engine (or the entitlement engine) of the WSO2 Identity Server.
@@ -811,7 +811,7 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
 -   Certain parts of JSON requests and responses have default values to
     avoid bloating. For example, the default value of the data-type of
     an attribute should be
-    [string](https://www.w3.org/2001/XMLSchema#string) .
+    [string](https://www.w3.org/2001/XMLSchema#string).
 
 -   The name of the XACML XML attribute element has changed to the
     category object in JSON so that it is possible to call the parent

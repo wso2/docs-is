@@ -190,7 +190,7 @@ password feature:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 4.  Start the Identity Server and log in to the **Management Console**.
@@ -335,7 +335,7 @@ option.
 **Related Links**
 
 -   For information on how to edit an existing email template, see
-    [Email Templates](_Email_Templates_) .
+    [Email Templates](_Email_Templates_).
 -   By default, the claim values of the identity claims used in this
     feature are stored in the JDBC datasource configured in the
     `            identity.xml           ` file. See [Configuring

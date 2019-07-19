@@ -3,7 +3,7 @@
 The following sample demonstrates how to build a XACML driven
 authorization for an on-line trading application called “K-Martket”.
 This sample is shipped with the [Balana XACML
-implementation](https://svn.wso2.org/repos/wso2/trunk/commons/balana) .
+implementation](https://svn.wso2.org/repos/wso2/trunk/commons/balana).
 
 ### Prerequisites
 
@@ -85,14 +85,14 @@ sample.
     directory.
 5.  Publish the policies in PDP runtime. More information on this can be
     found in the [Publishing a XACML Policy
-    page](_Publishing_a_XACML_Policy_) .
+    page](_Publishing_a_XACML_Policy_).
 6.  Navigate to the **Entitlement** menu. Click **Policy View** under
     **PDP** and click **Enable** under the **Actions** section, for each
     policy.
 7.  Implement PIP attribute finder module to retrieve the user's
     attributes from custom JDBC user store of the "Kmarket". More
     information on writing a custom PIP attribute finder module for this
-    scenario can be found [here](_Writing_a_Custom_Policy_Info_Point_) .
+    scenario can be found [here](_Writing_a_Custom_Policy_Info_Point_).
 8.  Run the sample by navigating inside the
     `           <Sample_Home>/kmarket-trading-sample          `
     directory on the command line and executing the **run** script.

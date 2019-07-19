@@ -208,7 +208,7 @@ Given below are the specific ports used by WSO2 DAS.
 
 WSO2 DAS inherits the following port configurations used in its
 predecessor, [WSO2 Business Activity Monitor
-(BAM)](http://wso2.com/products/business-activity-monitor/) .
+(BAM)](http://wso2.com/products/business-activity-monitor/).
 
 -   7711 - Thrift SSL port for secure transport, where the client is
     authenticated to use WSO2 DAS.
@@ -226,7 +226,7 @@ follows.
 Default port configurations for these modes are as follows.
 
 For more information on these ports, go to [Apache Spark
-Documentation](http://spark.apache.org/docs/latest/security.html) .
+Documentation](http://spark.apache.org/docs/latest/security.html).
 
 -   **Ports available for all modes**  
     The following ports are available for all three modes explained

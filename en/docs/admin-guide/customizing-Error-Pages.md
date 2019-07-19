@@ -23,7 +23,7 @@ You can customize the above error message by following the instructions
 given below.
 
 1.  [Download and install Apache
-    Maven](https://maven.apache.org/install.html) .
+    Maven](https://maven.apache.org/install.html).
 
 2.  [Create a Maven project using your
     IDE.](https://maven.apache.org/guides/getting-started/index.html#How_do_I_make_my_first_Maven_project)

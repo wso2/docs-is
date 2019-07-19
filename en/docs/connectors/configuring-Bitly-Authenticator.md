@@ -58,7 +58,7 @@ in order to use it in this scenario.
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and [service provider](https://docs.wso2.com/display/IS510) .
+and [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -67,10 +67,10 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 2.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.

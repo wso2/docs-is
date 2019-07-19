@@ -149,7 +149,7 @@ configuration of Carbon server nodes that use the shared, remote
 registry.  
 
 1\. Download and extract the relevant WSO2 product distribution from the
-'Products' menu of [https://wso2.com](https://wso2.com/) . In this
+'Products' menu of [https://wso2.com](https://wso2.com/). In this
 example, we use two server instances (of any product) by the names
 CARBON-Node1 and CARBON-Node2.
 

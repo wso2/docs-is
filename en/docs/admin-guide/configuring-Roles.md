@@ -40,7 +40,7 @@ Follow the instructions below to add a user role.
 2.  Click **Roles**. This link is only visible to users with
     **Security** level permissions role. By default, the admin user has
     this permission enabled. For more information on permissions, see
-    [Role-based Permissions](_Role-based_Permissions_) .
+    [Role-based Permissions](_Role-based_Permissions_).
 3.  Click **Add New Role**. The following screen appears:  
     ![](attachments/53125497/53287369.png)
 4.  Do the following:  
@@ -50,12 +50,12 @@ Follow the instructions below to add a user role.
         product. For information on ow user stores (which are
         repositories storing information about users and roles) are set
         up and configured, see [Configuring User
-        Stores](_Configuring_User_Stores_) .
+        Stores](_Configuring_User_Stores_).
     2.  Enter a unique name for this role.
     3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
     have. For more information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_) .  
+    Permissions](_Role-based_Permissions_).  
     Note that when you assign this role to a user, you can override the
     role's permissions and customize them for the user.
 6.  Select the existing users to whom this role should be assigned. You
@@ -103,7 +103,7 @@ product by editing
 `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` . For
 more information on configuring the system administrator, see
 [Configuring the System
-Administrator](_Configuring_the_System_Administrator_) .
+Administrator](_Configuring_the_System_Administrator_).
 
 ``` html/xml
 <Configuration> 
@@ -135,7 +135,7 @@ You do not have to do this when updating before the first startup. The
 following steps guide you through updating the role names:
 
 1.  Do the configuration changes indicated in [the above
-    section](#ConfiguringRoles-UpdateRole1) .
+    section](#ConfiguringRoles-UpdateRole1).
 2.  You need to do the following user store level changes for existing
     users if you have changed the role names as mentioned earlier.  
     -   If you are connected to
@@ -158,6 +158,6 @@ following steps guide you through updating the role names:
         `            ReadWriteLdapUserStoreManager           ` , you
         need to populate the members of the previous admin role to the
         new role under the Groups. For more information, see
-        [Configuring User Stores](_Configuring_User_Stores_) .
+        [Configuring User Stores](_Configuring_User_Stores_).
 
 3.  After the changes, restart the server.

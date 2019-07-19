@@ -70,7 +70,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](_OpenID_Connect_Discovery_).
 
 -   The logout endpoint URL is in the following format.
 
@@ -146,7 +146,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](_OpenID_Connect_Discovery_).
 
 -   The OP iframe URL is in the following format.
 
@@ -367,7 +367,7 @@ logout endpoint URL.
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](_OpenID_Connect_Discovery_).
 
 -   The logout endpoint URL is in the following format.
 

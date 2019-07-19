@@ -19,7 +19,7 @@ password recovery:
     Alternatively, to see steps on how to enable this identity management
     feature using the **old implementation** , see [Password Recovery
     documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery) . The old
+    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
     
@@ -184,7 +184,7 @@ with email notification.
     
     For information on the REST APIs for password recovery, see [the swagger
     docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/) .
+    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/).
     
 
 ### Recovery using challenge questions
@@ -233,7 +233,7 @@ ways:
 
 To set up challenge questions or to manage the questions with different
 locales (languages), see [Managing Challenge
-Questions](_Managing_Challenge_Questions_) .
+Questions](_Managing_Challenge_Questions_).
 
 #### Using the end user dashboard
 
@@ -307,7 +307,7 @@ To try this out, first create a user in the Identity Server.
     
     For information on the REST APIs for password recovery using challenge
     questions, see [the swagger docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/) .
+    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/).
     
 
 **Related Links**

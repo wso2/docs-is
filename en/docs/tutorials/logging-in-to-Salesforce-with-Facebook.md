@@ -216,7 +216,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 
 For more information on how to configure primary and secondary user
 stores, see [Configuring User
-Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores) .
+Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores).
 
 
 Let's get started!
@@ -469,7 +469,7 @@ Let's get started!
 
     SSO is the SAML user authentication method you created in
     salesforce.com, in [step 9
-    above](#LoggingintoSalesforcewithFacebook-SAML-SSO-Settings) . It is
+    above](#LoggingintoSalesforcewithFacebook-SAML-SSO-Settings). It is
     configured to direct users to WSO2 Identity server, which in turn
     direct the request to Facebook as Facebook acts as the IdP.
 
@@ -510,7 +510,7 @@ Let's get started!
         URI** value is used to search for the user in the user store.  
         ![](attachments/103331301/103331328.png){width="700"}  
         For more information about claim mapping, see [Claim
-        Management](_Claim_Management_) .
+        Management](_Claim_Management_).
 
 6.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration** and click **Configure**.
@@ -674,7 +674,7 @@ new identity provider.
 
     For detailed information on the Identity Provider configurations,
     see [Adding and Configuring an Identity
-    Provider](_Adding_and_Configuring_an_Identity_Provider_) .
+    Provider](_Adding_and_Configuring_an_Identity_Provider_).
 
 4.  Choose the salesforce certificate you downloaded in [step8 under
     Configuring Salesforce](#LoggingintoSalesforcewithFacebook-S) for
@@ -709,7 +709,7 @@ new identity provider.
                 service](#LoggingintoSalesforcewithFacebook-subject-claim-id)
                 [provider](#LoggingintoSalesforcewithFacebook-subject-claim-id)
                 [by configuring the Subject Claim
-                URI](#LoggingintoSalesforcewithFacebook-subject-claim-id) .
+                URI](#LoggingintoSalesforcewithFacebook-subject-claim-id).
         
                 If WSO2 Identity server sends roles instead of users and if you
                 want to use those roles to be JIT provisioned to the users of
@@ -735,7 +735,7 @@ new identity provider.
         . You can map these attributes to any **Local Claim URI** that
         is suitable.  
         For more information about claim mapping, see [Claim
-        Management](_Claim_Management_) .
+        Management](_Claim_Management_).
 
 6.  Go to **Facebook Configuration** under **Federated Authenticators**
     .

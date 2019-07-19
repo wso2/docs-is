@@ -2,7 +2,7 @@
 
 The Mobile Connect authenticator allows you to authenticate a user using
 [Mobile Connect](https://mobileconnect.io/) through the [WSO2 Identity
-Server](https://wso2.com/identity-and-access-management) .
+Server](https://wso2.com/identity-and-access-management).
 
 ### Introduction
 
@@ -163,7 +163,7 @@ To make this scenario work, you must do the following.
 
 To get started with the authenticator, see [Mobile Connect Federated
 Authenticator for WSO2 Identity
-Server](_Configuring_Mobile_Connect_as_a_Federated_Authenticator_) .
+Server](_Configuring_Mobile_Connect_as_a_Federated_Authenticator_).
 Once you have completed your configurations, you can perform
 authentication with the Mobile Connect authenticator.
 
@@ -173,7 +173,7 @@ authentication with the Mobile Connect authenticator.
 
 To download the authenticator and other artifacts, go to the [WSO2 store
 location for this
-connector](https://store.wso2.com/store/assets/isconnector/list) .
+connector](https://store.wso2.com/store/assets/isconnector/list).
 
 To watch a webinar on configuring an authentication flow with Mobile
 Connect and WSO2 Identity Server, click

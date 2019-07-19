@@ -77,7 +77,7 @@ in order to use it in this scenario.
 O nce this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and a [service provider](https://docs.wso2.com/display/IS510) .
+and a [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -86,10 +86,10 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 2.  [Run the WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
@@ -106,7 +106,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     | Field        | Description                                                                                                                              | Sample Value                                                                                                                           |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_) . | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
+    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
     | Callback URL | This is the service provider's URL to which the code is sent.                                                                            | `                                                   https://localhost:9443/commonauth                                                ` |
 
 9.  Click **Register**.  
@@ -116,7 +116,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  In the **Main** menu, click **Add** under **Claims**.
 2.  Click [Add New
-    Claim](https://docs.wso2.com/display/IS510/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/display/IS510/Adding+Claim+Mapping).
 3.  Click **Add Local Claim**. The **Dialect URI** will be
     automatically set to
     `                         http://wso2.org/claims                       `

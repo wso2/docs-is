@@ -14,7 +14,7 @@ authorization codes.
         To use this feature with an existing database, you may need to
         perform data migration before you enable the feature. If you have to
         perform data migration before you enable this feature [Contact
-        us](https://wso2.com/contact/) .
+        us](https://wso2.com/contact/).
     
 
 Follow the instructions below to set up OAuth token hashing:

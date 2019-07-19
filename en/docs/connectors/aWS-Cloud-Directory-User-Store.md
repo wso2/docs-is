@@ -40,7 +40,7 @@ as the primary or secondary user store in WSO2 Identity Server:
 ### Prerequisites
 
 1.  Create a cloud directory by uploading the schema for the objects via
-    the [AWS console](https://console.aws.amazon.com/console/home) . You
+    the [AWS console](https://console.aws.amazon.com/console/home). You
     can take a look at following sample schema to configure the sample
     user store configuration.
 
@@ -251,7 +251,7 @@ Follow the steps below to configure AWS as the secondary user store.
     fields.
 3.  Enter appropriate values for all the mandatory properties. For
     information on each property, see [AWS user store manager
-    properties](#AWSCloudDirectoryUserStore-properties) .
+    properties](#AWSCloudDirectoryUserStore-properties).
 
 ### Configuring AWS as the primary user store
 
@@ -267,7 +267,7 @@ Follow the steps below to configure AWS as the primary user store in
 WSO2 Identity Server:
 
 1.  Follow steps 1 and 2 under [Adding AWS user store extension to WSO2
-    Identity Server](#AWSCloudDirectoryUserStore-add) .
+    Identity Server](#AWSCloudDirectoryUserStore-add).
 
 2.  Edit the
     `           <IS_HOME>/repository/conf/user-mgt.xml          ` file

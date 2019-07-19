@@ -53,7 +53,7 @@ This is tested for the Duo Security API version V2.
     by entering your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click [Add New
-    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 4.  Select the **Dialect** from the dropdown provided and enter the
     required information.
 5.  Add the following user claims under ' http://wso2.org/claims' .

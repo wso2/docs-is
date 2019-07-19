@@ -13,7 +13,7 @@ with IBM DB2:
     
     You need to set up IBM DB2 before following the steps to configure your
     product with it. For more information, see [Setting up IBM
-    DB2](_Setting_up_IBM_DB2_) .
+    DB2](_Setting_up_IBM_DB2_).
     
 
 ### Setting up datasource configurations
@@ -135,7 +135,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                                  |

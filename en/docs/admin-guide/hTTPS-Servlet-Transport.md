@@ -30,7 +30,7 @@ file (stored in the
 `         <PRODUCT_HOME>/repository/conf/tomcat/        ` directory).
 For a complete list of supported parameters, see [Apache Tomcat's
 connector configuration
-reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html) .
+reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html).
 
 !!! tip
     

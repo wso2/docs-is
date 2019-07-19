@@ -32,7 +32,7 @@ management console using OpenSSO as the IDP.
 
 2.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS540/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS540/Running+the+Product).
 
 WSO2 Identity Server comes with SAML web-SSO authenticators. This page
 focuses on the steps necessary for its configuration.

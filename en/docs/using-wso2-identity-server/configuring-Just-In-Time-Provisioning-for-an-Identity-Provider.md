@@ -37,7 +37,7 @@ below:
 1.  Start WSO2 Identity Server and access the Management Console via
     `                     https://localhost:9443/carbon                   `
     /. For detailed instructions on starting WSO2 Identity Server, see
-    [Running the Product](_Running_the_Product_) .
+    [Running the Product](_Running_the_Product_).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.
 3.  Click the **Main** tab on the Management Console, navigate to
@@ -117,14 +117,14 @@ below:
 **Related Topics**
 
 For information on the JIT provisioning architecture, see [Provisioning
-Architecture](_Provisioning_Architecture_) .
+Architecture](_Provisioning_Architecture_).
 
 For information on how to configure purposes and appropriate user
 attributes to obtain user consent at the time of JIT provisioning, see
 [Configuring Just-In-Time Provisioning Consent
-Purposes](_Configuring_Just-In-Time_Provisioning_Consent_Purposes_) .
+Purposes](_Configuring_Just-In-Time_Provisioning_Consent_Purposes_).
 
 For information on how to customize the default user name and password
 provisioning user interfaces, see [Customizing Just-In-Time Provisioning
 User
-Interfaces](_Customizing_Just-In-Time_Provisioning_User_Interfaces_) .
+Interfaces](_Customizing_Just-In-Time_Provisioning_User_Interfaces_).

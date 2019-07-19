@@ -46,7 +46,7 @@ You can follow the instructions below to ensure that SSL version 3 is
 disabled.
 
 1.  Download `          TestSSLServer.jar         ` from
-    [here](http://www.bolet.org/TestSSLServer/TestSSLServer.jar) .
+    [here](http://www.bolet.org/TestSSLServer/TestSSLServer.jar).
 2.  Execute the following command to test the transport:
 
     ``` java

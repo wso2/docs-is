@@ -279,7 +279,7 @@ To set up this implementation, do the following.
         **4.4.11**. Change this value accordingly based on the relevant
         carbon kernel version of the product you are using by reffering to
         this [release
-        matrix](https://wso2.com/products/carbon/release-matrix/) .
+        matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     ``` xml
@@ -383,7 +383,7 @@ To set up this implementation, do the following.
 
 As a sample of how this can be done, consider a scenario where you want
 to use a custom hashing method using a 3rd party library such as
-[Jasypt](http://www.jasypt.org/) . So, in order to do this, you must
+[Jasypt](http://www.jasypt.org/). So, in order to do this, you must
 override the `           doAuthentication          ` and
 `           preparePassword          ` methods as an example.
 

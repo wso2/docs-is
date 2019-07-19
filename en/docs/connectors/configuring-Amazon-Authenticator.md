@@ -48,7 +48,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 4.  Click **Register new application** to register a new app. For more
     information, see [Amazon Services
-    documentation](http://login.amazon.com/website) .
+    documentation](http://login.amazon.com/website).
 
 5.  Enter the following information and click **Save**.
 
@@ -73,7 +73,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario. See [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Step 3 - Configure the identity provider (IdP)
 
@@ -84,7 +84,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
