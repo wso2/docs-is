@@ -13,9 +13,9 @@ Identity Server.
     start writing XACML policies.
     
     -   [Why we need XACML and the XACML
-        architecture.](https://docs.wso2.com/display/IS540/Access+Control+and+Entitlement+Management#AccessControlandEntitlementManagement-WhyXACML)
+        architecture.](../../getting-started/access-control-and-entitlement-managementAccessControlandEntitlementManagement-WhyXACML)
     -   [XACML Policy language and
-        Syntax](https://docs.wso2.com/display/IS540/Access+Control+and+Entitlement+Management#AccessControlandEntitlementManagement-XACMLpolicylanguagestructureandsyntax)
+        Syntax](../../getting-started/access-control-and-entitlement-managementAccessControlandEntitlementManagement-XACMLpolicylanguagestructureandsyntax)
         .
     
 
