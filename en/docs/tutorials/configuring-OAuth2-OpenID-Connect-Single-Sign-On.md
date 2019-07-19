@@ -15,7 +15,7 @@ application.
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **OAuth/OpenID Connect Configuration.** Click **Configure** .
+    expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
 2.  Fill in the form that appears. For the **Allowed Grant Types** you
     can disable the ones you do not require or wish to block.
 
@@ -29,7 +29,7 @@ Let's get started to configure the service provider you created!
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
         [Writing a Custom OAuth 2.0 Grant
-        Type](_Writing_a_Custom_OAuth_2.0_Grant_Type_) .
+        Type](_Writing_a_Custom_OAuth_2.0_Grant_Type_).
     
 
     ![](attachments/103330833/112392519.png){width="750"}
@@ -167,7 +167,7 @@ Let's get started to configure the service provider you created!
     </tbody>
     </table>
 
-3.  Click **Add** . Note that `          client key         ` and
+3.  Click **Add**. Note that `          client key         ` and
     `          client secret         ` get generated.  
     ![](attachments/103330833/103330840.png){width="774"}
 

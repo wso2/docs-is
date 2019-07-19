@@ -27,7 +27,7 @@ This connector allows the users to be:
 Before you begin:
 
 -   Register a new application using the [Microsoft App Registration
-    Portal](https://apps.dev.microsoft.com/) . For instructions on how
+    Portal](https://apps.dev.microsoft.com/). For instructions on how
     to do this, see [Registering an
     application](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_register_app_v2)
     in the Microsoft documentation. !!! note
@@ -85,7 +85,7 @@ Before you begin:
     
 
 -   Add a new domain to Office 365 using the [Office 365 Admin
-    Portal](https://portal.office.com/adminportal/home) . For
+    Portal](https://portal.office.com/adminportal/home). For
     instructions on how to do this, see [Add A Domain to Office
     365](https://support.office.com/en-us/article/add-a-domain-to-office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611)
     in the Microsoft documentation.
@@ -140,13 +140,13 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     <tr class="even">
     <td>Client ID</td>
     <td>The application ID used to register the app in the <a href="https://apps.dev.microsoft.com/">Microsoft App Registration Portal<br />
-    </a> (see the prerequisites for more information) .</td>
+    </a> (see the prerequisites for more information).</td>
     <td>7d7d8f46-7184-4dc7-a198-4554dadc1197</td>
     </tr>
     <tr class="odd">
     <td>Client Secret</td>
     <td>The application secret used to register the app in the <a href="https://apps.dev.microsoft.com/">Microsoft App Registration Portal</a><br />
-    (see the prerequisites for more information) .</td>
+    (see the prerequisites for more information).</td>
     <td><br />
     </td>
     </tr>
@@ -300,7 +300,7 @@ Follow the instructions below to try out this scenario.
 
     ![](attachments/97567237/97568307.png){width="302" height="250"}
 
-3.  Click **Finish** . You will see the user you just created listed on
+3.  Click **Finish**. You will see the user you just created listed on
     the screen.
 4.  Click **User Profile** to edit John's user profile and add claim
     values for the claims you configured in the Office365 connector IdP
@@ -349,7 +349,7 @@ Follow the instructions below to try out this scenario.
 
 1.  Login to the WSO2 IS management console.
 2.  Click **Add** under **Users and Roles** and then click **Create New
-    Role** .
+    Role**.
 3.  Create two new roles named ' `          office365role         ` '
     and ' `          Engineering         ` '.  
     ![](attachments/97567237/97568332.png){width="234" height="189"}

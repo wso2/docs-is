@@ -33,7 +33,7 @@ need to configure the Identity Server as follows.
 
     | Field Name                          | Description                                                                                                                                                                                              |
     |-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | action                              | Value is either **include** or **exclude** . An **include** indicates a whitelist, whereas an **exclude** indicates a blacklist.                                                                         |
+    | action                              | Value is either **include** or **exclude**. An **include** indicates a whitelist, whereas an **exclude** indicates a blacklist.                                                                         |
     | removeOnConsumeFromAPI              | The decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated at the backend. |
     | AuthenticationEndpointRedirectParam | The list of parameters to be whitelisted/blacklisted. The name attribute is used to specify the parameter name.                                                                                          |
 
@@ -52,7 +52,7 @@ The data can be accessible at
     `                  sessionDataKeyConsent                 ` as the
     correlation key.
 -   \<Key\> - The correlation key whose value is either
-    **sessionDataKey** or **sessionDataKeyConsent** .
+    **sessionDataKey** or **sessionDataKeyConsent**.
 
 ### Authenticating the API
 

@@ -15,7 +15,7 @@ identity management.
 -   Apache Tomcat 6 - To deploy the sample web application.
 -   InfoRecoverySample (located in
     `          /is-samples/modules/samples/identity-mgt/info-recovery-sample         `
-    folder) - Follow [these instructions](_Downloading_a_Sample_) to
+    folder) - Follow [these instructions](../../using-wso2-identity-server/downloading-a-sample) to
     check out the samples folder.
 
 ### Configuring the sample

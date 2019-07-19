@@ -62,15 +62,15 @@ mentioned user attributes.
 
 1.  On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the **Identity** menu.
-2.  Click **Add New User** . See [Configuring
+2.  Click **Add New User**. See [Configuring
     Users](https://docs.wso2.com/display/IS510/Configuring+Users) for
     more information on this process.
 3.  Provide a username and a password(with confirmation) and click
-    **Next** .  
+    **Next**.  
     ![](attachments/103330265/103330267.png)
 4.  Click **Finish** to create the user.
 5.  Login to your already created Salesforce account. O n the left
-    navigation pane, click **Users** under **Manage Users** . You will
+    navigation pane, click **Users** under **Manage Users**. You will
     see that the user you created in the WSO2 Identity Server has been
     added to Salesforce as well.  
     ![](attachments/103330265/103330269.png)  

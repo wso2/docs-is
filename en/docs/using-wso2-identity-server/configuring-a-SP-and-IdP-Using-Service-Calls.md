@@ -343,7 +343,7 @@ configurations.
 
 Invoking the above four Web service calls in a sequential manner will
 create the service provider in the [management
-console](_Getting_Started_with_the_Management_Console_) user interface.
+console](../../setup/getting-started-with-the-management-console) user interface.
 
 **Related Topics**
 

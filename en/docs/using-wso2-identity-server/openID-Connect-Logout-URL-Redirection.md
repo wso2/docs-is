@@ -22,12 +22,12 @@ Follow the steps below to send an OIDC logout request:
     
     To understand how you can send an OIDC logout request as a POST request,
     see [Sending a POST request as the OIDC logout
-    request](#OpenIDConnectLogoutURLRedirection-post) .
+    request](#OpenIDConnectLogoutURLRedirection-post).
     
 
 1.  Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_) .
+    Product](_Installing_the_Product_).
 
 2.  Access the Management Console via
     `           https://localhost:9443/carbon/          ` .
@@ -161,7 +161,7 @@ when you send an OIDC logout request as a POST request:
 
 For descriptions of all the parameters that you need to specify in the
 POST request, see the [parameter descriptions given
-above](#OpenIDConnectLogoutURLRedirection-parameters) .
+above](#OpenIDConnectLogoutURLRedirection-parameters).
 
 Following is the sample HTML form with sample parameter values to render
 the page in a browser:

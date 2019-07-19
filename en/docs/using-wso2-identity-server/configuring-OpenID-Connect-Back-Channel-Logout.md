@@ -39,15 +39,15 @@ in WSO2 Identity Server:
 1.  Sign in to the WSO2 Identity Server Management Console.
 2.  To register a web application as a service provider:  
     1.  On the **Main** menu, click **Identity \> Service Providers \>
-        Add** .  
+        Add**.  
         ![](attachments/112390325/112391328.png){width="200"}
     2.  Enter `            playground2           ` in the **Service
         Provider Name** text box.  
         ![](attachments/112390325/112391336.png){width="750"}
-    3.  Click **Register** . Note that you will be redirected to the
+    3.  Click **Register**. Note that you will be redirected to the
         **Service Providers** screen.
     4.  Under **Inbound Authentication Configuration** , click
-        **OAuth/OpenID Connect Configuration \> Configure** .  
+        **OAuth/OpenID Connect Configuration \> Configure**.  
         ![](attachments/112390325/112391332.png){width="700"}
     5.  Enter the configurations as follows:  
         ![](attachments/112390325/112392325.png){width="700"}
@@ -58,7 +58,7 @@ in WSO2 Identity Server:
         | **Enable OIDC Backchannel Logout** | This defines whether the back-channel communication is used to communicate the `                 logout token                ` or not.                                                             | Selected                                                                                                                 |
         | **Logout URL**                     | This is the service provider's back-channel logout endpoint URL to which the `                 logout token                ` is sent to.                                                           | `                                   http://localhost:8080/playground2/bclogout                                 `         |
 
-    6.  Click **Add** . Note that a `             client ID            `
+    6.  Click **Add**. Note that a `             client ID            `
         and `             client secret            ` have been
         created.  
         ![](attachments/112390325/112391339.png){width="850"}
@@ -78,10 +78,10 @@ in WSO2 Identity Server:
     called when the logout is triggered from the service provider:
 
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
-        Resident** .  
+        Resident**.  
         ![](attachments/112390325/112391342.png){width="200"}
     2.  Under **Inbound Authentication Configuration** , click
-        **OAuth2/OpenID Connect Configuration** .  
+        **OAuth2/OpenID Connect Configuration**.  
         ![](attachments/112390325/112391343.png){width="750"}  
         Note that the identity provider's logout endpoint URL is listed
         out.  
@@ -164,7 +164,7 @@ will deploy them in an application server.
 Follow the steps below to deploy the sample applications:
 
 1.  If you have not downloaded Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi) .
+    [here](https://tomcat.apache.org/download-70.cgi).
 2.  Copy the `          playground2.war         ` and
     `          playground3.war         ` files into the
     `          <TOMCAT_HOME>/apache-tomcat-<version>/webapps         `
@@ -202,7 +202,7 @@ the newly registered service provider:
         The following screen appears.  
         ![](attachments/112390325/112391361.png){width="750"}
 
-    2.  Click **Import Photos** .
+    2.  Click **Import Photos**.
     3.  Enter the required details as follows:  
         ![](attachments/112390325/112391363.png){width="750"}
 
@@ -274,12 +274,12 @@ the newly registered service provider:
         </tbody>
         </table>
 
-    4.  Click **Authorize** . The login page of the identity provider
+    4.  Click **Authorize**. The login page of the identity provider
         appears.  
         ![](attachments/112390325/112391364.png){width="400"}
     5.  Sign in as an admin user. The user consent screen appears.  
         ![](attachments/112390325/112391365.png){width="450"}
-    6.  Select the necessary attributes and click **Continue** . The
+    6.  Select the necessary attributes and click **Continue**. The
         playground2 home screen appears with the **Logged in user** set
         to `             admin.            `  
         ![](attachments/112390325/112391430.png){width="750"}
@@ -287,9 +287,9 @@ the newly registered service provider:
 2.  Similarly, sign in to the playground3 application by navigating to
     `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3          `
     in a separated browser window/tab.
-3.  Click **Logout** . A confirmation message appears.  
+3.  Click **Logout**. A confirmation message appears.  
     ![](attachments/112390325/112391427.png){width="350"}
-4.  Click **Yes** . A success message appears
+4.  Click **Yes**. A success message appears
 5.  Go back to the playground2 application and refresh. Note that the
     **Logged in user** had changed from `           admin          ` to
     `           null          ` indicating that you are also logged out

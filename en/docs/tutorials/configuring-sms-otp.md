@@ -25,7 +25,7 @@ sections for more information.
         samples](../../using-wso2-identity-server/downloading-a-sample) before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](../../setup/installation-prerequisites)
@@ -361,7 +361,7 @@ provider.
 			</tbody>
 			</table></html>
 
-11. Click **Register** .
+11. Click **Register**.
 
 ### Configuring the service provider
 

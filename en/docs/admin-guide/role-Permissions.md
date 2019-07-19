@@ -39,7 +39,7 @@ resource or a collection.
         ability to grant and revoke permissions to/from others
 
 3.  Select whether to allow the action or deny and click **Add
-    Permission** . For example  
+    Permission**. For example  
     ![](attachments/53125537/53287670.png)
 
     `                         Deny                       ` permissions

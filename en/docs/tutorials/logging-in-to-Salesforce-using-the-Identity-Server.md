@@ -21,7 +21,7 @@ Server credentials.
         
         Configuring the email address as the username in an **already running
         Identity Server** is not the production recommended way. Therefore,
-        **make sure to configure it before you begin working with WSO2 IS** .
+        **make sure to configure it before you begin working with WSO2 IS**.
         
 
 1.  Open the \<
@@ -213,7 +213,7 @@ Server credentials.
 
 For more information on how to configure primary and secondary user
 stores, see [Configuring User
-Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores) .
+Stores](https://docs.wso2.com/display/IS580/Configuring+User+Stores).
 
 
 Let's get started!
@@ -234,7 +234,7 @@ Let's get started!
     Salesforce.
     1.  Fill out the relevant information found in the following URL:
         <https://developer.salesforce.com/signup>
-    2.  Click **Sign me up** .
+    2.  Click **Sign me up**.
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email successfully, you will
         be able to reset it by following the steps given
@@ -258,11 +258,11 @@ Let's get started!
         lightning theme.
     
         1.  Click your username to expand the drop down.
-        2.  Click **Switch to Lightning Experience** .  
+        2.  Click **Switch to Lightning Experience**.  
             ![](attachments/103331333/103331334.png){width="200"
             height="153"}
         3.  Click the settings icon on the top-right-hand corner, and click
-            **Set Up** .  
+            **Set Up**.  
             ![](attachments/103331333/103331335.png){width="150"}
     
         Now you are navigated to the lightening theme of Salesforce.
@@ -275,7 +275,7 @@ Let's get started!
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
         ![](attachments/103331301/103331324.png){width="200"}
-    2.  Click **My Domain** .
+    2.  Click **My Domain**.
     3.  In the page that appears, come up with a name for your domain.
         You can check if the domain is available by clicking the **Check
         Availability** button.
@@ -299,7 +299,7 @@ Let's get started!
     Enabled** check box to enable federated single sign-on using SAML.  
     ![](attachments/103331333/103331341.png){width="750" height="126"}
 7.  Click **Save** to save this configuration change.
-8.  Click **New** under **SAML Single Sign-On Settings** . The following
+8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
     ![](attachments/103331333/103331344.png){width="750" height="348"}  
     Ensure that you configure the following properties.
@@ -388,16 +388,16 @@ Let's get started!
     Click **Save** to save your configurations.
 
 9.  Go to **Custom Settings** in the left navigation pane and click **My
-    Domain** .
-10. Click **Deploy to Users** . Click **Ok** to the confirmation message
+    Domain**.
+10. Click **Deploy to Users**. Click **Ok** to the confirmation message
     that appears.
 11. In the page that appears, you must configure the **Authentication
     Configuration** section. Scroll down to this section and click
-    **Edit** .
+    **Edit**.
 12. Under **Authentication Service** , select **SSO** instead of **Login
-    Page** .  
+    Page**.  
     ![](attachments/103331333/103331339.png){width="450"}
-13. Click **Save** .
+13. Click **Save**.
 
 ### Configuring the service provider
 
@@ -405,20 +405,20 @@ Follow the steps given below to configure salesforce as a service
 provider in WSO2 IS.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .  
     The default username and password of the administrator is both
-    **admin** .
+    **admin**.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
     ![](attachments/103331333/103331338.png){width="500"}
-4.  Click **Register** .
+4.  Click **Register**.
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration** and click **Configure** .
+    Web SSO Configuration** and click **Configure**.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
@@ -490,20 +490,20 @@ Salesforce and the Identity Server.
 1.  Create a user in WSO2 IS.  
     1.  Once you log in to the Identity Server, navigate to the **Main**
         menu in the Management Console, click **Add** under **Users and
-        Roles** .
-    2.  Click **Users** . This link is only visible to users with the
+        Roles**.
+    2.  Click **Users**. This link is only visible to users with the
         Admin role.
-    3.  Click **Add New User** .  When adding a new user, use an email
+    3.  Click **Add New User**.  When adding a new user, use an email
         address as the username.  
         Since it is not mandatory to assign a role to a user in this
-        tutorial, click **Finish** .
+        tutorial, click **Finish**.
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
     1.  Log in to the Salesforce developer account:
         [https://login.salesforce.com/](https://login.salesforce.com/?lt=de)
         .
     2.  On the left navigation pane, under **ADMINISTRATION** , click
-        **Users** under **Users** .
+        **Users** under **Users**.
     3.  On the page that appears, click the **New User** button to
         create a new user.
     4.  Create a user with the same username as the one you created in
@@ -534,9 +534,9 @@ Salesforce and the Identity Server.
         navigated to a new page having the following URl:
         `              https://<DOMAIN_NAME>/domainname/EditLogin.apexp             `
     4.  On the left navigation menu, expand **Security Controls** , and
-        click, **Single Sign-On Settings** .
+        click, **Single Sign-On Settings**.
     5.  Click on the name of the Single Sign-On Setting you created. In
-        this use case click **SSO** .  
+        this use case click **SSO**.  
         ![](attachments/103331333/103331352.png){width="900"}
     6.  Copy the URL that is defined for Login URL to access
         Salesforce.  

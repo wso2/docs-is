@@ -138,7 +138,7 @@ user-mgt.xml file.
 -   The `           AdminRoleManagementPermissions          ` property
     sets the registry path where the authorization information
     (role-based permissions) are stored. Note that this links to the
-    repository that you defined in **Step 1** .
+    repository that you defined in **Step 1**.
 -   It is recommended to enable the
     `            GetAllRolesOfUserEnabled           ` property in the
     `            AuthorizationManager           ` as follows:  

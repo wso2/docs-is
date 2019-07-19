@@ -30,6 +30,6 @@ The following topics provide more information on IS connectors:
 -   [Getting Support](_Getting_Support_)
 
 To browse the available Identity Server connectors, go to the [WSO2
-Store](https://store.wso2.com/store/) .
+Store](https://store.wso2.com/store/).
 
   

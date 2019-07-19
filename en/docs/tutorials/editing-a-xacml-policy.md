@@ -38,7 +38,7 @@ Follow the instructions below to edit a XACML policy.
     Policies** window as shown below.  
     ![publish-to-my-pdp](../../assets/img/tutorials/publish-to-my-pdp.png)
 6.  When the policy is published to PDP, it will display in **Policy
-    View** under **PDP** .
+    View** under **PDP**.
 7.  If you want to delete an existing published policy, first go to the
     **Policy View** in **PDP** and delete it from the PDP by clicking
     **Delete** against that relevant published policy.  

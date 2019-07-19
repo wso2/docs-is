@@ -22,7 +22,7 @@ and login to the other one.
 
 3.  Create an identity provider in the first Identity Server.  
     For more information on how to do this, see [Configuring
-    OAuth2-OpenID Connect](_Configuring_OAuth2-OpenID_Connect_) .
+    OAuth2-OpenID Connect](_Configuring_OAuth2-OpenID_Connect_).
 
     -   Enable OAuth2/OpenIDConnect: selected
 
@@ -52,7 +52,7 @@ and login to the other one.
     Authentication.  
     ![](attachments/103330020/103330023.png)
 6.  Try the authorization code grant as described
-    [here](_Try_Authorization_Code_Grant_) . You will be redirected to
+    [here](_Try_Authorization_Code_Grant_). You will be redirected to
     the 2nd Identity Server instead of the 1st Identity Server for
     authentication.
     ![](attachments/103330020/103330022.png){width="1015"}

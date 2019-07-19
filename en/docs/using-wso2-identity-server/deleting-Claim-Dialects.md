@@ -13,13 +13,13 @@ Follow the steps given below to remove the claim dialects using the
 admin console.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  In **Main** tab click **List** under **Claims** menu.
 3.  Locate the claim dialect you want to delete and click on the
     **Delete** link next to the dialect.  
     ![](attachments/103330430/103330431.png)
-4.  Confirm your request in the dialog window by clicking **Yes** .  
+4.  Confirm your request in the dialog window by clicking **Yes**.  
     ![](attachments/103330430/103330433.png)
 
 ### Using the configuration file

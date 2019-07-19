@@ -19,10 +19,10 @@ Management Related Tables](_User_Management_Related_Tables_) section.
         Identity Server (WSO2 IS).
     -   If you want to configure a primary user store, you need to follow
         the steps given in [Configuring the Primary User
-        Store](_Configuring_the_Primary_User_Store_) .
+        Store](_Configuring_the_Primary_User_Store_).
     -   If you want to configure a secondary user store, you need to follow
         the steps given in [Configuring Secondary User
-        Stores](_Configuring_Secondary_User_Stores_) .
+        Stores](_Configuring_Secondary_User_Stores_).
     
 
   

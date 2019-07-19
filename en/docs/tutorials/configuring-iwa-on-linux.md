@@ -129,10 +129,10 @@ authenticator.
 1.  Follow the steps above to set up IWA.
 
 2.  Start the WSO2 IS server and log in to the management console.
-3.  Navigate to **Main\>Identity Providers** and click **Add** . Enter a
+3.  Navigate to **Main\>Identity Providers** and click **Add**. Enter a
     name for the identity provider.
 4.  Expand the **Federated Authenticators** section and then expand
-    **IWA Federated Configuration** .
+    **IWA Federated Configuration**.
 5.  Fill in the fields as follows:
 
     <table>

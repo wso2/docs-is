@@ -75,19 +75,19 @@ provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identi
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 2.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/identity-server/Running+the+Product) .
+    Server](https://docs.wso2.com/identity-server/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-5.  Give a suitable name for **Identity Provider Name** .  
+    management console, click **Add**.
+5.  Give a suitable name for **Identity Provider Name**.  
     ![](attachments/49774670/49971239.png){width="600" height="561"}
 6.  Navigate to **Github Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 7.  Enter the values as given in the above figure.
 
@@ -101,7 +101,7 @@ provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identi
         sent .
 
 8.  Select both checkboxes to **Enable** the Github authenticator and
-    make it the **Default** .
+    make it the **Default**.
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to see descriptions about configuration property values
@@ -157,7 +157,7 @@ provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identi
     </tbody>
     </table>
 
-9.  Click **Register** .
+9.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -171,7 +171,7 @@ The next step is to configure the service provider.
     **Main** tab.
 
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -184,13 +184,13 @@ The next step is to configure the service provider.
         `             http://localhost:8080/travelocity.com/home.jsp            `
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .
+    4.  **Include Attributes in the Response Always**.
 
     ![](attachments/49774670/85361222.png){width="900"}
 7.  Click **Update** to save the changes. Now you will be sent back to
@@ -200,7 +200,7 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the drop-down list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
     ![](attachments/49774670/49971240.png){width="600" height="396"}
 

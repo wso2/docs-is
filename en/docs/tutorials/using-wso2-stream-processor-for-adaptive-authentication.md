@@ -26,7 +26,7 @@ WSO2 Identity Server for risk-based login.
 ### Creating a Siddhi application
 
 1.  Download the latest version of [WSO2 Stream
-    Processor](https://github.com/wso2/product-sp/releases) .
+    Processor](https://github.com/wso2/product-sp/releases).
 2.  Extract the downloaded zip and navigate to the
     `          <SP_HOME>/bin         ` directory (
     `          <SP_HOME>         ` is the extracted directory).

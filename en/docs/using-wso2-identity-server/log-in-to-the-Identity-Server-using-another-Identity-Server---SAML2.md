@@ -23,7 +23,7 @@ this scenario:
 ### Setting up the WSO2 Identity Server instances
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server) .
+    [here](http://wso2.com/products/identity-server).
 2.  Extract the file to a dedicated directory. For the purposes of this
     scenario, this is referred to as
     `          <IS_HOME_PRIMARY>         ` in this topic.
@@ -60,7 +60,7 @@ Server as an identity provider (IdP) in the primary Identity Server.
 
 1.  Go to the Management Console of the primary IS.
 2.  Navigate to the **Identity Providers** section in the **Main** menu
-    and click **Add** .
+    and click **Add**.
 3.  Enter “Secondary" as the **Identity Provider Name** for this
     scenario.
 4.  Expand the **Federated Authenticators** section and then expand the
@@ -70,16 +70,16 @@ Server as an identity provider (IdP) in the primary Identity Server.
 5.  Make the following changes.
     1.  Select the **Enable SAML2 Web SSO** check box.
     2.  Enter `            Secondary IDP           ` as the **Identity
-        Provider Entity Id** .
+        Provider Entity Id**.
     3.  Enter `            Primary           ` as the **Service Provider
-        Entity Id** .
+        Entity Id**.
     4.  Enter `             https://localhost:9444/samlsso/            `
-        as the **SSO URL** . This is the SAML2 SSO URL of the secondary
+        as the **SSO URL**. This is the SAML2 SSO URL of the secondary
         IS.
 
     5.  Select the **Enable Logout** check box.
 
-6.  Click **Register** . The new identity provider named 'Secondary' is
+6.  Click **Register**. The new identity provider named 'Secondary' is
     listed under **List** (go to **Main** menu and click **List** under
     **Identity Providers** ).
 
@@ -93,15 +93,15 @@ in the secondary IS instance.
     the following URL: <https://localhost:9444/carbon>
 
 2.  Navigate to the **Main** menu and click **Add** under **Service
-    Providers** . Enter service provider name as 'PrimaryIDP' for this
+    Providers**. Enter service provider name as 'PrimaryIDP' for this
     sample scenario.
 
-3.  Click **Register** .
+3.  Click **Register**.
 
 4.  In the form that appears, expand the **Inbound Authentication
     Configuration** and **SAML2 Web SSO Configuration** sections.
 
-5.  Click **Configure** .
+5.  Click **Configure**.
 
 6.  Enter the following details in the form.
 
@@ -109,13 +109,13 @@ in the secondary IS instance.
 
     2.  Enter
         `                           https://localhost:9443/commonauth                         `
-        as **Assertion Consumer URL** .
+        as **Assertion Consumer URL**.
 
-    3.  Select **Enable Response Signing** .
+    3.  Select **Enable Response Signing**.
 
-    4.  Select **Enable Single Logout** .
+    4.  Select **Enable Single Logout**.
 
-7.  Click **Update** and then click **Register** . The primary Identity
+7.  Click **Update** and then click **Register**. The primary Identity
     Server instance is added as the service provider in the secondary
     Identity Server instance.
 
@@ -138,7 +138,7 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     topic.
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and
-    click **List** under **Service Providers** . Click **Edit** next to
+    click **List** under **Service Providers**. Click **Edit** next to
     the service provider you created.
 3.  Expand the **Local & Outbound Authentication Configuration**
     section. Here we set the travelocity client to use the primary IS
@@ -146,10 +146,10 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     identity provider. For this we have to add authentication steps.  
     ![](attachments/103329916/103329922.png){width="604"}  
     1.  Click **Advanced Configuration** and from next UI, click
-        **Add Authentication Step** .
+        **Add Authentication Step**.
     2.  Under **Local Authenticators** add the “ **basic** ”
         authenticator by selecting it from the combo box and clicking
-        **Add Authenticator** .
+        **Add Authenticator**.
     3.  Under **Federated Authenticators** select “Secondary” and add
         it.
     4.  Click **Update** to save your changes.
@@ -181,6 +181,6 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
         ![](attachments/103329916/103329920.png){width="320"}  
         If you wish to authenticate a user in the secondary IS instance
         which is the secondary IdP, click “Secondary” under **Other
-        login options** . In the resulting screen, log in using the
+        login options**. In the resulting screen, log in using the
         username “secondaryuser' and password 'secondpass'. These
         credentials were created in the secondary IS instance.

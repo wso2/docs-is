@@ -545,7 +545,7 @@ attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) . For
+specification](https://tools.ietf.org/html/rfc7643#section-3.3). For
 more details, see [behavioral change \#1 in the behavioral changes
 table](#UnderstandingWhatHasChanged-1) given above.
 
@@ -580,7 +580,7 @@ These handlers are introduced to support the cross-protocol logout
 feature and for migration of existing data publishers to event handlers
 that subscribe to authentication events. For more information about
 migrating existing data publishers to event handlers, see [Migrating
-Data Publishers](_Migrating_Data_Publishers_) .  
+Data Publishers](_Migrating_Data_Publishers_).  
 
 The following properties were added.
 
@@ -671,7 +671,7 @@ been modified to 1440.
 ```
 
 The default value of the following property has been changed from false
-to **true** .
+to **true**.
 
 ``` java
 <SignJWTWithSPKey>true</SignJWTWithSPKey>
@@ -919,7 +919,7 @@ listener logs the audit data for OAuth token issuance and token
 introspection. Adding this property allows you to disable logging, else
 if this property is not present in the configuration file, logging is
 enabled by default. For more information about auditing, see [OAuth
-Transaction Logs](_OAuth_Transaction_Logs_) .
+Transaction Logs](_OAuth_Transaction_Logs_).
 
 `                UserOperationEventListener               ` - This event
 listener is used to support session termination at the point renaming
@@ -1008,7 +1008,7 @@ modified as shown below.
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) .
+specification](https://tools.ietf.org/html/rfc7643#section-3.3).
 
 The following resource found under the \<
 `                ResourceAccessControl>               ` tag has been

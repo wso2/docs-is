@@ -51,7 +51,7 @@ needs to be done in order to enable SSO:
 For single sign-on to work, you need to configure the WSO2 products to
 share a common user store. For more information on configuring this, see
 [Configuring the Primary User
-Store](_Configuring_the_Primary_User_Store_) .
+Store](_Configuring_the_Primary_User_Store_).
 
 ### Configuring WSO2 Application Server
 
@@ -64,7 +64,7 @@ file.
 #### Port configuration
 
 1.  Download the WSO2 Application Server from
-    [here](http://wso2.com/products/application-server) .
+    [here](http://wso2.com/products/application-server).
 2.  Extract the .zip file. This unzipped folder is referred to as
     `            <AS_HOME>           ` in this topic.
 3.  Navigate to the
@@ -190,7 +190,7 @@ authenticator of the WSO2 Enterprise Service Bus.
 #### Port configuration
 
 1.  Download the WSO2 Governance Registry from
-    [here](http://wso2.com/products/governance-registry) .
+    [here](http://wso2.com/products/governance-registry).
 2.  Set the port offset to `            3           ` .
 
 #### Authenticators configuration
@@ -204,7 +204,7 @@ authenticator of the WSO2 Enterprise Service Bus.
 ### Configuring WSO2 Identity Server
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server) .
+    [here](http://wso2.com/products/identity-server).
 2.  Extract the .zip file.
 3.  Open a terminal and navigate to the
     `            <IS_HOME>/bin           ` folder.
@@ -217,7 +217,7 @@ authenticator of the WSO2 Enterprise Service Bus.
     Console](https://docs.wso2.org/display/IS500/Working+with+the+Management+Console)
     .
 7.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .  
+    **Add** under **Service Providers**.  
     ![](attachments/103331358/103331361.png)
 8.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider in the resulting screen. If
@@ -243,9 +243,9 @@ authenticator of the WSO2 Enterprise Service Bus.
         TB, TC users are able to log into the web application.
 
 9.  Expand the **SAML2 Web SSO Configuration** under **Inbound
-    Authentication Configuration** .  
+    Authentication Configuration**.  
     ![](attachments/34611892/38768347.png){width="750"}
-10. Click **Configure** . Fill in the form that appears.  
+10. Click **Configure**. Fill in the form that appears.  
     ![](attachments/103331358/103331360.png)
 11. Fill up this page with the following configurations. You must
     register different service providers for WSO2 Application Server,

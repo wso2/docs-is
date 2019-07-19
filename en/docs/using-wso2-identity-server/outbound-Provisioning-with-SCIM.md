@@ -14,7 +14,7 @@ connectors](https://store.wso2.com/store/assets/isconnector/list) for
 Google and Salesforce available by default in the Identity Server. If
 you need to plug any other custom connector, you can do it by writing an
 extension for that as described
-[here](_Writing_an_Outbound_Provisioning_Connector_) . Outbound
+[here](_Writing_an_Outbound_Provisioning_Connector_). Outbound
 provisioning configurations can be found under identity provider
 configuration user interface of the Identity Server.
 
@@ -39,7 +39,7 @@ identity provider in the Identity Server.
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     using your username and password.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Identity Providers** .
+    **Add** under **Identity Providers**.
 3.  Fill in the details in the **Basic Information** section.  
     ![](attachments/103330243/103330251.png){width="750"}  
     Note the following when filling the above form.
@@ -94,10 +94,10 @@ from the management console can also be provisioned to external systems
 like Salesforce and Google Apps.
 
 1.  Log on to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) using
+    Console](../../setup/getting-started-with-the-management-console) using
     username and password.
 2.  In the **Main** menu under the **Identity** section, click
-    **Resident** under **Service Providers** .
+    **Resident** under **Service Providers**.
 3.  In the resulting screen, expand the **Outbound Provisioning
     Configuration** section.  
     ![](attachments/103330243/103330245.png?effects=border-simple,blur-border){width="1065"}
@@ -128,7 +128,7 @@ provider if your application supports OAuth.
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.
@@ -144,7 +144,7 @@ provider if your application supports OAuth.
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
-    3.  There is another option called **Blocking** . If enabled, it
+    3.  There is another option called **Blocking**. If enabled, it
         means that the outbound provisioning request must be blocked
         until the response is received. By default, the request would be
         not non-blocking.

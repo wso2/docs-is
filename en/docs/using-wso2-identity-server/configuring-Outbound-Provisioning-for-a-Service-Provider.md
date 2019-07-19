@@ -19,7 +19,7 @@ provisioning too.
 
 Do the following to configure outbound provisioning.
 
-1.  Expand the **Outbound Provisioning Configuration** . For this
+1.  Expand the **Outbound Provisioning Configuration**. For this
     section to be configurable, you should already have added an
     identity provider and enabled an outbound provisioning connector
     (Google, Salesforce, SCIM, SPML, etc.).

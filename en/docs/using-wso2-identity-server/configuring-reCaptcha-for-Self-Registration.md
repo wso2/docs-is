@@ -11,9 +11,9 @@ brute force attacks.
 
 -   For more information on setting up self registration, see
     [Self-Registration and Account
-    Confirmation](_Self-Registration_and_Account_Confirmation_) .
+    Confirmation](_Self-Registration_and_Account_Confirmation_).
 -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](_Mitigating_Brute_Force_Attacks_) .
+    Force Attacks](_Mitigating_Brute_Force_Attacks_).
 
 There are two ways to configure this feature.
 
@@ -34,7 +34,7 @@ The instructions for both these approaches are as follows.
     .
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **List** under **Identity Providers** on the **Main** tab
-    and then click **Resident Identity Provider** .
+    and then click **Resident Identity Provider**.
 4.  Expand the **Account Management Policies** tab and then expand the
     **User Self Registration** tab.
 5.  Select the **Enable reCaptcha** checkbox to enable reCaptcha for the
@@ -166,7 +166,7 @@ The instructions for both these approaches are as follows.
 
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](_Setting_Up_ReCaptcha_) .
+    ReCaptcha](_Setting_Up_ReCaptcha_).
 5.  Start the WSO2 Identity Server and log in to the end user dashboard
     using the following link: <https://localhost:9443/dashboard>
 

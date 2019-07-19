@@ -29,7 +29,7 @@ Follow the steps below to set up a Remote H2 database.
     follows:
 
     For instructions on installing, see the [H2 installation
-    guide](http://www.h2database.com/html/quickstart.html) .
+    guide](http://www.h2database.com/html/quickstart.html).
 
     ![](attachments/53125507/53287411.png)
 
@@ -76,4 +76,4 @@ driver, take the following steps:
 ## What's next
 
 Next, you need to configure your product with Embedded H2 database. For
-more information, see [Changing to Remote H2](_Changing_to_Remote_H2_) .
+more information, see [Changing to Remote H2](_Changing_to_Remote_H2_).

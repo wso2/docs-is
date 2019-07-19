@@ -44,15 +44,15 @@ authority.
 
 1.  Start the WSO2 Identity Server and log in to the management console.
 2.  Navigate to **Keystores** under **Manage** on the **Main** tab of
-    the management console and click **List** .
+    the management console and click **List**.
 3.  Click **Import Cert** to import a certificate to the
     **wso2carbon.jks** keystore.  
     ![](attachments/103330809/103330815.png)
 4.  Upload the certificate found in
     `          <CLIENT_HOME>/src/test/resources/soa.cert         ` and
-    click **Import** .
+    click **Import**.
 5.  Click **Add** under **Service Providers** on the **Main** tab.
-6.  Configure a service provider for SAML and click **Update** .  
+6.  Configure a service provider for SAML and click **Update**.  
     To try querying an assertion using the a sample application,
     configure the service provider for the travelocity sample
     application and follow the steps in the try out scenario section.
@@ -131,13 +131,13 @@ AssertionID for the travelocity sample application.
 2.  [Set up the travelocity sample application and configure the service
     provider.](Configuring-Single-Sign-On_103330852.html#ConfiguringSingleSign-On-ConfiguringtheSSOwebapplication)  
     1.  Expand the **SAML2 Web SSO Configuration** and click
-        **Configure** .
+        **Configure**.
     2.  Configure the required fields. Select
         `            soa.cert           ` as the **Certificate Alias**
         and tick the **Enable Assertion Query Request Profile**
         checkbox.  
         ![](attachments/103330809/103330810.png)
-3.  Click **Update** .
+3.  Click **Update**.
 4.  You have to use a custom assertion builder with the capability to
     persist assertions to the database for this profile.  
     Open the
@@ -188,7 +188,7 @@ AssertionID for the travelocity sample application.
                 before connecting to the database.
         
 
-    4.  Enter the following details and click **Connect** .
+    4.  Enter the following details and click **Connect**.
         1.  JDBC URL : jdbc:h2:\[file path to
             IS\_HOME\>/repository/database/WSO2CARBON\_DB.h2.db\]
         2.  username : wso2carbon

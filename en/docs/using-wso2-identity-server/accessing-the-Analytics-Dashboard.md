@@ -29,7 +29,7 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
 
 2.  Enter the `           admin          ` as the
     `           username          ` and `           password          `
-    and click **LOGIN** .
+    and click **LOGIN**.
 
 3.  Click **IS Analytics** tile.  
     ![](attachments/103329341/103329343.png){width="400"}
@@ -40,7 +40,7 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
     ![](attachments/103329341/103329344.png){width="1200"}
 
     1.  Select the duration within which you need to view the statistics
-        using the top **duration filter** .
+        using the top **duration filter**.
 
         ![](attachments/103329341/103329345.png){width="700"}
 
@@ -55,7 +55,7 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
         ![](attachments/103329341/103329346.png){width="250"}
 
     4.  Click **menu** icon at the top-left to view the **left
-        navigator** .  
+        navigator**.  
         ![](attachments/103329341/103329347.png){width="150"}
 
     5.  Click **View** to open the IS Analytics dashboard. The

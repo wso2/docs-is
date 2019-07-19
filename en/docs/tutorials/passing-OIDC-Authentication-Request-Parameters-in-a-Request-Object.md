@@ -4,7 +4,7 @@ WSO2 Identity Server (WSO2 IS) supports passing OIDC authentication
 request parameters in a self contained JWT, instead of passing plain
 request parameters. For more information on OIDC request object support
 in WSO2 IS, see [Request Object Support in WSO2 Identity
-Server](_Request_Object_Support_) .
+Server](_Request_Object_Support_).
 
 !!! tip
     
@@ -27,15 +27,15 @@ parameters in a request object via WSO2 IS:
 
 -   Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_) .
+    Product](_Installing_the_Product_).
 -   Download and install [Apache Tomcat
-    7.x](https://tomcat.apache.org/download-70.cgi) .
+    7.x](https://tomcat.apache.org/download-70.cgi).
 
 ### Procedure
 
 1.  Set up the playground sample. For instructions on how to set up the
     playground sample, see [Basic Client Profile with
-    Playground](_Basic_Client_Profile_with_Playground_) .
+    Playground](_Basic_Client_Profile_with_Playground_).
 2.  Follow the steps below to configure a public certificate for the
     service provider:  
     1.  Execute the following command from the
@@ -84,14 +84,14 @@ parameters in a request object via WSO2 IS:
                 ![image2019-4-23\_13-34-33.png](attachments/92524687/119114653.png){width="800"}
         
 
-    8.  Click **Update** .
+    8.  Click **Update**.
 
 3.  Follow the steps below to configure claims:
     1.  Add two new external claims as follows for the
         `             http://wso2.org/oidc/claim            ` dialect.
         For detailed instructions on how to add a new claim mapping to a
         claim dialect, see [Adding Claim
-        Mapping](_Adding_Claim_Mapping_) .  
+        Mapping](_Adding_Claim_Mapping_).  
         ![](attachments/103331271/103331273.png)
         ![](attachments/103331271/103331272.png)
 
@@ -113,15 +113,15 @@ parameters in a request object via WSO2 IS:
         registration:
         1.  On the management console, click **List** under **Claims** ,
             This displays the Claims screen with the **Available claim
-            dialects** .
+            dialects**.
         2.  Click
             `                             http://wso2.org/claims                           `
-            under **Available claim dialects** .
+            under **Available claim dialects**.
         3.  Edit `              challengeQuestion1             `
-            , select **Support by default** . and then click **Update**
+            , select **Support by default**. and then click **Update**
             .
         4.  Edit `              challengeQuestion2             ` ,
-            select **Support by default** . and then click **Update** .
+            select **Support by default**. and then click **Update**.
     3.  Edit the service provider that you created above, expand **Claim
         Configuration** , and add the following as **Requested Claims**
         :  
@@ -138,7 +138,7 @@ parameters in a request object via WSO2 IS:
                 changes/additions to the requested claims will not apply. If you
                 are facing this issue, do one of the following.
         
-                -   Mark the claims given above as **Mandatory Claims** . This
+                -   Mark the claims given above as **Mandatory Claims**. This
                     will ensure that the user will be prompted once again to
                     provide consent for the newly added/changed claims.
                 -   Log in to the end-user dashboard, revoke the consent reciept
@@ -152,13 +152,13 @@ parameters in a request object via WSO2 IS:
                     .
         
 
-    4.  Click **Update** .
+    4.  Click **Update**.
 
 4.  Create a new user with the name `          tom         ` , and enter
     values for the **email** , **country** , **challenge Question1** as
     well as **challenge Question 2** in the user profile. For detailed
     instructions on creating a user and customizing a user's profile,
-    see [Configuring Users](_Configuring_Users_) .
+    see [Configuring Users](_Configuring_Users_).
 5.  Create a JWT with the following payload and sign(RSA256) it with the
     private key of the keystore created in step 2. (You can use
     <https://jwt.io/> for this)
@@ -244,7 +244,7 @@ parameters in a signed request object via WSO2 IS, you can configure a
 service provider to only accept signed request objects. For a tutorial
 on how to enforce signature validation for request objects, See
 [Enforcing Signature Validation for Request
-Objects](_Enforcing_Signature_Validation_for_Request_Objects_) .
+Objects](_Enforcing_Signature_Validation_for_Request_Objects_).
 
   
 

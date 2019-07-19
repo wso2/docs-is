@@ -61,7 +61,7 @@ following the instructions given below.
 ### Configuring hostname verification (Carbon 4.4.6 to Carbon 4.4.16)
 
 Before you begin, be sure to check the
-[prerequisites](#EnablingHostNameVerification-Prerequisites) .
+[prerequisites](#EnablingHostNameVerification-Prerequisites).
 
 If you are using a WSO2 product that is based on a Carbon version
 between 4.4.6 and 4.4.16,  hostname verification is **disabled** by
@@ -78,7 +78,7 @@ product startup script ( `         wso2server.sh        ` for Linux, or
 ### Configuring hostname verification (Carbon 4.4.17 onwards)
 
 Before you begin, be sure to check the
-[prerequisites](#EnablingHostNameVerification-Prerequisites) .
+[prerequisites](#EnablingHostNameVerification-Prerequisites).
 
 If you are using a WSO2 product that is based on Carbon 4.4.17 or a
 later version, hostname verification is **enabled** by default. This is

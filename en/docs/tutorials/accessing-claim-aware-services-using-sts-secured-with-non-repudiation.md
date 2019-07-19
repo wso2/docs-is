@@ -1,7 +1,7 @@
 # Accessing Claim Aware Services using STS Secured with Non-repudiation
 
 Usually, WSO2 Identity Server (IS) Security Token Service (STS) is
-secured using **UsernameToken** . By doing so, claims related to a
+secured using **UsernameToken**. By doing so, claims related to a
 particular user can be easily retrieved from a userstore.
 
 However, there can be situations where STS is secured using
@@ -14,29 +14,12 @@ An extension point is used to address this scenario in WSO2 Identity
 Server. A custom attribute finder for non-repudiation scenario is
 written and given to IS to execute. This section discusses how to
 achieve this using [WSO2 Identity
-Server](http://docs.wso2.org/identity-server) and [WSO2 Enterprise
+Server](https://is.docs.wso2.com/en) and [WSO2 Enterprise
 Service Bus](http://docs.wso2.org/enterprise-service-bus)
 . Additionally, an STS Sample is used which can be downloaded
 [here](https://github.com/wso2/product-is/tree/master/modules/samples/sts/sts-client)
 . This sts-sample includes executables as well as the source files with
 an Eclipse project that was configured using Maven.
-
-Use the following steps to run this scenario:
-
--   [Configuring Key
-    Stores](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-ConfiguringKeyStores)
--   [Running the
-    Servers](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-RunningtheServers)
--   [Securing an Echo Service (the Relying Party) in
-    ESB](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-SecuringanEchoService(theRelyingParty)inESB)
--   [Add ESB's Echo Service as a Trusted Service of
-    STS](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-AddESB'sEchoServiceasaTrustedServiceofSTS)
--   [Secure STS with
-    Non-repudiation](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-SecureSTSwithNon-repudiation)
--   [Ensure Necessary Claims are Added to the
-    User](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-EnsureNecessaryClaimsareAddedtotheUser)
--   [Testing with the STS
-    Client](#AccessingClaimAwareServicesusingSTSSecuredwithNon-repudiation-TestingwiththeSTSClient)
 
 ### Configuring Key Stores
 
@@ -72,7 +55,7 @@ at
     ```
 
 4.  When it asks "Trust this certificate? \[no\]:" at the end of above
-    command, enter **yes** .
+    command, enter **yes**.
 
 ### Running the Servers
 
@@ -84,35 +67,35 @@ port 9443 and ESB on 9444.
 Start both servers by executing the following:
 
 `           {IS_HOME}/bin/wso2server.sh          ` and
-`           {ESB_HOME}/bin/wso2server.sh          ` on **Linux** .
+`           {ESB_HOME}/bin/wso2server.sh          ` on **Linux**.
 
 or
 
 `           {IS_HOME}/bin/wso2server.bat          ` and
-`           {ESB_HOME}/bin/wso2server.bat          ` on **Windows** .
+`           {ESB_HOME}/bin/wso2server.bat          ` on **Windows**.
 
 ### Securing an Echo Service (the Relying Party) in ESB
 
 1.  Add a custom policy to the registry.
     1.  Create a new collection (which is essentially a folder) to
         maintain custom policies.  
-        ![](attachments/103331075/103331079.png){width="750"}
+        ![browse-custom-policies](../../assets/img/tutorials//browse-custom-policies.png)
     2.  Add the **service-policy.xml** located at '
         `            sts-sample/src/main/resources/           ` ' to
         this collection.  
-        ![](attachments/103331075/103331083.png){width="750"}
+        ![add-resource](../../assets/img/tutorials//add-resource.png)
 2.  Secure the echo service with the custom policy.  
     1.  Go to the **Services** list and click the **Unsecured** link of
         the echo service.  
-        ![](attachments/103331075/103331081.png){width="750"}
+        ![list-deployed-services](../../assets/img/tutorials//list-deployed-services.png)
     2.  Select **Yes** in the " **Enable Security?** " option.
     3.  Give the path of the policy file we uploaded to registry, in the
         **Policy From Registry** section at the end of the page.  
-        ![](attachments/103331075/103331082.png){width="750"}
-    4.  Click **Next** .
+        ![policy-files](../../assets/img/tutorials//policy-files.png)
+    4.  Click **Next**.
     5.  In the following page, select **wso2carbon.jks** as the
-        **Trusted Key Store** .  
-        ![](attachments/103331075/103331080.png){width="750"}
+        **Trusted Key Store**.  
+        ![trusted-key-stores](../../assets/img/tutorials//trusted-key-stores.png)
 
 The end service is successfully configured now.
 
@@ -120,15 +103,15 @@ The end service is successfully configured now.
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Navigate to the **Service Providers** section by clicking **Add** in
-    the **Main** menu under **Service Providers** .
+    the **Main** menu under **Service Providers**.
 4.  Add a **Service Provider Name** and **Description** and click
-    **Register** .  
-    ![](attachments/103331075/103331078.png){width="450"}
+    **Register**.  
+    ![add-new-service-provider](../../assets/img/tutorials//add-new-service-provider.png)
 5.  In the resulting page, expand the **Inbound Authentication
     Configuration** and the **WS-Trust Security Token Service
-    Configuration** sections. Click **Configure** .
+    Configuration** sections. Click **Configure**.
 6.  Enter the trusted relying parties and upload the public certificate
     of the trusted relying party (against its end-point).  
 
@@ -142,15 +125,15 @@ The end service is successfully configured now.
     trusted relying party. Accordingly, even the client who obtains the
     token to send to the RP has no visibility to the included token.
 
-7.  Click **Apply** .
+7.  Click **Apply**.
 
 ### Secure STS with Non-repudiation
 
 1.  Click **Apply** on the above screen.
 2.  Select " **Yes** " in the " **Enable Security?** " option.
-3.  Select **scenario 2 - Non-repudiation** , and click **Next** .
+3.  Select **scenario 2 - Non-repudiation** , and click **Next**.
 4.  On the following page, as we did for ESB, select '
-    **wso2carbon.jks** ' as the **Trusted Key Store** .
+    **wso2carbon.jks** ' as the **Trusted Key Store**.
 5.  Change the `           path.policy.sts property          ` to
     `           sts-policy-signonly.xml          ` in the
     client.properties file (refer code below) and save the file. (File
@@ -167,7 +150,7 @@ The end service is successfully configured now.
     claims (refer **service-policy.xml** ).
 2.  Check the user profile of the particular user ("admin" in default
     case) to make sure the values for those claims are available.  
-    ![](attachments/103331075/103331085.png){width="750"}
+    ![update-admin-user-profile](../../assets/img/tutorials//update-admin-user-profile.png)
 
 Both ESB and IS are now configured.
 

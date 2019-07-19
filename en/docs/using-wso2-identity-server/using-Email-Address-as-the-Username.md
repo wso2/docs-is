@@ -6,7 +6,7 @@
     
     Configuring the email address as the username in an **already running
     Identity Server** is not the production recommended way. Therefore,
-    **make sure to configure it before you begin working with WSO2 IS** .
+    **make sure to configure it before you begin working with WSO2 IS**.
     
 
 1.  Open the \<
@@ -195,4 +195,4 @@
 **Related Topics**
 
 For more information on how to configure primary and secondary user
-stores, see [Configuring User Stores](_Configuring_User_Stores_) .
+stores, see [Configuring User Stores](_Configuring_User_Stores_).

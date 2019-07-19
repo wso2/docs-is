@@ -44,4 +44,4 @@ following steps.
         ![](attachments/103330074/103330077.png){width="519"}
 
 3.  Update other fields as required (description is give for each
-    property) and click **Add** .
+    property) and click **Add**.

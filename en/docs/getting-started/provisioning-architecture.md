@@ -213,7 +213,7 @@ configuration.
     `          [IS-HOME]/repository/conf/identity/provisioning-config.xml         `
     .
 2.  Open the file and locate the **user-schema-extension-enabled** 
-    property. Ensure that the property value is set to **true** .
+    property. Ensure that the property value is set to **true**.
 3.  Save the file and restart the server.
 
 ### Claims Mapping

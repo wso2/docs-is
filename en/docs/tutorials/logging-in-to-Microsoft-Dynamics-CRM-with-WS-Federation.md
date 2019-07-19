@@ -70,7 +70,7 @@ match exactly.
     Console](https://docs.wso2.com/display/IS540/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider.
 4.  Expand the **Inbound Authentication Configuration** section followed
@@ -101,7 +101,7 @@ match exactly.
 
     ![](attachments/103331284/103331286.png){width="780"}
 
-7.  Click **Update** .
+7.  Click **Update**.
 
 ### Configure Microsoft Dynamics CRM
 
@@ -142,4 +142,4 @@ to https://\<orgname\>.crmdomain.com.
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](_Testing_Passive_STS_) .
+    STS](_Testing_Passive_STS_).

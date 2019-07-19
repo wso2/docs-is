@@ -96,10 +96,10 @@ function someCommonFunction(context) {
     Provider for Adaptive
     Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
 -   To set up common adaptive authentication scenarios, see [Adaptive
-    Authentication Scenarios](../../tutorials/adaptive-authentication-scenarios) .
+    Authentication Scenarios](../../tutorials/adaptive-authentication-scenarios).
 -   To learn about the functions and fields related to authentication
     scripts, see [Adaptive Authentication JS API
-    Reference](../../references/adaptive-authentication-js-api-reference) .
+    Reference](../../references/adaptive-authentication-js-api-reference).
 -   To learn about the guidelines on writing custom functions for
     adaptive authentication, see [Writing Custom Functions for Adaptive
     Authentication](../../using-wso2-identity-server/writing-custom-functions-for-adaptive-authentication).

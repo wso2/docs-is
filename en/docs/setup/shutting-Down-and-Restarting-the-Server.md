@@ -10,7 +10,7 @@ server.
     Console](https://docs.wso2.com/display/IS540/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** menu to access the **Manage** menu. Click
-    **Shutdown/Restart** .
+    **Shutdown/Restart**.
 3.  Click on the shutdown or restart option as applicable. The available
     options are:  
     ![](attachments/103328970/103328971.png)  

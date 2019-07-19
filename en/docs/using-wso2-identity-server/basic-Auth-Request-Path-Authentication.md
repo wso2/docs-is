@@ -16,7 +16,7 @@ Basic Auth request path authenticator in two ways.
     `                   `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](_Request_Path_Authentication_) .
+[Request Path Authentication](_Request_Path_Authentication_).
 
 !!! note
     
@@ -40,7 +40,7 @@ For more information on Request Path Authentication in general, see
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_) .
+    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_).
 
     Use the following **Callback URL** when configuring OAuth:
     [https://curl-app/callback](https://www.google.com/url?q=https%3A%2F%2Fcurl-app%2Fcallback&sa=D&sntz=1&usg=AFQjCNFg_ALm4TWPOaAI9WC2YYeVsjmcZA)

@@ -14,7 +14,7 @@ ensuring that each password is unique.
 !!! note
     
     For more information about TOTP specification, click
-    [here](https://tools.ietf.org/html/rfc6238) .
+    [here](https://tools.ietf.org/html/rfc6238).
     
 
   

@@ -72,7 +72,7 @@ See the following for details:
     to understand the various keystores you will need.
 -   If you haven't already created the keystores required for your
     system, see the instructions for [creating new
-    keystores](_Creating_New_Keystores_) .
+    keystores](_Creating_New_Keystores_).
 
 ### Configuring the primary keystore
 

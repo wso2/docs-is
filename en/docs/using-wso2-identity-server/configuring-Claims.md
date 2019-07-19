@@ -40,7 +40,7 @@ as follows:
     2.  The identity claims mentioned below should be mapped correctly to
         the attributes in the underlying user store. For more information on
         how to do this, see [Adding Claim
-        Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) .
+        Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
     
     -   -   http://wso2.org/claims/identity/accountLocked - This claim is
             used to store the status of the user's account, i.e., if it is

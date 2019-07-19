@@ -45,4 +45,4 @@ authentication using WSO2 Identity Server.
 
 **Related Topics**
 
--   For more resources, see [WSO2 Training](http://wso2.com/training/) .
+-   For more resources, see [WSO2 Training](http://wso2.com/training/).

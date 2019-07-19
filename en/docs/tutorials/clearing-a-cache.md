@@ -20,7 +20,7 @@ attribute cache. Follow the instructions below to clear a cache.
 1.  Sign in. Enter your username and password to log on to the
     [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
-    Click **Extension** under **PDP** .
+    Click **Extension** under **PDP**.
 3.  Click on **Clear Decision Cache** or **Clear Attribute Cache**.  
     ![clear-decision-cache](../../assets/img/tutorials/clear-decision-cache.png)
 4.  Wait a moment while the cache is cleared.

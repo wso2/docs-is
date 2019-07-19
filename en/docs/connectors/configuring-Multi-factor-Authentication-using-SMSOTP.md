@@ -13,7 +13,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 This connector is supported by default from WSO2 Identity Server 5.4.0
 onwards. For more information, see [Configuring SMS
-OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP) .
+OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP).
 
 -   [Deploying SMS OTP
     artifacts](#ConfiguringMulti-factorAuthenticationusingSMSOTP-DeployingSMSOTPartifacts)
@@ -294,7 +294,7 @@ in order to use it in this scenario.
 O nce this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and a [service provider](https://docs.wso2.com/display/IS510) .
+and a [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -304,7 +304,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and
-    [run it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    [run it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Download the certificate of the SMS provider. Go to the link (eg:-
     [https://www.nexmo.com)](https://www.nexmo.com/) in your browser,
     and then click the HTTPS trust icon on the address bar (e.g., the
@@ -319,16 +319,16 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     as an administrator.
 
 5.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
+    console, click **Add** under **Identity Providers**.
 
 6.  Give a suitable name (e.g., SMSOTP) as the **Identity Provider
-    Name** .
+    Name**.
 
 7.  Go to the **SMSOTP Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 8.  Select both checkboxes to **Enable SMSOTP Authenticator** and make
-    it the **Default** .
+    it the **Default**.
 
 9.  Enter the SMS URL and the HTTP Method used (e.g., GET or POST).
     Include the headers and payload if the API uses any. If the text
@@ -440,7 +440,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     1.  Go to <https://www.twilio.com/try-twilio> and create an account.
     2.  While registering the account, verify your mobile number and
         click on console home <https://www.twilio.com/console> to get
-        free credits (Account SID and Auth Token) .
+        free credits (Account SID and Auth Token).
 
     3.  Twilio uses a POST method with headers and the text message and
         phone number are sent as the payload. So the fields would be as
@@ -465,10 +465,10 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
-    Provider Name** text box and click **Register** .
+    Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -525,7 +525,7 @@ You have now added and configured the service provider.
     ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn){width="500"}  
     **Note:** If you wish to use the backup codes to authenticate, you
     can add the following claim, otherwise you can leave it.
-3.  In the **Main** menu, click **Add** under **Claims** .
+3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add New
     Claim](https://docs.wso2.com/display/IS510/Adding+New+Claim+Mapping)
     .

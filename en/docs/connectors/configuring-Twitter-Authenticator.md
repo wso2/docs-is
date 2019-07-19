@@ -23,7 +23,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 ### Deploying Twitter artifacts
 
 -   Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 -   Place the Twitter authenticator .jar file (
     `           org.wso2.carbon.extension.identity.authenticator.twitter.connector-X.X.X.jar          `
@@ -43,7 +43,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 ### Configuring the Twitter App
 
 1.  Create an account at <https://twitter.com> and log in.
-2.  Navigate to https://apps.twitter.com/ and click **Create New App** .
+2.  Navigate to https://apps.twitter.com/ and click **Create New App**.
 
     -   Provide an application name and description.
     -   For this tutorial, enter `            https://           `
@@ -65,7 +65,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 
         `              127.0.0.1       apps.customhost.com             `
 
-    -   Click **Create your Twitter application** .
+    -   Click **Create your Twitter application**.
 
     ![](attachments/50515587/75109897.png){width="600"}
 
@@ -80,7 +80,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
     
 
 3.  After creating the app, go to the **Keys and Access Tokens** tab to
-    get the **API Key** and **API Secret** . These are the **Consumer
+    get the **API Key** and **API Secret**. These are the **Consumer
     Key** and **Consumer Secret** values shown.  
     Example:  
     ![](attachments/50515587/75109896.png){width="600"}
@@ -106,19 +106,19 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
 .
 
 1.  [Run the WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-4.  Give a suitable name for **Identity Provider Name** . Expand
+    management console, click **Add**.
+4.  Give a suitable name for **Identity Provider Name**. Expand
     **Federated Authenticators** and expand ****TwitterAuthenticator
-    Configuration**** .  
+    Configuration****.  
     ![](attachments/50515587/51249933.png){width="800" height="664"}  
     Enter the values as given when you [created the twitter
-    application](#ConfiguringTwitterAuthenticator-twitter-app) .
+    application](#ConfiguringTwitterAuthenticator-twitter-app).
 
     -   Select both checkboxes to ****Enable** the Twitter
         authenticator** and make it the Default. **  
@@ -128,7 +128,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     -   **Callback URL** : Service Provider's URL where code needs to be
         sent (e.g., https://apps.customhost.com:9443/commonauth )
 
-5.  Click **Register** .
+5.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -142,7 +142,7 @@ The next step is to configure the service provider.
     **Main** tab.
 
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -159,13 +159,13 @@ The next step is to configure the service provider.
 
     <!-- -->
 
-    1.  -   **Enable Response Signing** .
+    1.  -   **Enable Response Signing**.
 
-        -   **Enable Single Logout** .
+        -   **Enable Single Logout**.
 
-        -   **Enable Attribute Profile** .
+        -   **Enable Attribute Profile**.
 
-        -   **Include Attributes in the Response Always** .  
+        -   **Include Attributes in the Response Always**.  
 
 6.  Click **Register** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -174,7 +174,7 @@ The next step is to configure the service provider.
     section.
 
 8.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
     ![](attachments/50515587/51249934.png){width="600"}
 

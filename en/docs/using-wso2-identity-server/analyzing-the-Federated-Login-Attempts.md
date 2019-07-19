@@ -23,7 +23,7 @@ the federated login attempts that are performed via federated identity
 providers over time as well as the local login attempts filtered based
 on service providers, identity providers, and users
 
-Follow the steps below to view the **Federated Login Attempts** .
+Follow the steps below to view the **Federated Login Attempts**.
 
 !!! tip
     
@@ -31,11 +31,11 @@ Follow the steps below to view the **Federated Login Attempts** .
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Federated Login Attempts Summary**
             tile.
-        2.  Click **menu** icon \> **Federated** .
+        2.  Click **menu** icon \> **Federated**.
     
 
 Let's analyze the federated login attempts with the following widgets.
@@ -55,7 +55,7 @@ downtime, etc.
 
 ##### Description
 
-This chart presents a **summary of the federated login attempts** .
+This chart presents a **summary of the federated login attempts**.
 
 ##### Purpose
 
@@ -73,7 +73,7 @@ the IP addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](_Enabling_Geolocation_Based_Statistics_) .
+    Statistics](_Enabling_Geolocation_Based_Statistics_).
     
 
 ##### Purpose
