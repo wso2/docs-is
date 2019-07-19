@@ -70,7 +70,7 @@ configure the following in the order mentioned.
     console](../../setup/getting-started-with-the-management-console)  
     ** Once you have configured the user stores, you can configure
     various tools available to you in the [management
-    console](../../setup/getting-started-with-the-management-console) . See [Using
+    console](../../setup/getting-started-with-the-management-console). See [Using
     WSO2 Identity Server](_Using_WSO2_Identity_Server_) for information
     on working with the features in the **Main** menu.
 

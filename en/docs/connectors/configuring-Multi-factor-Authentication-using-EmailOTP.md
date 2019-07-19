@@ -38,7 +38,7 @@ Email OTP:
         with WSO2 IS, the sample travelocity application is used in this use
         case. The samples run on the Apache Tomcat server and are written
         based on Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](https://docs.wso2.com/identity-server/Installation+Prerequisites)
@@ -347,7 +347,7 @@ Email OTP is enabled.
     </table>
 
 7.  [Start WSO2
-    IS](https://docs.wso2.com/identity-server/Running+the+Product) .
+    IS](https://docs.wso2.com/identity-server/Running+the+Product).
 
 ### Configure the Email OTP provider
 
@@ -355,7 +355,7 @@ You can send the One Time Password (OTP) using Gmail APIs or using
 SendGrid. Follow the steps given below to configure Gmail APIs as the
 mechanisam to send the OTP.
 
-1.  Create a Google account at [https://gmail.com](https://gmail.com/) .
+1.  Create a Google account at [https://gmail.com](https://gmail.com/).
 2.  Got to
     [https://console.developers.google.com](https://console.developers.google.com/)
     and click **ENABLE APIS AND SERVICES**.
@@ -646,7 +646,7 @@ Deploy this sample web app on a web container.
 
 1.  Use the Apache Tomcat server to do this. If you have not downloaded
     Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi) .
+    [here](https://tomcat.apache.org/download-70.cgi).
 2.  Copy the .war file into the `           webapps          `
     folder. For example,
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
@@ -817,7 +817,7 @@ Follow the steps below to map the user claims:
 !!! note
     
     For more information about claims, see [Adding Claim
-    Mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     
 
 1.  Click **Add** under **Main \> Identity \> Claims**.  

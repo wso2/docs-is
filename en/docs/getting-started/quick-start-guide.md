@@ -202,7 +202,7 @@ protocol, follow the steps below:
         roles](http://configuring%20users/#Adding%20a%20new%20user%20and%20assigning%20roles)
         , [Configuring service
         providers](_Adding_and_Configuring_a_Service_Provider_) , and
-        [Configuring web app for SSO](_Configuring_Single_Sign-On_) .
+        [Configuring web app for SSO](_Configuring_Single_Sign-On_).
     
 
 2.  Go to the URL
@@ -856,4 +856,4 @@ This concludes the Quick Start Guide!
 
 You have set up WSO2 IS and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](../../tutorials/tutorials) .
+[Tutorials](../../tutorials/tutorials).

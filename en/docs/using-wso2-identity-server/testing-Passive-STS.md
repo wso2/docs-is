@@ -12,7 +12,7 @@ of Identity Server's Passive STS.
     Product](_Installing_the_Product_) topic.
 -   Apache Tomcat 6/7 - To deploy the sample web application. This can
     be downloaded from the [Apache Tomcat
-    website](http://tomcat.apache.org/) .
+    website](http://tomcat.apache.org/).
 -   Passive STS Sample - This can be downloaded from the GitHub
     repository by following the instructions in the [Downloading a
     Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
@@ -68,7 +68,7 @@ file.
 
 1.  [Log in to the Identity Server](_Running_the_Product_) and go to
     **Service Providers\>Add** in the **Main** menu in the [management
-    console](../../setup/getting-started-with-the-management-console) .
+    console](../../setup/getting-started-with-the-management-console).
 2.  Enter a unique name for the service provider and click **Register.**
     The following form appears.  
 

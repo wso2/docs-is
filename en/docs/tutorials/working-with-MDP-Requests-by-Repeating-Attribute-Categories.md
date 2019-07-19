@@ -49,7 +49,7 @@ try out the sample scenario:
 -   [Download](https://wso2.com/identity-and-access-management) and run
     WSO2 Identity Server. For detailed instrction on how to install WSO2
     Identity Server, see [Installing the
-    Product](_Installing_the_Product_) .
+    Product](_Installing_the_Product_).
 -   Go to the Chrome Web Store and add the
     [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
     app.

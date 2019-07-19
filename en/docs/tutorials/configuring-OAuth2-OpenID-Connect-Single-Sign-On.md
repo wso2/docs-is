@@ -29,7 +29,7 @@ Let's get started to configure the service provider you created!
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
         [Writing a Custom OAuth 2.0 Grant
-        Type](_Writing_a_Custom_OAuth_2.0_Grant_Type_) .
+        Type](_Writing_a_Custom_OAuth_2.0_Grant_Type_).
     
 
     ![](attachments/103330833/112392519.png){width="750"}

@@ -102,7 +102,7 @@ party to grant the security token from the STS.
     
     Before you begin!
     
-    [Download the samples directory](../../using-wso2-identity-server/downloading-a-sample) .
+    [Download the samples directory](../../using-wso2-identity-server/downloading-a-sample).
     
 
 1.  Navigate to

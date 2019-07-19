@@ -97,7 +97,7 @@ artifacts.
 
 5.  **Restart** the server.
 6.  Log in to Management Console and Add the [service
-    provider](_Adding_and_Configuring_a_Service_Provider_) .
+    provider](_Adding_and_Configuring_a_Service_Provider_).
 7.  **Expand** the OAuth/OpenID Connect Configuration under Inbound
     Authentication section and click **Configure**.
 

@@ -24,7 +24,7 @@ below:
 Following are descriptions of the parameters you can configure. For more
 details on datasource configuration parameters, see [ApacheTomcat JDBC
 Connection Pool
-guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) .
+guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 
 <table>
 <colgroup>

@@ -2,7 +2,7 @@
 
 The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
-[Authorization Code Grant](_Authorization_Code_Grant_) .
+[Authorization Code Grant](_Authorization_Code_Grant_).
 
 !!! note
     
@@ -32,7 +32,7 @@ to configure PKCE for an OAuth application.
 2.  Enter the following details and click **Authorize**. For
     information on how to obtain these authorization details, see
     [Configuring OAuth2-OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_) .
+    Connect](_Configuring_OAuth2-OpenID_Connect_).
 
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the application

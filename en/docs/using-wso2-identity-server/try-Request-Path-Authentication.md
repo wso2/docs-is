@@ -13,7 +13,7 @@ information.
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_) .
+    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_).
 
     Use the following **Callback URL** when configuring OAuth for WSO2
     playground: http://wso2is.local:8080/playground2/oauth2client

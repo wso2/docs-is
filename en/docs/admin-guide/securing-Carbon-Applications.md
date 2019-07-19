@@ -95,7 +95,7 @@ through HTTP. Use the following URL:
 configured](_HTTP_Servlet_Transport_) for the server. The default HTTP
 port for all WSO2 servers is **9763**. However, this may change if a
 port offset is applied to your server as explained
-[here](_Changing_the_Default_Ports_) .
+[here](_Changing_the_Default_Ports_).
 
 ### Starting the server without the management console
 
@@ -114,7 +114,7 @@ such as: `         sh <PRODUCT_HOME>/bin/wso2server.sh -help.        `
 ### Enabling role-based permissions for the management console
 
 You can grant management console access to selected users by
-[configuring role-based permissions](_Role-based_Permissions_) .
+[configuring role-based permissions](_Role-based_Permissions_).
 
 ### Restricting access to Carbon applications
 

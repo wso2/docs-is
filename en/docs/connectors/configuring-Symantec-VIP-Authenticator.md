@@ -43,7 +43,7 @@ Authenticator..
     create a trial account (this may take few days to get approval).
 2.  Download the **VIP Access** for
     [Desktop](https://idprotect.vip.symantec.com/desktop/download.v) or
-    [Mobile](https://m.vip.symantec.com/home.v) .
+    [Mobile](https://m.vip.symantec.com/home.v).
 3.  Once the account gets approved, navigate to
     <https://manager.vip.symantec.com/vipmgr/signin.v> and log into VIP
     Manager (use the security code generated from **VIP Access** ).
@@ -89,7 +89,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.

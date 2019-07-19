@@ -33,7 +33,7 @@ relationships.
 
 Once the consumer possesses the necessary security tokens, these tokens
 are presented in order to authenticate to a Web Service deployed in
-[WSO2 Application Server](http://wso2.com/products/application-server) .
+[WSO2 Application Server](http://wso2.com/products/application-server).
 
 ![](attachments/103329905/103329914.png)
 
@@ -80,7 +80,7 @@ The following are the steps to follow in order to use this feature:
     Consumer](#BrokerTrustRelationshipswithWSO2IdentityServer-Step3-PreparingtheServiceConsumer)
 
 After this you simply need to [run the
-client](#BrokerTrustRelationshipswithWSO2IdentityServer-RunClient) .
+client](#BrokerTrustRelationshipswithWSO2IdentityServer-RunClient).
 
 #### Step 1 - Secure Web Service with a Claim-aware Security Policy
 
@@ -218,7 +218,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
 
 1.  Start the WSO2 Identity Server .
 2.  Log in as an admin to access the [management
-    console](../../setup/getting-started-with-the-management-console) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Do the following steps if you are using a Holder of Key confirmation
     method. See
     [here](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)

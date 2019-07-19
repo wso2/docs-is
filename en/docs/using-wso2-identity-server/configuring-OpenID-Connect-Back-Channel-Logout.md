@@ -164,7 +164,7 @@ will deploy them in an application server.
 Follow the steps below to deploy the sample applications:
 
 1.  If you have not downloaded Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi) .
+    [here](https://tomcat.apache.org/download-70.cgi).
 2.  Copy the `          playground2.war         ` and
     `          playground3.war         ` files into the
     `          <TOMCAT_HOME>/apache-tomcat-<version>/webapps         `

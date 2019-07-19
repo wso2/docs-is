@@ -58,7 +58,7 @@ Before you begin
     `           <PRODUCT_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file which are used for
     configuring the primary user store , see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_) .
+    Stores](_Working_with_Properties_of_User_Stores_).
 
     ``` html/xml
     <UserManager>
@@ -134,7 +134,7 @@ Before you begin
                     WSO2 product. For information on how to add certificates to
                     the truststore and how keystores are configured and used in
                     a system, see [Using Asymmetric
-                    Encryption](_Using_Asymmetric_Encryption_) .
+                    Encryption](_Using_Asymmetric_Encryption_).
         
                 -   You also need to [enable connection
                     pooling](Performance-Tuning_53125477.html#PerformanceTuning-ldaps_pooling)
@@ -303,7 +303,7 @@ For information information about the system administrator user, see
 [Configuring the System
 Administrator](_Configuring_the_System_Administrator_) , and for
 information on how keystores are used in WSO2 products, see [Using
-Asymmetric Encryption](_Using_Asymmetric_Encryption_) .  
+Asymmetric Encryption](_Using_Asymmetric_Encryption_).  
 
 ### Step 3: Starting the server
 

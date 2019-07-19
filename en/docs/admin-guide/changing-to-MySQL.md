@@ -16,7 +16,7 @@ you need to follow in order to use a MySQL database for this purpose.
     
     You need to set up MySQL before following the steps to configure your
     product with MySQL. For more information, see [Setting up
-    MySQL](_Setting_up_MySQL_) .
+    MySQL](_Setting_up_MySQL_).
     
 
 ### Creating the datasource connection to MySQL
@@ -135,7 +135,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |

@@ -72,7 +72,7 @@ locking and disabling. Follow the below steps to do this configuration.
         **Internal/syste** m role by default. Required roles can be assigned
         to a user depending on the set of permission a user needs to have.
         For more information on roles and permission, see [Configuring Roles
-        and Permissions](_Configuring_Roles_and_Permissions_) .
+        and Permissions](_Configuring_Roles_and_Permissions_).
     
         Although the **Internal/system** role is configured by default in
         WSO2 Identity Server, you can delete the role if necessary. To allow

@@ -79,7 +79,7 @@ to enable users to log in using their email addresses. In order to do
 that, follow the steps given below.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  When you log in to Google, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order
@@ -99,7 +99,7 @@ email address, configure the service provider.
 ### Configuring the Service Provider
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
     **Add**.
 3.  Fill in the **Service Provider Name** and provide a brief

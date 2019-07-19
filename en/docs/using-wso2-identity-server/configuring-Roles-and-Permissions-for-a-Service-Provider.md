@@ -61,4 +61,4 @@ Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
 any user who should be able to view and manage the service provider. For
 information on how to assign roles to a user, see [Configuring
-Users](_Configuring_Users_) .
+Users](_Configuring_Users_).

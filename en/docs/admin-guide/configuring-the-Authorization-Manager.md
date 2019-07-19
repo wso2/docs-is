@@ -8,7 +8,7 @@ repository (User Store) and the Permissions are stored in a separate
 repository. A user store can be a typical RDBMS, an LDAP or an external
 Active Directory. For information on how the repositories for storing
 information about users and roles are configured, see [Configuring User
-Stores](_Configuring_User_Stores_) .
+Stores](_Configuring_User_Stores_).
 
 The repository that stores Permissions should always be an RDBMS. The
 Authorization Manager configuration in the user-mgt.xml file (stored in
@@ -47,7 +47,7 @@ For information on how you can set up a new RDBMS and configure it for
 your system, see [Setting Up the Physical
 Database](_Setting_up_the_Physical_Database_) , and for information on
 the purpose of defining datasources and how they are configured for a
-product, see [Managing Datasources](_Managing_Datasources_) .
+product, see [Managing Datasources](_Managing_Datasources_).
 
 ### Step 2: Updating the user realm configurations
 

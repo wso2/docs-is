@@ -23,7 +23,7 @@ this scenario:
 ### Setting up the WSO2 Identity Server instances
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server) .
+    [here](http://wso2.com/products/identity-server).
 2.  Extract the file to a dedicated directory. For the purposes of this
     scenario, this is referred to as
     `          <IS_HOME_PRIMARY>         ` in this topic.

@@ -92,7 +92,7 @@ Identity Server (IS) to enable logging into Workday through the WSO2 IS.
 6.  Click on create and insert Name, Valid To, Valid from, and the
     certificate in the interface that appears.  
     You can get the certificate's info and validate it
-    [here](https://www.sslshopper.com/certificate-decoder.html) .
+    [here](https://www.sslshopper.com/certificate-decoder.html).
 
 7.  Enable the Workday initiated logout as seen below.
 

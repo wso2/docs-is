@@ -8,7 +8,7 @@ to use this sample.
 1.  Add a new service provider.
     1.  Sign in. Enter your username and password to log on to the
         [Management
-        Console](../../setup/getting-started-with-the-management-console) .
+        Console](../../setup/getting-started-with-the-management-console).
     2.  Navigate to the **Main** menu to access the **Identity** menu.
         Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief

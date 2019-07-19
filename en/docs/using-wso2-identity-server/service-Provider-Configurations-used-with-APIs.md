@@ -547,21 +547,21 @@ Entering the username and password required at the service provider will
 result in a code being generated. This code can be used to obtain the
 access token. For more information on this grant type, see this
 [Authorization Code
-specification](https://tools.ietf.org/html/rfc6749#section-4.1) .
+specification](https://tools.ietf.org/html/rfc6749#section-4.1).
 
 **Implicit**
 
 This is similar to the code grant type, but instead of generating a
 code, this directly provides the access token. For more information on
 this grant type, see this [Implicit Grant
-specification](https://tools.ietf.org/html/rfc6749#section-4.2) .
+specification](https://tools.ietf.org/html/rfc6749#section-4.2).
 
 **Password**
 
 This authenticates the user using the password provided and the access
 token is provided. For more information on this grant type, see this
 [Resource Owner Password Credentials Grant
-specification](https://tools.ietf.org/html/rfc6749#section-4.3) .
+specification](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 **Client Credential**
 
@@ -576,7 +576,7 @@ specification.](https://tools.ietf.org/html/rfc6749#section-4.4)
 This will enable the user to obtain an access token by using the refresh
 token once the originally provided access token is used up. For more
 information on this grant type, see this [Refresh Token
-specification](https://tools.ietf.org/html/rfc6749#section-1.5) .
+specification](https://tools.ietf.org/html/rfc6749#section-1.5).
 
 **SAML**
 
@@ -594,7 +594,7 @@ Microsoft Windows users.
 
 This is a custom grant type. It uses a JWT token to obtain the access
 token. For more information about this grant type, see this [JWT
-specification](https://tools.ietf.org/html/rfc7523) .
+specification](https://tools.ietf.org/html/rfc7523).
 
 **oauthConsumerKey**
 

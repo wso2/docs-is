@@ -8,7 +8,7 @@ verification.
 By configuring reCaptcha, you can mitigate or block brute force attacks.
 
 For more information on setting up password recovery, see [Password
-Recovery](https://docs.wso2.com/display/IS570/Username+Recovery) .
+Recovery](https://docs.wso2.com/display/IS570/Username+Recovery).
 
 For more information on brute force attacks, see [Mitigating Brute Force
 Attacks](https://docs.wso2.com/display/IS550/Mitigating+Brute+Force+Attacks)
@@ -49,7 +49,7 @@ reCaptcha for a specific tenant.
 
 7.  You have now successfully configured reCaptcha for the password
     recovery flow. Start WSO2 Identity Server and log into the end user
-    [dashboard](https://localhost:9443/dashboard) .
+    [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     

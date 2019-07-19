@@ -4,7 +4,7 @@
 
 OAuth 2.0 authorization servers provide support for four main grant
 types according to the [OAuth 2.0
-specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-22) . It
+specification](http://tools.ietf.org/html/draft-ietf-oauth-v2-22). It
 also has the flexibility to support any custom grant types. This topic
 provides instructions on how to implement a custom grant type for OAuth
 2.0 authorization server and how to extend the behavior of default grant

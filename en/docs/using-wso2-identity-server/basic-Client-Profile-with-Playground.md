@@ -428,9 +428,9 @@ following topics for samples of configuring delegated access control:
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Complete
 the user profile
 
-1.  [Create a user](_Configuring_Users_) .
+1.  [Create a user](_Configuring_Users_).
 2.  Log in as the user you created and go to the
-    [dashboard](_Using_the_End_User_Dashboard_) .
+    [dashboard](_Using_the_End_User_Dashboard_).
 3.  [Update your
     profile](Configuring-Users_103330327.html#ConfiguringUsers-Updateusers)
     filling the user attributes.

@@ -51,7 +51,7 @@ needs to be done in order to enable SSO:
 For single sign-on to work, you need to configure the WSO2 products to
 share a common user store. For more information on configuring this, see
 [Configuring the Primary User
-Store](_Configuring_the_Primary_User_Store_) .
+Store](_Configuring_the_Primary_User_Store_).
 
 ### Configuring WSO2 Application Server
 
@@ -64,7 +64,7 @@ file.
 #### Port configuration
 
 1.  Download the WSO2 Application Server from
-    [here](http://wso2.com/products/application-server) .
+    [here](http://wso2.com/products/application-server).
 2.  Extract the .zip file. This unzipped folder is referred to as
     `            <AS_HOME>           ` in this topic.
 3.  Navigate to the
@@ -190,7 +190,7 @@ authenticator of the WSO2 Enterprise Service Bus.
 #### Port configuration
 
 1.  Download the WSO2 Governance Registry from
-    [here](http://wso2.com/products/governance-registry) .
+    [here](http://wso2.com/products/governance-registry).
 2.  Set the port offset to `            3           ` .
 
 #### Authenticators configuration
@@ -204,7 +204,7 @@ authenticator of the WSO2 Enterprise Service Bus.
 ### Configuring WSO2 Identity Server
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server) .
+    [here](http://wso2.com/products/identity-server).
 2.  Extract the .zip file.
 3.  Open a terminal and navigate to the
     `            <IS_HOME>/bin           ` folder.

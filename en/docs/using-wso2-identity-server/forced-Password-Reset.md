@@ -53,7 +53,7 @@ for forced password reset:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 3.  Start the Identity Server and log in to the management console with
@@ -293,7 +293,7 @@ template for this option can be configured in the
     Tom's user profile. You will see that there is now a code value in
     the **One Time Password** field.
 9.  Copy the code and use it as Tom's password to log in to the
-    [dashboard](https://localhost:9443/dashboard) .
+    [dashboard](https://localhost:9443/dashboard).
 10. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
     new password.

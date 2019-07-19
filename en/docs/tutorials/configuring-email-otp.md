@@ -20,7 +20,7 @@ Email OTP:
         before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more infomation, see
         [Installation Prerequisites](../../setup/installation-prerequisites).
     

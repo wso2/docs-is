@@ -137,7 +137,7 @@ curl -v -k --user admin:admin --data "{"schemas":[],"name":{"familyName":"family
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -248,7 +248,7 @@ operation.
 
 The users also can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -353,7 +353,7 @@ You must first create a CSV file or an Excel file with the user
 information. It is possible to import the **username** and **password**
 directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
-attributes](_Managing_User_Attributes_) . Shown below are the
+attributes](_Managing_User_Attributes_). Shown below are the
 claim URls that are defined be default in WSO2 IS. These will allow you
 to import the user's **email address** , **country** , **given name**
 etc. in addition to the **username** and **password**.
@@ -490,7 +490,7 @@ In SCIM filtering we support only Eq or equal operation!
 
 The user also can search user Ids by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 The following SOAP method like `         getUserId()        ` will give
 you the user ID of the relevant username. There are many more such
@@ -615,7 +615,7 @@ groups by performing CRUD operations on the group resource endpoint.
 
 The user also can delete user by calling the
 `         RemoteUserStoreManager service        ` . If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 The following SOAP method like `         deleteUser()        ` will give
 you the user ID of the relevant username. There are many more such
@@ -639,12 +639,12 @@ methods you can use according to your requirement.
     
     If necessary you can log details related to a user deletion on deleting
     a user. For more information see, [Tracking user deletion on deleting a
-    user](#ConfiguringUsers-deleteEvent) .
+    user](#ConfiguringUsers-deleteEvent).
     
     Once you delete a user, WSO2 IS allows you to remove all references to
     the deleted user's identity. For information on how to remove references
     to a deleted user's identity, see [Removing References to Deleted User
-    Identities](_Removing_References_to_Deleted_User_Identities_) .
+    Identities](_Removing_References_to_Deleted_User_Identities_).
     
 
 ### Tracking user deletion on deleting a user
@@ -663,7 +663,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities](_Removing_References_to_Deleted_User_Identities_) .
+identities](_Removing_References_to_Deleted_User_Identities_).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:

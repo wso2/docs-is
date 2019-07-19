@@ -225,7 +225,7 @@ follows:
 **Related Topics**
 
 -   See [Configuring Roles and
-    Permissions](_Configuring_Roles_and_Permissions_) .
+    Permissions](_Configuring_Roles_and_Permissions_).
 -   See [Permissions Required to Invoke Admin
     Services](_Permissions_Required_to_Invoke_Admin_Services_) for a
     complete list of permissions required to invoke admin services.

@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
-its [identity provisioning framework](_Provisioning_Architecture_) .
+its [identity provisioning framework](_Provisioning_Architecture_).
 
 This topic provides instructions on how to configure Salesforce as the
 Identity Provider to provision users from WSO2 Identity Server. The
@@ -219,7 +219,7 @@ new users.
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](_Running_the_Product_) .
+    it](_Running_the_Product_).
 2.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console) as an
     administrator.
@@ -277,7 +277,7 @@ Provider.
     via WSO2 Identity Server. Here, the **Identity Provider Claim URI**
     is the claim URI in Salesforce, which maps local claim URI in WSO2
     Identity Server. Read more about [Claim
-    Management](https://docs.wso2.com/display/IS530/Claim+Management) .
+    Management](https://docs.wso2.com/display/IS530/Claim+Management).
 
     For more information on configuring advanced claims, see
     [Configuring Claims for an Identity
@@ -318,7 +318,7 @@ Provider.
     Salesforce.  
     For example, the alias, email, profile ID and all the values listed
     below are [shown when a user is
-    created](#OutboundProvisioningwithSalesforce-user) .  
+    created](#OutboundProvisioningwithSalesforce-user).  
     These are sample values to help you understand better about claim
     URI and its value types.
 
@@ -414,7 +414,7 @@ Provider.
             example: `              v41.0             ` .
     3.  Enter the **Domain**. If you do not have a Salesforce domain,
         you need to create a domain by logging into
-        [https://login.salesforce.com](https://login.salesforce.com/) .
+        [https://login.salesforce.com](https://login.salesforce.com/).
 
         ![](images/icons/grey_arrow_down.png){.expand-control-image}
         Click here for more information on creating the domain on

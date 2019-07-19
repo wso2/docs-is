@@ -100,7 +100,7 @@ following sections for more information.
 
 9.  Select **Website** as the platform for the application and enter the
     following as the site URL:
-    [https://localhost:9443](https://localhost:9443/) . Click **Save
+    [https://localhost:9443](https://localhost:9443/). Click **Save
     Changes**.  
     ![](attachments/68686690/68686678.png){width="472"}
     ![](attachments/68686690/68686679.png){width="617"}
@@ -166,7 +166,7 @@ provider](https://docs.wso2.com/display/IS520/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS520/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS520/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS520/Getting+Started+with+the+Management+Console)
     as an administrator.

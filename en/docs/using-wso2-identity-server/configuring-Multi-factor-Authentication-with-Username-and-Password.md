@@ -4,14 +4,14 @@ This scenario involves obtaining the username first and validating that
 prior to autenticating the user using the password.
 
 1.  Log in to the [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
     Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) .
+    Provider](_Adding_and_Configuring_a_Service_Provider_).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider

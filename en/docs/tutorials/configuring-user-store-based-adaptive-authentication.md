@@ -26,10 +26,10 @@ of authentication.
         a Service Provider for Adaptive
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   Download and install [Apache Directory
-        Studio](http://directory.apache.org/studio/downloads.html) .
+        Studio](http://directory.apache.org/studio/downloads.html).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 1.  Login to the mangement console.

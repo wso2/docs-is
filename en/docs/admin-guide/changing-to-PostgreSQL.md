@@ -20,7 +20,7 @@ you need to follow in order to use PostgreSQL for this purpose.
     
     You need to set up PostgreSQL before following the steps to configure
     your product with PostgreSQL. For more information, see [Setting up
-    PostgreSQL](_Setting_up_PostgreSQL_) .
+    PostgreSQL](_Setting_up_PostgreSQL_).
     
 
 ### Setting up datasource configurations
@@ -161,7 +161,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |

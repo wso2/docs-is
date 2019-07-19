@@ -7,7 +7,7 @@ issuing identification information by using security tokens like [SAML
 2.0](https://docs.wso2.com/display/IS570/SAML+2.0+Web+SSO) , [OpenID
 Connect](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect) ,
 [OAuth 2.0](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect)
-and [WS-Trust](https://docs.wso2.com/display/IS570/WS-Trust) . This is a
+and [WS-Trust](https://docs.wso2.com/display/IS570/WS-Trust). This is a
 favourable alternative to explicitly authenticating a user within a
 security realm.
 
@@ -586,7 +586,7 @@ Follow the instructions below to add a new identity provider.
         store](https://store.wso2.com/store/) and plugged in to work with
         WSO2 IS. For more information on those authenticators and
         connectors, see the [WSO2 Identity Server Connectors
-        documentation](https://docs.wso2.com/display/ISConnectors) .
+        documentation](https://docs.wso2.com/display/ISConnectors).
     
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
@@ -1034,7 +1034,7 @@ identity provider, it is called the **resident identity provider**.
     via SAML, OpenID Connect, SCIM, or WS-Trust. For an example on how a
     resident identity provider is used to implement a security token
     service, see [Configuring WS-Trust Security Token
-    Service](../../tutorials/configuring-ws-trust-security-token-service) . The Resident
+    Service](../../tutorials/configuring-ws-trust-security-token-service). The Resident
     identity provider configuration is a one-time configuration for a given
     tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The
     resident identity provider configurations can be used to secure the
@@ -1127,7 +1127,7 @@ Follow the instructions below to configure a resident identity provider:
         ![](attachments/103329675/112391635.png){width="750"}  
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
-        Service](../../tutorials/configuring-ws-trust-security-token-service) .
+        Service](../../tutorials/configuring-ws-trust-security-token-service).
 
 6.  You may view the inbound provisioning configurations by clicking
     **Inbound Provisioning Configuration** section.

@@ -195,4 +195,4 @@
 **Related Topics**
 
 For more information on how to configure primary and secondary user
-stores, see [Configuring User Stores](_Configuring_User_Stores_) .
+stores, see [Configuring User Stores](_Configuring_User_Stores_).

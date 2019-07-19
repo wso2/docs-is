@@ -23,7 +23,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 ### Deploying Twitter artifacts
 
 -   Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 -   Place the Twitter authenticator .jar file (
     `           org.wso2.carbon.extension.identity.authenticator.twitter.connector-X.X.X.jar          `
@@ -106,7 +106,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
 .
 
 1.  [Run the WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
@@ -118,7 +118,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     Configuration****.  
     ![](attachments/50515587/51249933.png){width="800" height="664"}  
     Enter the values as given when you [created the twitter
-    application](#ConfiguringTwitterAuthenticator-twitter-app) .
+    application](#ConfiguringTwitterAuthenticator-twitter-app).
 
     -   Select both checkboxes to ****Enable** the Twitter
         authenticator** and make it the Default. **  

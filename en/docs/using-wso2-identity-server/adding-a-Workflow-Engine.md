@@ -40,6 +40,6 @@ with the Identity Server.
     .
 -   Now you need to create a new workflow definition. For more
     information, see [Adding a New Workflow
-    Definition](_Adding_a_New_Workflow_Definition_) .
+    Definition](_Adding_a_New_Workflow_Definition_).
 
   

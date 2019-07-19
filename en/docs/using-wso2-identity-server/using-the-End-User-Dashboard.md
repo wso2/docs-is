@@ -51,7 +51,7 @@ includes the following tasks which can be done using the dashboard.
 
 To edit your profile, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **My Profile**
     .
 3.  In the resulting screen, populate the fields with your personal
@@ -90,7 +90,7 @@ To edit your profile, do the following.
 
 To export the user's personal information, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **My
     Profile.**
 3.  Click **Export**. A `           userInfo.json          ` file
@@ -134,7 +134,7 @@ To export the user's personal information, do the following.
 To update the details pertaining to recovering your account, do the
 following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Account
     Recovery**.
 3.  Set the challenge question from the drop-down and enter an answer
@@ -149,7 +149,7 @@ this works.
 
 To change your password, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Change
     Password**.
 3.  In the resulting screen, enter your **Current Password** , fill in
@@ -163,7 +163,7 @@ To change your password, do the following.
 To connect your social identity login credentials with your WSO2
 Identity Server account, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Associated
     Accounts**. The list of social identities linked to your account
     appear.
@@ -176,7 +176,7 @@ information on using this section of the dashboard.
 To access and manage the OAuth-based authorized applications for your
 account, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Authorized
     Apps**. A list of available authorized apps appears.
 3.  Click **Remove Application** if you wish to disassociate the
@@ -187,7 +187,7 @@ account, do the following.
 To access and manage the pending approvals for your account, do the
 following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Pending
     Approvals**. The following page appears, listing out the pending
     account approval requests.
@@ -220,7 +220,7 @@ receipts that have already been approved. It also gives the ability to
 update/revoke the consents approved to be consumed by services provided
 via WSO2 Identity Server. Follow the steps below to configure this.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard) .
+1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
 2.  Once you have logged in, click **View details** under **Consent
     Management**.
 
@@ -276,12 +276,12 @@ New users can do the following actions from this screen:
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly
             added **mandatory** attributes during the [SSO
-            flow](_Consent_Management_with_Single-Sign-On_) .
+            flow](_Consent_Management_with_Single-Sign-On_).
     
         -   To **accept** consent for any optional attributes, revoke the
             whole consent receipt and provide consent again at the point of
             authentication. For more information, see [Consent Management
-            with Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+            with Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
     
 
 -   **Set an expiration date for consent** - Click the

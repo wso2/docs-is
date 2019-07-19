@@ -67,7 +67,7 @@ sure you have the following permissions set:
 -   `            /permission/admin/manage/identity/claimmgt/metadata/view           `
 
 1.  Log into the [Management
-    Console](../../setup/getting-started-with-the-management-console) .  
+    Console](../../setup/getting-started-with-the-management-console).  
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
 2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
@@ -120,7 +120,7 @@ you have the following permissions set:
 -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
 1.  Log into the [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
     ![](attachments/103330607/103330610.png){width="220" height="513"}
 

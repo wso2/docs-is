@@ -89,11 +89,11 @@ contains a CSRF token.
         -   Be sure that your product is running on **JDK1.8.0\_144** or
             **JDK1.8.0\_077**. We have verified that these JDK versions are
             not affected by the [known
-            issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
+            issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
         -   Alternatively, you can disable GZIP decoding for your product by
             following the steps given below. This will ensure that your
             product is not affected by the [known
-            issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
+            issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
             1.  Open the `              catalina-server.xml             `
                 file from the
                 `              <PRODUCT_HOME>/repository/conf/tomcat/             `

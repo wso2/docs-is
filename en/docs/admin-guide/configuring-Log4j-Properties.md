@@ -55,7 +55,7 @@ all loggers.
 
 -   **Log Level** - Severity of the message. Reflects a minimum level
     that the logger requires. See descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels) .
+    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
 -   **Log Pattern** - Defines the output format of the log file. This is
     the layout pattern which describes the log message format
 
@@ -135,7 +135,7 @@ one logger.
     into appender. If its level is 'WARN', 'ERROR' or 'FATAL', other
     entries will be discarded. This is the minimum log level at which
     you can log a message. See descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels) .
+    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
 
 #### Configure Log4J Loggers
 
@@ -162,7 +162,7 @@ After editing, the logging properties are read only from the database.
     level, then it inherits one from its closest ancestor with an
     assigned level. Refer to the hierarchy of levels given above. See
     descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels) .
+    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
 -   **Additivity** - Allows to inherit all the appenders of the parent
     Logger if set as 'True'.  
 

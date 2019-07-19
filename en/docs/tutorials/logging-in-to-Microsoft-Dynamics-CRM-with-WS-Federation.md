@@ -142,4 +142,4 @@ to https://\<orgname\>.crmdomain.com.
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](_Testing_Passive_STS_) .
+    STS](_Testing_Passive_STS_).

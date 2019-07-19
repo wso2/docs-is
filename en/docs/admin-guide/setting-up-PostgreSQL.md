@@ -16,7 +16,7 @@ Follow the steps below to set up a PostgreSQL database.
 2.  Start the PostgreSQL service using the following command:  
     ![](attachments/53125515/53287604.png)
 3.  Create a database and the login role from a GUI using the
-    [PGAdminIII tool](http://www.pgadmin.org/download/) .
+    [PGAdminIII tool](http://www.pgadmin.org/download/).
 4.  To connect PGAdminIII to a PostgreSQL database server, locate the
     server from the object browser, right-click the client and click
     **Connect**. This will show you the databases, tablespaces, and
@@ -42,7 +42,7 @@ Follow the steps below to set up a PostgreSQL database.
 ### Setting up the drivers
 
 1.  Download the [PostgreSQL JDBC4
-    driver](http://jdbc.postgresql.org/download.html) .
+    driver](http://jdbc.postgresql.org/download.html).
 2.  Copy the driver to your WSO2 product's \<
     `           PRODUCT_HOME>/repository/components/lib          `
     directory.
@@ -57,4 +57,4 @@ Follow the steps below to set up a PostgreSQL database.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with PostgreSQL, see [Changing to
-PostgreSQL](_Changing_to_PostgreSQL_) .
+PostgreSQL](_Changing_to_PostgreSQL_).

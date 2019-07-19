@@ -11,7 +11,7 @@ authenticator.
 
 -   For a high-level overview of Mobile Connect and its use cases with
     WSO2 Identity Server, see [Mobile Connect
-    Authenticator](_Mobile_Connect_Authenticator_) .
+    Authenticator](_Mobile_Connect_Authenticator_).
 -   Download the WSO2 Identity Server from [the WSO2 Identity Server
     product page](http://wso2.com/products/identity-server/) and extract
     the .zip file. That folder is referred to as

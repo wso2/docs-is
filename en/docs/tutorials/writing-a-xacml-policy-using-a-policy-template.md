@@ -40,7 +40,7 @@ templates available in WSO2 Identity Server to write your own policy.
     !!! note
     
         For more information on Publishing a XACML policy, click
-        [here](../../tutorials/publishing-a-xacml-policy) .
+        [here](../../tutorials/publishing-a-xacml-policy).
     
 
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on

@@ -31,4 +31,4 @@ achieve this.
     Authenticator](_OAuth_Request_Path_Authenticator_)
 
 For more information on how request path authentication works, see [Try
-Request Path Authentication](_Try_Request_Path_Authentication_) .
+Request Path Authentication](_Try_Request_Path_Authentication_).

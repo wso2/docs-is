@@ -75,7 +75,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Configuring the identity provider
 
@@ -86,7 +86,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
@@ -107,7 +107,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     
         Make sure to enter the client Id, client secret, and callback URL
         based on the [wordpress application that you
-        created](#ConfiguringWordpressAuthenticator-clientsecret) .
+        created](#ConfiguringWordpressAuthenticator-clientsecret).
     
 
     | Field         | Description                                                                                                                                                                                          | Sample value                                                     |

@@ -137,7 +137,7 @@ the role as needed.
 #### Add role using SCIM
 
 -   In SCIM creating role means creating a **group.** Read more on
-    [SCIM](https://docs.wso2.com/display/IS540/SCIM+APIs) .
+    [SCIM](https://docs.wso2.com/display/IS540/SCIM+APIs).
 
     !!! note
     
@@ -266,7 +266,7 @@ you through updating the role names after you have used the product for
 some time.
 
 1.  Make the configuration changes indicated in [the above
-    section](#ConfiguringRolesandPermissions-UpdateRole1) .
+    section](#ConfiguringRolesandPermissions-UpdateRole1).
 2.  Do the following user store level changes for existing users:  
     -   If you are connected to the
         `             JDBCUserStoreManager            ` , update the

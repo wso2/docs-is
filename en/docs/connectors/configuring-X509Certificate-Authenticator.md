@@ -141,7 +141,7 @@ to sign the certificates, follow the following steps:
         You are prompted for details after executing the above command.
         For "What is your first and last name?" you need to give a name
         without space(e.g.,: wso2). This name is the CN to [create a
-        user](#ConfiguringX509CertificateAuthenticator-createauser) .
+        user](#ConfiguringX509CertificateAuthenticator-createauser).
 
         This command will create a keystore with the following details:
 
@@ -237,7 +237,7 @@ in this guide.
 ### Configuring the X509 Certificate for the app
 
 1.  Download the [WSO2 Identity
-    Server](http://wso2.com/products/identity-server/) .
+    Server](http://wso2.com/products/identity-server/).
 
 2.  Replace your keystore file path, keystore password, trust store file
     path and trust store password (you can use the keystore and
@@ -394,7 +394,7 @@ Identity Server was started before.
 
 For more information on CRL and OCSP certificate validation, see
 [Configuring Certificate Revocation
-Validation](_Configuring_Certificate_Revocation_Validation_) .
+Validation](_Configuring_Certificate_Revocation_Validation_).
 
 ### **Configuring the Authentication Endpoint**
 

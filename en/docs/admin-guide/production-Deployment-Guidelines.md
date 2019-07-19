@@ -273,7 +273,7 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a property file instead of in the Java
     code and secure the properties file with the [secure
-    vault](_Carbon_Secure_Vault_Implementation_) .
+    vault](_Carbon_Secure_Vault_Implementation_).
 
 **Note** : When using SUSE Linux, it ignores
 `          /etc/resolv.conf         ` and only looks at the
@@ -329,7 +329,7 @@ manage the product.
     GZIP decoding. Until this issue is fixed, we recommend that you
     disable GZIP decoding for your product by following the steps given
     below. This will ensure that your product is not affected by the
-    [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
+    [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
 
     1.  Open the `               catalina-server.xml              `
         file from the
@@ -431,7 +431,7 @@ Once you enable log4j for hazelcast as explained above, add
 `         log4j.logger.com.hazelcast=INFO        ` to the
 `         <PRODUCT_HOME>/repository/conf/log4j.properties        `
 file. For more information on logging, see [Monitoring
-Logs](_Monitoring_Logs_) .
+Logs](_Monitoring_Logs_).
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
@@ -768,6 +768,6 @@ The following steps include how to recover your setup using the backups:
 3.  To recover the databases, follow the recovery strategy recommended
     by the databases you are using. For information on supported and
     tested databases, see [Tested Database Management
-    Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs) .
+    Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs).
 
   

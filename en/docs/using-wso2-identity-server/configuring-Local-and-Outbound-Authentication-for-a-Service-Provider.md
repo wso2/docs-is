@@ -4,7 +4,7 @@ The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
 Authentication)](_Integrated_Windows_Authentication_) or [FIDO (Fast
-IDentity Online)](_Multi-factor_Authentication_using_FIDO_) . Local
+IDentity Online)](_Multi-factor_Authentication_using_FIDO_). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service

@@ -14,9 +14,9 @@ Server.
     Before you begin
     
     -   [Download and install Apache Directory
-        Studio](https://directory.apache.org/studio/downloads.html) .
+        Studio](https://directory.apache.org/studio/downloads.html).
     -   [Download and install WSO2 Identity
-        Server](https://wso2.com/identity-and-access-management) .
+        Server](https://wso2.com/identity-and-access-management).
     
 
 ### Creating a new LDAP server

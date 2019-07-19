@@ -24,7 +24,7 @@ provisioning the user.
 The following steps provide instructions on how to configure this.
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../setup/getting-started-with-the-management-console) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>
     Resident**.  
     ![](attachments/103330181/103330183.png)

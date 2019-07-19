@@ -3,7 +3,7 @@
 The Client Credentials Grant is one of the four grant types in the OAuth
 2.0 specification. For more information about this grant type, see
 [Client Credentials
-Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
+Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant).
 
 **Running the application**
 
