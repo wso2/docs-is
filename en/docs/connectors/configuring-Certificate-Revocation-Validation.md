@@ -30,7 +30,7 @@ trusted by the CA, i.e., the SSL connection to the peer is terminated.
     
     To learn about configuring the X509 certificate authenticator, see
     [Configuring X509Certificate
-    Authenticator](_Configuring_X509Certificate_Authenticator_) .
+    Authenticator](_Configuring_X509Certificate_Authenticator_).
     
 
 Explore the following sections below to configure CRL and OCCP for
@@ -361,19 +361,19 @@ other validator configurations.
 
 1.  Sign in to the WSO2 IS Management Console with one of the following
     URLs using `               admin              ` as the **username**
-    and **password** .
+    and **password**.
 
     ``` java
     For HTTP  --> http://<HTTP_HOST>:9776/carbon
     For HTTPS --> https://<HTTPS_HOST>:9443/carbon
     ```
 
-2.  On the **Main** tab, click **Registry \> Browse** .  
+2.  On the **Main** tab, click **Registry \> Browse**.  
     ![](attachments/103328122/103328123.png){width="200"}
 3.  Enter the registry path
     `              /_system/governance/repository/security/certificate/validator             `
-    to the **Location** text box and click **Go** .  
+    to the **Location** text box and click **Go**.  
     ![](attachments/103328122/103328124.png){width="700"}
-4.  To update the properties, expand **Properties** .
+4.  To update the properties, expand **Properties**.
 
     ![](attachments/103328122/103328125.png){width="900"}

@@ -65,7 +65,7 @@ case of Kerberos, we call the service name “Service Principal Name”
 In order to configure a service principal, you must first register a
 service provider for inbound authentication .
 
-1.  Expand the **Kerberos KDC** and click **Configure** .
+1.  Expand the **Kerberos KDC** and click **Configure**.
 2.  Specify the required information on the "Add Service Principal"
     page.
     -   **Service Principal Name** – Name of the service principal. This

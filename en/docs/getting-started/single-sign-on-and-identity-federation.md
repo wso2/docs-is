@@ -54,12 +54,12 @@ environment.
 
 
 In this second figure, the users access **Application 1** first followed
-by **Application 2** . Once again, the users use the same browser to
+by **Application 2**. Once again, the users use the same browser to
 access these applications. The users are redirected to the WSO2 Identity
 Server (or any authentication server that is configured for this task).
 If the users are already logged in to the Identity Server, the user is
 authenticated in **Application 1** via an authentication token sent by
-the Identity Server to **Application 1** . When **Application 2** is
+the Identity Server to **Application 1**. When **Application 2** is
 accessed, the same thing happens and the users are redirected to the
 Identity Server and authenticated. This is how SSO works.
 
@@ -85,7 +85,7 @@ best examples. Try this simple exercise.
     your Gmail Inbox. You did not have to enter your Username and
     Password at Gmail.
 7.  In addition to that; now try
-    [www.youtube.com](http://www.youtube.com/) .
+    [www.youtube.com](http://www.youtube.com/).
 8.  You are automatically signed in. You do not have to enter your
     username and password at YouTube.
 
@@ -242,7 +242,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
     	   [here](http://code.google.com/p/saml2-consumer-module/downloads/detail?		   name=opensaml2-2.0.0.alpha1-wso2v1.jar)
     .
 	   2.  A sample `              <AuthnRequest>             ` message can be
-    	   found [here](http://wso2.org/files/AuthRequest.xml) .
+    	   found [here](http://wso2.org/files/AuthRequest.xml).
 	   3.  According to SAML 2.0 specifications, the message must contain an
     	   element. Create the `               Issuer              ` element
     	   first.
@@ -318,7 +318,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 	   issued by the WSO2 Identity Server, do the following:
 
 	   1.  A sample &lt; `              Response             ` &gt; message can
-    	   be found [here](http://wso2.org/files/Response.xml) .
+    	   be found [here](http://wso2.org/files/Response.xml).
 	   2.  The response message must be fetched from the request.
 
     	   ``` java
@@ -347,7 +347,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
     	   `               NameID              ` .
 
     	   ``` java
-        	   String subject = 	   response.getAssertions().get(0).getSubject() .getNameID().getValue();
+        	   String subject = 	   response.getAssertions().get(0).getSubject().getNameID().getValue();
     	   ```
 
 	   5.  Alternatively, if the response is signed by the identity

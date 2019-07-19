@@ -21,7 +21,7 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](_Architecture_) .
+[Architecture](_Architecture_).
 
 Let's learn how to configure inbound authentication for a service
 provider.
@@ -171,7 +171,7 @@ provider.
     OpenID 2.0 has been removed from the base product in WSO2 Identity
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
-    you use [OpenID Connect](_OAuth2-OpenID_Connect_) .
+    you use [OpenID Connect](_OAuth2-OpenID_Connect_).
     
 
 You can configure inbound authentication in following ways:
@@ -192,7 +192,7 @@ to learn the instructions
 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure** .
+1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
 2.  Select one of the following modes:  
     -   [Manual
         configuration](#ConfiguringInboundAuthenticationforaServiceProvider-Manualconfiguration)
@@ -331,7 +331,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="odd">
     <td><strong>Enable Single Logout</strong></td>
     <td><p>Select <strong>Enable Single Logout</strong> so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a <strong>SLO Response URL</strong> and <strong>SLO Request URL</strong> for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.<br />
-    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding) .</strong></p></td>
+    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding).</strong></p></td>
     <td>Selected</td>
     </tr>
     <tr class="even">
@@ -372,7 +372,7 @@ supports SAML metadata download for the resident identity provider.
     </tbody>
     </table>
 
-2.  Click **Register** .
+2.  Click **Register**.
 
 #### Metadata file configuration
 
@@ -388,7 +388,7 @@ instances of entity configuration.
 2.  Click **Choose File** , and select the
     `             .xml            ` file containing the metadata for the
     service provider SAML configuration.
-3.  Click **Upload** .
+3.  Click **Upload**.
 
     !!! tip
     
@@ -449,7 +449,7 @@ of entity configuration.
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
     ![](attachments/103330801/112392410.png){width="750"}
-2.  Click **Upload** .
+2.  Click **Upload**.
 
 !!! note
     
@@ -551,7 +551,7 @@ application.
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **OAuth/OpenID Connect Configuration.** Click **Configure** .
+    expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
 2.  Fill in the form that appears. For the **Allowed Grant Types** you
     can disable the ones you do not require or wish to block.
 
@@ -705,7 +705,7 @@ Let's get started to configure the service provider you created!
     </tbody>
     </table>
 
-3.  Click **Add** . Note that `             client key            ` and
+3.  Click **Add**. Note that `             client key            ` and
     `             client secret            ` get generated.  
     ![](attachments/103330833/103330840.png){width="774"}
 
@@ -813,7 +813,7 @@ To configure WS-Federation SSO:
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS) .
+    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS).
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
@@ -844,7 +844,7 @@ Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management
 To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident** .  
+    Resident**.  
     ![](attachments/103330821/112392547.png){width="200"}  
     The Resident Identity Provider page appears.  
     ![](attachments/103330821/112392548.png){width="800"}
@@ -899,17 +899,17 @@ To secure the Security Token Service:
         **![](attachments/103330821/103330822.png){width="900"}**
     
 
-5.  Click **Next** . The user domain and user group selection appears.
+5.  Click **Next**. The user domain and user group selection appears.
 
     Next steps may vary as per the security scenario that you have
     chosen under point (5) above. Below is for **UsernameToken**
     scenario **.**
 
 6.  Provide the required details as follows:
-    1.  Select **ALL-USER-STORE-DOMAINS** .
+    1.  Select **ALL-USER-STORE-DOMAINS**.
     2.  Select the role you created to grant permission to access
         secured service. In this example, the admin role is used **.**
-        Next, click **Finish** .
+        Next, click **Finish**.
 
         !!! note
         
@@ -919,7 +919,7 @@ To secure the Security Token Service:
 
         ![](attachments/103330821/112392552.png){width="750"}
 
-7.  Click **Finish** .
+7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
 9.  Click **Update** to complete the process.
 
@@ -931,7 +931,7 @@ The next step is to add a service provider to consume the STS.
 #### Adding a service provider for the STS client
 
 Do the following steps if you are using a Holder of Key **subject
-confirmation method** . For more information, see [Configuring STS for
+confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
 Confirmation](https://docs.wso2.com/display/IS580/Configuring+STS+for+Obtaining+Tokens+with+Holder-Of-Key+Subject+Confirmation)
 .
@@ -945,7 +945,7 @@ party.
 
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
-    **Configure** . The STS Configuration page appears.  
+    **Configure**. The STS Configuration page appears.  
     ![](attachments/103330821/112392555.png){width="750"}
 2.  Enter the required details as given below.
 
@@ -992,7 +992,7 @@ party.
 
     Run the STS client after configuring the service provider. For
     instructions on trying out a sample STS client, see [Running an STS
-    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client) .
+    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client).
 
   
 

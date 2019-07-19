@@ -9,7 +9,7 @@ WS-Trust protocols.
 
 The WS-Trust STS needs to be configured. You can do this by following
 the instructions found
-[here](_Configuring_WS-Trust_Security_Token_Service_) .
+[here](_Configuring_WS-Trust_Security_Token_Service_).
 
 ### Running the STS client
 

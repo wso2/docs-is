@@ -8,7 +8,7 @@ administrator decides the passwords for users. Using the **Ask
 Password** option is the standard method for user management as the
 administrator does not have to remember and specify passwords when
 creating an account for a user. When selecting this option, the
-administrator must enter an **Email Address** . The Identity Server
+administrator must enter an **Email Address**. The Identity Server
 sends an email to this address that provides the users with a
 redirection URL. This directs the users to a screen where they can
 provide the password for the account that was newly created for them by
@@ -65,7 +65,7 @@ password feature:
     `           <IS_HOME>/repository/conf/identity/identity.xml          `
     file under `           <EmailVerification>          ` element below
     `           <Server>          ` element to set the redirection URL
-    valid time period in **minutes** .  
+    valid time period in **minutes**.  
     The redirection link that is provided to the user to set the
     password is invalid after the time specified here has elapsed.
 
@@ -180,7 +180,7 @@ password feature:
             ![](attachments/103330534/103330540.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps** .  
+            **Allow less secure apps**.  
             ![](attachments/103330534/103330535.png){width="597"
             height="171"}
     
@@ -190,15 +190,15 @@ password feature:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
-4.  Start the Identity Server and log in to the **Management Console** .
+4.  Start the Identity Server and log in to the **Management Console**.
 
 5.  In the **Main** tab, click, under **Identity Providers** , click
     **Resident** and expand the **Account Management Policies** tab.
 6.  Expand the **User Onboarding** tab and select **Enable User Email
-    Verification** . Click **Update** to save changes.
+    Verification**. Click **Update** to save changes.
 
     The `            EmailVerification           ` property can be
     enabled for each tenant at tenant creation by adding the following
@@ -228,11 +228,11 @@ ask password option.
     special characters in the email address.
     
     1.  Go to management console click the **Main** tab **\> Claims \>
-        List** .
+        List**.
     
-    2.  Click **http://wso2.org/claims** .
+    2.  Click **http://wso2.org/claims**.
     
-    3.  Expand the **Email** claim and click **Edit** .
+    3.  Expand the **Email** claim and click **Edit**.
     
     4.  Add the characters you need out of the
         `             !#$%&'*+-=?^_            ` special characters to the
@@ -289,7 +289,7 @@ option.
 4.  Fill in the form:
 
     1.  Select the user store where you want to create this user account
-        from the drop-down as the **Domain** .  
+        from the drop-down as the **Domain**.  
         This includes the list of user stores you configured. See
         [Configuring User Stores](_Configuring_User_Stores_) for more
         information.
@@ -298,7 +298,7 @@ option.
     3.  Allow users to enter their own password by selecting the **Ask
         password from user** option.
 
-    4.  Enter a valid **Email Address** and click **Finish** .
+    4.  Enter a valid **Email Address** and click **Finish**.
 
 5.  The Identity Server sends an email to the email address provided.
     The email contains a redirect URL that directs the users to a screen
@@ -335,7 +335,7 @@ option.
 **Related Links**
 
 -   For information on how to edit an existing email template, see
-    [Email Templates](_Email_Templates_) .
+    [Email Templates](_Email_Templates_).
 -   By default, the claim values of the identity claims used in this
     feature are stored in the JDBC datasource configured in the
     `            identity.xml           ` file. See [Configuring

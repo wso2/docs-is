@@ -19,7 +19,7 @@ password recovery:
     Alternatively, to see steps on how to enable this identity management
     feature using the **old implementation** , see [Password Recovery
     documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery) . The old
+    5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
     
@@ -31,7 +31,7 @@ notifications. The flow of this method is as follows:
 
 -   The user initiates the password recovery flow by clicking on "Forgot
     Password" at the point of login.
--   The user enters the username and selects **Recovery with Email** .
+-   The user enters the username and selects **Recovery with Email**.
 -   An email is sent to the user with a URL which directs the user to a
     screen where he/she can enter a new password.
 
@@ -146,7 +146,7 @@ with email notification.
         the **2-step Verification** is disabled or off.  
         ![](attachments/103330558/103330570.png){width="600" height="279"}
     3.  Click **Connected apps and sites** on the left menu and enable
-        **Allow less secure apps** .  
+        **Allow less secure apps**.  
         ![](attachments/103330558/103330571.png){width="597" height="171"}
     
 
@@ -162,7 +162,7 @@ with email notification.
     `          https://localhost:<port_number>/dashboard         ` .
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Emai** l. Click
-    **Submit** .  
+    **Submit**.  
     ![](attachments/103330558/103330573.png){width="441" height="250"}
 
     !!! note
@@ -177,14 +177,14 @@ with email notification.
 6.  An email notification is sent to the user's email address. Click on
     the **Reset Password** button given on the email.  
     ![](attachments/103330558/103330574.png){width="445" height="339"}
-7.  Enter a new password and click **Submit** .  
+7.  Enter a new password and click **Submit**.  
     ![](attachments/103330558/103330559.png){width="446" height="250"}
 
 !!! tip
     
     For information on the REST APIs for password recovery, see [the swagger
     docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/) .
+    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/).
     
 
 ### Recovery using challenge questions
@@ -206,7 +206,7 @@ feature. To do this, do the following.
     Recovery** tab and select the **Enable the Security Questions Based
     Password Recovery** checkbox.
 4.  Configure the required number of questions in the **Number of
-    Questions Required for Password Recovery** .  
+    Questions Required for Password Recovery**.  
     Optionally, select the **Notify when Questions Based Recovery
     Starts** checkbox to send an email notification to the user when the
     question based recovery starts.
@@ -233,17 +233,17 @@ ways:
 
 To set up challenge questions or to manage the questions with different
 locales (languages), see [Managing Challenge
-Questions](_Managing_Challenge_Questions_) .
+Questions](_Managing_Challenge_Questions_).
 
 #### Using the end user dashboard
 
 To try this out, first create a user in the Identity Server.
 
 1.  On the **Main** tab in the Management Console, click **Add** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.  
-3.  Click **Add New User** .  
+3.  Click **Add New User**.  
     ![](attachments/103330558/103330567.png){width="344" height="288"}
 
 4.  Log out of the Identity Server.
@@ -260,12 +260,12 @@ To try this out, first create a user in the Identity Server.
     challenge questions by default. You can pick one question for each
     set and give an answer for the question.  
     ![](attachments/103330558/103330564.png){width="750" height="451"}  
-8.  Click **Update** .
+8.  Click **Update**.
 9.  Sign out of the dashboard and click **Forgot Password** on the login
     screen.  
     ![](attachments/50514066/57747161.png){width="307" height="371"}
-10. Enter the username and select **Recover with Security Questions** .
-    Click **Submit** .
+10. Enter the username and select **Recover with Security Questions**.
+    Click **Submit**.
 
     !!! tip
     
@@ -294,7 +294,7 @@ To try this out, first create a user in the Identity Server.
 11. Enter the answers to the challenge questions and click **Submit**
     .  
     ![](attachments/50514066/57747166.png){width="456" height="127"}
-12. Enter a new password and click **Submit** . You will receive a
+12. Enter a new password and click **Submit**. You will receive a
     notification of successful password reset.  
 
 ![](attachments/50514066/57747167.png){width="450"}
@@ -307,7 +307,7 @@ To try this out, first create a user in the Identity Server.
     
     For information on the REST APIs for password recovery using challenge
     questions, see [the swagger docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/) .
+    APIs](https://docs.wso2.com/display/IS530/apidocs/account-recovery/).
     
 
 **Related Links**

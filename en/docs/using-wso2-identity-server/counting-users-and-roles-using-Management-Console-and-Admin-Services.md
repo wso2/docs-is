@@ -5,7 +5,7 @@ Management Console and Admin Services. First, you should download the
 product and configure this feature. Follow the below steps to do this:
 
 1.  Download the product from the [WSO2 product
-    page](https://wso2.com/platform) .
+    page](https://wso2.com/platform).
 2.  Add the below property inside
     `           <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">          `
     configuration in \<IS\_HOME\>/repository/conf/user-mgt.xml.

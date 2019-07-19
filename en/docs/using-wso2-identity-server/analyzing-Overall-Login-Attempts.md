@@ -24,11 +24,11 @@ visualization.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Overall Login Attempts Summary**
             tile.
-        2.  Click **menu** icon \> **Overall** .
+        2.  Click **menu** icon \> **Overall**.
     
 
 Let's analyze the overall authentication activities with the following
@@ -53,7 +53,7 @@ etc.
 
 ##### Description
 
-This chart presents a **summary of the overall login attempts** .
+This chart presents a **summary of the overall login attempts**.
 
 ##### Purpose
 
@@ -73,7 +73,7 @@ addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](_Enabling_Geolocation_Based_Statistics_) .
+    Statistics](_Enabling_Geolocation_Based_Statistics_).
     
 
 ##### Purpose

@@ -72,7 +72,7 @@ This toolkit consists of two modules:
         selected SAML2 Web SSO configuration.
     -   All the issuers available in configurations are listed here in
         the **Issuer** drop down. So you can select the required
-        configuration by selecting the **Issuer** .
+        configuration by selecting the **Issuer**.
     -   The **User Name** is also required to get the user profile which
         will be used during the response generation.
 2.  Click the " **Generate** " button, the response builder will

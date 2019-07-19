@@ -169,4 +169,4 @@ create index
 
 If you want to remove unused tokens from the database, see [Removing
 Unused Tokens from the
-Database](_Removing_Unused_Tokens_from_the_Database_) .
+Database](_Removing_Unused_Tokens_from_the_Database_).

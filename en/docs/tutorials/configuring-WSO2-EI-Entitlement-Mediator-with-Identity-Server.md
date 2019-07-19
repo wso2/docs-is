@@ -19,7 +19,7 @@ have a full blown authorization scheme in place with minimum effort.
 
 For more information about the WSO2 EI, please visit the [WSO2
 Enterprise Integrator
-Documentation](http://docs.wso2.com/enterprise-integrator) .
+Documentation](http://docs.wso2.com/enterprise-integrator).
 
 The following sections provide more information on how to configure
 this.
@@ -35,7 +35,7 @@ The first step is to configure the WSO2 Identity Server to act as a
 XACML engine. XACML support for fine-grained authorization comes with
 WSO2 Identity Server. For this, configure your Identity Server as a
 XACML engine as explained in [Identity Server as an XACML
-Engine](_Identity_Server_as_an_XACML_Engine_) .
+Engine](_Identity_Server_as_an_XACML_Engine_).
 
 ### Configuring the EI entitlement mediator
 
@@ -54,7 +54,7 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
 2.  Add the Transform/Header mediator. See [Adding a Mediator to a
     Sequence](http://docs.wso2.com/enterprise-integrator/Adding+a+Mediation+Sequence)
     and
-    [Mediators](http://docs.wso2.com/enterprise-integrator/Mediators) .
+    [Mediators](http://docs.wso2.com/enterprise-integrator/Mediators).
     Remove the "Security" header. Click on the "Namespaces" link to set
     the namespace as " `          wsse"         ` .  
     -   **Prefix** - wsse.

@@ -131,7 +131,7 @@ sh wso2server.sh -Dsetup
     `          -DSetup         ` option is redundant and typically unusable.
     **As a result, from [January 2018
     onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`           -DSetup          `** **option** . Note
+    deprecated the** **`           -DSetup          `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the
@@ -149,7 +149,7 @@ configuration of Carbon server nodes that use the shared, remote
 registry.  
 
 1\. Download and extract the relevant WSO2 product distribution from the
-'Products' menu of [https://wso2.com](https://wso2.com/) . In this
+'Products' menu of [https://wso2.com](https://wso2.com/). In this
 example, we use two server instances (of any product) by the names
 CARBON-Node1 and CARBON-Node2.
 

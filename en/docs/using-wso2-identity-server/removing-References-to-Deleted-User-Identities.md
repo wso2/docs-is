@@ -77,7 +77,7 @@ in the Product Administration Guide.
 You can change the default location of the tool configurations if
 desired. You may want to do this if you are working with a multi-product
 environment where you want to manage configurations in a single location
-for ease of use. Note that this is **optional** .
+for ease of use. Note that this is **optional**.
 
 To change the default configurations location for the embedded tool, do
 the following:
@@ -308,7 +308,7 @@ analytics installation directory) instead of the
 If you are using multiple WSO2 products and you want to remove
 references to a particular deleted user from all the products at once,
 you can use the [standalone version of the Identity Anonymization
-tool](https://github.com/wso2/identity-anonymization-tool) .
+tool](https://github.com/wso2/identity-anonymization-tool).
 
 To remove references to a particular deleted user from multiple WSO2
 products at once, you have to do necessary configuration changes in the

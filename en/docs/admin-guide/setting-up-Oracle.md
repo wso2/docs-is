@@ -74,4 +74,4 @@ the `          wso2server.sh         ` as a new
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with Oracle, see [Changing to
-Oracle](_Changing_to_Oracle_) .
+Oracle](_Changing_to_Oracle_).

@@ -45,4 +45,4 @@ You can also work with XACML MDP requests and responses in JSON format
 using WSO2 Identity Server. For a tutorial that walks you through how to
 work with MDP requests and responses in JSON format using WSO2 Identity
 Server, see [Working with MDP Requests in JSON
-Format](_Working_with_MDP_Requests_in_JSON_Format_) .
+Format](_Working_with_MDP_Requests_in_JSON_Format_).

@@ -6,7 +6,7 @@
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
     service given below, see [Using the SCIM 2.0 REST
-    APIs](_Using_the_SCIM_2.0_REST_APIs_) .
+    APIs](_Using_the_SCIM_2.0_REST_APIs_).
     
 
 This section guides you through invoking and working with the
@@ -359,7 +359,7 @@ The following operations are available in the
     **Note:** This operation retrieves a list of all the users. The users
     assigned to the specified role will be indicated in the list. Users
     belonging to the role are shown as **selected = true** and users not
-    belonging to the role are show as **selected = false** .
+    belonging to the role are show as **selected = false**.
     
 
 ##### updateCredential()

@@ -2,7 +2,7 @@
 
 WSO2 Identity Server can act both as a SCIM Provider and as a SCIM
 consumer at the same time. You can test the WSO2 Identity Server's SCIM
-Provider API as described [here](_SCIM_1.1_APIs_) . The WSO2 Identity
+Provider API as described [here](_SCIM_1.1_APIs_). The WSO2 Identity
 Server build includes the ApacheDS embedded LDAP server. The LDAP
 server's schema is customized to have the mandatory SCIM attributes,
 therefore SCIM implementation works by default with the WSO2 Identity
@@ -33,7 +33,7 @@ considered. The SCIM claim dialect (
 hold their values. So, when mapping any SCIM claim to an attribute in
 the Active Directory, make sure to use the attributes which are having
 the String type. You can find all Active Directory attributes
-[here](http://www.kouti.com/tables/userattributes.htm) . Given below is
+[here](http://www.kouti.com/tables/userattributes.htm). Given below is
 a plausible example for claim mapping,
 
 | CLAIM URI                                                              | MAPPED ATTRIBUTE                             |
@@ -49,12 +49,12 @@ Management Feature.
 
 1.  Log in to WSO2 Identity Server using your credentials.
 2.  Go to the **Main** menu in the Management Console menu and click
-    **List** under **Claims** .
+    **List** under **Claims**.
 3.  Select `          urn:scim:schemas:core:1.0         ` from the list.
-4.  Choose the **Id** claim and click on **Edit** .  
+4.  Choose the **Id** claim and click on **Edit**.  
     ![](attachments/103330195/103330197.png){width="750"}
 5.  Change the **Mapped Attribute** value to **homePostalAddress** and
-    click **Update** .  
+    click **Update**.  
     ![](attachments/103330195/103330196.png)
 6.  Edit the other four claims in the same way.
 7.  Now the basic claim mapping is done. You can now add a user using

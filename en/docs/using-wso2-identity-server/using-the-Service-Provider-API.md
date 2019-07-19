@@ -549,7 +549,7 @@ where each is represented by a claimId and a claimURI.  The
 local to the WSO2 Identity Server and the
 `          <remoteClaim>         ` denotes some remote claim value that
 maps to the local claim under the same [claim
-mapping](https://docs.wso2.com/display/IS550/Claim+Management) . Remote
+mapping](https://docs.wso2.com/display/IS550/Claim+Management). Remote
 claims are specifically used with identity federation scenarios to map
 claims received from the federated Identity Provider to local claims.
 

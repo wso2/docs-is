@@ -2,7 +2,7 @@
 
 The following topic provides a list of error codes in the WSO2 Identity
 Server. For more information on errors and customizing error messages or
-pages, see [Working with Errors](_Working_with_Errors_) .
+pages, see [Working with Errors](_Working_with_Errors_).
 
 | Error Code | Description                                                                                                                                                              |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

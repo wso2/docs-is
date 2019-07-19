@@ -24,12 +24,12 @@ provisioning the user.
 The following steps provide instructions on how to configure this.
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>
-    Resident** .  
+    Resident**.  
     ![](attachments/103330181/103330183.png)
 3.  Under the **Inbound Provisioning Configuration** section, click
-    **Inbound Provisioning Configuration** .  
+    **Inbound Provisioning Configuration**.  
     ![](attachments/103330181/103330192.png)
 
     When configuring Inbound Provisioning Configuration, you can enable
@@ -106,12 +106,12 @@ The following steps provide instructions on how to configure the service
 provider.
 
 1.  On the **Main** menu of the Management Console, click **Identity \>
-    Service Providers \> Add** .
+    Service Providers \> Add**.
 2.  Enter the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
     ![](attachments/103330181/112392607.png){width="750"}
-3.  Click **Register** . The service provider details page appears.
+3.  Click **Register**. The service provider details page appears.
 
 4.  Expand the **Inbound Provisioning Configuration** section and select
     the user store from the drop down.
@@ -136,21 +136,21 @@ For the purposes of this example, the access token was obtained by
 configuring an OAuth service provider.
 
 1.  On the **Main** menu of the Management Console,click **Identity \>
-    Service Providers \> List** .
-2.  Find the service provider you just created and click **Edit** .
+    Service Providers \> List**.
+2.  Find the service provider you just created and click **Edit**.
 3.  Under the **Inbound Authentication Configuration** section, click
-    **OAuth/OpenID Connect Configuration \>** **Configure** .
+    **OAuth/OpenID Connect Configuration \>** **Configure**.
 4.  ![](attachments/103330181/112392612.png){width="750"}
 5.  Enter the required information.  
     ![](attachments/103330181/112392613.png){width="750"}  
     Here we use the playground sample as the Callback Url for the
     purposes of this example scenario.
-6.  Click **Add** .
-7.  We now have an **OAuth Client Key** and **OAuth Client Secret** .
-    Click **Show** to view the **OAuth Client Secret** .  
+6.  Click **Add**.
+7.  We now have an **OAuth Client Key** and **OAuth Client Secret**.
+    Click **Show** to view the **OAuth Client Secret**.  
     ![](attachments/103330181/103330186.png)
 8.  Use a service like [Base64](https://www.base64encode.org/) to encode
-    your **OAuth Client Key** and **OAuth Client Secret** . For this
+    your **OAuth Client Key** and **OAuth Client Secret**. For this
     example, click **Encode** and enter your client key and client
     secret separated by a colon ":". Click the **\> ENCODE \<** button
     to encode this.  

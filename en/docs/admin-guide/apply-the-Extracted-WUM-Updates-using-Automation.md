@@ -101,9 +101,9 @@ height="404"}
 Check this summary PDF document to identify the changes that you need to
 manually apply to your existing product distribution.
 
--   Updated **binary files** .
--   Updated **configuration files** .
--   Updated **Jaggery artifacts** .  
+-   Updated **binary files**.
+-   Updated **configuration files**.
+-   Updated **Jaggery artifacts**.  
 -   Removed files and artifacts.
 
 ### Step 4: Apply the updates

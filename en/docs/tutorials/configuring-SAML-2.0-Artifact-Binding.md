@@ -67,7 +67,7 @@ The diagram below shows the process of SAML Artifact Binding.
     Provider](https://docs.wso2.com/display/IS570/Adding+and+Configuring+a+Service+Provider)
     .
 3.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
-    configuration** section, and click **Configure** .
+    configuration** section, and click **Configure**.
 4.  Fill in the following fields.  
     -   **Issuer:** saml2-web-app-dispatch.com
     -   **Assertion Consumer URL:**
@@ -79,7 +79,7 @@ The diagram below shows the process of SAML Artifact Binding.
     ![](attachments/103330816/103330817.png)
 
 6.  You can also enable signature validation by selecting **Enable
-    Signature Validation in Artifact Resolve Request** . Once this is
+    Signature Validation in Artifact Resolve Request**. Once this is
     enabled, WSO2 IS expects to receive signed artifact resolve requests
     and validates that signature against the service provider
     certificate. For more information, see the [Resolving SAML2
@@ -88,7 +88,7 @@ The diagram below shows the process of SAML Artifact Binding.
     section.
 
 7.  Leave the rest of the default configurations as it is and click
-    **Register** .
+    **Register**.
 
 ### Setting up the samples
 
@@ -153,7 +153,7 @@ or with an existing service provider.
 
 5.  Access the PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com> .
-6.  Enter admin/admin credentials and click **Login** . Provide the
+6.  Enter admin/admin credentials and click **Login**. Provide the
     required consent.
 7.  You can use a SAML tracer add-on with your browser to view the SAML2
     response artifact for the SSO authentication request. The code block

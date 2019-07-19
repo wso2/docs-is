@@ -17,7 +17,7 @@ Alternatively, you can also do this using one of the following options:
     plug-in](#DeployingCompositeApplicationsintheServer-DeployingusingtheMavenplug-in)
 
 **Before you begin** , [package your artifacts into a Composite
-Application](_Packaging_Artifacts_into_Composite_Applications_) . Note
+Application](_Packaging_Artifacts_into_Composite_Applications_). Note
 that the examples here are given using WSO2 ESB, but the steps are the
 same for any WSO2 server.
 
@@ -35,19 +35,19 @@ server](attachments/57739657/87693724.png "add and remove to an already-added se
 
 Then, select the Composite Application you want to deploy from the
 **Available** list, click **Add** to move it into the **Configured**
-list, and then click **Finish** .
+list, and then click **Finish**.
 
 ![select the composite app you want to
 deploy](attachments/57739657/87693726.png "select the composite app you want to deploy")
 
 1.  In the Tooling interface, navigate to **Developer Studio Dashboard**
-    , and click **Server** under **Add Server** .
+    , and click **Server** under **Add Server**.
 
 2.  In the **Define a New Server** dialog box, expand the
     WSO2 folder and select the version of your server. In this case, it
     is `          WSO2 ESB Server 5.0.0         ` .  
     ![](attachments/53121319/53284204.png){width="600"}
-3.  Click **Next** . In the CARBON\_HOME field, provide the path to your
+3.  Click **Next**. In the CARBON\_HOME field, provide the path to your
     product's home directory and then click **Next** again. For
     example,  
     ![](attachments/53121319/53284218.png){width="600"}
@@ -78,13 +78,13 @@ deploy](attachments/57739657/87693726.png "select the composite app you want to 
 7.  On the **Servers** tab, note that the server is currently stopped.
     Click the "start the server" icon on the **Servers** tab's toolbar.
     If prompted to save changes to any of the artifact files you created
-    earlier, click **Yes** .  
+    earlier, click **Yes**.  
     ![](attachments/53121319/53285075.png){width="900"}
 
 8.  As the server starts, the **Console** tab appears. Note messages
     indicating that the Composite app was successfully deployed. The
     C-App is now available in the product's Management Console, under
-    **Manage -\> Carbon Applications -\> List** .
+    **Manage -\> Carbon Applications -\> List**.
 
 !!! tip
     
@@ -109,7 +109,7 @@ file](https://docs.wso2.com/display/ADMIN44x/Packaging+Artifacts+into+Composite+
 and then deploy the created CAR file as follows:
 
 1.  Click the **Main** tab on the Management Console, go to **Manage**
-    -\> **Carbon Applications** and then click **Add** .
+    -\> **Carbon Applications** and then click **Add**.
 
     The **Add Carbon Applications** screen appears.
 
@@ -122,7 +122,7 @@ and then deploy the created CAR file as follows:
 3.  Refresh the browser to see that the CAR file has been deployed.
 
 4.  Click the **Main** tab on the Management Console, go to **Manage**
-    -\> **Carbon Applications** and then click **List** . If
+    -\> **Carbon Applications** and then click **List**. If
     successfully deployed, the CAR file appears here.
 
 !!! tip
@@ -144,7 +144,7 @@ to keep the configurations on all nodes of the cluster in sync.
 #### Deploying using the Maven plug-in
 
 1.  Open the `           pom.xml          ` file of the **Composite
-    Application Project** . In the **Source** view, search for
+    Application Project**. In the **Source** view, search for
     `           maven-car-deploy-plugin          ` under the
     `           <plugins>          ` element and edit the
     `           <trustStorePath>          ` so that it points to the
@@ -187,7 +187,7 @@ to keep the configurations on all nodes of the cluster in sync.
     the following:
 
     -   Open the `             pom.xml            ` file of the
-        **Composite Application Project** . In the **Source** view, add
+        **Composite Application Project**. In the **Source** view, add
         the following line in the
         `             <properties>            ` section:
 

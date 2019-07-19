@@ -46,7 +46,7 @@ Adapters used to connect with different users stores are called *User
 Store Managers* . By default, there are user store managers for JDBC,
 LDAP and Active Directory user stores. If you need to add a new user
 store implementation, see [Writing a Custom User Store
-Manager](_Writing_a_Custom_User_Store_Manager_) . When you configure the
+Manager](_Writing_a_Custom_User_Store_Manager_). When you configure the
 user store, you have to set the user store manager class name.
 
 The permissions attached to roles are always stored in an RDBMS. With

@@ -26,10 +26,10 @@ of authentication.
         a Service Provider for Adaptive
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   Download and install [Apache Directory
-        Studio](http://directory.apache.org/studio/downloads.html) .
+        Studio](http://directory.apache.org/studio/downloads.html).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 1.  Login to the mangement console.
@@ -38,12 +38,12 @@ of authentication.
     [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com/)
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication** .
+    **Advanced Authentication**.
 4.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **User
     Store-Based**.  
     ![script-based-conditional-authentication](../../assets/img/tutorials/script-based-conditional-authentication.png)
-5.  Click **Ok** . The authentication script and authentication steps
+5.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users that belong to the user stores named "
     `           EMPLOYEES          ` " and "
@@ -58,9 +58,9 @@ of authentication.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
         ![delete-totp-authenticator](../../assets/img/tutorials/delete-totp-authenticator.png)
-    2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
         ![demo-hardware-key-authenticator](../../assets/img/tutorials/demo-hardware-key-authenticator.png)
-7.  Click **Update** .
+7.  Click **Update**.
 8.  Next, set up the database. This database will be connected to WSO2
     Identity Server as a user store named "
     `           EMPLOYEES          ` ".  If you do not already have an
@@ -76,12 +76,12 @@ of authentication.
 
 	1.  Open Apache Directory Studio.
 	2.  In the **LDAP Servers** tab found on the bottom left corner,
-		click **New Server** .  
+		click **New Server**.  
 		![new-server](../../assets/img/tutorials/new-server.png)
-	3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish** .  
+	3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish**.  
 		![select-ldap-server](../../assets/img/tutorials/select-ldap-server.png)
 	4.  Right-click on the newly created server and click **Open
-		Configuration** .
+		Configuration**.
 
 		![ldap-server-config](../../assets/img/tutorials/ldap-server-config.png)
 
@@ -156,7 +156,7 @@ of authentication.
     
     ![second-step-of-authentication](../../assets/img/tutorials/second-step-of-authentication.png) 
     
-    Enter the 4 digit key and click **Sign In** .  
+    Enter the 4 digit key and click **Sign In**.  
     
     ![signing-in-with-four-digit-key](../../assets/img/tutorials/signing-in-with-four-digit-key.png) 
     

@@ -13,7 +13,7 @@ Follow the instructions given below to access statistics on application
 logs:
 
 1.  Log on to the product's management console and select **Monitor -\>
-    Application Logs** .  
+    Application Logs**.  
 2.  The "Application Logs" page appears. This page displays logs of a
     selected application in a bottom-up manner.
 
@@ -36,7 +36,7 @@ logs:
     ![](attachments/103329455/103329457.png)
 
 5.  You can also find a certain log using the search function. Enter a
-    keyword (or part of a keyword) and click **Search** . When a search
+    keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
-    **Custom** . For example,  
+    **Custom**. For example,  
     ![](attachments/103329455/103329458.png){width="636"}

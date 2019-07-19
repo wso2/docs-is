@@ -82,11 +82,11 @@ as shown below:
 
 1.  Select a collection. You can see the Entries panel with details of
     child collections and resources it has.
-2.  Click **Add Collection** . ![](attachments/22185138/22514113.png)
+2.  Click **Add Collection**. ![](attachments/22185138/22514113.png)
 3.  Specify the following options:  
     -   A unique name for the collection and a description
     -   Select a media type from the drop-down menu
-4.  Click **Add** .
+4.  Click **Add**.
 
 ### Adding resources to a collection
 
@@ -95,7 +95,7 @@ resources as follows:
 
 1.  Select a collection. In its detailed view, you can see the Entries
     panel with details of child collections and resources it has.
-2.  In the Entries panel, click **Add Resource** .
+2.  In the Entries panel, click **Add Resource**.
     ![](attachments/22185139/22514115.png)
 3.  In the Add Resource page that opens, select one of the following
     methods **:**

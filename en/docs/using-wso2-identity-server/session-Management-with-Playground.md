@@ -196,7 +196,7 @@ implementing OpenID Connect
 1.  Start the IS server and log into the management console.
 2.  [Add a new service
     provider](https://docs.wso2.com/display/IS530/Adding+and+Configuring+a+Service+Provider#AddingandConfiguringaServiceProvider-ConfiguringaServiceProvider-Addingaserviceprovider)
-    named "playground2" and click **Register** .  
+    named "playground2" and click **Register**.  
     ![](attachments/103329986/103329999.png){width="602" height="236"}
 3.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** and click
@@ -226,7 +226,7 @@ implementing OpenID Connect
 
 5.  Enter
     `                       http://wso2is.local:8080/playground2/oauth2client                     `
-    as the callback URL and click **Add** .  
+    as the callback URL and click **Add**.  
     ![](attachments/103329986/103329987.png){width="700"}
 
     !!! note
@@ -246,8 +246,8 @@ implementing OpenID Connect
 
 1.  Access the following URL **:**
     `          http://wso2is.local:8080/playground2/         ` and click
-    on **Import Photos** .
-2.  Enter the following values and click **Authorize** .  
+    on **Import Photos**.
+2.  Enter the following values and click **Authorize**.  
     -   **Authorization Grant Type:** Authorization Code (with this
         sample you can only test OIDC for the Authorization Code flow)
     -   **Client Id:** Enter the client ID (OAuth Client Key under
@@ -308,7 +308,7 @@ implementing OpenID Connect
     ![](attachments/103329986/103329993.png){width="640"}
 
 10. Go back to the browser window of the playground3 app, and click
-    **Logout** . Click **Approve** when prompted for consent.
+    **Logout**. Click **Approve** when prompted for consent.
 11. Go back to the browser window of the playground2 app. You will see
     that the home page has loaded. If you check the console logs, you
     will note that the the playground2 app’s RP iframe has initiated a
@@ -340,5 +340,5 @@ the user session at the server end. A sample iframe is shown below.
     particular page after the RP sends the OpenID Connect logout request.
     For more information on how to configure the redirect logout, see
     [OpenID Connect Logout URL
-    Redirection](_OpenID_Connect_Logout_URL_Redirection_) .
+    Redirection](_OpenID_Connect_Logout_URL_Redirection_).
     

@@ -84,7 +84,7 @@ by default.
 
 This feature is disabled by default. To enable the API, set the
 `         <Enable>        ` property in the
-`         health-check-config.xml        ` file to **true** .  
+`         health-check-config.xml        ` file to **true**.  
 
 !!! tip
     

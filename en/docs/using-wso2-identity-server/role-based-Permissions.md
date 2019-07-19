@@ -208,7 +208,7 @@ follows:
     <td>When the <strong>Admin/Monitor</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <br />
     <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="_System_Statistics_">system statistics</a> for information on how to use this option.<br />
-    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="_SOAP_Tracer_">SOAP tracer</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="../../using-wso2-identity-server/soap-tracer_">SOAP tracer</a> for information on how to use this option.<br />
     <br />
     - Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</td>
     </tr>
@@ -225,7 +225,7 @@ follows:
 **Related Topics**
 
 -   See [Configuring Roles and
-    Permissions](_Configuring_Roles_and_Permissions_) .
+    Permissions](_Configuring_Roles_and_Permissions_).
 -   See [Permissions Required to Invoke Admin
     Services](_Permissions_Required_to_Invoke_Admin_Services_) for a
     complete list of permissions required to invoke admin services.

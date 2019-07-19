@@ -16,10 +16,10 @@ Guide for more information about logging.
 Follow the instructions below to access the System Log statistics.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click on **Monitor** on the left side of the screen and click on
-    **System Logs** .
+    **System Logs**.
 3.  The following screen appears. T he log messages displayed on this
     page are obtained from a memory appender. Hence, the severity (log
     level) of the displayed log messages is equal to or higher than the

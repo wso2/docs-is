@@ -95,7 +95,7 @@ store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%
     
         You may have done this step already if you configured the [Duo
         Security Provisioning
-        Connector](_Configuring_Duo_Security_Provisioning_Connector_) . If
+        Connector](_Configuring_Duo_Security_Provisioning_Connector_). If
         so, you can skip this step.
     
 
@@ -130,7 +130,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To do this, see the topic on [deploying the travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Configuring the identity provider
 
@@ -140,22 +140,22 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
-4.  Give a suitable name as the **Identity Provider Name** .
-5.  Go to **Duo Configuration** under **Federated Authenticators** .  
+    console, click **Add** under **Identity Providers**.
+4.  Give a suitable name as the **Identity Provider Name**.
+5.  Go to **Duo Configuration** under **Federated Authenticators**.  
     ![](attachments/51486739/51451222.png){width="700" height="689"}
 6.  Enter the values for **Integration Key** , **Secret Key** , **Admin
     Integration Key** , **Admin Secret Key** ( Admin Integration Key
     and Admin Secret Key are optional) and **Host** , as indicated in
     the above figure.
 7.  Select both check-boxes to **Enable** the Duo Authenticator and make
-    it the **Default** .
-8.  Click **Register** .
+    it the **Default**.
+8.  Click **Register**.
 
 You have now added the identity provider.  
 
@@ -166,10 +166,10 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -183,13 +183,13 @@ The next step is to configure the service provider.
         [http://localhost:8081/travelocity.com/home.jsp](http://localhost:8080/travelocity.com/home.jsp)
 
 6.  Select the following check boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
         ![](attachments/51486739/51451223.png){width="700"}
 
 7.  Click **Update** to save the changes. Now you will be sent back to

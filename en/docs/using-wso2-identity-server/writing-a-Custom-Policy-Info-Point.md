@@ -31,7 +31,7 @@ customers. These attributes can be age, email, etc. To achieve
 Attribute-based Access Control (ABAC); user attributes that are stored
 in a JDBC-based user store must be retrieved by the PDP of the WSO2
 Identity Server. This sample project can be downloaded
-[here](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/) .
+[here](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/).
 
 1.  In our sample scenario, the "K-Market attribute store" is a MySQL
     database. See
@@ -138,9 +138,9 @@ Use the following steps to check the PIP module.
 
 1.  [Restart the WSO2 Identity Server](_Running_the_Product_) and log in
     to the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 2.  Go to the **Main** menu of the management console and click
-    **Extension** under **PDP** .
+    **Extension** under **PDP**.
 3.  You can see that PIP attribute finder has been registered
     successfully and is visible under the **Attribute Finder
     Extensions** list. You can re-initialize this at run time.
@@ -154,7 +154,7 @@ Use the following steps to check the PIP module.
     Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt
-    PEP](_Using_the_XACML_TryIt_Tool_) .
+    PEP](_Using_the_XACML_TryIt_Tool_).
 
     About debugging the sample code
 

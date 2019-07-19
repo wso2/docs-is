@@ -5,7 +5,7 @@ token it has issued, which can be used by the resource server. This
 section guides you through calling the SOAP service using the SOAP UI.
 
 The relevant code segment in the sample webapp [WSO2
-playground2](_Downloading_a_Sample_) for OAuth2 can be found
+playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 can be found
 [here](https://github.com/wso2/product-is/blob/5.x.x/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
 .
 
@@ -53,4 +53,4 @@ playground2](_Downloading_a_Sample_) for OAuth2 can be found
 
 In order to get the user claims of the authorized user as a JWT token
 with the validation response, see [JWT Token
-Generation](_JWT_Token_Generation_) .
+Generation](_JWT_Token_Generation_).

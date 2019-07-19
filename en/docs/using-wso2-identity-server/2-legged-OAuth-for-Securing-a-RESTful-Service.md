@@ -5,7 +5,7 @@ This page consists of the procedure to secure a RESTful service with
 
 1.  Download [WSO2 Identity
     Server](http://wso2.com/products/identity-server) and [WSO2
-    ESB](http://wso2.com/products/enterprise-service-bus) .
+    ESB](http://wso2.com/products/enterprise-service-bus).
 2.  Extract the WSO2 Identity Server and WSO2 ESB ZIP files into a
     directory in your file system. Call them IS\_HOME and ESB\_HOME
     respectively.
@@ -38,7 +38,7 @@ This page consists of the procedure to secure a RESTful service with
 9.  Sign-in as an admin by providing a username and password.
 10. Create a proxy service in WSO2 ESB by adding following configuration
     in to the service bus configuration which can be found under
-    **Manage \> Service Bus \> Source View** . Alternatively, simply
+    **Manage \> Service Bus \> Source View**. Alternatively, simply
     update the synapse configuration of ESB with the content in
     `           org.wso2.carbon.identity.samples.oauth/src/main/resources/synapse.xml          `
     .

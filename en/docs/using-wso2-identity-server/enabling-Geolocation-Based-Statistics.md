@@ -38,7 +38,7 @@ the regions of the users authenticated though WSO2 Identity Server.
     !!! tip
     
         You can also run the scripts using [MySQL
-        Workbench](https://dev.mysql.com/downloads/workbench/) . For
+        Workbench](https://dev.mysql.com/downloads/workbench/). For
         detailed instructions, see [MySQL Documentation - The Workbench
         Scripting
         Shell](https://dev.mysql.com/doc/workbench/en/wb-scripting-shell.html)

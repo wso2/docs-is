@@ -8,9 +8,9 @@ to use this sample.
 1.  Add a new service provider.
     1.  Sign in. Enter your username and password to log on to the
         [Management
-        Console](_Getting_Started_with_the_Management_Console_) .
+        Console](../../setup/getting-started-with-the-management-console).
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.
@@ -26,7 +26,7 @@ to use this sample.
 To obtain and configure the Playground sample, follow the steps below.
 
 1.  You can check out the repository of the OAuth 2.0 sample from
-    GitHub. Follow the instructions [here](_Downloading_a_Sample_) to
+    GitHub. Follow the instructions [here](../../using-wso2-identity-server/downloading-a-sample) to
     checkout the folder. We refer `           <SAMPLE_HOME>          `
     as the modules/samples folder inside the folder where the product-is
     repository is checked out.

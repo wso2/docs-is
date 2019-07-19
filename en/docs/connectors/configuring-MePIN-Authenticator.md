@@ -128,7 +128,7 @@ See the following sections for more information.
         log the user in as the first step (basic authentication).
 
     The first step may be local authenticator (basic) or a federated
-    authenticator (e.g., Facebook, Twitter, etc.) . In federated
+    authenticator (e.g., Facebook, Twitter, etc.). In federated
     authenticator support in first step, the following parameters are
     used according to the scenario.
 
@@ -250,8 +250,8 @@ provider](http://docs.wso2.com/identity-server/Configuring%2520an%2520Identity%2
     console](http://docs.wso2.com/identity-server/Getting%20Started%20with%20the%20Management%20Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-4.  Give a suitable name as the **Identity Provider Name** .  
+    management console, click **Add**.
+4.  Give a suitable name as the **Identity Provider Name**.  
       
     ![](attachments/48283197/49222048.png){width="800"}
 5.  Go to MePIN Configuration under Federated Authenticators .
@@ -279,9 +279,9 @@ provider](http://docs.wso2.com/identity-server/Configuring%2520an%2520Identity%2
         notifications.
 
 7.  Select both checkboxes to **Enable** MePIN Authenticator and make it
-    the **Default** .
+    the **Default**.
 
-8.  Click **Register** .
+8.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -308,13 +308,13 @@ The next step is to configure the service provider.
         <http://localhost:8080/travelocity.com/home.jsp>
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
           
         ![](attachments/48283197/49222047.png){width="800"}
 
@@ -335,15 +335,15 @@ You have now added and configured the service provider.
 ### Configuring User Claim
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  From the list of users that appear in the resulting page, identify
     the user whose attributes you want to modify and click **User
-    Profile** .
-4.  In the **Main** menu, click **Add** under **Claims** .
+    Profile**.
+4.  In the **Main** menu, click **Add** under **Claims**.
 5.  Click [Add New
-    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 6.  Select the **Dialect** from the drop down provided and enter the
     required information.
 7.  Add the user claim <http://wso2.org/claims/identity/mepinid> as

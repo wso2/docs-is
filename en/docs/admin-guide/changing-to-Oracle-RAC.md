@@ -21,7 +21,7 @@ purpose.
     
     You need to set up Oracle RAC before following the steps to configure
     your product with Oracle RAC. For more information, see [Setting up
-    Oracle RAC](_Setting_up_Oracle_RAC_) .
+    Oracle RAC](_Setting_up_Oracle_RAC_).
     
 
 ### Setting up datasource configurations

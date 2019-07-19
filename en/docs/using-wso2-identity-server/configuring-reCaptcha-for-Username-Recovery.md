@@ -10,7 +10,7 @@ By configuring reCaptcha, you can mitigate or block brute force attacks.
 !!! note
     
     For more information on setting up username recovery, see [Username
-    Recovery](https://docs.wso2.com/display/IS570/Username+Recovery) .
+    Recovery](https://docs.wso2.com/display/IS570/Username+Recovery).
     
     For more information on brute force attacks, see [Mitigating Brute Force
     Attacks](https://docs.wso2.com/display/IS550/Mitigating+Brute+Force+Attacks)
@@ -38,7 +38,7 @@ reCaptcha for a specific tenant.
     console](https://localhost:9443/carbon/admin/login.jsp) as tenant
     admin.
 4.  On the **Main** tab, click on **Identity Provider** → **Resident
-    Identity Provider** .
+    Identity Provider**.
 
 5.  Expand the **Account Management Policies** tab, then click on
     **Account Recovery.**
@@ -51,7 +51,7 @@ reCaptcha for a specific tenant.
 
 7.  You have now successfully configured reCaptcha for the username
     recovery flow. Start the WSO2 Identity Server and log into the end
-    user [dashboard](https://localhost:9443/dashboard) .
+    user [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     
@@ -59,7 +59,7 @@ reCaptcha for a specific tenant.
         the port or hostname accordingly.
     
 
-8.  Click on **Forgot Username** .
+8.  Click on **Forgot Username**.
 
 ![](https://lh3.googleusercontent.com/Q62vVVWsshUM8-yjDJpOi4WXv_tDjMwC2ylDOFfD9HBpYdDQE9p6eNExhP4ytEcpLjZsWKoSlch64XXEhaM67bbScBGbtXXomNlS0zye4xXbaPzwbGD0aiTUF0ONcuIQq2bsu0Ha){width="368"
 height="478"}
@@ -122,7 +122,7 @@ reCaptcha globally.
 
 3.  You have now successfully configured reCaptcha for the username
     recovery flow. Start WSO2 Identity Server and log into the end user
-    [dashboard](https://localhost:9443/dashboard) .
+    [dashboard](https://localhost:9443/dashboard).
 
     !!! tip
     

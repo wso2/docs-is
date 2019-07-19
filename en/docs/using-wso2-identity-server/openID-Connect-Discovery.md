@@ -59,7 +59,7 @@ location.
 
 1.  Open the `            identity.xm           ` l file found in the
     `            <IS_HOME>/repository/conf/identity/           ` folder
-    and set the following property to **true** .
+    and set the following property to **true**.
 
     ``` java
     <UseEntityIdAsIssuerInOidcDiscovery>true</UseEntityIdasIssuerInOidcDiscovery> 
@@ -155,7 +155,7 @@ for the request.
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating
     and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_) .
+    APIs](_Authenticating_and_Authorizing_REST_APIs_).
 
 Sample requests and responses are given below:
 

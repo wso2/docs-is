@@ -158,7 +158,7 @@ performance concerns.
 When setting up your cluster, you must decide how you want to set up and
 [share your databases](_Sharing_Databases_in_a_Cluster_) , whether to
 front your cluster with a [load balancer](_Load_Balancing_) , and
-whether to use [sticky sessions](_Sticky_Sessions_with_Manager_Nodes_) .
+whether to use [sticky sessions](_Sticky_Sessions_with_Manager_Nodes_).
 You also need to make a decision on whether to [separate the worker and
 manager nodes](_Separating_the_Worker_and_Manager_Nodes_) in the
 cluster.

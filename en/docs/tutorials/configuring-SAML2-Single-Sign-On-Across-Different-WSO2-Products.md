@@ -93,7 +93,7 @@ setup.
 For single sign-on to work, you need to configure the WSO2 products to
 share a common user store. For more information on configuring this, see
 [Configuring the Primary User
-Store](_Configuring_the_Primary_User_Store_) .
+Store](_Configuring_the_Primary_User_Store_).
 
 #### Step 4 - Configuring the Identity Server as the Single Sign-On provider
 
@@ -107,20 +107,20 @@ configuration for registering a Carbon server as a service provider.
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.
 4.  Click **Register** to add the new service provider.
 5.  Expand the **Inbound Authentication Configuration** section,
     followed by the **SAML2 Web SSO Configuration** section and click
-    **Configure** .
+    **Configure**.
 6.  Fill in the form that appears.
-    -   Specify the **Issuer** . This should be equal to the
+    -   Specify the **Issuer**. This should be equal to the
         `            ServiceProviderID           ` value mentioned in
         the `            authenticators.xml           ` of the relying
         party Carbon server.
-    -   Specify the **Assertion Consumer URL** . This is the URL to
+    -   Specify the **Assertion Consumer URL**. This is the URL to
         which the browser should be redirected after the authentication
         is successful. It should have this format:
         `                         https://(host-name):(port)/acs                       `

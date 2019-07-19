@@ -17,7 +17,7 @@ credentials (basic authentication) to access a resource.
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 ### Configuring the sample scenario
@@ -37,15 +37,15 @@ credentials (basic authentication) to access a resource.
 6.  Navigate to the **Main** tab of the management console and click
     **List** under **Service Providers**.
 7.  Edit the **saml2-web-app-dispatch.com** service provider and select
-    **Saas application** . This enables users from other tenant domains
+    **Saas application**. This enables users from other tenant domains
     such as **abc.com** or **123.com** to log in to the application.  
     ![enable-saas-app](../../assets/img/tutorials/enable-saas-app.png)
 8.  Expand the **Local and Outbound Configuration** section and click
-    **Advanced Authentication** .
+    **Advanced Authentication**.
 9.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Tenant-Based**.  
     ![tenant-based-template](../../assets/img/tutorials/tenant-based-template.png)
-10. Click **Ok** . The authentication script and authentication steps
+10. Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users that belong to the tenant domains named "
     `          abc.com         ` " and " `          xyz.com         `
@@ -59,9 +59,9 @@ credentials (basic authentication) to access a resource.
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
         ![delete-totp-authenticator](../../assets/img/tutorials/delete-totp-authenticator.png)
-    2.  Select **Demo Hardware Key Authenticator** and click **Add** .  
+    2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
         ![add-new-authenticator](../../assets/img/tutorials/add-new-authenticator.png)
-12. Click **Update** .
+12. Click **Update**.
 
 ### Trying out the sample scenario
 
@@ -77,7 +77,7 @@ credentials (basic authentication) to access a resource.
     ![pickup-sign-in-chris](../../assets/img/tutorials/pickup-sign-in-chris.png)  
     Note that you are prompted for harware key authentication because
     **abc.com** is a whitelisted tenant domain.
-5.  Enter the 4 digit key and click **Sign In** . You are successfully
+5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  
     ![hardware-key-authenticator](../../assets/img/tutorials/hardware-key-authenticator.png)
 6.  Log out and log in with Kim's credentials. Kim is the admin of the

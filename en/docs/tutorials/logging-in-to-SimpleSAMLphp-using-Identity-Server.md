@@ -176,7 +176,7 @@ Ubuntu.
         Response is signed with this certificate.
 
 10. Install WSO2 Identity Server. The WSO2 Identity Server is available
-    for download [here](http://wso2.com/products/identity-server) .
+    for download [here](http://wso2.com/products/identity-server).
 11. [Start WSO2 Identity
     Server](https://docs.wso2.com/display/IS530/Running+the+Product) and
     add a Service Provider under SAML SSO.
@@ -195,10 +195,10 @@ Ubuntu.
 
 12. In the **Main** menu of the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
-    , click **Resident** under **Identity Providers** .
+    , click **Resident** under **Identity Providers**.
 
 13. On the page that appears, open the **SAML2 Web SSO Configuration**
-    section under **Inbound Authentication Configuration** .
+    section under **Inbound Authentication Configuration**.
 14. The ID value of the identity provider should be the SAML endpoint of
     the Identity Server:
     `          https://{yourhost}:{port}/samlsso         `
