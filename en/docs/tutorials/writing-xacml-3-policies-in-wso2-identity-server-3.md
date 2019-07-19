@@ -10,7 +10,7 @@ This page addresses the following authorization requirements:
     by users belonging to the admin\_emps group.
 3.  Requests to any other service or operation should fail.
 
-``` html/xml
+``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="sample" <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="sample" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
     <Description>sample policy</Description>
     <Target></Target>
@@ -75,7 +75,7 @@ Applicable/Deny" once evaluated against the above policy.
 -   **User** - "admin" belongs only to the "admin\_customers" group
 -   **Result** - Permit
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
@@ -111,7 +111,7 @@ AnyOf - SHALL contain a disjunctive sequence of \<AllOf\> elements.
 \<AllOf\> element SHALL contain a conjunctive sequence of \<Match\>
 elements. – AND
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
