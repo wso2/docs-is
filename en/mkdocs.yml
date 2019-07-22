@@ -101,26 +101,25 @@ nav:
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
-      - 'Authentication': tutorials/authentication.md
-      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-Identity-Server-using-Facebook-Credentials.md
-      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-Shibboleth-IdP-as-a-Trusted-Identity-Provider.md
-      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-SimpleSAMLphp-using-Identity-Server.md
-      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-SSO-for-Management-Console-using-OpenSSO-as-the-IDP.md
-      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-Salesforce-using-the-Identity-Server.md
-      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-Salesforce-with-Facebook.md
-      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-Salesforce-with-Integrated-Windows-Authentication.md
-      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-WSO2-Products-via-the-Identity-Server.md
-      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-Workday-using-the-Identity-Server.md
-      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-Microsoft-Dynamics-CRM-with-WS-Federation.md
-      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-Microsoft-Sharepoint-Web-Applications-using-Identity-Server.md
-      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-Office365-with-WS-Trust.md
-      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.NET-application-using-the-Identity-Server.md
-      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-REST-APIs-via-XACML-to-Manage-Entitlement.md
-      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-Google-using-the-Identity-Server.md
-      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-Application-Using-Google.md
-      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-OIDC-Encrypted-ID-Token-with-IS.md
-      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-OIDC-Authentication-Request-Parameters-in-a-Request-Object.md
-      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-Signature-Validation-for-Request-Objects.md
+      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
+      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
+      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-simplesamlphp-using-identity-server.md
+      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-sso-for-management-console-using-opensso-as-the-idp.md
+      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-salesforce-using-the-identity-server.md
+      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-salesforce-with-facebook.md
+      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-salesforce-with-integrated-windows-authentication.md
+      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-wso2-products-via-the-identity-server.md
+      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-workday-using-the-identity-server.md
+      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-microsoft-dynamics-crm-with-ws-federation.md
+      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-microsoft-sharepoint-web-applications-using-identity-server.md
+      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-office365-with-ws-trust.md
+      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.net-application-using-the-identity-server.md
+      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-rest-apis-via-xacml-to-manage-entitlement.md
+      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-google-using-the-identity-server.md
+      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-application-using-google.md
+      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-oidc-encrypted-id-token-with-is.md
+      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-oidc-authentication-request-parameters-in-a-request-object.md
+      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-signature-validation-for-request-objects.md
     - 'Adaptive Authentication':
       - 'Adaptive Authentication': tutorials/adaptive-authentication.md
       - 'Configuring a Service Provider for Adaptive Authentication': tutorials/configuring-a-service-provider-for-adaptive-authentication.md
