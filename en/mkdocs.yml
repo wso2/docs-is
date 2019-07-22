@@ -185,7 +185,7 @@ nav:
         - 'Client-side Support for SAML Artifact Binding': tutorials/client-side-Support-for-SAML-Artifact-Binding.md
         - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': tutorials/eIDAS-SAML-Attribute-Profile-Support-via-WSO2-Identity-Server.md
     - 'Access Control':
-      - 'Access Control': tutorials/access-control.md
+      - 'Access Control Overview': tutorials/access-control.md
       - 'Working with Entitlement':
         - 'Configuring the Policy Administration Point':
           - 'Configuring the Policy Administration Point': tutorials/configuring-the-policy-administration-point.md
@@ -202,36 +202,36 @@ nav:
         - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-access-control-policy-for-a-service-provider.md
         - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
       - 'Working with XACML':
-        - 'Working with XACML': tutorials/working-with-XACML.md
-        - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-WSO2-EI-Entitlement-Mediator-with-Identity-Server.md
-        - 'Enabling REST Notifications For XACML Policy Updates': tutorials/enabling-REST-Notifications-For-XACML-Policy-Updates.md
-        - 'Identity Server as an XACML Engine': tutorials/identity-Server-as-an-XACML-Engine.md
+        - 'Working with XACML': tutorials/working-with-xacml.md
+        - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
+        - 'Enabling REST Notifications For XACML Policy Updates': tutorials/enabling-rest-notifications-for-xacml-policy-updates.md
+        - 'Identity Server as an XACML Engine': tutorials/identity-server-as-an-xacml-engine.md
         - 'Working with XACML Multiple Decision Profile Requests': 
-          - 'Working with XACML Multiple Decision Profile Requests': tutorials/working-with-XACML-Multiple-Decision-Profile-Requests.md
-          - 'Working with MDP Requests by Repeating Attribute Categories': tutorials/working-with-MDP-Requests-by-Repeating-Attribute-Categories.md
-          - 'Working with MDP Requests to Authorize Hierarchical Resources': tutorials/working-with-MDP-Requests-to-Authorize-Hierarchical-Resources.md
-          - 'Working with MDP Requests in JSON Format': tutorials/working-with-MDP-Requests-in-JSON-Format.md
-        - 'Fine-grained Authorization using XACML Requests in JSON Format': tutorials/
-        - 'Improving XACML PDP Performance with Caching Techniques': tutorials/improving-XACML-PDP-Performance-with-Caching-Techniques.md
-        - 'Integrating WSO2 Identity Server with Liferay': tutorials/integrating-WSO2-Identity-Server-with-Liferay.md
+          - 'Working with XACML Multiple Decision Profile Requests Overview': tutorials/working-with-xacml-multiple-decision-profile-requests.md
+          - 'Working with MDP Requests by Repeating Attribute Categories': tutorials/working-with-mdp-requests-by-repeating-attribute-categories.md
+          - 'Working with MDP Requests to Authorize Hierarchical Resources': tutorials/working-with-mdp-requests-to-authorize-hierarchical-resources.md
+          - 'Working with MDP Requests in JSON Format': tutorials/working-with-mdp-requests-in-json-format.md
+        - 'Fine-grained Authorization using XACML Requests in JSON Format': tutorials/fine-grained-authorization-using-xacml-requests-in-json-format.md
+        - 'Improving XACML PDP Performance with Caching Techniques': tutorials/improving-xacml-pdp-performance-with-caching-techniques.md
+        - 'Integrating WSO2 Identity Server with Liferay': tutorials/integrating-wso2-identity-server-with-liferay.md
         - 'Writing XACML2.0 Policies in WSO2 Identity Server':
-          - 'Writing XACML2.0 Policies in WSO2 Identity Server': tutorials/writing-XACML2.0-Policies-in-WSO2-Identity-Server.md
-          - 'Writing XACML policies in WSO2 Identity Server - 1': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---1.md
-          - 'Writing XACML policies in WSO2 Identity Server - 2': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---2.md
-          - 'Writing XACML policies in WSO2 Identity Server - 3': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---3.md
-          - 'Writing XACML policies in WSO2 Identity Server - 4': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---4.md
-          - 'Writing XACML policies in WSO2 Identity Server - 5': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---5.md
-          - 'Writing XACML policies in WSO2 Identity Server - 6': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---6.md
-          - 'Writing XACML policies in WSO2 Identity Server - 7': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---7.md
+          - 'Writing XACML2.0 Policies in WSO2 Identity Server': tutorials/writing-xacml2.0-policies-in-wso2-identity-server.md
+          - 'Writing XACML policies in WSO2 Identity Server - 1': tutorials/writing-xacml-policies-in-wso2-identity-server-1.md
+          - 'Writing XACML policies in WSO2 Identity Server - 2': tutorials/writing-xacml-policies-in-wso2-identity-server-2.md
+          - 'Writing XACML policies in WSO2 Identity Server - 3': tutorials/writing-xacml-policies-in-wso2-identity-server-3.md
+          - 'Writing XACML policies in WSO2 Identity Server - 4': tutorials/writing-xacml-policies-in-wso2-identity-server-4.md
+          - 'Writing XACML policies in WSO2 Identity Server - 5': tutorials/writing-xacml-policies-in-wso2-identity-server-5.md
+          - 'Writing XACML policies in WSO2 Identity Server - 6': tutorials/writing-xacml-policies-in-wso2-identity-server-6.md
+          - 'Writing XACML policies in WSO2 Identity Server - 7': tutorials/writing-xacml-policies-in-wso2-identity-server-7.md
         - 'Writing XACML3 Policies in WSO2 Identity Server':
-          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---1.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---2.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---3.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---4.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---5.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---6.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---7.md
+          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-xacml3-policies-in-wso2-identity-server.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-xacml-3-policies-in-wso2-identity-server-1.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-xacml-3-policies-in-wso2-identity-server-2.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-xacml-3-policies-in-wso2-identity-server-3.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-xacml-3-policies-in-wso2-identity-server-4.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-xacml-3-policies-in-wso2-identity-server-5.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-xacml-3-policies-in-wso2-identity-server-6.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-xacml-3-policies-in-wso2-identity-server-7.md
         - 'Sending Notifications to External PEP Endpoints': tutorials/sending-Notifications-to-External-PEP-Endpoints.md
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
       - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md

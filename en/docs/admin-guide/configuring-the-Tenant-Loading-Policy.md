@@ -20,7 +20,7 @@ and Eager loading work:
     are loaded on demand (upon a request sent to a particular tenant).
     When a tenant receives a request, the particular tenant and all
     tenant-specific artifacts, except **web applications** and **axis2
-    services** , get loaded. Therefore, if you have these artifacts (web
+    services**, get loaded. Therefore, if you have these artifacts (web
     applications and axis2 services) deployed in your tenants, you will
     need to separately enable lazy loading for artifacts using the
     `          GhostDeployment         ` setting. If lazy loading is not
@@ -100,7 +100,7 @@ deployed only when the artifact is requested.
 
 !!! note
     
-    **Before you enable lazy loading of artifacts** , note the following:
+    **Before you enable lazy loading of artifacts**, note the following:
     
     -   This setting is only applicable to the following artifacts: web
         applications and axis2 services.
@@ -185,7 +185,7 @@ your system. You can configure this value using two methods.
 Follow the instructions given below to change the tenant loading policy
 to eager loading.
 
-!!! note **Before you enable eager loading** , note the following:
+!!! note **Before you enable eager loading**, note the following:
     
     -   Web applications and axis2 services that are deployed as artifacts
         in your tenants follow the eager loading behavior by default unless
@@ -225,14 +225,14 @@ to eager loading.
     -   If the setting should apply to all tenants, add `           `
         `            <Include>*</Include>           ` .
     -   If the setting should apply to all tenants, except
-        [foo.com](http://foo.com/) and [bar.com](http://bar.com/) , add
-        `            <Include>            *,!                         foo.com                        ,!                         bar.com                        </Include>.           `
+        [foo.com](http://foo.com/) and [bar.com](http://bar.com/), add
+        `            <Include>            *,!                         foo.com                       ,!                         bar.com                        </Include>.           `
     -   If the setting should apply only to [foo.com](http://foo.com/)
-        and [bar.com](http://bar.com/) , add
-        `            <Include>                         foo.com                        ,                         bar.com                        </Include>           `
+        and [bar.com](http://bar.com/), add
+        `            <Include>                         foo.com                       ,                         bar.com                        </Include>           `
         .
 
-Due to a [known issue](https://wso2.org/jira/browse/CARBON-15215) , when
+Due to a [known issue](https://wso2.org/jira/browse/CARBON-15215), when
 eager loading is enabled, tenants will be unloaded from memory if the
 tenant remains idle for more than 30 minutes. This issues will be
 resolved in the Carbon 4.5.0 release. In current product releases, you

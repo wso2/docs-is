@@ -284,7 +284,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
 9.  Now, check the user profile of admin user who is going to
     authenticate to the STS. Click on **My Profiles** at the left menu.
     The **Update Profile** form displays where you can enter various
-    user attributes such as **First Name** , **Last Name** , etc.
+    user attributes such as **First Name**, **Last Name**, etc.
 10. Make sure to add some values to the **First Name** and **Email
     address** fields since we are going to use those as the required
     claims.

@@ -57,7 +57,7 @@ Before you begin
     descriptions on each of the properties used in the
     `           <PRODUCT_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file which are used for
-    configuring the primary user store , see [Properties of User
+    configuring the primary user store, see [Properties of User
     Stores](_Working_with_Properties_of_User_Stores_).
 
     ``` html/xml
@@ -186,7 +186,7 @@ Before you begin
     5.  Set the `             ReadGroups            ` property to
         'true', if it should be allowed to read roles from this user
         store. When this property is 'true', you must also specify
-        values for the `             GroupSearchBase            ` ,
+        values for the `             GroupSearchBase            `,
         `             GroupSearchFilter            ` and
         `             GroupNameAttribute            ` properties. If the
         `             ReadGroups            ` property is set to
@@ -301,7 +301,7 @@ explained below.
 
 For information information about the system administrator user, see
 [Configuring the System
-Administrator](_Configuring_the_System_Administrator_) , and for
+Administrator](_Configuring_the_System_Administrator_), and for
 information on how keystores are used in WSO2 products, see [Using
 Asymmetric Encryption](_Using_Asymmetric_Encryption_).  
 

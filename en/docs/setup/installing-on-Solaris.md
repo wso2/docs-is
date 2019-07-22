@@ -2,7 +2,7 @@
 
 !!! tip
     
-    **Before you begin** , [please see our compatibility
+    **Before you begin**, [please see our compatibility
     matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
     to find out if this version of the product is fully tested on your
     operating system.

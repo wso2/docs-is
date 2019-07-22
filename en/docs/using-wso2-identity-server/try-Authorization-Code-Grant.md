@@ -66,7 +66,7 @@ to configure PKCE for an OAuth application.
     add the tenant domain as a query parameter to the access token
     endpoint.
 
-    If the tenant domain is *[wso2.com](http://wso2.com)* , access token
+    If the tenant domain is *[wso2.com](http://wso2.com)*, access token
     endpoint will be as follows.
 
     Access Token Endpoint:
@@ -146,7 +146,7 @@ to configure PKCE for an OAuth application.
     add the tenant domain as a query parameter to the access token
     endpoint.
 
-    If the tenant domain is *[wso2.com](http://wso2.com)* , access token
+    If the tenant domain is *[wso2.com](http://wso2.com)*, access token
     endpoint will be as follows.
 
     Access Token Endpoint:

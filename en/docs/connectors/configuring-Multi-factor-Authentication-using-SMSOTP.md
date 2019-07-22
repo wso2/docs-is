@@ -109,7 +109,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="odd">
     <td><pre><code>SMSOTPEnableByUserClaim</code></pre></td>
-    <td>This field makes it possible to disable the 'SMS OTP disabling by user' functionality. The value can be <code>                                   true                                 </code> or <code>                                                      false                                   </code> . If the value is <code>                                                      true                                   </code> , the user can enable and disable the SMS OTP according to what the admin selects ( <code>                                   SMSOTPMandatory                 </code> parameter value).</td>
+    <td>This field makes it possible to disable the 'SMS OTP disabling by user' functionality. The value can be <code>                                   true                                 </code> or <code>                                                      false                                   </code> . If the value is <code>                                                      true                                   </code>, the user can enable and disable the SMS OTP according to what the admin selects ( <code>                                   SMSOTPMandatory                 </code> parameter value).</td>
     </tr>
     <tr class="even">
     <td><pre><code>BackupCode</code></pre></td>
@@ -117,7 +117,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="odd">
     <td><pre><code>SMSOTPMandatory</code></pre></td>
-    <td>If the value is <code>                 true                </code> , the second step is enabled by the admin. The user cannot be authenticated without the SMS OTP authentication. This parameter is used for both the super tenant and tenant in the configuration. The value can be <code>                                   true                                 </code> or <code>                                   false.                                 </code></td>
+    <td>If the value is <code>                 true                </code>, the second step is enabled by the admin. The user cannot be authenticated without the SMS OTP authentication. This parameter is used for both the super tenant and tenant in the configuration. The value can be <code>                                   true                                 </code> or <code>                                   false.                                 </code></td>
     </tr>
     <tr class="even">
     <td><pre><code>SendOTPDirectlyToMobile</code></pre></td>
@@ -130,11 +130,11 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="even">
     <td><code>                 usecase                </code></td>
-    <td>This field can take one of the following values: <code>                                   local                                 </code> , <code>                                   association                                 </code> , <code>                                   userAttribute                                 </code> , <code>                                   subjectUri                                 </code> . If you do not specify any <code>                 usecase                </code> , the default value is <code>                 local                </code> .</td>
+    <td>This field can take one of the following values: <code>                                   local                                 </code>, <code>                                   association                                 </code>, <code>                                   userAttribute                                 </code>, <code>                                   subjectUri                                 </code> . If you do not specify any <code>                 usecase                </code>, the default value is <code>                 local                </code> .</td>
     </tr>
     <tr class="odd">
     <td><pre><code>secondaryUserstore</code></pre></td>
-    <td><p>The user store configuration is maintained per tenant as comma separated values. For example, <code>                  &lt;Parameter name="secondaryUserstore"&gt;jdbc                 </code> , <code>                  abc                 </code> , and <code>                  xyz&lt;/Parameter&gt;                 </code> .<br />
+    <td><p>The user store configuration is maintained per tenant as comma separated values. For example, <code>                  &lt;Parameter name="secondaryUserstore"&gt;jdbc                 </code>, <code>                  abc                 </code>, and <code>                  xyz&lt;/Parameter&gt;                 </code> .<br />
     </p></td>
     </tr>
     <tr class="even">
@@ -159,7 +159,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
 
     -   If the Admin specifies that SMS OTP is mandatory (
         `              <Parameter name="SMSOTPMandatory">true</Parameter>)             `
-        , you must enable SMS OTP in the user’s profile by adding the
+       , you must enable SMS OTP in the user’s profile by adding the
         claim value as true in order to authenticate the user. If this
         is not done, the SMSOTP error page appears.
     -   If the Admin specifies that SMSOTP is optional (
@@ -204,7 +204,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;Parameter</span><span class="ot"> name=</span><span class="st">&quot;userAttribute&quot;</span><span class="kw">&gt;</span>email<span class="kw">&lt;/Parameter&gt;</span></a></code></pre></div>
     </div>
     </div>
-    <p>If you use, OpenID Connect supported authenticators such as LinkedIn, Foursquare, etc., or in the case of multiple social login options as the first step and SMSOTP as secondstep , you need to add similar configuration for the specific authenticator in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                  </code> file under the &lt; <code>                   AuthenticatorConfigs                  </code> &gt; section as follows (the following shows the configuration forFoursquare,LinkedIn and Facebook authenticator respectively).</p>
+    <p>If you use, OpenID Connect supported authenticators such as LinkedIn, Foursquare, etc., or in the case of multiple social login options as the first step and SMSOTP as secondstep, you need to add similar configuration for the specific authenticator in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                  </code> file under the &lt; <code>                   AuthenticatorConfigs                  </code> &gt; section as follows (the following shows the configuration forFoursquare,LinkedIn and Facebook authenticator respectively).</p>
     <p>Inside the <code>                   AuthenticatorConfig                  </code> (i.e., Foursquare), add the specific <code>                   userAttribute                  </code> with a prefix of the (current step) authenticator name (i.e., SMSOTP-userAttribute).</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
@@ -250,12 +250,12 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
 
     <!-- -->
 
-    -   If you use a **tenant** , upload the same XML file (
+    -   If you use a **tenant**, upload the same XML file (
         `               application-authentication.xml              ` )
         into a specific registry location (
         `               /_system/governance/SMSOTP)              ` .
         Create the collection named
-        `               SMSOTP              ` , add the resource and
+        `               SMSOTP              `, add the resource and
         upload the
         `               application-authentication.xml              `
         file into theregistry). While doing the authentication, first it
@@ -344,7 +344,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     1.  Go to <https://dashboard.nexmo.com/sign-up> and click free
         signup and register.
-    2.  Under **API Settings** in **Settings** , copy and save the API
+    2.  Under **API Settings** in **Settings**, copy and save the API
         key and Secret.
     3.  The Nexmo API requires the parameters to be encoded in the URL,
         so the SMS URL would be as follows.
@@ -382,7 +382,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     3.  The Plivo API is authenticated with Basic Auth using your
         `              AUTH ID             ` and
-        `              AUTH TOKEN             ` , Your Plivo
+        `              AUTH TOKEN             `, Your Plivo
         `              AUTH ID             ` and
         `              AUTH TOKEN             ` can be found when you
         log in to your [dashboard.](https://manage.plivo.com/dashboard/)

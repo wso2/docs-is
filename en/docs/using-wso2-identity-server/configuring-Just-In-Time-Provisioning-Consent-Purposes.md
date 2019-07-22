@@ -18,7 +18,7 @@ WSO2 Identity Server:
     Before you begin,
     
     Download and install WSO2 Identity Server. For detailed information on
-    how to install, see [Installing the Product](_Installing_the_Product_).
+    how to install, see [Installing the Product](../../setup/installing-the-product).
     
 
 1.  Start WSO2 Identity Server and access the management console via
@@ -61,7 +61,7 @@ WSO2 Identity Server:
         -   When you configure purposes for JIT provisioning, the attributes
             that you specify for a specific purposes are the only attributes
             for which users are requested to provide consent.
-        -   If a user attribute is set as **Mandatory** , JIT provisioning
+        -   If a user attribute is set as **Mandatory**, JIT provisioning
             will not happen if a user does not provide consent for the
             attribute.
         -   If a user does not provide consent for any of the non-mandatory

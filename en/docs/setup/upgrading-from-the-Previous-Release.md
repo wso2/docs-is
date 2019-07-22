@@ -43,7 +43,7 @@ Follow this guide before you begin migration.
     fixes or latest updates for this release.
 
     **If you are upgrading to use this version in your production
-    environment** , use WSO2 Update Manager to get the latest updates
+    environment**, use WSO2 Update Manager to get the latest updates
     available for WSO2 IS 5.8.0. For more information on how to use WSO2
     Update Manager, see [Updating WSO2
     Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager)

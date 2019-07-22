@@ -283,7 +283,7 @@ with Facebook.
 1.  In the **Identity** section under the **Main** tab, click **List**
     under **Identity Providers**.
 2.  Click **Edit** to edit the facebook identity provider you created.
-3.  Under **Claim Configuration** , go to **Basic Claim Configuration**
+3.  Under **Claim Configuration**, go to **Basic Claim Configuration**
     .
 4.  Select the **Define Custom Claim Dialect** option under **Select
     Claim mapping Dialect**.
@@ -327,7 +327,7 @@ with Facebook.
 
     !!! note
     
-        **Note:** To use email address as the **Subject Claim URI** , you
+        **Note:** To use email address as the **Subject Claim URI**, you
         have to allow the usage of email addresses as usernames in the
         `            <IS_HOME>/repository/conf/carbon.xml           ` file.
         To allow using email address as usernames, uncomment the following

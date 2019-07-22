@@ -65,7 +65,7 @@ information on the MariaDB versions that are tested with WSO2 products.
 ### Setting up the drivers
 
 Download the MySQL Java connector [JAR
-file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it
+file](http://dev.mysql.com/downloads/connector/j/5.1.html), and copy it
 to the \< `         PRODUCT_HOME>/repository/components/lib/        `
 directory.
 

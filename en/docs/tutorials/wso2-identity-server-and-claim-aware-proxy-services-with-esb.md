@@ -63,7 +63,7 @@ Follow the instructions below to achieve this.
 
 You may also need to download Java Cryptography Extension (JCE)
 Unlimited Strength Jurisdiction Policy Files 5.0 from
-[here](http://www.oracle.com/technetwork/java/archive-139210.html) , and
+[here](http://www.oracle.com/technetwork/java/archive-139210.html), and
 copy the two .jar files from the extracted `         jce        `
 directory ( `         local_policy.jar        ` and
 `         US_export_policy.jar        ` ) to

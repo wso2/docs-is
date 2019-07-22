@@ -113,7 +113,7 @@ Connectors** project with the following information:
 -   Source code can be directly attached to the JIRA or do the
     development in your own git repo.
 -   Once we review the code we will create a repo under
-    **<https://github.com/wso2-extensions> ,** and ask you to send the
+    **<https://github.com/wso2-extensions>,** and ask you to send the
     pull request.
 -   If GPL or LGPL licensed connectors are used, specify reasons for the
     use of such libraries.

@@ -159,7 +159,7 @@ authenticator.
     </div>
     </div>
     <p>For example,</p>
-    <p>If the SPN is <code>                 HTTP/idp.wso2.com                </code> , where <code>                 HTTP                </code> is a service class (in this case, <code>                 HTTP                </code> is not the standard protocol; it is the service class) and <code>                 IS.wso2.com                </code> is the Active Directory domain, the SPNName will be <code>                                   HTTP/idp.wso2.com@wso2.com                                 </code></p>
+    <p>If the SPN is <code>                 HTTP/idp.wso2.com                </code>, where <code>                 HTTP                </code> is a service class (in this case, <code>                 HTTP                </code> is not the standard protocol; it is the service class) and <code>                 IS.wso2.com                </code> is the Active Directory domain, the SPNName will be <code>                                   HTTP/idp.wso2.com@wso2.com                                 </code></p>
     </div></td>
     <td><code>               HTTP/idp.wso2.com@wso2.com              </code></td>
     </tr>
@@ -173,8 +173,8 @@ authenticator.
     <td><p><strong>[Mandatory only if you want to use IWA as a local authenticator]</strong></p>
     <p>The mounted user stores in which you want the user’s existence to be checked in.</p>
     <ul>
-    <li>To configure IWA as a <strong>local authenticator</strong> , mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
-    <li>To configure IWA as a <strong>federated authenticator</strong> , leave this field blank.</li>
+    <li>To configure IWA as a <strong>local authenticator</strong>, mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
+    <li>To configure IWA as a <strong>federated authenticator</strong>, leave this field blank.</li>
     </ul></td>
     <td>PRIMARY</td>
     </tr>

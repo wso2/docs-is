@@ -31,7 +31,7 @@ self-registration.
     registration.
     
     Alternatively, to see the steps on how to enable this identity
-    management feature using the **old implementation** , see [Self Sign Up
+    management feature using the **old implementation**, see [Self Sign Up
     and Account Confirmation documentation in WSO2 IS
     5.2.0](_Self-Registration_and_Account_Confirmation_). The old
     implementation has been retained within the WSO2 IS pack for backward
@@ -225,7 +225,7 @@ purposes and appropriate user attributes:
         -   When you configure purposes for self-registration, the
             attributes that you specify for a particular purposes are the
             only attributes for which users are prompted to provide consent.
-        -   If a user attribute is set as **Mandatory** , a user has to
+        -   If a user attribute is set as **Mandatory**, a user has to
             provide consent for the attribute to proceed with
             self-registration.
         -   If a user does not provide consent for any of the non-mandatory
@@ -261,7 +261,7 @@ Next, you can try out self-registration.
     `            <USERNAME>@<TENAND_DOMAIN>           `
 
     For example, if you have a tenant domain as
-    `           foo.com          ` , the username needs to be
+    `           foo.com          `, the username needs to be
     `           kim@foo.com          `
 
     ![](attachments/103330519/103330522.png){width="489" height="250"}

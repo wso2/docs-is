@@ -52,7 +52,7 @@ Let's learn how to authenticate and authorize REST APIs:
         |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
         | **Resource context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
         | **secured**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
-        | **http-method**      | This defines the method as `                 all                ` , `                 post                ` , `                 get                ` , etc. | `                 all                `                     |
+        | **http-method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
         | **Permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 
         Example:

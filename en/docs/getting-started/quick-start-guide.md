@@ -200,8 +200,8 @@ protocol, follow the steps below:
         You can also perform the above using the WSO2 IS Management Console.
         For more information, see [Creating users and
         roles](http://configuring%20users/#Adding%20a%20new%20user%20and%20assigning%20roles)
-        , [Configuring service
-        providers](_Adding_and_Configuring_a_Service_Provider_) , and
+       , [Configuring service
+        providers](_Adding_and_Configuring_a_Service_Provider_), and
         [Configuring web app for SSO](_Configuring_Single_Sign-On_).
     
 
@@ -651,8 +651,8 @@ Pickup Manager applications using WSO2 IS.
         `               <USERNAME>@<TENAND_DOMAIN>              ` .
     
 
-7.  Provide the `               user profile details              ` ,
-    agree to the **Privacy Policy** , and click **Register**.  
+7.  Provide the `               user profile details              `,
+    agree to the **Privacy Policy**, and click **Register**.  
     ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     A confirmation message appears.
@@ -662,12 +662,12 @@ Pickup Manager applications using WSO2 IS.
 8.  Click **Close**.
 
     1.  If you selected **Enable User Registration (without any
-        config)** at [step 1](#QuickStartGuide-WFStep01) , navigate back
+        config)** at [step 1](#QuickStartGuide-WFStep01), navigate back
         to the Pickup Dispatch application and sign in using the new
         user credentials.
 
     2.  If you selected **Account Lock on Creation** at [step
-        1](#QuickStartGuide-WFStep01) , access your email account to
+        1](#QuickStartGuide-WFStep01), access your email account to
         view the account registration confirmation mail.
 
         1.  Click **Confirm Registration** in the email or copy the link
@@ -765,8 +765,8 @@ A message appears to pick a scenario.
         `               <USERNAME>@<TENAND_DOMAIN>              ` .
     
 
-6.  Provide the `               user profile details              ` ,
-    agree to the **Privacy Policy** , and click **Register**.  
+6.  Provide the `               user profile details              `,
+    agree to the **Privacy Policy**, and click **Register**.  
     ![qsg-self-sign-up-new-account](../../assets/img/getting-started/qsg-self-sign-up-new-account.png)
 
     Even though a new user account is created successfully, it is in

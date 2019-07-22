@@ -51,8 +51,8 @@ features that you can use. These are divided among the following.
     menu](#GettingStartedwiththeManagementConsole-Configuremenu)
 -   [Tools menu](#GettingStartedwiththeManagementConsole-Toolsmenu)
 
-While these menu items are usually divided into **Main** , **Monitor** ,
-**Configure** and **Tools** , additional menus may appear depending on
+While these menu items are usually divided into **Main**, **Monitor**,
+**Configure** and **Tools**, additional menus may appear depending on
 the availability of features. Each of these menus carry a list of sub
 menus. A product's menus and sub menus may vary depending on the product
 version and any additional feature you have installed to provision the
@@ -96,7 +96,7 @@ See the following topics for instructions on how to use each of these
 menu items.
 
 -   See [Configuring the Policy Administration
-    Point](_Configuring_the_Policy_Administration_Point_) for
+    Point](../../tutorials/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
     Point](_Configuring_the_Policy_Decision_Point_) for configuring the

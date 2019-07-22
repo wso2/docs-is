@@ -33,7 +33,7 @@ dialect link. Follow the instructions below to edit a claim dialect.
     | Desciption           | A small description of the claim to help the user to understand it easily. | Address of the street                                                                                                              |
     | Claim Uri            | The URI which defines the claim.                                           | `                               http://schemas.xmlsoap.org/ws/2005/05//identity/claims/streetaddress                             ` |
     | Mapped Attribute     | The attribute which mapped to the claim.                                   | streetAddress                                                                                                                      |
-    | Regular Expression   | A regular expression that helps to verify the input.                       | A street address can be an integer or a string, therefore regex can be like " ****^ \\d { 1 , 45 } $**** "                         |
+    | Regular Expression   | A regular expression that helps to verify the input.                       | A street address can be an integer or a string, therefore regex can be like " ****^ \\d { 1, 45 } $**** "                         |
     | Display Order        | Order to display claims.                                                   | 1                                                                                                                                  |
     | Supported by Default | Whether the claim is displayed in the profile of the user.                 | Enabled                                                                                                                            |
     | Required             | Whether the claim is mandatory.                                            | Enabled                                                                                                                            |
@@ -44,7 +44,7 @@ dialect link. Follow the instructions below to edit a claim dialect.
         Note
     
         When you are using [more than one user
-        store](_Configuring_Secondary_User_Stores_) , you must map the
+        store](_Configuring_Secondary_User_Stores_), you must map the
         attributes correctly using claim management. Under “Mapped
         Attribute(s)” you need to follow the pattern.
     

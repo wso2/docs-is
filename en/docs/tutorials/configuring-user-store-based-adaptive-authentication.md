@@ -69,7 +69,7 @@ of authentication.
     set this up.
     
 !!! info
-    **Alternatively** , you can also use a Active Directory or JDBC
+    **Alternatively**, you can also use a Active Directory or JDBC
     database or an existing LDAP database.
 
 ??? note "Click here for instructions on how to create an LDAP server" 

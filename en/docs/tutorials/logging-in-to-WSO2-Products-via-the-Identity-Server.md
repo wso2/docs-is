@@ -103,13 +103,13 @@ file.
     identity provider's SAML endpoint URL as
     <https://is.com:9443/samlsso?tenantDomain=foo.com> or the issuer
     name is appended with @\<TenantDomain\> like
-    <travelocity.com@foo.com> , the SAML requests are directed to the
+    <travelocity.com@foo.com>, the SAML requests are directed to the
     [foo.com](http://foo.com/) tenant.
 
     The `              VerifySignatureWithUserDomain             `
     parameter is used to make the most recent Carbon-based products
     switch behaviour to expect SAML responses in the previous way. I.e.,
-    if this is set as `              true             ` , it means that
+    if this is set as `              true             `, it means that
     the SAML response is verified with the tenant's key that the
     authenticated user is belongs to. If it is set to
     `              false             ` it means that the SAML response
@@ -166,13 +166,13 @@ authenticator of the WSO2 Enterprise Service Bus.
     identity provider's SAML endpoint URL as
     <https://is.com:9443/samlsso?tenantDomain=foo.com> or the issuer
     name is appended with @\<TenantDomain\> like
-    <travelocity.com@foo.com> , the SAML requests are directed to the
+    <travelocity.com@foo.com>, the SAML requests are directed to the
     [foo.com](http://foo.com/) tenant.
 
     The `              VerifySignatureWithUserDomain             `
     parameter is used to make the most recent Carbon-based products
     switch behaviour to expect SAML responses in the previous way. I.e.,
-    if this is set as `              true             ` , it means that
+    if this is set as `              true             `, it means that
     the SAML response is verified with the tenant's key that the
     authenticated user is belongs to. If it is set to
     `              false             ` it means that the SAML response

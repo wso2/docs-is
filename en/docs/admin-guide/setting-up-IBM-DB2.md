@@ -57,7 +57,7 @@ center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
     ![](attachments/53125504/53287383.png)
 
 2.  Right-click **All Databases** in the control center tree (inside the
-    object browser), click **Create Database** , and then click
+    object browser), click **Create Database**, and then click
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
     ![](attachments/53125504/53287398.png){width="580"}

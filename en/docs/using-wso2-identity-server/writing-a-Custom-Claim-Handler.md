@@ -93,7 +93,7 @@ application is as follows:
 </saml2p:Response>
 ```
 
-This response has one local attribute named `         role        ` ,
+This response has one local attribute named `         role        `,
 and two external attributes as follows:
 
 -   `                     http://test.org/claims/keplerNumber                   `

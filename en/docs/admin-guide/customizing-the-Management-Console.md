@@ -169,7 +169,7 @@ changing the logo.
     2.  Then, create the /admin directory under /web.
 
     3.  Finally, create the `             /            ` css,
-        `             /images            ` , and
+        `             /images            `, and
         `             /layout            ` directories under
         `             /admin            ` .
 

@@ -8,7 +8,7 @@ authenticate users using their Twitter login credentials:
     
     Before you begin
     
-    1.  Go to <https://twitter.com/> , create an account, and [register an
+    1.  Go to <https://twitter.com/>, create an account, and [register an
         application on
         Twitter](http://docs.inboundnow.com/guide/create-twitter-application/)
         .
@@ -186,7 +186,7 @@ authenticate users using their Twitter login credentials:
     
         -   Start the server and download the SAML2 metadata by accessing
             this URL: <https://localhost:9443/identity/metadata/saml2> .
-        -   **Alternatively** , access the management console and follow the
+        -   **Alternatively**, access the management console and follow the
             steps given below to download the metadata.
     
 

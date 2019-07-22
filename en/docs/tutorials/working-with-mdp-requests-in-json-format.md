@@ -1,7 +1,7 @@
 # Working with MDP Requests in JSON Format
 
 WSO2 Identity Server [supports the JSON
-format](Access-Control-and-Entitlement-Management_103329208.html#AccessControlandEntitlementManagement-JSONSupport)
+format](../../getting-started/access-control-and-entitlement-management#json-support)
 in addition to the default XML format when you work with XACML 3.0
 requests and responses. Therefore, you can send XACML Multiple Decision
 Profile (MDP) requests in JSON format, and can also recieve MDP
@@ -21,16 +21,6 @@ policy evaluation and provides the authorization decision response.
 Here, we will look at a single request that contains multiple requests
 to be evaluated by the PDP.
 
-The following topics walk you through the steps you need to follow to
-try out the sample scenario:
-
--   [Prerequisites](#WorkingwithMDPRequestsinJSONFormat-Prerequisites)
--   [Procedure](#WorkingwithMDPRequestsinJSONFormat-Procedure)
--   [Testing the authorization
-    flow](#WorkingwithMDPRequestsinJSONFormat-Testingtheauthorizationflow)
--   [Analyzing the
-    response](#WorkingwithMDPRequestsinJSONFormat-Analyzingtheresponse)
-
 ### Prerequisites
 
 -   [Download](https://wso2.com/identity-and-access-management) and run
@@ -47,7 +37,7 @@ Follow the steps below to publish a sample policy to the PDP in WSO2
 Identity Server:
 
 1.  Access the WSO2 IS Management Console via
-    <https://localhost:9443/carbon/> , and sign in using
+    <https://localhost:9443/carbon/>, and sign in using
     `          admin         ` / `          admin         ` as
     credentials.
 2.  Click the **Main** tab on the Management Console, go to
@@ -259,7 +249,7 @@ This request contains the
 category with `         adminUser        ` and
 `         publicUser        ` as attributes. And also contains the
 `         Action        ` category with `         view-welcome        `
-, `         view-status        ` , `         view-summary        ` and
+, `         view-status        `, `         view-summary        ` and
 `         modify-welcome        ` as attributes. Here, the two users,
 `         adminUser        ` and `         publicUser        ` are
 trying to access the `         index.jsp        ` resource. Therefore,

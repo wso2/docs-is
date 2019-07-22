@@ -35,7 +35,7 @@ For more information on Request Path Authentication in general, see
 ### Using the authorization header
 
 1.  Start the IS server and login to the management console.
-2.  Navigate to **Service Providers\>Add** , enter a name for the new
+2.  Navigate to **Service Providers\>Add**, enter a name for the new
     service provider and click **Add.**
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**

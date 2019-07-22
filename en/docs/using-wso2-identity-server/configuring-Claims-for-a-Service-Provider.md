@@ -16,7 +16,7 @@ things.
 1.  In the **Claim Configuration** form, s elect the claim mapping
     dialect by either choosing to use a local claim dialect or define
     your own custom claim dialect.  
-    -   If you choose to **Use Local Claim Dialect** , you need to fill
+    -   If you choose to **Use Local Claim Dialect**, you need to fill
         in the following details.
 
     1.  1.  Fill in your requested claims by clicking the **Add Claim
@@ -27,7 +27,7 @@ things.
             ![](attachments/103329786/103329789.png){width="817"
             height="79"}
 
-    -   If you choose to **Define Custom Claim Dialect** , you need to
+    -   If you choose to **Define Custom Claim Dialect**, you need to
         do the following.
 
     1.  1.  Add a custom claim URI by clicking on the **Add Claim URI**
@@ -109,11 +109,11 @@ things.
                                     
                                                         You can enter any value with the prefix
                                                         `                      address.                     `
-                                                        , such as
+                                                       , such as
                                                         `                      address.country                     `
-                                                        ,
+                                                       ,
                                                         `                      address.lane                     `
-                                                        , and much more.
+                                                       , and much more.
                                     
                                                     5.  Map the claim you are creating to any claim within
                                                         WSO2 Identity server.  

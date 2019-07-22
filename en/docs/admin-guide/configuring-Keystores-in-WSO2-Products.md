@@ -2,7 +2,7 @@
 
 After you have [created a new keystore and updated the
 `          client-truststore.jks         `
-file](_Creating_New_Keystores_) , you must update a few configuration
+file](_Creating_New_Keystores_), you must update a few configuration
 files in order to make the keystores work. Note that keystores are used
 for multiple functions in WSO2 products, which includes authenticating
 communication over SSL/TLS, encrypting passwords and other confidential

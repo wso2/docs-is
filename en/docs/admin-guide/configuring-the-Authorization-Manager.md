@@ -45,7 +45,7 @@ You can change this as follows:
 
 For information on how you can set up a new RDBMS and configure it for
 your system, see [Setting Up the Physical
-Database](_Setting_up_the_Physical_Database_) , and for information on
+Database](_Setting_up_the_Physical_Database_), and for information on
 the purpose of defining datasources and how they are configured for a
 product, see [Managing Datasources](_Managing_Datasources_).
 

@@ -26,7 +26,7 @@ with the WSO2 IS.
     recovery.
     
     Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation** , see [Username Recovery
+    feature using the **old implementation**, see [Username Recovery
     documentation in WSO2 IS
     5.2.0](https://docs.wso2.com/display/IS520/Username+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
@@ -153,7 +153,7 @@ with the WSO2 IS.
     !!! note
     
         In case you have enabled username recovery with reCaptcha
-        verification , enter the required fields as specified above and
+        verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
         ![](https://lh5.googleusercontent.com/ZqV9L-ePDQxbryjbJZKc8KfEcXPVY8WOxLXWVD0Zwqtut7Aht5MpgMLsSuL37Jsd77XcS_wymxF6M6BLTpMmFZRqRNiuhsrVoq1tamLknSNUsvA2KIcNZO0H3BTrG7w9CzRoc8GW){width="447"}

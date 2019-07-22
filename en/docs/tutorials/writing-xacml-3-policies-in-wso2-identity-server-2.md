@@ -5,7 +5,7 @@ requirement: a given resource can be accessed only by a user belonging
 to a particular role, and all requests to access any other resource
 should fail.
 
-``` html/xml
+``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="2" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
     <Description>sample policy</Description>
     <Target></Target>
@@ -46,7 +46,7 @@ Applicable/Deny" once evaluated against the above policy.
 -   **User** - "admin" belongs only to the "admin" group
 -   **Result** - Permit
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
@@ -80,7 +80,7 @@ Applicable/Deny" once evaluated against the above policy.
     group
 -   **Result** - Permit
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
@@ -112,7 +112,7 @@ Applicable/Deny" once evaluated against the above policy.
 -   **User** - "admin" belongs to the "admin" group
 -   **Result** - Deny
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
@@ -143,7 +143,7 @@ Applicable/Deny" once evaluated against the above policy.
 -   **User** - "admin" belongs to the "business" group
 -   **Result** - Deny
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
     <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
         <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">

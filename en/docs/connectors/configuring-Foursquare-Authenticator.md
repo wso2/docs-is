@@ -163,7 +163,7 @@ Identity Server version that you are working on.
     Single-Sign-On](https://docs.wso2.com/display/IS530/Configuring+SAML2+Web+Single-Sign-On)
     .  
     1.  In the **Inbound Authentication Configuration** section, click
-        **SAML2 Web SSO Configuration** , and then click
+        **SAML2 Web SSO Configuration**, and then click
         ****Configure****.
 
         ![](attachments/49088044/76747573.png){width="675" height="963"}
@@ -221,7 +221,7 @@ Identity Server version that you are working on.
     the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO Configuration** , and then click ****Configure****.
+    **SAML2 Web SSO Configuration**, and then click ****Configure****.
 
     ![](attachments/49088044/49221980.png){width="725" height="723"}
 
@@ -363,7 +363,7 @@ Server version that you are working on.
         **List** under **Identity Providers**.
     2.  Click **Edit** to edit the Foursquare identity provider you
         created.
-    3.  Under **Claim Configuration** , go to **Basic Claim
+    3.  Under **Claim Configuration**, go to **Basic Claim
         Configuration**.  
         ![](attachments/49088044/76747747.png){width="700"}
     4.  Select the **Define Custom Claim Dialect** option under **Select
@@ -492,7 +492,7 @@ Server version that you are working on.
         **List** under **Identity Providers**.
     2.  Click **Edit** to edit the foursquare identity provider you
         created.
-    3.  Under **Claim Configuration** , go to **Basic Claim
+    3.  Under **Claim Configuration**, go to **Basic Claim
         Configuration**.
     4.  Select the **Define Custom Claim Dialect** option under **Select
         Claim mapping Dialect**.

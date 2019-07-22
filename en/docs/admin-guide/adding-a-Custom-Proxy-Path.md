@@ -11,7 +11,7 @@ hosted under the same domain name. For example, consider that you have
 three WSO2 products; Application Server, API Manager and ESB, deployed
 in your production environment and you want all of them to be hosted
 with the "wso2test.com" domain. By using a reverse proxy and by
-configuring your servers with 'custom proxy paths' , you can host all
+configuring your servers with 'custom proxy paths', you can host all
 products under a single domain and assign proxy paths for each product
 separately as shown below:  
 ![Custom Proxy
@@ -46,7 +46,7 @@ context paths" of the respective products, which are configured in the
 `         carbon.xml        ` file (stored in
 `         <PRODUCT_HOME>/repository/conf/        ` directory) for each
 product. When a client sends a request to the proxy entry url path, e.g.
-<https://wso2test.com/apimanager> , the request is directed to the
+<https://wso2test.com/apimanager>, the request is directed to the
 back-end service url (
 [https://10.100.1.1:\<PortNumber\>/carbon](https://10.100.1.1:9443/carbon)
 ) where the original service lies. Eventually, the client has to be
@@ -56,8 +56,8 @@ reverse proxy server fronting the back-end service.
 
 Prior to this solution, it was necessary to host these products as sub
 domains of the "wso2.com" domain as:
-[https://apim.wso2.com](https://apim.wso2test.com) ,
-[https://esb.wso2.com](https://esb.wso2test.com) ,
+[https://apim.wso2.com](https://apim.wso2test.com),
+[https://esb.wso2.com](https://esb.wso2test.com),
 [https://as.wso2.com](https://as.wso2test.com).
 
 ### Access WSO2 products through a custom proxy path

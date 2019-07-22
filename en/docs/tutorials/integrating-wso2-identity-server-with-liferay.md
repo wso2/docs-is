@@ -5,7 +5,7 @@ to override in Liferay using an extension. This topic indicates how to
 delegate Liferay's authentication and authorization functionality to
 WSO2 Identity Server.
 
-![](attachments/103331140/103331141.png){width="750"}
+![wso2-is-and-liferay-flow](../../assets/img/tutorials/wso2-is-and-liferay-flow.png)
 
 One of the challenges you may face in this integration is the LDAP
 Users/Groups import. You can connect an LDAP to Liferay, however, to
@@ -22,9 +22,11 @@ Liferay has a chain of authenticators. When you enter your
 username/password, the chain of authenticators are invoked. This is the
 place where we plugged in the **WSO2ISAuthenticator**.
 
+```
 auth.pipeline.pre=org.wso2.liferay.is.authenticator.WSO2ISAuthenticator  
 auth.pipeline.enable.liferay.check=false  
 wso2is.auth.service.endpoint.primary= <https://localhost:9443/services/>
+```
 
 The above configuration (which should be in the
 `         liferay_home/tomcat/webapps/ROOT/WEB-INF/classes/portal-ext.properties        `
@@ -103,24 +105,26 @@ XACML engine is through Thrift.
     Using thrift in XACML calls
     
     In order to use thrift in XACML calls, you must first enable the thrift
-    service in the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file.
-    Set this to `         true        ` .
+    service. To do this, add the following property in the `deployment.toml` file found in the
+    `         <IS_HOME>/repository/conf/        ` folder and set it to **true**.
     
-    ``` xml
-    <EnableThriftService>true</EnableThriftService>
+    ``` toml
+    [entitlement.thrift] 
+    enable= 
     ```
     
 
 You need to add following properties to the
 `         portal-ext.properties        ` file:
 
+```
 wso2is.auth.thrift.endpoint=localhost  
 wso2is.auth.thrift.port=10500  
 wso2is.auth.thrift.connection.timeout=10000  
 wso2is.auth.thrift.admin.user=admin  
 wso2is.auth.thrift.admin.user.password=admin  
 wso2is.auth.thrift.endpoint.login= <https://localhost:9443/>
+```
 
 Since by default Identity Server is using a self-signed certificate,
 either you have to import it's public certificate to the trust store of
@@ -128,8 +132,10 @@ Liferay or set the following two properties in the
 `         portal-ext.properties        ` file pointing to the Identity
 Server's key store.
 
+```
 wso2is.auth.thrift.system.trusstore=/wso2is-3.2.3/repository/resources/security/wso2carbon.jks  
 wso2is.auth.thrift.system.trusstore.password=wso2carbon
-
-Please note that the above configuration is tested with Liferay 6.1.1
-and WSO2 Identity 3.2.3/4.0.0.
+```
+!!! info
+    Please note that the above configuration is tested with Liferay 6.1.1
+    and WSO2 Identity 3.2.3 / 4.0.0.

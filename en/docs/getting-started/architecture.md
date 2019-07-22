@@ -63,8 +63,8 @@ corresponding response. A given inbound authenticator has two parts.
 For each protocol supported by WSO2 Identity Server, there should be an
 inbound authenticator. This architecture component includes inbound
 authenticators for [Security Assertion Markup Language (SAML)
-2.0](http://saml.xml.org/saml-specifications) , [OpenID
-Connect](http://openid.net/connect/) , [OAuth 2.0](https://oauth.net/2/)
+2.0](http://saml.xml.org/saml-specifications), [OpenID
+Connect](http://openid.net/connect/), [OAuth 2.0](https://oauth.net/2/)
 , and [WS-Federation
 (passive)](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html)
 . In other words, the responsibility of the SAML 2.0 request processor

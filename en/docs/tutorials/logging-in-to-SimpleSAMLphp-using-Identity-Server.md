@@ -195,7 +195,7 @@ Ubuntu.
 
 12. In the **Main** menu of the [management
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
-    , click **Resident** under **Identity Providers**.
+   , click **Resident** under **Identity Providers**.
 
 13. On the page that appears, open the **SAML2 Web SSO Configuration**
     section under **Inbound Authentication Configuration**.
