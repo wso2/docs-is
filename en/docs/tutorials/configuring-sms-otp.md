@@ -25,7 +25,7 @@ sections for more information.
         samples](../../using-wso2-identity-server/downloading-a-sample) before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi).
+        [here](https://tomcat.apache.org/download-70.cgi) .
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](../../setup/installation-prerequisites)
@@ -152,7 +152,7 @@ provider.
     providers website on your browser, and clicking the HTTPS trust icon
     on the address bar.  
     For example, navigate to
-    [https://www.nexmo.com](https://www.nexmo.com/), and click the
+    [https://www.nexmo.com](https://www.nexmo.com/) , and click the
     padlock next to the URL on Chrome.
 3.  Navigate to the
     `           <IS_HOME>/repository/resources/security          `
@@ -268,7 +268,7 @@ provider.
 
 		3.  The Plivo API is authenticated with Basic Auth using your
 			`                AUTH ID               ` and
-			`                AUTH TOKEN               `, Your Plivo
+			`                AUTH TOKEN               ` , Your Plivo
 			`                AUTH ID               ` and
 			`                AUTH TOKEN               ` can be found when
 			you log in to your
@@ -361,7 +361,7 @@ provider.
 			</tbody>
 			</table></html>
 
-11. Click **Register**.
+11. Click **Register** .
 
 ### Configuring the service provider
 
@@ -483,7 +483,7 @@ console](../../using-wso2-identity-server/configuring-users#adding-a-new-user-an
 
     ![configuring-claims](../../assets/img/tutorials/configuring-claims.png)
     
-2.  Optionally, you can add a claim to allow users to use back up codes
+2.  Optionally , you can add a claim to allow users to use back up codes
     when SMS OTP is disabled.  
     Adding the OTP backup codes claim:  
     1.  In the **Main** menu, click **Add** under **Claims**.
