@@ -60,14 +60,11 @@ or federated authentication in WSO2 Identity Server (IS).
 		Kerberos does not work with IP addresses, it relies on
 		domain names and correct DNS entries only.
 
-2.  Open the `           carbon.xml          ` file found in the
-    `           <IS_HOME>/repository/conf          ` folder and set the
-    hostname ( `           idp.wso2.com          ` ) in the
-    `           <HostName>          ` tag.
+2.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
 
     ``` xml
-        <HostName>idp.wso2.com</HostName>
-        <MgtHostName>idp.wso2.com</MgtHostName>\
+   		[server]
+		hostname="idp.wso2.com"
     ```
 
 3.  Open the `           jaas.conf          ` file found in the
@@ -129,10 +126,10 @@ authenticator.
 1.  Follow the steps above to set up IWA.
 
 2.  Start the WSO2 IS server and log in to the management console.
-3.  Navigate to **Main\>Identity Providers** and click **Add**. Enter a
+3.  Navigate to **Main\>Identity Providers** and click **Add** . Enter a
     name for the identity provider.
 4.  Expand the **Federated Authenticators** section and then expand
-    **IWA Federated Configuration**.
+    **IWA Federated Configuration** .
 5.  Fill in the fields as follows:
 
     <table>
@@ -159,7 +156,7 @@ authenticator.
     </div>
     </div>
     <p>For example,</p>
-    <p>If the SPN is <code>                 HTTP/idp.wso2.com                </code>, where <code>                 HTTP                </code> is a service class (in this case, <code>                 HTTP                </code> is not the standard protocol; it is the service class) and <code>                 IS.wso2.com                </code> is the Active Directory domain, the SPNName will be <code>                                   HTTP/idp.wso2.com@wso2.com                                 </code></p>
+    <p>If the SPN is <code>                 HTTP/idp.wso2.com                </code> , where <code>                 HTTP                </code> is a service class (in this case, <code>                 HTTP                </code> is not the standard protocol; it is the service class) and <code>                 IS.wso2.com                </code> is the Active Directory domain, the SPNName will be <code>                                   HTTP/idp.wso2.com@wso2.com                                 </code></p>
     </div></td>
     <td><code>               HTTP/idp.wso2.com@wso2.com              </code></td>
     </tr>
@@ -173,8 +170,8 @@ authenticator.
     <td><p><strong>[Mandatory only if you want to use IWA as a local authenticator]</strong></p>
     <p>The mounted user stores in which you want the user’s existence to be checked in.</p>
     <ul>
-    <li>To configure IWA as a <strong>local authenticator</strong>, mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
-    <li>To configure IWA as a <strong>federated authenticator</strong>, leave this field blank.</li>
+    <li>To configure IWA as a <strong>local authenticator</strong> , mount the user store domain names of the relevant user stores that you expect the user to be in.</li>
+    <li>To configure IWA as a <strong>federated authenticator</strong> , leave this field blank.</li>
     </ul></td>
     <td>PRIMARY</td>
     </tr>
