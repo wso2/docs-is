@@ -101,8 +101,8 @@ nav:
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
-      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-Identity-Server-using-Facebook-Credentials.md
-      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idP-as-a-trusted-identity-provider.md
+      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
+      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
       - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-simplesamlphp-using-identity-server.md
       - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-sso-for-management-console-using-opensso-as-the-idp.md
       - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-salesforce-using-the-identity-server.md
