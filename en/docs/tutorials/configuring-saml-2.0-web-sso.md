@@ -416,18 +416,15 @@ Example: <code>                locale={lang}&amp;scope=openid email profile     
     you may need to change the assertion consumer URL. To do this, follow
     the steps given below:
     
-    1.  Open the `          application-authentication.xm         ` l file
-        found in the `          <IS_HOME>/repository/conf/identity         `
-        folder.
-    2.  Add the following property and update the assertion consumer URL as
+    1.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
+    2.  Update the assertion consumer URL as
         required.
     
         ``` java
-        <AuthenticatorConfig name="SAMLSSOAuthenticator" enabled="true">
-        <Parameter name="SAMLSSOAssertionConsumerUrl">https://localhost:9443/commonauth</Parameter>
-        </AuthenticatorConfig>
+        [authentication.authenticator.saml] 
+        enable=true
+        SAMLSSOAssertionConsumerUrl="https://localhost:9443/commonauth"
     	```
-
 
 !!! note "Configuring hostname verification"
 
