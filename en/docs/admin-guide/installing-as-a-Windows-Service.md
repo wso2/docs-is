@@ -108,7 +108,7 @@ windows service.
 
 1.  **Setting up the YAJSW wrapper:** The configuration file used for
     wrapping Java Applications by YAJSW is
-    `           wrapper.conf          ` , which is located in the
+    `           wrapper.conf          `, which is located in the
     `           <YAJSW_HOME>/conf/          ` directory and in the
     `           <PRODUCT_HOME>/bin/yajsw/          ` directory of many
     WSO2 products. Following is the minimal

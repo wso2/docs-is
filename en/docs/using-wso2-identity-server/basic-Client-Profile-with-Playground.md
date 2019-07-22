@@ -436,7 +436,7 @@ the user profile
     filling the user attributes.
 
     You can also do this at **Main** \> **List** \> **Users and
-    Roles** \> **Users** , then select the user and update the profile.
+    Roles** \> **Users**, then select the user and update the profile.
 
 4.  Click **Update** to save your changes.
 
@@ -523,7 +523,7 @@ the user profile
     ![](attachments/103330002/103330007.png){width="504"}
 
     Since the received access token has the scope
-    `            openid           ` , the
+    `            openid           `, the
     `            userinfo           ` endpoint provides the user
     attribute details when the request is made. You receive the
     following response from the Identity Server.

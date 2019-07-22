@@ -77,7 +77,7 @@ This page consists of the procedure to secure a RESTful service with
         `             org.wso2.carbon.identity.samples.oauth/src/main/java/org/wso2/carbon/identity/samples/oauth            `
 
     4.  Update the following `             IDENTITY_SERVER            `
-        , `             ESB_SERVER            ` ,
+       , `             ESB_SERVER            `,
         `             USER_NAME            ` and
         `             PASSWORD            ` according to your
         configurations.

@@ -31,7 +31,7 @@ You can access the user store count using the managemet console. Follow
 the steps below to do this:
 
 1.  Log in to the Management Console and navigate to users and roles.
-2.  Under **Users** , you see a new table named "Count Users" where you
+2.  Under **Users**, you see a new table named "Count Users" where you
     can count (by clicking **Count Users** button) the number of users
     in each domain for different claims and user name patterns etc. (In
     this example '%admin' is given as search pattern)  

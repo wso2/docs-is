@@ -17,7 +17,7 @@ WSO2 IS.
 
 !!! tip
     
-    **Before you begin** ,
+    **Before you begin**,
     
     1.  [Download](https://tomcat.apache.org/download-80.cgi) and
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat

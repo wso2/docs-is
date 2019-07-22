@@ -89,11 +89,11 @@ Follow the instructions below to set up OAuth token hashing:
         your user name and password. For detailed instructions on how to
         start WSO2 IS, see [Running the Product](_Running_the_Product_)
         .
-    2.  Navigate to **Service Providers** \> **Add** , enter a name for
+    2.  Navigate to **Service Providers** \> **Add**, enter a name for
         the new service provider, and then click **Register**.
 
     3.  Expand the **Inbound Authentication Configuration** section,
-        then expand the **OAuth2/OpenID Connect Configuration** , and
+        then expand the **OAuth2/OpenID Connect Configuration**, and
         click **Configure**.
 
     4.  Specify appropriate values for the required fields.

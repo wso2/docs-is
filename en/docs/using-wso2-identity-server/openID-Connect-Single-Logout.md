@@ -198,9 +198,9 @@ follows.
 1.  The RP iframe polls the identity provider iframe for a session
     status.
 2.  The identity provider iframe sends back a post message about the
-    session state as `          changed         ` ,
+    session state as `          changed         `,
     `          unchanged         ` or `          error         ` .
-3.  If the session state is `          changed         ` , the RP sends
+3.  If the session state is `          changed         `, the RP sends
     a passive request for re-authentication.
 4.  If the end user has logged out from the identity provider, the RP
     will receive an authentication failure message along with a new
@@ -314,7 +314,7 @@ WSO2 Identity Server Management Console:
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
         Resident**.  
         ![](attachments/119114508/119114592.png?effects=drop-shadow){width="200"}
-    2.  Under **Inbound Authentication Configuration** , click
+    2.  Under **Inbound Authentication Configuration**, click
         **OAuth2/OpenID Connect Configuration**.  
         ![](attachments/119114508/119114593.png?effects=drop-shadow){width="750"}  
         Note that the identity provider's logout endpoint URL is listed
@@ -604,7 +604,7 @@ in WSO2 Identity Server:
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
         Resident**.  
         ![](attachments/119114508/119114592.png?effects=drop-shadow){width="200"}
-    2.  Under **Inbound Authentication Configuration** , click
+    2.  Under **Inbound Authentication Configuration**, click
         **OAuth2/OpenID Connect Configuration**.  
         ![](attachments/119114508/119114593.png?effects=drop-shadow){width="750"}  
         Note that the identity provider's logout endpoint URL is listed

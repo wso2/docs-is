@@ -270,7 +270,7 @@ Possible values:<br />
 SHA - Uses SHA digest method. SHA-1, SHA-256<br />
 MD5 - Uses MD 5 digest method.<br />
 PLAIN_TEXT - Plain text passwords.<br />
-If you just configure as SHA , It is consider as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.<br />
+If you just configure as SHA, It is consider as SHA-1, It is always better to configure algorithm with higher bit value as digest bit size would be increased.<br />
 <br />
 Most of the LDAP servers (such as OpenLdap, OpenDJ, AD, ApacheDS and etc..) are supported to store password as salted hashed values (SSHA)<br />
 Therefore WSO2IS server just wants to feed password into the connected user store as plain text value. Then LDAP user store can stored them as salted hashed value. To feed the plain text into the LDAP server, you need to set PasswordHashMethod to “PLAIN_TEXT”<br />

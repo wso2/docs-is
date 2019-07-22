@@ -65,7 +65,7 @@ Server.
 
     2.  **Connection Name** -
         `             uid=admin,ou=system            `  
-        Right-click on the c onnection , click **Properties** and then
+        Right-click on the c onnection, click **Properties** and then
         click **Authentication.** The connection name is the username
         given as the **Bind DN or user** value.  
 

@@ -47,7 +47,7 @@
         in the `            identity-event.properties           ` file . For
         example, if the last module number mentioned in the file is
         `                         module.name                        .11           `
-        , the above entry should be renamed as
+       , the above entry should be renamed as
         `            module.name.12=passwordExpiry           ` .
     
 

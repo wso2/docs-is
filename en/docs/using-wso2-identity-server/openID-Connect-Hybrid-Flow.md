@@ -244,5 +244,5 @@ Following is the response that you will receive from token endpoint:
 In case there are two id\_tokens issued, where one id\_token is from
 authorization endpoint and other is from token endpoint, be sure to
 perform the validations mentioned
-[above](#OpenIDConnectHybridFlow-validations) , which are based on the
+[above](#OpenIDConnectHybridFlow-validations), which are based on the
 OpenID Connect specification:

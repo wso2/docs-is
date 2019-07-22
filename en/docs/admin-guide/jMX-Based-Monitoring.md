@@ -139,7 +139,7 @@ First, start the WSO2 product:
     `           wso2server.bat          ` for Windows) to start the
     server.  
 
-    If [JMX is enabled](_JMX-Based_Monitoring_) , the **JMX server URL**
+    If [JMX is enabled](_JMX-Based_Monitoring_), the **JMX server URL**
     will be published on the console when the server starts as shown
     below.
 
@@ -319,19 +319,19 @@ Operations available in the **Statistics** MBean:
 | **getMaxServiceResponseTime** ( [p1:string](http://p1string/) )                                   | The p1 parameter is the service name. You can get the maximum response time of this service since deployment.                                                                                                       |
 | **getMinServiceResponseTime** ( [p1:string](http://p1string/) )                                   | The p1 parameter is the service name. You can get the minimum response time of this service since deployment.                                                                                                       |
 | **getAvgServiceResponseTime** ( [p1:string](http://p1string/) )                                   | The p1 parameter is the service name. You can get the average response time of this service since deployment.                                                                                                       |
-| **getOperationRequestCount** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed, using this operation.    |
-| **getOperationResponseCount** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed, using this operation.       |
-| **getOperationFaultCount** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed, using this operation. |
-| **getMaxOperationResponseTime** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
-| **getMinOperationResponseTime** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
-| **getAvgOperationResponseTime** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
+| **getOperationRequestCount** ( [p1:string](http://p1string/), [p2:string](http://p2string/) )    | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of requests received by this operation since the time its service was deployed, using this operation.    |
+| **getOperationResponseCount** ( [p1:string](http://p1string/), [p2:string](http://p2string/) )   | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of responses sent by this operation since the time its service was deployed, using this operation.       |
+| **getOperationFaultCount** ( [p1:string](http://p1string/), [p2:string](http://p2string/) )      | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the total number of fault responses sent by this operation since the time its service was deployed, using this operation. |
+| **getMaxOperationResponseTime** ( [p1:string](http://p1string/), [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the maximum response time of this operation since deployment.                                                             |
+| **getMinOperationResponseTime** ( [p1:string](http://p1string/), [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
+| **getAvgOperationResponseTime** ( [p1:string](http://p1string/), [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
 ![](attachments/45968791/57747540.png){width="600"}
 
 #### Using the DataSource MBean
 
 If you have [JMX enabled for a datasource connected to the
-product](#JMX-BasedMonitoring-EnablingJMXforadatasource) , you can
+product](#JMX-BasedMonitoring-EnablingJMXforadatasource), you can
 monitor the performance of the datasource using this MBean. The
 **DataSource** MBean will be listed as shown below.  
 ![](attachments/53125400/57747100.png){width="600"}

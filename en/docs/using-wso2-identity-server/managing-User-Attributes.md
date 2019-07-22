@@ -166,8 +166,8 @@ etc. By default, WSO2 IS is configured to authenticate with only one
 user attribute in the LDAP.
 
 -   In a user store, each user has different attributes such as
-    `          uid         ` , `          cn         ` ,
-    `          email         ` , etc. Some attributes, such as
+    `          uid         `, `          cn         `,
+    `          email         `, etc. Some attributes, such as
     `          uid         ` and `          mail         ` attributes,
     are unique to the user.
 -   Once you connect your LDAP with an application, generally, the

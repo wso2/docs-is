@@ -9,7 +9,7 @@ authorization server. Issuing a refresh token is optional and if the
 authorization server issues a refresh token, it is included when issuing
 an access token. WSO2 Identity Server issues refresh tokens for all
 other grant types other than the **implicit and client credentials grant
-types** , as recommended by the OAuth 2.0 specification.
+types**, as recommended by the OAuth 2.0 specification.
 
 !!! note
     

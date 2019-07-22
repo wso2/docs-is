@@ -80,8 +80,8 @@ The API can be called in either of the following ways:
         });
     ```
 
--   With the `           stepId          ` ,
-    `           options          ` , and an empty
+-   With the `           stepId          `,
+    `           options          `, and an empty
     `           eventCallbacks          ` array. Example:
 
     ``` java
@@ -114,7 +114,7 @@ condition. This can be achieved by specifying an array named ‘
 ``` java
 executeStep(1,{
   authenticationOptions:[{authenticator:'basic'},{idp:'google'}]
-   } ,{
+   },{
        onSuccess: function (context) {
            // Do something on success
 };

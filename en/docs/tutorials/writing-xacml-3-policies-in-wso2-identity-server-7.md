@@ -10,7 +10,7 @@ This page addresses the following authorization requirements.
     by users belonging to the group(s) `          admin_emps         `
     and/or `          admin         ` .
 
-``` html/xml
+``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"  PolicyId="testOr" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
    <Description>Test Or</Description>
    <Target></Target>
@@ -52,7 +52,7 @@ This page addresses the following authorization requirements.
 
 **Response** : Permit
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
 <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
     <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
@@ -81,7 +81,7 @@ This page addresses the following authorization requirements.
   
 **Response** : Permit
 
-``` html/xml
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
 <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
     <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">

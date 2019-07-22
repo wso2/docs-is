@@ -13,12 +13,9 @@ Server.
     start writing XACML policies.
     
     -   [Why we need XACML and the XACML
-        architecture.](https://docs.wso2.com/display/IS540/Access+Control+and+Entitlement+Management#AccessControlandEntitlementManagement-WhyXACML)
+        architecture.](../../getting-started/access-control-and-entitlement-management#why-xacml)
     -   [XACML Policy language and
-        Syntax](https://docs.wso2.com/display/IS540/Access+Control+and+Entitlement+Management#AccessControlandEntitlementManagement-XACMLpolicylanguagestructureandsyntax)
-        .
-    
-
+        Syntax](../../getting-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
   
 
 A policy has an identifier, a rule-combining algorithm, a description, a
@@ -69,7 +66,7 @@ that applies to the corresponding request.
 To do this, XACML uses the element `         Target        ` .
 
 A `         Target        ` is a set of simplified conditions for the
-`         Subject        ` , `         Resource,        ` and
+`         Subject        `, `         Resource,        ` and
 `         Action        ` which must be met for a
 `         Policy        ` or `         Rule        ` to apply to a given
 request.
@@ -103,7 +100,7 @@ Please study the examples given below.
 ### The first example
 
 A policy will be picked for a request having any
-`         Subject        ` , `         Action,        ` or
+`         Subject        `, `         Action,        ` or
 `         Resource:        `
 `                   http://localhost:8280/services/echo/                 `
 .
@@ -147,7 +144,7 @@ For the time being, let's not worry too much about the
 ### The second example
 
 Here, the `         Target        ` is applied to the
-`         Rule        ` , not to the entire `         Policy        ` .
+`         Rule        `, not to the entire `         Policy        ` .
 
 ``` java
 <Policy PolicyId="urn:sample:xacml:2.0:samplepolicy"
@@ -215,7 +212,7 @@ An `         Effect        ` is the intended consequence of a satisfied
 rule, which can be either `         Deny        ` or
 `         Permit        ` . This means that if the rule is deemed
 applicable to an incoming service request and the rule's conditions
-evaluate to `         TRUE        ` , then the specified effect should
+evaluate to `         TRUE        `, then the specified effect should
 be enforced.
 
 ------------------------------------------------------------------------
@@ -238,7 +235,7 @@ added to a `         Rule        ` .
 
 A `         Condition        ` can only be present within a
 `         Rule        ` . If a `         Condition        ` is intended
-to be applicable to an entire `         Policy        ` , then the
+to be applicable to an entire `         Policy        `, then the
 `         Condition        ` must be repeated in every
 `         Rule        ` in that `         Policy        ` .
 
@@ -280,4 +277,4 @@ Since you have got a clear idea of what is an XACML request and the
 elements of an XACML request, Now you can easily write an XACML policy
 using the policy editors available in WSO2 Identity Server. Please read
 [Creating a XACML
-Policy](https://docs.wso2.com/display/IS540/Creating+a+XACML+Policy).
+Policy](../../tutorials/creating-a-xacml-policy).

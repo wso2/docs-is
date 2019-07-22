@@ -54,7 +54,7 @@ Before you begin
     the `           user-mgt.xml          ` file is as given below.
     Change the values according to your requirement. For more
     information on each of the properties used in the user-mgt.xml file
-    for configuring the primary user store , see [Properties of User
+    for configuring the primary user store, see [Properties of User
     Stores](_Working_with_Properties_of_User_Stores_).
 
     ``` html/xml
@@ -184,7 +184,7 @@ Before you begin
 6.  Set the `           ReadGroups          ` property to 'true', if it
     should be allowed to read roles from this user store. When this
     property is 'true', you must also specify values for the
-    `           GroupSearchBase          ` ,
+    `           GroupSearchBase          `,
     `           GroupSearchFilter          ` and
     `           GroupNameAttribute          ` properties. If the
     `           ReadGroups          ` property is set to 'false', only

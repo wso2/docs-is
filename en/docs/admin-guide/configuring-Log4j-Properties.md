@@ -1,11 +1,11 @@
 # Configuring Log4j Properties
 
 All WSO2 products are shipped with the [log4j logging
-capabilities](_Monitoring_Logs_) , which generates administrative
+capabilities](_Monitoring_Logs_), which generates administrative
 activities and server side logs. The `         log4j.properties        `
 file, which governs how logging is performed by the server can be found
 in the `         <PRODUCT_HOME>/repository/conf        ` directory. If
-the [Logging Management feature is installed](_Monitoring_Logs_) , log4j
+the [Logging Management feature is installed](_Monitoring_Logs_), log4j
 properties can be configured using the management console.
 
 There are three main components when configuring log4j. They are
@@ -59,7 +59,7 @@ all loggers.
 -   **Log Pattern** - Defines the output format of the log file. This is
     the layout pattern which describes the log message format
 
-If you click **Restore Defaults** , the Registry will be overwritten by
+If you click **Restore Defaults**, the Registry will be overwritten by
 logging configurations specified in the
 `         log4j.properties        ` file .
 

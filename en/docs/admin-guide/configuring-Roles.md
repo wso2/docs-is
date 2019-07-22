@@ -155,7 +155,7 @@ following steps guide you through updating the role names:
         .
 
     -   If you are connected to
-        `            ReadWriteLdapUserStoreManager           ` , you
+        `            ReadWriteLdapUserStoreManager           `, you
         need to populate the members of the previous admin role to the
         new role under the Groups. For more information, see
         [Configuring User Stores](_Configuring_User_Stores_).

@@ -108,7 +108,7 @@ email address, configure the service provider.
     this example.
 4.  Click **Register**.
 5.  Expand the **Inbound Authentication Configuration** and the **SAML2
-    Web SSO Configuration** , and click **Configure**.
+    Web SSO Configuration**, and click **Configure**.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
@@ -161,7 +161,7 @@ email address, configure the service provider.
     <tr class="odd">
     <td>Include Attributes in the Response Always</td>
     <td>Selected</td>
-    <td>Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     </tr>
     </tbody>
     </table>
@@ -212,7 +212,7 @@ Let's look at how you can try it out:
 !!! tip
     
     If you want to only access Gmail, navigate to
-    [mail.google.com](http://mail.google.com) , enter the username of the
+    [mail.google.com](http://mail.google.com), enter the username of the
     user, enter the username and password of the user on the WSO2 Identity
     Server sign in screen, and you are navigated to the user's mail account.
     

@@ -26,7 +26,7 @@ emails](_Customizing_Automated_Emails_) sent to the user.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 

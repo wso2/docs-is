@@ -241,7 +241,7 @@ automated process:
         To encrypt this password, the
         `             cipher-tool.properties            ` file should
         contain the details shown below. In this example, 'Connector' is
-        the XML **element** , and 'keystorePass' is an **attribute** of
+        the XML **element**, and 'keystorePass' is an **attribute** of
         that element. The password value that we are encrypting is the
         **tag** of the XML attribute. This is denoted in the XPath
         as 'Connector\[@keystorePass\]', and the flag that follows the

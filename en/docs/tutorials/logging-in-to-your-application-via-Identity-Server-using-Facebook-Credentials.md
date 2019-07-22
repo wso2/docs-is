@@ -47,7 +47,7 @@ following sections for more information.
     Facebook credentials.
 2.  Click on **Create App**.  
     ![](attachments/103331384/103331446.png){width="800" height="46"}
-3.  Enter a **Display Name** , Contact Email, and click **Create App
+3.  Enter a **Display Name**, Contact Email, and click **Create App
     ID**.  
     ![](attachments/103331384/103331426.png){width="569" height="250"}
 4.  Enter code for security check, and click **Submit**.
@@ -62,7 +62,7 @@ following sections for more information.
 
     If you have configured [WSO2 Identity Server to run using the IP or
     hostname](https://docs.wso2.com/display/IS530/Running+the+Product#RunningtheProduct-ChangeIPorHostname)
-    , you need to provide the IP or hostname instead of
+   , you need to provide the IP or hostname instead of
     `             localhost            ` .
 
     ![](attachments/103331384/103331439.png){width="600"}
@@ -380,7 +380,7 @@ them with Facebook.
 1.  In the **Identity** section under the **Main** tab, click **List**
     under **Identity Providers**.
 2.  Click **Edit** to edit the facebook identity provider you created.
-3.  Under **Claim Configuration** , go to **Basic Claim Configuration**
+3.  Under **Claim Configuration**, go to **Basic Claim Configuration**
     .
 4.  Select the **Define Custom Claim Dialect** option under **Select
     Claim mapping Dialect**.

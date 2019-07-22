@@ -74,7 +74,7 @@ proxy service using the private key.
 
         1.  Sign in to the the management console as the tenant admin.
         2.  On the **Main** tab of the management console, go to
-            **Home** -\> **Manage** -\> **Keystores** , and click
+            **Home** -\> **Manage** -\> **Keystores**, and click
             **List**. This displays all available keystores.
         3.  On the list, click **Import Cert** in the tenant keystore to
             import the certificate to it.
@@ -198,7 +198,7 @@ Follow the steps below to configure the sample application:
 1.  Start WSO2 Identity Server and access the Management Console via
     `           https://localhost:9443/carbon/          ` .
 
-2.  Navigate to **Service Providers** -\> **Add** , enter a name for the
+2.  Navigate to **Service Providers** -\> **Add**, enter a name for the
     new service provider and click **Register**.
 
 3.  Expand the **Claim Configuration** section.
@@ -282,8 +282,8 @@ Follow the steps below to configure the sample application:
     display in the user profile claims, be sure to select **Supported by
     Default** when you update the local claim.
 
-5.  Expand **Inbound Authentication Configuration** , then expand
-    **SAML2 Web SSO Configuration** , and click **Configure**.
+5.  Expand **Inbound Authentication Configuration**, then expand
+    **SAML2 Web SSO Configuration**, and click **Configure**.
 
 6.  Provide values as follows:
     1.  **Issuer** :
@@ -293,8 +293,8 @@ Follow the steps below to configure the sample application:
     3.  Specify the application certificate alias for signature
         validation and encryption as the value of **Certificate Alias**
         .
-    4.  Configure the **Response Signing Algorithm** , **Response Digest
-        Algorithm** , **Assertion Encryption Algorithm** , and **Key
+    4.  Configure the **Response Signing Algorithm**, **Response Digest
+        Algorithm**, **Assertion Encryption Algorithm**, and **Key
         Encryption Algorithm** as in the diagram below:  
         ![](attachments/103331110/103331111.png){width="600"}
     5.  Select the following:  
@@ -321,14 +321,14 @@ citizen MS is also CA
         under **Users and Roles**.
     2.  Click **Users**. This link is only visible to users with the
         Admin role.
-    3.  Click **Add New User** , and  create a new user with all the
+    3.  Click **Add New User**, and  create a new user with all the
         natural person user attributes.
     4.  Use the sample service provider to send the request.  
         ![](attachments/103331110/103331116.png){width="750"}  
         When the signed SAML request is sent, you are redirected WSO2 IS
         for authentication.  
         ![](attachments/103331110/103331124.png){width="330"}
-    5.  Specify values for the **Username** and **Password** , and then
+    5.  Specify values for the **Username** and **Password**, and then
         click **SIGN IN**.
     6.  On successful authentication, you are asked to provide consent
         for the requested attributes. You need to provide consent, to

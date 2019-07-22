@@ -8,7 +8,7 @@ Path Authentication](_Request_Path_Authentication_) for more
 information.
 
 1.  Start the WSO2 Identity Server and log in to the management console.
-2.  Navigate to **Service Providers\>Add** , enter a name for the new
+2.  Navigate to **Service Providers\>Add**, enter a name for the new
     service provider and click **Register.**
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**

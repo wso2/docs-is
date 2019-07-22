@@ -148,7 +148,7 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 <tr class="odd">
 <td>maxActive</td>
 <td><p>The maximum number of active connections that can be allocated from the connection pool at the same time. The default value is <code>              100.             </code></p></td>
-<td><p>The maximum latency (approximately) = (P / M) * T ,</p>
+<td><p>The maximum latency (approximately) = (P / M) * T,</p>
 <p><em>where,</em></p>
 <ul>
 <li>M = maxActive value</li>
@@ -162,14 +162,14 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 <td>maxWait</td>
 <td>The maximum time that requests are expected to wait in the queue for a connection to be released. This property comes into effect when the maximum number of active connections allowed in the connection pool (see maxActive property) is used up.</td>
 <td><p>Adjust this to a value slightly higher than the maximum latency for a request, so that a buffer time is added to the maximum latency. That is,</p>
-<p>If the maximum latency (approximately) = (P / M) * T ,</p>
-<p><em>where</em> ,</p>
+<p>If the maximum latency (approximately) = (P / M) * T,</p>
+<p><em>where</em>,</p>
 <ul>
 <li>M = maxActive value,</li>
 <li>P = Peak concurrency value,</li>
 <li>T = Time (average) taken to process a query,</li>
 </ul>
-<p><em>then</em> , the maxWait = (P / M) * T + buffer time.</p></td>
+<p><em>then</em>, the maxWait = (P / M) * T + buffer time.</p></td>
 </tr>
 <tr class="odd">
 <td>minIdle</td>
@@ -218,7 +218,7 @@ Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
         adjusting the following parameters in the
         `          <          ORACLE_HOME>/dbs/init<SID>.ora         ` file
         of your Oracle database:
-        **`           SHARED_POOL_RESERVED_SIZE          `** ,
+        **`           SHARED_POOL_RESERVED_SIZE          `**,
         **`           SHARED_POOL_SIZE          `** and
         `                     LARGE_POOL_SIZE.                   `  
     

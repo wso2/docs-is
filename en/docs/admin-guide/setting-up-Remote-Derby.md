@@ -24,7 +24,7 @@ Follow the steps below to set up a remote Derby database.
 
 ### Setting up the drivers
 
-Copy the `         derby.jar        ` ,
+Copy the `         derby.jar        `,
 `         derbyclient.jar        ` JAR and the
 `         derbynet.jar        ` JAR from the \<
 `         DERBY_HOME>/lib/        ` directory to the \<

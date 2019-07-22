@@ -162,5 +162,5 @@ supports only JSON and now XML.
 
 As a result of the increasing pressure on OASIS PSTC, they started
 working on a REST binding for SPML, which is known as
-[RESTPML](https://wiki.oasis-open.org/provision/restpml) , around 2011.
+[RESTPML](https://wiki.oasis-open.org/provision/restpml), around 2011.
 This is still based on XML and not yet active so far.

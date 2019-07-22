@@ -116,7 +116,7 @@ method.
         -- Creates a schedule named CleanupTask.   
         -- Jobs that use this schedule execute every day when the time on the server is 01:00.   
         EXEC sp_add_schedule  
-            @schedule_name = N'CleanupTask' ,  
+            @schedule_name = N'CleanupTask',  
             @freq_type = 4,  
             @freq_interval = 1,  
             @active_start_time = 010000 ;  

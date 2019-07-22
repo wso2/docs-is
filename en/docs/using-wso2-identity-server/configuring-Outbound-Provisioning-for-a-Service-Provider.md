@@ -30,7 +30,7 @@ Do the following to configure outbound provisioning.
 3.  Click **Update** to save your changes.  
     ![](attachments/103329864/103329865.png){width="900"}
 
-    -   If you select **Blocking** , the authentication flow is blocked
+    -   If you select **Blocking**, the authentication flow is blocked
         until the provisioning finishes. If **Blocking** is not
         selected, provisioning happens in a different thread. In the
         blocking mode, the authentication flow will be blocked till the
@@ -42,7 +42,7 @@ Do the following to configure outbound provisioning.
         user gets provisioned or not in order to access your application
         you can use non-blocking mode.
 
-    -   If you select **Enable JIT Outbound** , the users are
+    -   If you select **Enable JIT Outbound**, the users are
         provisioned to the WSO2 IS user store on-the-fly as and when
         they are authenticated using just-in-time provisioning. To
         enable this, you need to configure JIT provisioning for the
@@ -50,7 +50,7 @@ Do the following to configure outbound provisioning.
         Just-In-Time
         Provisioning](https://docs.wso2.com/display/IS530/Configuring+Just-In-Time+Provisioning+for+an+Identity+Provider)
         .
-    -   If you select **Enable Rules** , the users are provisioned based
+    -   If you select **Enable Rules**, the users are provisioned based
         on the pre-defined XACML rules. For more information, see [Rule
         Based
         Provisioning](https://docs.wso2.com/display/IS530/Rule+Based+Provisioning)

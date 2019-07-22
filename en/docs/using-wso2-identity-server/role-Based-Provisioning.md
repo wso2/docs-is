@@ -28,7 +28,7 @@ Step 1: Configuring an identity provider
     this scenario.
 5.  Configure the **Outbound Provisioning Connectors** with
     [SPML](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+SPML#OutboundProvisioningwithSPML-Configuringanidentityprovider)
-    ,
+   ,
     [SCIM](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+SCIM#OutboundProvisioningwithSCIM-Configuringanidentityprovider)
     or [Salesforce
     connecter](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+Salesforce#OutboundProvisioningwithSalesforce-Configuringtheidentityprovider)
@@ -57,7 +57,7 @@ Step 1: Configuring an identity provider
 
     ![](attachments/103330270/103330273.png)
 
-    If you enable **Blocking** , WSO2 Identity Server will wait for the
+    If you enable **Blocking**, WSO2 Identity Server will wait for the
     response from the Identity Provider to continue.
 
 3.  Click **Update** to save changes.

@@ -2,7 +2,7 @@
 
 This page contains the following information:
 
--   [Installing the Product](_Installing_the_Product_)
+-   [Installing the Product](../../setup/installing-the-product)
 -   [Upgrading from a Previous
     Release](_Upgrading_from_a_Previous_Release_)
 -   [Running the Product](_Running_the_Product_)

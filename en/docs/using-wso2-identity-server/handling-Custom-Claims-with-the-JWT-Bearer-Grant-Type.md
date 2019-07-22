@@ -72,7 +72,7 @@ Before you begin
 Follow the steps below to set up the two WSO2 Identity Server instances:
 
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install](_Installing_the_Product_) two Identity Server instances.
+    [install](../../setup/installing-the-product) two Identity Server instances.
 2.  In the
     `            <IS-IP_HOME>/repository/conf/carbon.xml           `
     file, locate the `            Offset           ` element and change
@@ -126,14 +126,14 @@ with the configuration steps.
         </div>
         </div>
         <ul>
-        <li>Navigate to your service provider, expand <strong>Inbound Authentication Configurations</strong> , and then expand <strong>OAuth/OpenID Connect Configuration</strong> .
+        <li>Navigate to your service provider, expand <strong>Inbound Authentication Configurations</strong>, and then expand <strong>OAuth/OpenID Connect Configuration</strong> .
         <ul>
         <li>Copy the <strong>OAuth Client Key</strong> as the value for <code>                      &lt;CLIENT_ID&gt;                     </code> .</li>
         <li>Copy the <strong>OAuth Client Secret</strong> as the value for <code>                      &lt;CLIENT_SECRET&gt;                     </code> .</li>
         </ul></li>
         <li>Enter the user name and password of the user you want to get the token as the value for <code>                    &lt;USERNAME&gt;                   </code> and <code>                    &lt;PASSWORD&gt;                   </code> respectively.</li>
         <li>By default, <code>                    &lt;IS_HOST&gt;                   </code> is <code>                    localhost.                   </code> However, if you are using a public IP, the respective IP address or domain needs to be specified.</li>
-        <li>By default, <code>                    &lt;IS_HTTPS_PORT&gt;                   </code> has been set to 9443. However, in this scenario since the port offset for IS-IP is incremented by <code>                    1                   </code> , the default port value needs to be incremented by <code>                    1                   </code> .</li>
+        <li>By default, <code>                    &lt;IS_HTTPS_PORT&gt;                   </code> has been set to 9443. However, in this scenario since the port offset for IS-IP is incremented by <code>                    1                   </code>, the default port value needs to be incremented by <code>                    1                   </code> .</li>
         </ul>
         </div></td>
         </tr>
@@ -185,7 +185,7 @@ with the configuration steps.
         Started with the Management
         Console](../../setup/getting-started-with-the-management-console).
     2.  On the **Main** tab, go to **Identity** -\> **Identity
-        Providers** , and click **Add**.
+        Providers**, and click **Add**.
     3.  Provide appropriate values to configure IS-IP as the identity
         provider. For detailed instructions on how to add a new identity
         provider, see [Adding and Configuring an Identity
@@ -239,7 +239,7 @@ claims with the JWT bearer grant type when the
 Here, the `         country        ` and `         email        ` are
 directly copied to the generated JWT token because the
 `         ConverToOIDCDialect        ` element is set to
-`         false        ` , which results in all custom claims coming
+`         false        `, which results in all custom claims coming
 from incoming JWT assertions  being directly copied to the generated JWT
 token.
 

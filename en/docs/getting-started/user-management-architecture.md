@@ -66,7 +66,7 @@ is structured to work in WSO2 products:
     `            user-mgt.xml           ` file stored in the
     `            <PRODUCT_HOME>/repository/conf/           ` directory
     is used as the realm configuration XML. This includes setting up the
-    **User Store Manager** , the **Authorization Manager** and the
+    **User Store Manager**, the **Authorization Manager** and the
     **System Administrator**. These configurations are explained
     below.  
 
@@ -98,7 +98,7 @@ is structured to work in WSO2 products:
     </tr>
     <tr class="even">
     <td>Authorization Manager</td>
-    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>                JDBCAuthorizationManager               </code> , which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, if you want to use a XACML authorization manager) and use it with WSO2 products.</td>
+    <td>The Authorization Manager uses role-based access control (RBAC) to protect resources related to the WSO2 Carbon platform. The default implementation of the Authorization Manager is <code>                JDBCAuthorizationManager               </code>, which uses a permission model specific to WSO2 Carbon and uses the authorization data that is stored in tables in the JDBC database. You can replace this implementation with a custom implementation (for example, if you want to use a XACML authorization manager) and use it with WSO2 products.</td>
     </tr>
     <tr class="odd">
     <td>System Administrator</td>

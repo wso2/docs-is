@@ -16,7 +16,7 @@ Alternatively, you can also do this using one of the following options:
 -   [Deploying using the Maven
     plug-in](#DeployingCompositeApplicationsintheServer-DeployingusingtheMavenplug-in)
 
-**Before you begin** , [package your artifacts into a Composite
+**Before you begin**, [package your artifacts into a Composite
 Application](_Packaging_Artifacts_into_Composite_Applications_). Note
 that the examples here are given using WSO2 ESB, but the steps are the
 same for any WSO2 server.
@@ -41,7 +41,7 @@ list, and then click **Finish**.
 deploy](attachments/57739657/87693726.png "select the composite app you want to deploy")
 
 1.  In the Tooling interface, navigate to **Developer Studio Dashboard**
-    , and click **Server** under **Add Server**.
+   , and click **Server** under **Add Server**.
 
 2.  In the **Define a New Server** dialog box, expand the
     WSO2 folder and select the version of your server. In this case, it
@@ -113,7 +113,7 @@ and then deploy the created CAR file as follows:
 
     The **Add Carbon Applications** screen appears.
 
-2.  Click **Choose File** , select your CAR file and click **Upload**
+2.  Click **Choose File**, select your CAR file and click **Upload**
     .  
     The CAR files that you upload are dropped to the
     `           <PRODUCT_HOME>/tmp/carbonapps/{tenant-ID}/          `
@@ -228,7 +228,7 @@ to keep the configurations on all nodes of the cluster in sync.
 
 !!! tip
     
-    When **deleting a C-App** , it is not recommended to delete individual
+    When **deleting a C-App**, it is not recommended to delete individual
     artifacts of the CAR file. The recommended practice is to delete the
     entire C-App.
     

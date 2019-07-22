@@ -2,7 +2,7 @@
 
 The Instagram authenticator allows users to log in to your
 organization's applications using
-[Instagram](https://www.instagram.com/) , which is an online mobile
+[Instagram](https://www.instagram.com/), which is an online mobile
 photo-sharing, video-sharing, and social networking service. The
 Instagram authenticator is configured as a federated authenticator in
 WSO2 Identity Server.

@@ -80,7 +80,7 @@ self-contained JWT access tokens as below.
     </ul></li>
     <li>Enter the username and password of the user you want to get the token as the value for <code>                  &lt;USERNAME&gt;                 </code> and <code>                  &lt;PASSWORD&gt;                 </code> respectively.</li>
     <li>By default, <code>                  &lt;IS_HOST&gt;                 </code> is <code>                  localhost.                 </code> However, if you are using a public IP, the respective IP address or domain needs to be specified.</li>
-    <li>By default, <code>                  &lt;IS_HTTPS_PORT&gt;                 </code> has been set to 9443. However, if the port offset has been incremented by <code>                  n                 </code> , the default port value needs to be incremented by <code>                  n                 </code> .</li>
+    <li>By default, <code>                  &lt;IS_HTTPS_PORT&gt;                 </code> has been set to 9443. However, if the port offset has been incremented by <code>                  n                 </code>, the default port value needs to be incremented by <code>                  n                 </code> .</li>
     </ul>
     <p>Example:</p>
     <div class="code panel pdl" style="border-width: 1px;">

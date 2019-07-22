@@ -60,7 +60,7 @@ implement a new grant type.
     ```
 
     Setting the `            <IdTokenAllowed>           ` parameter to
-    `            true           ` , provides flexibility to control the
+    `            true           `, provides flexibility to control the
     issuing of IDtoken for each grant, and also allows the OIDC scope
     validator to validate the grant types that should support the openid
     scope.

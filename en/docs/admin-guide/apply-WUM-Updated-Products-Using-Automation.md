@@ -87,7 +87,7 @@ purpose:
 
 Let's start!
 
-**Before you begin** , be sure to increase the deployment time interval
+**Before you begin**, be sure to increase the deployment time interval
 (for an hour or two) of all the product nodes that are already in
 production. This is to make sure that the updates committed to the
 deployment directory in your deployment synchronization tool will not be
@@ -136,8 +136,8 @@ distribution is deployed. To increase the deployment time interval:
             command prompt (terminal) you use.
     
 
-    -   For **Linux** , directly run the script in the terminal.
-    -   For **Windows** , use one of the following methods:  
+    -   For **Linux**, directly run the script in the terminal.
+    -   For **Windows**, use one of the following methods:  
         -   Use git bash.
 
         -   Use cygwin with the diff and patch tool installed.
@@ -146,11 +146,11 @@ distribution is deployed. To increase the deployment time interval:
     information:
 
     -   The path to the deployment directory in your previous
-        WUM-updated distribution , which you unpacked in [step
+        WUM-updated distribution, which you unpacked in [step
         1](#ApplyWUM-UpdatedProductsUsingAutomation-step1) above.
 
     -   The path to the deployment directory in your latest WUM-updated
-        product distribution , which you unpacked in [step
+        product distribution, which you unpacked in [step
         2](#ApplyWUM-UpdatedProductsUsingAutomation-step2) above.
 
     -   The path to the deployment directory that is currently in
