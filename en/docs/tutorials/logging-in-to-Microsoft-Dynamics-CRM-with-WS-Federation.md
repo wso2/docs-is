@@ -88,7 +88,7 @@ match exactly.
     -   `                                       http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name                                    `
 
     In order to retrieve these values from WSO2, map the local claim
-    value to the CRM value. In the **Subject Claim URI** , select the
+    value to the CRM value. In the **Subject Claim URI**, select the
     `                                    http://schemas.xm                                  lsoap.org/ws/2005/05/identity/claims/name          `
     claim. This example assumes that the
     `                                    http://wso2.org/claims/logonname                                 `

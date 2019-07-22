@@ -26,7 +26,7 @@ the administrator.
     using the ask password option.
     
     Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation** , see [Creating Users using the
+    feature using the **old implementation**, see [Creating Users using the
     Ask Password Option documentation in WSO2 IS
     5.2.0](https://docs.wso2.com/display/IS520/Creating+Users+using+the+Ask+Password+Option)
     . The old implementation has been retained within the WSO2 IS pack for
@@ -195,7 +195,7 @@ password feature:
 
 4.  Start the Identity Server and log in to the **Management Console**.
 
-5.  In the **Main** tab, click, under **Identity Providers** , click
+5.  In the **Main** tab, click, under **Identity Providers**, click
     **Resident** and expand the **Account Management Policies** tab.
 6.  Expand the **User Onboarding** tab and select **Enable User Email
     Verification**. Click **Update** to save changes.
@@ -271,7 +271,7 @@ option.
 
 1.  Start the WSO2 Identity Server.
 
-2.  On the Main tab in the **Management Console** , click **Add** under
+2.  On the Main tab in the **Management Console**, click **Add** under
     Users and Roles.
 
 3.  Click **Add new User.**

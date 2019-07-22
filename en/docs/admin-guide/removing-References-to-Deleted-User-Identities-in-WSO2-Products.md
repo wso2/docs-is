@@ -90,7 +90,7 @@ Follow the steps below to build the tool:
 1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
     repository to a required location.
 2.  In the source that you checked out, navigate to
-    `          identity-anonymization-tool         ` , and run
+    `          identity-anonymization-tool         `, and run
     `          mvn clean install         ` . This downloads all
     dependencies and builds the tool in your local repository. You can
     find the

@@ -7,7 +7,7 @@ define the identity information related to the subject. Claim-based
 identity is a common way for any application to acquire the identity
 information. It provides a consistent approach for all applications by
 hiding the lower level implementation. Claims are also used in identity
-propagation which is the replication of authenticated **identities** ,
+propagation which is the replication of authenticated **identities**,
 by packaging the claims into one or more tokens (such as SAML). These
 tokens are then issued by an issuer (eg., [security token
 service](https://docs.wso2.com/display/IS540/Single+Sign-On+and+Identity+Federation#SingleSign-OnandIdentityFederation-WS-Trust)

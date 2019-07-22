@@ -249,10 +249,10 @@ Email OTP is enabled.
     <li>If you use a <strong>super tenant,</strong> set all the parameter values into the <code>                     &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                    </code> file under the <code>                     AuthenticatorConfigs                    </code> section.</li>
     </ul>
     <ul>
-    <li>If you use a <strong>tenant</strong> ,
+    <li>If you use a <strong>tenant</strong>,
     <ul>
     <li>Upload the same XML file ( <code>                       application-authentication.xml                      </code> ) into a specific registry location ( <code>                       /_system/governance/EmailOTP                      </code> ).</li>
-    <li>Create the collection named <code>                       EmailOTP                      </code> , add the resource and upload the <code>                       application-authentication.                      </code> <code>                       xml                      </code> file into the registry.</li>
+    <li>Create the collection named <code>                       EmailOTP                      </code>, add the resource and upload the <code>                       application-authentication.                      </code> <code>                       xml                      </code> file into the registry.</li>
     <li>While doing the authentication,thesysetmfirstcheckswhetherthereisanXML file uploaded to the registry. If that is so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
     <li>You can use the registry or local file to get the property values.</li>
     </ul></li>
@@ -267,8 +267,8 @@ Email OTP is enabled.
     <td>Thisparmeterdefineswhtherthe EmailOTP is enforced as the second step of the 2FA/MFA or not.
     <ul>
     <li><ul>
-    <li><p>If the user is not found in the active directory where the parameter is set to <code>                      true                     </code> , the OTP is directly sent to the email address defined in the claims set.</p></li>
-    <li><p>If the user is not found in the active directory where the parameter is set to <code>                      false                     </code> , the authentication flow terminates at the first step of the 2FA/MFA.</p></li>
+    <li><p>If the user is not found in the active directory where the parameter is set to <code>                      true                     </code>, the OTP is directly sent to the email address defined in the claims set.</p></li>
+    <li><p>If the user is not found in the active directory where the parameter is set to <code>                      false                     </code>, the authentication flow terminates at the first step of the 2FA/MFA.</p></li>
     </ul></li>
     </ul></td>
     <td><ul>
@@ -279,7 +279,7 @@ Email OTP is enabled.
     <tr class="even">
     <td><pre><code>sendOTPToFederatedEmailAttribute</code></pre></td>
     <td><p>When the <code>                  EMAILOTPMandatory                 </code> and this parameter are set to <code>                  true                 </code> and the user is not found in the active directory, the OTPissetn to the mail defined in the federated authenticator claim.</p>
-    <p>When the <code>                  EMAILOTPMandatory                 </code> is set to <code>                  false                 </code> , an error page gets displayed.</p>
+    <p>When the <code>                  EMAILOTPMandatory                 </code> is set to <code>                  false                 </code>, an error page gets displayed.</p>
     <p>When the <code>                  EMAILOTPMandatory                 </code> is set to <code>                  false                 </code> and the user is not found in the active directory, the authentication mechanism terminates at the first step of the 2FA/MFA. This parameter is not required in such a scenario.</p></td>
     <td><ul>
     <li><code>                   true                  </code></li>
@@ -297,9 +297,9 @@ Email OTP is enabled.
     <td>This parameter enables the user to overidethefunctionalitydefinedatthe <code>                 EMAILOTPMandatory                </code> parameter.
     <ul>
     <li><ul>
-    <li>If this parameter and the <code>                     EMAILOTPMandatory                    </code> parameters are set to <code>                     true                    </code> , the user can either enable or disable the EmailOTP functionality.</li>
-    <li>If this parameter is set to <code>                     false                    </code> where the <code>                     EMAILOTPMandatory                    </code> parameter is set to <code>                     true                    </code> , the user gets redirected to an error page.</li>
-    <li>If this parameter and the <code>                     EMAILOTPMandatory                    </code> parameters are set to <code>                     false                    </code> , the authentication flow terminates at the first step of the 2FA/MFA.</li>
+    <li>If this parameter and the <code>                     EMAILOTPMandatory                    </code> parameters are set to <code>                     true                    </code>, the user can either enable or disable the EmailOTP functionality.</li>
+    <li>If this parameter is set to <code>                     false                    </code> where the <code>                     EMAILOTPMandatory                    </code> parameter is set to <code>                     true                    </code>, the user gets redirected to an error page.</li>
+    <li>If this parameter and the <code>                     EMAILOTPMandatory                    </code> parameters are set to <code>                     false                    </code>, the authentication flow terminates at the first step of the 2FA/MFA.</li>
     <li>If the user is not available in the active directory</li>
     </ul></li>
     </ul></td>
@@ -732,8 +732,8 @@ Follow the steps below add a service provider:
     2.  **Assertion Consumer URL** :
         `             http://localhost:8080/travelocity.com/home.jsp            `
 
-    3.  Select the following check-boxes: **Enable Response Signing** ,
-        **Enable Single Logout** , **Enable Attribute Profile** , and
+    3.  Select the following check-boxes: **Enable Response Signing**,
+        **Enable Single Logout**, **Enable Attribute Profile**, and
         **Include Attributes in the Response Always**.
 
 8.  Click **Update** to save the changes. Now you will be sent back to

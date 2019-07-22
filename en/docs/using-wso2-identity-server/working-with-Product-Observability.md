@@ -87,7 +87,7 @@ Follow the steps below to enable product observability.
     ```
 
 2.  To set the `           -DenableCorrelationLogs          ` property
-    to `           true          ` , execute the following command.
+    to `           true          `, execute the following command.
 
     ``` java
         For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
@@ -237,7 +237,7 @@ timing delays for the JDBC or LDAP calls.
 ```
 
 1.  Line 1 is the `          http-in-request         ` .
-2.  Line 10 is the `          http-in-response         ` , which shows
+2.  Line 10 is the `          http-in-response         `, which shows
     that the total time taken for the cycle is
     `          480 ms         ` . This is almost close to half a second.
     With that we can assume that there is a delay with either an LDAP or
@@ -245,7 +245,7 @@ timing delays for the JDBC or LDAP calls.
 3.  When we carefully analyze each line, we can see that all JDBC calls
     have taken less than `          5 ms         ` .
 4.  Line 4 however, indicates an LDAP call that has taken
-    `          200 ms         ` , which can be a possible reason for
+    `          200 ms         `, which can be a possible reason for
     this issue.
 
 ### Advanced scenarios

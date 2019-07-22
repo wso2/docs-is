@@ -22,7 +22,7 @@ TCPMon.
     For information on how to set the `            JAVA_HOME           `
     variable, go to [Installing the
     Product](https://docs.wso2.com/display/Carbon440/Installing+the+Product)
-    , select the instructions relevant to your operating system and
+   , select the instructions relevant to your operating system and
     refer the 'Setting JAVA\_HOME' section.
 
 To run the TCPMon available with your WSO2 Carbon product pack:

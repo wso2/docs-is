@@ -53,7 +53,7 @@ The following steps provide instructions on how to configure this.
     ```
 
     If the `           Domain-Name          ` is not specified with the
-    `           username          ` , the user is provisioned to the
+    `           username          `, the user is provisioned to the
     primary user store.
 
     However, if you specify the user store in the configuration, the

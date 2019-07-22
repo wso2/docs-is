@@ -113,7 +113,7 @@ authority.
     `          <CLIENT_HOME>          \src\test\java\org\wso2\carbon\identity\query\saml\test         `
     . `         `
 8.  Open the relevant java class of the query type you wish to request
-    (e.g., `          SAMLAssertionIDRequestClient.java         ` ) ,
+    (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
     enter the required values, and run the main() method of the
     class. An assertion request will be generated.
 9.  You will receive a response according to the query type.

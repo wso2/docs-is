@@ -56,7 +56,7 @@ datasource.
 
 For more information, see a sample implementation of a custom
 query-based datasource at
-`                   EchoDataSource                 ` , and a sample data
+`                   EchoDataSource                 `, and a sample data
 service descriptor with custom query datasources in
 `                   InMemoryDSSample                 ` . Carbon
 datasources also support query-based data with the
@@ -69,7 +69,7 @@ file, which is a sample Carbon datasource configuration.
 In the `         init        ` methods of all custom datasources,
 user-supplied properties will be parsed to initialize the datasource
 accordingly. Also, a property named
-`         <__DATASOURCE_ID__>        ` , which contains a UUID to
+`         <__DATASOURCE_ID__>        `, which contains a UUID to
 uniquely identify the current datasource, will be passed. This can be
 used by custom datasource authors to identify the datasources
 accordingly, such as datasource instances communicating within a server

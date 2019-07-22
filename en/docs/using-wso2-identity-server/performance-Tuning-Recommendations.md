@@ -125,7 +125,7 @@ file as shown below.
 
 -   JVM heap size (Xmx) depends on your load. Given below are the
     general settings but if you are on a production environment, this
-    might not be sufficient . In such situations , you can increase the
+    might not be sufficient . In such situations, you can increase the
     heap size accordingly .
 
     For instance, if you want to increase the JVM heap size to 4GB, open

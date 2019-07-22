@@ -33,7 +33,7 @@ Grant](https://docs.wso2.com/display/IS530/Resource+Owner+Password+Credentials+G
     add the tenant domain as a query parameter to the access token
     endpoint.
 
-    If the tenant domain is *[wso2.com](http://wso2.com)* , access token
+    If the tenant domain is *[wso2.com](http://wso2.com)*, access token
     endpoint will be as follows.
 
     Access Token Endpoint:

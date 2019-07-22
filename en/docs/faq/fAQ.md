@@ -296,7 +296,7 @@ provider to implement.
 
 Unlike with SPML, the industry itself has been developing this
 specification based on practical experience.
-[Salesforce.com](http://salesforce.com/) , Cisco, Google, Ping Identity,
+[Salesforce.com](http://salesforce.com/), Cisco, Google, Ping Identity,
 Technology Nexus, and UnboundID, among others, are committed to its
 success .
 
@@ -737,7 +737,7 @@ mentioned security standards.
 
 WSO2Identity Server supports centralized and policy based access control
 mechanism based on XACML. Authentication mechanism, such as username
-token, X.509 SAML , OAuth and kerberos can be easily plugged with the
+token, X.509 SAML, OAuth and kerberos can be easily plugged with the
 XACML access control engine.  
   
 

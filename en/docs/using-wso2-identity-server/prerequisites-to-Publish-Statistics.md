@@ -1,6 +1,6 @@
 # Prerequisites to Publish Statistics
 
-Following are the prerequisites that should be fulfilled , in order for
+Following are the prerequisites that should be fulfilled, in order for
 the Analytics Dashboard to publish the data processed by WSO2 IS.
 
 -   [Step 01: Download WSO2 IS
@@ -201,7 +201,7 @@ Follow the steps below to configure the event publishers:
         <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">tpc:<span class="co">//&lt;HOSTNAME&gt;:&lt;THRIFT_PORT&gt;</span></a></code></pre></div>
         </div>
         </div></li>
-        <li>When specifying the thrift port, the default port offsets done for WSO2 IS Analytics should be considered, e.g., if WSO2 IS Analytics was started with a port offset of <code>                    1                   </code> , the thrift port should be <code>                    7612                   </code> instead of <code>                    7611                   </code> .</li>
+        <li>When specifying the thrift port, the default port offsets done for WSO2 IS Analytics should be considered, e.g., if WSO2 IS Analytics was started with a port offset of <code>                    1                   </code>, the thrift port should be <code>                    7612                   </code> instead of <code>                    7611                   </code> .</li>
         <li><p>For high availability scenarios, multiple analytics receivers can be defined by configuring multiple comma-separated URLs with the format.</p>
         <div class="code panel pdl" style="border-width: 1px;">
         <div class="codeContent panelContent pdl">
@@ -236,7 +236,7 @@ Follow the steps below to configure the event publishers:
         <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">ssl:<span class="co">//&lt;HOSTNAME&gt;:&lt;SSL_PORT&gt;</span></a></code></pre></div>
         </div>
         </div></li>
-        <li>When specifying the SSL port, the default port offsets done for WSO2 IS should be considered, e.g., if WSO2 IS was started with a port offset of <code>                    1                   </code> , the SSL port should be <code>                    7712                   </code> instead of <code>                    7711                   </code> .</li>
+        <li>When specifying the SSL port, the default port offsets done for WSO2 IS should be considered, e.g., if WSO2 IS was started with a port offset of <code>                    1                   </code>, the SSL port should be <code>                    7712                   </code> instead of <code>                    7711                   </code> .</li>
         <li><p>This parameter is not included in the <code>                     &lt;IS_HOME&gt;repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-AuthenticationData.xml                    </code> file by default. When it is not included, the authenticator URL is derived by adding 100 to the thrift port.</p></li>
         </ul>
         </div></td>

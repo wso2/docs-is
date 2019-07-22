@@ -118,8 +118,8 @@ user5,password123, role=devops:tester
     
 
 In addition to importing users with their passwords and roles, you can
-import other user attributes such as **email address** , **full name** ,
-**last name, mobile** , **given name etc.** using [claim URls that are
+import other user attributes such as **email address**, **full name**,
+**last name, mobile**, **given name etc.** using [claim URls that are
 defined for attributes](_Managing_User_Attributes_). Here's an example
 of claim URls that you can defined for your product:
 
@@ -142,7 +142,7 @@ user3, password123,http://wso2.org/claims/givenname= myname3,http://wso2.org/cla
 
 !!! note
     
-    If you are using **WSO2 Identity Server** , you can choose to leave the
+    If you are using **WSO2 Identity Server**, you can choose to leave the
     password empty as shown by the third line in the below sample. To use
     this option, you need to first enable the [Ask Password
     option](https://docs.wso2.com/display/IS530/Creating+Users+Using+the+Ask+Password+Option)
@@ -156,7 +156,7 @@ user3, password123,http://wso2.org/claims/givenname= myname3,http://wso2.org/cla
 To import users in bulk:
 
 1.  Log in to the management console of your WSO2 product.
-2.  In the **Configure** menu, Under **Users and Roles** , click
+2.  In the **Configure** menu, Under **Users and Roles**, click
     **Add.**  
 3.  Click **Bulk Import Users**.  
 4.  The user stores configured for your product will be listed in the

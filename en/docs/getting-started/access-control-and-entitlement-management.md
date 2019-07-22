@@ -164,7 +164,7 @@ help to achieve all of these goals, because XACML:
     	ABAC is an access control paradigm whereby access rights are granted to users through the use of
     	policies which combine attributes together. The policies can use any
     	type of attributes (user attributes, resource attributes, object,
-    	environment attributes etc.). This model supports boolean logic , in
+    	environment attributes etc.). This model supports boolean logic, in
     	which rules contain "IF, THEN" statements about who is making the
     	request, the resource, and the action. For example: IF the requestor is
     	a manager, THEN allow read/write access to sensitive data.
@@ -927,11 +927,11 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
     |---------------|--------|----------------------------------------------------------------------|---------------|
     | Decision      | String | Yes. Possible values are: Permit, Deny, NotApplicable, Indeterminate | None.         |
 
--   The results can have the `          status         ` ,
-    `          obligations         ` ,
-    `          associatedAdvice         ` ,
-    `          category         ` , and
-    `          policyIdentifierList         ` , which are optional.
+-   The results can have the `          status         `,
+    `          obligations         `,
+    `          associatedAdvice         `,
+    `          category         `, and
+    `          policyIdentifierList         `, which are optional.
 
 Following is a sample JSON request that you can try out with WSO2
 Identity Server:

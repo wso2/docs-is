@@ -42,7 +42,7 @@ supported by WSO2 Identity Server.
     above configuration, you can turn on or turn off the process of issuing
     ID tokens for the grant types that have the `         openid        `
     scope. By default, `         IdTokenAllowed        ` is set to
-    `         true        ` , you can allow it to issue
+    `         true        `, you can allow it to issue
     `         id_tokens        ` for all grant types that have the
     `         openid        ` scope. By configuring it to false, you can
     stop issuing ID tokens.  
@@ -53,9 +53,9 @@ supported by WSO2 Identity Server.
     to `         true        ` or `         false        ` along with the
     above configuration, you can turn on or turn on the process of issuing
     refresh tokens. By default, `         IsRefreshTokenAllowed        ` is
-    set to `         true        ` , and `        ` you can allow it to
+    set to `         true        `, and `        ` you can allow it to
     issue refresh tokens for all grant types. By configuring it to
-    `         false        ` , you can stop issuing refresh tokens.  
+    `         false        `, you can stop issuing refresh tokens.  
     **Note:** By default, i ssuing ID token for
     `         client_credentials        ` grant type is disabled as it is
     logically invalid.

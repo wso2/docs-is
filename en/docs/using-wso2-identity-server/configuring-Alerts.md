@@ -99,7 +99,7 @@ Follow the steps below to configure suspicious alerts.
     3.  **`                <<NO OF DAYS>>               `** : This
         parameter defines the number of days to be considered when
         calculating the average session duration. For example, if this
-        parameter is set to `               7              ` , the
+        parameter is set to `               7              `, the
         average session duration is calculated based on the duration of
         all the sessions that occurred during the last 7 days before the
         current session.

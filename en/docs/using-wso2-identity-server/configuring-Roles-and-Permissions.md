@@ -108,7 +108,7 @@ Follow the instructions below to add a user role.
 
 1.  On the **Main** tab in the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
-    , click **Add** under **Users and Roles**.  
+   , click **Add** under **Users and Roles**.  
 2.  Click **Roles**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New Role**.
@@ -269,7 +269,7 @@ some time.
     section](#ConfiguringRolesandPermissions-UpdateRole1).
 2.  Do the following user store level changes for existing users:  
     -   If you are connected to the
-        `             JDBCUserStoreManager            ` , update the
+        `             JDBCUserStoreManager            `, update the
         `             UM_USER_ROLE            ` table with the existing
         users and the new role names that you defined in place of the
         'admin' and 'everyone' roles. If you have changed the

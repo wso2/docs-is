@@ -54,13 +54,13 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     2.  Select **SMS Based** as the **User type**.
     3.  Click **Register**.  
         ![](attachments/53120841/53284895.png)
-2.  Once you have registered with Token2 , log in using your email,
+2.  Once you have registered with Token2, log in using your email,
     password and the OTP that is sent to the registered mobile number
     through Token2.
 3.  Add a new site using " <https://token2.com/manage> " and obtain the
     API Key and site\_id for the site.
 4.  As mentioned in the [Token2 API
-    page](https://token2.com/?content=api) , create the user and you can
+    page](https://token2.com/?content=api), create the user and you can
     find the userid in the response .
 5.  You have to obtain the hardware token device and send the userid,
     site\_id and token serial number to Token2 support to enable it.
@@ -120,7 +120,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 3.  Click **Add Local Claim**. The **Dialect URI** will be
     automatically set to
     `                         http://wso2.org/claims                       `
-    , which is the internal claim dialect .
+   , which is the internal claim dialect .
 
     <table>
     <thead>
@@ -152,7 +152,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     <p>This is the corresponding attribute name from the underlying user store that is mapped to the Claim URI value.<br />
     <br />
     When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
-    For example, if you specify the <code>                   cn                  </code> attribute, this is mapped to the <code>                   cn                  </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong> , selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
+    For example, if you specify the <code>                   cn                  </code> attribute, this is mapped to the <code>                   cn                  </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
     <img src="attachments/60494083/85362998.png" width="700" /></p>
     </div></td>
@@ -266,7 +266,7 @@ The next step is to configure the service provider.
     <tr class="even">
     <td>NameID format</td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <p>About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
@@ -315,7 +315,7 @@ The next step is to configure the service provider.
     </tr>
     <tr class="even">
     <td>Enable Assertion Encryption</td>
-    <td>Enable <strong>Assertion Encryption</strong> , if you wish to encrypt the assertion.</td>
+    <td>Enable <strong>Assertion Encryption</strong>, if you wish to encrypt the assertion.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -325,7 +325,7 @@ The next step is to configure the service provider.
     </tr>
     <tr class="even">
     <td>Enable Attribute Profile</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">

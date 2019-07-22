@@ -50,7 +50,7 @@ authenticator with WSO2 Identity Server:
 
 ### Configuring the Nuxeo application
 
-1.  Go to <https://www.nuxeo.com/downloads/> , download the server
+1.  Go to <https://www.nuxeo.com/downloads/>, download the server
     and unzip the archive. The path to the sever will be referred to as
     `          <NUEXO_HOME>         ` throughout this page.
 2.  Navigate to the `           <NUEXO_HOME>/bin          ` directory
@@ -77,11 +77,11 @@ authenticator with WSO2 Identity Server:
     server.  
     1.  Go to <http://localhost:8080/nuxeo/jsf> and sign in with
         Administrator/Administrator credentials.
-    2.  Click **Admin** , then click **Cloud Services** , and then click
+    2.  Click **Admin**, then click **Cloud Services**, and then click
         the **Consumers** tab.
     3.  Click **Add** under the **OAuth2 Clients** section.
-    4.  Specify values for the **Name** , **Client ID** , **Client
-        Secret** , and **Redirect URI**. You can use
+    4.  Specify values for the **Name**, **Client ID**, **Client
+        Secret**, and **Redirect URI**. You can use
         <https://localhost:9443/commonauth> as the **Redirect URI**.
     5.  Click **Create**.  
         ![](attachments/92526518/92534118.png){width="700"}
@@ -254,7 +254,7 @@ Follow the steps below to configure the service provider.
 7.  Expand the **Local and Outbound Authentication Configuration**
     section.
 
-8.  From the drop-down list under **Federated Authentication** , select
+8.  From the drop-down list under **Federated Authentication**, select
     the identity provider you created.
 
 9.  Ensure that the **Federated Authentication** radio button is

@@ -16,7 +16,7 @@
 All the required keystore files should first be created and stored in
 the `         <PRODUCT_HOME>/repository/resources/security/        `
 directory. For information on how to create new keystore files see
-[Creating New Keystores](_Creating_New_Keystores_) , and for information
+[Creating New Keystores](_Creating_New_Keystores_), and for information
 on how to update configuration files in your product with keystore
 information, see [Configuring Keystores in WSO2
 Products](_Configuring_Keystores_in_WSO2_Products_).
@@ -33,7 +33,7 @@ management console.
 2.  Go to the **Configure** tab and click **Key Stores**.
 3.  The **Key Store Management** page appears. Click the **Add New Key
     store** link.
-4.  Specify the **Provider** and the **Keystore Password** , which
+4.  Specify the **Provider** and the **Keystore Password**, which
     points to the password required to access the private key.
 5.  In the **Keystore Type** field, specify whether the keystore file
     you are uploading is JKS or PKCS12.

@@ -13,7 +13,7 @@ You can configure the roles of the identity provider by doing the
 following.
 
 1.  Expand the **Role Configuration** section.
-2.  To configure **Identity Provider Roles** , click **Add Role
+2.  To configure **Identity Provider Roles**, click **Add Role
     Mapping**. The following screen appears.  
     ![Role
     Mapping](attachments/103329728/103329729.png "Role Mapping"){width="750"}

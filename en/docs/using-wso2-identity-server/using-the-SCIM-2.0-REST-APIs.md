@@ -558,7 +558,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>A filter expression used to filter users.</p>
-<p>Supported filter operators are ‘ <code>                 EQ                </code> ’, ' <code>                 EW'                </code> , ‘ <code>                 CO                </code> ’, ‘ <code>                 SW                </code> ’, and ‘ <code>                 AND                </code> ’.</p>
+<p>Supported filter operators are ‘ <code>                 EQ                </code> ’, ' <code>                 EW'                </code>, ‘ <code>                 CO                </code> ’, ‘ <code>                 SW                </code> ’, and ‘ <code>                 AND                </code> ’.</p>
 !!! tip
     <p>Note that operators are case-insensitive.</p>
 </div></td>
@@ -1700,7 +1700,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>A filter expression used to filter users.</p>
-<p>Supported filter operators are ‘ <code>                  EQ                 </code> ’, ' <code>                  EW'                 </code> , ‘ <code>                  CO                 </code> ’, ‘ <code>                  SW                 </code> ’, and ‘ <code>                  AND                 </code> ’.</p>
+<p>Supported filter operators are ‘ <code>                  EQ                 </code> ’, ' <code>                  EW'                 </code>, ‘ <code>                  CO                 </code> ’, ‘ <code>                  SW                 </code> ’, and ‘ <code>                  AND                 </code> ’.</p>
 !!! tip
     <p>Note that operators are case-insensitive.</p>
 </div></td>
@@ -2212,7 +2212,7 @@ created.
 <strong>Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password] --data &#39;{<span class="st">&quot;failOnErrors&quot;</span>: [value],<span class="st">&quot;schemas&quot;</span>:[],<span class="st">&quot;Operations&quot;</span>:[{<span class="st">&quot;method&quot;</span>: [request type],<span class="st">&quot;path&quot;</span>: [end point],<span class="st">&quot;bulkId&quot;</span>: [bulk id] ,<span class="st">&quot;data&quot;</span>: [input user details] }] }&#39; --header <span class="st">&quot;Content-Type:application/scim+json&quot;</span> https:<span class="co">//localhost:9443/scim2/Bulk</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password] --data &#39;{<span class="st">&quot;failOnErrors&quot;</span>: [value],<span class="st">&quot;schemas&quot;</span>:[],<span class="st">&quot;Operations&quot;</span>:[{<span class="st">&quot;method&quot;</span>: [request type],<span class="st">&quot;path&quot;</span>: [end point],<span class="st">&quot;bulkId&quot;</span>: [bulk id],<span class="st">&quot;data&quot;</span>: [input user details] }] }&#39; --header <span class="st">&quot;Content-Type:application/scim+json&quot;</span> https:<span class="co">//localhost:9443/scim2/Bulk</span></a></code></pre></div>
 </div>
 </div>
 </div></td>

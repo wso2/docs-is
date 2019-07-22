@@ -27,7 +27,7 @@ parameters in a request object via WSO2 IS:
 
 -   Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_).
+    Product](../../setup/installing-the-product).
 -   Download and install [Apache Tomcat
     7.x](https://tomcat.apache.org/download-70.cgi).
 
@@ -71,7 +71,7 @@ parameters in a request object via WSO2 IS:
     5.  Copy the content of the certificate.
 
     6.  On the Management Console, go to **Service Providers** -\>
-        **List** , and **Edit** the service provider that you created
+        **List**, and **Edit** the service provider that you created
         when setting up the playground sample.
     7.  Paste the certificate content that you copied as the
         **Application Certificate** of the service provider.  
@@ -111,19 +111,19 @@ parameters in a request object via WSO2 IS:
         registration. Follow the steps below to set **challenge
         Question1** and **challenge Question2** to prompt during user
         registration:
-        1.  On the management console, click **List** under **Claims** ,
+        1.  On the management console, click **List** under **Claims**,
             This displays the Claims screen with the **Available claim
             dialects**.
         2.  Click
             `                             http://wso2.org/claims                           `
             under **Available claim dialects**.
         3.  Edit `              challengeQuestion1             `
-            , select **Support by default**. and then click **Update**
+           , select **Support by default**. and then click **Update**
             .
-        4.  Edit `              challengeQuestion2             ` ,
+        4.  Edit `              challengeQuestion2             `,
             select **Support by default**. and then click **Update**.
     3.  Edit the service provider that you created above, expand **Claim
-        Configuration** , and add the following as **Requested Claims**
+        Configuration**, and add the following as **Requested Claims**
         :  
 
         -   `              http://wso2.org/claims/challengeQuestion1             `
@@ -154,8 +154,8 @@ parameters in a request object via WSO2 IS:
 
     4.  Click **Update**.
 
-4.  Create a new user with the name `          tom         ` , and enter
-    values for the **email** , **country** , **challenge Question1** as
+4.  Create a new user with the name `          tom         `, and enter
+    values for the **email**, **country**, **challenge Question1** as
     well as **challenge Question 2** in the user profile. For detailed
     instructions on creating a user and customizing a user's profile,
     see [Configuring Users](_Configuring_Users_).

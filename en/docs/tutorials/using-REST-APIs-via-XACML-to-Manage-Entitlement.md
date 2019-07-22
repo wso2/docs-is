@@ -19,7 +19,7 @@ with REST API via XACML.
 
 !!! tip
     
-    **Before you begin** , download and run the [WSO2 Identity
+    **Before you begin**, download and run the [WSO2 Identity
     Server](http://wso2.com/identity-and-access-management). For more
     details on running the Identity Server, see [Running the
     Product](https://docs.wso2.com/display/IS530/Running+the+Product).
@@ -94,7 +94,7 @@ to accomplish this. First you need to install the Postman plugin.
 
 ##### To test the HTTP **GET method (API resource list)**
 
-1.  Select the request type as **GET** , give the resource path as
+1.  Select the request type as **GET**, give the resource path as
     <https://localhost:9443/api/identity/entitlement/decision/home> . In
     the **Authorization** tab, for **Type** select 'Basic Auth' **,**
     and provide admin/admin as user ID and password. Then click **Update
@@ -122,7 +122,7 @@ The XML response you get is similar to the following:
 
 1.  Select the request type as **POST** and provide the resource path as
     <https://localhost:9443/api/identity/entitlement/decision/pdp> .
-2.  In the **Authorization** tab, for **Type** , select **Basic Auth** ,
+2.  In the **Authorization** tab, for **Type**, select **Basic Auth**,
     and provide admin/admin as the **Username** and **Password**. Click
     **Update Request**.  
     ![](attachments/103331477/103331480.png){width="700"}
@@ -196,7 +196,7 @@ The XML response you get is similar to the following:
     https://localhost:9443/t/{tenant\_domain}/api/identity/entitlement/decision/pdp
     .
     
-    So if the tenant domain is [abc.com](http://abc.com) , the resource path
+    So if the tenant domain is [abc.com](http://abc.com), the resource path
     should be:
     **https://localhost:9443/t/abc.com/api/identity/entitlement/decision/pdp
     .**

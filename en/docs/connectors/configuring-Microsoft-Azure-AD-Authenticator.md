@@ -74,9 +74,9 @@ and 5.3.0.
         3.  On the **New** menu, select **Active Directory** \>
             **Directory** \> **Custom Create**.  
             ![](attachments/50520581/51252170.png){width="600"}
-        4.  In **Add directory** , in the **Directory** drop-down box,
+        4.  In **Add directory**, in the **Directory** drop-down box,
             select **Use existing directory**. Select **I am ready to
-            be signed out** , and then select the check mark in the
+            be signed out**, and then select the check mark in the
             lower-right corner.  
             ![](attachments/50520581/51252171.png){width="600"}  
               
@@ -97,7 +97,7 @@ and 5.3.0.
             will get an access denied error.
         8.  Log in again with your existing Azure credentials.
         9.  Navigate to the **Active Directory** node and, under
-            **Directory** , you should now see your Office 365 account
+            **Directory**, you should now see your Office 365 account
             listed.
 
     2.  Alternatively , you will need to create a new Azure subscription
@@ -176,12 +176,12 @@ and 5.3.0.
         ![](attachments/50520581/76746011.png){width="826"}
         ![](attachments/50520581/76746012.png){width="826"}
 
-    11. In **permissions to other applications** , click **Add**
+    11. In **permissions to other applications**, click **Add**
         application .  
-    12. Click **Office 365 Exchange Online** , and then click the check
+    12. Click **Office 365 Exchange Online**, and then click the check
         mark icon.  
         ![](attachments/50520581/51252184.png){width="600"}
-    13. Under **permissions to other applications** , click the
+    13. Under **permissions to other applications**, click the
         **Delegated Permissions** column for Office 365
         Exchange Online .  
     14. Click **Save** in the bottom menu.  

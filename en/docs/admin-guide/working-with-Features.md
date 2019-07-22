@@ -66,7 +66,7 @@ new feature:
     install the feature, then directly take the pack (in which the
     required feature is installed), and deploy it in the cluster.
 
--   In the [POM-based approach](#WorkingwithFeatures-pom_approach) , you
+-   In the [POM-based approach](#WorkingwithFeatures-pom_approach), you
     will have the list of features and the corresponding versions of the
     features that are installed. You can easily use this to refer what
     has been installed in the pack.
@@ -149,7 +149,7 @@ Follow the instructions below:
 
 ### Installing features using pom files
 
-When you are using the **pom-based approach** , be sure that
+When you are using the **pom-based approach**, be sure that
 [Maven3](http://maven.apache.org/ref/3.0/) and
 [Ant](http://ant.apache.org/) are installed in your system.
 
@@ -359,7 +359,7 @@ process, some features might get installed and some uninstalled.
     History** page appears. See the example below.  
     ![](attachments/53125432/85387850.png){width="900"}
 4.  Select the configuration to which you wish to revert.  
-5.  Click **Revert** , to revert the current configuration to a previous
+5.  Click **Revert**, to revert the current configuration to a previous
     configuration.
 
 #### Reverting using the command line

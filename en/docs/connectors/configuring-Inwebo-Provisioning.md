@@ -70,7 +70,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) , copy the
+    [here](http://wso2.com/products/identity-server/), copy the
     [axis2\_inwebo.xml](https://github.com/wso2-extensions/identity-outbound-provisioning-inwebo/blob/master/component/provisioning-connector/resources/axis2_inwebo.xml)
     into the `           <IS-HOME>/repository/conf/axis2          `
     directory and [start  up the Identity

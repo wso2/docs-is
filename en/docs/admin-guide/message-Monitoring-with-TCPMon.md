@@ -39,7 +39,7 @@ To monitor messages from client to server using TCPMon:
     field (This could be any unused port in your local machine).
 3.  Give the address of the back end server as the target hostname. For
     example, if you are monitoring messages sent to
-    [www.apache.org](http://www.apache.org) , enter this web address as
+    [www.apache.org](http://www.apache.org), enter this web address as
     the hostname.
 4.  Give 80 as the target port, which is the listening port of
     [www.apache.org.](http://www.apache.org.)  

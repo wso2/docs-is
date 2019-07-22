@@ -27,7 +27,7 @@ in a non-blocking mode. In the blocking mode, the authentication flow is
 blocked until the provisioning happens while in the non-blocking mode,
 provisioning happens in a different thread. If you want to allow a user
 to access your application only if the user is authenticated and
-provisioned , then you should use blocking mode.
+provisioned, then you should use blocking mode.
 
 ### Configuring JIT provisioning for an identity provider
 
@@ -52,7 +52,7 @@ below:
     -   If you want to disable JIT provisioning, select **No
         Provisioning**. This is selected by default.
     -   If you want to always provision users to a selected user store
-        domain, select **Always provision to User Store Domain** , and
+        domain, select **Always provision to User Store Domain**, and
         then select a required user store domain from the list of
         available user store domains.
 
@@ -78,7 +78,7 @@ below:
                 user is provisioned to the
                 domain.
             -   If you specify the user name as
-                `                user1               ` , the user is
+                `                user1               `, the user is
                 provisioned to the PRIMARY user store domain.
 
 
@@ -89,7 +89,7 @@ below:
             select.
 
 
-    -   When you select **Always provision to User Store Domain** , you
+    -   When you select **Always provision to User Store Domain**, you
         should also select one of the following provisioning
         options depending on how you want to prompt users for relevant
         credentials at the time of JIT provisioning. The default

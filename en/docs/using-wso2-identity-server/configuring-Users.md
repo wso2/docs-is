@@ -1,7 +1,7 @@
 # Configuring Users
 
 To enable users to log into the IS [Management
-Console](../../setup/getting-started-with-the-management-console) , you create
+Console](../../setup/getting-started-with-the-management-console), you create
 user accounts and assign them roles, which are sets of permissions. You
 can add individual users or import users in bulk. The following sections
 list out the various ways to configure your users.
@@ -63,7 +63,7 @@ its role.
         use to log in. By default, the password must be at least five
         characters.
     3.  If you need to assign a role to user, Click **Next** and go to
-        **step 5** , or Click **Finish** to end the flow.
+        **step 5**, or Click **Finish** to end the flow.
 5.  Optionally, select the role(s) you want this user to have. If you
     have many roles in your system, you can search for them by name.
 6.  Click **Finish**.
@@ -355,7 +355,7 @@ directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
 attributes](_Managing_User_Attributes_). Shown below are the
 claim URls that are defined be default in WSO2 IS. These will allow you
-to import the user's **email address** , **country** , **given name**
+to import the user's **email address**, **country**, **given name**
 etc. in addition to the **username** and **password**.
 
 -   http://wso2.org/claims/country
@@ -558,7 +558,7 @@ have administrative privileges) using the management console.
 
 1.  On the **Main** tab in the management console, click **List** under
     **Users and Roles**.  
-2.  To change your own password, click **Change My Password** , enter
+2.  To change your own password, click **Change My Password**, enter
     your current password and new password, and click **Change**.
 3.  If you are an admin user and need to change another user's password
     (such as if they have forgotten their current password and need you

@@ -25,7 +25,7 @@ to the default  H2 database, which stores registry and user management
 data. After setting up the IBM Informix database to replace the default
 H2 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoIBMInformix-Changingthedefaultdatabase) , or
+datasource](#ChangingtoIBMInformix-Changingthedefaultdatabase), or
 [configure a new
 datasource](#ChangingtoIBMInformix-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 to point it to the new database as explained below.
@@ -154,7 +154,7 @@ Follow the steps below to change the type of the default
     the product rolls back the pending transactions if defaultAutoCommit
     =true . However, if required you can disable the latter mentioned
     default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           ` ,
+    `            ConnectionRollbackOnReturnInterceptor           `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.

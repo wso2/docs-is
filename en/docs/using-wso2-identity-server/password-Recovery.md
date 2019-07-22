@@ -17,7 +17,7 @@ password recovery:
     recovery.
     
     Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation** , see [Password Recovery
+    feature using the **old implementation**, see [Password Recovery
     documentation in WSO2 IS
     5.2.0](https://docs.wso2.com/display/IS520/Password+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
@@ -168,7 +168,7 @@ with email notification.
     !!! note
     
         In case you have enabled password recovery with reCaptcha
-        verification , enter the required fields as specified above and
+        verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
         ![](https://lh5.googleusercontent.com/2QBn7ZH8J5g4kjh7YLiDDRdVfXaubeg6wfVrFhqh9AJQu6jLUDRQZWqnKARXvDwzDJ6_l75lkmqhIwp_5keheMwox10XaZ9byw1-mlfpnXefN45B-vRdR3P5sY2Q2F9_ioYORvxl){width="400"}
@@ -274,7 +274,7 @@ To try this out, first create a user in the Identity Server.
         [foo.com](http://foo.com) ". If the user is in the super tenant,
         this is in the format of "john@ [foo.com](http://foo.com)
         @carbon.super". If the user is in the tenant
-        [bar.com](http://bar.com) , the format you must enter is "john@
+        [bar.com](http://bar.com), the format you must enter is "john@
         [foo.com](http://foo.com) @ [bar.com](http://bar.com) ".
     
 
@@ -283,7 +283,7 @@ To try this out, first create a user in the Identity Server.
     !!! note
     
         In case you have enabled password recovery with reCaptcha
-        verification , enter the required fields as specified above and
+        verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
         ![](https://lh3.googleusercontent.com/cDKsCGD5sa3R0MmEKOUd8wsysrEO_lCAdY1ETIzxgJ04xR1s7PzqmVgIyftst1Y_M002KwJDIk-LY7xXyIE2Bqi8b8nlB3z7o8S_TAMku54G97Xg2Es0a-qVeQnDDD4H78oGQt1A){width="400"}  

@@ -9,7 +9,7 @@ To change a user's password:
 1.  Log in to the management console of your product.
 2.  On the **Main** tab, click **List** under **Users and Roles**.  
     ![](attachments/53125500/53287376.png){width="200"}
-3.  To change your own password, click **Change My Password** , enter
+3.  To change your own password, click **Change My Password**, enter
     your current password and new password, and click **Change**.  
     ![](attachments/53125500/53287375.png){width="198"}
 4.  If you are an admin user and need to  change another user's password

@@ -57,7 +57,7 @@ Select one of the following values for the
 ### Step 2: Configuring a cluster of task servers
 
 If you have enabled the CLUSTERED task server mode in [step
-1](#ConfiguringtheTaskSchedulingComponent-Step1) , the following
+1](#ConfiguringtheTaskSchedulingComponent-Step1), the following
 configuration elements in the `         tasks-config.xml        ` file
 will be effective:
 

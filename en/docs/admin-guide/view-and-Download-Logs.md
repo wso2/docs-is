@@ -50,7 +50,7 @@ below to access statistics on system logs:
 
     The **Download** link can be used to download the log files. For
     example, if the server is configured to use the [default log
-    provider](_Configuring_the_Log_Provider_) , the "wso2carbon.log"
+    provider](_Configuring_the_Log_Provider_), the "wso2carbon.log"
     file stored in the
     `           <PRODUCT_HOME>/repository/logs/          ` directory can
     be downloaded.

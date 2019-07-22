@@ -69,7 +69,7 @@ contains a CSRF token.
 
 !!! note
     
-    **Before you begin** , note the following:
+    **Before you begin**, note the following:
     
     -   If your WSO2 product is based on Carbon 4.4.6 or a later version, t
         he configurations for mitigating CSRF attacks are enabled by default
@@ -181,7 +181,7 @@ Follow the steps below to secure web applications.
     ```
 
 3.  Create a CSRF configuration properties file (e.g.
-    `          abc.properties         ` ) within your application , and
+    `          abc.properties         ` ) within your application, and
     copy the content in the
     `          <CARBON_HOME>repository/conf/security/         `
     `          Owasp.CsrfGuard.Carbon.properties         ` file to it.
