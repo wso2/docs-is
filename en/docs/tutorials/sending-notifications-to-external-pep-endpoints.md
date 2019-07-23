@@ -13,25 +13,16 @@ a policy update or a change in user roles, permissions or
 attributes. This also clears the internal cache when user roles,
 permissions or attributes are updated.
 
-1.  If you are using EMAIL as the notification method, configure email
-    transport details using the `          axis2.xml         ` file.
-    Follow the steps below to configure this:
-    1.  Navigate to the
-        `            <IS_HOME>/repository/conf/axis2/axis2.xml           `
-        file.
-    2.  Configure the relevant attributes according to your email
-        account information. The following is a sample configuration.
-
-        ``` xml
-        <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
-            <parameter name="mail.smtp.from">wso2demomail@gmail.com</parameter>
-            <parameter name="mail.smtp.user">wso2demomail</parameter>
-            <parameter name="mail.smtp.password">mailpassword</parameter>
-            <parameter name="mail.smtp.host">smtp.gmail.com</parameter>    
-            <parameter name="mail.smtp.port">587</parameter>
-            <parameter name="mail.smtp.starttls.enable">true</parameter>
-            <parameter name="mail.smtp.auth">true</parameter>
-        </transportSender>
+1.  If you are using EMAIL as the notification method, add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
+        ``` toml
+        [output_adapter.email] 
+        from_address = 
+        username = 
+        password =
+        hostname=
+        port
+        enable_start_tls
+        enable_authentication
         ```
 
 2.  Create an email template in
@@ -53,22 +44,13 @@ permissions or attributes are updated.
     http://xacmlinfo.org
     ```
 
-3.  Do the following to send notifications to external endpoints when
-    there is a policy change.
+3.  To send notifications to external endpoints when
+    there is a policy change, add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
-    1.  Navigate to the
-        `            <IS_HOME>/repository/conf/identity/entitlement.properties           `
-        file.
-    2.  Make the following change.
-
-        ``` java
-        PAP.Status.Data.Handler.2=org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension
+        ``` toml
+        [identity.entitlement.policy_point.pap]
+        status_data_handlers = ["org.wso2.carbon.identity.entitlement.SimplePAPStatusDataHandler"] 
         ```
-
-        Here the trailing number that is added after "
-        `             PAP.Status.Data.Handler            ` " should be
-        the minimum positive number you can add for a new "
-        `             PAP.Status.Data.Handler            ` ".
 
 4.  Additionally, add the following to the
     `           entitlement.properties          ` file and change
