@@ -195,7 +195,7 @@ Identity Server version that you are working on.
 7.  Configure the Local and Outbound Authentication for Foursquare.  
     For more information, see [Configuring Local and Outbound
     Authentication for a Service
-    Provider](https://docs.wso2.com/display/IS530/Configuring+Local+and+Outbound+Authentication+for+a+Service+Provider)
+    Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
     in the WSO2 IS 5.3.0 guide.
 
     1.  Go to the **Local and Outbound Authentication Configuration**
