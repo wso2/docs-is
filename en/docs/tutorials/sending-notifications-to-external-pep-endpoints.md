@@ -4,7 +4,7 @@ You can register external PEP Endpoints in the WSO2 Identity Server. The
 Identity Server sends cache invalidation notifications (JSON, XML,
 EMAIL) to the pre-configured external PEP endpoints. Basic
 authentication will be used as the [authentication
-mechanism](https://docs.wso2.com/display/IS530/Configuring+Local+and+Outbound+Authentication+for+a+Service+Provider)
+mechanism](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
 .
 
 This topic describes how you can enable the XACML engine to send
@@ -41,16 +41,16 @@ permissions or attributes are updated.
     sample template which contains the below code part.
 
     ``` java
-        Hi {username},
+    Hi {username},
     
-        XACML PDP policy store has been changed..
+    XACML PDP policy store has been changed..
     
-         Policy Id : {targetId}
-         Action : {action}
-         Policy : {target}
+    Policy Id : {targetId}
+    Action : {action}
+    Policy : {target}
     
-         Best Regards,
-         http://xacmlinfo.org
+    Best Regards,
+    http://xacmlinfo.org
     ```
 
 3.  Do the following to send notifications to external endpoints when
@@ -62,7 +62,7 @@ permissions or attributes are updated.
     2.  Make the following change.
 
         ``` java
-                PAP.Status.Data.Handler.2=org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension
+        PAP.Status.Data.Handler.2=org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension
         ```
 
         Here the trailing number that is added after "
@@ -76,22 +76,22 @@ permissions or attributes are updated.
     and change the recipient email address.
 
     ``` java
-        #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,JSON
-        #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,XML
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,EMAIL
-    
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.2=ignoreServerVerification,true
-    
-        #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.3=targetUrl,http://targetUrlAddress;username;password
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.3=emailAddress,wso2demomail@gmail.com
-    
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.4=pdpNotificationAction,ENABLE;DISABLE;UPDATE;DELETE
-    
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.5=papNotification,true
-    
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.6=pdpNotification,true
-    
-        org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.9=roleName, admin
+    #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,JSON
+    #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,XML
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,EMAIL
+
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.2=ignoreServerVerification,true
+
+    #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.3=targetUrl,http://targetUrlAddress;username;password
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.3=emailAddress,wso2demomail@gmail.com
+
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.4=pdpNotificationAction,ENABLE;DISABLE;UPDATE;DELETE
+
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.5=papNotification,true
+
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.6=pdpNotification,true
+
+    org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.9=roleName, admin
     ```
 
     The following table lists out and describes the above attributes.
@@ -118,41 +118,41 @@ permissions or attributes are updated.
     notification can be configured.
 
     ``` java
-        module.name.1=email
-        email.subscription.1=userOperation
-        email.subscription.userOperation.template=/home/wso2dinali/SUPPORT/TRAVISPERKINSDEV-312/wso2is-5.3.0/repository/conf/email/entitlement-email-config.xml
-        email.subscription.userOperation.salutation=Admin
-        email.subscription.userOperation.subject=User operation change information
-        email.subscription.userOperation.endpoint.1=privateMail
-        email.subscription.userOperation.endpoint.privateMail.address=wso2demomail@gmail.com
-        email.subscription.userOperation.endpoint.privateMail.salutation=wso2demomail@gmail.com
-        email.subscription.userOperation.endpoint.privateMail.subject= The User Operation change has occured.
-        #
-        email.subscription.userOperation.endpoint.2=wso2demomail@gmail.com
-        email.subscription.userOperation.endpoint.officeMail.address=wso2demomail@gmail.com
-        #
-        email.subscription.2=policyUpdate
-        email.subscription.policyUpdate.template=<full path to the carbon- home>/repository/conf/email/entitlement-email-config.xml
-        email.subscription.policyUpdate.salutation=Admin
-        email.subscription.policyUpdate.subject= policy update information mail
-        email.subscription.policyUpdate.endpoint.1=privateMail
-        email.subscription.policyUpdate.endpoint.privateMail.address=wso2demomail@gmail.com
-        email.subscription.policyUpdate.endpoint.privateMail.salutation=Admin 
-        email.subscription.policyUpdate.endpoint.privateMail.subject=policy update information to private wso2demomail@gmail.com
-        #
-        #module.name.2=json
-        #json.subscription.1=userOperation
-        #json.subscription.userOperation.template=templatePath/jsonTemplate
-        #json.subscription.userOperation.jsonId=3232
-        #json.subscription.userOperation.endpoint.1=pepEndpoint1
-        #json.subscription.userOperation.endpoint.pepEndpoint1.address=https://localhost:8080/testEndpoint1
-        #json.subscription.userOperation.endpoint.pepEndpoint1.username=testUsername
-        #json.subscription.userOperation.endpoint.pepEndpoint2.password=testPW
-        #
-        #json.subscription.userOperation.endpoint.2=pepEndpoint2
-        #json.subscription.userOperation.endpoint.pepEndpoint2.address=https://localhost:8080/testEndpoint2
-    
-        threadPool.size = 10
+    module.name.1=email
+    email.subscription.1=userOperation
+    email.subscription.userOperation.template=/home/wso2dinali/SUPPORT/TRAVISPERKINSDEV-312/wso2is-5.3.0/repository/conf/email/entitlement-email-config.xml
+    email.subscription.userOperation.salutation=Admin
+    email.subscription.userOperation.subject=User operation change information
+    email.subscription.userOperation.endpoint.1=privateMail
+    email.subscription.userOperation.endpoint.privateMail.address=wso2demomail@gmail.com
+    email.subscription.userOperation.endpoint.privateMail.salutation=wso2demomail@gmail.com
+    email.subscription.userOperation.endpoint.privateMail.subject= The User Operation change has occured.
+    #
+    email.subscription.userOperation.endpoint.2=wso2demomail@gmail.com
+    email.subscription.userOperation.endpoint.officeMail.address=wso2demomail@gmail.com
+    #
+    email.subscription.2=policyUpdate
+    email.subscription.policyUpdate.template=<full path to the carbon- home>/repository/conf/email/entitlement-email-config.xml
+    email.subscription.policyUpdate.salutation=Admin
+    email.subscription.policyUpdate.subject= policy update information mail
+    email.subscription.policyUpdate.endpoint.1=privateMail
+    email.subscription.policyUpdate.endpoint.privateMail.address=wso2demomail@gmail.com
+    email.subscription.policyUpdate.endpoint.privateMail.salutation=Admin 
+    email.subscription.policyUpdate.endpoint.privateMail.subject=policy update information to private wso2demomail@gmail.com
+    #
+    #module.name.2=json
+    #json.subscription.1=userOperation
+    #json.subscription.userOperation.template=templatePath/jsonTemplate
+    #json.subscription.userOperation.jsonId=3232
+    #json.subscription.userOperation.endpoint.1=pepEndpoint1
+    #json.subscription.userOperation.endpoint.pepEndpoint1.address=https://localhost:8080/testEndpoint1
+    #json.subscription.userOperation.endpoint.pepEndpoint1.username=testUsername
+    #json.subscription.userOperation.endpoint.pepEndpoint2.password=testPW
+    #
+    #json.subscription.userOperation.endpoint.2=pepEndpoint2
+    #json.subscription.userOperation.endpoint.pepEndpoint2.address=https://localhost:8080/testEndpoint2
+
+    threadPool.size = 10
     ```
 
 6.  It is recommended to use https to communicate with external
@@ -163,5 +163,5 @@ permissions or attributes are updated.
     password for client-truststore.jks is "wso2carbon".
 
     ``` java
-        keytool -import -alias wso2 -file <path_to_your_certificate_file>/yourCertificate.crt -keystore <CARBON_SERVER>/repository/resources/security/client-truststore.jks
+    keytool -import -alias wso2 -file <path_to_your_certificate_file>/yourCertificate.crt -keystore <CARBON_SERVER>/repository/resources/security/client-truststore.jks
     ```
