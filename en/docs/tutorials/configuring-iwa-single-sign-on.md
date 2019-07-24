@@ -50,44 +50,7 @@ Windows Authentication](../../tutorials/integrated-windows-authentication-overvi
     This indicates to the WSO2 Identity Server that "
     **IWAUIAuthenticator** " is to be enabled with a priority level
     of 5.
-
-8.  Open the
-    `           <wso2is_home>/repository/conf/tomcat/web.xml          `
-    file and add the following lines just before " **\</web-app\>** ".
-
-    ``` html/xml
-        <security-constraint>
-          <display-name>Security Constraint for IWA</display-name>
-          <web-resource-collection>
-            <web-resource-name>Protected Area</web-resource-name>
-            <url-pattern>/</url-pattern>
-            <http-method>DELETE</http-method>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-          </web-resource-collection>
-          <auth-constraint>
-            <role-name>Everyone</role-name>
-          </auth-constraint>
-        </security-constraint>
-    ```
-
-    This prevents unauthorized access to the WSO2 Identity Server and
-    redirects the requests to the authenticator to authenticate them.
-
-9.  Open the
-    `           <wso2is_home>/repository/conf/tomcat/carbon/META-INF/context.xml          `
-    and add the following lines just before " **\</Context\>** ".
-
-    ``` html/xml
-        <Valve className="waffle.apache.NegotiateAuthenticator" principalFormat="fqn" roleFormat="both"/>
-        <Realm className="waffle.apache.WindowsRealm"/>
-    ```
-
-    This uses **Valve** and **Realm** from **Waffle** library which is
-    used to negotiate authentication.
-
-10. Start the WSO2 Identity Server. Now the server is configured to use
+8.  Start the WSO2 Identity Server. Now the server is configured to use
     the IWA authenticator.
 
 **Usage:**
