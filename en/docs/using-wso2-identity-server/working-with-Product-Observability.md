@@ -7,7 +7,7 @@ down any latencies caused by database calls in an instance. The request
 calls and response calls are correlated via a correlation ID that is
 sent in the request call.
 
-![](attachments/112393409/112393408.png){width="400"}
+![]( ../../assets/img/112393409/112393408.png) 
 
 !!! note
     
@@ -109,7 +109,7 @@ Follow the steps below to enable product observability.
     Notice that a separate log file called
     `           correlation.log          ` is created.
 
-    ![](attachments/112393409/112393404.png){width="500"}
+    ![]( ../../assets/img/112393409/112393404.png) 
 
 Now you are ready to test the product observability of WSO2 IS.
 
@@ -348,7 +348,7 @@ configuration.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![](attachments/112393409/112393406.png){height="250"}
+    ![]( ../../assets/img/112393409/112393406.png){height="250"}
 
 #### Multiple header configs
 
@@ -406,4 +406,4 @@ headers.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![](attachments/112393409/112393405.png){height="250"}
+    ![]( ../../assets/img/112393409/112393405.png){height="250"}

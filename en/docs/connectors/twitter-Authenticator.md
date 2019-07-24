@@ -9,7 +9,7 @@ posts called tweets.
 The diagram below illustrates the flow of the Twitter federated
 authenticator.
 
-![](attachments/50515575/76746182.png){width="940"}
+![](attachments/50515575/76746182.png) 
 
 ### Getting started
 

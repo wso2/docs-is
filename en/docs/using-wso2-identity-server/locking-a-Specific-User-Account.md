@@ -76,7 +76,7 @@ for instructions
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330596/103330597.png){width="566" height="250"}
+    ![]( ../../assets/img/103330596/103330597.png) 
 
     !!! tip
     
@@ -124,12 +124,12 @@ for instructions
     For more information about claims, see [Claim
     Management](_Claim_Management_).
 2.  Select the Account Locked claim and click **Edit**.  
-    ![](attachments/103330598/103330600.png){width="565"}
+    ![]( ../../assets/img/103330598/103330600.png) 
 3.  Select the **Supported by Default** check box and click **Update**
     .  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
-    ![](attachments/103330598/103330603.png){width="629"}
+    ![]( ../../assets/img/103330598/103330603.png) 
 
 ### Lock a specific user account
 

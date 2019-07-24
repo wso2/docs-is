@@ -39,13 +39,13 @@ Grant](https://docs.wso2.com/display/IS530/Resource+Owner+Password+Credentials+G
     Access Token Endpoint:
     <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![](attachments/103329939/103329942.png){width="600"}
+    ![]( ../../assets/img/103329939/103329942.png) 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.  
-    ![](attachments/103329939/103329940.png){height="250"}
+    ![]( ../../assets/img/103329939/103329940.png){height="250"}
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here for more information on OAuth 2.0 Token Introspection
@@ -65,7 +65,7 @@ Grant](https://docs.wso2.com/display/IS530/Resource+Owner+Password+Credentials+G
 
 4.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329939/103329943.png){width="714"}
+    ![]( ../../assets/img/103329939/103329943.png) 
 
 **Related Topics**
 

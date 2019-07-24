@@ -124,7 +124,7 @@ behalf of the requesting party.
         **Configure**.
     4.  Enter `            https://localhost/callback           ` as the
         value for the **Callback Url**.  
-        ![](attachments/103329672/106960574.png){width="600"}
+        ![]( ../../assets/img/103329672/106960574.png) 
     5.  Click **Add**.
 2.  Follow the steps below to configuring a service provider for the
     client acting on behalf of the requesting party:  
@@ -137,7 +137,7 @@ behalf of the requesting party.
     4.  Enter
         `                         https://localhost/callback                       `
         as the value for the **Callback Url**.  
-        ![](attachments/103329672/106960574.png){width="600"}
+        ![]( ../../assets/img/103329672/106960574.png) 
     5.  Click **Add**.
 
 Note down the **Client ID** and **Client Secret** values. You need those
@@ -292,7 +292,7 @@ Follow the steps given below to create, register and publish a policy:
 
 5.  **Save** the policy. You will see the new policy that you created
     listed in the **Policy Administration** page.  
-    ![](attachments/103329672/106960600.png){width="700" height="490"}
+    ![]( ../../assets/img/103329672/106960600.png) 
 
 6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
@@ -301,7 +301,7 @@ Follow the steps given below to create, register and publish a policy:
     publish the policy.
 8.  Click **Yes**. This publishes the policy. If you want to view the
     published policy, click **Policy View** under **PDP**.  
-    ![](attachments/103329672/106960601.png){width="650" height="188"}
+    ![]( ../../assets/img/103329672/106960601.png) 
 
 #### Obtain a permission ticket
 

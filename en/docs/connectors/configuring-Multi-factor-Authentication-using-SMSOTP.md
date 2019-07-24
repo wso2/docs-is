@@ -420,7 +420,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
     2.  While registering the account, verify your mobile number and
         click **Claim** to get free credits.  
-        ![](attachments/48276901/51449676.png){width="800" height="198"}
+        ![](attachments/48276901/51449676.png) 
 
     3.  Bulksms API authentication is performed by providing username
         and password request parameters.
@@ -473,7 +473,7 @@ The next step is to configure the service provider.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
 
-    ![](attachments/48276901/48211841.png?effects=border-simple,blur-border){width="500"}
+    ![](attachments/48276901/48211841.png?effects=border-simple,blur-border) 
 
 5.  Now set the configuration as follows:
 
@@ -496,7 +496,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the mobile claim.
 
-    ![](attachments/48276901/48211842.png?effects=border-simple,blur-border){width="700"}
+    ![](attachments/48276901/48211842.png?effects=border-simple,blur-border) 
 
 9.  Go to **Local and Outbound Authentication Configuration** section.
 
@@ -508,7 +508,7 @@ The next step is to configure the service provider.
     done using the user's credentials that are configured with the WSO2
     Identity Server. SMSOTP is a second step that adds another layer of
     authentication and security.  
-    ![](attachments/48276901/49222039.png?effects=border-simple,shadow-kn){width="700"}
+    ![](attachments/48276901/49222039.png?effects=border-simple,shadow-kn) 
 
 12. Alternatively, federated authentication as the first step and SMSOTP
     authentication as the second step and click **Update** to save the
@@ -522,7 +522,7 @@ You have now added and configured the service provider.
     Management Console.
 2.  Go to the **User Profile** and update the mobile number (this number
     must be registered with Nexmo in order to send SMS).  
-    ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn){width="500"}  
+    ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn)   
     **Note:** If you wish to use the backup codes to authenticate, you
     can add the following claim, otherwise you can leave it.
 3.  In the **Main** menu, click **Add** under **Claims**.
@@ -541,7 +541,7 @@ You have now added and configured the service provider.
     update the Backup codes and user can disable SMS OTP by clicking
     "Disable SMS OTP".
 
-    ![](attachments/48276901/57749623.png){width="600"}
+    ![](attachments/48276901/57749623.png) 
 
 ### Testing the sample
 
@@ -549,14 +549,14 @@ You have now added and configured the service provider.
     [http://localhost:8080/travelocity.com  
     ](http://localhost:8080/travelocity.com)
 
-    [![](attachments/48276901/48211814.png?effects=border-simple,blur-border){width="500"}  
+    [![](attachments/48276901/48211814.png?effects=border-simple,blur-border)   
     ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page will be visible. Use your WSO2
     Identity Server credentials to sign in.  
-    ![](attachments/48276901/48211843.png?effects=border-simple,blur-border){width="500"}
+    ![](attachments/48276901/48211843.png?effects=border-simple,blur-border) 
 
 4.  You will get a token to your mobile phone.Type the code to
     authenticate, You will be taken to the home page of the
@@ -570,7 +570,7 @@ You have now added and configured the service provider.
         [travelocity.com](http://travelocity.com) application.
     
 
-    ![](attachments/48276901/49221144.png?effects=border-simple,shadow-kn){width="500"}
+    ![](attachments/48276901/49221144.png?effects=border-simple,shadow-kn) 
 
     ![](attachments/48276901/49222070.png?effects=border-simple,shadow-kn){width="500"
     height="222"}

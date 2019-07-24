@@ -25,7 +25,7 @@ Internet (cloud services).
 The diagram below illustrates the flow of the Office365 federated
 authenticator.
 
-![](attachments/50520526/76746216.png){width="965"}  
+![](attachments/50520526/76746216.png)   
 
 ### Getting started
 

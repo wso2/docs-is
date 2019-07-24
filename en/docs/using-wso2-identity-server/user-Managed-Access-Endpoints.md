@@ -41,7 +41,7 @@ The figure below shows the flow of the request made by the
 resource server to the authorization server (01) and response generated
 by authorization server to the resource server (02).
 
-![](attachments/103329668/103329669.png){width="600"}
+![]( ../../assets/img/103329668/103329669.png) 
 
 Resource description is a JSON object which explains the characteristics
 of the resource that is to be put under the protection of the
@@ -311,7 +311,7 @@ scopes corresponding to a resource identifier.
 The diagram given below illustrates a request made to the permission
 endpoint with a success response in return.
 
-![](attachments/103329668/103329670.png){width="600"}
+![]( ../../assets/img/103329668/103329670.png) 
 
 -   [Error messages](#UserManagedAccessEndpoints-Errormessages.1)
 -   [Creating a permission

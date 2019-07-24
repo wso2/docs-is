@@ -92,7 +92,7 @@ The following steps iterate what is occurring during this process:
 
 1.  The user is registered with WSO2 Identity Server.
 2.  The consumer secret is registered with WSO2 Identity Server.  
-    ![](attachments/29920248/29898645.png)  
+    ![]( ../../assets/img/29920248/29898645.png)  
     1.  Invoke the **AuthenticationAdmin** service and the user is
         authenticated with the WSO2 IS entity server
     2.  Invoke the **OAuthAdminService** service and register the
@@ -108,4 +108,4 @@ The following steps iterate what is occurring during this process:
     been registered by the user.
 8.  If signature verification is done, the request is authenticated and
     sent to the RESTful service  
-    ![](attachments/29920248/29898644.png)
+    ![]( ../../assets/img/29920248/29898644.png)

@@ -26,21 +26,21 @@ See the following sections for more information.
 1.  Go to <https://duo.com> and click free signup and register.
 2.  Log in to Duo Security. Click **Applications** from the left panel
     and then click the **Protect an Application** button.  
-    ![](attachments/51486739/51451210.png){width="700" height="153"}
+    ![](attachments/51486739/51451210.png) 
 3.  In the **Protect an Application** page, select **Auth API** from
     the list. **Auth API** credentials are **mandatory .**  
-    ![](attachments/51486739/51451211.png){width="700" height="377"}  
+    ![](attachments/51486739/51451211.png)   
 4.  Once the integration is created, you are given a **Secret key** and
     an **Integration key** for your integration. You can use these along
     with your Duo host when accessing Duo Security APIs.  
-    ![](attachments/51486739/53284889.png){width="700" height="257"}
+    ![](attachments/51486739/53284889.png) 
 5.  You can also configure the **Admin API** credentials if you need to
     validate the mobile numbers. When you verify the mobile number, use
     only these credentials. Navigate back to the **Protect an
     Application** page and select **Admin API** from the list. Once the
     Integration is created, you are given a **Secret key** and an
     **Integration key** for your integration.  
-    ![](attachments/51486739/51451212.png){width="700" height="278"}
+    ![](attachments/51486739/51451212.png) 
 
     !!! warning
     
@@ -148,7 +148,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console, click **Add** under **Identity Providers**.
 4.  Give a suitable name as the **Identity Provider Name**.
 5.  Go to **Duo Configuration** under **Federated Authenticators**.  
-    ![](attachments/51486739/51451222.png){width="700" height="689"}
+    ![](attachments/51486739/51451222.png) 
 6.  Enter the values for **Integration Key**, **Secret Key**, **Admin
     Integration Key**, **Admin Secret Key** ( Admin Integration Key
     and Admin Secret Key are optional) and **Host**, as indicated in
@@ -173,7 +173,7 @@ The next step is to configure the service provider.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
-    ![](attachments/48283197/48220892.png){width="800"}
+    ![](attachments/48283197/48220892.png) 
 
 5.  Now do the following configurations.
 
@@ -190,17 +190,17 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](attachments/51486739/51451223.png){width="700"}
+        ![](attachments/51486739/51451223.png) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to **Local and Outbound Authentication Configuration** section.
 9.  Select the **Advanced Configuration** radio button option.  
-    ![](attachments/51486739/51451225.png){width="700" height="228"}
+    ![](attachments/51486739/51451225.png) 
 10. Add the basic authentication as the first step and Duo
     authentication as the second step and click **Update** to save the
     changes.  
-    ![](attachments/51486739/51451226.png){width="700" height="323"}
+    ![](attachments/51486739/51451226.png) 
 
 You have now added and configured the service provider.  
 
@@ -211,13 +211,13 @@ You have now added and configured the service provider.
     E.g: <http://localhost:8080/travelocity.com>
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.  
-    ![](attachments/48283197/48220894.png){width="700" height="455"}
+    ![](attachments/48283197/48220894.png) 
 
 3.  The basic authentication page appears. Log in using your username
     and password.  
-    ![](attachments/51486739/51451227.png){width="700" height="268"}
+    ![](attachments/51486739/51451227.png) 
 4.  You are directed to the Duo Security authentication page.  
-    ![](attachments/51486739/53284890.png){width="700" height="233"}
+    ![](attachments/51486739/53284890.png) 
 5.  If your verification is successful, you are taken to the home page
     of the travelocity.com app.  
-    ![](attachments/51486739/53284894.png){width="700" height="327"}
+    ![](attachments/51486739/53284894.png) 

@@ -18,14 +18,14 @@ dialect link. Follow the instructions below to edit a claim dialect.
 2.  Click **Main** to access the **Main** menu and click **List** under
     **Claims**.
 3.  Click on any available dialect links.  
-    ![](attachments/103330437/103330445.png)
+    ![]( ../../assets/img/103330437/103330445.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. If you need to edit a claim, click on the
     appropriate **Edit** link.  
-    ![](attachments/103330437/103330444.png)
+    ![]( ../../assets/img/103330437/103330444.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.  
-    ![](attachments/103330437/103330443.png)
+    ![]( ../../assets/img/103330437/103330443.png)
 
     | Attribute            | Description                                                                | Sample value                                                                                                                       |
     |----------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|

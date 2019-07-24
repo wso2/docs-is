@@ -20,7 +20,7 @@ providers. The following steps illustrate how to do this.
     purposes of this scenario.
 6.  Under the **Outbound Provisioning Connectors** section, expand the
     **SPML Provisioning Connector** form.  
-    ![](attachments/103330199/103330204.png)  
+    ![]( ../../assets/img/103330199/103330204.png)  
     Do the following changes:
     1.  Select the **Enable Connector** checkbox.
 
@@ -40,7 +40,7 @@ providers. The following steps illustrate how to do this.
 9.  Then expand the **Outbound Provisioning Configuration** section and
     add the created identity provider and select **spml** from the
     dropdown list.  
-    ![](attachments/103330199/103330202.png)
+    ![]( ../../assets/img/103330199/103330202.png)
 
     -   If **Blocking** is enabled, WSO2 IS will wait for the response
         from the Identity Provider to continue provisioning.
