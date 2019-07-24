@@ -165,7 +165,7 @@ Server. It includes the following sections:
 -   [Timestamp in WS-Security to Mitigate Replay
     Attacks](_Timestamp_in_WS-Security_to_Mitigate_Replay_Attacks_)
 -   [Mitigating Authorization Code Interception
-    Attacks](_Mitigating_Authorization_Code_Interception_Attacks_)
+    Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
 -   [Mitigating Cross Site Request Forgery (CSRF)
     Attacks](_Mitigating_Cross_Site_Request_Forgery_CSRF_Attacks_)
 

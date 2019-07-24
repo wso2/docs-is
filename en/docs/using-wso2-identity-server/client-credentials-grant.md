@@ -11,7 +11,7 @@ clients.
 
 The client can request an access token using only its client credentials
 with this grant type. It is similar to the [resource owner password
-credentials grant](_Resource_Owner_Password_Credentials_Grant_) type
+credentials grant](../../using-wso2-identity-server/resource-owner-password-credentials-grant) type
 except in this case, only the client’s credentials are used to
 authenticate a request for an access token.
 
@@ -21,9 +21,9 @@ The diagram below illustrates the client credentials grant flow.
 
   
 
-![](attachments/103329605/103329606.png){width="500"}
+![oauth-client-credentials-diagram](attachments/103329605/oauth-client-credentials-diagram.png)
 
-**Support for [refresh token grant](_Refresh_Token_Grant_) -** No
+**Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant) -** No
 
 The cURL commands below can be used to try this grant type.
 
@@ -46,6 +46,6 @@ You will receive a response similiar to the format below.
 **Related Topics**
 
 -   See the [Try Client Credentials
-    Grant](_Try_Client_Credentials_Grant_) topic to try out a sample of
+    Grant](../../using-wso2-identity-server/try-client-credentials-grant) topic to try out a sample of
     the resource owner password credentials grant with WSO2 Identity
     Server and WSO2 OAuth2 Playground.

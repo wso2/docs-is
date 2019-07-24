@@ -17,7 +17,7 @@ To register a new client at the authorization server:
     endpoint URL is discoverable via
     [WebFinger](http://openid.net/specs/openid-connect-discovery-1_0.html)
     . For more information on discovering the client registration
-    endpoint, see [OpenID Connect Discovery](_OpenID_Connect_Discovery_)
+    endpoint, see [OpenID Connect Discovery](../../using-wso2-identity-server/openid-connectDiscovery_)
     .
 2.  Client sends an HTTP POST message to the client registration
     endpoint with client metadata parameters that the client chooses to

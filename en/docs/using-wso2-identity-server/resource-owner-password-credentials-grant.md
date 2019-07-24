@@ -17,9 +17,9 @@ along with the client’s own credentials.
 The diagram below illustrates the resource owner password credentials
 grant flow.
 
-![](attachments/103329603/103329604.png){width="560"}
+![oauth-resource-owner-diagram](../../assets/img/using-wso2-identity-server/oauth-resource-owner-diagram.png)
 
-**Support for [refresh token grant](_Refresh_Token_Grant_)** - **Yes**
+**Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant)** - **Yes**
 
 The cURL commands below can be used to try this grant type.
 
@@ -41,8 +41,7 @@ You will receive a response similar to the format below.
 {"token_type":"Bearer","expires_in":2510,"refresh_token":"5ba3dedc77581df5f84f9b228eef0b91","access_token":"ca19a540f544777860e44e75f605d927"}
 ```
 
-**Related Topics**
-
--   See the [Try Password Grant](_Try_Password_Grant_) topic to try out
+!!! info "Related Topics"
+    See the [Try Password Grant](../../using-wso2-identity-server/try-password-grant) topic to try out
     a sample of the resource owner password credentials grant with WSO2
     Identity Server and WSO2 OAuth2 Playground.
