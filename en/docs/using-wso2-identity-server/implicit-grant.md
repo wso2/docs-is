@@ -12,7 +12,7 @@ via this grant type should be treated as public knowledge and must have
 very limited permissions when interacting with the API server. For
 example, an access token that was granted using the authorization code
 grant could have the required permission that allows it to be used to
-delete resources owned by thoauth-implicit-grant-diagram.pnge user. However, an access token granted
+delete resources owned by the user. However, an access token granted
 through the implicit flow should only be able to read resources and
 never perform any destructive operations.
 
