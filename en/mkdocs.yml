@@ -412,19 +412,19 @@ nav:
       - 'Configuring Session Timeout': using-wso2-identity-server/configuring-Session-Timeout.md
       - 'Configuring a SP and IdP Using Service Calls': using-wso2-identity-server/configuring-a-SP-and-IdP-Using-Service-Calls.md
     - 'Delegated Access Control':
-      - 'Delegated Access Control': using-wso2-identity-server/delegated-Access-Control.md
-      - 'OAuth Concepts': using-wso2-identity-server/oAuth-Concepts.md
+      - 'Delegated Access Control': using-wso2-identity-server/delegated-access-control.md
+      - 'OAuth Concepts': using-wso2-identity-server/oauth-concepts.md
       - 'Working with OAuth':
-        - 'Working with OAuth': using-wso2-identity-server/working-with-OAuth.md
-        - 'OAuth 2.0 Clients': using-wso2-identity-server/oAuth-2.0-Clients.md
+        - 'Working with OAuth': using-wso2-identity-server/working-with-oauth.md
+        - 'OAuth 2.0 Clients': using-wso2-identity-server/oauth-2.0-clients.md
         - 'OAuth 2.0 Grant Types': 
-          - 'OAuth 2.0 Grant Types': using-wso2-identity-server/oAuth-2.0-Grant-Types.md
-          - 'Authorization Code Grant': using-wso2-identity-server/authorization-Code-Grant.md
-          - 'Implicit Grant': using-wso2-identity-server/implicit-Grant.md
-          - 'Resource Owner Password Credentials Grant': using-wso2-identity-server/resource-Owner-Password-Credentials-Grant.md
-          - 'Client Credentials Grant': using-wso2-identity-server/client-Credentials-Grant.md
-          - 'Refresh Token Grant': using-wso2-identity-server/refresh-Token-Grant.md
-          - 'Kerberos Grant': using-wso2-identity-server/kerberos-Grant.md
+          - 'OAuth 2.0 Grant Types': using-wso2-identity-server/oauth-2.0-grant-types.md
+          - 'Authorization Code Grant': using-wso2-identity-server/authorization-code-grant.md
+          - 'Implicit Grant': using-wso2-identity-server/implicit-grant.md
+          - 'Resource Owner Password Credentials Grant': using-wso2-identity-server/resource-owner-password-credentials-grant.md
+          - 'Client Credentials Grant': using-wso2-identity-server/client-credentials-grant.md
+          - 'Refresh Token Grant': using-wso2-identity-server/refresh-token-grant.md
+          - 'Kerberos Grant': using-wso2-identity-server/kerberos-grant.md
         - 'SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/SAML2-Bearer-Assertion-Profile-for-OAuth-2.0.md
         - 'Setting Up OAuth Token Hashing': using-wso2-identity-server/setting-Up-OAuth-Token-Hashing.md
         - 'JWT Token Generation': using-wso2-identity-server/jWT-Token-Generation.md
