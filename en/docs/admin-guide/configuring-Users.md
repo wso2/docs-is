@@ -148,7 +148,7 @@ user3, password123,http://wso2.org/claims/givenname= myname3,http://wso2.org/cla
     option](https://docs.wso2.com/display/IS530/Creating+Users+Using+the+Ask+Password+Option)
     for the server.
     
-    ![](attachments/53125498/57761882.png){width="501" height="67"}
+    ![](attachments/53125498/57761882.png) 
     
 
 #### Importing users from the CSV/Excel file

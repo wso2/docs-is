@@ -52,10 +52,10 @@ Management Feature.
     **List** under **Claims**.
 3.  Select `          urn:scim:schemas:core:1.0         ` from the list.
 4.  Choose the **Id** claim and click on **Edit**.  
-    ![](attachments/103330195/103330197.png){width="750"}
+    ![](../../assets/img//103330195/103330197.png) 
 5.  Change the **Mapped Attribute** value to **homePostalAddress** and
     click **Update**.  
-    ![](attachments/103330195/103330196.png)
+    ![](../../assets/img//103330195/103330196.png)
 6.  Edit the other four claims in the same way.
 7.  Now the basic claim mapping is done. You can now add a user using
     the following curl command.

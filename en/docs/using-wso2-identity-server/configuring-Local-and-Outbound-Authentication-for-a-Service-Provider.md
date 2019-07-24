@@ -21,7 +21,7 @@ corresponding response builder of the inbound authenticator. See
 You can configure the following for local and outbound authentication.
 
 1.  Expand **Local & Outbound Authentication Configuration**.  
-    ![](attachments/103329813/103329814.png){width="700"}  
+    ![](../../assets/img//103329813/103329814.png)   
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -65,7 +65,7 @@ You can configure the following for local and outbound authentication.
     -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![](attachments/103329813/103329818.png){width="750"}
+        ![](../../assets/img//103329813/103329818.png) 
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add

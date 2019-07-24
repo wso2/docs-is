@@ -46,7 +46,7 @@ Attribute" value as indicated below.
     **http://wso2.org/claims**
 5.  Click **Edit** and modify the Mapped Attribute field in the
     resulting page.  
-    ![](attachments/103330177/103330179.png){width="1000"}
+    ![](../../assets/img//103330177/103330179.png) 
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for

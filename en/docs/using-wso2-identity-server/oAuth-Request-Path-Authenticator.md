@@ -30,11 +30,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![](attachments/103329848/103329849.png){width="669"}
+    ![](../../assets/img//103329848/103329849.png) 
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **oauth-bearer** from the dropdown and click **Add.**  
-    **![](attachments/103329848/103329850.png)**
+    **![](../../assets/img//103329848/103329850.png)**
 7.  Click **Update** to save changes to the service provider.
 
 8.  Use the following cURL command to get a valid token using password

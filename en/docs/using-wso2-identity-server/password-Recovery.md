@@ -144,10 +144,10 @@ with email notification.
     1.  Navigate to <https://myaccount.google.com/security> .
     2.  Click **Signing in to Google** on the left menu and make sure that
         the **2-step Verification** is disabled or off.  
-        ![](attachments/103330558/103330570.png){width="600" height="279"}
+        ![](../../assets/img//103330558/103330570.png) 
     3.  Click **Connected apps and sites** on the left menu and enable
         **Allow less secure apps**.  
-        ![](attachments/103330558/103330571.png){width="597" height="171"}
+        ![](../../assets/img//103330558/103330571.png) 
     
 
 ### Try out recovery using notification
@@ -163,7 +163,7 @@ with email notification.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Emai** l. Click
     **Submit**.  
-    ![](attachments/103330558/103330573.png){width="441" height="250"}
+    ![](../../assets/img//103330558/103330573.png) 
 
     !!! note
     
@@ -171,14 +171,14 @@ with email notification.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![](https://lh5.googleusercontent.com/2QBn7ZH8J5g4kjh7YLiDDRdVfXaubeg6wfVrFhqh9AJQu6jLUDRQZWqnKARXvDwzDJ6_l75lkmqhIwp_5keheMwox10XaZ9byw1-mlfpnXefN45B-vRdR3P5sY2Q2F9_ioYORvxl){width="400"}
+        ![](https://lh5.googleusercontent.com/2QBn7ZH8J5g4kjh7YLiDDRdVfXaubeg6wfVrFhqh9AJQu6jLUDRQZWqnKARXvDwzDJ6_l75lkmqhIwp_5keheMwox10XaZ9byw1-mlfpnXefN45B-vRdR3P5sY2Q2F9_ioYORvxl) 
     
 
 6.  An email notification is sent to the user's email address. Click on
     the **Reset Password** button given on the email.  
-    ![](attachments/103330558/103330574.png){width="445" height="339"}
+    ![](../../assets/img//103330558/103330574.png) 
 7.  Enter a new password and click **Submit**.  
-    ![](attachments/103330558/103330559.png){width="446" height="250"}
+    ![](../../assets/img//103330558/103330559.png) 
 
 !!! tip
     
@@ -218,7 +218,7 @@ feature. To do this, do the following.
         For more information, see Configuring reCaptcha for Password
         Recovery.
     
-        ![](https://lh4.googleusercontent.com/L7Vfnx547Wi4FQswNfxO-dhbsuS7aXbzBbG5b2E0VUSh8K36J07WNrtHpIO-Sqx4BTjnSa0Ljb9mLi0ByGg9awiVj7IZKMrcwAqQBD3AiIvCc9SgknM30KmvNm_7O7UGMaWywBoY){width="740"}
+        ![](https://lh4.googleusercontent.com/L7Vfnx547Wi4FQswNfxO-dhbsuS7aXbzBbG5b2E0VUSh8K36J07WNrtHpIO-Sqx4BTjnSa0Ljb9mLi0ByGg9awiVj7IZKMrcwAqQBD3AiIvCc9SgknM30KmvNm_7O7UGMaWywBoY) 
     
 
 You can set up challenge questions for users in one of the following
@@ -244,7 +244,7 @@ To try this out, first create a user in the Identity Server.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New User**.  
-    ![](attachments/103330558/103330567.png){width="344" height="288"}
+    ![](../../assets/img//103330558/103330567.png) 
 
 4.  Log out of the Identity Server.
 5.  The URL for accessing dashboard is the following if the hostname is
@@ -252,18 +252,18 @@ To try this out, first create a user in the Identity Server.
     <https://localhost:9443/dashboard/> . Click this link to access the
     dashboard and log in using the credentials of the user you just
     created.  
-    ![](attachments/103330558/103330566.png){width="311" height="404"}  
+    ![](../../assets/img//103330558/103330566.png)   
 6.  Click the **View Details** button under the **Account Recovery**
     section in the end user dashboard.  
-    ![](attachments/103330558/103330565.png){width="750" height="246"}
+    ![](../../assets/img//103330558/103330565.png) 
 7.  Set challenge questions for the user account. There are two sets of
     challenge questions by default. You can pick one question for each
     set and give an answer for the question.  
-    ![](attachments/103330558/103330564.png){width="750" height="451"}  
+    ![](../../assets/img//103330558/103330564.png)   
 8.  Click **Update**.
 9.  Sign out of the dashboard and click **Forgot Password** on the login
     screen.  
-    ![](attachments/50514066/57747161.png){width="307" height="371"}
+    ![](../../assets/img//50514066/57747161.png) 
 10. Enter the username and select **Recover with Security Questions**.
     Click **Submit**.
 
@@ -278,7 +278,7 @@ To try this out, first create a user in the Identity Server.
         [foo.com](http://foo.com) @ [bar.com](http://bar.com) ".
     
 
-    ![](attachments/50514066/57747162.png){width="493" height="250"}
+    ![](../../assets/img//50514066/57747162.png) 
 
     !!! note
     
@@ -286,20 +286,20 @@ To try this out, first create a user in the Identity Server.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![](https://lh3.googleusercontent.com/cDKsCGD5sa3R0MmEKOUd8wsysrEO_lCAdY1ETIzxgJ04xR1s7PzqmVgIyftst1Y_M002KwJDIk-LY7xXyIE2Bqi8b8nlB3z7o8S_TAMku54G97Xg2Es0a-qVeQnDDD4H78oGQt1A){width="400"}  
+        ![](https://lh3.googleusercontent.com/cDKsCGD5sa3R0MmEKOUd8wsysrEO_lCAdY1ETIzxgJ04xR1s7PzqmVgIyftst1Y_M002KwJDIk-LY7xXyIE2Bqi8b8nlB3z7o8S_TAMku54G97Xg2Es0a-qVeQnDDD4H78oGQt1A)   
     
 
       
 
 11. Enter the answers to the challenge questions and click **Submit**
     .  
-    ![](attachments/50514066/57747166.png){width="456" height="127"}
+    ![](../../assets/img//50514066/57747166.png) 
 12. Enter a new password and click **Submit**. You will receive a
     notification of successful password reset.  
 
-![](attachments/50514066/57747167.png){width="450"}
+![](../../assets/img//50514066/57747167.png) 
 
-![](attachments/50514066/57747168.png){width="450" height="127"}
+![](../../assets/img//50514066/57747168.png) 
 
   
 

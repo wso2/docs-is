@@ -22,7 +22,7 @@ Grant](https://docs.wso2.com/display/IS530/Implicit+Grant).
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
 
-    ![](attachments/103329935/103329938.png){width="600"}
+    ![](../../assets/img//103329935/103329938.png) 
 
 3.  Log in with the user.  
     ![2.png](https://lh3.googleusercontent.com/lpIx7mjc8_V6mLfJNg2RFxSXWEcrrVHPHto6bBxCYqsxnYsavveiBfaE4_AQ0Gq0wfwKFba4F25li8P6aaAp9sEBSCX5tBxIsn5b0NqNBy27VV94BcTSHJlRPLI3FOsSmVsWAVM2){width="340"
@@ -35,7 +35,7 @@ Grant](https://docs.wso2.com/display/IS530/Implicit+Grant).
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.
 
-    ![](attachments/103329935/103329937.png){height="250"}
+    ![](../../assets/img//103329935/103329937.png){height="250"}
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here for more information on OAuth 2.0 Token Introspection
@@ -55,7 +55,7 @@ Grant](https://docs.wso2.com/display/IS530/Implicit+Grant).
 
 6.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329935/103329936.png){width="714"}
+    ![](../../assets/img//103329935/103329936.png) 
 
 **Related Topics**
 

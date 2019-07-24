@@ -692,7 +692,7 @@ Manager
 Nodes](https://docs.wso2.com/display/CLUSTER44x/Sticky+Sessions+with+Manager+Nodes)
 . The following is the deployment diagram with the load balancer.
 
-![](attachments/103329476/103329481.png){width="750"}
+![](attachments/103329476/103329481.png) 
 
 #### Configuring Nginx
 

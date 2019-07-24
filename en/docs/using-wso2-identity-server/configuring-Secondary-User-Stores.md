@@ -99,7 +99,7 @@ primary user store.
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
     that the user stores are being added.  
-    ![](attachments/103330307/103330314.png)
+    ![](../../assets/img//103330307/103330314.png)
 
     !!! note
     

@@ -73,7 +73,7 @@ To create a new tenant, take the following steps:
         log in. The username must always end with the domain name (e.g.,
         <admin@abc.com> ).
     -   **Email** - The email address of the admin.  
-        ![](attachments/103330472/103330473.png){height="250"}
+        ![](../../assets/img//103330472/103330473.png){height="250"}
 
 Once you have added a tenant, you can log out of the Identity Server and
 log back in using the newly created tenant. Now, any settings you may do

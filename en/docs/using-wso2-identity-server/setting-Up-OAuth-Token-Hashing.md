@@ -98,13 +98,13 @@ Follow the instructions below to set up OAuth token hashing:
 
     4.  Specify appropriate values for the required fields.
 
-        ![](attachments/103329661/103329662.png){width="500"
+        ![](../../assets/img//103329661/103329662.png){width="500"
         height="656"}
 
     5.  Click **Add**. This displays values of the **Consumer Key** and
         the **Consumer Secret** for your service provider.
 
-        ![](attachments/103329661/103329663.png){width="950"}
+        ![](../../assets/img//103329661/103329663.png) 
 
         !!! tip
         

@@ -95,7 +95,7 @@ with the WSO2 IS.
     Recovery REST
     API](https://docs.wso2.com/display/IS550/apidocs/account-recovery)
     .  
-    ![](https://lh5.googleusercontent.com/U3C3ZUForn1B9VQm-C1m-XPoeZB6DpgtnV6hrk1CmxWyFhvynOCNBwOlvcJyVShiSGwU75yq4YqBRT_vnMQzsQDiHaGW02N52IhvY2z3Dms8Uv0yFLJ3wNjiBS1ef-GPaKmvkMhZ){width="750"}
+    ![](https://lh5.googleusercontent.com/U3C3ZUForn1B9VQm-C1m-XPoeZB6DpgtnV6hrk1CmxWyFhvynOCNBwOlvcJyVShiSGwU75yq4YqBRT_vnMQzsQDiHaGW02N52IhvY2z3Dms8Uv0yFLJ3wNjiBS1ef-GPaKmvkMhZ) 
 
       
 
@@ -127,11 +127,11 @@ with the WSO2 IS.
         1.  Navigate to <https://myaccount.google.com/security> .
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![](attachments/103330552/103330553.png){width="600"
+            ![](../../assets/img//103330552/103330553.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
             **Allow less secure apps**.  
-            ![](attachments/103330552/103330554.png){width="597"
+            ![](../../assets/img//103330552/103330554.png){width="597"
             height="171"}
     
 
@@ -146,7 +146,7 @@ with the WSO2 IS.
 3.  Access the [WSO2 Identity Server dashboard](https://loca/).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
-    ![](attachments/103330552/103330555.png){width="447"}
+    ![](../../assets/img//103330552/103330555.png) 
 
       
 
@@ -156,11 +156,11 @@ with the WSO2 IS.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![](https://lh5.googleusercontent.com/ZqV9L-ePDQxbryjbJZKc8KfEcXPVY8WOxLXWVD0Zwqtut7Aht5MpgMLsSuL37Jsd77XcS_wymxF6M6BLTpMmFZRqRNiuhsrVoq1tamLknSNUsvA2KIcNZO0H3BTrG7w9CzRoc8GW){width="447"}
+        ![](https://lh5.googleusercontent.com/ZqV9L-ePDQxbryjbJZKc8KfEcXPVY8WOxLXWVD0Zwqtut7Aht5MpgMLsSuL37Jsd77XcS_wymxF6M6BLTpMmFZRqRNiuhsrVoq1tamLknSNUsvA2KIcNZO0H3BTrG7w9CzRoc8GW) 
 
 6.  An email notification is sent to the user's email address with the
     recovered username.  
-    ![](attachments/103330552/103330556.png){width="469"}
+    ![](../../assets/img//103330552/103330556.png) 
 
 !!! tip
     

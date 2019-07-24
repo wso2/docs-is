@@ -16,12 +16,12 @@ IS as well. To test the workflow, follow the steps below.
         disabled or greyed out functions.
     
 
-    ![](attachments/103330281/103330282.png)  
+    ![](../../assets/img//103330281/103330282.png)  
 
     1.  [Login to the IS User
         Portal](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Accessingthedashboardanditscomponents)
         as a manager at this link: <https://localhost:9443/dashboard>  
-        ![](attachments/103330281/103330283.jpg){width="700"}  
+        ![](../../assets/img//103330281/103330283.jpg)   
           
     2.  Click **View details** under **Pending Approvals**.
     3.  In the resulting screen, select the **Workflow Profile engine**
@@ -32,7 +32,7 @@ IS as well. To test the workflow, follow the steps below.
          “DEFAULT” task status category captures the aggregate task
         statuses of “READY” and “RESERVED”.
 
-        ![](attachments/103330281/103330284.png){width="700"}
+        ![](../../assets/img//103330281/103330284.png) 
 
 3.  Click on the relevant **Task Id** to access the details of the
     selected task and click on the button corresponding to a state to
@@ -40,7 +40,7 @@ IS as well. To test the workflow, follow the steps below.
     the workflow approval process (e.g. clicking **Start** and then
     **Approve** will approve the pending task and complete the workflow
     process).  
-    ![](attachments/103330281/103330285.png){width="700"}  
+    ![](../../assets/img//103330281/103330285.png)   
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -100,7 +100,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     Authenticators**.
 7.  Select both check boxes to **Enable** the Token2 authenticator and
     make it the **Default**.  
-    ![](attachments/53120841/53284908.png){width="800"}
+    ![](attachments/53120841/53284908.png) 
 
 8.  Enter the following values:
 
@@ -197,12 +197,12 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     </tbody>
     </table>
 
-    ![](attachments/53120841/76748580.png){width="800"}  
+    ![](attachments/53120841/76748580.png)   
 
 4.  Next click **List** under **Main \> Identity \> Users and Roles**.
 5.  Click **User Profile** under **Admin** and update the
     `           User Id          ` .  
-    ![](attachments/53120841/76748586.png){width="800"}
+    ![](attachments/53120841/76748586.png) 
 
 Now you have configured the claim.  
 
@@ -220,7 +220,7 @@ The next step is to configure the service provider.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section .  
-    ![](attachments/53120841/53284577.png){width="800"}
+    ![](attachments/53120841/53284577.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to view the field definitions
@@ -377,7 +377,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the userId claim as Subject
     Claim URI.  
-    ![](attachments/53120841/53284903.png){width="800"}
+    ![](attachments/53120841/53284903.png) 
 
 9.  Go to **Local and Outbound Authentication Configuration** section .
 
@@ -390,7 +390,7 @@ The next step is to configure the service provider.
     with the Identity Server and then get authenticated using Token2 as
     the second step. This is an added security measure and a common use
     of the Token2 authenticator.  
-    ![](attachments/53120841/53284914.png){width="800" height="509"}
+    ![](attachments/53120841/53284914.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to view the field definitions
@@ -461,20 +461,20 @@ You have now added and configured the service provider.
 
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com>  
-    [![](attachments/53120841/76748573.png){width="800"}](http://localhost:8080/travelocity.com)
+    [![](attachments/53120841/76748573.png) ](http://localhost:8080/travelocity.com)
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.  
-    ![](attachments/53120841/76748574.png){width="600"}
+    ![](attachments/53120841/76748574.png) 
 
 4.  Enter the code that is generated with token2 hardware device to
     authenticate. You are directed to the home page of the
     [travelocity.com](http://travelocity.com) app.
 
-    ![](attachments/53120841/53284612.png){width="800"}
+    ![](attachments/53120841/53284612.png) 
 
-    ![](attachments/53120841/53284615.png){width="800"}
+    ![](attachments/53120841/53284615.png) 
 
   
 

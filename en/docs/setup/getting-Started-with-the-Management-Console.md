@@ -37,7 +37,7 @@ Product](_Running_the_Product_).
 The following screen depicts the full overview of the management
 console.
 
-![](attachments/103328985/103328992.png){width="750"}
+![](attachments/103328985/103328992.png) 
 
 The console's menu items appear in the left hand side of the Identity
 Server screen and the useable features appear in the center of the

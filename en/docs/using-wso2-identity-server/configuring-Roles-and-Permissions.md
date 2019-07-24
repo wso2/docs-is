@@ -117,12 +117,12 @@ Follow the instructions below to add a user role.
         create this role.
     2.  Enter a unique name for this role.
     3.  Click **Next**.  
-        ![](attachments/103330369/103330391.png?effects=border-simple,blur-border){width="512"}
+        ![](../../assets/img//103330369/103330391.png?effects=border-simple,blur-border) 
 5.  Select the permissions you want users with this role to have. You
     can also not assign permissions to a role. Note that when you assign
     this role to a user, you can override the role's permissions and
     customize them for the user.  
-    ![](attachments/103330369/103330392.png?effects=border-simple,blur-border){width="300"}
+    ![](../../assets/img//103330369/103330392.png?effects=border-simple,blur-border) 
 6.  Select the existing users you want to have this role. You can also
     assign this role to users later, but if you are creating this role
     in an external user store that does not allow empty roles, you must
@@ -304,7 +304,7 @@ the role by doing the following.
     **Users and Roles**.  
 2.  Click **Roles**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![](attachments/103330369/103330377.png)  
+    ![](../../assets/img//103330369/103330377.png)  
     You can search for users by doing the following.
     1.  Select the user store that the role resides in using the
         **Select Domain** dropdown.
@@ -328,7 +328,7 @@ the role by doing the following.
 If you need to make modifications to a role, use the links in the
 **Actions** column on the **Roles** screen as follows:
 
-![](attachments/103330369/103330376.png){height="250"}  
+![](../../assets/img//103330369/103330376.png){height="250"}  
 
 -   Rename the role
 -   Change the default permissions associated with this role

@@ -55,7 +55,7 @@ those listed below** with your values when configuring the steps.
 1.  Open the [Google developers
     console](https://console.developers.google.com/cloud-resource-manager)
     and click the Menu icon in the top left corner.  
-    ![](attachments/103330252/103330261.png){width="500"}
+    ![](../../assets/img//103330252/103330261.png) 
 
 2.  Create a new project:
 
@@ -63,7 +63,7 @@ those listed below** with your values when configuring the steps.
 
     2.  Provide a name for your project and click **Create**.
 
-    ![](attachments/103330252/103330257.png){width="400"}
+    ![](../../assets/img//103330252/103330257.png) 
 
 3.  Search for the project you created and click it.
 
@@ -75,7 +75,7 @@ those listed below** with your values when configuring the steps.
         panel.
 
     3.  Click **Create service account**.  
-        ![](attachments/103330252/103330260.png){width="457"}
+        ![](../../assets/img//103330252/103330260.png) 
 
     4.  Fill in the form to create the service account:
 
@@ -85,7 +85,7 @@ those listed below** with your values when configuring the steps.
         -   Select **Furnish a new private key** and make sure that
             **P12** is selected for the Key type. aef
 
-        ![](attachments/103330252/103330259.png){width="400"
+        ![](../../assets/img//103330252/103330259.png){width="400"
         height="412"}
 
     5.  Click CREATE.  
@@ -99,13 +99,13 @@ those listed below** with your values when configuring the steps.
     1.  Click **IAM and admin \> Service accounts,** click the menu icon
         at the end the service account you created, and click **Edit**
         .  
-        ![](attachments/103330252/103330255.png){width="900"}
+        ![](../../assets/img//103330252/103330255.png) 
     2.  Select **Enable G Suite Domain-wide Delegation** and click
         **SAVE**.  
-        ![](attachments/103330252/103330254.png){width="492"
+        ![](../../assets/img//103330252/103330254.png){width="492"
         height="250"}
     3.  Click View Client ID and copy the value for the Client ID.  
-        ![](attachments/103330252/103330253.png){width="513"
+        ![](../../assets/img//103330252/103330253.png){width="513"
         height="250"}
 6.  Manage the API client access:
     1.  Go to your domains admin console via
@@ -116,7 +116,7 @@ those listed below** with your values when configuring the steps.
         Can't see the Security section? Click the **MORE CONTROLS** bar
         at the bottom and you can see the Security section.
 
-        ![](attachments/103330252/103330264.png){width="600"}
+        ![](../../assets/img//103330252/103330264.png) 
 
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
@@ -128,14 +128,14 @@ those listed below** with your values when configuring the steps.
             as the value for scopes.
         3.  Click **Authorize**.
 
-        ![](attachments/103330252/103330263.png){width="900"}
+        ![](../../assets/img//103330252/103330263.png) 
 
 7.  Enable Amin SDK.
     1.  On the Open the [Google developers
         console](https://console.developers.google.com/cloud-resource-manager)
        , click the menu icon, and click **APIs & Services**.
     2.  Click **Dashboards \> + ENABLE API AND SERVICES**.  
-        ![](attachments/103330252/103330262.png){width="900"}
+        ![](../../assets/img//103330252/103330262.png) 
     3.  Search for Admin SDK and click **Enable**.
 
 **[\[Back to the top\]](#OutboundProvisioningwithGoogle-top)**
@@ -237,7 +237,7 @@ Provider.
     11. Enter **\_** (the underscore character) as the value for the
         Google Provisioning Separator .
 
-    ![](attachments/103330252/103330256.png){width="900"}
+    ![](../../assets/img//103330252/103330256.png) 
 
 6.  Click **Register**.
 
@@ -258,7 +258,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     that appears.
 3.  Select the Google identity provider you configured from the drop
     down and click the
-    ![](attachments/103330252/103330258.png){width="30"} button.
+    ![](../../assets/img//103330252/103330258.png)  button.
 
     If you enable **Blocking**, Identity Server will wait for the
     response from the Identity Provider to continue.

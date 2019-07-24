@@ -32,7 +32,7 @@ Evaluation. You can create a request using one of the following methods:
 2.  Click **Tools** to access the **XACML** menu.
 3.  Click **TryIt**.
 4.  Click on the **Create Request Using Editor** link.  
-    ![](attachments/103329504/103329511.png)
+    ![](../../assets/img//103329504/103329511.png)
 5.  Use the "Toggle editor" to create a request in XML. The default
     elements are as follows:
 
@@ -44,7 +44,7 @@ Evaluation. You can create a request using one of the following methods:
     -   `            <AttributeValue/>           `
     -   `            <Environment>                       `
 
-    ![](attachments/103329504/103329510.png){width="1024"}
+    ![](../../assets/img//103329504/103329510.png) 
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more
@@ -110,7 +110,7 @@ Evaluation. You can create a request using one of the following methods:
     -   **Environment Name** - Provides additional information to
         evaluate the request, such as the current date and time, etc.
 
-    ![](attachments/103329504/103329512.png)
+    ![](../../assets/img//103329504/103329512.png)
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more

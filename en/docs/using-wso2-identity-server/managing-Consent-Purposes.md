@@ -71,10 +71,10 @@ sure you have the following permissions set:
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
 2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
-    ![](attachments/103330607/103330612.png){width="220" height="569"}  
+    ![](../../assets/img//103330607/103330612.png)   
     The following window will be displayed.
 
-    ![](attachments/103330607/103330611.png){width="1000" height="308"}
+    ![](../../assets/img//103330607/103330611.png) 
 
 3.  Add a **Purpose Name** and a **Description**.
 
@@ -105,7 +105,7 @@ sure you have the following permissions set:
 4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
-    ![](attachments/103330607/103330609.png){width="1001" height="305"}
+    ![](../../assets/img//103330607/103330609.png) 
 
 ### List consent purposes
 
@@ -122,7 +122,7 @@ you have the following permissions set:
 1.  Log into the [Management
     Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
-    ![](attachments/103330607/103330610.png){width="220" height="513"}
+    ![](../../assets/img//103330607/103330610.png) 
 
 3.  The following window will be displayed.
 
@@ -134,14 +134,14 @@ you have the following permissions set:
         the PII categories. For more information about consent management
         with single sign on, see [Consent Management with
 
-    ![](attachments/103330607/103330609.png){width="1001" height="305"}
+    ![](../../assets/img//103330607/103330609.png) 
 
 4.  You can delete a purpose by clicking **Delete**. You can also view
     the PII categories associated with the **Purpose** by clicking
     **View PII Categories** in the **Action** column. The following
     window will be displayed when you click **View PII Categories.**
 
-    **![](attachments/103330607/103330608.png){width="1005"
+    **![](../../assets/img//103330607/103330608.png){width="1005"
     height="223"}**
 
     !!! tip

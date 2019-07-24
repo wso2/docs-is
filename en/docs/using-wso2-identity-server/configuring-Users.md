@@ -46,7 +46,7 @@ its role.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  Click **Add New User**. The following screen appears.  
-    ![](attachments/103330327/103330360.png){width="367" height="307"}
+    ![](../../assets/img//103330327/103330360.png) 
 
     When giving a username, it should not contain backslash (“/”) or any
     special character ("&", "$", "%") as specified in
@@ -79,7 +79,7 @@ the **Users** page.
     role.
 3.  Click the **Assign Roles** link that corresponds to the user you
     want to assign to a role.  
-    ![](attachments/103330327/103330361.png){width="791" height="250"}
+    ![](../../assets/img//103330327/103330361.png) 
 4.  Select the role(s) you want to assign and click **Update**.
 5.  Click **Finish**.
 
@@ -214,10 +214,10 @@ Follow the below instruction to update a user using management console.
 3.  You will see the list of users that are available and you can click
     **Update Profile** if you want to update the profile of a particular
     user.  
-    ![](attachments/103330327/103330359.png){width="791"}
+    ![](../../assets/img//103330327/103330359.png) 
 4.  There you can update the details of the user and click **Update**
     .  
-    ![](attachments/103330327/103330358.png){width="370"}
+    ![](../../assets/img//103330327/103330358.png) 
 
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.
@@ -434,7 +434,7 @@ the user by doing the following.
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![](attachments/103330327/103330351.png) You can search for users by
+    ![](../../assets/img//103330327/103330351.png) You can search for users by
     doing one of the following.  
     -   **Search by Domain**  
         1.  Select the user store that the user resides in using the

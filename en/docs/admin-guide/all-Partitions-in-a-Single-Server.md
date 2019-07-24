@@ -2,7 +2,7 @@
 
 #### Strategy 1: Local Registry
 
-![](attachments/21037149/21331970.png){width="330"}
+![](attachments/21037149/21331970.png) 
 
 Figure 1: All registry partitions in a single server instance.  
 

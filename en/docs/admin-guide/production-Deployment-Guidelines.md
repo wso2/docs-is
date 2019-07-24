@@ -726,7 +726,7 @@ tool, which is a command-line utility that allows you to get the latest
 updates ( bug fixes and security fixes ) of a particular product
 release.
 
-![](attachments/56984556/61672631.png){width="750"}
+![](attachments/56984556/61672631.png) 
 
 **Diagram** : managing your artifacts using a configuration management
 system

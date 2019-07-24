@@ -34,9 +34,9 @@ Follow the steps provided below to configure this.
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
     -   **Domains:** is.wso2.com  
 
-    ![](attachments/103330586/103330587.png){width="400"}
+    ![](../../assets/img//103330586/103330587.png) 
 3.  Take note of the site key and secret that you receive.
-    ![](attachments/103330586/103330588.png){width="957" height="187"}
+    ![](../../assets/img//103330586/103330588.png) 
 4.  Open the c `            aptcha-config.properties           ` file
     located in the
     `            <IS_HOME>/repository/conf/identity/           `
