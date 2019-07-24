@@ -422,14 +422,14 @@ extension points. Now let's begin.
 11. In service provider configuration, under ‘Inbound Authentication
     Configuration’/‘Oauth/OpenID Connect Configuration’, click
     **Configure**.  
-    ![](attachments/103330069/103330070.png){width="700"}
+    ![](../../assets/img//103330069/103330070.png) 
 
 12. Provide the Callback URL and register it as a OAuth2 client app.
 
 13. Under ‘Local & Outbound Authentication Configuration’, select ‘Local
     authentication’ check box.
 
-    ![customauthenticatoe.png](https://lh5.googleusercontent.com/AFiQqzWe9axx4wRF_EkEGyGPIjTSkEjRk08raSkzMT15L7oaAIVzj-ygKcIUtrTbyBbY-w0vlQqej-h2dzfyJnyWjU8tCeZqVa_qtZMAvyhYZ2qZRu5Yae_e1NMfbtrmJzgKF3mC){width="800"}
+    ![customauthenticatoe.png](https://lh5.googleusercontent.com/AFiQqzWe9axx4wRF_EkEGyGPIjTSkEjRk08raSkzMT15L7oaAIVzj-ygKcIUtrTbyBbY-w0vlQqej-h2dzfyJnyWjU8tCeZqVa_qtZMAvyhYZ2qZRu5Yae_e1NMfbtrmJzgKF3mC) 
 
     !!! note
     
@@ -442,7 +442,7 @@ extension points. Now let's begin.
 14. Visit the playground app and provide **Client ID** of the registered
     playground app and give the **Scope** as ‘openid’ to make sure it is
     in the OpenID Connect flow. Click **Authorize**.  
-    ![playgroundapp.png](https://lh4.googleusercontent.com/2Jn5YKV__b2dhLAE72EKhF3JXP1ZXd1VDAkIi1N40oOAZMnYMreFOORK5aJO4hvoyraXRW2eP0JBd_A4SKhrfbY6F3tiN55Auw4bjJ6SvAkjx7V4sYfVhDyDhTSQw7BttSYhkM7G){width="800"}  
+    ![playgroundapp.png](https://lh4.googleusercontent.com/2Jn5YKV__b2dhLAE72EKhF3JXP1ZXd1VDAkIi1N40oOAZMnYMreFOORK5aJO4hvoyraXRW2eP0JBd_A4SKhrfbY6F3tiN55Auw4bjJ6SvAkjx7V4sYfVhDyDhTSQw7BttSYhkM7G)   
     Then you will be directed to WSO2 Identity Server login page.
 15. Provide the username and password of the user 'Alice' who is in the
     ‘photoSharingRole’. You are prompted to approve the app and logged

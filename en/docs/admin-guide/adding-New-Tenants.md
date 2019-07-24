@@ -37,7 +37,7 @@ be logged in as a super user.
     currently exist in the system. If you want to view only tenants of a
     specific domain, enter the domain name in the **Enter the Tenant
     Domain** parameter and click **Find**.  
-    ![](attachments/53125481/87718672.png){width="1172" height="163"}
+    ![](attachments/53125481/87718672.png) 
 
 ### Managing tenants using Admin Services
 
@@ -112,7 +112,7 @@ follows:
     machine as the product instance. Note that there are several
     operations shown in the SOAP UI after importing the wsdl file:
 
-    ![](attachments/53125481/92516206.png){width="294" height="227"}
+    ![](attachments/53125481/92516206.png) 
 
     !!! warning
     

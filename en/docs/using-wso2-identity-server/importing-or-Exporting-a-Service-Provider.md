@@ -58,7 +58,7 @@ following.
     **Service Providers**.
 6.  Click **Export** against the respective service provider. You are
     prompted to confirm the export.  
-    ![](attachments/103329882/103329888.png){width="748" height="129"}
+    ![](../../assets/img//103329882/103329888.png) 
 7.  Select **Include Secrets** if you wish to include secrets when
     exporting. An xml file similar to the sample given below is
     downloaded on to your machine.
@@ -69,7 +69,7 @@ following.
         password. Any hashed or encrypted secrets are also excluded.
     
 
-    ![](attachments/103329882/103329887.png){width="359" height="126"}
+    ![](../../assets/img//103329882/103329887.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     to see a sample service-provider.xml
@@ -168,14 +168,14 @@ required.
 4.  Select **File Configuration** and click **Choose File** to upload
     the xml configuration file of the service provider you wish to
     import.  
-    ![](attachments/103329882/103329886.png){width="673" height="212"}
+    ![](../../assets/img//103329882/103329886.png) 
 5.  Upload the xml file and click **Import**.  
-    ![](attachments/103329882/103329885.png){width="588" height="76"}
+    ![](../../assets/img//103329882/103329885.png) 
 6.  You can make changes to the service provider configurations if
     required and click **Update** to save.  
     You will see the service provider listed under **Service Providers**
     . You have successfully imported the service provider.  
-    ![](attachments/103329882/103329884.png){width="741" height="103"}
+    ![](../../assets/img//103329882/103329884.png) 
 
 !!! tip
     
@@ -185,7 +185,7 @@ required.
     the existing service providers within that tenant, you may receive the
     following error. This is because the service provider already exists.
     
-    ![](attachments/103329882/103329883.png){width="392" height="157"}
+    ![](../../assets/img//103329882/103329883.png) 
     
     To resolve this error you can:
     

@@ -139,18 +139,18 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![](attachments/103329637/103329639.png){width="160"}
+    ![](../../assets/img//103329637/103329639.png) 
 
 13. Import the above cert (Click **Import Cert** under **Actions** ) in
     to the default key store defined in
     `           <IS_HOME>/repository/conf/carbon.xml          ` . ( In a
     default pack, keystore name is wso2carbon.jks)
 
-    ![](attachments/103329637/103329638.png){width="700"}
+    ![](../../assets/img//103329637/103329638.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![](attachments/103329637/103329640.png){width="1200"}
+    ![](../../assets/img//103329637/103329640.png) 
 
     !!! note
     
@@ -167,7 +167,7 @@ artifacts.
         as shown above, you can choose to use the JWKS enpoint as shown
         below and add the relevant JWKS URI.
     
-        ![](attachments/92524687/119114653.png){width="800"}
+        ![](../../assets/img//92524687/119114653.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token

@@ -374,20 +374,20 @@ Identity Server was started before.
 
 1.  Access the WSO2 Identity Server Management Console.
 2.  Click **Main \> Registry \> Browse**.  
-    ![](attachments/50501577/112378780.png){width="250"}
+    ![](attachments/50501577/112378780.png) 
 3.  Disable CRL certificate validation.
     1.  Locate the CRL parameter by entering
         `            _system/governance/repository/security/certificate/validator/crlvalidator           `
         in the **Location** search box .  
-        ![](attachments/50501577/112378782.png){width="750"}
+        ![](attachments/50501577/112378782.png) 
     2.  Expand **Properties**.  
-        ![](attachments/50501577/112378786.png){width="800"}
+        ![](attachments/50501577/112378786.png) 
     3.  Click **Edit** pertaining to the **Enable** property.  
-        **![](attachments/50501577/112378794.png){width="750"}  
+        **![](attachments/50501577/112378794.png)   
         **
     4.  Change the value to `            false           ` and click
         **Save**.  
-        ![](attachments/50501577/112378795.png){width="750"}
+        ![](attachments/50501577/112378795.png) 
 4.  Similarly, disable OCSP certificate validation in the
     `          _system/governance/repository/security/certificate/validator/ocspvalidator         `
     registry parameter.
@@ -463,13 +463,13 @@ retrieved certificate from the request.
     ```
 
 2.  On the **Main** tab, click **Claims \> Add**.  
-    ![](attachments/50501577/103328153.png){width="200"}
+    ![](attachments/50501577/103328153.png) 
 3.  Click **Add Local Claim**.  
-    ![](attachments/50501577/103328154.png){width="700"}
+    ![](attachments/50501577/103328154.png) 
 4.  Add a new claim for the **certificate** by giving the details as
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
-    ![](attachments/50501577/103328155.png){width="700"}
+    ![](attachments/50501577/103328155.png) 
 5.  Click **Add**.
 
 ### Updating the column size of the database for X509 certificates
@@ -648,7 +648,7 @@ The next step is to configure the service provider.
         -   Select **Local Authentication** as the **Authentication
             Type** and select **X509Certificate** from the drop-down
             list.  
-            ![](attachments/50501577/56985065.png){width="500"}
+            ![](attachments/50501577/56985065.png) 
         -   When using X509 as first step authentication, you need to
             create a user in IS management console with the Email
             provided while creating the browser certificate.  
@@ -710,9 +710,9 @@ Follow the steps below to configure CRL caching.
 2.  Click Privacy & Security in the left navigation and scroll down to
     the **Certificates** section. Click **View Certificates**.  
       
-    ![](attachments/50501577/76747282.png){width="750"}
+    ![](attachments/50501577/76747282.png) 
 3.  In the window that appears, click **Import**.  
-    ![](attachments/50501577/76747286.png){width="750"}
+    ![](attachments/50501577/76747286.png) 
 4.  Select the **localhost.p12** file, and then click **Open**. Note
     that you may have to enter the password that you used to generate
     the p12 file, (browserpwd) to open it.
@@ -743,4 +743,4 @@ Follow the steps below to configure CRL caching.
     `          https://localhost:8443/x509-certificate-servlet         `
     ). If the authentication is successful, you will be taken to the
     home page of the travelocity.com app.  
-    ![](attachments/50501577/56985084.png){width="400"}
+    ![](attachments/50501577/56985084.png) 

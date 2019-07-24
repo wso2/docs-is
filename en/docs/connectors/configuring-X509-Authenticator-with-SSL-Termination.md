@@ -215,7 +215,7 @@ in order to configure X509 Authenticator.
         Valve name = <Valve className=”org.wso2.carbon.extension.identity.x509Certificate.valve.X509CertificateAuthenticationValve”/>
     ```
 
-    ![](attachments/119111969/119112177.png){width="748" height="250"}
+    ![](attachments/119111969/119112177.png) 
 
       
 

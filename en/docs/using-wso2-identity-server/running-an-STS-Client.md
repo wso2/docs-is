@@ -55,8 +55,8 @@ the instructions found
 
 **Request**
 
-![](attachments/103330821/103330830.png){width="750"}
+![](../../assets/img//103330821/103330830.png) 
 
 **Response**
 
-![](attachments/103330821/103330828.png){width="750"}
+![](../../assets/img//103330821/103330828.png) 

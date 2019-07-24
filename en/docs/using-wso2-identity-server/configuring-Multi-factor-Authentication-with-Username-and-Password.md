@@ -27,7 +27,7 @@ prior to autenticating the user using the password.
     Provider](_Configuring_Local_and_Outbound_Authentication_for_a_Service_Provider_)
     .
 
-    ![](attachments/103329856/103329860.png)
+    ![](../../assets/img//103329856/103329860.png)
 
       
 
@@ -48,7 +48,7 @@ prior to autenticating the user using the password.
 7.  Click **Add** **Authentication** **step** and add the **basic**
     authenticator from ****Local Authenticators**** section.  This will
     enable the password as the 2nd step authenticator.  
-    ![](attachments/103329856/103329859.png)
+    ![](../../assets/img//103329856/103329859.png)
 8.  Click the **Update** button. This navigates you to the previous
     screen with your newly configured authentication steps.
 
@@ -71,8 +71,8 @@ to `          true         ` .
 1.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
 2.  Enter the username and click **NEXT**.  
-    ![](attachments/103329856/103329857.png)
+    ![](../../assets/img//103329856/103329857.png)
 3.  Enter the password and click **SIGN IN**.  
-    ![](attachments/103329856/103329858.png)
+    ![](../../assets/img//103329856/103329858.png)
 
   

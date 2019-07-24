@@ -4,7 +4,7 @@ The Bitly authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Bitly users to log in to your
 organization’s applications.
 
-![](attachments/50518501/76746252.png){width="900"}  
+![](attachments/50518501/76746252.png)   
 
 ### Getting started
 

@@ -24,7 +24,7 @@ locking and disabling. Follow the below steps to do this configuration.
 3.  Expand the **Login Policies** tab.
 4.  Expand the **Account Disabling** tab and select the **Enable Account
     Disabling** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330604/119113135.png){width="773"}
+    ![](../../assets/img//103330604/119113135.png) 
 
     !!! tip
     
@@ -54,7 +54,7 @@ locking and disabling. Follow the below steps to do this configuration.
 5.  Next, enable account locking. Expand the **Login Policies** tab.
 6.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330604/119113139.png){width="566" height="250"}
+    ![](../../assets/img//103330604/119113139.png) 
 
     !!! tip
     
@@ -97,7 +97,7 @@ management console.
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![](attachments/103330604/103330606.png){width="1147" height="463"}
+    ![](../../assets/img//103330604/103330606.png) 
 4.  Navigate to **Main\>Users and Roles\>List\>Users** and click on
     **User Profile** of the user account that you want to disable.
 5.  Tick the **Account Disabled** checkbox and click **Update**.

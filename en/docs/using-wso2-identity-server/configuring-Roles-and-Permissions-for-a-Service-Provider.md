@@ -30,7 +30,7 @@ permission for the service provider:
 1.  In the service provider that you created, expand the
     **Role/Permission Configuration** section, and then expand the
     **Permissions** as well as the **Role Mapping** sections.  
-    ![](attachments/103329771/103329772.png){width="750"}
+    ![](../../assets/img//103329771/103329772.png) 
 2.  Click **Add Permission** and specify the service provider specific
     permission that you want to add.
 

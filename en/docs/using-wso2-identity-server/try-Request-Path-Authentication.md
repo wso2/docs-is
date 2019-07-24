@@ -18,11 +18,11 @@ information.
     Use the following **Callback URL** when configuring OAuth for WSO2
     playground: http://wso2is.local:8080/playground2/oauth2client
 
-    ![](attachments/103329962/103329963.png){width="700"}
+    ![](../../assets/img//103329962/103329963.png) 
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![](attachments/103329962/103329967.png){width="569"}
+    ![](../../assets/img//103329962/103329967.png) 
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select the relevant authenticator for request path authentication
@@ -31,7 +31,7 @@ information.
         authenticator.
     -   Select **oauth-bearer** from the drop-down for the OAuth request
         path authenticator.  
-        ![](attachments/103329962/103329965.png){width="715"}
+        ![](../../assets/img//103329962/103329965.png) 
 7.  Click **Update** to save changes to the service provider.
 8.  Now you can use [Playground
     sample](https://docs.wso2.com/display/IS540/OAuth+2.0+with+WSO2+Playground)

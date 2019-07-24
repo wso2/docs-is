@@ -26,7 +26,7 @@ senior HR manager has to approve new user additions. Once this is done,
 the user can login to the system and continue his work. The following
 pre-requisites are necessary to implement this sample use case:
 
-![](attachments/103330274/103330275.png){width="656" height="243"}
+![](../../assets/img//103330274/103330275.png) 
 
 !!! tip
     

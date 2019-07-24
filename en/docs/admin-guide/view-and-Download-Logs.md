@@ -113,4 +113,4 @@ logs:
     keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
     **Custom**. For example,  
-    ![](attachments/12421402/12747655.png){width="636"}
+    ![](attachments/12421402/12747655.png) 

@@ -9,21 +9,21 @@ Follow the instructions below to edit a claim.
 2.  Click **Main** to access the **Main** menu and click **List** under
     **Claims**.
 3.  Click on any available dialect links.  
-    ![](attachments/43986713/48204512.png)
+    ![](../../assets/img//43986713/48204512.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. Click on the appropriate **Edit** link.  
-    ![](attachments/103330403/103330407.png)
+    ![](../../assets/img//103330403/103330407.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.
 
     1.  If you are editing a local claim, you will see the following
         screen.
 
-        ![](attachments/103330403/103330405.png){width="970"}
+        ![](../../assets/img//103330403/103330405.png) 
 
     2.  If you are editing an external claim, you will see the following
         screen.  
-        ![](attachments/103330403/103330404.png){height="250"}
+        ![](../../assets/img//103330403/103330404.png){height="250"}
 
     !!! note
     

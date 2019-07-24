@@ -5,7 +5,7 @@ in WSO2 Identity Server to authenticate Wordpress users to log in to
 your organization’s applications. The diagram below illustrates the flow
 of the Wordpress federated authenticator.
 
-![](attachments/49092142/76746176.png){width="950"}  
+![](attachments/49092142/76746176.png)   
 
 ### Getting started
 

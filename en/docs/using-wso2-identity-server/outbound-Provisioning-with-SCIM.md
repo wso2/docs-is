@@ -41,7 +41,7 @@ identity provider in the Identity Server.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.
 3.  Fill in the details in the **Basic Information** section.  
-    ![](attachments/103330243/103330251.png){width="750"}  
+    ![](../../assets/img//103330243/103330251.png)   
     Note the following when filling the above form.
     -   The **Identity Provider Name** should be unique.
     -   The **Home Realm Identifier** is a standard value which will
@@ -52,7 +52,7 @@ identity provider in the Identity Server.
 4.  Expand the **Outbound Provisioning Connectors** section followed by
     the **SCIM Provisioning Configuration** section.
 5.  Fill out the details in the form.  
-    ![](attachments/103330243/103330246.png){width="750"}  
+    ![](../../assets/img//103330243/103330246.png)   
     Do the configurations as described in [Configuring SCIM
     provisioning](Configuring-Outbound-Provisioning-Connectors-for-an-Identity-Provider_103329711.html#ConfiguringOutboundProvisioningConnectorsforanIdentityProvider-ConfiguringSCIMprovisioning)
     . The following are the configurations in brief.
@@ -100,13 +100,13 @@ like Salesforce and Google Apps.
     **Resident** under **Service Providers**.
 3.  In the resulting screen, expand the **Outbound Provisioning
     Configuration** section.  
-    ![](attachments/103330243/103330245.png?effects=border-simple,blur-border){width="1065"}
+    ![](../../assets/img//103330243/103330245.png?effects=border-simple,blur-border) 
 4.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![](attachments/103330243/103330248.png)
+        possible. ![](../../assets/img//103330243/103330248.png)
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
@@ -134,13 +134,13 @@ provider if your application supports OAuth.
     Name** is a required field.
 4.  In the screen that appears, expand the **Outbound Provisioning
     Configuration** section.  
-    ![](attachments/103330243/103330244.png?effects=border-simple,blur-border){width="1065"}
+    ![](../../assets/img//103330243/103330244.png?effects=border-simple,blur-border) 
 5.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![](attachments/103330243/103330248.png)
+        possible. ![](../../assets/img//103330243/103330248.png)
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.

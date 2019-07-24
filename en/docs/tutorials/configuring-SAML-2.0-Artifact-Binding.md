@@ -54,7 +54,7 @@ HTTP Redirect response.
 
 The diagram below shows the process of SAML Artifact Binding.
 
-![](attachments/103330816/103330819.png){width="621"}
+![](attachments/103330816/103330819.png) 
 
 ### Configuring SAML artifact binding
 
