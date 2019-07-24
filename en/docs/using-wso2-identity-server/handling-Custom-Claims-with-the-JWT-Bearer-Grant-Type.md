@@ -103,10 +103,10 @@ with the configuration steps.
     3.  Configure an [OAuth service
         provider](_Adding_and_Configuring_a_Service_Provider_).
     4.  Initiate an access token request to IS-IP over a known [grant
-        type](_OAuth_2.0_Grant_Types_). The following cURL command
+        type](../../using-wso2-identity-server/oauth-2.0-grant-types). The following cURL command
         illustrates the syntax of an access token request that can be
         initiated using the [Resource Owner Password
-        Credential](_Resource_Owner_Password_Credentials_Grant_) grant
+        Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant
         type, and specifying the scope as openid. For more information,
         see [Configuring WSO2 Identity Server to issue self-contained
         access

@@ -9,16 +9,11 @@ organizations to exchange a Kerberos ticket for an OAuth 2.0 token. This
 allows organizations to re-use their existing Kerberos infrastructure
 and adopt OAuth 2.0.
 
--   [Kerberos-OAuth2 grant
-    flow](#KerberosGrant-Kerberos-OAuth2grantflow)
--   [Configuring Kerberos Grant with Identity
-    Server](#KerberosGrant-ConfiguringKerberosGrantwithIdentityServer)
-
 ### Kerberos-OAuth2 grant flow
 
 The following section describes the flow involved in exchanging a
 Kerberos ticket for an OAuth2 token.  
-![](attachments/103329609/103329611.png){width="586"}
+![oauth-kerberos-diagram](../../assets/img/using-wso2-identity-server/oauth-kerberos-diagram.png)
 
 1.  The Kerberos client requests the Kerberos Service Ticket from the
     Kerberos Key Distribution Center (KDC) to invoke the service.  
@@ -29,37 +24,31 @@ Kerberos ticket for an OAuth2 token.
     Distribution Center (KDC) sends a Kerberos ticket encrypted with the
     service owners private key. The API handles the exchanging of the
     Ticket Granting Ticket (TGT), Service Granting Ticket (SGT), and all
-    other low level Kerberos details.
+    other low level Kerberos details. <a name="step3"></a>
 3.  The Kerberos client requests the OAuth2 token. For more information
     on how to generate the kerberos token, see [step
-    6](#KerberosGrant-step6) below.  
+    6](#step6) below.  
       
     The message format of the OAuth2 token request should be as
     follows:  
-      
-
-    -   [**cURL Request Format**](#5f899603f7174c9ba9dc5d2348602df5)
-    -   [**cURL Response**](#dc8dcdb8682747b4b6f67087ff28da8d)
 
     You can use one of the following two cURL commands to request for
     the OAuth2 token.
 
-    ``` java
+    ``` java tab="Request1"
     curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
-    ``` java
-        curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    ``` java tab="Request2"
+    curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
-    **Example**
-
-    ``` java
-        POST /oauth2/token HTTP/1.1
-        Host: idp.example.com:9443
-        Content-Type: application/x-www-form-urlencoded
-        Authorization: Basic MW91TDJmTzZTeGxmRDJMRHcxMjVjVG8wdlFrYTp1VUV0bTg5dFk2UVp1WlVtcVpmTDkyQkRGZUFh
-        grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
+    ``` java tab="Response"
+    POST /oauth2/token HTTP/1.1
+    Host: idp.example.com:9443
+    Content-Type: application/x-www-form-urlencoded
+    Authorization: Basic MW91TDJmTzZTeGxmRDJMRHcxMjVjVG8wdlFrYTp1VUV0bTg5dFk2UVp1WlVtcVpmTDkyQkRGZUFh
+    grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
     ```
 
 4.  The Kerberos client receives the OAuth2 token.  
@@ -83,25 +72,18 @@ Kerberos ticket for an OAuth2 token.
 
 Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
-1.  Download the `           Keberos-grant          ` JAR (
-    `                       kerberos-grant-1.0.0.jar                     `
-    ).
-
+1.  Download the ![kerberos grant .jar file](../../assets/attachments/kerberos-grant-1.0.0.jar)
 2.  Copy the JAR into the
     `           <IS_HOME>/repository/components/lib          `
     directory.
 
-3.  Add following entry under
-    `           <SupportedGrantTypes>          ` in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file.
+3.  Add the following entry to the `deployment.toml` file in the `           <IS_HOME>/repository/conf/          ` folder.
 
-    ``` java
-        <SupportedGrantType>
-        <GrantTypeName>kerberos</GrantTypeName>
-        <GrantTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant</GrantTypeHandlerImplClass>      
-        <GrantTypeValidatorImplClass>org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator</GrantTypeValidatorImplClass>
-        </SupportedGrantType>
+    ``` toml
+    [oauth.grant_type.kerberos_grant]
+    enable = true
+    grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.KerberosGrantHandler"
+    grant_validator = ""
     ```
 
 4.  Configure OAuth2 with IWA as an allowed grant type.
@@ -113,51 +95,42 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
     3.  Add a new Service Provider and configure OAuth2 for your client
         application with **kerberos** as an allowed grant type.
 
-        ![](images/icons/grey_arrow_down.png){.expand-control-image}
-        Click for instructions to configure OAuth2
+        ??? note "Click for instructions to configure OAuth2"
 
-        To enable OAuth support for your client application, you must
-        first register your application. Follow the instructions below
-        to add a new OAuth2 application.
+            To enable OAuth support for your client application, you must
+            first register your application. Follow the instructions below
+            to add a new OAuth2 application.
 
-        1.  Expand the **OAuth/OpenID Connect Configuration** and click
-            **Configure**.
-        2.  Fill in the form that appears. For the **Allowed Grant
-            Types** you can disable the ones you do not require or wish
-            to block.  
-            Select the **kerberos** grant type as an allowed grant type.
-
-            ![](attachments/103329609/103329610.png){width="855"}
-
-        3.  Click **Add**. The following information is added to your
-            service provider.
-
-            ![](attachments/103329609/103329613.png){width="774"}
-
-            -   **OAuth Client Key** - This is the client key of the
-                service provider, which will be checked for
-                authentication by the Identity Server before providing
-                the access token.
-            -   **OAuth Client Secret** - This is the client secret of
-                the service provider, which will be checked for
-                authentication by the Identity Server before providing
-                the access token. Click the **Show** button to view the
-                exact value of this.
-            -   **Actions -**
-                -   **Edit:** Click to edit the OAuth/OpenID Connect
-                    Configurations
-
-                -   **Revoke:** Click to revoke (deactivate) the OAuth
-                    application. This action revokes all tokens issued
-                    for this application. In order to activate the
-                    application, you have to regenerate the consumer
-                    secret.
-
-                -   **Regenerate Secret:** Click to regenerate the
-                    secret key of the OAuth application.
-
-                -   **Delete:** Click to delete the OAuth/OpenID Connect
-                    Configurations.
+            1.  Expand the **OAuth/OpenID Connect Configuration** and click
+                **Configure**.
+            2.  Fill in the form that appears. For the **Allowed Grant
+                Types** you can disable the ones you do not require or wish
+                to block. Select the **kerberos** grant type as an allowed grant type.
+                ![register-new-oauth-app](../../assets/img/using-wso2-identity-server/register-new-oauth-app.png)
+            3.  Click **Add**. The following information is added to your
+                service provider.
+                ![oauth-sp-clientid-clientsecret](../../assets/img/using-wso2-identity-server/oauth-sp-clientid-clientsecret.png)
+                -   **OAuth Client Key** - This is the client key of the
+                    service provider, which will be checked for
+                    authentication by the Identity Server before providing
+                    the access token.
+                -   **OAuth Client Secret** - This is the client secret of
+                    the service provider, which will be checked for
+                    authentication by the Identity Server before providing
+                    the access token. Click the **Show** button to view the
+                    exact value of this.
+                -   **Actions -**
+                    -   **Edit:** Click to edit the OAuth/OpenID Connect
+                        Configurations
+                    -   **Revoke:** Click to revoke (deactivate) the OAuth
+                        application. This action revokes all tokens issued
+                        for this application. In order to activate the
+                        application, you have to regenerate the consumer
+                        secret.
+                    -   **Regenerate Secret:** Click to regenerate the
+                        secret key of the OAuth application.
+                    -   **Delete:** Click to delete the OAuth/OpenID Connect
+                        Configurations.
 
 5.  Configure the Service Principal Name (
     `           SPNName)          ` and Service Principal Password (
@@ -172,7 +145,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
         !!! note
         
                 The IDP name should be the name of the realm as specified in the
-                token request in [step 3](#KerberosGrant-MessageFormat). Based
+                token request in [step 3](#step3). Based
                 on this example, it should be
                 `                           example.com                         `
                 .
@@ -183,7 +156,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
         -   **Alias** : <https://192.168.53.12:9443/oauth/token>
 
-        ![](attachments/103329609/103329614.png){width="789"}
+        ![add-new-idp](../../assets/img/using-wso2-identity-server/add-new-idp.png)
 
     3.  Expand the **Federated Authenticators** tab, and then the **IWA
         Kerberos Configuration** tab. Enter the required details as
@@ -192,8 +165,9 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
             <HTTP/idp.example.com@EXAMPLE.COM>
         -   **Server Principal Password:** \<password\>
 
-        ![](attachments/103329609/103329615.png){width="886"}  
-
+        ![configure-kerberos](../../assets/img/using-wso2-identity-server/configure-kerberos.png)
+        
+        <a name="step6"></a>
 6.  Generate the kerberos token.
 
     1.  Git clone the `             KerbClientProject            ` .
@@ -227,16 +201,16 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
         your setup.
 
         ``` java
-               // Service Name goes here
-                static string serviceName = "HTTP/apimserver.example.com@EXAMPLE.COM";
-               // Token endpoint URL
-                static string URI = "https://idp.example.com:9443/oauth2/token";
-               // Client ID
-                static string username = "1ouL2fO6SxlfD2LDw125cTo0vQka";
-               // Client Secret
-                static string password = "uUEtm89tY6QZuZUmqZfL92BDFeAa";
-               // Kerberos realm name
-                static string realm_Name = "example.com";
+        // Service Name goes here
+        static string serviceName = "HTTP/apimserver.example.com@EXAMPLE.COM";
+        // Token endpoint URL
+        static string URI = "https://idp.example.com:9443/oauth2/token";
+        // Client ID
+        static string username = "1ouL2fO6SxlfD2LDw125cTo0vQka";
+        // Client Secret
+        static string password = "uUEtm89tY6QZuZUmqZfL92BDFeAa";
+        // Kerberos realm name
+        static string realm_Name = "example.com";
         ```
 
     4.  Run the project by selecting the **Start without Debugging**
@@ -247,4 +221,4 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
     the OAuth token.
 
 7.  Invoke the token endpoint using the message format discussed in
-    [step 3](#KerberosGrant-MessageFormat).
+    [step 3](#step3).
