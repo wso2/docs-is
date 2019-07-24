@@ -31,7 +31,7 @@ To add a new workflow, do the following.
     **Workflow Definitions** in the **Manage** section.  
 2.  Enter the name and description of the workflow and click **Next**
     .  
-    ![](attachments/103330289/103330292.png)
+    ![]( ../../assets/img/103330289/103330292.png)
 3.  Set the levels of approval that are required. For instance, you may
     require that users with a Manager role must first approve user
     accounts followed by approval from users with a SeniorManager role.
@@ -54,7 +54,7 @@ To add a new workflow, do the following.
         that you require and click **Add Selected Roles** or **Add
         Selected Users**.
     6.  Click **Next** to move to the next step.  
-        ![](attachments/103330289/103330291.png)
+        ![]( ../../assets/img/103330289/103330291.png)
 
           
 
@@ -76,7 +76,7 @@ To add a new workflow, do the following.
     | Task Subject | Subject of the workflow request for  approval                                                                                                                                                                                                                                                                          |
     | Task Detail  | Body of the Workflow request for approval                                                                                                                                                                                                                                                                              |
 
-    ![](attachments/103330289/103330290.png){width="534" height="321"}
+    ![]( ../../assets/img/103330289/103330290.png) 
 
     !!! note
     

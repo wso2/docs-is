@@ -27,7 +27,7 @@ wise, follow the steps below:
 2.  Click **Resident** under **Identity Providers** on the **Main** tab.
 3.  Fill in the fields as seen below to configure the session timeout
     and RememberMe period.  
-    ![](attachments/103329891/103329892.png){width="711"}
+    ![]( ../../assets/img/103329891/103329892.png) 
 4.  Restart the server to save the changes
 
 Now the SSO session is timed out according to the newly configured value

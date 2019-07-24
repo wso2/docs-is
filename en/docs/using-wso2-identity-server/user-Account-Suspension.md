@@ -136,7 +136,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Account After | This specifies the total number of days after which the account will be locked. In this case, if the account is idle for 90 days, it will be locked.                                                                                                                                                                                                                                          | 90           |
     | Alert User in      | This specifies the number of days (in a comma separated list) after which the user is sent a warning notification informing him/her that the account is about to be locked. In this case, the user will receive multiple notifications, one notification after 30 days, the next after 45 days etc. Finally if it reaches 90 days with no activity from the user, the account will be locked. | 30,45,60,75  |
 
-    ![](attachments/103330514/103330515.png)
+    ![]( ../../assets/img/103330514/103330515.png)
 
 !!! tip
     

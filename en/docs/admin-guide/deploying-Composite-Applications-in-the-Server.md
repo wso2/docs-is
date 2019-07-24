@@ -46,11 +46,11 @@ deploy](attachments/57739657/87693726.png "select the composite app you want to 
 2.  In the **Define a New Server** dialog box, expand the
     WSO2 folder and select the version of your server. In this case, it
     is `          WSO2 ESB Server 5.0.0         ` .  
-    ![](attachments/53121319/53284204.png){width="600"}
+    ![](attachments/53121319/53284204.png) 
 3.  Click **Next**. In the CARBON\_HOME field, provide the path to your
     product's home directory and then click **Next** again. For
     example,  
-    ![](attachments/53121319/53284218.png){width="600"}
+    ![](attachments/53121319/53284218.png) 
 4.  Review the default port details for your server and click **Next**
     .  
     Typically, you can leave these unchanged but if you are already
@@ -62,7 +62,7 @@ deploy](attachments/57739657/87693726.png "select the composite app you want to 
         Products](_Default_Ports_of_WSO2_Products_) for more information.
     
 
-    ![](attachments/53121319/53284206.png){width="600"}
+    ![](attachments/53121319/53284206.png) 
 
 5.  To deploy the C-App project to your server, select
     **SampleServicesCompositeApplication** from the list, click **Add**
@@ -73,13 +73,13 @@ deploy](attachments/57739657/87693726.png "select the composite app you want to 
 
 6.  Note that your server is now added to the Tooling interface.
 
-    ![](attachments/53121319/53285006.png){width="800"}
+    ![](attachments/53121319/53285006.png) 
 
 7.  On the **Servers** tab, note that the server is currently stopped.
     Click the "start the server" icon on the **Servers** tab's toolbar.
     If prompted to save changes to any of the artifact files you created
     earlier, click **Yes**.  
-    ![](attachments/53121319/53285075.png){width="900"}
+    ![](attachments/53121319/53285075.png) 
 
 8.  As the server starts, the **Console** tab appears. Note messages
     indicating that the Composite app was successfully deployed. The

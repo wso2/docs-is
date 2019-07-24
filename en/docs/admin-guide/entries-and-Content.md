@@ -115,21 +115,21 @@ resources as follows:
     Allows you to create a resource by fetching its content from a
     specified file (e.g., XML, WSDL, JAR). For example,
 
-    ![](attachments/33128918/33325824.png){width="650"}
+    ![](attachments/33128918/33325824.png) 
 
     #### Importing content from URL
 
     Allows you to fetch a resource from a specified URL path. For
     example,
 
-    ![](attachments/33128918/33325823.png){width="650"}
+    ![](attachments/33128918/33325823.png) 
 
     #### Creating text content
 
     Allows you to write the content in the UI itself, using either the
     Rich Text Editor or Plain Text Editor. For example,
 
-    ![](attachments/22185139/22514118.png){width="500"}
+    ![](attachments/22185139/22514118.png) 
 
     You can add external links (hyperlinks) as resources in the
     registry. To add such a link, create a text resource with the media

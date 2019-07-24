@@ -21,7 +21,7 @@ The diagram below illustrates the client credentials grant flow.
 
   
 
-![oauth-client-credentials-diagram](attachments/103329605/oauth-client-credentials-diagram.png)
+![oauth-client-credentials-diagram]( ../../assets/img/103329605/oauth-client-credentials-diagram.png)
 
 **Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant) -** No
 

@@ -59,7 +59,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     | Mapped Attribute     | State or province name                    |
     | Supported by Default | selected                                  |
 
-    ![](attachments/50502913/75106756.png){width="751" height="485"}
+    ![](attachments/50502913/75106756.png) 
 
 ### Deploying TOTP artifacts
 
@@ -316,11 +316,11 @@ Now you have to configure WSO2 Identity Server.
 3.  Login to the [end user
     dashboard](https://docs.wso2.com/identity-server/Using+the+End+User+Dashboard)
     and go to **My Profile** by clicking **View details**.  
-    ![](attachments/50502913/50680097.png){width="700"}
+    ![](attachments/50502913/50680097.png) 
 4.  Update your email address (this email address is used to send the
     token).
 5.  To enable TOTP, select the **Enable TOTP** checkbox.  
-    ![](attachments/50502913/68687830.png){width="800"}
+    ![](attachments/50502913/68687830.png) 
 6.  If you want to use the Google Authenticator Application to generate
     the one-time passwords (tokens), click on **Scan QR Code** to scan
     the QR-Code using the Google Authenticator mobile app.  
@@ -455,7 +455,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](attachments/50502913/50680092.png){width="700"}
+        ![](attachments/50502913/50680092.png) 
 
 8.  Click **Update** to save the changes. Now you are sent back to the
     **Service Providers** page.
@@ -594,7 +594,7 @@ You have now added and configured the service provider.
     ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from the WSO2 Identity Server.  
-    ![](attachments/50502913/50680094.png){width="700"}
+    ![](attachments/50502913/50680094.png) 
 
 3.  The basic authentication page is visible. Use your username and
     password to log in.  
@@ -602,20 +602,20 @@ You have now added and configured the service provider.
 4.  If the TOTP is not enabled toin the user's profile and the user is
     allowed to enable the TOTP in the authentication flow, this page
     will appear. You can scan either continue or cancel.  
-    ![](attachments/50502913/68688464.png){width="303"}
+    ![](attachments/50502913/68688464.png) 
 5.  If you want to enrolthe user, click on the link to show the QR code.
     Scan the displayed QR code using the mobile application and
-    continue. ![](attachments/50502913/68688462.png){width="303"}
+    continue. ![](attachments/50502913/68688462.png) 
 6.  You are redirected to the TOTP authentication page. Enter the
     verification code from your Google Authenticator Mobile Application
     to authenticate. Alternatively, you can generate the verification
     code by clicking on **Get a Verification Code** " and use the code
     that is sent to your email address.  
-    ![](attachments/50502913/68687856.png){width="307"}
+    ![](attachments/50502913/68687856.png) 
 7.  If your verification is successful, you are taken to the home page
     of the travelocity.com app.
 
-    ![](attachments/50502913/50680172.png){width="700"}
+    ![](attachments/50502913/50680172.png) 
 
 ### Refreshing the secret key
 

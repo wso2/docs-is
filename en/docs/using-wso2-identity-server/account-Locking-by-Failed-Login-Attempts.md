@@ -78,7 +78,7 @@ disabling. The following section explain how to configure this.
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330596/103330597.png){width="566" height="250"}
+    ![]( ../../assets/img/103330596/103330597.png) 
 
     !!! tip
     

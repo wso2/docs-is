@@ -44,11 +44,11 @@ supported by Identity Server 5.1.0 upwards.
 1.  Create a bitly account using the URL " <https://bitly.com/a/sign_up>
     ".
 2.  Register your app at <https://bitly.com/a/oauth_apps> .  
-    ![](attachments/50518515/51251641.png){width="500" height="298"}
+    ![](attachments/50518515/51251641.png) 
 3.  Use <https://localhost:9443/commonauth> as the authorization
     callback URL when you register the client.
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](attachments/50518515/51252818.png){width="500" height="188"}
+    ![](attachments/50518515/51252818.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -77,7 +77,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name**.  
-    ![](attachments/50518515/51251655.png){width="864"}
+    ![](attachments/50518515/51251655.png) 
 6.  Navigate to **Bitly Configuration** under **Federated
     Authenticators**.
 
@@ -139,7 +139,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the drop-down list
     under **Federated Authentication**.
 
-    ![](attachments/50518515/51252329.png){width="761" height="320"}
+    ![](attachments/50518515/51252329.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

@@ -41,17 +41,17 @@ to configure PKCE for an OAuth application.
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
 
       
-    ![](attachments/103329947/103329953.png){width="680" height="378"}
+    ![]( ../../assets/img/103329947/103329953.png) 
 
 3.  Log in with the user credentials.  
-    ![](attachments/103329947/103329952.png){width="340" height="469"}
+    ![]( ../../assets/img/103329947/103329952.png) 
 
       
 
 4.  Select **Approve Once** or **Approve Always** in Access to profile
     information section. Also, select the attributes you agree to share.
     Click **Continue**.  
-    ![](attachments/103329947/103329951.png){width="434" height="494"}
+    ![]( ../../assets/img/103329947/103329951.png) 
 
       
 
@@ -72,7 +72,7 @@ to configure PKCE for an OAuth application.
     Access Token Endpoint:
     <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![](attachments/103329947/103329950.png){width="568" height="250"}  
+    ![]( ../../assets/img/103329947/103329950.png)   
       
 
     At this point, the application receives the Access Token. Enter the
@@ -99,11 +99,11 @@ to configure PKCE for an OAuth application.
 
       
 
-    ![](attachments/103329947/103329956.png){height="250"}
+    ![]( ../../assets/img/103329947/103329956.png){height="250"}
 
 6.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329947/103329955.png){height="250"}
+    ![]( ../../assets/img/103329947/103329955.png){height="250"}
 
 #### **Running the application (with PKCE)**
 
@@ -120,7 +120,7 @@ to configure PKCE for an OAuth application.
     Use PKCE: Yes  
     PKCE Challenge Method:
 
-    ![](attachments/103329947/103329960.png)
+    ![]( ../../assets/img/103329947/103329960.png)
 
       
 
@@ -152,7 +152,7 @@ to configure PKCE for an OAuth application.
     Access Token Endpoint:
     <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![](attachments/103329947/103329958.jpg)  
+    ![]( ../../assets/img/103329947/103329958.jpg)  
       
 
 6.  At this point, the application receives the Access Token. Enter the
@@ -177,11 +177,11 @@ to configure PKCE for an OAuth application.
     used along with or independently of structured token values.
 
       
-    ![](attachments/103329947/103329956.png){height="250"}
+    ![]( ../../assets/img/103329947/103329956.png){height="250"}
 
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329947/103329955.png){width="714"}
+    ![]( ../../assets/img/103329947/103329955.png) 
 
 **Related Topics**
 
