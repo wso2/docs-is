@@ -10,10 +10,10 @@ instructions.
 2.  Click **Main** to access the **Main** menu and click **List** under
     **Claims**.
 3.  Click on any available dialect links.  
-    ![](attachments/43986713/48204512.png)
+    ![]( ../../assets/img/43986713/48204512.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect.  
-    ![](attachments/43986713/48204513.png)
+    ![]( ../../assets/img/43986713/48204513.png)
 5.  Click the " **Remove Claim Mapping** " link to remove the
     appropriate claim mapping.
 

@@ -134,7 +134,7 @@ To obtain and configure the Playground sample, follow the steps below.
     playground application.  
     You are directed to the landing page of the sample application.
     Click on **Import Photos** and the following page appears.  
-    ![](attachments/103329944/103329945.png){width="750" height="410"}
+    ![]( ../../assets/img/103329944/103329945.png) 
 
 !!! note
     

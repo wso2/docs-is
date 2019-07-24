@@ -301,6 +301,6 @@ value which is created upon login.
 -   UM\_CREATED\_TIME
 -   UM\_TENANT\_ID
 
-![](attachments/103329406/103329408.png){width="750"}
+![]( ../../assets/img/103329406/103329408.png) 
 
-![](attachments/103329406/103329407.png){width="450"}
+![]( ../../assets/img/103329406/103329407.png) 

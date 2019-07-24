@@ -43,7 +43,7 @@ center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
 
     For example:
 
-    ![](attachments/53125504/53287380.png){width="550"}
+    ![](attachments/53125504/53287380.png) 
 
     For more information on DB2 commands, see the [DB2 Express-C
     Guide](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C)
@@ -60,12 +60,12 @@ center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
     object browser), click **Create Database**, and then click
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
-    ![](attachments/53125504/53287398.png){width="580"}
+    ![](attachments/53125504/53287398.png) 
 3.  Click **User and Group Objects** in the control center tree to
     create users for the newly created database.  
-    ![](attachments/53125504/53287381.png){width="780"}
+    ![](attachments/53125504/53287381.png) 
 4.  Give the required permissions to the newly created users.  
-    ![](attachments/53125504/53287382.png){width="420"}
+    ![](attachments/53125504/53287382.png) 
 
 ### Setting up DB2 JDBC drivers
 

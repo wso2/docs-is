@@ -83,6 +83,6 @@ service provider for inbound authentication .
     -   **Description** – Brief description of the service principal.
         This field is not mandatory.
 
-    ![](attachments/103329549/103329550.png){width="780" height="250"}
+    ![]( ../../assets/img/103329549/103329550.png) 
 
   

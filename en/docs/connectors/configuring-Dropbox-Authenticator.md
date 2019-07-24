@@ -38,7 +38,7 @@ supported by WSO2 Identity Server versions 5.1.0, 5.2.0 and 5.3.0.
 2.  Navigate to <https://www.dropbox.com/developers/apps> and create a
     new app. You must create or have a Dropbox account for this.
 
-    ![](attachments/49091441/75106368.png){width="746" height="613"}
+    ![](attachments/49091441/75106368.png) 
 
 3.  Enter the name of your new app and click **Create App**.
 4.  Specify the redirect URI as <https://localhost:9443/commonauth> in
@@ -69,7 +69,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 3.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 4.  Give a suitable name for **Identity Provider Name**.  
-    ![](attachments/49091441/75106398.png){width="694"}
+    ![](attachments/49091441/75106398.png) 
 5.  Go to **Dropbox Configuration** under **Federated Authenticators**.
 6.  Enter the values as given in the above figure.
 
@@ -113,7 +113,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
       
-    ![](attachments/49091441/49224551.png){width="500"}
+    ![](attachments/49091441/49224551.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -124,14 +124,14 @@ You have now added and configured the service provider.
 1.  To test the sample, navigate to the following URL:
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `
     . E.g., <http://localhost:8080/travelocity.com>  
-    [![](attachments/49091441/49224552.png){width="500"}](http://localhost:8080/travelocity.com)
+    [![](attachments/49091441/49224552.png) ](http://localhost:8080/travelocity.com)
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Dropbox login page. Enter your Dropbox
     credentials.  
       
-    ![](attachments/49091441/49224553.png){width="500"}
+    ![](attachments/49091441/49224553.png) 
 4.  You are then taken to the home page of the travelocity.com app.  
-    ![](attachments/49091441/49224554.png){width="500"}
+    ![](attachments/49091441/49224554.png) 
 
   
 

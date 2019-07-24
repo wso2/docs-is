@@ -697,7 +697,7 @@ Manager
 Nodes](https://docs.wso2.com/display/CLUSTER44x/Sticky+Sessions+with+Manager+Nodes)
 . The following is the deployment diagram with the load balancer.
 
-![](attachments/103329476/103329481.png){width="750"}
+![](attachments/103329476/103329481.png) 
 
 #### Configuring Nginx
 
@@ -1113,16 +1113,16 @@ other works in passive mode. However, both nodes process all the data.
 If the active node fails, the other node becomes active and receives all
 the requests.
 
-![](attachments/103329489/103329496.png){width="458"}
+![](attachments/103329489/103329496.png) 
 
   
 
 When the failed node is up again, it fetches  all the internal states of
 the current active node via synching.
 
-![](attachments/103329489/103329495.png){width="490"}
+![](attachments/103329489/103329495.png) 
 
-![](attachments/103329489/103329494.png){width="458"}
+![](attachments/103329489/103329494.png) 
 
 The newly arrived node then becomes the passive node and starts
 processing all the incoming messages to keep its state synched with the

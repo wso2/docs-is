@@ -142,12 +142,12 @@ Then you can invoke the endpoints using a REST client such as Postman.
 You need to provide the obtained JWT token in the Authorization header
 as a Bearer token.
 
-![](https://lh6.googleusercontent.com/ynCSOKFRjKT0d0HsXKUeY-UWmDU0aOVpW8qhIqmI3lAlZ7uOAJb23hZqthA03vgmcOJDd-Z3fCVQOoFNWnTedQviK8VrJKTAtYuIAIXzJeUr-NU283dP_AP3js6ekOBBf3G4o22P){width="800"}
+![](https://lh6.googleusercontent.com/ynCSOKFRjKT0d0HsXKUeY-UWmDU0aOVpW8qhIqmI3lAlZ7uOAJb23hZqthA03vgmcOJDd-Z3fCVQOoFNWnTedQviK8VrJKTAtYuIAIXzJeUr-NU283dP_AP3js6ekOBBf3G4o22P) 
 
 If you try to invoke the endpoints without an Authorization header, you
 will receive an HTTP 401 Unauthorized response.
 
-![](https://lh6.googleusercontent.com/cV4_RLTo5AmgvFg6upWzJ9u1eSAw9WCLB_x26SFZjVcMScJZ8oNOVSoOr4l6VsOiF5tugJf4Fds-b3yqJZ33Faua880Fbd0GhBSlP22lRB5Rlk3Emozy0fVnOWpqT_-SEKjnCDVP){width="800"}
+![](https://lh6.googleusercontent.com/cV4_RLTo5AmgvFg6upWzJ9u1eSAw9WCLB_x26SFZjVcMScJZ8oNOVSoOr4l6VsOiF5tugJf4Fds-b3yqJZ33Faua880Fbd0GhBSlP22lRB5Rlk3Emozy0fVnOWpqT_-SEKjnCDVP) 
 
 If you invoke an endpoint with a token obtained for a user which does
 not have access to, you can observe an HTTP 403 Forbidden response. For

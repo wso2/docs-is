@@ -207,7 +207,7 @@ Possible values: false<br />
 
 <p>By default WSO2 IS stores the password with a salted value. The recommended way to protect passwords is to use salted password hashing. Once it is salted, the passwords are less vulnerable to dictionary and brute force attacks.</p>
 <p>Setting this property to false causes passwords to be stored without a salted value. This means that if two users (Bob and Alice) have the same password, it is stored as the same hash value.</p>
-<p><img src="attachments/103330324/103330325.png" width="724" height="131" /></p>
+<p><img src=" ../../assets/img/103330324/103330325.png" width="724" height="131" /></p>
 <p>However, if salted passwords are used, WSO2 IS adds a random value to the password and then generates the hash of the password. Therefore if two users have the same password, they would be stored as different hashed values. This is a more secure method of storing passwords.</p>
 </div></td>
 </tr>

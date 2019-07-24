@@ -120,7 +120,7 @@ mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     store.
 
     **  
-    ![](attachments/50511336/97551782.png){width="670"}  
+    ![](attachments/50511336/97551782.png)   
     **
 
 ### Deploying travelocity.com sample
@@ -150,7 +150,7 @@ The next step is to configure the service provider.
 
 5.  Configure the sample application (travelocity) as the service
     provider.  
-    ![](attachments/50511336/50688127.png){width="726" height="723"}  
+    ![](attachments/50511336/50688127.png)   
     Do the following configurations.
 
     1.  **Issuer** : travelocity.com
@@ -215,11 +215,11 @@ You have now added and configured the service provider.
         configuration.
     
 
-    ![](attachments/50511336/51252088.png){width="550" height="298"}  
+    ![](attachments/50511336/51252088.png)   
 
 2.  Enter a date and time of the past for the Password Changed Time
     field. Make sure to provide the value in the Epoch format.  
-    ![](attachments/50511336/51252089.png){width="500"}
+    ![](attachments/50511336/51252089.png) 
 3.  Go to the following URL: http://localhost:8080/travelocity.com
 4.  Click the link to log in with SAML from WSO2 Identity Server.  
     ![](attachments/50511336/50688116.png)
@@ -229,7 +229,7 @@ You have now added and configured the service provider.
 
 6.  During the authentication flow, if the password is expired, you will
     be prompted to reset the password.  
-    ![](attachments/50511336/50688130.png){width="400"}
+    ![](attachments/50511336/50688130.png) 
 7.  Enter the current password, new password and repeat password. If the
     authentication is successful, you are taken to the home page of the
     travelocity.com app.

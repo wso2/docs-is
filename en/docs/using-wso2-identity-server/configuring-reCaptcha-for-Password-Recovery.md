@@ -45,7 +45,7 @@ reCaptcha for a specific tenant.
 6.  Select the **Enable reCaptcha for Password Recovery** checkbox to
     enable reCaptcha for the password recovery flow.
 
-    ![](https://lh3.googleusercontent.com/05TXlVbtJUx0TjtgKpp9xcLCKlJrScQQJZcUPbQxZTyPclSyX1s63gkz2MpEy7MXCYqceCjSPu2lVxeWKlHrVLkZu0rDB0c1AXPP92AwgiYs_T3vPamx5GDffaPeZHB57ijXlKrY){width="740"}
+    ![](https://lh3.googleusercontent.com/05TXlVbtJUx0TjtgKpp9xcLCKlJrScQQJZcUPbQxZTyPclSyX1s63gkz2MpEy7MXCYqceCjSPu2lVxeWKlHrVLkZu0rDB0c1AXPP92AwgiYs_T3vPamx5GDffaPeZHB57ijXlKrY) 
 
 7.  You have now successfully configured reCaptcha for the password
     recovery flow. Start WSO2 Identity Server and log into the end user

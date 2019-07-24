@@ -4,7 +4,7 @@ The Facebook authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Facebook users to log in to your
 organization’s applications.
 
-![](attachments/68686695/76746162.png){width="900" height="340"}  
+![](attachments/68686695/76746162.png)   
 
 ### Getting started
 

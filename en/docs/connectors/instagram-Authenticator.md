@@ -23,7 +23,7 @@ authenticator
 
   
 
-![](attachments/49091418/76746190.png?effects=border-simple,blur-border){width="900"}
+![](attachments/49091418/76746190.png?effects=border-simple,blur-border) 
 
 ### Additional information
 

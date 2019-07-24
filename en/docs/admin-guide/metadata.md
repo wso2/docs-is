@@ -31,7 +31,7 @@ or the collection:
 
 For example,  
 
-![](attachments/22185146/22514191.png){width="750"}
+![](attachments/22185146/22514191.png) 
 
 #### Creating a checkpoint
 
@@ -55,7 +55,7 @@ To view the resource versions, click on the **View versions** link:
 
 It opens the versions. For example,
 
-![](attachments/22185146/22514195.png){width="750"}
+![](attachments/22185146/22514195.png) 
 
 This page gives the following information:  
 

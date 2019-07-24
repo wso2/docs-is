@@ -67,7 +67,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 
     -   Click **Create your Twitter application**.
 
-    ![](attachments/50515587/75109897.png){width="600"}
+    ![](attachments/50515587/75109897.png) 
 
     !!! note
     
@@ -83,7 +83,7 @@ Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
     get the **API Key** and **API Secret**. These are the **Consumer
     Key** and **Consumer Secret** values shown.  
     Example:  
-    ![](attachments/50515587/75109896.png){width="600"}
+    ![](attachments/50515587/75109896.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -116,7 +116,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
 4.  Give a suitable name for **Identity Provider Name**. Expand
     **Federated Authenticators** and expand ****TwitterAuthenticator
     Configuration****.  
-    ![](attachments/50515587/51249933.png){width="800" height="664"}  
+    ![](attachments/50515587/51249933.png)   
     Enter the values as given when you [created the twitter
     application](#ConfiguringTwitterAuthenticator-twitter-app).
 
@@ -176,7 +176,7 @@ The next step is to configure the service provider.
 8.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
-    ![](attachments/50515587/51249934.png){width="600"}
+    ![](attachments/50515587/51249934.png) 
 
 9.  Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -192,14 +192,14 @@ You have now added and configured the service provider.
 2.  Click the option available to log in with SAML from the WSO2
     Identity Server.
 
-    ![](attachments/50515587/80723423.png){width="500"}
+    ![](attachments/50515587/80723423.png) 
 
     You are navigated to the Twitter application. Enter the username and
     password of your Twitter account to log in.  
     Example:  
-    ![](attachments/50515587/75109949.png){width="500"}
+    ![](attachments/50515587/75109949.png) 
 
 3.  Once the authentication is complete, you will be taken to the home
     page of the travelocity.com app.  
     Example:  
-    ![](attachments/50515587/75109950.png){width="500"}
+    ![](attachments/50515587/75109950.png) 
