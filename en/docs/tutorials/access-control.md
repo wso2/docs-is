@@ -48,4 +48,4 @@ used in access control.
     -   [Sending Notifications to External PEP
         Endpoints](../../tutorials/sending-notifications-to-external-pep-endpoints)
     -   [Writing an XACML 3.0 Policy Using
-        XPath](../../tutorials/writing-an-xacml-3.0-policy-using-xpath)
+        XPath](../../tutorials/writing-a-xacml-3.0-policy-using-xpath)
