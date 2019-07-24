@@ -21,7 +21,7 @@ Server.
     **New Server**.  
     ![add-new-ldap](../../assets/img/tutorials/add-new-ldap.png)
 3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish**.  
-    ![](../../assets/img/tutorials/103331646.png){width="422"}
+    ![](../../assets/img/tutorials/add-new-ldap-2.png)
 4.  Right-click on the newly created server and click **Open
     Configuration**.  
     ![open-ldap-configuration](../../assets/img/tutorials/open-ldap-configuration.png)
