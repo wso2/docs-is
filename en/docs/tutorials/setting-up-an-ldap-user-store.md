@@ -4,11 +4,6 @@ This tutorial guides you through creating an LDAP user store using
 Apache Directory Studio and connecting the user store to WSO2 Identity
 Server.
 
--   [Creating a new LDAP
-    server](#SettingUpAnLDAPUserStore-CreatinganewLDAPserver)
--   [Configuring the user
-    store](#SettingUpAnLDAPUserStore-Configuringtheuserstore)
-
 !!! tip
     
     Before you begin
@@ -24,48 +19,52 @@ Server.
 1.  Open Apache Directory Studio.
 2.  In the **LDAP Servers** tab found on the bottom left corner, click
     **New Server**.  
-    ![](attachments/103331635/103331645.png){width="306" height="168"}
+    ![add-new-ldap](../../assets/img/tutorials/add-new-ldap.png)
 3.  Select **LDAP server ApacheDS 2.0.0** and click **Finish**.  
-    ![](attachments/103331635/103331646.png){width="422"}
+    ![](../../assets/img/tutorials/add-new-ldap-2.png)
 4.  Right-click on the newly created server and click **Open
     Configuration**.  
-    ![](attachments/103331635/103331644.png){width="231"}
+    ![open-ldap-configuration](../../assets/img/tutorials/open-ldap-configuration.png)
 
 5.  Port offset the LDAP and LDAP server ports by changing the LDAP port
-    to 10390 and the LDAP server port to 10637. This ensures that the
+    to 10390 and the LDAP server port to 10637. 
+    
+    This ensures that the
     embedded LDAP server running in the prior installation of WSO2 IS
     does not conflict with the current installation.  
-    ![](attachments/103331635/103331649.png){width="254" height="250"}
+    ![enable-ldap-server](../../assets/img/tutorials/enable-ldap-server.png)
 
 6.  Right-click on the new server and click **Create a Connection**.  
-    ![](attachments/103331635/103331647.png){width="407" height="250"}
+    ![create-ldap-connection](../../assets/img/tutorials/create-ldap-connection.png)
 7.  Right-click on the server and click **Run** to start the server.   
-    ![](attachments/103331635/103331648.png){width="343" height="250"}
+    ![run-ldap-server](../../assets/img/tutorials/run-ldap-server.png)
 
 ### Configuring the user store
 
 1.  Log in to the management console.
 2.  Click **Add** under **User Stores** on the **Main** tab and add a
     new secondary user store named "EMPLOYEES".  
-    ![](attachments/103331635/103331642.png){width="479"}
+    ![add-ldap-user-store](../../assets/img/tutorials/add-ldap-user-store.png)
 
 3.  Configure the user store properties as follows.
 
-    ![](attachments/103331635/103331643.png){width="633"}
+    ![configure-ldap-user-store](../../assets/img/tutorials/configure-ldap-user-store.png)
 
-    1.  **Connection URL** - <ldap://localhost:10390> **  
-        ** Right-click on the connection in ApacheDS and click **Open
+    1.  **Connection URL** - <ldap://localhost:10390> 
+        
+        Right-click on the connection in ApacheDS and click **Open
         Configuration**. Since the LDAP server will run on your local
         machine, you can use the connection URL
         `             localhost:10390            ` according to the
         configured port.
 
-        ![](attachments/103331635/103331649.png){width="254"
-        height="250"}
+        ![enable-ldap-server](../../assets/img/tutorials/enable-ldap-server.png)
+        
 
     2.  **Connection Name** -
         `             uid=admin,ou=system            `  
-        Right-click on the c onnection, click **Properties** and then
+        
+        Right-click on the connection, click **Properties** and then
         click **Authentication.** The connection name is the username
         given as the **Bind DN or user** value.  
 
@@ -77,29 +76,31 @@ Server.
         operations on the user store. This value is the DN (Distinguish
         Name) attribute of the user.
 
-        ![](attachments/103331635/103331641.png){width="536"}
+        ![configure-connection-to-ldap](../../assets/img/tutorials/configure-connection-to-ldap.png)
 
     3.  **Connection Password** - secret  
+        
         This is the password for the user entered in the **Connection
         Name** field. Click on the admin user that is created by default
         to open up the related details.  
-        ![](attachments/103331635/103331640.png){width="682"}
+        ![ldap-connection-password](../../assets/img/tutorials/ldap-connection-password.png)
 
         Double-click on **user password** and select the **Show Current
         Password Details** check box. The current password is
         displayed.  
-        ![](attachments/103331635/103331639.png){width="401"}
+        ![ldap-connection-password-2](../../assets/img/tutorials/ldap-connection-password-2.png)
 
     4.  **User Search Base** - ou=users,ou=system  
+        
         This is the DN of the context or object under which the user
         entries are stored in the user store. i.e. the "users"
         container. Double-click on
         `                           ou=users                         `
         on the LDAP Browser to view the DN value.  
-        ![](attachments/103331635/103331638.png){width="702"
-        height="250"}
+        ![ldap-dn](../../assets/img/tutorials/ldap-dn.png)
 
     5.  **User Entry Object Class** - intetOrgPerson  
+        
         To find a suitable User Entry Object Class, see the
         documentation on the directory service. For ApacheDS, see
         [Schema
@@ -107,6 +108,7 @@ Server.
         .
 
     6.  **Group Search Base** - ou=groups,ou=system  
+        
         On the **Add New User Store** screen of the management console,
         expand the **Optional** tab and edit the **Group Search Base**
         field. This is the DN of the context under which the user
@@ -114,7 +116,7 @@ Server.
         `                           ou=users                         `
         on the LDAP Browser of ApacheDS to view the DN value.
 
-        ![](attachments/103331635/103331637.png){width="705"}
+        ![ldap-dn-group](../../assets/img/tutorials/ldap-dn-group.png)
 
 4.  In order to reduce the complexity constraints of adding a username
     and password, disable the password quality check.
@@ -128,6 +130,6 @@ Server.
     3.  Change the **Check Quality** field under the **Quality** section
         to **Disabled** and save the configuration.
 
-        ![](attachments/103331635/103331636.png){width="544"}
+        ![ldap-disable-quality-check](../../assets/img/tutorials/ldap-disable-quality-check.png)
 
 5.  Click **Update** to save the configurations.
