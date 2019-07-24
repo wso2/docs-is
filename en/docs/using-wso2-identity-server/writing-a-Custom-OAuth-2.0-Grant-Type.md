@@ -93,9 +93,9 @@ The following Maven buildable source is compatible with WSO2 Identity
 Server 5.1.0 onwards. The attached `          .jar         ` file can be
 directly used as well.
 
-| Buildable Source   | [custom-grant.zip](../../assets/img//103329971/103329973.zip)           |
+| Buildable Source   | [custom-grant.zip]( ../../assets/img/103329971/103329973.zip)           |
 |--------------------|-------------------------------------------------------------------|
-| **Built Jar File** | **[custom-grant-1.0.0.jar](../../assets/img//103329971/103329972.jar)** |
+| **Built Jar File** | **[custom-grant-1.0.0.jar]( ../../assets/img/103329971/103329972.jar)** |
 
 1.  To generate the .jar file you must run the following Apache Maven
     command in the sample's location using the command line.
@@ -259,9 +259,9 @@ The following Maven buildable source is compatible with WSO2 Identity
 Server 5.1.0 onwards. The attached `             .jar            ` file
 can be directly used as well.
 
-| Buildable Source   | [custom-grant.zip](../../assets/img//103329971/103329973.zip)           |
+| Buildable Source   | [custom-grant.zip]( ../../assets/img/103329971/103329973.zip)           |
 |--------------------|-------------------------------------------------------------------|
-| **Built Jar File** | **[custom-grant-1.0.0.jar](../../assets/img//103329971/103329972.jar)** |
+| **Built Jar File** | **[custom-grant-1.0.0.jar]( ../../assets/img/103329971/103329972.jar)** |
 
 ### Sample Code
 

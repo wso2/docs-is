@@ -39,7 +39,7 @@ The instructions for both these approaches are as follows.
     **User Self Registration** tab.
 5.  Select the **Enable reCaptcha** checkbox to enable reCaptcha for the
     self registration flow.  
-    ![](../../assets/img//103330528/103330531.png){height="250"}
+    ![]( ../../assets/img/103330528/103330531.png){height="250"}
 6.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
     end user dashboard using the following link:
@@ -53,10 +53,10 @@ The instructions for both these approaches are as follows.
     
 
 7.  Click the **Register Now** link.  
-    ![](../../assets/img//103330528/103330530.png)
+    ![]( ../../assets/img/103330528/103330530.png)
 8.  At the end of the registration, the following reCaptcha window
     appears.  
-    ![](../../assets/img//103330528/103330532.png) 
+    ![]( ../../assets/img/103330528/103330532.png) 
 
 ### Configuring self-registration with reCaptcha globally
 
@@ -178,7 +178,7 @@ The instructions for both these approaches are as follows.
     
 
 6.  Click the **Register Now** link.  
-    ![](../../assets/img//103330528/103330530.png)
+    ![]( ../../assets/img/103330528/103330530.png)
 7.  Enter the account creation details and note that reCaptcha is
     available.  
-    ![](../../assets/img//103330528/103330529.png)
+    ![]( ../../assets/img/103330528/103330529.png)

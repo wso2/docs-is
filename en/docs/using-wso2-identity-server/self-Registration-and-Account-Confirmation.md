@@ -153,7 +153,7 @@ which is `         carbon.super        ` .
     </tbody>
     </table>
 
-    ![](../../assets/img//103330519/103330525.png) 
+    ![]( ../../assets/img/103330519/103330525.png) 
 
 5.  Expand the **Login Policies** tab, then the **Account Locking** tab
     and select **Account Lock Enabled**.  
@@ -163,7 +163,7 @@ which is `         carbon.super        ` .
     account locking, see [Account
     Locking](_Account_Locking_by_Failed_Login_Attempts_).
 
-    ![](../../assets/img//103330519/103330524.png) 
+    ![]( ../../assets/img/103330519/103330524.png) 
 
 Now you have set up self registration. Next let's see how you can
 configure self-registration consent purposes via the management console
@@ -194,7 +194,7 @@ purposes and appropriate user attributes:
 
 3.  Click to configure self-registration consent purposes and user
     attributes.  
-    ![](../../assets/img//103330519/103330520.png)   
+    ![]( ../../assets/img/103330519/103330520.png)   
     This displays the **Consent Purposes** screen that allows you to add
     consent purposes.
 
@@ -213,7 +213,7 @@ purposes and appropriate user attributes:
         particular purpose.
     
 
-    ![](../../assets/img//103330519/103330521.png) 
+    ![]( ../../assets/img/103330519/103330521.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
@@ -264,7 +264,7 @@ Next, you can try out self-registration.
     `           foo.com          `, the username needs to be
     `           kim@foo.com          `
 
-    ![](../../assets/img//103330519/103330522.png) 
+    ![]( ../../assets/img/103330519/103330522.png) 
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
@@ -289,7 +289,7 @@ Follow the steps given below to resend the confirmation email.
     you should not have confirmed the account.
 
 2.  Click on the **Re-send** link to resend the email.  
-    ![](../../assets/img//103330519/103330523.png) 
+    ![]( ../../assets/img/103330519/103330523.png) 
 
 !!! tip
     

@@ -40,12 +40,12 @@ provider.
         .
     2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
         .  
-        ![](../../assets/img//103329740/112392337.png) 
+        ![]( ../../assets/img/103329740/112392337.png) 
     
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.  
-        ![](../../assets/img//103329740/112392335.png) 
+        ![]( ../../assets/img/103329740/112392335.png) 
     
     4.  Click **Register** to add the new service provider.
     
@@ -133,7 +133,7 @@ provider.
         application.
     
 
-    ![](../../assets/img//103329740/103329741.png) 
+    ![]( ../../assets/img/103329740/103329741.png) 
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -218,7 +218,7 @@ supports SAML metadata download for the resident identity provider.
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![](../../assets/img//103330801/112392421.png) 
+    giveb below. ![]( ../../assets/img/103330801/112392421.png) 
 
     <table>
     <thead>
@@ -383,7 +383,7 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    **![](../../assets/img//103330801/112392408.png)   
+    **![]( ../../assets/img/103330801/112392408.png)   
     **
 2.  Click **Choose File**, and select the
     `             .xml            ` file containing the metadata for the
@@ -448,7 +448,7 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![](../../assets/img//103330801/112392410.png) 
+    ![]( ../../assets/img/103330801/112392410.png) 
 2.  Click **Upload**.
 
 !!! note
@@ -570,7 +570,7 @@ Let's get started to configure the service provider you created!
         .
     
 
-    ![](../../assets/img//103330833/112392519.png) 
+    ![]( ../../assets/img/103330833/112392519.png) 
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -707,7 +707,7 @@ Let's get started to configure the service provider you created!
 
 3.  Click **Add**. Note that `             client key            ` and
     `             client secret            ` get generated.  
-    ![](../../assets/img//103330833/103330840.png) 
+    ![]( ../../assets/img/103330833/103330840.png) 
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the
@@ -801,7 +801,7 @@ To configure WS-Federation SSO:
         Here, the expiration time should be specified in milliseconds.
 
 
-    ![](../../assets/img//103330844/112392543.png) 
+    ![]( ../../assets/img/103330844/112392543.png) 
 
 2.  Expand the **Claim Configuration** section and map the relevant
     claims. See [Configuring Claims for a Service
@@ -845,9 +845,9 @@ To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
     Resident**.  
-    ![](../../assets/img//103330821/112392547.png)   
+    ![]( ../../assets/img/103330821/112392547.png)   
     The Resident Identity Provider page appears.  
-    ![](../../assets/img//103330821/112392548.png) 
+    ![]( ../../assets/img/103330821/112392548.png) 
 
 2.  Enter the required values as given below.
 
@@ -884,19 +884,19 @@ To secure the Security Token Service:
 3.  Under the **Inbound Authentication Configuration** section, click
     **Security Token Service Configuration \> Apply Security Policy**
     .  
-    ![](../../assets/img//103330821/112392550.png) 
+    ![]( ../../assets/img/103330821/112392550.png) 
 4.  Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
-    ![](../../assets/img//103330821/103330825.png) 
+    ![]( ../../assets/img/103330821/103330825.png) 
 
     !!! note
     
         You can find further details about security policy scenarios from
         the **view scenario** option **.**
     
-        **![](../../assets/img//103330821/103330822.png) **
+        **![]( ../../assets/img/103330821/103330822.png) **
     
 
 5.  Click **Next**. The user domain and user group selection appears.
@@ -917,7 +917,7 @@ To secure the Security Token Service:
                 **User Groups** can vary depending on the domain selected.
         
 
-        ![](../../assets/img//103330821/112392552.png) 
+        ![]( ../../assets/img/103330821/112392552.png) 
 
 7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
@@ -946,7 +946,7 @@ party.
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
-    ![](../../assets/img//103330821/112392555.png) 
+    ![]( ../../assets/img/103330821/112392555.png) 
 2.  Enter the required details as given below.
 
     <table>
@@ -984,7 +984,7 @@ party.
     </tbody>
     </table>
 
-    ![](../../assets/img//103330821/112392557.png) 
+    ![]( ../../assets/img/103330821/112392557.png) 
 
 3.  Click **Update** to save the changes made to the service provider.
 

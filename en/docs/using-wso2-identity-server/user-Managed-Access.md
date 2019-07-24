@@ -9,7 +9,7 @@ resource owners to control the access to their protected resources.
 
   
 
-![](../../assets/img//103329665/103329667.png) 
+![]( ../../assets/img/103329665/103329667.png) 
 
 There are five main roles in a UMA workflow:
 
@@ -25,7 +25,7 @@ There are five main roles in a UMA workflow:
 
 The Protection API consists of three endpoints:
 
-![](../../assets/img//103329665/103329666.png) 
+![]( ../../assets/img/103329665/103329666.png) 
 
 <table>
 <colgroup>

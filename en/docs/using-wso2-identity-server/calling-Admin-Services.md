@@ -48,7 +48,7 @@ below is how to discover them using the
 4.  In the OSGI shell, type: `          listAdminServices         `
 5.  The list of admin services of your product are listed. For
     example:  
-    ![](../../assets/img//103330060/103330061.png) 
+    ![]( ../../assets/img/103330060/103330061.png) 
 
 **Things to note!**
 

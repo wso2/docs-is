@@ -23,7 +23,7 @@ These certificates are signed and issued by a certificate authority that
 allows both the client and server to communicate freely. Now let's look
 at how it works:
 
-![](../../assets/img//58458329/58458331.jpg) 
+![]( ../../assets/img/58458329/58458331.jpg) 
 
 1.  The Client attempts to access a protected resource and the SSL/TSL
     handshake process begins.

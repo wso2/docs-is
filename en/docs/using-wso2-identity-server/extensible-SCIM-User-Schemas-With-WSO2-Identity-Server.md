@@ -8,13 +8,13 @@ and it can cater to most of the industry's identity management
 requirements. Given below is a sample user object with the default
 attributes set.
 
-![](../../assets/img//29923055/29906299.png)
+![]( ../../assets/img/29923055/29906299.png)
 
 However the SCIM specification itself introduces the [Enterprise User
 Extension](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-11.3)
 to support extra attributes for the SCIM user object.
 
-![](../../assets/img//29923055/29906300.png)
+![]( ../../assets/img/29923055/29906300.png)
 
 However the reality in the industry is that organizations have their own
 attributes defined for the users. These attributes are already there in
@@ -32,7 +32,7 @@ Model](http://tools.ietf.org/html/draft-ietf-scim-core-schema-01#section-4)
 . Given below is a sample extended user object with the default schema
 configuration.
 
-![](../../assets/img//29923055/29906301.png)
+![]( ../../assets/img/29923055/29906301.png)
 
 ### Enable Extension
 
@@ -65,7 +65,7 @@ attributes.
 Create a new user with the new schema. The following screen depicts the
 user to be added with the **wso2Extension** attributes.
 
-![](../../assets/img//29923055/29906302.png)
+![]( ../../assets/img/29923055/29906302.png)
 
 ### CURL Commands
 
@@ -101,4 +101,4 @@ The above command provides the following result:
 
 The created SCIM user object can be viewed in the following screen:
 
-![](../../assets/img//29923055/29906303.png)
+![]( ../../assets/img/29923055/29906303.png)

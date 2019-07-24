@@ -177,11 +177,11 @@ password feature:
         1.  Navigate to <https://myaccount.google.com/security> .
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![](../../assets/img//103330534/103330540.png){width="600"
+            ![]( ../../assets/img/103330534/103330540.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
             **Allow less secure apps**.  
-            ![](../../assets/img//103330534/103330535.png){width="597"
+            ![]( ../../assets/img/103330534/103330535.png){width="597"
             height="171"}
     
     
@@ -276,7 +276,7 @@ option.
 
 3.  Click **Add new User.**
 
-    **![](../../assets/img//103330534/103330536.png){width="400"
+    **![]( ../../assets/img/103330534/103330536.png){width="400"
     height="323"}**
 
     !!! note

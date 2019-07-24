@@ -48,7 +48,7 @@ below:
 
 5.  Expand the **Just-In-Time Provisioning** section and select the JIT
     provisioning options based on your requirement.  
-    ![](../../assets/img//103329733/103329734.png)   
+    ![]( ../../assets/img/103329733/103329734.png)   
     -   If you want to disable JIT provisioning, select **No
         Provisioning**. This is selected by default.
     -   If you want to always provision users to a selected user store

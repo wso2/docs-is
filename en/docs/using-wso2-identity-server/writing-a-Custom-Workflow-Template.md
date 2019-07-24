@@ -210,7 +210,7 @@ bundleContext.registerService(AbstractWorkflow.class, new SampleTemplateImplemen
 Now when adding a new workflow, you will get a drop-down menu to select
 which template to follow in that workflow.
 
-![](../../assets/img//103330093/103330094.png)
+![]( ../../assets/img/103330093/103330094.png)
 
 Source of the sample which used for this documentation can be found
 [here](https://github.com/wso2/product-is/tree/5.x.x/modules/samples/workflow/template/sample-template)

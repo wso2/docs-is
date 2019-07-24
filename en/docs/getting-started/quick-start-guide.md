@@ -251,7 +251,7 @@ protocol, follow the steps below:
 
 8.  Note that the Pickup Manager application opens without having to
     enter the user credentials again.
-    ![qsg-sso-manager-home](../../assets/img//quick-start-guide/qsg-sso-manager-home.png)
+    ![qsg-sso-manager-home]( ../../assets/img/quick-start-guide/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter

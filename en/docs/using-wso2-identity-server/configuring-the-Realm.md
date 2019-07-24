@@ -16,7 +16,7 @@ relevant configuration files.
 
 The following diagram illustrates the required configurations and
 repositories:  
-![](../../assets/img//45941259/46202975.png)
+![]( ../../assets/img/45941259/46202975.png)
 
 For more information on Configuring master-datasources.xml, click
 [here](https://docs.wso2.com/display/Carbon440/Configuring+master-datasources.xml)

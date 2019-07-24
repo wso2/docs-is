@@ -8,7 +8,7 @@ Do the following to configure inbound provisioning.
 
 1.  Expand the **Inbound Provisioning Configuration** section and expand
     the **SCIM/SOAP Configuration** form.  
-    ![](../../assets/img//103329810/103329811.png) 
+    ![]( ../../assets/img/103329810/103329811.png) 
 2.  Select the user store domain name from the drop down list to
     provision users and groups.
 

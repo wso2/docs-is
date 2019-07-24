@@ -55,7 +55,7 @@ login and revoke application authorization.
 5.  Once you have logged in, click **View details** under **Authorized
     Apps**. The following page appears, listing out the available
     apps.  
-    ![](../../assets/img//103329616/103329617.png)
+    ![]( ../../assets/img/103329616/103329617.png)
 
 The **Authorized Apps** page indicates the user has granted
 authorization to the application ‘ `         travelocity        ` ′

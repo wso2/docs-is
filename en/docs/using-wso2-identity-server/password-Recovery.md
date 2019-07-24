@@ -144,10 +144,10 @@ with email notification.
     1.  Navigate to <https://myaccount.google.com/security> .
     2.  Click **Signing in to Google** on the left menu and make sure that
         the **2-step Verification** is disabled or off.  
-        ![](../../assets/img//103330558/103330570.png) 
+        ![]( ../../assets/img/103330558/103330570.png) 
     3.  Click **Connected apps and sites** on the left menu and enable
         **Allow less secure apps**.  
-        ![](../../assets/img//103330558/103330571.png) 
+        ![]( ../../assets/img/103330558/103330571.png) 
     
 
 ### Try out recovery using notification
@@ -163,7 +163,7 @@ with email notification.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Emai** l. Click
     **Submit**.  
-    ![](../../assets/img//103330558/103330573.png) 
+    ![]( ../../assets/img/103330558/103330573.png) 
 
     !!! note
     
@@ -176,9 +176,9 @@ with email notification.
 
 6.  An email notification is sent to the user's email address. Click on
     the **Reset Password** button given on the email.  
-    ![](../../assets/img//103330558/103330574.png) 
+    ![]( ../../assets/img/103330558/103330574.png) 
 7.  Enter a new password and click **Submit**.  
-    ![](../../assets/img//103330558/103330559.png) 
+    ![]( ../../assets/img/103330558/103330559.png) 
 
 !!! tip
     
@@ -244,7 +244,7 @@ To try this out, first create a user in the Identity Server.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New User**.  
-    ![](../../assets/img//103330558/103330567.png) 
+    ![]( ../../assets/img/103330558/103330567.png) 
 
 4.  Log out of the Identity Server.
 5.  The URL for accessing dashboard is the following if the hostname is
@@ -252,18 +252,18 @@ To try this out, first create a user in the Identity Server.
     <https://localhost:9443/dashboard/> . Click this link to access the
     dashboard and log in using the credentials of the user you just
     created.  
-    ![](../../assets/img//103330558/103330566.png)   
+    ![]( ../../assets/img/103330558/103330566.png)   
 6.  Click the **View Details** button under the **Account Recovery**
     section in the end user dashboard.  
-    ![](../../assets/img//103330558/103330565.png) 
+    ![]( ../../assets/img/103330558/103330565.png) 
 7.  Set challenge questions for the user account. There are two sets of
     challenge questions by default. You can pick one question for each
     set and give an answer for the question.  
-    ![](../../assets/img//103330558/103330564.png)   
+    ![]( ../../assets/img/103330558/103330564.png)   
 8.  Click **Update**.
 9.  Sign out of the dashboard and click **Forgot Password** on the login
     screen.  
-    ![](../../assets/img//50514066/57747161.png) 
+    ![]( ../../assets/img/50514066/57747161.png) 
 10. Enter the username and select **Recover with Security Questions**.
     Click **Submit**.
 
@@ -278,7 +278,7 @@ To try this out, first create a user in the Identity Server.
         [foo.com](http://foo.com) @ [bar.com](http://bar.com) ".
     
 
-    ![](../../assets/img//50514066/57747162.png) 
+    ![]( ../../assets/img/50514066/57747162.png) 
 
     !!! note
     
@@ -293,13 +293,13 @@ To try this out, first create a user in the Identity Server.
 
 11. Enter the answers to the challenge questions and click **Submit**
     .  
-    ![](../../assets/img//50514066/57747166.png) 
+    ![]( ../../assets/img/50514066/57747166.png) 
 12. Enter a new password and click **Submit**. You will receive a
     notification of successful password reset.  
 
-![](../../assets/img//50514066/57747167.png) 
+![]( ../../assets/img/50514066/57747167.png) 
 
-![](../../assets/img//50514066/57747168.png) 
+![]( ../../assets/img/50514066/57747168.png) 
 
   
 

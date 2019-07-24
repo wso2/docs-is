@@ -55,7 +55,7 @@ authentication to each step. For example, you can configure
 User-ID/Password authentication as the first factor (knowledge factors)
 and then FIDO authentication as the second factor (possession factors).
 
-![](../../assets/img//103329838/103329839.png)
+![]( ../../assets/img/103329838/103329839.png)
 
 WSO2 Identity Server has comprehensive support for multi-factor
 authentication, with authenticators available for **SMSOTP, FIDO,
@@ -81,7 +81,7 @@ For a complete list of readily available authenticators, click
     a service provider name and click **Register**.  
     Since the service provider is for the WSO2 Identity Server itself,
     in this tutorial the service provider is referred to as 'self'.  
-    ![](../../assets/img//103329838/103329842.png)
+    ![]( ../../assets/img/103329838/103329842.png)
 3.  Expand **Inbound Authentication Configuration\>SAML2 Web SSO
     Configuration** and click **Configure**.
 4.  Select **Manual Configuration** and enter the following details.
@@ -90,7 +90,7 @@ For a complete list of readily available authenticators, click
     2.  **Assertion Consumer URLs -** https://localhost:9443/acs
     3.  **Enable Response Signing -** true
 
-    ![](../../assets/img//103329838/103329841.png)
+    ![]( ../../assets/img/103329838/103329841.png)
 5.  Expand **Local and Outbound Authentication Configuration** and
     select **Advanced Configuration** to configure multi-factor
     authentication.  
@@ -105,7 +105,7 @@ For a complete list of readily available authenticators, click
         you to create another authentication step. These can be either
         local or federated authenticators.
 
-    ![](../../assets/img//103329838/103329840.png)
+    ![]( ../../assets/img/103329838/103329840.png)
 6.  Click **Add Authenticator** to add a **Local Authenticator**. You
     can choose the type of authenticator using the dropdown. Clicking
     **Add Authenticator** again will enable you to add a second local
@@ -129,7 +129,7 @@ For a complete list of readily available authenticators, click
         to configure it.
     
 
-    ![](../../assets/img//103329838/103329843.png)
+    ![]( ../../assets/img/103329838/103329843.png)
 
 7.  Select **Use** s **ubject identifier from this step**, **Use** a
     **ttributes from this step** or both. In the case of multiple steps,

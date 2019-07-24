@@ -198,4 +198,4 @@ This table is not used in the latest version of Identity Server.
 -   IS\_REQUESTED  
       
       
-    ![](../../assets/img//103329401/103329402.png) 
+    ![]( ../../assets/img/103329401/103329402.png) 
