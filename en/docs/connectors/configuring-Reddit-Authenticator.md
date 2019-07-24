@@ -49,9 +49,9 @@ supported by Identity Server 5.1.0 upwards.
     `                     https://localhost:9443/commonauth                   `
     as the **about url** and **redirect uri** when creating the web
     app.  
-    ![](attachments/50520620/51252148.png){width="750"}
+    ![](attachments/50520620/51252148.png) 
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](attachments/50520620/51252150.png){width="750"}  
+    ![](attachments/50520620/51252150.png)   
 
 ### Deploying travelocity.com sample app
 
@@ -81,7 +81,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     Issuer to download the certificate.  
     Example: On Chrome
 
-    ![](attachments/50520620/75109985.png){width="400"}
+    ![](attachments/50520620/75109985.png) 
 
     !!! note
     
@@ -93,7 +93,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
     
         1.  Navigate to <chrome://flags/#show-cert-link> .
         2.  Click Enable to view the certificates.  
-            ![](attachments/50520620/75109981.png){width="863" height="203"}
+            ![](attachments/50520620/75109981.png) 
         3.  Relaunch Chrome.
     
 
@@ -110,7 +110,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
 5.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 6.  Give a suitable name for **Identity Provider Name**.  
-    ![](attachments/50520620/51252182.png){width="750"}
+    ![](attachments/50520620/51252182.png) 
 7.  Navigate to **RedditAuthenticator Configuration** under **Federated
     Authenticators**.
 8.  Enter the values as given in the above figure.
@@ -168,7 +168,7 @@ The next step is to configure the service provider.
 
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](attachments/50520620/51252181.png){width="750"}
+    ![](attachments/50520620/51252181.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

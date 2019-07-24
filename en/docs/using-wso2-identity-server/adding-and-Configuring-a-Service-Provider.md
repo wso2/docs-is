@@ -75,12 +75,12 @@ This topic contains the following sections.
     Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
     .  
-    ![](attachments/103329740/112392337.png){width="200"}
+    ![](../../assets/img//103329740/112392337.png) 
 
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
-    ![](attachments/103329740/112392335.png){width="700" height="372"}
+    ![](../../assets/img//103329740/112392335.png) 
 
 4.  Click **Register** to add the new service provider.
 
@@ -166,7 +166,7 @@ This topic contains the following sections.
         application.
     
 
-    ![](attachments/103329740/103329741.png){width="745" height="250"}
+    ![](../../assets/img//103329740/103329741.png) 
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -224,7 +224,7 @@ things.
         2.  Choose your **Local Claim** from the drop-down. Select
             whether this claim is a **Mandatory Claim** for the Service
             Provider using the checkbox.  
-            ![](attachments/103329786/103329789.png){width="817"
+            ![](../../assets/img//103329786/103329789.png){width="817"
             height="79"}
 
     -   If you choose to **Define Custom Claim Dialect**, you need to
@@ -240,7 +240,7 @@ things.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![](attachments/103329786/103329788.png){width="821"
+            ![](../../assets/img//103329786/103329788.png){width="821"
             height="276"}
 
             !!! warning
@@ -272,13 +272,13 @@ things.
                             tab of the management console.
                         2.  Navigate to /\_system/config/ and click on the **oidc**
                             file. Expand the **Properties** section.  
-                            ![](attachments/50514151/57748271.png){width="400"}
+                            ![](../../assets/img//50514151/57748271.png) 
                         3.  Add the custom claims to the existing default scope
                             **openid** by clicking on **Edit.** Alternatively, add a
                             new scope for the custom claims by clicking on **Add New
                             Property** and send it when getting the OIDC token along
                             with the mandatory **openid** scope.
-                            ![](attachments/50514151/57748280.png){width="900"}
+                            ![](../../assets/img//50514151/57748280.png) 
             
                         !!! note
                                                 OIDC considers address as a JSON object. Therefore, if you
@@ -338,7 +338,7 @@ things.
                         Always" from the SAML2 service provider configuration as
                         follows.
             
-                        ![](attachments/103329786/103329787.png){width="333"
+                        ![](../../assets/img//103329786/103329787.png){width="333"
                         height="60"}
             
                         Why?
@@ -398,7 +398,7 @@ things.
                         7.  You will be successfully logged in to the application.
             
 
-            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm){width="524"}
+            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm) 
 
             Marking a mapped claim as a **Requested Claim** would ensure
             that the service provider definitely sends this claim to the
@@ -499,7 +499,7 @@ permission for the service provider:
 1.  In the service provider that you created, expand the
     **Role/Permission Configuration** section, and then expand the
     **Permissions** as well as the **Role Mapping** sections.  
-    ![](attachments/103329771/103329772.png){width="750"}
+    ![](../../assets/img//103329771/103329772.png) 
 2.  Click **Add Permission** and specify the service provider specific
     permission that you want to add.
 
@@ -575,12 +575,12 @@ provider.
         .
     2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
         .  
-        ![](attachments/103329740/112392337.png){width="200"}
+        ![](../../assets/img//103329740/112392337.png) 
     
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.  
-        ![](attachments/103329740/112392335.png){width="700" height="372"}
+        ![](../../assets/img//103329740/112392335.png) 
     
     4.  Click **Register** to add the new service provider.
     
@@ -668,7 +668,7 @@ provider.
         application.
     
 
-    ![](attachments/103329740/103329741.png){width="745" height="250"}
+    ![](../../assets/img//103329740/103329741.png) 
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -754,7 +754,7 @@ supports SAML metadata download for the resident identity provider.
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![](attachments/103330801/112392421.png){width="750"}
+    giveb below. ![](../../assets/img//103330801/112392421.png) 
 
     <table>
     <thead>
@@ -919,7 +919,7 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    **![](attachments/103330801/112392408.png){width="750"}  
+    **![](../../assets/img//103330801/112392408.png)   
     **
 2.  Click **Choose File**, and select the
     `                .xml               ` file containing the metadata
@@ -984,7 +984,7 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![](attachments/103330801/112392410.png){width="750"}
+    ![](../../assets/img//103330801/112392410.png) 
 2.  Click **Upload**.
 
 !!! note
@@ -1106,7 +1106,7 @@ Let's get started to configure the service provider you created!
         .
     
 
-    ![](attachments/103330833/112392519.png){width="750"}
+    ![](../../assets/img//103330833/112392519.png) 
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -1244,7 +1244,7 @@ Let's get started to configure the service provider you created!
 3.  Click **Add**. Note that
     `                client key               ` and
     `                client secret               ` get generated.  
-    ![](attachments/103330833/103330840.png){width="774"}
+    ![](../../assets/img//103330833/103330840.png) 
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the
@@ -1339,7 +1339,7 @@ To configure WS-Federation SSO:
         Here, the expiration time should be specified in milliseconds.
 
 
-    ![](attachments/103330844/112392543.png){width="750"}
+    ![](../../assets/img//103330844/112392543.png) 
 
 2.  Expand the **Claim Configuration** section and map the relevant
     claims. See [Configuring Claims for a Service
@@ -1383,9 +1383,9 @@ To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
     Resident**.  
-    ![](attachments/103330821/112392547.png){width="200"}  
+    ![](../../assets/img//103330821/112392547.png)   
     The Resident Identity Provider page appears.  
-    ![](attachments/103330821/112392548.png){width="800"}
+    ![](../../assets/img//103330821/112392548.png) 
 
 2.  Enter the required values as given below.
 
@@ -1422,19 +1422,19 @@ To secure the Security Token Service:
 3.  Under the **Inbound Authentication Configuration** section, click
     **Security Token Service Configuration \> Apply Security Policy**
     .  
-    ![](attachments/103330821/112392550.png){width="750"}
+    ![](../../assets/img//103330821/112392550.png) 
 4.  Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
-    ![](attachments/103330821/103330825.png){width="750"}
+    ![](../../assets/img//103330821/103330825.png) 
 
     !!! note
     
         You can find further details about security policy scenarios from
         the **view scenario** option **.**
     
-        **![](attachments/103330821/103330822.png){width="900"}**
+        **![](../../assets/img//103330821/103330822.png) **
     
 
 5.  Click **Next**. The user domain and user group selection appears.
@@ -1455,7 +1455,7 @@ To secure the Security Token Service:
                 **User Groups** can vary depending on the domain selected.
         
 
-        ![](attachments/103330821/112392552.png){width="750"}
+        ![](../../assets/img//103330821/112392552.png) 
 
 7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
@@ -1484,7 +1484,7 @@ party.
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
-    ![](attachments/103330821/112392555.png){width="750"}
+    ![](../../assets/img//103330821/112392555.png) 
 2.  Enter the required details as given below.
 
     <table>
@@ -1522,7 +1522,7 @@ party.
     </tbody>
     </table>
 
-    ![](attachments/103330821/112392557.png){width="750"}
+    ![](../../assets/img//103330821/112392557.png) 
 
 3.  Click **Update** to save the changes made to the service provider.
 
@@ -1572,7 +1572,7 @@ more information on this.
 You can configure the following for local and outbound authentication.
 
 1.  Expand **Local & Outbound Authentication Configuration**.  
-    ![](attachments/103329813/103329814.png){width="700"}  
+    ![](../../assets/img//103329813/103329814.png)   
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -1616,7 +1616,7 @@ You can configure the following for local and outbound authentication.
     -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![](attachments/103329813/103329818.png){width="750"}
+        ![](../../assets/img//103329813/103329818.png) 
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add
@@ -1765,7 +1765,7 @@ Do the following to configure inbound provisioning.
 
 1.  Expand the **Inbound Provisioning Configuration** section and expand
     the **SCIM/SOAP Configuration** form.  
-    ![](attachments/103329810/103329811.png){width="900"}
+    ![](../../assets/img//103329810/103329811.png) 
 2.  Select the user store domain name from the drop down list to
     provision users and groups.
 
@@ -1808,10 +1808,10 @@ Do the following to configure outbound provisioning.
     (Google, Salesforce, SCIM, SPML, etc.).
 2.  Choose the identity provider you require from the drop-down
     and click  
-    ![](attachments/103329864/103329866.png){width="30"} .
+    ![](../../assets/img//103329864/103329866.png)  .
 
 3.  Click **Update** to save your changes.  
-    ![](attachments/103329864/103329865.png){width="900"}
+    ![](../../assets/img//103329864/103329865.png) 
 
     -   If you select **Blocking**, the authentication flow is blocked
         until the provisioning finishes. If **Blocking** is not
@@ -1885,9 +1885,9 @@ in the WSO2 Identity Server.
     .
 2.  Click **Resident** under the **Service Providers** on the **Main**
     tab.  
-    ![](attachments/103329740/103329757.png)
+    ![](../../assets/img//103329740/103329757.png)
 3.  The **Resident Service Provider** page appears.  
-    ![](attachments/103329740/103329756.png){width="750" height="295"}
+    ![](../../assets/img//103329740/103329756.png) 
     1.  Select the user store domain to provision users and groups for
         inbound authentication for SCIM or SOAP requests.
     2.  For outbound provisioning configurations, select the identity
@@ -1921,7 +1921,7 @@ added in the WSO2 Identity Server.
     under **Service Providers**. The list of service providers you
     added appears.
 
-![](https://lh5.googleusercontent.com/HipPJlYnabU8jpplOkTdVDGyYkbnjiVzhKveEzjrnTzmcgCPYhNkJpNnVh-yNRDN7QWrHTq3LGGhi-waCs4I7-VTZ3U74wxtKx-GuabQxLAUgWLy-cNOKi4sOY4qkhj4FiBVqkJV){width="936"}
+![](https://lh5.googleusercontent.com/HipPJlYnabU8jpplOkTdVDGyYkbnjiVzhKveEzjrnTzmcgCPYhNkJpNnVh-yNRDN7QWrHTq3LGGhi-waCs4I7-VTZ3U74wxtKx-GuabQxLAUgWLy-cNOKi4sOY4qkhj4FiBVqkJV) 
 
 !!! note
     
@@ -1942,7 +1942,7 @@ Follow the instructions below to edit a service provider's details.
     added appears.
 3.  Locate the service provider you want to edit and click on the
     corresponding **Edit** link.  
-    ![](attachments/103329740/103329759.png){width="936" height="133"}
+    ![](../../assets/img//103329740/103329759.png) 
 4.  You are directed to the edit screen. See
     [here](_Adding_and_Configuring_a_Service_Provider_) for details on
     the editable form.
@@ -1958,7 +1958,7 @@ Follow the instructions below to delete a service provider.
     added appears.
 3.  Locate the service provider you want to delete and click on the
     corresponding **Delete** link.  
-    ![](attachments/103329740/103329758.png){width="936" height="133"}
+    ![](../../assets/img//103329740/103329758.png) 
 4.  Confirm your request in the WSO2 Carbon window. Click the **Yes**
     button.  
 

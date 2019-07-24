@@ -43,7 +43,7 @@ Step 1: Configuring an identity provider
     Permissions](https://docs.wso2.com/display/IS540/Configuring+Roles+and+Permissions#ConfiguringRolesandPermissions-addU)
     topic to add roles.
 
-    ![](attachments/103330270/103330272.png)
+    ![](../../assets/img//103330270/103330272.png)
 
 7.  Click **Update** to save changes.
 
@@ -55,7 +55,7 @@ Step 1: Configuring an identity provider
     the name of the identity provider you just created, and select the
     connector from the dropdown list.
 
-    ![](attachments/103330270/103330273.png)
+    ![](../../assets/img//103330270/103330273.png)
 
     If you enable **Blocking**, WSO2 Identity Server will wait for the
     response from the Identity Provider to continue.

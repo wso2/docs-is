@@ -10,7 +10,7 @@ illustrates the flow of the Reddit federated authenticator.
 
   
 
-![](attachments/50520527/76746184.png?effects=border-simple,blur-border){width="990"}  
+![](attachments/50520527/76746184.png?effects=border-simple,blur-border)   
 
   
 

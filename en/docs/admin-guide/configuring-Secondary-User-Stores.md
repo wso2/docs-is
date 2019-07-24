@@ -92,7 +92,7 @@ or using the management console:
     defining user stores, see [Properties of User
     Stores](_Working_with_Properties_of_User_Stores_).
 
-    ![](attachments/53125491/72424354.png){width="900" height="455"}
+    ![](attachments/53125491/72424354.png) 
 
     !!! note
     

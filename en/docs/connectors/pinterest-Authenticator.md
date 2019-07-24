@@ -10,7 +10,7 @@ Printrest federated authenticator.
 
   
 
-![](attachments/60096519/76746244.png?effects=border-simple,blur-border){width="990"}  
+![](attachments/60096519/76746244.png?effects=border-simple,blur-border)   
 
   
 

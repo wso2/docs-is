@@ -118,7 +118,7 @@ Let's see how this can be done.
 
     1.  Give a name and a description and click **Register**.
 
-        ![](attachments/103329643/103329646.png){width="700"
+        ![](../../assets/img//103329643/103329646.png){width="700"
         height="183"}
 
     2.  Navigate to the claim configuration section and add the
@@ -127,12 +127,12 @@ Let's see how this can be done.
         <http://wso2.org/claims/userprincipal>  
         <http://wso2.org/claims/role>
 
-        ![](attachments/103329643/103329645.png){width="700"
+        ![](../../assets/img//103329643/103329645.png){width="700"
         height="173"}
 
     3.  Configure OAuth/OpenID Connect Configuration in Inbound
         Authentication Configuration section.  
-        ![](attachments/103329643/103329644.png){width="700"
+        ![](../../assets/img//103329643/103329644.png){width="700"
         height="583"}  
         Now the generated ID token using this client is compatible with
         the MP-JWT specification.

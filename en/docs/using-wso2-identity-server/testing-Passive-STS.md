@@ -72,7 +72,7 @@ file.
 2.  Enter a unique name for the service provider and click **Register.**
     The following form appears.  
 
-    ![](attachments/103329901/103329902.png)
+    ![](../../assets/img//103329901/103329902.png)
 
 3.  Expand the **Inbound Authentication Configuration\>**
     **WS-Federation (Passive) Configuration** section and provide the

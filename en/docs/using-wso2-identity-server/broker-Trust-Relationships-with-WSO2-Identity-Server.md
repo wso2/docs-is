@@ -35,7 +35,7 @@ Once the consumer possesses the necessary security tokens, these tokens
 are presented in order to authenticate to a Web Service deployed in
 [WSO2 Application Server](http://wso2.com/products/application-server).
 
-![](attachments/103329905/103329914.png)
+![](../../assets/img//103329905/103329914.png)
 
 **Pre-requisites:**
 
@@ -227,7 +227,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
         **Add** in the **Main** menu under **Service Providers**.
     2.  Add a **Service Provider Name** and **Description** and click
         **Register**.  
-        ![](attachments/103329905/103329909.png){width="900"}
+        ![](../../assets/img//103329905/103329909.png) 
     3.  In the resulting page, expand the **Inbound Authentication
         Configuration** and the **WS-Trust Security Token Service
         Configuration** sections. Click **Configure**.
@@ -271,13 +271,13 @@ Now, we have our Web Service secured with a claim-aware security policy.
         (Passive) Configuration** section.
     3.  Click **Apply Security Policy** to configure security and go
         through the wizard.  
-        ![](attachments/103329905/103329908.png)
+        ![](../../assets/img//103329905/103329908.png)
 
 7.  Configure security and go through the wizard by using the following
     steps.  
     1.  Select **Yes** from the **Enable Security?** dropdown.
     2.  Select **UsernameToken** from the **Basic Scenarios** list.  
-        ![](attachments/103329905/103329907.png)
+        ![](../../assets/img//103329905/103329907.png)
     3.  Click **Next**.
 8.  Select **admin** as the user group and click on **Finish**.
 
@@ -295,7 +295,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
 12. Click on the **First Name** claim mapping.
 13. As you can see in the following screen, **First Name** is mapped to
     **givenName** attribute.  
-    ![](attachments/103329905/103329906.png){width="900"}  
+    ![](../../assets/img//103329905/103329906.png)   
 
 Now, you should be able to understand why we have specified
 `                   http://wso2.org/claims/givenName                 `
@@ -340,7 +340,7 @@ You can include the `         wst:RequestSecurityToken        ` element
 into a SOAP message body and send it to STS. You can use the soapUI SOAP
 request editor as shown below:
 
-![](attachments/103329905/103329911.png){width="800"}
+![](../../assets/img//103329905/103329911.png) 
 
 Since we are using usernametoken authentication when submitting token
 request to STS, specify the username and password under the "Aut" tab in
@@ -363,7 +363,7 @@ copy the extracted `         saml2:Assertion        ` element into the
 
 SoapUI still supports sender vouches confirmation method only.
 
-![](attachments/103329905/103329915.png){width="848"}
+![](../../assets/img//103329905/103329915.png) 
 
 Because of this limitation, we need to follow a programmatic approach to
 insert the token into the Web Service request and forward to

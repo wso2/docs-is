@@ -58,7 +58,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
     3.  **Privacy Notice URL -** The privacy policy URL for your
         application. Ex: <http://wso2.com/privacy-policy>
 
-    ![](attachments/49092381/76748460.png){width="800"}  
+    ![](attachments/49092381/76748460.png)   
     You have now finished configuring Amazon.
 
 6.  Expand the **Web Settings** section. Copy the **Client ID** and
@@ -67,7 +67,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 7.  Click **Edit** and enter the redirect URL as
     <https://localhost:9443/commonauth> in the window that appears and
     save it.  
-    ![](attachments/49092381/76748466.png){width="616"}
+    ![](attachments/49092381/76748466.png) 
 
 ### Step 2 - Deploy travelocity.com sample app
 
@@ -116,9 +116,9 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
         -   [**IS 5.3.0**](#7955f4c7cdf8449db5dd8f0ccc6bfce2)
         -   [**IS 5.1.0/IS 5.2.0**](#2a00a4664741430ca8cf6a84fd08e8fc)
 
-        ![](attachments/49092381/76748472.png){width="800"}
+        ![](attachments/49092381/76748472.png) 
 
-        ![](attachments/49092381/49226486.png){width="700" height="842"}
+        ![](attachments/49092381/49226486.png) 
 
 7.  Click **Update**.
 
@@ -159,7 +159,7 @@ Identity Server version that you are working on.
         -   **Enable Attribute Profile**.
         -   **Include Attributes in the Response Always**.
 
-        ![](attachments/49092381/76748599.png){width="800"}
+        ![](attachments/49092381/76748599.png) 
 6.  Click **Register** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 7.  Go to the **Local and Outbound Authentication Configuration**
@@ -177,7 +177,7 @@ Identity Server version that you are working on.
 
         -   Use user store domain in local subject identifier.
 
-    ![](attachments/49092381/76748602.png){width="800"}
+    ![](attachments/49092381/76748602.png) 
 9.  Click **Update** to save the changes.
 
 #### Configuring a service provider with IS 5.1.0 or IS 5.2.0
@@ -189,7 +189,7 @@ Identity Server version that you are working on.
     in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="700"}
+    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf) 
 5.  Now set the configuration as follows:  
     1.  **Issuer** : travelocity.com
     2.  **Assertion Consumer URL** :
@@ -205,7 +205,7 @@ Identity Server version that you are working on.
     section.
 9.  Select the identity provider you created from the drop-down list
     under **Federated Authentication**.  
-    ![](attachments/49091441/49224551.png){width="500"}
+    ![](attachments/49091441/49224551.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -238,7 +238,7 @@ WSO2 IS guide.
 5.  Map a new external claim to an existing local claim dialect.  
     You need to map at least one claim under this new dialect.
     Therefore, let's map the claim for the Amazon user ID.
-    ![](attachments/49092381/76748608.png){width="704"}
+    ![](attachments/49092381/76748608.png) 
     1.  In the **Main** menu, click **Add** under **Claims**.
     2.  Click **Add External Claim** to add a new claim to the Amazon
         claim dialect.
@@ -368,14 +368,14 @@ the Amazon user.
     E.g., <http://localhost:8080/travelocity.com>
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the Rediect Biniding or the Post Binding option.  
-    ![](attachments/49092381/76748627.png){width="600"}
+    ![](attachments/49092381/76748627.png) 
 3.  You are redirected to the Amazon login page. Enter your Amazon
     credentials.  
-    ![](attachments/49092381/57749032.png){width="308"}
+    ![](attachments/49092381/57749032.png) 
 4.  Allow user to authenticate and click **Continue**.  
-    ![](attachments/49092381/57749033.png){width="571"}
+    ![](attachments/49092381/57749033.png) 
 5.  You are taken to the home page of the travelocity.com app.  
-    ![](attachments/49092381/57749034.png){width="700"}
+    ![](attachments/49092381/57749034.png) 
 
 1254
 

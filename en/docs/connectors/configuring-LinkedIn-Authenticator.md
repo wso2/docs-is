@@ -51,7 +51,7 @@ This is tested for the LinkedIn API version 1.0. LinkedIn Authenticator
             conditions.
     3.  Click **Submit**. You will redirect to a page with **Client
         ID** and **Client Secret** as shown in point 5.  
-        ![](attachments/50507126/76748920.png){width="600"}
+        ![](attachments/50507126/76748920.png) 
 3.  Enter the Authorized Redirect URL in the following format and click
     **Add**. **  
     **
@@ -61,7 +61,7 @@ This is tested for the LinkedIn API version 1.0. LinkedIn Authenticator
 4.  Click **Update**.  
     You have now finished configuring LinkedIn. Copy the **Client ID**
     and **Client Secret** from the resulting page.  
-    ![](attachments/50507126/50685689.png){width="550"}
+    ![](attachments/50507126/50685689.png) 
 
 ### Step 2 - Deploy the travelocity.com sample app
 
@@ -111,9 +111,9 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     -   [**IS 5.3.0**](#38b513b8fa1d430fbaf06fbd5d393554)
     -   [**IS 5.1.0/IS 5.2.0**](#8fe59de24be84e3abc17d57cbe85c877)
 
-    ![](attachments/50507126/76748968.png){width="800"}
+    ![](attachments/50507126/76748968.png) 
 
-    ![](attachments/50507126/57737954.png){width="800"}
+    ![](attachments/50507126/57737954.png) 
 
 7.  Enter the IdP related details as follows:
 
@@ -203,7 +203,7 @@ Select the following check-boxes:
 -   **Enable Attribute Profile**.
 -   **Include Attributes in the Response Always**.
 
-![](attachments/50507126/76748957.png){width="800"}
+![](attachments/50507126/76748957.png) 
 
 Click **Register** to save the changes. Now you will be sent back to the
 **Service Providers** page.
@@ -225,7 +225,7 @@ in the WSO2 IS 5.3.0 guide.
     -   Use user store domain in local subject identifier.
 
 Click **Update** to save the changes.  
-![](attachments/50507126/76748972.png){width="800"}
+![](attachments/50507126/76748972.png) 
 
 #### Configuring a service provider with IS 5.1.0 or IS 5.2.0
 
@@ -236,7 +236,7 @@ Click **Update** to save the changes.
     in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="500"}
+    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf) 
 5.  Now set the configuration as follows:  
     -   **Issuer** : travelocity.com
     -   **Assertion Consumer URL** :
@@ -252,7 +252,7 @@ Click **Update** to save the changes.
     section.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](attachments/50507126/50685694.png){width="500"}
+    ![](attachments/50507126/50685694.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -281,7 +281,7 @@ WSO2 IS guide.
 4.  Specify the Dialect URI as follows:
     `          http://wso2.org/linkedin/claims         `
 5.  Click **Add** to create the claim dialect.  
-    ![](attachments/50507126/76748975.png){width="400"}
+    ![](attachments/50507126/76748975.png) 
 6.  Map a new external claim to an existing local claim dialect.  
     You need to map at least one claim under this new dialect.
     Therefore, let's map the claim for last name.
@@ -303,7 +303,7 @@ WSO2 IS guide.
         | Mapped Local Claim | http://wso2.org/claims/lastname          |
 
     6.  Click **Add** to add the new external claim.  
-        ![](attachments/50507126/76748979.png){width="500"}
+        ![](attachments/50507126/76748979.png) 
 
 7.  Similarly, you can create claims for all the public information of
     the LinkedIn user by repeating step 6 with the following claim
@@ -354,7 +354,7 @@ WSO2 IS guide.
 
     Use the Dialect Uri as follows:
     `           http://wso2.org/linkedin/claims          `  
-    ![](attachments/50507126/76748975.png){width="400"}
+    ![](attachments/50507126/76748975.png) 
 
 4.  Click [Add New
     Claim](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
@@ -422,12 +422,12 @@ WSO2 IS guide.
     Select the Mandatory Claim checkbox for all the claim URIs that you
     added.
 
-    ![](attachments/50507126/76748980.png){width="800"}
+    ![](attachments/50507126/76748980.png) 
 
     You should add the claims you mapped in the Identity Provider claim
     configuration and select the Claim URI.
 
-    ![](attachments/50507126/57749003.png){width="700"}
+    ![](attachments/50507126/57749003.png) 
 
 5.  Select the Subject Claim URI as
     <http://wso2.org/claims/emailaddress> to define the authenticated
@@ -443,13 +443,13 @@ WSO2 IS guide.
     E.g., <http://localhost:8080/travelocity.com>
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the Rediect Biniding or the Post Binding option.  
-    ![](attachments/50507126/76748991.png){width="600"}
+    ![](attachments/50507126/76748991.png) 
 3.  You are redirected to the LinkedIn sign in page. Enter your LinkedIn
     credentials.  
-    ![](attachments/50507126/57749004.png){width="300"}
+    ![](attachments/50507126/57749004.png) 
 4.  Authenticate the user by clicking **Allow access**.  
     You are taken to the home page of the travelocity.com app  
-    ![](attachments/50507126/57749005.png){width="700"}
+    ![](attachments/50507126/57749005.png) 
 
 30
 

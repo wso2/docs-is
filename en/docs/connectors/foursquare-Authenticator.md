@@ -4,7 +4,7 @@ The Foursquare authenticator is configured as a federated authenticator
 in WSO2 Identity Server to authenticate Foursquare users to log in to
 your organization’s applications.
 
-![](attachments/49088036/76746198.png){width="900"}  
+![](attachments/49088036/76746198.png)   
 
 ### Getting started
 

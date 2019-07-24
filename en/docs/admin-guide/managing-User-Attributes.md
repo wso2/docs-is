@@ -116,7 +116,7 @@ this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![](attachments/43997703/44195177.png){width="750"}
+    ![](attachments/43997703/44195177.png) 
 
 ### Writing custom attributes
 
