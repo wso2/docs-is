@@ -68,6 +68,6 @@ other relevant information.
 -   For a tutorial that demonstrates how you can use WSO2 Identity
     Server as the authorization server to try out UMA, see [User Managed
     Access with WSO2 Identity
-    Server](_User_Managed_Access_with_WSO2_Identity_Server_).
+    Server](../../using-wso2-identity-server/user-managed-accesswith_WSO2_Identity_Server_).
 
   
