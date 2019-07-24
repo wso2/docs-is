@@ -25,24 +25,24 @@ WSO2 Identity Server focuses on the following specifications.
 
 The following topics further explains OpenID Connect.
 
--   [OpenID Connect Discovery](_OpenID_Connect_Discovery_)
--   [OpenID Connect Authentication](_OpenID_Connect_Authentication_)
+-   [OpenID Connect Discovery](../../using-wso2-identity-server/openid-connectDiscovery_)
+-   [OpenID Connect Authentication](../../using-wso2-identity-server/openid-connectAuthentication_)
     -   [OpenID Connect Basic Client
-        Profile](_OpenID_Connect_Basic_Client_Profile_)
+        Profile](../../using-wso2-identity-server/openid-connectBasic_Client_Profile_)
     -   [OpenID Connect Implicit Client
-        Profile](_OpenID_Connect_Implicit_Client_Profile_)
-    -   [OpenID Connect Hybrid Flow](_OpenID_Connect_Hybrid_Flow_)
+        Profile](../../using-wso2-identity-server/openid-connectImplicit_Client_Profile_)
+    -   [OpenID Connect Hybrid Flow](../../using-wso2-identity-server/openid-connectHybrid_Flow_)
 -   [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_)
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_)
 -   [Request Object Support](_Request_Object_Support_)
 -   [Configuring OpenID Connect Authorization
-    Server](_Configuring_OpenID_Connect_Authorization_Server_)
+    Server](_Configuring../../using-wso2-identity-server/openid-connectAuthorization_Server_)
 -   [IDToken Signature Verification](_IDToken_Signature_Verification_)
 -   [JSON Web Key Set Endpoint](_JSON_Web_Key_Set_Endpoint_)
 -   [OpenID Connect Logout URL
-    Redirection](_OpenID_Connect_Logout_URL_Redirection_)
+    Redirection](../../using-wso2-identity-server/openid-connectLogout_URL_Redirection_)
 -   [OpenID Connect Scopes and
-    Claims](_OpenID_Connect_Scopes_and_Claims_)
--   [OpenID Connect Single Logout](_OpenID_Connect_Single_Logout_)
+    Claims](../../using-wso2-identity-server/openid-connectScopes_and_Claims_)
+-   [OpenID Connect Single Logout](../../using-wso2-identity-server/openid-connectSingle_Logout_)
     -   [Configuring OpenID Connect Back-Channel
-        Logout](_Configuring_OpenID_Connect_Back-Channel_Logout_)
+        Logout](_Configuring../../using-wso2-identity-server/openid-connectBack-Channel_Logout_)

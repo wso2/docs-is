@@ -226,7 +226,7 @@ the newly registered service provider:
         <li><strong>Client Credentials</strong> :</li>
         <li><strong>Resource Owner</strong> :</li>
         </ul>
-        <p>For more information on grant types, see <a href="_OAuth_2.0_Grant_Types_">OAuth 2.0 Grant Types</a> .</p></td>
+        <p>For more information on grant types, see <a href="../../using-wso2-identity-server/oauth-2.0-grant-types">OAuth 2.0 Grant Types</a> .</p></td>
         <td><code>                  Implicit                 </code></td>
         </tr>
         <tr class="even">
