@@ -70,7 +70,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_).
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The logout endpoint URL is in the following format.
 
@@ -146,7 +146,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_).
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The OP iframe URL is in the following format.
 
@@ -214,7 +214,7 @@ You can configure an RP for OIDC session management in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_)
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_)
 
 -   Manual configuration through WSO2 Identity Server Management Console
 
@@ -367,7 +367,7 @@ logout endpoint URL.
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_).
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The logout endpoint URL is in the following format.
 
@@ -537,7 +537,7 @@ You can configure an RP for OIDC back-channel logout in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_)
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_)
 
     !!! note
     

@@ -158,7 +158,7 @@ To obtain and configure the Playground sample, follow the steps below.
 This application is used to request access tokens using the four OAuth2
 grant types:
 
--   [Authorization Code Grant](_Try_Authorization_Code_Grant_)
--   [Client Credentials Grant](_Try_Client_Credentials_Grant_)
--   [Implicit Grant](_Try_Implicit_Grant_)
--   [Try Password/Resource Owner Grant](_Try_Password_Grant_)
+-   [Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
+-   [Client Credentials Grant](../../using-wso2-identity-server/try-client-credentials-grant)
+-   [Implicit Grant](../../using-wso2-identity-server/try-implicit-grant)
+-   [Try Password/Resource Owner Grant](../../using-wso2-identity-server/try-password-grant)

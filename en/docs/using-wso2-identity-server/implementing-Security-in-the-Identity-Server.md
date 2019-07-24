@@ -13,7 +13,7 @@ security. These are described in the following topics.
 -   [Mitigating Cross Site Request Forgery (CSRF)
     Attacks](_Mitigating_Cross_Site_Request_Forgery_CSRF_Attacks_)
 -   [Mitigating Authorization Code Interception
-    Attacks](_Mitigating_Authorization_Code_Interception_Attacks_)
+    Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
 -   [Mitigating Brute Force Attacks](_Mitigating_Brute_Force_Attacks_)
 
 **Related Topics**

@@ -17,7 +17,7 @@ contributed OAuth 1.0 to the IETF. It was within the IETF Working Group
 that the original OAuth 1.0 was reworked and clarified to become the
 Informative [RFC 5849](http://tools.ietf.org/html/rfc5849).
 
-![](attachments/103329571/103329572.png)
+![oauth-concepts-diagram](../../assets/img/using-wso2-identity/server/oauth-concepts-diagram.png)
 
 After more standardization, in 2010, Microsoft, Yahoo!, and Google
 created the Web Resource Authentication Protocol (WRAP), which was soon
@@ -53,15 +53,19 @@ third-party. This creates several problems and limitations:
 
 1.  Third-party applications are required to store the resource owner's
     credentials for future use, typically a password in clear-text.
+
 2.  Servers are required to support password authentication, despite the
     security weaknesses created by passwords.
+
 3.  Third-party applications gain overly broad access to the resource
     owner's protected resources, leaving resource owners without any
     ability to restrict duration or access to a limited subset of
     resources.
+
 4.  Resource owners cannot revoke access to an individual third-party
     without revoking access to all third-parties, and must do so by
     changing their password.
+
 5.  Compromise of any third-party application results in compromise of
     the end-user's password and all of the data protected by that
     password.
@@ -120,17 +124,17 @@ looks like the following:
 
 ``` java
 http://provider.example.net/profile  
-            Authorization: OAuth realm="http://provider.example.net/",  
-            oauth_consumer_key="dpf43f3p2l4k3l03",  
-            oauth_signature_method="HMAC-SHA1",  
-            oauth_signature="IxyYZfG2BaKh8JyEGuHCOin%2F4bA%3D",  
-            oauth_timestamp="1191242096",  
-            oauth_token="",  
-            oauth_nonce="kllo9940pd9333jh",  
-            oauth_version="1.0" 
+Authorization: OAuth realm="http://provider.example.net/",  
+oauth_consumer_key="dpf43f3p2l4k3l03",  
+oauth_signature_method="HMAC-SHA1",  
+oauth_signature="IxyYZfG2BaKh8JyEGuHCOin%2F4bA%3D",  
+oauth_timestamp="1191242096",  
+oauth_token="",  
+oauth_nonce="kllo9940pd9333jh",  
+oauth_version="1.0" 
 ```
 
-See [here](_2-legged_OAuth_for_Securing_a_RESTful_Service_) to know how
+See [here](../../using-wso2-identity-server/2-legged-oauth-for-securing-a-restful-service) to know how
 to use 2-legged OAuth with OAuth 1.0 to secure a RESTful service.
 
 #### OAuth 2.0
@@ -167,8 +171,9 @@ This specification defines the following four grant types:
 3.  Resource owner password credentials
 4.  Client credentials
 
-More information about the grant types can found from
-[here](https://docs.wso2.com/display/IS540/OAuth+2.0+Grant+Types).
+!!! info
+      More information about the grant types can found from
+      [here](../../using-wso2-identity-server/oauth-2.0-grant-types).
 
 Client Credentials is the grant type which goes closely with 2-legged
 OAuth. With the Client Credentials grant type, the client can request an
@@ -238,37 +243,36 @@ When securing APIs with OAuth - this 'scope' attribute can be bound to
 different APIs. So the authorization server can decide whether to let
 the client access this API or not.
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} About Nonce
-and Timestamp..
+??? note "Click here for information about Nonce and Timestamp"
 
-OAuth *nonce* and *timestamp* together play an important role when it
-comes to OAuth Security depending on how they are being implemented in
-an application. These two help OAuth to be protected from what is called
-a replay-attack - an attack where the same request is resend, maybe over
-and over again.
+      OAuth *nonce* and *timestamp* together play an important role when it
+      comes to OAuth Security depending on how they are being implemented in
+      an application. These two help OAuth to be protected from what is called
+      a replay-attack - an attack where the same request is resend, maybe over
+      and over again.
 
-The term *nonce* means ‘number used once’. It should be a unique and
-random string that is meant to uniquely identify each signed request.
-This string value is used to associate a Client session with an ID
-Token, and to mitigate replay attacks. In OAuth, the nonce value should
-be sent by the client during implicit flow. Then the value is passed
-through unmodified from the Authentication Request to ID token
+      The term *nonce* means ‘number used once’. It should be a unique and
+      random string that is meant to uniquely identify each signed request.
+      This string value is used to associate a Client session with an ID
+      Token, and to mitigate replay attacks. In OAuth, the nonce value should
+      be sent by the client during implicit flow. Then the value is passed
+      through unmodified from the Authentication Request to ID token
 
-By having a unique identifier for each request, the Service Provider is
-able to prevent requests from being used more than once. When
-implementing this, the Consumer/Client generates a unique string for
-each request sent to the Service Provider. Service Provider keeps track
-of all the nonces used to prevent them from being used a second time.
-Since the nonce value is included in the signature, it cannot be changed
-by an attacker without knowing the shared secret.
+      By having a unique identifier for each request, the Service Provider is
+      able to prevent requests from being used more than once. When
+      implementing this, the Consumer/Client generates a unique string for
+      each request sent to the Service Provider. Service Provider keeps track
+      of all the nonces used to prevent them from being used a second time.
+      Since the nonce value is included in the signature, it cannot be changed
+      by an attacker without knowing the shared secret.
 
-It becomes a problem when Service Provider keeps a persistent storage of
-all nonce values received. To make this practical, timestamp comes to
-play. OAuth adds a timestamp value to each request which allows the
-Service Provider to keep nonce values only for a limited time. When a
-request comes in with a timestamp that is older than the retained time
-frame, it is rejected as the Service Provider no longer has nonces from
-that time period. It is safe to assume that a request sent after the
-allowed time limit is a replay attack. The nonce together with
-timestamp, provides a perpetual unique value that can never be used
-again by an attacker.
+      It becomes a problem when Service Provider keeps a persistent storage of
+      all nonce values received. To make this practical, timestamp comes to
+      play. OAuth adds a timestamp value to each request which allows the
+      Service Provider to keep nonce values only for a limited time. When a
+      request comes in with a timestamp that is older than the retained time
+      frame, it is rejected as the Service Provider no longer has nonces from
+      that time period. It is safe to assume that a request sent after the
+      allowed time limit is a replay attack. The nonce together with
+      timestamp, provides a perpetual unique value that can never be used
+      again by an attacker.

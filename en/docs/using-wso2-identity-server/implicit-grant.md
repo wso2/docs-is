@@ -12,7 +12,7 @@ via this grant type should be treated as public knowledge and must have
 very limited permissions when interacting with the API server. For
 example, an access token that was granted using the authorization code
 grant could have the required permission that allows it to be used to
-delete resources owned by the user. However, an access token granted
+delete resources owned by thoauth-implicit-grant-diagram.pnge user. However, an access token granted
 through the implicit flow should only be able to read resources and
 never perform any destructive operations.
 
@@ -27,14 +27,10 @@ the resource owner and the registration of the redirection URI.
 
 The diagram below illustrates the implicit grant flow.
 
-![](attachments/103329601/103329602.png){width="700"}
+![oauth-implicit-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-implicit-grant-diagram.png)
 
-**  
-**
+**Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant)** - No
 
-**Support for [refresh token grant](_Refresh_Token_Grant_)** - No
-
-**Related Topics**
-
--   See the [Try Implicit Grant](_Try_Implicit_Grant_) topic to try out
+!!! info "Related Topics"
+    See the [Try Implicit Grant](../../using-wso2-identity-server/try-implicit-grant) topic to try out
     a sample of it with WSO2 Identity Server and WSO2 OAuth2 Playground.
