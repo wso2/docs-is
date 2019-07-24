@@ -8,7 +8,7 @@ fits into the overall picture
 You can configure outbound provisioning connectors by expanding the
 relevant section.
 
-![](../../assets/img//103329711/103329723.png)
+![]( ../../assets/img/103329711/103329723.png)
 
 In addition to this, you can also create [custom
 connectors](_Writing_an_Outbound_Provisioning_Connector_) that are added
@@ -102,7 +102,7 @@ If there are multiple identity providers configured for same Google domain.</p><
 </tbody>
 </table>
 
-![](../../assets/img//103329711/103329714.png) 
+![]( ../../assets/img/103329711/103329714.png) 
 
 ####  Configuring Salesforce provisioning
 
@@ -112,7 +112,7 @@ Salesforce](_Outbound_Provisioning_with_Salesforce_) for more
 information on how this is configured from end to end.
 
 1.  Expand the **Salesforce Provisioning Configuration** form.  
-    ![](../../assets/img//103329711/103329713.png) 
+    ![]( ../../assets/img/103329711/103329713.png) 
 2.  Fill in the following fields where relevant.
 
     <table>
@@ -226,7 +226,7 @@ provisioning requests to an external application that supports SCIM. See
 more information on how this works in a typical scenario.
 
 1.  Expand the **SCIM Provisioning Configuration** form.  
-    ![](../../assets/img//103329711/103329716.png)   
+    ![]( ../../assets/img/103329711/103329716.png)   
     Fill in the following fields where relevant.
 
     | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
@@ -255,7 +255,7 @@ provisioning requests to an external application that supports SPML. See
 more information on how this works in a typical scenario.
 
 1.  Expand the **SPML Provisioning Configuration** form.  
-    ![](../../assets/img//103329711/103329715.png) 
+    ![]( ../../assets/img/103329711/103329715.png) 
 2.  Fill in the following fields where relevant.
 
     | Field            | Description                                                                                                                                 | Sample value                        |

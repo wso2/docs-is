@@ -25,12 +25,12 @@ dialect.
     `                                                      http://schema.openid.net/2007/05/claims                                                  `
     ).
 
-    ![](../../assets/img//103330447/103330452.png)
+    ![]( ../../assets/img/103330447/103330452.png)
 
 4.  Click on the **Add** button. The claim dialect you added will appear
     on the list as follows.
 
-    ![](../../assets/img//103330447/103330451.png)
+    ![]( ../../assets/img/103330447/103330451.png)
 
 ### Using the configuration file
 

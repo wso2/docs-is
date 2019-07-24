@@ -127,11 +127,11 @@ with the WSO2 IS.
         1.  Navigate to <https://myaccount.google.com/security> .
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![](../../assets/img//103330552/103330553.png){width="600"
+            ![]( ../../assets/img/103330552/103330553.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
             **Allow less secure apps**.  
-            ![](../../assets/img//103330552/103330554.png){width="597"
+            ![]( ../../assets/img/103330552/103330554.png){width="597"
             height="171"}
     
 
@@ -146,7 +146,7 @@ with the WSO2 IS.
 3.  Access the [WSO2 Identity Server dashboard](https://loca/).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
-    ![](../../assets/img//103330552/103330555.png) 
+    ![]( ../../assets/img/103330552/103330555.png) 
 
       
 
@@ -160,7 +160,7 @@ with the WSO2 IS.
 
 6.  An email notification is sent to the user's email address with the
     recovered username.  
-    ![](../../assets/img//103330552/103330556.png) 
+    ![]( ../../assets/img/103330552/103330556.png) 
 
 !!! tip
     

@@ -32,7 +32,7 @@ WSO2 Identity Server:
     see **Manage just-in-time provisioning purposes**.
 
 4.  Click to configure JIT provisioning purposes and user attributes.  
-    ![](../../assets/img//103329736/103329737.png)   
+    ![]( ../../assets/img/103329736/103329737.png)   
     This displays the **Consent Purposes** screen where you can add
     consent purposes.
 
@@ -49,7 +49,7 @@ WSO2 Identity Server:
     
 
       
-    ![](../../assets/img//103329736/103329738.png) 
+    ![]( ../../assets/img/103329736/103329738.png) 
 
     If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.

@@ -153,7 +153,7 @@ To obtain and configure the Playground sample, follow the steps below.
     playground application.  
     You are directed to the landing page of the sample application.
     Click on **Import Photos** and the following page appears.  
-    ![](../../assets/img//103329944/103329945.png) 
+    ![]( ../../assets/img/103329944/103329945.png) 
 
 !!! note
     
@@ -228,7 +228,7 @@ Let's get started to configure the service provider you created!
         .
     
 
-    ![](../../assets/img//103330833/112392519.png) 
+    ![]( ../../assets/img/103330833/112392519.png) 
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -365,7 +365,7 @@ Let's get started to configure the service provider you created!
 
 3.  Click **Add**. Note that `             client key            ` and
     `             client secret            ` get generated.  
-    ![](../../assets/img//103330833/103330840.png) 
+    ![]( ../../assets/img/103330833/103330840.png) 
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the
@@ -465,13 +465,13 @@ the user profile
         see step 7.
     
 
-    ![](../../assets/img//103330002/103330004.png) 
+    ![]( ../../assets/img/103330002/103330004.png) 
 
       
 
 3.  Provide user credentials and sign in with the previously created
     user. **  
-    ![](../../assets/img//103330002/103330005.png)   
+    ![]( ../../assets/img/103330002/103330005.png)   
     **
 4.  Click **Approve** to provide consent to this action. The screen
     mentions the service provider by name and requests for user consent
@@ -485,7 +485,7 @@ the user profile
         information with the service provider even in the future without
         prompting for consent again.
 
-    ![](../../assets/img//103330002/103330013.png) 
+    ![]( ../../assets/img/103330002/103330013.png) 
 
     !!! tip
     
@@ -512,7 +512,7 @@ the user profile
     -   **Client Secret:** (client secret received at the application
         registration)
 
-    ![](../../assets/img//103330002/103330006.png) 
+    ![]( ../../assets/img/103330002/103330006.png) 
 
 6.  At this point, the application receives the **Access Token** with
     the id token, which follows the format shown in step 7. Enter the
@@ -520,7 +520,7 @@ the user profile
     `                         https://localhost:9443/oauth2/userinfo?schema=openid                       `
     ), in the form as seen below, to get user information.
 
-    ![](../../assets/img//103330002/103330007.png) 
+    ![]( ../../assets/img/103330002/103330007.png) 
 
     Since the received access token has the scope
     `            openid           `, the

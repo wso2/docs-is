@@ -249,33 +249,33 @@ Follow the steps below to test the configurations.
     1.  Access the WSO2 Identity Server Management Console.
     2.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
-        ![](../../assets/img//103329642/119114809.png) 
+        ![]( ../../assets/img/103329642/119114809.png) 
     3.  Enter `            playground2           ` as the **Service
         Provider Name** and click **Register**.  
-        ![](../../assets/img//103329642/119114810.png) 
+        ![]( ../../assets/img/103329642/119114810.png) 
     4.  Copy the content in your client application's certificate in PEM
         format into the **Application Certificate** text field.  
-        ![](../../assets/img//103329642/119114811.png)   
+        ![]( ../../assets/img/103329642/119114811.png)   
         !!! note
         
                 Instead of uploading the service provider certificate as shown
                 above, you can choose to use the JWKS enpoint as shown below and
                 add the relevant JWKS URI.
         
-                ![image2019-4-23\_13-34-33.png](../../assets/img//92524687/119114653.png) 
+                ![image2019-4-23\_13-34-33.png]( ../../assets/img/92524687/119114653.png) 
         
 
     5.  Expand **Inbound Authentication Configuration \> OAuth/OpenID
         Connect Configuration** and click **Configure**.  
-        ![](../../assets/img//103329642/119114812.png) 
+        ![]( ../../assets/img/103329642/119114812.png) 
     6.  Enter
         `                         http://localhost:8080/playground2/oauth2client                       `
         as the **Callback URL**.  
-        ![](../../assets/img//103329642/119114813.png) 
+        ![]( ../../assets/img/103329642/119114813.png) 
     7.  Click **Add**.  
         Note that the OAuth `            client key           ` and
         `            client secret           ` get generated.  
-        ![](../../assets/img//103329642/119114814.png){height="250"}
+        ![]( ../../assets/img/103329642/119114814.png){height="250"}
 
 2.  To obtain an access token by invoking the OAuth token endpoint of
     WSO2 Identity Server, execute the following cRUL in a command
@@ -301,4 +301,4 @@ Follow the steps below to test the configurations.
     token to access the APIs or any other secured resources of the
     client application.  
     Sample response:  
-    ![](../../assets/img//103329642/119114815.png) 
+    ![]( ../../assets/img/103329642/119114815.png) 

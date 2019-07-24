@@ -34,7 +34,7 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
         https://localhost:9443/services/OAuth2TokenValidationService?wsdl
 
 4.  Provide the following parameters to call the validate method as seen
-    below. ![](../../assets/img//103329621/103329622.png) 
+    below. ![]( ../../assets/img/103329621/103329622.png) 
 
 <!-- -->
 

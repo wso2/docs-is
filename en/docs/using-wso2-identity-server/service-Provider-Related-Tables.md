@@ -162,4 +162,4 @@ Provider. Following are the columns of the table.
 
   
 
-![](../../assets/img//103329403/103329404.png) 
+![]( ../../assets/img/103329403/103329404.png) 

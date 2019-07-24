@@ -37,7 +37,7 @@ relationship between the SP and the IDP, by presenting the SAML 2.0
 token to the authorization server and exchanging it directly to an OAuth
 2.0 access token.
 
-![](../../assets/img//103329619/103329620.jpg)
+![]( ../../assets/img/103329619/103329620.jpg)
 
 **Related Topics**
 

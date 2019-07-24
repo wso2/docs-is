@@ -4,7 +4,7 @@ This section provides you with detailed information on how to configure
 the WSO2 Identity Server from the start. The following diagram depicts
 the normal flow of events you would follow.
 
-![](../../assets/img//103329390/103329391.png)
+![]( ../../assets/img/103329390/103329391.png)
 
 As per the above diagram, when setting up the Identity Server, you would
 configure the following in the order mentioned.

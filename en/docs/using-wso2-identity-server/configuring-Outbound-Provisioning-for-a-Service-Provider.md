@@ -25,10 +25,10 @@ Do the following to configure outbound provisioning.
     (Google, Salesforce, SCIM, SPML, etc.).
 2.  Choose the identity provider you require from the drop-down
     and click  
-    ![](../../assets/img//103329864/103329866.png)  .
+    ![]( ../../assets/img/103329864/103329866.png)  .
 
 3.  Click **Update** to save your changes.  
-    ![](../../assets/img//103329864/103329865.png) 
+    ![]( ../../assets/img/103329864/103329865.png) 
 
     -   If you select **Blocking**, the authentication flow is blocked
         until the provisioning finishes. If **Blocking** is not

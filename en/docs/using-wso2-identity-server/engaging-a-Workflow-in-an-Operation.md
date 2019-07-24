@@ -40,7 +40,7 @@ demonstrates the steps used to do this.
     condition is complex where multiple conditions are evaluated with
     connectors (and/or) use the Advance section.)
 
-    ![](../../assets/img//103330276/103330278.png) 
+    ![]( ../../assets/img/103330276/103330278.png) 
 
     **Advanced**  
     If this option is selected, you can define an XPath expression to
@@ -52,9 +52,9 @@ demonstrates the steps used to do this.
     boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
     ```
 
-    ![](../../assets/img//103330276/103330279.png) 
+    ![]( ../../assets/img/103330276/103330279.png) 
 
-    ![](../../assets/img//103330276/103330277.png) 
+    ![]( ../../assets/img/103330276/103330277.png) 
 
 3.  Click **Add** to finish adding the engagement. You can view, disable
     or delete the association by navigating to **WorkFlows

@@ -26,7 +26,7 @@ password. Follow the steps below to configure the count.
     
 
       
-    ![](../../assets/img//103330507/103330508.png) 
+    ![]( ../../assets/img/103330507/103330508.png) 
 
 **Related Links**
 

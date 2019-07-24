@@ -28,7 +28,7 @@ attacks.
     **Account Recovery** tab.
 5.  Select **Enable reCaptcha for Security Question Based Password
     Recovery** to enable reCaptcha for account recovery.  
-    ![](../../assets/img//103330575/103330576.png) 
+    ![]( ../../assets/img/103330575/103330576.png) 
 
 6.  Enable account locking and Configure the **Max Failed Attempts for
     ReCaptcha**.
@@ -38,7 +38,7 @@ attacks.
         **Note:** This value should be less than the number of failed
         attempts configured in the account locking connector.
     
-        ![](../../assets/img//103330575/103330577.png)
+        ![]( ../../assets/img/103330575/103330577.png)
     
 
 7.  You have now successfully configured reCaptcha for the password
@@ -48,4 +48,4 @@ attacks.
     Attempts for ReCaptcha** was configured as 2 above, if the user
     answers a question incorrectly twice, the reCaptcha will be prompted
     as seen in the window below.  
-    ![](../../assets/img//103330575/103330579.png){height="250"}
+    ![]( ../../assets/img/103330575/103330579.png){height="250"}

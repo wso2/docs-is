@@ -39,7 +39,7 @@ attributes of a user in the Identity Server.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
         **User Profile**.  
-        ![](../../assets/img//43997703/44195174.png)
+        ![]( ../../assets/img/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the REST Web service according to the SCIM provisioning
     specification. For more information on this, see [Using the SCIM 2.0
@@ -70,7 +70,7 @@ correctly by [adding a claim
 mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping).
 Under “Mapped Attribute(s)” you need to follow the pattern.
 
-![](../../assets/img//103330458/103330459.png?effects=border-simple,blur-border)
+![]( ../../assets/img/103330458/103330459.png?effects=border-simple,blur-border)
 
 However, for the default user store, you do not need to provide the
 domain name. As an example, if you have two user stores, one is the
@@ -100,7 +100,7 @@ you can do this.
 
     See the following screen for how this will look in the user
     interface of the Identity Server Management Console.  
-    ![](../../assets/img//43997703/44195175.png)
+    ![]( ../../assets/img/43997703/44195175.png)
 
 2.  When using the `           RemoteUserStoreManagerService          `
     API, call it as follows.
@@ -117,7 +117,7 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![](../../assets/img//43997703/44195177.png) 
+    ![]( ../../assets/img/43997703/44195177.png) 
 
 ### Writing custom attributes
 

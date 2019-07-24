@@ -16,7 +16,7 @@ following.
 2.  To configure **Identity Provider Roles**, click **Add Role
     Mapping**. The following screen appears.  
     ![Role
-    Mapping](../../assets/img//103329728/103329729.png "Role Mapping") 
+    Mapping]( ../../assets/img/103329728/103329729.png "Role Mapping") 
 3.  Enter the **Identity Provider Role** and map it to the **Local
     Role** available in the Identity Server. See
     [here](Configuring-Roles-and-Permissions_103330369.html#ConfiguringRolesandPermissions-addU)
@@ -28,7 +28,7 @@ following.
     be provisioned from the Identity Server to the identity provider.
     You can provision users that have multiple roles by specifying the
     roles in a comma-separated list.  
-    ![](../../assets/img//103329728/103329730.png) 
+    ![]( ../../assets/img/103329728/103329730.png) 
 
 !!! note
     

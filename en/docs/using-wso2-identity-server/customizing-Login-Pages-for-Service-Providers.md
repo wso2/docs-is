@@ -101,14 +101,14 @@ customized one.
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![](../../assets/img//103330112/103330125.png) 
+    ![]( ../../assets/img/103330112/103330125.png) 
 
     **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![](../../assets/img//103330112/103330124.png) 
+    ![]( ../../assets/img/103330112/103330124.png) 
 
 #### Registering the two service providers in WSO2 Identity Server
 
@@ -120,15 +120,15 @@ customized one.
 3.  Enter `          travelocity.com         ` as the **Service Provider
     Name** in the form that appears and click **Register**. The Service
     Providers page appears.  
-    ![](../../assets/img//103330112/112392626.png) 
+    ![]( ../../assets/img/103330112/112392626.png) 
 4.  Under the **Inbound Authentication Configuration** section, click
     **SAML2 Web SSO Configuration \> Configure**. The Register New
     Service Provider page appears.  
-    ![](../../assets/img//103330112/112392631.png) 
+    ![]( ../../assets/img/103330112/112392631.png) 
 5.  Configure the following details for travelocity.com and repeat steps
     1 to 6 and configure details for avis.com.
 
-    ![](../../assets/img//103330112/112392636.png) 
+    ![]( ../../assets/img/103330112/112392636.png) 
 
     **travelocity.com**
 
@@ -151,7 +151,7 @@ customized one.
     page located at
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp         `
     .  
-    ![](../../assets/img//103330112/103330122.png) 
+    ![]( ../../assets/img/103330112/103330122.png) 
 
 #### Configuring the login page
 
@@ -191,7 +191,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![](../../assets/img//103330112/103330120.png)
+![]( ../../assets/img/103330112/103330120.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -287,6 +287,6 @@ When customizing the pages, ensure that the following is applied.
     authenticationendpoint.
 4.  Log in to the [Travelocity.com](http://Travelocity.com) web app
     again. You are presented with a different page.  
-    ![](../../assets/img//103330112/103330130.png)   
+    ![]( ../../assets/img/103330112/103330130.png)   
     If you access [Avis.com](http://Avis.com), it still displays the
     default login page.
