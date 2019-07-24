@@ -580,10 +580,10 @@ Pickup Manager applications using WSO2 IS.
 2.  Add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
 
     ``` java
-    [mail.publisher]
-    address =
-    username =
-    password =         
+    [output_adapter.email] 
+    from_address = 
+    username = 
+    password =       
     ```
 
 4.  Restart WSO2 IS.
