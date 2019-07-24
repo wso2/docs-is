@@ -90,15 +90,14 @@ Below code will show a sample policy which is written to match the
 2.  Go to **Policy Administration** under **PAP** in **Main** and Click
     on **Add New Entitlement Policy.**
 3.  Next Click on **Import Existing Policy.**  
-    ![](attachments/103331155/103331158.png){height="250"}  
+    ![import-existing- policy-xacml](../../assets/img/tutorials/import-existing- policy-xacml.png) 
 4.  Save the above sample policy to a file and import it as follows by
     clicking " **upload** ".  
-    ![](attachments/103331155/103331157.png){width="550"}  
+    ![upload-existing-xacml-policy](../../assets/img/tutorials/upload-existing-xacml-policy.png)  
 5.  Once it is uploaded, you can see the added policy in the policy
     view. Publish it to PDP so that we can evaluate that policy with
     sample requests.
-
-![](attachments/103331155/103331156.png)  
+    ![publish-xpath-policy-to-pdp](../../assets/img/tutorials/publish-xpath-policy-to-pdp.png)  
 
 #####    Evaluate the Policy:
 
