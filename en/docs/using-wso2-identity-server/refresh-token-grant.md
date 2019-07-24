@@ -35,12 +35,12 @@ The diagram below illustrates the refresh token grant flow.
 1.  Configure the validity period of the refresh token by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. The validity period is configured in seconds. 
     ``` toml
     [oauth.token_validation]
-    refresh_token_validity= 
+    refresh_token_validity= "" 
     ```
 2.  Refresh tokens are renewed by default. If you wish to change this, add the following property in the `deployment.toml` file and set it to false. 
     ``` toml
     [oauth.token_renewal]
-    renew_refresh_token= false
+    renew_refresh_token= "false"
     ```
 
     The refresh token is renewed when the refresh grant is used to get
@@ -52,7 +52,7 @@ The diagram below illustrates the refresh token grant flow.
     To configure the refresh token validity period, add the following property to the `deployment.toml` file.
     ```toml
     [oauth.token_validation]
-    refresh_token_validity= 
+    refresh_token_validity= ""
     ```
 
 ### Try it out
