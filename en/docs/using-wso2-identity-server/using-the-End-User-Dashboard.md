@@ -42,7 +42,7 @@ includes the following tasks which can be done using the dashboard.
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>
 2.  Enter your username and password and click the **Sign In** button.
 3.  The dashboard appears.  
-    ![](../../assets/img//103330474/103330477.png) 
+    ![]( ../../assets/img/103330474/103330477.png) 
 4.  Click the **View details** button to access the components.
 5.  Click the drop-down at the top right corner of the screen to sign
     out.
@@ -57,7 +57,7 @@ To edit your profile, do the following.
 3.  In the resulting screen, populate the fields with your personal
     information.  
 
-    ![](../../assets/img//103330474/103330478.png) 
+    ![]( ../../assets/img/103330474/103330478.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to know more about the fields in the form
@@ -119,7 +119,7 @@ To export the user's personal information, do the following.
             existing consent and add a new consent.
     
 
-    ![](../../assets/img//103330474/103330479.png) 
+    ![]( ../../assets/img/103330474/103330479.png) 
 
     !!! tip
     
@@ -139,7 +139,7 @@ following.
     Recovery**.
 3.  Set the challenge question from the drop-down and enter an answer
     for the question you choose.  
-    ![](../../assets/img//103330474/103330494.png) 
+    ![]( ../../assets/img/103330474/103330494.png) 
 4.  Click **Update** to save your changes.
 
 See [Password Recovery](_Password_Recovery_) for more information on how
@@ -155,7 +155,7 @@ To change your password, do the following.
 3.  In the resulting screen, enter your **Current Password**, fill in
     the **New Password** and confirm it by filling out the **Confirm New
     Password** field.  
-    ![](../../assets/img//103330474/103330492.png) 
+    ![]( ../../assets/img/103330474/103330492.png) 
 4.  Click **Update** to save your changes.
 
 ### Connecting your social identity with your account
@@ -197,7 +197,7 @@ following.
     selected task to a new state and to complete the workflow approval
     process (e.g., clicking **Start** and then **Approve** will approve
     the pending task and complete the workflow process).  
-    ![](../../assets/img//103330474/103330490.png) 
+    ![]( ../../assets/img/103330474/103330490.png) 
 
 See [Workflow Management](_Workflow_Management_) for more information on
 how this works.
@@ -224,7 +224,7 @@ via WSO2 Identity Server. Follow the steps below to configure this.
 2.  Once you have logged in, click **View details** under **Consent
     Management**.
 
-    ![](../../assets/img//103330474/103330487.png) 
+    ![]( ../../assets/img/103330474/103330487.png) 
 
 3.  You will see a list of consent receipts that you have already
     approved to be consumed by services. The consent receipts listed
@@ -241,7 +241,7 @@ via WSO2 Identity Server. Follow the steps below to configure this.
         during self registration.
     
 
-    ![](../../assets/img//103330474/103330483.png) 
+    ![]( ../../assets/img/103330474/103330483.png) 
 
 New users can do the following actions from this screen:
 
@@ -249,7 +249,7 @@ New users can do the following actions from this screen:
     
     **Note:**  
     Existing users (users who are already onboarded) will also see the
-    ![](../../assets/img//103330474/103330475.png) icon and can configure consent
+    ![]( ../../assets/img/103330474/103330475.png) icon and can configure consent
     accordingly but will not see the **Revoke** button to revoke consent for
     all attributes.
     
@@ -258,7 +258,7 @@ New users can do the following actions from this screen:
     consent for all consented attributes.
 
 -   **Revoke consent for specific attributes** - Click the
-    ![](../../assets/img//103330474/103330475.png) icon.  You can see the
+    ![]( ../../assets/img/103330474/103330475.png) icon.  You can see the
     detailed view of the consent receipt. It contains brief information
     about the service and shows the consented attributes for this
     service. Deselect claims accordingly to revoke consent. Click
@@ -271,7 +271,7 @@ New users can do the following actions from this screen:
         -   For system consent, users can consent to newly added attributes
             by selecting the new claims that appear on this screen.
     
-            ![](../../assets/img//103330474/103330476.png) 
+            ![]( ../../assets/img/103330474/103330476.png) 
     
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly
@@ -285,9 +285,9 @@ New users can do the following actions from this screen:
     
 
 -   **Set an expiration date for consent** - Click the
-    ![](../../assets/img//103330474/103330475.png) icon and set an expiry date
+    ![]( ../../assets/img/103330474/103330475.png) icon and set an expiry date
     for a particular consent by selecting a value from the date picker
-    ![](../../assets/img//103330474/103330481.png)  shown in the
+    ![]( ../../assets/img/103330474/103330481.png)  shown in the
     consent detail page. When an expiry date is selected, the consent
     will only be valid until the specified date. Once the consent
     expires, the details gathered are set to a 'revoked' state. At the
@@ -296,4 +296,4 @@ New users can do the following actions from this screen:
     However, the user is not prompted to give consent for non mandatory
     attributes and the corresponding service will not be able to receive
     those attributes in new authentication requests.  
-    ![](../../assets/img//103330474/103330480.png) 
+    ![]( ../../assets/img/103330474/103330480.png) 

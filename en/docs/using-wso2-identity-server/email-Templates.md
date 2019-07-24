@@ -13,7 +13,7 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](../../assets/img//103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to

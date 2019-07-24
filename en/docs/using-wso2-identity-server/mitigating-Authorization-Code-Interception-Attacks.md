@@ -69,7 +69,7 @@ avoid a malicious application from handling it, as the user can identify
 and select the legitimate application. However, some operating systems
 (such as iOS) do not have any such scheme.
 
-![](../../assets/img//103329533/103329535.png) 
+![]( ../../assets/img/103329533/103329535.png) 
 
 ### Mitigating code interception attacks using PKCE
 
@@ -119,7 +119,7 @@ steps below to do this.
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![](../../assets/img//103329533/103329534.png)
+    ![]( ../../assets/img/103329533/103329534.png)
 
 **Related Topics**
 

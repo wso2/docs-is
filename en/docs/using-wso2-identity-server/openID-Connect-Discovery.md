@@ -81,7 +81,7 @@ location.
     expand OAuth2/OpenID Connect Configuration.
 5.  Enter a valid OpenID Provider issuer location as the **Identity
     Provider Entity Id** value.  
-    ![](../../assets/img//103329578/112363872.png) 
+    ![]( ../../assets/img/103329578/112363872.png) 
 
     !!! tip
     

@@ -24,7 +24,7 @@ things.
         2.  Choose your **Local Claim** from the drop-down. Select
             whether this claim is a **Mandatory Claim** for the Service
             Provider using the checkbox.  
-            ![](../../assets/img//103329786/103329789.png){width="817"
+            ![]( ../../assets/img/103329786/103329789.png){width="817"
             height="79"}
 
     -   If you choose to **Define Custom Claim Dialect**, you need to
@@ -40,7 +40,7 @@ things.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![](../../assets/img//103329786/103329788.png){width="821"
+            ![]( ../../assets/img/103329786/103329788.png){width="821"
             height="276"}
 
             !!! warning
@@ -72,13 +72,13 @@ things.
                             tab of the management console.
                         2.  Navigate to /\_system/config/ and click on the **oidc**
                             file. Expand the **Properties** section.  
-                            ![](../../assets/img//50514151/57748271.png) 
+                            ![]( ../../assets/img/50514151/57748271.png) 
                         3.  Add the custom claims to the existing default scope
                             **openid** by clicking on **Edit.** Alternatively, add a
                             new scope for the custom claims by clicking on **Add New
                             Property** and send it when getting the OIDC token along
                             with the mandatory **openid** scope.
-                            ![](../../assets/img//50514151/57748280.png) 
+                            ![]( ../../assets/img/50514151/57748280.png) 
             
                         !!! note
                                                 OIDC considers address as a JSON object. Therefore, if you
@@ -136,7 +136,7 @@ things.
                         Always" from the SAML2 service provider configuration as
                         follows.
             
-                        ![](../../assets/img//103329786/103329787.png){width="333"
+                        ![]( ../../assets/img/103329786/103329787.png){width="333"
                         height="60"}
             
                         Why?

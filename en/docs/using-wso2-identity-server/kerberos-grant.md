@@ -72,7 +72,7 @@ Kerberos ticket for an OAuth2 token.
 
 Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
-1.  Download the ![kerberos grant .jar file](../../assets/../../assets/img//kerberos-grant-1.0.0.jar)
+1.  Download the ![kerberos grant .jar file](../../assets/ ../../assets/img/kerberos-grant-1.0.0.jar)
 2.  Copy the JAR into the
     `           <IS_HOME>/repository/components/lib          `
     directory.

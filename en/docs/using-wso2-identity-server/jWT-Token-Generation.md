@@ -78,7 +78,7 @@ needed.
     Connect](https://docs.wso2.com/display/IS580/Configuring+Inbound+Authentication+for+a+Service+Provider#ConfiguringInboundAuthenticationforaServiceProvider-OauthOpenIDConfiguringinboundauthenticationwithOAuth/OpenIDConnect)
     for more information.
     
-    ![](../../assets/img//103329595/119128541.png) 
+    ![]( ../../assets/img/103329595/119128541.png) 
     
 
 **Calling the OAuth2ValidationService with a valid token**
@@ -99,7 +99,7 @@ the `         <tokenString>        ` element.
     values for the user are returned.
     
 
-![](../../assets/img//103329595/103329596.png) 
+![]( ../../assets/img/103329595/103329596.png) 
 
 **Header Metadata:**  
 The header contains the metadata for the token as seen below.

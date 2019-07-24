@@ -49,7 +49,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](../../assets/img//103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -66,7 +66,7 @@ template.
                 supported.
         
 
-    ![](../../assets/img//103330503/103330505.png) 
+    ![]( ../../assets/img/103330503/103330505.png) 
 
       
     !!! tip
@@ -130,7 +130,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](../../assets/img//103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -147,7 +147,7 @@ template.
                 supported.
         
 
-    ![](../../assets/img//103330503/103330505.png) 
+    ![]( ../../assets/img/103330503/103330505.png) 
 
     !!! tip
     
@@ -211,7 +211,7 @@ configure this.
     **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![](../../assets/img//103330503/103330504.png) 
+    ![]( ../../assets/img/103330503/103330504.png) 
 6.  Enter the locale code for the **Locality** field and click
     **Update**.
 

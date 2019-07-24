@@ -18,9 +18,9 @@ admin console.
 2.  In **Main** tab click **List** under **Claims** menu.
 3.  Locate the claim dialect you want to delete and click on the
     **Delete** link next to the dialect.  
-    ![](../../assets/img//103330430/103330431.png)
+    ![]( ../../assets/img/103330430/103330431.png)
 4.  Confirm your request in the dialog window by clicking **Yes**.  
-    ![](../../assets/img//103330430/103330433.png)
+    ![]( ../../assets/img/103330430/103330433.png)
 
 ### Using the configuration file
 

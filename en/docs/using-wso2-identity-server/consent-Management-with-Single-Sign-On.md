@@ -42,7 +42,7 @@ authentication.
         time of login as shown in the image below.
     
 
-    ![](../../assets/img//103329798/103329800.png) 
+    ![]( ../../assets/img/103329798/103329800.png) 
 
 2.  When a user is authenticated for the relevant application, the
     service provider requests the user information represented by these
@@ -72,7 +72,7 @@ authentication.
             management console and clicking **Edit** next to the claim.
     
 
-    ![](../../assets/img//103329798/103329802.png) 
+    ![]( ../../assets/img/103329798/103329802.png) 
 
 4.  Once the user provides approval to share the user attributes, WSO2
     Identity Server will store the consent in relation to the user and
@@ -109,7 +109,7 @@ authentication.
     -   http://\<claim\_dialect\>/claims/gender
     -   http://\<claim\_dialect\>/claims/dob
 
-    ![](../../assets/img//103329798/103329801.png) 
+    ![]( ../../assets/img/103329798/103329801.png) 
 
 2.  Access the following URL: <http://wso2is.local:8080/travelocity.com>
     .  
@@ -122,7 +122,7 @@ authentication.
 
 4.  Enter the user credentials and click **Submit**.
 
-    ![](../../assets/img//103329798/103329799.png)   
+    ![]( ../../assets/img/103329798/103329799.png)   
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  
@@ -136,7 +136,7 @@ authentication.
         enter those values before the consent screen will appear.
     
 
-    ![](../../assets/img//103329798/103329802.png) 
+    ![]( ../../assets/img/103329798/103329802.png) 
 
 6.  Select the claims that you consent to share with the Travelocity
     application and click **Approve**. You must select all mandatory

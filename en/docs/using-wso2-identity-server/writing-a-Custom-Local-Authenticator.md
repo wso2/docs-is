@@ -422,7 +422,7 @@ extension points. Now let's begin.
 11. In service provider configuration, under ‘Inbound Authentication
     Configuration’/‘Oauth/OpenID Connect Configuration’, click
     **Configure**.  
-    ![](../../assets/img//103330069/103330070.png) 
+    ![]( ../../assets/img/103330069/103330070.png) 
 
 12. Provide the Callback URL and register it as a OAuth2 client app.
 

@@ -61,7 +61,7 @@ multi-tenant environment.
     </tbody>
     </table>
 
-    ![](../../assets/img//103330510/103330511.png) 
+    ![]( ../../assets/img/103330510/103330511.png) 
 
 **Related Links**
 

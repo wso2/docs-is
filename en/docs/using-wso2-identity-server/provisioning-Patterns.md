@@ -54,7 +54,7 @@ mentioned user attributes.
         in WSO2 Identity Server. If no value is entered here, the WSO2
         IS will take the primary user store domain by default.
 
-    ![](../../assets/img//103330265/103330266.png)
+    ![]( ../../assets/img/103330265/103330266.png)
 
 5.  Click **Update** to save the changes.
 
@@ -67,12 +67,12 @@ mentioned user attributes.
     more information on this process.
 3.  Provide a username and a password(with confirmation) and click
     **Next**.  
-    ![](../../assets/img//103330265/103330267.png)
+    ![]( ../../assets/img/103330265/103330267.png)
 4.  Click **Finish** to create the user.
 5.  Login to your already created Salesforce account. O n the left
     navigation pane, click **Users** under **Manage Users**. You will
     see that the user you created in the WSO2 Identity Server has been
     added to Salesforce as well.  
-    ![](../../assets/img//103330265/103330269.png)  
+    ![]( ../../assets/img/103330265/103330269.png)  
     Observe the username used for the provisioning. It is build using
     the provisioning pattern you specified in the configuration.  

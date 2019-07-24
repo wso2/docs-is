@@ -31,7 +31,7 @@ architecture, see [Architecture](_Architecture_).
 The diagram given below gives you a high level idea of the provisioning
 framework.
 
-![](../../assets/img//103330152/103330153.jpg) 
+![]( ../../assets/img/103330152/103330153.jpg) 
 
 ### Inbound provisioning
 
