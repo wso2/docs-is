@@ -2,7 +2,7 @@
 
 The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
-[Authorization Code Grant](_Authorization_Code_Grant_).
+[Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant).
 
 !!! note
     

@@ -186,7 +186,7 @@ artifacts.
     ```
 
     For information on how to get the authorization-code, check [Try
-    Authorization Code Grant](_Try_Authorization_Code_Grant_) page.
+    Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant) page.
 
       
     For client credential grant type:

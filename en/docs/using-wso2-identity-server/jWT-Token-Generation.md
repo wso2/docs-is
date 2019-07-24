@@ -85,7 +85,7 @@ needed.
 
 After configuring the elements mentioned above, see the [OAuth2 Token
 Validation and
-Introspection](_OAuth2_Token_Validation_and_Introspection_) topic
+Introspection](../../using-wso2-identity-server/oauth2-token-validation-and-introspection) topic
 to call the `         OAuth2ValidationService        ` . The following
 screenshot is the request and response of the
 `         OAuth2ValidationService        ` from the SOAP

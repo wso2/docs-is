@@ -4,37 +4,24 @@ Grant types are used to authorize access to protected resources in
 different ways. This section lists out the main OAuth2 grant types
 supported by WSO2 Identity Server.
 
--   [Authorization Code Grant](_Authorization_Code_Grant_)
--   [Implicit Grant](_Implicit_Grant_)
+-   [Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant)
+-   [Implicit Grant](../../using-wso2-identity-server/implicit-grant)
 -   [Resource Owner Password Credentials
-    Grant](_Resource_Owner_Password_Credentials_Grant_)
--   [Client Credentials Grant](_Client_Credentials_Grant_)
--   [Refresh Token Grant](_Refresh_Token_Grant_)
--   [Kerberos Grant](_Kerberos_Grant_)
+    Grant](../../using-wso2-identity-server/resource-owner-password-credentials-grant)
+-   [Client Credentials Grant](../../using-wso2-identity-server/client-credentials-grant)
+-   [Refresh Token Grant](../../using-wso2-identity-server/refresh-token-grant)
+-   [Kerberos Grant](../../using-wso2-identity-server/kerberos-grant)
 
 !!! note
     
-    Identity Server 5.4.0 provides more control over issuing id tokens and
-    user claims for client-credential grant type. To facilitate this, the
-    following configurations should be added to the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-    in order to register new `         ScopeHandlers        ` and
+    WSO2 Identity Server provides more control over issuing id tokens and
+    user claims for client-credential grant type. To facilitate this, add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder in order 
+    to register new `         ScopeHandlers        ` and
     `         ScopeValidators        ` .
     
-    ``` xml
-    <OAuth>
-    ....
-        <ScopeHandlers>
-            <ScopeHandler class="org.fully.qualified.class.name.CustomScopeHandler">
-               <Property name="foo">foo-value</Property>
-            </ScopeHandler>    
-        </ScopeHandlers>
-    
-        <ScopeValidators>
-            <ScopeValidator class="org.fully.qualified.class.name.ExtendedScopeValidator" scopesToSkip="scope1 scope2">
-                <Property name="foo-property">foo-value</Property>
-            </ScopeValidator>
-        <ScopeValidators>
+    ``` toml
+    [oauth.custom_scope_validator]
+    class = "org.fully.qualified.class.name.CustomScopeValidator"
     ```
     
     Further, by configuring the `         <IdTokenAllowed>        ` property
@@ -56,7 +43,7 @@ supported by WSO2 Identity Server.
     set to `         true        `, and `        ` you can allow it to
     issue refresh tokens for all grant types. By configuring it to
     `         false        `, you can stop issuing refresh tokens.  
-    **Note:** By default, i ssuing ID token for
+    **Note:** By default, issuing ID token for
     `         client_credentials        ` grant type is disabled as it is
     logically invalid.
     

@@ -28,15 +28,20 @@ steps.
 
 The diagram below illustrates the refresh token grant flow.
 
-![](attachments/103329607/103329608.png){width="700"}
+![oauth-refresh-token-diagram](../../assets/img/using-wso2-identity-server/oauth-refresh-token-diagram.png)
 
 ### Configurations
 
-1.  The `          <RefreshTokenValidityPeriod>         ` element is in
-    seconds. By default, it is valid for one day. Configure it
-    accordingly.
-2.  The `           <RenewRefreshTokenForRefreshGrant>          `
-    element is set to `           true          ` by default.
+1.  Configure the validity period of the refresh token by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. The validity period is configured in seconds. 
+    ``` toml
+    [oauth.token_validation]
+    refresh_token_validity= "" 
+    ```
+2.  Refresh tokens are renewed by default. If you wish to change this, add the following property in the `deployment.toml` file and set it to false. 
+    ``` toml
+    [oauth.token_renewal]
+    renew_refresh_token= "false"
+    ```
 
     The refresh token is renewed when the refresh grant is used to get
     an access token. A new refresh token is issued with a new expiry
@@ -44,12 +49,10 @@ The diagram below illustrates the refresh token grant flow.
     longer be used. If this element is set to false, unless the refresh
     token has expired, the same refresh token is returned.
 
-    ``` xml
-            <!-- Validity period for refresh token -->
-            <RefreshTokenValidityPeriod>84600</RefreshTokenValidityPeriod>
-            ...
-            <!-- Enable renewal of refresh token for refresh_token grant -->
-            <RenewRefreshTokenForRefreshGrant>true</RenewRefreshTokenForRefreshGrant>
+    To configure the refresh token validity period, add the following property to the `deployment.toml` file.
+    ```toml
+    [oauth.token_validation]
+    refresh_token_validity= ""
     ```
 
 ### Try it out
