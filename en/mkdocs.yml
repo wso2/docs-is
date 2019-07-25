@@ -92,12 +92,12 @@ nav:
       - 'Token Persistence': setup/token-Persistence.md
       - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': setup/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
     - 'Migration Guide':
-      - 'Migration Guide': setup/migration-Guide.md
+      - 'Migration Guide': setup/migration-guide.md
       - 'Upgrading from the Previous Release':
-        - 'Upgrading from the Previous Release': setup/upgrading-from-the-Previous-Release.md
-        - 'Migrating Data Publishers': setup/migrating-Data-Publishers.md
-        - 'Understanding What Has Changed': setup/understanding-What-Has-Changed.md
-      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-From-an-Older-Version-of-WSO2-IS.md
+        - 'Upgrading from the Previous Release': setup/upgrading-from-the-previous-release.md
+        - 'Migrating Data Publishers': setup/migrating-data-publishers.md
+        - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
+      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':

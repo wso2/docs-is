@@ -4,20 +4,7 @@ This section walks you through the steps you need to follow to upgrade
 from WSO2 Identity Server 5.7.0 to WSO2 Identity Server 5.8.0. In this
 section, `         <OLD_IS_HOME>        ` is the directory that Identity
 Server 5.7.0 resides in, and `         <NEW_IS_HOME>        ` is the
-directory that Identity Server 5.8.0 resides in.
-
--   [Should I
-    migrate?](#UpgradingfromthePreviousRelease-ShouldImigrate?)
--   [Preparing for
-    migration](#UpgradingfromthePreviousRelease-Preparingformigration)
--   [Migrating the
-    configurations](#UpgradingfromthePreviousRelease-Migratingtheconfigurations)
--   [Migrating the embedded LDAP user
-    store](#UpgradingfromthePreviousRelease-MigratingtheembeddedLDAPuserstore)
--   [Migrating the
-    data](#UpgradingfromthePreviousRelease-Migratingthedata)
--   [Verifying the
-    migration](#UpgradingfromthePreviousRelease-Verifyingthemigration)
+directory that Identity Server 5.8.0 resides in. 
 
 ### Should I migrate?
 
@@ -26,9 +13,9 @@ users receive the latest updates for the product.
 
 -   For a high level overview of what has been added, changed, or
     deprecated in this release, see [About this
-    release](_About_this_release_).
+    release](../../getting-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
-    [Understanding What Has Changed](_Understanding_What_Has_Changed_).
+    [Understanding What Has Changed](../../setup/understanding-what-has-changed).
 
 ### Preparing for migration
 
@@ -36,14 +23,14 @@ Follow this guide before you begin migration.
 
 1.  Review what has been changed in this release. For a detailed list of
     the behavioral and architectural changes from 5.7.0 to 5.8.0, see
-    [Behavioral Changes](_Understanding_What_Has_Changed_).
+    [Behavioral Changes](../../setup/understanding-what-has-changed) .
 
 2.  This release is a WUM-only release. This means that there are no
     manual patches. You can use WSO2 Update Manager (WUM) to get any
     fixes or latest updates for this release.
 
     **If you are upgrading to use this version in your production
-    environment**, use WSO2 Update Manager to get the latest updates
+    environment** , use WSO2 Update Manager to get the latest updates
     available for WSO2 IS 5.8.0. For more information on how to use WSO2
     Update Manager, see [Updating WSO2
     Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager)
@@ -53,7 +40,7 @@ Follow this guide before you begin migration.
     5.7.0. This backup is necessary in case the migration causes issues
     in the existing database.
 4.  We recommend running the [cleanup
-    scripts](https://docs.wso2.com/display/IS580/Removing+Unused+Tokens+from+the+Database)
+    scripts](../../using-wso2-identity-server/removing-unused+Tokens+from+the+Database)
     before migration to clean the expired, inactive, and revoked
     tokens/codes. This reduces the time taken for migration.
 5.  The `           CONN_APP_KEY          ` unique constraint has been
@@ -61,52 +48,48 @@ Follow this guide before you begin migration.
     See the note below only for details. This step is only required i f
     you are using an Oracle or PostgreSQL database.
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    here for more information
+    !!! note
+        In the existing
+        `               IDN_OAUTH2_ACCESS_TOKEN              ` table of your
+        database, there may be access tokens that correspond to the same
+        `               consumer_id              ` and the same user for the
+        same scope. In this release, the
+        `               CON_APP_KEY              ` unique constraint for
+        Oracle and PostgreSQL databases has been modified to prevent this.
+        There fore, it is recommended to remove or modify such entries in
+        the database table before migration. You can run the following query
+        against your database to examine how many active access token
+        entries violating the modified
+        `               CON_APP_KEY              ` unique constraint, are
+        present in the
+        `               IDN_OAUTH2_ACCESS_TOKEN              ` table.
 
-    **Note:** In the existing
-    `               IDN_OAUTH2_ACCESS_TOKEN              ` table of your
-    database, there may be access tokens that correspond to the same
-    `               consumer_id              ` and the same user for the
-    same scope. In this release, the
-    `               CON_APP_KEY              ` unique constraint for
-    Oracle and PostgreSQL databases has been modified to prevent this.
-    There fore, it is recommended to remove or modify such entries in
-    the database table before migration. You can run the following query
-    against your database to examine how many active access token
-    entries violating the modified
-    `               CON_APP_KEY              ` unique constraint, are
-    present in the
-    `               IDN_OAUTH2_ACCESS_TOKEN              ` table.
+        ``` java
+        SELECT CONSUMER_KEY_ID, AUTHZ_USER, USER_DOMAIN, TENANT_ID, TOKEN_SCOPE_HASH, USER_TYPE, TOKEN_STATE, COUNT(*) 
+                FROM IDN_OAUTH2_ACCESS_TOKEN
+                GROUP BY CONSUMER_KEY_ID, AUTHZ_USER, USER_DOMAIN, TENANT_ID, TOKEN_SCOPE_HASH, USER_TYPE, TOKEN_STATE 
+                HAVING COUNT(*)>1 AND TOKEN_STATE='ACTIVE'
+        ```
 
-    ``` java
-    SELECT CONSUMER_KEY_ID, AUTHZ_USER, USER_DOMAIN, TENANT_ID, TOKEN_SCOPE_HASH, USER_TYPE, TOKEN_STATE, COUNT(*) 
-            FROM IDN_OAUTH2_ACCESS_TOKEN
-            GROUP BY CONSUMER_KEY_ID, AUTHZ_USER, USER_DOMAIN, TENANT_ID, TOKEN_SCOPE_HASH, USER_TYPE, TOKEN_STATE 
-            HAVING COUNT(*)>1 AND TOKEN_STATE='ACTIVE'
-    ```
+    !!! warning "Disabling the migrator"
 
-    **Disabling the migrator**
+        By default, the WSO2 IS data migration client handles this by
+        modifying any active access tokens that are violating the
+        constraint. However, if you wish to disable the migrator, remove or
+        comment out the following configuration from the migration yaml
+        file.
 
-    By default, the WSO2 IS data migration client handles this by
-    modifying any active access tokens that are violating the
-    constraint. However, if you wish to disable the migrator, remove or
-    comment out the following configuration from the migration yaml
-    file.
-
-    !!! tip
-        Note that WSO2 recommends this constraint change and therefore
-        **does not** recommend disabling it during migration. The constraint
-        change also provides an additional performance boost.
-    
-    ``` java
-        -
-          name: "SchemaMigrator"
-          order: 3
-          parameters:
-            location: "step3"
-            schema: "identity"
-    ```
+        WSO2 recommends this constraint change and therefore **does not** recommend disabling it during migration. The constraint
+            change also provides an additional performance boost.
+        
+        ``` java
+            -
+            name: "SchemaMigrator"
+            order: 3
+            parameters:
+                location: "step3"
+                schema: "identity"
+        ```
 
 ### Migrating the configurations
 
@@ -129,7 +112,7 @@ production environment.
         directory with your own configurations.
     2.  For a detailed list of the behavioral changes and configuration
         changes from 5.7.0 to 5.8.0, see [Understanding What Has
-        Changed](_Understanding_What_Has_Changed_). You can scroll
+        Changed](../../setup/understanding-what-has-changed) . You can scroll
         through each table for details about what has changed in this
         release.
     3.  Proceed to the [Migrating the embedded LDAP user
@@ -156,7 +139,7 @@ production environment.
         copy of the `               conf              ` directory
         according to the features that you require . For a detailed list
         of configuration changes, see [Configuration
-        changes](Understanding-What-Has-Changed_119128182.html#UnderstandingWhatHasChanged-Configurationchanges)
+        changes](../../setup/understanding-what-has-changed#UnderstandingWhatHasChanged-Configurationchanges)
         .
 
     3.  Replace the
@@ -198,53 +181,48 @@ Follow the steps below to perform the upgrade.
     to be moved to the existing TS32K tablespace in order to support
     newly added table indexes.
 
-    !!! tip
-    
-        **Note:** SQLADM or DBADM authority is required in order to invoke
+    !!! note     
+        SQLADM or DBADM authority is required in order to invoke
         the `           ADMIN_MOVE_TABLE          ` stored procedure. You
         must also have the appropriate object creation authorities,
         including authorities to issue the SELECT statement on the source
         table and to issue the INSERT statement on the target table.
     
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    here to see the stored procedure
+    ??? info "Click here to see the stored procedure" 
+        ``` java
+        CALL SYSPROC.ADMIN_MOVE_TABLE(
+        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
+        'IDN_OAUTH2_ACCESS_TOKEN',
+        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
+        'TS32K',
+        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
+        '',
+        '',
+        '',
+        '',
+        '',
+        'MOVE');
 
-    ``` java
-    CALL SYSPROC.ADMIN_MOVE_TABLE(
-    <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
-    'IDN_OAUTH2_ACCESS_TOKEN',
-    (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-    'TS32K',
-    (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-    '',
-    '',
-    '',
-    '',
-    '',
-    'MOVE');
+        CALL SYSPROC.ADMIN_MOVE_TABLE(
+        <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>,
+        'IDN_OAUTH2_AUTHORIZATION_CODE',
+        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
+        'TS32K',
+        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
+        '',
+        '',
+        '',
+        '',
+        '',
+        'MOVE');
 
-    CALL SYSPROC.ADMIN_MOVE_TABLE(
-    <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>,
-    'IDN_OAUTH2_AUTHORIZATION_CODE',
-    (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-    'TS32K',
-    (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-    '',
-    '',
-    '',
-    '',
-    '',
-    'MOVE');
+        Where,
 
-    Where,
+        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
+        ```
 
-    <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
-    ```
-
-    !!! tip
-        Troubleshooting Tip
-    
+    !!! tip "Troubleshooting"     
         If you recieve an error due to missing
         `               SYSTOOLSPACE              ` or
         `               SYSTOOLSTMPSPACE              ` tablespaces, create
@@ -252,9 +230,7 @@ Follow the steps below to perform the upgrade.
         executing the stored procedure given above. For more information,
         see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
         spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
-        in the IBM documentation.
-    
-          
+        in the IBM documentation.           
     
         ``` java
             CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
@@ -264,12 +240,11 @@ Follow the steps below to perform the upgrade.
             CREATE USER TEMPORARY TABLESPACE SYSTOOLSTMPSPACE IN IBMCATGROUP
               MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
               EXTENTSIZE 4;
-    ```
-
+        ```
 
 3.  Do the following database updates:  
     1.  Download the [migration
-        resources](https://docs.wso2.com/download/attachments/56986329/wso2is-5.8.0-migration.zip?version=1&modificationDate=1557719865000&api=v2)
+        resources](../../assets/attachments/wso2is-5.8.0-migration.zip?)
         and unzip it to a local directory. This directory is referred to
         as `             <IS5.8.0_MIGRATION_TOOL_HOME>            ` .
 
@@ -332,14 +307,14 @@ Follow the steps below to perform the upgrade.
 
     1.  Linux/Unix:
 
-        ``` bash
-                sh wso2server.sh -Dmigrate -Dcomponent=identity
+        ```bash 
+        sh wso2server.sh -Dmigrate -Dcomponent=identity
         ```
 
     2.  Windows:
 
-        ``` bash
-                wso2server.bat -Dmigrate -Dcomponent=identity
+        ```bash
+        wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
 10. Once the migration is successful, stop the server and start using
@@ -347,13 +322,13 @@ Follow the steps below to perform the upgrade.
     1.  Linux/Unix:
 
         ``` xml
-                sh wso2server.sh
+        sh wso2server.sh
         ```
 
     2.  Windows:
 
         ``` xml
-                wso2server.bat
+        wso2server.bat
         ```
 
 ### Verifying the migration
