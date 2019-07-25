@@ -26,13 +26,13 @@ sections for more information.
 4.  Go to Administration console from the right side toggle menu and get
     the Service Id of admin user.  
       
-    ![](attachments/50505066/51251911.png){width="300"}
+    ![](attachments/50505066/51251911.png) 
 5.  Navigate to Secure Sites and download the certificate for API access
     (.p12 format).
 6.  Go to MyInweboAccount and navigate to My Devices, click add a Device
     button. The following window appears.  
       
-    ![](attachments/50505066/50683079.png){width="500"}
+    ![](attachments/50505066/50683079.png) 
 7.  Download Inwebo app in your mobile or any other devices. Add the
     above secure site ID or scan the QR code to activate the account.
 
@@ -82,7 +82,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     console, click **Add** under **Claims**.
 4.  Add a new claim for **Language.**  
     **  
-    ** ****![](attachments/50505066/50685963.png){width="500"}****
+    ** ****![](attachments/50505066/50685963.png) ****
 5.  Click **Add** under **Identity Providers**.
 6.  Expand the **Claim Configuration** section and select **Define
     Custom Claim Dialect** under **Basic Claim Configuration** section.
@@ -90,17 +90,17 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     **
 7.  Click **Add Claim Mapping** and add the following claims.  
       
-    ![](attachments/50505066/50685960.png){width="500"}
+    ![](attachments/50505066/50685960.png) 
 8.  Expand the **Advanced Claim Configuration** section.
 9.  Select the Claim URI you added from the **Provisioning Claim
     Filter** dropdown and click **Add Claim**. Enter a default value
     for each **Claim URI** as shown in the following image.  
       
-    ![](attachments/50505066/50685961.png){width="500"}  
+    ![](attachments/50505066/50685961.png)   
     The default value for **language** should be either "fr" or "en".
 10. Give a suitable name as the **Identity Provider Name** and fill out
     the fields.  
-    ![](attachments/50505066/50685962.png){width="500"}
+    ![](attachments/50505066/50685962.png) 
 
     Properties
 
@@ -166,7 +166,7 @@ The next step is to configure the service provider.
     add the created Inwebo identity provider in 'Outbound Provisioning
     Configuration' .
 
-    ![](attachments/50505066/50683359.png){width="800"}
+    ![](attachments/50505066/50683359.png) 
 
 3.  Click ' Update' to save the changes.
 
@@ -178,10 +178,10 @@ You have now added and configured the service provider.
 
 2.  Enter the User Name and Password for the new user and hit
     'Finish'.  
-    [![](attachments/50505066/50683376.png){width="800"}](http://localhost:8080/travelocity.com)
+    [![](attachments/50505066/50683376.png) ](http://localhost:8080/travelocity.com)
 
 3.  Go to
     <https://www.myinwebo.com/console/admin/customer/service/manage/users>
     and check the newly created user.
 
-    ![](attachments/50505066/50683385.png){width="800"}
+    ![](attachments/50505066/50683385.png) 

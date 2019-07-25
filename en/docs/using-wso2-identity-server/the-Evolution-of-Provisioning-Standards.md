@@ -65,7 +65,7 @@ interoperability as well.
 The following diagram illustrates the progressive development that has
 taken place in the history of identity provisioning.
 
-![](attachments/103330172/103330173.png){width="750"}
+![]( ../../assets/img/103330172/103330173.png) 
 
 The OASIS Technical Committee for Service Provisioning was formed in
 2001 to define an XML-based framework for exchanging user, resource, and

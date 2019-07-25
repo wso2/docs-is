@@ -14,7 +14,7 @@ Follow the instructions below to access the system statistics.
 2.  Navigate to the **Monitor** menu and click on **System Statistics**
     . The **System Statistics** page appears with statistics related to
     the Identity Server usage.  
-    ![](attachments/103329428/103329432.png){width="750"}
+    ![]( ../../assets/img/103329428/103329432.png) 
 
 ### Server information
 
@@ -27,13 +27,13 @@ This panel provides the following information:
 -   **Memory Allocated** - Shows the memory capacity of the server.
 -   **Memory Usage** - Shows the memory capacity used by the server.
 
-![](attachments/103329428/103329433.png){width="750"}
+![]( ../../assets/img/103329428/103329433.png) 
 
 ### Memory graph
 
 This graph shows a temporal variation of the server memory.
 
-![](attachments/103329428/103329434.png){width="750"}
+![]( ../../assets/img/103329428/103329434.png) 
 
 ### Statistics configuration panel
 
@@ -52,15 +52,15 @@ view.
         -   **X-Scale (units)**
         -   **X-Width (px)**
 2.  Click **Update**.  
-    ![](attachments/9372728/9440986.png)
+    ![]( ../../assets/img/9372728/9440986.png)
 3.  Refresh your page.
 
 If you want to restore to the previous values after editing, click
 **Reset**.
 
-![](attachments/9372728/9440985.png)
+![]( ../../assets/img/9372728/9440985.png)
 
 If you want to restore to the default values, click the corresponding
 button.
 
-![](attachments/9372728/9440984.png)
+![]( ../../assets/img/9372728/9440984.png)

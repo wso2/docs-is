@@ -27,14 +27,10 @@ the resource owner and the registration of the redirection URI.
 
 The diagram below illustrates the implicit grant flow.
 
-![](attachments/103329601/103329602.png){width="700"}
+![oauth-implicit-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-implicit-grant-diagram.png)
 
-**  
-**
+**Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant)** - No
 
-**Support for [refresh token grant](_Refresh_Token_Grant_)** - No
-
-**Related Topics**
-
--   See the [Try Implicit Grant](_Try_Implicit_Grant_) topic to try out
+!!! info "Related Topics"
+    See the [Try Implicit Grant](../../using-wso2-identity-server/try-implicit-grant) topic to try out
     a sample of it with WSO2 Identity Server and WSO2 OAuth2 Playground.

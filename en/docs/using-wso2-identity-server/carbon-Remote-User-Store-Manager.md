@@ -14,7 +14,7 @@ expose the users in IS2 to IS1 through the
 has a standard implementation which uses the admin services. The diagram
 below illustrates this scenario.
 
-![](attachments/103330074/103330075.png)
+![]( ../../assets/img/103330074/103330075.png)
 
 ### Configuring a carbon remote user store manager 
 
@@ -41,7 +41,7 @@ following steps.
                 services URL.
         
 
-        ![](attachments/103330074/103330077.png){width="519"}
+        ![]( ../../assets/img/103330074/103330077.png) 
 
 3.  Update other fields as required (description is give for each
     property) and click **Add**.

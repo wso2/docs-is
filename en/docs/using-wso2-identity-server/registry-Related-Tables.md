@@ -253,4 +253,4 @@ columns of the table.
 -   REG\_RESOURCE\_VIDS
 -   REG\_TENANT\_ID
 
-![](attachments/103329398/103329399.png){width="650"}
+![]( ../../assets/img/103329398/103329399.png) 

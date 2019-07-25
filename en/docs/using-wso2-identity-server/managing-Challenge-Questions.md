@@ -41,11 +41,11 @@ instructions to set up.
     | Challenge Question Locale | This dropdown field enables you to select the language the challenge question will appear in.                                            | Spanish         |
     | Add Challenge Question    | Add the first challenge question of the set.                                                                                             | Place of birth? |
 
-    ![](attachments/103330542/103330550.png)
+    ![]( ../../assets/img/103330542/103330550.png)
 
 4.  Click **Add** and you will be redirected to the following screen,
     which displays the newly added question set.  
-    ![](attachments/103330542/103330549.png)
+    ![]( ../../assets/img/103330542/103330549.png)
 
 #### Claim mapping for the challenge question set
 
@@ -76,7 +76,7 @@ below.
     -   **Mapped Attribute-User Store Domain Name:** PRIMARY
     -   **Mapped Attribute-Mapped Attribute:** location
 
-    **![](attachments/103330542/103330548.png){width="773"}**
+    **![]( ../../assets/img/103330542/103330548.png) **
 
 ### Adding a challenge question
 
@@ -92,7 +92,7 @@ below.
     | Challenge Question Locale        | Select the language that the challenge question is in using the dropdown.                                                                    | English                     |
     | Add Challenge Question           | The challenge question.                                                                                                                      | Favourite food?             |
 
-    ![](attachments/103330542/103330547.png)
+    ![]( ../../assets/img/103330542/103330547.png)
 
 3.  Click **Add** to add the challenge questions
 
@@ -113,11 +113,11 @@ follow the steps below.
     **Challenge Question Locale** as **French**.
 5.  Enter the Q1 challenge question in French, click **Add**, and click
     **Finish**.  
-    ![](attachments/103330542/103330546.png)
+    ![]( ../../assets/img/103330542/103330546.png)
 6.  Click on the **Edit** button corresponding to the relevant set (
     http://wso2.org/claims/Set1). You will see Q1 listed twice in the
     two different languages as seen below.  
-    ![](attachments/103330542/103330545.png){height="250"}
+    ![]( ../../assets/img/103330542/103330545.png){height="250"}
 7.  Click **Finish**.
 8.  Click on **List** under **Claims** and select
     <http://wso2.org/claims.>
@@ -129,7 +129,7 @@ follow the steps below.
     **Users**.
 12. Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![](attachments/103330542/103330543.png){height="250"}
+    ![]( ../../assets/img/103330542/103330543.png){height="250"}
 13. Enter the language code as **fr\_fr** to set language as French for
     the **Locality** field and click **Update**.
 
@@ -141,7 +141,7 @@ under **Account Recovery**. Only the questions matching the locale set
 in the user profile appears (in this example, only the French question
 will appear).  
 Example:  
-![](attachments/103330542/103330551.png){width="634" height="250"}
+![]( ../../assets/img/103330542/103330551.png) 
 
 ### Editing/updating a challenge question
 
@@ -154,7 +154,7 @@ Example:
 4.  The field will turn yellow. Edit the question and click **Update**
     to save changes.
 5.  Click **Finish**.  
-    ![](attachments/103330542/103330544.png){width="742"}
+    ![]( ../../assets/img/103330542/103330544.png) 
 
 ### Making challenge questions mandatory
 

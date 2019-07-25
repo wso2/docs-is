@@ -253,7 +253,7 @@ provider](http://docs.wso2.com/identity-server/Configuring%2520an%2520Identity%2
     management console, click **Add**.
 4.  Give a suitable name as the **Identity Provider Name**.  
       
-    ![](attachments/48283197/49222048.png){width="800"}
+    ![](attachments/48283197/49222048.png) 
 5.  Go to MePIN Configuration under Federated Authenticators .
 
 6.  Enter the values as given in the above figure.
@@ -298,7 +298,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](attachments/48283197/48220892.png){width="800"}
+    ![](attachments/48283197/48220892.png) 
 
 5.  Now set the configuration as follows:
 
@@ -316,7 +316,7 @@ The next step is to configure the service provider.
 
     4.  **Include Attributes in the Response Always**.  
           
-        ![](attachments/48283197/49222047.png){width="800"}
+        ![](attachments/48283197/49222047.png) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the Service Providers page.
@@ -328,7 +328,7 @@ The next step is to configure the service provider.
 10. Using the available drop-down list, add the **basic** authentication
     as the first step and MePIN authentication as the second step and
     click **Update** to save the changes.  
-    ![](attachments/48283197/48221108.png){width="800"}
+    ![](attachments/48283197/48221108.png) 
 
 You have now added and configured the service provider.
 
@@ -349,12 +349,12 @@ You have now added and configured the service provider.
 7.  Add the user claim <http://wso2.org/claims/identity/mepinid> as
     following under ' http://wso2.org/claims' . This claim is mandatory
     for mepin authentication.  
-    ![](attachments/48283197/61053762.png){width="400"}  
+    ![](attachments/48283197/61053762.png)   
 8.  Add the user claim
     [http://wso2.org/claims/identity/mepin\_disabled](http://wso2.org/claims/identity/emailotp_disabled)
     as following under ' http://wso2.org/claims' .  
       
-    ![](attachments/48283197/61053763.png){width="400"}
+    ![](attachments/48283197/61053763.png) 
 
 ### Testing the sample
 
@@ -365,7 +365,7 @@ You have now added and configured the service provider.
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
-    ![](attachments/48283197/48220894.png){width="400"}
+    ![](attachments/48283197/48220894.png) 
 
 3.  The basic authentication page appears. Use your username and
     password to log in.  
@@ -381,7 +381,7 @@ You have now added and configured the service provider.
 6.  If the linking succeeds, you will be taken to the home page of the
     travelocity.com app. After that, your MePIN app has been linked to
     the service and can be used for secure login.  
-    ![](attachments/48283197/57007839.png){width="600"}
+    ![](attachments/48283197/57007839.png) 
 7.  If you are already linked, you will be directed to MePIN
     authentication page like below. You need to click "Login with
     MePIN".  
@@ -390,16 +390,16 @@ You have now added and configured the service provider.
     the home page of the travelocity.com app.
     -   For the confirmation policy - swipe you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/48220946.png){width="180"}
+        ![](attachments/48283197/48220946.png) 
     -   For the confirmation policy - tap you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/51252037.png){width="180"}
+        ![](attachments/48283197/51252037.png) 
 
 -   -   For the confirmation policy - pin you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/51252038.png){width="180"}
+        ![](attachments/48283197/51252038.png) 
     -   For the confirmation policy - fingerprint you will be prompted
         to confirm as follows  
-        ![](attachments/48283197/51252039.png){width="180"}
+        ![](attachments/48283197/51252039.png) 
 
   

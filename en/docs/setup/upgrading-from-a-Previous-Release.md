@@ -259,7 +259,7 @@ Follow the steps below as needed to complete the migration process.
         <tr class="even">
         <td><code>                        identity.xml                       </code> file stored in the <code>                        &lt;IS_HOME&gt;/repository/conf/identity                       </code> folder.</td>
         <td><div class="content-wrapper">
-        <p>Remove the <code>                          &lt;ClientAuthHandlers&gt;                         </code> code block found within the <code>                          &lt;OAuth&gt;                         </code> tag. From WSO2 IS 5.5.0 onwards, client authentication is handled differently. For more information, see the introduction of the <a href="_Writing_A_New_OAuth_Client_Authenticator_">Writing A New OAuth Client Authenticator</a> topic.</p>
+        <p>Remove the <code>                          &lt;ClientAuthHandlers&gt;                         </code> code block found within the <code>                          &lt;OAuth&gt;                         </code> tag. From WSO2 IS 5.5.0 onwards, client authentication is handled differently. For more information, see the introduction of the <a href="../../using-wso2-identity-server/writing-a-new-oauth-client-authenticator">Writing A New OAuth Client Authenticator</a> topic.</p>
         <div class="code panel pdl" style="border-width: 1px;">
         <div class="codeContent panelContent pdl">
         <div class="sourceCode" id="cb9" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1">&lt;ClientAuthHandlers&gt;</a>

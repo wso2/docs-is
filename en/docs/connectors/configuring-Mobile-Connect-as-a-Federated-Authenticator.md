@@ -121,11 +121,11 @@ Mobile Connect and use it to integrate with the WSO2 Identity Server.
 
 5.  Click **My Operators** and click **Accept Terms and Conditions for
     all operators**.  
-    ![](attachments/72423834/72427944.png){width="750"}
+    ![](attachments/72423834/72427944.png) 
 
 6.  Go to **My Account** and click **My Test Numbers**. Add the test
     numbers and sandbox operators and click **Update**.  
-    ![](attachments/72423834/72427946.png){width="750"}
+    ![](attachments/72423834/72427946.png) 
 
 ### Deploying the sample application
 
@@ -252,7 +252,7 @@ service provider to the Identity Server.
 5.  Navigate to the **Local and Outbound Authentication Configuration**
     section. Select the **Federated Authentication** radio button and
     select **Mobile Connect** from the dropdown list.  
-    ![](attachments/72423834/72436900.png){width="750"}
+    ![](attachments/72423834/72436900.png) 
 6.  Click **Update** to save your changes.
 
 ### Testing the federated authentication flow
@@ -266,7 +266,7 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                   `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](attachments/72423834/80723064.png){width="750"}
+    ![](attachments/72423834/80723064.png) 
 2.  If you are on the web application you are redirected to the
     <https://discover.mobileconnect.io/gsma/v2/discovery/> endpoint
     application and you must provide the mobile number there. If you are
@@ -289,7 +289,7 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](attachments/72423834/80723064.png){width="750"}
+    ![](attachments/72423834/80723064.png) 
 2.  You are redirected to the Mobile Connect authentication endpoint web
     application. Here you need to provide the mobile number.  
     ![](attachments/72423834/80723065.png)

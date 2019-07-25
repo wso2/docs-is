@@ -9,7 +9,7 @@ the LinkedIn federated authenticator
 
   
 
-![](attachments/50507096/76746227.png?effects=border-simple,blur-border){width="900"}  
+![](attachments/50507096/76746227.png?effects=border-simple,blur-border)   
 
 ### Getting started
 

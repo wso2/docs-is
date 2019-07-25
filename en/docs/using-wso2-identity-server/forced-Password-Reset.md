@@ -86,7 +86,7 @@ for forced password reset:
     -   [Offline Password
         Reset](#ForcedPasswordReset-OfflinePasswordReset)
 
-    ![](attachments/103330582/103330584.png){width="812"}
+    ![]( ../../assets/img/103330582/103330584.png) 
 
 #### Password Reset via Recovery Email
 
@@ -143,7 +143,7 @@ to see a sample of how this works.
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in as the user you created above, "Tom". The login
@@ -212,7 +212,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to login again as the user you created above, "Tom". The
@@ -284,7 +284,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 7.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in again as the user you created above, "Tom". The

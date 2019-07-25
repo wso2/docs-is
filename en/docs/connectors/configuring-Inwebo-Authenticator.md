@@ -27,7 +27,7 @@ Inwebo Authenticator is supported by Identity Server version 5.1.0
 2.  Activate your email notification and go to
     <https://www.myinwebo.com/> .
 3.  Go to Administration console and get the Service Id of admin user.  
-    ![](attachments/48276420/51252020.png){width="350"}  
+    ![](attachments/48276420/51252020.png)   
 4.  Navigate to Secure Sites and download the certificate for API access
     (.p12 format).
 5.  Go to MyInweboAccount and navigate to My Devices, click add a Device
@@ -142,7 +142,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](attachments/48276420/49222042.png){width="720"}
+    ![](attachments/48276420/49222042.png) 
 
 5.  Now set the configuration as follows:
 
@@ -171,7 +171,7 @@ The next step is to configure the service provider.
 
 10. Add the basic authentication as first step and Inwebo authentication
     as the second step  
-    ![](attachments/48276420/48211344.png){width="780" height="477"}
+    ![](attachments/48276420/48211344.png) 
 
 You have now added and configured the service provider.
 
@@ -181,16 +181,16 @@ You have now added and configured the service provider.
 2.  Select Add New Claim
 3.  Add new claim UserId (Change Claim Uri as (
     <http://wso2.org/claims/authentication/inwebo/userId> )  
-    ![](attachments/48276420/49221143.png){width="780"}
+    ![](attachments/48276420/49221143.png) 
 4.  Go to Service provider, select travalocity.com→Edit → Claim
     configuration
 5.  Update the claim UserId  
       
-    ![](attachments/48276420/48214228.png){width="780"}
+    ![](attachments/48276420/48214228.png) 
 6.  Now go to Users and Roles
 7.  Add the details and update the profile.  
       
-    ![](attachments/48276420/48211847.png){width="780" height="718"}
+    ![](attachments/48276420/48211847.png) 
 
 ### Testing the sample
 
@@ -204,22 +204,22 @@ You have now added and configured the service provider.
 3.  Basic authentication page will be visible, use your IS username and
     password.
 
-    ![](attachments/48276420/48214229.png){width="780"}
+    ![](attachments/48276420/48214229.png) 
 
 4.  Hit Click! Button to authenticate Inwebo .  
-    ![](attachments/48276420/49221869.png){width="780" height="346"}
+    ![](attachments/48276420/49221869.png) 
 5.  You will get a notification in your external device(mobile).
 
-    ![](attachments/48276420/49222015.jpg){width="400"}
+    ![](attachments/48276420/49222015.jpg) 
 
 6.  Enter your Inwebo PIN
 
-    ![](attachments/48276420/49222016.jpg){width="400"}
+    ![](attachments/48276420/49222016.jpg) 
 
 7.  Click accept  
-    ![](attachments/48276420/49222017.jpg){width="400"}
+    ![](attachments/48276420/49222017.jpg) 
 8.  Click ok and taken to the home page of the travelocity.com app
 
-    ![](attachments/48276420/48211848.png){width="720" height="470"}  
+    ![](attachments/48276420/48211848.png)   
 
   

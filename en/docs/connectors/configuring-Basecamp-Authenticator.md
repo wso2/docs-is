@@ -63,7 +63,7 @@ supported by Identity Server 5.1.0 upwards.
     [integrate.37signals.com](https://integrate.37signals.com/) to
     register an app. Then you will be redirected to the page like below.
     Select Basecamp 2 under integration.  
-    ![](attachments/49092838/57759606.jpg){width="300"}  
+    ![](attachments/49092838/57759606.jpg)   
 3.  Us e <https://localhost:9443/commonauth> as the redirect URL when
     you register the client.
 4.  Now you can get clientId and clientSecret of your created app.  
@@ -108,7 +108,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     management console, click **Add**.
 7.  Give a suitable name for **Identity Provider Name**.  
       
-    ![](attachments/49092838/51252027.png){width="800"}
+    ![](attachments/49092838/51252027.png) 
 8.  Navigate to **Basecamp Configuration** under **Federated
     Authenticators**.
 
@@ -214,7 +214,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
-    ![](attachments/49092838/49227070.png){width="500"}
+    ![](attachments/49092838/49227070.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

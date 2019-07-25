@@ -65,7 +65,7 @@ perspective, or the perspective of someone who is setting this up.
 
 ##### Consumer perspective
 
-![](attachments/57740505/72423055.png){width="750"}
+![](attachments/57740505/72423055.png) 
 
 The given sequence above depicts the Mobile Connect flow, from sign
 up/login to the complete authentication in just 4 steps. The
@@ -124,7 +124,7 @@ Connect does the authentication and sends the response back to the
 Identity Server, which in turn sends the response back to the
 application and authenticates the user. The following diagram
 illustrates this scenario.  
-![](attachments/57740505/72426717.png){width="750"}
+![](attachments/57740505/72426717.png) 
 
 Configurations to be done
 
@@ -148,7 +148,7 @@ sends the response back to the Identity Server, which in turn sends the
 response back to the application and authenticates the user. The
 following diagram illustrates this scenario.
 
-![](attachments/57740505/72426724.png){width="750"}
+![](attachments/57740505/72426724.png) 
 
 Configurations to be done
 

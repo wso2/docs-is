@@ -9,5 +9,5 @@
     .
     
     For more information on how it works, see [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_).
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_).
     
