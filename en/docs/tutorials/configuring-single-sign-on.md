@@ -34,7 +34,7 @@ provider.
         The  samples are written on Servlet 3.0. Therefore, they need to be
         deployed on Tomcat 7.x.
     -   Install Apache Maven. For more information, see [Installation
-        Prerequisites](../../setup/installation-prerequisites) .
+        Prerequisites](../../setup/installation-prerequisites).
 
 
 ### Configuring the SSO web application
@@ -151,10 +151,10 @@ provider. The following steps instruct you on how to do this.
 2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
     .
 3.  Enter `          travelocity.com         ` as the value for the
-    **Service Provider Name** field and click **Register** .
+    **Service Provider Name** field and click **Register**.
 4.  The **Service Providers** screen appears. Copy the content in the
     .pem file of your service provider application certificate and paste
-    it as the value for **Application Certificate** . In WSO2 IS
+    it as the value for **Application Certificate**. In WSO2 IS
     versions prior to WSO2 IS 5.5.0, the certificates were stored in the
     keystore file. From 5.5.0 onwards, the certificate is stored in the
     database and can be directly added via the management console using
@@ -174,9 +174,9 @@ provider. The following steps instruct you on how to do this.
     	[here](../../using-wso2-identity-server/adding-and-configuring-a-service-		provider/#app-cert).
 
 5.  Expand the **Inbound Authentication Configuration** section and then
-    expand **SAML2 Web SSO Configuration** .
+    expand **SAML2 Web SSO Configuration**.
 
-6.  Click **Configure** .
+6.  Click **Configure**.
 
 7.  Select **Manual Configuration** and register the new service
     provider by providing the following values.  
@@ -218,13 +218,13 @@ provider. The following steps instruct you on how to do this.
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Default Assertion Consumer URL</strong></td>
-	         <td>This must be the same value defined above. If you have defined multiple <strong>Assertion Consumer URLs</strong> , this value must be the same as the <code>                   SAML2.AssertionConsumerURL                  </code> value mentioned inside the <code>                   travelocity.com/WEB-INF/classes/travelocity.properties                  </code> file as that is the default.</td>
+	         <td>This must be the same value defined above. If you have defined multiple <strong>Assertion Consumer URLs</strong>, this value must be the same as the <code>                   SAML2.AssertionConsumerURL                  </code> value mentioned inside the <code>                   travelocity.com/WEB-INF/classes/travelocity.properties                  </code> file as that is the default.</td>
 	         <td><br />
 	         </td>
 	      </tr>
 	      <tr class="even">
 	         <td><strong>NameID format</strong></td>
-	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
+	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
 	         <td><code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code></td>
 	      </tr>
 	      <tr class="odd">
@@ -270,7 +270,7 @@ digest_alg=
 	         <td><strong>Assertion Encryption Algorithm</strong></td>
 	         <td>The algorithm that the SAML2 assertion is encrypted.<br />
 	            <br />
-	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
+	            The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   aes256-cbc                  </code>, at URI <code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code> .
 ```
 [saml] 
 assertion_encryption_alg= 
@@ -280,7 +280,7 @@ assertion_encryption_alg=
 	      </tr>
 	      <tr class="odd">
 	         <td><strong>Key Encryption Algorithm</strong></td>
-	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code> , at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
+	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code>, at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
 ```
 [saml] 
 key_encryption_alg= 
@@ -353,7 +353,7 @@ key_encryption_alg=
 	               <p>Depending on your application flow you can choose whether to enable IdP initiated SSO. The IdP initiated SSO profile enables to start an authentication flow by sending a GET request to the Identity server with the following format.</p>
 	               <code>                    https://{Hostname}:{Port}/samlsso?spEntityID={SAML2 SSO Issuer name}                   </code> !!! note
 	               <p>If your SAML2 SSO issuer has been configured in any other separate tenant other than super tenant, then you need to append the <em><strong>tenantDomain</strong></em> parameter as well.</p>
-	               <p>If the tenant domain is <code>                     soasecurity.org                    </code> , the GET request would be as follows: <code>                     https://localhost:9443/samlsso?spEntityID=travelocity.com&amp;tenantDomain=soasecurity.org                    </code></p>
+	               <p>If the tenant domain is <code>                     soasecurity.org                    </code>, the GET request would be as follows: <code>                     https://localhost:9443/samlsso?spEntityID=travelocity.com&amp;tenantDomain=soasecurity.org                    </code></p>
 	               <p><br />
 	               </p>
 	            </div>
@@ -409,7 +409,7 @@ key_encryption_alg=
 		    local subject identifier.  
 		    ![local-and-outbound-config](../../assets/img/tutorials/local-and-outbound-config.png)
 
-		    For **super tenant mode** , this step is not required and the two
+		    For **super tenant mode**, this step is not required and the two
 		    options mentioned above should remain disabled by default.
 
 ### Configuring claims
@@ -422,7 +422,7 @@ key_encryption_alg=
         [Configuring Claims for a Service
         Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider).
 1. Expand the **Claim Configuration** section in the service provider form.
-2. You can select the claims that must be sent to the service provider. If you just want to send them as claim URIs, select **Use Local Claim Dialect** .
+2. You can select the claims that must be sent to the service provider. If you just want to send them as claim URIs, select **Use Local Claim Dialect**.
 3. Alternatively, if you want to define new claim URIs for the
         attributes that are sent, you can define any values for them and
         map these values with the claim URIs local to WSO2.  
@@ -432,14 +432,14 @@ key_encryption_alg=
         claim URI, you can define it here and map it in to
         `            http://wso2.org/claims/emailaddress           ` .
         To specify this, select the **Define Custom Claim Dialect**
-        option and click **Add Claim URI** . Enter the **Service
+        option and click **Add Claim URI**. Enter the **Service
         Provider Claim** URIs and select the matching local claim from
         the drop down. You can also mark them as a **Requested Claim**
-        or a **Mandatory Claim** .
+        or a **Mandatory Claim**.
 
         For more information, see
         [Configuring Claims for a Service
-        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) .  
+        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider).  
         ![configure-sso-claims](../../assets/img/tutorials/configure-sso-claims.png)
 
 2.  Configure outbound authentication as **Default** authentication
@@ -447,7 +447,7 @@ key_encryption_alg=
     users with the username/password by validating with the identity
     provider's user store.
 
-3.  After providing the above information, click **Register** .
+3.  After providing the above information, click **Register**.
 
 After successfully registering the service provider, log out from
 management console. The next step is to run the sample.
@@ -458,7 +458,7 @@ management console. The next step is to run the sample.
     . You are directed to the following page:  
     ![travelocity-login](../../assets/img/tutorials/travelocity-login.png)
 2.  Since you need to use SAML2 for this sample, click the first link,
-    i.e., **Click here to login with SAML from Identity Server** . You
+    i.e., **Click here to login with SAML from Identity Server**. You
     are redirected to the Identity Server for authentication.
 3.  Enter the default admin credentials (admin/admin).
 4.  Once you have provided the correct credentials, you are redirected
@@ -480,7 +480,7 @@ management console. The next step is to run the sample.
     ![travelocity-user-consent](../../assets/img/tutorials/travelocity-user-consent.png)
 
 5.  Select the claims that you consent to share with the Travelocity
-    application and click **Approve** . You have to provide consent for
+    application and click **Approve**. You have to provide consent for
     all the mandatory claims at a minimum to complete authentication.
 
 6.  After providing consent, you are redirected to the Travelocity

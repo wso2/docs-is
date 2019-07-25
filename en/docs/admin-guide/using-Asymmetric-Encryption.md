@@ -120,7 +120,7 @@ following purposes:
     (SSL)/Transport Layer Security (TLS) protocols.
 -   Encrypting sensitive data such as plain-text passwords found in both
     product-level and product feature-level configurations/configuration
-    files using [secure vault](_Carbon_Secure_Vault_Implementation_) .
+    files using [secure vault](_Carbon_Secure_Vault_Implementation_).
 
 -   Encrypting and signing SOAP messages using WS-Security.
 
@@ -143,7 +143,7 @@ Follow the recommendations given below when you set up your keystores.
     configurations/configuration files. Note that the primary
     keystore will also be used for signing messages when the product
     communicates with external parties (such SAML, OIDC id\_token
-    signing) .
+    signing).
 
     In new versions of WSO2 products, you can have separate keystores
     for encrypting sensitive information for internal data encryption as
@@ -180,7 +180,7 @@ Follow the recommendations given below when you set up your keystores.
     encryption:  
 
     ``` java
-    Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200) ... 1 more
+    Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
     ```
 
 -   Optionally, you can set up separate keystores for message-level data
@@ -197,7 +197,7 @@ Follow the recommendations given below when you set up your keystores.
     
     For information on creating new keystores with the
     required certificates, see [Creating New
-    Keystores](_Creating_New_Keystores_) , and for information on how to
+    Keystores](_Creating_New_Keystores_), and for information on how to
     update configuration files in your product with keystore information,
     see [Configuring Keystores in WSO2
     Products](_Configuring_Keystores_in_WSO2_Products_)

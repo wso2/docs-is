@@ -68,7 +68,7 @@ See the following sections for more information.
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 3.  Provide the following values to configure the IDP:
     -   **Identity Provider Name:** Enter a issuer name (this is used to
         generate the JWT assertion) as the identity provider name.
@@ -86,21 +86,21 @@ See the following sections for more information.
     provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     for more information.  
       
-    ![](attachments/50507537/50685934.png){width="700"}
+    ![](attachments/50507537/50685934.png) 
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 5.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. See [Adding a Service
     Provider](https://docs.wso2.com/display/IS500/Adding+a+Service+Provider)
     for more information.
 6.  Expand the **OAuth/OpenID Connect Configuration** and click
-    **Configure** .
-7.  Enter a **Callback URL** . For example, use
+    **Configure**.
+7.  Enter a **Callback URL**. For example, use
     `                     http://localhost:8080/playground2/oauth2client                   `
-    and click **Add** .
+    and click **Add**.
 8.  The **OAuth Client Key** and **OAuth Client Secret** will now be
     visible.  
-    ![](attachments/50507537/50685935.png){width="700"}
+    ![](attachments/50507537/50685935.png) 
 
 !!! note While configuring the JWT grant type, the IAT validating time
     period can also be configured in the **identity.xml** file.
@@ -138,7 +138,7 @@ curl -i -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:o
 The **-u** flag should specify the “
 `         <Client Id>:<Client Secret>        ` ” value. The assertion
 parameter value is the signed base64 encoded JWT. The value of the
-assertion parameter **MUST** contain a **single JWT** . You can refer
+assertion parameter **MUST** contain a **single JWT**. You can refer
 [JWT Bearer Grant](#ConfiguringJWTGrantType-JWTBearerGrant) for more
 information about assertion.
 
@@ -146,7 +146,7 @@ If you have configured the service provider and identity provider in a
 tenant, you have to add the tenant domain as a query parameter to the
 access token endpoint.
 
-If the tenant domain is *wso2.com* , the access token endpoint will be
+If the tenant domain is *wso2.com*, the access token endpoint will be
 as follows.
 
 Access Token Endpoint:

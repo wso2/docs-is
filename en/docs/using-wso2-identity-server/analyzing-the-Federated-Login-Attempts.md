@@ -23,7 +23,7 @@ the federated login attempts that are performed via federated identity
 providers over time as well as the local login attempts filtered based
 on service providers, identity providers, and users
 
-Follow the steps below to view the **Federated Login Attempts** .
+Follow the steps below to view the **Federated Login Attempts**.
 
 !!! tip
     
@@ -31,11 +31,11 @@ Follow the steps below to view the **Federated Login Attempts** .
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Federated Login Attempts Summary**
             tile.
-        2.  Click **menu** icon \> **Federated** .
+        2.  Click **menu** icon \> **Federated**.
     
 
 Let's analyze the federated login attempts with the following widgets.
@@ -51,18 +51,18 @@ This chart allows deriving the **federated login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-![](attachments/103329263/103329271.png){width="700"}
+![]( ../../assets/img/103329263/103329271.png) 
 
 ##### Description
 
-This chart presents a **summary of the federated login attempts** .
+This chart presents a **summary of the federated login attempts**.
 
 ##### Purpose
 
 This chart allows identifying the percentages of the successful and
 failed federated login attempts.
 
-![](attachments/103329263/103329270.png){width="400"}
+![]( ../../assets/img/103329263/103329270.png) 
 
 ##### Description
 
@@ -73,7 +73,7 @@ the IP addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](_Enabling_Geolocation_Based_Statistics_) .
+    Statistics](_Enabling_Geolocation_Based_Statistics_).
     
 
 ##### Purpose
@@ -86,7 +86,7 @@ the IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![](attachments/103329263/103329269.png){width="900"}
+![]( ../../assets/img/103329263/103329269.png) 
 
 ##### Description
 
@@ -100,7 +100,7 @@ the IP addresses.
 This chart allows viewing the federated login attempts sorted based on
 the service providers.
 
-![](attachments/103329263/103329267.png){width="550"}
+![]( ../../assets/img/103329263/103329267.png) 
 
 ##### Description
 
@@ -114,7 +114,7 @@ the service providers.
 This chart allows viewing the federated login attempts sorted based on
 the identity provider.
 
-![](attachments/103329263/103329266.png){width="550"}
+![]( ../../assets/img/103329263/103329266.png) 
 
 ##### Description
 
@@ -128,7 +128,7 @@ the identity provider.
 This chart allows viewing the federated login attempts sorted based on
 the user names.
 
-![](attachments/103329263/103329265.png){width="550"}
+![]( ../../assets/img/103329263/103329265.png) 
 
 ##### Description
 

@@ -7,13 +7,13 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 1.  Log in to the WSO2 Identity Server management console using your
     tenant credentials.
 2.  Under the **Configure** menu of the management console, click
-    **Email Templates** .
+    **Email Templates**.
 3.  In the resulting screen, you can customize the email templates that
     are sent to the users in your tenant.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](attachments/103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -26,7 +26,7 @@ emails](_Customizing_Automated_Emails_) sent to the user.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 
@@ -36,4 +36,4 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 
 -   For an example of how email templates are used, see [Creating Users
     Using the Ask Password
-    Option](_Creating_Users_Using_the_Ask_Password_Option_) .
+    Option](_Creating_Users_Using_the_Ask_Password_Option_).

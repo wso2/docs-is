@@ -4,33 +4,33 @@ You can edit existing claims by clicking on any available claim link.
 Follow the instructions below to edit a claim.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click **Main** to access the **Main** menu and click **List** under
-    **Claims** .
+    **Claims**.
 3.  Click on any available dialect links.  
-    ![](attachments/43986713/48204512.png)
+    ![]( ../../assets/img/43986713/48204512.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. Click on the appropriate **Edit** link.  
-    ![](attachments/103330403/103330407.png)
+    ![]( ../../assets/img/103330403/103330407.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.
 
     1.  If you are editing a local claim, you will see the following
         screen.
 
-        ![](attachments/103330403/103330405.png){width="970"}
+        ![]( ../../assets/img/103330403/103330405.png) 
 
     2.  If you are editing an external claim, you will see the following
         screen.  
-        ![](attachments/103330403/103330404.png){height="250"}
+        ![]( ../../assets/img/103330403/103330404.png){height="250"}
 
     !!! note
     
         Note
     
         When you are using [more than one user
-        store](_Configuring_Secondary_User_Stores_) , you must map the
+        store](_Configuring_Secondary_User_Stores_), you must map the
         attributes correctly using claim management. Under “Mapped
         Attribute(s)” you need to follow the pattern.
     

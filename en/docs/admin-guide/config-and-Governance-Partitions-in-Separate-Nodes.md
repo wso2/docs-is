@@ -7,7 +7,7 @@ shares a configuration registry space by the name G-Reg 2 and the
 product Bar cluster shares a configuration registry space by the name
 G-Reg 3.  
 
-![](attachments/53125543/53287693.png){width="380"}  
+![](attachments/53125543/53287693.png)   
 
 Figure 4: Config and governance partitions in separate registry
 instances .  
@@ -50,7 +50,7 @@ and G-Reg 3 respectively.
 Database configurations are stored in
 $CARBON\_HOME/repository/conf/datasources/ master-datasources.xml file
 for all carbon servers. By default, all WSO2 products use the in-built
-H2 database. Since the Governance Registry nodes ( G-Reg 1 , G-Reg 2 and
+H2 database. Since the Governance Registry nodes ( G-Reg 1, G-Reg 2 and
 G-Reg 3) in this example are using MySQL databases ( 'registrydb',
 'registrydb2' and 'registrydb3' respectively ) the
 master-datasources.xml file of each node needs to be configured so that
@@ -186,7 +186,7 @@ sh wso2server.sh -Dsetup
     `          -DSetup         ` option is redundant and typically unusable.
     **As a result, from [January 2018
     onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`           -DSetup          `** **option** . Note
+    deprecated the** **`           -DSetup          `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the

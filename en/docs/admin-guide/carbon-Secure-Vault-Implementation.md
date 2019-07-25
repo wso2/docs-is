@@ -83,7 +83,7 @@ follows:
 ### Customizing the Secure Vault configuration
 
 You can implement your own Secure Vault configurations by changing the
-default **Secret Repository** and the **Secret Callback Handler** . See
+default **Secret Repository** and the **Secret Callback Handler**. See
 the following for topics for instructions:
 
 #### Creating a Secret Callback Handler

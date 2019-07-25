@@ -24,13 +24,13 @@ provisioning the user.
 The following steps provide instructions on how to configure this.
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>
-    Resident** .  
-    ![](attachments/103330181/103330183.png)
+    Resident**.  
+    ![]( ../../assets/img/103330181/103330183.png)
 3.  Under the **Inbound Provisioning Configuration** section, click
-    **Inbound Provisioning Configuration** .  
-    ![](attachments/103330181/103330192.png)
+    **Inbound Provisioning Configuration**.  
+    ![]( ../../assets/img/103330181/103330192.png)
 
     When configuring Inbound Provisioning Configuration, you can enable
     dumb mode for inbound provisioning by marking the check box
@@ -53,7 +53,7 @@ The following steps provide instructions on how to configure this.
     ```
 
     If the `           Domain-Name          ` is not specified with the
-    `           username          ` , the user is provisioned to the
+    `           username          `, the user is provisioned to the
     primary user store.
 
     However, if you specify the user store in the configuration, the
@@ -85,7 +85,7 @@ To confirm that the provisioning works, do the following.
     has been created in the configured or requested user store, the
     provisioning has worked successfully.  
       
-    ![](attachments/103330181/103330191.png)
+    ![]( ../../assets/img/103330181/103330191.png)
 
       
 
@@ -106,17 +106,17 @@ The following steps provide instructions on how to configure the service
 provider.
 
 1.  On the **Main** menu of the Management Console, click **Identity \>
-    Service Providers \> Add** .
+    Service Providers \> Add**.
 2.  Enter the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
-    ![](attachments/103330181/112392607.png){width="750"}
-3.  Click **Register** . The service provider details page appears.
+    ![]( ../../assets/img/103330181/112392607.png) 
+3.  Click **Register**. The service provider details page appears.
 
 4.  Expand the **Inbound Provisioning Configuration** section and select
     the user store from the drop down.
 
-    ![](attachments/103330181/112392610.png){width="750"}
+    ![]( ../../assets/img/103330181/112392610.png) 
 
     When configuring Inbound Provisioning Configuration, you can enable
     dumb mode for inbound provisioning by marking the check box
@@ -136,25 +136,25 @@ For the purposes of this example, the access token was obtained by
 configuring an OAuth service provider.
 
 1.  On the **Main** menu of the Management Console,click **Identity \>
-    Service Providers \> List** .
-2.  Find the service provider you just created and click **Edit** .
+    Service Providers \> List**.
+2.  Find the service provider you just created and click **Edit**.
 3.  Under the **Inbound Authentication Configuration** section, click
-    **OAuth/OpenID Connect Configuration \>** **Configure** .
-4.  ![](attachments/103330181/112392612.png){width="750"}
+    **OAuth/OpenID Connect Configuration \>** **Configure**.
+4.  ![]( ../../assets/img/103330181/112392612.png) 
 5.  Enter the required information.  
-    ![](attachments/103330181/112392613.png){width="750"}  
+    ![]( ../../assets/img/103330181/112392613.png)   
     Here we use the playground sample as the Callback Url for the
     purposes of this example scenario.
-6.  Click **Add** .
-7.  We now have an **OAuth Client Key** and **OAuth Client Secret** .
-    Click **Show** to view the **OAuth Client Secret** .  
-    ![](attachments/103330181/103330186.png)
+6.  Click **Add**.
+7.  We now have an **OAuth Client Key** and **OAuth Client Secret**.
+    Click **Show** to view the **OAuth Client Secret**.  
+    ![]( ../../assets/img/103330181/103330186.png)
 8.  Use a service like [Base64](https://www.base64encode.org/) to encode
-    your **OAuth Client Key** and **OAuth Client Secret** . For this
+    your **OAuth Client Key** and **OAuth Client Secret**. For this
     example, click **Encode** and enter your client key and client
     secret separated by a colon ":". Click the **\> ENCODE \<** button
     to encode this.  
-    ![](attachments/103330181/103330185.png)
+    ![]( ../../assets/img/103330181/103330185.png)
 
 9.  Use the encoded value to generate the access token by inserting it
     into the following cURL command after `           Basic          ` .
@@ -164,7 +164,7 @@ configuring an OAuth service provider.
     ```
 
     The access token can be found in the output.  
-    ![](attachments/103330181/103330184.png)
+    ![]( ../../assets/img/103330181/103330184.png)
 
 10. The access token is then entered in the provisioning request after
     `           Bearer          ` .

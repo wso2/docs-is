@@ -1,7 +1,7 @@
 # Calling Admin Services
 
 WSO2 products are managed internally using SOAP Web services known as
-**admin services** . WSO2 products come with a management console UI,
+**admin services**. WSO2 products come with a management console UI,
 which communicates with these admin services to facilitate
 administration capabilities through the UI.
 
@@ -48,7 +48,7 @@ below is how to discover them using the
 4.  In the OSGI shell, type: `          listAdminServices         `
 5.  The list of admin services of your product are listed. For
     example:  
-    ![](attachments/103330060/103330061.png){width="800"}
+    ![]( ../../assets/img/103330060/103330061.png) 
 
 **Things to note!**
 

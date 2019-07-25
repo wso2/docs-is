@@ -16,10 +16,10 @@ Guide for more information about logging.
 Follow the instructions below to access the System Log statistics.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click on **Monitor** on the left side of the screen and click on
-    **System Logs** .
+    **System Logs**.
 3.  The following screen appears. T he log messages displayed on this
     page are obtained from a memory appender. Hence, the severity (log
     level) of the displayed log messages is equal to or higher than the
@@ -30,14 +30,14 @@ Follow the instructions below to access the System Log statistics.
     -   **Log Message -** The log message or action.
     -   **More** - Allows you to view more details about the log
 
-    ![](attachments/103329440/103329445.png){width="1014"}
+    ![]( ../../assets/img/103329440/103329445.png) 
 
 4.  To view more details of a particular log, click on the **More** link
     that is associated with the file.  
-    ![](attachments/103329440/103329444.png){width="1014"}
+    ![]( ../../assets/img/103329440/103329444.png) 
 
 5.  The details of the system log appear.  
-    ![](attachments/103329440/103329443.png){width="1014"}
+    ![]( ../../assets/img/103329440/103329443.png) 
 6.  You can filter the system logs using the **Level** drop-down. Select
     the category of logs you want to view. The available categories are:
     -   **FATAL** - Fatal error messages (Severe error events that will
@@ -53,11 +53,11 @@ Follow the instructions below to access the System Log statistics.
     -   **TRACE** - Trace messages (Finer-grained informational events
         than the DEBUG)
 
-    ![](attachments/103329440/103329442.png){width="1009"}
+    ![]( ../../assets/img/103329440/103329442.png) 
 7.  You can also find a particular log using the search function. Enter
     the name (or part of the name) of the log on the **Search Logs**
     field and click on the **Search** icon.  
-    ![](attachments/103329440/103329441.png){width="1008"}
+    ![]( ../../assets/img/103329440/103329441.png) 
 
     The logs containing the search term are listed on the screen.  
       

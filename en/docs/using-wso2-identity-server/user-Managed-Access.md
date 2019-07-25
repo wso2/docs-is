@@ -1,7 +1,7 @@
 # User Managed Access
 
 UMA 2.0 is a new federated authorization standard protocol approved by
-the [Kantara Initiative](https://kantarainitiative.org/) . It is built
+the [Kantara Initiative](https://kantarainitiative.org/). It is built
 on top of OAuth 2.0, which enables party-to-party sharing. As shown in
 the diagram given below, UMA defines a workflow that creates
 authorization policies on a centralized authorization server for
@@ -9,7 +9,7 @@ resource owners to control the access to their protected resources.
 
   
 
-![](attachments/103329665/103329667.png){width="600"}
+![]( ../../assets/img/103329665/103329667.png) 
 
 There are five main roles in a UMA workflow:
 
@@ -25,7 +25,7 @@ There are five main roles in a UMA workflow:
 
 The Protection API consists of three endpoints:
 
-![](attachments/103329665/103329666.png){width="550"}
+![]( ../../assets/img/103329665/103329666.png) 
 
 <table>
 <colgroup>
@@ -68,6 +68,6 @@ other relevant information.
 -   For a tutorial that demonstrates how you can use WSO2 Identity
     Server as the authorization server to try out UMA, see [User Managed
     Access with WSO2 Identity
-    Server](_User_Managed_Access_with_WSO2_Identity_Server_) .
+    Server](../../using-wso2-identity-server/user-managed-accesswith_WSO2_Identity_Server_).
 
   

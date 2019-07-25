@@ -13,7 +13,7 @@ attacks.
     Recovery](Password-Recovery_103330558.html#PasswordRecovery-Recoveryusingchallengequestions)
     .
 -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](_Mitigating_Brute_Force_Attacks_) .
+    Force Attacks](_Mitigating_Brute_Force_Attacks_).
 
   
 
@@ -28,17 +28,17 @@ attacks.
     **Account Recovery** tab.
 5.  Select **Enable reCaptcha for Security Question Based Password
     Recovery** to enable reCaptcha for account recovery.  
-    ![](attachments/103330575/103330576.png){width="758"}
+    ![]( ../../assets/img/103330575/103330576.png) 
 
 6.  Enable account locking and Configure the **Max Failed Attempts for
-    ReCaptcha** .
+    ReCaptcha**.
 
     !!! note
     
         **Note:** This value should be less than the number of failed
         attempts configured in the account locking connector.
     
-        ![](attachments/103330575/103330577.png)
+        ![]( ../../assets/img/103330575/103330577.png)
     
 
 7.  You have now successfully configured reCaptcha for the password
@@ -48,4 +48,4 @@ attacks.
     Attempts for ReCaptcha** was configured as 2 above, if the user
     answers a question incorrectly twice, the reCaptcha will be prompted
     as seen in the window below.  
-    ![](attachments/103330575/103330579.png){height="250"}
+    ![]( ../../assets/img/103330575/103330579.png){height="250"}

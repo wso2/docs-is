@@ -13,7 +13,7 @@ XACML 3.0 requests in XML format and try them.
     Before you begin
     
     Prior to creating a basic XACML 3.0 request for evaluation you need to
-    [create a policy](_Creating_a_XACML_Policy_) .
+    [create a policy](_Creating_a_XACML_Policy_).
     
 
 Follow the instructions below to create a basic XACML 3.0 request for
@@ -27,12 +27,12 @@ Evaluation. You can create a request using one of the following methods:
 #### Create request using editor
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click **Tools** to access the **XACML** menu.
-3.  Click **TryIt** .
+3.  Click **TryIt**.
 4.  Click on the **Create Request Using Editor** link.  
-    ![](attachments/103329504/103329511.png)
+    ![]( ../../assets/img/103329504/103329511.png)
 5.  Use the "Toggle editor" to create a request in XML. The default
     elements are as follows:
 
@@ -44,7 +44,7 @@ Evaluation. You can create a request using one of the following methods:
     -   `            <AttributeValue/>           `
     -   `            <Environment>                       `
 
-    ![](attachments/103329504/103329510.png){width="1024"}
+    ![]( ../../assets/img/103329504/103329510.png) 
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more
@@ -93,7 +93,7 @@ Evaluation. You can create a request using one of the following methods:
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Click **Tools** to access the **XACML** menu.
-3.  Click **TryIt** .
+3.  Click **TryIt**.
 4.  Fill in the following fields and click the **Create Request**
     button.  
 
@@ -110,7 +110,7 @@ Evaluation. You can create a request using one of the following methods:
     -   **Environment Name** - Provides additional information to
         evaluate the request, such as the current date and time, etc.
 
-    ![](attachments/103329504/103329512.png)
+    ![]( ../../assets/img/103329504/103329512.png)
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more

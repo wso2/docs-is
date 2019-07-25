@@ -26,9 +26,9 @@ with the WSO2 IS.
     recovery.
     
     Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation** , see [Username Recovery
+    feature using the **old implementation**, see [Username Recovery
     documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Username+Recovery) . The old
+    5.2.0](https://docs.wso2.com/display/IS520/Username+Recovery). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatitbility and can still be used if required.
     
@@ -79,7 +79,7 @@ with the WSO2 IS.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 2.  Start the WSO2 IS server and login to the management console.
@@ -95,7 +95,7 @@ with the WSO2 IS.
     Recovery REST
     API](https://docs.wso2.com/display/IS550/apidocs/account-recovery)
     .  
-    ![](https://lh5.googleusercontent.com/U3C3ZUForn1B9VQm-C1m-XPoeZB6DpgtnV6hrk1CmxWyFhvynOCNBwOlvcJyVShiSGwU75yq4YqBRT_vnMQzsQDiHaGW02N52IhvY2z3Dms8Uv0yFLJ3wNjiBS1ef-GPaKmvkMhZ){width="750"}
+    ![](https://lh5.googleusercontent.com/U3C3ZUForn1B9VQm-C1m-XPoeZB6DpgtnV6hrk1CmxWyFhvynOCNBwOlvcJyVShiSGwU75yq4YqBRT_vnMQzsQDiHaGW02N52IhvY2z3Dms8Uv0yFLJ3wNjiBS1ef-GPaKmvkMhZ) 
 
       
 
@@ -127,11 +127,11 @@ with the WSO2 IS.
         1.  Navigate to <https://myaccount.google.com/security> .
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![](attachments/103330552/103330553.png){width="600"
+            ![]( ../../assets/img/103330552/103330553.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps** .  
-            ![](attachments/103330552/103330554.png){width="597"
+            **Allow less secure apps**.  
+            ![]( ../../assets/img/103330552/103330554.png){width="597"
             height="171"}
     
 
@@ -143,24 +143,24 @@ with the WSO2 IS.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given here.
-3.  Access the [WSO2 Identity Server dashboard](https://loca/) .
+3.  Access the [WSO2 Identity Server dashboard](https://loca/).
 4.  Click the **Forgot Username** link.
-5.  Enter the required fields and click **Submit** .  
-    ![](attachments/103330552/103330555.png){width="447"}
+5.  Enter the required fields and click **Submit**.  
+    ![]( ../../assets/img/103330552/103330555.png) 
 
       
 
     !!! note
     
         In case you have enabled username recovery with reCaptcha
-        verification , enter the required fields as specified above and
+        verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![](https://lh5.googleusercontent.com/ZqV9L-ePDQxbryjbJZKc8KfEcXPVY8WOxLXWVD0Zwqtut7Aht5MpgMLsSuL37Jsd77XcS_wymxF6M6BLTpMmFZRqRNiuhsrVoq1tamLknSNUsvA2KIcNZO0H3BTrG7w9CzRoc8GW){width="447"}
+        ![](https://lh5.googleusercontent.com/ZqV9L-ePDQxbryjbJZKc8KfEcXPVY8WOxLXWVD0Zwqtut7Aht5MpgMLsSuL37Jsd77XcS_wymxF6M6BLTpMmFZRqRNiuhsrVoq1tamLknSNUsvA2KIcNZO0H3BTrG7w9CzRoc8GW) 
 
 6.  An email notification is sent to the user's email address with the
     recovered username.  
-    ![](attachments/103330552/103330556.png){width="469"}
+    ![]( ../../assets/img/103330552/103330556.png) 
 
 !!! tip
     

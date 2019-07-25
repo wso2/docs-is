@@ -7,7 +7,7 @@ identity bus.
 ### Spaghetti identity and federation silos
 
 According to research conducted by the analyst firm,
-[Quocirca](http://quocirca.com/) , many businesses now have more
+[Quocirca](http://quocirca.com/), many businesses now have more
 external users than internal ones. Also many businesses are involved in
 acquisitions, mergers and partnerships, and these result in lots of
 external users joining the business. Often, these external users have to

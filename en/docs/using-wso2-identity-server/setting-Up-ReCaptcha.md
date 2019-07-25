@@ -28,15 +28,15 @@ Follow the steps provided below to configure this.
 1.  Go to <https://www.google.com/recaptcha/admin> .
 
 2.  You will see the following window. Fill in the fields to register
-    your identity server domain and click **Register** . The following
+    your identity server domain and click **Register**. The following
     are sample values:
     -   **Label:** WSO2 Identity Server
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
     -   **Domains:** is.wso2.com  
 
-    ![](attachments/103330586/103330587.png){width="400"}
+    ![]( ../../assets/img/103330586/103330587.png) 
 3.  Take note of the site key and secret that you receive.
-    ![](attachments/103330586/103330588.png){width="957" height="187"}
+    ![]( ../../assets/img/103330586/103330588.png) 
 4.  Open the c `            aptcha-config.properties           ` file
     located in the
     `            <IS_HOME>/repository/conf/identity/           `

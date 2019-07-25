@@ -112,13 +112,13 @@ Try this simple exercise,
     your Google credentials there.
 4.  Once you enter your Username and Password, you are directed back to
     [www.google.com](http://www.google.com/) where you started.
-5.  Next visit [www.gmail.com](http://www.gmail.com/) , the Google mail
+5.  Next visit [www.gmail.com](http://www.gmail.com/), the Google mail
     server.
 6.  Notice that you are automatically signed in and you directly access
     your Gmail Inbox. You did not have to enter your Username and
     Password at Gmail.
 7.  In addition to that; now try
-    [www.youtube.com](http://www.youtube.com/) .
+    [www.youtube.com](http://www.youtube.com/).
 8.  Click on the “ **Sign In** ” button on the top right of the YouTube
     home page.
 9.  You are automatically signed in. You do not have to enter your
@@ -166,7 +166,7 @@ If the user accesses the identity provider directly, then only the steps
 
 The message MUST contain an element which uniquely identifies the
 service provider who created the message. Optionally the message may
-contain elements such as , etc. More information regarding the message
+contain elements such as, etc. More information regarding the message
 can be found in [SAML Core
 Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf)
 .
@@ -229,7 +229,7 @@ OpenSAML library:
     [here](http://code.google.com/p/saml2-consumer-module/downloads/detail?name=opensaml2-2.0.0.alpha1-wso2v1.jar)
     .
 2.  A sample **\<AuthnRequest\>** message can be found
-    [here](http://wso2.org/files/AuthRequest.xml) .
+    [here](http://wso2.org/files/AuthRequest.xml).
 3.  According to SAML 2.0 specifications, the message must contain an
     element. Create the **Issuer** element first.
 
@@ -257,7 +257,7 @@ OpenSAML library:
         authnRequest.setVersion(SAMLVersion.VERSION_20); 
     ```
 
-    The message may contain many other elements like , etc. those
+    The message may contain many other elements like, etc. those
     elements can be created and added to the message in the same way.
 
 5.  Next encode the message.
@@ -297,7 +297,7 @@ To read the `         <Response>        ` message issued by the WSO2
 Identity Server:
 
 1.  A sample \<Response\> message can be found
-    [here](http://wso2.org/files/Response.xml) .
+    [here](http://wso2.org/files/Response.xml).
 2.  The response message must be fetched from the request.
 
     responseMessage = request.getParameter("SAMLResponse").toString();

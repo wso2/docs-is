@@ -7,7 +7,7 @@ MailChimp features and integrations allow you to send marketing emails,
 automated messages, and targeted campaigns. Their detailed reports help
 you keep improving over time.
 
-![](attachments/49092742/76746257.png){width="900"}  
+![](attachments/49092742/76746257.png)   
 
 ### Getting started
 

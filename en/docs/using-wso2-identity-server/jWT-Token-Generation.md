@@ -78,14 +78,14 @@ needed.
     Connect](https://docs.wso2.com/display/IS580/Configuring+Inbound+Authentication+for+a+Service+Provider#ConfiguringInboundAuthenticationforaServiceProvider-OauthOpenIDConfiguringinboundauthenticationwithOAuth/OpenIDConnect)
     for more information.
     
-    ![](attachments/103329595/119128541.png){width="500"}
+    ![]( ../../assets/img/103329595/119128541.png) 
     
 
 **Calling the OAuth2ValidationService with a valid token**
 
 After configuring the elements mentioned above, see the [OAuth2 Token
 Validation and
-Introspection](_OAuth2_Token_Validation_and_Introspection_) topic
+Introspection](../../using-wso2-identity-server/oauth2-token-validation-and-introspection) topic
 to call the `         OAuth2ValidationService        ` . The following
 screenshot is the request and response of the
 `         OAuth2ValidationService        ` from the SOAP
@@ -99,7 +99,7 @@ the `         <tokenString>        ` element.
     values for the user are returned.
     
 
-![](attachments/103329595/103329596.png){width="1201" height="460"}
+![]( ../../assets/img/103329595/103329596.png) 
 
 **Header Metadata:**  
 The header contains the metadata for the token as seen below.

@@ -13,13 +13,13 @@ Follow the instructions given below to access statistics on application
 logs:
 
 1.  Log on to the product's management console and select **Monitor -\>
-    Application Logs** .  
+    Application Logs**.  
 2.  The "Application Logs" page appears. This page displays logs of a
     selected application in a bottom-up manner.
 
 3.  You can see a drop-down list from which a deployed web services or a
     web applications can be selected to view its log files.  
-    ![](attachments/103329455/103329456.png)
+    ![]( ../../assets/img/103329455/103329456.png)
 4.  In the **View** list, select the category of logs you want to view.
     The available categories are:  
 
@@ -33,10 +33,10 @@ logs:
 
     For Example,
 
-    ![](attachments/103329455/103329457.png)
+    ![]( ../../assets/img/103329455/103329457.png)
 
 5.  You can also find a certain log using the search function. Enter a
-    keyword (or part of a keyword) and click **Search** . When a search
+    keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
-    **Custom** . For example,  
-    ![](attachments/103329455/103329458.png){width="636"}
+    **Custom**. For example,  
+    ![]( ../../assets/img/103329455/103329458.png) 

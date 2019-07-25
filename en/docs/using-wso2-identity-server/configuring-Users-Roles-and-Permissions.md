@@ -16,7 +16,7 @@ The following items are things to note before you begin.
 
 -   Only system administrators can add, modify and remove users and
     roles. To set up administrators, see [Configuring the System
-    Administrator](_Configuring_the_System_Administrator_) .  
+    Administrator](_Configuring_the_System_Administrator_).  
       
 
 -   Your product has a primary user store where the users/roles that you
@@ -42,7 +42,7 @@ The following items are things to note before you begin.
     values that conform to the `            RegEx           ` . If you
     [change the default user
     store](_Configuring_the_Primary_User_Store_) or [set up a secondary
-    user store](_Configuring_Secondary_User_Stores_) , configure the
+    user store](_Configuring_Secondary_User_Stores_), configure the
     `            RegEx           ` accordingly under the user store
     manager configurations in
     `            <IS_HOME>/repository/conf/user-mgt.xml           `

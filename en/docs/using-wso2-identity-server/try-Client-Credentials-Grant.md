@@ -3,7 +3,7 @@
 The Client Credentials Grant is one of the four grant types in the OAuth
 2.0 specification. For more information about this grant type, see
 [Client Credentials
-Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
+Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant).
 
 **Running the application**
 
@@ -15,7 +15,7 @@ Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Client Credentials  
     Client ID: (the client id received at the application
@@ -24,13 +24,13 @@ Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
     registration)  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>
 
-    ![](attachments/103329931/103329934.png){width="600"}
+    ![]( ../../assets/img/103329931/103329934.png) 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.  
-    ![](attachments/103329931/103329933.png){height="250"}
+    ![]( ../../assets/img/103329931/103329933.png){height="250"}
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here for more information on OAuth 2.0 Token Introspection
@@ -50,7 +50,7 @@ Grant](https://docs.wso2.com/display/IS530/Client+Credentials+Grant) .
 
 4.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.
-    ![](attachments/103329931/103329932.png){width="714"}
+    ![]( ../../assets/img/103329931/103329932.png) 
 
 **Related Topics**
 

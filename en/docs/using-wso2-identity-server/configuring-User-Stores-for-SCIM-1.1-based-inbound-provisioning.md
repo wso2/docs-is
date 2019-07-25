@@ -34,10 +34,10 @@ the secondary user store. For this, you need to change the "Mapped
 Attribute" value as indicated below.
 
 1.  Log in to the WSO2 Identity Server and access the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 2.  In the **Main** menu of the management console, click **List** under
-    **Claims** . For more information on configuring claims, see [Claim
-    Management](_Claim_Management_) .
+    **Claims**. For more information on configuring claims, see [Claim
+    Management](_Claim_Management_).
 3.  Click on **urn:scim:schemas:core:1.0** claim dialect and find the
     mapped local claim to the SCIM claim that you need to edit. You can
     alternatively [Add a New Claim](_Adding_Claim_Mapping_) if the claim
@@ -46,7 +46,7 @@ Attribute" value as indicated below.
     **http://wso2.org/claims**
 5.  Click **Edit** and modify the Mapped Attribute field in the
     resulting page.  
-    ![](attachments/103330177/103330179.png){width="1000"}
+    ![]( ../../assets/img/103330177/103330179.png) 
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for
@@ -54,7 +54,7 @@ those as well. To do that just click Add, Attribute Mappings and set
 values for user store domain name and mapped attribute.
 
 For information about Local Claim Dialect attributes, click
-[here](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) .
+[here](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
 
 Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user
@@ -129,13 +129,13 @@ curl -v -k --user admin:admin --data '{"displayName": "demo/SoftwareEngineer","m
 user-store domain.
 
 ``` java
-curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}" ,"members": [{MEMBERS}}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
+curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMBERS}}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
 ```
 
 **Request: Sample**
 
 ``` java
-curl -v -k --user admin:admin -X PUT -d '{"displayName": "demo/SoftwareEngineer" ,"members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}, {"value":"p09okhyt-5e68-4594-8mkj-356ade12we34","display": "testUser"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
+curl -v -k --user admin:admin -X PUT -d '{"displayName": "demo/SoftwareEngineer","members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}, {"value":"p09okhyt-5e68-4594-8mkj-356ade12we34","display": "testUser"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
 **Filter Group -** This will filter the groups that are equal to a given

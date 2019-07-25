@@ -1,7 +1,7 @@
 # Configuring Users
 
 To enable users to log into the IS [Management
-Console](_Getting_Started_with_the_Management_Console_) , you create
+Console](../../setup/getting-started-with-the-management-console), you create
 user accounts and assign them roles, which are sets of permissions. You
 can add individual users or import users in bulk. The following sections
 list out the various ways to configure your users.
@@ -42,11 +42,11 @@ Follow the instructions below to add a new user account and configure
 its role.
 
 1.  On the **Main** tab in the Management Console, click **Add** under
-    **Users and Roles** .
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
-3.  Click **Add New User** . The following screen appears.  
-    ![](attachments/103330327/103330360.png){width="367" height="307"}
+3.  Click **Add New User**. The following screen appears.  
+    ![]( ../../assets/img/103330327/103330360.png) 
 
     When giving a username, it should not contain backslash (“/”) or any
     special character ("&", "$", "%") as specified in
@@ -63,10 +63,10 @@ its role.
         use to log in. By default, the password must be at least five
         characters.
     3.  If you need to assign a role to user, Click **Next** and go to
-        **step 5** , or Click **Finish** to end the flow.
+        **step 5**, or Click **Finish** to end the flow.
 5.  Optionally, select the role(s) you want this user to have. If you
     have many roles in your system, you can search for them by name.
-6.  Click **Finish** .
+6.  Click **Finish**.
 
 A new user account is created with the specified roles and is listed on
 the **Users** page.
@@ -74,14 +74,14 @@ the **Users** page.
 #### Assigning roles to the user
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  Click the **Assign Roles** link that corresponds to the user you
     want to assign to a role.  
-    ![](attachments/103330327/103330361.png){width="791" height="250"}
-4.  Select the role(s) you want to assign and click **Update** .
-5.  Click **Finish** .
+    ![]( ../../assets/img/103330327/103330361.png) 
+4.  Select the role(s) you want to assign and click **Update**.
+5.  Click **Finish**.
 
 The user is assigned to the specified roles. You can view a user's roles
 by clicking on the **View Roles** link on the user list.
@@ -137,7 +137,7 @@ curl -v -k --user admin:admin --data "{"schemas":[],"name":{"familyName":"family
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -208,16 +208,16 @@ admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
 Follow the below instruction to update a user using management console.
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  You will see the list of users that are available and you can click
     **Update Profile** if you want to update the profile of a particular
     user.  
-    ![](attachments/103330327/103330359.png){width="791"}
+    ![]( ../../assets/img/103330327/103330359.png) 
 4.  There you can update the details of the user and click **Update**
     .  
-    ![](attachments/103330327/103330358.png){width="370"}
+    ![]( ../../assets/img/103330327/103330358.png) 
 
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.
@@ -248,7 +248,7 @@ operation.
 
 The users also can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -353,10 +353,10 @@ You must first create a CSV file or an Excel file with the user
 information. It is possible to import the **username** and **password**
 directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
-attributes](_Managing_User_Attributes_) . Shown below are the
+attributes](_Managing_User_Attributes_). Shown below are the
 claim URls that are defined be default in WSO2 IS. These will allow you
-to import the user's **email address** , **country** , **given name**
-etc. in addition to the **username** and **password** .
+to import the user's **email address**, **country**, **given name**
+etc. in addition to the **username** and **password**.
 
 -   http://wso2.org/claims/country
 -   http://wso2.org/claims/emailaddress
@@ -404,7 +404,7 @@ To import users in bulk:
 1.  Log in to the management console.
 2.  Click **Add** under **Users and Roles** in the **Main** menu.
 3.  In the **Add Users** and **Roles** screen, click **Bulk Import
-    Users** .
+    Users**.
 4.  The user stores configured for your product will be listed in the
     **Domain** field. Select the user store to which you want to import
     the users from the list.
@@ -431,15 +431,15 @@ Once you have added a user in the Identity Server, you can search for
 the user by doing the following.
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![](attachments/103330327/103330351.png) You can search for users by
+    ![]( ../../assets/img/103330327/103330351.png) You can search for users by
     doing one of the following.  
     -   **Search by Domain**  
         1.  Select the user store that the user resides in using the
             **Select Domain** dropdown.
-        2.  Enter the user name of the user and click **Search Users** .
+        2.  Enter the user name of the user and click **Search Users**.
             For users to be listed, you must use the exact name of the
             user, or use a username pattern by including \*. For
             example, if you have a user named Don, you can either search
@@ -454,7 +454,7 @@ the user by doing the following.
     -   **Search by Claim**
         1.  Select the relevant claim URI from the **Select Claim Uri**
             dropdown and enter the claim value in the user name field.
-        2.  Click on **Search Users** .
+        2.  Click on **Search Users**.
 
 #### Search users using SCIM
 
@@ -490,7 +490,7 @@ In SCIM filtering we support only Eq or equal operation!
 
 The user also can search user Ids by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 The following SOAP method like `         getUserId()        ` will give
 you the user ID of the relevant username. There are many more such
@@ -526,7 +526,7 @@ have.
 
 Each individual user has a profile that can be updated to include
 various details. To do this, click **User Profile** on the **Users**
-screen. Make the changes required and click **Update** .
+screen. Make the changes required and click **Update**.
 
 #### Add multiple profiles for a user
 
@@ -543,8 +543,8 @@ that are shown in the User Profile page.
 Do the following in order to add new profiles.
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  Click the **User Profile** link.
 4.  You can add multiple profiles using the **Add New Profile** link and
@@ -557,16 +557,16 @@ You can change your password or reset another user's password (if you
 have administrative privileges) using the management console.  
 
 1.  On the **Main** tab in the management console, click **List** under
-    **Users and Roles** .  
-2.  To change your own password, click **Change My Password** , enter
-    your current password and new password, and click **Change** .
+    **Users and Roles**.  
+2.  To change your own password, click **Change My Password**, enter
+    your current password and new password, and click **Change**.
 3.  If you are an admin user and need to change another user's password
     (such as if they have forgotten their current password and need you
     to reset it), do the following:
-    1.  Click **U** **sers** .
+    1.  Click **U** **sers**.
     2.  Find the user's account on the **Users** screen and click
         **Change Password** in the **Actions** column.
-    3.  Enter a new temporary password and click **Change** . By
+    3.  Enter a new temporary password and click **Change**. By
         default, the password must be at least five characters and
         should have at least one character with a capital letter,
         characters, numbers and special characters.
@@ -587,8 +587,8 @@ Deleting a user cannot be undone.
 #### Delete user using management console
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.  
 3.  In the **Users** list, click **Delete** next to the user you want to
     delete, and then click **Yes** to confirm the operation.
@@ -615,7 +615,7 @@ groups by performing CRUD operations on the group resource endpoint.
 
 The user also can delete user by calling the
 `         RemoteUserStoreManager service        ` . If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_) .
+admin services, see [Calling Admin Services](_Calling_Admin_Services_).
 
 The following SOAP method like `         deleteUser()        ` will give
 you the user ID of the relevant username. There are many more such
@@ -639,12 +639,12 @@ methods you can use according to your requirement.
     
     If necessary you can log details related to a user deletion on deleting
     a user. For more information see, [Tracking user deletion on deleting a
-    user](#ConfiguringUsers-deleteEvent) .
+    user](#ConfiguringUsers-deleteEvent).
     
     Once you delete a user, WSO2 IS allows you to remove all references to
     the deleted user's identity. For information on how to remove references
     to a deleted user's identity, see [Removing References to Deleted User
-    Identities](_Removing_References_to_Deleted_User_Identities_) .
+    Identities](_Removing_References_to_Deleted_User_Identities_).
     
 
 ### Tracking user deletion on deleting a user
@@ -663,7 +663,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities](_Removing_References_to_Deleted_User_Identities_) .
+identities](_Removing_References_to_Deleted_User_Identities_).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:

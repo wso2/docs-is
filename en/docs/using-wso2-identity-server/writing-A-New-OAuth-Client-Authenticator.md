@@ -55,7 +55,7 @@ implementation](https://github.com/wso2-extensions/identity-inbound-auth-oauth/b
 The elements used in each method are explained below:
 
 -   **`            request           `** : The
-    `           HttpServletReqeust          ` , which is the incoming
+    `           HttpServletReqeust          `, which is the incoming
     request to the endpoint
 
 -   **`            bodyParams           `** : List out the body
@@ -89,8 +89,8 @@ Let's get started!
     ```
 
 2.  In this sample, you are implementing the
-    `           authenticateClient          ` ,
-    `           canAuthenticate          ` , and
+    `           authenticateClient          `,
+    `           canAuthenticate          `, and
     `           getClientId          ` methods and overriding the
     `           getPrioirty          ` and
     `           getName          ` methods.  
@@ -137,8 +137,8 @@ Let's get started!
         information.
 
     It is mandatory that you implement the
-    `            authenticateClient           ` ,
-    `            canAuthenticate           ` , and
+    `            authenticateClient           `,
+    `            canAuthenticate           `, and
     `            getClientId           ` methods and override the
     `            getName           ` method.  It is not mandatory to
     override the `            isEnabled           ` and
@@ -241,7 +241,7 @@ Let's get started!
 To try out the sample implementation that was used in this guide, follow
 the steps given below to successfully get the token.
 
-1.  [Download the samples](_Downloading_a_Sample_) .
+1.  [Download the samples](../../using-wso2-identity-server/downloading-a-sample).
 2.  Navigate to the
     `           is-samples/oauth-sample-client-authenticator          `
     directory.

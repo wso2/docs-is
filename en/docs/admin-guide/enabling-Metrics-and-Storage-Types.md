@@ -116,7 +116,7 @@ be used to configure a CSV storage for metrics data.
     cause file corruption failures. Please use an industry-standard RDBMS
     such as Oracle, PostgreSQL, MySQL, or MS SQL instead. See the
     instructions on [setting up an
-    RDBMS](_Setting_up_the_Physical_Database_) .
+    RDBMS](_Setting_up_the_Physical_Database_).
     
 
 The following parameters in the `         metrics.xml        ` file can
@@ -164,7 +164,7 @@ be used to configure a JDBC storage for metrics data.
 </tr>
 <tr class="even">
 <td><strong>ScheduledCleanup</strong></td>
-<td>This element contains parameters relating to scheduled cleanup. The possible values are <code>             Enabled            </code> , <code>             ScheduledCleanupPeriod            </code> and <code>             DaysToKeep            </code> . Scheduled cleanup involves scheduling a task to clear metric data in the database after a specified time interval. This is done to avoid excessive memory usage.</td>
+<td>This element contains parameters relating to scheduled cleanup. The possible values are <code>             Enabled            </code>, <code>             ScheduledCleanupPeriod            </code> and <code>             DaysToKeep            </code> . Scheduled cleanup involves scheduling a task to clear metric data in the database after a specified time interval. This is done to avoid excessive memory usage.</td>
 <td><br />
 </td>
 <td style="text-align: right;"><br />
@@ -418,7 +418,7 @@ Parameters that can be configured for a datasource are as follows:
 <td><br />
 </td>
 <td>Specifies whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and we will attempt to borrow another.<br />
-When set to <code>             true            </code> , the <code>             validationQuery            </code> parameter must be set to a non-null string.</td>
+When set to <code>             true            </code>, the <code>             validationQuery            </code> parameter must be set to a non-null string.</td>
 <td>Boolean</td>
 <td>false</td>
 <td>Optional</td>

@@ -98,5 +98,5 @@ The following information can be configured:
     -   **X-Width (px)**
 
 If you want to reset the previous values before submitting the page
-after editing, click **Reset** . The **Restore Defaults** button sets
+after editing, click **Reset**. The **Restore Defaults** button sets
 the default values in the corresponding fields.

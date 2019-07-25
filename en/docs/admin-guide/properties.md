@@ -1,7 +1,7 @@
 # Properties
 
 The **Properties** panel displays the properties of the currently
-selected resource or collection. New properties can be added , while
+selected resource or collection. New properties can be added, while
 existing properties can be edited or deleted .
 
 1.  To add a property, click on th e **Add New Property** link in the

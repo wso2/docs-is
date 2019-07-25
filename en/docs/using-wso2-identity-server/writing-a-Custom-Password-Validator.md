@@ -11,7 +11,7 @@ writing a simple custom password policy and enforcing it.
     and set the
     `           org.wso2.carbon.identity.mgt.IdentityMgtEventListener          `
     under the `           <EventListeners>          ` tag to
-    **enable="true"** .
+    **enable="true"**.
 
     ``` xml
     <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" 

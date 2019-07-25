@@ -24,7 +24,7 @@ appender. Therefore, the severity (log level) of the displayed log
 messages are equal to or higher than the threshold of the memory
 appender. For more information on appenders, loggers, their log levels
 and logging, go to
-[http://logging.apache.org/log4j](http://logging.apache.org/log4j/) .
+[http://logging.apache.org/log4j](http://logging.apache.org/log4j/).
 
 See the following topics on system logs and application logs:
 
@@ -40,7 +40,7 @@ viewing log files according to user preferences. Follow the instructions
 below to access statistics on system logs:
 
 1.  Log on to the product's management console and select **Monitor -\>
-    System Logs** . The **System Logs** page appears and displays logs
+    System Logs**. The **System Logs** page appears and displays logs
     in a bottom-up manner.
 
 2.  To view old archived logs, click **Show archived logs** tab at the
@@ -50,7 +50,7 @@ below to access statistics on system logs:
 
     The **Download** link can be used to download the log files. For
     example, if the server is configured to use the [default log
-    provider](_Configuring_the_Log_Provider_) , the "wso2carbon.log"
+    provider](_Configuring_the_Log_Provider_), the "wso2carbon.log"
     file stored in the
     `           <PRODUCT_HOME>/repository/logs/          ` directory can
     be downloaded.
@@ -68,7 +68,7 @@ below to access statistics on system logs:
     ![](attachments/32351462/32525349.png)
 
 4.  You can also find a specific log using the search function. Enter a
-    keyword (or part of a keyword) and click **Search** .
+    keyword (or part of a keyword) and click **Search**.
 
     ![](attachments/32351462/32525348.png)
 
@@ -87,7 +87,7 @@ Follow the instructions given below to access statistics on application
 logs:
 
 1.  Log on to the product's management console and select **Monitor -\>
-    Application Logs** .  
+    Application Logs**.  
 2.  The "Application Logs" page appears. This page displays logs of a
     selected application in a bottom-up manner.
 
@@ -110,7 +110,7 @@ logs:
     ![](attachments/12421402/12747656.png)
 
 5.  You can also find a certain log using the search function. Enter a
-    keyword (or part of a keyword) and click **Search** . When a search
+    keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
-    **Custom** . For example,  
-    ![](attachments/12421402/12747655.png){width="636"}
+    **Custom**. For example,  
+    ![](attachments/12421402/12747655.png) 

@@ -84,11 +84,11 @@ by default.
 
 This feature is disabled by default. To enable the API, set the
 `         <Enable>        ` property in the
-`         health-check-config.xml        ` file to **true** .  
+`         health-check-config.xml        ` file to **true**.  
 
 !!! tip
     
-    If the feature has not been enabled successfully , a request to the API
+    If the feature has not been enabled successfully, a request to the API
     will only return a 200 OK response.
     
 

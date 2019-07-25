@@ -15,7 +15,7 @@ The default OIDC scope claim mappings can be found in the
 `         <IS_HOME>/repository/conf/identity/oidc-scope-config.xml        `
 file. In the very first server startup, scopes and claims defined in
 this file are stored in the database and the same data is displayed in
-the [management console](_Getting_Started_with_the_Management_Console_)
+the [management console](../../setup/getting-started-with-the-management-console)
 UI.
 
 When working with tenants, the data that is defined in the
@@ -28,7 +28,7 @@ be done through the management console UI from this point onwards.
 ### Adding, editing, and viewing scopes
 
 In the management console, the **OIDC Scopes** section can be viewed
-under **Manage** . Click **Add** to add a new scope mapping or click
+under **Manage**. Click **Add** to add a new scope mapping or click
 **List** to view a list of existing scopes.
 
 -   When adding scopes, you can assign claims to a scope by entering a
@@ -36,7 +36,7 @@ under **Manage** . Click **Add** to add a new scope mapping or click
     from the dropdown that appears once you click the **Add OIDC Claim**
     button as indicated below. Click **Finish** to add the new scope
     claim mapping.  
-    ![](attachments/103329591/103329592.png)
+    ![]( ../../assets/img/103329591/103329592.png)
 -   Listing the scopes can be done clicking on the **List** button. You
     can add and remove claims from the scope by using the **Add claims**
     and **Update** buttons respectively. You can also delete a scope

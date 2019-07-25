@@ -11,11 +11,11 @@ password. Follow the steps below to configure the count.
 1.  Login to the management console.
 2.  Click **Resident** under **Identity Providers** in the **Main** tab
     of the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Expand the **Password Policies** tab.
 4.  Expand the **Password History** tab and select **Enable Password
-    History Feature** . Specify the **Password History Validation
-    Count** and click **Update** .
+    History Feature**. Specify the **Password History Validation
+    Count** and click **Update**.
 
     !!! note
     
@@ -26,7 +26,7 @@ password. Follow the steps below to configure the count.
     
 
       
-    ![](attachments/103330507/103330508.png){width="696"}
+    ![]( ../../assets/img/103330507/103330508.png) 
 
 **Related Links**
 

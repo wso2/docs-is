@@ -30,7 +30,7 @@ trusted by the CA, i.e., the SSL connection to the peer is terminated.
     
     To learn about configuring the X509 certificate authenticator, see
     [Configuring X509Certificate
-    Authenticator](_Configuring_X509Certificate_Authenticator_) .
+    Authenticator](_Configuring_X509Certificate_Authenticator_).
     
 
 Explore the following sections below to configure CRL and OCCP for
@@ -221,7 +221,7 @@ CRL validation by the self signed CA as mentioned below.
     
     As mentioned in [Configure CRL and OCSP
     URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-    , the <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
+   , the <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
     CA. In order to test the revocation of certificates through a CRL from
     our end, generate an own CRL and upload it to the own CRL URL. The CRL
     URL should be configured in the
@@ -266,7 +266,7 @@ OCSP validation by the self signed CA as mentioned below.
     
     As mentioned in [Configure CRL and OCSP
     URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-    , the <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
+   , the <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
     CA. In order to test the revocation of certificates through OCSP from
     our end, generate an own OCSP. This OCSP should be configured in the
     `             validation.cnf            ` file.
@@ -361,19 +361,19 @@ other validator configurations.
 
 1.  Sign in to the WSO2 IS Management Console with one of the following
     URLs using `               admin              ` as the **username**
-    and **password** .
+    and **password**.
 
     ``` java
     For HTTP  --> http://<HTTP_HOST>:9776/carbon
     For HTTPS --> https://<HTTPS_HOST>:9443/carbon
     ```
 
-2.  On the **Main** tab, click **Registry \> Browse** .  
-    ![](attachments/103328122/103328123.png){width="200"}
+2.  On the **Main** tab, click **Registry \> Browse**.  
+    ![](attachments/103328122/103328123.png) 
 3.  Enter the registry path
     `              /_system/governance/repository/security/certificate/validator             `
-    to the **Location** text box and click **Go** .  
-    ![](attachments/103328122/103328124.png){width="700"}
-4.  To update the properties, expand **Properties** .
+    to the **Location** text box and click **Go**.  
+    ![](attachments/103328122/103328124.png) 
+4.  To update the properties, expand **Properties**.
 
-    ![](attachments/103328122/103328125.png){width="900"}
+    ![](attachments/103328122/103328125.png) 

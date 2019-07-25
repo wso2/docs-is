@@ -1,9 +1,9 @@
 # Rule Based Provisioning
 
-Under [Outbound Provisioning](_Outbound_Provisioning_) , in general, we
+Under [Outbound Provisioning](_Outbound_Provisioning_), in general, we
 have discussed how to provision users to trusted identity providers. In
 this document, we discuss how to provision users based on defined
-[XACML](_Access_Control_and_Entitlement_Management_) rules. This is the
+[XACML](../../getting-started/access-control-and-entitlement-management) rules. This is the
 rule-based method of role-based provisioning
 
 To get a better understanding of rule-based provisioning, let's look a
@@ -116,7 +116,7 @@ Follow the steps given below:
     </tbody>
     </table>
 
-    ![](attachments/103329711/103329714.png){width="900" height="542"}
+    ![]( ../../assets/img/103329711/103329714.png) 
 
     For this scenario your are configuring Google but if you prefer you
     can use Salesforce, SCIM or SPML too.
@@ -131,19 +131,19 @@ Follow the steps given below:
     select the provisioning connector you just configured above. Let's
     say we have configured an IDP named "wso2IDP" which used Google
     outbound provisioning connector.
-8.  Click on the **+** button and add **wso2IDP** ,  then select the
+8.  Click on the **+** button and add **wso2IDP**,  then select the
     ****Enable Rules**** in order to enable rules during provisioning.
     Click **Update** to save.  
-    ![](attachments/103330154/103330158.png)  
+    ![]( ../../assets/img/103330154/103330158.png)  
     If you wish to configure outbound provisioning under Resident
     Service Provider configurations, Click **Resident** under **Service
     Providers** and expand the **Outbound Provisioning Configuration**
     section. Select the **Enable Rules** and **Blocking** checkboxes and
-    click **Update** . Blocking will block the provisioning(user
+    click **Update**. Blocking will block the provisioning(user
     creation in the second IDP) till the rule completely evaluate and
     get the response back to the WSO2 IDP.
 
-    ![](attachments/103330154/103330157.png)
+    ![]( ../../assets/img/103330154/103330157.png)
 
 Now you are done with configuring outbound provisioning. Since we are
 enabling rules here, we have to enforce some XACML rules. To do that,
@@ -163,12 +163,12 @@ the policy according to our requirement.
     placeholders for different types of policies. For a full list of the
     available XACML policy templates, see [Writing an XACML Policy using
     a Policy
-    Template](https://docs.wso2.com/display/IS540/Writing+a+XACML+Policy+using+a+Policy+Template)
+    Template](../../tutorials/writing-a-xacml-policy-using-a-policy-template)
     .
 
-    ![](attachments/103330154/103330162.png){width="900"}
+    ![]( ../../assets/img/103330154/103330162.png) 
 
-3.  Once you click **Edit** , the XML based policy will appear in the
+3.  Once you click **Edit**, the XML based policy will appear in the
     policy editor. There are placeholders in capitals for entering the
     service provider and role names.
 
@@ -273,19 +273,19 @@ the policy according to our requirement.
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy
     will remain unchanged for later use).  
-    ![](attachments/103330154/103330161.png){width="900"}
+    ![]( ../../assets/img/103330154/103330161.png) 
 
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![](attachments/103330154/103330160.png)
+    ![]( ../../assets/img/103330154/103330160.png)
 8.  On the UI that appears, leave the default selected values as they
-    are and click **Publish** .  
-    ![](attachments/103330154/103330166.png){height="250"}
+    are and click **Publish**.  
+    ![]( ../../assets/img/103330154/103330166.png){height="250"}
 
     !!! note
     
         For more information on Publishing an XACML policy, click
-        [here](https://docs.wso2.com/display/IS540/Publishing+a+XACML+Policy)
+        [here](../../tutorials/publishing-a-xacml-policy)
         .
     
 
@@ -294,14 +294,14 @@ the policy according to our requirement.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
       
-    ![](attachments/103330154/103330159.png){height="250"}
+    ![]( ../../assets/img/103330154/103330159.png){height="250"}
 11. To test out whether the policy works, follow the **Step3: Try it
     out** section.
 
 If you want to write a more complicated policy, you can use the XACML
 policy editors available. For more information, read [How to create
 XACML
-Policy](https://docs.wso2.com/display/IS540/Creating+a+XACML+Policy)
+Policy](../../tutorials/creating-a-xacml-policy)
 
 #### Step3: Try it out
 

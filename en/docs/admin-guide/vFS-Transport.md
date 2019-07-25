@@ -14,7 +14,7 @@ to be configured. Rather, it has a set of service level parameters that
 needs to be specified for each service. VFS transport implementation is
 mainly used and mostly effective in the WSO2 ESB.
 
-Carbon VFS transport supports the **FTPS protocol** . Configuration is
+Carbon VFS transport supports the **FTPS protocol**. Configuration is
 identical to other protocols with the only difference being the URL
 prefixes.
 

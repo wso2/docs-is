@@ -14,7 +14,7 @@ can create a .jar file as described below.
 
 Following is the hierarchy where we need to structure this new handler.
 
-![](attachments/103330095/103330097.png)
+![]( ../../assets/img/103330095/103330097.png)
 
 We need to add a separate handler for each operation we need to add
 workflow support. In this example to implement workflow support for SP
@@ -220,9 +220,9 @@ After adding the .jar file of this handler to the
 will see the new operation category and the operation is available to
 select when adding a new workflow engagement.
 
-![](attachments/103330095/103330098.png)
+![]( ../../assets/img/103330095/103330098.png)
 
-![](attachments/103330095/103330096.png)
+![]( ../../assets/img/103330095/103330096.png)
 
 A sample handler implementation is available
 [here](https://github.com/wso2/product-is/tree/v5.3.0/modules/samples/workflow)

@@ -27,7 +27,7 @@ This connector allows the users to be:
 Before you begin:
 
 -   Register a new application using the [Microsoft App Registration
-    Portal](https://apps.dev.microsoft.com/) . For instructions on how
+    Portal](https://apps.dev.microsoft.com/). For instructions on how
     to do this, see [Registering an
     application](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_register_app_v2)
     in the Microsoft documentation. !!! note
@@ -85,7 +85,7 @@ Before you begin:
     
 
 -   Add a new domain to Office 365 using the [Office 365 Admin
-    Portal](https://portal.office.com/adminportal/home) . For
+    Portal](https://portal.office.com/adminportal/home). For
     instructions on how to do this, see [Add A Domain to Office
     365](https://support.office.com/en-us/article/add-a-domain-to-office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611)
     in the Microsoft documentation.
@@ -140,13 +140,13 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     <tr class="even">
     <td>Client ID</td>
     <td>The application ID used to register the app in the <a href="https://apps.dev.microsoft.com/">Microsoft App Registration Portal<br />
-    </a> (see the prerequisites for more information) .</td>
+    </a> (see the prerequisites for more information).</td>
     <td>7d7d8f46-7184-4dc7-a198-4554dadc1197</td>
     </tr>
     <tr class="odd">
     <td>Client Secret</td>
     <td>The application secret used to register the app in the <a href="https://apps.dev.microsoft.com/">Microsoft App Registration Portal</a><br />
-    (see the prerequisites for more information) .</td>
+    (see the prerequisites for more information).</td>
     <td><br />
     </td>
     </tr>
@@ -172,7 +172,7 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     </tr>
     <tr class="even">
     <td><p>Append Domain Name to UPN</p></td>
-    <td><p>If this is set to <strong>true</strong> , the domain name is appended to the UPN if it is not already there.</p></td>
+    <td><p>If this is set to <strong>true</strong>, the domain name is appended to the UPN if it is not already there.</p></td>
     <td><p>true</p>
     <br />
 
@@ -236,7 +236,7 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     1.  Expand **Role Configuration** section.
 
     2.  Enter the provisioning roles.  
-        ![](attachments/97567237/97567306.png){width="705" height="139"}
+        ![](attachments/97567237/97567306.png) 
 
 7.  Click **Register** to save the changes.
 
@@ -259,7 +259,7 @@ to the Azure AD.
 4.  Select the identity provider you created for Office365 outbound
     provisioning from the drop down menu. Click **\[+\]** to add it as a
     service provider.  
-    ![](attachments/97567237/97567324.png){width="810" height="235"}
+    ![](attachments/97567237/97567324.png) 
 
 5.  Click **Update** to save changes.
 
@@ -285,7 +285,7 @@ Follow the instructions below to try out this scenario.
 2.  Click on the **http://wso2.org/claims** claim dialect.
 3.  Click **Edit** on the **Display Name** claim and select **Supported
     By Default** to enable the claim.  
-    ![](attachments/97567237/97568356.png){width="892" height="506"}
+    ![](attachments/97567237/97568356.png) 
 4.  Click **Update** to save.
 5.  Similarly, enable all the claims that you configured in the outbound
     provisioning configuration of the office365 identity provider.  
@@ -298,22 +298,22 @@ Follow the instructions below to try out this scenario.
 
 2.  Click **Add New User** and create a user with the username 'john’.
 
-    ![](attachments/97567237/97568307.png){width="302" height="250"}
+    ![](attachments/97567237/97568307.png) 
 
-3.  Click **Finish** . You will see the user you just created listed on
+3.  Click **Finish**. You will see the user you just created listed on
     the screen.
 4.  Click **User Profile** to edit John's user profile and add claim
     values for the claims you configured in the Office365 connector IdP
     configurations.
 
     In this scenario,
-    `                         Username                       ` ,
-    `                         Display Name                       ` , and
+    `                         Username                       `,
+    `                         Display Name                       `, and
     `                         User ID                       `
     `                                   ` are mandatory attributes for
     user provisioning and group assigning.
 
-    ![](attachments/97567237/97569993.png){width="651"}
+    ![](attachments/97567237/97569993.png) 
 
 5.  Click **Update** to save the changes.
 
@@ -343,21 +343,21 @@ Follow the instructions below to try out this scenario.
     specifies that any users that belong to the '
     `          Engineering         ` ' should be provisioned directly to
     the `          Engineering         ` user group.  
-    ![](attachments/97567237/97569994.png){width="727"}
+    ![](attachments/97567237/97569994.png) 
 
 #### Assign the role
 
 1.  Login to the WSO2 IS management console.
 2.  Click **Add** under **Users and Roles** and then click **Create New
-    Role** .
+    Role**.
 3.  Create two new roles named ' `          office365role         ` '
     and ' `          Engineering         ` '.  
-    ![](attachments/97567237/97568332.png){width="234" height="189"}
+    ![](attachments/97567237/97568332.png) 
 4.  Assign login permissions to the roles.
 5.  Assign the user 'john' to the roles '
     `          office365role         ` ' and '
     `          Engineering         ` .  
-    ![](attachments/97567237/97569996.png){width="553"}
+    ![](attachments/97567237/97569996.png) 
 
 When the role is assigned to the user, the user is provisioned to the
 AzureAD. This may take a few seconds.
@@ -369,4 +369,4 @@ roles, the dynamic membership rule is satisfied. Therefore, John is
 directly added to the ' `         Engineering        ` ' group at the
 point of provisioning.
 
-![](attachments/97567237/97569998.png){width="887"}
+![](attachments/97567237/97569998.png) 

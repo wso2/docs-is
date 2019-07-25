@@ -119,7 +119,7 @@ requirements.
     Clustering is used to invalidate local caches of nodes, by notifying
     over cluster messages, as cache updates happen.
 
-    ![](attachments/103329471/103329475.png){width="680" height="466"}  
+    ![](attachments/103329471/103329475.png)   
 
 !!! tip
     
@@ -127,7 +127,7 @@ requirements.
     
     To set up and configure clustered deployment of WSO2 Identity Server
     according to clustering pattern 1, see [Setting Up Deployment Pattern
-    1](_Setting_Up_Deployment_Pattern_1_) .
+    1](_Setting_Up_Deployment_Pattern_1_).
     
 
 **Open ports**
@@ -167,7 +167,7 @@ Ports to be opened with respect to clustering membership scheme used
     events. The other node will keep its state synced with the active
     node.
 
-![](attachments/103329471/103329474.png){width="760" height="843"}  
+![](attachments/103329471/103329474.png)   
   
 
 The Analytics dashboards are to be used by administrators to analyze
@@ -183,7 +183,7 @@ Analytics cluster as well.
     
     To set up and configure clustered deployment of WSO2 Identity Server
     according to clustering pattern 2, see [Setting Up Deployment Pattern
-    2](_Setting_Up_Deployment_Pattern_2_) .
+    2](_Setting_Up_Deployment_Pattern_2_).
     
 
 **Open ports**

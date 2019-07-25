@@ -8,8 +8,8 @@ Use the following steps to add a datasource:
 
 1.  In the product management console, click **Data Sources** on the
     **Configure** tab.  
-    ![](http://docs.wso2.org/wiki/download/attachments/4885163/1.png?version=2&modificationDate=1327323080000){width="150"}
-2.  Click **Add Data Source** .
+    ![](http://docs.wso2.org/wiki/download/attachments/4885163/1.png?version=2&modificationDate=1327323080000) 
+2.  Click **Add Data Source**.
 3.  Specify the required options for connecting to the database. The
     available options are based on the type of datasource you are
     creating:  

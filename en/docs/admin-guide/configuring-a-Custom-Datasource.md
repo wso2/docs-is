@@ -3,14 +3,14 @@
 When adding a datasource, if you select the custom datasource type, the
 following screen will appear:
 
-![](attachments/53125523/53287621.png){width="500"}
+![](attachments/53125523/53287621.png) 
 
 Following are descriptions of the custom datasource fields:
 
 -   **Data Source Type** : Custom
 -   **Custom Data Source Type** : Specify whether the data is in a table
     or accessed through a query as described
-    [below](#ConfiguringaCustomDatasource-CusDSType) .
+    [below](#ConfiguringaCustomDatasource-CusDSType).
 -   **Name** : Enter a unique name for this datasource
 -   **Description** : Description of the datasource
 -   **Configuration** : XML configuration of the datasource
@@ -56,7 +56,7 @@ datasource.
 
 For more information, see a sample implementation of a custom
 query-based datasource at
-`                   EchoDataSource                 ` , and a sample data
+`                   EchoDataSource                 `, and a sample data
 service descriptor with custom query datasources in
 `                   InMemoryDSSample                 ` . Carbon
 datasources also support query-based data with the
@@ -69,7 +69,7 @@ file, which is a sample Carbon datasource configuration.
 In the `         init        ` methods of all custom datasources,
 user-supplied properties will be parsed to initialize the datasource
 accordingly. Also, a property named
-`         <__DATASOURCE_ID__>        ` , which contains a UUID to
+`         <__DATASOURCE_ID__>        `, which contains a UUID to
 uniquely identify the current datasource, will be passed. This can be
 used by custom datasource authors to identify the datasources
 accordingly, such as datasource instances communicating within a server
@@ -78,7 +78,7 @@ cluster for data synchronization.
 Shown below is an example configuration of a custom datasource of type
 `         <DS_CUSTOM_TABULAR>        ` :
 
-![](attachments/53125523/53287622.png){width="600"}
+![](attachments/53125523/53287622.png) 
 
 After creating datasources, they will appear on the **Data Sources**
 page. You can edit and delete them as needed by clicking **Edit** or

@@ -17,27 +17,27 @@ Applications](#PackagingArtifactsintoCompositeApplications-Packagingindividualar
 1.  Open the Tooling interface with all the artifacts/projects that you
     created. For example, shown below is an ESB mediation sequeance
     created with ESB artifacts.  
-    ![](attachments/50521962/119114531.png){width="900" height="412"}
+    ![](attachments/50521962/119114531.png) 
 2.  Right-click the **Project Explorer** and click **New -\> Project**
     .  
-    ![](attachments/50521962/119114532.png){width="900" height="379"}
+    ![](attachments/50521962/119114532.png) 
 3.  From the window that opens, click **Composite Application Project**
     .  
-    ![](attachments/50521962/51252779.png){width="500"}
+    ![](attachments/50521962/51252779.png) 
 4.  Give a name to the **Composite Application** project and select the
     projects that you need to group into your C-App from the list of
     available projects below. For example,  
-    ![](attachments/50521962/119114537.png){width="500" height="548"}
+    ![](attachments/50521962/119114537.png) 
 5.  In the **Composite Application Project POM Editor** that opens,
-    under **Dependencies** , note the information for each of the
+    under **Dependencies**, note the information for each of the
     projects you selected earlier. You can also change the project
     details here.  
-    ![](attachments/50521962/119114534.png){width="800" height="392"}
+    ![](attachments/50521962/119114534.png) 
 
 #### Creating a Composite Application Archive (CAR) file
 
 To [deploy a C-App via the product's management
-console](_Deploying_Composite_Applications_in_the_Server_) , you will
+console](_Deploying_Composite_Applications_in_the_Server_), you will
 need to first create a Composite Application Archive (CAR) file of that
 C-App.
 
@@ -62,7 +62,7 @@ OR
 
 You have now exported all your project's artifacts into a single CAR
 file. Next, [deploy the Composite Application in the
-server](_Deploying_Composite_Applications_in_the_Server_) .
+server](_Deploying_Composite_Applications_in_the_Server_).
 
 !!! note
     
@@ -81,7 +81,7 @@ server](_Deploying_Composite_Applications_in_the_Server_) .
 You can also create separate deployable artifacts for each individual
 artifact in your project. For example, suppose you created an Apache
 Axis2 Service. When you right-click the Axis2 Service Project, there is
-an option called **Export Project as Deployable Archive** . It creates
+an option called **Export Project as Deployable Archive**. It creates
 the relevant deployable archive in a location you specify.
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to
@@ -102,4 +102,4 @@ artifact type.
 | Registry Resource            | Registry Resource with necessary metadata |
 | Third Party Library Artifact | .jar (OSGI Bundle)                        |
 
-![](attachments/50521962/57744665.png){width="800"}
+![](attachments/50521962/57744665.png) 

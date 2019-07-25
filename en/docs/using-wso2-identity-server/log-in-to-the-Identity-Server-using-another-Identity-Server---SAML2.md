@@ -23,7 +23,7 @@ this scenario:
 ### Setting up the WSO2 Identity Server instances
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server) .
+    [here](http://wso2.com/products/identity-server).
 2.  Extract the file to a dedicated directory. For the purposes of this
     scenario, this is referred to as
     `          <IS_HOME_PRIMARY>         ` in this topic.
@@ -60,26 +60,26 @@ Server as an identity provider (IdP) in the primary Identity Server.
 
 1.  Go to the Management Console of the primary IS.
 2.  Navigate to the **Identity Providers** section in the **Main** menu
-    and click **Add** .
+    and click **Add**.
 3.  Enter “Secondary" as the **Identity Provider Name** for this
     scenario.
 4.  Expand the **Federated Authenticators** section and then expand the
     **SAML2 Web SSO** **Configuration** section.  
-    ![](attachments/103329916/103329919.png){width="645"}
+    ![]( ../../assets/img/103329916/103329919.png) 
 
 5.  Make the following changes.
     1.  Select the **Enable SAML2 Web SSO** check box.
     2.  Enter `            Secondary IDP           ` as the **Identity
-        Provider Entity Id** .
+        Provider Entity Id**.
     3.  Enter `            Primary           ` as the **Service Provider
-        Entity Id** .
+        Entity Id**.
     4.  Enter `             https://localhost:9444/samlsso/            `
-        as the **SSO URL** . This is the SAML2 SSO URL of the secondary
+        as the **SSO URL**. This is the SAML2 SSO URL of the secondary
         IS.
 
     5.  Select the **Enable Logout** check box.
 
-6.  Click **Register** . The new identity provider named 'Secondary' is
+6.  Click **Register**. The new identity provider named 'Secondary' is
     listed under **List** (go to **Main** menu and click **List** under
     **Identity Providers** ).
 
@@ -93,15 +93,15 @@ in the secondary IS instance.
     the following URL: <https://localhost:9444/carbon>
 
 2.  Navigate to the **Main** menu and click **Add** under **Service
-    Providers** . Enter service provider name as 'PrimaryIDP' for this
+    Providers**. Enter service provider name as 'PrimaryIDP' for this
     sample scenario.
 
-3.  Click **Register** .
+3.  Click **Register**.
 
 4.  In the form that appears, expand the **Inbound Authentication
     Configuration** and **SAML2 Web SSO Configuration** sections.
 
-5.  Click **Configure** .
+5.  Click **Configure**.
 
 6.  Enter the following details in the form.
 
@@ -109,13 +109,13 @@ in the secondary IS instance.
 
     2.  Enter
         `                           https://localhost:9443/commonauth                         `
-        as **Assertion Consumer URL** .
+        as **Assertion Consumer URL**.
 
-    3.  Select **Enable Response Signing** .
+    3.  Select **Enable Response Signing**.
 
-    4.  Select **Enable Single Logout** .
+    4.  Select **Enable Single Logout**.
 
-7.  Click **Update** and then click **Register** . The primary Identity
+7.  Click **Update** and then click **Register**. The primary Identity
     Server instance is added as the service provider in the secondary
     Identity Server instance.
 
@@ -138,18 +138,18 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     topic.
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and
-    click **List** under **Service Providers** . Click **Edit** next to
+    click **List** under **Service Providers**. Click **Edit** next to
     the service provider you created.
 3.  Expand the **Local & Outbound Authentication Configuration**
     section. Here we set the travelocity client to use the primary IS
     instance and the identity provider named 'Secondary' also as its
     identity provider. For this we have to add authentication steps.  
-    ![](attachments/103329916/103329922.png){width="604"}  
+    ![]( ../../assets/img/103329916/103329922.png)   
     1.  Click **Advanced Configuration** and from next UI, click
-        **Add Authentication Step** .
+        **Add Authentication Step**.
     2.  Under **Local Authenticators** add the “ **basic** ”
         authenticator by selecting it from the combo box and clicking
-        **Add Authenticator** .
+        **Add Authenticator**.
     3.  Under **Federated Authenticators** select “Secondary” and add
         it.
     4.  Click **Update** to save your changes.
@@ -158,10 +158,10 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     can select either the primary IS instance or secondary IS instance
     as the identity provider and therefore has access to both user
     spaces.
-5.  Go to <https://localhost:9443/carbon> , the primary IS instance, and
+5.  Go to <https://localhost:9443/carbon>, the primary IS instance, and
     create a user named 'primaryuser' and set the password as
     'primepass'.
-6.  Go to <https://localhost:9444/carbon> , the secondary IS instance
+6.  Go to <https://localhost:9444/carbon>, the secondary IS instance
     and create a user named 'secondaryuser' and set the password as
     'secondpass'.
 7.  Test your application.
@@ -171,16 +171,16 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     2.  Go to
         [http://wso2is.local:8080/travelocity.com](http://localhost:8080/travelocity.com)
         . This is the client application.  
-        ![](attachments/103329916/103329917.png){width="500"}
+        ![]( ../../assets/img/103329916/103329917.png) 
     3.  Since we are using SAML for authentication, click the link in
         the first line.
     4.  In the resulting screen, log in with the username 'primaryuser'
         and the password 'primepass' for authentication as a local user
         in the primary IS instance.  
           
-        ![](attachments/103329916/103329920.png){width="320"}  
+        ![]( ../../assets/img/103329916/103329920.png)   
         If you wish to authenticate a user in the secondary IS instance
         which is the secondary IdP, click “Secondary” under **Other
-        login options** . In the resulting screen, log in using the
+        login options**. In the resulting screen, log in using the
         username “secondaryuser' and password 'secondpass'. These
         credentials were created in the secondary IS instance.

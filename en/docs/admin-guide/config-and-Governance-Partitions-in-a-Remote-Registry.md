@@ -8,7 +8,7 @@ registry that is shared across each node of the cluster. A separate
 instance of the WSO2 Governance Registry is used to provide the space
 used in common.
 
-![](attachments/21037149/21331972.png){width="350"}
+![](attachments/21037149/21331972.png) 
 
 Figure 2: Config and governance partitions in the remote Governance
 Registry instance .  
@@ -131,7 +131,7 @@ sh wso2server.sh -Dsetup
     `          -DSetup         ` option is redundant and typically unusable.
     **As a result, from [January 2018
     onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`           -DSetup          `** **option** . Note
+    deprecated the** **`           -DSetup          `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the
@@ -149,7 +149,7 @@ configuration of Carbon server nodes that use the shared, remote
 registry.  
 
 1\. Download and extract the relevant WSO2 product distribution from the
-'Products' menu of [https://wso2.com](https://wso2.com/) . In this
+'Products' menu of [https://wso2.com](https://wso2.com/). In this
 example, we use two server instances (of any product) by the names
 CARBON-Node1 and CARBON-Node2.
 
@@ -293,10 +293,10 @@ instances.
 3\. Start both servers and note the log entries that indicate successful
 mounting to the remote Governance Registry instance. For example,
 
-![](attachments/21037149/21332021.png){width="700"}  
+![](attachments/21037149/21332021.png)   
 
 4\. Navigate to the registry browser in the Carbon server's management
 console and note the config and governance partitions indicating
 successful mounting to the remote registry instance. For example,
 
-![](attachments/21037149/21332022.png){width="350"}
+![](attachments/21037149/21332022.png) 

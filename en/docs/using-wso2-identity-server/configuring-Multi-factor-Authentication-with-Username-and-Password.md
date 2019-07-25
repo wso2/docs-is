@@ -4,14 +4,14 @@ This scenario involves obtaining the username first and validating that
 prior to autenticating the user using the password.
 
 1.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
     Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) .
+    Provider](_Adding_and_Configuring_a_Service_Provider_).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
@@ -19,7 +19,7 @@ prior to autenticating the user using the password.
     2.  Click **Register** to add the new service provider.
 
 4.  Access the service provider you just created and expand **Local &
-    Outbound Authentication Configuration** .
+    Outbound Authentication Configuration**.
 
     For more information on configuring the local and outbound
     authentication configuration, see [Configuring Local and Outbound
@@ -27,13 +27,13 @@ prior to autenticating the user using the password.
     Provider](_Configuring_Local_and_Outbound_Authentication_for_a_Service_Provider_)
     .
 
-    ![](attachments/103329856/103329860.png)
+    ![]( ../../assets/img/103329856/103329860.png)
 
       
 
 5.  Select **Advanced Configuration** to configure multi-factor
     authentication.
-6.  Click **Add Authentication Step** . Then add a local authenticator
+6.  Click **Add Authentication Step**. Then add a local authenticator
     from **Local Authenticators** section. Select **identifier** from
     the dropdown. This is used to identify the user.
 
@@ -48,7 +48,7 @@ prior to autenticating the user using the password.
 7.  Click **Add** **Authentication** **step** and add the **basic**
     authenticator from ****Local Authenticators**** section.  This will
     enable the password as the 2nd step authenticator.  
-    ![](attachments/103329856/103329859.png)
+    ![]( ../../assets/img/103329856/103329859.png)
 8.  Click the **Update** button. This navigates you to the previous
     screen with your newly configured authentication steps.
 
@@ -70,9 +70,9 @@ to `          true         ` .
 
 1.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
-2.  Enter the username and click **NEXT** .  
-    ![](attachments/103329856/103329857.png)
-3.  Enter the password and click **SIGN IN** .  
-    ![](attachments/103329856/103329858.png)
+2.  Enter the username and click **NEXT**.  
+    ![]( ../../assets/img/103329856/103329857.png)
+3.  Enter the password and click **SIGN IN**.  
+    ![]( ../../assets/img/103329856/103329858.png)
 
   

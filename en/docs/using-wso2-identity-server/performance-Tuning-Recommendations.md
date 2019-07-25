@@ -125,7 +125,7 @@ file as shown below.
 
 -   JVM heap size (Xmx) depends on your load. Given below are the
     general settings but if you are on a production environment, this
-    might not be sufficient . In such situations , you can increase the
+    might not be sufficient . In such situations, you can increase the
     heap size accordingly .
 
     For instance, if you want to increase the JVM heap size to 4GB, open
@@ -169,4 +169,4 @@ create index
 
 If you want to remove unused tokens from the database, see [Removing
 Unused Tokens from the
-Database](_Removing_Unused_Tokens_from_the_Database_) .
+Database](_Removing_Unused_Tokens_from_the_Database_).

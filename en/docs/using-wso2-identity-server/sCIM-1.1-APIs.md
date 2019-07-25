@@ -17,7 +17,7 @@ Identity Server. For simplicity, cURL commands are used in this example
 to send CRUD requests to the REST endpoints of Identity Server.
 
 To execute these commands, you need to [Download the WSO2 Identity
-Server](http://wso2.com/products/identity-server/) , unzip it and run
+Server](http://wso2.com/products/identity-server/), unzip it and run
 it.
 
 -   Navigate to the *SCIM User Endpoint* at the following URL:
@@ -42,7 +42,7 @@ exchanged and also protected with Basic Auth Authentication.
     quick start. **In a production environment, we recommend that you use
     OAuth Authentication instead.** For instructions, see [Setting Up
     Service Provider for Inbound
-    Provisioning](_Setting_Up_Service_Provider_for_Inbound_Provisioning_) .
+    Provisioning](_Setting_Up_Service_Provider_for_Inbound_Provisioning_).
     
 
 Before you begin working with SCIM APIs, make sure that the following
@@ -89,10 +89,10 @@ UserStoreManager configuration is set in the
     Do the following to test this.
 
 -   -   Log in to the WSO2 Identity Server [management
-        console](_Getting_Started_with_the_Management_Console_) using
+        console](../../setup/getting-started-with-the-management-console) using
         admin credentials (admin/admin).
     -   Click **List** under the **Users and Roles** section on the
-        **Main** tab and then select **Users** . You will see that
+        **Main** tab and then select **Users**. You will see that
         the user created above is listed.
     -   Click on **User Profile** to view the user profile of the user
         you created. You will see that only the user's first and last

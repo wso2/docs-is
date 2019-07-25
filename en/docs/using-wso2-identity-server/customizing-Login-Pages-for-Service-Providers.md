@@ -43,10 +43,10 @@ customized one.
     -   To ensure you get the full understanding of customizing the login
         page with WSO2 IS, the sample travelocity application is used in
         this use case. Therefore, make sure to [download the
-        samples](_Downloading_a_Sample_) before you begin.
+        samples](../../using-wso2-identity-server/downloading-a-sample) before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](https://docs.wso2.com/display/IS540/Installation+Prerequisites)
@@ -101,14 +101,14 @@ customized one.
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![](attachments/103330112/103330125.png){width="594"}
+    ![]( ../../assets/img/103330112/103330125.png) 
 
     **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![](attachments/103330112/103330124.png){width="597"}
+    ![]( ../../assets/img/103330112/103330124.png) 
 
 #### Registering the two service providers in WSO2 Identity Server
 
@@ -116,19 +116,19 @@ customized one.
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
-    **Add** .
+    **Add**.
 3.  Enter `          travelocity.com         ` as the **Service Provider
-    Name** in the form that appears and click **Register** . The Service
+    Name** in the form that appears and click **Register**. The Service
     Providers page appears.  
-    ![](attachments/103330112/112392626.png){width="750"}
+    ![]( ../../assets/img/103330112/112392626.png) 
 4.  Under the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO Configuration \> Configure** . The Register New
+    **SAML2 Web SSO Configuration \> Configure**. The Register New
     Service Provider page appears.  
-    ![](attachments/103330112/112392631.png){width="750"}
+    ![]( ../../assets/img/103330112/112392631.png) 
 5.  Configure the following details for travelocity.com and repeat steps
     1 to 6 and configure details for avis.com.
 
-    ![](attachments/103330112/112392636.png){width="750"}
+    ![]( ../../assets/img/103330112/112392636.png) 
 
     **travelocity.com**
 
@@ -151,7 +151,7 @@ customized one.
     page located at
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp         `
     .  
-    ![](attachments/103330112/103330122.png){width="843"}
+    ![]( ../../assets/img/103330112/103330122.png) 
 
 #### Configuring the login page
 
@@ -191,14 +191,14 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![](attachments/103330112/103330120.png)
+![]( ../../assets/img/103330112/103330120.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
 `         org.wso2.carbon.identity.application.authentication.endpoint.util        `
 . This bundle includes a filter called the
 `         org.wso2.carbon.identity.application.authentication.endpoint.util.filter        `
-. `         AuthenticationEndpointFilter        ` , `        ` which
+. `         AuthenticationEndpointFilter        `, `        ` which
 acts as the Front Controller.
 
 When a request is made to the **authenticationendpoint** web
@@ -287,6 +287,6 @@ When customizing the pages, ensure that the following is applied.
     authenticationendpoint.
 4.  Log in to the [Travelocity.com](http://Travelocity.com) web app
     again. You are presented with a different page.  
-    ![](attachments/103330112/103330130.png){width="713"}  
-    If you access [Avis.com](http://Avis.com) , it still displays the
+    ![]( ../../assets/img/103330112/103330130.png)   
+    If you access [Avis.com](http://Avis.com), it still displays the
     default login page.

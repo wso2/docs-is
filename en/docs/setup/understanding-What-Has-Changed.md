@@ -110,7 +110,7 @@ what has changed and prepare for migration impact.
 </div></td>
 <td><div class="content-wrapper">
 <p><strong>Use case:</strong> WSO2 IS uses a configuration property to determine the private key that should be used to sign the JWTs issued by the WSO2 Identity Server.</p>
-<p><strong>Change:</strong> In IS 5.7.0 the configuration property is set to 'false' by default, which means the JWTs such as <code>               Id token              </code> , <code>               Request Object              </code> , <code>               Self Contain access token              </code> etc., are signed using the private key of the authorized user's tenant domain keystore. From IS 5.8.0 onwards, the default value is set to 'true', which means that JWTs issued from WSO2 IS are signed with the private key belonging to the service provider's keystore.</p>
+<p><strong>Change:</strong> In IS 5.7.0 the configuration property is set to 'false' by default, which means the JWTs such as <code>               Id token              </code>, <code>               Request Object              </code>, <code>               Self Contain access token              </code> etc., are signed using the private key of the authorized user's tenant domain keystore. From IS 5.8.0 onwards, the default value is set to 'true', which means that JWTs issued from WSO2 IS are signed with the private key belonging to the service provider's keystore.</p>
 <p><strong>Impact:</strong> This only makes a difference if the service provider is a SaaS-enabled one; else the user’s tenant domain and the service provider’s tenant domain are the same. If the service provider is SaaS-enabled and this property is set to false, verifying the signature based on the public key of the keystore of the authorized users the signature verification can fail.</p>
 <p><strong>How to revert: <strong></strong></strong> T o revert back to the previous behavior, change the following property value back to "false" in the <code style="color: rgb(36,41,46);">               &lt;IS_HOME&gt;/repository/conf/identity/identity.xm              </code> l file .</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -545,7 +545,7 @@ attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) . For
+specification](https://tools.ietf.org/html/rfc7643#section-3.3). For
 more details, see [behavioral change \#1 in the behavioral changes
 table](#UnderstandingWhatHasChanged-1) given above.
 
@@ -580,7 +580,7 @@ These handlers are introduced to support the cross-protocol logout
 feature and for migration of existing data publishers to event handlers
 that subscribe to authentication events. For more information about
 migrating existing data publishers to event handlers, see [Migrating
-Data Publishers](_Migrating_Data_Publishers_) .  
+Data Publishers](_Migrating_Data_Publishers_).  
 
 The following properties were added.
 
@@ -671,7 +671,7 @@ been modified to 1440.
 ```
 
 The default value of the following property has been changed from false
-to **true** .
+to **true**.
 
 ``` java
 <SignJWTWithSPKey>true</SignJWTWithSPKey>
@@ -919,7 +919,7 @@ listener logs the audit data for OAuth token issuance and token
 introspection. Adding this property allows you to disable logging, else
 if this property is not present in the configuration file, logging is
 enabled by default. For more information about auditing, see [OAuth
-Transaction Logs](_OAuth_Transaction_Logs_) .
+Transaction Logs](_OAuth_Transaction_Logs_).
 
 `                UserOperationEventListener               ` - This event
 listener is used to support session termination at the point renaming
@@ -1008,7 +1008,7 @@ modified as shown below.
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) .
+specification](https://tools.ietf.org/html/rfc7643#section-3.3).
 
 The following resource found under the \<
 `                ResourceAccessControl>               ` tag has been

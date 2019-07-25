@@ -70,7 +70,7 @@ validators to IS 5.5.0, follow the instructions below:
             `            <scopeValidatorName>           ` place holder in
             the above snippet with
             `            Role based scope validator           ` .
-        -   If you have specified a name for the scope validator in step 1 ,
+        -   If you have specified a name for the scope validator in step 1,
             then replace the `            <scopeValidatorName>           `
             place holder in the above snippet with that name. If you have
             not specified a name for the scope validator, you can use the

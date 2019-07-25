@@ -2,7 +2,7 @@
 
 When you work with WSO2 products, you may host multiple applications
 (Web applications and Jaggery applications) and expose them to external
-users. The **management console** , which is shipped with every WSO2
+users. The **management console**, which is shipped with every WSO2
 product is also an application that is deployed in the Carbon server.
 Before you expose the applications to the external network, be sure to
 configure the security settings for all your applications.
@@ -93,9 +93,9 @@ through HTTP. Use the following URL:
 [http://localhost:\<port\>/carbon/admin/login.jsp](http://localhost:9763/carbon/admin/login.jsp)
 , where `         <port>        ` corresponds to the [HTTP port
 configured](_HTTP_Servlet_Transport_) for the server. The default HTTP
-port for all WSO2 servers is **9763** . However, this may change if a
+port for all WSO2 servers is **9763**. However, this may change if a
 port offset is applied to your server as explained
-[here](_Changing_the_Default_Ports_) .
+[here](_Changing_the_Default_Ports_).
 
 ### Starting the server without the management console
 
@@ -114,7 +114,7 @@ such as: `         sh <PRODUCT_HOME>/bin/wso2server.sh -help.        `
 ### Enabling role-based permissions for the management console
 
 You can grant management console access to selected users by
-[configuring role-based permissions](_Role-based_Permissions_) .
+[configuring role-based permissions](_Role-based_Permissions_).
 
 ### Restricting access to Carbon applications
 
@@ -238,7 +238,7 @@ If the `         HttpHeaderSecurityFilter        ` element is available
 in the web.xml file (stored in the
 `         <         PRODUCT_HOME>        `
 `         /repository/conf/tomcat/carbon/WEB-INF/        ` directory) as
-shown below , it implies that security headers are by default configured
+shown below, it implies that security headers are by default configured
 for the management consoles of all of your profiles. However, in a
 production deployment, ‘Strict-Transport-Security’ needs to be
 explicitly enabled by replacing the default

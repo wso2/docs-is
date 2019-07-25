@@ -67,8 +67,8 @@ configuring your external read-write LDAP as the primary user store.
     have to change some of these values according to your requirements.
     For more information about each of the properties used in the
     `           user-mgt.xml          ` file for configuring the primary
-    user store , see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_) .
+    user store, see [Properties of User
+    Stores](_Working_with_Properties_of_User_Stores_).
 
     ``` html/xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
@@ -169,7 +169,7 @@ configuring your external read-write LDAP as the primary user store.
     5.  Set the `             ReadGroups            ` property to
         'true', if it should be allowed to read roles from this user
         store. When this property is 'true', you must also specify
-        values for the `             GroupSearchBase            ` ,
+        values for the `             GroupSearchBase            `,
         `             GroupSearchFilter            ` and
         `             GroupNameAttribute            ` properties. If the
         `             ReadGroups            ` property is set to
@@ -240,7 +240,7 @@ to, you have the option of creating a new admin user in the user store
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
 about the system administrator user, see [Configuring the System
-Administrator](_Configuring_the_System_Administrator_) .
+Administrator](_Configuring_the_System_Administrator_).
 
 These two alternative configurations can be done as explained below.
 
@@ -275,4 +275,4 @@ These two alternative configurations can be done as explained below.
 ### Step 3: Starting the server
 
 Start your server and try to log in as the admin user you specified in
-**Step 2** .
+**Step 2**.

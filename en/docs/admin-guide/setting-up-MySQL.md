@@ -17,7 +17,7 @@ Follow the steps below to set up a MySQL database:
     command:
 
     For instructions on installing MySQL on MAC OS, go to
-    [Homebrew](http://brew.sh/) .
+    [Homebrew](http://brew.sh/).
 
       
 
@@ -96,7 +96,7 @@ Follow the steps below to set up a MySQL database:
 ### Setting up the drivers
 
 Download the MySQL Java connector [JAR
-file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it
+file](http://dev.mysql.com/downloads/connector/j/5.1.html), and copy it
 to the \< `         PRODUCT_HOME>/repository/components/lib/        `
 directory.
 
@@ -149,4 +149,4 @@ mysql> source <path to the script>\mysql.sql;
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MySQL, see [Changing to
-MySQL](_Changing_to_MySQL_) .
+MySQL](_Changing_to_MySQL_).

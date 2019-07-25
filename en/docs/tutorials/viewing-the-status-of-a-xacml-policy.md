@@ -6,7 +6,7 @@ instructions in this topic.
 1.  Sign in. Enter your username and password to log in to the
     [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
-    Click **Policy Administration** under **PAP** .
+    Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available
     Entitlement Policies** table. Click **View Status** to check the
     current status of the policy you require.  

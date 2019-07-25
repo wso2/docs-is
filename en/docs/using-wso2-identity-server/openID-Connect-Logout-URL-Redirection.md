@@ -22,12 +22,12 @@ Follow the steps below to send an OIDC logout request:
     
     To understand how you can send an OIDC logout request as a POST request,
     see [Sending a POST request as the OIDC logout
-    request](#OpenIDConnectLogoutURLRedirection-post) .
+    request](#OpenIDConnectLogoutURLRedirection-post).
     
 
 1.  Download and install WSO2 Identity Server. For detailed information
     on how to install WSO2 IS, see [Installing the
-    Product](_Installing_the_Product_) .
+    Product](../../setup/installing-the-product).
 
 2.  Access the Management Console via
     `           https://localhost:9443/carbon/          ` .
@@ -55,7 +55,7 @@ Follow the steps below to send an OIDC logout request:
     `           true          ` in the
     `           <IS_HOME>/repository/conf/identity/identity.xml          `
     file, JWT is signed with the application tenant key. If the property
-    is set to `           false          ` , the tenant is decided by
+    is set to `           false          `, the tenant is decided by
     the subject of the id token, although the subject would not contain
     the tenant domain by default. Therefore, you need to enable, **Use
     tenant domain in local subject identifier** in Service Provider
@@ -117,7 +117,7 @@ Follow the steps below to send an OIDC logout request:
     </tr>
     <tr class="even">
     <td><code>               state              </code></td>
-    <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code> , the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
+    <td>The parameter passed from the application to the identity provider to maintain any state information. This is used to correlate the logout requests and responses. If the state parameter is defined as <code>               state_1              </code>, the logout request and response both have <code>               state_1              </code> in them. This makes it easy for the client to identify the request and responses.</td>
     <td>No</td>
     </tr>
     </tbody>
@@ -161,7 +161,7 @@ when you send an OIDC logout request as a POST request:
 
 For descriptions of all the parameters that you need to specify in the
 POST request, see the [parameter descriptions given
-above](#OpenIDConnectLogoutURLRedirection-parameters) .
+above](#OpenIDConnectLogoutURLRedirection-parameters).
 
 Following is the sample HTML form with sample parameter values to render
 the page in a browser:

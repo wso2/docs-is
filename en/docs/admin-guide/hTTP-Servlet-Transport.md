@@ -32,7 +32,7 @@ implementation from Apache Tomcat. So the servlet HTTP transport
 actually accepts any parameter accepted by the connector implementation.
 For the complete list of supported parameters, see [Apache Tomcat's
 connector configuration
-reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html) .
+reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html).
 
 !!! tip
     
@@ -67,7 +67,7 @@ reference](http://tomcat.apache.org/tomcat-7.0-doc/config/http.html) .
 </tr>
 <tr class="odd">
 <td>bindOnInit</td>
-<td>Controls when the socket used by the connector is bound. By default it is bound when the connector is initiated and unbound when the connector is destroyed. If set to <code>             false            </code> , the socket will be bound when the connector is started and unbound when it is stopped.</td>
+<td>Controls when the socket used by the connector is bound. By default it is bound when the connector is initiated and unbound when the connector is destroyed. If set to <code>             false            </code>, the socket will be bound when the connector is started and unbound when it is stopped.</td>
 <td><br />
 </td>
 <td>false</td>
@@ -188,7 +188,7 @@ valid mime types</p></td>
 </table>
 
 This servlet transport implementation can be further tuned up using the
-following parameters for **outbound connections** .
+following parameters for **outbound connections**.
 
 <table style="width:100%;">
 <colgroup>

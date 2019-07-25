@@ -97,7 +97,7 @@ applications.
 !!! Info "Recommended reading"
     For more information on XACML specifications and other related
     information, see [the OASIS 
-    website](http://oasis-open.org/committees/xacml rel="noopener") .
+    website](http://oasis-open.org/committees/xacml rel="noopener").
 
   
 
@@ -164,7 +164,7 @@ help to achieve all of these goals, because XACML:
     	ABAC is an access control paradigm whereby access rights are granted to users through the use of
     	policies which combine attributes together. The policies can use any
     	type of attributes (user attributes, resource attributes, object,
-    	environment attributes etc.). This model supports boolean logic , in
+    	environment attributes etc.). This model supports boolean logic, in
     	which rules contain "IF, THEN" statements about who is making the
     	request, the resource, and the action. For example: IF the requestor is
     	a manager, THEN allow read/write access to sensitive data.
@@ -221,11 +221,11 @@ the following four 'building blocks'.
 
 The WSO2 Identity Server is a major player in the XACML and open source
 world. The Identity Server supports XACML 3.0, which is based on [Balana
-XACML implementation](https://github.com/wso2/balana) . As the source
+XACML implementation](https://github.com/wso2/balana). As the source
 code, distribution and documentation are available for free, it is
 possible to analyze and understand the architecture behind it. You can
 find source code from
-[here](https://svn.wso2.org/repos/wso2/trunk/commons/balana/) .
+[here](https://svn.wso2.org/repos/wso2/trunk/commons/balana/).
 
 This section provides some information regarding the architecture of the
 XACML engine (or the entitlement engine) of the WSO2 Identity Server.
@@ -573,7 +573,7 @@ There are several improvements with Obligations in XACML 3.0 when
 compared to 2.0.
 
 One of the main improvements is the introduction of **Obligation
-Expressions** . This adds dynamic expressions into the obligation
+Expressions**. This adds dynamic expressions into the obligation
 statements. For a more in-depth understanding, see the following
 example:
 
@@ -811,7 +811,7 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
 -   Certain parts of JSON requests and responses have default values to
     avoid bloating. For example, the default value of the data-type of
     an attribute should be
-    [string](https://www.w3.org/2001/XMLSchema#string) .
+    [string](https://www.w3.org/2001/XMLSchema#string).
 
 -   The name of the XACML XML attribute element has changed to the
     category object in JSON so that it is possible to call the parent
@@ -927,11 +927,11 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
     |---------------|--------|----------------------------------------------------------------------|---------------|
     | Decision      | String | Yes. Possible values are: Permit, Deny, NotApplicable, Indeterminate | None.         |
 
--   The results can have the `          status         ` ,
-    `          obligations         ` ,
-    `          associatedAdvice         ` ,
-    `          category         ` , and
-    `          policyIdentifierList         ` , which are optional.
+-   The results can have the `          status         `,
+    `          obligations         `,
+    `          associatedAdvice         `,
+    `          category         `, and
+    `          policyIdentifierList         `, which are optional.
 
 Following is a sample JSON request that you can try out with WSO2
 Identity Server:

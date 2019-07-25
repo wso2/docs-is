@@ -64,7 +64,7 @@ disabling. The following section explain how to configure this.
 
     !!! tip
     
-        **Alternatively** , you can also use the
+        **Alternatively**, you can also use the
         `                         IdentityGovernanceAdminService                       `
         SOAP service to do this instead of using the management console UI.
         See [Calling Admin Services](_Calling_Admin_Services_) for more
@@ -78,7 +78,7 @@ disabling. The following section explain how to configure this.
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330596/103330597.png){width="566" height="250"}
+    ![]( ../../assets/img/103330596/103330597.png) 
 
     !!! tip
     
@@ -86,7 +86,7 @@ disabling. The following section explain how to configure this.
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts** .
+        of **Maximum Failed Login Attempts**.
     
         !!! note
             
@@ -97,7 +97,7 @@ disabling. The following section explain how to configure this.
                 **Internal/syste** m role by default. Required roles can be assigned
                 to a user depending on the set of permission a user needs to have.
                 For more information on roles and permission, see [Configuring Roles
-                and Permissions](_Configuring_Roles_and_Permissions_) .
+                and Permissions](_Configuring_Roles_and_Permissions_).
             
                 Although the **Internal/system** role is configured by default in
                 WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -127,7 +127,7 @@ descriptions you need to configure:
 <tr class="even">
 <td><p>Lock Timeout Increment Factor</p></td>
 <td><div class="content-wrapper">
-<p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong> , the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
+<p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong>, the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
 <div class="panel" style="border-width: 1px;">
 <div class="panelContent">
 <p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * ( <strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>
@@ -177,7 +177,7 @@ tenants.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Account locking for a
-    particular user](_Locking_a_Specific_User_Account_) .
+    particular user](_Locking_a_Specific_User_Account_).
     
 
 ### Sending email notifications for account locking
@@ -220,5 +220,5 @@ failed login attempts. To configure this, follow the steps below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
