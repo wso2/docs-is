@@ -36,12 +36,12 @@ together.
 Follow the instructions below to add a user role.
 
 1.  On the **Main** tab in the management console, click **Add** under
-    **Users and Roles** .
-2.  Click **Roles** . This link is only visible to users with
+    **Users and Roles**.
+2.  Click **Roles**. This link is only visible to users with
     **Security** level permissions role. By default, the admin user has
     this permission enabled. For more information on permissions, see
-    [Role-based Permissions](_Role-based_Permissions_) .
-3.  Click **Add New Role** . The following screen appears:  
+    [Role-based Permissions](_Role-based_Permissions_).
+3.  Click **Add New Role**. The following screen appears:  
     ![](attachments/53125497/53287369.png)
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
@@ -50,12 +50,12 @@ Follow the instructions below to add a user role.
         product. For information on ow user stores (which are
         repositories storing information about users and roles) are set
         up and configured, see [Configuring User
-        Stores](_Configuring_User_Stores_) .
+        Stores](_Configuring_User_Stores_).
     2.  Enter a unique name for this role.
-    3.  Click **Next** .
+    3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
     have. For more information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_) .  
+    Permissions](_Role-based_Permissions_).  
     Note that when you assign this role to a user, you can override the
     role's permissions and customize them for the user.
 6.  Select the existing users to whom this role should be assigned. You
@@ -64,7 +64,7 @@ Follow the instructions below to add a user role.
     you must assign it to at least one user. You can search for a user
     by name, or view all users by entering `          *         ` in the
     search field.
-7.  Click **Finish** .
+7.  Click **Finish**.
 
 The role is created and is listed on the **Roles** page. You can now
 edit the role as needed.
@@ -103,7 +103,7 @@ product by editing
 `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` . For
 more information on configuring the system administrator, see
 [Configuring the System
-Administrator](_Configuring_the_System_Administrator_) .
+Administrator](_Configuring_the_System_Administrator_).
 
 ``` html/xml
 <Configuration> 
@@ -135,7 +135,7 @@ You do not have to do this when updating before the first startup. The
 following steps guide you through updating the role names:
 
 1.  Do the configuration changes indicated in [the above
-    section](#ConfiguringRoles-UpdateRole1) .
+    section](#ConfiguringRoles-UpdateRole1).
 2.  You need to do the following user store level changes for existing
     users if you have changed the role names as mentioned earlier.  
     -   If you are connected to
@@ -155,9 +155,9 @@ following steps guide you through updating the role names:
         .
 
     -   If you are connected to
-        `            ReadWriteLdapUserStoreManager           ` , you
+        `            ReadWriteLdapUserStoreManager           `, you
         need to populate the members of the previous admin role to the
         new role under the Groups. For more information, see
-        [Configuring User Stores](_Configuring_User_Stores_) .
+        [Configuring User Stores](_Configuring_User_Stores_).
 
 3.  After the changes, restart the server.

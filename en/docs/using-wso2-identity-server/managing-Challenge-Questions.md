@@ -41,11 +41,11 @@ instructions to set up.
     | Challenge Question Locale | This dropdown field enables you to select the language the challenge question will appear in.                                            | Spanish         |
     | Add Challenge Question    | Add the first challenge question of the set.                                                                                             | Place of birth? |
 
-    ![](attachments/103330542/103330550.png)
+    ![]( ../../assets/img/103330542/103330550.png)
 
 4.  Click **Add** and you will be redirected to the following screen,
     which displays the newly added question set.  
-    ![](attachments/103330542/103330549.png)
+    ![]( ../../assets/img/103330542/103330549.png)
 
 #### Claim mapping for the challenge question set
 
@@ -57,7 +57,7 @@ below.
     contain the fully qualified name of the challenge question set. In
     the example above, the **Set Id** is **"Set1",** therefore the fully
     qualified name of the set is http://wso2.org/claims/Set1.
-2.  Navigate to **Claims\>Add** and click **Add Local Claim** .
+2.  Navigate to **Claims\>Add** and click **Add Local Claim**.
 3.  Enter the following details and select the **Supported by Default**
     checkbox to map the challenge question set to a claim in the user
     store. Click **Add.  
@@ -76,13 +76,13 @@ below.
     -   **Mapped Attribute-User Store Domain Name:** PRIMARY
     -   **Mapped Attribute-Mapped Attribute:** location
 
-    **![](attachments/103330542/103330548.png){width="773"}**
+    **![]( ../../assets/img/103330542/103330548.png) **
 
 ### Adding a challenge question
 
 1.  Click on **Add** under **Challenge Questions** and then click **Add
-    Challenge Question** .
-2.  Fill in the following details and click **Add** .
+    Challenge Question**.
+2.  Fill in the following details and click **Add**.
 
     | Field                            | Description                                                                                                                                  | Sample Value                |
     |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
@@ -92,7 +92,7 @@ below.
     | Challenge Question Locale        | Select the language that the challenge question is in using the dropdown.                                                                    | English                     |
     | Add Challenge Question           | The challenge question.                                                                                                                      | Favourite food?             |
 
-    ![](attachments/103330542/103330547.png)
+    ![]( ../../assets/img/103330542/103330547.png)
 
 3.  Click **Add** to add the challenge questions
 
@@ -104,44 +104,44 @@ follow the steps below.
 
 1.  Login to the management console using admin/admin credentials.
 2.  Click on **Add** under **Challenge Questions** and then click **Add
-    Challenge Question** .
+    Challenge Question**.
 3.  Select the relevant challenge question set, e.g.,
-    http://wso2.org/claims/Set1 , and select **Yes** for the **Add
+    http://wso2.org/claims/Set1, and select **Yes** for the **Add
     Locale Mapping to a question** field.
 
 4.  Enter the same **Challenge Question Id** (Q1) and select the
-    **Challenge Question Locale** as **French** .
-5.  Enter the Q1 challenge question in French, click **Add** , and click
-    **Finish** .  
-    ![](attachments/103330542/103330546.png)
+    **Challenge Question Locale** as **French**.
+5.  Enter the Q1 challenge question in French, click **Add**, and click
+    **Finish**.  
+    ![]( ../../assets/img/103330542/103330546.png)
 6.  Click on the **Edit** button corresponding to the relevant set (
-    http://wso2.org/claims/Set1) . You will see Q1 listed twice in the
+    http://wso2.org/claims/Set1). You will see Q1 listed twice in the
     two different languages as seen below.  
-    ![](attachments/103330542/103330545.png){height="250"}
-7.  Click **Finish** .
+    ![]( ../../assets/img/103330542/103330545.png){height="250"}
+7.  Click **Finish**.
 8.  Click on **List** under **Claims** and select
     <http://wso2.org/claims.>
-9.  Select the **Locality** claim and click **Edit** . Select the
-    **Supported by Default** checkbox and click **Update** .
+9.  Select the **Locality** claim and click **Edit**. Select the
+    **Supported by Default** checkbox and click **Update**.
 10. Logout as admin and login as a user with user profile management
     permissions.
 11. Click on **List** under **Users and Roles** and then select
-    **Users** .
+    **Users**.
 12. Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![](attachments/103330542/103330543.png){height="250"}
+    ![]( ../../assets/img/103330542/103330543.png){height="250"}
 13. Enter the language code as **fr\_fr** to set language as French for
-    the **Locality** field and click **Update** .
+    the **Locality** field and click **Update**.
 
 Try it out!
 
 Login to the dashboard ( https://localhost:9443/dashboard ) as the user
 you configured in step 12 above, e.g.,kim, and click **View Details**
-under **Account Recovery** . Only the questions matching the locale set
+under **Account Recovery**. Only the questions matching the locale set
 in the user profile appears (in this example, only the French question
 will appear).  
 Example:  
-![](attachments/103330542/103330551.png){width="634" height="250"}
+![]( ../../assets/img/103330542/103330551.png) 
 
 ### Editing/updating a challenge question
 
@@ -153,8 +153,8 @@ Example:
     you want to edit.
 4.  The field will turn yellow. Edit the question and click **Update**
     to save changes.
-5.  Click **Finish** .  
-    ![](attachments/103330542/103330544.png){width="742"}
+5.  Click **Finish**.  
+    ![]( ../../assets/img/103330542/103330544.png) 
 
 ### Making challenge questions mandatory
 
@@ -164,7 +164,7 @@ additional form of security and account management.
 
 1.  Log in to the management console using admin credentials.
 2.  In the **Identity** section of the **Main** menu, click **Resident**
-    under **Identity Providers** .
+    under **Identity Providers**.
 3.  Select the **Enable Force to Add Challenge Questions** setting to
     make this mandatory.
 

@@ -31,9 +31,9 @@ self-registration.
     registration.
     
     Alternatively, to see the steps on how to enable this identity
-    management feature using the **old implementation** , see [Self Sign Up
+    management feature using the **old implementation**, see [Self Sign Up
     and Account Confirmation documentation in WSO2 IS
-    5.2.0](_Self-Registration_and_Account_Confirmation_) . The old
+    5.2.0](_Self-Registration_and_Account_Confirmation_). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatibility and can still be used if required.
     
@@ -94,7 +94,7 @@ which is `         carbon.super        ` .
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 2.  [Start WSO2
@@ -153,17 +153,17 @@ which is `         carbon.super        ` .
     </tbody>
     </table>
 
-    ![](attachments/103330519/103330525.png){width="831" height="250"}
+    ![]( ../../assets/img/103330519/103330525.png) 
 
 5.  Expand the **Login Policies** tab, then the **Account Locking** tab
-    and select **Account Lock Enabled** .  
+    and select **Account Lock Enabled**.  
     This allows the account to be locked until the user confirms the
     account. Once the user activates the account through the email
     received, the account is unlocked. For more information about
     account locking, see [Account
-    Locking](_Account_Locking_by_Failed_Login_Attempts_) .
+    Locking](_Account_Locking_by_Failed_Login_Attempts_).
 
-    ![](attachments/103330519/103330524.png){width="808" height="250"}
+    ![]( ../../assets/img/103330519/103330524.png) 
 
 Now you have set up self registration. Next let's see how you can
 configure self-registration consent purposes via the management console
@@ -186,7 +186,7 @@ purposes and appropriate user attributes:
     .
 
 2.  Click the **Main** tab, go to **Identity** -\> **Identity
-    Providers** and then click **Resident** . This displays the
+    Providers** and then click **Resident**. This displays the
     **Resident Identity Provider** screen.  
     Expand the **Account Management Policies** section, and then expand
     the **User Self Registration** section. Under **User Self
@@ -194,11 +194,11 @@ purposes and appropriate user attributes:
 
 3.  Click to configure self-registration consent purposes and user
     attributes.  
-    ![](attachments/103330519/103330520.png){width="650"}  
+    ![]( ../../assets/img/103330519/103330520.png)   
     This displays the **Consent Purposes** screen that allows you to add
     consent purposes.
 
-4.  Click **Add New Purpose** . This displays the **Add New Purpose**
+4.  Click **Add New Purpose**. This displays the **Add New Purpose**
     screen.
 
 5.  Specify appropriate values for the **Purpose** and **Description**
@@ -213,7 +213,7 @@ purposes and appropriate user attributes:
         particular purpose.
     
 
-    ![](attachments/103330519/103330521.png){width="650"}
+    ![]( ../../assets/img/103330519/103330521.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
@@ -225,7 +225,7 @@ purposes and appropriate user attributes:
         -   When you configure purposes for self-registration, the
             attributes that you specify for a particular purposes are the
             only attributes for which users are prompted to provide consent.
-        -   If a user attribute is set as **Mandatory** , a user has to
+        -   If a user attribute is set as **Mandatory**, a user has to
             provide consent for the attribute to proceed with
             self-registration.
         -   If a user does not provide consent for any of the non-mandatory
@@ -233,14 +233,14 @@ purposes and appropriate user attributes:
             attributes.
     
 
-7.  Click **Finish** . This displays details related to the purpose and
+7.  Click **Finish**. This displays details related to the purpose and
     user attributes you added.
 
 8.  Depending on your requirement, you can either add another new
     purpose and related user attributes, or click **Finish** if you have
     added all the purposes you want.
 
-9.  Click **Update** .
+9.  Click **Update**.
 
 Now you have configured required self-registration purposes and user
 attributes for which you require user consent.
@@ -250,7 +250,7 @@ Next, you can try out self-registration.
 ### Try out self-registration
 
 1.  Access the [WSO2 Identity Server
-    dashboard](https://localhost:9443/dashboard/) .
+    dashboard](https://localhost:9443/dashboard/).
 2.  Click the **Register Now?** link and then enter the new user's
     username.
 
@@ -261,13 +261,13 @@ Next, you can try out self-registration.
     `            <USERNAME>@<TENAND_DOMAIN>           `
 
     For example, if you have a tenant domain as
-    `           foo.com          ` , the username needs to be
+    `           foo.com          `, the username needs to be
     `           kim@foo.com          `
 
-    ![](attachments/103330519/103330522.png){width="489" height="250"}
+    ![]( ../../assets/img/103330519/103330522.png) 
 
 3.  Fill in the user details, provide consent to share the requested
-    information and then click **Register** .
+    information and then click **Register**.
 
 4.  Once the user has registered, first you receive an account lock
     email because the account is locked until you confirm the account
@@ -289,7 +289,7 @@ Follow the steps given below to resend the confirmation email.
     you should not have confirmed the account.
 
 2.  Click on the **Re-send** link to resend the email.  
-    ![](attachments/103330519/103330523.png){width="396"}
+    ![]( ../../assets/img/103330519/103330523.png) 
 
 !!! tip
     
@@ -298,7 +298,7 @@ Follow the steps given below to resend the confirmation email.
     
     You can edit and customize the email template. For more information on
     how to do this, see [Customizing Automated
-    Emails](_Customizing_Automated_Emails_) .
+    Emails](_Customizing_Automated_Emails_).
     
 
 ## Related Links

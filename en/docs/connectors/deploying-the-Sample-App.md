@@ -15,7 +15,7 @@ sample application (travelocity).
         with WSO2 IS, the sample travelocity application is used in this use
         case. The samples run on the Apache Tomcat server and are written
         based on Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
+        [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
         Prerequisites](https://docs.wso2.com/identity-server/Installation+Prerequisites)
@@ -73,7 +73,7 @@ Deploy this sample web app on a web container.
 
 1.  Use the Apache Tomcat server to do this. If you have not downloaded
     Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi) .
+    [here](https://tomcat.apache.org/download-70.cgi).
 2.  Copy the .war file into the `           webapps          `
     folder. For example,
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `

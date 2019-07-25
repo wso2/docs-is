@@ -15,7 +15,7 @@ software development projects that facilitates powerful collaboration,
 code review, and code management for open source and private software
 development projects.
 
-![](attachments/49774662/76746205.png){width="900"}
+![](attachments/49774662/76746205.png) 
 
 ### Getting started
 

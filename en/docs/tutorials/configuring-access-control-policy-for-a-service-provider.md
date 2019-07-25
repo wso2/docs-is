@@ -98,7 +98,7 @@ the WSO2 IS architecture, see [Architecture](../../getting-started/architecture)
 		SAML configuration for the travelocity sample service provider. If
 		your service provider needs any claims of the authenticated user to
 		provide the service, you can [configure claims of the service
-		provider](../../tutorials/configuring-single-sign-on) . Then once the access is
+		provider](../../tutorials/configuring-single-sign-on). Then once the access is
 		provided after evaluating the XACML policy, the Service Provider can
 		get those claim details of the authorized user from the Identity
 		Provider side.
@@ -220,7 +220,7 @@ our requirement.
     policy.  
     ![publish-to-pdp](../../assets/img/tutorials/publish-to-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
-    are and click **Publish** .  
+    are and click **Publish**.  
     ![publishing-a-xacml-policy](../../assets/img/tutorials/publishing-a-xacml-policy.png)
 
     !!! note

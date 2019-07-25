@@ -16,7 +16,7 @@ things.
 1.  In the **Claim Configuration** form, s elect the claim mapping
     dialect by either choosing to use a local claim dialect or define
     your own custom claim dialect.  
-    -   If you choose to **Use Local Claim Dialect** , you need to fill
+    -   If you choose to **Use Local Claim Dialect**, you need to fill
         in the following details.
 
     1.  1.  Fill in your requested claims by clicking the **Add Claim
@@ -24,10 +24,10 @@ things.
         2.  Choose your **Local Claim** from the drop-down. Select
             whether this claim is a **Mandatory Claim** for the Service
             Provider using the checkbox.  
-            ![](attachments/103329786/103329789.png){width="817"
+            ![]( ../../assets/img/103329786/103329789.png){width="817"
             height="79"}
 
-    -   If you choose to **Define Custom Claim Dialect** , you need to
+    -   If you choose to **Define Custom Claim Dialect**, you need to
         do the following.
 
     1.  1.  Add a custom claim URI by clicking on the **Add Claim URI**
@@ -40,7 +40,7 @@ things.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![](attachments/103329786/103329788.png){width="821"
+            ![]( ../../assets/img/103329786/103329788.png){width="821"
             height="276"}
 
             !!! warning
@@ -72,13 +72,13 @@ things.
                             tab of the management console.
                         2.  Navigate to /\_system/config/ and click on the **oidc**
                             file. Expand the **Properties** section.  
-                            ![](attachments/50514151/57748271.png){width="400"}
+                            ![]( ../../assets/img/50514151/57748271.png) 
                         3.  Add the custom claims to the existing default scope
                             **openid** by clicking on **Edit.** Alternatively, add a
                             new scope for the custom claims by clicking on **Add New
                             Property** and send it when getting the OIDC token along
                             with the mandatory **openid** scope.
-                            ![](attachments/50514151/57748280.png){width="900"}
+                            ![]( ../../assets/img/50514151/57748280.png) 
             
                         !!! note
                                                 OIDC considers address as a JSON object. Therefore, if you
@@ -99,21 +99,21 @@ things.
                                                     `                  address.                 ` prefix.
                                     
                                                 1.  1.  Click **Add** under Claims.
-                                                    2.  Click **Add External Claim** .
+                                                    2.  Click **Add External Claim**.
                                                     3.  Select
                                                         `                                                               http://wso2.ord/oidc/claim                                                            `
-                                                        as the value for **Dialect URI** .
+                                                        as the value for **Dialect URI**.
                                                     4.  Enter
                                                         `                     address.street                    `
-                                                        as the value for **External Claim URI** .
+                                                        as the value for **External Claim URI**.
                                     
                                                         You can enter any value with the prefix
                                                         `                      address.                     `
-                                                        , such as
+                                                       , such as
                                                         `                      address.country                     `
-                                                        ,
+                                                       ,
                                                         `                      address.lane                     `
-                                                        , and much more.
+                                                       , and much more.
                                     
                                                     5.  Map the claim you are creating to any claim within
                                                         WSO2 Identity server.  
@@ -136,7 +136,7 @@ things.
                         Always" from the SAML2 service provider configuration as
                         follows.
             
-                        ![](attachments/103329786/103329787.png){width="333"
+                        ![]( ../../assets/img/103329786/103329787.png){width="333"
                         height="60"}
             
                         Why?
@@ -186,16 +186,16 @@ things.
                         4.  Run the travelocity sample and try the SAML login.
             
                         5.  Log in with the user credentials of the user who has a
-                            few mandatory claims missing, and click **Submit** .
+                            few mandatory claims missing, and click **Submit**.
                         6.  A claim request will be prompted, Similiar to the image
                             below. At this point, the mandatory claim rule is
                             enforced and you cannot proceed without providing the
                             necessary claim values. Provide the necessary claim
-                            values and click **Submit** .
+                            values and click **Submit**.
                         7.  You will be successfully logged in to the application.
             
 
-            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm){width="524"}
+            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm) 
 
             Marking a mapped claim as a **Requested Claim** would ensure
             that the service provider definitely sends this claim to the
@@ -218,7 +218,7 @@ things.
 
             For more information about consent management during
             authentication, see [Consent Management with
-            Single-Sign-On](_Consent_Management_with_Single-Sign-On_) .
+            Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
 
 2.  Select the **Subject Claim URI** and the **Role Claim URI** (for
     custom claims)from the drop-down. The claims you mapped are listed

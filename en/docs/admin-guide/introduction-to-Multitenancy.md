@@ -179,7 +179,7 @@ specific client. Alternatively, you may configure a CNAME record in DNS
 (Domain Name System) as an alias for this information.
 
 If a request is addressed to the `         MyService        ` service
-hosted by `         foo.com        ` , the message handlers and
+hosted by `         foo.com        `, the message handlers and
 dispatchers of the super tenant will be applied and the tenant
 `         foo.com        ` will be identified by the tenant name in the
 URL. Then the request will be sent to `         foo.com        ` where

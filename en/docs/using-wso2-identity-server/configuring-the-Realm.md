@@ -8,7 +8,7 @@ following documentation explains the configurations that should be done
 in WSO2 products in order to set up the User Management module.
 
 The complete functionality and contents of the User Management module is
-called a **user** **realm** . The realm includes the user management
+called a **user** **realm**. The realm includes the user management
 classes, configurations and repositories that store information.
 Therefore, configuring the User Management functionality in a WSO2
 product involves setting up the relevant repositories and updating the
@@ -16,7 +16,7 @@ relevant configuration files.
 
 The following diagram illustrates the required configurations and
 repositories:  
-![](attachments/45941259/46202975.png)
+![]( ../../assets/img/45941259/46202975.png)
 
 For more information on Configuring master-datasources.xml, click
 [here](https://docs.wso2.com/display/Carbon440/Configuring+master-datasources.xml)

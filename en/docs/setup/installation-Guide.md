@@ -2,12 +2,12 @@
 
 This page contains the following information:
 
--   [Installing the Product](_Installing_the_Product_)
+-   [Installing the Product](../../setup/installing-the-product)
 -   [Upgrading from a Previous
     Release](_Upgrading_from_a_Previous_Release_)
 -   [Running the Product](_Running_the_Product_)
 -   [Getting Started with the Management
-    Console](_Getting_Started_with_the_Management_Console_)
+    Console](../../setup/getting-started-with-the-management-console)
 -   [Customizing the Management
     Console](_Customizing_the_Management_Console_)
 -   [Shutting Down and Restarting the

@@ -40,7 +40,7 @@ The first approach is to use the `         AdminService        ` . You
 can access this admin service using the following URL: '
 `         https://<HOST_NAME>:9443/services/UserAccountAssociationService?wsdl        `
 '. If you are new to admin services, see [Calling Admin
-Services](_Calling_Admin_Services_) .
+Services](_Calling_Admin_Services_).
 
 The following actions can be performed using above admin service.
 
@@ -68,20 +68,20 @@ account:
 2.  Log in using your username and password.
 3.  Click the **View details** button that corresponds to the
     **Associated User Accounts** gadget.  
-    ![](attachments/103330463/103330465.png){width="508" height="179"}
+    ![]( ../../assets/img/103330463/103330465.png) 
 4.  You can see all associated accounts of the user that you logged in
     as. This table includes the user ID and identity provider of all the
     associated user accounts of the user.  
-    ![](attachments/103330463/103330467.png){width="852" height="250"}
+    ![]( ../../assets/img/103330463/103330467.png) 
 5.  You can initiate a new user account association by clicking the
-    **Add Association** button under **Associated Accounts** .
-6.  Select **Local** as the **Account Type** , and enter the username
+    **Add Association** button under **Associated Accounts**.
+6.  Select **Local** as the **Account Type**, and enter the username
     and password of the user account that you want to connect to.  
     Click **Associate** to associate this user account.  If it is
     authentic, WSO2 Identity Server authenticates the user account and
     saves that user account as an association to the user account of the
     logged in user.  
-    ![](attachments/103330463/103330466.png){width="443" height="250"}
+    ![]( ../../assets/img/103330463/103330466.png) 
 7.  You can delete this user account association by clicking **Remove**
     in the **Associated Accounts** list.
 8.  You can also switch between associated user accounts without having
@@ -91,7 +91,7 @@ account:
     between accounts by selecting the required user account from the
     dropdown. Note that the session key does not change during this
     operation.  
-    ![](attachments/103330463/103330468.png){width="220" height="235"}
+    ![]( ../../assets/img/103330463/103330468.png) 
 
 #### Managing federated user IDs
 
@@ -104,24 +104,24 @@ account from the end user dashboard. To set this up, do the following.
     
     You need to setup an Identity Provider before continuing this process.
     For more information on how to do this, see [Adding and Configuring an
-    Identity Provider](_Adding_and_Configuring_an_Identity_Provider_) .
+    Identity Provider](_Adding_and_Configuring_an_Identity_Provider_).
     
 
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>
 2.  Log in using your username and password.
 3.  Click the **View details** button that corresponds to the
     **Associated User Accounts** gadget.  
-    ![](attachments/103330463/103330465.png){width="508" height="179"}
+    ![]( ../../assets/img/103330463/103330465.png) 
 4.  You can see all associated accounts of the user that you logged in
     as. This table includes user ID and the identity provider of all
     associated user accounts of the user.  
-    ![](attachments/103330463/103330467.png){width="852" height="250"}
+    ![]( ../../assets/img/103330463/103330467.png) 
 5.  You can initiate a new user account association by clicking the
-    **Add Association** button under **Associated Accounts** .
+    **Add Association** button under **Associated Accounts**.
 6.  Select the **Federated** as the **Account Type** from the dropdown
     provided, and enter the username and password.  
     Click **Associate** to connect this user account to the WSO2
     Identity Server account of the logged in user.  
-    ![](attachments/103330463/103330466.png){width="443" height="250"}
+    ![]( ../../assets/img/103330463/103330466.png) 
 7.  You can delete this user account association by clicking **Remove**
     on the **Associated Accounts** list.

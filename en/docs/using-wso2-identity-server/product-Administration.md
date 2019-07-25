@@ -45,7 +45,7 @@ mutual SSL](#ProductAdministration-EnablingmutualSSL) \]
 
 If you are upgrading from WSO2 IS 5.4.0 to WSO2 IS 5.5.0 version, see
 the [upgrade instructions for WSO2 Identity
-Server](_Upgrading_from_a_Previous_Release_) .
+Server](_Upgrading_from_a_Previous_Release_).
 
 ------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ management.
     permissions.
 -   For information on how to remove references to a deleted user's
     identity, see [Removing References to Deleted User
-    Identities](_Removing_References_to_Deleted_User_Identities_) .  
+    Identities](_Removing_References_to_Deleted_User_Identities_).  
 
 #### Configuring security
 
@@ -165,7 +165,7 @@ Server. It includes the following sections:
 -   [Timestamp in WS-Security to Mitigate Replay
     Attacks](_Timestamp_in_WS-Security_to_Mitigate_Replay_Attacks_)
 -   [Mitigating Authorization Code Interception
-    Attacks](_Mitigating_Authorization_Code_Interception_Attacks_)
+    Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
 -   [Mitigating Cross Site Request Forgery (CSRF)
     Attacks](_Mitigating_Cross_Site_Request_Forgery_CSRF_Attacks_)
 

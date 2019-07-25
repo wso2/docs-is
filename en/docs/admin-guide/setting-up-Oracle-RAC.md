@@ -25,15 +25,15 @@ before running `          -Dsetup         ` .
 
 Follow the steps below to set up an Oracle RAC database.
 
-1.  Set environment variables \< `          ORACLE_HOME>         ` ,
-    `          PATH         ` , `         ` and
+1.  Set environment variables \< `          ORACLE_HOME>         `,
+    `          PATH         `, `         ` and
     `          ORACLE_SID         ` with the corresponding values (
-    `          /oracle/app/oracle/product/11.2.0/dbhome_1         ` ,
-    `          $PATH:<ORACLE_HOME>/bin         ` , and
+    `          /oracle/app/oracle/product/11.2.0/dbhome_1         `,
+    `          $PATH:<ORACLE_HOME>/bin         `, and
     `          orcl1         ` ) as follows:  
-    ![](attachments/53125514/53287565.png){width="600"}
+    ![](attachments/53125514/53287565.png) 
 2.  Connect to Oracle using SQL\*Plus as SYSDBA.  
-    ![](attachments/53125514/53287577.png){width="700"}
+    ![](attachments/53125514/53287577.png) 
 3.  Create a database user and grant privileges to the user as shown
     below:
 
@@ -62,4 +62,4 @@ directory when you upgrade the database driver.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with Oracle RAC, see [Changing to
-Oracle RAC](_Setting_up_Oracle_RAC_) .
+Oracle RAC](_Setting_up_Oracle_RAC_).

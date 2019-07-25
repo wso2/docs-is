@@ -7,7 +7,7 @@ down any latencies caused by database calls in an instance. The request
 calls and response calls are correlated via a correlation ID that is
 sent in the request call.
 
-![](attachments/112393409/112393408.png){width="400"}
+![]( ../../assets/img/112393409/112393408.png) 
 
 !!! note
     
@@ -87,7 +87,7 @@ Follow the steps below to enable product observability.
     ```
 
 2.  To set the `           -DenableCorrelationLogs          ` property
-    to `           true          ` , execute the following command.
+    to `           true          `, execute the following command.
 
     ``` java
         For Mac/Linux   --> sh wso2server.sh -DenableCorrelationLogs=true start
@@ -109,7 +109,7 @@ Follow the steps below to enable product observability.
     Notice that a separate log file called
     `           correlation.log          ` is created.
 
-    ![](attachments/112393409/112393404.png){width="500"}
+    ![]( ../../assets/img/112393409/112393404.png) 
 
 Now you are ready to test the product observability of WSO2 IS.
 
@@ -237,7 +237,7 @@ timing delays for the JDBC or LDAP calls.
 ```
 
 1.  Line 1 is the `          http-in-request         ` .
-2.  Line 10 is the `          http-in-response         ` , which shows
+2.  Line 10 is the `          http-in-response         `, which shows
     that the total time taken for the cycle is
     `          480 ms         ` . This is almost close to half a second.
     With that we can assume that there is a delay with either an LDAP or
@@ -245,7 +245,7 @@ timing delays for the JDBC or LDAP calls.
 3.  When we carefully analyze each line, we can see that all JDBC calls
     have taken less than `          5 ms         ` .
 4.  Line 4 however, indicates an LDAP call that has taken
-    `          200 ms         ` , which can be a possible reason for
+    `          200 ms         `, which can be a possible reason for
     this issue.
 
 ### Advanced scenarios
@@ -348,7 +348,7 @@ configuration.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![](attachments/112393409/112393406.png){height="250"}
+    ![]( ../../assets/img/112393409/112393406.png){height="250"}
 
 #### Multiple header configs
 
@@ -406,4 +406,4 @@ headers.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![](attachments/112393409/112393405.png){height="250"}
+    ![]( ../../assets/img/112393409/112393405.png){height="250"}

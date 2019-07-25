@@ -117,7 +117,7 @@ The payload of the above sample Request Object is as follows:
 ```
 
 If the above request is sent, it requests some claims from both the
-members **userinfo** endpoint and **id\_token** . For example, '
+members **userinfo** endpoint and **id\_token**. For example, '
 *given\_name'* and *'email'* are marked as essential claims from *user
 info* endpoint and *'brithdate'* is requested as an essential claim from
 *id token* .
@@ -260,7 +260,7 @@ executed.
     
     If you implement a `           CustomRequestObjectBuilder          ` to
     obtain Request Object from request\_uri, you need to register it as a
-    new `           RequestObjectBuilder          ` , in
+    new `           RequestObjectBuilder          `, in
     `           $IS_HOME/repository/conf/identity/identity.xml.          `
     
     ``` java

@@ -40,7 +40,7 @@ as the primary or secondary user store in WSO2 Identity Server:
 ### Prerequisites
 
 1.  Create a cloud directory by uploading the schema for the objects via
-    the [AWS console](https://console.aws.amazon.com/console/home) . You
+    the [AWS console](https://console.aws.amazon.com/console/home). You
     can take a look at following sample schema to configure the sample
     user store configuration.
 
@@ -103,8 +103,8 @@ as the primary or secondary user store in WSO2 Identity Server:
         Note
     
         If you are going to maintain a set of claims such as
-        `           givenName          ` , `           mail          ` ,
-        `           sn          ` , and
+        `           givenName          `, `           mail          `,
+        `           sn          `, and
         `           profileConfiguration          ` in the user profile, you
         need to update the sample schema above as follows:
     
@@ -228,9 +228,9 @@ user store extension to WSO2 Identity Server:
 4.  Access the Management Console via
     `          https://localhost:9443/carbon/         ` .
 5.  Click the **Main** tab on the Management Console, and then click
-    **Add** under **User Stores** . This displays the **Add New User
+    **Add** under **User Stores**. This displays the **Add New User
     Store** screen.
-6.  Click the list of items related to **User Store Manager Class** .
+6.  Click the list of items related to **User Store Manager Class**.
     You will see
     `          org.wso2.carbon.aws.user.store.mgt.AWSUserStoreManager         `
     in the list. This confirms that you have successfully added the AWS
@@ -246,12 +246,12 @@ Follow the steps below to configure AWS as the secondary user store.
 
 1.  In the **Add New User Store** screen, select
     `          org.wso2.carbon.aws.user.store.mgt.AWSUserStoreManager         `
-    as the **User Store Manager Class** .
+    as the **User Store Manager Class**.
 2.  Enter appropriate values in the **Domain Name** and **Description**
     fields.
 3.  Enter appropriate values for all the mandatory properties. For
     information on each property, see [AWS user store manager
-    properties](#AWSCloudDirectoryUserStore-properties) .
+    properties](#AWSCloudDirectoryUserStore-properties).
 
 ### Configuring AWS as the primary user store
 
@@ -267,7 +267,7 @@ Follow the steps below to configure AWS as the primary user store in
 WSO2 Identity Server:
 
 1.  Follow steps 1 and 2 under [Adding AWS user store extension to WSO2
-    Identity Server](#AWSCloudDirectoryUserStore-add) .
+    Identity Server](#AWSCloudDirectoryUserStore-add).
 
 2.  Edit the
     `           <IS_HOME>/repository/conf/user-mgt.xml          ` file
@@ -374,7 +374,7 @@ between the `         Users        ` object and `         Roles        `
 object. Therefore, the directory structure should be similar to what is
 depicted in the following diagram:
 
-![](attachments/97561749/103326406.png){width="650"}
+![](attachments/97561749/103326406.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, and you want to establish a relationship between the objects, you
@@ -386,7 +386,7 @@ have to create the following typed links:
   
 
 **Scenario 2 :** Let's take a look at how you can maintain different
-object relationship details (i.e., `         Users        ` ,
+object relationship details (i.e., `         Users        `,
 `         Roles        ` ) as an attribute inside the
 `         Users        ` object and `         Roles        ` object.
 
@@ -433,7 +433,7 @@ ownership relationship between the `         Users        ` object and
 `         Roles        ` object. Therefore, the directory structure
 should be similar to what is depicted in the following diagram:
 
-![](attachments/97561749/103326407.png){width="650"}
+![](attachments/97561749/103326407.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, then the relationship between the objects should be kept as an
@@ -446,7 +446,7 @@ In the two scenarios described above, the additional attributes are kept
 inside each object as follows:
 
 -   The `          Users         ` object will include
-    `          UserName         ` , `          Password         ` and
+    `          UserName         `, `          Password         ` and
     the set of claims.
 -   The `          Roles         ` object will include
     `          RoleName         ` .
@@ -503,8 +503,8 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 <td><p><code>              MembershipTypeOfRoles             </code></p></td>
 <td><p>Indicates how you are going to maintain user and role object relationships. Possible values are <code>              link             </code> and <code>              attribute             </code> .</p>
 <ul>
-<li>If you use <code>               link              </code> , you can establish a relationship between objects in Cloud Directory using typed links. You can then use these relationships to query for information. For example, to list the roles that are assigned to a particular user, to list the users who are assigned to a particular role.</li>
-<li>If you use <code>               attribute              </code> , you can list the roles assigned to a particular user and list users who have a particular role. This maintains relationship between objects in an attribute inside the node using <code>               MembershipAttribute              </code> and <code>               MemberOfAttribute              </code> .</li>
+<li>If you use <code>               link              </code>, you can establish a relationship between objects in Cloud Directory using typed links. You can then use these relationships to query for information. For example, to list the roles that are assigned to a particular user, to list the users who are assigned to a particular role.</li>
+<li>If you use <code>               attribute              </code>, you can list the roles assigned to a particular user and list users who have a particular role. This maintains relationship between objects in an attribute inside the node using <code>               MembershipAttribute              </code> and <code>               MemberOfAttribute              </code> .</li>
 </ul></td>
 </tr>
 <tr class="even">
@@ -559,7 +559,7 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 </tr>
 <tr class="odd">
 <td><p><code>              MembershipAttribute             </code></p></td>
-<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code> , you need to set this property and define the attribute that contain the distinguished names of user objects that are in a role.</p></td>
+<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code>, you need to set this property and define the attribute that contain the distinguished names of user objects that are in a role.</p></td>
 </tr>
 <tr class="even">
 <td><p><code>              RoleNameAttribute             </code></p></td>
@@ -567,7 +567,7 @@ For example, if we consider the diagram that depicts scenario 1, <code>         
 </tr>
 <tr class="odd">
 <td><p><code>              MemberOfAttribute             </code></p></td>
-<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code> , you need to set this property and define the attribute that contain the distinguished names of role objects that the user is assigned to.</p></td>
+<td><p>This is an optional property. If you have specified a value for <code>              MembershipTypeOfRoles             </code>, you need to set this property and define the attribute that contain the distinguished names of role objects that the user is assigned to.</p></td>
 </tr>
 <tr class="even">
 <td><p><code>              UserNameJavaRegEx             </code></p></td>

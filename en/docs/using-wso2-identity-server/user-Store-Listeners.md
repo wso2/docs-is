@@ -14,7 +14,7 @@ The following diagram demonstrates a typical flow of execution of the
 user store operation, along with the listener's methods. The 'operation'
 method (here, representative of any user store operation) first calls
 the `         listener.doPreOperation        ` which is implemented in
-the listener, then calls the `         doOperation        ` , which is
+the listener, then calls the `         doOperation        `, which is
 implemented in the subclass extending the
 `         org.wso2.carbon.user.core.common.AbstractUserStoreManager        `
 (the abstract class which implements the
@@ -24,7 +24,7 @@ this flow will change depending on the implementation (for instance in
 the carbon authorization flow, there is only one listener method that is
 being called).
 
-![](attachments/103330086/103330088.png)
+![]( ../../assets/img/103330086/103330088.png)
 
 ### How listeners work
 
@@ -142,7 +142,7 @@ The following are the steps to configure the custom implementation.
 1.  Listeners are registered as OSGI components. Therefore you need to
     register this class in an OSGI framework. You can go through
     **[this](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/custom-listener/)
-    ,** which is the complete sample project.
+   ,** which is the complete sample project.
 2.  Copy the OSGI bundle file in to the
     `          <IS_HOME>/repository/components/dropins         `
     directory.

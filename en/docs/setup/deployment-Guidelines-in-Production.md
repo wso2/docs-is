@@ -97,7 +97,7 @@ have the appropriate hardware and software for running the product.
 
 ####  Environment compatibility
 
--   By default, WSO2 products are installed with **OpenJDK** , which
+-   By default, WSO2 products are installed with **OpenJDK**, which
     allows you to run the product as soon as it is installed.
 
     !!! tip
@@ -251,7 +251,7 @@ To remove an already installed product, follow the instructions below:
 If you need to set additional system properties when the server starts,
 you can take the following approaches:
 
--   **Set the properties from a script** . Setting your system
+-   **Set the properties from a script**. Setting your system
     properties in the startup script (i.e. the
     `            <PRODUCT_HOME>/bin/wso2server.           ` sh file), is
     ideal because it ensures that you set the properties every time you
@@ -275,7 +275,7 @@ you can take the following approaches:
         production environments.
     
 
--   **Set the properties from an external registry** . If you want to
+-   **Set the properties from an external registry**. If you want to
     access properties from an external registry, you could create Java
     code that reads the properties at runtime from that registry. Be
     sure to store sensitive data such as username and password to
@@ -321,14 +321,14 @@ manage the product.
     server.
 -   The Management Console uses the default [HTTP-NIO
     transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport)
-    , which is configured in the
+   , which is configured in the
     `           catalina-server.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/tomcat          `
     directory. This transport must be properly configured in this file
     for the management console to be accessible.
 -   As explained in the [installation
     prerequisites](#DeploymentGuidelinesinProduction-installation_prerequisites)
-    , the default product installation uses OpenJDK. Therefore, you
+   , the default product installation uses OpenJDK. Therefore, you
     don't require a different JDK. However, if you have set up Oracle
     JDK or IBM JDK, be sure to apply the following settings to your
     product distribution.
@@ -342,7 +342,7 @@ manage the product.
     GZIP decoding. Until this issue is fixed, we recommend that you
     disable GZIP decoding for your product by following the steps given
     below. This will ensure that your product is not affected by the
-    [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
+    [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
 
     1.  Open the `                catalina-server.xml               `
         file from the
@@ -444,7 +444,7 @@ Once you enable log4j for hazelcast as explained above, add
 `          log4j.logger.com.hazelcast=INFO         ` to the
 `          <PRODUCT_HOME>/repository/conf/log4j.properties         `
 file. For more information on logging, see [Monitoring
-Logs](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) .
+Logs](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs).
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
@@ -736,11 +736,11 @@ We recommend that you use a proper artifact management system such as
 before deploying them in the WSO2 Carbon runtime. Also, use the **[WSO2
 Update Manager
 (WUM)](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products)**
-tool , which is a command-line utility that allows you to get the latest
+tool, which is a command-line utility that allows you to get the latest
 updates ( bug fixes and security fixes ) of a particular product
 release.
 
-![](attachments/56984556/61672631.png){width="750"}
+![](attachments/56984556/61672631.png) 
 
 **Diagram** : managing your artifacts using a configuration management
 system
@@ -782,6 +782,6 @@ The following steps include how to recover your setup using the backups:
 3.  To recover the databases, follow the recovery strategy recommended
     by the databases you are using. For information on supported and
     tested databases, see [Tested Database Management
-    Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs) .
+    Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs).
 
   

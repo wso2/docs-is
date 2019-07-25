@@ -40,7 +40,7 @@ demonstrates the steps used to do this.
     condition is complex where multiple conditions are evaluated with
     connectors (and/or) use the Advance section.)
 
-    ![](attachments/103330276/103330278.png){width="465" height="170"}
+    ![]( ../../assets/img/103330276/103330278.png) 
 
     **Advanced**  
     If this option is selected, you can define an XPath expression to
@@ -52,9 +52,9 @@ demonstrates the steps used to do this.
     boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
     ```
 
-    ![](attachments/103330276/103330279.png){width="286" height="81"}
+    ![]( ../../assets/img/103330276/103330279.png) 
 
-    ![](attachments/103330276/103330277.png){width="829" height="398"}
+    ![]( ../../assets/img/103330276/103330277.png) 
 
 3.  Click **Add** to finish adding the engagement. You can view, disable
     or delete the association by navigating to **WorkFlows
@@ -66,4 +66,4 @@ Now that all the configurations are done, when you add a user it won’t
 be displayed under the users section immediately and the user won’t be
 able to login. The user will be enabled once the user addition task is
 approved by a user who has the role of Manager. To try this out, see
-[Managing Human Tasks](_Managing_Human_Tasks_) .
+[Managing Human Tasks](_Managing_Human_Tasks_).

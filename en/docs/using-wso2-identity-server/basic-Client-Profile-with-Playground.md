@@ -25,7 +25,7 @@ to use this sample.
         Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management+Console)
         .
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.
@@ -153,7 +153,7 @@ To obtain and configure the Playground sample, follow the steps below.
     playground application.  
     You are directed to the landing page of the sample application.
     Click on **Import Photos** and the following page appears.  
-    ![](attachments/103329944/103329945.png){width="750" height="410"}
+    ![]( ../../assets/img/103329944/103329945.png) 
 
 !!! note
     
@@ -209,7 +209,7 @@ application.
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **OAuth/OpenID Connect Configuration.** Click **Configure** .
+    expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
 2.  Fill in the form that appears. For the **Allowed Grant Types** you
     can disable the ones you do not require or wish to block.
 
@@ -228,7 +228,7 @@ Let's get started to configure the service provider you created!
         .
     
 
-    ![](attachments/103330833/112392519.png){width="750"}
+    ![]( ../../assets/img/103330833/112392519.png) 
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -363,9 +363,9 @@ Let's get started to configure the service provider you created!
     </tbody>
     </table>
 
-3.  Click **Add** . Note that `             client key            ` and
+3.  Click **Add**. Note that `             client key            ` and
     `             client secret            ` get generated.  
-    ![](attachments/103330833/103330840.png){width="774"}
+    ![]( ../../assets/img/103330833/103330840.png) 
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the
@@ -428,15 +428,15 @@ following topics for samples of configuring delegated access control:
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Complete
 the user profile
 
-1.  [Create a user](_Configuring_Users_) .
+1.  [Create a user](_Configuring_Users_).
 2.  Log in as the user you created and go to the
-    [dashboard](_Using_the_End_User_Dashboard_) .
+    [dashboard](_Using_the_End_User_Dashboard_).
 3.  [Update your
     profile](Configuring-Users_103330327.html#ConfiguringUsers-Updateusers)
     filling the user attributes.
 
     You can also do this at **Main** \> **List** \> **Users and
-    Roles** \> **Users** , then select the user and update the profile.
+    Roles** \> **Users**, then select the user and update the profile.
 
 4.  Click **Update** to save your changes.
 
@@ -447,7 +447,7 @@ the user profile
 1.  Visit the URL
     `                       http://wso2is.local:8080/playground2/oauth2.jsp                     `
     to start the scenario with the sample application.
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     -   **Authorization Grant Type:** Authorization Code
     -   **Client ID:** (the client id received at the application
@@ -465,13 +465,13 @@ the user profile
         see step 7.
     
 
-    ![](attachments/103330002/103330004.png){width="500"}
+    ![]( ../../assets/img/103330002/103330004.png) 
 
       
 
 3.  Provide user credentials and sign in with the previously created
     user. **  
-    ![](attachments/103330002/103330005.png){width="327"}  
+    ![]( ../../assets/img/103330002/103330005.png)   
     **
 4.  Click **Approve** to provide consent to this action. The screen
     mentions the service provider by name and requests for user consent
@@ -485,7 +485,7 @@ the user profile
         information with the service provider even in the future without
         prompting for consent again.
 
-    ![](attachments/103330002/103330013.png){width="307"}
+    ![]( ../../assets/img/103330002/103330013.png) 
 
     !!! tip
     
@@ -504,7 +504,7 @@ the user profile
 
 
 5.  Enter the following details in the form that appears and click **Get
-    Access Token** .
+    Access Token**.
 
     -   **Callback URL:**
         http://wso2is.local:8080/playground2/oauth2client
@@ -512,7 +512,7 @@ the user profile
     -   **Client Secret:** (client secret received at the application
         registration)
 
-    ![](attachments/103330002/103330006.png){width="500"}
+    ![]( ../../assets/img/103330002/103330006.png) 
 
 6.  At this point, the application receives the **Access Token** with
     the id token, which follows the format shown in step 7. Enter the
@@ -520,10 +520,10 @@ the user profile
     `                         https://localhost:9443/oauth2/userinfo?schema=openid                       `
     ), in the form as seen below, to get user information.
 
-    ![](attachments/103330002/103330007.png){width="504"}
+    ![]( ../../assets/img/103330002/103330007.png) 
 
     Since the received access token has the scope
-    `            openid           ` , the
+    `            openid           `, the
     `            userinfo           ` endpoint provides the user
     attribute details when the request is made. You receive the
     following response from the Identity Server.

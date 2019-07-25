@@ -15,22 +15,22 @@ Dialect** " link. Follow the instructions below to add a new claim
 dialect.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
-2.  From the **Main** menu, click **Add** under **Claims** .
-3.  Click **Add Claim Dialect** . Enter the **Dialect URI.**
+2.  From the **Main** menu, click **Add** under **Claims**.
+3.  Click **Add Claim Dialect**. Enter the **Dialect URI.**
 
     The Dialect URI is a unique URI identifying the dialect (for
     example,
     `                                                      http://schema.openid.net/2007/05/claims                                                  `
     ).
 
-    ![](attachments/103330447/103330452.png)
+    ![]( ../../assets/img/103330447/103330452.png)
 
 4.  Click on the **Add** button. The claim dialect you added will appear
     on the list as follows.
 
-    ![](attachments/103330447/103330451.png)
+    ![]( ../../assets/img/103330447/103330451.png)
 
 ### Using the configuration file
 
@@ -79,4 +79,4 @@ start up** of the WSO2 Identity Server instance.
 
 For information on how to add an external claim to this claim dialect,
 or add a local claim to the wso2 local claim dialect, see [Adding Claim
-Mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping) .
+Mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping).

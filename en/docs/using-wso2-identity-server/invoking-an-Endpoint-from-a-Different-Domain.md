@@ -45,7 +45,7 @@ There are two possible solutions to apply the CORS header.
     approach leads to some security risks.
 
     ``` java
-        respBuilder.header("Access-Control-Allow-origin" , 'http://example.com')
+        respBuilder.header("Access-Control-Allow-origin", 'http://example.com')
     ```
 
     !!! tip
@@ -55,7 +55,7 @@ There are two possible solutions to apply the CORS header.
     
 
 2.  Applying a [CORS
-    filter](http://software.dzhuvinov.com/cors-filter.html) . A CORS
+    filter](http://software.dzhuvinov.com/cors-filter.html). A CORS
     filter is already used in the OAuth web application of the WSO2
     Identity Server and you can do the following configuration changes
     to the web.xml file located in the
@@ -82,7 +82,7 @@ There are two possible solutions to apply the CORS header.
     ```
 
     For configuration details of a CORS filter, see
-    [here](http://software.dzhuvinov.com/cors-filter.html) .
+    [here](http://software.dzhuvinov.com/cors-filter.html).
 
     !!! tip
     

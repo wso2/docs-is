@@ -124,7 +124,7 @@ to configure primary user stores.
 </tr>
 <tr class="odd">
 <td><code>             ReadGroups            </code></td>
-<td>Specifies whether groups should be read from the user store. If this is disabled by setting it to <code>             false            </code> , none of the groups in the user store can be read, and the following group configurations are NOT mandatory: <code>             GroupSearchBase            </code> , <code>             GroupNameListFilter            </code> , or <code>             GroupNameAttribute            </code> .</td>
+<td>Specifies whether groups should be read from the user store. If this is disabled by setting it to <code>             false            </code>, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: <code>             GroupSearchBase            </code>, <code>             GroupNameListFilter            </code>, or <code>             GroupNameAttribute            </code> .</td>
 </tr>
 <tr class="even">
 <td><code>             Referral            </code></td>

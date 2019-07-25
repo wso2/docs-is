@@ -25,7 +25,7 @@ communication by setting the sslProtocol="TLS" attribute in the
 `         catalina-server.xml        ` file. Specifying TLS as the SSL
 protocol ensures that all TLS versions, as well as SSL protocol
 versions, are supported. However, due to the [Poodle
-Attack](https://www.openssl.org/~bodo/ssl-poodle.pdf) , it is necessary
+Attack](https://www.openssl.org/~bodo/ssl-poodle.pdf), it is necessary
 to make sure that only TLS protocol versions are enabled.
 
 Note that in some WSO2 products, such as WSO2 Enterprise Integrator (ESB
@@ -74,7 +74,7 @@ layer.
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar) .
+    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar).
 
     ``` java
         java -jar TestSSLServer.jar localhost 9443
@@ -180,7 +180,7 @@ Do the following to enable SSL protocols and ciphers in the
     ```
 
     If you wish to remove `           TLSv1          ` or
-    `           TLSv1.1          ` , you can do so by removing them as
+    `           TLSv1.1          `, you can do so by removing them as
     values from the `           <SSLEnabledProtocols>          `
     property.
 
@@ -266,7 +266,7 @@ ciphers by JSSE. This will enable the weak ciphers.
 
 4.  Start the server.
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar) .
+    and run the [TestSSLServer.jar](attachments/53125465/53287360.jar).
 
     ``` java
         $ java -jar TestSSLServer.jar localhost 9443
@@ -281,7 +281,7 @@ ciphers by JSSE. This will enable the weak ciphers.
             contain any EXPORT ciphers.
     
         -   When you use the supported cipher suites listed
-            [here](_Supported_Cipher_Suites_) , the BEAST attack status will
+            [here](_Supported_Cipher_Suites_), the BEAST attack status will
             be shown as vulnerable. Note that this is a client-side
             vulnerability caused by the TLSv1 protocol. You can make the
             BEAST status protected by removing TLSv1, which will make

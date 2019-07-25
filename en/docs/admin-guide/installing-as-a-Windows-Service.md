@@ -108,7 +108,7 @@ windows service.
 
 1.  **Setting up the YAJSW wrapper:** The configuration file used for
     wrapping Java Applications by YAJSW is
-    `           wrapper.conf          ` , which is located in the
+    `           wrapper.conf          `, which is located in the
     `           <YAJSW_HOME>/conf/          ` directory and in the
     `           <PRODUCT_HOME>/bin/yajsw/          ` directory of many
     WSO2 products. Following is the minimal
@@ -342,7 +342,7 @@ services and follow the instructions given below.
 
 1.  Download and unzip WSO2 ESB and WSO2 DSS.
 2.  Download and unzip
-    [yajsw](http://sourceforge.net/projects/yajsw/files/) .
+    [yajsw](http://sourceforge.net/projects/yajsw/files/).
 3.  Create two directories 'esb\_service' and 'dss\_service'.
 4.  Copy the `          <YAJSW_HOME>         ` directory to
     'esb\_service' and 'dss\_service' separately. Now you will have two
@@ -401,8 +401,8 @@ services and follow the instructions given below.
     2.  Run `            startService.bat           ` to start the
         service.
 11. Do the same above for the 'dss\_service' as well.
-12. Right click on **My Computer -\> Manage** . Then click **Services
-    and Applications -\> Services** . You can see both ESB and DSS
+12. Right click on **My Computer -\> Manage**. Then click **Services
+    and Applications -\> Services**. You can see both ESB and DSS
     services running.  
     ![](attachments/53125425/53287331.png)
 

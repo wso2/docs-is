@@ -21,7 +21,7 @@ If a user has several assigned roles, their permissions are added
 togethe r.
 
 WSO2 products has two types of roles. **External Roles** and **Internal
-Roles** . Let say there are two user stores.
+Roles**. Let say there are two user stores.
 
   
 
@@ -108,28 +108,28 @@ Follow the instructions below to add a user role.
 
 1.  On the **Main** tab in the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
-    , click **Add** under **Users and Roles** .  
-2.  Click **Roles** . This link is only visible to users with the Admin
+   , click **Add** under **Users and Roles**.  
+2.  Click **Roles**. This link is only visible to users with the Admin
     role.  
-3.  Click **Add New Role** .
+3.  Click **Add New Role**.
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
         create this role.
     2.  Enter a unique name for this role.
-    3.  Click **Next** .  
-        ![](attachments/103330369/103330391.png?effects=border-simple,blur-border){width="512"}
+    3.  Click **Next**.  
+        ![]( ../../assets/img/103330369/103330391.png?effects=border-simple,blur-border) 
 5.  Select the permissions you want users with this role to have. You
     can also not assign permissions to a role. Note that when you assign
     this role to a user, you can override the role's permissions and
     customize them for the user.  
-    ![](attachments/103330369/103330392.png?effects=border-simple,blur-border){width="300"}
+    ![]( ../../assets/img/103330369/103330392.png?effects=border-simple,blur-border) 
 6.  Select the existing users you want to have this role. You can also
     assign this role to users later, but if you are creating this role
     in an external user store that does not allow empty roles, you must
     assign it to at least one user. You can search for a user by name(or
     user role by role name), or view all users or roles by entering
     `          *         ` in the search field.
-7.  Click **Finish** .
+7.  Click **Finish**.
 
 The role is created and is listed on the Roles page. You can now edit
 the role as needed.
@@ -137,7 +137,7 @@ the role as needed.
 #### Add role using SCIM
 
 -   In SCIM creating role means creating a **group.** Read more on
-    [SCIM](https://docs.wso2.com/display/IS540/SCIM+APIs) .
+    [SCIM](https://docs.wso2.com/display/IS540/SCIM+APIs).
 
     !!! note
     
@@ -266,10 +266,10 @@ you through updating the role names after you have used the product for
 some time.
 
 1.  Make the configuration changes indicated in [the above
-    section](#ConfiguringRolesandPermissions-UpdateRole1) .
+    section](#ConfiguringRolesandPermissions-UpdateRole1).
 2.  Do the following user store level changes for existing users:  
     -   If you are connected to the
-        `             JDBCUserStoreManager            ` , update the
+        `             JDBCUserStoreManager            `, update the
         `             UM_USER_ROLE            ` table with the existing
         users and the new role names that you defined in place of the
         'admin' and 'everyone' roles. If you have changed the
@@ -286,7 +286,7 @@ some time.
     -   If you are connected to the
         `            ReadWriteLdapUserStoreManager,           `
         populate the members of the previous admin role to the new
-        role under **Groups** .
+        role under **Groups**.
 
 3.  After the changes have been made, restart the server.
 
@@ -301,14 +301,14 @@ Once you have added a role in the Identity Server, you can search for
 the role by doing the following.
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Roles** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Roles**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![](attachments/103330369/103330377.png)  
+    ![]( ../../assets/img/103330369/103330377.png)  
     You can search for users by doing the following.
     1.  Select the user store that the role resides in using the
         **Select Domain** dropdown.
-    2.  Enter the role name of the role and click **Search Roles** . For
+    2.  Enter the role name of the role and click **Search Roles**. For
         roles to be listed, you must use the exact name of the role, or
         use a role name pattern by including \* . For example, if you
         have a role named Manager, you can either search for this role
@@ -328,7 +328,7 @@ the role by doing the following.
 If you need to make modifications to a role, use the links in the
 **Actions** column on the **Roles** screen as follows:
 
-![](attachments/103330369/103330376.png){height="250"}  
+![]( ../../assets/img/103330369/103330376.png){height="250"}  
 
 -   Rename the role
 -   Change the default permissions associated with this role

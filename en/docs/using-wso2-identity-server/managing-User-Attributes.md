@@ -30,24 +30,24 @@ attributes of a user in the Identity Server.
 
 1.  By accessing the profile of the user and changing the attributes
     using the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
     1.  Log into the WSO2 Identity Server.
     2.  On the **Main** tab in the Management Console, click **List**
-        under **Users and Roles** .  
-    3.  Click **Users** . This link is only visible to users with the
+        under **Users and Roles**.  
+    3.  Click **Users**. This link is only visible to users with the
         Admin role.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
-        **User Profile** .  
-        ![](attachments/43997703/44195174.png)
+        **User Profile**.  
+        ![]( ../../assets/img/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the REST Web service according to the SCIM provisioning
     specification. For more information on this, see [Using the SCIM 2.0
-    REST APIs](_Using_the_SCIM_2.0_REST_APIs_) .
+    REST APIs](_Using_the_SCIM_2.0_REST_APIs_).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
-    APIs](_Managing_Users_and_Roles_with_APIs_) . Supposing you want to
+    APIs](_Managing_Users_and_Roles_with_APIs_). Supposing you want to
     set a user attribute, you can call the following method.
 
     ``` java
@@ -67,10 +67,10 @@ attributes of a user in the Identity Server.
 
 When you are using more than one user store, you must map the attributes
 correctly by [adding a claim
-mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping) .
+mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping).
 Under “Mapped Attribute(s)” you need to follow the pattern.
 
-![](attachments/103330458/103330459.png?effects=border-simple,blur-border)
+![]( ../../assets/img/103330458/103330459.png?effects=border-simple,blur-border)
 
 However, for the default user store, you do not need to provide the
 domain name. As an example, if you have two user stores, one is the
@@ -100,7 +100,7 @@ you can do this.
 
     See the following screen for how this will look in the user
     interface of the Identity Server Management Console.  
-    ![](attachments/43997703/44195175.png)
+    ![]( ../../assets/img/43997703/44195175.png)
 
 2.  When using the `           RemoteUserStoreManagerService          `
     API, call it as follows.
@@ -117,7 +117,7 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![](attachments/43997703/44195177.png){width="750"}
+    ![]( ../../assets/img/43997703/44195177.png) 
 
 ### Writing custom attributes
 
@@ -166,8 +166,8 @@ etc. By default, WSO2 IS is configured to authenticate with only one
 user attribute in the LDAP.
 
 -   In a user store, each user has different attributes such as
-    `          uid         ` , `          cn         ` ,
-    `          email         ` , etc. Some attributes, such as
+    `          uid         `, `          cn         `,
+    `          email         `, etc. Some attributes, such as
     `          uid         ` and `          mail         ` attributes,
     are unique to the user.
 -   Once you connect your LDAP with an application, generally, the
@@ -199,7 +199,7 @@ LDAP.
     `          user-mgt.xml         ` file found in the
     `          <IS_HOME>/repository/conf         ` directory. For more
     information on configuring user stores, see [Configuring the
-    Realm](_Configuring_the_Realm_) .
+    Realm](_Configuring_the_Realm_).
     1.  Configure the `             UserNameSearchFilter            `
         property as shown below to search for the user object in the
         LDAP using both **mail** and **uid** attributes.
@@ -274,15 +274,15 @@ configured to return any attribute by changing the '
 For more information, see the following links.
 
 -   For working with claim dialects and mapping claims, see [Claim
-    Management](_Claim_Management_) .
+    Management](_Claim_Management_).
 -   See [Configuring Claims for a Service
     Provider](_Configuring_Claims_for_a_Service_Provider_) on how to
     configure claims when [adding a service
-    provider](_Adding_and_Configuring_a_Service_Provider_) .
+    provider](_Adding_and_Configuring_a_Service_Provider_).
 -   See [Configuring Claims for an Identity
     Provider](_Configuring_Claims_for_an_Identity_Provider_) on how to
     configure claims when [adding an identity
-    provider](_Adding_and_Configuring_an_Identity_Provider_) .
+    provider](_Adding_and_Configuring_an_Identity_Provider_).
 -   See [Writing a Custom User Store
     Manager](_Writing_a_Custom_User_Store_Manager_) for instructions on
     how to write a custom user store manager.

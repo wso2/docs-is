@@ -40,7 +40,7 @@ the location of the OpenID Provider.
     `         oidcdiscovery/.well-known/openid-configuration        ` .
     
     To move the OpenID provider issuer location path to the root
-    `         <issuer>/.well-known/openid-configuration        ` , edit the
+    `         <issuer>/.well-known/openid-configuration        `, edit the
     `         <IS_HOME>/repository/conf/identity/identity.xml        ` file,
     and change the value of `         <OIDCDiscoveryEPUrl>        ` to the
     issuer URL as shown below.
@@ -59,7 +59,7 @@ location.
 
 1.  Open the `            identity.xm           ` l file found in the
     `            <IS_HOME>/repository/conf/identity/           ` folder
-    and set the following property to **true** .
+    and set the following property to **true**.
 
     ``` java
     <UseEntityIdAsIssuerInOidcDiscovery>true</UseEntityIdasIssuerInOidcDiscovery> 
@@ -81,7 +81,7 @@ location.
     expand OAuth2/OpenID Connect Configuration.
 5.  Enter a valid OpenID Provider issuer location as the **Identity
     Provider Entity Id** value.  
-    ![](attachments/103329578/112363872.png){width="644"}
+    ![]( ../../assets/img/103329578/112363872.png) 
 
     !!! tip
     
@@ -155,7 +155,7 @@ for the request.
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating
     and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_) .
+    APIs](_Authenticating_and_Authorizing_REST_APIs_).
 
 Sample requests and responses are given below:
 

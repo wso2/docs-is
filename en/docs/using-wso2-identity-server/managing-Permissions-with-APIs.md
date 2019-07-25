@@ -5,7 +5,7 @@ API](https://localhost:9443/services/RemoteAuthorizationManagerService?wsdl)
 and the operations that come with it.
 
 Permissions can be assigned to user roles. The permission is an
-**authorization** to perform a specific **action** on a **resource** .
+**authorization** to perform a specific **action** on a **resource**.
 For instance, a user role can have permission (i.e., **authorization** )
 to add and delete (i.e., **actions** ) service providers (i.e., the
 **resource** ). The following set of actions can be performed on a

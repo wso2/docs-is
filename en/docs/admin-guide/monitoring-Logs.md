@@ -36,7 +36,7 @@ the `          <PRODUCT_HOME>/repository/logs         ` directory .
     log file that covers all the management features of a product.
     Carbon logs are configured in t he
     `           log4j.properties          ` file (stored in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory) .
+    `           <PRODUCT_HOME>/repository/conf          ` directory).
 
     **Java logging and Log4j integration:** I n addition to the logs
     from libraries that use Log4j, all logs from libraries (such as,
@@ -81,8 +81,8 @@ the `          <PRODUCT_HOME>/repository/logs         ` directory .
 
 ### Configuring products for log monitoring
 
-See the following information on configuring **Carbon logs** , **Audit
-logs,** **HTTP access logs** , and **Service/Event logs** for your WSO2
+See the following information on configuring **Carbon logs**, **Audit
+logs,** **HTTP access logs**, and **Service/Event logs** for your WSO2
 product.
 
 -   ****Configuring Carbon logs****
@@ -102,7 +102,7 @@ product.
     option in the management console to restore the original log4j
     configuration from the `           log4j.properties          ` file.
     The log levels that can be configured are [listed
-    below](#MonitoringLogs-log4j_levels) .
+    below](#MonitoringLogs-log4j_levels).
 
     **Identifying forged messages:  
     **
@@ -152,7 +152,7 @@ product.
     Audit logs are enabled in WSO2 products by default. You can change
     the following default configuration by manually updating the the
     `           log4j.properties          ` file. The log levels that
-    can be configured are [listed below](#MonitoringLogs-log4j_levels) .
+    can be configured are [listed below](#MonitoringLogs-log4j_levels).
 
     ``` java
         log4j.logger.AUDIT_LOG=INFO, AUDIT_LOGFILE
@@ -330,13 +330,13 @@ and monitor the logs:
 
 -   Carbon logs (system logs and application logs) of a running Carbon
     instance can be monitoring [using the management
-    console](_View_and_Download_Logs_) .
+    console](_View_and_Download_Logs_).
 -   Carbon logs, as well as HTTP access logs will be printed on the
     command terminal that open when you execute the product startup
     script.
 -   Alternatively, all log files can be viewed from the
     `          <PRODUCT_HOME>/repository/logs         ` folder. This
-    folder contains **Audit logs** , **HTTP access logs** as well as the
+    folder contains **Audit logs**, **HTTP access logs** as well as the
     **Carbon logs** in separate log files with time stamps . Note that
     older Carbon logs are archived in the
     `          wso2carbon.log         ` file.

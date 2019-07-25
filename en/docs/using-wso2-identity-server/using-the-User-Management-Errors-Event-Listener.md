@@ -9,7 +9,7 @@ in the event of failures when executing user management scenarios or
 operations. The relevant caller class for this listener is
 `         org.wso2.carbon.user.core.common.AbstractUserManagementErrorListener        `
 . This type of event listener is similar to the [UserOperation
-Listeners](_User_Store_Listeners_) . The registered event listeners of
+Listeners](_User_Store_Listeners_). The registered event listeners of
 this type are called when there is a failure while doing user management
 related tasks.
 

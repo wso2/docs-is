@@ -49,7 +49,7 @@ browse through it.
         connecting to the database.
     
 
-3.  Enter the following details and click **Connect** .
+3.  Enter the following details and click **Connect**.
     1.  JDBC URL : jdbc:h2:\[file path to
         \<PRODUCT\_HOME\>/repository/database/WSO2CARBON\_DB\]
     2.  username : wso2carbon

@@ -62,7 +62,7 @@ follow the steps below.
     .
 3.  Set up your regional NTP server as shown in the following screen,
     but do this for your region.  
-    ![](attachments/52528427/56987871.png){width="700"}
+    ![](attachments/52528427/56987871.png) 
 
   
 
@@ -191,7 +191,7 @@ The artifacts can be obtained from the store for this authenticator .
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     and click **Add** under the http://wso2.org/claims claims dialect.
 2.  Add a new claim for RSA user id.  
-    ![](attachments/52528427/52757012.png){width="700" height="328"}
+    ![](attachments/52528427/52757012.png) 
 
 Deploying travelocity.com sample app
 
@@ -206,9 +206,9 @@ for instructions on how to do this.
 The next step is to configure the service provider.
 
 1.  Return to the management console. In the **Service Providers**
-    section under the **Main** tab, click **Add** .
+    section under the **Main** tab, click **Add**.
 2.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 3.  Now set the configuration as follows:  
     ![](attachments/52528427/57004462.png)  
     Do the following configurations.  
@@ -218,10 +218,10 @@ The next step is to configure the service provider.
 
       
     Select the following check-boxes:  
-    -   **Enable Response Signing** .
-    -   **Enable Single Logout** .
-    -   **Enable Attribute Profile** .
-    -   **Include Attributes in the Response Always** .
+    -   **Enable Response Signing**.
+    -   **Enable Single Logout**.
+    -   **Enable Attribute Profile**.
+    -   **Include Attributes in the Response Always**.
 
 4.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -240,7 +240,7 @@ Server claim.
 1.  Go to the following URL:
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                              `
     E.g. <http://localhost:8080/travelocity.com>  
-    ![](attachments/49092381/49226489.png){width="700" height="451"}
+    ![](attachments/49092381/49226489.png) 
 2.  Click the link to log in with SAML from WSO2 Identity Server. The
     basic authentication page appears. Use your WSO2 Identity Server
     credentials to log in.  
@@ -250,9 +250,9 @@ Server claim.
     ![](attachments/52528427/57004467.png){height="250"}
 4.  Enter the PIN and TOKEN, where TOKEN is shown in the keyfobs or in
     your mobile device RSA applications.  
-    ![](attachments/52528427/52757625.png){width="300" height="200"}
+    ![](attachments/52528427/52757625.png) 
 5.  If the authentication is successful, you are redirected to the home
     page of travelocity.com app  
-    ![](attachments/52528427/52757626.png){width="700"}
+    ![](attachments/52528427/52757626.png) 
 
   

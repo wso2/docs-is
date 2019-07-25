@@ -16,7 +16,7 @@ you need to follow in order to use a MySQL database for this purpose.
     
     You need to set up MySQL before following the steps to configure your
     product with MySQL. For more information, see [Setting up
-    MySQL](_Setting_up_MySQL_) .
+    MySQL](_Setting_up_MySQL_).
     
 
 ### Creating the datasource connection to MySQL
@@ -135,7 +135,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
@@ -148,7 +148,7 @@ Follow the steps below to change the type of the default
     the product rolls back the pending transactions if defaultAutoCommit
     =true . However, if required you can disable the latter mentioned
     default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           ` ,
+    `            ConnectionRollbackOnReturnInterceptor           `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.
@@ -280,7 +280,7 @@ starting the product for the first time** by using the
     `           -DSetup          ` option is redundant and typically
     unusable. **As a result, from [January 2018
     onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`            -DSetup           `** **option** . Note
+    deprecated the** **`            -DSetup           `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the
@@ -323,10 +323,10 @@ starting the product for the first time** by using the
     
         2.  Change the
             `             <PRODUCT_HOME>/dbscripts/mysql5.7.sql            `
-            script to **`              mysql.sql             `** .
+            script to **`              mysql.sql             `**.
         3.  Change the
             `             <PRODUCT_HOME>/dbscripts/identity/mysql5.7.sql            `
-            script to **`              mysql.sql             `** .
+            script to **`              mysql.sql             `**.
     
         MySQL 5.7 is only recommended for products that are based on Carbon
         4.4.6 or a later version.

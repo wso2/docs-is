@@ -21,7 +21,7 @@ purpose.
     
     You need to set up Oracle RAC before following the steps to configure
     your product with Oracle RAC. For more information, see [Setting up
-    Oracle RAC](_Setting_up_Oracle_RAC_) .
+    Oracle RAC](_Setting_up_Oracle_RAC_).
     
 
 ### Setting up datasource configurations
@@ -32,7 +32,7 @@ to the default  H2 database, which stores registry and user management
 data. After setting up the Oracle RAC database to replace the default H2
 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) , or
+datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase), or
 [configure a
 new datasource](#ChangingtoOracleRAC-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 to point it to the new database as explained below.

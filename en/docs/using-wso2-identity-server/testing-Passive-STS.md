@@ -9,13 +9,13 @@ of Identity Server's Passive STS.
     Identity Server product
     page](http://wso2.com/products/identity-server/) and installed by
     following the instructions in the [Installing the
-    Product](_Installing_the_Product_) topic.
+    Product](../../setup/installing-the-product) topic.
 -   Apache Tomcat 6/7 - To deploy the sample web application. This can
     be downloaded from the [Apache Tomcat
-    website](http://tomcat.apache.org/) .
+    website](http://tomcat.apache.org/).
 -   Passive STS Sample - This can be downloaded from the GitHub
     repository by following the instructions in the [Downloading a
-    Sample](_Downloading_a_Sample_) topic.
+    Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
 
 ### Configuring the sample
 
@@ -68,11 +68,11 @@ file.
 
 1.  [Log in to the Identity Server](_Running_the_Product_) and go to
     **Service Providers\>Add** in the **Main** menu in the [management
-    console](_Getting_Started_with_the_Management_Console_) .
+    console](../../setup/getting-started-with-the-management-console).
 2.  Enter a unique name for the service provider and click **Register.**
     The following form appears.  
 
-    ![](attachments/103329901/103329902.png)
+    ![]( ../../assets/img/103329901/103329902.png)
 
 3.  Expand the **Inbound Authentication Configuration\>**
     **WS-Federation (Passive) Configuration** section and provide the

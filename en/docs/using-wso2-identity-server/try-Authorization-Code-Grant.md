@@ -2,7 +2,7 @@
 
 The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
-[Authorization Code Grant](_Authorization_Code_Grant_) .
+[Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant).
 
 !!! note
     
@@ -29,10 +29,10 @@ to configure PKCE for an OAuth application.
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-2.  Enter the following details and click **Authorize** . For
+2.  Enter the following details and click **Authorize**. For
     information on how to obtain these authorization details, see
     [Configuring OAuth2-OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_) .
+    Connect](_Configuring_OAuth2-OpenID_Connect_).
 
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the application
@@ -41,21 +41,21 @@ to configure PKCE for an OAuth application.
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
 
       
-    ![](attachments/103329947/103329953.png){width="680" height="378"}
+    ![]( ../../assets/img/103329947/103329953.png) 
 
 3.  Log in with the user credentials.  
-    ![](attachments/103329947/103329952.png){width="340" height="469"}
+    ![]( ../../assets/img/103329947/103329952.png) 
 
       
 
 4.  Select **Approve Once** or **Approve Always** in Access to profile
     information section. Also, select the attributes you agree to share.
-    Click **Continue** .  
-    ![](attachments/103329947/103329951.png){width="434" height="494"}
+    Click **Continue**.  
+    ![]( ../../assets/img/103329947/103329951.png) 
 
       
 
-5.  Provide the following details and click on **Get Access Token** .
+5.  Provide the following details and click on **Get Access Token**.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
@@ -66,13 +66,13 @@ to configure PKCE for an OAuth application.
     add the tenant domain as a query parameter to the access token
     endpoint.
 
-    If the tenant domain is *[wso2.com](http://wso2.com)* , access token
+    If the tenant domain is *[wso2.com](http://wso2.com)*, access token
     endpoint will be as follows.
 
     Access Token Endpoint:
     <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![](attachments/103329947/103329950.png){width="568" height="250"}  
+    ![]( ../../assets/img/103329947/103329950.png)   
       
 
     At this point, the application receives the Access Token. Enter the
@@ -99,18 +99,18 @@ to configure PKCE for an OAuth application.
 
       
 
-    ![](attachments/103329947/103329956.png){height="250"}
+    ![]( ../../assets/img/103329947/103329956.png){height="250"}
 
 6.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329947/103329955.png){height="250"}
+    ![]( ../../assets/img/103329947/103329955.png){height="250"}
 
 #### **Running the application (with PKCE)**
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
-2.  Enter the following details and click **Authorize** .
+2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the application
@@ -120,7 +120,7 @@ to configure PKCE for an OAuth application.
     Use PKCE: Yes  
     PKCE Challenge Method:
 
-    ![](attachments/103329947/103329960.png)
+    ![]( ../../assets/img/103329947/103329960.png)
 
       
 
@@ -133,7 +133,7 @@ to configure PKCE for an OAuth application.
     ![3.png](https://lh5.googleusercontent.com/dpfRmmoe097JTIVOqEZHYwXrgX9j9q7wOvOe_Rq2WB48qnr6k937maFlZkF8iqP2yAELMkvclM-7y08EcQyTpAyJqyZ56P1t1JyPsEQUNjoHuuYin3Tu6KgpP1GSU_OIX-FI5B7v){width="434"
     height="203"}
 
-5.  Provide the following details and click on **Get Access Token** .
+5.  Provide the following details and click on **Get Access Token**.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
@@ -146,13 +146,13 @@ to configure PKCE for an OAuth application.
     add the tenant domain as a query parameter to the access token
     endpoint.
 
-    If the tenant domain is *[wso2.com](http://wso2.com)* , access token
+    If the tenant domain is *[wso2.com](http://wso2.com)*, access token
     endpoint will be as follows.
 
     Access Token Endpoint:
     <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![](attachments/103329947/103329958.jpg)  
+    ![]( ../../assets/img/103329947/103329958.jpg)  
       
 
 6.  At this point, the application receives the Access Token. Enter the
@@ -177,11 +177,11 @@ to configure PKCE for an OAuth application.
     used along with or independently of structured token values.
 
       
-    ![](attachments/103329947/103329956.png){height="250"}
+    ![]( ../../assets/img/103329947/103329956.png){height="250"}
 
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![](attachments/103329947/103329955.png){width="714"}
+    ![]( ../../assets/img/103329947/103329955.png) 
 
 **Related Topics**
 

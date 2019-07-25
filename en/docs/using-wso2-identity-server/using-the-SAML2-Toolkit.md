@@ -21,13 +21,13 @@ This toolkit consists of two modules:
     console.
 2.  In the management console, y ou can find the **SAML** section under
     the **Tools** menu.  
-    ![](attachments/103329518/103329521.png){height="250"}
+    ![]( ../../assets/img/103329518/103329521.png){height="250"}
 
 ### Working with the SAML request validator
 
 1.  Once you click the **SAML Request Validator** link, the following
     screen appears:  
-    ![](attachments/103329518/103329520.png)  
+    ![]( ../../assets/img/103329518/103329520.png)  
     -   Before starting the validation, it is required to specify the
         request binding which the service provider has initiated. This
         may be either `            HTTP POST           ` or
@@ -43,7 +43,7 @@ This toolkit consists of two modules:
         inside the form data. Copy and paste only the encoded request
         without " `            SAMLRequest=           ` " to the given
         text area. If the request binding used is
-        `            HTTP Redirect           ` , you can also get the
+        `            HTTP Redirect           `, you can also get the
         SAML Request from the developer tools. However, in this instance
         you have to copy the URL instead of the encoded request. This is
         required because parameters like "
@@ -67,18 +67,18 @@ This toolkit consists of two modules:
 
 1.  Once you click the " **SAML Response Builder** " link, the following
     screen appears:  
-    ![](attachments/103329518/103329519.png)  
+    ![]( ../../assets/img/103329518/103329519.png)  
     -   This feature allows you to build a valid response against a
         selected SAML2 Web SSO configuration.
     -   All the issuers available in configurations are listed here in
         the **Issuer** drop down. So you can select the required
-        configuration by selecting the **Issuer** .
+        configuration by selecting the **Issuer**.
     -   The **User Name** is also required to get the user profile which
         will be used during the response generation.
 2.  Click the " **Generate** " button, the response builder will
     generate the response using provided data and display it in both XML
     and in encoded format as follows.  
-    ![](attachments/103329518/103329523.png){width="750"}  
+    ![]( ../../assets/img/103329518/103329523.png)   
     The user can verify the configuration from the returned response, by
     looking at the XML. Also, some web sites like
     [Salesforce](http://www.salesforce.com/) provides the facility to

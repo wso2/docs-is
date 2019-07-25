@@ -206,7 +206,7 @@ full scale consent life-cycle management. The WSO2 IAM solution also
 supports secure identity provisioning across systems in a GDPR compliant
 manner. For more information, see the [regulatory compliance details on
 the WSO2 .com
-site](https://wso2.com/solutions/regulatory-compliance/gdpr/) .
+site](https://wso2.com/solutions/regulatory-compliance/gdpr/).
 
   
 
@@ -222,7 +222,7 @@ Passive profile is supported).
 #### Error initializing Cipher when using a custom Key Store for Secure Vault : If you try with a custom keystore, you might encounter the following error for certain instances :
 
 ``` java
-Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200) ... 1 more
+Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
 ```
 
   
@@ -296,7 +296,7 @@ provider to implement.
 
 Unlike with SPML, the industry itself has been developing this
 specification based on practical experience.
-[Salesforce.com](http://salesforce.com/) , Cisco, Google, Ping Identity,
+[Salesforce.com](http://salesforce.com/), Cisco, Google, Ping Identity,
 Technology Nexus, and UnboundID, among others, are committed to its
 success .
 
@@ -737,7 +737,7 @@ mentioned security standards.
 
 WSO2Identity Server supports centralized and policy based access control
 mechanism based on XACML. Authentication mechanism, such as username
-token, X.509 SAML , OAuth and kerberos can be easily plugged with the
+token, X.509 SAML, OAuth and kerberos can be easily plugged with the
 XACML access control engine.  
   
 

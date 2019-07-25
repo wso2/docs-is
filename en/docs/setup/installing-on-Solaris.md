@@ -2,7 +2,7 @@
 
 !!! tip
     
-    **Before you begin** , [please see our compatibility
+    **Before you begin**, [please see our compatibility
     matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
     to find out if this version of the product is fully tested on your
     operating system.
@@ -15,7 +15,7 @@ Follow the instructions below to install Identity Server on Solaris.
 1.  Establish an SSH connection to the Solaris machine or log in on the
     text console.
 2.  Be sure your system meets the [Installation
-    Prerequisites](_Installation_Prerequisites_) .  Java Development Kit
+    Prerequisites](_Installation_Prerequisites_).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server
@@ -85,4 +85,4 @@ you can take the following approaches:
     vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
     .
 
-You are now ready to [run the product](_Running_the_Product_) .
+You are now ready to [run the product](_Running_the_Product_).

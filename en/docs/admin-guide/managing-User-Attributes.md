@@ -33,12 +33,12 @@ attributes of a user in the product.
     using the Management Console.
     1.  Log into the product's Management Console.
     2.  On the **Configure** tab in the Management Console, click
-        **Users and Roles** .  
-    3.  Click **Users** . This link is only visible to users with the
+        **Users and Roles**.  
+    3.  Click **Users**. This link is only visible to users with the
         Admin role.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
-        **User Profile** .  
+        **User Profile**.  
         ![](attachments/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the `           RemoteUserStoreManagerService          `
@@ -116,7 +116,7 @@ this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![](attachments/43997703/44195177.png){width="750"}
+    ![](attachments/43997703/44195177.png) 
 
 ### Writing custom attributes
 
@@ -158,7 +158,7 @@ one of the unique attributes in LDAP to authenticate the user (as the
 user name of the user in that application). Considering our example, it
 can be the **uid** or **mail** attribute. Additionally, in some cases,
 the application can use both attributes. So end users can be
-authenticated in the application using both their **uid** or **mail** .
+authenticated in the application using both their **uid** or **mail**.
 
 WSO2 products can be deployed with any LDAP based server and it can
 expose authentication via a Web Service API, SAML, OAuth, OpenID, etc.

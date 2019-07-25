@@ -61,7 +61,7 @@ tool.
 WSO2 also supports extending this tool to include additional modules
 from which you would want to remove deleted user identities. For
 information on how to extend the tool, see [Extending the Identity
-Anonymization Tool](_Extending_the_Identity_Anonymization_Tool_) .
+Anonymization Tool](_Extending_the_Identity_Anonymization_Tool_).
 
 The following topics walk you through the process of building the tool
 and configuring the appropriate files and directories so that you can
@@ -90,7 +90,7 @@ Follow the steps below to build the tool:
 1.  Clone the <https://github.com/wso2/identity-anonymization-tool>
     repository to a required location.
 2.  In the source that you checked out, navigate to
-    `          identity-anonymization-tool         ` , and run
+    `          identity-anonymization-tool         `, and run
     `          mvn clean install         ` . This downloads all
     dependencies and builds the tool in your local repository. You can
     find the

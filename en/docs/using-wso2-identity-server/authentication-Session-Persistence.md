@@ -37,7 +37,7 @@ etc.), the Identity Server creates a SSO session for end users and
 a cookie that is related to the created SSO session is set to the user’s
 browser.
 
-This cookie can be seen as **commonauthId** . It is set to the user’s
+This cookie can be seen as **commonauthId**. It is set to the user’s
 browser with the hostname of WSO2 Identity Server instance and the value
 of the **commonauthId** cookie is the SSO session identifier. When SSO
 session is created in the WSO2 Identity Server, the session is put into

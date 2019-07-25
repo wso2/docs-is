@@ -31,7 +31,7 @@ To add a new workflow, do the following.
     **Workflow Definitions** in the **Manage** section.  
 2.  Enter the name and description of the workflow and click **Next**
     .  
-    ![](attachments/103330289/103330292.png)
+    ![]( ../../assets/img/103330289/103330292.png)
 3.  Set the levels of approval that are required. For instance, you may
     require that users with a Manager role must first approve user
     accounts followed by approval from users with a SeniorManager role.
@@ -49,12 +49,12 @@ To add a new workflow, do the following.
         radio button.
     3.  Select the user store that your user or role resides in by
         choosing it from the **Select Domain** drop-down.
-    4.  Enter the role name or username and click **Search Roles** .
+    4.  Enter the role name or username and click **Search Roles**.
     5.  Select the check-box associated with the username or role name
         that you require and click **Add Selected Roles** or **Add
-        Selected Users** .
+        Selected Users**.
     6.  Click **Next** to move to the next step.  
-        ![](attachments/103330289/103330291.png)
+        ![]( ../../assets/img/103330289/103330291.png)
 
           
 
@@ -64,7 +64,7 @@ To add a new workflow, do the following.
         for some users, get approval from a user to continue). Identity
         Server supports custom templates that can be deployed as OSGi
         services. More information on writing workflow templates can be
-        found [here](_Writing_a_Custom_Workflow_Template_) .
+        found [here](_Writing_a_Custom_Workflow_Template_).
 
 4.  Fill in the deployment information of the template as described
     below. Use the screen capture as a guide for the sample values to
@@ -76,7 +76,7 @@ To add a new workflow, do the following.
     | Task Subject | Subject of the workflow request for  approval                                                                                                                                                                                                                                                                          |
     | Task Detail  | Body of the Workflow request for approval                                                                                                                                                                                                                                                                              |
 
-    ![](attachments/103330289/103330290.png){width="534" height="321"}
+    ![]( ../../assets/img/103330289/103330290.png) 
 
     !!! note
     
@@ -94,4 +94,4 @@ To add a new workflow, do the following.
 
 Now you need to add the workflow you created to an operation. For more
 information, see [Engaging a Workflow in an
-Operation](_Engaging_a_Workflow_in_an_Operation_) .
+Operation](_Engaging_a_Workflow_in_an_Operation_).

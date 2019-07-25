@@ -22,9 +22,9 @@ caution.
 Follow the instructions below to access the SOAP Tracer.
 
 1.  Log in to the management console and select **Monitor -\> SOAP
-    Tracer** .  
+    Tracer**.  
     ![](attachments/53125408/53287302.png)
-2.  In the drop-down menu, select **Yes** .  
+2.  In the drop-down menu, select **Yes**.  
     ![](attachments/53125408/53287305.png)
 3.  The tracer will show the messages of the operations that were
     invoked. For example,  
@@ -41,7 +41,7 @@ Follow the instructions below to access the SOAP Tracer.
     services. They are filtered out.
 
 4.  If you want to find a message, fill in the Filter field with a word
-    (or a part of word) in the message and click **Search** .  
+    (or a part of word) in the message and click **Search**.  
     ![](attachments/53125408/53287304.png)
 5.  You will see the message in the **Messages** list and its full
     description will be shown in the **Request** or **Response** text

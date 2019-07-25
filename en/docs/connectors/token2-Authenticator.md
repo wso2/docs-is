@@ -9,7 +9,7 @@ token device that complies with OAuth specifications.
 
 To get started with the authenticator, go to [Configuring Multi-factor
 Authentication using
-Token2](_Configuring_Multi-factor_Authentication_using_Token2_) . Once
+Token2](_Configuring_Multi-factor_Authentication_using_Token2_). Once
 you have completed your configurations, you can perform authentication
 with the Token2 authenticator.
 

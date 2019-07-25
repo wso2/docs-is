@@ -15,7 +15,7 @@ which is configured in the **catalina-server.xml** file in the
 essential for this transport to be properly configured in this file for
 the Management Console to be accessible to users. For information on how
 to access the management console, see [Running the
-Product](_Running_the_Product_) .
+Product](_Running_the_Product_).
 
 !!! warning
     
@@ -37,7 +37,7 @@ Product](_Running_the_Product_) .
 The following screen depicts the full overview of the management
 console.
 
-![](attachments/103328985/103328992.png){width="750"}
+![](attachments/103328985/103328992.png) 
 
 The console's menu items appear in the left hand side of the Identity
 Server screen and the useable features appear in the center of the
@@ -51,8 +51,8 @@ features that you can use. These are divided among the following.
     menu](#GettingStartedwiththeManagementConsole-Configuremenu)
 -   [Tools menu](#GettingStartedwiththeManagementConsole-Toolsmenu)
 
-While these menu items are usually divided into **Main** , **Monitor** ,
-**Configure** and **Tools** , additional menus may appear depending on
+While these menu items are usually divided into **Main**, **Monitor**,
+**Configure** and **Tools**, additional menus may appear depending on
 the availability of features. Each of these menus carry a list of sub
 menus. A product's menus and sub menus may vary depending on the product
 version and any additional feature you have installed to provision the
@@ -96,7 +96,7 @@ See the following topics for instructions on how to use each of these
 menu items.
 
 -   See [Configuring the Policy Administration
-    Point](_Configuring_the_Policy_Administration_Point_) for
+    Point](../../tutorials/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
     Point](_Configuring_the_Policy_Decision_Point_) for configuring the
@@ -130,7 +130,7 @@ menu items.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to monitoring the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](_Monitoring_the_Identity_Server_) .
+[monitoring the Identity Server](_Monitoring_the_Identity_Server_).
 
 ![](attachments/103328985/103328987.png)
 
@@ -162,6 +162,6 @@ menu items.
 
 The tools menu includes SAML and XACML tools. For more details on each
 of these tools and their usage, see the topics on [working with
-tools](_Using_Tools_) .
+tools](_Using_Tools_).
 
 ![](attachments/103328985/103328989.png)

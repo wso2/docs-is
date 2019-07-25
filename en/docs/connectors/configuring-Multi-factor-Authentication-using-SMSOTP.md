@@ -13,7 +13,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 This connector is supported by default from WSO2 Identity Server 5.4.0
 onwards. For more information, see [Configuring SMS
-OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP) .
+OTP](https://docs.wso2.com/identity-server/Configuring+SMS+OTP).
 
 -   [Deploying SMS OTP
     artifacts](#ConfiguringMulti-factorAuthenticationusingSMSOTP-DeployingSMSOTPartifacts)
@@ -109,7 +109,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="odd">
     <td><pre><code>SMSOTPEnableByUserClaim</code></pre></td>
-    <td>This field makes it possible to disable the 'SMS OTP disabling by user' functionality. The value can be <code>                                   true                                 </code> or <code>                                                      false                                   </code> . If the value is <code>                                                      true                                   </code> , the user can enable and disable the SMS OTP according to what the admin selects ( <code>                                   SMSOTPMandatory                 </code> parameter value).</td>
+    <td>This field makes it possible to disable the 'SMS OTP disabling by user' functionality. The value can be <code>                                   true                                 </code> or <code>                                                      false                                   </code> . If the value is <code>                                                      true                                   </code>, the user can enable and disable the SMS OTP according to what the admin selects ( <code>                                   SMSOTPMandatory                 </code> parameter value).</td>
     </tr>
     <tr class="even">
     <td><pre><code>BackupCode</code></pre></td>
@@ -117,7 +117,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="odd">
     <td><pre><code>SMSOTPMandatory</code></pre></td>
-    <td>If the value is <code>                 true                </code> , the second step is enabled by the admin. The user cannot be authenticated without the SMS OTP authentication. This parameter is used for both the super tenant and tenant in the configuration. The value can be <code>                                   true                                 </code> or <code>                                   false.                                 </code></td>
+    <td>If the value is <code>                 true                </code>, the second step is enabled by the admin. The user cannot be authenticated without the SMS OTP authentication. This parameter is used for both the super tenant and tenant in the configuration. The value can be <code>                                   true                                 </code> or <code>                                   false.                                 </code></td>
     </tr>
     <tr class="even">
     <td><pre><code>SendOTPDirectlyToMobile</code></pre></td>
@@ -130,11 +130,11 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </tr>
     <tr class="even">
     <td><code>                 usecase                </code></td>
-    <td>This field can take one of the following values: <code>                                   local                                 </code> , <code>                                   association                                 </code> , <code>                                   userAttribute                                 </code> , <code>                                   subjectUri                                 </code> . If you do not specify any <code>                 usecase                </code> , the default value is <code>                 local                </code> .</td>
+    <td>This field can take one of the following values: <code>                                   local                                 </code>, <code>                                   association                                 </code>, <code>                                   userAttribute                                 </code>, <code>                                   subjectUri                                 </code> . If you do not specify any <code>                 usecase                </code>, the default value is <code>                 local                </code> .</td>
     </tr>
     <tr class="odd">
     <td><pre><code>secondaryUserstore</code></pre></td>
-    <td><p>The user store configuration is maintained per tenant as comma separated values. For example, <code>                  &lt;Parameter name="secondaryUserstore"&gt;jdbc                 </code> , <code>                  abc                 </code> , and <code>                  xyz&lt;/Parameter&gt;                 </code> .<br />
+    <td><p>The user store configuration is maintained per tenant as comma separated values. For example, <code>                  &lt;Parameter name="secondaryUserstore"&gt;jdbc                 </code>, <code>                  abc                 </code>, and <code>                  xyz&lt;/Parameter&gt;                 </code> .<br />
     </p></td>
     </tr>
     <tr class="even">
@@ -159,7 +159,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
 
     -   If the Admin specifies that SMS OTP is mandatory (
         `              <Parameter name="SMSOTPMandatory">true</Parameter>)             `
-        , you must enable SMS OTP in the user’s profile by adding the
+       , you must enable SMS OTP in the user’s profile by adding the
         claim value as true in order to authenticate the user. If this
         is not done, the SMSOTP error page appears.
     -   If the Admin specifies that SMSOTP is optional (
@@ -204,7 +204,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;Parameter</span><span class="ot"> name=</span><span class="st">&quot;userAttribute&quot;</span><span class="kw">&gt;</span>email<span class="kw">&lt;/Parameter&gt;</span></a></code></pre></div>
     </div>
     </div>
-    <p>If you use, OpenID Connect supported authenticators such as LinkedIn, Foursquare, etc., or in the case of multiple social login options as the first step and SMSOTP as secondstep , you need to add similar configuration for the specific authenticator in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                  </code> file under the &lt; <code>                   AuthenticatorConfigs                  </code> &gt; section as follows (the following shows the configuration forFoursquare,LinkedIn and Facebook authenticator respectively).</p>
+    <p>If you use, OpenID Connect supported authenticators such as LinkedIn, Foursquare, etc., or in the case of multiple social login options as the first step and SMSOTP as secondstep, you need to add similar configuration for the specific authenticator in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                  </code> file under the &lt; <code>                   AuthenticatorConfigs                  </code> &gt; section as follows (the following shows the configuration forFoursquare,LinkedIn and Facebook authenticator respectively).</p>
     <p>Inside the <code>                   AuthenticatorConfig                  </code> (i.e., Foursquare), add the specific <code>                   userAttribute                  </code> with a prefix of the (current step) authenticator name (i.e., SMSOTP-userAttribute).</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
@@ -250,12 +250,12 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
 
     <!-- -->
 
-    -   If you use a **tenant** , upload the same XML file (
+    -   If you use a **tenant**, upload the same XML file (
         `               application-authentication.xml              ` )
         into a specific registry location (
         `               /_system/governance/SMSOTP)              ` .
         Create the collection named
-        `               SMSOTP              ` , add the resource and
+        `               SMSOTP              `, add the resource and
         upload the
         `               application-authentication.xml              `
         file into theregistry). While doing the authentication, first it
@@ -294,7 +294,7 @@ in order to use it in this scenario.
 O nce this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and a [service provider](https://docs.wso2.com/display/IS510) .
+and a [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -304,7 +304,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and
-    [run it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    [run it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Download the certificate of the SMS provider. Go to the link (eg:-
     [https://www.nexmo.com)](https://www.nexmo.com/) in your browser,
     and then click the HTTPS trust icon on the address bar (e.g., the
@@ -319,16 +319,16 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     as an administrator.
 
 5.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
+    console, click **Add** under **Identity Providers**.
 
 6.  Give a suitable name (e.g., SMSOTP) as the **Identity Provider
-    Name** .
+    Name**.
 
 7.  Go to the **SMSOTP Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 8.  Select both checkboxes to **Enable SMSOTP Authenticator** and make
-    it the **Default** .
+    it the **Default**.
 
 9.  Enter the SMS URL and the HTTP Method used (e.g., GET or POST).
     Include the headers and payload if the API uses any. If the text
@@ -344,7 +344,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     1.  Go to <https://dashboard.nexmo.com/sign-up> and click free
         signup and register.
-    2.  Under **API Settings** in **Settings** , copy and save the API
+    2.  Under **API Settings** in **Settings**, copy and save the API
         key and Secret.
     3.  The Nexmo API requires the parameters to be encoded in the URL,
         so the SMS URL would be as follows.
@@ -382,7 +382,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     3.  The Plivo API is authenticated with Basic Auth using your
         `              AUTH ID             ` and
-        `              AUTH TOKEN             ` , Your Plivo
+        `              AUTH TOKEN             `, Your Plivo
         `              AUTH ID             ` and
         `              AUTH TOKEN             ` can be found when you
         log in to your [dashboard.](https://manage.plivo.com/dashboard/)
@@ -420,7 +420,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
     2.  While registering the account, verify your mobile number and
         click **Claim** to get free credits.  
-        ![](attachments/48276901/51449676.png){width="800" height="198"}
+        ![](attachments/48276901/51449676.png) 
 
     3.  Bulksms API authentication is performed by providing username
         and password request parameters.
@@ -440,7 +440,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     1.  Go to <https://www.twilio.com/try-twilio> and create an account.
     2.  While registering the account, verify your mobile number and
         click on console home <https://www.twilio.com/console> to get
-        free credits (Account SID and Auth Token) .
+        free credits (Account SID and Auth Token).
 
     3.  Twilio uses a POST method with headers and the text message and
         phone number are sent as the payload. So the fields would be as
@@ -465,15 +465,15 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
-    Provider Name** text box and click **Register** .
+    Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
 
-    ![](attachments/48276901/48211841.png?effects=border-simple,blur-border){width="500"}
+    ![](attachments/48276901/48211841.png?effects=border-simple,blur-border) 
 
 5.  Now set the configuration as follows:
 
@@ -496,7 +496,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the mobile claim.
 
-    ![](attachments/48276901/48211842.png?effects=border-simple,blur-border){width="700"}
+    ![](attachments/48276901/48211842.png?effects=border-simple,blur-border) 
 
 9.  Go to **Local and Outbound Authentication Configuration** section.
 
@@ -508,7 +508,7 @@ The next step is to configure the service provider.
     done using the user's credentials that are configured with the WSO2
     Identity Server. SMSOTP is a second step that adds another layer of
     authentication and security.  
-    ![](attachments/48276901/49222039.png?effects=border-simple,shadow-kn){width="700"}
+    ![](attachments/48276901/49222039.png?effects=border-simple,shadow-kn) 
 
 12. Alternatively, federated authentication as the first step and SMSOTP
     authentication as the second step and click **Update** to save the
@@ -522,10 +522,10 @@ You have now added and configured the service provider.
     Management Console.
 2.  Go to the **User Profile** and update the mobile number (this number
     must be registered with Nexmo in order to send SMS).  
-    ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn){width="500"}  
+    ![](attachments/48276901/49222049.png?effects=border-simple,shadow-kn)   
     **Note:** If you wish to use the backup codes to authenticate, you
     can add the following claim, otherwise you can leave it.
-3.  In the **Main** menu, click **Add** under **Claims** .
+3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add New
     Claim](https://docs.wso2.com/display/IS510/Adding+New+Claim+Mapping)
     .
@@ -541,7 +541,7 @@ You have now added and configured the service provider.
     update the Backup codes and user can disable SMS OTP by clicking
     "Disable SMS OTP".
 
-    ![](attachments/48276901/57749623.png){width="600"}
+    ![](attachments/48276901/57749623.png) 
 
 ### Testing the sample
 
@@ -549,14 +549,14 @@ You have now added and configured the service provider.
     [http://localhost:8080/travelocity.com  
     ](http://localhost:8080/travelocity.com)
 
-    [![](attachments/48276901/48211814.png?effects=border-simple,blur-border){width="500"}  
+    [![](attachments/48276901/48211814.png?effects=border-simple,blur-border)   
     ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page will be visible. Use your WSO2
     Identity Server credentials to sign in.  
-    ![](attachments/48276901/48211843.png?effects=border-simple,blur-border){width="500"}
+    ![](attachments/48276901/48211843.png?effects=border-simple,blur-border) 
 
 4.  You will get a token to your mobile phone.Type the code to
     authenticate, You will be taken to the home page of the
@@ -570,7 +570,7 @@ You have now added and configured the service provider.
         [travelocity.com](http://travelocity.com) application.
     
 
-    ![](attachments/48276901/49221144.png?effects=border-simple,shadow-kn){width="500"}
+    ![](attachments/48276901/49221144.png?effects=border-simple,shadow-kn) 
 
     ![](attachments/48276901/49222070.png?effects=border-simple,shadow-kn){width="500"
     height="222"}

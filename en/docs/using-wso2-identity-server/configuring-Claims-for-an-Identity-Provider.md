@@ -42,13 +42,13 @@ claim dialect (i.e., a claim dialect local to the Identity Server) or
 define your own custom claim dialect (i.e., a claim dialect which exists
 in the identity provider that must be mapped to the Identity Server).
 
--   If you choose to **Use Local Claim Dialect** , select the claim you
+-   If you choose to **Use Local Claim Dialect**, select the claim you
     require from the **User ID Claim URI** dropdown that includes a list
     of all the claims defined in the Identity Server.  
-    ![](attachments/103329700/103329701.png){width="710"}  
+    ![]( ../../assets/img/103329700/103329701.png)   
 -   You can alternatively choose the **Define Custom Claim Dialect**
     option.  
-    ![](attachments/103329700/103329702.png){width="843"}  
+    ![]( ../../assets/img/103329700/103329702.png)   
     For custom claim dialects, you must map the attributes of the user
     in the identity provider to the claims that are local to the
     Identity Server. These claims can be part of the response that is
@@ -58,12 +58,12 @@ in the identity provider that must be mapped to the Identity Server).
     the outbound provisioning request. Do the following to configure
     this.  
     1.  Click the **Add Claim Mapping** button under **Identity Provider
-        Claim URIs** . Clicking this button again enables you to perform
+        Claim URIs**. Clicking this button again enables you to perform
         more claim mapping.
     2.  Map the value of the corresponding claim in the identity
         provider to the claim in the Identity Server. Click the
         **Delete** button to remove the claim mapping.  
-        ![](attachments/103329700/103329704.png)
+        ![]( ../../assets/img/103329700/103329704.png)
 
         | Property                    | Description                                         | Sample Value                          |
         |-----------------------------|-----------------------------------------------------|---------------------------------------|
@@ -95,7 +95,7 @@ The following scenario encompasses two different scenarios where
 provisioning happens. For both these scenarios, advanced claims are very
 useful.
 
-![](attachments/103329700/103329703.png)
+![]( ../../assets/img/103329700/103329703.png)
 
 In the above scenario, Google Apps is configured as an identity provider
 in the Identity Server and you would configure the Google provisioning
@@ -134,7 +134,7 @@ provider.
     blocked until the provisioning finishes - while in the non-blocking
     mode, provisioning happens in a different thread. This can be specified
     in the [service provider
-    configuration](_Adding_and_Configuring_a_Service_Provider_) .
+    configuration](_Adding_and_Configuring_a_Service_Provider_).
     
 
 In both these scenarios, only some specific user attributes must be
@@ -145,17 +145,17 @@ Identity Server.
 Use the following instructions to configure advanced claims.
 
 -   If you chose to **Use Local Claim Dialect** in the **Basic Claim
-    Configuration** , do the following.
+    Configuration**, do the following.
     1.  When you send provisioning requests from the Identity Server to
         the external identity provider, it may not be necessary to send
         all the requests. So, you can use the **Provisioning Claim
         Filter** to filter out the user attributes you need to send from
         the other available attributes. To use the **Provisioning Claim
-        Filter** , select the claims that exist in the Identity Server
-        from the dropdown list and click **Add Claim** . Clicking this
+        Filter**, select the claims that exist in the Identity Server
+        from the dropdown list and click **Add Claim**. Clicking this
         button again enables you to add a new entry.  
         ![Advanced Claim for local
-        claims](attachments/103329700/103329707.png "Advanced Claim for local claims"){width="750"}
+        claims]( ../../assets/img/103329700/103329707.png "Advanced Claim for local claims") 
     2.  Enter a **Default Value** for your claim. This value is the
         default value used when provisioning this claim. This value will
         be used in all instances of this field, e.g., if all users are
@@ -163,12 +163,12 @@ Use the following instructions to configure advanced claims.
         organization as a default value using this field. Clicking the
         **Delete** button will remove this advanced claim.
 -   If you chose to **Define Custom Claim Dialect** in the **Basic Claim
-    Configuration** , do the following.
+    Configuration**, do the following.
     1.  Select the **Identity Provider Claim URI** you defined from the
-        dropdown list and click **Add Claim** . Clicking this button
+        dropdown list and click **Add Claim**. Clicking this button
         again will add a new entry.  
         ![Advanced Claim for custom
-        claims](attachments/103329700/103329708.png "Advanced Claim for custom claims"){width="750"}
+        claims]( ../../assets/img/103329700/103329708.png "Advanced Claim for custom claims") 
     2.  Enter a **Default Value** for your claim. This value is the
         default value used when provisioning this claim. This value will
         be used in all instances of this field, e.g., if all users are

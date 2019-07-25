@@ -12,7 +12,7 @@ attacks.
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha) .
+    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha).
 
     !!! note
     

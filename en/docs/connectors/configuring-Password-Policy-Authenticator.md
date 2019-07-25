@@ -47,7 +47,7 @@
         in the `            identity-event.properties           ` file . For
         example, if the last module number mentioned in the file is
         `                         module.name                        .11           `
-        , the above entry should be renamed as
+       , the above entry should be renamed as
         `            module.name.12=passwordExpiry           ` .
     
 
@@ -100,13 +100,13 @@ required because the WSO2 Identity Server needs to know if the password
 is expired or not for this flow to work.
 
 For more information about claim mappings, see [Adding a claim
-mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 
 1.  Navigate to the **Identity** section under the **Main** tab of the
     [management
     console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     .
-2.  Click **Add** under **Claims** and then click **Add Local Claim** .
+2.  Click **Add** under **Claims** and then click **Add Local Claim**.
 3.  Add a new claim for
     `           lastPasswordChangedTimestamp          ` with
     `                       http://wso2.org/claims/lastPasswordChangedTimestamp                     `
@@ -120,7 +120,7 @@ mapping](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
     store.
 
     **  
-    ![](attachments/50511336/97551782.png){width="670"}  
+    ![](attachments/50511336/97551782.png)   
     **
 
 ### Deploying travelocity.com sample
@@ -140,17 +140,17 @@ The next step is to configure the service provider.
 1.  Return to the Management Console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter travelocity.com in the **Service Provider Name** text box and
-    click **Register** .
+    click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
 
 5.  Configure the sample application (travelocity) as the service
     provider.  
-    ![](attachments/50511336/50688127.png){width="726" height="723"}  
+    ![](attachments/50511336/50688127.png)   
     Do the following configurations.
 
     1.  **Issuer** : travelocity.com
@@ -215,11 +215,11 @@ You have now added and configured the service provider.
         configuration.
     
 
-    ![](attachments/50511336/51252088.png){width="550" height="298"}  
+    ![](attachments/50511336/51252088.png)   
 
 2.  Enter a date and time of the past for the Password Changed Time
     field. Make sure to provide the value in the Epoch format.  
-    ![](attachments/50511336/51252089.png){width="500"}
+    ![](attachments/50511336/51252089.png) 
 3.  Go to the following URL: http://localhost:8080/travelocity.com
 4.  Click the link to log in with SAML from WSO2 Identity Server.  
     ![](attachments/50511336/50688116.png)
@@ -229,7 +229,7 @@ You have now added and configured the service provider.
 
 6.  During the authentication flow, if the password is expired, you will
     be prompted to reset the password.  
-    ![](attachments/50511336/50688130.png){width="400"}
+    ![](attachments/50511336/50688130.png) 
 7.  Enter the current password, new password and repeat password. If the
     authentication is successful, you are taken to the home page of the
     travelocity.com app.

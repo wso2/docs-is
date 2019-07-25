@@ -3,7 +3,7 @@
 !!! note
     
     WSO2 has introduced the [WSO2 Update Manger
-    (WUM)](https://wso2.com/updates/wum) , which is a command-line tool that
+    (WUM)](https://wso2.com/updates/wum), which is a command-line tool that
     allows you to update your product with the latest available patches and
     enhancements. All WSO2 products based on Carbon 4.4.x will soon be
     supported by WUM. Go to the [WUM website](https://wso2.com/updates/wum)
@@ -16,7 +16,7 @@
 
 The patch application process described below guides you on how to
 manually apply patches, such as [security
-patches](http://wso2.com/security-patch-releases/) , to Carbon
+patches](http://wso2.com/security-patch-releases/), to Carbon
 4.4.x-based products (if your product version is currently not supported
 by WUM).
 
@@ -174,7 +174,7 @@ To remove a patch:
     `          PRODUCT_HOME>/repository/components/patches         `
     directory.
 2.  If there were artifacts copied from the resources directory of the
-    patch archive , you need to replace them with the original artifacts
+    patch archive, you need to replace them with the original artifacts
     (from the [backup](#WSO2PatchApplicationProcess-note) that was
     created before applying the patch). Also if there were exploded
     artifacts (such as \*.war files in the

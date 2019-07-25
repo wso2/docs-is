@@ -91,15 +91,15 @@ See the following sections for more information.
     </tr>
     <tr class="odd">
     <td><pre><code>MepinEnableByUserClaim</code></pre></td>
-    <td>This field makes it possible to disable the 'Mepin disabling by user' functionality. The value can be <code>                true               </code> or <code>                false               </code> . If the value is <code>                true               </code> , user can enable and disable the Mepin according to admin selection ( <code>                                 MepinMandatory                </code> parameter value).</td>
+    <td>This field makes it possible to disable the 'Mepin disabling by user' functionality. The value can be <code>                true               </code> or <code>                false               </code> . If the value is <code>                true               </code>, user can enable and disable the Mepin according to admin selection ( <code>                                 MepinMandatory                </code> parameter value).</td>
     </tr>
     <tr class="even">
     <td><pre><code>MepinMandatory</code></pre></td>
-    <td>If the value is <code>                true               </code> , the second step will be enabled by the admin. The user cannot be authenticated without Mepin authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be <code>                true               </code> or <code>                false.               </code></td>
+    <td>If the value is <code>                true               </code>, the second step will be enabled by the admin. The user cannot be authenticated without Mepin authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be <code>                true               </code> or <code>                false.               </code></td>
     </tr>
     <tr class="odd">
     <td><code>                usecase               </code></td>
-    <td>This field can take one of the following values: <code>                local               </code> , <code>                association               </code> , <code>                userAttribute               </code> , <code>                subjectUri               </code> . If you do not specify any <code>                usecase               </code> , the default value is <code>                local               </code> . See below for more details.</td>
+    <td>This field can take one of the following values: <code>                local               </code>, <code>                association               </code>, <code>                userAttribute               </code>, <code>                subjectUri               </code> . If you do not specify any <code>                usecase               </code>, the default value is <code>                local               </code> . See below for more details.</td>
     </tr>
     <tr class="even">
     <td><pre><code>secondaryUserstore</code></pre></td>
@@ -115,7 +115,7 @@ See the following sections for more information.
 
     -   If Admin specify that Mepin is mandatory (
         `             <Parameter name="MepinMandatory">true</Parameter>            `
-        , then you must enable Mepin in the user’s profile by adding
+       , then you must enable Mepin in the user’s profile by adding
         claim value true in order to authenticate the user. If this is
         not done, the Mepin error page appears.
     -   If Admin specify that Mepin is optional (
@@ -128,7 +128,7 @@ See the following sections for more information.
         log the user in as the first step (basic authentication).
 
     The first step may be local authenticator (basic) or a federated
-    authenticator (e.g., Facebook, Twitter, etc.) . In federated
+    authenticator (e.g., Facebook, Twitter, etc.). In federated
     authenticator support in first step, the following parameters are
     used according to the scenario.
 
@@ -202,12 +202,12 @@ See the following sections for more information.
 
     <!-- -->
 
-    -   If you use a **tenant** , upload the same XML file (
+    -   If you use a **tenant**, upload the same XML file (
         `              application-authentication.xml             ` )
         into a specific registry location (
         `              /_system/governance/MePINAuthenticator)             `
         . Create the collection named `              Mepin             `
-        , add the resource and upload the
+       , add the resource and upload the
         `              application-authentication.xml             ` file
         into the registry). While doing the authentication, first it
         checks whether there is an XML file uploaded to the registry. If
@@ -250,10 +250,10 @@ provider](http://docs.wso2.com/identity-server/Configuring%2520an%2520Identity%2
     console](http://docs.wso2.com/identity-server/Getting%20Started%20with%20the%20Management%20Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-4.  Give a suitable name as the **Identity Provider Name** .  
+    management console, click **Add**.
+4.  Give a suitable name as the **Identity Provider Name**.  
       
-    ![](attachments/48283197/49222048.png){width="800"}
+    ![](attachments/48283197/49222048.png) 
 5.  Go to MePIN Configuration under Federated Authenticators .
 
 6.  Enter the values as given in the above figure.
@@ -279,9 +279,9 @@ provider](http://docs.wso2.com/identity-server/Configuring%2520an%2520Identity%2
         notifications.
 
 7.  Select both checkboxes to **Enable** MePIN Authenticator and make it
-    the **Default** .
+    the **Default**.
 
-8.  Click **Register** .
+8.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -298,7 +298,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](attachments/48283197/48220892.png){width="800"}
+    ![](attachments/48283197/48220892.png) 
 
 5.  Now set the configuration as follows:
 
@@ -308,15 +308,15 @@ The next step is to configure the service provider.
         <http://localhost:8080/travelocity.com/home.jsp>
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
           
-        ![](attachments/48283197/49222047.png){width="800"}
+        ![](attachments/48283197/49222047.png) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the Service Providers page.
@@ -328,33 +328,33 @@ The next step is to configure the service provider.
 10. Using the available drop-down list, add the **basic** authentication
     as the first step and MePIN authentication as the second step and
     click **Update** to save the changes.  
-    ![](attachments/48283197/48221108.png){width="800"}
+    ![](attachments/48283197/48221108.png) 
 
 You have now added and configured the service provider.
 
 ### Configuring User Claim
 
 1.  On the **Main** tab in the Management Console, click **List** under
-    **Users and Roles** .  
-2.  Click **Users** . This link is only visible to users with the Admin
+    **Users and Roles**.  
+2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  From the list of users that appear in the resulting page, identify
     the user whose attributes you want to modify and click **User
-    Profile** .
-4.  In the **Main** menu, click **Add** under **Claims** .
+    Profile**.
+4.  In the **Main** menu, click **Add** under **Claims**.
 5.  Click [Add New
-    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](http://docs.wso2.com/identity-server/Adding+Claim+Mapping).
 6.  Select the **Dialect** from the drop down provided and enter the
     required information.
 7.  Add the user claim <http://wso2.org/claims/identity/mepinid> as
     following under ' http://wso2.org/claims' . This claim is mandatory
     for mepin authentication.  
-    ![](attachments/48283197/61053762.png){width="400"}  
+    ![](attachments/48283197/61053762.png)   
 8.  Add the user claim
     [http://wso2.org/claims/identity/mepin\_disabled](http://wso2.org/claims/identity/emailotp_disabled)
     as following under ' http://wso2.org/claims' .  
       
-    ![](attachments/48283197/61053763.png){width="400"}
+    ![](attachments/48283197/61053763.png) 
 
 ### Testing the sample
 
@@ -365,7 +365,7 @@ You have now added and configured the service provider.
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
-    ![](attachments/48283197/48220894.png){width="400"}
+    ![](attachments/48283197/48220894.png) 
 
 3.  The basic authentication page appears. Use your username and
     password to log in.  
@@ -381,7 +381,7 @@ You have now added and configured the service provider.
 6.  If the linking succeeds, you will be taken to the home page of the
     travelocity.com app. After that, your MePIN app has been linked to
     the service and can be used for secure login.  
-    ![](attachments/48283197/57007839.png){width="600"}
+    ![](attachments/48283197/57007839.png) 
 7.  If you are already linked, you will be directed to MePIN
     authentication page like below. You need to click "Login with
     MePIN".  
@@ -390,16 +390,16 @@ You have now added and configured the service provider.
     the home page of the travelocity.com app.
     -   For the confirmation policy - swipe you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/48220946.png){width="180"}
+        ![](attachments/48283197/48220946.png) 
     -   For the confirmation policy - tap you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/51252037.png){width="180"}
+        ![](attachments/48283197/51252037.png) 
 
 -   -   For the confirmation policy - pin you will be prompted to
         confirm as follows  
-        ![](attachments/48283197/51252038.png){width="180"}
+        ![](attachments/48283197/51252038.png) 
     -   For the confirmation policy - fingerprint you will be prompted
         to confirm as follows  
-        ![](attachments/48283197/51252039.png){width="180"}
+        ![](attachments/48283197/51252039.png) 
 
   

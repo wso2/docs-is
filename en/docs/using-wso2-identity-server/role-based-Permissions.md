@@ -19,11 +19,11 @@ level permission) as shown below. However, note that there may be other
 categories of permissions enabled for a WSO2 product, depending on the
 type of features that are installed in the product.
 
-![](attachments/103330369/103330394.png)
+![]( ../../assets/img/103330369/103330394.png)
 
 You can access the permissions navigator for a particular role by
 clicking **Permissions** as shown below.  
-![](attachments/103330369/103330396.png)
+![]( ../../assets/img/103330369/103330396.png)
 
 By default, every WSO2 product comes with the following User, Role and
 Permissions configured:
@@ -88,7 +88,7 @@ follows:
     <tr class="odd">
     <td><div class="content-wrapper">
     <strong>Configuration</strong> permissions:<br />
-    <img src="attachments/103330369/103330395.png" /><br />
+    <img src=" ../../assets/img/103330369/103330395.png" /><br />
     <br />
     <br />
 
@@ -100,7 +100,7 @@ follows:
     </tr>
     <tr class="even">
     <td><div class="content-wrapper">
-    <strong>Management</strong> permissions: <img src="attachments/103330369/103330397.png" />
+    <strong>Management</strong> permissions: <img src=" ../../assets/img/103330369/103330397.png" />
     </div></td>
     <td><p>The <strong>Super Admin/Manage</strong> permissions are used for adding new tenants and monitoring them.</p>
     <p><strong>- Modify/Tenants</strong> permission enables the <strong>Add New Tenant</strong> option in the <strong>Configure</strong> menu of the management console, which allows users to add new tenants.<br />
@@ -109,7 +109,7 @@ follows:
     <tr class="odd">
     <td><div class="content-wrapper">
     <strong>Server Admin</strong> permissions:<br />
-    <img src="attachments/103330369/103330398.png" />
+    <img src=" ../../assets/img/103330369/103330398.png" />
     </div></td>
     <td>Selecting the <strong>Server Admin</strong> permission enables the <strong>Shutdown/Restart</strong> option in the <strong>Main</strong> menu of the management console.</td>
     </tr>
@@ -208,7 +208,7 @@ follows:
     <td>When the <strong>Admin/Monitor</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <br />
     <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="_System_Statistics_">system statistics</a> for information on how to use this option.<br />
-    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="_SOAP_Tracer_">SOAP tracer</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="../../using-wso2-identity-server/soap-tracer_">SOAP tracer</a> for information on how to use this option.<br />
     <br />
     - Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</td>
     </tr>
@@ -225,7 +225,7 @@ follows:
 **Related Topics**
 
 -   See [Configuring Roles and
-    Permissions](_Configuring_Roles_and_Permissions_) .
+    Permissions](_Configuring_Roles_and_Permissions_).
 -   See [Permissions Required to Invoke Admin
     Services](_Permissions_Required_to_Invoke_Admin_Services_) for a
     complete list of permissions required to invoke admin services.

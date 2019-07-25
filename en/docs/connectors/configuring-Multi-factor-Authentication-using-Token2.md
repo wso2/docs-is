@@ -51,16 +51,16 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     Ensure that you do the following.
     1.  Enter the **Mobile phone number** in e164 format (+ 94 77 \*\*
         \*\* \*\*\* )
-    2.  Select **SMS Based** as the **User type** .
-    3.  Click **Register** .  
+    2.  Select **SMS Based** as the **User type**.
+    3.  Click **Register**.  
         ![](attachments/53120841/53284895.png)
-2.  Once you have registered with Token2 , log in using your email,
+2.  Once you have registered with Token2, log in using your email,
     password and the OTP that is sent to the registered mobile number
     through Token2.
 3.  Add a new site using " <https://token2.com/manage> " and obtain the
     API Key and site\_id for the site.
 4.  As mentioned in the [Token2 API
-    page](https://token2.com/?content=api) , create the user and you can
+    page](https://token2.com/?content=api), create the user and you can
     find the userid in the response .
 5.  You have to obtain the hardware token device and send the userid,
     site\_id and token serial number to Token2 support to enable it.
@@ -77,7 +77,7 @@ in order to use it in this scenario.
 O nce this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and a [service provider](https://docs.wso2.com/display/IS510) .
+and a [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -86,41 +86,41 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 2.  [Run the WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name** (e.g., token2 ).
 6.  Navigate to **Token2Authenticator Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 7.  Select both check boxes to **Enable** the Token2 authenticator and
-    make it the **Default** .  
-    ![](attachments/53120841/53284908.png){width="800"}
+    make it the **Default**.  
+    ![](attachments/53120841/53284908.png) 
 
 8.  Enter the following values:
 
     | Field        | Description                                                                                                                              | Sample Value                                                                                                                           |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_) . | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
+    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
     | Callback URL | This is the service provider's URL to which the code is sent.                                                                            | `                                                   https://localhost:9443/commonauth                                                ` |
 
-9.  Click **Register** .  
+9.  Click **Register**.  
     You have now added the identity provider.
 
 ### Configuring user claims
 
-1.  In the **Main** menu, click **Add** under **Claims** .
+1.  In the **Main** menu, click **Add** under **Claims**.
 2.  Click [Add New
-    Claim](https://docs.wso2.com/display/IS510/Adding+Claim+Mapping) .
-3.  Click **Add Local Claim** . The **Dialect URI** will be
+    Claim](https://docs.wso2.com/display/IS510/Adding+Claim+Mapping).
+3.  Click **Add Local Claim**. The **Dialect URI** will be
     automatically set to
     `                         http://wso2.org/claims                       `
-    , which is the internal claim dialect .
+   , which is the internal claim dialect .
 
     <table>
     <thead>
@@ -152,7 +152,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     <p>This is the corresponding attribute name from the underlying user store that is mapped to the Claim URI value.<br />
     <br />
     When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
-    For example, if you specify the <code>                   cn                  </code> attribute, this is mapped to the <code>                   cn                  </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong> , selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
+    For example, if you specify the <code>                   cn                  </code> attribute, this is mapped to the <code>                   cn                  </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
     <img src="attachments/60494083/85362998.png" width="700" /></p>
     </div></td>
@@ -197,12 +197,12 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     </tbody>
     </table>
 
-    ![](attachments/53120841/76748580.png){width="800"}  
+    ![](attachments/53120841/76748580.png)   
 
-4.  Next click **List** under **Main \> Identity \> Users and Roles** .
+4.  Next click **List** under **Main \> Identity \> Users and Roles**.
 5.  Click **User Profile** under **Admin** and update the
     `           User Id          ` .  
-    ![](attachments/53120841/76748586.png){width="800"}
+    ![](attachments/53120841/76748586.png) 
 
 Now you have configured the claim.  
 
@@ -213,14 +213,14 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers** .
+    under **Service Providers**.
 
 3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
-    Provider Name** text box and click **Register** .
+    Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section .  
-    ![](attachments/53120841/53284577.png){width="800"}
+    ![](attachments/53120841/53284577.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to view the field definitions
@@ -266,7 +266,7 @@ The next step is to configure the service provider.
     <tr class="even">
     <td>NameID format</td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <p>About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
@@ -315,7 +315,7 @@ The next step is to configure the service provider.
     </tr>
     <tr class="even">
     <td>Enable Assertion Encryption</td>
-    <td>Enable <strong>Assertion Encryption</strong> , if you wish to encrypt the assertion.</td>
+    <td>Enable <strong>Assertion Encryption</strong>, if you wish to encrypt the assertion.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -325,7 +325,7 @@ The next step is to configure the service provider.
     </tr>
     <tr class="even">
     <td>Enable Attribute Profile</td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -377,7 +377,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the userId claim as Subject
     Claim URI.  
-    ![](attachments/53120841/53284903.png){width="800"}
+    ![](attachments/53120841/53284903.png) 
 
 9.  Go to **Local and Outbound Authentication Configuration** section .
 
@@ -390,7 +390,7 @@ The next step is to configure the service provider.
     with the Identity Server and then get authenticated using Token2 as
     the second step. This is an added security measure and a common use
     of the Token2 authenticator.  
-    ![](attachments/53120841/53284914.png){width="800" height="509"}
+    ![](attachments/53120841/53284914.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to view the field definitions
@@ -461,20 +461,20 @@ You have now added and configured the service provider.
 
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com>  
-    [![](attachments/53120841/76748573.png){width="800"}](http://localhost:8080/travelocity.com)
+    [![](attachments/53120841/76748573.png) ](http://localhost:8080/travelocity.com)
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.  
-    ![](attachments/53120841/76748574.png){width="600"}
+    ![](attachments/53120841/76748574.png) 
 
 4.  Enter the code that is generated with token2 hardware device to
     authenticate. You are directed to the home page of the
     [travelocity.com](http://travelocity.com) app.
 
-    ![](attachments/53120841/53284612.png){width="800"}
+    ![](attachments/53120841/53284612.png) 
 
-    ![](attachments/53120841/53284615.png){width="800"}
+    ![](attachments/53120841/53284615.png) 
 
   
 

@@ -5,7 +5,7 @@ identity provider from the WSO2 Identity Server. A trusted identity
 provider is basically an identity provider that supports inbound
 provisioning. It can be Google, Salesforce, another Identity Server,
 etc. For more information, see [Outbound
-provisioning](_Identity_Provisioning_) .
+provisioning](_Identity_Provisioning_).
 
 Outbound Provisioning involves sending provisioning requests from the
 Identity Server to other external applications. See the following

@@ -44,11 +44,11 @@ supported by Identity Server 5.1.0 upwards.
 1.  Create a bitly account using the URL " <https://bitly.com/a/sign_up>
     ".
 2.  Register your app at <https://bitly.com/a/oauth_apps> .  
-    ![](attachments/50518515/51251641.png){width="500" height="298"}
+    ![](attachments/50518515/51251641.png) 
 3.  Use <https://localhost:9443/commonauth> as the authorization
     callback URL when you register the client.
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](attachments/50518515/51252818.png){width="500" height="188"}
+    ![](attachments/50518515/51252818.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -58,7 +58,7 @@ in order to use it in this scenario.
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
 provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-and [service provider](https://docs.wso2.com/display/IS510) .
+and [service provider](https://docs.wso2.com/display/IS510).
 
 ### Configuring the identity provider
 
@@ -67,19 +67,19 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 
 2.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-5.  Give a suitable name for **Identity Provider Name** .  
-    ![](attachments/50518515/51251655.png){width="864"}
+    management console, click **Add**.
+5.  Give a suitable name for **Identity Provider Name**.  
+    ![](attachments/50518515/51251655.png) 
 6.  Navigate to **Bitly Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 7.  Enter the values as given in the above figure.
 
@@ -94,7 +94,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 8.  Select both checkboxes to **Enable** the Bitly authenticator and
     make it the **Default** authenticator.
 
-9.  Click **Register** .
+9.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -109,7 +109,7 @@ The next step is to configure the service provider.
 
 3.  Since you are using travelocity as the sample, enter
     `           travelocity.com          ` in the **Service Provider
-    Name** text box and click **Register** .
+    Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -122,13 +122,13 @@ The next step is to configure the service provider.
         <http://localhost:8080/travelocity.com/home.jsp>
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -137,9 +137,9 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the drop-down list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
-    ![](attachments/50518515/51252329.png){width="761" height="320"}
+    ![](attachments/50518515/51252329.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

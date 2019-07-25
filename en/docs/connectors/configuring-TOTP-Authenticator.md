@@ -33,9 +33,9 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
 2.  Sign in to the [Management
     Console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-3.  In the **Main** menu, click **Add** under **Claims** .
+3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add Local
-    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping) .
+    Claim](https://docs.wso2.com/identity-server/Adding+Claim+Mapping).
     This displays the **Add Local Claim** screen.
 
     !!! note
@@ -59,7 +59,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     | Mapped Attribute     | State or province name                    |
     | Supported by Default | selected                                  |
 
-    ![](attachments/50502913/75106756.png){width="751" height="485"}
+    ![](attachments/50502913/75106756.png) 
 
 ### Deploying TOTP artifacts
 
@@ -153,7 +153,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     <tr class="odd">
     <td><code>                usecase               </code></td>
     <td><div class="content-wrapper">
-    <p>This field can take one of the following values: <code>                                     local                                   </code> , <code>                                     association                                   </code> , <code>                                     userAttribute                                   </code> , <code>                                     subjectUri                                   </code> . If you do not specify any <code>                  usecase                 </code> , the default value is <code>                  local                 </code> .</p>
+    <p>This field can take one of the following values: <code>                                     local                                   </code>, <code>                                     association                                   </code>, <code>                                     userAttribute                                   </code>, <code>                                     subjectUri                                   </code> . If you do not specify any <code>                  usecase                 </code>, the default value is <code>                  local                 </code> .</p>
     !!! tip
         <p>If you have chosen <code>                  userAttribute                 </code> as the <code>                  usecase,                 </code> add the following parmeter to specify the user attribute.</p>
         <div class="code panel pdl" style="border-width: 1px;">
@@ -228,7 +228,7 @@ TOTP Authenticator is supported with WSO2 Identity Server versions
     2.  If you specify that the user can't enable TOTP in the
         authentication flow (
         `             <Parameter name="enrolUserInAuthenticationFlow">false</Parameter>            `
-        ) and the TOTP is not enabled to the user's profile , the TOTP
+        ) and the TOTP is not enabled to the user's profile, the TOTP
         error page appears .
 
 6.  Replace the
@@ -281,14 +281,14 @@ The user store configuration is maintained per tenant:
 
 <!-- -->
 
--   If you use a **tenant** , upload the same XML file (
+-   If you use a **tenant**, upload the same XML file (
     `            application-authentication.xml           ` ) into a
     specific registry location (
     `            /_system/governance/totp)           ` . Create the
-    collection named `            totp           ` , add the resource
+    collection named `            totp           `, add the resource
     and upload the
     `            application-authentication.xml           ` file into
-    the registry) . While doing the authentication, first it checks
+    the registry). While doing the authentication, first it checks
     whether there is an XML file uploaded to the registry. If that is
     so, it reads it from the registry but does not take the local file.
     If there is no file in the registry, then it only takes the property
@@ -315,12 +315,12 @@ Now you have to configure WSO2 Identity Server.
     as an administrator.
 3.  Login to the [end user
     dashboard](https://docs.wso2.com/identity-server/Using+the+End+User+Dashboard)
-    and go to **My Profile** by clicking **View details** .  
-    ![](attachments/50502913/50680097.png){width="700"}
+    and go to **My Profile** by clicking **View details**.  
+    ![](attachments/50502913/50680097.png) 
 4.  Update your email address (this email address is used to send the
     token).
 5.  To enable TOTP, select the **Enable TOTP** checkbox.  
-    ![](attachments/50502913/68687830.png){width="800"}
+    ![](attachments/50502913/68687830.png) 
 6.  If you want to use the Google Authenticator Application to generate
     the one-time passwords (tokens), click on **Scan QR Code** to scan
     the QR-Code using the Google Authenticator mobile app.  
@@ -379,8 +379,8 @@ The following is a sample response that is obtained.
     to send an email notification. Enable the
     `            mailto           ` transport sender by adding the
     following configuration. Replace your sender email credentials (
-    `            USER_NAME           ` ,
-    `            PASSWORD           ` , and
+    `            USER_NAME           `,
+    `            PASSWORD           `, and
     `            SENDER'S_MAIL           ` ) in the configuration.
 
     **SMTP Transport Sender**
@@ -428,7 +428,7 @@ The next step is to configure the service provider.
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 
 3.  Since you are using travelocityas the sample, enter travelocity.com
     in the **Service Provider Name** text box.
@@ -448,14 +448,14 @@ The next step is to configure the service provider.
         http://localhost:8080/travelocity.com/home.jsp
 
 7.  Selectthefollowingcheck-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
-        ![](attachments/50502913/50680092.png){width="700"}
+    4.  **Include Attributes in the Response Always**.  
+        ![](attachments/50502913/50680092.png) 
 
 8.  Click **Update** to save the changes. Now you are sent back to the
     **Service Providers** page.
@@ -500,7 +500,7 @@ The next step is to configure the service provider.
         <tbody>
         <tr class="odd">
         <td><code>                  usecase                 </code></td>
-        <td><p>This field can take one of the following values: <code>                                       local                                     </code> , <code>                                       association                                     </code> , <code>                                       userAttribute                                     </code> , and <code>                                       subjectUri                                     </code> . If you do not specify any usecase, the default value is <code>                   local                  </code> .</p></td>
+        <td><p>This field can take one of the following values: <code>                                       local                                     </code>, <code>                                       association                                     </code>, <code>                                       userAttribute                                     </code>, and <code>                                       subjectUri                                     </code> . If you do not specify any usecase, the default value is <code>                   local                  </code> .</p></td>
         </tr>
         <tr class="even">
         <td><code>                  local                 </code></td>
@@ -594,7 +594,7 @@ You have now added and configured the service provider.
     ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from the WSO2 Identity Server.  
-    ![](attachments/50502913/50680094.png){width="700"}
+    ![](attachments/50502913/50680094.png) 
 
 3.  The basic authentication page is visible. Use your username and
     password to log in.  
@@ -602,20 +602,20 @@ You have now added and configured the service provider.
 4.  If the TOTP is not enabled toin the user's profile and the user is
     allowed to enable the TOTP in the authentication flow, this page
     will appear. You can scan either continue or cancel.  
-    ![](attachments/50502913/68688464.png){width="303"}
+    ![](attachments/50502913/68688464.png) 
 5.  If you want to enrolthe user, click on the link to show the QR code.
     Scan the displayed QR code using the mobile application and
-    continue. ![](attachments/50502913/68688462.png){width="303"}
+    continue. ![](attachments/50502913/68688462.png) 
 6.  You are redirected to the TOTP authentication page. Enter the
     verification code from your Google Authenticator Mobile Application
     to authenticate. Alternatively, you can generate the verification
     code by clicking on **Get a Verification Code** " and use the code
     that is sent to your email address.  
-    ![](attachments/50502913/68687856.png){width="307"}
+    ![](attachments/50502913/68687856.png) 
 7.  If your verification is successful, you are taken to the home page
     of the travelocity.com app.
 
-    ![](attachments/50502913/50680172.png){width="700"}
+    ![](attachments/50502913/50680172.png) 
 
 ### Refreshing the secret key
 

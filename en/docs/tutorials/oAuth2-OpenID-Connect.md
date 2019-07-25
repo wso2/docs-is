@@ -26,5 +26,5 @@ management, when it makes sense for them.
     to configure OAuth2-OpenID Connect single sign-on in WSO2 Identity
     Server.
 -   See [Configuring OpenID Connect Single
-    Logout](_Configuring_OpenID_Connect_Single_Logout_) ro configure
+    Logout](_Configuring../../using-wso2-identity-server/openid-connectSingle_Logout_) ro configure
     OAuth2-OpenID Connect single logout in WSO2 Identity Server.

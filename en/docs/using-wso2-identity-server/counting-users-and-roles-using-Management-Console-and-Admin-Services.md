@@ -5,7 +5,7 @@ Management Console and Admin Services. First, you should download the
 product and configure this feature. Follow the below steps to do this:
 
 1.  Download the product from the [WSO2 product
-    page](https://wso2.com/platform) .
+    page](https://wso2.com/platform).
 2.  Add the below property inside
     `           <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">          `
     configuration in \<IS\_HOME\>/repository/conf/user-mgt.xml.
@@ -31,14 +31,14 @@ You can access the user store count using the managemet console. Follow
 the steps below to do this:
 
 1.  Log in to the Management Console and navigate to users and roles.
-2.  Under **Users** , you see a new table named "Count Users" where you
+2.  Under **Users**, you see a new table named "Count Users" where you
     can count (by clicking **Count Users** button) the number of users
     in each domain for different claims and user name patterns etc. (In
     this example '%admin' is given as search pattern)  
-    ![](attachments/103330053/103330054.png){width="700"}
+    ![]( ../../assets/img/103330053/103330054.png) 
 3.  Similarly, under **Roles,** you see a table named **Count Roles**
     where you can count roles in different user store domains.  
-    ![](attachments/103330053/103330055.png){width="700"}
+    ![]( ../../assets/img/103330053/103330055.png) 
 
 #### Using the Admin Services
 

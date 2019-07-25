@@ -37,7 +37,7 @@ default RDBMS datasource configuration:
 
 For more details on datasource configuration parameters, see
 [ApacheTomcat JDBC Connection Pool
-guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) .
+guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 
 After creating datasources, they appear on the **Data Sources** page.
 You can edit and delete them as needed by clicking **Edit** or

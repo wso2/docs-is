@@ -20,7 +20,7 @@ the tool depending on your requirement:
     Before you begin,
     
     -   Check out the source of the Identity Anonymization tool from
-        [here](https://github.com/wso2/identity-anonymization-tool) , and
+        [here](https://github.com/wso2/identity-anonymization-tool), and
         build the tool. For detailed instructions on how to build the tool,
         see [Building the Identity Anonymization
         tool](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)
@@ -46,7 +46,7 @@ tool to include an additional relational database from which you want to
 remove references to deleted user identities:
 
 1.  Create a new directory in
-    `           <TOOL_HOME>/conf/sql/          ` , with an appropriate
+    `           <TOOL_HOME>/conf/sql/          `, with an appropriate
     name based on the relational database table from which you want to
     remove references.
 
@@ -112,7 +112,7 @@ remove references to deleted user identities:
 
     !!! tip
         For example, if the sql file is
-        `            customer-access-token.sql           ` , then the
+        `            customer-access-token.sql           `, then the
         corresponding properties file would be
         `            customer-access-token.sql.properties           ` .
     
@@ -143,7 +143,7 @@ remove references to deleted user identities:
     </tr>
     <tr class="odd">
     <td><code>                TENANT_APPENDED               </code></td>
-    <td>You can use this query type when the query refers to a user name that is appended either with a tenant domain such as <code>                user1@wso2.com               </code> , or with a super tenant domain (carbon.super) such as <code>                user2@carbon.super               </code> .</td>
+    <td>You can use this query type when the query refers to a user name that is appended either with a tenant domain such as <code>                user1@wso2.com               </code>, or with a super tenant domain (carbon.super) such as <code>                user2@carbon.super               </code> .</td>
     </tr>
     <tr class="even">
     <td><code>                TENANT_SPECIFIC_APPENDED               </code></td>

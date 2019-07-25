@@ -286,7 +286,7 @@ Cluster](https://docs.wso2.com/display/ADMIN44x/Sharing+Databases+in+a+Cluster)
     
     **Note:** The production recommendation is to set the
     `          <versionResourcesOnChange>         ` property in the
-    `          registry.xml         ` file to **false** . This is because
+    `          registry.xml         ` file to **false**. This is because
     automatic versioning of resources can be an extremely expensive
     operation.
     
@@ -299,7 +299,7 @@ In the registry browser, verify that the governance collection is shown
 with the symlink icon.
 
 1.  Log in to the management console.
-2.  Navigate to **Home \> Registry \> Browse** .  
+2.  Navigate to **Home \> Registry \> Browse**.  
     ![](attachments/103329476/103329488.png)
 
 ------------------------------------------------------------------------
@@ -692,7 +692,7 @@ Manager
 Nodes](https://docs.wso2.com/display/CLUSTER44x/Sticky+Sessions+with+Manager+Nodes)
 . The following is the deployment diagram with the load balancer.
 
-![](attachments/103329476/103329481.png){width="750"}
+![](attachments/103329476/103329481.png) 
 
 #### Configuring Nginx
 

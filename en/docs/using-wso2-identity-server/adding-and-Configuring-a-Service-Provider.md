@@ -1,12 +1,12 @@
 # Adding and Configuring a Service Provider
 
 This topic provides instructions on how to add a new [service
-provider](Architecture_103329008.html#Architecture-Serviceprovider) .
+provider](Architecture_103329008.html#Architecture-Serviceprovider).
 You must provide configuration details to add this service provider in
 the WSO2 Identity Server so that the authentication and/or provisioning
 happens as expected. For more information on how the service provider
 fits into the WSO2 IS architecture, see
-[Architecture](https://docs.wso2.com/display/IS550/Architecture) .
+[Architecture](https://docs.wso2.com/display/IS550/Architecture).
 
 The responsibility of the service provider configuration is to represent
 external service providers. The service provider configurations cover
@@ -17,13 +17,13 @@ the following:
     This is via inbound authenticators. When you register a service
     provider, you need to associate one or more inbound authenticators
     with it.
--   **Define how to authenticate users** .  
+-   **Define how to authenticate users**.  
     This can be via a local authenticator, request-path authenticator or
     federated authenticator. Based on this configuration, the Identity
     Server knows how to authenticate the user when it receives an
     authentication request (via an inbound authenticator) and based on
     the service provider who initiates it.
--   **Maintain claim mapping** .  
+-   **Maintain claim mapping**.  
     This is to map the service provider's own set of claims to the
     Identity Server's claims. For example, WSO2 Identity Server (WSO2
     IS) has a claim called work email (
@@ -44,7 +44,7 @@ the following:
     for more information about response builder. Now the response
     builder will receive the claims in a manner understood by the
     corresponding service provider. [Read more about claim
-    management](https://docs.wso2.com/display/IS550/Claim+Management) .
+    management](https://docs.wso2.com/display/IS550/Claim+Management).
 
 This topic contains the following sections.
 
@@ -64,23 +64,23 @@ This topic contains the following sections.
     
     -   Export an existing service provider and import it using the
         management console. For instructions, see [Importing or Exporting a
-        Service Provider](_Importing_or_Exporting_a_Service_Provider_) .
+        Service Provider](_Importing_or_Exporting_a_Service_Provider_).
     -   Add a new service provider using a configuration file instead of
         using the management console. For instructions, see [Configuring a
         SP and IdP Using Configuration
-        Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_) .
+        Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_).
     
 
 1.  Sign in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
     .  
-    ![](attachments/103329740/112392337.png){width="200"}
+    ![]( ../../assets/img/103329740/112392337.png) 
 
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
-    ![](attachments/103329740/112392335.png){width="700" height="372"}
+    ![]( ../../assets/img/103329740/112392335.png) 
 
 4.  Click **Register** to add the new service provider.
 
@@ -166,7 +166,7 @@ This topic contains the following sections.
         application.
     
 
-    ![](attachments/103329740/103329741.png){width="745" height="250"}
+    ![]( ../../assets/img/103329740/103329741.png) 
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -216,7 +216,7 @@ things.
 1.  In the **Claim Configuration** form, s elect the claim mapping
     dialect by either choosing to use a local claim dialect or define
     your own custom claim dialect.  
-    -   If you choose to **Use Local Claim Dialect** , you need to fill
+    -   If you choose to **Use Local Claim Dialect**, you need to fill
         in the following details.
 
     1.  1.  Fill in your requested claims by clicking the **Add Claim
@@ -224,10 +224,10 @@ things.
         2.  Choose your **Local Claim** from the drop-down. Select
             whether this claim is a **Mandatory Claim** for the Service
             Provider using the checkbox.  
-            ![](attachments/103329786/103329789.png){width="817"
+            ![]( ../../assets/img/103329786/103329789.png){width="817"
             height="79"}
 
-    -   If you choose to **Define Custom Claim Dialect** , you need to
+    -   If you choose to **Define Custom Claim Dialect**, you need to
         do the following.
 
     1.  1.  Add a custom claim URI by clicking on the **Add Claim URI**
@@ -240,7 +240,7 @@ things.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![](attachments/103329786/103329788.png){width="821"
+            ![]( ../../assets/img/103329786/103329788.png){width="821"
             height="276"}
 
             !!! warning
@@ -272,13 +272,13 @@ things.
                             tab of the management console.
                         2.  Navigate to /\_system/config/ and click on the **oidc**
                             file. Expand the **Properties** section.  
-                            ![](attachments/50514151/57748271.png){width="400"}
+                            ![]( ../../assets/img/50514151/57748271.png) 
                         3.  Add the custom claims to the existing default scope
                             **openid** by clicking on **Edit.** Alternatively, add a
                             new scope for the custom claims by clicking on **Add New
                             Property** and send it when getting the OIDC token along
                             with the mandatory **openid** scope.
-                            ![](attachments/50514151/57748280.png){width="900"}
+                            ![]( ../../assets/img/50514151/57748280.png) 
             
                         !!! note
                                                 OIDC considers address as a JSON object. Therefore, if you
@@ -301,21 +301,21 @@ things.
                                                     prefix.
                                     
                                                 1.  1.  Click **Add** under Claims.
-                                                    2.  Click **Add External Claim** .
+                                                    2.  Click **Add External Claim**.
                                                     3.  Select
                                                         `                                                                        http://wso2.ord/oidc/claim                                                                     `
-                                                        as the value for **Dialect URI** .
+                                                        as the value for **Dialect URI**.
                                                     4.  Enter
                                                         `                        address.street                       `
-                                                        as the value for **External Claim URI** .
+                                                        as the value for **External Claim URI**.
                                     
                                                         You can enter any value with the prefix
                                                         `                         address.                        `
-                                                        , such as
+                                                       , such as
                                                         `                         address.country                        `
-                                                        ,
+                                                       ,
                                                         `                         address.lane                        `
-                                                        , and much more.
+                                                       , and much more.
                                     
                                                     5.  Map the claim you are creating to any claim within
                                                         WSO2 Identity server.  
@@ -338,7 +338,7 @@ things.
                         Always" from the SAML2 service provider configuration as
                         follows.
             
-                        ![](attachments/103329786/103329787.png){width="333"
+                        ![]( ../../assets/img/103329786/103329787.png){width="333"
                         height="60"}
             
                         Why?
@@ -389,16 +389,16 @@ things.
                         4.  Run the travelocity sample and try the SAML login.
             
                         5.  Log in with the user credentials of the user who has a
-                            few mandatory claims missing, and click **Submit** .
+                            few mandatory claims missing, and click **Submit**.
                         6.  A claim request will be prompted, Similiar to the image
                             below. At this point, the mandatory claim rule is
                             enforced and you cannot proceed without providing the
                             necessary claim values. Provide the necessary claim
-                            values and click **Submit** .
+                            values and click **Submit**.
                         7.  You will be successfully logged in to the application.
             
 
-            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm){width="524"}
+            ![](https://lh6.googleusercontent.com/BtjTB0UkI7nhJeRe8fDutdq1y9Ipywz7Yop5xS9lz6AiNRza4o-sQtNfq_VdfHQJhQYa05z84TzU_DUVECkM0j-MxOjxsZJVltZ7bsuWuB0tFjS9Zkiq6KYSKGqHQzNj_TOk8qXm) 
 
             Marking a mapped claim as a **Requested Claim** would ensure
             that the service provider definitely sends this claim to the
@@ -499,13 +499,13 @@ permission for the service provider:
 1.  In the service provider that you created, expand the
     **Role/Permission Configuration** section, and then expand the
     **Permissions** as well as the **Role Mapping** sections.  
-    ![](attachments/103329771/103329772.png){width="750"}
+    ![]( ../../assets/img/103329771/103329772.png) 
 2.  Click **Add Permission** and specify the service provider specific
     permission that you want to add.
 
     -   If you want to add another permission entry, click **Add
         Permission** again.
-    -   If you want to delete an entry, click **Delete** .
+    -   If you want to delete an entry, click **Delete**.
 
     Once you add/update service provider specific permission details,
     the permission details will be listed as available permission when
@@ -514,11 +514,11 @@ permission for the service provider:
     via WSO2 IS.
 
 3.  Click **Add Role Mapping** and enter appropriate values for the
-    **Local Role** as well as the **Service Provider Role** .
+    **Local Role** as well as the **Service Provider Role**.
 
     -   If you want to add another role mapping entry, click **Add Role
         Mapping** again.
-    -   If you want to delete a role mapping entry, click **Delete** .
+    -   If you want to delete a role mapping entry, click **Delete**.
 
     !!! tip
     
@@ -530,7 +530,7 @@ Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
 any user who should be able to view and manage the service provider. For
 information on how to assign roles to a user, see [Configuring
-Users](https://docs.wso2.com/display/IS580/Configuring+Users) .
+Users](https://docs.wso2.com/display/IS580/Configuring+Users).
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here
 for details on how to configure inbound authentication
@@ -556,7 +556,7 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](https://docs.wso2.com/display/IS580/Architecture) .
+[Architecture](https://docs.wso2.com/display/IS580/Architecture).
 
 Let's learn how to configure inbound authentication for a service
 provider.
@@ -575,12 +575,12 @@ provider.
         .
     2.  On the **Main** menu, click **Identity \> Service Providers \> Add**
         .  
-        ![](attachments/103329740/112392337.png){width="200"}
+        ![]( ../../assets/img/103329740/112392337.png) 
     
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.  
-        ![](attachments/103329740/112392335.png){width="700" height="372"}
+        ![]( ../../assets/img/103329740/112392335.png) 
     
     4.  Click **Register** to add the new service provider.
     
@@ -668,7 +668,7 @@ provider.
         application.
     
 
-    ![](attachments/103329740/103329741.png){width="745" height="250"}
+    ![]( ../../assets/img/103329740/103329741.png) 
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -707,7 +707,7 @@ provider.
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
     you use [OpenID
-    Connect](https://docs.wso2.com/display/IS580/OAuth2-OpenID+Connect) .
+    Connect](https://docs.wso2.com/display/IS580/OAuth2-OpenID+Connect).
     
 
 You can configure inbound authentication in following ways:
@@ -728,7 +728,7 @@ to learn the instructions
 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure** .
+1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
 2.  Select one of the following modes:  
     -   [Manual
         configuration](#AddingandConfiguringaServiceProvider-Manualconfiguration)
@@ -754,7 +754,7 @@ supports SAML metadata download for the resident identity provider.
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![](attachments/103330801/112392421.png){width="750"}
+    giveb below. ![]( ../../assets/img/103330801/112392421.png) 
 
     <table>
     <thead>
@@ -797,7 +797,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="even">
     <td><strong>NameID format</strong></td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <p>About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
@@ -861,18 +861,18 @@ supports SAML metadata download for the resident identity provider.
     </tr>
     <tr class="even">
     <td><strong>Enable Assertion Encryption</strong></td>
-    <td>Enable <strong>Assertion Encryption</strong> , if you wish to encrypt the assertion.</td>
+    <td>Enable <strong>Assertion Encryption</strong>, if you wish to encrypt the assertion.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
     <td><strong>Enable Single Logout</strong></td>
     <td><p>Select <strong>Enable Single Logout</strong> so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a <strong>SLO Response URL</strong> and <strong>SLO Request URL</strong> for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.<br />
-    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding) .</strong></p></td>
+    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding).</strong></p></td>
     <td>Selected</td>
     </tr>
     <tr class="even">
     <td><strong>Enable Attribute Profile</strong></td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -908,7 +908,7 @@ supports SAML metadata download for the resident identity provider.
     </tbody>
     </table>
 
-2.  Click **Register** .
+2.  Click **Register**.
 
 #### Metadata file configuration
 
@@ -919,12 +919,12 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    **![](attachments/103330801/112392408.png){width="750"}  
+    **![]( ../../assets/img/103330801/112392408.png)   
     **
-2.  Click **Choose File** , and select the
+2.  Click **Choose File**, and select the
     `                .xml               ` file containing the metadata
     for the service provider SAML configuration.
-3.  Click **Upload** .
+3.  Click **Upload**.
 
     !!! tip
     
@@ -984,8 +984,8 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![](attachments/103330801/112392410.png){width="750"}
-2.  Click **Upload** .
+    ![]( ../../assets/img/103330801/112392410.png) 
+2.  Click **Upload**.
 
 !!! note
     
@@ -1087,7 +1087,7 @@ application.
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **OAuth/OpenID Connect Configuration.** Click **Configure** .
+    expand **OAuth/OpenID Connect Configuration.** Click **Configure**.
 2.  Fill in the form that appears. For the **Allowed Grant Types** you
     can disable the ones you do not require or wish to block.
 
@@ -1106,7 +1106,7 @@ Let's get started to configure the service provider you created!
         .
     
 
-    ![](attachments/103330833/112392519.png){width="750"}
+    ![]( ../../assets/img/103330833/112392519.png) 
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -1241,10 +1241,10 @@ Let's get started to configure the service provider you created!
     </tbody>
     </table>
 
-3.  Click **Add** . Note that
+3.  Click **Add**. Note that
     `                client key               ` and
     `                client secret               ` get generated.  
-    ![](attachments/103330833/103330840.png){width="774"}
+    ![]( ../../assets/img/103330833/103330840.png) 
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the
@@ -1339,7 +1339,7 @@ To configure WS-Federation SSO:
         Here, the expiration time should be specified in milliseconds.
 
 
-    ![](attachments/103330844/112392543.png){width="750"}
+    ![]( ../../assets/img/103330844/112392543.png) 
 
 2.  Expand the **Claim Configuration** section and map the relevant
     claims. See [Configuring Claims for a Service
@@ -1351,7 +1351,7 @@ To configure WS-Federation SSO:
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS) .
+    STS](https://docs.wso2.com/display/IS580/Testing+Passive+STS).
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
@@ -1382,10 +1382,10 @@ Console](https://docs.wso2.com/display/IS580/Getting+Started+with+the+Management
 To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident** .  
-    ![](attachments/103330821/112392547.png){width="200"}  
+    Resident**.  
+    ![]( ../../assets/img/103330821/112392547.png)   
     The Resident Identity Provider page appears.  
-    ![](attachments/103330821/112392548.png){width="800"}
+    ![]( ../../assets/img/103330821/112392548.png) 
 
 2.  Enter the required values as given below.
 
@@ -1422,32 +1422,32 @@ To secure the Security Token Service:
 3.  Under the **Inbound Authentication Configuration** section, click
     **Security Token Service Configuration \> Apply Security Policy**
     .  
-    ![](attachments/103330821/112392550.png){width="750"}
+    ![]( ../../assets/img/103330821/112392550.png) 
 4.  Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
-    ![](attachments/103330821/103330825.png){width="750"}
+    ![]( ../../assets/img/103330821/103330825.png) 
 
     !!! note
     
         You can find further details about security policy scenarios from
         the **view scenario** option **.**
     
-        **![](attachments/103330821/103330822.png){width="900"}**
+        **![]( ../../assets/img/103330821/103330822.png) **
     
 
-5.  Click **Next** . The user domain and user group selection appears.
+5.  Click **Next**. The user domain and user group selection appears.
 
     Next steps may vary as per the security scenario that you have
     chosen under point (5) above. Below is for **UsernameToken**
     scenario **.**
 
 6.  Provide the required details as follows:
-    1.  Select **ALL-USER-STORE-DOMAINS** .
+    1.  Select **ALL-USER-STORE-DOMAINS**.
     2.  Select the role you created to grant permission to access
         secured service. In this example, the admin role is used **.**
-        Next, click **Finish** .
+        Next, click **Finish**.
 
         !!! note
         
@@ -1455,9 +1455,9 @@ To secure the Security Token Service:
                 **User Groups** can vary depending on the domain selected.
         
 
-        ![](attachments/103330821/112392552.png){width="750"}
+        ![]( ../../assets/img/103330821/112392552.png) 
 
-7.  Click **Finish** .
+7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
 9.  Click **Update** to complete the process.
 
@@ -1469,7 +1469,7 @@ The next step is to add a service provider to consume the STS.
 #### Adding a service provider for the STS client
 
 Do the following steps if you are using a Holder of Key **subject
-confirmation method** . For more information, see [Configuring STS for
+confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
 Confirmation](https://docs.wso2.com/display/IS580/Configuring+STS+for+Obtaining+Tokens+with+Holder-Of-Key+Subject+Confirmation)
 .
@@ -1483,8 +1483,8 @@ party.
 
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
-    **Configure** . The STS Configuration page appears.  
-    ![](attachments/103330821/112392555.png){width="750"}
+    **Configure**. The STS Configuration page appears.  
+    ![]( ../../assets/img/103330821/112392555.png) 
 2.  Enter the required details as given below.
 
     <table>
@@ -1522,7 +1522,7 @@ party.
     </tbody>
     </table>
 
-    ![](attachments/103330821/112392557.png){width="750"}
+    ![]( ../../assets/img/103330821/112392557.png) 
 
 3.  Click **Update** to save the changes made to the service provider.
 
@@ -1530,7 +1530,7 @@ party.
 
     Run the STS client after configuring the service provider. For
     instructions on trying out a sample STS client, see [Running an STS
-    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client) .
+    Client](https://docs.wso2.com/display/IS580/Running+an+STS+Client).
 
   
 
@@ -1571,8 +1571,8 @@ more information on this.
 
 You can configure the following for local and outbound authentication.
 
-1.  Expand **Local & Outbound Authentication Configuration** .  
-    ![](attachments/103329813/103329814.png){width="700"}  
+1.  Expand **Local & Outbound Authentication Configuration**.  
+    ![]( ../../assets/img/103329813/103329814.png)   
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -1609,36 +1609,36 @@ You can configure the following for local and outbound authentication.
 
 2.  Select the **Authentication Type** you require from the available
     options. This is a required field.  
-    -   If you choose **Local Authentication** , you need to select the
+    -   If you choose **Local Authentication**, you need to select the
         local authentication option from the dropdown list.
-    -   If you choose **Federated Authentication** , you need to select
+    -   If you choose **Federated Authentication**, you need to select
         the identity provider from the dropdown list.
-    -   If you choose **Advanced Configurations** , you can configure
+    -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![](attachments/103329813/103329818.png){width="750"}
+        ![]( ../../assets/img/103329813/103329818.png) 
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add
-                Authentication Step** . Clicking this again will enable
+                Authentication Step**. Clicking this again will enable
                 you to create another authentication step. Once this is
                 done you can configure a Local or Federated
                 authenticator for the step by selecting one from the
-                dropdown and clicking **Add Authenticator** .
+                dropdown and clicking **Add Authenticator**.
             2.  **Multi-option authentication** : Click **Add
                 Authenticator** to add either a Local or Federated
                 authenticator after selecting it from the dropdown.
                 Adding more than one of these within a single step
                 enables multi-option authentication.
         2.  Select whether to **Use subject identifier from this step**
-            , **Use attributes from this step** or both. In the case of
+           , **Use attributes from this step** or both. In the case of
             multiple steps, you can have only one step to use subject
             identifier from this step and one to use attributes from
             this step.  
             For example lets say, We configure 1st step as Facebook and
-            enable **Use subject identifier from this step** . Then
+            enable **Use subject identifier from this step**. Then
             configure Google for 2nd step and enable **Use attributes
-            from this step** . Once authentication is complete subject
+            from this step**. Once authentication is complete subject
             id will be taken from the Facebook claims and Google claims
             will be used as users attributes.
         3.  Click **Add Authenticator** to add a **Local Authenticator**
@@ -1648,7 +1648,7 @@ You can configure the following for local and outbound authentication.
             authentication allows you to authenticate users from the
             enterprise user store.
         4.  Click **Add Authenticator** to add a **Federated
-            Authenticator** . You can choose the type of authenticator
+            Authenticator**. You can choose the type of authenticator
             using the dropdown. Clicking **Add Authenticator** again
             will enable you to add a second federated authenticator.
         5.  Click the **Update** button. This will return you to the
@@ -1765,7 +1765,7 @@ Do the following to configure inbound provisioning.
 
 1.  Expand the **Inbound Provisioning Configuration** section and expand
     the **SCIM/SOAP Configuration** form.  
-    ![](attachments/103329810/103329811.png){width="900"}
+    ![]( ../../assets/img/103329810/103329811.png) 
 2.  Select the user store domain name from the drop down list to
     provision users and groups.
 
@@ -1802,18 +1802,18 @@ provisioning too.
 
 Do the following to configure outbound provisioning.
 
-1.  Expand the **Outbound Provisioning Configuration** . For this
+1.  Expand the **Outbound Provisioning Configuration**. For this
     section to be configurable, you should already have added an
     identity provider and enabled an outbound provisioning connector
     (Google, Salesforce, SCIM, SPML, etc.).
 2.  Choose the identity provider you require from the drop-down
     and click  
-    ![](attachments/103329864/103329866.png){width="30"} .
+    ![]( ../../assets/img/103329864/103329866.png)  .
 
 3.  Click **Update** to save your changes.  
-    ![](attachments/103329864/103329865.png){width="900"}
+    ![]( ../../assets/img/103329864/103329865.png) 
 
-    -   If you select **Blocking** , the authentication flow is blocked
+    -   If you select **Blocking**, the authentication flow is blocked
         until the provisioning finishes. If **Blocking** is not
         selected, provisioning happens in a different thread. In the
         blocking mode, the authentication flow will be blocked till the
@@ -1825,7 +1825,7 @@ Do the following to configure outbound provisioning.
         user gets provisioned or not in order to access your application
         you can use non-blocking mode.
 
-    -   If you select **Enable JIT Outbound** , the users are
+    -   If you select **Enable JIT Outbound**, the users are
         provisioned to the WSO2 IS user store on-the-fly as and when
         they are authenticated using just-in-time provisioning. To
         enable this, you need to configure JIT provisioning for the
@@ -1833,7 +1833,7 @@ Do the following to configure outbound provisioning.
         Just-In-Time
         Provisioning](https://docs.wso2.com/display/IS530/Configuring+Just-In-Time+Provisioning+for+an+Identity+Provider)
         .
-    -   If you select **Enable Rules** , the users are provisioned based
+    -   If you select **Enable Rules**, the users are provisioned based
         on the pre-defined XACML rules. For more information, see [Rule
         Based
         Provisioning](https://docs.wso2.com/display/IS530/Rule+Based+Provisioning)
@@ -1881,13 +1881,13 @@ Follow the instructions below to configure a resident service provider
 in the WSO2 Identity Server.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](_Getting_Started_with_the_Management_Console_)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Click **Resident** under the **Service Providers** on the **Main**
     tab.  
-    ![](attachments/103329740/103329757.png)
+    ![]( ../../assets/img/103329740/103329757.png)
 3.  The **Resident Service Provider** page appears.  
-    ![](attachments/103329740/103329756.png){width="750" height="295"}
+    ![]( ../../assets/img/103329740/103329756.png) 
     1.  Select the user store domain to provision users and groups for
         inbound authentication for SCIM or SOAP requests.
     2.  For outbound provisioning configurations, select the identity
@@ -1903,7 +1903,7 @@ in the WSO2 Identity Server.
             salesforce
         -   SCIM provisioning configuration - scim
         -   SPML provisioning configuration - spml
-4.  Click **Update** .
+4.  Click **Update**.
 
 ### Managing service providers
 
@@ -1918,17 +1918,17 @@ added in the WSO2 Identity Server.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Service Providers** . The list of service providers you
+    under **Service Providers**. The list of service providers you
     added appears.
 
-![](https://lh5.googleusercontent.com/HipPJlYnabU8jpplOkTdVDGyYkbnjiVzhKveEzjrnTzmcgCPYhNkJpNnVh-yNRDN7QWrHTq3LGGhi-waCs4I7-VTZ3U74wxtKx-GuabQxLAUgWLy-cNOKi4sOY4qkhj4FiBVqkJV){width="936"}
+![](https://lh5.googleusercontent.com/HipPJlYnabU8jpplOkTdVDGyYkbnjiVzhKveEzjrnTzmcgCPYhNkJpNnVh-yNRDN7QWrHTq3LGGhi-waCs4I7-VTZ3U74wxtKx-GuabQxLAUgWLy-cNOKi4sOY4qkhj4FiBVqkJV) 
 
 !!! note
     
     You can search for a specific service provider using the search
     functionality. For example, if you want to view all the service
     providers whose name starts with **SP,** you can search for this using
-    the filter, **SP\*** .
+    the filter, **SP\***.
     
 
 #### Editing service providers
@@ -1938,11 +1938,11 @@ Follow the instructions below to edit a service provider's details.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Service Providers** . The list of service providers you
+    under **Service Providers**. The list of service providers you
     added appears.
 3.  Locate the service provider you want to edit and click on the
     corresponding **Edit** link.  
-    ![](attachments/103329740/103329759.png){width="936" height="133"}
+    ![]( ../../assets/img/103329740/103329759.png) 
 4.  You are directed to the edit screen. See
     [here](_Adding_and_Configuring_a_Service_Provider_) for details on
     the editable form.
@@ -1954,11 +1954,11 @@ Follow the instructions below to delete a service provider.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Service Providers** . The list of service providers you
+    under **Service Providers**. The list of service providers you
     added appears.
 3.  Locate the service provider you want to delete and click on the
     corresponding **Delete** link.  
-    ![](attachments/103329740/103329758.png){width="936" height="133"}
+    ![]( ../../assets/img/103329740/103329758.png) 
 4.  Confirm your request in the WSO2 Carbon window. Click the **Yes**
     button.  
 

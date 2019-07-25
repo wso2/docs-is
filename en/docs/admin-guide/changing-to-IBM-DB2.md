@@ -13,7 +13,7 @@ with IBM DB2:
     
     You need to set up IBM DB2 before following the steps to configure your
     product with it. For more information, see [Setting up IBM
-    DB2](_Setting_up_IBM_DB2_) .
+    DB2](_Setting_up_IBM_DB2_).
     
 
 ### Setting up datasource configurations
@@ -24,7 +24,7 @@ to the default H2 database, which stores registry and user management
 data. After setting up the IBM DB2 database to replace the default H2
 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoIBMDB2-Changingthedefaultdatabase) , or
+datasource](#ChangingtoIBMDB2-Changingthedefaultdatabase), or
 [configure a new
 datasource](#ChangingtoIBMDB2-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 to point it to the new database as explained below.
@@ -135,7 +135,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -148,7 +148,7 @@ Follow the steps below to change the type of the default
     the product rolls back the pending transactions if defaultAutoCommit
     =true . However, if required you can disable the latter mentioned
     default behavior by disabling the
-    `             ConnectionRollbackOnReturnInterceptor            ` ,
+    `             ConnectionRollbackOnReturnInterceptor            `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.
@@ -301,7 +301,7 @@ parameter as follows:
     `            -DSetup           ` option is redundant and typically
     unusable. **As a result, from [January 2018
     onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`             -DSetup            `** **option** .
+    deprecated the** **`             -DSetup            `** **option**.
     Note that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the

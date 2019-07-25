@@ -38,9 +38,9 @@ approach in versions prior to WSO2 IS 5.8.0 and the new design approach.
 -   [**Old design approach**](#ab35df9f919f4cbc9935f757110c6984)
 -   [**New design approach**](#d83def82fcf84b5eb24e1cfd18fe51bc)
 
-![](attachments/119114886/119114940.png){width="791"}
+![](attachments/119114886/119114940.png) 
 
-![](attachments/119114886/119134141.png){width="921"}
+![](attachments/119114886/119134141.png) 
 
 This section guides you through migrating an existing data publisher to
 an event handler.
@@ -70,7 +70,7 @@ instead.
 
 2.  In order to support backward compatibility, override the
     `           isEnabled          ` method in the event handler class
-    that extends the `           AbstractEventHandler          ` , such
+    that extends the `           AbstractEventHandler          `, such
     that if the listener property is not defined in the
     `           identity.xml,          ` it will return false.  
 
@@ -251,7 +251,7 @@ instead.
     to the Analytics Engine. In this example, similar to the
     implementation of the
     [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java)
-    , the event payload of the
+   , the event payload of the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
     is populated and published. The final implementation of the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)

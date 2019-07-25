@@ -26,10 +26,10 @@ is now possible directly through the management console.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Click **Add Email Template Type.**
 4.  Enter the name that you want to be displayed for the new email
-    template type in the **Template Type Display Name** .
+    template type in the **Template Type Display Name**.
 5.  Click **Add.**
 
 ### Adding an email template
@@ -43,13 +43,13 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Click **Add Email Template.**
 4.  Select/enter the email template details.  
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](attachments/103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -62,11 +62,11 @@ template.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 
-    ![](attachments/103330503/103330505.png){width="692" height="442"}
+    ![]( ../../assets/img/103330503/103330505.png) 
 
       
     !!! tip
@@ -114,7 +114,7 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select the email template type.
 4.  Click **Delete Template Type** and click **ok.**
 
@@ -124,13 +124,13 @@ template.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select/enter the email template details based on the fields that you
     want to update in the email template.  
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![](attachments/103329395/103329396.png)
+        ![]( ../../assets/img/103329395/103329396.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -143,11 +143,11 @@ template.
         !!! note
         
                 **Note** : Ensure that you do not use the "\|" character in your
-                **Subject** , **Email Body** or **Email Footer** as this is not
+                **Subject**, **Email Body** or **Email Footer** as this is not
                 supported.
         
 
-    ![](attachments/103330503/103330505.png){width="692" height="442"}
+    ![]( ../../assets/img/103330503/103330505.png) 
 
     !!! tip
     
@@ -191,7 +191,7 @@ corresponds to an email template type.
     console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
-    Templates** , which is available under the **Manage** section **.**
+    Templates**, which is available under the **Manage** section **.**
 3.  Select the email template type and the respective email template.
 4.  Click **Delete Template** and click **ok.**
 
@@ -203,17 +203,17 @@ configure this.
 
 1.  Click on **List** under **Claims** and select
     <http://wso2.org/claims> .
-2.  Select the **Locality** claim and click **Edit** . Select the
-    **Supported by Default** checkbox and click **Update** .
+2.  Select the **Locality** claim and click **Edit**. Select the
+    **Supported by Default** checkbox and click **Update**.
 3.  Logout as admin and login as a user with user profile management
     permissions.
 4.  Click on **List** under **Users and Roles** and then select
-    **Users** .
+    **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![](attachments/103330503/103330504.png){width="758" height="250"}
+    ![]( ../../assets/img/103330503/103330504.png) 
 6.  Enter the locale code for the **Locality** field and click
-    **Update** .
+    **Update**.
 
     !!! tip
     
@@ -221,7 +221,7 @@ configure this.
         **pt\_br** for Brazil locale and **it\_it** for the Italian locale.
         This is the format used for country locales in the Identity Server.
         For more information on country locales, see
-        [here](http://www.science.co.il/language/Locale-codes.php) .
+        [here](http://www.science.co.il/language/Locale-codes.php).
     
 
 Now that this is done, any email notifications you receive will be in

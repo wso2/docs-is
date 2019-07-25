@@ -62,7 +62,7 @@ management.
 
     For more information on how to extend or customize this, see
     [Extension
-    points](#UsingtheConsentManagementRESTAPIs-Extensionpoints) .
+    points](#UsingtheConsentManagementRESTAPIs-Extensionpoints).
 
     ``` java
     <PIIController>

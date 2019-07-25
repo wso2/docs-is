@@ -4,10 +4,10 @@
 
 An Identity Provider (IdP) is responsible for authenticating users and
 issuing identification information by using security tokens like [SAML
-2.0](https://docs.wso2.com/display/IS570/SAML+2.0+Web+SSO) , [OpenID
-Connect](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect) ,
+2.0](https://docs.wso2.com/display/IS570/SAML+2.0+Web+SSO), [OpenID
+Connect](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect),
 [OAuth 2.0](https://docs.wso2.com/display/IS570/OAuth2-OpenID+Connect)
-and [WS-Trust](https://docs.wso2.com/display/IS570/WS-Trust) . This is a
+and [WS-Trust](https://docs.wso2.com/display/IS570/WS-Trust). This is a
 favourable alternative to explicitly authenticating a user within a
 security realm.
 
@@ -68,14 +68,14 @@ from the identity provider. This topic contains the following sections.
 Follow the instructions below to add a new identity provider.
 
 1.  Access the WSO2 Identity Server [Management
-    Console](_Getting_Started_with_the_Management_Console_) and sign in
+    Console](../../setup/getting-started-with-the-management-console) and sign in
     as an admin user.
 2.  On the **Main** tab, click **Identity \> Identity Providers \> Add**
     .  
-    ![](attachments/103329675/112391519.png){width="200"}
+    ![]( ../../assets/img/103329675/112391519.png) 
 
 3.  Fill in the details in the **Basic Information** section.  
-    ![](attachments/103329675/112391521.png){width="800"}  
+    ![]( ../../assets/img/103329675/112391521.png)   
     Note the following when filling the above form.
 
     <table>
@@ -199,7 +199,7 @@ Follow the instructions below to add a new identity provider.
         simply has to specify Facebook as the domain in the login screen
         of first Identity Server.
 
-    ![](attachments/103329675/103329699.png){width="750"}
+    ![]( ../../assets/img/103329675/103329699.png) 
 
     When the Home Realm Identifier is not specified, you can either
     select the domain name from a dropdown in the login page, or you
@@ -219,7 +219,7 @@ Follow the instructions below to add a new identity provider.
     mode is configured here, you must provide the Home Realm Identifier,
     or you have to display a separate screen to the user to get it.
 
-    ![](attachments/103329675/103329698.png){width="750"}
+    ![]( ../../assets/img/103329675/103329698.png) 
 
     If smart mode is configured, the default behavior applies, where you
     can enter a local username and password, or use federated
@@ -234,7 +234,7 @@ Follow the instructions below to add a new identity provider.
 
     The **Alias** is used in the following authentication scenario.
 
-    ![](attachments/103329675/103329689.png)
+    ![]( ../../assets/img/103329675/103329689.png)
 
     Here a SAML identity provider sends a SAML token to a web
     application for authentication. The SAML token has an audience
@@ -262,7 +262,7 @@ Follow the instructions below to add a new identity provider.
 5.  Fill in the remaining details where applicable. Click the arrow
     buttons to expand the forms available to update.  
     ![Adding Configurations for the Identity
-    Provider](attachments/103329675/103329681.png "Adding Configurations for the Identity Provider")
+    Provider]( ../../assets/img/103329675/103329681.png "Adding Configurations for the Identity Provider")
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here for details on how to configure claims
@@ -311,14 +311,14 @@ Follow the instructions below to add a new identity provider.
     exists in the identity provider that must be mapped to the Identity
     Server).
 
-    -   If you choose to **Use Local Claim Dialect** , select the claim
+    -   If you choose to **Use Local Claim Dialect**, select the claim
         you require from the **User ID Claim URI** dropdown that
         includes a list of all the claims defined in the Identity
         Server.  
-        ![](attachments/103329700/103329701.png){width="710"}  
+        ![]( ../../assets/img/103329700/103329701.png)   
     -   You can alternatively choose the **Define Custom Claim Dialect**
         option.  
-        ![](attachments/103329700/103329702.png){width="843"}  
+        ![]( ../../assets/img/103329700/103329702.png)   
         For custom claim dialects, you must map the attributes of the
         user in the identity provider to the claims that are local to
         the Identity Server. These claims can be part of the response
@@ -328,12 +328,12 @@ Follow the instructions below to add a new identity provider.
         sent as part of the outbound provisioning request. Do the
         following to configure this.  
         1.  Click the **Add Claim Mapping** button under **Identity
-            Provider Claim URIs** . Clicking this button again enables
+            Provider Claim URIs**. Clicking this button again enables
             you to perform more claim mapping.
         2.  Map the value of the corresponding claim in the identity
             provider to the claim in the Identity Server. Click the
             **Delete** button to remove the claim mapping.  
-            ![](attachments/103329700/103329704.png)
+            ![]( ../../assets/img/103329700/103329704.png)
 
             | Property                    | Description                                         | Sample Value                          |
             |-----------------------------|-----------------------------------------------------|---------------------------------------|
@@ -365,7 +365,7 @@ Follow the instructions below to add a new identity provider.
     provisioning happens. For both these scenarios, advanced claims are
     very useful.
 
-    ![](attachments/103329700/103329703.png)
+    ![]( ../../assets/img/103329700/103329703.png)
 
     In the above scenario, Google Apps is configured as an identity
     provider in the Identity Server and you would configure the Google
@@ -416,18 +416,18 @@ Follow the instructions below to add a new identity provider.
     Use the following instructions to configure advanced claims.
 
     -   If you chose to **Use Local Claim Dialect** in the **Basic Claim
-        Configuration** , do the following.
+        Configuration**, do the following.
         1.  When you send provisioning requests from the Identity Server
             to the external identity provider, it may not be necessary
             to send all the requests. So, you can use the **Provisioning
             Claim Filter** to filter out the user attributes you need to
             send from the other available attributes. To use the
-            **Provisioning Claim Filter** , select the claims that exist
+            **Provisioning Claim Filter**, select the claims that exist
             in the Identity Server from the dropdown list and click
-            **Add Claim** . Clicking this button again enables you to
+            **Add Claim**. Clicking this button again enables you to
             add a new entry.  
             ![Advanced Claim for local
-            claims](attachments/103329700/103329707.png "Advanced Claim for local claims"){width="750"}
+            claims]( ../../assets/img/103329700/103329707.png "Advanced Claim for local claims") 
         2.  Enter a **Default Value** for your claim. This value is the
             default value used when provisioning this claim. This value
             will be used in all instances of this field, e.g., if all
@@ -436,12 +436,12 @@ Follow the instructions below to add a new identity provider.
             Clicking the **Delete** button will remove this advanced
             claim.
     -   If you chose to **Define Custom Claim Dialect** in the **Basic
-        Claim Configuration** , do the following.
+        Claim Configuration**, do the following.
         1.  Select the **Identity Provider Claim URI** you defined from
-            the dropdown list and click **Add Claim** . Clicking this
+            the dropdown list and click **Add Claim**. Clicking this
             button again will add a new entry.  
             ![Advanced Claim for custom
-            claims](attachments/103329700/103329708.png "Advanced Claim for custom claims"){width="750"}
+            claims]( ../../assets/img/103329700/103329708.png "Advanced Claim for custom claims") 
         2.  Enter a **Default Value** for your claim. This value is the
             default value used when provisioning this claim. This value
             will be used in all instances of this field, e.g., if all
@@ -495,23 +495,23 @@ Follow the instructions below to add a new identity provider.
     following.
 
     1.  Expand the **Role Configuration** section.
-    2.  To configure **Identity Provider Roles** , click **Add Role
-        Mapping** . The following screen appears.  
+    2.  To configure **Identity Provider Roles**, click **Add Role
+        Mapping**. The following screen appears.  
         ![Role
-        Mapping](attachments/103329728/103329729.png "Role Mapping"){width="750"}
+        Mapping]( ../../assets/img/103329728/103329729.png "Role Mapping") 
     3.  Enter the **Identity Provider Role** and map it to the **Local
         Role** available in the Identity Server. See
         [here](https://docs.wso2.com/display/IS580/Configuring+Roles+and+Permissions#ConfiguringRolesandPermissions-addU)
         for information on how the local role can be created in the
         Identity Server. Click the **Delete** button to remove the
         mapping.
-    4.  Enter the **Identity Provider Provisioning Role** . This
+    4.  Enter the **Identity Provider Provisioning Role**. This
         configuration is very useful if you wish to only provision some
         users and not others. All users who are assigned to this role
         will be provisioned from the Identity Server to the identity
         provider. You can provision users that have multiple roles by
         specifying the roles in a comma-separated list.  
-        ![](attachments/103329728/103329730.png){width="750"}
+        ![]( ../../assets/img/103329728/103329730.png) 
 
     !!! note
         The Federated IDP role claim value separator is used to separate
@@ -551,7 +551,7 @@ Follow the instructions below to add a new identity provider.
     expanding the **Federated Authenticators** section followed by the
     required subsections.
 
-    ![](attachments/103330930/103330949.png)
+    ![]( ../../assets/img/103330930/103330949.png)
 
     -   [Configuring SAML 2.0 Web
         SSO](https://docs.wso2.com/display/IS580/Configuring+SAML+2.0+Web+SSO)
@@ -586,7 +586,7 @@ Follow the instructions below to add a new identity provider.
         store](https://store.wso2.com/store/) and plugged in to work with
         WSO2 IS. For more information on those authenticators and
         connectors, see the [WSO2 Identity Server Connectors
-        documentation](https://docs.wso2.com/display/ISConnectors) .
+        documentation](https://docs.wso2.com/display/ISConnectors).
     
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
@@ -621,7 +621,7 @@ Follow the instructions below to add a new identity provider.
     blocking mode, the authentication flow is blocked until the
     provisioning happens while in the non-blocking mode, provisioning
     happens in a different thread. If you want to allow a user to access
-    your application only if the user is authenticated and provisioned ,
+    your application only if the user is authenticated and provisioned,
     then you should use blocking mode.
 
     ### Configuring JIT provisioning for an identity provider
@@ -636,23 +636,23 @@ Follow the instructions below to add a new identity provider.
         Product](https://docs.wso2.com/display/IS580/Running+the+Product)
         .
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Identity Providers** .
+        Click **Add** under **Identity Providers**.
     3.  Click the **Main** tab on the Management Console, navigate to
         **Identity Providers** under the **Identity** menu, and then
-        click **Add** . This displays the **Add New Identity Provider**
+        click **Add**. This displays the **Add New Identity Provider**
         screen.
     4.  Enter appropriate values for all required fields in the **Basic
         Information** section.
 
     5.  Expand the **Just-In-Time Provisioning** section and select the
         JIT provisioning options based on your requirement.  
-        ![](attachments/103329733/103329734.png){width="760"
+        ![]( ../../assets/img/103329733/103329734.png){width="760"
         height="199"}  
         -   If you want to disable JIT provisioning, select **No
-            Provisioning** . This is selected by default.
+            Provisioning**. This is selected by default.
         -   If you want to always provision users to a selected user
             store domain, select **Always provision to User Store
-            Domain** , and then select a required user store domain from
+            Domain**, and then select a required user store domain from
             the list of available user store domains.
 
             !!! tip
@@ -665,7 +665,7 @@ Follow the instructions below to add a new identity provider.
             
                         -   If you want to provision users to multiple user stores
                             depending on the user name specified at the time of
-                            provisioning, select **As in username** .
+                            provisioning, select **As in username**.
             
                             !!! note
                                         
@@ -675,10 +675,10 @@ Follow the instructions below to add a new identity provider.
                                                         For example,
                                         
                                                         -   If you specify the user name as
-                    , the user is provisioned to the
+                   , the user is provisioned to the
                     user store domain.
                 -   If you specify the user name as
-                    `                     user1                    ` ,
+                    `                     user1                    `,
                     the user is provisioned to the PRIMARY user store
                     domain.
 
@@ -690,11 +690,11 @@ Follow the instructions below to add a new identity provider.
                 to select.
 
 
-        -   When you select **Always provision to User Store Domain** ,
+        -   When you select **Always provision to User Store Domain**,
             you should also select one of the following provisioning
             options depending on how you want to prompt users for
             relevant credentials at the time of JIT provisioning. The
-            default selection is **Provision silently** .
+            default selection is **Provision silently**.
 
             -   **Prompt for username, password and consent**
             -   **Prompt for password and consent**
@@ -746,7 +746,7 @@ Follow the instructions below to add a new identity provider.
     You can configure outbound provisioning connectors by expanding the
     relevant section.
 
-    ![](attachments/103329711/103329723.png)
+    ![]( ../../assets/img/103329711/103329723.png)
 
     In addition to this, you can also create [custom
     connectors](https://docs.wso2.com/display/IS580/Writing+an+Outbound+Provisioning+Connector)
@@ -841,7 +841,7 @@ Follow the instructions below to add a new identity provider.
     </tbody>
     </table>
 
-    ![](attachments/103329711/103329714.png){width="900" height="542"}
+    ![]( ../../assets/img/103329711/103329714.png) 
 
     ####  Configuring Salesforce provisioning
 
@@ -851,7 +851,7 @@ Follow the instructions below to add a new identity provider.
     for more information on how this is configured from end to end.
 
     1.  Expand the **Salesforce Provisioning Configuration** form.  
-        ![](attachments/103329711/103329713.png){width="900"}
+        ![]( ../../assets/img/103329711/103329713.png) 
     2.  Fill in the following fields where relevant.
 
         <table>
@@ -968,7 +968,7 @@ Follow the instructions below to add a new identity provider.
     for more information on how this works in a typical scenario.
 
     1.  Expand the **SCIM Provisioning Configuration** form.  
-        ![](attachments/103329711/103329716.png){width="750"}  
+        ![]( ../../assets/img/103329711/103329716.png)   
         Fill in the following fields where relevant.
 
         | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
@@ -999,7 +999,7 @@ Follow the instructions below to add a new identity provider.
     for more information on how this works in a typical scenario.
 
     1.  Expand the **SPML Provisioning Configuration** form.  
-        ![](attachments/103329711/103329715.png){width="750"}
+        ![]( ../../assets/img/103329711/103329715.png) 
     2.  Fill in the following fields where relevant.
 
         | Field            | Description                                                                                                                                 | Sample value                        |
@@ -1025,7 +1025,7 @@ Follow the instructions below to add a new identity provider.
 Apart from mediating authentication requests between service providers
 and identity providers, WSO2 Identity Server can act as a service
 provider and an identity provider. When WSO2 Identity Server acts as an
-identity provider, it is called the **resident identity provider** .
+identity provider, it is called the **resident identity provider**.
 
 !!! note
     
@@ -1034,7 +1034,7 @@ identity provider, it is called the **resident identity provider** .
     via SAML, OpenID Connect, SCIM, or WS-Trust. For an example on how a
     resident identity provider is used to implement a security token
     service, see [Configuring WS-Trust Security Token
-    Service](_Configuring_WS-Trust_Security_Token_Service_) . The Resident
+    Service](../../tutorials/configuring-ws-trust-security-token-service). The Resident
     identity provider configuration is a one-time configuration for a given
     tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The
     resident identity provider configurations can be used to secure the
@@ -1046,10 +1046,10 @@ Follow the instructions below to configure a resident identity provider:
 1.  Access the WSO2 Identity Server Management Console.
 2.  Sign in as an admin user.
 3.  On the **Main** tab, click **Identity \> Identity Providers \>
-    Resident** .  
-    ![](attachments/103329675/112391524.png){width="200"}  
+    Resident**.  
+    ![]( ../../assets/img/103329675/112391524.png)   
     The Resident Identity Provider page appears.  
-    ![](attachments/103329675/112391525.png){width="800"}
+    ![]( ../../assets/img/103329675/112391525.png) 
 
 4.  Enter the required values as given below.
 
@@ -1086,10 +1086,10 @@ Follow the instructions below to configure a resident identity provider:
 5.  You may configure inbound authentication by expanding the **Inbound
     Authentication Configuration** section.  
     1.  To configure SAML2 configurations:
-        1.  Click **SAML2 Web SSO Configuration** .  
-            ![](attachments/103329675/112391531.png){width="750"}  
+        1.  Click **SAML2 Web SSO Configuration**.  
+            ![]( ../../assets/img/103329675/112391531.png)   
             The SAML2 Web SSO Configuration form appears.  
-            ![](attachments/103329675/112391532.png){width="750"}
+            ![]( ../../assets/img/103329675/112391532.png) 
         2.  Enter the required values and learn the fixed values as
             given below.
 
@@ -1104,8 +1104,8 @@ Follow the instructions below to configure a resident identity provider:
             | **Enable metadata signing**     | This facilitates to enable or disable metadata signing                                                                                                                                  | `                    false                   `                                                                          |
 
     2.  To configure OAuth2 or OIDC, click **OAuth2/OpenID Connect
-        Configuration** .  
-        ![](attachments/103329675/112391636.png){width="750"}
+        Configuration**.  
+        ![]( ../../assets/img/103329675/112391636.png) 
 
         | Field                                        | Description                                                                                                                                                                                         | Sample/Fixed Value                                                                                                                     |
         |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -1124,21 +1124,21 @@ Follow the instructions below to configure a resident identity provider:
 
     3.  To secure the WS-Trust endpoint with a security policy, click
         **Security Token Service Configuration** section.  
-        ![](attachments/103329675/112391635.png){width="750"}  
+        ![]( ../../assets/img/103329675/112391635.png)   
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
-        Service](_Configuring_WS-Trust_Security_Token_Service_) .
+        Service](../../tutorials/configuring-ws-trust-security-token-service).
 
 6.  You may view the inbound provisioning configurations by clicking
     **Inbound Provisioning Configuration** section.
-    ![](attachments/103329675/112391638.png){width="750"}
+    ![]( ../../assets/img/103329675/112391638.png) 
 
     | Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
     |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
     | **SCIM User Endpoint**  | This is the identity provider's endpoint for SCIM user operations, e.g., creating and managing users.                                                          | `                                 https://localhost:9443/wso2/scim/Users                               `  |
     | **SCIM Group Endpoint** | This is the identity provider's endpoint for the SCIM user role operations, e.g., creating user roles, assigning user roles to users, and managing user roles. | `                                 https://localhost:9443/wso2/scim/Groups                               ` |
 
-7.  Click **Update** .
+7.  Click **Update**.
 
 !!! note
     
@@ -1180,20 +1180,20 @@ service provider.
     
     -   Start the server and download the SAML2 metadata by accessing this
         URL: <https://localhost:9443/identity/metadata/saml2> .
-    -   **Alternatively** , access the management console and follow the
+    -   **Alternatively**, access the management console and follow the
         steps given below to download the metadata.
     
 
 1.  Expand the **Inbound Authentication Configuration** section and then
-    expand **SAML2 Web SSO Configuration** .
-2.  Click **Download SAML2 metadata** . A
+    expand **SAML2 Web SSO Configuration**.
+2.  Click **Download SAML2 metadata**. A
     `           metadata.xml          ` file will be downloaded on to
     your machine.
 3.  Import the `            metadata.xml           ` file to the
     relevant service provider to configure WSO2 Identity Server as a
     trusted identity provider for your application.
 
-    ![](attachments/103329675/119115136.png){width="800"}
+    ![]( ../../assets/img/103329675/119115136.png) 
 
 ### Managing identity providers
 
@@ -1208,9 +1208,9 @@ added in the WSO2 Identity Server.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers** . The list of identity providers you
+    under **Identity Providers**. The list of identity providers you
     added appears.  
-    ![](attachments/103329675/103329692.png){width="750"}
+    ![]( ../../assets/img/103329675/103329692.png) 
 
 #### Editing identity providers
 
@@ -1219,11 +1219,11 @@ Follow the instructions below to edit an identity provider's details.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers** . The list of identity providers you
+    under **Identity Providers**. The list of identity providers you
     added appears.
 3.  Locate the identity provider you want to edit and click on the
     corresponding **Edit** link.  
-    ![](attachments/103329675/103329691.png){width="750"}
+    ![]( ../../assets/img/103329675/103329691.png) 
 4.  You are directed to the edit screen where you can modify the details
     you configured for the identity provider.
 
@@ -1234,11 +1234,11 @@ Follow the instructions below to delete an identity provider.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers** . The list of identity providers you
+    under **Identity Providers**. The list of identity providers you
     added appears.
 3.  Locate the identity provider you want to delete and click on the
     corresponding **Delete** link.  
-    ![](attachments/103329675/103329693.png){width="750"}
+    ![]( ../../assets/img/103329675/103329693.png) 
 4.  Confirm your request in the WSO2 Carbon window. Click the **Yes**
     button.
 
@@ -1249,15 +1249,15 @@ Follow the instructions below to disable or enable an identity provider.
 1.  Sign in. Enter your username and password to log on to
     the Management Console.
 2.  In the **Main** menu under the **Identity** section, click **List**
-    under **Identity Providers** . The list of identity providers you
+    under **Identity Providers**. The list of identity providers you
     added appears.
 3.  Locate the identity provider you want to delete and click on the
     corresponding **Disable** link to disable the identity provider.
-    Clicking this link will change the link to **Enable** . To enable
+    Clicking this link will change the link to **Enable**. To enable
     the identity provider again, click the **Enable** link.
-    ![](attachments/103329675/103329694.png){width="750"}
+    ![]( ../../assets/img/103329675/103329694.png) 
 4.  Click **Ok** on the confirmation form that appears when clicking
-    **Disable** / **Enable** .  
+    **Disable** / **Enable**.  
 
 **Related Topics**
 

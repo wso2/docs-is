@@ -17,9 +17,9 @@ This section guides you through enabling the logger for OAuth endpoints.
     !!! tip
     
         **Tip:** You can disable logging by setting the
-        `           enable          ` property to **false** .  
+        `           enable          ` property to **false**.  
         Optionally, you can enable logging the token by setting the
-        `           Log.Token          ` property to **true** .
+        `           Log.Token          ` property to **true**.
     
 
     ``` java
@@ -33,7 +33,7 @@ This section guides you through enabling the logger for OAuth endpoints.
     will be created in the
     `          <IS_HOME>/repository/logs/         ` folder.
 
-Whenever you [generate an OAuth token](_Working_with_OAuth_) or perform
+Whenever you [generate an OAuth token](../../using-wso2-identity-server/working-with-oauth) or perform
 an [OAuth token
 introspection](_Invoke_the_OAuth_Introspection_Endpoint_) related
 operation, the action will be logged in the

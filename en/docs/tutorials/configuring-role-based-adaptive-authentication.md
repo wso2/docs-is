@@ -35,7 +35,7 @@ sample authenticators required to try out the scenario.
 5.  Click **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Role-Based**.  
     ![role based authentication template](../../assets/img/tutorials/role-based-authentication-template.png)
-6.  Click **Ok** . The authentication script and authentication steps
+6.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script defines a conditional step
     that executes the second authentication step (i.e., hardware key
     authenticator) only if the user belongs to an 'admin' or 'manager'

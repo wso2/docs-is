@@ -71,7 +71,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
 5.  Use h `          ttps://localhost:9443/commonauth         `
     as redirect URL when you register the client. Here you can use
     127.0.0.1 instead of localhost.  
-    ![](attachments/49092781/49226960.png){width="578"}
+    ![](attachments/49092781/49226960.png) 
 6.  From the app dashboard you can get clientId and clientSecret for
     your created app.  
 
@@ -101,18 +101,18 @@ provider](https://docs.wso2.com/identity-server/Configuring+an+Identity+Provider
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  Run the [WSO2 Identity
-    Server](https://docs.wso2.com/identity-server/Running+the+Product) .
+    Server](https://docs.wso2.com/identity-server/Running+the+Product).
 3.  Log in to the [management
     console](https://docs.wso2.com/identity-server/Getting+Started+with+the+Management+Console)
     as an administrator.
 4.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-5.  Give a suitable name for **Identity Provider Name** .  
-    ![](attachments/49092781/56994052.png){width="1016"}
+    management console, click **Add**.
+5.  Give a suitable name for **Identity Provider Name**.  
+    ![](attachments/49092781/56994052.png) 
 6.  Navigate to **MailChimp Configuration** under **Federated
-    Authenticators** .
+    Authenticators**.
 
 7.  Enter the values as given in the above figure.
 
@@ -174,7 +174,7 @@ provider](https://docs.wso2.com/identity-server/Configuring+an+Identity+Provider
     </tbody>
     </table>
 
-8.  Click **Register** .
+8.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -188,7 +188,7 @@ The next step is to configure the service provider.
     **Main** tab.
 
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
@@ -201,13 +201,13 @@ The next step is to configure the service provider.
         http://localhost:8080/travelocity.com/home.jsp
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
         ![](attachments/49092781/103332418.png){height="400"}  
 
 7.  Click **Update** to save the changes. Now you will be sent back to
@@ -217,7 +217,7 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -233,12 +233,12 @@ You have now added and configured the service provider.
 2.  Click “Login with SAML” to log in with SAML from the WSO2 Identity
     Server.
 
-    ![](attachments/49092781/51251955.png){width="811" height="600"}
+    ![](attachments/49092781/51251955.png) 
 
 3.  Enter your MailChimp credentials in the prompted login page of
     MailChimp.  
-    ![](attachments/49092781/49226963.png){width="500"}  
+    ![](attachments/49092781/49226963.png)   
 
 4.  Once you login successfully you will be taken to the home page of
     the travelocity.com app.  
-    ![](attachments/49092781/51251954.png){width="500"}  
+    ![](attachments/49092781/51251954.png)   

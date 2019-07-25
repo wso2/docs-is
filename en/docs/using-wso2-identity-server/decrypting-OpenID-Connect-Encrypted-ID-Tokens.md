@@ -96,7 +96,7 @@ encrypted again using the public key of the client and an asymmetric
 encryption algorithm, which is called the Encryption Algorithm.
 
 You can read more about these concepts from
-[here](https://tools.ietf.org/html/rfc7516) .
+[here](https://tools.ietf.org/html/rfc7516).
 
 You can configure the default values of above-mentioned Encryption
 Method and Encryption Algorithm by making changes in the

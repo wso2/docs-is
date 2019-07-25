@@ -7,7 +7,7 @@ flow of the mePIN federated authenticator
 
   
 
-![](attachments/48283193/76746236.png?effects=border-simple,blur-border){width="990"}
+![](attachments/48283193/76746236.png?effects=border-simple,blur-border) 
 
   
 

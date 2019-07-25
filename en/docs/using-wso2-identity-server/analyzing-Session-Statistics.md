@@ -4,7 +4,7 @@ The **Login Sessions** statistical visualization displays statistics
 relating to the sessions of the different applications that accessed via
 WSO2 IS.
 
-Follow the steps below to view the **Login Sessions** .
+Follow the steps below to view the **Login Sessions**.
 
 !!! tip
     
@@ -12,8 +12,8 @@ Follow the steps below to view the **Login Sessions** .
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
-    2.  Click **menu** icon \> **Login Sessions** .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
+    2.  Click **menu** icon \> **Login Sessions**.
     
 
 Let's analyze the login sessions with the following widgets.
@@ -23,7 +23,7 @@ Let's analyze the login sessions with the following widgets.
 This widget presents the **currently active sessions** and gets updated
 for each event that is coming from WSO2 IS.
 
-![](attachments/103329312/103329313.png){height="250"}
+![]( ../../assets/img/103329312/103329313.png){height="250"}
 
   
 
@@ -33,7 +33,7 @@ for each event that is coming from WSO2 IS.
 
 ##### Description
 
--   This chart presents the **session count over time** .
+-   This chart presents the **session count over time**.
 -   The **Active** line indicates the number of active sessions over the
     selected time interval. A session needs to be active at the end of
     the selected time bucket in order to be counted as an active
@@ -69,7 +69,7 @@ application is particularly high, you can allocate more resources to
 handle the increased load. Similarly, you can allocate less resources
 during time intervals when the load is relatively low.
 
-![](attachments/103329312/103329320.png){width="600"}
+![]( ../../assets/img/103329312/103329320.png) 
 
 ##### Description
 
@@ -86,7 +86,7 @@ session is displayed.
     enables to identify the users who are most active during different
     time intervals.
 
-![](attachments/103329312/103329319.png){width="600"}
+![]( ../../assets/img/103329312/103329319.png) 
 
 ##### Description
 
@@ -115,7 +115,7 @@ actions where necessary, e.g., increase/decrease the efficiency of the
 application and enhance/reduce user experience features that results in
 users spending more/less time on the application.
 
-![](attachments/103329312/103329318.png){width="600"}
+![]( ../../assets/img/103329312/103329318.png) 
 
 ##### Description
 
@@ -142,7 +142,7 @@ changes and take necessary steps, e.g., increase/decrease the efficiency
 of the application and enhance/reduce user experience features that
 results in users spending more/less time on the application.
 
-![](attachments/103329312/103329317.png){width="600"}
+![]( ../../assets/img/103329312/103329317.png) 
 
 ##### Description
 

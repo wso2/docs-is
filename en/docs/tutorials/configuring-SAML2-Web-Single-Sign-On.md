@@ -2,7 +2,7 @@
 
 To configure SAML2 Web SSO:
 
-1.  Expand the **SAML2 Web SSO Configuration** and click **Configure** .
+1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
 2.  Select one of the following modes:  
     -   [Manual
         configuration](#ConfiguringSAML2WebSingle-Sign-On-Manualconfiguration)
@@ -28,7 +28,7 @@ supports SAML metadata download for the resident identity provider.
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![](attachments/103330801/112392421.png){width="750"}
+    giveb below. ![](attachments/103330801/112392421.png) 
 
     <table>
     <thead>
@@ -71,7 +71,7 @@ supports SAML metadata download for the resident identity provider.
     <tr class="even">
     <td><strong>NameID format</strong></td>
     <td><div class="content-wrapper">
-    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID) , which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
+    <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
     <div>
     <p>About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
@@ -135,18 +135,18 @@ supports SAML metadata download for the resident identity provider.
     </tr>
     <tr class="even">
     <td><strong>Enable Assertion Encryption</strong></td>
-    <td>Enable <strong>Assertion Encryption</strong> , if you wish to encrypt the assertion.</td>
+    <td>Enable <strong>Assertion Encryption</strong>, if you wish to encrypt the assertion.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
     <td><strong>Enable Single Logout</strong></td>
     <td><p>Select <strong>Enable Single Logout</strong> so that all sessions are terminated once the user signs out from one server. If single logout is enabled, the identity provider sends logout requests to all service providers. Basically, the identity provider acts according to the single logout profile. If the service provider supports a different URL for logout, you can enter a <strong>SLO Response URL</strong> and <strong>SLO Request URL</strong> for logging out. These URLs indicate where the request and response should go to. If you do not specify this URL, the identity provider uses the Assertion Consumer Service (ACS) URL.<br />
-    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding) .</strong></p></td>
+    WSO2 Identity Server supports both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout</strong> the Back-Channel Logout is enabled . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding).</strong></p></td>
     <td>Selected</td>
     </tr>
     <tr class="even">
     <td><strong>Enable Attribute Profile</strong></td>
-    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong> , the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
+    <td>Select <strong>Enable Attribute Profile</strong> to enable this and add a claim by entering the claim link and clicking the <strong>Add Claim</strong> button. The Identity Server provides support for a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as part of the attribute statement. Once you select the checkbox to <strong>Include Attributes in the Response Always</strong>, the identity provider always includes the attribute values related to the selected claims in the SAML attribute statement.</td>
     <td>Unselected</td>
     </tr>
     <tr class="odd">
@@ -182,7 +182,7 @@ supports SAML metadata download for the resident identity provider.
     </tbody>
     </table>
 
-2.  Click **Register** .
+2.  Click **Register**.
 
 #### Metadata file configuration
 
@@ -193,12 +193,12 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    **![](attachments/103330801/112392408.png){width="750"}  
+    **![](attachments/103330801/112392408.png)   
     **
-2.  Click **Choose File** , and select the `          .xml         `
+2.  Click **Choose File**, and select the `          .xml         `
     file containing the metadata for the service provider SAML
     configuration.
-3.  Click **Upload** .
+3.  Click **Upload**.
 
     !!! tip
     
@@ -258,8 +258,8 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![](attachments/103330801/112392410.png){width="750"}
-2.  Click **Upload** .
+    ![](attachments/103330801/112392410.png) 
+2.  Click **Upload**.
 
 !!! note
     
