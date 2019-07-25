@@ -1,13 +1,21 @@
 {
-  "next": "5.8.0",
-  "current": "5.7.0",
+  "next": "5.9.0",
+  "current": "5.9.0",
   "list": [
-    "5.7.0"
+    "5.9.0"
   ],
   "all": {
+    "5.9.0": {
+        "doc": "5.9.0",
+        "notes": "5.9.0/about-this-release"
+    },
+    "5.8.0": {
+        "doc": "https://docs.wso2.com/display/IS580/WSO2+Identity+Server+Documentation",
+        "notes": "https://docs.wso2.com/display/IS80/About+this+Release"
+    },
     "5.7.0": {
-        "doc": "5.7.0",
-        "notes": "5.7.0/release-notes"
+        "doc": "https://docs.wso2.com/display/IS570/WSO2+Identity+Server+Documentation",
+        "notes": "https://docs.wso2.com/display/IS70/About+this+Release"
     },
     "5.6.0": {
         "doc": "https://docs.wso2.com/display/IS560/WSO2+Identity+Server+Documentation",
@@ -38,8 +46,8 @@
         "notes": "https://docs.wso2.com/display/IS510/About+this+Release"
     },
     "5.0.0": {
-        "doc": "https://docs.wso2.com/display/IS540/WSO2+Identity+Server+Documentation",
-        "notes": "https://docs.wso2.com/display/IS540/About+this+Release"
+        "doc": "https://docs.wso2.com/display/IS500/WSO2+Identity+Server+Documentation",
+        "notes": "https://docs.wso2.com/display/IS500/About+this+Release"
     }
   }
 }
