@@ -139,7 +139,7 @@ production environment.
         copy of the `               conf              ` directory
         according to the features that you require . For a detailed list
         of configuration changes, see [Configuration
-        changes](../../setup/understanding-what-has-changed#configurationc-hanges)
+        changes](../../setup/understanding-what-has-changed#configuration-changes)
         .
 
     3.  Replace the
