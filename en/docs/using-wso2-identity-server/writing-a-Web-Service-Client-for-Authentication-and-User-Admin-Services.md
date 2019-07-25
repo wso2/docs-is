@@ -46,7 +46,7 @@ APIs](https://docs.wso2.com/display/IS540/Managing+Permissions+with+APIs)
     or remote-user-mgt-client `           .bat          ` in
     Windows. You can see that the issues performed is being printed by
     the client.  
-    ![](attachments/103329897/103329898.png){width="600"}  
+    ![]( ../../assets/img/103329897/103329898.png)   
       
 
 !!! note

@@ -34,7 +34,7 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
         https://localhost:9443/services/OAuth2TokenValidationService?wsdl
 
 4.  Provide the following parameters to call the validate method as seen
-    below. ![](attachments/103329621/103329622.png){width="900"}
+    below. ![]( ../../assets/img/103329621/103329622.png) 
 
 <!-- -->
 
@@ -53,4 +53,4 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
 
 In order to get the user claims of the authorized user as a JWT token
 with the validation response, see [JWT Token
-Generation](_JWT_Token_Generation_).
+Generation](../../using-wso2-identity-server/jwt-token-generation).

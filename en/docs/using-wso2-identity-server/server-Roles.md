@@ -44,9 +44,9 @@ always given priority over others.
 2.  Click **Add New Server Role**, e nter the Role Name and click
     **Add.** You can add any textual name as a server role without
     special characters except underscore.  
-    ![](attachments/34611390/34742427.png)
+    ![]( ../../assets/img/34611390/34742427.png)
 3.  The newly added server role is displayed in the server roles list.  
-    ![](attachments/34611390/34742428.png)  
+    ![]( ../../assets/img/34611390/34742428.png)  
     You can delete the server role using the **Delete** icon associated
     with it.
 

@@ -21,7 +21,7 @@ Follow the steps below to set up a PostgreSQL database.
     server from the object browser, right-click the client and click
     **Connect**. This will show you the databases, tablespaces, and
     login roles as follows:  
-    ![](attachments/53125515/53287590.png){width="800"}
+    ![](attachments/53125515/53287590.png) 
 5.  To create a database, click **Databases** in the tree (inside the
     object browser), and click **New Database**.
 6.  In the **New Database** dialog box, give a name to the database,

@@ -5,7 +5,7 @@ WSO2 Identity Server to authenticate Yammer users to log in to your
 organization’s applications. The diagram below illustrates the flow of
 the Yammer federated authenticator.
 
-![](attachments/48290727/76746158.png){width="945"}
+![](attachments/48290727/76746158.png) 
 
 ### Getting started
 

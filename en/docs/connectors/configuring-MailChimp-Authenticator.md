@@ -71,7 +71,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
 5.  Use h `          ttps://localhost:9443/commonauth         `
     as redirect URL when you register the client. Here you can use
     127.0.0.1 instead of localhost.  
-    ![](attachments/49092781/49226960.png){width="578"}
+    ![](attachments/49092781/49226960.png) 
 6.  From the app dashboard you can get clientId and clientSecret for
     your created app.  
 
@@ -110,7 +110,7 @@ provider](https://docs.wso2.com/identity-server/Configuring+an+Identity+Provider
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name**.  
-    ![](attachments/49092781/56994052.png){width="1016"}
+    ![](attachments/49092781/56994052.png) 
 6.  Navigate to **MailChimp Configuration** under **Federated
     Authenticators**.
 
@@ -233,12 +233,12 @@ You have now added and configured the service provider.
 2.  Click “Login with SAML” to log in with SAML from the WSO2 Identity
     Server.
 
-    ![](attachments/49092781/51251955.png){width="811" height="600"}
+    ![](attachments/49092781/51251955.png) 
 
 3.  Enter your MailChimp credentials in the prompted login page of
     MailChimp.  
-    ![](attachments/49092781/49226963.png){width="500"}  
+    ![](attachments/49092781/49226963.png)   
 
 4.  Once you login successfully you will be taken to the home page of
     the travelocity.com app.  
-    ![](attachments/49092781/51251954.png){width="500"}  
+    ![](attachments/49092781/51251954.png)   

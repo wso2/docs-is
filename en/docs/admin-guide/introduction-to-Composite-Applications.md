@@ -27,7 +27,7 @@ with a file named `         artifacts.xml        `, which contains
 metadata about the artifacts that are inside the C-App. The diagram
 below depicts the structure of a sample C-App:
 
-![](attachments/53125457/53287354.png){width="600"}
+![](attachments/53125457/53287354.png) 
 
 Given below is a sample `         artifacts.xml        ` file:
 

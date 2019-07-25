@@ -40,8 +40,9 @@ authorization server and the resource server. Thus, the user’s browser
 never makes a request directly to the Authorization server, everything
 goes through the client first.
 
-![](attachments/103329625/103329626.png){.image-center width="600"}
-Typically [authorization code grant type](_Authorization_Code_Grant_) is
+![oauth2-auth-code-diagram](../../assets/img/using-wso2-identity-server/oauth2-auth-code-diagram.png)
+
+Typically, the [authorization code grant type](../../using-wso2-identity-server/authorization-code-grant) is
 used with these clients.
 
   
@@ -60,12 +61,12 @@ The diagram below illustrates a user agent based application. After
 first downloading the Javascript and HTML source code from the client,
 the browser then makes direct requests to the Authorization server.
 
-![](attachments/103329625/103329627.png){.image-center width="600"}
-Typically [implicit grant type](_Implicit_Grant_) is used with these
+![oauth2-implicit-diagram](../../assets/img/using-wso2-identity-server/oauth2-implicit-diagram.png)
+
+Typically, the [implicit grant type](../../using-wso2-identity-server/implicit-grant) is used with these
 clients.
 
 !!! tip
-    
     Refer [this blog
     post](http://blog.facilelogin.com/2015/06/oauth-20-with-single-page-applications.html)
     to learn more on protecting SPAs in accessing OAuth 2.0 secured APIs.
@@ -86,8 +87,8 @@ might be protected from other applications residing on the same device.
 It is usually recommended to take the advantage of
 [PKCE](https://tools.ietf.org/html/rfc7636) extension with native
 clients to mitigate [code interception
-attacks](_Mitigating_Authorization_Code_Interception_Attacks_) when
-using [authorization code grant type](_Authorization_Code_Grant_) to
+attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks) when
+using [authorization code grant type](../../using-wso2-identity-server/authorization-code-grant) to
 access secured services.
 
   

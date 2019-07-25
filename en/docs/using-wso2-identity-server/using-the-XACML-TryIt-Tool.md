@@ -17,7 +17,7 @@ expected.
 The XACML TryIt Tool is available in the **Tools** menu as shown in the
 figure.
 
-![](attachments/103329502/103329503.png){width="300"}
+![]( ../../assets/img/103329502/103329503.png) 
 
 The following topics provide information on how to use the XACML TryIt
 tool.

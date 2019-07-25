@@ -24,7 +24,7 @@ this flow will change depending on the implementation (for instance in
 the carbon authorization flow, there is only one listener method that is
 being called).
 
-![](attachments/103330086/103330088.png)
+![]( ../../assets/img/103330086/103330088.png)
 
 ### How listeners work
 

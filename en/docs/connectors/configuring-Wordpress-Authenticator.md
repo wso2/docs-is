@@ -48,7 +48,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
 
 3.  Click **Create New Application**.
 
-    ![](attachments/49092145/76747300.png){width="871"}
+    ![](attachments/49092145/76747300.png) 
 
 4.  Enter the following details in the window that appears.
     -   **Name** - TestApp
@@ -67,7 +67,7 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
 5.  Click **Create**.  
     Now you have finished configuring Wordpress so copy the **Client
     ID** and **Client Secret** for use in the Identity Server.  
-    ![](attachments/49092145/49226414.png){width="693"}
+    ![](attachments/49092145/49226414.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -92,13 +92,13 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.  
-    ![](attachments/49092145/76747356.png){width="242"}
+    ![](attachments/49092145/76747356.png) 
 4.  Enter the following details for the Identity Provider.
 
     -   **Identity Provider Name** - WordpressIdP
     -   **Alias** - <https://localhost:9443/oauth2/token>
 
-    ![](attachments/49092145/76747375.png){width="672"}
+    ![](attachments/49092145/76747375.png) 
 
 5.  Go to **Wordpress Configuration** under **Federated Authenticators**
     and enter the required details.
@@ -134,7 +134,7 @@ The next step is to configure the service provider.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
       
-    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="500"}
+    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf) 
 5.  Now set the configuration as follows:  
     1.  **Issuer** : travelocity.com
     2.  **Assertion Consumer URL** :
@@ -151,7 +151,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
       
-    ![](attachments/49092145/49226418.png){width="500"}
+    ![](attachments/49092145/49226418.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -164,17 +164,17 @@ You have now added and configured the service provider.
     . E.g., [http://localhost:8080/travelocity.com  
       
     ](http://localhost:8080/travelocity.com)
-    ![](attachments/49092145/49226416.png){width="500"}
+    ![](attachments/49092145/49226416.png) 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 3.  You are redirected to the Wordpress login page. Enter your Wordpress
     credentials.  
       
-    ![](attachments/49092145/49226419.png){width="500"}
+    ![](attachments/49092145/49226419.png) 
 4.  Click **Log In** to authenticate the user.  
       
-    ![](attachments/49092145/49226420.png){width="500"}
+    ![](attachments/49092145/49226420.png) 
 5.  You will be taken to the home page of the travelocity.com app.  
-    ![](attachments/49092145/49226421.png){width="500"}
+    ![](attachments/49092145/49226421.png) 
 
   
 

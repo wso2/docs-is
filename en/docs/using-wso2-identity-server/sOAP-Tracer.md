@@ -18,7 +18,7 @@ Follow the instructions below to access the SOAP Tracer.
 2.  Click on **Monitor** on the left side of the screen to access the
     **Monitor** menu and click on **SOAP Tracer**.
 3.  In the drop-down menu, select **Yes**.  
-    ![](attachments/103329418/103329420.png){width="750"}
+    ![]( ../../assets/img/103329418/103329420.png) 
 4.  The Tracer will show the messages of the operations that were
     invoked.
 5.  SOAP message information includes the time-stamp, service name,
@@ -26,7 +26,7 @@ Follow the instructions below to access the SOAP Tracer.
     most recent SOAP messages are listed on top. When a particular SOAP
     message is selected, its **Request** and **Response** information
     can be viewed.  
-    ![](attachments/103329418/103329419.png){width="750"}
+    ![]( ../../assets/img/103329418/103329419.png) 
 
     This Tracer does not apply to operations invoked in the admin
     services, as these are filtered out.
@@ -34,8 +34,8 @@ Follow the instructions below to access the SOAP Tracer.
 6.  Use the **Search** function to find a message. In the appropriate
     field, enter a word (or part of a word or multiple words) that the
     message should contain, and click on the **Search** button.  
-    ![](attachments/9372729/9440999.png)
+    ![]( ../../assets/img/9372729/9440999.png)
 7.  You will see the message in the **Messages** list, and its full
     description will be shown in the **Request** or **Response** text
     area.  
-    ![](attachments/9372729/9441000.png)
+    ![]( ../../assets/img/9372729/9441000.png)
