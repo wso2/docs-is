@@ -52,11 +52,11 @@ too.
     
         1.  Click your username to expand the drop down.
         2.  Click **Switch to Lightning Experience**.  
-            ![](attachments/103330205/103330206.png){width="200"
+            ![]( ../../assets/img/103330205/103330206.png){width="200"
             height="153"}
         3.  Click the settings icon on the top-right-hand corner, and click
             **Set Up**.  
-            ![](attachments/103330205/103330207.png){width="150"}
+            ![]( ../../assets/img/103330205/103330207.png) 
     
         Now you are navigated to the lightening theme of Salesforce.
     
@@ -84,7 +84,7 @@ too.
     configure outbound provisioning with Salesforce.
 
     1.  Expand **Apps** and click **App Manager**.  
-        ![](attachments/103330205/103330224.png){width="200"}
+        ![]( ../../assets/img/103330205/103330224.png) 
     2.  In the window that appears, click **New** **Connected Apps**
         that is on the top right corner.
     3.  Fill in the form that appears with relevant details.  
@@ -133,7 +133,7 @@ too.
         </tbody>
         </table>
 
-        ![](attachments/103330205/103330226.png){width="1000"}
+        ![]( ../../assets/img/103330205/103330226.png) 
 
     4.  Click **Save** **\> Continue** to add the connected app.
 
@@ -154,7 +154,7 @@ too.
     ownership of the consumer key. Referred to as client\_secret in
     OAuth 2.0.
 
-    ![](attachments/103330205/103330227.png){width="1000"}
+    ![]( ../../assets/img/103330205/103330227.png) 
 
 6.  Add your connected app to the profile you are going to use. This is
     necessary as this profile is used when you add users in to
@@ -168,13 +168,13 @@ too.
 
     1.  Expand **Users** and click **Profiles**. A list of existing
         profiles can be viewed.  
-        ![](attachments/103330205/103330211.png){width="800"}
+        ![]( ../../assets/img/103330205/103330211.png) 
 
     2.  As an example, if you use the profile “Chatter Free User”, click
         **Edit** and select the connected app you created to configure
         with the Identity Server using the provided checkbox.  
         Example:  
-        ![](attachments/103330205/103330228.png){width="1000"}
+        ![]( ../../assets/img/103330205/103330228.png) 
 
     3.  Click **Save**. Make a note of the profile ID (or address URL)
         of the Chatter Free User profile.
@@ -200,11 +200,11 @@ too.
     1.  In the left navigation pane, Expand **Security** and click
         **Certificate and Key Management** or you can search for
         Certificate and Key Management in the Quick Find search box.  
-        ![](attachments/103330205/103330222.png){width="200"}
+        ![]( ../../assets/img/103330205/103330222.png) 
     2.  Click **Create Self-Signed Certificate**.
     3.  Enter the **Label** and a **Unique Name** and click **Save**.
         The certificate is generated.  
-        ![](attachments/103330205/103330221.png){width="900"}
+        ![]( ../../assets/img/103330205/103330221.png) 
     4.  Click the **Download Certificate** button to download the
         certificate.
 
@@ -266,7 +266,7 @@ Provider.
     Identity Provider and to send encrypted data to the Identity
     Provider.
 
-    ![](attachments/103330205/103330214.png){width="600"}
+    ![]( ../../assets/img/103330205/103330214.png) 
 
 5.  Expand the **Claim Configuration** section of the form, followed by
     the **Basic Claim Configuration** section, and select **Define
@@ -307,12 +307,12 @@ Provider.
     | UserPermissionsOfflineUser         | `               http://wso2.org/claims/country              `                  |
     | Username                           | `               http://wso2.org/claims/emailaddress              `             |
 
-    ![](attachments/103330205/103330209.png){width="750" height="456"}
+    ![]( ../../assets/img/103330205/103330209.png) 
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
     Filter** dropdown and click **Add Claim**.  
-    ![](attachments/103330205/103330215.png){width="512" height="96"}
+    ![]( ../../assets/img/103330205/103330215.png) 
 9.  For each Claim URI, enter a default value as shown in the following
     table. The default values are used when creating the role in
     Salesforce.  
@@ -388,7 +388,7 @@ Provider.
     </tbody>
     </table>
 
-    ![](attachments/103330205/103330217.png){width="750" height="361"}
+    ![]( ../../assets/img/103330205/103330217.png) 
 
 10. Expand the **Outbound Provisioning Connectors** section followed by
     the **Salesforce Provisioning Configuration** section.
@@ -422,7 +422,7 @@ Provider.
 
         1.  Search for My Domain in the search bar that is on the left
             navigation panel.  
-            ![](attachments/103331301/103331324.png){width="200"}
+            ![]( ../../assets/img/103331301/103331324.png) 
         2.  Click **My Domain**.
         3.  In the page that appears, come up with a name for your
             domain. You can check if the domain is available by clicking
@@ -431,7 +431,7 @@ Provider.
             For the page given below to load on your browser, make sure
             that the Salesforce cookies are not blocked.
 
-            ![](attachments/103331301/103331327.png){width="750"
+            ![]( ../../assets/img/103331301/103331327.png){width="750"
             height="353"}
 
         4.  If the domain is available, select **I agree to Terms and
@@ -463,7 +463,7 @@ Provider.
             and click **App Manager**.
         2.  Click the expand button for your Connected App and click
             **View**.  
-            ![](attachments/103330205/103330240.png){width="800"}
+            ![]( ../../assets/img/103330205/103330240.png) 
         3.  You are navigated to the page that has the Client ID and
             Client Secret of the app under **API (Enable OAuth
             Settings)**.
@@ -491,15 +491,15 @@ Provider.
                 1.  Log in to Salesforce: <https://login.salesforce.com/>
                 2.  Click on your avatar and click My Settings. You are
                     navigated to the Personal Information page.  
-                    ![](attachments/103330205/103330239.png){width="250"}
+                    ![]( ../../assets/img/103330205/103330239.png) 
                 3.  On the left navigation, click **Reset My Security Token**
                     .  
-                    ![](attachments/103330205/103330238.png){width="200"}
+                    ![]( ../../assets/img/103330205/103330238.png) 
                 4.  Click **Reset Security Token**.  
                     An email is sent to you with the new security token. Check
                     the email of the email address you configured for
                     Salesforce.  
-                    ![](attachments/103330205/103330237.png){width="800"}
+                    ![]( ../../assets/img/103330205/103330237.png) 
         
 
 12. Click **Register**.
@@ -520,7 +520,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     that appears.
 3.  Select the identity provider you configured from the drop down and
     click the (+).  
-    ![](attachments/103330205/103330236.png){width="800"}
+    ![]( ../../assets/img/103330205/103330236.png) 
 
     If you enable **Blocking**, Identity Server will wait for the
     response from the Identity Provider to continue.
@@ -550,13 +550,13 @@ management console, this user should also appear in Salesforce.
     won't be able to update the email address.
 
 4.  Assign a role to the user.  
-    ![](attachments/103330205/103330219.png){width="477" height="253"}
+    ![]( ../../assets/img/103330205/103330219.png) 
 5.  Click **Finish**.
 6.  In Salesforce, log into <https://login.salesforce.com/> .  
     On the left navigation pane, expand **Users** and click **Users**.
     You will see that the user you created in the Identity Server has
     been added to Salesforce as well.  
-    ![](attachments/103330205/103330216.png){width="933" height="295"}
+    ![]( ../../assets/img/103330205/103330216.png) 
 
 **[\[Back to the top\]](#OutboundProvisioningwithSalesforce-top)**
 
@@ -569,7 +569,7 @@ must do the following.
     **Resident** under **Identity Providers**.
 2.  Expand the **Inbound Provisioning Configuration** in the screen that
     appears.  
-    ![](attachments/103330205/103330229.png){width="900"}
+    ![]( ../../assets/img/103330205/103330229.png) 
 3.  Select the correct SCIM user endpoint and use it in the cURL
     command.  
     The following is a sample cURL command to add users.

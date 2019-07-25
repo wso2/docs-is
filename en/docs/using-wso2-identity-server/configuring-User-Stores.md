@@ -11,7 +11,7 @@ There are two types of user stores - Primary User store (Mandatory) and
 Secondary user stores (Optional). All the supported user stores can be
 configured under these two types.
 
-![](attachments/103330301/103330302.png){width="600"}
+![]( ../../assets/img/103330301/103330302.png) 
 
 #### Primary User Store (Mandatory)
 

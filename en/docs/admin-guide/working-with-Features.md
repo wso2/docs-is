@@ -357,7 +357,7 @@ process, some features might get installed and some uninstalled.
 2.  Go to the **Configure** menu, and click **Features**.
 3.  Click on the **Installation History** tab **.** The **Installation
     History** page appears. See the example below.  
-    ![](attachments/53125432/85387850.png){width="900"}
+    ![](attachments/53125432/85387850.png) 
 4.  Select the configuration to which you wish to revert.  
 5.  Click **Revert**, to revert the current configuration to a previous
     configuration.

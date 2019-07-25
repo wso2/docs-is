@@ -464,6 +464,6 @@ description of the values it contains.
 | SESSION\_OBJECT | The session object               |
 | TIME\_CREATED   | The time of the session creation |
 
-![](attachments/103329409/103329411.png){width="584"}  
+![]( ../../assets/img/103329409/103329411.png)   
   
-![](attachments/103329409/103329410.png){width="573"}
+![]( ../../assets/img/103329409/103329410.png) 

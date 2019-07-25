@@ -25,7 +25,7 @@ providers. The variable `          $acUrl         ` contains the
 assertion consumer URL (redirecting URL). Depending on the value of
 this, you can customize this **samlsso\_response.html** page to display
 different content, with the help of some JavaScript if/else logic. See
-[here](attachments/103330131/103330132.html) for a sample sso\_redirect
+[here]( ../../assets/img/103330131/103330132.html) for a sample sso\_redirect
 page template that can display different content for two different
 $acUrls. However, this may become complex when you have a large number
 of service providers.

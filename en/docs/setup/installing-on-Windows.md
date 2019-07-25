@@ -64,18 +64,18 @@ prompt](#InstallingonWindows-cmd).
 1.  Right-click the **My Computer** icon on the desktop and choose
     **Properties**.  
 
-    ![](attachments/thumbnails/26838941/27042151){width="200"}
+    ![](attachments/thumbnails/26838941/27042151) 
 
 2.  In the System Properties window, click the **Advanced** tab, and
     then click the **Environment Variables** button.  
 
-    ![](attachments/26838941/27042150.png){width="380"}
+    ![](attachments/26838941/27042150.png) 
 
 3.  Click the New button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
-    ![](attachments/thumbnails/26838941/27042154){width="280"}
+    ![](attachments/thumbnails/26838941/27042154) 
 
 4.  Enter the following information:  
     -   In the **Variable name** field, enter:

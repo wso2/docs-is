@@ -6,7 +6,7 @@ templates available in WSO2 Identity Server to write your own policy.
 1.  Start WSO2 Identity Server and log in to the management console.
 2.  Click on **Policy Administration** under the **Entitlement\>PAP**
     section on the **Main** tab.  
-    ![](attachments/103331229/103331230.png){width="900"}
+    ![](attachments/103331229/103331230.png) 
 3.  You will see the following list of available policy templates.
 
     | Template Name                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |

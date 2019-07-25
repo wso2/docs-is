@@ -11,7 +11,7 @@ for Travelocity sample application over [SAML 2.0](_SAML_2.0_Web_SSO_)
 via WSO2 Identity Server. You will also see how Travelocity application
 exchanges the SAML assertion received, with the WSO2 Identity Server to
 receive an OAuth access token using [SAML2 Bearer Assertion
-Profile](_SAML2_Bearer_Assertion_Profile_for_OAuth_2.0_). Finally, you
+Profile](../../using-wso2-identity-server/saml2-bearer-assertion-profile-for-oauth-2.0). Finally, you
 will see how an OAuth protected resource can be accessed using the
 access token received.
 
@@ -20,7 +20,7 @@ Below diagram illustrates the request/response flow with respect to this
 sample use case where WSO2 Identity Server acts as the Authorization
 Server and as well as the Resource Server.
 
-![](attachments/103329974/103329975.png){width="700"}
+![]( ../../assets/img/103329974/103329975.png) 
 
 ### Configure OAuth/OpenID and SAML SSO
 
@@ -68,7 +68,7 @@ Server and as well as the Resource Server.
     **Recipient** :
     `                           https://localhost:9443/oauth2/token?tenantDomain=wso2.com                         `
 
-    ![](attachments/103329974/103329976.png){width="760" height="223"}
+    ![]( ../../assets/img/103329974/103329976.png) 
 
 4.  Open the `           travelocity.properties          ` file found in
     the
@@ -123,16 +123,16 @@ Server and as well as the Resource Server.
     `                     http://wso2is.local:8080/travelocity.com                   `
     .  
     You are directed to the following page.  
-    ![](attachments/103329974/103329981.png){width="600"}
+    ![]( ../../assets/img/103329974/103329981.png) 
 2.  Click **Click here to login with SAML from Identity Server (Post
     binding or Redirect Binding)**. You are redirected to the Identity
     Server for authentication.
 3.  Enter the username and password and click **SIGN IN**.  
-    ![](attachments/103329974/103329980.png){width="300"}
+    ![]( ../../assets/img/103329974/103329980.png) 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
-    ![](attachments/103329974/103329979.png){width="600"}  
+    ![]( ../../assets/img/103329974/103329979.png)   
     You receive an access token as shown below:  
-    ![](attachments/103329974/103329978.png){width="600"}
+    ![]( ../../assets/img/103329974/103329978.png) 
 5.  Now, you can use the introspection endpoint of the Identity Server
     to get the token information.
 

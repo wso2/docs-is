@@ -53,11 +53,11 @@ permissions or attributes are updated.
         ```
 
 4.  Additionally, add the following to the
-    `           entitlement.properties          ` file and change
+    `           deployment.toml         ` file and change
     accordingly. If you are sending notifications via email, use this
     and change the recipient email address.
 
-    ``` java
+    ``` toml
     #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,JSON
     #org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,XML
     org.wso2.carbon.identity.entitlement.EntitlementNotificationExtension.1=notificationType,EMAIL

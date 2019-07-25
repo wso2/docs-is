@@ -28,7 +28,7 @@ supports SAML metadata download for the resident identity provider.
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![](attachments/103330801/112392421.png){width="750"}
+    giveb below. ![](attachments/103330801/112392421.png) 
 
     <table>
     <thead>
@@ -193,7 +193,7 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    **![](attachments/103330801/112392408.png){width="750"}  
+    **![](attachments/103330801/112392408.png)   
     **
 2.  Click **Choose File**, and select the `          .xml         `
     file containing the metadata for the service provider SAML
@@ -258,7 +258,7 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![](attachments/103330801/112392410.png){width="750"}
+    ![](attachments/103330801/112392410.png) 
 2.  Click **Upload**.
 
 !!! note

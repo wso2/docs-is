@@ -148,7 +148,7 @@ opening a Web browser and typing in the management console's URL. The
 URL is displayed towards the end of the server start script's console
 and log. For example:
 
-![](attachments/34611935/44179743.png){width="850"}
+![](attachments/34611935/44179743.png) 
 
 The URL should be in the following format:
 `         https://<Server Host>:9443/carbon        `

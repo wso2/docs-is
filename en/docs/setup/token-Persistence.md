@@ -18,7 +18,7 @@ two approaches and how to configure them.
 
 ### Synchronous token persistence
 
-![](attachments/103329466/103329467.png){width="700"}
+![](attachments/103329466/103329467.png) 
 
 The flow of synchronous token persistence is as follows:
 
@@ -55,7 +55,7 @@ The flow of synchronous token persistence is as follows:
 
 ### Asynchronous token persistence
 
-![](attachments/103329466/103329468.png){width="700"}
+![](attachments/103329466/103329468.png) 
 
 The flow of asynchronous token persistence is as follows:
 

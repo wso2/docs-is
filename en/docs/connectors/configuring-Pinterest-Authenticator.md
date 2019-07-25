@@ -85,7 +85,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     [this](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider#ConfiguringanIdentityProvider-Addinganidentityprovider)
     document for more information regarding the identity provider
     configurations.  
-    ![](attachments/60096589/60096632.png){width="750"}  
+    ![](attachments/60096589/60096632.png)   
     Do the following configurations.
 
     | Field         | Description                                                                                                                                                                                            | Sample Value                                                     |
@@ -117,7 +117,7 @@ The next step is to configure the service provider.
     in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](attachments/60096589/60096633.png){width="750"}
+    ![](attachments/60096589/60096633.png) 
 5.  Now set the configuration as follows:  
     -   **Issuer** : travelocity.com
     -   **Assertion Consumer URL** :
@@ -133,7 +133,7 @@ The next step is to configure the service provider.
     section.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](attachments/60096589/60096634.png){width="750"}
+    ![](attachments/60096589/60096634.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -147,13 +147,13 @@ The next step is to configure the service provider.
     specific claim dialect.
 
 4.  Specify the **Dialect URI** as http://wso2.org/pinterest/claims.  
-    ![](attachments/60096589/60489892.png){width="750"}
+    ![](attachments/60096589/60489892.png) 
 
 5.  Click [Add external
     claim](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping#AddingClaimMapping-Addexternalclaim)
     . Use the Dialect Uri as http://wso2.org/pinterest/claims. You can
     create the external claims here.  
-    **![](attachments/60096589/60490348.png){width="750"}**  
+    **![](attachments/60096589/60490348.png) **  
     Create the claim for Pinterest user id while creating the claim
     dialect.
 
@@ -236,7 +236,7 @@ the service provider for different purposes.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as follows. Here you should add the claims you
     mapped in the Identity Provider claim configuration.  
-    ![](attachments/60096589/72437732.png){width="750"}
+    ![](attachments/60096589/72437732.png) 
 
 ### Testing the sample
 
