@@ -38,9 +38,9 @@ supported by WSO2 Identity Server versions 5.1.0, 5.2.0 and 5.3.0.
 2.  Navigate to <https://www.dropbox.com/developers/apps> and create a
     new app. You must create or have a Dropbox account for this.
 
-    ![](attachments/49091441/75106368.png){width="746" height="613"}
+    ![](attachments/49091441/75106368.png) 
 
-3.  Enter the name of your new app and click **Create App** .
+3.  Enter the name of your new app and click **Create App**.
 4.  Specify the redirect URI as <https://localhost:9443/commonauth> in
     the window that appears.  
 5.  Now you have finished configuring Dropbox. Copy the **App key** and
@@ -52,7 +52,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Configuring the identity provider
 
@@ -62,15 +62,15 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
-4.  Give a suitable name for **Identity Provider Name** .  
-    ![](attachments/49091441/75106398.png){width="694"}
-5.  Go to **Dropbox Configuration** under **Federated Authenticators** .
+    management console, click **Add**.
+4.  Give a suitable name for **Identity Provider Name**.  
+    ![](attachments/49091441/75106398.png) 
+5.  Go to **Dropbox Configuration** under **Federated Authenticators**.
 6.  Enter the values as given in the above figure.
 
     | Field         | Description                                                                                                                                                                                                  | Sample Value                        |
@@ -81,7 +81,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     | Client Secret | The app secret from the Dropbox application. Click the **Show** button to see the value.                                                                                                                     | lmcbrqwb14algwy\|                   |
     | Callback URL  | The URL to which the browser should be redirected to after the authentication is successful. Follow this format: https://(host-name):(port)/acs .                                                            | <https://localhost:9443/commonauth> |
 
-7.  Click **Register** .
+7.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -91,9 +91,9 @@ The next step is to configure the service provider.
 
 1.  Return to the management console.
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
     ![](attachments/49091441/49224550.png){height="250"}
@@ -111,9 +111,9 @@ The next step is to configure the service provider.
 8.  Go to the **Local and Outbound Authentication Configuration**
     section.
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .  
+    under **Federated Authentication**.  
       
-    ![](attachments/49091441/49224551.png){width="500"}
+    ![](attachments/49091441/49224551.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -124,14 +124,14 @@ You have now added and configured the service provider.
 1.  To test the sample, navigate to the following URL:
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `
     . E.g., <http://localhost:8080/travelocity.com>  
-    [![](attachments/49091441/49224552.png){width="500"}](http://localhost:8080/travelocity.com)
+    [![](attachments/49091441/49224552.png) ](http://localhost:8080/travelocity.com)
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Dropbox login page. Enter your Dropbox
     credentials.  
       
-    ![](attachments/49091441/49224553.png){width="500"}
+    ![](attachments/49091441/49224553.png) 
 4.  You are then taken to the home page of the travelocity.com app.  
-    ![](attachments/49091441/49224554.png){width="500"}
+    ![](attachments/49091441/49224554.png) 
 
   
 

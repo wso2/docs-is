@@ -42,15 +42,15 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
         instructions.](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions)
     
 
-2.  Navigate to <http://login.amazon.com/> , click **App Console.**
+2.  Navigate to <http://login.amazon.com/>, click **App Console.**
 
 3.  Click **Sign in to App Console** and sign in.
 
 4.  Click **Register new application** to register a new app. For more
     information, see [Amazon Services
-    documentation](http://login.amazon.com/website) .
+    documentation](http://login.amazon.com/website).
 
-5.  Enter the following information and click **Save** .
+5.  Enter the following information and click **Save**.
 
     1.  **Name -** AmazonWSO2
 
@@ -58,7 +58,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
     3.  **Privacy Notice URL -** The privacy policy URL for your
         application. Ex: <http://wso2.com/privacy-policy>
 
-    ![](attachments/49092381/76748460.png){width="800"}  
+    ![](attachments/49092381/76748460.png)   
     You have now finished configuring Amazon.
 
 6.  Expand the **Web Settings** section. Copy the **Client ID** and
@@ -67,13 +67,13 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 7.  Click **Edit** and enter the redirect URL as
     <https://localhost:9443/commonauth> in the window that appears and
     save it.  
-    ![](attachments/49092381/76748466.png){width="616"}
+    ![](attachments/49092381/76748466.png) 
 
 ### Step 2 - Deploy travelocity.com sample app
 
 The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario. See [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_) .
+app](_Deploying_the_Sample_App_).
 
 ### Step 3 - Configure the identity provider (IdP)
 
@@ -84,21 +84,21 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS530/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 4.  Give a suitable name for **Identity Provider Name** (e.g., Amazon)
-    and click **Register** .
+    and click **Register**.
 
 5.  Navigate to the **Amazon Configurations** under ****Federated
     Authenticators****
     -   In IS 5.1.0 or 5.2.0, go to **AmazonAuthenticator
-        Configuration** under **Federated Authenticators** .
+        Configuration** under **Federated Authenticators**.
     -   In IS 5.3.0, go to **Amazon Configuration** under **Federated
-        Authenticators** .
+        Authenticators**.
 
 6.  Enter the IdP related details.  
     -   **Client Id** : Enter the [client
@@ -116,11 +116,11 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
         -   [**IS 5.3.0**](#7955f4c7cdf8449db5dd8f0ccc6bfce2)
         -   [**IS 5.1.0/IS 5.2.0**](#2a00a4664741430ca8cf6a84fd08e8fc)
 
-        ![](attachments/49092381/76748472.png){width="800"}
+        ![](attachments/49092381/76748472.png) 
 
-        ![](attachments/49092381/49226486.png){width="700" height="842"}
+        ![](attachments/49092381/49226486.png) 
 
-7.  Click **Update** .
+7.  Click **Update**.
 
 You have now added the identity provider.
 
@@ -138,11 +138,11 @@ Identity Server version that you are working on.
 
 1.  Return to the management console.
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 3.  As you are using travelocity as the sample, enter travelocity.com in
-    the **Service Provider Name** text box and click **Register** .
+    the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO** **Configuration** , and then click **Configure** .
+    **SAML2 Web SSO** **Configuration**, and then click **Configure**.
 5.  Add the service provider details as follows:  
     1.  **Select Mode** : Manual Configuration  
         For more information on the SAML2 Web Single-Sign-On
@@ -154,12 +154,12 @@ Identity Server version that you are working on.
         http://localhost:8080/travelocity.com/home.jsp and click **Add**
         .
     4.  Select the following check-boxes:
-        -   **Enable Response Signing** .
-        -   **Enable Single Logout** .
-        -   **Enable Attribute Profile** .
-        -   **Include Attributes in the Response Always** .
+        -   **Enable Response Signing**.
+        -   **Enable Single Logout**.
+        -   **Enable Attribute Profile**.
+        -   **Include Attributes in the Response Always**.
 
-        ![](attachments/49092381/76748599.png){width="800"}
+        ![](attachments/49092381/76748599.png) 
 6.  Click **Register** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 7.  Go to the **Local and Outbound Authentication Configuration**
@@ -167,45 +167,45 @@ Identity Server version that you are working on.
 8.  Configure the Local and Outbound Authentication for Amazon.  
     For more information, see [Configuring Local and Outbound
     Authentication for a Service
-    Provider](https://docs.wso2.com/display/IS530/Configuring+Local+and+Outbound+Authentication+for+a+Service+Provider)
+    Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
     in the WSO2 IS 5.3.0 guide.  
     1.  Click on the **Federated Authentication** radio button.
     2.  Select the identity provider you created from the drop-down list
-        under **Federated Authentication** .
+        under **Federated Authentication**.
     3.  Select the following options:
         -   Use tenant domain in local subject identifier.
 
         -   Use user store domain in local subject identifier.
 
-    ![](attachments/49092381/76748602.png){width="800"}
+    ![](attachments/49092381/76748602.png) 
 9.  Click **Update** to save the changes.
 
 #### Configuring a service provider with IS 5.1.0 or IS 5.2.0
 
 1.  Return to the management console.
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register** .
+    in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="700"}
+    ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf) 
 5.  Now set the configuration as follows:  
     1.  **Issuer** : travelocity.com
     2.  **Assertion Consumer URL** :
         http://localhost:8080/travelocity.com/home.jsp
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
-    2.  **Enable Single Logout** .
-    3.  **Enable Attribute Profile** .
-    4.  **Include Attributes in the Response Always** .
+    1.  **Enable Response Signing**.
+    2.  **Enable Single Logout**.
+    3.  **Enable Attribute Profile**.
+    4.  **Include Attributes in the Response Always**.
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
     section.
 9.  Select the identity provider you created from the drop-down list
-    under **Federated Authentication** .  
-    ![](attachments/49091441/49224551.png){width="500"}
+    under **Federated Authentication**.  
+    ![](attachments/49091441/49224551.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -230,7 +230,7 @@ WSO2 IS guide.
 1.  Sign in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Amazon authenticator
     specific claim dialect.
 4.  Specify the Dialect URI as http://wso2.org/amazon/claims and click
@@ -238,8 +238,8 @@ WSO2 IS guide.
 5.  Map a new external claim to an existing local claim dialect.  
     You need to map at least one claim under this new dialect.
     Therefore, let's map the claim for the Amazon user ID.
-    ![](attachments/49092381/76748608.png){width="704"}
-    1.  In the **Main** menu, click **Add** under **Claims** .
+    ![](attachments/49092381/76748608.png) 
+    1.  In the **Main** menu, click **Add** under **Claims**.
     2.  Click **Add External Claim** to add a new claim to the Amazon
         claim dialect.
     3.  Select the Dialect URI as - http://wso2.org/amazon/claims
@@ -278,14 +278,14 @@ WSO2 IS guide.
         | External Claim URI | http://wso2.org/amazon/claims/name |
         | Mapped Local Claim | http://wso2.org/claims/givenname   |
 
-7.  Click **Update** .
+7.  Click **Update**.
 
 #### Configuring claims with IS 5.1.0 or IS 5.2.0
 
 1.  Sign into the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add New Claim Dialect** to create the Amazon authenticator
     specific claim dialect.
     ![](attachments/49092381/57749018.png){height="250"}
@@ -307,7 +307,7 @@ WSO2 IS guide.
 5.  Select the **Dialect** from the dropdown provided and enter the
     required information.
 6.  Add the following claims under the dialect
-    **http://wso2.org/amazon/claims** .
+    **http://wso2.org/amazon/claims**.
 
     |                      |                                     |
     |:---------------------|:------------------------------------|
@@ -333,7 +333,7 @@ the Amazon user.
 ### Step 6 - Configure requested claims for travelocity.com
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
+    under **Service Providers**.
 2.  Click **Edit** to edit the [travelocity.com](http://travelocity.com)
     service provider.
 3.  Expand the **Claim Configuration** section.
@@ -368,14 +368,14 @@ the Amazon user.
     E.g., <http://localhost:8080/travelocity.com>
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the Rediect Biniding or the Post Binding option.  
-    ![](attachments/49092381/76748627.png){width="600"}
+    ![](attachments/49092381/76748627.png) 
 3.  You are redirected to the Amazon login page. Enter your Amazon
     credentials.  
-    ![](attachments/49092381/57749032.png){width="308"}
-4.  Allow user to authenticate and click **Continue** .  
-    ![](attachments/49092381/57749033.png){width="571"}
+    ![](attachments/49092381/57749032.png) 
+4.  Allow user to authenticate and click **Continue**.  
+    ![](attachments/49092381/57749033.png) 
 5.  You are taken to the home page of the travelocity.com app.  
-    ![](attachments/49092381/57749034.png){width="700"}
+    ![](attachments/49092381/57749034.png) 
 
 1254
 

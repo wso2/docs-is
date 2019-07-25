@@ -60,14 +60,11 @@ or federated authentication in WSO2 Identity Server (IS).
 		Kerberos does not work with IP addresses, it relies on
 		domain names and correct DNS entries only.
 
-2.  Open the `           carbon.xml          ` file found in the
-    `           <IS_HOME>/repository/conf          ` folder and set the
-    hostname ( `           idp.wso2.com          ` ) in the
-    `           <HostName>          ` tag.
+2.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
 
     ``` xml
-        <HostName>idp.wso2.com</HostName>
-        <MgtHostName>idp.wso2.com</MgtHostName>\
+   		[server]
+		hostname="idp.wso2.com"
     ```
 
 3.  Open the `           jaas.conf          ` file found in the

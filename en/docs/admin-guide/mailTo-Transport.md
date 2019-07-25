@@ -186,7 +186,7 @@ sender supports the following parameters.
 <td><p>transport.mail.Format</p></td>
 <td><p>Format of the outgoing mail.</p></td>
 <td><p>No</p></td>
-<td><p><em>Text</em> , <em>Multipart</em></p></td>
+<td><p><em>Text</em>, <em>Multipart</em></p></td>
 <td><p>Text</p></td>
 </tr>
 </tbody>

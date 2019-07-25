@@ -16,7 +16,7 @@ Basic Auth request path authenticator in two ways.
     `                   `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](_Request_Path_Authentication_) .
+[Request Path Authentication](_Request_Path_Authentication_).
 
 !!! note
     
@@ -35,12 +35,12 @@ For more information on Request Path Authentication in general, see
 ### Using the authorization header
 
 1.  Start the IS server and login to the management console.
-2.  Navigate to **Service Providers\>Add** , enter a name for the new
+2.  Navigate to **Service Providers\>Add**, enter a name for the new
     service provider and click **Add.**
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_) .
+    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_).
 
     Use the following **Callback URL** when configuring OAuth:
     [https://curl-app/callback](https://www.google.com/url?q=https%3A%2F%2Fcurl-app%2Fcallback&sa=D&sntz=1&usg=AFQjCNFg_ALm4TWPOaAI9WC2YYeVsjmcZA)
@@ -48,11 +48,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![](attachments/103329845/103329847.png){width="669"}
+    ![]( ../../assets/img/103329845/103329847.png) 
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **basic-auth** from the dropdown and click **Add.** **  
-    ** ![](attachments/103329845/103329846.png)
+    ** ![]( ../../assets/img/103329845/103329846.png)
 7.  Click **Update** to save changes to the service provider.
 8.  Send a cURL request with the `           <SEC_TOKEN>          ` in
     the authorization header, to the token endpoint. Replace the

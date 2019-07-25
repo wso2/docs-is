@@ -54,8 +54,8 @@ Before you begin
     the `           user-mgt.xml          ` file is as given below.
     Change the values according to your requirement. For more
     information on each of the properties used in the user-mgt.xml file
-    for configuring the primary user store , see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_) .
+    for configuring the primary user store, see [Properties of User
+    Stores](_Working_with_Properties_of_User_Stores_).
 
     ``` html/xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
@@ -140,7 +140,7 @@ Before you begin
             product. For information on how to add certificates to the
             truststore and how keystores are configured and used in a
             system, see [Using Asymmetric
-            Encryption](_Using_Asymmetric_Encryption_) .  
+            Encryption](_Using_Asymmetric_Encryption_).  
     
             ``` xml
                     <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
@@ -184,7 +184,7 @@ Before you begin
 6.  Set the `           ReadGroups          ` property to 'true', if it
     should be allowed to read roles from this user store. When this
     property is 'true', you must also specify values for the
-    `           GroupSearchBase          ` ,
+    `           GroupSearchBase          `,
     `           GroupSearchFilter          ` and
     `           GroupNameAttribute          ` properties. If the
     `           ReadGroups          ` property is set to 'false', only
@@ -254,7 +254,7 @@ user store when you start the system for the first time. Alternatively,
 you can also use a user ID that already exists in the user store. For
 more information on setting up the system administrator and the
 authorization manager, see [Configuring the User
-Realm](_Configuring_the_User_Realm_) .
+Realm](_Configuring_the_User_Realm_).
 
 -   These two alternative configurations can be done as explained below.
 

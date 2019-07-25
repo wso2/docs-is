@@ -27,7 +27,7 @@ in a non-blocking mode. In the blocking mode, the authentication flow is
 blocked until the provisioning happens while in the non-blocking mode,
 provisioning happens in a different thread. If you want to allow a user
 to access your application only if the user is authenticated and
-provisioned , then you should use blocking mode.
+provisioned, then you should use blocking mode.
 
 ### Configuring JIT provisioning for an identity provider
 
@@ -37,22 +37,22 @@ below:
 1.  Start WSO2 Identity Server and access the Management Console via
     `                     https://localhost:9443/carbon                   `
     /. For detailed instructions on starting WSO2 Identity Server, see
-    [Running the Product](_Running_the_Product_) .
+    [Running the Product](_Running_the_Product_).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Identity Providers** .
+    **Add** under **Identity Providers**.
 3.  Click the **Main** tab on the Management Console, navigate to
     **Identity Providers** under the **Identity** menu, and then click
-    **Add** . This displays the **Add New Identity Provider** screen.
+    **Add**. This displays the **Add New Identity Provider** screen.
 4.  Enter appropriate values for all required fields in the **Basic
     Information** section.
 
 5.  Expand the **Just-In-Time Provisioning** section and select the JIT
     provisioning options based on your requirement.  
-    ![](attachments/103329733/103329734.png){width="760" height="199"}  
+    ![]( ../../assets/img/103329733/103329734.png)   
     -   If you want to disable JIT provisioning, select **No
-        Provisioning** . This is selected by default.
+        Provisioning**. This is selected by default.
     -   If you want to always provision users to a selected user store
-        domain, select **Always provision to User Store Domain** , and
+        domain, select **Always provision to User Store Domain**, and
         then select a required user store domain from the list of
         available user store domains.
 
@@ -65,7 +65,7 @@ below:
         
                 -   If you want to provision users to multiple user stores
                     depending on the user name specified at the time of
-                    provisioning, select **As in username** .
+                    provisioning, select **As in username**.
         
                     !!! note
                             
@@ -78,7 +78,7 @@ below:
                 user is provisioned to the
                 domain.
             -   If you specify the user name as
-                `                user1               ` , the user is
+                `                user1               `, the user is
                 provisioned to the PRIMARY user store domain.
 
 
@@ -89,11 +89,11 @@ below:
             select.
 
 
-    -   When you select **Always provision to User Store Domain** , you
+    -   When you select **Always provision to User Store Domain**, you
         should also select one of the following provisioning
         options depending on how you want to prompt users for relevant
         credentials at the time of JIT provisioning. The default
-        selection is **Provision silently** .
+        selection is **Provision silently**.
 
         -   **Prompt for username, password and consent**
         -   **Prompt for password and consent**
@@ -117,14 +117,14 @@ below:
 **Related Topics**
 
 For information on the JIT provisioning architecture, see [Provisioning
-Architecture](_Provisioning_Architecture_) .
+Architecture](_Provisioning_Architecture_).
 
 For information on how to configure purposes and appropriate user
 attributes to obtain user consent at the time of JIT provisioning, see
 [Configuring Just-In-Time Provisioning Consent
-Purposes](_Configuring_Just-In-Time_Provisioning_Consent_Purposes_) .
+Purposes](_Configuring_Just-In-Time_Provisioning_Consent_Purposes_).
 
 For information on how to customize the default user name and password
 provisioning user interfaces, see [Customizing Just-In-Time Provisioning
 User
-Interfaces](_Customizing_Just-In-Time_Provisioning_User_Interfaces_) .
+Interfaces](_Customizing_Just-In-Time_Provisioning_User_Interfaces_).

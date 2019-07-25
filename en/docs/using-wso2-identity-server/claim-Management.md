@@ -7,7 +7,7 @@ define the identity information related to the subject. Claim-based
 identity is a common way for any application to acquire the identity
 information. It provides a consistent approach for all applications by
 hiding the lower level implementation. Claims are also used in identity
-propagation which is the replication of authenticated **identities** ,
+propagation which is the replication of authenticated **identities**,
 by packaging the claims into one or more tokens (such as SAML). These
 tokens are then issued by an issuer (eg., [security token
 service](https://docs.wso2.com/display/IS540/Single+Sign-On+and+Identity+Federation#SingleSign-OnandIdentityFederation-WS-Trust)
@@ -32,7 +32,7 @@ In case of every tenant startup, including the super tenant, the claim
 configurations are read directly from the
 `          <IS_HOME>/repository/conf/claim-config.xml         ` file. So
 claims mapped for SCIM in the super tenant's [management
-console](_Getting_Started_with_the_Management_Console_) are not seen by
+console](../../setup/getting-started-with-the-management-console) are not seen by
 a newly created tenant as the [User
 Realm](_Configuring_the_System_Administrator_) is always built using the
 configuration found in the **claim-config.xml** file. So the recommended

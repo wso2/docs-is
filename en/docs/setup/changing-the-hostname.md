@@ -142,7 +142,7 @@ encrypted data is not affected.
 
 !!! note
     
-    If you have chosen **Option 2** , you must maintain and secure the two
+    If you have chosen **Option 2**, you must maintain and secure the two
     keystores . Hence, option 1 is the recommended approach, unless you
     prefer the separation of keys used in SSL/TLS communication and internal
     data encryption, signing, etc.

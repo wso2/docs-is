@@ -43,24 +43,24 @@ Authenticator..
     create a trial account (this may take few days to get approval).
 2.  Download the **VIP Access** for
     [Desktop](https://idprotect.vip.symantec.com/desktop/download.v) or
-    [Mobile](https://m.vip.symantec.com/home.v) .
+    [Mobile](https://m.vip.symantec.com/home.v).
 3.  Once the account gets approved, navigate to
     <https://manager.vip.symantec.com/vipmgr/signin.v> and log into VIP
     Manager (use the security code generated from **VIP Access** ).
 4.  Click on 'Credentials' tab and search the Credential by the ID (the
     Credential ID appears in **VIP Access** ). Enable the credential
     by selecting the option **Enable Credential** under the **Credential
-    Status** .  
-    ![](attachments/50510041/50686885.png){width="500"}
+    Status**.  
+    ![](attachments/50510041/50686885.png) 
 5.  Navigate to **Accounts** tab and click on **Manage VIP
     Certificates** from tabs pane in right side of the page.
-6.  Click on **Request a Certificate** and then hit **Continue** .
+6.  Click on **Request a Certificate** and then hit **Continue**.
 7.  Enter the certificate name for the certificate and hit **Submit
-    Request** .
+    Request**.
 8.  Select the format as **PKCS\#12** and give a valid password finally
-    hit **Download Certificate** . Place this certificate in a location
+    hit **Download Certificate**. Place this certificate in a location
     and use the path in the **Identity Provider** configuration.  
-    ![](attachments/50510041/50686887.png){width="500"}
+    ![](attachments/50510041/50686887.png) 
 9.  In the properties file placed in resources folder, you can configure
     the Endpoint URL, Namespace URI and API version.
     -   `             vipURL            ` =
@@ -89,18 +89,18 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers** .
-4.  Give a suitable name as the **Identity Provider Name** .
+    console, click **Add** under **Identity Providers**.
+4.  Give a suitable name as the **Identity Provider Name**.
 5.  Go to Symantec VIP Configuration under Federated Authenticators.
 
 6.  Enter the P12File and P12Password.
 
-    ![](attachments/50510041/50686886.png){width="500"}
+    ![](attachments/50510041/50686886.png) 
 
 7.  Select both checkboxes to Enable Symantec VIP Authenticator and make
     it Default.
@@ -124,7 +124,7 @@ The next step is to configure the service provider.
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.  
 
-    ![](attachments/50510041/50686888.png){width="500"}  
+    ![](attachments/50510041/50686888.png)   
 
 5.  Now set the configuration as follows:
 
@@ -151,7 +151,7 @@ The next step is to configure the service provider.
 
 10. Add the basic authentication as first step and Symantec VIP
     authentication as second step  
-    ![](attachments/50510041/50686889.png){width="500"}
+    ![](attachments/50510041/50686889.png) 
 
 You have now added and configured the service provider.
 
@@ -162,10 +162,10 @@ You have now added and configured the service provider.
 3.  Add new claim VIP Credential ID (Change Claim URI as (
     <http://wso2.org/claims/vipcredentialid> ).  
       
-    ![](attachments/50510041/50686891.png){width="500"}
-4.  Now go to **Users and Roles** .
+    ![](attachments/50510041/50686891.png) 
+4.  Now go to **Users and Roles**.
 5.  Enter the **VIP Credential ID** and update the profile.  
-    ![](attachments/50510041/50686892.png){width="500"}
+    ![](attachments/50510041/50686892.png) 
 
 ### Testing the sample
 
@@ -173,21 +173,21 @@ You have now added and configured the service provider.
     [http://localhost:8080/travelocity.com  
     ](http://localhost:8080/travelocity.com)
 
-    [![](attachments/50510041/50686890.jpeg){width="500"}](http://localhost:8080/travelocity.com)
+    [![](attachments/50510041/50686890.jpeg) ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.  
-    ![](attachments/50510041/50686894.png){width="500"}
+    ![](attachments/50510041/50686894.png) 
 
-4.  You will be asked to enter the **Security Code** .Type the Security
-    Code generated in **VIP Access** , If the authentication success,
+4.  You will be asked to enter the **Security Code**.Type the Security
+    Code generated in **VIP Access**, If the authentication success,
     you will be taken to the home page of the travelocity.com app.
 
-    ![](attachments/50510041/50686895.png){width="500"}  
+    ![](attachments/50510041/50686895.png)   
 
-    ![](attachments/50510041/50686896.png){width="500"}  
+    ![](attachments/50510041/50686896.png)   
       
       
 

@@ -169,7 +169,7 @@ changing the logo.
     2.  Then, create the /admin directory under /web.
 
     3.  Finally, create the `             /            ` css,
-        `             /images            ` , and
+        `             /images            `, and
         `             /layout            ` directories under
         `             /admin            ` .
 
@@ -177,7 +177,7 @@ changing the logo.
     `           org.wso2.carbon.ui_           <version-number>          `
     `           _patch          ` project should now look as shown
     below.  
-    ![](attachments/53125528/80723769.png){width="300"}
+    ![](attachments/53125528/80723769.png) 
 
 5.  Create a new CSS file (e.g.
     `           customizations.css          ` ) with the following
@@ -324,4 +324,4 @@ changing the logo.
     logo, which the patch bundle contains as shown below.
 
     ![Management Console with the new
-    logo](attachments/53125528/80723770.png "Management Console with the new logo"){width="900"}
+    logo](attachments/53125528/80723770.png "Management Console with the new logo") 

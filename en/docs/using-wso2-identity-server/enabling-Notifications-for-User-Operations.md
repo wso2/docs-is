@@ -76,11 +76,11 @@ information on how to send an email when a user operation takes place.
         1.  Navigate to <https://myaccount.google.com/security> .
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![](attachments/103330460/103330461.png){width="600"
+            ![]( ../../assets/img/103330460/103330461.png){width="600"
             height="279"}
         3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps** .  
-            ![](attachments/103330460/103330462.png){width="597"
+            **Allow less secure apps**.  
+            ![]( ../../assets/img/103330460/103330462.png){width="597"
             height="171"}
     
 

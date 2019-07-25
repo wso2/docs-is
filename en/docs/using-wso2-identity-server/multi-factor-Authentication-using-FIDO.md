@@ -8,7 +8,7 @@ be configured using FIDO U2F.
 
 For more information on Multi-factor Authentication concepts with
 Identity Server, refer [Multi-factor Authentication for WSO2
-IS](_Multi-factor_Authentication_for_WSO2_IS_) . For more information on
+IS](_Multi-factor_Authentication_for_WSO2_IS_). For more information on
 FIDO alliance, refer [What is
 FIDO](https://fidoalliance.org/about/what-is-fido/) page.
 
@@ -31,7 +31,7 @@ FIDO provides two user experiences to address a wide range of use cases
 and deployment scenarios. FIDO protocols are based on public key
 cryptography and are strongly resistant to phishing.
 
-![](attachments/103329822/103329831.png)
+![]( ../../assets/img/103329822/103329831.png)
 
 *Figure 1: UAF and U2F*
 
@@ -78,7 +78,7 @@ U2F.
 Both the registration and authentication operation consists of three
 phases depicted in the following figure.
 
-![](attachments/103329822/103329835.png)
+![]( ../../assets/img/103329822/103329835.png)
 
 *Figure 2: Three phases of U2F protocol operations.*
 
@@ -105,7 +105,7 @@ phases depicted in the following figure.
 The following figure provides the complete authentication process flow
 when authenticating using FIDO U2F.
 
-![](attachments/103329822/103329830.png){width="452" height="255"}
+![]( ../../assets/img/103329822/103329830.png) 
 
 *Figure 3: Authentication process flow for U2F*
 
@@ -140,10 +140,10 @@ multi-factor authentication using the WSO2 Identity Server.
 #### Setting up an account for MFA
 
 1.  Log in to the [WSO2 Identity Server end-user
-    dashboard](_Using_the_End_User_Dashboard_) .
+    dashboard](_Using_the_End_User_Dashboard_).
 2.  Navigate to the **My Profile** section by clicking the associated
     **View Details** button.
-3.  Click **Manage U2F Authentication** .
+3.  Click **Manage U2F Authentication**.
 
     !!! tip
     
@@ -151,7 +151,7 @@ multi-factor authentication using the WSO2 Identity Server.
         already be plugged into the computer.
     
 
-    ![](attachments/103329822/103329827.png){width="557" height="477"}
+    ![]( ../../assets/img/103329822/103329827.png) 
 
 4.  You can add a new U2F device to your account and remove it if
     needed. The new U2F device can be added by clicking the **Attach
@@ -165,21 +165,21 @@ multi-factor authentication using the WSO2 Identity Server.
         You can have multiple devices associated with your account.
     
 
-    ![](attachments/103329822/103329834.png){width="613" height="250"}
+    ![]( ../../assets/img/103329822/103329834.png) 
 
   
 
 #### Configuring FIDO U2F as an authenticator
 
 1.  Log in to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) .
+    Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
     For more information on creating a service provider, see [Adding and
     Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) .
+    Provider](_Adding_and_Configuring_a_Service_Provider_).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
@@ -187,7 +187,7 @@ multi-factor authentication using the WSO2 Identity Server.
     2.  Click **Register** to add the new service provider.
 
 4.  Access the service provider you just created and expand **Local &
-    Outbound Authentication Configuration** .
+    Outbound Authentication Configuration**.
 
     For more information on configuring the local and outbound
     authentication configuration, see [Configuring Local and Outbound
@@ -195,13 +195,13 @@ multi-factor authentication using the WSO2 Identity Server.
     Provider](_Configuring_Local_and_Outbound_Authentication_for_a_Service_Provider_)
     .
 
-    ![](attachments/103329822/103329824.png){width="457" height="224"}
+    ![]( ../../assets/img/103329822/103329824.png) 
 
 5.  Select **Advanced Configuration** to configure multi-factor
     authentication.
-6.  Click **Add Authentication Step** . Then add a local authenticator
+6.  Click **Add Authentication Step**. Then add a local authenticator
     from **Local Authenticators** section.  
-    ![](attachments/103329822/103329833.png){height="250"}  
+    ![]( ../../assets/img/103329822/103329833.png){height="250"}  
     Select " **Use subject identifier from this step"** and **"Use
     attributes from this step"** options from this step since we
     identify the user from this step.
@@ -209,7 +209,7 @@ multi-factor authentication using the WSO2 Identity Server.
     authenticator from ****Local Authenticators**** section.  This will
     enable the FIDO as the 2nd step authenticator for the users who
     authenticated with the basic authentication.  
-    ![](attachments/103329822/103329832.png){width="846" height="400"}
+    ![]( ../../assets/img/103329822/103329832.png) 
 8.  Click the **Update** button. This navigates you to the previous
     screen with your newly configured authentication steps.
 

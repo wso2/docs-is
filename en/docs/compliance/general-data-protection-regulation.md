@@ -70,7 +70,7 @@ OpenIDConnect greatly reduces maintenance overhead discussed above and
 ensures the overall system architecture more secure and
 privacy-friendly. Additionally, having a centralized identity system
 simplifies implementations of some of the GDPR features such as the
-*right to be forgotten* , *right for data portability* etc.
+*right to be forgotten*, *right for data portability* etc.
 
   
 

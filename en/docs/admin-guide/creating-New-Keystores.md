@@ -1,7 +1,7 @@
 # Creating New Keystores
 
 WSO2 Carbon-based products are shipped with a default
-[keystore](_Using_Asymmetric_Encryption_) named **wso2carbon.jks** ,
+[keystore](_Using_Asymmetric_Encryption_) named **wso2carbon.jks**,
 which is stored in the
 `         <PRODUCT_HOME>/repository/resources/security        `
 directory. This keystore comes with a private/public key pair that is
@@ -48,7 +48,7 @@ the time of generating the keystore. See the instructions given below.
     **Important!**
     
     If you are creating a new keystore for [data
-    encryption](_Securing_Passwords_in_Configuration_Files_) , be sure to
+    encryption](_Securing_Passwords_in_Configuration_Files_), be sure to
     acquire a public key certificate that contains the **Data Encipherment**
     key usage as explained in the [keystore
     recommendations](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
@@ -56,7 +56,7 @@ the time of generating the keystore. See the instructions given below.
     encryption:
     
     ``` java
-    Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200) ... 1 more
+    Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more
     ```
     
 
@@ -99,13 +99,13 @@ You can follow the steps in this section to create a new keystore with a
 private key and a new public key certificate. We will be using the
 keytool that is available with your JDK installation. Note that
 the pubic key certificate we generate for the keystore is
-**self-signed** . Therefore, if you need a public key certificate that
+**self-signed**. Therefore, if you need a public key certificate that
 is CA-signed, you need to generate a CA-signed certificate and import it
 to the keystore as explained in the [next
-section](#CreatingNewKeystores-ca_certificate) . Alternatively, you can
+section](#CreatingNewKeystores-ca_certificate). Alternatively, you can
 choose the option of generating a new keystore using a CA-signed public
 certificate as explained
-[previously](#CreatingNewKeystores-existing_certificate) .
+[previously](#CreatingNewKeystores-existing_certificate).
 
 1.  Open a command prompt and go to the
     `          <PRODUCT_HOME>/repository/resources/security/         `
@@ -178,15 +178,15 @@ certificates. These certificates certify the ownership of a public key.
 
 2.  You must provide this CSR file to the CA. For testing purposes, try
     the [90 days trial SSL certificate from
-    Comodo](https://www.instantssl.com/free-ssl-certificate.html) .
+    Comodo](https://www.instantssl.com/free-ssl-certificate.html).
 
     !!! note
     
         It is preferable to have a wildcard certificate or multiple domain
         certificates if you wish to have multiple subdomains like
-        *[gateway.sampledomain.org](http://gateway.sampledomain.org/)* ,
-        *[publisher.sampledomain.org](http://publisher.sampledomain.org/)* ,
-        *[identity.sampledomain.org](http://identity.sampledomain.org/)* ,
+        *[gateway.sampledomain.org](http://gateway.sampledomain.org/)*,
+        *[publisher.sampledomain.org](http://publisher.sampledomain.org/)*,
+        *[identity.sampledomain.org](http://identity.sampledomain.org/)*,
         etc., for the deployment. For such requirements, you must modify the
         CSR request by adding subject alternative names. Most of the SSL
         providers give instructions to generate the CSR in such cases.
@@ -201,7 +201,7 @@ certificates. These certificates certify the ownership of a public key.
     The Root certificate of the CA:
     `              AddTrustExternalCARoot.crt             `  
     Intermediate certificates:
-    `              COMODORSAAddTrustCA.crt ,             `
+    `              COMODORSAAddTrustCA.crt,             `
     `              COMODORSADomainValidationSecureServerCA.crt             `  
     SSL Certificate signed by CA:
     `              test_sampleapp_org.crt             `
@@ -302,10 +302,10 @@ product's default truststore (
 
 For information on the concepts of keystores and about how keystores are
 used in WSO2 products, see [Using Asymmetric
-Encryption](_Using_Asymmetric_Encryption_) .
+Encryption](_Using_Asymmetric_Encryption_).
 
 ### What's next?
 
 Once you have created a new keystore in your product as explained above,
 update the relevant configuration files as explained in [Configuring
-Keystores in WSO2 Products](_Configuring_Keystores_in_WSO2_Products_) .
+Keystores in WSO2 Products](_Configuring_Keystores_in_WSO2_Products_).

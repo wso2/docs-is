@@ -12,7 +12,7 @@
 
 This section provides information on the high-level tasks involved in
 implementing and publishing IS authenticators and provisioning
-connectors in [WSO2 Store](https://store.wso2.com/store) .
+connectors in [WSO2 Store](https://store.wso2.com/store).
 
 ### Basic implementation requirements
 
@@ -85,7 +85,7 @@ camel case, such as `         HelloWorld        ` . Type
     [org.wso2.carbon.extension.is](http://org.wso2.carbon.extension.is/)
     .provisioning-connector-archetype -DarchetypeVersion=2.0.4 -DgroupId=
     [org.wso2.carbon.is](http://org.wso2.carbon.is/) -DartifactId=
-    [org.wso2.carbon.is](http://org.wso2.carbon.is/) .test -Dversion=1.0.0
+    [org.wso2.carbon.is](http://org.wso2.carbon.is/).test -Dversion=1.0.0
     -DarchetypeRepository=
 
 We strongly recommend the non-use of GPL or LGPL licensed libraries in
@@ -113,7 +113,7 @@ Connectors** project with the following information:
 -   Source code can be directly attached to the JIRA or do the
     development in your own git repo.
 -   Once we review the code we will create a repo under
-    **<https://github.com/wso2-extensions> ,** and ask you to send the
+    **<https://github.com/wso2-extensions>,** and ask you to send the
     pull request.
 -   If GPL or LGPL licensed connectors are used, specify reasons for the
     use of such libraries.

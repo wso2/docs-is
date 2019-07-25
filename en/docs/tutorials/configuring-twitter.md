@@ -152,20 +152,17 @@ authenticate users using their Twitter login credentials:
     
         To modify the host name of the above-above mentioned URLs,
     
-        1.  open the `             carbon.xml            ` file in the
-            `             <IS_HOME>/repository/conf            ` directory
-            and update the value of the
-            `             <HostName>            ` parameter.  
+        1.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.  
             ```xml  
-            <HostName>localhost<HostName>	
+            [server]
+            HostName= "localhost"	
             ```
     
-        2.  Open the `             identity.xml            ` file in the
-            `             <IS_HOME>/repository/conf/identity            `
-            directory and update the vaule of the
-            `             <IdentityPRoviderURL>            ` parameter.
+        2.  Open the `	<IS_HOME>/repository/conf/deployment.toml	` file and add the value of the URL as follows:
+            
             ```xml
-            <IdentityProviderURL>https://localhost:9443/samlsso</IdentityProviderURL>
+            [saml.endpoints] 
+			idp_url= "https://localhost:9443/samlsso"
             ```
             To ensure the client application is communicating with the right
             identity provider, WSO2 Identity Server compares the destination

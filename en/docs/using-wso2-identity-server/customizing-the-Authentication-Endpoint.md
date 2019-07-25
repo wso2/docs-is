@@ -31,7 +31,7 @@ Follow the steps below to customize the authentication endpoint URL:
     ```
 
     For example, If you specify the value as
-    `           /sso/login          ` , the web application runs on
+    `           /sso/login          `, the web application runs on
     `           https://<host_name>:port_number>/sso/login          ` .
 
     !!! note
@@ -257,7 +257,7 @@ Do the following configurations to enable this feature.
                 `                <CARBON_PATCH_HOME>/patch0073               `
                 folder.
             -   If you have **not** applied the
-                `                WSO2-CARBON-PATCH               ` , copy
+                `                WSO2-CARBON-PATCH               `, copy
                 the `                .jar               ` file found in the
                 \<
                 `                IS_HOME>/repository/components/plugins               `
@@ -359,37 +359,37 @@ below steps:
 
 1.  Start the Identity Server and l og in to the Admin Console.
 
-2.  Click on **Main Menu** , under **Registry** , click **Browse** to
+2.  Click on **Main Menu**, under **Registry**, click **Browse** to
     see the registry browser.  
-    ![](attachments/103330101/103330108.png)
+    ![]( ../../assets/img/103330101/103330108.png)
 
 3.  Browse the registry and go to
     `          /_system/config/identity/config.         `  
-    ![](attachments/103330101/103330107.png){height="250"}  
+    ![]( ../../assets/img/103330101/103330107.png){height="250"}  
     Once you navigate to
-    `          /_system/config/identity/config         ` , follow the
+    `          /_system/config/identity/config         `, follow the
     steps below to add a registry resource.
-4.  Click **Add Resource** .  
-    ![](attachments/103330101/103330106.png){width="422"}
+4.  Click **Add Resource**.  
+    ![]( ../../assets/img/103330101/103330106.png) 
 5.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
-    ![](attachments/103330101/103330105.png){width="422"}
+    ![]( ../../assets/img/103330101/103330105.png) 
 6.  Click in **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
-    ![](attachments/103330101/103330104.png){width="700"}
+    ![]( ../../assets/img/103330101/103330104.png) 
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
-    ![](attachments/103330101/103330103.png){width="700"}
+    ![]( ../../assets/img/103330101/103330103.png) 
 8.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
-9.  Click **Add New Property** .  
-    ![](attachments/103330101/103330102.png)
+9.  Click **Add New Property**.  
+    ![]( ../../assets/img/103330101/103330102.png)
 10. Enter the relying party name for name and the redirect URL for
     value.  
-    ![](attachments/103330101/103330109.png){height="250"}
+    ![]( ../../assets/img/103330101/103330109.png){height="250"}
 
     !!! note
     
@@ -413,7 +413,7 @@ below steps:
 
     Following are two sample values for Name and value:
 
-    Name : [wso2.my](http://wso2.my/) .dashboard
+    Name : [wso2.my](http://wso2.my/).dashboard
 
     Value : <https://localhost:9443/dashboard/index.jag>
 

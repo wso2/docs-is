@@ -70,7 +70,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The logout endpoint URL is in the following format.
 
@@ -146,7 +146,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The OP iframe URL is in the following format.
 
@@ -198,9 +198,9 @@ follows.
 1.  The RP iframe polls the identity provider iframe for a session
     status.
 2.  The identity provider iframe sends back a post message about the
-    session state as `          changed         ` ,
+    session state as `          changed         `,
     `          unchanged         ` or `          error         ` .
-3.  If the session state is `          changed         ` , the RP sends
+3.  If the session state is `          changed         `, the RP sends
     a passive request for re-authentication.
 4.  If the end user has logged out from the identity provider, the RP
     will receive an authentication failure message along with a new
@@ -214,7 +214,7 @@ You can configure an RP for OIDC session management in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_)
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_)
 
 -   Manual configuration through WSO2 Identity Server Management Console
 
@@ -224,12 +224,12 @@ WSO2 Identity Server Management Console:
 1.  Sign in to the WSO2 Identity Server Management Console.
 2.  To register a web application as a service provider:  
     1.  On the **Main** menu, click **Identity \> Service Providers \>
-        Add** .  
-        ![](attachments/119114508/119114587.png?effects=drop-shadow){width="200"}
+        Add**.  
+        ![]( ../../assets/img/119114508/119114587.png?effects=drop-shadow) 
     2.  Enter the name of the application in the **Service Provider
         Name** text box.  
-        ![](attachments/119114508/119114588.png?effects=drop-shadow){width="750"}
-    3.  Click **Register** . Note that you will be redirected to the
+        ![]( ../../assets/img/119114508/119114588.png?effects=drop-shadow) 
+    3.  Click **Register**. Note that you will be redirected to the
         **Service Providers** screen.
     4.  To sign the ID token with the user's tenant domain, in the
         **Local & Outbound Authentication Configuration** section,
@@ -251,14 +251,14 @@ WSO2 Identity Server Management Console:
                 ```
         
 
-        ![](attachments/119114508/119114601.png?effects=drop-shadow){width="700"}
+        ![]( ../../assets/img/119114508/119114601.png?effects=drop-shadow) 
 
     5.  In the **Inbound Authentication Configuration** section, click
-        **OAuth/OpenID Connect Configuration \> Configure** .  
-        ![](attachments/119114508/119114589.png?effects=drop-shadow){width="700"}
+        **OAuth/OpenID Connect Configuration \> Configure**.  
+        ![]( ../../assets/img/119114508/119114589.png?effects=drop-shadow) 
     6.  Enter the `             callback URL            ` as given
         below.  
-        ![](attachments/119114508/119114600.png?effects=drop-shadow){width="700"}
+        ![]( ../../assets/img/119114508/119114600.png?effects=drop-shadow) 
 
         <table>
         <thead>
@@ -301,10 +301,10 @@ WSO2 Identity Server Management Console:
         </tbody>
         </table>
 
-    7.  Click **Add** . Note that a `             client ID            `
+    7.  Click **Add**. Note that a `             client ID            `
         and `             client secret            ` have been
         created.  
-        ![](attachments/119114508/119114591.png?effects=drop-shadow){width="850"}  
+        ![]( ../../assets/img/119114508/119114591.png?effects=drop-shadow)   
         You have successfully added the service provider. Similarly,
         register another service provider to test single logout.
 
@@ -312,14 +312,14 @@ WSO2 Identity Server Management Console:
     called when the logout is triggered from the service provider:
 
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
-        Resident** .  
-        ![](attachments/119114508/119114592.png?effects=drop-shadow){width="200"}
-    2.  Under **Inbound Authentication Configuration** , click
-        **OAuth2/OpenID Connect Configuration** .  
-        ![](attachments/119114508/119114593.png?effects=drop-shadow){width="750"}  
+        Resident**.  
+        ![]( ../../assets/img/119114508/119114592.png?effects=drop-shadow) 
+    2.  Under **Inbound Authentication Configuration**, click
+        **OAuth2/OpenID Connect Configuration**.  
+        ![]( ../../assets/img/119114508/119114593.png?effects=drop-shadow)   
         Note that the identity provider's logout endpoint URL is listed
         out.  
-        ![](attachments/119114508/119114594.png?effects=drop-shadow){width="750"}
+        ![]( ../../assets/img/119114508/119114594.png?effects=drop-shadow) 
 
 ### OIDC Back-Channel Logout
 
@@ -367,7 +367,7 @@ logout endpoint URL.
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](_OpenID_Connect_Discovery_) .
+    Discovery](../../using-wso2-identity-server/openid-connectDiscovery_).
 
 -   The logout endpoint URL is in the following format.
 
@@ -537,7 +537,7 @@ You can configure an RP for OIDC back-channel logout in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](_OpenID_Connect_Dynamic_Client_Registration_)
+    Registration](../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_)
 
     !!! note
     
@@ -571,18 +571,18 @@ in WSO2 Identity Server:
 1.  Sign in to the WSO2 Identity Server Management Console.
 2.  To register a web application as a service provider:  
     1.  On the **Main** menu, click **Identity \> Service Providers \>
-        Add** .  
-        ![](attachments/119114508/119114587.png?effects=drop-shadow){width="200"}
+        Add**.  
+        ![]( ../../assets/img/119114508/119114587.png?effects=drop-shadow) 
     2.  Enter the name of the application in the **Service Provider
         Name** text box.  
-        ![](attachments/119114508/119114588.png?effects=drop-shadow){width="750"}
-    3.  Click **Register** . Note that you will be redirected to the
+        ![]( ../../assets/img/119114508/119114588.png?effects=drop-shadow) 
+    3.  Click **Register**. Note that you will be redirected to the
         **Service Providers** screen.
     4.  In the **Inbound Authentication Configuration** section, click
-        **OAuth/OpenID Connect Configuration \> Configure** .  
-        ![](attachments/119114508/119114589.png?effects=drop-shadow){width="700"}
+        **OAuth/OpenID Connect Configuration \> Configure**.  
+        ![]( ../../assets/img/119114508/119114589.png?effects=drop-shadow) 
     5.  Enter the configurations as follows:  
-        ![](attachments/119114508/119114590.png?effects=drop-shadow){width="700"}
+        ![]( ../../assets/img/119114508/119114590.png?effects=drop-shadow) 
 
         | Field                              | Description                                                                                                                                                                                        |
         |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -590,10 +590,10 @@ in WSO2 Identity Server:
         | **Enable OIDC Backchannel Logout** | This defines whether the back-channel communication is used to communicate the `                 logout token                ` or not.                                                             |
         | **Logout URL**                     | This is the service provider's back-channel logout endpoint URL to which the `                 logout token                ` is sent to.                                                           |
 
-    6.  Click **Add** . Note that a `             client ID            `
+    6.  Click **Add**. Note that a `             client ID            `
         and `             client secret            ` have been
         created.  
-        ![](attachments/119114508/119114591.png?effects=drop-shadow){width="850"}
+        ![]( ../../assets/img/119114508/119114591.png?effects=drop-shadow) 
 
         You have successfully added the service provider. Similarly,
         register another service provider to test single logout.
@@ -602,14 +602,14 @@ in WSO2 Identity Server:
     called when the logout is triggered from the service provider:
 
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
-        Resident** .  
-        ![](attachments/119114508/119114592.png?effects=drop-shadow){width="200"}
-    2.  Under **Inbound Authentication Configuration** , click
-        **OAuth2/OpenID Connect Configuration** .  
-        ![](attachments/119114508/119114593.png?effects=drop-shadow){width="750"}  
+        Resident**.  
+        ![]( ../../assets/img/119114508/119114592.png?effects=drop-shadow) 
+    2.  Under **Inbound Authentication Configuration**, click
+        **OAuth2/OpenID Connect Configuration**.  
+        ![]( ../../assets/img/119114508/119114593.png?effects=drop-shadow)   
         Note that the identity provider's logout endpoint URL is listed
         out.  
-        ![](attachments/119114508/119114594.png?effects=drop-shadow){width="750"}
+        ![]( ../../assets/img/119114508/119114594.png?effects=drop-shadow) 
 
 ### OIDC Front-Channel Logout
 

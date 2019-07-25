@@ -101,26 +101,25 @@ nav:
   - 'Tutorials':
     - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
-      - 'Authentication': tutorials/authentication.md
-      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-Identity-Server-using-Facebook-Credentials.md
-      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-Shibboleth-IdP-as-a-Trusted-Identity-Provider.md
-      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-SimpleSAMLphp-using-Identity-Server.md
-      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-SSO-for-Management-Console-using-OpenSSO-as-the-IDP.md
-      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-Salesforce-using-the-Identity-Server.md
-      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-Salesforce-with-Facebook.md
-      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-Salesforce-with-Integrated-Windows-Authentication.md
-      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-WSO2-Products-via-the-Identity-Server.md
-      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-Workday-using-the-Identity-Server.md
-      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-Microsoft-Dynamics-CRM-with-WS-Federation.md
-      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-Microsoft-Sharepoint-Web-Applications-using-Identity-Server.md
-      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-Office365-with-WS-Trust.md
-      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.NET-application-using-the-Identity-Server.md
-      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-REST-APIs-via-XACML-to-Manage-Entitlement.md
-      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-Google-using-the-Identity-Server.md
-      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-Application-Using-Google.md
-      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-OIDC-Encrypted-ID-Token-with-IS.md
-      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-OIDC-Authentication-Request-Parameters-in-a-Request-Object.md
-      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-Signature-Validation-for-Request-Objects.md
+      - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
+      - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
+      - 'Logging in to SimpleSAMLphp using Identity Server': tutorials/logging-in-to-simplesamlphp-using-identity-server.md
+      - 'Enabling SSO for Management Console using OpenSSO as the IDP': tutorials/enabling-sso-for-management-console-using-opensso-as-the-idp.md
+      - 'Logging in to Salesforce using the Identity Server': tutorials/logging-in-to-salesforce-using-the-identity-server.md
+      - 'Logging in to Salesforce with Facebook': tutorials/logging-in-to-salesforce-with-facebook.md
+      - 'Logging in to Salesforce with Integrated Windows Authentication': tutorials/logging-in-to-salesforce-with-integrated-windows-authentication.md
+      - 'Logging in to WSO2 Products via the Identity Server': tutorials/logging-in-to-wso2-products-via-the-identity-server.md
+      - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-workday-using-the-identity-server.md
+      - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-microsoft-dynamics-crm-with-ws-federation.md
+      - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-microsoft-sharepoint-web-applications-using-identity-server.md
+      - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-office365-with-ws-trust.md
+      - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.net-application-using-the-identity-server.md
+      - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-rest-apis-via-xacml-to-manage-entitlement.md
+      - 'Logging in to Google using the Identity Server': tutorials/logging-in-to-google-using-the-identity-server.md
+      - 'Logging in to an Application Using Google': tutorials/logging-in-to-an-application-using-google.md
+      - 'Testing OIDC Encrypted ID Token with IS': tutorials/testing-oidc-encrypted-id-token-with-is.md
+      - 'Passing OIDC Authentication Request Parameters in a Request Object': tutorials/passing-oidc-authentication-request-parameters-in-a-request-object.md
+      - 'Enforcing Signature Validation for Request Objects': tutorials/enforcing-signature-validation-for-request-objects.md
     - 'Adaptive Authentication':
       - 'Adaptive Authentication': tutorials/adaptive-authentication.md
       - 'Configuring a Service Provider for Adaptive Authentication': tutorials/configuring-a-service-provider-for-adaptive-authentication.md
@@ -148,16 +147,17 @@ nav:
         - 'Configuring SAML 2.0 Artifact Binding': tutorials/configuring-SAML-2.0-Artifact-Binding.md
       - 'WS-Trust':
         - 'WS-Trust': tutorials/ws-trust.md
-        - 'Configuring WS-Trust Security Token Service': configuring-ws-trust-security-token-service.md
+        - 'Configuring WS-Trust Security Token Service': tutorials/configuring-ws-trust-security-token-service.md
       - 'WS-Federation':
         - 'WS-Federation': tutorials/ws-federation.md
         - 'Configuring WS-Federation Single Sign-On': tutorials/configuring-ws-federation-single-sign-on.md 
       - 'Integrated Windows Authentication':
-        - 'Integrated Windows Authentication': tutorials/integrated-Windows-Authentication.md
-        - 'Configuring IWA Single-Sign-On': tutorials/configuring-IWA-Single-Sign-On.md
-      - 'OAuth2-OpenID Connect':    
-        - 'OAuth2-OpenID Connect': tutorials/oAuth2-OpenID-Connect.md
-        - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-OAuth2-OpenID-Connect-Single-Sign-On.md
+        - 'Integrated Windows Authentication Overview': tutorials/integrated-windows-authentication-overview.md
+        - 'Configuring IWA Single-Sign-On': tutorials/configuring-iwa-single-sign-on.md
+      - 'OAuth2-OpenID Connect':
+        - 'OAuth2-OpenID Connect Overview': tutorials/oauth2-openid-connect-overview.md
+        - 'Configuring OAuth2-OpenID Connect Single-Sign-On': tutorials/configuring-oauth2-openid-connect-single-sign-on.md
+        - 'Configuring OpenID Connect Single Logout': tutorials/configuring-openid-connect-single-logout.md
     - 'Identity Federation': 
       - 'Identity Federation': tutorials/identity-federation.md 
       - 'Configuring Federated Authentication':
@@ -175,16 +175,16 @@ nav:
         - 'Configuring SMS OTP': tutorials/configuring-sms-otp.md
         - 'Configuring Email OTP': tutorials/configuring-email-otp.md
       - 'Identity Federation with WS-Trust':
-        - 'Identity Federation with WS-Trust': tutorials/wS-Trust.md
-        - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-STS-for-Obtaining-Tokens-with-Holder-Of-Key-Subject-Confirmation.md
-        - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': tutorials/wSO2-Identity-Server-and-Claim-Aware-Proxy-Services-with-ESB.md
-        - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': tutorials/accessing-Claim-Aware-Services-using-STS-Secured-with-Non-repudiation.md
-        - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': tutorials/requesting-and-Renewing-Received-SAML2-Bearer-Type-Tokens.md
+        - 'Identity Federation with WS-Trust': tutorials/identity-federation-with-ws-trust.md
+        - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
+        - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': tutorials/wso2-identity-server-and-claim-aware-proxy-services-with-esb.md
+        - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': tutorials/accessing-claim-aware-services-using-sts-secured-with-non-repudiation.md
+        - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': tutorials/requesting-and-renewing-received-saml2-bearer-type-tokens.md
         - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': tutorials/configuring-SAML2-Single-Sign-On-Across-Different-WSO2-Products.md
         - 'Client-side Support for SAML Artifact Binding': tutorials/client-side-Support-for-SAML-Artifact-Binding.md
         - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': tutorials/eIDAS-SAML-Attribute-Profile-Support-via-WSO2-Identity-Server.md
     - 'Access Control':
-      - 'Access Control': tutorials/access-control.md
+      - 'Access Control Overview': tutorials/access-control.md
       - 'Working with Entitlement':
         - 'Configuring the Policy Administration Point':
           - 'Configuring the Policy Administration Point': tutorials/configuring-the-policy-administration-point.md
@@ -201,39 +201,39 @@ nav:
         - 'Configuring Access Control Policy for a Service Provider': tutorials/configuring-access-control-policy-for-a-service-provider.md
         - 'Validating the Scope of OAuth Access Tokens using XACML Policies': tutorials/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
       - 'Working with XACML':
-        - 'Working with XACML': tutorials/working-with-XACML.md
-        - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-WSO2-EI-Entitlement-Mediator-with-Identity-Server.md
-        - 'Enabling REST Notifications For XACML Policy Updates': tutorials/enabling-REST-Notifications-For-XACML-Policy-Updates.md
-        - 'Identity Server as an XACML Engine': tutorials/identity-Server-as-an-XACML-Engine.md
+        - 'Working with XACML': tutorials/working-with-xacml.md
+        - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': tutorials/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
+        - 'Enabling REST Notifications For XACML Policy Updates': tutorials/enabling-rest-notifications-for-xacml-policy-updates.md
+        - 'Identity Server as an XACML Engine': tutorials/identity-server-as-an-xacml-engine.md
         - 'Working with XACML Multiple Decision Profile Requests': 
-          - 'Working with XACML Multiple Decision Profile Requests': tutorials/working-with-XACML-Multiple-Decision-Profile-Requests.md
-          - 'Working with MDP Requests by Repeating Attribute Categories': tutorials/working-with-MDP-Requests-by-Repeating-Attribute-Categories.md
-          - 'Working with MDP Requests to Authorize Hierarchical Resources': tutorials/working-with-MDP-Requests-to-Authorize-Hierarchical-Resources.md
-          - 'Working with MDP Requests in JSON Format': tutorials/working-with-MDP-Requests-in-JSON-Format.md
-        - 'Fine-grained Authorization using XACML Requests in JSON Format': tutorials/
-        - 'Improving XACML PDP Performance with Caching Techniques': tutorials/improving-XACML-PDP-Performance-with-Caching-Techniques.md
-        - 'Integrating WSO2 Identity Server with Liferay': tutorials/integrating-WSO2-Identity-Server-with-Liferay.md
+          - 'Working with XACML Multiple Decision Profile Requests Overview': tutorials/working-with-xacml-multiple-decision-profile-requests.md
+          - 'Working with MDP Requests by Repeating Attribute Categories': tutorials/working-with-mdp-requests-by-repeating-attribute-categories.md
+          - 'Working with MDP Requests to Authorize Hierarchical Resources': tutorials/working-with-mdp-requests-to-authorize-hierarchical-resources.md
+          - 'Working with MDP Requests in JSON Format': tutorials/working-with-mdp-requests-in-json-format.md
+        - 'Fine-grained Authorization using XACML Requests in JSON Format': tutorials/fine-grained-authorization-using-xacml-requests-in-json-format.md
+        - 'Improving XACML PDP Performance with Caching Techniques': tutorials/improving-xacml-pdp-performance-with-caching-techniques.md
+        - 'Integrating WSO2 Identity Server with Liferay': tutorials/integrating-wso2-identity-server-with-liferay.md
         - 'Writing XACML2.0 Policies in WSO2 Identity Server':
-          - 'Writing XACML2.0 Policies in WSO2 Identity Server': tutorials/writing-XACML2.0-Policies-in-WSO2-Identity-Server.md
-          - 'Writing XACML policies in WSO2 Identity Server - 1': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---1.md
-          - 'Writing XACML policies in WSO2 Identity Server - 2': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---2.md
-          - 'Writing XACML policies in WSO2 Identity Server - 3': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---3.md
-          - 'Writing XACML policies in WSO2 Identity Server - 4': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---4.md
-          - 'Writing XACML policies in WSO2 Identity Server - 5': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---5.md
-          - 'Writing XACML policies in WSO2 Identity Server - 6': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---6.md
-          - 'Writing XACML policies in WSO2 Identity Server - 7': tutorials/writing-XACML-policies-in-WSO2-Identity-Server---7.md
+          - 'Writing XACML2.0 Policies in WSO2 Identity Server': tutorials/writing-xacml2.0-policies-in-wso2-identity-server.md
+          - 'Writing XACML policies in WSO2 Identity Server - 1': tutorials/writing-xacml-policies-in-wso2-identity-server-1.md
+          - 'Writing XACML policies in WSO2 Identity Server - 2': tutorials/writing-xacml-policies-in-wso2-identity-server-2.md
+          - 'Writing XACML policies in WSO2 Identity Server - 3': tutorials/writing-xacml-policies-in-wso2-identity-server-3.md
+          - 'Writing XACML policies in WSO2 Identity Server - 4': tutorials/writing-xacml-policies-in-wso2-identity-server-4.md
+          - 'Writing XACML policies in WSO2 Identity Server - 5': tutorials/writing-xacml-policies-in-wso2-identity-server-5.md
+          - 'Writing XACML policies in WSO2 Identity Server - 6': tutorials/writing-xacml-policies-in-wso2-identity-server-6.md
+          - 'Writing XACML policies in WSO2 Identity Server - 7': tutorials/writing-xacml-policies-in-wso2-identity-server-7.md
         - 'Writing XACML3 Policies in WSO2 Identity Server':
-          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---1.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---2.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---3.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---4.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---5.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---6.md
-          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-XACML-3-Policies-in-WSO2-Identity-Server---7.md
-        - 'Sending Notifications to External PEP Endpoints': tutorials/sending-Notifications-to-External-PEP-Endpoints.md
-        - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-an-XACML-3.0-Policy-Using-XPath.md
-      - 'Setting Up An LDAP User Store': tutorials/setting-Up-An-LDAP-User-Store.md
+          - 'Writing XACML3 Policies in WSO2 Identity Server': tutorials/writing-xacml3-policies-in-wso2-identity-server.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': tutorials/writing-xacml-3-policies-in-wso2-identity-server-1.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': tutorials/writing-xacml-3-policies-in-wso2-identity-server-2.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': tutorials/writing-xacml-3-policies-in-wso2-identity-server-3.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': tutorials/writing-xacml-3-policies-in-wso2-identity-server-4.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': tutorials/writing-xacml-3-policies-in-wso2-identity-server-5.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': tutorials/writing-xacml-3-policies-in-wso2-identity-server-6.md
+          - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-xacml-3-policies-in-wso2-identity-server-7.md
+        - 'Sending Notifications to External PEP Endpoints': tutorials/sending-notifications-to-external-pep-endpoints.md
+        - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-a-xacml-3.0-policy-using-xpath.md
+      - 'Setting Up An LDAP User Store': tutorials/setting-up-an-ldap-user-store.md
   - 'Using WSO2 Identity Server': 
     - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
@@ -412,19 +412,19 @@ nav:
       - 'Configuring Session Timeout': using-wso2-identity-server/configuring-Session-Timeout.md
       - 'Configuring a SP and IdP Using Service Calls': using-wso2-identity-server/configuring-a-SP-and-IdP-Using-Service-Calls.md
     - 'Delegated Access Control':
-      - 'Delegated Access Control': using-wso2-identity-server/delegated-Access-Control.md
-      - 'OAuth Concepts': using-wso2-identity-server/oAuth-Concepts.md
+      - 'Delegated Access Control': using-wso2-identity-server/delegated-access-control.md
+      - 'OAuth Concepts': using-wso2-identity-server/oauth-concepts.md
       - 'Working with OAuth':
-        - 'Working with OAuth': using-wso2-identity-server/working-with-OAuth.md
-        - 'OAuth 2.0 Clients': using-wso2-identity-server/oAuth-2.0-Clients.md
+        - 'Working with OAuth': using-wso2-identity-server/working-with-oauth.md
+        - 'OAuth 2.0 Clients': using-wso2-identity-server/oauth-2.0-clients.md
         - 'OAuth 2.0 Grant Types': 
-          - 'OAuth 2.0 Grant Types': using-wso2-identity-server/oAuth-2.0-Grant-Types.md
-          - 'Authorization Code Grant': using-wso2-identity-server/authorization-Code-Grant.md
-          - 'Implicit Grant': using-wso2-identity-server/implicit-Grant.md
-          - 'Resource Owner Password Credentials Grant': using-wso2-identity-server/resource-Owner-Password-Credentials-Grant.md
-          - 'Client Credentials Grant': using-wso2-identity-server/client-Credentials-Grant.md
-          - 'Refresh Token Grant': using-wso2-identity-server/refresh-Token-Grant.md
-          - 'Kerberos Grant': using-wso2-identity-server/kerberos-Grant.md
+          - 'OAuth 2.0 Grant Types': using-wso2-identity-server/oauth-2.0-grant-types.md
+          - 'Authorization Code Grant': using-wso2-identity-server/authorization-code-grant.md
+          - 'Implicit Grant': using-wso2-identity-server/implicit-grant.md
+          - 'Resource Owner Password Credentials Grant': using-wso2-identity-server/resource-owner-password-credentials-grant.md
+          - 'Client Credentials Grant': using-wso2-identity-server/client-credentials-grant.md
+          - 'Refresh Token Grant': using-wso2-identity-server/refresh-token-grant.md
+          - 'Kerberos Grant': using-wso2-identity-server/kerberos-grant.md
         - 'SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/SAML2-Bearer-Assertion-Profile-for-OAuth-2.0.md
         - 'Setting Up OAuth Token Hashing': using-wso2-identity-server/setting-Up-OAuth-Token-Hashing.md
         - 'JWT Token Generation': using-wso2-identity-server/jWT-Token-Generation.md
@@ -527,115 +527,7 @@ nav:
       - 'Customizing the Authentication Endpoint': using-wso2-identity-server/customizing-the-Authentication-Endpoint.md
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
       - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-Authentication-Endpoint-on-a-Different-Server.md
-    - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md
-  - 'Connectors':
-    - 'Authenticators and Connectors': 
-      - 'Authenticators and Connectors': connectors/authenticators-and-Connectors.md
-      - 'Deploying the Sample App': connectors/deploying-the-Sample-App.md
-      - 'Amazon Authenticator':
-        - 'Amazon Authenticator': connectors/amazon-Authenticator.md
-        - 'Configuring Amazon Authenticator': connectors/configuring-Amazon-Authenticator.md
-      - 'Basecamp Authenticator':
-        - 'Basecamp Authenticator': connectors/basecamp-Authenticator.md
-        - 'Configuring Basecamp Authenticator': connectors/configuring-Basecamp-Authenticator.md
-      - 'Bitly Authenticator':
-        - 'Bitly Authenticator': connectors/bitly-Authenticator.md
-        - 'Configuring Bitly Authenticator': connectors/configuring-Bitly-Authenticator.md
-      - 'CAS Inbound Authenticator':
-        - 'CAS Inbound Authenticator': connectors/cAS-Inbound-Authenticator.md
-        - 'Configuring CAS Inbound Authenticator': connectors/configuring-CAS-Inbound-Authenticator.md
-      - 'Dropbox Authenticator':
-        - 'Dropbox Authenticator': connectors/dropbox-Authenticator.md
-        - 'Configuring Dropbox Authenticator': connectors/configuring-Dropbox-Authenticator.md
-      - 'Duo Security Authenticator and Provisioning Connector':
-        - 'Duo Security Authenticator and Provisioning Connector': connectors/duo-Security-Authenticator-and-Provisioning-Connector.md
-        - 'Configuring Duo Security Provisioning Connector': connectors/configuring-Duo-Security-Provisioning-Connector.md
-        - 'Configuring Duo Security Authenticator': connectors/configuring-Duo-Security-Authenticator.md
-      - 'EmailOTP Authenticator':
-        - 'EmailOTP Authenticator': connectors/emailOTP-Authenticator.md
-        - 'Configuring Multi-factor Authentication using EmailOTP': connectors/configuring-Multi-factor-Authentication-using-EmailOTP.md
-      - 'Facebook Authenticator':
-        - 'Facebook Authenticator': connectors/facebook-Authenticator.md
-        - 'Configuring Facebook Authenticator': connectors/configuring-Facebook-Authenticator.md
-      - 'Foursquare Authenticator':
-        - 'Foursquare Authenticator': connectors/foursquare-Authenticator.md
-        - 'Configuring Foursquare Authenticator': connectors/configuring-Foursquare-Authenticator.md
-      - 'Github Authenticator':
-        - 'Github Authenticator': connectors/github-Authenticator.md
-        - 'Configuring Github Authenticator': connectors/configuring-Github-Authenticator.md
-      - 'Instagram Authenticator':
-        - 'Instagram Authenticator': connectors/instagram-Authenticator.md
-        - 'Configuring Instagram Authenticator': connectors/configuring-Instagram-Authenticator.md
-      - 'Inwebo Authenticator and Provisioning Connector':
-        - 'Inwebo Authenticator and Provisioning Connector': connectors/inwebo-Authenticator-and-Provisioning-Connector.md
-        - 'Configuring Inwebo Authenticator': connectors/configuring-Inwebo-Authenticator.md
-        - 'Configuring Inwebo Provisioning': connectors/configuring-Inwebo-Provisioning.md
-      - 'JWT Grant Type for OAuth2':
-        - 'JWT Grant Type for OAuth2': connectors/jWT-Grant-Type-for-OAuth2.md
-        - 'Configuring JWT Grant Type': connectors/configuring-JWT-Grant-Type.md
-      - 'LinkedIn Authenticator':
-        - 'LinkedIn Authenticator': connectors/linkedIn-Authenticator.md
-        - 'Configuring LinkedIn Authenticator': connectors/configuring-LinkedIn-Authenticator.md
-      - 'MailChimp Authenticator':
-        - 'MailChimp Authenticator': connectors/mailChimp-Authenticator.md
-        - 'Configuring MailChimp Authenticator': connectors/configuring-MailChimp-Authenticator.md
-      - 'MePIN Authenticator':
-        - 'MePIN Authenticator': connectors/mePIN-Authenticator.md
-        - 'Configuring MePIN Authenticator': connectors/configuring-MePIN-Authenticator.md
-      - 'Mobile Connect Authenticator':
-        - 'Mobile Connect Authenticator': connectors/mobile-Connect-Authenticator.md
-        - 'Configuring Mobile Connect as a Federated Authenticator': connectors/configuring-Mobile-Connect-as-a-Federated-Authenticator.md
-      - 'Microsoft Azure AD Authenticator':
-        - 'Microsoft Azure AD Authenticator': connectors/microsoft-Azure-AD-Authenticator.md
-        - 'Configuring Microsoft Azure AD Authenticator': connectors/configuring-Microsoft-Azure-AD-Authenticator.md
-        - 'Configuring Microsoft Azure AD Outbound Provisioning Connector': connectors/configuring-Microsoft-Azure-AD-Outbound-Provisioning-Connector.md
-      - 'Password Policy Authenticator':
-        - 'Password Policy Authenticator': connectors/password-Policy-Authenticator.md
-        - 'Configuring Password Policy Authenticator': connectors/configuring-Password-Policy-Authenticator.md
-      - 'Pinterest Authenticator':
-        - 'Pinterest Authenticator': connectors/pinterest-Authenticator.md
-        - 'Configuring Pinterest Authenticator': connectors/configuring-Pinterest-Authenticator.md
-      - 'Reddit Authenticator':
-        - 'Reddit Authenticator': connectors/reddit-Authenticator.md
-        - 'Configuring Reddit Authenticator': connectors/configuring-Reddit-Authenticator.md
-      - 'RSA SecurID Authenticator':
-        - 'RSA SecurID Authenticator': connectors/rSA-SecurID-Authenticator.md
-        - 'Configuring RSA SecurID Authenticator': connectors/configuring-RSA-SecurID-Authenticator.md
-      - 'SCIM 2.0 Provisioning Connector':
-        - 'SCIM 2.0 Provisioning Connector': connectors/sCIM-2.0-Provisioning-Connector.md
-        - 'Configuring SCIM 2.0 Provisioning Connector': connectors/configuring-SCIM-2.0-Provisioning-Connector.md
-      - 'SMSOTP Authenticator':
-        - 'SMSOTP Authenticator': connectors/sMSOTP-Authenticator.md
-        - 'Configuring Multi-factor Authentication using SMSOTP': connectors/configuring-Multi-factor-Authentication-using-SMSOTP.md
-      - 'Token2 Authenticator':
-        - 'Token2 Authenticator': connectors/token2-Authenticator.md
-        - 'Configuring Multi-factor Authentication using Token2': connectors/configuring-Multi-factor-Authentication-using-Token2.md
-      - 'TOTP Authenticator':
-        - 'TOTP Authenticator': connectors/tOTP-Authenticator.md
-        - 'Configuring TOTP Authenticator': connectors/configuring-TOTP-Authenticator.md
-        - 'Using the TOTP API': connectors/using-the-TOTP-API.md
-      - 'Twitter Authenticator':
-        - 'Twitter Authenticator': connectors/twitter-Authenticator.md
-        - 'Configuring Twitter Authenticator': connectors/configuring-Twitter-Authenticator.md
-      - 'Wordpress Authenticator':
-        - 'Wordpress Authenticator': connectors/wordpress-Authenticator.md
-        - 'Configuring Wordpress Authenticator': connectors/configuring-Wordpress-Authenticator.md
-      - 'X509Certificate Authenticator':
-        - 'X509Certificate Authenticator': connectors/x509Certificate-Authenticator.md 
-        - 'Configuring X509Certificate Authenticator': 
-          - 'Configuring X509Certificate Authenticator': connectors/configuring-X509Certificate-Authenticator.md
-          - 'Configuring X509 Authenticator with SSL Termination': connectors/configuring-X509-Authenticator-with-SSL-Termination.md
-        - 'Configuring Certificate Revocation Validation': connectors/configuring-Certificate-Revocation-Validation.md
-      - 'Yammer Authenticator':
-        - 'Yammer Authenticator': connectors/yammer-Authenticator.md
-        - 'Configuring Yammer Authenticator': connectors/configuring-Yammer-Authenticator.md
-      - 'Upgrading an Authenticator': connectors/upgrading-an-Authenticator.md
-      - 'Nuxeo Authenticator':
-        - 'Nuxeo Authenticator': connectors/nuxeo-Authenticator.md
-        - 'Configuring Nuxeo Authenticator': connectors/configuring-Nuxeo-Authenticator.md
-      - 'AWS Cloud Directory User Store': connectors/aWS-Cloud-Directory-User-Store.md  
-    - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': connectors/creating-a-Third-Party-Authenticator-or-Connector-and-Publishing-in-WSO2-Store.md
-    - 'Getting Support': connectors/getting-Support.md  
+    - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md 
   - 'Admin Guide':
     - 'WSO2 Administration Guide': admin-guide/wSO2-Administration-Guide.md
     - 'Deployment and Clustering':
@@ -850,14 +742,11 @@ nav:
       - 'WSO2 Patch Application Process': admin-guide/wSO2-Patch-Application-Process.md
   - 'References': 
     - 'References': references/references.md
-    - 'Configuration Catalog': references/config_catalog.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
     - 'API Permissions': references/api-permissions.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
-  - 'FAQ':
-    - 'FAQ': faq/fAQ.md
   - '': page-not-found.md
      
 # Extensions

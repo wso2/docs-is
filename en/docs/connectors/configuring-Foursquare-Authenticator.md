@@ -48,10 +48,10 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
         clicking **Sign Up** or sign in with your Facebook credentials.
     
 
-3.  Go to <https://developer.foursquare.com/> and click **Log-in** . You
+3.  Go to <https://developer.foursquare.com/> and click **Log-in**. You
     can create a new app in the **My Apps** section by clicking **Create
-    a New App** .  
-    ![](attachments/49088044/76747590.png){width="645" height="468"}
+    a New App**.  
+    ![](attachments/49088044/76747590.png) 
 
       
 
@@ -62,16 +62,16 @@ Authenticator is supported by Identity Server 5.1.0 upwards.
     -   **Application Url** - http://localhost:8080/travelocity.com
 
     -   **Redirect URL** as  https://localhost:9443/commonauth  
-        ![](attachments/49088044/76744023.png){width="700"}
+        ![](attachments/49088044/76744023.png) 
 
 5.  You can select **Create App without Verifying** link at the end in
     order to try out the authenticator.  
-    ![](attachments/49088044/76744027.png){width="700"}
+    ![](attachments/49088044/76744027.png) 
 
 6.  Save your changes.  
     This takes you to the app Dashboard where you can find the Client Id
     and Client Secret as shown in the image below.  
-    ![](attachments/49088044/76744028.png){width="700"}
+    ![](attachments/49088044/76744028.png) 
 
 Now you have finished configuring Foursquare as an identity provider.
 
@@ -95,20 +95,20 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 4.  Give a suitable name for **Identity Provider Name** (e.g.,
     foursquare).  
     Refer [Adding and Configuring an Identity
     Provider](https://docs.wso2.com/display/IS530/Adding+and+Configuring+an+Identity+Provider)
     for more information related to the identity provider configuration.
 5.  Go to **Foursquare Configuration** under **Federated
-    Authenticators** .  
-    ![](attachments/49088044/49221977.png){width="814" height="897"}
+    Authenticators**.  
+    ![](attachments/49088044/49221977.png) 
 
 6.  Enter the IdP related details.
 
@@ -133,7 +133,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 7.  Select both checkboxes **Enable** and **Default** to enable the
     Foursquare Authenticator and make it the default.
 
-8.  Click **Register** .
+8.  Click **Register**.
 
 You have now added the identity provider.
 
@@ -152,7 +152,7 @@ Identity Server version that you are working on.
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 
 3.  As you are using travelocity as the sample, enter travelocity.com in
     the **Service Provider Name** text box.
@@ -163,10 +163,10 @@ Identity Server version that you are working on.
     Single-Sign-On](https://docs.wso2.com/display/IS530/Configuring+SAML2+Web+Single-Sign-On)
     .  
     1.  In the **Inbound Authentication Configuration** section, click
-        **SAML2 Web SSO Configuration** , and then click
-        ****Configure**** .
+        **SAML2 Web SSO Configuration**, and then click
+        ****Configure****.
 
-        ![](attachments/49088044/76747573.png){width="675" height="963"}
+        ![](attachments/49088044/76747573.png) 
 
     2.  Now set the configuration as follows:
 
@@ -176,7 +176,7 @@ Identity Server version that you are working on.
 
         3.  **Assertion Consumer URL** : Enter the Assertion Consumer
             URL as <http://localhost:8080/travelocity.com/home.jsp> and
-            click **Add** .
+            click **Add**.
 
     3.  Select the following check-boxes:
         1.  **Enable Response Signing**
@@ -195,15 +195,15 @@ Identity Server version that you are working on.
 7.  Configure the Local and Outbound Authentication for Foursquare.  
     For more information, see [Configuring Local and Outbound
     Authentication for a Service
-    Provider](https://docs.wso2.com/display/IS530/Configuring+Local+and+Outbound+Authentication+for+a+Service+Provider)
+    Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
     in the WSO2 IS 5.3.0 guide.
 
     1.  Go to the **Local and Outbound Authentication Configuration**
         section.
 
     2.  Select the identity provider you created from the dropdown list
-        under **Federated Authentication** .  
-        ![](attachments/49088044/76747587.png){width="849" height="607"}
+        under **Federated Authentication**.  
+        ![](attachments/49088044/76747587.png) 
 
     3.  Ensure that the **Federated Authentication** radio button is
         selected.
@@ -215,15 +215,15 @@ Identity Server version that you are working on.
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
-    **Add** .
+    **Add**.
 
 3.  As you are using travelocity as the sample, enter travelocity.com in
-    the **Service Provider Name** text box and click **Register** .
+    the **Service Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
-    **SAML2 Web SSO Configuration** , and then click ****Configure**** .
+    **SAML2 Web SSO Configuration**, and then click ****Configure****.
 
-    ![](attachments/49088044/49221980.png){width="725" height="723"}
+    ![](attachments/49088044/49221980.png) 
 
 5.  Now set the configuration as follows:
 
@@ -248,7 +248,7 @@ Identity Server version that you are working on.
     section.
 
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -272,7 +272,7 @@ Server version that you are working on.
 1.  Sign in to the [Management
     Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Foursquare authenticator
     specific claim dialect.
 
@@ -282,7 +282,7 @@ Server version that you are working on.
 5.  Map a new external claim to an existing local claim dialect.  
     You need to map at least one claim under this new claim dialect.
     Therefore, let's map the claim for the Foursquare user ID.  
-    1.  In the **Main** menu, click **Add** under **Claims** .
+    1.  In the **Main** menu, click **Add** under **Claims**.
     2.  Click **Add External Claim** to add a new claim to the
         Foursquare claim dialect.
 
@@ -360,14 +360,14 @@ Server version that you are working on.
     them with Foursquare.
 
     1.  In the **Identity** section under the **Main** tab, click
-        **List** under **Identity Providers** .
+        **List** under **Identity Providers**.
     2.  Click **Edit** to edit the Foursquare identity provider you
         created.
-    3.  Under **Claim Configuration** , go to **Basic Claim
-        Configuration** .  
-        ![](attachments/49088044/76747747.png){width="700"}
+    3.  Under **Claim Configuration**, go to **Basic Claim
+        Configuration**.  
+        ![](attachments/49088044/76747747.png) 
     4.  Select the **Define Custom Claim Dialect** option under **Select
-        Claim mapping Dialect** .
+        Claim mapping Dialect**.
     5.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.
 
@@ -384,14 +384,14 @@ Server version that you are working on.
     6.  Select the User ID Claim URI as
         - http://wso2.org/foursquare/claims/id
 
-    7.  Click **Update** .
+    7.  Click **Update**.
 
 #### Configuring claims with IS 5.1.0 or IS 5.2.0
 
 1.  Sign into the [Management
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     by entering your username and password.
-2.  In the **Main** menu, click **Add** under **Claims** .
+2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add New Claim Dialect** to create the Foursquare
     authenticator specific claim dialect.
     ![](attachments/49088044/57749020.png){height="250"}  
@@ -489,26 +489,26 @@ Server version that you are working on.
     them with Foursquare.
 
     1.  In the **Identity** section under the **Main** tab, click
-        **List** under **Identity Providers** .
+        **List** under **Identity Providers**.
     2.  Click **Edit** to edit the foursquare identity provider you
         created.
-    3.  Under **Claim Configuration** , go to **Basic Claim
-        Configuration** .
+    3.  Under **Claim Configuration**, go to **Basic Claim
+        Configuration**.
     4.  Select the **Define Custom Claim Dialect** option under **Select
-        Claim mapping Dialect** .
+        Claim mapping Dialect**.
     5.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.
     6.  Select the User ID Claim URI as -
         <http://wso2.org/foursquare/claims/id>
 
-    7.  Click **Update** .  
+    7.  Click **Update**.  
         ![](attachments/49088044/61669807.png){height="400"}
 
 #### Local claim mapping
 
 Navigate to the **Main** menu, and click **Add** under **Claims** in the
 Management Console. The list of claims appear. Click the
-<http://wso2.org/claims> claim, and thereafter click **email** . This
+<http://wso2.org/claims> claim, and thereafter click **email**. This
 shows you that by default, the local claim
 **http://wso2.org/claims/emailaddress** is created with the map
 attribute **mail.**
@@ -533,7 +533,7 @@ map attribute **uid** as follows:
 -   [**IS 5.3.0**](#966c70f11de54c1fa4920dcca8562087)
 -   [**IS 5.1.0/IS 5.2.0**](#3de64f7cd8ec43adb35d62c388f14e83)
 
-1.  In the **Main** menu, click **Add** under **Claims** .
+1.  In the **Main** menu, click **Add** under **Claims**.
 2.  Click **Add Local Claim** to create a new local claim.
 
 3.  Specify the following:
@@ -545,22 +545,22 @@ map attribute **uid** as follows:
     -   **Description** - Identifier
     -   **Mapped Attribute (s)** - uid
     -   **Supported by Default** - Select this option.  
-        ![](attachments/49088044/76747798.png){width="735"}
+        ![](attachments/49088044/76747798.png) 
 
-4.  Click **Add** .
+4.  Click **Add**.
 
-1.  In the **Main** menu, click **Add** under **Claims** .
+1.  In the **Main** menu, click **Add** under **Claims**.
 2.  Click **Add New Claim Dialect** to create the wso2.org specific
     claim dialect.
 
     ![](attachments/49088044/57749026.png){height="250"}
 
-3.  Click **Add** .
+3.  Click **Add**.
 
 ###  Configuring requested claims for travelocity.com
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
+    under **Service Providers**.
 2.  Click **Edit** to edit the travelocity.com service provider.
 3.  Expand the **Claim Configuration** section.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
@@ -573,9 +573,9 @@ map attribute **uid** as follows:
     Select the Mandatory Claim checkbox for all the claim URIs that you
     added.
 
-    ![](attachments/49088044/112364021.png){width="700"}
+    ![](attachments/49088044/112364021.png) 
 
-    ![](attachments/49088044/57749029.png){width="800"}
+    ![](attachments/49088044/57749029.png) 
 
 5.  Select the Subject Claim URI as http://wso2.org/claims/emailaddress
     to define the authenticated user identifier that will return with
@@ -591,8 +591,8 @@ map attribute **uid** as follows:
 
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the redirect binding or the post binding option.  
-    ![](attachments/49088044/76748625.png){width="600"}
+    ![](attachments/49088044/76748625.png) 
 3.  You are redirected to the Foursquare Login page. Enter your
     Foursquare credentials and you will be taken to the home page of the
     travelocity.com app.  
-    ![](attachments/49088044/76747861.png){width="600"}
+    ![](attachments/49088044/76747861.png) 

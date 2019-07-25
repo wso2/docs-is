@@ -4,7 +4,7 @@ The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
 Authentication)](_Integrated_Windows_Authentication_) or [FIDO (Fast
-IDentity Online)](_Multi-factor_Authentication_using_FIDO_) . Local
+IDentity Online)](_Multi-factor_Authentication_using_FIDO_). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service
@@ -20,8 +20,8 @@ corresponding response builder of the inbound authenticator. See
 
 You can configure the following for local and outbound authentication.
 
-1.  Expand **Local & Outbound Authentication Configuration** .  
-    ![](attachments/103329813/103329814.png){width="700"}  
+1.  Expand **Local & Outbound Authentication Configuration**.  
+    ![]( ../../assets/img/103329813/103329814.png)   
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -58,36 +58,36 @@ You can configure the following for local and outbound authentication.
 
 2.  Select the **Authentication Type** you require from the available
     options. This is a required field.  
-    -   If you choose **Local Authentication** , you need to select the
+    -   If you choose **Local Authentication**, you need to select the
         local authentication option from the dropdown list.
-    -   If you choose **Federated Authentication** , you need to select
+    -   If you choose **Federated Authentication**, you need to select
         the identity provider from the dropdown list.
-    -   If you choose **Advanced Configurations** , you can configure
+    -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![](attachments/103329813/103329818.png){width="750"}
+        ![]( ../../assets/img/103329813/103329818.png) 
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add
-                Authentication Step** . Clicking this again will enable
+                Authentication Step**. Clicking this again will enable
                 you to create another authentication step. Once this is
                 done you can configure a Local or Federated
                 authenticator for the step by selecting one from the
-                dropdown and clicking **Add Authenticator** .
+                dropdown and clicking **Add Authenticator**.
             2.  **Multi-option authentication** : Click **Add
                 Authenticator** to add either a Local or Federated
                 authenticator after selecting it from the dropdown.
                 Adding more than one of these within a single step
                 enables multi-option authentication.
         2.  Select whether to **Use subject identifier from this step**
-            , **Use attributes from this step** or both. In the case of
+           , **Use attributes from this step** or both. In the case of
             multiple steps, you can have only one step to use subject
             identifier from this step and one to use attributes from
             this step.  
             For example lets say, We configure 1st step as Facebook and
-            enable **Use subject identifier from this step** . Then
+            enable **Use subject identifier from this step**. Then
             configure Google for 2nd step and enable **Use attributes
-            from this step** . Once authentication is complete subject
+            from this step**. Once authentication is complete subject
             id will be taken from the Facebook claims and Google claims
             will be used as users attributes.
         3.  Click **Add Authenticator** to add a **Local Authenticator**
@@ -97,7 +97,7 @@ You can configure the following for local and outbound authentication.
             authentication allows you to authenticate users from the
             enterprise user store.
         4.  Click **Add Authenticator** to add a **Federated
-            Authenticator** . You can choose the type of authenticator
+            Authenticator**. You can choose the type of authenticator
             using the dropdown. Clicking **Add Authenticator** again
             will enable you to add a second federated authenticator.
         5.  Click the **Update** button. This will return you to the

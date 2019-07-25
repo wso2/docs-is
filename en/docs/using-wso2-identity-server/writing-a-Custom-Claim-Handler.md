@@ -12,7 +12,7 @@ these attribute details to the relying party application, by configuring
 WSO2 IS to send user claims in a SAML response using the service
 provider claim configuration. For information on how to configure WSO2
 IS to send user claims in a SAML response, see [Configuring Claims for a
-Service Provider](_Configuring_Claims_for_a_Service_Provider_) .
+Service Provider](_Configuring_Claims_for_a_Service_Provider_).
 
 The claims that you can send using the service provider claim
 configuration are default user claims, which can be read from the
@@ -93,7 +93,7 @@ application is as follows:
 </saml2p:Response>
 ```
 
-This response has one local attribute named `         role        ` ,
+This response has one local attribute named `         role        `,
 and two external attributes as follows:
 
 -   `                     http://test.org/claims/keplerNumber                   `

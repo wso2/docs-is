@@ -23,7 +23,7 @@ in.
     updated through WSO2 Update Manager (WUM).
     
     -   **If you are upgrading to use this version in your production
-        environment** , use the WSO2 Update Manager to get the latest
+        environment**, use the WSO2 Update Manager to get the latest
         updates available for WSO2 IS. For more information on how to do
         this, see [Updating WSO2
         Products](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products)
@@ -138,7 +138,7 @@ Configuration changes: Click here to view the table..
 <tbody>
 <tr class="odd">
 <td><a href="https://docs.wso2.com/display/Carbon430/Configuring+axis2.xml">axis2.xml</a> file stored in the <code>                           &lt;PRODUCT_HOME&gt;/repository/conf/axis2/                          </code> directory.</td>
-<td>The following new parameter was added: <code>                           &lt;parameter name="httpContentNegotiation"&gt;true&lt;/parameter&gt;                          </code> . When this is set to 'true' , the server will determine the contentType of responses to requests, by using the 'Accept header' of the request.</td>
+<td>The following new parameter was added: <code>                           &lt;parameter name="httpContentNegotiation"&gt;true&lt;/parameter&gt;                          </code> . When this is set to 'true', the server will determine the contentType of responses to requests, by using the 'Accept header' of the request.</td>
 </tr>
 <tr class="even">
 <td>identity.xml file stored in the <code>                           &lt;PRODUCT_HOME&gt;/repository/conf/identity                          </code> directory.</td>
@@ -289,7 +289,7 @@ of the admin service.
 1.  Removed authorization and changed input parameters of the
     `                                                   changePasswordByUser                                                 `
     operation exposed through the [userAdmin
-    service](https://localhost:9443/services/UserAdmin?wsdl) .
+    service](https://localhost:9443/services/UserAdmin?wsdl).
 
     **Changes to the changePasswordByUser operation**
 
@@ -646,7 +646,7 @@ element:
 
 The following code was updated. To add audiences to the JWT token, use
 the code block below. For more information, see [JWT Token
-Generation](https://docs.wso2.com/display/IS520/JWT+Token+Generation) .
+Generation](https://docs.wso2.com/display/IS520/JWT+Token+Generation).
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here
 to expand...
@@ -2906,7 +2906,7 @@ The URL should look similiar to the URL shown in the code block below. The place
 </div>
 </div>
 <p>Add the following parameter within the relevant tags of the following authenticators:<br />
-MobileConnectAuthenticator , <code>                            EmailOTP                           </code> , <code>                            SMSOTP                           </code> and <code>                            totp                           </code></p>
+MobileConnectAuthenticator, <code>                            EmailOTP                           </code>, <code>                            SMSOTP                           </code> and <code>                            totp                           </code></p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb41" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb41-1" title="1">&lt;<span class="bu">Parameter</span> name=<span class="st">&quot;redirectToMultiOptionPageOnFailure&quot;</span>&gt;<span class="kw">false</span>&lt;/<span class="bu">Parameter</span>&gt;</a></code></pre></div>
@@ -2925,7 +2925,7 @@ Therefore, when you upgrade to IS 5.4.0, follow one of the steps below depending
 </ul>
 !!! warning
     <p>Note</p>
-    <p>If you set the <code>                            PDP.Balana.Config.Enable                           </code> property to <code>                            false                           </code> , while the <code>                            PAP.Policy.Add.Start.Enable                           </code> property is set to <code>                            true                           </code> , the server does not look for the <code>                            balana-config.xml                           </code> file on startup. This results in an error as follows because the balana-config.xml file includes functions required by the new XACML policies:</p>
+    <p>If you set the <code>                            PDP.Balana.Config.Enable                           </code> property to <code>                            false                           </code>, while the <code>                            PAP.Policy.Add.Start.Enable                           </code> property is set to <code>                            true                           </code>, the server does not look for the <code>                            balana-config.xml                           </code> file on startup. This results in an error as follows because the balana-config.xml file includes functions required by the new XACML policies:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb42" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb42-1" title="1">TID: [-<span class="dv">1234</span>] [] [<span class="dv">2018</span>-<span class="bn">01</span>-<span class="bn">01</span> <span class="bn">01</span>:<span class="dv">16</span>:<span class="dv">37</span>,<span class="dv">547</span>] ERROR</a>
@@ -2970,7 +2970,7 @@ Configuration changes: Click here to view the table..
 <td><div class="content-wrapper">
 <p>Replace the following property found within the <code>                            &lt;Extensions&gt;                           </code> list.</p>
 !!! warning
-    <p>If you are using a custom <code>                            &lt;StepBasedSequenceHandler&gt;                           </code> , skip this step.</p>
+    <p>If you are using a custom <code>                            &lt;StepBasedSequenceHandler&gt;                           </code>, skip this step.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;StepBasedSequenceHandler&gt;org.<span class="fu">wso2</span>.<span class="fu">carbon</span>.<span class="fu">identity</span>.<span class="fu">application</span>.<span class="fu">authentication</span>.<span class="fu">framework</span>.<span class="fu">handler</span>.<span class="fu">sequence</span>.<span class="fu">impl</span>.<span class="fu">DefaultStepBasedSequenceHandler</span>&lt;/StepBasedSequenceHandler&gt;</a></code></pre></div>
@@ -3830,7 +3830,7 @@ file stored in the
 directory.
 
 Under
-`                            <Extensions>                           ` ,
+`                            <Extensions>                           `,
 do the following changes to enable adaptive authentication:
 
 \- Change the value of
@@ -3893,7 +3893,7 @@ This configuration is required to clean the
 `                            IDN_OAUTH2_ACCESS_TOKEN                           `
 table.
 
-Under `                           <OAuth>                          ` ,
+Under `                           <OAuth>                          `,
 change the value of
 `                           <OAuth2DCREPUrl>                          `
 from
@@ -3920,14 +3920,14 @@ to
 .
 
 Under
-`                            <SSOService>                           ` ,
+`                            <SSOService>                           `,
 add the following SAML2 artifact validity period configuration:
 
 ``` java
 <SAML2ArtifactValidityPeriodInMinutes>4</SAML2ArtifactValidityPeriodInMinutes>
 ```
 
-Under `                            <SCIM>                           ` ,
+Under `                            <SCIM>                           `,
 add the following configuration that allows you to get all the details
 of a user from SCIM endpoint if necessary:
 
@@ -4095,7 +4095,7 @@ Would not affect associations done through provisioning
 
 Under
 `                          <TenantContextsToRewrite>                         `
-`                          <WebApp>                         ` , replace
+`                          <WebApp>                         `, replace
 `                          <Context>/api/identity/oauth2/dcr/v1.0/</Context>                         `
 with
 `                          <Context>/api/identity/oauth2/dcr/v1.1/</Context>                         `
@@ -4179,7 +4179,7 @@ products:
 ```
 
 Under
-`                            <Security>                           ` ,
+`                            <Security>                           `,
 add the following keystore parameters introduced to
 encrypting/decrypting internal data:
 
@@ -4447,7 +4447,7 @@ attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) . For
+specification](https://tools.ietf.org/html/rfc7643#section-3.3). For
 more details, see [behavioral change \#1 in the behavioral changes
 table](#UpgradingFromanOlderVersionofWSO2IS-1) given above.
 
@@ -4578,7 +4578,7 @@ value has been modified to 1440.
 ```
 
 The default value of the following property has been changed from false
-to **true** .
+to **true**.
 
 ``` java
 <SignJWTWithSPKey>true</SignJWTWithSPKey>
@@ -4837,7 +4837,7 @@ and token introspection. Adding this property allows you to disable
 logging, else if this property is not present in the configuration file,
 logging is enabled by default. For more information about auditing, see
 [OAuth Transaction
-Logs](https://docs.wso2.com/display/IS580/OAuth+Transaction+Logs) .
+Logs](https://docs.wso2.com/display/IS580/OAuth+Transaction+Logs).
 
 `                             UserOperationEventListener                            `
 - This event listener is used to support session termination at the
@@ -4931,7 +4931,7 @@ tag has been modified as shown below.
 **Why?**
 
 This change is done in order to comply with the [SCIM2
-specification](https://tools.ietf.org/html/rfc7643#section-3.3) .
+specification](https://tools.ietf.org/html/rfc7643#section-3.3).
 
 The following resource found under the \<
 `                             ResourceAccessControl>                            `

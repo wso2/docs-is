@@ -16,8 +16,8 @@ Follow the steps below to set up the Microsoft SQL database and users.
 
 1.  In the start menu, click **Programs** and launch **Microsoft SQL
     Server 2012.**
-2.  Click **Configuration Tools** , and then click **SQL Server
-    Configuration Manager** .
+2.  Click **Configuration Tools**, and then click **SQL Server
+    Configuration Manager**.
 3.  Enable **TCP/IP** and disable **Named Pipes** from protocols of your
     Microsoft SQL server.
 4.  Double click **TCP/IP** to open the TCP/IP properties window and set
@@ -30,7 +30,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
     order processing services.
 
 6.  Similarly, enable TCP/IP from **SQL Native Client Configuration**
-    and disable **Named Pipes** . Also, check whether the port is set
+    and disable **Named Pipes**. Also, check whether the port is set
     correctly to 1433.
 7.  Restart Microsoft SQL server.
 
@@ -68,4 +68,4 @@ In WSO2 IoT Server copy the driver file to the
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MSSQL, see [Changing to
-MSSQL](_Changing_to_MSSQL_) .
+MSSQL](_Changing_to_MSSQL_).

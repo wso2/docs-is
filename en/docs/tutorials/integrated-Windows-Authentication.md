@@ -45,7 +45,7 @@ prompted to enter valid credentials to log in to the system.
 
 The following diagram indicates how the authentication procedure works.
 
-![](attachments/33128681/33325703.png){width="700"}
+![](attachments/33128681/33325703.png) 
 
 1.  The user (who is already authenticated to the Windows domain when
     they log in to Windows) sends a usual request to a protected page of

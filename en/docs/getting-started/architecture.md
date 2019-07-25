@@ -9,7 +9,7 @@ without configuration changes.
 
 WSO2 Identity Server is used directly by multiple users, through its
 user-friendly
-[Management Console](../../set-up/getting-started-with-the-management-console) .
+[Management Console](../../set-up/getting-started-with-the-management-console).
 Apart from the default admin user (with the user name ‘admin’), other
 users can be created later by the admin users that have the privileges
 to create a new user, or by signing up. Each user can have roles, where
@@ -63,8 +63,8 @@ corresponding response. A given inbound authenticator has two parts.
 For each protocol supported by WSO2 Identity Server, there should be an
 inbound authenticator. This architecture component includes inbound
 authenticators for [Security Assertion Markup Language (SAML)
-2.0](http://saml.xml.org/saml-specifications) , [OpenID
-Connect](http://openid.net/connect/) , [OAuth 2.0](https://oauth.net/2/)
+2.0](http://saml.xml.org/saml-specifications), [OpenID
+Connect](http://openid.net/connect/), [OAuth 2.0](https://oauth.net/2/)
 , and [WS-Federation
 (passive)](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html)
 . In other words, the responsibility of the SAML 2.0 request processor
@@ -82,7 +82,7 @@ protocol.
 The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either user name
 /password or even [IWA (Integrated Windows
-Authentication)](../../tutorials/integrated-windows-authentication) . Local
+Authentication)](../../tutorials/integrated-windows-authentication). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service

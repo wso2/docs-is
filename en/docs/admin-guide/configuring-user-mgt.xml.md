@@ -87,7 +87,7 @@ role sees the registry root --&gt;</code></pre>
 <td>______ &lt;AddAdmin&gt;</td>
 <td><br />
 </td>
-<td>Specifies whether the admin user and admin role will be created in the primary user store. This element enables the user to create additional admin users in the user store. If the <code>              &lt;AdminUser&gt;             </code> element does not exist in the external user store, it will be automatically created only if this property is set to <code>              true             </code> . If the value is set to <code>              false             </code> , the given admin user and role should already exist in the external user store.</td>
+<td>Specifies whether the admin user and admin role will be created in the primary user store. This element enables the user to create additional admin users in the user store. If the <code>              &lt;AdminUser&gt;             </code> element does not exist in the external user store, it will be automatically created only if this property is set to <code>              true             </code> . If the value is set to <code>              false             </code>, the given admin user and role should already exist in the external user store.</td>
 <td>Boolean</td>
 <td>true</td>
 <td>Mandatory</td>
@@ -172,7 +172,7 @@ role sees the registry root --&gt;</code></pre>
 <br />
 To do both read and write operations, use the ReadWriteLDAPUserStoreManager for external LDAP user stores.<br />
 <br />
-If you wish to use an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS) , use the ActiveDirectoryUserStoreManager. This can be used for both read-only and read/write operations.<br />
+If you wish to use an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS), use the ActiveDirectoryUserStoreManager. This can be used for both read-only and read/write operations.<br />
 <br />
 Use JDBCUserStoreManager for both internal and external JDBC user stores.</td>
 <td>String</td>

@@ -15,7 +15,7 @@ Follow the steps given below for instructions on using the **Messaging
 Metrics** dashboard.
 
 1.  Log in to the management console of the broker and click **Monitor
-    -\> Metrics -\> Messaging Metrics** .  
+    -\> Metrics -\> Messaging Metrics**.  
     ![](attachments/87694058/87694050.png)
 2.  The **View Metrics** page will open. At the top of this page, you
     will find the following panel:  

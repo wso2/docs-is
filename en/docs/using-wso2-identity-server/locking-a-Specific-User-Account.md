@@ -61,7 +61,7 @@ for instructions
 
     !!! tip
     
-        **Alternatively** , you can also use the
+        **Alternatively**, you can also use the
         `                             IdentityGovernanceAdminService                           `
         SOAP service to do this instead of using the management console UI.
         See [Calling Admin
@@ -76,7 +76,7 @@ for instructions
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![](attachments/103330596/103330597.png){width="566" height="250"}
+    ![]( ../../assets/img/103330596/103330597.png) 
 
     !!! tip
     
@@ -84,7 +84,7 @@ for instructions
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts** .
+        of **Maximum Failed Login Attempts**.
     
         !!! note
             
@@ -122,14 +122,14 @@ for instructions
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
     claim dialect.  
     For more information about claims, see [Claim
-    Management](_Claim_Management_) .
-2.  Select the Account Locked claim and click **Edit** .  
-    ![](attachments/103330598/103330600.png){width="565"}
+    Management](_Claim_Management_).
+2.  Select the Account Locked claim and click **Edit**.  
+    ![]( ../../assets/img/103330598/103330600.png) 
 3.  Select the **Supported by Default** check box and click **Update**
     .  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
-    ![](attachments/103330598/103330603.png){width="629"}
+    ![]( ../../assets/img/103330598/103330603.png) 
 
 ### Lock a specific user account
 
@@ -162,7 +162,7 @@ profile in the management console.
     If it is not the first time you are locking this user account, there
     will be a check box instead of the text box (as shown above) in front of
     the **Account Locked** field. Select the check box to lock the account
-    or deselect it to unlock the account and click **Update** .
+    or deselect it to unlock the account and click **Update**.
     
 
 ###### Using the AdminService

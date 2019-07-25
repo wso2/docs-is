@@ -15,7 +15,7 @@ Explained below are the default databases that you will find in the
     user management data by default. In addition, if the product uses
     features of [WSO2 Identity
     Server](http://wso2.com/products/identity-server/) or [WSO2
-    Enterprise Store (ES)](http://wso2.com/products/enterprise-store/) ,
+    Enterprise Store (ES)](http://wso2.com/products/enterprise-store/),
     data that are specific to those will by default reside in the
     embedded Carbon database. However, for production environments, we
     recommend separate RDBMSs to store identity-related and

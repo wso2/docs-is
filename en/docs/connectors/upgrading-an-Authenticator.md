@@ -12,7 +12,7 @@ artifacts to the latest version in WSO2 Identity Server.
 
 1.  Download and extract the latest version of the connector
     artifacts (.jar, .war, gadgets etc.,) from the [connector
-    store](https://store.wso2.com/store/assets/isconnector/list) .
+    store](https://store.wso2.com/store/assets/isconnector/list).
 2.  Replace the old `          .jar         ` file found in the
     `          <IS_HOME>/repository/components/dropins         ` folder
     with the new `          .jar         ` file that you downloaded.

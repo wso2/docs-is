@@ -42,7 +42,7 @@ authentication.
         time of login as shown in the image below.
     
 
-    ![](attachments/103329798/103329800.png){width="862" height="377"}
+    ![]( ../../assets/img/103329798/103329800.png) 
 
 2.  When a user is authenticated for the relevant application, the
     service provider requests the user information represented by these
@@ -72,7 +72,7 @@ authentication.
             management console and clicking **Edit** next to the claim.
     
 
-    ![](attachments/103329798/103329802.png){width="500"}
+    ![]( ../../assets/img/103329798/103329802.png) 
 
 4.  Once the user provides approval to share the user attributes, WSO2
     Identity Server will store the consent in relation to the user and
@@ -109,20 +109,20 @@ authentication.
     -   http://\<claim\_dialect\>/claims/gender
     -   http://\<claim\_dialect\>/claims/dob
 
-    ![](attachments/103329798/103329801.png){width="800"}
+    ![]( ../../assets/img/103329798/103329801.png) 
 
 2.  Access the following URL: <http://wso2is.local:8080/travelocity.com>
     .  
     You are directed to the following page.  
 
-    ![](https://lh5.googleusercontent.com/EGzBSgIVPp8EnX-7Jfd1xsCwhkbLvTGUSBXI7_33PWJVPfph_dPYMXaiCIHInXpUIgHLOUhMQjI7oHPbKA3-3rh_4zJRywCi-7r9Y8kdl8BpelacJMEDoGtj-VbD42uBzx_CDuNR){width="600"}
+    ![](https://lh5.googleusercontent.com/EGzBSgIVPp8EnX-7Jfd1xsCwhkbLvTGUSBXI7_33PWJVPfph_dPYMXaiCIHInXpUIgHLOUhMQjI7oHPbKA3-3rh_4zJRywCi-7r9Y8kdl8BpelacJMEDoGtj-VbD42uBzx_CDuNR) 
 
-3.  Click **Click here to login with SAML from Identity Server** . You
+3.  Click **Click here to login with SAML from Identity Server**. You
     are redirected to the WSO2 Identity Server for authentication.
 
-4.  Enter the user credentials and click **Submit** .
+4.  Enter the user credentials and click **Submit**.
 
-    ![](attachments/103329798/103329799.png){width="334"}  
+    ![]( ../../assets/img/103329798/103329799.png)   
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  
@@ -136,10 +136,10 @@ authentication.
         enter those values before the consent screen will appear.
     
 
-    ![](attachments/103329798/103329802.png){width="500"}
+    ![]( ../../assets/img/103329798/103329802.png) 
 
 6.  Select the claims that you consent to share with the Travelocity
-    application and click **Approve** . You must select all mandatory
+    application and click **Approve**. You must select all mandatory
     claims to successfully complete the authentication. After providing
     consent, you are redirected to the Travelocity application home
     page.
@@ -162,7 +162,7 @@ authentication.
 Open the `          identity.xml         ` file found in the in
 `          <IS_HOME>/repository/conf/identity         ` directory.
 Locate the `          <Consent>         ` tag and set the following
-property to **false** .
+property to **false**.
 
 ``` java
 <Consent>
@@ -172,4 +172,4 @@ property to **false** .
 ```
 
 To re-enable consent management for SSO, you can set the above
-configuration to **true** .
+configuration to **true**.

@@ -8,9 +8,9 @@ to use this sample.
 1.  Add a new service provider.
     1.  Sign in. Enter your username and password to log on to the
         [Management
-        Console](_Getting_Started_with_the_Management_Console_) .
+        Console](../../setup/getting-started-with-the-management-console).
     2.  Navigate to the **Main** menu to access the **Identity** menu.
-        Click **Add** under **Service Providers** .
+        Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
         Name** is a required field.
@@ -26,7 +26,7 @@ to use this sample.
 To obtain and configure the Playground sample, follow the steps below.
 
 1.  You can check out the repository of the OAuth 2.0 sample from
-    GitHub. Follow the instructions [here](_Downloading_a_Sample_) to
+    GitHub. Follow the instructions [here](../../using-wso2-identity-server/downloading-a-sample) to
     checkout the folder. We refer `           <SAMPLE_HOME>          `
     as the modules/samples folder inside the folder where the product-is
     repository is checked out.
@@ -134,7 +134,7 @@ To obtain and configure the Playground sample, follow the steps below.
     playground application.  
     You are directed to the landing page of the sample application.
     Click on **Import Photos** and the following page appears.  
-    ![](attachments/103329944/103329945.png){width="750" height="410"}
+    ![]( ../../assets/img/103329944/103329945.png) 
 
 !!! note
     
@@ -158,7 +158,7 @@ To obtain and configure the Playground sample, follow the steps below.
 This application is used to request access tokens using the four OAuth2
 grant types:
 
--   [Authorization Code Grant](_Try_Authorization_Code_Grant_)
--   [Client Credentials Grant](_Try_Client_Credentials_Grant_)
--   [Implicit Grant](_Try_Implicit_Grant_)
--   [Try Password/Resource Owner Grant](_Try_Password_Grant_)
+-   [Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
+-   [Client Credentials Grant](../../using-wso2-identity-server/try-client-credentials-grant)
+-   [Implicit Grant](../../using-wso2-identity-server/try-implicit-grant)
+-   [Try Password/Resource Owner Grant](../../using-wso2-identity-server/try-password-grant)

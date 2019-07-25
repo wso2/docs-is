@@ -182,9 +182,9 @@ met.
 ### Configuration management architecture
 
 The configuration manager exposed with the configuration management REST
-APIs manages configurations as **Resources** .
+APIs manages configurations as **Resources**.
 
-![](attachments/119111748/119111749.png){.image-left width="252"}
+![]( ../../assets/img/119111748/119111749.png){.image-left width="252"}
 
   
 
@@ -205,7 +205,7 @@ APIs manages configurations as **Resources** .
 What is a resource?
 
 -   A **Resource** belongs to a **Resource Type** and a tenant domain.
--   Each **Resource** has a set of **Attributes** .
+-   Each **Resource** has a set of **Attributes**.
 -   Each **Attribute** has a key and a respective value.
 
 The section below describes each concept in more detail.
@@ -245,7 +245,7 @@ The section below describes each concept in more detail.
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
-    Parameters](_Retrieving_Tenant_Resources_Based_on_Search_Parameters_) .
+    Parameters](_Retrieving_Tenant_Resources_Based_on_Search_Parameters_).
     
 
 ### Try it out
@@ -264,7 +264,7 @@ only one property.
 To store the SMTP email configuration, follow the steps given below:
 
 1.  Start WSO2 Identity Server and access the [management
-    console](https://localhost:9443/carbon) . You can sign in using
+    console](https://localhost:9443/carbon). You can sign in using
     `          admin         ` as the username and password.
 2.  Open a terminal window and run the following commands.
 

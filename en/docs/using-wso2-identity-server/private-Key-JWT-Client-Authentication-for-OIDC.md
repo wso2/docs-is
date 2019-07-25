@@ -97,13 +97,13 @@ artifacts.
 
 5.  **Restart** the server.
 6.  Log in to Management Console and Add the [service
-    provider](_Adding_and_Configuring_a_Service_Provider_) .
+    provider](_Adding_and_Configuring_a_Service_Provider_).
 7.  **Expand** the OAuth/OpenID Connect Configuration under Inbound
-    Authentication section and click **Configure** .
+    Authentication section and click **Configure**.
 
 8.  Enter a callback url (ex:
     `                       http://localhost:8080/playground2/oauth2client                     `
-    ) and click **Add** . (The OAuth Client Key and OAuth Client Secret
+    ) and click **Add**. (The OAuth Client Key and OAuth Client Secret
     will now be visible.)
 
 9.  Import the public key of the private\_key\_jwt issuer by executing
@@ -118,7 +118,7 @@ artifacts.
     ```
 
 10. Rename the public key certificate file of the
-    `           private_key_jwt issuer          ` , with the ClientID
+    `           private_key_jwt issuer          `, with the ClientID
     (mentioned as 'alias' below) of the above auth app.
 
     ``` java
@@ -139,18 +139,18 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![](attachments/103329637/103329639.png){width="160"}
+    ![]( ../../assets/img/103329637/103329639.png) 
 
 13. Import the above cert (Click **Import Cert** under **Actions** ) in
     to the default key store defined in
     `           <IS_HOME>/repository/conf/carbon.xml          ` . ( In a
     default pack, keystore name is wso2carbon.jks)
 
-    ![](attachments/103329637/103329638.png){width="700"}
+    ![]( ../../assets/img/103329637/103329638.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![](attachments/103329637/103329640.png){width="1200"}
+    ![]( ../../assets/img/103329637/103329640.png) 
 
     !!! note
     
@@ -167,7 +167,7 @@ artifacts.
         as shown above, you can choose to use the JWKS enpoint as shown
         below and add the relevant JWKS URI.
     
-        ![](attachments/92524687/119114653.png){width="800"}
+        ![]( ../../assets/img/92524687/119114653.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token
@@ -186,7 +186,7 @@ artifacts.
     ```
 
     For information on how to get the authorization-code, check [Try
-    Authorization Code Grant](_Try_Authorization_Code_Grant_) page.
+    Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant) page.
 
       
     For client credential grant type:

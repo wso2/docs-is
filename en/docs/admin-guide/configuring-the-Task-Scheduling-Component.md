@@ -57,7 +57,7 @@ Select one of the following values for the
 ### Step 2: Configuring a cluster of task servers
 
 If you have enabled the CLUSTERED task server mode in [step
-1](#ConfiguringtheTaskSchedulingComponent-Step1) , the following
+1](#ConfiguringtheTaskSchedulingComponent-Step1), the following
 configuration elements in the `         tasks-config.xml        ` file
 will be effective:
 
@@ -97,7 +97,7 @@ one of the nodes (at a given time) in a clustered environment. The task
 will failover to another node only if the first node fails. This
 parameter determines how nodes are selected for task failover.
 
-One of the following options can be used for the **location resolver** .
+One of the following options can be used for the **location resolver**.
 
 -   `                       RoundRobinTaskLocationResolver                     `
     : Cluster nodes are selected on a round-robin basis and the tasks

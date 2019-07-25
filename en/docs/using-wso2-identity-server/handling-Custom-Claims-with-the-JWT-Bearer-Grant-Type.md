@@ -72,7 +72,7 @@ Before you begin
 Follow the steps below to set up the two WSO2 Identity Server instances:
 
 1.  [Download](http://wso2.com/products/identity-server/) and
-    [install](_Installing_the_Product_) two Identity Server instances.
+    [install](../../setup/installing-the-product) two Identity Server instances.
 2.  In the
     `            <IS-IP_HOME>/repository/conf/carbon.xml           `
     file, locate the `            Offset           ` element and change
@@ -101,12 +101,12 @@ with the configuration steps.
 
     2.  Restart IS-IP.
     3.  Configure an [OAuth service
-        provider](_Adding_and_Configuring_a_Service_Provider_) .
+        provider](_Adding_and_Configuring_a_Service_Provider_).
     4.  Initiate an access token request to IS-IP over a known [grant
-        type](_OAuth_2.0_Grant_Types_) . The following cURL command
+        type](../../using-wso2-identity-server/oauth-2.0-grant-types). The following cURL command
         illustrates the syntax of an access token request that can be
         initiated using the [Resource Owner Password
-        Credential](_Resource_Owner_Password_Credentials_Grant_) grant
+        Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant
         type, and specifying the scope as openid. For more information,
         see [Configuring WSO2 Identity Server to issue self-contained
         access
@@ -126,14 +126,14 @@ with the configuration steps.
         </div>
         </div>
         <ul>
-        <li>Navigate to your service provider, expand <strong>Inbound Authentication Configurations</strong> , and then expand <strong>OAuth/OpenID Connect Configuration</strong> .
+        <li>Navigate to your service provider, expand <strong>Inbound Authentication Configurations</strong>, and then expand <strong>OAuth/OpenID Connect Configuration</strong> .
         <ul>
         <li>Copy the <strong>OAuth Client Key</strong> as the value for <code>                      &lt;CLIENT_ID&gt;                     </code> .</li>
         <li>Copy the <strong>OAuth Client Secret</strong> as the value for <code>                      &lt;CLIENT_SECRET&gt;                     </code> .</li>
         </ul></li>
         <li>Enter the user name and password of the user you want to get the token as the value for <code>                    &lt;USERNAME&gt;                   </code> and <code>                    &lt;PASSWORD&gt;                   </code> respectively.</li>
         <li>By default, <code>                    &lt;IS_HOST&gt;                   </code> is <code>                    localhost.                   </code> However, if you are using a public IP, the respective IP address or domain needs to be specified.</li>
-        <li>By default, <code>                    &lt;IS_HTTPS_PORT&gt;                   </code> has been set to 9443. However, in this scenario since the port offset for IS-IP is incremented by <code>                    1                   </code> , the default port value needs to be incremented by <code>                    1                   </code> .</li>
+        <li>By default, <code>                    &lt;IS_HTTPS_PORT&gt;                   </code> has been set to 9443. However, in this scenario since the port offset for IS-IP is incremented by <code>                    1                   </code>, the default port value needs to be incremented by <code>                    1                   </code> .</li>
         </ul>
         </div></td>
         </tr>
@@ -183,14 +183,14 @@ with the configuration steps.
     1.  Sign in to the management console of IS-SP. For detailed
         instructions on starting the management console, see [Getting
         Started with the Management
-        Console](_Getting_Started_with_the_Management_Console_) .
+        Console](../../setup/getting-started-with-the-management-console).
     2.  On the **Main** tab, go to **Identity** -\> **Identity
-        Providers** , and click **Add** .
+        Providers**, and click **Add**.
     3.  Provide appropriate values to configure IS-IP as the identity
         provider. For detailed instructions on how to add a new identity
         provider, see [Adding and Configuring an Identity
-        Provider](_Adding_and_Configuring_an_Identity_Provider_) .
-    4.  Click **Register** .
+        Provider](_Adding_and_Configuring_an_Identity_Provider_).
+    4.  Click **Register**.
 
 Now that you have configured IS-IP and IS-SP, let's take a look at how
 WSO2 Identity Server handles custom claims with the JWT bearer grant
@@ -239,7 +239,7 @@ claims with the JWT bearer grant type when the
 Here, the `         country        ` and `         email        ` are
 directly copied to the generated JWT token because the
 `         ConverToOIDCDialect        ` element is set to
-`         false        ` , which results in all custom claims coming
+`         false        `, which results in all custom claims coming
 from incoming JWT assertions  being directly copied to the generated JWT
 token.
 
@@ -321,14 +321,14 @@ with the JWT bearer grant type when the
 -   1.  Map the
         `                         http://wso2.org/claims/country                       `
         local claim to `            customclaim           ` in the OIDC
-        dialect. ![](attachments/103329629/103329632.png){width="650"}
+        dialect. ![]( ../../assets/img/103329629/103329632.png) 
     2.  Add the `            customclaim           ` to the openid
         scope.  
-        ![](attachments/103329629/103329633.png){width="700"}
+        ![]( ../../assets/img/103329629/103329633.png) 
     3.  Add the following identity provider mapping.  
-        ![](attachments/103329629/103329634.png){width="650"}
+        ![]( ../../assets/img/103329629/103329634.png) 
     4.  Add following service provider requested claim.  
-        ![](attachments/103329629/103329635.png){height="250"}
+        ![]( ../../assets/img/103329629/103329635.png){height="250"}
 
 Then you will see the following payload when you use a JWT decoder and
 decode the JWT token:

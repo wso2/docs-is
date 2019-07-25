@@ -43,7 +43,7 @@ as follows.
     1.  `             ACTIVE            ` - Valid access token. Although
         the state is ACTIVE, the `             timestamp            `
         calculation may reveal it to be
-        `             EXPIRED            ` , but this happens only
+        `             EXPIRED            `, but this happens only
         during the first access token request or token validation
         request after expiration.
     2.  `             INACTIVE            ` - Refreshed using
@@ -72,13 +72,13 @@ invoke the OAuth introspection endpoint for the super tenant users.
 !!! note
     
     -   For requests that require
-        `          CLIENT_ID:CLIENT_SECRET         ` , use the client ID and
+        `          CLIENT_ID:CLIENT_SECRET         `, use the client ID and
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
         Provider](_Configuring_Inbound_Authentication_for_a_Service_Provider_)
         .
-    -   For requests that require `           USERNAME:PASSWORD          ` ,
+    -   For requests that require `           USERNAME:PASSWORD          `,
         by default you can use credentials of any user with
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
         To allow users with other permissions to send validation requests,
@@ -291,14 +291,14 @@ invoke the OAuth introspection endpoint for tenant users.
 !!! note
     
     -   For requests that require
-        `          CLIENT_ID:CLIENT_SECRET         ` , use the client ID and
+        `          CLIENT_ID:CLIENT_SECRET         `, use the client ID and
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
         Provider](_Configuring_Inbound_Authentication_for_a_Service_Provider_)
         .
     -   For requests that require
-        `           USERNAME@TENANT_DOMAIN:PASSWORD          ` , by default
+        `           USERNAME@TENANT_DOMAIN:PASSWORD          `, by default
         you can use credentials of any user with
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
     

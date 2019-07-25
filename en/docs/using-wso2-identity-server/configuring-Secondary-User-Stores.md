@@ -97,9 +97,9 @@ primary user store.
         Store](_Configuring_a_Read-write_LDAP_User_Store_)
 
 5.  Make sure that all the mandatory fields are filled and a valid
-    domain name is given, and click **Add** . A message appears saying
+    domain name is given, and click **Add**. A message appears saying
     that the user stores are being added.  
-    ![](attachments/103330307/103330314.png)
+    ![]( ../../assets/img/103330307/103330314.png)
 
     !!! note
     

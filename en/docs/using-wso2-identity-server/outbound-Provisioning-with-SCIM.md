@@ -14,7 +14,7 @@ connectors](https://store.wso2.com/store/assets/isconnector/list) for
 Google and Salesforce available by default in the Identity Server. If
 you need to plug any other custom connector, you can do it by writing an
 extension for that as described
-[here](_Writing_an_Outbound_Provisioning_Connector_) . Outbound
+[here](_Writing_an_Outbound_Provisioning_Connector_). Outbound
 provisioning configurations can be found under identity provider
 configuration user interface of the Identity Server.
 
@@ -39,9 +39,9 @@ identity provider in the Identity Server.
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     using your username and password.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Identity Providers** .
+    **Add** under **Identity Providers**.
 3.  Fill in the details in the **Basic Information** section.  
-    ![](attachments/103330243/103330251.png){width="750"}  
+    ![]( ../../assets/img/103330243/103330251.png)   
     Note the following when filling the above form.
     -   The **Identity Provider Name** should be unique.
     -   The **Home Realm Identifier** is a standard value which will
@@ -52,7 +52,7 @@ identity provider in the Identity Server.
 4.  Expand the **Outbound Provisioning Connectors** section followed by
     the **SCIM Provisioning Configuration** section.
 5.  Fill out the details in the form.  
-    ![](attachments/103330243/103330246.png){width="750"}  
+    ![]( ../../assets/img/103330243/103330246.png)   
     Do the configurations as described in [Configuring SCIM
     provisioning](Configuring-Outbound-Provisioning-Connectors-for-an-Identity-Provider_103329711.html#ConfiguringOutboundProvisioningConnectorsforanIdentityProvider-ConfiguringSCIMprovisioning)
     . The following are the configurations in brief.
@@ -62,7 +62,7 @@ identity provider in the Identity Server.
     -   Enter the **Username** and **Password** used in the SCIM
         application.
 
-    -   Select the **User Endpoint** and **Group Endpoint** , which are
+    -   Select the **User Endpoint** and **Group Endpoint**, which are
         SCIM endpoints.
 
     -   **User Store Domain** is the user store that you need to
@@ -94,19 +94,19 @@ from the management console can also be provisioned to external systems
 like Salesforce and Google Apps.
 
 1.  Log on to the [Management
-    Console](_Getting_Started_with_the_Management_Console_) using
+    Console](../../setup/getting-started-with-the-management-console) using
     username and password.
 2.  In the **Main** menu under the **Identity** section, click
-    **Resident** under **Service Providers** .
+    **Resident** under **Service Providers**.
 3.  In the resulting screen, expand the **Outbound Provisioning
     Configuration** section.  
-    ![](attachments/103330243/103330245.png?effects=border-simple,blur-border){width="1065"}
+    ![]( ../../assets/img/103330243/103330245.png?effects=border-simple,blur-border) 
 4.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![](attachments/103330243/103330248.png)
+        possible. ![]( ../../assets/img/103330243/103330248.png)
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
@@ -128,23 +128,23 @@ provider if your application supports OAuth.
     Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
-    **Add** under **Service Providers** .
+    **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.
 4.  In the screen that appears, expand the **Outbound Provisioning
     Configuration** section.  
-    ![](attachments/103330243/103330244.png?effects=border-simple,blur-border){width="1065"}
+    ![]( ../../assets/img/103330243/103330244.png?effects=border-simple,blur-border) 
 5.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
-        possible. ![](attachments/103330243/103330248.png)
+        possible. ![]( ../../assets/img/103330243/103330248.png)
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
-    3.  There is another option called **Blocking** . If enabled, it
+    3.  There is another option called **Blocking**. If enabled, it
         means that the outbound provisioning request must be blocked
         until the response is received. By default, the request would be
         not non-blocking.

@@ -291,7 +291,7 @@ Cluster](https://docs.wso2.com/display/ADMIN44x/Sharing+Databases+in+a+Cluster)
     
     **Note:** The production recommendation is to set the
     `          <versionResourcesOnChange>         ` property in the
-    `          registry.xml         ` file to **false** . This is because
+    `          registry.xml         ` file to **false**. This is because
     automatic versioning of resources can be an extremely expensive
     operation.
     
@@ -304,7 +304,7 @@ In the registry browser, verify that the governance collection is shown
 with the symlink icon.
 
 1.  Log in to the management console.
-2.  Navigate to **Home \> Registry \> Browse** .  
+2.  Navigate to **Home \> Registry \> Browse**.  
     ![](attachments/103329476/103329488.png)
 
 ------------------------------------------------------------------------
@@ -697,7 +697,7 @@ Manager
 Nodes](https://docs.wso2.com/display/CLUSTER44x/Sticky+Sessions+with+Manager+Nodes)
 . The following is the deployment diagram with the load balancer.
 
-![](attachments/103329476/103329481.png){width="750"}
+![](attachments/103329476/103329481.png) 
 
 #### Configuring Nginx
 
@@ -1113,16 +1113,16 @@ other works in passive mode. However, both nodes process all the data.
 If the active node fails, the other node becomes active and receives all
 the requests.
 
-![](attachments/103329489/103329496.png){width="458"}
+![](attachments/103329489/103329496.png) 
 
   
 
 When the failed node is up again, it fetches  all the internal states of
 the current active node via synching.
 
-![](attachments/103329489/103329495.png){width="490"}
+![](attachments/103329489/103329495.png) 
 
-![](attachments/103329489/103329494.png){width="458"}
+![](attachments/103329489/103329494.png) 
 
 The newly arrived node then becomes the passive node and starts
 processing all the incoming messages to keep its state synched with the
@@ -1142,7 +1142,7 @@ the following needs to be carried out.
 
 1.  Download the WSO2 IS Analytics distribution. Click **DOWNLOAD
     ANALYTICS** in the [WSO2 Identity and Access Management
-    page](https://wso2.com/identity-and-access-management#download) .
+    page](https://wso2.com/identity-and-access-management#download).
 2.  Take the following steps to install WSO2 IS Analytics. Sicne this
     procedure is identical to installing WSO2 Data Analytics Server
     (DAS), these steps take you to the DAS documentation for details.
@@ -1161,10 +1161,10 @@ the following needs to be carried out.
             Service](http://docs.wso2.com/data-analytics-server/Installing%20as%20a%20Linux%20Service)
 3.  Follow the steps below to set up MySQL.
     1.  Download and install [MySQL
-        Server](http://dev.mysql.com/downloads/) .
+        Server](http://dev.mysql.com/downloads/).
 
     2.  Download the [MySQL JDBC
-        driver](http://dev.mysql.com/downloads/connector/j/) .
+        driver](http://dev.mysql.com/downloads/connector/j/).
 
     3.  Unzip the downloaded MySQL driver zipped archive, and copy the
         MySQL JDBC driver JAR (
@@ -1427,7 +1427,7 @@ should be done for both nodes.
 
         The datasource name specified in this configuration should be
         the same as the datasource used by user manager that you
-        configured in sub step **a, i** .
+        configured in sub step **a, i**.
 
     4.  In the
         `             <IS Analytics_HOME>/repository/conf/registry.xml            `
@@ -2144,5 +2144,5 @@ The HA deployment you configured can be tested as follows.
 6.  [Log into the IS Analytics Management
     Console](https://docs.wso2.com/display/DAS300/Running+the+Product)
     and navigate to **Main** =\> **Manage** =\> **Batch Analytics** =\>
-    **Console** to open the **Interactive Analytics Console** . Run a
+    **Console** to open the **Interactive Analytics Console**. Run a
     query in this console.

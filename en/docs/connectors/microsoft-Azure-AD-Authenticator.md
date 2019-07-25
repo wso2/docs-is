@@ -25,7 +25,7 @@ Internet (cloud services).
 The diagram below illustrates the flow of the Office365 federated
 authenticator.
 
-![](attachments/50520526/76746216.png){width="965"}  
+![](attachments/50520526/76746216.png)   
 
 ### Getting started
 
@@ -37,6 +37,6 @@ users using the Microsoft Azure AD authenticator.
 ### Additional information
 
 Download the authenticator and other artifacts from [the
-store](https://store.wso2.com/store/assets/isconnector/list) .
+store](https://store.wso2.com/store/assets/isconnector/list).
 
   

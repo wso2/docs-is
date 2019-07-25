@@ -37,12 +37,12 @@ relationship between the SP and the IDP, by presenting the SAML 2.0
 token to the authorization server and exchanging it directly to an OAuth
 2.0 access token.
 
-![](attachments/103329619/103329620.jpg)
+![]( ../../assets/img/103329619/103329620.jpg)
 
 **Related Topics**
 
 -   To try the SAML2.0 Assertion grant type with WSO2 Identity Server,
     see [Setting up a SAML2 Bearer Assertion Profile for OAuth
-    2.0](_Setting_up_a_SAML2_Bearer_Assertion_Profile_for_OAuth_2.0_) .
+    2.0](_Setting_up_a../../using-wso2-identity-server/saml2-bearer-assertion-profile-for-oauth-2.0).
 -   For more information on how to use SAML2.0 assertions for client
-    authentication, see [SAML 2.0 Web SSO](_SAML_2.0_Web_SSO_) .
+    authentication, see [SAML 2.0 Web SSO](_SAML_2.0_Web_SSO_).

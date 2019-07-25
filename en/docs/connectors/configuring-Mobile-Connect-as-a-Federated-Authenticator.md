@@ -11,7 +11,7 @@ authenticator.
 
 -   For a high-level overview of Mobile Connect and its use cases with
     WSO2 Identity Server, see [Mobile Connect
-    Authenticator](_Mobile_Connect_Authenticator_) .
+    Authenticator](_Mobile_Connect_Authenticator_).
 -   Download the WSO2 Identity Server from [the WSO2 Identity Server
     product page](http://wso2.com/products/identity-server/) and extract
     the .zip file. That folder is referred to as
@@ -94,7 +94,7 @@ To make this scenario works, you need to create a developer account in
 Mobile Connect and use it to integrate with the WSO2 Identity Server.
 
 1.  Navigate to
-    <https://developer.mobileconnect.io/#overlay=user/register> , enter
+    <https://developer.mobileconnect.io/#overlay=user/register>, enter
     your name and email and click **Register** to register your Mobile
     Connect developer account. You will receive an email that includes a
     link that enables you to access your account.
@@ -103,10 +103,10 @@ Mobile Connect and use it to integrate with the WSO2 Identity Server.
     You will receive a confirmation from your mobile service provider.
     Now that this is configured, you can log in using your mobile phone.
 3.  Once you log in, click **My Apps** from the left menu and click
-    **Add Application** .  
+    **Add Application**.  
     ![](attachments/72423834/72426246.png){height="250"}
 4.  Fill in the required information to create an application and click
-    **Create** .  
+    **Create**.  
     ![](attachments/72423834/72426475.png){height="250"}  
     Fill in the following details.
     -   **Name** : Travelocity (any name you prefer)
@@ -120,12 +120,12 @@ Mobile Connect and use it to integrate with the WSO2 Identity Server.
     -   **Redirect URI** : https://localhost:9443/commonauth
 
 5.  Click **My Operators** and click **Accept Terms and Conditions for
-    all operators** .  
-    ![](attachments/72423834/72427944.png){width="750"}
+    all operators**.  
+    ![](attachments/72423834/72427944.png) 
 
-6.  Go to **My Account** and click **My Test Numbers** . Add the test
-    numbers and sandbox operators and click **Update** .  
-    ![](attachments/72423834/72427946.png){width="750"}
+6.  Go to **My Account** and click **My Test Numbers**. Add the test
+    numbers and sandbox operators and click **Update**.  
+    ![](attachments/72423834/72427946.png) 
 
 ### Deploying the sample application
 
@@ -186,7 +186,7 @@ available in the Identity Server.
 
 1.  Log in to the Management Console as an administrator. In the
     **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 2.  Under the Basic Information section of the form, fill in the
     following details.
     -   **Identity Provider Name** : Mobile Connect (or any suitable
@@ -210,7 +210,7 @@ available in the Identity Server.
     | Mobile Connect Key                 | xxxxxxxxxxxx  | Enter the key value provided by Mobile Connect when you create the application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | Mobile Connect Secret              | xxxxxxxxxxxx  | Enter the secret value provided by Mobile Connect when you create the application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
     | Mobile Connect Scope               | openid        | You can add multiple values with a space in between (e.g., **openid profile** ) *.*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Mobile Connect ACR Values          | 2             | The Level of Assurance required by the client for the use case can be used here. Default value is **2** . The values accespted here are **2** and **3** . According to the OpenID Connect specification, **acr\_values** is an optional parameter. However, in the Mobile Connect specification it is a mandatory parameter. The **acr\_values** parameter in the Mobile Connect request is an indication of what authentication methods to be used by the identity provider. The authentication methods to be used are linked to the level-of-assurance (LOA) values passed in the **acr\_values ** parameter *.* The level-of-assurance, as defined by the by [ISO/IEC 29115 standard](https://www.oasis-open.org/committees/download.php/44751/285-17Attach1.pdf) , describes the degree of confidence in the processes leading up to and including an authentication. It provides assurance that the entity claiming a particular identity, is the entity to which that identity was assigned. During a Mobile Connect authentication request, the service provider specifies the degree of confidence that is required in the returned (asserted) identity, via the **acr\_values ** parameter *.* |
+    | Mobile Connect ACR Values          | 2             | The Level of Assurance required by the client for the use case can be used here. Default value is **2**. The values accespted here are **2** and **3**. According to the OpenID Connect specification, **acr\_values** is an optional parameter. However, in the Mobile Connect specification it is a mandatory parameter. The **acr\_values** parameter in the Mobile Connect request is an indication of what authentication methods to be used by the identity provider. The authentication methods to be used are linked to the level-of-assurance (LOA) values passed in the **acr\_values ** parameter *.* The level-of-assurance, as defined by the by [ISO/IEC 29115 standard](https://www.oasis-open.org/committees/download.php/44751/285-17Attach1.pdf), describes the degree of confidence in the processes leading up to and including an authentication. It provides assurance that the entity claiming a particular identity, is the entity to which that identity was assigned. During a Mobile Connect authentication request, the service provider specifies the degree of confidence that is required in the returned (asserted) identity, via the **acr\_values ** parameter *.* |
 
       
 
@@ -224,7 +224,7 @@ service provider to the Identity Server.
 
 1.  Log in to the WSO2 Identity Server management console as an
     administrator. In the **Service Providers** section under the
-    **Main** tab of the management console, click **Add** .
+    **Main** tab of the management console, click **Add**.
 2.  Add the **Service Provider Name** and click Register . In this
     instance, you can use **travelocity** as the name as it is the name
     of the sample application.
@@ -238,11 +238,11 @@ service provider to the Identity Server.
         http://localhost:8080/travelocity.com/home.jsp
     -   Select the following checkboxes:
 
-        -   **Enable Response Signing** .
+        -   **Enable Response Signing**.
 
-        -   **Enable Single Logout** .
+        -   **Enable Single Logout**.
 
-        -   **Enable Attribute Profile** .
+        -   **Enable Attribute Profile**.
 
         -   **Include Attributes in the Response Always**
 
@@ -252,7 +252,7 @@ service provider to the Identity Server.
 5.  Navigate to the **Local and Outbound Authentication Configuration**
     section. Select the **Federated Authentication** radio button and
     select **Mobile Connect** from the dropdown list.  
-    ![](attachments/72423834/72436900.png){width="750"}
+    ![](attachments/72423834/72436900.png) 
 6.  Click **Update** to save your changes.
 
 ### Testing the federated authentication flow
@@ -266,7 +266,7 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                   `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](attachments/72423834/80723064.png){width="750"}
+    ![](attachments/72423834/80723064.png) 
 2.  If you are on the web application you are redirected to the
     <https://discover.mobileconnect.io/gsma/v2/discovery/> endpoint
     application and you must provide the mobile number there. If you are
@@ -289,12 +289,12 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](attachments/72423834/80723064.png){width="750"}
+    ![](attachments/72423834/80723064.png) 
 2.  You are redirected to the Mobile Connect authentication endpoint web
     application. Here you need to provide the mobile number.  
     ![](attachments/72423834/80723065.png)
 3.  Once you provide the mobile number and click on **Mobile Connect
-    Log-in** , you are redirected to the Authorization Page as in the
+    Log-in**, you are redirected to the Authorization Page as in the
     on-net scenario and there is a popup to confirm your identity. Once
     you confirm your identity via the mobile device, you are taken to
     the home page of the travelocity sample application.  
@@ -321,14 +321,14 @@ authenticator.
 2.  Here you can use the basic authentication and mobile authentication
     as authentication steps (this can vary depending on your scenario
     and these are used for as a demonstration). You can add two steps by
-    clicking **Add Authentication Step** .  
+    clicking **Add Authentication Step**.  
     ![](attachments/72423834/80723096.png)  
 3.  In step 1, add a basic authenticator to demonstrate this scenario.
-    Select this from the drop-down under **Local Authenticators** .
+    Select this from the drop-down under **Local Authenticators**.
     Click **Add Authenticator** to add the basic authenticator.
     Similarly, for step 2, add Mobile Connect as the federated
     authenticator by selecting it from the dropdown and clicking **Add
-    Authenticator** .  
+    Authenticator**.  
     ![](attachments/72423834/80723120.png)  
     !!! tip
     
@@ -340,5 +340,5 @@ authenticator.
 
       
 
-4.  Click **Update** , the service provider is updated with the
+4.  Click **Update**, the service provider is updated with the
     multi-step authentication option.  

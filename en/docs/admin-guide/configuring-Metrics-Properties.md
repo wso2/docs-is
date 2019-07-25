@@ -48,7 +48,7 @@ overrule that of the parent. For example, if we have
 `         <PRODUCT_HOME>/repository/conf/metrics.properties        `
 file, all metrics under `         jvm.memory        ` will have
 `         INFO        ` as the configured level. However, if you have
-`         metric.level.jvm.memory.heap=TRACE        ` , the
+`         metric.level.jvm.memory.heap=TRACE        `, the
 `         TRACE        ` level would apply for the
 `         metric.level.jvm.memory.heap        ` property even though it
 is a child property of `         jvm.memory.        `

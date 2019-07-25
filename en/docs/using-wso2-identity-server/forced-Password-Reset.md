@@ -53,7 +53,7 @@ for forced password reset:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](_Customizing_Automated_Emails_) .
+        Emails](_Customizing_Automated_Emails_).
     
 
 3.  Start the Identity Server and log in to the management console with
@@ -86,7 +86,7 @@ for forced password reset:
     -   [Offline Password
         Reset](#ForcedPasswordReset-OfflinePasswordReset)
 
-    ![](attachments/103330582/103330584.png){width="812"}
+    ![]( ../../assets/img/103330582/103330584.png) 
 
 #### Password Reset via Recovery Email
 
@@ -100,7 +100,7 @@ to see a sample of how this works.
 1.  Configure the properties mentioned above, start the Identity Server
     and navigate to the relevant interface.
 2.  Select **Enable Password Reset via Recovery Email** from the three
-    options listed, and click **Update** .
+    options listed, and click **Update**.
 3.  Once the option is selected, admin users can force a password reset
     flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -143,7 +143,7 @@ to see a sample of how this works.
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in as the user you created above, "Tom". The login
@@ -169,7 +169,7 @@ template for this option can be configured in the
 1.  Configure the properties mentioned above, start the IS server and
     navigate to the relevant interface.
 2.  Select **Enable Password Reset via OTP** from the three options
-    listed, and click **Update** .
+    listed, and click **Update**.
 3.  Once the option is selected, admin users can force a password reset
     flow by updating the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
@@ -212,7 +212,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to login again as the user you created above, "Tom". The
@@ -234,7 +234,7 @@ template for this option can be configured in the
 1.  Configure the properties mentioned above, start the identity server
     and navigate to the relevant interface.
 2.  Select **Enable Password Reset Offline** from the three options
-    listed, and click **Update** .
+    listed, and click **Update**.
 3.  Click on **List** under **Claims** found in the **Main** tab and
     select http://wso2.org/claims .
 4.  Select the **One Time Password** claim, click **Edit** and select
@@ -284,7 +284,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![](attachments/103330582/103330583.png)
+        ![]( ../../assets/img/103330582/103330583.png)
 
 7.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in again as the user you created above, "Tom". The
@@ -293,7 +293,7 @@ template for this option can be configured in the
     Tom's user profile. You will see that there is now a code value in
     the **One Time Password** field.
 9.  Copy the code and use it as Tom's password to log in to the
-    [dashboard](https://localhost:9443/dashboard) .
+    [dashboard](https://localhost:9443/dashboard).
 10. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
     new password.

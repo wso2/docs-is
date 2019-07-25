@@ -55,14 +55,14 @@ authentication to each step. For example, you can configure
 User-ID/Password authentication as the first factor (knowledge factors)
 and then FIDO authentication as the second factor (possession factors).
 
-![](attachments/103329838/103329839.png)
+![]( ../../assets/img/103329838/103329839.png)
 
 WSO2 Identity Server has comprehensive support for multi-factor
 authentication, with authenticators available for **SMSOTP, FIDO,
 MEPin** and more.
 
 For a complete list of readily available authenticators, click
-[here](https://store.wso2.com/store/assets/isconnector/list) .
+[here](https://store.wso2.com/store/assets/isconnector/list).
 
 !!! note
     
@@ -78,42 +78,42 @@ For a complete list of readily available authenticators, click
 
 1.  Start the WSO2 IS server and login to the management console.
 2.  Click **Add** under **Service Providers** on the **Main** tab. Enter
-    a service provider name and click **Register** .  
+    a service provider name and click **Register**.  
     Since the service provider is for the WSO2 Identity Server itself,
     in this tutorial the service provider is referred to as 'self'.  
-    ![](attachments/103329838/103329842.png)
+    ![]( ../../assets/img/103329838/103329842.png)
 3.  Expand **Inbound Authentication Configuration\>SAML2 Web SSO
-    Configuration** and click **Configure** .
+    Configuration** and click **Configure**.
 4.  Select **Manual Configuration** and enter the following details.
-    Click **Register** .  
+    Click **Register**.  
     1.  I **ssuer -** carbonServer
     2.  **Assertion Consumer URLs -** https://localhost:9443/acs
     3.  **Enable Response Signing -** true
 
-    ![](attachments/103329838/103329841.png)
+    ![]( ../../assets/img/103329838/103329841.png)
 5.  Expand **Local and Outbound Authentication Configuration** and
     select **Advanced Configuration** to configure multi-factor
     authentication.  
     There are two types of multi-factor authentication that you can
     configure here.
     -   **Multi-option authentication** : This can be configured by
-        clicking **Add Authenticator** . Clicking this again will enable
+        clicking **Add Authenticator**. Clicking this again will enable
         you to create another authentication option. These can be either
         local or federated authenticators.
     -   **Multi-step authentication** : This is configured by clicking
-        **Add Authentication Step** . Clicking this again will enable
+        **Add Authentication Step**. Clicking this again will enable
         you to create another authentication step. These can be either
         local or federated authenticators.
 
-    ![](attachments/103329838/103329840.png)
-6.  Click **Add Authenticator** to add a **Local Authenticator** . You
+    ![]( ../../assets/img/103329838/103329840.png)
+6.  Click **Add Authenticator** to add a **Local Authenticator**. You
     can choose the type of authenticator using the dropdown. Clicking
     **Add Authenticator** again will enable you to add a second local
     authenticator and configure multi-option authentication using two
     local authenticators. Alternatively, you can click **Add
     Authentication Step** and configure a **Local Authenticator** in one
     step by selecting the local authenticator from the dropdown and
-    clicking **Add Authenticator** . You can do the same for the second
+    clicking **Add Authenticator**. You can do the same for the second
     step.  
       
     As an example for this scenario, basic and fido are used as the two
@@ -129,9 +129,9 @@ For a complete list of readily available authenticators, click
         to configure it.
     
 
-    ![](attachments/103329838/103329843.png)
+    ![]( ../../assets/img/103329838/103329843.png)
 
-7.  Select **Use** s **ubject identifier from this step** , **Use** a
+7.  Select **Use** s **ubject identifier from this step**, **Use** a
     **ttributes from this step** or both. In the case of multiple steps,
     you can have only one step as the subject step and one as the
     attribute step.
@@ -142,7 +142,7 @@ For a complete list of readily available authenticators, click
     `          authenticators.xml         ` file found in the
     `          <IS_HOME>/repository/conf/security         ` folder.
 11. Enable the `           SAML2SSOAuthenticator          ` by changing
-    the `           disabled          ` parameter to **false** .
+    the `           disabled          ` parameter to **false**.
 
     ``` java
     <Authenticator name="SAML2SSOAuthenticator" disabled="false">

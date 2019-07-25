@@ -54,7 +54,7 @@ authenticator is supported by Identity Server 5.1.0 upwards.
     **Register Your Application** ' button and register a new client.
 6.  Use <https://localhost:9443/commonauth> as the redirect URL when you
     register the client.  
-    ![](attachments/49091422/49224545.png){width="400"}
+    ![](attachments/49091422/49224545.png) 
 
     !!! note
     
@@ -85,7 +85,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 .
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  Go to <https://api.instagram.com> in your browser, and then click
     the HTTPS trust icon on the address bar (e.g., the padlock next to
     the URL) to download the certificate. If you are using google chrome
@@ -106,17 +106,17 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     
 
 4.  [Run the WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    Server](https://docs.wso2.com/display/IS510/Running+the+Product).
 5.  Log in to the [management
     console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
     as an administrator.
 6.  In the **Identity Providers** section under the **Main** tab of the
-    management console, click **Add** .
+    management console, click **Add**.
 7.  Give a suitable name for **Identity Provider Name** and configure
     the authenticator. To do this, navigate to **Instagram
     Configuration** under **Federated Authenticators** and fill the
     form.  
-    ![](attachments/49091422/51251951.png){width="800"}  
+    ![](attachments/49091422/51251951.png)   
     Do the following configurations.
 
     | Field         | Description                                                                                                                                                                                            | Sample value                      |
@@ -128,7 +128,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
     | Callback URL  | This is the URL to which the browser should be redirected after the authentication is successful. It should have this format: https://(host-name):(port)/acs.                                          | https://localhost:9443/commonauth |
 
 8.  Select both checkboxes to **Enable** the Instagram authenticator and
-    make it the **Default** .
+    make it the **Default**.
 
 9.  Click Register.
 
@@ -157,15 +157,15 @@ The next step is to configure the service provider.
         <http://localhost:8080/travelocity.com/home.jsp>
 
 6.  Select the following check-boxes:
-    1.  **Enable Response Signing** .
+    1.  **Enable Response Signing**.
 
-    2.  **Enable Single Logout** .
+    2.  **Enable Single Logout**.
 
-    3.  **Enable Attribute Profile** .
+    3.  **Enable Attribute Profile**.
 
-    4.  **Include Attributes in the Response Always** .  
+    4.  **Include Attributes in the Response Always**.  
           
-        ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="800"}
+        ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -174,9 +174,9 @@ The next step is to configure the service provider.
     section.
 
 9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication** .
+    under **Federated Authentication**.
 
-    ![](attachments/49091422/49227071.png){width="500"}
+    ![](attachments/49091422/49227071.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -196,10 +196,10 @@ This involves [adding a new claim
 mapping](https://docs.wso2.com/display/IS520/Adding+Claim+Mapping) for
 various user attributes related to Instagram.
 
--   In the **Main** menu, click **Add** under **Claims** .
+-   In the **Main** menu, click **Add** under **Claims**.
 -   Click **Add New Claim Dialect** to create the Instagram
     authenticator specific claim dialect.  
-    ![](attachments/49091422/58473586.png){width="700"}
+    ![](attachments/49091422/58473586.png) 
 -   Specify the Dialect Uri as <http://wso2.org/instagram/claims> and
     create claims. It is required to create at least one claim under
     this new dialect. Therefore, create the claim for the Instagram user
@@ -209,31 +209,31 @@ various user attributes related to Instagram.
 -   Similarly, you can create claims for all the public information of
     the Instagram user. Add the following claims under the dialect
     <http://wso2.org/instagram/claims>  
-    ![](attachments/49091422/58473593.png){width="700"}
+    ![](attachments/49091422/58473593.png) 
 
-![](attachments/49091422/58473594.png){width="700"}  
+![](attachments/49091422/58473594.png)   
 
   
 
 -   You can create the local claim to map it with the Instagram claim.
     Create the local claim **http://wso2.org/claims/profilepicture**
-    with the map attribute **profile picture** .
+    with the map attribute **profile picture**.
 
-![](attachments/49091422/58473595.png){width="700"}
+![](attachments/49091422/58473595.png) 
 
   
 
 ### Configuring requested claims for travelocity.com
 
 1.  In the **Identity** section under the **Main** tab, click **List**
-    under **Service Providers** .
+    under **Service Providers**.
 2.  Click **Edit** to edit the travelocity.com service provider.
 3.  Expand the **Claim Configuration** section.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as indicated in the image below. Here you must add
     the claims you mapped in the Identity Provider claim configuration.
 
-![](attachments/49091422/58473599.png){width="700"}
+![](attachments/49091422/58473599.png) 
 
 ### Testing the sample
 
@@ -248,4 +248,4 @@ various user attributes related to Instagram.
     Instagram. Once you login successfully you will be taken to the home
     page of the [travelocity.com](http://travelocity.com) app.  
 
-![](attachments/49091422/58473600.png){width="700"}
+![](attachments/49091422/58473600.png) 

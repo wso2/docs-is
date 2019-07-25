@@ -6,7 +6,7 @@
     
     Configuring the email address as the username in an **already running
     Identity Server** is not the production recommended way. Therefore,
-    **make sure to configure it before you begin working with WSO2 IS** .
+    **make sure to configure it before you begin working with WSO2 IS**.
     
 
 1.  Open the \<
@@ -163,7 +163,7 @@
     !!! note
         <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
         <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-        <img src="attachments/103330456/103330457.png" width="878" height="250" /></p>
+        <img src=" ../../assets/img/103330456/103330457.png" width="878" height="250" /></p>
         <p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
         <div class="code panel pdl" style="border-width: 1px;">
         <div class="codeContent panelContent pdl">
@@ -195,4 +195,4 @@
 **Related Topics**
 
 For more information on how to configure primary and secondary user
-stores, see [Configuring User Stores](_Configuring_User_Stores_) .
+stores, see [Configuring User Stores](_Configuring_User_Stores_).

@@ -149,7 +149,7 @@ When you decrypt the `         id_token        ` it will be as follows:
     You can send the code to the token endpoint to request for an access
     token, refresh token and id\_token. For this you can use the same curl
     command provided for the code token specified
-    [above](#OpenIDConnectHybridFlow-curl) .
+    [above](#OpenIDConnectHybridFlow-curl).
     
 
 Following is the response that you will receive from token endpoint:
@@ -233,7 +233,7 @@ When you decrypt the `         id_token        ` it will be as follows:
 You can send the code to the token endpoint to request for an access
 token, refresh token and id\_token. You can use the same curl command
 provided for the code token specified
-[above](#OpenIDConnectHybridFlow-curl) .
+[above](#OpenIDConnectHybridFlow-curl).
 
 Following is the response that you will receive from token endpoint:
 
@@ -244,5 +244,5 @@ Following is the response that you will receive from token endpoint:
 In case there are two id\_tokens issued, where one id\_token is from
 authorization endpoint and other is from token endpoint, be sure to
 perform the validations mentioned
-[above](#OpenIDConnectHybridFlow-validations) , which are based on the
+[above](#OpenIDConnectHybridFlow-validations), which are based on the
 OpenID Connect specification:

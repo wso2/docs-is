@@ -55,37 +55,37 @@ those listed below** with your values when configuring the steps.
 1.  Open the [Google developers
     console](https://console.developers.google.com/cloud-resource-manager)
     and click the Menu icon in the top left corner.  
-    ![](attachments/103330252/103330261.png){width="500"}
+    ![]( ../../assets/img/103330252/103330261.png) 
 
 2.  Create a new project:
 
     1.  Click **+ CREATE PROJECT** on the top of the page.
 
-    2.  Provide a name for your project and click **Create** .
+    2.  Provide a name for your project and click **Create**.
 
-    ![](attachments/103330252/103330257.png){width="400"}
+    ![]( ../../assets/img/103330252/103330257.png) 
 
 3.  Search for the project you created and click it.
 
 4.  Create a service account for the project you created.
 
-    1.  Click **IAM and admin \> Service accounts** .
+    1.  Click **IAM and admin \> Service accounts**.
 
     2.  Click **Create** under the **IAM & admin Service accounts**
         panel.
 
-    3.  Click **Create service account** .  
-        ![](attachments/103330252/103330260.png){width="457"}
+    3.  Click **Create service account**.  
+        ![]( ../../assets/img/103330252/103330260.png) 
 
     4.  Fill in the form to create the service account:
 
         -   Provide a service account name
         -   Optionally, assign the role Service Account Actor.  Click
-            **Project \>  Service Account Actor** .
+            **Project \>  Service Account Actor**.
         -   Select **Furnish a new private key** and make sure that
             **P12** is selected for the Key type. aef
 
-        ![](attachments/103330252/103330259.png){width="400"
+        ![]( ../../assets/img/103330252/103330259.png){width="400"
         height="412"}
 
     5.  Click CREATE.  
@@ -99,13 +99,13 @@ those listed below** with your values when configuring the steps.
     1.  Click **IAM and admin \> Service accounts,** click the menu icon
         at the end the service account you created, and click **Edit**
         .  
-        ![](attachments/103330252/103330255.png){width="900"}
+        ![]( ../../assets/img/103330252/103330255.png) 
     2.  Select **Enable G Suite Domain-wide Delegation** and click
-        **SAVE** .  
-        ![](attachments/103330252/103330254.png){width="492"
+        **SAVE**.  
+        ![]( ../../assets/img/103330252/103330254.png){width="492"
         height="250"}
     3.  Click View Client ID and copy the value for the Client ID.  
-        ![](attachments/103330252/103330253.png){width="513"
+        ![]( ../../assets/img/103330252/103330253.png){width="513"
         height="250"}
 6.  Manage the API client access:
     1.  Go to your domains admin console via
@@ -116,9 +116,9 @@ those listed below** with your values when configuring the steps.
         Can't see the Security section? Click the **MORE CONTROLS** bar
         at the bottom and you can see the Security section.
 
-        ![](attachments/103330252/103330264.png){width="600"}
+        ![]( ../../assets/img/103330252/103330264.png) 
 
-    3.  Click **Advanced settings \> Manage API client access** .
+    3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
         1.  Paste the [Client ID value you copied
             previously](#OutboundProvisioningwithGoogle-Copy-Client-ID)
@@ -126,17 +126,17 @@ those listed below** with your values when configuring the steps.
         2.  Enter
             `                             https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group                           `
             as the value for scopes.
-        3.  Click **Authorize** .
+        3.  Click **Authorize**.
 
-        ![](attachments/103330252/103330263.png){width="900"}
+        ![]( ../../assets/img/103330252/103330263.png) 
 
 7.  Enable Amin SDK.
     1.  On the Open the [Google developers
         console](https://console.developers.google.com/cloud-resource-manager)
-        , click the menu icon, and click **APIs & Services** .
-    2.  Click **Dashboards \> + ENABLE API AND SERVICES** .  
-        ![](attachments/103330252/103330262.png){width="900"}
-    3.  Search for Admin SDK and click **Enable** .
+       , click the menu icon, and click **APIs & Services**.
+    2.  Click **Dashboards \> + ENABLE API AND SERVICES**.  
+        ![]( ../../assets/img/103330252/103330262.png) 
+    3.  Search for Admin SDK and click **Enable**.
 
 **[\[Back to the top\]](#OutboundProvisioningwithGoogle-top)**
 
@@ -148,7 +148,7 @@ other tasks such as provisioning of resources associated with enabling
 new users.
 
 1.  Download the WSO2 Identity Server from
-    [here](http://wso2.com/products/identity-server/) .
+    [here](http://wso2.com/products/identity-server/).
 2.  When you log into Google, you normally use an email address. So, to
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order
@@ -178,11 +178,11 @@ Provider.
     log in using the email you configured for the realm configurations
     as instructed above in [step 2 of Configuring the Identity Server to
     use the email address as the
-    username](#OutboundProvisioningwithGoogle-email) .
+    username](#OutboundProvisioningwithGoogle-email).
 2.  On the Management Console, click on **Add** under **Identity
-    Providers** .
+    Providers**.
 3.  In the form that appears, provide a name for your identity provider
-    by filling in the **Identity Provider Name** , such as Google.com,
+    by filling in the **Identity Provider Name**, such as Google.com,
     and a description.
 
     See [Configuring an Identity
@@ -220,12 +220,12 @@ Provider.
         1.  Open the [Google developers
             console](https://console.developers.google.com/cloud-resource-manager)
             and click the Menu icon in the top left corner.
-        2.  Click **IAM and admin \> Service accounts** .
+        2.  Click **IAM and admin \> Service accounts**.
         3.  Note the service account ID of your service account.
 
     7.  Attach the private key you downloaded in [step 4.e under
         Configuring Google](#OutboundProvisioningwithGoogle-p12-file) as
-        the **Private Key** .
+        the **Private Key**.
     8.  Enter the email address you created using your domain before
         starting this tutorial as the Administrator's Email.
     9.  Enter a name for your application in the Application Name field.
@@ -237,9 +237,9 @@ Provider.
     11. Enter **\_** (the underscore character) as the value for the
         Google Provisioning Separator .
 
-    ![](attachments/103330252/103330256.png){width="900"}
+    ![]( ../../assets/img/103330252/103330256.png) 
 
-6.  Click **Register** .
+6.  Click **Register**.
 
 ### Configuring WSO2 IS as the resident Service Provider
 
@@ -253,14 +253,14 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
 .
 
 1.  In the **Main** menu under the **Identity** section, click
-    **Resident** under **Service Providers** .
+    **Resident** under **Service Providers**.
 2.  Expand the **Outbound Provisioning Configuration** on the screen
     that appears.
 3.  Select the Google identity provider you configured from the drop
     down and click the
-    ![](attachments/103330252/103330258.png){width="30"} button.
+    ![]( ../../assets/img/103330252/103330258.png)  button.
 
-    If you enable **Blocking** , Identity Server will wait for the
+    If you enable **Blocking**, Identity Server will wait for the
     response from the Identity Provider to continue.
 
     If you enable **Enable Rules** and **Blocking,** blocking will block
@@ -269,7 +269,7 @@ provider](Adding-and-Configuring-a-Service-Provider_103329740.html#AddingandConf
     XACML policy. For more information, see [Rule-Based
     Provisioning](_Rule_Based_Provisioning_)
 
-4.  Click **Update** .
+4.  Click **Update**.
 
 **[\[Back to the top\]](#OutboundProvisioningwithGoogle-top)**
 
@@ -280,17 +280,17 @@ Identity Server. If you add a user to the Identity Server via the
 management console, this user should also appear in Google too.
 
 1.  On the **Main** tab in the Management Console, click **Add** under
-    **Users and Roles** .
-2.  Click **Add New User** .
+    **Users and Roles**.
+2.  Click **Add New User**.
 3.  Enter the username in the form of an email and enter the password.
 
     **NOTE:** Later on, if you want to update the user details, you
     won't be able to update the email address.
 
 4.  Assign a role to the user.
-5.  Click **Finish** .
+5.  Click **Finish**.
 6.  In Google, log into admin console of your domain.  
-    On the left navigation pane, expand **Users** and click **Users** .
+    On the left navigation pane, expand **Users** and click **Users**.
     You will see that the user you created in the Identity Server has
     been added to Google as well.
 
@@ -308,4 +308,4 @@ from WSO2 IS to Google.
     .
 -   You can configure WSO2 IS to outbound provision users only if a
     given XACML rule is met. For more information, see [Rule-Based
-    Provisioning](_Rule_Based_Provisioning_) .
+    Provisioning](_Rule_Based_Provisioning_).

@@ -15,7 +15,7 @@ Step 1: Configuring an identity provider
 
 1.  Download the [WSO2 Identity
     Server](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product) .
+    it](https://docs.wso2.com/display/IS510/Running+the+Product).
 2.  Log in to the [Management
     Console](https://docs.wso2.com/display/IS540/Getting+Started+with+the+Management+Console)
     as an administrator.
@@ -28,7 +28,7 @@ Step 1: Configuring an identity provider
     this scenario.
 5.  Configure the **Outbound Provisioning Connectors** with
     [SPML](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+SPML#OutboundProvisioningwithSPML-Configuringanidentityprovider)
-    ,
+   ,
     [SCIM](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+SCIM#OutboundProvisioningwithSCIM-Configuringanidentityprovider)
     or [Salesforce
     connecter](https://docs.wso2.com/display/IS540/Outbound+Provisioning+with+Salesforce#OutboundProvisioningwithSalesforce-Configuringtheidentityprovider)
@@ -43,21 +43,21 @@ Step 1: Configuring an identity provider
     Permissions](https://docs.wso2.com/display/IS540/Configuring+Roles+and+Permissions#ConfiguringRolesandPermissions-addU)
     topic to add roles.
 
-    ![](attachments/103330270/103330272.png)
+    ![]( ../../assets/img/103330270/103330272.png)
 
 7.  Click **Update** to save changes.
 
 ### Step 2: Configuring outbound provisioning
 
 1.  In the **Main** menu, under the **Identity** section, click
-    **Resident** under **Service Providers** .
+    **Resident** under **Service Providers**.
 2.  Expand the **Outbound Provisioning Configuration** section and enter
     the name of the identity provider you just created, and select the
     connector from the dropdown list.
 
-    ![](attachments/103330270/103330273.png)
+    ![]( ../../assets/img/103330270/103330273.png)
 
-    If you enable **Blocking** , WSO2 Identity Server will wait for the
+    If you enable **Blocking**, WSO2 Identity Server will wait for the
     response from the Identity Provider to continue.
 
 3.  Click **Update** to save changes.
@@ -68,11 +68,11 @@ Now let's try provisioning user with the defined role.
 
 1.  In the **Main** menu of the management console, click **Add** under
     **Users and Roles** under the **Identity** menu.
-2.  Click **Add New User** . See [Configuring
+2.  Click **Add New User**. See [Configuring
     Users](https://docs.wso2.com/display/IS540/Configuring+Users) for
     more information.
 3.  Provide a username and a password(with confirmation) and click
-    **Next** .
+    **Next**.
 4.  Click **Finish** to create the user.
 
     !!! note
@@ -86,7 +86,7 @@ Now let's try provisioning user with the defined role.
 6.  Click **Users** and then click the **Assign Roles** action of the
     newly created user. Select the "provision" role (or any role added
     in the **Role Configuration** section of the identity provider) and
-    click **Finish** .
+    click **Finish**.
 
     !!! note
     
@@ -100,7 +100,7 @@ Now let's try provisioning user with the defined role.
 2.  Click **Users** and then click on the **Assign Roles** action of the
     newly created user. De-select the "provision" role (or any role
     added in the **Role Configuration** section of the identity
-    provider) and click **Finish** .
+    provider) and click **Finish**.
 
     !!! note
     

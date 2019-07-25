@@ -24,11 +24,11 @@ visualization.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_) .
+        Dashboard](_Accessing_the_Analytics_Dashboard_).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Overall Login Attempts Summary**
             tile.
-        2.  Click **menu** icon \> **Overall** .
+        2.  Click **menu** icon \> **Overall**.
     
 
 Let's analyze the overall authentication activities with the following
@@ -45,7 +45,7 @@ This chart allows deriving **the login patterns and detect deviations**
 that may due to unusual occurrences such as attacks, system downtime,
 etc.
 
-![](attachments/103329291/103329299.png){width="700"}
+![]( ../../assets/img/103329291/103329299.png) 
 
   
 
@@ -53,14 +53,14 @@ etc.
 
 ##### Description
 
-This chart presents a **summary of the overall login attempts** .
+This chart presents a **summary of the overall login attempts**.
 
 ##### Purpose
 
 This chart allows identifying the percentages of the successful and
 failed login attempts.
 
-![](attachments/103329291/103329302.png){width="350"}
+![]( ../../assets/img/103329291/103329302.png) 
 
 ##### Description
 
@@ -73,7 +73,7 @@ addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](_Enabling_Geolocation_Based_Statistics_) .
+    Statistics](_Enabling_Geolocation_Based_Statistics_).
     
 
 ##### Purpose
@@ -86,7 +86,7 @@ addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![](attachments/103329291/103329292.png){width="1000"}
+![]( ../../assets/img/103329291/103329292.png) 
 
 ##### Description
 
@@ -100,7 +100,7 @@ addresses.
 This chart allows viewing the login attempts sorted based on the service
 providers.
 
-![](attachments/103329291/103329297.png){width="800"}
+![]( ../../assets/img/103329291/103329297.png) 
 
   
 
@@ -118,7 +118,7 @@ providers.
 This chart allows viewing the login attempts sorted based on the user
 names.
 
-![](attachments/103329291/103329296.png){width="800"}
+![]( ../../assets/img/103329291/103329296.png) 
 
   
 
@@ -138,4 +138,4 @@ names.
 This widget allows view the details of each login attempt.
 
   
-![](attachments/103329291/103329294.png){width="1200"}
+![]( ../../assets/img/103329291/103329294.png) 

@@ -20,7 +20,7 @@ Follow the instructions given below:
         a Service Provider for Adaptive
         Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2 Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication) .
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 ### Configuring the sample scenario
@@ -36,7 +36,7 @@ Follow the instructions given below:
      
     ![ip-based-template-config](../../assets/img/tutorials/ip-based-template-config.png)
     
-5.  Click **Ok** . The authentication script and authentication steps
+5.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script prompts the second step of
     authentication for users who log in from an IP address that is not
     included within the network range configured in the script. To try
@@ -60,7 +60,7 @@ Follow the instructions given below:
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
         ![demo-hardware-key-authenticator](../../assets/img/tutorials/demo-hardware-key-authenticator.png)
         
-7.  Click **Update** .
+7.  Click **Update**.
 
 ### Trying out the sample scenario
 
@@ -83,7 +83,7 @@ Follow the instructions given below:
         var corpNetwork = ['192.168.1.0/24', '10.100.0.0/16'];
     ```
 
-6.  Click **Update** .
+6.  Click **Update**.
 7.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com> .
 8.  Click **Login** and enter Alex's credentials. Note that you are now

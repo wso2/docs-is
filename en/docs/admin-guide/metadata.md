@@ -19,7 +19,7 @@ or the collection:
     the alterations.
 -   **Media Type** - An associated Media type of the
     resource/collection. For more information about Media types, see
-    [Adding a Resource](_Adding_a_Resource_) .
+    [Adding a Resource](_Adding_a_Resource_).
 -   **Checkpoint** - Allows to create a checkpoint (URL for the
     permanent link) of a resource/collection.
 -   **Versions** - Allows to view versions of a resource/collection.
@@ -31,7 +31,7 @@ or the collection:
 
 For example,  
 
-![](attachments/22185146/22514191.png){width="750"}
+![](attachments/22185146/22514191.png) 
 
 #### Creating a checkpoint
 
@@ -55,7 +55,7 @@ To view the resource versions, click on the **View versions** link:
 
 It opens the versions. For example,
 
-![](attachments/22185146/22514195.png){width="750"}
+![](attachments/22185146/22514195.png) 
 
 This page gives the following information:  
 

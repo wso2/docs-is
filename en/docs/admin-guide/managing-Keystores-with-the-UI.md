@@ -16,10 +16,10 @@
 All the required keystore files should first be created and stored in
 the `         <PRODUCT_HOME>/repository/resources/security/        `
 directory. For information on how to create new keystore files see
-[Creating New Keystores](_Creating_New_Keystores_) , and for information
+[Creating New Keystores](_Creating_New_Keystores_), and for information
 on how to update configuration files in your product with keystore
 information, see [Configuring Keystores in WSO2
-Products](_Configuring_Keystores_in_WSO2_Products_) .
+Products](_Configuring_Keystores_in_WSO2_Products_).
 
 The default `          wso2carbon.jks         ` keystore cannot be
 deleted.
@@ -30,10 +30,10 @@ Follow the instructions below to upload a keystore file to the
 management console.
 
 1.  Log in to the WSO2 product with your username and password.
-2.  Go to the **Configure** tab and click **Key Stores** .
+2.  Go to the **Configure** tab and click **Key Stores**.
 3.  The **Key Store Management** page appears. Click the **Add New Key
     store** link.
-4.  Specify the **Provider** and the **Keystore Password** , which
+4.  Specify the **Provider** and the **Keystore Password**, which
     points to the password required to access the private key.
 5.  In the **Keystore Type** field, specify whether the keystore file
     you are uploading is JKS or PKCS12.
@@ -45,7 +45,7 @@ management console.
         that keystore. However, you cannot modify the keystore. This is
         used to import certificates from different browsers into your
         Java Key store.
-6.  Click **Next** and provide the **Private Key Password** .
+6.  Click **Next** and provide the **Private Key Password**.
 7.  Click **Finish** to add the new keystore to the list.
 
 8.  The keystore file is saved to the registry of your product. To see
@@ -57,7 +57,7 @@ Follow the instructions below to view details of the keystore you
 uploaded.
 
 1.  Log in to the WSO2 product with your user name and password.
-2.  Go to the **Configure** tab and click **Key Stores** .
+2.  Go to the **Configure** tab and click **Key Stores**.
 3.  The **Key Store Management** page appears. All the keystores that
     are currently added to the product will be listed here.  
 4.  Click **View** in the list of actions. The **View Key Store** screen

@@ -4,7 +4,7 @@ This section provides you with detailed information on how to configure
 the WSO2 Identity Server from the start. The following diagram depicts
 the normal flow of events you would follow.
 
-![](attachments/103329390/103329391.png)
+![]( ../../assets/img/103329390/103329391.png)
 
 As per the above diagram, when setting up the Identity Server, you would
 configure the following in the order mentioned.
@@ -67,10 +67,10 @@ configure the following in the order mentioned.
     tenants.  
 
 -   **[Management
-    console](_Getting_Started_with_the_Management_Console_)  
+    console](../../setup/getting-started-with-the-management-console)  
     ** Once you have configured the user stores, you can configure
     various tools available to you in the [management
-    console](_Getting_Started_with_the_Management_Console_) . See [Using
+    console](../../setup/getting-started-with-the-management-console). See [Using
     WSO2 Identity Server](_Using_WSO2_Identity_Server_) for information
     on working with the features in the **Main** menu.
 
@@ -93,7 +93,7 @@ configure the following in the order mentioned.
 
     -   [View system statistics](_System_Statistics_)
     -   [View system logs](_System_Logs_)
-    -   [Work with SOAP tracer](_SOAP_Tracer_)
+    -   [Work with SOAP tracer](../../using-wso2-identity-server/soap-tracer_)
 
 -   **[Identity
     providers](_Adding_and_Configuring_an_Identity_Provider_)**  

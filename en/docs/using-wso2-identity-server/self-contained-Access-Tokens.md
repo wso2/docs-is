@@ -52,12 +52,12 @@ self-contained JWT access tokens as below.
 
 2.  Restart the server.
 3.  Configure an [OAuth service
-    provider](_Adding_and_Configuring_a_Service_Provider_) .
+    provider](_Adding_and_Configuring_a_Service_Provider_).
 4.  Initiate an access token request to the WSO2 Identity Server, over a
-    known [grant type](_OAuth_2.0_Grant_Types_) . For example, the
+    known [grant type](../../using-wso2-identity-server/oauth-2.0-grant-types). For example, the
     following cURL command illustrates the syntax of an access token
     request that can be initiated over the [Resource Owner Password
-    Credential](_Resource_Owner_Password_Credentials_Grant_) grant type.
+    Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant type.
 
     <table>
     <tbody>
@@ -80,7 +80,7 @@ self-contained JWT access tokens as below.
     </ul></li>
     <li>Enter the username and password of the user you want to get the token as the value for <code>                  &lt;USERNAME&gt;                 </code> and <code>                  &lt;PASSWORD&gt;                 </code> respectively.</li>
     <li>By default, <code>                  &lt;IS_HOST&gt;                 </code> is <code>                  localhost.                 </code> However, if you are using a public IP, the respective IP address or domain needs to be specified.</li>
-    <li>By default, <code>                  &lt;IS_HTTPS_PORT&gt;                 </code> has been set to 9443. However, if the port offset has been incremented by <code>                  n                 </code> , the default port value needs to be incremented by <code>                  n                 </code> .</li>
+    <li>By default, <code>                  &lt;IS_HTTPS_PORT&gt;                 </code> has been set to 9443. However, if the port offset has been incremented by <code>                  n                 </code>, the default port value needs to be incremented by <code>                  n                 </code> .</li>
     </ul>
     <p>Example:</p>
     <div class="code panel pdl" style="border-width: 1px;">

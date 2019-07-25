@@ -20,7 +20,7 @@ you need to follow in order to use a MSSQL database for this purpose.
     
     You need to set up MSSQL before following the steps to configure your
     product with MSSQL. For more information, see [Setting up Microsoft
-    SQL](_Setting_up_Microsoft_SQL_) .
+    SQL](_Setting_up_Microsoft_SQL_).
     
 
 ### Setting up datasource configurations
@@ -31,7 +31,7 @@ to the default H2 database, which stores registry and user management
 data. After setting up the Microsoft SQL database to replace the default
 H2 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoMSSQL-Changingthedefaultdatabase) , or [configure
+datasource](#ChangingtoMSSQL-Changingthedefaultdatabase), or [configure
 a new
 datasource](#ChangingtoMSSQL-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 to point it to the new database as explained below.
@@ -150,7 +150,7 @@ Follow the steps below to change the type of the default
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/) .
+        Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
@@ -163,7 +163,7 @@ Follow the steps below to change the type of the default
     the product rolls back the pending transactions if defaultAutoCommit
     =true . However, if required you can disable the latter mentioned
     default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           ` ,
+    `            ConnectionRollbackOnReturnInterceptor           `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.
