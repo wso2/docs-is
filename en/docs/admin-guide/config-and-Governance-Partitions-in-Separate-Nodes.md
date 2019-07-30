@@ -7,7 +7,7 @@ shares a configuration registry space by the name G-Reg 2 and the
 product Bar cluster shares a configuration registry space by the name
 G-Reg 3.  
 
-![](attachments/53125543/53287693.png)   
+![](../../assets/img/53125543/53287693.png)   
 
 Figure 4: Config and governance partitions in separate registry
 instances .  

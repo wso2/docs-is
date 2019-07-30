@@ -155,7 +155,7 @@ Once the product server is started, you can start the JC
 2.  Execute the j `          console         ` command to open the
     log-in screen of the **Java Monitoring & Management Console** as
     shown below.  
-    ![](attachments/53125400/57746949.png) 
+    ![](../../assets/img/53125400/57746949.png) 
 3.  Enter the connection details in the above screen as follows:
     1.  Enter the **JMX server URL** in the **Remote Process** field.
         This URL is published on the command prompt when you start the
@@ -206,44 +206,44 @@ Once the product server is started, you can start the JC
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747081.png) 
+    ![](../../assets/img/53125400/57747081.png) 
 
     See the Oracle documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747082.png) 
+    ![](../../assets/img/53125400/57747082.png) 
 
     See the Oracle documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747083.png) 
+    ![](../../assets/img/53125400/57747083.png) 
 
     See the Oracle documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747084.png) 
+    ![](../../assets/img/53125400/57747084.png) 
 
     See the Oracle documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747085.png) 
+    ![](../../assets/img/53125400/57747085.png) 
 
     See the Oracle documentation on [using
     JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html)
     for more information on these tabs.
 
-    ![](attachments/53125400/57747086.png) 
+    ![](../../assets/img/53125400/57747086.png) 
 
 #### Using the ServerAdmin MBean
 
 When you go to the **MBeans** tab in the JConsole, the **ServerAdmin**
 MBean will be listed under the "org.wso2.carbon" domain as shown
 below.  
-![](attachments/53125400/57746985.png) 
+![](../../assets/img/53125400/57746985.png) 
 
 The **ServerAdmin** MBean is used for administering the product server
 instance. There are several server attributes such as "ServerStatus",
@@ -255,7 +255,7 @@ any of the following values:
 -   RESTARTING
 -   IN\_MAINTENANCE
 
-![](attachments/53125400/57746978.png) 
+![](../../assets/img/53125400/57746978.png) 
 
 The **ServerAdmin** MBean has the following operations:
 
@@ -269,7 +269,7 @@ The **ServerAdmin** MBean has the following operations:
 | **endMaintenance**     | Switch the server to normal mode if it was switched to maintenance mode earlier.                            |
 
   
-![](attachments/53125400/57746982.png) 
+![](../../assets/img/53125400/57746982.png) 
 
 #### Using the ServiceAdmin MBean
 
@@ -282,7 +282,7 @@ Its attributes are as follows:
 | **NumberOfInactiveServices** | The number of services which have been disabled by an administrator. |
 | **NumberOfFaultyServices**   | The number of services which are faulty.                             |
 
-![](attachments/45968791/57747545.png) 
+![](../../assets/img/45968791/57747545.png) 
 
 The operations available in the ServiceAdmin MBean:
 
@@ -291,7 +291,7 @@ The operations available in the ServiceAdmin MBean:
 | **startService** ( [p1:string](http://p1string/) ) | The p1 parameter is the service name. You can activate a service using this operation.           |
 | **stopService** ( [p1:string](http://p1string/) )  | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
 
-![](attachments/45968791/57747543.png) 
+![](../../assets/img/45968791/57747543.png) 
 
 #### Using the StatisticsAdmin MBean
 
@@ -307,7 +307,7 @@ attributes are as follows:
 | **SystemRequestCount**    | The total number of requests that has been served by the system since the server was started.                                                    |
 | **SystemResponseCount**   | The total number of response that has been sent by the system since the server was started.                                                      |
 
-![](attachments/45968791/57747542.png) 
+![](../../assets/img/45968791/57747542.png) 
 
 Operations available in the **Statistics** MBean:
 
@@ -326,7 +326,7 @@ Operations available in the **Statistics** MBean:
 | **getMinOperationResponseTime** ( [p1:string](http://p1string/), [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
 | **getAvgOperationResponseTime** ( [p1:string](http://p1string/), [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
-![](attachments/45968791/57747540.png) 
+![](../../assets/img/45968791/57747540.png) 
 
 #### Using the DataSource MBean
 
@@ -334,7 +334,7 @@ If you have [JMX enabled for a datasource connected to the
 product](#JMX-BasedMonitoring-EnablingJMXforadatasource), you can
 monitor the performance of the datasource using this MBean. The
 **DataSource** MBean will be listed as shown below.  
-![](attachments/53125400/57747100.png) 
+![](../../assets/img/53125400/57747100.png) 
 
 **Example:** If you have JMX enabled for the default Carbon datasource
 in the `         master-datasources.xml.        ` file, the [JDBC
@@ -344,7 +344,7 @@ are configured for the Carbon datasource will be listed as attributes as
 shown below. See the [performance tuning guide](_Performance_Tuning_)
 for instructions on how these parameters are configured for a
 datasource.  
-![](attachments/53125400/57747097.png) 
+![](../../assets/img/53125400/57747097.png) 
 
 #### Using product-specific MBeans
 

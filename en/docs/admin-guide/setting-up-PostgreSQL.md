@@ -12,16 +12,16 @@ default H2 database in your WSO2 product:
 Follow the steps below to set up a PostgreSQL database.
 
 1.  Install PostgreSQL on your computer as follows:  
-    ![](attachments/53125515/53287605.png)
+    ![](../../assets/img/53125515/53287605.png)
 2.  Start the PostgreSQL service using the following command:  
-    ![](attachments/53125515/53287604.png)
+    ![](../../assets/img/53125515/53287604.png)
 3.  Create a database and the login role from a GUI using the
     [PGAdminIII tool](http://www.pgadmin.org/download/).
 4.  To connect PGAdminIII to a PostgreSQL database server, locate the
     server from the object browser, right-click the client and click
     **Connect**. This will show you the databases, tablespaces, and
     login roles as follows:  
-    ![](attachments/53125515/53287590.png) 
+    ![](../../assets/img/53125515/53287590.png) 
 5.  To create a database, click **Databases** in the tree (inside the
     object browser), and click **New Database**.
 6.  In the **New Database** dialog box, give a name to the database,

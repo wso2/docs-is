@@ -274,7 +274,7 @@ windows service.
 
         If the configurations are set properly for YAJSW, you will see
         console output similar to the following:  
-        ![](attachments/45946424/46206534.png)
+        ![](../../assets/img/45946424/46206534.png)
 
     2.  You can now access the management console from your web browser
         via <https://localhost:9443/carbon> .
@@ -292,7 +292,7 @@ windows service.
         The console will display a message confirming that
         the WSO2CARBON service was installed:
 
-        ![](attachments/28717183/29364285.png)
+        ![](../../assets/img/28717183/29364285.png)
 
     2.  Start the service by executing the following command in the same
         console window:
@@ -304,7 +304,7 @@ windows service.
         The console will display a message confirming that
         the WSO2CARBON service was started:
 
-        ![](attachments/28717183/29364288.png)
+        ![](../../assets/img/28717183/29364288.png)
 
 5.  **Stop and uninstall service:** Execute the relevant scripts as
     shown below.
@@ -318,7 +318,7 @@ windows service.
         The console will display a message confirming that
         the WSO2CARBON service has stopped:
 
-        ![](attachments/28717183/29364290.png)
+        ![](../../assets/img/28717183/29364290.png)
 
     2.  To uninstall the service, execute the following command in the
         same console window:
@@ -330,7 +330,7 @@ windows service.
         The console will display a message confirming that
         the WSO2CARBON service was removed:
 
-        ![](attachments/28717183/29364291.png)
+        ![](../../assets/img/28717183/29364291.png)
 
 ### Installing multiple products as Windows services
 
@@ -404,7 +404,7 @@ services and follow the instructions given below.
 12. Right click on **My Computer -\> Manage**. Then click **Services
     and Applications -\> Services**. You can see both ESB and DSS
     services running.  
-    ![](attachments/53125425/53287331.png)
+    ![](../../assets/img/53125425/53287331.png)
 
     You can stop or restart the services from the UI as shown in the
     diagram above.  

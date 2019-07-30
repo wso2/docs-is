@@ -31,13 +31,13 @@ or the collection:
 
 For example,  
 
-![](attachments/22185146/22514191.png) 
+![](../../assets/img/22185146/22514191.png) 
 
 #### Creating a checkpoint
 
 T o create a checkpoint, click on the **Create Checkpoint** link:
 
-![](attachments/53125531/53287635.png)
+![](../../assets/img/53125531/53287635.png)
 
 **NOTE** : When checkpoints are created, properties, comments, ratings
 and tags will also be taken into consideration. If you do not want them
@@ -51,11 +51,11 @@ the first time.
 
 To view the resource versions, click on the **View versions** link:
 
-![](attachments/53125531/53287640.png)  
+![](../../assets/img/53125531/53287640.png)  
 
 It opens the versions. For example,
 
-![](attachments/22185146/22514195.png) 
+![](../../assets/img/22185146/22514195.png) 
 
 This page gives the following information:  
 
