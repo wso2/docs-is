@@ -3,7 +3,7 @@
 When adding a datasource, if you select RDBMS as the datasource type,
 the following screen appears:
 
-![](attachments/53125518/53287615.png)
+![](../../assets/img/53125518/53287615.png)
 
 This is the default RDBMS datasource configuration provided by WSO2. You
 can also write your own RDBMS configuration by selecting the custom

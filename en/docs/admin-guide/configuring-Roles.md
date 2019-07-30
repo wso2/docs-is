@@ -42,7 +42,7 @@ Follow the instructions below to add a user role.
     this permission enabled. For more information on permissions, see
     [Role-based Permissions](_Role-based_Permissions_).
 3.  Click **Add New Role**. The following screen appears:  
-    ![](attachments/53125497/53287369.png)
+    ![](../../assets/img/53125497/53287369.png)
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
         create this role. This list includes the primary user store and

@@ -270,7 +270,7 @@ follows:
 1.  Run the `          ij         ` tool located in the
     `          <DERBY_HOME>/bin/         ` directory as illustrated
     below:  
-    ![](attachments/56996013/57739826.png)
+    ![](../../assets/img/56996013/57739826.png)
 2.  Create the database and connect to it using the following command
     inside the `          ij         ` prompt:
 

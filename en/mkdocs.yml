@@ -99,7 +99,6 @@ nav:
         - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
       - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
   - 'Tutorials':
-    - 'Tutorials': tutorials/tutorials.md
     - 'Authentication':
       - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
       - 'Configuring Shibboleth IdP as a Trusted Identity Provider': tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -233,9 +232,8 @@ nav:
           - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': tutorials/writing-xacml-3-policies-in-wso2-identity-server-7.md
         - 'Sending Notifications to External PEP Endpoints': tutorials/sending-notifications-to-external-pep-endpoints.md
         - 'Writing an XACML 3.0 Policy Using XPath': tutorials/writing-a-xacml-3.0-policy-using-xpath.md
-      - 'Setting Up An LDAP User Store': tutorials/setting-up-an-ldap-user-store.md
+    - 'Setting Up An LDAP User Store': tutorials/setting-up-an-ldap-user-store.md
   - 'Using WSO2 Identity Server': 
-    - 'Using WSO2 Identity Server': using-wso2-identity-server/using-WSO2-Identity-Server.md
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
       - 'Configuring the Identity Server':

@@ -134,7 +134,7 @@ Follow the instructions below:
     To find a particular feature, you can use the search function. Enter
     the name of a feature (or a part of the name) and press **Enter**
     .  
-    ![](attachments/53125432/85387849.png) This search will return only
+    ![](../../assets/img/53125432/85387849.png) This search will return only
     available features; excluding the ones already installed.
 
 9.  Click **Install**.
@@ -357,7 +357,7 @@ process, some features might get installed and some uninstalled.
 2.  Go to the **Configure** menu, and click **Features**.
 3.  Click on the **Installation History** tab **.** The **Installation
     History** page appears. See the example below.  
-    ![](attachments/53125432/85387850.png) 
+    ![](../../assets/img/53125432/85387850.png) 
 4.  Select the configuration to which you wish to revert.  
 5.  Click **Revert**, to revert the current configuration to a previous
     configuration.
