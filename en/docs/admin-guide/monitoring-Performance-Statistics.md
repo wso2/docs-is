@@ -16,9 +16,9 @@ Follow the instructions given below to access system-level statistics.
 
 1.  Log in to the management console and click **System Statistics** in
     the **Monitor** tab:  
-    ![](attachments/53125409/53287307.png)
+    ![](../../assets/img/53125409/53287307.png)
 2.  The **System Statistics** page appears as follows:  
-    ![](attachments/53125409/53287311.png)  
+    ![](../../assets/img/53125409/53287311.png)  
     The following information is available:
     -   [Service
         Summary](#MonitoringPerformanceStatistics-ServiceSummary)
@@ -32,7 +32,7 @@ Follow the instructions given below to access system-level statistics.
 
 #### Service Summary
 
-![](attachments/53125409/53287308.png)
+![](../../assets/img/53125409/53287308.png)
 
 This panel provides the following information:
 
@@ -52,7 +52,7 @@ This panel provides the following information:
 
 #### Server Information
 
-![](attachments/53125409/53287310.png)
+![](../../assets/img/53125409/53287310.png)
 
 This panel provides the following information:
 
@@ -65,13 +65,13 @@ This panel provides the following information:
 
 #### Response Time Graph
 
-![](attachments/53125409/53287309.png)
+![](../../assets/img/53125409/53287309.png)
 
 This graph shows the temporal variation of the Average Response time.
 
 #### Memory Graph
 
-![](attachments/53125409/53287315.png)
+![](../../assets/img/53125409/53287315.png)
 
 This graph shows the temporal variation of the server Memory.
 
@@ -81,7 +81,7 @@ The **Statistics Configuration** panel is provided to customize the
 **System Statistics** display by configuring the level information that
 can be viewed on the panel.
 
-![](attachments/53125409/53287313.png)
+![](../../assets/img/53125409/53287313.png)
 
 The following information can be configured:
 

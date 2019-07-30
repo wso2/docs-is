@@ -5,7 +5,7 @@ Entries panel with details of child collections and resources it has. It
 provides a UI to view details, add new resources, collections and links
 as follows:
 
-![](attachments/53125536/53287668.png)
+![](../../assets/img/53125536/53287668.png)
 
 -   Add Resource
 -   Add Collection

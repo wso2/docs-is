@@ -91,7 +91,7 @@ Note that the images and instructions given on this page are valid for
 WSO2 products that are based on Carbon 4.4.x.
 
 ![current logo of the Management
-Console](attachments/53125528/53287629.png "current logo of the Management Console")
+Console](../../assets/img/53125528/53287629.png "current logo of the Management Console")
 
 Follow the steps below to customize the above management console by
 changing the logo.
@@ -177,7 +177,7 @@ changing the logo.
     `           org.wso2.carbon.ui_           <version-number>          `
     `           _patch          ` project should now look as shown
     below.  
-    ![](attachments/53125528/80723769.png) 
+    ![](../../assets/img/53125528/80723769.png) 
 
 5.  Create a new CSS file (e.g.
     `           customizations.css          ` ) with the following
@@ -236,7 +236,7 @@ changing the logo.
     `           <org.wso2.carbon.ui_<version-number>_patch>/src/main/resources/          `
     `           web/admin/images/          ` directory.
 
-    ![new logo](attachments/53125528/53287628.png "new logo")
+    ![new logo](../../assets/img/53125528/53287628.png "new logo")
 
 11. Create another Maven project using your IDE. Be sure to include the
     symbolic name of the original bundle that you extracted in step 1
@@ -324,4 +324,4 @@ changing the logo.
     logo, which the patch bundle contains as shown below.
 
     ![Management Console with the new
-    logo](attachments/53125528/80723770.png "Management Console with the new logo") 
+    logo](../../assets/img/53125528/80723770.png "Management Console with the new logo") 

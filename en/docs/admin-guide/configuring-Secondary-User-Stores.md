@@ -92,7 +92,7 @@ or using the management console:
     defining user stores, see [Properties of User
     Stores](_Working_with_Properties_of_User_Stores_).
 
-    ![](attachments/53125491/72424354.png) 
+    ![](../../assets/img/53125491/72424354.png) 
 
     !!! note
     
@@ -104,7 +104,7 @@ or using the management console:
     name is given and click **Add**.
 
 7.  A message appears saying that the user stores are being added.  
-    ![](attachments/31130739/31359112.png)
+    ![](../../assets/img/31130739/31359112.png)
 
     **Note** : The above message does not imply that the user store is
     added successfully. It simply means that the server is attempting to
