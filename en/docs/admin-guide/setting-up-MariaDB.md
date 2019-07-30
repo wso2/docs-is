@@ -17,7 +17,7 @@ information on the MariaDB versions that are tested with WSO2 products.
     <https://downloads.mariadb.org/> .
 
     You can install MariaDB standalone or as a [galera
-    cluster](attachments/53125509/53287445.png) for high availability.
+    cluster](../../assets/img/53125509/53287445.png) for high availability.
     Database clustering is independent of WSO2 product clustering.
 
     For instructions on installing MariaDB on MAC OS, go to
