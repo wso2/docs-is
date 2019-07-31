@@ -6,7 +6,7 @@ Follow the instructions below to create a link on a resource/collection.
 adding a normal resource. To add a link, click *Create Link* in the
 *Entries* panel.
 
-![](attachments/53125535/53287666.png)
+![](../../assets/img/53125535/53287666.png)
 
 2\. Select a link to add from the drop-down menu.
 
@@ -16,7 +16,7 @@ When adding a Symbolic link, enter a name for the link and the path of
 an existing resource or collection which is being linked. It creates a
 link to the particular resource.
 
-![](attachments/53125535/53287665.png)
+![](../../assets/img/53125535/53287665.png)
 
 ### A Remote Link
 
@@ -27,4 +27,4 @@ going to mount and give the path of the remote collection which you need
 to mount for the path field, or else the root collection will be
 mounted.
 
-![](attachments/53125535/53287667.png)
+![](../../assets/img/53125535/53287667.png)

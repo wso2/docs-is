@@ -46,7 +46,7 @@ below to access statistics on system logs:
 2.  To view old archived logs, click **Show archived logs** tab at the
     bottom of the **System Logs** page.
 
-    ![](attachments/32351462/32525350.png)
+    ![](../../assets/img/32351462/32525350.png)
 
     The **Download** link can be used to download the log files. For
     example, if the server is configured to use the [default log
@@ -65,12 +65,12 @@ below to access statistics on system logs:
     -   **ERROR** - Error messages.
     -   **FATAL** - Fatal error messages.
 
-    ![](attachments/32351462/32525349.png)
+    ![](../../assets/img/32351462/32525349.png)
 
 4.  You can also find a specific log using the search function. Enter a
     keyword (or part of a keyword) and click **Search**.
 
-    ![](attachments/32351462/32525348.png)
+    ![](../../assets/img/32351462/32525348.png)
 
 ### View application logs
 
@@ -93,7 +93,7 @@ logs:
 
 3.  You can see a drop-down list from which a deployed web services or a
     web applications can be selected to view its log files.  
-    ![](attachments/12421402/12747658.png)
+    ![](../../assets/img/12421402/12747658.png)
 4.  In the **View** list, select the category of logs you want to view.
     The available categories are:  
 
@@ -107,10 +107,10 @@ logs:
 
     For Example,
 
-    ![](attachments/12421402/12747656.png)
+    ![](../../assets/img/12421402/12747656.png)
 
 5.  You can also find a certain log using the search function. Enter a
     keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
     **Custom**. For example,  
-    ![](attachments/12421402/12747655.png) 
+    ![](../../assets/img/12421402/12747655.png) 

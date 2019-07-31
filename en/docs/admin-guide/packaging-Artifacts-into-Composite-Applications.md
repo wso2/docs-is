@@ -17,22 +17,22 @@ Applications](#PackagingArtifactsintoCompositeApplications-Packagingindividualar
 1.  Open the Tooling interface with all the artifacts/projects that you
     created. For example, shown below is an ESB mediation sequeance
     created with ESB artifacts.  
-    ![](attachments/50521962/119114531.png) 
+    ![](../../assets/img/50521962/119114531.png) 
 2.  Right-click the **Project Explorer** and click **New -\> Project**
     .  
-    ![](attachments/50521962/119114532.png) 
+    ![](../../assets/img/50521962/119114532.png) 
 3.  From the window that opens, click **Composite Application Project**
     .  
-    ![](attachments/50521962/51252779.png) 
+    ![](../../assets/img/50521962/51252779.png) 
 4.  Give a name to the **Composite Application** project and select the
     projects that you need to group into your C-App from the list of
     available projects below. For example,  
-    ![](attachments/50521962/119114537.png) 
+    ![](../../assets/img/50521962/119114537.png) 
 5.  In the **Composite Application Project POM Editor** that opens,
     under **Dependencies**, note the information for each of the
     projects you selected earlier. You can also change the project
     details here.  
-    ![](attachments/50521962/119114534.png) 
+    ![](../../assets/img/50521962/119114534.png) 
 
 #### Creating a Composite Application Archive (CAR) file
 
@@ -102,4 +102,4 @@ artifact type.
 | Registry Resource            | Registry Resource with necessary metadata |
 | Third Party Library Artifact | .jar (OSGI Bundle)                        |
 
-![](attachments/50521962/57744665.png) 
+![](../../assets/img/50521962/57744665.png) 

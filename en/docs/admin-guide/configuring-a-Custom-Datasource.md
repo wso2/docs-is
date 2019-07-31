@@ -3,7 +3,7 @@
 When adding a datasource, if you select the custom datasource type, the
 following screen will appear:
 
-![](attachments/53125523/53287621.png) 
+![](../../assets/img/53125523/53287621.png) 
 
 Following are descriptions of the custom datasource fields:
 
@@ -78,7 +78,7 @@ cluster for data synchronization.
 Shown below is an example configuration of a custom datasource of type
 `         <DS_CUSTOM_TABULAR>        ` :
 
-![](attachments/53125523/53287622.png) 
+![](../../assets/img/53125523/53287622.png) 
 
 After creating datasources, they will appear on the **Data Sources**
 page. You can edit and delete them as needed by clicking **Edit** or

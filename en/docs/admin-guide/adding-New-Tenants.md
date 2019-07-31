@@ -16,7 +16,7 @@ be logged in as a super user.
 1.  Click **Add New Tenant** in the **Configure** tab of your product's
     management console.
 
-    ![](attachments/53125481/53287366.png)
+    ![](../../assets/img/53125481/53287366.png)
 
 2.  Enter the tenant information in **Register A New Organization**
     screen as follows, and click **Save**.
@@ -37,7 +37,7 @@ be logged in as a super user.
     currently exist in the system. If you want to view only tenants of a
     specific domain, enter the domain name in the **Enter the Tenant
     Domain** parameter and click **Find**.  
-    ![](attachments/53125481/87718672.png) 
+    ![](../../assets/img/53125481/87718672.png) 
 
 ### Managing tenants using Admin Services
 
@@ -112,7 +112,7 @@ follows:
     machine as the product instance. Note that there are several
     operations shown in the SOAP UI after importing the wsdl file:
 
-    ![](attachments/53125481/92516206.png) 
+    ![](../../assets/img/53125481/92516206.png) 
 
     !!! warning
     
