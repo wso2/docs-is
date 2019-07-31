@@ -72,7 +72,7 @@ sample.
     repository. To do this, follow the instructions on the [Downloading
     a Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
 
-2.  Start up [Identity Server](_Running_the_Product_) and log in to the
+2.  Start up [Identity Server](../../setup/running-the-product) and log in to the
     management console.
 3.  Upload the policy by following the first three steps found
     [here](https://docs.wso2.com/display/IS510/Creating+a+XACML+Policy)

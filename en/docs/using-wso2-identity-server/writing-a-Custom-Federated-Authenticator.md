@@ -444,7 +444,7 @@ Use the following steps to write the Twitter authenticator.
     building it you have to put that into the
     `          <IS_HOME>/repository/components/dropins         `
     directory.
-6.  [Restart the Identity Server](_Running_the_Product_) to use the
+6.  [Restart the Identity Server](../../setup/running-the-product) to use the
     Twitter authenticator in IS.
 
 ### Custom authenticator for Facebook
