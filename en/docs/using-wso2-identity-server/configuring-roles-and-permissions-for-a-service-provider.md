@@ -13,9 +13,9 @@ provider. If you want to allow any other user to be able to view or
 manage a service provider, the user has to be assigned the application
 role corresponding to the particular service provider.
 
-!!! tip
+!!! tip "Application Role"
     
-    **Application Role** : A special case of internal role that is created
+    A special case of internal role that is created
     for a particular service provider application. Only users who are
     assigned the application role permission can manage the corresponding
     service provider application.
@@ -23,36 +23,43 @@ role corresponding to the particular service provider.
 
 Now, let's create a service provider, and then configure roles and
 permission for the created service provider.
+First, follow the steps below to register a service provider via the Management Console of WSO2 IS:
 
-Next, follow the steps below to configure roles and define custom
-permission for the service provider:
+1.  Enter your username and password to log on to the Management Console.
+2.  Click the Main tab on the Management Console, and then click Add under Service Providers.
+3.  Enter a value for the Service Provider Name, and provide a brief Description to describe the service provider. Providing a Description is optional.
+4.  Click Register to add the new service provider.
+
+Next, follow the steps below to configure roles and define custom permission for the service provider:
 
 1.  In the service provider that you created, expand the
     **Role/Permission Configuration** section, and then expand the
     **Permissions** as well as the **Role Mapping** sections.  
-    ![]( ../../assets/img/103329771/103329772.png) 
+    ![role-mapping](../../assets/img/using-wso2-identity-server/role-mapping.png)
+
 2.  Click **Add Permission** and specify the service provider specific
     permission that you want to add.
-
-    -   If you want to add another permission entry, click **Add
-        Permission** again.
-    -   If you want to delete an entry, click **Delete**.
+    
+    !!! info 
+        -   If you want to add another permission entry, click **Add
+            Permission** again.
+        -   If you want to delete an entry, click **Delete**.
 
     Once you add/update service provider specific permission details,
     the permission details will be listed as available permission when
     [adding
-    roles](Configuring-Roles-and-Permissions_103330369.html#ConfiguringRolesandPermissions-addU)
+    roles](../../using-wso2-identity-server/configuring-roles-and-permissions#adding-a-user-role)
     via WSO2 IS.
 
 3.  Click **Add Role Mapping** and enter appropriate values for the
     **Local Role** as well as the **Service Provider Role**.
 
-    -   If you want to add another role mapping entry, click **Add Role
-        Mapping** again.
-    -   If you want to delete a role mapping entry, click **Delete**.
+    !!! info 
+        -   If you want to add another role mapping entry, click **Add Role
+            Mapping** again.
+        -   If you want to delete a role mapping entry, click **Delete**.
 
     !!! tip
-    
         When you add role mapping, you can map an exact role name available
         in WSO2 IS to a particular service provider role.
     
@@ -61,4 +68,4 @@ Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
 any user who should be able to view and manage the service provider. For
 information on how to assign roles to a user, see [Configuring
-Users](_Configuring_Users_).
+Users](../../using-wso2-identity-server/configuring-users).

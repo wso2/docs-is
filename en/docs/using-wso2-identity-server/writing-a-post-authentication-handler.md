@@ -56,12 +56,6 @@ The post-authentication operations can be done within the implementation
 of this handler. The response can be coveyed on the interface using one
 of the following two methods.  
   
-
--   [By returning a
-    PostAuthnHandlerFlowStatus](#WritingaPost-AuthenticationHandler-ByreturningaPostAuthnHandlerFlowStatus)
--   [By throwing a
-    PostAuthenticationFailedException](#WritingaPost-AuthenticationHandler-BythrowingaPostAuthenticationFailedException)
-
 ##### By returning a PostAuthnHandlerFlowStatus
 
 This method of returning the response can have multiple flow statuses:
@@ -84,6 +78,10 @@ This method of returning the response can have multiple flow statuses:
 <p>If a response from an external page is submitted to the post-authentication handler which is in progress, the following needs to be included in the request along with the input data that is recieved from the external page:</p>
 <ol>
 <li><p>SessionDataKey</p></li>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.</p>
+</div>
 <li><p>PASTR cookie (this is used to track the post-authentication sequence and used to secure the post-authentication flow.)</p></li>
 </ol></td>
 </tr>
