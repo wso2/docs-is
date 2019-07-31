@@ -442,17 +442,14 @@ This is how UMA works.
 !!! note
     
     In order to obtain UMA related information in the introspection end
-    point, the following configuration needs to be added within
-    `          <OAuth>         ` in the `          identity.xml         `
-    file in `          <ISHOME>/repository/conf/identity         ` .  
-    This is enabled by default. The response shown above with additional UMA
+    point, add the following configuration to the `deployment.toml` file in the `<ISHOME>/repository/conf/` folder .  
+    This is disabled by default. The response shown above with additional UMA
     related details is what we get when the following configuration is
     enabled.
     
     ``` java
-     <Introspection>
-        <EnableDataProviders>true</EnableDataProviders>
-     </Introspection>
+    [oauth.grant_type.uma_ticket]
+    retrieve_uma_permission_info_through_introspection="true"
     ```
     
     Following is a sample response when the above configuration is disabled.
