@@ -9,7 +9,7 @@ resource owners to control the access to their protected resources.
 
   
 
-![]( ../../assets/img/103329665/103329667.png) 
+![user-managed-access-diagram]( ../../assets/img/using-wso2-identity-server/user-managed-access-diagram.png) 
 
 There are five main roles in a UMA workflow:
 
@@ -25,7 +25,7 @@ There are five main roles in a UMA workflow:
 
 The Protection API consists of three endpoints:
 
-![]( ../../assets/img/103329665/103329666.png) 
+![uma-protection-api-endpoints-diagram]( ../../assets/img/using-wso2-identity-server/uma-protection-api-endpoints-diagram.png) 
 
 <table>
 <colgroup>
@@ -68,6 +68,6 @@ other relevant information.
 -   For a tutorial that demonstrates how you can use WSO2 Identity
     Server as the authorization server to try out UMA, see [User Managed
     Access with WSO2 Identity
-    Server](../../using-wso2-identity-server/user-managed-accesswith_WSO2_Identity_Server_).
+    Server](../../using-wso2-identity-server/user-managed-access-with-wso2-identity-server).
 
   
