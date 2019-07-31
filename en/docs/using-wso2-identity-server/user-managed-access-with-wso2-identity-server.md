@@ -5,12 +5,6 @@ allows a resource owner to easily share resources with other requesting
 parties. This tutorial demonstrates how you can use WSO2 IS as the
 authorization server to try out UMA for a sample scenario.
 
-This tutorial includes the following sections:
-
--   [Introduction](#UserManagedAccesswithWSO2IdentityServer-Introduction)
--   [Try out the UMA
-    flow](#UserManagedAccesswithWSO2IdentityServer-TryouttheUMAflow)
-
 ### Introduction
 
 To demonstrate the UMA flow using WSO2 IS as the authorization server,
@@ -29,10 +23,7 @@ do the following:
 
 ### Try out the UMA flow
 
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"
     [Download](https://wso2.com/identity-and-access-management) and install
     WSO2 Identity Server, which will act as the authorization server. Let’s
     refer to the WSO2 Identity Server installation location as
@@ -40,29 +31,8 @@ do the following:
     
 
 Now you can follow the instructions in the sections below to try out the
-UMA flow:  
-
--   [Create the resource
-    owner](#UserManagedAccesswithWSO2IdentityServer-Createtheresourceowner)
--   [Create the requesting
-    party](#UserManagedAccesswithWSO2IdentityServer-Createtherequestingparty)
--   [Configure service providers to act as the resource server and
-    client](#UserManagedAccesswithWSO2IdentityServer-Configureserviceproviderstoactastheresourceserverandclient)
--   [Obtain the Protection API Access token
-    (PAT)](#UserManagedAccesswithWSO2IdentityServer-ObtaintheProtectionAPIAccesstoken(PAT))
--   [Register the
-    resource](#UserManagedAccesswithWSO2IdentityServer-Registertheresource)
--   [Publish a
-    policy](#UserManagedAccesswithWSO2IdentityServer-Publishapolicy)
--   [Obtain a permission
-    ticket](#UserManagedAccesswithWSO2IdentityServer-Obtainapermissionticket)
--   [Obtain the OIDC
-    id\_token](#UserManagedAccesswithWSO2IdentityServer-ObtaintheOIDCid_token)
--   [Obtain the requesting party
-    token](#UserManagedAccesswithWSO2IdentityServer-Obtaintherequestingpartytoken)
--   [Get the token
-    introspection](#UserManagedAccesswithWSO2IdentityServer-Getthetokenintrospection)
-
+UMA flow.
+<a name="resourceowner"></a>
 #### Create the resource owner
 
 Follow the steps below to create a user named Kate who will act as the
@@ -72,7 +42,7 @@ resource owner:
     can sign in using `          admin         ` as the username and
     password. For detailed instructions on starting WSO2 Identity Server
     and accessing the management console, see [Running the
-    Product](_Running_the_Product_).
+    Product](../../setup/running-the-product).
 2.  On the **Main** tab, click **Add** under **Users and Roles**.
 3.  Click **Add New User**.
 4.  Specify the following values to create a new user.
@@ -124,8 +94,9 @@ behalf of the requesting party.
         **Configure**.
     4.  Enter `            https://localhost/callback           ` as the
         value for the **Callback Url**.  
-        ![]( ../../assets/img/103329672/106960574.png) 
+        ![register-uma-app]( ../../assets/img/using-wso2-identity-server/register-uma-app.png) 
     5.  Click **Add**.
+    <a name="clientsp"></a>
 2.  Follow the steps below to configuring a service provider for the
     client acting on behalf of the requesting party:  
     1.  On the **Main** tab, click **Add** under **Service Providers**.
@@ -137,7 +108,7 @@ behalf of the requesting party.
     4.  Enter
         `                         https://localhost/callback                       `
         as the value for the **Callback Url**.  
-        ![]( ../../assets/img/103329672/106960574.png) 
+        ![register-uma-app]( ../../assets/img/using-wso2-identity-server/register-uma-app.png) 
     5.  Click **Add**.
 
 Note down the **Client ID** and **Client Secret** values. You need those
@@ -148,21 +119,17 @@ values to obtain the Protection API Access Token (PAT).
 -   Execute the following curl command to obtain the PAT:
 
     !!! tip
-    
-        Tip
-    
         -   Be sure to replace the `            <CLIENT_ID>           ` and
             `            <CLIENT_SECRET>           ` tags with the values
             you obtained when you [configured the service provider for the
-            client](#UserManagedAccesswithWSO2IdentityServer-kapte_sp).
+            client](#clientsp).
         -   In this tutorial, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have
             configured Kate as the resource
-            owner](#UserManagedAccesswithWSO2IdentityServer-Configuringtheresourceowner)
+            owner](#resourceowner)
            , you need to pass Kate's user name and password in the curl
             command.
-    
 
     ``` java
     curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=kate&password=kate123&scope=uma_protection" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
@@ -171,13 +138,13 @@ values to obtain the Protection API Access Token (PAT).
     You will get a response similar to the following:
 
     ``` java
-        {
-           "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
-           "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
-           "scope":"uma_protection",
-           "token_type":"Bearer",
-           "expires_in":3600
-        }
+    {
+        "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
+        "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
+        "scope":"uma_protection",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
     ```
 
 #### Register the resource
@@ -188,13 +155,9 @@ Now, you need to register the resource.
     `           Photo Album          ` :
 
     !!! tip
-    
-        Tip
-    
         -   Make sure to replace the `            <PAT>           ` tag with
             the [access token you got in the previous
-            section](#UserManagedAccesswithWSO2IdentityServer-GettingtheProtectionAPIAccesstoken(PAT))
-            .
+            section](#obtain-the-protection-api-access-token-(pat)).
     
 
     ``` java
@@ -217,9 +180,9 @@ Now, you need to register the resource.
     You will get a response similar to the following:
 
     ``` java
-        {
-            "_id": "ceaa6506-1da9-456b-88d8-027797d2e081"
-        }
+    {
+        "_id": "ceaa6506-1da9-456b-88d8-027797d2e081"
+    }
     ```
 
 Now you have completed registering the resource.
@@ -250,7 +213,7 @@ Follow the steps given below to create, register and publish a policy:
     Be sure to replace the
     `            {ENTER_YOUR_RESOURCE_ID}           ` tag with the
     resource ID that you obtained when you [registered the
-    resource](#UserManagedAccesswithWSO2IdentityServer-Registeringtheresource)
+    resource](#register-the-resource)
     .
 
     ``` java
@@ -292,7 +255,7 @@ Follow the steps given below to create, register and publish a policy:
 
 5.  **Save** the policy. You will see the new policy that you created
     listed in the **Policy Administration** page.  
-    ![]( ../../assets/img/103329672/106960600.png) 
+    ![add-uma-policy]( ../../assets/img/using-wso2-identity-server/add-uma-policy.png) 
 
 6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
@@ -301,7 +264,7 @@ Follow the steps given below to create, register and publish a policy:
     publish the policy.
 8.  Click **Yes**. This publishes the policy. If you want to view the
     published policy, click **Policy View** under **PDP**.  
-    ![]( ../../assets/img/103329672/106960601.png) 
+    ![view-uma-policy]( ../../assets/img/using-wso2-identity-server/view-uma-policy.png) 
 
 #### Obtain a permission ticket
 
@@ -320,11 +283,11 @@ contains an invalid token.
     permission ticket, you need to follow the step below to change the
     permission ticket expiration validity period:
     
-    -   Edit the
-        `          <IS_HOME>/repository/conf/identity/identity.xml         `
-        file and change the value of the
-        `          <AuthorizationCodeDefaultValidityPeriod>         `
-        property to `          36000         ` .
+    -   Add the following configuration to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder and set the value to 36000. 
+    ```toml
+    [oauth.token_validation]
+    authorization_code_validity= "36000"
+    ```
     
 
 The request can contain one or more permission values by having multiple
@@ -335,11 +298,11 @@ in this tutorial contains a single permission.
 
     -   Make sure to replace the `             <PAT>            `
         tag with the [access token you got in the previous
-        section](#UserManagedAccesswithWSO2IdentityServer-ObtaintheProtectionAPIAccesstoken(PAT))
+        section](#obtain-the-protection-api-access-token-(pat))
         .
     -   Replace the `             <RESOURCE_ID>            ` tag with
         the ID you got when [registering the
-        resource](#UserManagedAccesswithWSO2IdentityServer-Registertheresource)
+        resource](#register-the-resource)
         .
 
     ``` java
@@ -367,7 +330,7 @@ party user name is required).
     Be sure to replace the `             <CLIENT_ID>            ` and
     `             <CLIENT_SECRET>            ` tags with the values you
     got when you [Configured the service provider for the
-    client](#UserManagedAccesswithWSO2IdentityServer-client_sp).
+    client](#clientsp).
 
     ``` java
         curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=sam&password=sam123&scope=openid" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
@@ -376,7 +339,7 @@ party user name is required).
     Since the grant type used here is the password grant type, you need
     to specify the requesting party credentials in the curl command.
     Because you have [configured Sam as the requesting
-    party](#UserManagedAccesswithWSO2IdentityServer-Configuringrequestingparty)
+    party](#create-the-requesting-party)
     in this tutorial, you need to specify Sam's user name and password
     in the curl command.  
       
@@ -405,14 +368,14 @@ claim token.
         `              <CLIENT_ID>             ` and
         `              <CLIENT_SECRET>             ` tags with the
         values you got after [Configuring service provider for the
-        client](#UserManagedAccesswithWSO2IdentityServer-client_sp).
+        client](#clientsp).
     -   Replace `              <PERMISSION_TICKET>             ` with
         the value you generated under the [Obtaining a permission
-        ticket](#UserManagedAccesswithWSO2IdentityServer-Obtainingapermissionticket)
+        ticket](#obtain-a-permission-ticket)
         section.
     -   Make sure to replace the `              <ID_TOKEN>             `
         tag with the [OIDC id\_token you
-        obtained](#UserManagedAccesswithWSO2IdentityServer-GatheringclaimsbyobtainingtheOIDCtoken)
+        obtained](#obtain-the-oidc-token)
         .
 
     ``` java
@@ -439,11 +402,11 @@ token that it has issued, which the resource server can use.
 
     -   Make sure to replace the `               <PAT>              `
         tag with the [access token you got in the previous
-        section](#UserManagedAccesswithWSO2IdentityServer-GettingtheProtectionAPIAccesstoken(PAT))
+        section](#obtain-the-protection-api-access-token-(pat))
         .
 
     -   Replace the \<RPT\> tag with the [request party token you
-        obtained](#UserManagedAccesswithWSO2IdentityServer-Obtainingrequestingpartytoken(RPT))
+        obtained](#obtain-the-requesting-party-token)
         .
 
     ``` java
@@ -479,17 +442,14 @@ This is how UMA works.
 !!! note
     
     In order to obtain UMA related information in the introspection end
-    point, the following configuration needs to be added within
-    `          <OAuth>         ` in the `          identity.xml         `
-    file in `          <ISHOME>/repository/conf/identity         ` .  
-    This is enabled by default. The response shown above with additional UMA
+    point, add the following configuration to the `deployment.toml` file in the `<ISHOME>/repository/conf/` folder .  
+    This is disabled by default. The response shown above with additional UMA
     related details is what we get when the following configuration is
     enabled.
     
     ``` java
-     <Introspection>
-        <EnableDataProviders>true</EnableDataProviders>
-     </Introspection>
+    [oauth.grant_type.uma_ticket]
+    retrieve_uma_permission_info_through_introspection="true"
     ```
     
     Following is a sample response when the above configuration is disabled.
@@ -507,11 +467,10 @@ This is how UMA works.
     ```
     
 
-**Related Topics**
-
-The resource registration endpoint allows you to list registered UMA
-resources, read resource description of a UMA resource, update a UMA
-resource and delete a UMA resource. For more information, see [Resource
-registration
-endpoint](User-Managed-Access-Endpoints_103329668.html#UserManagedAccessEndpoints-Resourceregistrationendpoint)
-.
+!!! info "Related Topics"
+    The resource registration endpoint allows you to list registered UMA
+    resources, read resource description of a UMA resource, update a UMA
+    resource and delete a UMA resource. For more information, see [Resource
+    registration
+    endpoint](../../using-wso2-identity-server/user-managed-access-endpoints#resource-registration-endpoint)
+    .

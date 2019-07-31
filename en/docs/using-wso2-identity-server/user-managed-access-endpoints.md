@@ -1,12 +1,7 @@
 # User Managed Access Endpoints
 
 This section describes the different endpoints used by User Managed
-Access:
-
--   [Resource registration
-    endpoint](#UserManagedAccessEndpoints-Resourceregistrationendpoint)
--   [Permission
-    endpoint](#UserManagedAccessEndpoints-Permissionendpoint)
+Access.
 
 ### Resource registration endpoint
 
@@ -19,29 +14,13 @@ of JSON documents that are maintained as web resources. In the normal
 process, protection of a resource starts with successful registration
 and ends with successful deregistration.
 
--   [Resource
-    description](#UserManagedAccessEndpoints-Resourcedescription)
--   [Resource registration
-    APIs](#UserManagedAccessEndpoints-ResourceregistrationAPIs)
--   [Error messages](#UserManagedAccessEndpoints-Errormessages)
--   [Creating a resource
-    description](#UserManagedAccessEndpoints-Creatingaresourcedescription)
--   [Reading a resource
-    description](#UserManagedAccessEndpoints-Readingaresourcedescription)
--   [Updating a
-    resource description](#UserManagedAccessEndpoints-Updatingaresourcedescription)
--   [Deleting a resource
-    description](#UserManagedAccessEndpoints-Deletingaresourcedescription)
--   [Listing a resource
-    descriptions](#UserManagedAccessEndpoints-Listingaresourcedescriptions)
-
 ##### Resource description
 
 The figure below shows the flow of the request made by the
 resource server to the authorization server (01) and response generated
 by authorization server to the resource server (02).
 
-![]( ../../assets/img/103329668/103329669.png) 
+![uma-resource-registration-endpoint]( ../../assets/img/using-wso2-identity-server/uma-resource-registration-endpoint.png) 
 
 Resource description is a JSON object which explains the characteristics
 of the resource that is to be put under the protection of the
@@ -311,12 +290,13 @@ scopes corresponding to a resource identifier.
 The diagram given below illustrates a request made to the permission
 endpoint with a success response in return.
 
-![]( ../../assets/img/103329668/103329670.png) 
+![]( ../../assets/img/using-wso2-identity-server/permission-endpoint.png) 
 
--   [Error messages](#UserManagedAccessEndpoints-Errormessages.1)
+-   [Error messages](#errormsgs)
 -   [Creating a permission
-    ticket](#UserManagedAccessEndpoints-Creatingapermissionticket)
-
+    ticket](#permissionticket)
+    
+<a name="errormsgs"></a>
 ##### Error messages
 
 The error code can either be `         invalid_resource_id        ` or
@@ -326,7 +306,7 @@ The error code can either be `         invalid_resource_id        ` or
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `             Invalid_resource_id            `    | This indicates that the resource ID does not exist in the authorization server.                                        |
 | `             Invalid_resource_scope            ` | This indicates that at least one of the scopes corresponding to the resource is not found at the authorization server. |
-
+<a name="permissionticket"></a>
 ##### Creating a permission ticket
 
 This creates a permission ticket using the POST HTTP method.  A sample

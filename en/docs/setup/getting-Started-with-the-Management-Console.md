@@ -15,7 +15,7 @@ which is configured in the **catalina-server.xml** file in the
 essential for this transport to be properly configured in this file for
 the Management Console to be accessible to users. For information on how
 to access the management console, see [Running the
-Product](_Running_the_Product_).
+Product](../../setup/running-the-product).
 
 !!! warning
     

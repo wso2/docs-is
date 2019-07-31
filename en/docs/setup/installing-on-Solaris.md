@@ -85,4 +85,4 @@ you can take the following approaches:
     vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
     .
 
-You are now ready to [run the product](_Running_the_Product_).
+You are now ready to [run the product](../../setup/running-the-product).

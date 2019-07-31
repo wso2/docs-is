@@ -461,9 +461,9 @@ nav:
         - 'OpenID Connect Single Logout': using-wso2-identity-server/openID-Connect-Single-Logout.md
       - 'Extension Points for OAuth': using-wso2-identity-server/extension-Points-for-OAuth.md
       - 'User Managed Access':
-        - 'User Managed Access': using-wso2-identity-server/user-Managed-Access.md
-        - 'User Managed Access Endpoints': using-wso2-identity-server/user-Managed-Access-Endpoints.md
-        - 'User Managed Access with WSO2 Identity Server': using-wso2-identity-server/user-Managed-Access-with-WSO2-Identity-Server.md
+        - 'User Managed Access': using-wso2-identity-server/user-managed-access.md
+        - 'User Managed Access Endpoints': using-wso2-identity-server/user-managed-access-endpoints.md
+        - 'User Managed Access with WSO2 Identity Server': using-wso2-identity-server/user-managed-access-with-wso2-identity-server.md
     - 'Consent Management': using-wso2-identity-server/consent-Management.md
     - 'Analytics':
       - 'Analytics': using-wso2-identity-server/analytics.md

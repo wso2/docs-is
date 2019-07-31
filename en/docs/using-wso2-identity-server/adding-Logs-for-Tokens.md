@@ -50,7 +50,7 @@ sh wso2server.sh -DRead_Log_Token_Properties=true
 ```
 
 To add the parameter to the environment variable, use the following
-command and then [start the server](_Running_the_Product_).
+command and then [start the server](../../setup/running-the-product).
 
 **Exporting to the Java environment variable**
 

@@ -133,7 +133,7 @@ is recommended for most users.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's <a href="_Running_the_Product_">Management Console</a> .The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's <a href="../../setup/running-the-product">Management Console</a> .The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
 </ul>
 !!! note
     <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
