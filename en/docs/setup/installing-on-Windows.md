@@ -98,7 +98,7 @@ command:
     set JAVA_HOME
 
 The system returns the JDK installation path. You are now ready to [run
-the product.](_Running_the_Product_)
+the product.](../../setup/running-the-product)
 
 **Setting JAVA\_HOME temporarily using the Windows command prompt
 (CMD)**
@@ -147,4 +147,4 @@ you can take the following approaches:
     vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
     .
 
-You are now ready to [run the product](_Running_the_Product_).
+You are now ready to [run the product](../../setup/running-the-product).
