@@ -87,7 +87,7 @@ Follow the instructions below to set up OAuth token hashing:
 
     1.  Start WSO2 IS and log on to the Management Console with
         your user name and password. For detailed instructions on how to
-        start WSO2 IS, see [Running the Product](_Running_the_Product_)
+        start WSO2 IS, see [Running the Product](../../setup/running-the-product)
         .
     2.  Navigate to **Service Providers** \> **Add**, enter a name for
         the new service provider, and then click **Register**.

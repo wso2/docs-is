@@ -120,4 +120,4 @@ following line above `          127.0.0.1 localhost         ` in the
 `          /etc/hosts         ` file: `          <ip_address>         `
 `          <machine_name> localhost         `
 
-You are now ready to [run the product](_Running_the_Product_).
+You are now ready to [run the product](../../setup/running-the-product).
