@@ -379,24 +379,24 @@ nav:
       - 'Using Email Address as the Username': using-wso2-identity-server/using-Email-Address-as-the-Username.md
       - 'Managing Consent Purposes': using-wso2-identity-server/managing-Consent-Purposes.md
     - 'Identity Bus':
-      - 'Identity Bus': using-wso2-identity-server/identity-Bus.md
+      - 'Identity Bus': using-wso2-identity-server/identity-bus.md
       - 'Adding and Configuring a Service Provider':
-        - 'Adding and Configuring a Service Provider': using-wso2-identity-server/adding-and-Configuring-a-Service-Provider.md
+        - 'Adding and Configuring a Service Provider': using-wso2-identity-server/adding-and-configuring-a-service-provider.md
         - 'Configuring Claims for a Service Provider':
-          - 'Configuring Claims for a Service Provider': using-wso2-identity-server/configuring-Claims-for-a-Service-Provider.md
-          - 'Consent Management with Single-Sign-On': using-wso2-identity-server/consent-Management-with-Single-Sign-On.md
-        - 'Configuring Roles and Permissions for a Service Provider': using-wso2-identity-server/configuring-Roles-and-Permissions-for-a-Service-Provider.md
-        - 'Configuring Inbound Authentication for a Service Provider': using-wso2-identity-server/configuring-Inbound-Authentication-for-a-Service-Provider.md
+          - 'Configuring Claims for a Service Provider': using-wso2-identity-server/configuring-claims-for-a-service-provider.md
+          - 'Consent Management with Single-Sign-On': using-wso2-identity-server/consent-management-with-single-sign-on.md
+        - 'Configuring Roles and Permissions for a Service Provider': using-wso2-identity-server/configuring-roles-and-permissions-for-a-service-provider.md
+        - 'Configuring Inbound Authentication for a Service Provider': using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider.md
         - 'Configuring Local and Outbound Authentication for a Service Provider':
-          - 'Configuring Local and Outbound Authentication for a Service Provider': using-wso2-identity-server/configuring-Local-and-Outbound-Authentication-for-a-Service-Provider.md
-          - 'Multi-factor Authentication for WSO2 IS': using-wso2-identity-server/multi-factor-Authentication-for-WSO2-IS.md
-          - 'Multi-factor Authentication using FIDO': using-wso2-identity-server/multi-factor-Authentication-using-FIDO.md
-          - 'Request Path Authentication': using-wso2-identity-server/request-Path-Authentication.md
-          - 'Writing a Post-Authentication Handler': using-wso2-identity-server/writing-Post-Authentication-Handler.md
-          - 'Configuring Multi-factor Authentication with Username and Password': using-wso2-identity-server/configuring-Multi-factor-Authentication-with-Username-and-Password.md
-        - 'Configuring Inbound Provisioning for a Service Provider': using-wso2-identity-server/configuring-Inbound-Provisioning-for-a-Service-Provider.md
-        - 'Configuring Outbound Provisioning for a Service Provider': using-wso2-identity-server/configuring-Outbound-Provisioning-for-a-Service-Provider.md
-        - 'Importing or Exporting a Service Provider': using-wso2-identity-server/importing-or-Exporting-a-Service-Provider.md
+          - 'Configuring Local and Outbound Authentication for a Service Provider': using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider.md
+          - 'Multi-factor Authentication for WSO2 IS': using-wso2-identity-server/multi-factor-authentication-for-wso2-is.md
+          - 'Multi-factor Authentication using FIDO': using-wso2-identity-server/multi-factor-authentication-using-fido.md
+          - 'Request Path Authentication': using-wso2-identity-server/request-path-authentication.md
+          - 'Writing a Post-Authentication Handler': using-wso2-identity-server/writing-post-authentication-handler.md
+          - 'Configuring Multi-factor Authentication with Username and Password': using-wso2-identity-server/configuring-multi-factor-authentication-with-username-and-password.md
+        - 'Configuring Inbound Provisioning for a Service Provider': using-wso2-identity-server/configuring-inbound-provisioning-for-a-service-provider.md
+        - 'Configuring Outbound Provisioning for a Service Provider': using-wso2-identity-server/configuring-outbound-provisioning-for-a-service-provider.md
+        - 'Importing or Exporting a Service Provider': using-wso2-identity-server/importing-or-exporting-a-service-provider.md
       - 'Adding and Configuring an Identity Provider': 
         - 'Adding and Configuring an Identity Provider': using-wso2-identity-server/adding-and-Configuring-an-Identity-Provider.md
         - 'Configuring Claims for an Identity Provider': using-wso2-identity-server/configuring-Claims-for-an-Identity-Provider.md

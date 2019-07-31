@@ -6,24 +6,19 @@ service provider. The following sections explain how WSO2 Identity
 Server handles consent management within the single-sign-on (SSO)
 authentication flow.
 
--   [Consent management flow for
-    SSO](#ConsentManagementwithSingle-Sign-On-ConsentmanagementflowforSSO)
--   [Trying out consent management for
-    SSO](#ConsentManagementwithSingle-Sign-On-TryingoutconsentmanagementforSSO)
--   [Disabling consent management for
-    SSO](#ConsentManagementwithSingle-Sign-On-DisablingconsentmanagementforSSO)
 
 ### Consent management flow for SSO
 
 This section guides you through the consent management flow for SSO
 authentication.
 
--   For more information on SSO authentication, see the [Configuring
-    Single Sign-On](_Configuring_Single_Sign-On_) tutorial.
--   Consent management is enabled by default in WSO2 Identity Server. If
-    you wish to disable it, see [Disabling consent management for
-    SSO](#ConsentManagementwithSingle-Sign-On-DisablingconsentmanagementforSSO)
-    .
+!!! info 
+    -   For more information on SSO authentication, see the [Configuring
+        Single Sign-On](../../tutorials/single-sign-on) tutorial.
+    -   Consent management is enabled by default in WSO2 Identity Server. If
+        you wish to disable it, see [Disabling consent management for
+        SSO](../../using-wso2-identity-server/consent-management-with-single-sign-on#disabling-consent-management-for-sso)
+        .
 
 1.  When configuring claims for a service provider, the identity admin
     can specify requested claims and mandatory claims that determine
@@ -42,7 +37,7 @@ authentication.
         time of login as shown in the image below.
     
 
-    ![]( ../../assets/img/103329798/103329800.png) 
+    ![requested-claims](../../assets/img/using-wso2-identity-server/requested-claims.png)
 
 2.  When a user is authenticated for the relevant application, the
     service provider requests the user information represented by these
@@ -72,17 +67,17 @@ authentication.
             management console and clicking **Edit** next to the claim.
     
 
-    ![]( ../../assets/img/103329798/103329802.png) 
+    ![claims-list](../../assets/img/using-wso2-identity-server/claims-list.png)
 
 4.  Once the user provides approval to share the user attributes, WSO2
     Identity Server will store the consent in relation to the user and
     the application. This means that the user will not be prompted for
     consent again unless one of the following occurs:
 
--   -   The user has revoked consent for the application. For more
+    -   The user has revoked consent for the application. For more
         information on revoking user consent, see [Configuring consent
         for
-        services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
+        services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
         .
 
     -   The application requires new mandatory claims that the user has
@@ -92,13 +87,11 @@ authentication.
 
 ### Trying out consent management for SSO
 
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"
+
     Configure the Travelocity sample app as a service provider in WSO2
     Identity Server. For more information on how to do this, see the
-    [Configuring Single Sign-On](_Configuring_Single_Sign-On_) tutorial.
+    [Configuring Single Sign-On](../../tutorials/single-sign-on) tutorial.
     
 
 1.  Configure the following service provider claims.
@@ -109,20 +102,20 @@ authentication.
     -   http://\<claim\_dialect\>/claims/gender
     -   http://\<claim\_dialect\>/claims/dob
 
-    ![]( ../../assets/img/103329798/103329801.png) 
+    ![sp-claims](../../assets/img/using-wso2-identity-server/sp-claims.png)
 
 2.  Access the following URL: <http://wso2is.local:8080/travelocity.com>
     .  
     You are directed to the following page.  
 
-    ![](https://lh5.googleusercontent.com/EGzBSgIVPp8EnX-7Jfd1xsCwhkbLvTGUSBXI7_33PWJVPfph_dPYMXaiCIHInXpUIgHLOUhMQjI7oHPbKA3-3rh_4zJRywCi-7r9Y8kdl8BpelacJMEDoGtj-VbD42uBzx_CDuNR) 
+    ![access-travelocity-url](../../assets/img/using-wso2-identity-server/access-travelocity-url.png)
 
 3.  Click **Click here to login with SAML from Identity Server**. You
     are redirected to the WSO2 Identity Server for authentication.
 
 4.  Enter the user credentials and click **Submit**.
 
-    ![]( ../../assets/img/103329798/103329799.png)   
+    ![user-credentials](../../assets/img/using-wso2-identity-server/user-credentials.png)  
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  
@@ -136,7 +129,7 @@ authentication.
         enter those values before the consent screen will appear.
     
 
-    ![]( ../../assets/img/103329798/103329802.png) 
+    ![consent-screen](../../assets/img/using-wso2-identity-server/consent-screen.png)
 
 6.  Select the claims that you consent to share with the Travelocity
     application and click **Approve**. You must select all mandatory
@@ -148,7 +141,7 @@ authentication.
     
         For more information on revoking/accepting user consent, see
         [Configuring consent for
-        services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
+        services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
         .
     
 
@@ -159,16 +152,13 @@ global configuration (applies to all tenants). Once consent management
 is disabled, the user will not be prompted to provide consent during
 authentication.
 
-Open the `          identity.xml         ` file found in the in
-`          <IS_HOME>/repository/conf/identity         ` directory.
-Locate the `          <Consent>         ` tag and set the following
-property to **false**.
+Open the `          deployment.toml         ` file found in the in
+`          <IS_HOME>/repository/conf/        ` directory and add the following configuration. 
 
-``` java
-<Consent>
-       <!--Specify whether consent management should be enable during SSO.-->
-       <EnableSSOConsentManagement>false</EnableSSOConsentManagement>
-</Consent>
+
+```xml
+[authentication.consent] 
+prompt= false
 ```
 
 To re-enable consent management for SSO, you can set the above
