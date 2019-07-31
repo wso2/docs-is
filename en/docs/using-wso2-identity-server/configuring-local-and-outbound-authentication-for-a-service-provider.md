@@ -3,8 +3,8 @@
 The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
-Authentication)](_Integrated_Windows_Authentication_) or [FIDO (Fast
-IDentity Online)](_Multi-factor_Authentication_using_FIDO_). Local
+Authentication)](../../tutorials/integrated-windows-authentication) or [FIDO (Fast
+IDentity Online)](../../using-wso2-identity-server/multi-factor-authentication-using-fido). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service
@@ -16,12 +16,12 @@ Once the local authentication is successfully completed, the local
 authenticator will notify the framework. The framework will now decide
 no more authentication is needed and hand over the control to the
 corresponding response builder of the inbound authenticator. See
-[Architecture](_Architecture_) for more information on this.
+[Architecture](../../getting-started/architecture) for more information on this.
 
 You can configure the following for local and outbound authentication.
 
 1.  Expand **Local & Outbound Authentication Configuration**.  
-    ![]( ../../assets/img/103329813/103329814.png)   
+    ![local-outbound-config](../../assets/img/using-wso2-identity-server/local-outbound-config.png)  
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -39,21 +39,18 @@ You can configure the following for local and outbound authentication.
         roles, clear the check box.
 
         !!! note
-        
-                Note
-        
-                If a user role is not mapped to a service provider role, and you
-                clear the **Use user store domain in roles** check box, the
-                userstore domain name will be removed from the role claim value
-                unless the userstore domain name is APPLICATION, INTERNAL, or
-                WORKFLOW.
+            If a user role is not mapped to a service provider role, and you
+            clear the **Use user store domain in roles** check box, the
+            userstore domain name will be removed from the role claim value
+            unless the userstore domain name is APPLICATION, INTERNAL, or
+            WORKFLOW.
         
 
     -   **Enable Authorization** : This option enables you to e ngage
         authorization policies for the service provider. For more
         information, see [Configuring Access Control Policy for a
         Service
-        Provider](_Configuring_Access_Control_Policy_for_a_Service_Provider_)
+        Provider](../../tutorials/configuring-access-control-policy-for-a-service-provider)
         .
 
 2.  Select the **Authentication Type** you require from the available
@@ -65,7 +62,7 @@ You can configure the following for local and outbound authentication.
     -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![]( ../../assets/img/103329813/103329818.png) 
+        ![auth-type](../../assets/img/using-wso2-identity-server/auth-type.png)
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add
@@ -177,24 +174,23 @@ authentication types.
 
 A request path authenticator will get executed only if the initial
 authentication request brings the applicable set of credentials with it.
-See [Request Path Authentication](_Request_Path_Authentication_) for
+See [Request Path Authentication](../../using-wso2-identity-server/request-path-authentication) for
 more details.
 
-**Related Topics**
-
--   See [Multi-factor Authentication using
-    FIDO](_Multi-factor_Authentication_using_FIDO_) for more information
-    on configuring multi-step and multi-option authentication using
-    FIDO.
--   See [Integrated Windows
-    Authentication](_Integrated_Windows_Authentication_) and
-    [Configuring IWA Single-Sign-On](_Configuring_IWA_Single-Sign-On_)
-    for more information on configuring the IWA authenticator with WSO2
-    Identity Server.
--   See [Request Path Authentication](_Request_Path_Authentication_) for
-    information on a local authenticator that is executed if the initial
-    authentication request brings a set of credentials with it.
--   See [Try Request Path
-    Authentication](https://docs.wso2.com/display/IS530/Try+Request+Path+Authentication)
-    for more information on how the request path authenticator works
-    using the WSO2 playground sample .
+!!! info "Related Topics"
+    -   See [Multi-factor Authentication using
+        FIDO](../../using-wso2-identity-server/multi-factor-authentication-using-fido) for more information
+        on configuring multi-step and multi-option authentication using
+        FIDO.
+    -   See [Integrated Windows
+        Authentication](../../tutorials/integrated-windows-authentication) and
+        [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on)
+        for more information on configuring the IWA authenticator with WSO2
+        Identity Server.
+    -   See [Request Path Authentication](../../using-wso2-identity-server/request-path-authentication) for
+        information on a local authenticator that is executed if the initial
+        authentication request brings a set of credentials with it.
+    -   See [Try Request Path
+        Authentication](../../using-wso2-identity-server/try-request-path-authentication)
+        for more information on how the request path authenticator works
+        using the WSO2 playground sample .
