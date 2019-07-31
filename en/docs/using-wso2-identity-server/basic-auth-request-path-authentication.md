@@ -16,7 +16,7 @@ Basic Auth request path authenticator in two ways.
     `                   `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](_Request_Path_Authentication_).
+[Request Path Authentication](../../using-wso2-identity-server/request-path-authentication).
 
 !!! note
     
@@ -24,13 +24,16 @@ For more information on Request Path Authentication in general, see
     
     In order to get the authorization code using request path
     authentication, you have to either provide "approve always" consent
-    before sending the request or configure the
-    `         <SkipUserConsent>        ` value in the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-    to `         true        ` . If you change the identity.xml file, you
+    before sending the request or open the
+    `         <IS_HOME>/repository/conf/deployment.toml        ` file
+    and configure the following. If you change the `  deployment-toml ` file, you
     must send a prompt attribute with value `         none        ` in the
     authorization request.
     
+    ```xml
+    [oauth]
+    consent_prompt= true
+    ```
 
 ### Using the authorization header
 
@@ -40,7 +43,7 @@ For more information on Request Path Authentication in general, see
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_).
+    Connect](../../tutorials/oauth2-openid-connect).
 
     Use the following **Callback URL** when configuring OAuth:
     [https://curl-app/callback](https://www.google.com/url?q=https%3A%2F%2Fcurl-app%2Fcallback&sa=D&sntz=1&usg=AFQjCNFg_ALm4TWPOaAI9WC2YYeVsjmcZA)
@@ -48,11 +51,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![]( ../../assets/img/103329845/103329847.png) 
+    ![add-client-key](../../assets/img/using-wso2-identity-server/add-client-key.png)
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **basic-auth** from the dropdown and click **Add.** **  
-    ** ![]( ../../assets/img/103329845/103329846.png)
+    ** ![add-basic-auth](../../assets/img/using-wso2-identity-server/add-basic-auth.png)
 7.  Click **Update** to save changes to the service provider.
 8.  Send a cURL request with the `           <SEC_TOKEN>          ` in
     the authorization header, to the token endpoint. Replace the
@@ -84,7 +87,7 @@ For more information on Request Path Authentication in general, see
 -   To try out request path authentication by sending the user
     credentials as a query parameter in the request URL with the WSO2
     Playground sample, see [Try Request Path
-    Authentication](https://docs.wso2.com/display/IS530/Try+Request+Path+Authentication)
+    Authentication](../../using-wso2-identity-server/try-request-path-authentication)
     .
 
   
@@ -92,21 +95,14 @@ For more information on Request Path Authentication in general, see
 !!! note
     
     SSO can be applied even when both the basic authenticator and the
-    request path authenticator are used. To configure this, add
-    `          AuthMechanism         ` as a parameter within both
-    `          BasicAuthenticator         ` and
-    `          BasicAuthRequestPathAuthenticator         ` in the
-    `          application-authentication.xml         ` file in
-    `          <CARBON_HOME>/repository/conf/identity         ` and define
-    both the values as **basic** as shown below. This configuration is
-    enabled by default.
+    request path authenticator are used. To configure this, open
+    `          <CARBON_HOME>/repository/conf/deployment.toml         ` file and add
+    both the values as **basic** as shown below. 
     
-    ``` java
-     <AuthenticatorConfig name="BasicAuthenticator" enabled="true">
-        <Parameter name="AuthMechanism">basic</Parameter>
-      </AuthenticatorConfig>
-      <AuthenticatorConfig name="BasicAuthRequestPathAuthenticator" enabled="true" >
-        <Parameter name="AuthMechanism">basic</Parameter>
-      </AuthenticatorConfig>
+    ```xml
+    [authentication.authenticator.basic] 
+    name ="BasicAuthenticator"
+    enable=true
+    [authentication.authenticator.basic.parameters]
+    auth_mechanism= "basic"
     ```
-    

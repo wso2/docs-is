@@ -31,13 +31,13 @@ Follow the steps below to set up a Remote H2 database.
     For instructions on installing, see the [H2 installation
     guide](http://www.h2database.com/html/quickstart.html).
 
-    ![](attachments/53125507/53287411.png)
+    ![](../../assets/img/53125507/53287411.png)
 
 2.  Go to the \< `          H2_HOME>/bin         ` directory and run the
     H2 network server starting script as follows, where \<
     `          H2_HOME>         ` is the H2 installation directory:  
 
-    ![](attachments/53125507/53287410.png)
+    ![](../../assets/img/53125507/53287410.png)
 
 3.  Run the H2 database server with the following commands:
     -   For Linux:  

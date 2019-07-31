@@ -62,7 +62,7 @@ uploaded.
     are currently added to the product will be listed here.  
 4.  Click **View** in the list of actions. The **View Key Store** screen
     shows information about the available certificates.  
-    ![](attachments/53125464/53287358.png)  
+    ![](../../assets/img/53125464/53287358.png)  
     It also displays information about private key certificates:  
-    ![](attachments/53125464/53287357.png)
+    ![](../../assets/img/53125464/53287357.png)
 5.  Click **Finish** to go back to the **Key Store Management** screen.

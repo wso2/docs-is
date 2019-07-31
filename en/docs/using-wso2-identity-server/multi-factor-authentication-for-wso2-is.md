@@ -7,14 +7,6 @@ authentication. You can further strengthen the security of this
 authentication by adding an additional authentication step to
 authenticate with basic authentication, FIDO, TOTP etc.
 
--   [About multi-factor
-    authentication](#Multi-factorAuthenticationforWSO2IS-Aboutmulti-factorauthentication)
--   [MFA with WSO2 Identity
-    Server](#Multi-factorAuthenticationforWSO2IS-MFAwithWSO2IdentityServer)
--   [Configuring multi-factor authentication for WSO2 Identity
-    Server](#Multi-factorAuthenticationforWSO2IS-Configuringmulti-factorauthenticationforWSO2IdentityServer)
--   [Try it out](#Multi-factorAuthenticationforWSO2IS-Tryitout)
-
 ### About multi-factor authentication
 
 Due to increasing digital crimes and internet fraud in the world, people
@@ -55,14 +47,15 @@ authentication to each step. For example, you can configure
 User-ID/Password authentication as the first factor (knowledge factors)
 and then FIDO authentication as the second factor (possession factors).
 
-![]( ../../assets/img/103329838/103329839.png)
+![mfa-with-is](../../assets/img/using-wso2-identity-server/mfa-with-is.png)
 
 WSO2 Identity Server has comprehensive support for multi-factor
 authentication, with authenticators available for **SMSOTP, FIDO,
 MEPin** and more.
 
-For a complete list of readily available authenticators, click
-[here](https://store.wso2.com/store/assets/isconnector/list).
+!!! info 
+    For a complete list of readily available authenticators, click
+    [here](https://store.wso2.com/store/assets/isconnector/list).
 
 !!! note
     
@@ -70,9 +63,7 @@ For a complete list of readily available authenticators, click
     Knowledge factors authenticators to figure out the user first. Ex: When
     you configure FIDO authenticator, it should not be configured as the 1st
     step. Instead, it should be followed by a 1st factor authenticator.
-    
 
-  
 
 ### Configuring multi-factor authentication for WSO2 Identity Server
 
@@ -81,7 +72,7 @@ For a complete list of readily available authenticators, click
     a service provider name and click **Register**.  
     Since the service provider is for the WSO2 Identity Server itself,
     in this tutorial the service provider is referred to as 'self'.  
-    ![]( ../../assets/img/103329838/103329842.png)
+    ![configure-mfa-for-is](../../assets/img/using-wso2-identity-server/configure-mfa-for-is.png)
 3.  Expand **Inbound Authentication Configuration\>SAML2 Web SSO
     Configuration** and click **Configure**.
 4.  Select **Manual Configuration** and enter the following details.
@@ -90,7 +81,8 @@ For a complete list of readily available authenticators, click
     2.  **Assertion Consumer URLs -** https://localhost:9443/acs
     3.  **Enable Response Signing -** true
 
-    ![]( ../../assets/img/103329838/103329841.png)
+    ![enable-response-signing](../../assets/img/using-wso2-identity-server/enable-response-signing.png)
+
 5.  Expand **Local and Outbound Authentication Configuration** and
     select **Advanced Configuration** to configure multi-factor
     authentication.  
@@ -105,7 +97,8 @@ For a complete list of readily available authenticators, click
         you to create another authentication step. These can be either
         local or federated authenticators.
 
-    ![]( ../../assets/img/103329838/103329840.png)
+    ![add-auth-step](../../assets/img/using-wso2-identity-server/add-auth-step.png)
+
 6.  Click **Add Authenticator** to add a **Local Authenticator**. You
     can choose the type of authenticator using the dropdown. Clicking
     **Add Authenticator** again will enable you to add a second local
@@ -124,14 +117,14 @@ For a complete list of readily available authenticators, click
     !!! tip
     
         If you are adding FIDO as an authenticator, see [Multi-factor
-        Authentication using FIDO](_Multi-factor_Authentication_using_FIDO_)
+        Authentication using FIDO](../../using-wso2-identity-server/multi-factor-authentication-using-fido)
         for more information and follow the instructions given in the topic
         to configure it.
     
 
-    ![]( ../../assets/img/103329838/103329843.png)
+    ![mfa-using-fido](../../assets/img/using-wso2-identity-server/mfa-using-fido.png)
 
-7.  Select **Use** s **ubject identifier from this step**, **Use** a
+7.  Select **Use subject identifier from this step**, **Use** a
     **ttributes from this step** or both. In the case of multiple steps,
     you can have only one step as the subject step and one as the
     attribute step.
@@ -139,23 +132,23 @@ For a complete list of readily available authenticators, click
 9.  This navigates you to the previous screen with your newly configured
     authentication steps. Click **Update** again to save changes.
 10. Shutdown WSO2 IS and open the
-    `          authenticators.xml         ` file found in the
-    `          <IS_HOME>/repository/conf/security         ` folder.
-11. Enable the `           SAML2SSOAuthenticator          ` by changing
-    the `           disabled          ` parameter to **false**.
+    `          deployment.toml         ` file found in the
+    `          <IS_HOME>/repository/conf/         ` folder.
+11. Enable the `           SAML2SSOAuthenticator          ` as follows.
 
-    ``` java
-    <Authenticator name="SAML2SSOAuthenticator" disabled="false">
+    ``` xml
+    [admin_console.authenticator.saml_sso_authenticator]
+    enable=true
     ```
 
-12. Change the value of the `           <Priority>          ` property
-    found under the `           SAML2SSOAuthenticator          ` to 1.
+12. Set the value of `    priority  ` to 1.
 
     ``` java
-        <Priority>1</Priority>
+        [admin_console.authenticator.saml_sso_authenticator]
+        priority="1"
     ```
 
-13. Save and close the `           authenticators.xml          ` file.
+13. Save and close the `           deployment.toml          ` file.
 
 ### Try it out
 

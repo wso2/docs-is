@@ -36,7 +36,7 @@ governance) depending on the amount of data used.
 The following diagram depicts how the databases are configured in a
 typical WSO2 product cluster.
 
-![](attachments/56984483/56984486.png)
+![](../../assets/img/56984483/56984486.png)
 
 In the above diagram, the governance and configuration registry is
 shared for the whole WSO2 product cluster (assuming the cluster is

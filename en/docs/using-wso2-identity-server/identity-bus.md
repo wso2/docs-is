@@ -1,7 +1,7 @@
 # Identity Bus
 
 [Federation Silos and Spaghetti
-Identity](_Identity_Anti-patterns_and_the_Identity_Bus_) are two
+Identity](../../getting-started/identtity-anti-patterns-and-the-identity-bus) are two
 anti-patterns directly addressed by the Identity Bus pattern in the WSO2
 Identity Server. With Identity Bus, a given service provider is not
 coupled to a given identity provider and also not coupled to a given
@@ -11,12 +11,13 @@ that issues only OpenID Connect tokens. The Identity Bus acts as a
 middle-man, or an Identity Broker, that mediates and transforms identity
 tokens between heterogeneous identity protocols.
 
-**ID token** : The ID Token is a security token that contains Claims
-about the Authentication of an End-User by an Authorization Server when
-using a Client, and potentially other requested Claims. It resembles the
-concept of an identity card, in a standard JWT format, signed by the
-OpenID Provider (OP). To obtain one the client needs to send the user to
-their OP with an authentication request.
+!!! info 
+    **ID token** : The ID Token is a security token that contains Claims
+    about the Authentication of an End-User by an Authorization Server when
+    using a Client, and potentially other requested Claims. It resembles the
+    concept of an identity card, in a standard JWT format, signed by the
+    OpenID Provider (OP). To obtain one the client needs to send the user to
+    their OP with an authentication request.
 
 The following are some of the benefits of using the Identity Bus
 pattern.
@@ -45,7 +46,7 @@ pattern.
 4.  **Claim transformations.** Your service provider may read user's
     email address from the " http://sp1.org/claims/email " attribute
     id - but the identity provider of the user may send it as "
-    http://idp1.org/claims/emai " . Identity bus can transform the
+    http://idp1.org/claims/emai ". Identity bus can transform the
     claims it receives from the identity provider to the format expected
     by the service provider.
 5.  **Role mapping.** Your service provider needs to authorize users
@@ -73,12 +74,3 @@ pattern.
 The following topics provide instructions on the various functionality
 available in the identity bus of the WSO2 Identity Server.
 
--   [Adding and Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_)
--   [Adding and Configuring an Identity
-    Provider](_Adding_and_Configuring_an_Identity_Provider_)
--   [Authentication Session
-    Persistence](_Authentication_Session_Persistence_)
--   [Configuring Session Timeout](_Configuring_Session_Timeout_)
--   [Configuring a SP and IdP Using Service
-    Calls](_Configuring_a_SP_and_IdP_Using_Service_Calls_)

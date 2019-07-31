@@ -9,9 +9,10 @@ prior to autenticating the user using the password.
     **Add** under **Service Providers**.
 3.  Create a new Service Provider:
 
-    For more information on creating a service provider, see [Adding and
-    Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_).
+    !!! info 
+        For more information on creating a service provider, see [Adding and
+        Configuring a Service
+        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
@@ -21,13 +22,14 @@ prior to autenticating the user using the password.
 4.  Access the service provider you just created and expand **Local &
     Outbound Authentication Configuration**.
 
-    For more information on configuring the local and outbound
-    authentication configuration, see [Configuring Local and Outbound
-    Authentication for a Service
-    Provider](_Configuring_Local_and_Outbound_Authentication_for_a_Service_Provider_)
-    .
+    !!! info 
+        For more information on configuring the local and outbound
+        authentication configuration, see [Configuring Local and Outbound
+        Authentication for a Service
+        Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+        .
 
-    ![]( ../../assets/img/103329856/103329860.png)
+    ![configure-local-outbound](../../assets/img/using-wso2-identity-server/configure-local-outbound.png)
 
       
 
@@ -48,21 +50,24 @@ prior to autenticating the user using the password.
 7.  Click **Add** **Authentication** **step** and add the **basic**
     authenticator from ****Local Authenticators**** section.  This will
     enable the password as the 2nd step authenticator.  
-    ![]( ../../assets/img/103329856/103329859.png)
+    ![second-step-authenticator](../../assets/img/using-wso2-identity-server/second-step-authenticator.png)
 8.  Click the **Update** button. This navigates you to the previous
     screen with your newly configured authentication steps.
 
-However, by default, the username is not validated and WSO2 Identity
-Server does not check whether it exists in the userstore. This can be
-changed by setting the following parameter in the
-`          <IS_HOME>/repository/conf/identity/application-authentication.xml         `
-to `          true         ` .
+    !!! tip     
+        However, by default, the username is not validated and WSO2 Identity
+        Server does not check whether it exists in the userstore. This can be
+        configured by setting the following parameter in the
+        `          <IS_HOME>/repository/conf/deployment.toml    ` file as shown below.
 
-``` java
-<AuthenticatorConfig name="IdentifierExecutor" enabled="true">
-      <Parameter name="ValidateUsername">false</Parameter>
-</AuthenticatorConfig>
-```
+        ``` xml
+        [authentication.authenticator.user_identifier] 
+        name ="IdentifierExecutor"
+        enable=true
+        [authentication.authenticator.user_identifier.parameters]
+        validate_username= false
+        ```
+        
 
   
 
@@ -71,8 +76,8 @@ to `          true         ` .
 1.  Access the following sample PickUp application URL:
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
 2.  Enter the username and click **NEXT**.  
-    ![]( ../../assets/img/103329856/103329857.png)
+    ![enter-username](../../assets/img/using-wso2-identity-server/enter-username.png)
 3.  Enter the password and click **SIGN IN**.  
-    ![]( ../../assets/img/103329856/103329858.png)
+    ![enter-password](../../assets/img/using-wso2-identity-server/enter-password.png)
 
   
