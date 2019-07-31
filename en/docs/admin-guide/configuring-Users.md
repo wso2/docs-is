@@ -42,7 +42,7 @@ its role.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New User**. The following screen will open:  
-    ![](attachments/53125498/53287370.png)
+    ![](../../assets/img/53125498/53287370.png)
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
         create this user account. This list includes the primary user
@@ -148,7 +148,7 @@ user3, password123,http://wso2.org/claims/givenname= myname3,http://wso2.org/cla
     option](https://docs.wso2.com/display/IS530/Creating+Users+Using+the+Ask+Password+Option)
     for the server.
     
-    ![](attachments/53125498/57761882.png) 
+    ![](../../assets/img/53125498/57761882.png) 
     
 
 #### Importing users from the CSV/Excel file
@@ -162,7 +162,7 @@ To import users in bulk:
 4.  The user stores configured for your product will be listed in the
     **Domain** field. Select the user store to which you want to import
     the users from the list, upload the CSV or excel sheet, and click
-    Finish. ![](attachments/53125498/80118426.png){height="250"}
+    Finish. ![](../../assets/img/53125498/80118426.png){height="250"}
 
 The default password of the imported users is valid only for 24 hours.
 As the system administrator, you can resolve issues of expired passwords

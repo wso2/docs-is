@@ -29,16 +29,16 @@ Follow the instructions below to access the Message Flows.
     service. These phases vary according to the currently engaged
     modules within the system. The interface displays the current phases
     in each and every flow as shown in the diagram below.  
-    ![](attachments/53125407/53287294.png)
+    ![](../../assets/img/53125407/53287294.png)
 4.  In the graphical view of the message flows, click the links to get a
     view of the engaged handlers in each phase. For example, the figure
     below shows the handlers engaged in the Addressing phase at system
     start up.  
-    ![](attachments/53125407/53287299.png)
+    ![](../../assets/img/53125407/53287299.png)
 5.  You can see the text view of message flows by clicking **Show Text
     View**.  
-    ![](attachments/53125407/53287296.png)
+    ![](../../assets/img/53125407/53287296.png)
 6.  The page with the text view of message flows appears. The textual
     view provides the name and the fully qualified classes of all
     handlers within each and every phase.  
-    ![](attachments/53125407/53287297.png)
+    ![](../../assets/img/53125407/53287297.png)

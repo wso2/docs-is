@@ -58,7 +58,7 @@ components in a WSO2 Carbon product that does not support this feature
 by default.
 
 1.  Download the
-    [org.wso2.carbon.healthcheck.server.feature-\<version-number\>.zip](attachments/97566182/97566189.zip)
+    [org.wso2.carbon.healthcheck.server.feature-\<version-number\>.zip](../../assets/img/97566182/97566189.zip)
     and extract it. This folder is reffered to as
     `          <API_HOME>         ` in this document.
 2.  Copy the

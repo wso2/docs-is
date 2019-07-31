@@ -12,7 +12,7 @@ to the OAuth request path authenticator in two ways.
     `          "&token=<access_token>"         `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](_Request_Path_Authentication_).
+[Request Path Authentication](../../using-wso2-identity-server/request-path-authentication).
 
 ### Using the authorization header
 
@@ -22,7 +22,7 @@ For more information on Request Path Authentication in general, see
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](_Configuring_OAuth2-OpenID_Connect_Single-Sign-On_).
+    Connect](../../tutorials/configuring-oauth2-openid-connect-single-sign-on).
 
     Use the following **Callback URL** when configuring OAuth:
     [https://curl-app/callback](https://www.google.com/url?q=https%3A%2F%2Fcurl-app%2Fcallback&sa=D&sntz=1&usg=AFQjCNFg_ALm4TWPOaAI9WC2YYeVsjmcZA)
@@ -30,11 +30,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![]( ../../assets/img/103329848/103329849.png) 
+    ![auth-header-client-key](../../assets/img/using-wso2-identity-server/auth-header-client-key.png)
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **oauth-bearer** from the dropdown and click **Add.**  
-    **![]( ../../assets/img/103329848/103329850.png)**
+    ![oauth-bearer](../../assets/img/using-wso2-identity-server/oauth-bearer.png)
 7.  Click **Update** to save changes to the service provider.
 
 8.  Use the following cURL command to get a valid token using password
@@ -76,13 +76,13 @@ For more information on Request Path Authentication in general, see
     
         **Note:** RequestPath authentication will only skip the login page
         and not the consent page. You can skip the user consent page by
-        editing the following property at
-        `           <IS_HOME>/repository/conf/identity/identity.xml          `
-        file found under the `           <OAuth> <OpenIDConnect>          `
-        tags. To skip user consent, set this property to true.
+        adding the following property at
+        `           <IS_HOME>/repository/conf/deployment.toml          `
+        file. To skip user consent, set this property to true.
     
         ``` xml
-            <SkipUserConsent>false</SkipUserConsent>
+            [oauth]
+            consent_prompt= false
         ```
     
         If you set the above property value as ‘false’, then the response
@@ -125,4 +125,4 @@ For more information on Request Path Authentication in general, see
 -   To try out request path authentication by sending the access token
     as a query parameter in the request URL with the WSO2 Playground
     sample, see [Try Request Path
-    Authentication](_Try_Request_Path_Authentication_).
+    Authentication](../../using-wso2-identity-server/request-path-authentication).

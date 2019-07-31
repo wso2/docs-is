@@ -16,7 +16,7 @@ relevant configuration files.
 
 The following diagram illustrates the required configurations and
 repositories:  
-![](attachments/53125484/53287368.png)
+![](../../assets/img/53125484/53287368.png)
 
 The following sections include instructions on the above required
 configurations and repositories:

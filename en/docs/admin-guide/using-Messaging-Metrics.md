@@ -16,10 +16,10 @@ Metrics** dashboard.
 
 1.  Log in to the management console of the broker and click **Monitor
     -\> Metrics -\> Messaging Metrics**.  
-    ![](attachments/87694058/87694050.png)
+    ![](../../assets/img/87694058/87694050.png)
 2.  The **View Metrics** page will open. At the top of this page, you
     will find the following panel:  
-    ![](attachments/87694058/87694057.png)
+    ![](../../assets/img/87694058/87694057.png)
 3.  First, select the **Source** from the drop-down list. In a clustered
     setup, you must specify the broker node that you want to monitor.
 4.  You can specify the time interval for which the statistics displayed
@@ -30,7 +30,7 @@ Metrics** dashboard.
     relevant button to view the statistics. Given below are the
     statistics corresponding to each button:  
     -   **Disruptor**
-        ![](attachments/87694058/87694056.png)
+        ![](../../assets/img/87694058/87694056.png)
 
         |                                      |                                                                                                                                                                                                                |
         |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ Metrics** dashboard.
           
 
     -   **Publish & Subscribe**
-        ![](attachments/87694058/87694055.png)
+        ![](../../assets/img/87694058/87694055.png)
 
         |                         |                                                                                                                            |
         |-------------------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -69,10 +69,10 @@ Metrics** dashboard.
         **  
         **
     -   **Database**  
-        ![](attachments/87694058/87694051.png)
-        ![](attachments/87694058/87694052.png)
-        ![](attachments/87694058/87694053.png)
-        ![](attachments/87694058/87694054.png)
+        ![](../../assets/img/87694058/87694051.png)
+        ![](../../assets/img/87694058/87694052.png)
+        ![](../../assets/img/87694058/87694053.png)
+        ![](../../assets/img/87694058/87694054.png)
 
         |                         |                                                                 |
         |-------------------------|-----------------------------------------------------------------|
