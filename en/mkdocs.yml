@@ -398,17 +398,17 @@ nav:
         - 'Configuring Outbound Provisioning for a Service Provider': using-wso2-identity-server/configuring-outbound-provisioning-for-a-service-provider.md
         - 'Importing or Exporting a Service Provider': using-wso2-identity-server/importing-or-exporting-a-service-provider.md
       - 'Adding and Configuring an Identity Provider': 
-        - 'Adding and Configuring an Identity Provider': using-wso2-identity-server/adding-and-Configuring-an-Identity-Provider.md
-        - 'Configuring Claims for an Identity Provider': using-wso2-identity-server/configuring-Claims-for-an-Identity-Provider.md
-        - 'Configuring Roles for an Identity Provider': using-wso2-identity-server/configuring-Roles-for-an-Identity-Provider.md
+        - 'Adding and Configuring an Identity Provider': using-wso2-identity-server/adding-and-configuring-an-identity-provider.md
+        - 'Configuring Claims for an Identity Provider': using-wso2-identity-server/configuring-claims-for-an-identity-provider.md
+        - 'Configuring Roles for an Identity Provider': using-wso2-identity-server/configuring-roles-for-an-identity-provider.md
         - 'Configuring Just-In-Time Provisioning for an Identity Provider':
-          - 'Configuring Just-In-Time Provisioning for an Identity Provider': using-wso2-identity-server/configuring-Just-In-Time-Provisioning-for-an-Identity-Provider.md
-          - 'Configuring Just-In-Time Provisioning Consent Purposes': using-wso2-identity-server/configuring-Just-In-Time-Provisioning-Consent-Purposes.md
-          - 'Customizing Just-In-Time Provisioning User Interfaces': using-wso2-identity-server/customizing-Just-In-Time-Provisioning-User-Interfaces.md
-        - 'Configuring Outbound Provisioning Connectors for an Identity Provider': using-wso2-identity-server/configuring-Outbound-Provisioning-Connectors-for-an-Identity-Provider.md
-      - 'Authentication Session Persistence': using-wso2-identity-server/authentication-Session-Persistence.md
-      - 'Configuring Session Timeout': using-wso2-identity-server/configuring-Session-Timeout.md
-      - 'Configuring a SP and IdP Using Service Calls': using-wso2-identity-server/configuring-a-SP-and-IdP-Using-Service-Calls.md
+          - 'Configuring Just-In-Time Provisioning for an Identity Provider': using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider.md
+          - 'Configuring Just-In-Time Provisioning Consent Purposes': using-wso2-identity-server/configuring-just-in-time-provisioning-consent-purposes.md
+          - 'Customizing Just-In-Time Provisioning User Interfaces': using-wso2-identity-server/customizing-just-in-time-provisioning-user-interfaces.md
+        - 'Configuring Outbound Provisioning Connectors for an Identity Provider': using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider.md
+      - 'Authentication Session Persistence': using-wso2-identity-server/authentication-session-persistence.md
+      - 'Configuring Session Timeout': using-wso2-identity-server/configuring-session-timeout.md
+      - 'Configuring a SP and IdP Using Service Calls': using-wso2-identity-server/configuring-a-sp-and-idp-using-service-calls.md
     - 'Delegated Access Control':
       - 'Delegated Access Control': using-wso2-identity-server/delegated-access-control.md
       - 'OAuth Concepts': using-wso2-identity-server/oauth-concepts.md
