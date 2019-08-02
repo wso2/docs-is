@@ -358,7 +358,7 @@ Follow the steps below to change the admin password.
 Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
 
 1.  Run WSO2 IS. For detailed instructions, see [Running the
-    Product](_Running_the_Product_).
+    Product](../../setup/running-the-product).
 2.  Run the WSO2 IS Analytics profiles.
 
     !!! note

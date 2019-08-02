@@ -136,7 +136,7 @@ Identity Server.
 
 Use the following steps to check the PIP module.
 
-1.  [Restart the WSO2 Identity Server](_Running_the_Product_) and log in
+1.  [Restart the WSO2 Identity Server](../../setup/running-the-product) and log in
     to the [management
     console](../../setup/getting-started-with-the-management-console).
 2.  Go to the **Main** menu of the management console and click
