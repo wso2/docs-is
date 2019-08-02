@@ -283,7 +283,6 @@ nav:
       - 'Invoking an Endpoint from a Different Domain': using-wso2-identity-server/invoking-an-Endpoint-from-a-Different-Domain.md
       - 'Working with Product Observability': using-wso2-identity-server/working-with-Product-Observability.md
     - 'Identity Administration and Provisioning':
-      - 'Identity Administration and Provisioning': using-wso2-identity-server/identity-Administration-and-Provisioning.md
       - 'Configuring the Realm':
         - 'Configuring the Realm': using-wso2-identity-server/configuring-the-Realm.md
         - 'Configuring the Authorization Manager': using-wso2-identity-server/configuring-the-Authorization-Manager.md
@@ -315,22 +314,22 @@ nav:
           - 'Editing Claim Mapping': using-wso2-identity-server/editing-Claim-Mapping.md
           - 'Deleting Claim Mapping': using-wso2-identity-server/deleting-Claim-Mapping.md
       - 'Identity Provisioning':
-        - 'Identity Provisioning': using-wso2-identity-server/identity-Provisioning.md
-        - 'The Evolution of Provisioning Standards': using-wso2-identity-server/the-Evolution-of-Provisioning-Standards.md
+        - 'Identity Provisioning': using-wso2-identity-server/identity-provisioning.md
+        - 'The Evolution of Provisioning Standards': using-wso2-identity-server/the-evolution-of-provisioning-standards.md
         - 'Inbound Provisioning':
-          - 'Inbound Provisioning': using-wso2-identity-server/inbound-Provisioning.md
-          - 'Setting Up Service Provider for Inbound Provisioning': using-wso2-identity-server/setting-Up-Service-Provider-for-Inbound-Provisioning.md
-          - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': using-wso2-identity-server/configuring-User-Stores-for-SCIM-1.1-based-inbound-provisioning.md
-          - 'Configuring Active Directory User Stores for Inbound Provisioning': using-wso2-identity-server/configuring-Active-Directory-User-Stores-for-Inbound-Provisioning.md
+          - 'Inbound Provisioning': using-wso2-identity-server/inbound-provisioning.md
+          - 'Setting Up Service Provider for Inbound Provisioning': using-wso2-identity-server/setting-up-service-provider-for-inbound-provisioning.md
+          - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': using-wso2-identity-server/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+          - 'Configuring Active Directory User Stores for Inbound Provisioning': using-wso2-identity-server/configuring-active-directory-user-stores-for-inbound-provisioning.md
         - 'Outbound Provisioning':
-          - 'Outbound Provisioning': using-wso2-identity-server/outbound-Provisioning.md
-          - 'Outbound Provisioning with SCIM': using-wso2-identity-server/outbound-Provisioning-with-SCIM.md
-          - 'Outbound Provisioning with SPML': using-wso2-identity-server/outbound-Provisioning-with-SPML.md
-          - 'Outbound Provisioning with Salesforce': using-wso2-identity-server/outbound-Provisioning-with-Salesforce.md
-          - 'Outbound Provisioning with Google': using-wso2-identity-server/outbound-Provisioning-with-Google.md
-        - 'Role Based Provisioning': using-wso2-identity-server/role-Based-Provisioning.md
-        - 'Rule Based Provisioning': using-wso2-identity-server/rule-Based-Provisioning.md
-        - 'Provisioning Patterns': using-wso2-identity-server/provisioning-Patterns.md
+          - 'Outbound Provisioning': using-wso2-identity-server/outbound-provisioning.md
+          - 'Outbound Provisioning with SCIM': using-wso2-identity-server/outbound-provisioning-with-scim.md
+          - 'Outbound Provisioning with SPML': using-wso2-identity-server/outbound-provisioning-with-spml.md
+          - 'Outbound Provisioning with Salesforce': using-wso2-identity-server/outbound-provisioning-with-salesforce.md
+          - 'Outbound Provisioning with Google': using-wso2-identity-server/outbound-provisioning-with-google.md
+        - 'Role Based Provisioning': using-wso2-identity-server/role-based-provisioning.md
+        - 'Rule Based Provisioning': using-wso2-identity-server/rule-based-provisioning.md
+        - 'Provisioning Patterns': using-wso2-identity-server/provisioning-patterns.md
       - 'Account Management Policies':
         - 'Account Management Policies': using-wso2-identity-server/account-Management-Policies.md
         - 'Account Recovery':
