@@ -7,5 +7,5 @@ authenticated web browser.
 For information on how CSRF attacks can be harmful, and how you can
 mitigate CSRF attacks when you use WSO2 products, see [Mitigating Cross
 Site Request Forgery
-Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Request+Forgery+Attacks)
+Attacks](../../admin-guide/mitigating-cross-site-request-forgery-attacks.md)
 in the WSO2 product administration guide.

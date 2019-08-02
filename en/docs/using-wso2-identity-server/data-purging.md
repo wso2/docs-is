@@ -6,12 +6,10 @@ authentication purposes. A s the volume of the data stored grows over
 time, the authentication operations may also eventually consume more
 time. You can apply data purging to mitigate this. For more information
 about session persistence, see [Authentication Session
-Persistence](_Authentication_Session_Persistence_).
+Persistence](../../using-wso2-identity-server/authentication-session-persistence).
 
 !!! tip
-    
-    **Tip** : It is safe to run these steps in read-only mode or during a
-    time when traffic on the server is low, but that is not mandatory.
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but that is not mandatory.
     
 
 1.  Take a backup of the running database.
@@ -19,16 +17,13 @@ Persistence](_Authentication_Session_Persistence_).
     issues. For more information on setting up a database dump, go to
     the
     [MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax)
-   , [SQL
-    Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)
+   , [SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server)
    , and
     [Oracle](https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmbckba.htm#BRADV8138)
     offical documentation.
 
     !!! tip
-    
-        **Tip:** We recommend that you test the database dump before the
-        cleanup task as the cleanup can take some time.
+        We recommend that you test the database dump before the cleanup task as the cleanup can take some time.
     
 
 3.  Run the following script on the database dump. It cleans the session
@@ -37,9 +32,8 @@ Persistence](_Authentication_Session_Persistence_).
     This script clears session data that is older than the last 14 days
     and operational data that is older than the last 6 hours.
 
-    **MySQL**
-
-    ``` sql
+    
+    ``` sql tab="MySQL"
     USE `WSO2_USER_DB`;
     DROP procedure IF EXISTS `clear_session_data`;
 
@@ -101,17 +95,17 @@ Persistence](_Authentication_Session_Persistence_).
     You can also schedule a cleanup task that will be automatically run
     after a given period of time. Here's an example:
 
-    **MySQL**
-
-    ``` sql
-        USE `WSO2_USER_DB`;
-        DROP EVENT IF EXISTS cleanup_session_data_event;
-        CREATE EVENT cleanup_tokens_event
-           ON SCHEDULE
-             EVERY 1 WEEK STARTS '2015-01-01 00:00.00'
-           DO
-             CALL `WSO2_USER_DB`.clear_session_data();
     
-        -- 'Turn on the event_scheduler'
-        SET GLOBAL event_scheduler = ON;
+
+    ``` sql tab="MySQL"
+    USE `WSO2_USER_DB`;
+    DROP EVENT IF EXISTS cleanup_session_data_event;
+    CREATE EVENT cleanup_tokens_event
+        ON SCHEDULE
+          EVERY 1 WEEK STARTS '2015-01-01 00:00.00'
+        DO
+          CALL `WSO2_USER_DB`.clear_session_data();
+
+    -- 'Turn on the event_scheduler'
+    SET GLOBAL event_scheduler = ON;
     ```
