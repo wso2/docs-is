@@ -131,7 +131,7 @@ before the other node accesses the same data from the database.
     not triggered when adding new data.
     
 
-Add the following configuration the
+Add the following configuration to the
 `         <IS_HOME>/repository/conf/deployment.toml        ` file,
 
 ``` xml
