@@ -30,9 +30,8 @@ are directly located inside the `         dbscripts        ` directory
 and the identity specific table creation scripts are located inside the
 `         <IS_HOME>/dbscripts/identity        ` directory.
 
-!!! tip
-    
-    **Note:** Some of the dbscripts in this directory are named with the
+!!! note     
+    Some of the dbscripts in this directory are named with the
     relevant version number (e.g., "mysql5.7.sql"). Use the relevant scripts
     accordingly if you are using that version of the database. If there is a
     set of dbscripts without a specific mysql version indicated, that script
@@ -109,9 +108,8 @@ The data tables in Identity Server can be categorized in to several
 groups. They are listed below with diagrams illustrating the
 relationships among the tables:
 
--   [Registry Related Tables](_Registry_Related_Tables_)
--   [User Management Related Tables](_User_Management_Related_Tables_)
--   [Identity Related Tables](_Identity_Related_Tables_)
--   [Service Provider Related Tables](_Service_Provider_Related_Tables_)
--   [Identity Provider Related
-    Tables](_Identity_Provider_Related_Tables_)
+-   [Registry Related Tables](../../using-wso2-identity-server/registry-related-tables)
+-   [User Management Related Tables](../../using-wso2-identity-server/user-management-related-tables)
+-   [Identity Related Tables](../../using-wso2-identity-server/identity-related-tables)
+-   [Service Provider Related Tables](../../using-wso2-identity-server/service-provider-related-tables)
+-   [Identity Provider Related Tables](../../using-wso2-identity-server/identity-provider-related-tables)
