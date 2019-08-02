@@ -66,7 +66,7 @@ file.
 
 ### Configuring Identity Server
 
-1.  [Log in to the Identity Server](_Running_the_Product_) and go to
+1.  [Log in to the Identity Server](../../setup/running-the-product) and go to
     **Service Providers\>Add** in the **Main** menu in the [management
     console](../../setup/getting-started-with-the-management-console).
 2.  Enter a unique name for the service provider and click **Register.**
