@@ -6,13 +6,6 @@ mitigate these kind of attacks when creating an OAuth application that
 uses the [Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant) type for
 authentication.
 
--   [How can code interception attacks be
-    harmful?](#MitigatingAuthorizationCodeInterceptionAttacks-Howcancodeinterceptionattacksbeharmful?)
--   [Mitigating code interception attacks using
-    PKCE](#MitigatingAuthorizationCodeInterceptionAttacks-MitigatingcodeinterceptionattacksusingPKCE)
--   [Configuring PKCE with WSO2 Identity
-    Server](#MitigatingAuthorizationCodeInterceptionAttacks-ConfiguringPKCEwithWSO2IdentityServer)
-
 ### How can code interception attacks be harmful?
 
 A code interception attack is where a malicious client intercepts the
@@ -22,36 +15,36 @@ applications that run on platforms like Android, iOS and Microsoft
 Windows. These applications generally use the **Authorization Code**
 grant type for authentication.
 
-##### The a **uthorization code** grant type flow
+##### The authorization code grant type flow
 
-The application is registered as a handler for a particular URI scheme
+1. The application is registered as a handler for a particular URI scheme
 (e.g., URLs beginning with " `          org.wso2.app://         ` ").
 This means that the application will launch whenever a user navigates to
 a URL beginning with the custom scheme "
 `          org.wso2.app://         ` ".
 
-When authentication is required, the application launches the system
+2. When authentication is required, the application launches the system
 browser and loads the appropriate page of the identity provider. In this
 case, the identity provider is the WSO2 Identity Server (IS).
 
-Within WSO2 IS:
+3. Within WSO2 IS:
 
-1.  The user authenticates himself.
+    1.  The user authenticates himself.
 
-2.  Approves any user consents regarding the application.
+    2.  Approves any user consents regarding the application.
 
-When the user is successfully authenticated, WSO2 IS redirects the user
+4. When the user is successfully authenticated, WSO2 IS redirects the user
 to the redirection URL provided by the application (e.g., “
 `          org.wso2.app://auth?code=12345&state=abc         ` ”).
 
-The browser queries the mobile Operating System (OS) to get a list of
+5. The browser queries the mobile Operating System (OS) to get a list of
 applications that handle the URI provided. The mobile OS determines the
 application(s) and parses the URI.
 
-The native application extracts the authorization code from the parsed
+6. The native application extracts the authorization code from the parsed
 URI.
 
-The native application sends the authorization code back to WSO2 IS,
+7. The native application sends the authorization code back to WSO2 IS,
 which validates the authorization code and returns the access token.
 
 Since multiple applications can be registered as a handler for the
@@ -62,14 +55,15 @@ a possibility that the operating system will parse the URI to the
 malicious client. The flow of this attack is illustrated in the
 following diagram.
 
-In some operating systems such as Android, in step 5 of the flow, the
-user is prompted to select the application to handle the redirect URI
-before it is parsed using a "Complete Action Using" activity. This may
-avoid a malicious application from handling it, as the user can identify
-and select the legitimate application. However, some operating systems
-(such as iOS) do not have any such scheme.
+!!! info
+    In some operating systems such as Android, in step 5 of the flow, the
+    user is prompted to select the application to handle the redirect URI
+    before it is parsed using a "Complete Action Using" activity. This may
+    avoid a malicious application from handling it, as the user can identify
+    and select the legitimate application. However, some operating systems
+    (such as iOS) do not have any such scheme.
 
-![]( ../../assets/img/103329533/103329535.png) 
+![Authorization code grant type flow]( ../../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
 
 ### Mitigating code interception attacks using PKCE
 
@@ -112,17 +106,16 @@ In order to mitigate these attacks using PKCE with WSO2 Identity Server,
 you need to enable PKCE when creating the OAuth application. Follow the
 steps below to do this.
 
-1.  [Add a new service
-    provider.](_Adding_and_Configuring_a_Service_Provider_)
+1.  [Add a new service provider.](../../using-wso2-identity-server/adding-and-configuring-a-service-provider.md)
 2.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** section. Click
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![]( ../../assets/img/103329533/103329534.png)
+    ![]( ../../assets/img/using-wso2-identity-server/register-a-new-application.png)
 
-**Related Topics**
 
--   See [Try Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
-    to try out PKCE with the authorization code grant type using the
-    WSO2 Playground web application.
+!!! info "Related Topics" 
+    -   See [Try Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
+        to try out PKCE with the authorization code grant type using the
+        WSO2 Playground web application.

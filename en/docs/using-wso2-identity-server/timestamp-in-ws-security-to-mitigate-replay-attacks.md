@@ -3,19 +3,6 @@
 The following sections describe replay attacks and expand on how
 timestamps can be used to mitigate these attacks in WS-Security.
 
--   [How replay attacks can be
-    harmful?](#TimestampinWS-SecuritytoMitigateReplayAttacks-Howreplayattackscanbeharmful?)
--   [Timestamp in
-    WS-Security](#TimestampinWS-SecuritytoMitigateReplayAttacks-TimestampinWS-Security)
--   [Rampart and
-    WSS4J](#TimestampinWS-SecuritytoMitigateReplayAttacks-RampartandWSS4J)
--   [How Timestamp is
-    created](#TimestampinWS-SecuritytoMitigateReplayAttacks-HowTimestampiscreated)
--   [How Timestamp is
-    validated](#TimestampinWS-SecuritytoMitigateReplayAttacks-HowTimestampisvalidated)
--   [Other ways to avoid replay
-    attacks](#TimestampinWS-SecuritytoMitigateReplayAttacks-Otherwaystoavoidreplayattacks)
-
 ### How replay attacks can be harmful?
 
 When sensitive information is exchanged or critical transactions are
@@ -47,11 +34,10 @@ message processing engine supports WS-Security to achieve message level
 security; the Timestamp element defined there helps verifying the
 message validity in terms of time.
 
-What is WS-Security?
-
-WS-Security is a specification that defines a framework to enable
-security related information -as specified by mechanisms such as XML
-security, XML signature etc- be embedded in the SOAP message.
+!!! info "What is WS-Security?"
+    WS-Security is a specification that defines a framework to enable
+    security related information -as specified by mechanisms such as XML
+    security, XML signature etc- be embedded in the SOAP message.
 
 The Timestamp element allows the sender to express the creation and
 expiration times of the security semantics of the message, using which,
@@ -154,8 +140,8 @@ security header.
 The following is how ' `         created        ` ' and '
 `         expires        ` ' time references of Timestamp are derived:
 
--   created = current time
--   expires = created(in millis) + timestampttl\*1000
+-   `created = current time`
+-   `expires = created(in millis) + timestampttl*1000`
 
 ### How Timestamp is validated
 
@@ -175,9 +161,8 @@ validates against both ' `         created        ` ' and '
 
 Timestamp is invalid if:
 
--   current time \< \[created - (timestampmaxskew\*1000)\] (in millis)
--   current time \> \[created + (timestampmaxskew\*1000)\] (in millis)
-
+- `current time < [created - (timestampmaxskew*1000)] (in millis)`
+- `current time > [created + (timestampmaxskew*1000)] (in millis)`
   
 Because of the consistent way timestamp is verified in Rampart level
 considering both `         created        ` and
@@ -188,8 +173,9 @@ default with `         timestampstrict        ` set to false.
 
 According to the above logic of validating Timestamp, it is considered
 valid during the time period:
-
-`         from (created - timestampskew) to (expires + timestampskew)        `
+```
+from (created - timestampskew) to (expires + timestampskew)
+```
 
 This means replay attacks made during that period are not detected if
 any other mechanism is not adopted to detect and avoid replay

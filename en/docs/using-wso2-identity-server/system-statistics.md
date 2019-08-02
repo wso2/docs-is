@@ -9,12 +9,12 @@ response time.
 Follow the instructions below to access the system statistics.
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console)
+    [Management Console](../../setup/getting-started-with-the-management-console.md)
     .
 2.  Navigate to the **Monitor** menu and click on **System Statistics**
     . The **System Statistics** page appears with statistics related to
     the Identity Server usage.  
-    ![]( ../../assets/img/103329428/103329432.png) 
+    ![System statistics]( ../../assets/img/using-wso2-identity-server/system-statistics.png) 
 
 ### Server information
 
@@ -27,13 +27,13 @@ This panel provides the following information:
 -   **Memory Allocated** - Shows the memory capacity of the server.
 -   **Memory Usage** - Shows the memory capacity used by the server.
 
-![]( ../../assets/img/103329428/103329433.png) 
+![Server information]( ../../assets/img/using-wso2-identity-server/server-information.png) 
 
 ### Memory graph
 
 This graph shows a temporal variation of the server memory.
 
-![]( ../../assets/img/103329428/103329434.png) 
+![]( ../../assets/img/using-wso2-identity-server/memory-graph.png)
 
 ### Statistics configuration panel
 
@@ -52,15 +52,15 @@ view.
         -   **X-Scale (units)**
         -   **X-Width (px)**
 2.  Click **Update**.  
-    ![]( ../../assets/img/9372728/9440986.png)
+    ![Update button]( ../../assets/img/using-wso2-identity-server/update-button.png)
 3.  Refresh your page.
 
-If you want to restore to the previous values after editing, click
-**Reset**.
+!!! info
+    If you want to restore to the previous values after editing, click **Reset**.
 
-![]( ../../assets/img/9372728/9440985.png)
+    ![Reset button]( ../../using-wso2-identity-server/reset-button.png)
 
-If you want to restore to the default values, click the corresponding
-button.
+!!! info
+    If you want to restore to the default values, click the corresponding button.
 
-![]( ../../assets/img/9372728/9440984.png)
+    ![Restore defaults button]( ../../assets/img/using-wso2-identity-server/restore-defaults-button.png)

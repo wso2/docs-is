@@ -34,26 +34,22 @@ property or by adding the parameter to `         JAVA_OPTS        ` as
 an environment variable.
 
 !!! tip
-    
-    **Tip** : `         JAVA_OPTS        ` are optional runtime options that
-    can be set.
+    `         JAVA_OPTS        ` are optional runtime options that can be set.
     
 
 To start the server and pass the parameter, navigate to the
 `         <IS_HOME>/bin        ` folder in the command line and run the
 following command.
 
-**Startup command**
 
-``` bash
+
+``` bash tab="Startup command"
 sh wso2server.sh -DRead_Log_Token_Properties=true
 ```
 
 To add the parameter to the environment variable, use the following
 command and then [start the server](../../setup/running-the-product).
 
-**Exporting to the Java environment variable**
-
-``` bash
+``` bash tab="Exporting to the Java environment variable"
 export JAVA_OPTS=-DRead_Log_Token_Properties=true
 ```

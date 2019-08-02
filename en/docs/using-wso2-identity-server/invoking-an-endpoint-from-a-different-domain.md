@@ -4,9 +4,8 @@ This topic provides instructions on invoking an endpoint in an OAuth2
 .war file from the JavaScript of a web application that is located in a
 different domain than the WSO2 Identity Server domain.
 
-!!! tip
-    
-    This is relevant for any REST endpoint in the WSO2 Identity Server.
+!!! tip    
+    This is relevant for any REST endpoint in WSO2 Identity Server.
     
 
 When attempting this, you will typically see a "No
@@ -45,13 +44,11 @@ There are two possible solutions to apply the CORS header.
     approach leads to some security risks.
 
     ``` java
-        respBuilder.header("Access-Control-Allow-origin", 'http://example.com')
+    respBuilder.header("Access-Control-Allow-origin", 'http://example.com')
     ```
 
     !!! tip
-    
-        **Tip** : Customizing the endpoint to allow cross origin
-        communication and replacing the .war is not actually recommended.
+        Customizing the endpoint to allow cross origin communication and replacing the .war is not actually recommended.
     
 
 2.  Applying a [CORS
@@ -84,9 +81,8 @@ There are two possible solutions to apply the CORS header.
     For configuration details of a CORS filter, see
     [here](http://software.dzhuvinov.com/cors-filter.html).
 
-    !!! tip
-    
-        **Tip** : You can provide whitespace-separated list of origins that
+    !!! tip    
+        You can provide whitespace-separated list of origins that
         the CORS filter must allow like
         `           cors.allowOrigin          ` . However, you must make
         sure not to use wildcards like \* since it allows any origin and it
