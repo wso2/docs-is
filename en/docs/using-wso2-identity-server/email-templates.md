@@ -33,4 +33,4 @@ emails](../../using-wso2-identity-server/customizing-automated-emails) sent to t
 !!! info "Recommended reading" 
     For an example of how email templates are used, see [Creating Users
     Using the Ask Password
-    Option](../../using-wso2-identity-server/creating-users-using-the-ask-passwordOption_).
+    Option](../../using-wso2-identity-server/creating-users-using-the-ask-passwordOption).
