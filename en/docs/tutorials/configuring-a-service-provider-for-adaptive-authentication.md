@@ -140,6 +140,11 @@ application by setting up inbound authentication.
     adaptive authentication depending on your requirement. For example,
     add Demo HardwareKey Authenticator.  
     ![Adaptive Authentication Templates](../../assets/img/tutorials/adaptive-auth-templates.png)
+7.  Add the following configuration under **ResourceAccessControl** tag in <IS_HOME>/repository/resources/conf/templates/repository/conf/identity.xml.j2 file. 
+
+   ```
+        <Resource context="/sample-auth(.*)" secured="false" http-method="all"/>
+   ```    
 
 ## What's Next?
 
