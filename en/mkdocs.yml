@@ -79,8 +79,8 @@ nav:
       - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
     - 'Deployment Guide':
       - 'Deployment Patterns':
-        - 'Deployment Patterns': setup/deployment-Patterns.md
-        - 'Setting Up Deployment Pattern 1': setup/setting-Up-Deployment-Pattern-1.md
+        - 'Deployment Patterns': setup/deployment-patterns.md
+        - 'Setting Up Deployment Pattern 1': setup/setting-up-deployment-pattern-1.md
         - 'Setting Up Deployment Pattern 2': setup/setting-Up-Deployment-Pattern-2.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-Up-Separate-Databases-for-Clustering.md
       - 'Deployment Guidelines in Production': setup/deployment-Guidelines-in-Production.md
@@ -98,6 +98,7 @@ nav:
         - 'Migrating Data Publishers': setup/migrating-data-publishers.md
         - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
       - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
+    - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Tutorials':
     - 'Authentication':
       - 'Logging in to your application via Identity Server using Facebook Credentials': tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
@@ -237,51 +238,51 @@ nav:
     - 'Product Administration': 
       - 'Product Administration': using-wso2-identity-server/product-Administration.md
       - 'Configuring the Identity Server':
-        - 'Configuring the Identity Server': using-wso2-identity-server/configuring-the-Identity-Server.md 
-        - 'Role-based Permissions': using-wso2-identity-server/role-based-Permissions.md
-        - 'Email Templates': using-wso2-identity-server/email-Templates.md
-        - 'Server Roles': using-wso2-identity-server/server-Roles.md
+        - 'Configuring the Identity Server': using-wso2-identity-server/configuring-the-identity-server.md 
+        - 'Role-based Permissions': using-wso2-identity-server/role-based-permissions.md
+        - 'Email Templates': using-wso2-identity-server/email-templates.md
+        - 'Server Roles': using-wso2-identity-server/server-roles.md
         - 'Data Dictionary':
-          - 'Data Dictionary': using-wso2-identity-server/data-Dictionary.md
-          - 'Registry Related Tables': using-wso2-identity-server/registry-Related-Tables.md
-          - 'User Management Related Tables': using-wso2-identity-server/user-Management-Related-Tables.md
-          - 'Identity Related Tables': using-wso2-identity-server/identity-Related-Tables.md
-          - 'Service Provider Related Tables': using-wso2-identity-server/service-Provider-Related-Tables.md
-          - 'Identity Provider Related Tables': using-wso2-identity-server/identity-Provider-Related-Tables.md
+          - 'Data Dictionary': using-wso2-identity-server/data-dictionary.md
+          - 'Registry Related Tables': using-wso2-identity-server/registry-related-tables.md
+          - 'User Management Related Tables': using-wso2-identity-server/user-management-related-tables.md
+          - 'Identity Related Tables': using-wso2-identity-server/identity-related-tables.md
+          - 'Service Provider Related Tables': using-wso2-identity-server/service-provider-related-tables.md
+          - 'Identity Provider Related Tables': using-wso2-identity-server/identity-provider-related-tables.md
       - 'Implementing Security in the Identity Server': 
-        - 'Implementing Security in the Identity Server': using-wso2-identity-server/implementing-Security-in-the-Identity-Server.md
-        - 'Configuring Transport Level Security': using-wso2-identity-server/configuring-Transport-Level-Security.md
-        - 'Saving Access Tokens in Separate Tables': using-wso2-identity-server/saving-Access-Tokens-in-Separate-Tables.md
-        - 'Timestamp in WS-Security to Mitigate Replay Attacks': using-wso2-identity-server/timestamp-in-WS-Security-to-Mitigate-Replay-Attacks.md
-        - 'Enabling Java Security Manager': using-wso2-identity-server/enabling-Java-Security-Manager.md
-        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': using-wso2-identity-server/mitigating-Cross-Site-Request-Forgery-CSRF-Attacks.md
-        - 'Mitigating Authorization Code Interception Attacks': using-wso2-identity-server/mitigating-Authorization-Code-Interception-Attacks.md
-        - 'Mitigating Brute Force Attacks': using-wso2-identity-server/mitigating-Brute-Force-Attacks.md
+        - 'Implementing Security in the Identity Server': using-wso2-identity-server/implementing-security-in-the-identity-server.md
+        - 'Configuring Transport Level Security': using-wso2-identity-server/configuring-transport-level-security.md
+        - 'Saving Access Tokens in Separate Tables': using-wso2-identity-server/saving-access-tokens-in-separate-tables.md
+        - 'Timestamp in WS-Security to Mitigate Replay Attacks': using-wso2-identity-server/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+        - 'Enabling Java Security Manager': using-wso2-identity-server/enabling-java-security-manager.md
+        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': using-wso2-identity-server/mitigating-cross-site-request-forgery-csrf-attacks.md
+        - 'Mitigating Authorization Code Interception Attacks': using-wso2-identity-server/mitigating-authorization-code-interception-attacks.md
+        - 'Mitigating Brute Force Attacks': using-wso2-identity-server/mitigating-brute-force-attacks.md
       - 'Monitoring the Identity Server': 
-        - 'Monitoring the Identity Server': using-wso2-identity-server/monitoring-the-Identity-Server.md 
-        - 'System Statistics': using-wso2-identity-server/system-Statistics.md
-        - 'System Logs': using-wso2-identity-server/system-Logs.md
-        - 'SOAP Tracer': using-wso2-identity-server/sOAP-Tracer.md
-        - 'Application Logs': using-wso2-identity-server/application-Logs.md
-      - 'Removing References to Deleted User Identities': using-wso2-identity-server/removing-References-to-Deleted-User-Identities.md
+        - 'Monitoring the Identity Server': using-wso2-identity-server/monitoring-the-identity-server.md 
+        - 'System Statistics': using-wso2-identity-server/system-statistics.md
+        - 'System Logs': using-wso2-identity-server/system-logs.md
+        - 'SOAP Tracer': using-wso2-identity-server/soap-tracer.md
+        - 'Application Logs': using-wso2-identity-server/application-logs.md
+      - 'Removing References to Deleted User Identities': using-wso2-identity-server/removing-references-to-deleted-user-identities.md
       - 'Using Tools': 
-        - 'Using Tools': using-wso2-identity-server/using-Tools.md
-        - 'Using the SAML2 Toolkit': using-wso2-identity-server/using-the-SAML2-Toolkit.md
+        - 'Using Tools': using-wso2-identity-server/using-tools.md
+        - 'Using the SAML2 Toolkit': using-wso2-identity-server/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
-          - 'Using the XACML TryIt Tool': using-wso2-identity-server/using-the-XACML-TryIt-Tool.md
-          - 'Evaluating a XACML Policy': using-wso2-identity-server/evaluating-a-XACML-Policy.md
-      - 'XACML Performance in the Identity Server': using-wso2-identity-server/xACML-Performance-in-the-Identity-Server.md
-      - 'Performance Tuning Recommendations': using-wso2-identity-server/performance-Tuning-Recommendations.md
-      - 'LDAP vs JDBC': using-wso2-identity-server/lDAP-vs-JDBC.md
-      - 'Removing Unused Tokens from the Database': using-wso2-identity-server/removing-Unused-Tokens-from-the-Database.md
-      - 'Adding Logs for Tokens': using-wso2-identity-server/adding-Logs-for-Tokens.md
-      - 'Data Purging': using-wso2-identity-server/data-Purging.md
-      - 'Kerberos Security': using-wso2-identity-server/kerberos-Security.md
+          - 'Using the XACML TryIt Tool': using-wso2-identity-server/using-the-xacml-tryit-tool.md
+          - 'Evaluating a XACML Policy': using-wso2-identity-server/evaluating-a-xacml-policy.md
+      - 'XACML Performance in the Identity Server': using-wso2-identity-server/xacml-performance-in-the-identity-server.md
+      - 'Performance Tuning Recommendations': using-wso2-identity-server/performance-tuning-recommendations.md
+      - 'LDAP vs JDBC': using-wso2-identity-server/ldap-vs-jdbc.md
+      - 'Removing Unused Tokens from the Database': using-wso2-identity-server/removing-unused-tokens-from-the-database.md
+      - 'Adding Logs for Tokens': using-wso2-identity-server/adding-logs-for-tokens.md
+      - 'Data Purging': using-wso2-identity-server/data-purging.md
+      - 'Kerberos Security': using-wso2-identity-server/kerberos-security.md
       - 'Enabling Mutual SSL':
-        - 'Enabling Mutual SSL': using-wso2-identity-server/enabling-Mutual-SSL.md
-        - 'Mutual TLS with client id and secret using OIDC': using-wso2-identity-server/mutual-TLS-with-client-id-and-secret-using-OIDC.md
-      - 'Invoking an Endpoint from a Different Domain': using-wso2-identity-server/invoking-an-Endpoint-from-a-Different-Domain.md
-      - 'Working with Product Observability': using-wso2-identity-server/working-with-Product-Observability.md
+        - 'Enabling Mutual SSL': using-wso2-identity-server/enabling-mutual-ssl.md
+        - 'Mutual TLS with client id and secret using OIDC': using-wso2-identity-server/mutual-tls-with-client-id-and-secret-using-oidc.md
+      - 'Invoking an Endpoint from a Different Domain': using-wso2-identity-server/invoking-an-endpoint-from-a-different-domain.md
+      - 'Working with Product Observability': using-wso2-identity-server/working-with-product-observability.md
     - 'Identity Administration and Provisioning':
       - 'Configuring the Realm':
         - 'Configuring the Realm': using-wso2-identity-server/configuring-the-Realm.md
