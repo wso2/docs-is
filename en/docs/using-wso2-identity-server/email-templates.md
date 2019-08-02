@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server enables you to send automated emails to users.
 You can also [customize these automated
-emails](_Customizing_Automated_Emails_) sent to the user.
+emails](../../using-wso2-identity-server/customizing-automated-emails) sent to the user.
 
 1.  Log in to the WSO2 Identity Server management console using your
     tenant credentials.
@@ -13,7 +13,7 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![]( ../../assets/img/103329395/103329396.png)
+        ![]( ../../assets/img/using-wso2-identity-server/email-template-dropdown.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -25,15 +25,12 @@ emails](_Customizing_Automated_Emails_) sent to the user.
 
         !!! note
         
-                **Note** : Ensure that you do not use the "\|" character in your
-                **Subject**, **Email Body** or **Email Footer** as this is not
-                supported.
-        
+            Ensure that you do not use the `|` character in your **Subject**, **Email Body**, or **Email Footer** as this is not
+                supported.         
 
 4.  Click **Save** to save your changes.
 
-**Recommended reading**
-
--   For an example of how email templates are used, see [Creating Users
+!!! info "Recommended reading" 
+    For an example of how email templates are used, see [Creating Users
     Using the Ask Password
-    Option](_Creating_Users_Using_the_Ask_Password_Option_).
+    Option](../../using-wso2-identity-server/creating-users-using-the-ask-passwordOption_).
