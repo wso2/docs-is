@@ -10,11 +10,6 @@ avoid a growing access token table.
 
 You can use one of the following methods for token cleanup.
 
--   [Configuring WSO2 Identity Server for token
-    cleanup](#RemovingUnusedTokensfromtheDatabase-ConfiguringWSO2IdentityServerfortokencleanup)
--   [Using stored procedures for token
-    cleanup](#RemovingUnusedTokensfromtheDatabase-Usingstoredproceduresfortokencleanup)
-
 ### Configuring WSO2 Identity Server for token cleanup
 
 WSO2 Identity Server triggers token cleanup during the following
@@ -67,9 +62,7 @@ Follow the instructions below to configure token cleanup using this
 method.
 
 !!! tip
-    
-    **Tip** : It is safe to run these steps in read-only mode or during a
-    time when traffic on the server is low, but that is not mandatory.
+    It is safe to run these steps in read-only mode or during a time when traffic on the server is low, but that is not mandatory.
     
 
 1.  Take a backup of the running database.
@@ -77,9 +70,7 @@ method.
     issues.
 
     !!! tip
-    
-        **Tip** : We recommend that you test the database dump before the
-        cleanup task as the cleanup can take some time.
+        We recommend that you test the database dump before the cleanup task as the cleanup can take some time.
     
 
 3.  Depending on your database, select the appropriate token cleanup
@@ -94,10 +85,7 @@ method.
     You can also schedule a cleanup task that will be automatically run
     after a given period of time. Here's an example:
 
-    -   [**MySQL**](#e9524b050df443e581f2ec645aaf0bb8)
-    -   [**SQL Server**](#8848596b5ea545ec920b050bcb9479e7)
-
-    ``` java
+    ``` java tab="MySQL"
     USE 'WSO2IS_DB';
     DROP EVENT IF EXISTS 'cleanup_tokens_event';
     CREATE EVENT 'cleanup_tokens_event'
@@ -110,20 +98,20 @@ method.
     SET GLOBAL event_scheduler = ON;
     ```
 
-    ``` java
-        USE WSO2IS_DB ;  
-        GO  
-        -- Creates a schedule named CleanupTask.   
-        -- Jobs that use this schedule execute every day when the time on the server is 01:00.   
-        EXEC sp_add_schedule  
-            @schedule_name = N'CleanupTask',  
-            @freq_type = 4,  
-            @freq_interval = 1,  
-            @active_start_time = 010000 ;  
-        GO  
-        -- attaches the schedule to the job BackupDatabase  
-        EXEC sp_attach_schedule  
-           @job_name = N'BackupDatabase',  
-           @schedule_name = N'CleanupTask' ;  
-        GO
+    ``` java tab="SQL Server"
+    USE WSO2IS_DB ;  
+    GO  
+    -- Creates a schedule named CleanupTask.   
+    -- Jobs that use this schedule execute every day when the time on the server is 01:00.   
+    EXEC sp_add_schedule  
+        @schedule_name = N'CleanupTask',  
+        @freq_type = 4,  
+        @freq_interval = 1,  
+        @active_start_time = 010000 ;  
+    GO  
+    -- attaches the schedule to the job BackupDatabase  
+    EXEC sp_attach_schedule  
+        @job_name = N'BackupDatabase',  
+        @schedule_name = N'CleanupTask' ;  
+    GO
     ```

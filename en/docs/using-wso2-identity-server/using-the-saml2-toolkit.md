@@ -19,15 +19,17 @@ This toolkit consists of two modules:
 
 1.  Log in to the WSO2 Identity Server and access the management
     console.
-2.  In the management console, y ou can find the **SAML** section under
+2.  In the management console, you can find the **SAML** section under
     the **Tools** menu.  
-    ![]( ../../assets/img/103329518/103329521.png){height="250"}
+    ![SAML menu-item](../../assets/img/using-wso2-identity-server/saml-menu-item.png)
+
+    
 
 ### Working with the SAML request validator
 
 1.  Once you click the **SAML Request Validator** link, the following
     screen appears:  
-    ![]( ../../assets/img/103329518/103329520.png)  
+    ![Validate SAML request](../../assets/img/using-wso2-identity-server/validate-saml-request.png)  
     -   Before starting the validation, it is required to specify the
         request binding which the service provider has initiated. This
         may be either `            HTTP POST           ` or
@@ -67,7 +69,7 @@ This toolkit consists of two modules:
 
 1.  Once you click the " **SAML Response Builder** " link, the following
     screen appears:  
-    ![]( ../../assets/img/103329518/103329519.png)  
+    ![Build SAML response](../../assets/img/using-wso2-identity-server/build-saml-response.png)  
     -   This feature allows you to build a valid response against a
         selected SAML2 Web SSO configuration.
     -   All the issuers available in configurations are listed here in
@@ -78,7 +80,7 @@ This toolkit consists of two modules:
 2.  Click the " **Generate** " button, the response builder will
     generate the response using provided data and display it in both XML
     and in encoded format as follows.  
-    ![]( ../../assets/img/103329518/103329523.png)   
+    ![SAML responses](../../assets/img/using-wso2-identity-server/saml-responses.png)   
     The user can verify the configuration from the returned response, by
     looking at the XML. Also, some web sites like
     [Salesforce](http://www.salesforce.com/) provides the facility to

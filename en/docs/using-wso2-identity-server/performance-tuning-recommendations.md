@@ -3,18 +3,7 @@
 This section describes some recommended performance tuning
 configurations to optimize the WSO2 Identity Server.
 
--   [OS-level
-    settings](#PerformanceTuningRecommendations-OS-levelsettings)
--   [Setting the thread execution limit for multitenant
-    mode](#PerformanceTuningRecommendations-Settingthethreadexecutionlimitformultitenantmode)
--   [JVM settings](#PerformanceTuningRecommendations-JVMsettings)
--   [Database level
-    settings](#PerformanceTuningRecommendations-Databaselevelsettings)
-
-!!! note
-    
-    Important
-    
+!!! note "Important"    
     -   Performance tuning requires you to modify important system files,
         which affect all programs running on the server. We recommend you to
         familiarize yourself with these files using Unix/Linux documentation
@@ -30,22 +19,23 @@ configurations to optimize the WSO2 Identity Server.
 When it comes to performance, the OS that the server runs plays an
 important role.
 
-If you are running on MacOS Sierra or High Sierra, and experiencing long
-start-up times for WSO2 products, try mapping your Mac hostname to
-`          127.0.0.1         ` and `          ::1         ` in the
-`          /etc/hosts         ` file.
+!!! info
+    If you are running on MacOS Sierra or High Sierra, and experiencing long
+    start-up times for WSO2 products, try mapping your Mac hostname to
+    `          127.0.0.1         ` and `          ::1         ` in the
+    `          /etc/hosts         ` file.
 
-``` java
-127.0.0.1   localhost <my_computer_hostname>
-::1         localhost <my_computer_hostname>
-```
+    ``` java
+    127.0.0.1   localhost <my_computer_hostname>
+    ::1         localhost <my_computer_hostname>
+    ```
 
-Example:
+    Example:
 
-``` java
-127.0.0.1   localhost Alex-MacBook-Pro.local
-::1         localhost Alex-MacBook-Pro.local
-```
+    ``` java
+    127.0.0.1   localhost Alex-MacBook-Pro.local
+    ::1         localhost Alex-MacBook-Pro.local
+    ```
 
 1.  To optimize network and OS performance, configure the following
     settings in `           /etc/sysctl.conf          ` file of Linux.
@@ -53,23 +43,24 @@ Example:
     connection time-out value, and a number of other important
     parameters at the OS-level.
 
-    It is not recommended to use
-    `            net.ipv4.tcp_tw_recycle = 1           ` when working
-    with network address translation (NAT), such as if you are deploying
-    products in EC2 or any other environment configured with NAT.
+    !!! info
+        It is not recommended to use
+        `            net.ipv4.tcp_tw_recycle = 1           ` when working
+        with network address translation (NAT), such as if you are deploying
+        products in EC2 or any other environment configured with NAT.
 
     ``` java
-        net.ipv4.tcp_fin_timeout = 30
-        fs.file-max = 2097152
-        net.ipv4.tcp_tw_recycle = 1
-        net.ipv4.tcp_tw_reuse = 1
-        net.core.rmem_default = 524288
-        net.core.wmem_default = 524288
-        net.core.rmem_max = 67108864
-        net.core.wmem_max = 67108864
-        net.ipv4.tcp_rmem = 4096 87380 16777216
-        net.ipv4.tcp_wmem = 4096 65536 16777216
-        net.ipv4.ip_local_port_range = 1024 65535      
+    net.ipv4.tcp_fin_timeout = 30
+    fs.file-max = 2097152
+    net.ipv4.tcp_tw_recycle = 1
+    net.ipv4.tcp_tw_reuse = 1
+    net.core.rmem_default = 524288
+    net.core.wmem_default = 524288
+    net.core.rmem_max = 67108864
+    net.core.wmem_max = 67108864
+    net.ipv4.tcp_rmem = 4096 87380 16777216
+    net.ipv4.tcp_wmem = 4096 65536 16777216
+    net.ipv4.ip_local_port_range = 1024 65535      
     ```
 
 2.  To alter the number of allowed open files for system users,
@@ -78,8 +69,8 @@ Example:
     sure to include the leading \* character).
 
     ``` java
-        * soft nofile 4096
-        * hard nofile 65535
+    * soft nofile 4096
+    * hard nofile 65535
     ```
 
     Optimal values for these parameters depend on the environment.
@@ -94,8 +85,8 @@ Example:
     (both hard and soft).
 
     ``` java
-        * soft nproc 20000
-        * hard nproc 20000
+    * soft nproc 20000
+    * hard nproc 20000
     ```
 
 ### Setting the thread execution limit for multitenant mode
@@ -133,10 +124,10 @@ file as shown below.
     `           <IS_HOME>/bin/          ` and do the following changes.
 
     ``` java
-        JVM_MEM_OPTS="-Xms4096m -Xmx4096m"
-        if [ "$java_version" \< "1.8" ]; then
-            JVM_MEM_OPTS="$JVM_MEM_OPTS -XX:MaxPermSize=512m"
-        fi
+    JVM_MEM_OPTS="-Xms4096m -Xmx4096m"
+    if [ "$java_version" \< "1.8" ]; then
+        JVM_MEM_OPTS="$JVM_MEM_OPTS -XX:MaxPermSize=512m"
+    fi
     ```
 
 -   When an XML element has a large number of sub-elements and the
@@ -153,7 +144,7 @@ file as shown below.
     Linux/Solaris). The default entity expansion limit is 64000.
 
     ``` java
-        set CMD_LINE_ARGS=-Xbootclasspath/a:%CARBON_XBOOTCLASSPATH% -Xms256m -Xmx1024m -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="%CARBON_HOME%\repository\logs\heap-dump.hprof"  -Dcom.sun.management.jmxremote -classpath %CARBON_CLASSPATH% %JAVA_OPTS% 
+    set CMD_LINE_ARGS=-Xbootclasspath/a:%CARBON_XBOOTCLASSPATH% -Xms256m -Xmx1024m -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="%CARBON_HOME%\repository\logs\heap-dump.hprof"  -Dcom.sun.management.jmxremote -classpath %CARBON_CLASSPATH% %JAVA_OPTS% 
     ```
 
     In a clustered environment, the entity expansion limit has no
@@ -167,6 +158,7 @@ Identity Server database to improve performance:
 create index
 `         IDX_ITS_LMT on IDN_THRIFT_SESSION (LAST_MODIFIED_TIME);        `
 
-If you want to remove unused tokens from the database, see [Removing
-Unused Tokens from the
-Database](_Removing_Unused_Tokens_from_the_Database_).
+!!! info
+    If you want to remove unused tokens from the database, see [Removing
+    Unused Tokens from the
+    Database](../../using-wso2-identity-server/removing-unused-tokens-from-the-database).

@@ -8,31 +8,23 @@ simple authorization requests using the web UI of the TryIt Tool. By
 switching to “Create Request Using Editor” mode, you can write complex
 XACML 3.0 requests in XML format and try them.
 
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     Prior to creating a basic XACML 3.0 request for evaluation you need to
-    [create a policy](_Creating_a_XACML_Policy_).
+    [create a policy](../../tutorials/creating-a-xacml-policy).
     
 
 Follow the instructions below to create a basic XACML 3.0 request for
-Evaluation. You can create a request using one of the following methods:
-
--   [Create request using
-    editor](#EvaluatingaXACMLPolicy-Createrequestusingeditor)
--   [Create request using
-    UI](#EvaluatingaXACMLPolicy-CreaterequestusingUI)
+Evaluation. You can create a request using one of the following methods.
 
 #### Create request using editor
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console)
-    .
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Click **Tools** to access the **XACML** menu.
 3.  Click **TryIt**.
 4.  Click on the **Create Request Using Editor** link.  
-    ![]( ../../assets/img/103329504/103329511.png)
+    ![Create request using editor](../../assets/img/using-wso2-identity-server/create-request-using-editor.png)
 5.  Use the "Toggle editor" to create a request in XML. The default
     elements are as follows:
 
@@ -44,16 +36,13 @@ Evaluation. You can create a request using one of the following methods:
     -   `            <AttributeValue/>           `
     -   `            <Environment>                       `
 
-    ![]( ../../assets/img/103329504/103329510.png) 
+    ![Evaluate entitlement policy](../../assets/img/using-wso2-identity-server/evaluate-entitlement-policy.png) 
 
-    Refer to [XACML 2.0/3.0
-    specification](http://docs.oasis-open.org/xacml/) for more
+    Refer to [XACML 2.0/3.0 specification](http://docs.oasis-open.org/xacml/) for more
     information on XACML authorization requests.
 
-    !!! note
-    
-        A sample XACML XML request
-    
+    !!! note "A sample XACML XML request"
+        ```
         \<Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"  
         xmlns:xsi=" <http://www.w3.org/2001/XMLSchema-instance> "\>  
         \<Subject\>  
@@ -79,7 +68,7 @@ Evaluation. You can create a request using one of the following methods:
         \</Attribute\>  
         \</Action\>  
         \</Request\>
-    
+        ```    
 
 6.  Click on the **Evaluate With PDP** button to complete the process.
     You will receive a response to the authorization request.
@@ -89,9 +78,7 @@ Evaluation. You can create a request using one of the following methods:
 #### Create request using UI
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
-    .
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  Click **Tools** to access the **XACML** menu.
 3.  Click **TryIt**.
 4.  Fill in the following fields and click the **Create Request**
@@ -110,7 +97,7 @@ Evaluation. You can create a request using one of the following methods:
     -   **Environment Name** - Provides additional information to
         evaluate the request, such as the current date and time, etc.
 
-    ![]( ../../assets/img/103329504/103329512.png)
+    ![Create request using UI](../../assets/img/using-wso2-identity-server/create-request-using-ui.png)
 
     Refer to [XACML 2.0/3.0
     specification](http://docs.oasis-open.org/xacml/) for more

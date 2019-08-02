@@ -17,9 +17,9 @@ expected.
 The XACML TryIt Tool is available in the **Tools** menu as shown in the
 figure.
 
-![]( ../../assets/img/103329502/103329503.png) 
+![XACML menu-item](../../assets/img/using-wso2-identity-server/xacml-menu-item.png) 
 
 The following topics provide information on how to use the XACML TryIt
 tool.
 
--   [Evaluating a XACML Policy](_Evaluating_a_XACML_Policy_)
+-   [Evaluating a XACML Policy](../../using-wso2-identity-server/evaluating-a-xacml-policy)

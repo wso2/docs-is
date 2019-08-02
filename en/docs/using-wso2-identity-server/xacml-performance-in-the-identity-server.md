@@ -43,7 +43,7 @@ specifications of the instances are:
 The throughput and latency of WSO2 Identity Server XACML engine is shown
 in the following figure.
 
-![]( ../../assets/img/43976633/44172001.png)
+![Test results](../../assets/img/using-wso2-identity-server/test-results.png)
 
 ### Conclusions made
 

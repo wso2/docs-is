@@ -23,7 +23,7 @@ These certificates are signed and issued by a certificate authority that
 allows both the client and server to communicate freely. Now let's look
 at how it works:
 
-![]( ../../assets/img/58458329/58458331.jpg) 
+![Certificate exchange flow](../../assets/img/using-wso2-identity-server/certificate-exchange-flow.jpg) 
 
 1.  The Client attempts to access a protected resource and the SSL/TSL
     handshake process begins.
@@ -54,13 +54,14 @@ at how it works:
     clientAuth="want"
     ```
 
-    The `            .jar           ` file enabling usage of Mutual SSL
-    is shipped with IS by default from IS versions 5.1.0 and upwards.
-    The
-    `            org.wso2.carbon.identity.authenticator.mutualssl_X.X.X.jar           `
-    file can be found in the
-    `            <IS_HOME>/repository/components/plugins           `
-    directory.
+    !!! info
+        The `            .jar           ` file enabling usage of Mutual SSL
+        is shipped with IS by default from IS versions 5.1.0 and upwards.
+        The
+        `            org.wso2.carbon.identity.authenticator.mutualssl_X.X.X.jar           `
+        file can be found in the
+        `            <IS_HOME>/repository/components/plugins           `
+        directory.
 
 2.  Open the
     `           <IS_HOME>/repository/conf/security/authenticators.xml          `
@@ -73,15 +74,15 @@ at how it works:
       
 
     ``` xml
-        <!-- Authenticator Configurations for MutualSSLAuthenticator-->
-        <Authenticator name="MutualSSLAuthenticator" disabled="false">
-            <Priority>5</Priority>
-            <Config>
-                <Parameter name="UsernameHeader">UserName</Parameter>
-                <Parameter name="WhiteListEnabled">false</Parameter>
-                <Parameter name="WhiteList"/>
-            </Config>
-        </Authenticator>
+    <!-- Authenticator Configurations for MutualSSLAuthenticator-->
+    <Authenticator name="MutualSSLAuthenticator" disabled="false">
+        <Priority>5</Priority>
+        <Config>
+            <Parameter name="UsernameHeader">UserName</Parameter>
+            <Parameter name="WhiteListEnabled">false</Parameter>
+            <Parameter name="WhiteList"/>
+        </Config>
+    </Authenticator>
     ```
 
 3.  For mutual SSL authentication, the public certificate of the WSO2
@@ -89,18 +90,18 @@ at how it works:
     and the public certificate of the client has to be imported to the
     client-truststore of Identity Server.
 
-    **Sample commands**
+    !!! example "Sample commands"
 
-    The following two commands are examples if you are using the
-    keystore and client-truststore of the Identity Server itself for the
-    client. This is executed from the
-    `             <IS_HOME>/repository/resources/security            `
-    directory.
+        The following two commands are examples if you are using the
+        keystore and client-truststore of the Identity Server itself for the
+        client. This is executed from the
+        `<IS_HOME>/repository/resources/security`
+        directory.
 
-    ``` java
+        ``` java
         keytool -export -alias wso2carbon -file carbon_public2.crt -keystore wso2carbon.jks -storepass wso2carbon
-    ```
+        ```
 
-    ``` java
+        ``` java
         keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
-    ```
+        ```

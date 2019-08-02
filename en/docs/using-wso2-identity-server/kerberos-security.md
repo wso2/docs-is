@@ -62,8 +62,7 @@ case of Kerberos, we call the service name “Service Principal Name”
 
 ### Adding Service Principals
 
-In order to configure a service principal, you must first register a
-service provider for inbound authentication .
+In order to configure a service principal, you must first [register a service provider for inbound authentication](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
 
 1.  Expand the **Kerberos KDC** and click **Configure**.
 2.  Specify the required information on the "Add Service Principal"

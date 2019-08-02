@@ -12,9 +12,7 @@ remove references to a user’s PII that can generally be stored in
 metadata database tables, access logs, audit logs as well as any other
 log files in WSO2 IS.
 
-!!! note
-    
-    Before you begin, keep the following in mind,
+!!! note "Before you begin, keep the following in mind"
     
     -   The purpose of this tool is to remove references to personally
         identifiable information of a user that can persist in RDBMS tables
@@ -41,18 +39,7 @@ log files in WSO2 IS.
     
 
 The following sections guide you through configuring and running the
-Identity Anonymization tool in WSO2 IS:
-
--   [Changing default configurations of the
-    tool](#RemovingReferencestoDeletedUserIdentities-Changingdefaultconfigurationsofthetool)
--   [Changing the default configuration directory
-    location](#RemovingReferencestoDeletedUserIdentities-Changingthedefaultconfigurationdirectorylocation)
--   [Running the tool in WSO2
-    IS](#RemovingReferencestoDeletedUserIdentities-RunningthetoolinWSO2IS)
--   [Running the tool in WSO2 IS
-    Analytics](#RemovingReferencestoDeletedUserIdentities-RunningthetoolinWSO2ISAnalytics)
--   [Running the standalone version of the
-    tool](#RemovingReferencestoDeletedUserIdentities-Runningthestandaloneversionofthetool)
+Identity Anonymization tool in WSO2 IS.
 
 ### Changing default configurations of the tool
 
@@ -68,8 +55,7 @@ for references of the deleted user from the following file paths:
 -   **Log file name regex** : `          wso2carbon.log         `
 
 For information on changing these configurations, see [Configuring the
-config.json
-file](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-Configuringtheconfig.jsonfile)
+config.json file](../../admin-guide/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
 in the Product Administration Guide.
 
 ### Changing the default configuration directory location
@@ -104,10 +90,7 @@ steps below to run the tool:
 
   
 
-!!! note
-    
-    Note
-    
+!!! note    
     -   This tool is designed to run in offline mode (i.e., the server
         should be shut down or run on another machine) to prevent
         unnecessary load to the server. If you run the tool in online mode
@@ -135,36 +118,38 @@ steps below to run the tool:
         WSO2 IS allows you to track users that you delete from the system.
         When you configure WSO2 IS to track deleted users, the following
         details of a deleted user are written to a log file:
-    
-        -   -   User name of the deleted user.
-            -   User store domain name of the deleted user.
-            -   Tenant domain name of the deleted user.
-            -   Tenant ID of the deleted user.
-            -   The time stamp that the user was deleted.
+
+        <ul>
+            <li>User name of the deleted user.</li>
+            <li>User store domain name of the deleted user.</li>
+            <li>Tenant domain name of the deleted user.</li>
+            <li>Tenant ID of the deleted user.</li>
+            <li>The time stamp that the user was deleted.</li>
+        </ul>
     
         You can use information from this log file when you specify various
         command line options to run the identity anonymization tool to
         remove references to a specific deleted user.  
         For information on how to enable tracking deleted users, see
         [Tracking user deletion on deleting a
-        user](Configuring-Users_103330327.html#ConfiguringUsers-deleteEvent)
-        .
-    
+        user](../../using-wso2-identity-server/configuring-users#tracking-user-deletion-on-deleting-a-user).
+          
 
-      
-
-    Note
-
-    The commands specified above use only the
-    `              -U <username>             ` option, which is the only
-    mandatory option to run the tool. There are several other optional
-    command line options that you can specify based on your requirement.
-    The supported options are described in detail below.
+    !!! Note
+        The commands specified above use only the
+        `              -U <username>             ` option, which is the only
+        mandatory option to run the tool. There are several other optional
+        command line options that you can specify based on your requirement.
+        The supported options are described in detail below.
 
     Following are details of all possible command line options that you
     can use when you run the tool:
 
     <table>
+    <col width="10%">
+    <col width="50%">
+    <col width="10%">
+    <col width="30%">    
     <thead>
     <tr class="header">
     <th>Command Line Option</th>
@@ -193,10 +178,14 @@ steps below to run the tool:
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove . The default value is <code>                   carbon.super                  </code> . <code>                                     </code> For information on working with tenants in WSO2 products, see <a href="https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants">Working with Multiple Tenants</a> .</p>
-    !!! note
-        <p>Note</p>
-        <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../using-wso2-identity-server/working-with-multiple-tenants">Working with Multiple Tenants</a> .</p>
+    <p>
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.
+    </p>
+    </div> 
+    </p>    
     </div></td>
     <td>No</td>
     <td><p>On Linux/Mac OS: <code>                  ./forgetme.sh -U Sam                  -T sam.com -TID 1                 </code></p>
@@ -207,9 +196,12 @@ steps below to run the tool:
     <td>TID</td>
     <td><div class="content-wrapper">
     <p>The tenant ID of the user whose identity references you want to remove .</p>
-    !!! note
-        <p>Note</p>
-        <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>
+    <p>
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>
+    </div> 
+    </p>
     </div></td>
     <td>No</td>
     <td><p>On Linux/Mac OS: <code>                  ./forgetme.sh -U Sam -T sam.com -TID 1                 </code></p>
@@ -230,14 +222,18 @@ steps below to run the tool:
     <td>pu</td>
     <td><div class="content-wrapper">
     <p>The pseudonym with which you want to replace references to a deleted user’s identity. If you do not specify a pseudonym when you run the tool, a random UUID value is generated as the pseudonym by default to anonymize references to the deleted user’s identity.</p>
-    !!! note
-        <p>Note</p>
-        <p>A valid pseudonym can contain the following characters:</p>
-        <ul>
-        <li><p>Uppercase characters {A-Z}</p></li>
-        <li>Lowercase characters {a-z}</li>
-        <li><p>Numbers {0-9}</p></li>
-        </ul>
+    <p>
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>A valid pseudonym can contain the following characters:
+    <ul>
+    <li>Uppercase characters {A-Z}</li>
+    <li>Lowercase characters {a-z}</li>
+    <li><p>Numbers {0-9}</p></li>
+    </ul>
+    </p>
+    </div> 
+    </p>
     <p>Following is a sample scenario where it is useful to specify a pseudonym:<br />
     Let's say you run the tool to replace all references to a particular deleted user’s identity, and then you add the same user back to the system for some reason, and later you want to delete the user again and replace all references to the user with the same pseudonym that was used the first time. To do this you need to specify a pseudonym when you run the tool the first time and ensure that you use that same pseudonym when you run the tool the second time.<br />
     </p>
@@ -269,10 +265,7 @@ steps below to run the tool:
     naming convention in the
     `            <IS_HOME>/repository/logs           ` directory.
 
-    !!! warning
-    
-        Note
-    
+    !!! warning    
         The tool removes references to a deleted user’s identity from all
         RDBMS tables as well as from all log file copies that are created at
         the time the tool is run. It is the responsibility of the system
@@ -295,10 +288,7 @@ tool by following the same steps given in this guide in the
 analytics installation directory) instead of the
 `          <IS_HOME>         ` directory.
 
-!!! note
-    
-    Note
-    
+!!! note    
     Before you run the tool, be sure to start the WSO2 IS Analytics server
     at least once to generate the required analytics streams.
     
@@ -318,5 +308,5 @@ to run the tool on.
 For information on how to build, configure and run the standalone
 version of the Identity Anonymization tool to run on multiple WSO2
 products, see [Removing References to Deleted User Identities in WSO2
-Products](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products)
+Products](../../admin-guide/removing-references-to-deleted-user-identities-in-wso2-products)
 in the WSO2 Administration Guide.
