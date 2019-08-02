@@ -132,7 +132,7 @@ before the other node accesses the same data from the database.
     
 
 Add the following configuration to the
-`         <IS_HOME>/repository/conf/deployment.toml        ` file,
+`         <IS_HOME>/repository/conf/deployment.toml        ` file.
 
 ``` xml
     [session_data.persistence]
