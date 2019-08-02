@@ -3,31 +3,10 @@
 This section lists out all the identity related tables and their
 attributes in the WSO2 Identity Server database.
 
--   [IDN\_BASE\_TABLE](#IdentityRelatedTables-IDN_BASE_TABLE)
--   [IDN\_OAUTH\_CONSUMER\_APPS](#IdentityRelatedTables-IDN_OAUTH_CONSUMER_APPS)
--   [IDN\_OAUTH1A\_REQUEST\_TOKEN](#IdentityRelatedTables-IDN_OAUTH1A_REQUEST_TOKEN)
--   [IDN\_OAUTH1A\_ACCESS\_TOKEN](#IdentityRelatedTables-IDN_OAUTH1A_ACCESS_TOKEN)
--   [IDN\_OAUTH2\_AUTHORIZATION\_CODE](#IdentityRelatedTables-IDN_OAUTH2_AUTHORIZATION_CODE)
--   [IDN\_OAUTH2\_ACCESS\_TOKEN](#IdentityRelatedTables-IDN_OAUTH2_ACCESS_TOKEN)
--   [IDN\_OAUTH2\_SCOPE](#IdentityRelatedTables-IDN_OAUTH2_SCOPE)
--   [IDN\_OAUTH2\_RESOURCE\_SCOPE](#IdentityRelatedTables-IDN_OAUTH2_RESOURCE_SCOPE)
--   [IDN\_SCIM\_GROUP](#IdentityRelatedTables-IDN_SCIM_GROUP)
--   [IDN\_SCIM\_PROVIDER](#IdentityRelatedTables-IDN_SCIM_PROVIDER)
--   [IDN\_OPENID\_REMEMBER\_ME](#IdentityRelatedTables-IDN_OPENID_REMEMBER_ME)
--   [IDN\_OPENID\_USER\_RPS](#IdentityRelatedTables-IDN_OPENID_USER_RPS)
--   [IDN\_OPENID\_ASSOCIATIONS](#IdentityRelatedTables-IDN_OPENID_ASSOCIATIONS)
--   [IDN\_STS\_STORE](#IdentityRelatedTables-IDN_STS_STORE)
--   [IDN\_IDENTITY\_USER\_DATA](#IdentityRelatedTables-IDN_IDENTITY_USER_DATA)
--   [IDN\_IDENTITY\_META\_DATA](#IdentityRelatedTables-IDN_IDENTITY_META_DATA)
--   [IDN\_THRIFT\_SESSION](#IdentityRelatedTables-IDN_THRIFT_SESSION)
--   [IDN\_ASSOCIATED\_ID](#IdentityRelatedTables-IDN_ASSOCIATED_ID)
--   [IDN\_AUTH\_SESSION\_STORE](#IdentityRelatedTables-IDN_AUTH_SESSION_STORE)
-
 #### IDN\_BASE\_TABLE
 
-This table is used to check if the database structure has been created
-already when starting the server with `         -Dsetup        ` option.
-It has only one column (PRODUCT\_NAME), which contains a row with the
+This table is used to provide information related to the server setup.
+It has only one column `(PRODUCT\_NAME)`, which contains a row with the
 value “WSO2 Identity Server”.  
 
 #### IDN\_OAUTH\_CONSUMER\_APPS
@@ -56,13 +35,13 @@ client, it adds a record to this table. The client will then receive the
 request token and the OAuth verifier. The client can send these values
 back to the service and obtain the OAuth access token. Then the record
 in this table will be deleted and a new row will be added to the
-IDN\_OAUTH1A\_ACCESS\_TOKEN table. The following table lists out the
+`IDN\_OAUTH1A\_ACCESS\_TOKEN` table. The following table lists out the
 columns and a description of the values it contains.
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -238,7 +217,7 @@ out the columns and a description of the values it contains.
 
 !!! note
     
-    In a standalone Identity Server instance, this table will not get
+    In a standalone WSO2 Identity Server instance, this table will not get
     populated with data.
     
 
@@ -246,7 +225,7 @@ out the columns and a description of the values it contains.
 
 When the Identity Server is used with a product such as WSO2 API
 Manager, the custom scopes defined for the APIs will be stored in the
-IDN\_OAUTH2\_SCOPE table. These scopes can be mapped with the resources
+`IDN\_OAUTH2\_SCOPE` table. These scopes can be mapped with the resources
 in the API and these resources and scopes mapping are stored in this
 table. The following table lists out the columns and a description of
 the values it contains.
@@ -258,7 +237,7 @@ the values it contains.
 
 !!! note
     
-    In a standalone Identity Server instance, this table will not get
+    In a standalone WSO2 Identity Server instance, this table will not get
     populated with data.
     
 
@@ -282,15 +261,15 @@ the values it contains.
 
 #### IDN\_SCIM\_PROVIDER
 
-This table is not used in the latest version of the Identity Server.
+This table is not used in the latest version of WSO2 Identity Server.
 
--   CONSUMER\_ID
--   PROVIDER\_ID
--   USER\_NAME
--   USER\_PASSWORD
--   USER\_URL
--   GROUP\_URL
--   BULK\_URL
+-   `CONSUMER\_ID`
+-   `PROVIDER\_ID`
+-   `USER\_NAME`
+-   `USER\_PASSWORD`
+-   `USER\_URL`
+-   `GROUP\_URL`
+-   `BULK\_URL`
 
 #### IDN\_OPENID\_REMEMBER\_ME
 
@@ -298,10 +277,10 @@ This table is not being used in the latest version of Identity Server
 because the 'Remember Me' feature is handled from the authentication
 framework.
 
--   USER\_NAME
--   TENANT\_ID
--   COOKIE\_VALUE
--   CREATED\_TIME
+-   `USER\_NAME`
+-   `TENANT\_ID`
+-   `COOKIE\_VALUE`
+-   `CREATED\_TIME`
 
 #### IDN\_OPENID\_USER\_RPS
 
@@ -339,17 +318,17 @@ When the Identity Server is used as a Security Token Service which
 issues access tokens, such records are stored in following table.
 Following are the columns of the table.
 
--   ID
--   TOKEN\_ID
--   TOKEN\_CONTENT
--   CREATE\_DATE
--   EXPIRE\_DATE
--   STATE
+-   `ID`
+-   `TOKEN\_ID`
+-   `TOKEN\_CONTENT`
+-   `CREATE\_DATE`
+-   `EXPIRE\_DATE`
+-   `STATE`
 
 #### IDN\_IDENTITY\_USER\_DATA
 
 When using a JDBC user store, the user attributes of a user are stored
-in the UM\_USER\_ATTRIBUTE table for the supported claims. There are
+in the `UM\_USER\_ATTRIBUTE` table for the supported claims. There are
 some claims used for Identity Management features that should be handled
 specifically. Claims used for Identity Management feature will be stored
 in the userstore which is specified in the
@@ -379,25 +358,16 @@ inserted to this table.
   
 The reserved claims are as follows:
 
--   Any claim that contains the part : "
-    <http://wso2.org/claims/challengeQuestion> " for its claim URI
+-   Any claim that contains the part : `http://wso2.org/claims/challengeQuestion` for its claim URI
+    -  `http://wso2.org/claims/challengeQuestion1`
+    -  `http://wso2.org/claims/challengeQuestion2`
+    -  `http://wso2.org/claims/challengeQuestionUris`
 
-<http://wso2.org/claims/challengeQuestion1>
-
-<http://wso2.org/claims/challengeQuestion2>
-
-<http://wso2.org/claims/challengeQuestionUris>
-
--   Any claim that contains part " <http://wso2.org/claims/identity> "
-    for its claim URI
-
-<http://wso2.org/claims/identity/accountLocked>
-
-<http://wso2.org/claims/identity/failedLoginAttempts>
-
-<http://wso2.org/claims/identity/unlockTime>  
-[http://wso2.org/claims/identity/passwordTimestamp  
-](http://wso2.org/claims/identity/passwordTimestamp)
+-   Any claim that contains part `http://wso2.org/claims/identity` for its claim URI
+    -  `http://wso2.org/claims/identity/accountLocked`
+    -  `http://wso2.org/claims/identity/failedLoginAttempts`
+    -  `http://wso2.org/claims/identity/unlockTime`
+    -  `http://wso2.org/claims/identity/passwordTimestamp`
 
 The following table lists out the columns and a description of the
 values it contains.
@@ -411,11 +381,11 @@ values it contains.
 
 #### IDN\_IDENTITY\_META\_DATA
 
--   USER\_NAME
--   TENANT\_ID
--   METADATA\_TYPE
--   METADATA
--   VALID  
+-   `USER\_NAME`
+-   `TENANT\_ID`
+-   `METADATA\_TYPE`
+-   `METADATA`
+-   `VALID`
 
 #### IDN\_THRIFT\_SESSION
 
@@ -464,6 +434,4 @@ description of the values it contains.
 | SESSION\_OBJECT | The session object               |
 | TIME\_CREATED   | The time of the session creation |
 
-![]( ../../assets/img/103329409/103329411.png)   
-  
-![]( ../../assets/img/103329409/103329410.png) 
+![Identity related tables]( ../../assets/img/using-wso2-identity-server/identity-related-tables.png)
