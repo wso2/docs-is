@@ -526,6 +526,113 @@ nav:
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
       - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-Authentication-Endpoint-on-a-Different-Server.md
     - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md 
+  - 'Connectors':
+    - 'Connectors': connectors/wso2-identity-server-authenticators-and-connectors-documentation.md
+    - 'Configuring Connectors':
+      - 'Configuring Connectors': connectors/authenticators-and-connectors.md    
+      - 'Deploying the Sample App': connectors/deploying-the-sample-app.md
+      - 'Amazon Authenticator': connectors/amazon-authenticator.md
+      - 'Basecamp Authenticator':
+        - 'Basecamp Authenticator': connectors/basecamp-Authenticator.md
+        - 'Configuring Basecamp Authenticator': connectors/configuring-Basecamp-Authenticator.md
+      - 'Bitly Authenticator':
+        - 'Bitly Authenticator': connectors/bitly-Authenticator.md
+        - 'Configuring Bitly Authenticator': connectors/configuring-Bitly-Authenticator.md
+      - 'CAS Inbound Authenticator':
+        - 'CAS Inbound Authenticator': connectors/cAS-Inbound-Authenticator.md
+        - 'Configuring CAS Inbound Authenticator': connectors/configuring-CAS-Inbound-Authenticator.md
+      - 'Dropbox Authenticator':
+        - 'Dropbox Authenticator': connectors/dropbox-Authenticator.md
+        - 'Configuring Dropbox Authenticator': connectors/configuring-Dropbox-Authenticator.md
+      - 'Duo Security Authenticator and Provisioning Connector':
+        - 'Duo Security Authenticator and Provisioning Connector': connectors/duo-Security-Authenticator-and-Provisioning-Connector.md
+        - 'Configuring Duo Security Provisioning Connector': connectors/configuring-Duo-Security-Provisioning-Connector.md
+        - 'Configuring Duo Security Authenticator': connectors/configuring-Duo-Security-Authenticator.md
+      - 'EmailOTP Authenticator':
+        - 'EmailOTP Authenticator': connectors/emailOTP-Authenticator.md
+        - 'Configuring Multi-factor Authentication using EmailOTP': connectors/configuring-Multi-factor-Authentication-using-EmailOTP.md
+      - 'Facebook Authenticator':
+        - 'Facebook Authenticator': connectors/facebook-Authenticator.md
+        - 'Configuring Facebook Authenticator': connectors/configuring-Facebook-Authenticator.md
+      - 'Foursquare Authenticator':
+        - 'Foursquare Authenticator': connectors/foursquare-Authenticator.md
+        - 'Configuring Foursquare Authenticator': connectors/configuring-Foursquare-Authenticator.md
+      - 'Github Authenticator':
+        - 'Github Authenticator': connectors/github-Authenticator.md
+        - 'Configuring Github Authenticator': connectors/configuring-Github-Authenticator.md
+      - 'Instagram Authenticator':
+        - 'Instagram Authenticator': connectors/instagram-Authenticator.md
+        - 'Configuring Instagram Authenticator': connectors/configuring-Instagram-Authenticator.md
+      - 'Inwebo Authenticator and Provisioning Connector':
+        - 'Inwebo Authenticator and Provisioning Connector': connectors/inwebo-Authenticator-and-Provisioning-Connector.md
+        - 'Configuring Inwebo Authenticator': connectors/configuring-Inwebo-Authenticator.md
+        - 'Configuring Inwebo Provisioning': connectors/configuring-Inwebo-Provisioning.md
+      - 'JWT Grant Type for OAuth2':
+        - 'JWT Grant Type for OAuth2': connectors/jWT-Grant-Type-for-OAuth2.md
+        - 'Configuring JWT Grant Type': connectors/configuring-JWT-Grant-Type.md
+      - 'LinkedIn Authenticator':
+        - 'LinkedIn Authenticator': connectors/linkedIn-Authenticator.md
+        - 'Configuring LinkedIn Authenticator': connectors/configuring-LinkedIn-Authenticator.md
+      - 'MailChimp Authenticator':
+        - 'MailChimp Authenticator': connectors/mailChimp-Authenticator.md
+        - 'Configuring MailChimp Authenticator': connectors/configuring-MailChimp-Authenticator.md
+      - 'MePIN Authenticator':
+        - 'MePIN Authenticator': connectors/mePIN-Authenticator.md
+        - 'Configuring MePIN Authenticator': connectors/configuring-MePIN-Authenticator.md
+      - 'Mobile Connect Authenticator':
+        - 'Mobile Connect Authenticator': connectors/mobile-Connect-Authenticator.md
+        - 'Configuring Mobile Connect as a Federated Authenticator': connectors/configuring-Mobile-Connect-as-a-Federated-Authenticator.md
+      - 'Microsoft Azure AD Authenticator':
+        - 'Microsoft Azure AD Authenticator': connectors/microsoft-Azure-AD-Authenticator.md
+        - 'Configuring Microsoft Azure AD Authenticator': connectors/configuring-Microsoft-Azure-AD-Authenticator.md
+        - 'Configuring Microsoft Azure AD Outbound Provisioning Connector': connectors/configuring-Microsoft-Azure-AD-Outbound-Provisioning-Connector.md
+      - 'Password Policy Authenticator':
+        - 'Password Policy Authenticator': connectors/password-Policy-Authenticator.md
+        - 'Configuring Password Policy Authenticator': connectors/configuring-Password-Policy-Authenticator.md
+      - 'Pinterest Authenticator':
+        - 'Pinterest Authenticator': connectors/pinterest-Authenticator.md
+        - 'Configuring Pinterest Authenticator': connectors/configuring-Pinterest-Authenticator.md
+      - 'Reddit Authenticator':
+        - 'Reddit Authenticator': connectors/reddit-Authenticator.md
+        - 'Configuring Reddit Authenticator': connectors/configuring-Reddit-Authenticator.md
+      - 'RSA SecurID Authenticator':
+        - 'RSA SecurID Authenticator': connectors/rSA-SecurID-Authenticator.md
+        - 'Configuring RSA SecurID Authenticator': connectors/configuring-RSA-SecurID-Authenticator.md
+      - 'SCIM 2.0 Provisioning Connector':
+        - 'SCIM 2.0 Provisioning Connector': connectors/sCIM-2.0-Provisioning-Connector.md
+        - 'Configuring SCIM 2.0 Provisioning Connector': connectors/configuring-SCIM-2.0-Provisioning-Connector.md
+      - 'SMSOTP Authenticator':
+        - 'SMSOTP Authenticator': connectors/sMSOTP-Authenticator.md
+        - 'Configuring Multi-factor Authentication using SMSOTP': connectors/configuring-Multi-factor-Authentication-using-SMSOTP.md
+      - 'Token2 Authenticator':
+        - 'Token2 Authenticator': connectors/token2-Authenticator.md
+        - 'Configuring Multi-factor Authentication using Token2': connectors/configuring-Multi-factor-Authentication-using-Token2.md
+      - 'TOTP Authenticator':
+        - 'TOTP Authenticator': connectors/tOTP-Authenticator.md
+        - 'Configuring TOTP Authenticator': connectors/configuring-TOTP-Authenticator.md
+        - 'Using the TOTP API': connectors/using-the-TOTP-API.md
+      - 'Twitter Authenticator':
+        - 'Twitter Authenticator': connectors/twitter-Authenticator.md
+        - 'Configuring Twitter Authenticator': connectors/configuring-Twitter-Authenticator.md
+      - 'Wordpress Authenticator':
+        - 'Wordpress Authenticator': connectors/wordpress-Authenticator.md
+        - 'Configuring Wordpress Authenticator': connectors/configuring-Wordpress-Authenticator.md
+      - 'X509Certificate Authenticator':
+        - 'X509Certificate Authenticator': connectors/x509Certificate-Authenticator.md 
+        - 'Configuring X509Certificate Authenticator': 
+          - 'Configuring X509Certificate Authenticator': connectors/configuring-X509Certificate-Authenticator.md
+          - 'Configuring X509 Authenticator with SSL Termination': connectors/configuring-X509-Authenticator-with-SSL-Termination.md
+        - 'Configuring Certificate Revocation Validation': connectors/configuring-Certificate-Revocation-Validation.md
+      - 'Yammer Authenticator':
+        - 'Yammer Authenticator': connectors/yammer-Authenticator.md
+        - 'Configuring Yammer Authenticator': connectors/configuring-Yammer-Authenticator.md
+      - 'Upgrading an Authenticator': connectors/upgrading-an-Authenticator.md
+      - 'Nuxeo Authenticator':
+        - 'Nuxeo Authenticator': connectors/nuxeo-Authenticator.md
+        - 'Configuring Nuxeo Authenticator': connectors/configuring-Nuxeo-Authenticator.md
+      - 'AWS Cloud Directory User Store': connectors/aWS-Cloud-Directory-User-Store.md    
+    - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': connectors/creating-a-third-Party-authenticator-or-connector-and-publishing-in-wso2-store.md
+    - 'Getting Support': connectors/getting-support.md        
   - 'Admin Guide':
     - 'WSO2 Administration Guide': admin-guide/wSO2-Administration-Guide.md
     - 'Deployment and Clustering':

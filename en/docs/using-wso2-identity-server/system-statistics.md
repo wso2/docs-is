@@ -9,7 +9,7 @@ response time.
 Follow the instructions below to access the system statistics.
 
 1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console.md)
+    [Management Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Monitor** menu and click on **System Statistics**
     . The **System Statistics** page appears with statistics related to
@@ -58,7 +58,7 @@ view.
 !!! info
     If you want to restore to the previous values after editing, click **Reset**.
 
-    ![Reset button]( ../../using-wso2-identity-server/reset-button.png)
+    ![Reset button]( ../../assets/img/using-wso2-identity-server/reset-button.png)
 
 !!! info
     If you want to restore to the default values, click the corresponding button.

@@ -41,8 +41,6 @@ To start the server and pass the parameter, navigate to the
 `         <IS_HOME>/bin        ` folder in the command line and run the
 following command.
 
-
-
 ``` bash tab="Startup command"
 sh wso2server.sh -DRead_Log_Token_Properties=true
 ```
