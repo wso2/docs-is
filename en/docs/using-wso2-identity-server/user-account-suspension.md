@@ -25,10 +25,10 @@ task that checks for idle accounts is common to all tenants.
 
 !!! tip "Before you begin"
     
-    Ensure that the " `         IdentityMgtEventListener        ` " with the
-    `         orderId=50        ` is set to **false** and that the "
-    `         IdentityMgtEventListener        ` " with the
-    `         orderId=95        ` is set to **true** in the
+    Ensure that the identity listener with the
+    `         priority=50        ` is set to **false** and that the "
+    identity listener with the
+    `         priority=95        ` is set to **true** by adding the following configuration in the
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
     
     ``` java
