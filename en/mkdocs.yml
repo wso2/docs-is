@@ -332,23 +332,21 @@ nav:
         - 'Rule Based Provisioning': using-wso2-identity-server/rule-based-provisioning.md
         - 'Provisioning Patterns': using-wso2-identity-server/provisioning-patterns.md
       - 'Account Management Policies':
-        - 'Account Management Policies': using-wso2-identity-server/account-Management-Policies.md
         - 'Account Recovery':
-          - 'Account Recovery': using-wso2-identity-server/account-Recovery.md
           - 'Username Recovery':
-            - 'Username Recovery': using-wso2-identity-server/username-Recovery.md
-            - 'Configuring reCaptcha for Username Recovery': using-wso2-identity-server/configuring-reCaptcha-for-Username-Recovery.md
+            - 'Username Recovery': using-wso2-identity-server/username-recovery.md
+            - 'Configuring reCaptcha for Username Recovery': using-wso2-identity-server/configuring-recaptcha-for-username-recovery.md
           - 'Password Recovery':
-            - 'Password Recovery': using-wso2-identity-server/password-Recovery.md
-            - 'Configuring Google reCaptcha for Security-Question Based Password Recovery': using-wso2-identity-server/configuring-Google-reCaptcha-for-Security-Question-Based-Password-Recovery.md
-            - 'Configuring reCaptcha for Password Recovery': using-wso2-identity-server/configuring-reCaptcha-for-Password-Recovery.md
-          - 'Managing Challenge Questions': using-wso2-identity-server/managing-Challenge-Questions.md
+            - 'Password Recovery': using-wso2-identity-server/password-recovery.md
+            - 'Configuring Google reCaptcha for Security-Question Based Password Recovery': using-wso2-identity-server/configuring-google-recaptcha-for-security-question-based-password-recovery.md
+            - 'Configuring reCaptcha for Password Recovery': using-wso2-identity-server/configuring-recaptcha-for-password-recovery.md
+          - 'Managing Challenge Questions': using-wso2-identity-server/managing-challenge-questions.md
         - 'Self-Registration and Account Confirmation': 
-          - 'Self-Registration and Account Confirmation': using-wso2-identity-server/self-Registration-and-Account-Confirmation.md
-          - 'Configuring reCaptcha for Self Registration': using-wso2-identity-server/configuring-reCaptcha-for-Self-Registration.md
-        - 'Creating Users Using the Ask Password Option': using-wso2-identity-server/creating-Users-Using-the-Ask-Password-Option.md
-        - 'Forced Password Reset': using-wso2-identity-server/forced-Password-Reset.md
-        - 'User Account Suspension': using-wso2-identity-server/user-Account-Suspension.md
+          - 'Self-Registration and Account Confirmation': using-wso2-identity-server/self-registration-and-account-confirmation.md
+          - 'Configuring reCaptcha for Self Registration': using-wso2-identity-server/configuring-recaptcha-for-self-registration.md
+        - 'Creating Users Using the Ask Password Option': using-wso2-identity-server/creating-users-using-the-ask-password-option.md
+        - 'Forced Password Reset': using-wso2-identity-server/forced-password-reset.md
+        - 'User Account Suspension': using-wso2-identity-server/user-account-suspension.md
       - 'Password Policies':
         - 'Password Policies': using-wso2-identity-server/password-Policies.md
         - 'Password History Validation': using-wso2-identity-server/password-History-Validation.md
