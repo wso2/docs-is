@@ -55,7 +55,7 @@ login and revoke application authorization.
 5.  Once you have logged in, click **View details** under **Authorized
     Apps**. The following page appears, listing out the available
     apps.  
-    ![]( ../../assets/img/103329616/103329617.png)
+    ![oauth-authorized-apps]( ../../assets/img/103329616/oauth-authorized-apps.png)
 
 The **Authorized Apps** page indicates the user has granted
 authorization to the application ‘ `         travelocity        ` ′
@@ -72,7 +72,7 @@ Identity Server have been written as JAX-RS endpoints, you can add the
 required CORS configurations to its deployment descriptor.
 
 You can find this webapp at
-`         <WSO2_IS_HOME>/repository/deployment/server/webapps/oauth2.war        `
+`         <IS_HOME>/repository/deployment/server/webapps/oauth2.war        `
 . Rather than editing the `         web.xml        ` directly in the
 deployed directory, its easier to copy the `         oauth2.war        `
 file into another location, edit the `         web.xml        ` and copy
