@@ -33,21 +33,13 @@ the administrator.
 
 Follow the instructions given below to configure this feature.
 
-!!! tip
-    
-    Before you begin
-    
-    Ensure that the " `         IdentityMgtEventListener        ` " with the
-    `         orderId=50        ` is set to **false.** This is the listener
-    for the old implementation of identity management prior to 5.3.0.
+!!! tip "Before you begin"
     
     Ensure that the new Identity Listeners with
-    `         orderId=95        ` and `         orderId=97        ` are set
-    to **true** in the
+    `         priority=95        ` and `         priority=97        ` are set
+    to **true** by adding the following configuration in the
     `         <IS_HOME>/repository/conf/deployment.toml       ` file.
     
-    By default, the properties are configured as shown below. Therefore, if
-    you have not changed the default configurations, you can skip this step.
     
     ``` java
     [event.default_listener.identity_mgt]
@@ -65,10 +57,9 @@ Follow the instructions given below to configure this feature.
 Follow the steps given below to configure WSO2 IS to enable the ask
 password feature:
 
-1.  Make sure the following configuration is set (uncommented) in the
+1.  Make sure the following configuration is added to the
     `           <IS_HOME>/repository/conf/deployment.toml          `
-    file under `           <EmailVerification>          ` element below
-    `           <Server>          ` element to set the redirection URL
+    file to set the redirection URL
     valid time period in **minutes**.  
     The redirection link that is provided to the user to set the
     password is invalid after the time specified here has elapsed.
@@ -100,7 +91,7 @@ password feature:
             changes.
 
 2.  Optionally, if you are adding users via the management console, the
-    **EnableAskPasswordAdminUI** property value needs to be added to the
+    following property needs to be added to the
     `           <IS_HOME>/repository/conf/deployment-toml` file.
 
     ``` java
@@ -192,10 +183,10 @@ password feature:
     Verification**. Click **Update** to save changes.
 
     !!! info 
-        The `            EmailVerification           ` property can be
+        The `            enable_email_verification           ` property can be
         enabled for each tenant at tenant creation by adding the following
         configuration to the
-        `            <IS_HOME>/repository/conf/identity/identity.xml           `
+        `            <IS_HOME>/repository/conf/deployment.toml         `
         file as seen below.
 
         ``` xml

@@ -35,10 +35,10 @@ with email notification.
 
 !!! tip "Before you begin"
     
-    Ensure that the " `         IdentityMgtEventListener        ` " with the
-    `         orderId=50        ` is set to **false** and that the Identity
-    Listeners with `         orderId=95        ` and
-    `         orderId=97        ` are set to **true** in the
+    Ensure that the identity listener with the
+    `         priority=50        ` is set to **false** and that the Identity
+    Listeners with `         priority=95        ` and
+    `         priority=97        ` are set to **true** by adding the following configuration in the
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
     
     ``` java
@@ -306,9 +306,7 @@ To try this out, first create a user in the Identity Server.
         -   To set up reCaptcha for password recovery with secret questions, see
         [Configuring Google reCaptcha for Security-Question Based Password
         Recovery](../../using-wso2-identity-server/configuring-google-recaptcha-for-security-question-based-password-recovery).
-        -   By default, the claim values of the identity claims used in this
-        feature are stored in the JDBC datasource configured in the
-        `            identity.xml           ` file. See [Configuring
+        -   See [Configuring
         Claims](../../using-wso2-identity-server/configuring-claims) for
         more information on how to store the claim values in the user store.
 

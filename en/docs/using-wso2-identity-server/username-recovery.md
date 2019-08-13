@@ -35,10 +35,10 @@ with the WSO2 IS.
     
 !!! tip "Before you begin"
     
-    Ensure that the " `         IdentityMgtEventListener        ` " with the
-    `         orderId=50        ` is set to **false** and that the Identity
-    Listeners with `         orderId=95        ` and
-    `         orderId=97        ` are set to **true** in the
+    Ensure that the identity listener  with the
+    `         priority=50        ` is set to **false** and that the Identity
+    Listeners with `         priority=95        ` and
+    `         priority=97        ` are set to **true** by adding the following configuration in the
     `         <IS_HOME>/repository/conf/deployment.toml       ` file.
     
     ``` java
