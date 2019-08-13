@@ -4,10 +4,7 @@ WSO2 Identity Server (WSO2 IS) allows you to enable OAuth2 token hashing
 to protect OAuth2 access tokens, refresh tokens, consumer secrets, and
 authorization codes.
 
-!!! note
-    
-    **Notes:**
-    
+!!! note "Notes"
     -   Token hashing is only required if there are long lived tokens.
     -   If you want to enable this feature, WSO2 recommends using a fresh
         WSO2 Identity Server distribution.  
@@ -19,35 +16,28 @@ authorization codes.
 
 Follow the instructions below to set up OAuth token hashing:
 
-1.  Edit the
-    `          <IS_HOME>/repository/conf/identity/identity.xml         `
-    file,and do the following configuration changes under the
-    `          <OAuth>         ` section:
-    -   Change the value of the
-        `             <TokenPersistenceProcessor>            ` element
-        as follows to enable token hashing:
-
-        ``` xml
-        <TokenPersistenceProcessor>org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor</TokenPersistenceProcessor>
+1.  Do the following configurations in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+    -   Add the following token persistence processor to  enable token hashing:
+        ``` toml
+        [oauth.extensions]
+        token_persistance_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
         ```
 
-    -   Change the value of the
-        `             <EnableClientSecretHash>            ` element to
-        `             true            ` as follows:
-
-        ``` xml
-                <EnableClientSecretHash>true</EnableClientSecretHash>
+    -   Add the following property and set it to true to enable hashing. 
+        ``` toml
+        [oauth]
+        hash_tokens_and_secrets= true
         ```
 
     -   Add the following configuration to specify the algorithm to use
         for hashing:
 
-        ``` xml
-                <HashAlgorithm>SHA-256</HashAlgorithm>
+        ``` toml
+        [oauth]
+        hash_token_algorithm= ""
         ```
 
         !!! tip
-        
                 WSO2 Identity Server allows you to use hashing algorithms
                 supported by MessageDigest. For more information on hashing
                 algorithms supported by MessageDigest, see [MessageDigest
@@ -67,7 +57,6 @@ Follow the instructions below to set up OAuth token hashing:
     ```
 
     !!! tip
-    
         In general, for a specified consumer key, user, and scope, there can
         be only one active access token. The
         `           CON_APP_KEY          ` constraint in the
@@ -98,29 +87,27 @@ Follow the instructions below to set up OAuth token hashing:
 
     4.  Specify appropriate values for the required fields.
 
-        ![]( ../../assets/img/103329661/103329662.png){width="500"
-        height="656"}
+        ![new-oauth-application]( ../../assets/img/using-wso2-identity-server/new-oauth-application.png)
 
     5.  Click **Add**. This displays values of the **Consumer Key** and
         the **Consumer Secret** for your service provider.
 
-        ![]( ../../assets/img/103329661/103329663.png) 
+        ![oauth-app-credentials]( ../../assets/img/using-wso2-identity-server/oauth-app-credentials.png) 
 
         !!! tip
-        
-                **Consumer Key** : The client key of the service provider. This
-                is required by the Identity Server to authenticate the service
-                provider and provide the access token.  
-                **Consumer Secret** : The client secret of the service provider.
-                This is required by the Identity Server to authenticate the
-                service provider and provide the access token.
+            **Consumer Key** : The client key of the service provider. This
+            is required by the Identity Server to authenticate the service
+            provider and provide the access token.  
+            **Consumer Secret** : The client secret of the service provider.
+            This is required by the Identity Server to authenticate the
+            service provider and provide the access token.
+
         
 
 4.  Click **Show** to view the exact **Consumer Key** and **Consumer
     Secret**.
 
     !!! note
-    
         The **Consumer Secret** value is displayed in plain text only once.
         Therefore, be sure to copy and save it for later use.
     
