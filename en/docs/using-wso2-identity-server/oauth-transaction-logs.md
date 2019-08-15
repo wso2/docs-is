@@ -16,8 +16,8 @@ This section guides you through enabling the logger for OAuth endpoints.
     
     ``` java
     [event.default_listener.oauth_listener]
-    priority= 
-    enable = 
+    priority= 12
+    enable = true
     ```
 
 2.  Start WSO2 Identity Server. If the changes have been applied
