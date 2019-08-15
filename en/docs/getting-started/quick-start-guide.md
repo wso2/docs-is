@@ -201,7 +201,7 @@ protocol, follow the steps below:
         For more information, see [Creating users and
         roles](http://configuring%20users/#Adding%20a%20new%20user%20and%20assigning%20roles)
        , [Configuring service
-        providers](_Adding_and_Configuring_a_Service_Provider_), and
+        providers](../../using-wso2-identity-server/adding-and-configuring-a-service-provider), and
         [Configuring web app for SSO](_Configuring_Single_Sign-On_).
     
 
