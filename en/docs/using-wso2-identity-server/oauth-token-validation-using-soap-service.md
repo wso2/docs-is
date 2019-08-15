@@ -9,20 +9,22 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
 [here](https://github.com/wso2/product-is/blob/5.x.x/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
 .
 
-1.  Open the `           <IS_HOME>/repository/conf/carbon.xml          `
-    file and set the `           <HideAdminServiceWSDLs>          `
-    property to false.
+1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf`
+    folder and set the `           <HideAdminServiceWSDLs>          `
+    property to true.
 
-    !!! note
-    
-        **Note:** This step is just to make the admin services WSDL
-        accessible. Once the service WSDL is taken, revert this change to
+    !!! note "Note"
+        This step is just to make the admin services WSDL
+        accessible. Once the service WSDL is taken, set the property to **false**
         hide admin service WSDLs.
-    
+
+        
 
     ``` java
     <!-- If this parameter is set, the ?wsdl on an admin service will not give the admin service wsdl. --> 
     <HideAdminServiceWSDLs>true</HideAdminServiceWSDLs>
+    [admin_service.wsdl] 
+    enable = true
     ```
 
 2.  Restart the server to make the changes effective.
@@ -30,15 +32,12 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
 3.  Go to the SOAP UI and give the WSDL location.
     1.  **Service Name:** OAuth2TokenValidationService
 
-    2.  **WSDL location:**
-        https://localhost:9443/services/OAuth2TokenValidationService?wsdl
+    2.  **WSDL location:** https://localhost:9443/services/OAuth2TokenValidationService?wsdl
 
 4.  Provide the following parameters to call the validate method as seen
-    below. ![]( ../../assets/img/103329621/103329622.png) 
+    below. ![oauth-token-validation-request]( ../../assets/img/using-wso2-identity-server/oauth-token-validation-request.png)
 
-<!-- -->
-
-1.  1.  Since this validation service is an admin service, a valid user
+    1.  Since this validation service is an admin service, a valid user
         name and password needs to be provided in order to consume the
         service.
     2.  Identifier value is the token to be validated.
@@ -49,8 +48,7 @@ playground2](../../using-wso2-identity-server/downloading-a-sample) for OAuth2 c
         which the token is valid. If an error occurred while validating
         the token, it can be sent as the error message.
 
-**Related Topics**
-
-In order to get the user claims of the authorized user as a JWT token
-with the validation response, see [JWT Token
-Generation](../../using-wso2-identity-server/jwt-token-generation).
+!!! info "Related Topics"
+    In order to get the user claims of the authorized user as a JWT token
+    with the validation response, see [JWT Token
+    Generation](../../using-wso2-identity-server/jwt-token-generation).
