@@ -1,5 +1,4 @@
 # User Managed Access with WSO2 Identity Server
-
 WSO2 Identity Server (WSO2 IS) supports the UMA 2.0 protocol, which
 allows a resource owner to easily share resources with other requesting
 parties. This tutorial demonstrates how you can use WSO2 IS as the

@@ -140,13 +140,13 @@ application by setting up inbound authentication.
     adaptive authentication depending on your requirement. For example,
     add Demo HardwareKey Authenticator.  
     ![Adaptive Authentication Templates](../../assets/img/tutorials/adaptive-auth-templates.png)
-7.  Add the following configuration in <IS_HOME>/repository/conf/deployment.toml file. 
+7.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
-   ```
-        [[resource.access_control]]
-        context = "/sample-auth(.*)"
-        secure = false
-        http_method = "all"
+   ```toml
+   [[resource.access_control]]
+   context = "/sample-auth(.*)"
+   secure = false
+   http_method = "all"
    ```    
 8. Restart the server   
 
