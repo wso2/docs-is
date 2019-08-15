@@ -34,7 +34,7 @@ Follow the instructions below to set up OAuth token hashing:
 
         ``` toml
         [oauth]
-        hash_token_algorithm= ""
+        hash_token_algorithm= "SHA-256"
         ```
 
         !!! tip
