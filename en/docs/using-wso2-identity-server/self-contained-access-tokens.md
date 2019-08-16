@@ -41,13 +41,10 @@ in more refresh token requests at the Authorization server.
 WSO2 Identity Server needs to be configured to issue above explained
 self-contained JWT access tokens as below.
 
-1.  Open the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file and uncomment the following entry under
-    `           <OAuth>          ` element.
-
-    ``` xml
-    <IdentityOAuthTokenGenerator>org.wso2.carbon.identity.oauth2.token.JWTTokenIssuer</IdentityOAuthTokenGenerator>
+1.  Add the following configuration property to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder.
+    ``` toml
+    [oauth.token_generation]
+    access_token_type= "self_contained"
     ```
 
 2.  Restart the server.
