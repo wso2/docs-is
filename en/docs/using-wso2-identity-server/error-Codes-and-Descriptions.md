@@ -8,7 +8,7 @@ pages, see [Working with Errors](_Working_with_Errors_).
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 17001      | This occurs if the user does not exist.                                                                                                                                  |
 | 17002      | This error occurs when invalid credentials are provided.                                                                                                                 |
-| 17003      | This error occurs when an [account is locked](_Account_Locking_by_Failed_Login_Attempts_) after multiple incorrect login attempts and the user attempts to log in again. |
+| 17003      | This error occurs when an [account is locked](../../using-wso2-identity-server/account-locking-by-failed-login-attempts) after multiple incorrect login attempts and the user attempts to log in again. |
 | 17004      | This error occurs when the user account is disabled.                                                                                                                     |
 | 18001      | Invalid validation code.                                                                                                                                                 |
 | 18002      | The key/confirmation code provided has expired.                                                                                                                          |

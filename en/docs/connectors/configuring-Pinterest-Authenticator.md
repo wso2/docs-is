@@ -140,7 +140,7 @@ The next step is to configure the service provider.
 ### Configuring claim mappings for Pinterest
 
 1.  Sign into the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     by entering your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Pinterest authenticator

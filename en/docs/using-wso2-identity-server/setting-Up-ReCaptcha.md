@@ -7,10 +7,6 @@ robot. It comes in the form of a widget. The following section guides
 you through setting up reCaptcha with the WSO2 Identity Server and how
 to use it in different scenarios.
 
--   [How it works](#SettingUpReCaptcha-Howitworks)
--   [Configuring reCaptcha API
-    keys](#SettingUpReCaptcha-ConfiguringreCaptchaAPIkeys)
-
 ### How it works
 
 First, you will need to register and create an API key pair for the
@@ -25,7 +21,7 @@ Follow the steps provided below to configure this.
 
 ### Configuring reCaptcha API keys
 
-1.  Go to <https://www.google.com/recaptcha/admin> .
+1.  Go to <https://www.google.com/recaptcha/admin>.
 
 2.  You will see the following window. Fill in the fields to register
     your identity server domain and click **Register**. The following
@@ -34,9 +30,9 @@ Follow the steps provided below to configure this.
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
     -   **Domains:** is.wso2.com  
 
-    ![]( ../../assets/img/103330586/103330587.png) 
+    ![configuring-recaptcha-api-keys](../../assets/img/using-wso2-identity-server/configuring-recaptcha-api-keys.png) 
 3.  Take note of the site key and secret that you receive.
-    ![]( ../../assets/img/103330586/103330588.png) 
+    ![note-site-key-secret](../../assets/img/using-wso2-identity-server/note-site-key-secret.png) 
 4.  Open the c `            aptcha-config.properties           ` file
     located in the
     `            <IS_HOME>/repository/conf/identity/           `
@@ -89,9 +85,9 @@ You have successfully set up reCaptcha for your site. You can now
 configure reCaptcha with any of the following:
 
 -   [Configuring Google reCaptcha for single
-    sign-on](_Configuring_reCaptcha_for_Single_Sign_On_)
+    sign-on](../../tutorials/configuring-recaptcha-for-single-sign-on)
 -   [Configuring Google reCaptcha for self
-    registration](_Configuring_reCaptcha_for_Self_Registration_)
+    registration](../../using-wso2-identity-server/configuring-recaptcha-for-self-registration)
 -   [Configuring Google reCaptcha for security-question based password
-    recovery](_Configuring_Google_reCaptcha_for_Security-Question_Based_Password_Recovery_)
+    recovery](../../using-wso2-identity-server/configuring-recaptcha-for-security-question-based-password-recovery)
     (password recovery with secret questions)

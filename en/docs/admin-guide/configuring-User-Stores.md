@@ -47,6 +47,6 @@ The following topics include instructions on setting up user stores:
 -   [Working with Properties of User
     Stores](_Working_with_Properties_of_User_Stores_)
 -   [Writing a Custom User Store
-    Manager](_Writing_a_Custom_User_Store_Manager_)
+    Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
 
   

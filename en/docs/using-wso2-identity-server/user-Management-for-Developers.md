@@ -4,7 +4,7 @@ The following topics list out key user management concepts relevant for
 Developers.
 
 -   [Writing a Custom Password
-    Validator](_Writing_a_Custom_Password_Validator_)
+    Validator](../../using-wso2-identity-server/writing-a-custom-password-validator)
 -   [Writing a Custom Claim Handler](_Writing_a_Custom_Claim_Handler_)
 -   [User Store Listeners](_User_Store_Listeners_)
 -   [Using the User Management Errors Event

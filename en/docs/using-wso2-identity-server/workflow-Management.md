@@ -26,7 +26,7 @@ senior HR manager has to approve new user additions. Once this is done,
 the user can login to the system and continue his work. The following
 pre-requisites are necessary to implement this sample use case:
 
-![]( ../../assets/img/103330274/103330275.png) 
+![sample-for-workflow](../../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
 
 !!! tip
     
@@ -37,8 +37,7 @@ pre-requisites are necessary to implement this sample use case:
 
 ### Prerequisites
 
--   [WSO2 Identity Server  
-    ](http://wso2.com/products/identity-server/)
+-   [WSO2 Identity Server](http://wso2.com/products/identity-server/)
 
 An embedded Business Process Management engine is included in WSO2
 Identity Server to execute this feature. However, if you need more
@@ -49,14 +48,6 @@ Integrator](https://docs.wso2.com/display/EI611/Business+Process+Management)
 with the Identity Server.
 
 The following sections will guide you through the process of
-implementing this sample use case. Follow them in the given order:
-
--   [Adding a Workflow Engine](_Adding_a_Workflow_Engine_)
--   [Adding a New Workflow
-    Definition](_Adding_a_New_Workflow_Definition_)
--   [Engaging a Workflow in an
-    Operation](_Engaging_a_Workflow_in_an_Operation_)
--   [Managing Human Tasks](_Managing_Human_Tasks_)
--   [Monitoring Workflow Requests](_Monitoring_Workflow_Requests_)
+implementing this sample use case. Follow them in the given order.
 
   

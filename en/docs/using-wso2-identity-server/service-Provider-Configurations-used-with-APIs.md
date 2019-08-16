@@ -2,7 +2,7 @@
 
 This section guides you through the configurations you can include in a
 service provider application. See [Calling Admin
-Services](_Calling_Admin_Services_) to enable the admin service.
+Services](../../using-wso2-identity-server/calling-admin-services) to enable the admin service.
 
 -   [Configuring SAML2 web
     SSO](#ServiceProviderConfigurationsusedwithAPIs-ConfiguringSAML2webSSO)
