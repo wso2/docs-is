@@ -664,7 +664,7 @@ properties.
                                            orderId="9" enable="false"/>
                     ```
                     <p><b>Why?</b></p>
-                    <p><code>AbstractIdentityHandler</code> - Enabling this listener logs the audit data for OAuth token issuance and token introspection. Adding this property allows you to disable logging, else if this property is not present in the configuration file, logging is enabled by default. For more information about auditing, see [OAuth Transaction Logs](_OAuth_Transaction_Logs_).</p>
+                    <p><code>AbstractIdentityHandler</code> - Enabling this listener logs the audit data for OAuth token issuance and token introspection. Adding this property allows you to disable logging, else if this property is not present in the configuration file, logging is enabled by default. For more information about auditing, see [OAuth Transaction Logs](../../using-wso2-identity-server/oauth-transaction-logs).</p>
                     <p><code>UserOperationEventListener</code> - This event listener is used to support session termination at the point renaming the username.</p>
                     <p><code>UserOperationEventListener</code> - This event listener allows adding claims to the audit logs.</p>
                     <hr>
