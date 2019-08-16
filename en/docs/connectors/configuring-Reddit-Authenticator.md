@@ -105,7 +105,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
 3.  Run the [WSO2 Identity
     Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 4.  Log in to the [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     as an administrator.
 5.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.

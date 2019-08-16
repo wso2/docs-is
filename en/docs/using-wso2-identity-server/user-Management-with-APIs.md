@@ -3,7 +3,7 @@
 WSO2 Identity Server provides the following web services APIs for
 managing users and roles in the **Remote User Management API:**
 
--   [RemoteUserStoreManagerService](_Managing_Users_and_Roles_with_APIs_)
+-   [RemoteUserStoreManagerService](../../references/managing-users-and-roles-with-apis)
     : This service exposes user, user role and claim management
     functionalities. For instance, if your application needs a user role
     management function, you can directly integrate with the WSO2

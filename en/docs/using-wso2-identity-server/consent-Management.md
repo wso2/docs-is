@@ -72,7 +72,7 @@ features.
 
 -   RESTful consent APIs to manage consents remotely. For more
     infomation, see [Using the Consent Management REST
-    APIs](_Using_the_Consent_Management_REST_APIs_).
+    APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis).
 -   Consent portal for individuals to review, modify, and revoke already
     given consents. For more information, see [Configuring consent for
     services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
@@ -84,7 +84,7 @@ features.
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. For more information,
     see [Consent Management with
-    Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
+    Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
 -   Support for the Kantara consent receipt specification. For more
     information, see the [Kantara Consent Receipt
     Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
@@ -135,7 +135,7 @@ WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Configuring self-registration consent
-    purposes](Self-Registration-and-Account-Confirmation_103330519.html#Self-RegistrationandAccountConfirmation-selfRegConsent)
+    purposes](../../using-wso2-identity-server/self-registration-and-account-confirmation)
     .
     
 
@@ -166,7 +166,7 @@ supported in WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Consent Management with
-    Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
+    Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
     
 
 ##### Manage consents that belong to third party applications
@@ -196,5 +196,5 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     
     For more information and instructions for setting up this use case, see
     [Using the Consent Management REST
-    APIs](_Using_the_Consent_Management_REST_APIs_).
+    APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis).
     

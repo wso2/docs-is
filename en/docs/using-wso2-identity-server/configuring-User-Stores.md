@@ -46,7 +46,7 @@ Adapters used to connect with different users stores are called *User
 Store Managers* . By default, there are user store managers for JDBC,
 LDAP and Active Directory user stores. If you need to add a new user
 store implementation, see [Writing a Custom User Store
-Manager](_Writing_a_Custom_User_Store_Manager_). When you configure the
+Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager). When you configure the
 user store, you have to set the user store manager class name.
 
 The permissions attached to roles are always stored in an RDBMS. With
@@ -69,4 +69,4 @@ The following topics include instructions on setting up user stores:
 -   [Configuring a Read-write LDAP User
     Store](_Configuring_a_Read-write_LDAP_User_Store_)
 -   [Writing a Custom User Store
-    Manager](_Writing_a_Custom_User_Store_Manager_)
+    Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
