@@ -848,6 +848,7 @@ nav:
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
     - 'API Permissions': references/api-permissions.md
+    - 'Error Catalog': references/error-catalog.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md
