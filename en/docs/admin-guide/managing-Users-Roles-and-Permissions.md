@@ -73,7 +73,7 @@ See the following topics for instructions:
 
 -   [Changing a Password](_Changing_a_Password_)
 -   [Configuring Roles](_Configuring_Roles_)
--   [Configuring Users](_Configuring_Users_)
+-   [Configuring Users](../../using-wso2-identity-server/configuring-users)
 -   [Role-based Permissions](_Role-based_Permissions_)
 -   [Managing User Attributes](_Managing_User_Attributes_)
 -   [Removing References to Deleted User Identities in WSO2

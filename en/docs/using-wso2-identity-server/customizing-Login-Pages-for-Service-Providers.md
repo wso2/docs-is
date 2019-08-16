@@ -113,7 +113,7 @@ customized one.
 #### Registering the two service providers in WSO2 Identity Server
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     .
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
     **Add**.

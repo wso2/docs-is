@@ -16,12 +16,12 @@ IS as well. To test the workflow, follow the steps below.
         disabled or greyed out functions.
     
 
-    ![]( ../../assets/img/103330281/103330282.png)  
+    ![workflow-pending-status](../../assets/img/using-wso2-identity-server/workflow-pending-status.png)  
 
     1.  [Login to the IS User
-        Portal](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Accessingthedashboardanditscomponents)
+        Portal](../../using-wso2-identity-server/using-the-end-user-dashboard#accessing-the-dashboard-and-its-components)
         as a manager at this link: <https://localhost:9443/dashboard>  
-        ![]( ../../assets/img/103330281/103330283.jpg)   
+        ![pending-approvals](../../assets/img/using-wso2-identity-server/pending-approvals.png)   
           
     2.  Click **View details** under **Pending Approvals**.
     3.  In the resulting screen, select the **Workflow Profile engine**
@@ -32,7 +32,7 @@ IS as well. To test the workflow, follow the steps below.
          “DEFAULT” task status category captures the aggregate task
         statuses of “READY” and “RESERVED”.
 
-        ![]( ../../assets/img/103330281/103330284.png) 
+        ![workflow-task-status](../../assets/img/using-wso2-identity-server/workflow-task-status.png) 
 
 3.  Click on the relevant **Task Id** to access the details of the
     selected task and click on the button corresponding to a state to
@@ -40,7 +40,7 @@ IS as well. To test the workflow, follow the steps below.
     the workflow approval process (e.g. clicking **Start** and then
     **Approve** will approve the pending task and complete the workflow
     process).  
-    ![]( ../../assets/img/103330281/103330285.png)   
+    ![approving-pending-task](../../assets/img/using-wso2-identity-server/approving-pending-task.png)   
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,11 +52,11 @@ IS as well. To test the workflow, follow the steps below.
 The workflow comes with some advanced features such as:
 
 -   [Multi-step
-    approvals](https://docs.wso2.com/display/IS540/Using+Workflows+with+User+Management)
+    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
 -   [User specific
-    approvals](https://docs.wso2.com/display/IS540/Using+Workflows+with+User+Management)
+    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
 -   [Multiple role based
-    approvals](https://docs.wso2.com/display/IS540/Using+Workflows+with+User+Management)
+    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
 
 Instead of a one step approval, there can be multiple steps to the
 approval flow. For example, a workflow with two step approval where in

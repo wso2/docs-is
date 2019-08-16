@@ -10,23 +10,16 @@ more of a **long-term** security measure, which disables the account for
 a significant amount of time.
 
 The following pages describe various ways the account can be locked and
-disabled:
-
--   [Account Locking by Failed Login
-    Attempts](_Account_Locking_by_Failed_Login_Attempts_)
--   [Locking a Specific User Account](_Locking_a_Specific_User_Account_)
--   [Account Disabling](_Account_Disabling_)  
+disabled.
       
 
 **Related Topics**
 
 -   See [Enable last login and last password modified
-    timestamps](Configuring-Users_103330327.html#ConfiguringUsers-Enablelastloginandlastpasswordmodifiedtimestamps)
+    timestamps](../../using-wso2-identity-server/configuring-users)
     for more information on how to customize a user's profile to enable
     viewing of timestamps for the last time the user logged in and last
     time the user modified the password.
--   By default, the claim values of the identity claims used in this
-    feature are stored in the JDBC datasource configured in the
-    `            identity.xml           ` file. See [Configuring
-    Claims](https://docs.wso2.com/display/IS540/Configuring+Claims) for
+-   See [Configuring
+    Claims](../../using-wso2-identity-server/configuring-claims) for
     more information on how to store the claim values in the user store.

@@ -15,7 +15,7 @@ domain.
     
     -   For more information on how the consent purpose is used within the
         self registration flow, see [Configuring self-registration consent
-        purposes](Self-Registration-and-Account-Confirmation_103330519.html#Self-RegistrationandAccountConfirmation-selfRegConsent)
+        purposes](../../using-wso2-identity-server/self-registration-and-account-confirmation)
         .
     -   For definitions on the consent receipt, purposes, and PII
         categories, expand the section below.
@@ -49,11 +49,6 @@ domain.
             by the entity.
     
 
--   [Adding a consent
-    purpose](#ManagingConsentPurposes-Addingaconsentpurpose)
--   [List consent
-    purposes](#ManagingConsentPurposes-Listconsentpurposes)
-
 ### Adding a consent purpose
 
 The following steps describe how you can add a consent purpose using the
@@ -71,10 +66,10 @@ sure you have the following permissions set:
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
 2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
-    ![]( ../../assets/img/103330607/103330612.png)   
+    ![add-consent-purposes](../../assets/img/using-wso2-identity-server/add-consent-purposes.png)   
     The following window will be displayed.
 
-    ![]( ../../assets/img/103330607/103330611.png) 
+    ![add-new-purpose](../../assets/img/using-wso2-identity-server/add-new-purpose.png) 
 
 3.  Add a **Purpose Name** and a **Description**.
 
@@ -105,7 +100,7 @@ sure you have the following permissions set:
 4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
-    ![]( ../../assets/img/103330607/103330609.png) 
+    ![consent-purpose-list](../../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
 
 ### List consent purposes
 
@@ -122,7 +117,7 @@ you have the following permissions set:
 1.  Log into the [Management
     Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
-    ![]( ../../assets/img/103330607/103330610.png) 
+    ![manage-consent-purposes](../../assets/img/using-wso2-identity-server/manage-consent-purposes.png) 
 
 3.  The following window will be displayed.
 
@@ -132,17 +127,16 @@ you have the following permissions set:
         authentication flow. Basically, it is used when WSO2 IS acts as the
         IdP for SSO authentication. This **DEFAULT** purpose includes all
         the PII categories. For more information about consent management
-        with single sign on, see [Consent Management with
+        with single sign on, see [Consent Management with single sign on](../../using-wso2-identity-server/consent-management-with-single-sign-on)
 
-    ![]( ../../assets/img/103330607/103330609.png) 
+    ![consent-purpose-list](../../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
 
 4.  You can delete a purpose by clicking **Delete**. You can also view
     the PII categories associated with the **Purpose** by clicking
     **View PII Categories** in the **Action** column. The following
     window will be displayed when you click **View PII Categories.**
 
-    **![]( ../../assets/img/103330607/103330608.png){width="1005"
-    height="223"}**
+    ![manage-purpose](../../assets/img/using-wso2-identity-server/manage-purpose.png)
 
     !!! tip
     
@@ -150,7 +144,7 @@ you have the following permissions set:
     
         To delete a specific PII cateogry, use the consent management
         [Delete PII Category REST
-        API](https://docs.wso2.com/display/IS550/apidocs/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete)
+        API](../../references/pii-category)
         . Note that you can not delete a PII category that is already
         associated with a consent receipt.
     

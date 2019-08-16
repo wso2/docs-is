@@ -145,7 +145,7 @@ service provider .
 1.  [Run WSO2 Identity
     Server](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab, click **Add**
     under **Service Providers**.

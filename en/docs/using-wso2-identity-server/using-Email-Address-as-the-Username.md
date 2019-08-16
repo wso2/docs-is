@@ -126,13 +126,12 @@
     </div></td>
     </tr>
     <tr class="odd">
-    <td><pre><code>UsernameJavaScriptRegEx</code></pre>
-    <p><code>                               </code></p></td>
+    <td><code>               UsernameJavaScriptRegEx              </code></td>
     <td><div class="content-wrapper">
-    <p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
+    <p>This parameter is used to speed up the LDAP search operations. You can comment out this config. <strong>LDAP/Active Directory only</strong></p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">&lt;Property</span><span class="ot"> name=</span><span class="st">&quot;UsernameJavaScriptRegEx&quot;</span><span class="kw">&gt;</span>^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$<span class="kw">&lt;/Property&gt;</span></a></code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;!--Property name=&quot;UsernameJavaScriptRegEx&quot;&gt;cn={0},ou=Users,dc=wso2,dc=com&lt;/Property--&gt;</code></pre>
     </div>
     </div>
     </div></td>
@@ -195,4 +194,4 @@
 **Related Topics**
 
 For more information on how to configure primary and secondary user
-stores, see [Configuring User Stores](_Configuring_User_Stores_).
+stores, see [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).

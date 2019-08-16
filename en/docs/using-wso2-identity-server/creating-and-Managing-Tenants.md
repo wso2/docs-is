@@ -73,7 +73,7 @@ To create a new tenant, take the following steps:
         log in. The username must always end with the domain name (e.g.,
         <admin@abc.com> ).
     -   **Email** - The email address of the admin.  
-        ![]( ../../assets/img/103330472/103330473.png){height="250"}
+        ![creating-a-tenant](../../assets/img/using-wso2-identity-server/creating-a-tenant.png)
 
 Once you have added a tenant, you can log out of the Identity Server and
 log back in using the newly created tenant. Now, any settings you may do
@@ -92,11 +92,11 @@ The following topics provide more information on various tenant related
 aspects of the WSO2 Identity Server.
 
 -   See [Configuring a SP and IdP Using Configuration
-    Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_) for
+    Files](../../using-wso2-identity-server/configuring-a-sp-and-idp-using-configuration-files) for
     more information on configuring an identity provider that can be
     shared across multiple tenants.
 -   See [Working with Multiple
-    Tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants)
+    Tenants](../../admin-guide/working-with-multiple-tenants)
     for more information on multitenancy and its architecture.
--   See [Managing Tenants with APIs](_Managing_Tenants_with_APIs_) for
+-   See [Managing Tenants with APIs](../../using-wso2-identity-server/managing-tenants-with-apis) for
     more information on using APIs to manage tenants.

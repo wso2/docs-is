@@ -57,7 +57,7 @@ as follows:
 See the following topics for information on configuring claims.
 
 -   [Adding Claim Mapping](_Adding_Claim_Mapping_)
--   [Editing Claim Mapping](_Editing_Claim_Mapping_)
+-   [Editing Claim Mapping](../../using-wso2-identity-server/editing-claim-mapping)
 -   [Deleting Claim Mapping](_Deleting_Claim_Mapping_)
 
   
