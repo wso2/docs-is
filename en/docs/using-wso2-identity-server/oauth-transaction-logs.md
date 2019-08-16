@@ -2,30 +2,22 @@
 
 This section guides you through enabling the logger for OAuth endpoints.
 
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"
     Shutdown the server if WSO2 Identity Server is already running.
     
 
 1.  Add the following event listener to the
-    `           identity.xml          ` file found in the
-    `           <IS_HOME>/repository/conf/identity          ` folder
-    under the `           <EventListeners>          ` tag.  
+    `           deployment.toml          ` file found in the
+    `           <IS_HOME>/repository/conf/          ` folder.
 
-    !!! tip
-    
-        **Tip:** You can disable logging by setting the
+    !!! tip "Tip"
+        You can disable logging by setting the
         `           enable          ` property to **false**.  
-        Optionally, you can enable logging the token by setting the
-        `           Log.Token          ` property to **true**.
     
-
     ``` java
-    <EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"    name="org.wso2.carbon.identity.data.publisher.oauth.listener.OAuthTokenIssuanceLogPublisher" orderId="12" enable="true">
-        <Property name="Log.Token">false</Property>
-    </EventListener>
+    [event.default_listener.oauth_listener]
+    priority= 12
+    enable = true
     ```
 
 2.  Start WSO2 Identity Server. If the changes have been applied
@@ -35,7 +27,7 @@ This section guides you through enabling the logger for OAuth endpoints.
 
 Whenever you [generate an OAuth token](../../using-wso2-identity-server/working-with-oauth) or perform
 an [OAuth token
-introspection](_Invoke_the_OAuth_Introspection_Endpoint_) related
+introspection](../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint) related
 operation, the action will be logged in the
 `         transaction.log        ` file. Sample log entries are shown
 below.
