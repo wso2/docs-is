@@ -83,7 +83,7 @@ users and their roles. Your user store can be one of the following:
         the `            master-datasources.xml           ` and
         `            user-mgt.xml           ` file.
     
-        See [Configuring User Stores](_Configuring_User_Stores_) for more
+        See [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) for more
         information on how to set up other types of user stores.
     
 

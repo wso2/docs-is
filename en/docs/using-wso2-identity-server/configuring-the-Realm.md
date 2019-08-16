@@ -28,4 +28,4 @@ See the following topics for instructions on setting up user stores:
     Manager](_Configuring_the_Authorization_Manager_)
 -   [Configuring the System
     Administrator](_Configuring_the_System_Administrator_)
--   [Configuring User Stores](_Configuring_User_Stores_)
+-   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)

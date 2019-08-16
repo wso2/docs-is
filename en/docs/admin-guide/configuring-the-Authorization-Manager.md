@@ -8,7 +8,7 @@ repository (User Store) and the Permissions are stored in a separate
 repository. A user store can be a typical RDBMS, an LDAP or an external
 Active Directory. For information on how the repositories for storing
 information about users and roles are configured, see [Configuring User
-Stores](_Configuring_User_Stores_).
+Stores](../../using-wso2-identity-server/configuring-user-stores).
 
 The repository that stores Permissions should always be an RDBMS. The
 Authorization Manager configuration in the user-mgt.xml file (stored in

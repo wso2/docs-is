@@ -65,7 +65,7 @@ See the following sections for more information.
 
 1.  Sign in to the WSO2 Identity Server. Enter your username and
     password to log on to the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     .
 2.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
