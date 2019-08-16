@@ -50,7 +50,7 @@ Follow the instructions below to add a user role.
         product. For information on ow user stores (which are
         repositories storing information about users and roles) are set
         up and configured, see [Configuring User
-        Stores](_Configuring_User_Stores_).
+        Stores](../../using-wso2-identity-server/configuring-user-stores).
     2.  Enter a unique name for this role.
     3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
@@ -158,6 +158,6 @@ following steps guide you through updating the role names:
         `            ReadWriteLdapUserStoreManager           `, you
         need to populate the members of the previous admin role to the
         new role under the Groups. For more information, see
-        [Configuring User Stores](_Configuring_User_Stores_).
+        [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
 
 3.  After the changes, restart the server.

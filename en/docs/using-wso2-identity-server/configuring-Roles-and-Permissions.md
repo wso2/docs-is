@@ -107,7 +107,7 @@ in this role canmange relevant SP application.
 Follow the instructions below to add a user role.
 
 1.  On the **Main** tab in the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
    , click **Add** under **Users and Roles**.  
 2.  Click **Roles**. This link is only visible to users with the Admin
     role.  

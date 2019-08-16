@@ -163,7 +163,7 @@ user-mgt.xml file.
 
 #### Related Topics
 
--   [Configuring User Stores](_Configuring_User_Stores_) : This topic
+-   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) : This topic
     explains how the repositories for storing information about Users
     and Roles are configured.
 -   [Setting up the Physical Database](#){.unresolved} : This section

@@ -112,6 +112,16 @@ nav:
       - 'Logging in to Workday using the Identity Server': tutorials/logging-in-to-workday-using-the-identity-server.md
       - 'Logging in to Microsoft Dynamics CRM with WS-Federation': tutorials/logging-in-to-microsoft-dynamics-crm-with-ws-federation.md
       - 'Logging in to Microsoft Sharepoint Web Applications using Identity Server': tutorials/logging-in-to-microsoft-sharepoint-web-applications-using-identity-server.md
+      - 'Logging in to Office365 Using WSO2 Identity Server':
+        - 'Logging in to Office365 Using WSO2 Identity Server': tutorials/logging-in-to-office365-using-wso2-identity-server.md
+        - 'Configuring Office365 SAML2 with WSO2 Identity Server': tutorials/configuring-office365-saml2-with-wso2-identity-server.md
+        - 'Configuring Office365 SAML2 with WSO2 Identity Server for Multiple Domains': tutorials/configuring-office365-saml2-with-wso2-identity-server-for-multiple-domains.md
+        - 'Configuring Office365 WS-Federation with WSO2 IS': tutorials/configuring-office365-ws-federation-with-wso2-is.md
+        - 'Configuring On Demand Provisioning with Azure AD': tutorials/configuring-on-demand-provisioning-with-azure-ad.md
+      - 'Logging in to Office365 with WS Federation': 
+        - 'Logging in to Office365 with WS Federation': tutorials/logging-in-to-office365-with-ws-federation.md
+        - 'Configuring Azure Active Directory to Trust WSO2 Identity Server': tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server.md
+        - 'Configuring Office 365 WS-Federation with Identity Server': tutorials/configuring-office-365-ws-federation-with-identity-server.md
       - 'Logging in to Office365 with WS-Trust': tutorials/logging-in-to-office365-with-ws-trust.md
       - 'Logging in to a .NET application using the Identity Server': tutorials/logging-in-to-a-.net-application-using-the-identity-server.md
       - 'Using REST APIs via XACML to Manage Entitlement': tutorials/using-rest-apis-via-xacml-to-manage-entitlement.md
@@ -348,34 +358,34 @@ nav:
         - 'Forced Password Reset': using-wso2-identity-server/forced-password-reset.md
         - 'User Account Suspension': using-wso2-identity-server/user-account-suspension.md
       - 'Password Policies':
-        - 'Password Policies': using-wso2-identity-server/password-Policies.md
-        - 'Password History Validation': using-wso2-identity-server/password-History-Validation.md
-        - 'Password Patterns': using-wso2-identity-server/password-Patterns.md
+        - 'Password Policies': using-wso2-identity-server/password-policies.md
+        - 'Password History Validation': using-wso2-identity-server/password-history-validation.md
+        - 'Password Patterns': using-wso2-identity-server/password-patterns.md
       - 'Login Policies':
-        - 'Login Policies': using-wso2-identity-server/login-Policies.md
+        - 'Login Policies': using-wso2-identity-server/login-policies.md
         - 'User Account Locking and Account Disabling': 
-          - 'User Account Locking and Account Disabling': using-wso2-identity-server/user-Account-Locking-and-Account-Disabling.md
-          - 'Account Locking by Failed Login Attempts': using-wso2-identity-server/account-Locking-by-Failed-Login-Attempts.md
-          - 'Locking a Specific User Account': using-wso2-identity-server/locking-a-Specific-User-Account.md
-          - 'Account Disabling': using-wso2-identity-server/account-Disabling.md
-        - 'Setting Up ReCaptcha': using-wso2-identity-server/setting-Up-ReCaptcha.md
+          - 'User Account Locking and Account Disabling': using-wso2-identity-server/user-account-locking-and-account-disabling.md
+          - 'Account Locking by Failed Login Attempts': using-wso2-identity-server/account-locking-by-failed-login-attempts.md
+          - 'Locking a Specific User Account': using-wso2-identity-server/locking-a-specific-user-account.md
+          - 'Account Disabling': using-wso2-identity-server/account-disabling.md
+        - 'Setting Up ReCaptcha': using-wso2-identity-server/setting-up-recaptcha.md
       - 'Workflow Management': 
-        - 'Workflow Management': using-wso2-identity-server/workflow-Management.md
+        - 'Workflow Management': using-wso2-identity-server/workflow-management.md
         - 'Adding a Workflow Engine':
-          - 'Adding a Workflow Engine': using-wso2-identity-server/adding-a-Workflow-Engine.md
-          - 'Configuring the BPM Profile of WSO2 EI as a Workflow Engine': using-wso2-identity-server/configuring-the-BPM-Profile-of-WSO2-EI-as-a-Workflow-Engine.md
-        - 'Adding a New Workflow Definition': using-wso2-identity-server/adding-a-New-Workflow-Definition.md
-        - 'Engaging a Workflow in an Operation': using-wso2-identity-server/engaging-a-Workflow-in-an-Operation.md
-        - 'Managing Human Tasks': using-wso2-identity-server/managing-Human-Tasks.md
-        - 'Monitoring Workflow Requests': using-wso2-identity-server/monitoring-Workflow-Requests.md
-      - 'Customizing Automated Emails': using-wso2-identity-server/customizing-Automated-Emails.md
-      - 'Enabling Notifications for User Operations': using-wso2-identity-server/enabling-Notifications-for-User-Operations.md
-      - 'Using the End User Dashboard': using-wso2-identity-server/using-the-End-User-Dashboard.md
-      - 'Associating User Accounts': using-wso2-identity-server/associating-User-Accounts.md
-      - 'Managing User Attributes': using-wso2-identity-server/managing-User-Attributes.md
-      - 'Creating and Managing Tenants': using-wso2-identity-server/creating-and-Managing-Tenants.md
-      - 'Using Email Address as the Username': using-wso2-identity-server/using-Email-Address-as-the-Username.md
-      - 'Managing Consent Purposes': using-wso2-identity-server/managing-Consent-Purposes.md
+          - 'Adding a Workflow Engine': using-wso2-identity-server/adding-a-workflow-engine.md
+          - 'Configuring the BPM Profile of WSO2 EI as a Workflow Engine': using-wso2-identity-server/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine.md
+        - 'Adding a New Workflow Definition': using-wso2-identity-server/adding-a-new-workflow-definition.md
+        - 'Engaging a Workflow in an Operation': using-wso2-identity-server/engaging-a-workflow-in-an-operation.md
+        - 'Managing Human Tasks': using-wso2-identity-server/managing-human-tasks.md
+        - 'Monitoring Workflow Requests': using-wso2-identity-server/monitoring-workflow-requests.md
+      - 'Customizing Automated Emails': using-wso2-identity-server/customizing-automated-emails.md
+      - 'Enabling Notifications for User Operations': using-wso2-identity-server/enabling-notifications-for-user-operations.md
+      - 'Using the End User Dashboard': using-wso2-identity-server/using-the-end-user-dashboard.md
+      - 'Associating User Accounts': using-wso2-identity-server/associating-user-accounts.md
+      - 'Managing User Attributes': using-wso2-identity-server/managing-user-attributes.md
+      - 'Creating and Managing Tenants': using-wso2-identity-server/creating-and-managing-tenants.md
+      - 'Using Email Address as the Username': using-wso2-identity-server/using-email-address-as-the-username.md
+      - 'Managing Consent Purposes': using-wso2-identity-server/managing-consent-purposes.md
     - 'Identity Bus':
       - 'Identity Bus': using-wso2-identity-server/identity-bus.md
       - 'Adding and Configuring a Service Provider':
