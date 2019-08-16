@@ -67,19 +67,18 @@ information on how to send an email when a user operation takes place.
         sending emails to confirm user registrations or notification for
         password reset WSO2 IS.
     
-        ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-        here for instructions on how to set this up.
+        ??? note "Click here for instructions on how to set this up"
     
-        Follow the steps given below to enable your Google mail account to
-        provide access to third-party applications.
-    
-        1.  Navigate to <https://myaccount.google.com/security>.
-        2.  Click **Signing in to Google** on the left menu and make sure
-            that the **2-step Verification** is disabled or off.  
-            ![google-2-step-verification](../../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-        3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps**.  
-            ![allow-less-secure-apps](../../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
+            Follow the steps given below to enable your Google mail account to
+            provide access to third-party applications.
+        
+            1.  Navigate to <https://myaccount.google.com/security>.
+            2.  Click **Signing in to Google** on the left menu and make sure
+                that the **2-step Verification** is disabled or off.  
+                ![google-2-step-verification](../../assets/img/using-wso2-identity-server/google-2-step-verification.png)
+            3.  Click **Connected apps and sites** on the left menu and enable
+                **Allow less secure apps**.  
+                ![allow-less-secure-apps](../../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
 
 2.  Configure the
     `           <PRODUCT_HOME>/repository/conf/identity/msg-mgt.properties          `

@@ -49,7 +49,7 @@ attributes of a user in the Identity Server.
     profile. You can retrieve the user attribute value as follows.
 
     ``` java
-        getUserClaimValue("username", "http://wso2.org/claims/emailaddress", null)
+    getUserClaimValue("username", "http://wso2.org/claims/emailaddress", null)
     ```
 
 ### Claim mapping when using multiple user stores
@@ -84,7 +84,7 @@ you can do this.
     using the user profile UI, you must provide it as follows.
 
     ``` java
-        asela@soasecurity.com,aselapathberiya@soasecurity.com
+    asela@soasecurity.com,aselapathberiya@soasecurity.com
     ```
 
     See the following screen for how this will look in the user
@@ -95,14 +95,14 @@ you can do this.
     API, call it as follows.
 
     ``` java
-        setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)
+    setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)
     ```
 
     The GET results are returned in the form of comma separated values
     for the attribute.
 
     ``` java
-        "asela@soasecurity.org,aselapathberiya@gmail.com"
+    "asela@soasecurity.org,aselapathberiya@gmail.com"
     ```
 
     The following screen shows how this looks in the LDAP.  
@@ -244,34 +244,35 @@ LDAP.
 If you are using multiple attribute authentication and want to customize
 the claim to be used for user name attribute, do the following.
 
-Edit the following element in the
-`         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
+Add the following configuration in the
+`         <IS_HOME>/repository/conf/deployment.toml        `
 file.
 
-``` xml
-<AuthenticatorConfig name="BasicAuthenticator" enabled="true">
-    <Parameter name="UserNameAttributeClaimUri">http://wso2.org/claims/emailaddress</Parameter>
-</AuthenticatorConfig>
+``` toml
+[authentication.authenticator.basic] 
+name ="BasicAuthenticator"
+enable=true
+UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 ```
 
 This will return the email address of the authenticated user. It can be
 configured to return any attribute by changing the '
 `         UserNameAttributeClaimUri        ` ' parameter.
 
-**Related Topics**
+!!! info "Related Topics"
 
-For more information, see the following links.
+    For more information, see the following links.
 
--   For working with claim dialects and mapping claims, see [Claim
-    Management](../../using-wso2-identity-server/claim-management).
--   See [Configuring Claims for a Service
-    Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) on how to
-    configure claims when [adding a service
-    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
--   See [Configuring Claims for an Identity
-    Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider) on how to
-    configure claims when [adding an identity
-    provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
--   See [Writing a Custom User Store
-    Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for instructions on
-    how to write a custom user store manager.
+    -   For working with claim dialects and mapping claims, see [Claim
+        Management](../../using-wso2-identity-server/claim-management).
+    -   See [Configuring Claims for a Service
+        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) on how to
+        configure claims when [adding a service
+        provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    -   See [Configuring Claims for an Identity
+        Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider) on how to
+        configure claims when [adding an identity
+        provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+    -   See [Writing a Custom User Store
+        Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for instructions on
+        how to write a custom user store manager.
