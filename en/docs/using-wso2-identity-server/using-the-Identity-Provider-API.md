@@ -32,7 +32,7 @@ https://localhost:9443/services/IdentityProviderMgtService?wsdl .
     
     **Note** : Prior to calling any of these admin services, you need to
     make them discoverable. See [Calling Admin
-    Services](_Calling_Admin_Services_) for information on how to do this.
+    Services](../../using-wso2-identity-server/calling-admin-services) for information on how to do this.
     
 
 ### addIdp

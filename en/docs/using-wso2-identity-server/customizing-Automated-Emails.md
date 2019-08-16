@@ -7,23 +7,10 @@ users configured under the tenant. Furthermore, tenants do not have
 access to underlying configuration files, therefore, this customization
 is now possible directly through the management console.
 
--   [Adding an email template
-    type](#CustomizingAutomatedEmails-Addinganemailtemplatetype)
--   [Adding an email
-    template](#CustomizingAutomatedEmails-Addinganemailtemplate)
--   [Deleting an email template
-    type](#CustomizingAutomatedEmails-Deletinganemailtemplatetype)
--   [Editing an email
-    template](#CustomizingAutomatedEmails-Editinganemailtemplate)
--   [Deleting an email
-    template](#CustomizingAutomatedEmails-Deletinganemailtemplate)
--   [Updating the locale of a
-    user](#CustomizingAutomatedEmails-Updatingthelocaleofauser)
-
 ### Adding an email template type
 
 1.  Log in to the WSO2 Identity Server [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
     Templates**, which is available under the **Manage** section **.**
@@ -40,7 +27,7 @@ a specific email template type based on the language of the email
 template.
 
 1.  Log in to the WSO2 Identity Server [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** tab and click **Add** under **Email
     Templates**, which is available under the **Manage** section **.**
@@ -49,7 +36,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![]( ../../assets/img/103329395/103329396.png)
+        ![select-email-template-type](../../assets/img/using-wso2-identity-server/select-email-template-type.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -66,7 +53,7 @@ template.
                 supported.
         
 
-    ![]( ../../assets/img/103330503/103330505.png) 
+    ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
       
     !!! tip
@@ -111,7 +98,7 @@ template.
     
 
 1.  Log in to the WSO2 Identity Server [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
     Templates**, which is available under the **Manage** section **.**
@@ -121,7 +108,7 @@ template.
 ### Editing an email template
 
 1.  Log in to the WSO2 Identity Server [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
     Templates**, which is available under the **Manage** section **.**
@@ -130,7 +117,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![]( ../../assets/img/103329395/103329396.png)
+        ![select-email-template-type](../../assets/img/using-wso2-identity-server/select-email-template-type.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -147,7 +134,7 @@ template.
                 supported.
         
 
-    ![]( ../../assets/img/103330503/103330505.png) 
+    ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
     !!! tip
     
@@ -188,7 +175,7 @@ Using the following steps you can delete a specific email template that
 corresponds to an email template type.
 
 1.  Log in to the WSO2 Identity Server [management
-    console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** tab and click **List** under **Email
     Templates**, which is available under the **Manage** section **.**
@@ -211,7 +198,7 @@ configure this.
     **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![]( ../../assets/img/103330503/103330504.png) 
+    ![updating-user-locale](../../assets/img/using-wso2-identity-server/updating-user-locale.png) 
 6.  Enter the locale code for the **Locality** field and click
     **Update**.
 

@@ -13,7 +13,7 @@ Identity Server. However, if you need more flexibility and more
 extensibility with this feature than what is currently provided, it is
 advisable to [integrate the Business Process Management (BPM) component
 of WSO2 Enterprise
-Integrator](_Configuring_the_BPM_Profile_of_WSO2_EI_as_a_Workflow_Engine_)
+Integrator](../../using-wso2-identity-server/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine)
 with the Identity Server.
 
 1.  To create a BPM profile click on **Configure \> Workflow Engine
@@ -21,7 +21,7 @@ with the Identity Server.
 
 2.  Fill in the details using the descriptions below to guide you and
     click **Add**.  
-    ![]( ../../assets/img/103330286/103330287.png) 
+    ![creating-a-bpm-profile](../../assets/img/using-wso2-identity-server/creating-a-bpm-profile.png) 
 
     | Attribute                     | Description                                                                                                                                                                                                                                       | Sample Value                                                                                                                                                         |
     |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -36,10 +36,10 @@ with the Identity Server.
 -   Need more flexibility and more extensibility with this feature?
     [Integrate the Business Process Management (BPM) component of WSO2
     Enterprise Integrator with the Identity
-    Server](_Configuring_the_BPM_Profile_of_WSO2_EI_as_a_Workflow_Engine_)
+    Server](../../using-wso2-identity-server/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine)
     .
 -   Now you need to create a new workflow definition. For more
     information, see [Adding a New Workflow
-    Definition](_Adding_a_New_Workflow_Definition_).
+    Definition](../../using-wso2-identity-server/adding-a-new-workflow-definition).
 
   

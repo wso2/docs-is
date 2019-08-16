@@ -6,34 +6,12 @@ revoke/update the password, manage user profile, and view identity
 providers. This is also known as account self-service. This topic
 includes the following tasks which can be done using the dashboard.
 
-------------------------------------------------------------------------
-
--   [Accessing the dashboard and its
-    components](#UsingtheEndUserDashboard-Accessingthedashboardanditscomponents)
--   [Editing your profile](#UsingtheEndUserDashboard-Editingyourprofile)
--   [Exporting personal
-    information](#UsingtheEndUserDashboard-Exportingpersonalinformation)
--   [Updating your account recovery
-    details](#UsingtheEndUserDashboard-Updatingyouraccountrecoverydetails)
--   [Changing your
-    password](#UsingtheEndUserDashboard-Changingyourpassword)
--   [Connecting your social identity with your
-    account](#UsingtheEndUserDashboard-Connectingyoursocialidentitywithyouraccount)
--   [Working with your authorized
-    applications](#UsingtheEndUserDashboard-Workingwithyourauthorizedapplications)
--   [Dealing with pending
-    approvals](#UsingtheEndUserDashboard-Dealingwithpendingapprovals)
--   [Configuring consent for
-    services](#UsingtheEndUserDashboard-Configuringconsentforservices)
-
-------------------------------------------------------------------------
-
 !!! warning
     
     Hostname verification may prevent loading the Dashboard. For
     instructions on how to disable hostname verification, see [Enabling
     HostName
-    Verification](https://docs.wso2.com/display/ADMIN44x/Enabling+HostName+Verification)
+    Verification](../../admin-guide/enabling-hostname-verification)
     .
     
 
@@ -42,7 +20,7 @@ includes the following tasks which can be done using the dashboard.
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>
 2.  Enter your username and password and click the **Sign In** button.
 3.  The dashboard appears.  
-    ![]( ../../assets/img/103330474/103330477.png) 
+    ![dashboard](../../assets/img/using-wso2-identity-server/dashboard.png) 
 4.  Click the **View details** button to access the components.
 5.  Click the drop-down at the top right corner of the screen to sign
     out.
@@ -51,13 +29,13 @@ includes the following tasks which can be done using the dashboard.
 
 To edit your profile, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **My Profile**
     .
 3.  In the resulting screen, populate the fields with your personal
     information.  
 
-    ![]( ../../assets/img/103330474/103330478.png) 
+    ![manage-profile](../../assets/img/using-wso2-identity-server/manage-profile.png) 
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
     here to know more about the fields in the form
@@ -80,7 +58,7 @@ To edit your profile, do the following.
     
         For information on managing U2F authentication for multi-factor
         authentication, see [Universal Second Factor (U2F)
-        Authentication](Multi-factor-Authentication-using-FIDO_103329822.html#Multi-factorAuthenticationusingFIDO-UniversalSecondFactor(U2F))
+        Authentication](../../using-wso2-identity-server/multi-factor-authentication-using-fido#universal-second-factor-(u2f)))
         .
     
 
@@ -90,7 +68,7 @@ To edit your profile, do the following.
 
 To export the user's personal information, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **My
     Profile.**
 3.  Click **Export**. A `           userInfo.json          ` file
@@ -108,24 +86,24 @@ To export the user's personal information, do the following.
         consent receipt by doing one of the following:
     
         1.  [Revoke the
-            consent](#UsingtheEndUserDashboard-Configuringconsentforservices)
+            consent](#configuring-consent-for-services)
             via the dashboard and go through the flow that prompts the
             relevant consent again (e.g., revoke the given consent for the
             WSO2 IS dashboard, log out, then log back in and approve consent
             again. A new consent receipt will be generated for the WSO2 IS
             dashboard consent).
         2.  Use the [Consent Management REST
-            APIs](_Using_the_Consent_Management_REST_APIs_) to revoke the
+            APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis) to revoke the
             existing consent and add a new consent.
     
 
-    ![]( ../../assets/img/103330474/103330479.png) 
+    ![user-info-export](../../assets/img/using-wso2-identity-server/user-info-export.png) 
 
     !!! tip
     
         For information on the Personal Information Export REST APIs, see
         the [Personal Information Export API Swagger
-        documentation](https://docs.wso2.com/display/IS550/apidocs/User-export-apis)
+        documentation](../../references/user-export-apis)
         .
     
 
@@ -134,28 +112,28 @@ To export the user's personal information, do the following.
 To update the details pertaining to recovering your account, do the
 following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Account
     Recovery**.
 3.  Set the challenge question from the drop-down and enter an answer
     for the question you choose.  
-    ![]( ../../assets/img/103330474/103330494.png) 
+    ![set-challenge-questions](../../assets/img/using-wso2-identity-server/set-challenge-questions.png) 
 4.  Click **Update** to save your changes.
 
-See [Password Recovery](_Password_Recovery_) for more information on how
+See [Password Recovery](../../using-wso2-identity-server/password-recovery) for more information on how
 this works.
 
 ### Changing your password
 
 To change your password, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Change
     Password**.
 3.  In the resulting screen, enter your **Current Password**, fill in
     the **New Password** and confirm it by filling out the **Confirm New
     Password** field.  
-    ![]( ../../assets/img/103330474/103330492.png) 
+    ![confirm-new-password](../../assets/img/using-wso2-identity-server/confirm-new-password.png) 
 4.  Click **Update** to save your changes.
 
 ### Connecting your social identity with your account
@@ -163,12 +141,12 @@ To change your password, do the following.
 To connect your social identity login credentials with your WSO2
 Identity Server account, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Associated
     Accounts**. The list of social identities linked to your account
     appear.
 
-See [Associating User Accounts](_Associating_User_Accounts_) for more
+See [Associating User Accounts](../../using-wso2-identity-server/associating-user-accounts) for more
 information on using this section of the dashboard.
 
 ### Working with your authorized applications
@@ -176,7 +154,7 @@ information on using this section of the dashboard.
 To access and manage the OAuth-based authorized applications for your
 account, do the following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Authorized
     Apps**. A list of available authorized apps appears.
 3.  Click **Remove Application** if you wish to disassociate the
@@ -187,7 +165,7 @@ account, do the following.
 To access and manage the pending approvals for your account, do the
 following.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Pending
     Approvals**. The following page appears, listing out the pending
     account approval requests.
@@ -197,9 +175,9 @@ following.
     selected task to a new state and to complete the workflow approval
     process (e.g., clicking **Start** and then **Approve** will approve
     the pending task and complete the workflow process).  
-    ![]( ../../assets/img/103330474/103330490.png) 
+    ![approve-pending-tasks](../../assets/img/using-wso2-identity-server/approve-pending-tasks.png) 
 
-See [Workflow Management](_Workflow_Management_) for more information on
+See [Workflow Management](../../using-wso2-identity-server/workflow-management) for more information on
 how this works.
 
 ### Configuring consent for services
@@ -220,11 +198,11 @@ receipts that have already been approved. It also gives the ability to
 update/revoke the consents approved to be consumed by services provided
 via WSO2 Identity Server. Follow the steps below to configure this.
 
-1.  [Access the dashboard](#UsingtheEndUserDashboard-AccessDashboard).
+1.  [Access the dashboard](#accessing-the-dashboard-and-its-components).
 2.  Once you have logged in, click **View details** under **Consent
     Management**.
 
-    ![]( ../../assets/img/103330474/103330487.png) 
+    ![configure-consent-for-services](../../assets/img/using-wso2-identity-server/configure-consent-for-services.png) 
 
 3.  You will see a list of consent receipts that you have already
     approved to be consumed by services. The consent receipts listed
@@ -241,7 +219,7 @@ via WSO2 Identity Server. Follow the steps below to configure this.
         during self registration.
     
 
-    ![]( ../../assets/img/103330474/103330483.png) 
+    ![system-consent](../../assets/img/using-wso2-identity-server/system-consent.png) 
 
 New users can do the following actions from this screen:
 
@@ -249,7 +227,7 @@ New users can do the following actions from this screen:
     
     **Note:**  
     Existing users (users who are already onboarded) will also see the
-    ![]( ../../assets/img/103330474/103330475.png) icon and can configure consent
+    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon and can configure consent
     accordingly but will not see the **Revoke** button to revoke consent for
     all attributes.
     
@@ -258,7 +236,7 @@ New users can do the following actions from this screen:
     consent for all consented attributes.
 
 -   **Revoke consent for specific attributes** - Click the
-    ![]( ../../assets/img/103330474/103330475.png) icon.  You can see the
+    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon.  You can see the
     detailed view of the consent receipt. It contains brief information
     about the service and shows the consented attributes for this
     service. Deselect claims accordingly to revoke consent. Click
@@ -271,23 +249,23 @@ New users can do the following actions from this screen:
         -   For system consent, users can consent to newly added attributes
             by selecting the new claims that appear on this screen.
     
-            ![]( ../../assets/img/103330474/103330476.png) 
+            ![revoke-consent](../../assets/img/using-wso2-identity-server/revoke-consent.png) 
     
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly
             added **mandatory** attributes during the [SSO
-            flow](_Consent_Management_with_Single-Sign-On_).
+            flow](../../using-wso2-identity-server/consent-management-with-single-sign-on).
     
         -   To **accept** consent for any optional attributes, revoke the
             whole consent receipt and provide consent again at the point of
             authentication. For more information, see [Consent Management
-            with Single-Sign-On](_Consent_Management_with_Single-Sign-On_).
+            with Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
     
 
 -   **Set an expiration date for consent** - Click the
-    ![]( ../../assets/img/103330474/103330475.png) icon and set an expiry date
+    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon and set an expiry date
     for a particular consent by selecting a value from the date picker
-    ![]( ../../assets/img/103330474/103330481.png)  shown in the
+    ![date-icon](../../assets/img/using-wso2-identity-server/date-icon.png)  shown in the
     consent detail page. When an expiry date is selected, the consent
     will only be valid until the specified date. Once the consent
     expires, the details gathered are set to a 'revoked' state. At the
@@ -296,4 +274,4 @@ New users can do the following actions from this screen:
     However, the user is not prompted to give consent for non mandatory
     attributes and the corresponding service will not be able to receive
     those attributes in new authentication requests.  
-    ![]( ../../assets/img/103330474/103330480.png) 
+    ![consent-expiry](../../assets/img/using-wso2-identity-server/consent-expiry.png) 

@@ -61,7 +61,7 @@ multi-tenant environment.
     </tbody>
     </table>
 
-    ![]( ../../assets/img/103330510/103330511.png) 
+    ![password-policies](../../assets/img/using-wso2-identity-server/password-policies.png) 
 
 **Related Links**
 
@@ -69,6 +69,6 @@ multi-tenant environment.
     you can write a custom password policy using the configuration file
     instead of through the management console. For more information, see
     [Writing a Custom Password
-    Validator](_Writing_a_Custom_Password_Validator_).
+    Validator](../../using-wso2-identity-server/writing-a-custom-password-validator).
 -   To record user password history, see [Password History
-    Validation](_Password_History_Validation_).
+    Validation](../../using-wso2-identity-server/password-history-validation).

@@ -26,12 +26,12 @@ password. Follow the steps below to configure the count.
     
 
       
-    ![]( ../../assets/img/103330507/103330508.png) 
+    ![password-history-validation](../../assets/img/using-wso2-identity-server/password-history-validation.png) 
 
 **Related Links**
 
-By d efault, the claim values of the identity claims used in this
+By default, the claim values of the identity claims used in this
 feature are stored in the JDBC datasource configured in the
 `           identity.xml          ` file. See [Configuring
-Claims](https://docs.wso2.com/display/IS540/Configuring+Claims) for more
+Claims](../../using-wso2-identity-server/configuring-claims) for more
 information on how to store the claim values in the user store.

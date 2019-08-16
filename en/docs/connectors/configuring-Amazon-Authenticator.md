@@ -86,7 +86,7 @@ provider](https://docs.wso2.com/display/IS530/Configuring+an+Identity+Provider)
     [here](http://wso2.com/products/identity-server/) and [run
     it](https://docs.wso2.com/display/IS530/Running+the+Product).
 2.  Log in to the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     as an administrator.
 3.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
@@ -228,7 +228,7 @@ Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) in
 WSO2 IS guide.
 
 1.  Sign in to the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     by entering your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Amazon authenticator
@@ -283,7 +283,7 @@ WSO2 IS guide.
 #### Configuring claims with IS 5.1.0 or IS 5.2.0
 
 1.  Sign into the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     by entering your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add New Claim Dialect** to create the Amazon authenticator

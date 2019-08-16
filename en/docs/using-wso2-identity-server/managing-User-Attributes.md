@@ -12,17 +12,6 @@ management.
 The following topics provide instructions on how to manage user
 attributes in the Identity Server.
 
--   [Managing the attributes of a
-    user](#ManagingUserAttributes-Managingtheattributesofauser)
--   [Claim mapping when using multiple user
-    stores](#ManagingUserAttributes-Claimmappingwhenusingmultipleuserstores)
--   [Writing custom
-    attributes](#ManagingUserAttributes-Writingcustomattributes)
--   [Authentication using multiple
-    attributes](#ManagingUserAttributes-Authenticationusingmultipleattributes)
--   [Customizing the claim for the user
-    attribute](#ManagingUserAttributes-Customizingtheclaimfortheuserattribute)
-
 ### Managing the attributes of a user
 
 The following are the three main ways to view, add, edit and delete
@@ -39,15 +28,15 @@ attributes of a user in the Identity Server.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
         **User Profile**.  
-        ![]( ../../assets/img/43997703/44195174.png)
+        ![update-profile](../../assets/img/using-wso2-identity-server/update-profile.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the REST Web service according to the SCIM provisioning
     specification. For more information on this, see [Using the SCIM 2.0
-    REST APIs](_Using_the_SCIM_2.0_REST_APIs_).
+    REST APIs](../../references/using-the-scim-2.0-rest-apis).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
-    APIs](_Managing_Users_and_Roles_with_APIs_). Supposing you want to
+    APIs](../../references/managing-users-and-roles-with-apis). Supposing you want to
     set a user attribute, you can call the following method.
 
     ``` java
@@ -67,10 +56,10 @@ attributes of a user in the Identity Server.
 
 When you are using more than one user store, you must map the attributes
 correctly by [adding a claim
-mapping](https://docs.wso2.com/display/IS540/Adding+Claim+Mapping).
+mapping](../../using-wso2-identity-server/adding-claim-mapping).
 Under “Mapped Attribute(s)” you need to follow the pattern.
 
-![]( ../../assets/img/103330458/103330459.png?effects=border-simple,blur-border)
+![mapped-attributes](../../assets/img/using-wso2-identity-server/mapped-attributes.png)
 
 However, for the default user store, you do not need to provide the
 domain name. As an example, if you have two user stores, one is the
@@ -100,7 +89,7 @@ you can do this.
 
     See the following screen for how this will look in the user
     interface of the Identity Server Management Console.  
-    ![]( ../../assets/img/43997703/44195175.png)
+    ![is-user-interface](../../assets/img/using-wso2-identity-server/is-user-interface.png)
 
 2.  When using the `           RemoteUserStoreManagerService          `
     API, call it as follows.
@@ -117,7 +106,7 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![]( ../../assets/img/43997703/44195177.png) 
+    ![ldap-interface](../../assets/img/using-wso2-identity-server/ldap-interface.png) 
 
 ### Writing custom attributes
 
@@ -149,7 +138,7 @@ retrieve/add a user attribute. Other methods can be kept as they are.
     ```
 
 See [Writing a Custom User Store
-Manager](_Writing_a_Custom_User_Store_Manager_) for more information on
+Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -199,7 +188,7 @@ LDAP.
     `          user-mgt.xml         ` file found in the
     `          <IS_HOME>/repository/conf         ` directory. For more
     information on configuring user stores, see [Configuring the
-    Realm](_Configuring_the_Realm_).
+    Realm](../../using-wso2-identity-server/configuring-the-realm).
     1.  Configure the `             UserNameSearchFilter            `
         property as shown below to search for the user object in the
         LDAP using both **mail** and **uid** attributes.
@@ -222,7 +211,7 @@ LDAP.
         `             <IS_HOME>/repository/conf            ` directory
         and uncomment the following. For more information on email
         authentication, see [Using Email Address as the
-        Username](https://docs.wso2.com/display/IS510/Using+Email+Address+as+the+Username)
+        Username](../../using-wso2-identity-server/using-email-address-as-the-username)
         .
 
         ``` xml
@@ -274,15 +263,15 @@ configured to return any attribute by changing the '
 For more information, see the following links.
 
 -   For working with claim dialects and mapping claims, see [Claim
-    Management](_Claim_Management_).
+    Management](../../using-wso2-identity-server/claim-management).
 -   See [Configuring Claims for a Service
-    Provider](_Configuring_Claims_for_a_Service_Provider_) on how to
+    Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) on how to
     configure claims when [adding a service
-    provider](_Adding_and_Configuring_a_Service_Provider_).
+    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
 -   See [Configuring Claims for an Identity
-    Provider](_Configuring_Claims_for_an_Identity_Provider_) on how to
+    Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider) on how to
     configure claims when [adding an identity
-    provider](_Adding_and_Configuring_an_Identity_Provider_).
+    provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
 -   See [Writing a Custom User Store
-    Manager](_Writing_a_Custom_User_Store_Manager_) for instructions on
+    Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for instructions on
     how to write a custom user store manager.

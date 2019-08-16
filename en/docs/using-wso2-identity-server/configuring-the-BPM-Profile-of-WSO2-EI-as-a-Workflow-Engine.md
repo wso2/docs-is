@@ -56,4 +56,4 @@ as `          <BPM_HOME         ` \> throughout this document.
 
 Now you need to create a new work flow definition. For more information,
 see [Adding a New Workflow
-Definition](_Adding_a_New_Workflow_Definition_).
+Definition](../../using-wso2-identity-server/adding-a-new-workflow-definition).

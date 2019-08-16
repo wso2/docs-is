@@ -4,7 +4,7 @@ This is the main user store that is shared among all the tenants in the
 system. Only one user store can be configured as the primary user store.
 This documentation explains the process of setting up a primary user
 store. If you need more information on WSO2 Carbon user stores, see
-[Configuring User Stores](_Configuring_User_Stores_).
+[Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
 
 By default, the embedded H2 database (JDBC) that is shipped with WSO2
 products is configured as the primary user store, except for WSO2

@@ -18,7 +18,7 @@ demonstrates the steps used to do this.
 
     4.  Workflow: The workflow you need to engage for the event. You can
         use an existing workflow definition or [create a workflow
-        definition](https://docs.wso2.com/display/IS540/Adding+a+New+Workflow+Definition)
+        definition](../../using-wso2-identity-server/adding-a-new-workflow-definition)
         .
 
     5.  The Application condition:
@@ -40,7 +40,7 @@ demonstrates the steps used to do this.
     condition is complex where multiple conditions are evaluated with
     connectors (and/or) use the Advance section.)
 
-    ![]( ../../assets/img/103330276/103330278.png) 
+    ![apply-if](../../assets/img/using-wso2-identity-server/apply-if.png) 
 
     **Advanced**  
     If this option is selected, you can define an XPath expression to
@@ -52,9 +52,9 @@ demonstrates the steps used to do this.
     boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
     ```
 
-    ![]( ../../assets/img/103330276/103330279.png) 
+    ![advanced-workflow](../../assets/img/using-wso2-identity-server/advanced-workflow.png) 
 
-    ![]( ../../assets/img/103330276/103330277.png) 
+    ![new-workflow-engagement](../../assets/img/using-wso2-identity-server/new-workflow-engagement.png) 
 
 3.  Click **Add** to finish adding the engagement. You can view, disable
     or delete the association by navigating to **WorkFlows
@@ -66,4 +66,4 @@ Now that all the configurations are done, when you add a user it won’t
 be displayed under the users section immediately and the user won’t be
 able to login. The user will be enabled once the user addition task is
 approved by a user who has the role of Manager. To try this out, see
-[Managing Human Tasks](_Managing_Human_Tasks_).
+[Managing Human Tasks](../../using-wso2-identity-server/managing-human-tasks).

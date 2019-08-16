@@ -6,12 +6,6 @@ and editing the user profile of the account. You can also disable
 (switch-off) the account disabling feature so that administrative users
 do not have permission to disable users.
 
--   [Configuring WSO2 IS for account
-    disabling](#AccountDisabling-ConfiguringWSO2ISforaccountdisabling)
--   [Disable an account](#AccountDisabling-Disableanaccount)
--   [Sending email notifications for account
-    disabling](#AccountDisabling-Sendingemailnotificationsforaccountdisabling)
-
 ### Configuring WSO2 IS for account disabling
 
 But first, you need to configure WSO2 Identity Server for user account
@@ -19,12 +13,12 @@ locking and disabling. Follow the below steps to do this configuration.
 
 1.  Start the Identity Server and log into the management console using
     your tenant credentials.
-2.  Click **Resident** under **Identity Providers** found in the
+2.  <a name = "accountdisabling"></a> Click **Resident** under **Identity Providers** found in the
     **Main** tab.
 3.  Expand the **Login Policies** tab.
 4.  Expand the **Account Disabling** tab and select the **Enable Account
     Disabling** checkbox. Click **Update** to save changes.  
-    ![]( ../../assets/img/103330604/119113135.png) 
+    ![account-disabling](../../assets/img/using-wso2-identity-server/account-disabling.png) 
 
     !!! tip
     
@@ -54,11 +48,9 @@ locking and disabling. Follow the below steps to do this configuration.
 5.  Next, enable account locking. Expand the **Login Policies** tab.
 6.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![]( ../../assets/img/103330604/119113139.png) 
+    ![enable-locking](../../assets/img/using-wso2-identity-server/enable-locking.png) 
 
     !!! tip
-    
-        Tip
     
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
@@ -72,7 +64,7 @@ locking and disabling. Follow the below steps to do this configuration.
         **Internal/syste** m role by default. Required roles can be assigned
         to a user depending on the set of permission a user needs to have.
         For more information on roles and permission, see [Configuring Roles
-        and Permissions](_Configuring_Roles_and_Permissions_).
+        and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
     
         Although the **Internal/system** role is configured by default in
         WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -82,7 +74,7 @@ locking and disabling. Follow the below steps to do this configuration.
 
 7.  To enable account locking and disabling for other tenants, log out
     and repeat the steps given above from [step
-    2](#AccountDisabling-step2) onwards.
+    2](#accountdisabling) onwards.
 
 ### Disable an account
 
@@ -93,11 +85,11 @@ management console.
     http://wso2.org/claims '.
 
 2.  Edit the **Account Disabled** claim. See [Editing Claim
-    Mapping](_Editing_Claim_Mapping_) for more information on how to do
+    Mapping](../../using-wso2-identity-server/editing-claim-mapping) for more information on how to do
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![]( ../../assets/img/103330604/103330606.png) 
+    ![click-supported-by-default](../../assets/img/using-wso2-identity-server/click-supported-by-default.png) 
 4.  Navigate to **Main\>Users and Roles\>List\>Users** and click on
     **User Profile** of the user account that you want to disable.
 5.  Tick the **Account Disabled** checkbox and click **Update**.
@@ -151,6 +143,6 @@ steps below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](https://docs.wso2.com/display/IS580/Customizing+Automated+Emails)
+        Emails](../../using-wso2-identity-server/customizing-automated-emails)
         .
     

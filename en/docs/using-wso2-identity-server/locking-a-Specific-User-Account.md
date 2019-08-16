@@ -3,16 +3,6 @@
 An administrative user can lock and unlock a particular user's account
 through the management console or using the AdminService. Follow the
 instructions given in the following sections to set this up.  
-  
-
--   [Configure WSO2 IS for account
-    locking](#LockingaSpecificUserAccount-ConfigureWSO2ISforaccountlocking)
--   [Enable claims for account
-    locking](#LockingaSpecificUserAccount-Enableclaimsforaccountlocking)
--   [Lock a specific user
-    account](#LockingaSpecificUserAccount-Lockaspecificuseraccount)
--   [Configure email notifications for account
-    locking](#LockingaSpecificUserAccount-Configureemailnotificationsforaccountlocking)
 
 ### Configure WSO2 IS for account locking
 
@@ -56,7 +46,7 @@ for instructions
         file, will not be picked up.
     
 
-2.  Start the Identity Server and log into the management console using
+2.  <a name = "lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console using
     your tenant credentials.
 
     !!! tip
@@ -65,7 +55,7 @@ for instructions
         `                             IdentityGovernanceAdminService                           `
         SOAP service to do this instead of using the management console UI.
         See [Calling Admin
-        Services](https://docs.wso2.com/display/IS580/Calling+Admin+Services)
+        Services](../../using-wso2-identity-server/calling-admin-services)
         for more information on how to invoke this SOAP service. If you are
         using the SOAP service to configure this, you do not need to follow
         the steps given below this note.
@@ -76,12 +66,10 @@ for instructions
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![]( ../../assets/img/103330596/103330597.png) 
+    ![login-policies](../../assets/img/using-wso2-identity-server/login-policies.png) 
 
     !!! tip
-    
-        Tip
-    
+
         If a user is assigned the **Internal/system** role, the user can
         bypass account locking even if the user exceeds the specified number
         of **Maximum Failed Login Attempts**.
@@ -96,7 +84,7 @@ for instructions
                 to a user depending on the set of permission a user needs to have.
                 For more information on roles and permission, see [Configuring Roles
                 and
-                Permissions](https://docs.wso2.com/display/IS580/Configuring+Roles+and+Permissions)
+                Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
                 .
             
                 Although the **Internal/system** role is configured by default in
@@ -106,7 +94,7 @@ for instructions
             
 
 6.  To enable account locking for other tenants, log out and repeat the
-    steps given above from [step 2](#LockingaSpecificUserAccount-step2)
+    steps given above from [step 2](#lockingaspecificuseraccount)
     onwards.
 
 !!! note
@@ -122,24 +110,19 @@ for instructions
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
     claim dialect.  
     For more information about claims, see [Claim
-    Management](_Claim_Management_).
+    Management](../../using-wso2-identity-server/claim-management).
 2.  Select the Account Locked claim and click **Edit**.  
-    ![]( ../../assets/img/103330598/103330600.png) 
+    ![account-locked-claim](../../assets/img/using-wso2-identity-server/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
     .  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
-    ![]( ../../assets/img/103330598/103330603.png) 
+    ![locked-status](../../assets/img/using-wso2-identity-server/locked-status.png) 
 
 ### Lock a specific user account
 
 Once you have configured account locking as instructed above, you can
 use one of the following methods to lock a user account.
-
--   [Using the management
-    console](#LockingaSpecificUserAccount-Usingthemanagementconsole)
--   [Using the
-    AdminService](#LockingaSpecificUserAccount-UsingtheAdminService)
 
 ###### Using the management console
 
@@ -153,9 +136,7 @@ profile in the management console.
     seen below.  
     To lock the account, type true in the text box and click **Update**
     .  
-    ![Screen Shot 2016-01-10 at 9.44.40
-    PM.png](https://lh3.googleusercontent.com/PUMmennYtR_THlha5l5rG4sC1rm65vnZPu7tY-Mg-Pb8nZtegWgfvBJ3y9b99Fi9JE2Hkzfq654XO5vSvP1zyWFUzHfsd0ydI_MmG4maErNbB8qAASWfAsad5hr4I9L96nYIWgVT){width="370"
-    height="368"}
+    ![admin-lock-account](../../assets/img/using-wso2-identity-server/admin-lock-account.png)
 
 !!! note
     
@@ -270,7 +251,7 @@ below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](https://docs.wso2.com/display/IS580/Customizing+Automated+Emails)
+        Emails](../../using-wso2-identity-server/customizing-automated-emails)
         .
     
 

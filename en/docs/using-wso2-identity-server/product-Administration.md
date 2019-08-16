@@ -147,13 +147,13 @@ your server. It includes the following sections:
 -   [Securing Passwords in Configuration
     Files](https://docs.wso2.com/display/ADMIN44x/Securing+Passwords+in+Configuration+Files)
 -   [Resolving Hostname
-    Verification](https://docs.wso2.com/display/ADMIN44x/Enabling+HostName+Verification)
+    Verification](../../admin-guide/enabling-hostname-verification)
 -   [Mitigating Cross Site Request Forgery
     Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Request+Forgery+Attacks)
 -   [Mitigating Cross Site Scripting
     Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Scripting+Attacks)
 -   [Enabling or Customizing the Secure Vault
-    Implementation](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation)
+    Implementation](../../admin-guide/carbon-secure-vault-implementation)
 
 See the section on [implementing security in the Identity
 Server](_Implementing_Security_in_the_Identity_Server_) for information
@@ -175,7 +175,7 @@ You can create multiple tenants in your product server, which will allow
 you to maintain tenant isolation in a single server/cluster.
 
 See the section on [working with multiple
-tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants)
+tenants](../../admin-guide/working-with-multiple-tenants)
 in the WSO2 product administration guide for information and
 instructions.
 

@@ -12,7 +12,7 @@ means of fine-tuning the process of approving accounts.
     
     1.  Create the required roles to do the approval. To do this, follow the
         instructions available in the [Configuring Roles and
-        Permissions](_Configuring_Roles_and_Permissions_) topic.
+        Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions) topic.
     
         To enable users assigned to these roles to approve human tasks, the
         following permissions need to be enabled:
@@ -22,7 +22,7 @@ means of fine-tuning the process of approving accounts.
         -   Workflow Management\>BPS Profiles\>View
     
     2.  Assign users to the roles that you created. See [Configuring
-        Users](_Configuring_Users_) for more information on how to do this.
+        Users](../../using-wso2-identity-server/configuring-users) for more information on how to do this.
     
 
 To add a new workflow, do the following.
@@ -31,7 +31,7 @@ To add a new workflow, do the following.
     **Workflow Definitions** in the **Manage** section.  
 2.  Enter the name and description of the workflow and click **Next**
     .  
-    ![]( ../../assets/img/103330289/103330292.png)
+    ![add-workflow-definitions](../../assets/img/using-wso2-identity-server/add-workflow-definitions.png)
 3.  Set the levels of approval that are required. For instance, you may
     require that users with a Manager role must first approve user
     accounts followed by approval from users with a SeniorManager role.
@@ -54,7 +54,7 @@ To add a new workflow, do the following.
         that you require and click **Add Selected Roles** or **Add
         Selected Users**.
     6.  Click **Next** to move to the next step.  
-        ![]( ../../assets/img/103330289/103330291.png)
+        ![workflow-fields](../../assets/img/using-wso2-identity-server/workflow-fields.png)
 
           
 
@@ -64,7 +64,7 @@ To add a new workflow, do the following.
         for some users, get approval from a user to continue). Identity
         Server supports custom templates that can be deployed as OSGi
         services. More information on writing workflow templates can be
-        found [here](_Writing_a_Custom_Workflow_Template_).
+        found [here](../../using-wso2-identity-server/writing-a-custom-workflow-template).
 
 4.  Fill in the deployment information of the template as described
     below. Use the screen capture as a guide for the sample values to
@@ -76,7 +76,7 @@ To add a new workflow, do the following.
     | Task Subject | Subject of the workflow request for  approval                                                                                                                                                                                                                                                                          |
     | Task Detail  | Body of the Workflow request for approval                                                                                                                                                                                                                                                                              |
 
-    ![]( ../../assets/img/103330289/103330290.png) 
+    ![deployment-information](../../assets/img/using-wso2-identity-server/deployment-information.png) 
 
     !!! note
     
@@ -94,4 +94,4 @@ To add a new workflow, do the following.
 
 Now you need to add the workflow you created to an operation. For more
 information, see [Engaging a Workflow in an
-Operation](_Engaging_a_Workflow_in_an_Operation_).
+Operation](../../using-wso2-identity-server/engaging-a-workflow-in-an-operation).

@@ -73,16 +73,13 @@ information on how to send an email when a user operation takes place.
         Follow the steps given below to enable your Google mail account to
         provide access to third-party applications.
     
-        1.  Navigate to <https://myaccount.google.com/security> .
+        1.  Navigate to <https://myaccount.google.com/security>.
         2.  Click **Signing in to Google** on the left menu and make sure
             that the **2-step Verification** is disabled or off.  
-            ![]( ../../assets/img/103330460/103330461.png){width="600"
-            height="279"}
+            ![google-2-step-verification](../../assets/img/using-wso2-identity-server/google-2-step-verification.png)
         3.  Click **Connected apps and sites** on the left menu and enable
             **Allow less secure apps**.  
-            ![]( ../../assets/img/103330460/103330462.png){width="597"
-            height="171"}
-    
+            ![allow-less-secure-apps](../../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
 
 2.  Configure the
     `           <PRODUCT_HOME>/repository/conf/identity/msg-mgt.properties          `
@@ -109,7 +106,7 @@ information on how to send an email when a user operation takes place.
     the important facts that you must keep in your mind is that the
     properties included in this file can be secured using secure vault.
     You may refer [Carbon Secure Vault
-    Implementation](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation)
+    Implementation](../../admin-guide/carbon-secure-vault-implementation)
     in the WSO2 Product Administration Guide for more information on how
     to use secure vault to encrypt sensitive information in this
     property file. The following table lists out the properties and
