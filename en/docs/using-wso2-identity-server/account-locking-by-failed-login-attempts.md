@@ -107,15 +107,16 @@ descriptions you need to configure:
 <td><p>Lock Timeout Increment Factor</p></td>
 <td><div class="content-wrapper">
 <p>This indicates how much the account unlock timeout is incremented by after each failed login attempt. For example, according to the values configured in the above screen, when a user exceeds the specified limit of 4 <strong>Maximum Failed Login Attempts</strong>, the account is locked for 10 minutes. This account unlock timeout is calculated as follows.</p>
-<div class="panel" style="border-width: 1px;">
-<div class="panelContent">
 <p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * ( <strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>
-<p>i.e.,</p>
-<p>10 minutes = 5 * ( 2 ^ 1 )</p>
+<p>i.e.,10 minutes = 5 * ( 2 ^ 1 )</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-    <p>If you want to configure the <strong>Lock Timeout Increment Factor</strong> property via the file based configuration, the parameter you need to configure is <code>                 auto_unlock_time_increment_ratio                </code> found within     
-    <code>  identity_mgt.account_locking </code>   in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml                </code> file.</p></div>
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to configure the <strong>Lock Timeout Increment Factor</strong> property. 
+<div class="code panel pdl" style="border-width: 1px;">
+    <div class="codeContent panelContent pdl">
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>auto_unlock_time_increment_ratio=</code></pre>
+    </div></div>
+    </div>
 </div>
 </div>
 <p>If the user attempts to log in with invalid credentials again after the wait time has elapsed and the account is unlocked, the number of login attempt cycles is now 2 and the wait time is 20 minutes.</p>
