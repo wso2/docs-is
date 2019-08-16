@@ -47,20 +47,16 @@ template.
     -   **Email Footer** : This is the footer of the email.
 
         !!! note
-        
-                **Note** : Ensure that you do not use the "\|" character in your
-                **Subject**, **Email Body** or **Email Footer** as this is not
-                supported.
+            Ensure that you do not use the "\|" character in your
+            **Subject**, **Email Body** or **Email Footer** as this is not
+            supported.
         
 
     ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
       
-    !!! tip
-    
-        Placeholders and Custom Claim Dialects
-    
-        **Tip:** You can set different placeholders in order to populate
+    !!! tip "Placeholders and Custom Claim Dialects"
+        You can set different placeholders in order to populate
         custom information such as `            {first-name}           ` and
         `            {user-id}           ` in the subject, body and footer
         of the email template.
@@ -128,19 +124,15 @@ template.
     -   **Email Footer** : This is the footer of the email.
 
         !!! note
-        
-                **Note** : Ensure that you do not use the "\|" character in your
-                **Subject**, **Email Body** or **Email Footer** as this is not
-                supported.
+            Ensure that you do not use the "\|" character in your
+            **Subject**, **Email Body** or **Email Footer** as this is not
+            supported.
         
 
     ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
-    !!! tip
-    
-        Placeholders and Custom Claim Dialects
-    
-        **Tip:** You can set different placeholders in order to populate
+    !!! tip "Placeholders and Custom Claim Dialects"
+        You can set different placeholders in order to populate
         custom information such as `           {first-name}          ` and
         `           {user-id}          ` in the subject, body and footer of
         the email template.
@@ -204,7 +196,7 @@ configure this.
 
     !!! tip
     
-        **Tip** : For example, use **fr\_fr** for the French locale,
+        For example, use **fr\_fr** for the French locale,
         **pt\_br** for Brazil locale and **it\_it** for the Italian locale.
         This is the format used for country locales in the Identity Server.
         For more information on country locales, see

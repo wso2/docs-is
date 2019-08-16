@@ -8,13 +8,14 @@ Integrator](https://docs.wso2.com/display/EI611/Business+Process+Management)
 accordingly. You can have many engines configured in different profiles
 and use one of them when creating a workflow.
 
-An embedded Business Process Management engine is included in WSO2
-Identity Server. However, if you need more flexibility and more
-extensibility with this feature than what is currently provided, it is
-advisable to [integrate the Business Process Management (BPM) component
-of WSO2 Enterprise
-Integrator](../../using-wso2-identity-server/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine)
-with the Identity Server.
+!!! info 
+    An embedded Business Process Management engine is included in WSO2
+    Identity Server. However, if you need more flexibility and more
+    extensibility with this feature than what is currently provided, it is
+    advisable to [integrate the Business Process Management (BPM) component
+    of WSO2 Enterprise
+    Integrator](../../using-wso2-identity-server/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine)
+    with the Identity Server.
 
 1.  To create a BPM profile click on **Configure \> Workflow Engine
     Profiles \> Add**. The window below will be displayed.

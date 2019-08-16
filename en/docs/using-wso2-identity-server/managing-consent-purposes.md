@@ -20,46 +20,46 @@ domain.
     -   For definitions on the consent receipt, purposes, and PII
         categories, expand the section below.
     
-        ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-        here to see definitions
+        ??? note "Click here to see definitions"
     
-        -   **Personally Identifiable Information (PII)**  
-            Any information that can be used to identify the PII Principal
-            to whom the information relates to.
-    
-        <!-- -->
-    
-        -   **PII Principal  
-            ** The natural person to whom the personally identifiable
-            information (PII) relates to.
-    
-        <!-- -->
-    
-        -   **Consent  
-            ** A Personally identifiable information (PII) Principal’s
-            freely given, specific and informed agreement to the processing
-            of their PII.
-    
-        <!-- -->
-    
-        -   **Purpose**  
-            The business, operational or regulatory requirement for the
-            collection, use and/or disclosure of a PII Principal's data. In
-            other words, it is the reason personal information is collected
-            by the entity.
-    
+            -   **Personally Identifiable Information (PII)**  
+                Any information that can be used to identify the PII Principal
+                to whom the information relates to.
+        
+            <!-- -->
+        
+            -   **PII Principal** 
+                The natural person to whom the personally identifiable
+                information (PII) relates to.
+        
+            <!-- -->
+        
+            -   **Consent** 
+                A Personally identifiable information (PII) Principal’s
+                freely given, specific and informed agreement to the processing
+                of their PII.
+        
+            <!-- -->
+        
+            -   **Purpose**  
+                The business, operational or regulatory requirement for the
+                collection, use and/or disclosure of a PII Principal's data. In
+                other words, it is the reason personal information is collected
+                by the entity.
+        
 
 ### Adding a consent purpose
 
 The following steps describe how you can add a consent purpose using the
 management console.
 
-Before adding the consent purposes using the Management Console, make
-sure you have the following permissions set:
+!!! info 
+    Before adding the consent purposes using the Management Console, make
+    sure you have the following permissions set:
 
--   `            /permission/admin/manage/identity/consentmgt/add           `
+    -   `            /permission/admin/manage/identity/consentmgt/add           `
 
--   `            /permission/admin/manage/identity/claimmgt/metadata/view           `
+    -   `            /permission/admin/manage/identity/claimmgt/metadata/view           `
 
 1.  Log into the [Management
     Console](../../setup/getting-started-with-the-management-console).  
@@ -85,14 +85,15 @@ sure you have the following permissions set:
         Categories can be defined by clicking **Add PII Category** and
         selecting the relevant claim.
 
-    Sample Purpose
+    
+    !!! info "Sample Purpose"
 
-    -   **Purpose Name:** Marketing
+        -   **Purpose Name:** Marketing
 
-    -   **Description:** For marketing purposes
+        -   **Description:** For marketing purposes
 
-    -   **PII Categories:**
-        -   -   http://wso2.org/claims/fullname
+        -   **PII Categories:**
+            -   http://wso2.org/claims/fullname
             -   http://wso2.org/claims/dob
             -   http://wso2.org/claims/emailaddress
             -   http://wso2.org/claims/phonenumber
@@ -107,12 +108,13 @@ sure you have the following permissions set:
 The following steps describe how you can list consent purposes using the
 management console.
 
-Before listing consent purposes using the Management Console, make sure
-you have the following permissions set:
+!!! info 
+    Before listing consent purposes using the Management Console, make sure
+    you have the following permissions set:
 
--   `            /permission/admin/manage/identity/consentmgt/list           `
+    -   `            /permission/admin/manage/identity/consentmgt/list           `
 
--   `            /permission/admin/manage/identity/consentmgt/view                       `
+    -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
 1.  Log into the [Management
     Console](../../setup/getting-started-with-the-management-console).
@@ -121,7 +123,8 @@ you have the following permissions set:
 
 3.  The following window will be displayed.
 
-    !!! tip The **DEFAULT** purpose listed at the top is used by the
+    !!! tip 
+        The **DEFAULT** purpose listed at the top is used by the
         WSO2 IS resident identity provider (IdP) when sharing user
         attributes with external applications for the single sign-on (SSO)
         authentication flow. Basically, it is used when WSO2 IS acts as the

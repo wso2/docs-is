@@ -23,36 +23,37 @@ demonstrates the steps used to do this.
 
     5.  The Application condition:
 
-    There are three options which we can use to filter requests which
-    need to be managed by the selected workflow.
+    !!! info 
+        There are three options which we can use to filter requests which
+        need to be managed by the selected workflow.
 
-    **Apply to all Requests**
+        **Apply to all Requests**
 
-    If this option is selected, the selected workflow will be triggered
-    for all the requests of the selected operation.
+        If this option is selected, the selected workflow will be triggered
+        for all the requests of the selected operation.
 
-    **Apply If**
+        **Apply If**
 
-    If this option is selected, the selected workflow only get triggered
-    if the condition is satisfied. As an example, following
-    configuration will select add user operations where username
-    contains 'sys'. (This option supports simple conditions. If the
-    condition is complex where multiple conditions are evaluated with
-    connectors (and/or) use the Advance section.)
+        If this option is selected, the selected workflow only get triggered
+        if the condition is satisfied. As an example, following
+        configuration will select add user operations where username
+        contains 'sys'. (This option supports simple conditions. If the
+        condition is complex where multiple conditions are evaluated with
+        connectors (and/or) use the Advance section.)
 
-    ![apply-if](../../assets/img/using-wso2-identity-server/apply-if.png) 
+        ![apply-if](../../assets/img/using-wso2-identity-server/apply-if.png) 
 
-    **Advanced**  
-    If this option is selected, you can define an XPath expression to
-    filter the requests that need to go through the selected workflow.
-    As an example, following configuration will select add user
-    operations where username contains 'sys'.
+        **Advanced**  
+        If this option is selected, you can define an XPath expression to
+        filter the requests that need to go through the selected workflow.
+        As an example, following configuration will select add user
+        operations where username contains 'sys'.
 
-    ``` java
-    boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
-    ```
+        ``` java
+        boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
+        ```
 
-    ![advanced-workflow](../../assets/img/using-wso2-identity-server/advanced-workflow.png) 
+        ![advanced-workflow](../../assets/img/using-wso2-identity-server/advanced-workflow.png) 
 
     ![new-workflow-engagement](../../assets/img/using-wso2-identity-server/new-workflow-engagement.png) 
 

@@ -9,93 +9,67 @@ instructions given in the following sections to set this up.
 If you have not already configured WSO2 identity Server (WSO2 IS) for
 account locking, expand the section below for instructions.
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here
-for instructions
+??? note "Click here for instructions"
 
-1.  Ensure that the "
-    `              IdentityMgtEventListener             ` " with the
-    `              orderId=50             ` is set to **false** and
-    the " `              IdentityMgtEventListener             `
-    " with the `              orderId=95             ` is set to
-    **true** in the
-    `              <IS_HOME>/repository/conf/identity/identity.xml             `
-    file.  
+    1.  Ensure that the identity listener with the
+        `              priority=50             ` is set to **false** and
+        the identity listener with the `              priority=95             ` is set to
+        **true**  by adding the following configuration to the
+        `              <IS_HOME>/repository/conf/deployment.toml             `
+        file.  
 
-    This is already configured this way by default. You can skip this
-    step if you have not changed this configuration previously.
+        ``` xml
+        [event.default_listener.identity_mgt]
+        priority= "50"
+        enable = false
+        [event.default_listener.governance_identity_mgt]
+        priority= "95"
+        enable = true
+        ```
+         
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    to see the code block
+    2.  <a name = "lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console using
+        your tenant credentials.
+          
+        !!! Tip
 
-    ``` xml
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="false"/>
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.governance.listener.IdentityMgtEventListener" orderId="95" enable="true" />
-    ```
-
-    !!! tip
-    
-        Tip
-    
-        The properties that you configure in the
-        `              <IS_HOME>/repository/conf/identity/identity-event.properties             `
-        file are applied at the time of WSO2 Identity Server startup.
-    
-        Once you start the server, any consecutive changes that you do in
-        the
-        `              <IS_HOME>/repository/conf/identity/identity-event.properties             `
-        file, will not be picked up.
-    
-
-2.  <a name = "lockingaspecificuseraccount"></a>Start the Identity Server and log into the management console using
-    your tenant credentials.
-
-    !!! tip
-    
-        **Alternatively**, you can also use the
-        `                             IdentityGovernanceAdminService                           `
-        SOAP service to do this instead of using the management console UI.
-        See [Calling Admin
-        Services](../../using-wso2-identity-server/calling-admin-services)
-        for more information on how to invoke this SOAP service. If you are
-        using the SOAP service to configure this, you do not need to follow
-        the steps given below this note.
-    
-
-3.  Click **Resident** under **Identity Providers** found in the
-    **Main** tab.
-4.  Expand the **Login Policies** tab.
-5.  Expand the **Account Locking** tab and select the **Account Lock
-    Enabled** checkbox. Click **Update** to save changes.  
-    ![login-policies](../../assets/img/using-wso2-identity-server/login-policies.png) 
-
-    !!! tip
-
-        If a user is assigned the **Internal/system** role, the user can
-        bypass account locking even if the user exceeds the specified number
-        of **Maximum Failed Login Attempts**.
-    
-        !!! note
-            
-                Note
-            
-                WSO2 Identity Server has the **Internal/system** role configured by
-                default. But generally a new user is not assigned the
-                **Internal/syste** m role by default. Required roles can be assigned
-                to a user depending on the set of permission a user needs to have.
-                For more information on roles and permission, see [Configuring Roles
-                and
-                Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
-                .
-            
-                Although the **Internal/system** role is configured by default in
-                WSO2 Identity Server, you can delete the role if necessary. To allow
-                users with the **Internal/system** role to bypass account locking,
-                you need to ensure that the role exists in WSO2 Identity Server.
+            Alternatively, you can also use the `   IdentityGovernanceAdminService     ` SOAP service to do this instead of using the management console UI. See [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services)
+            for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this note.
             
 
-6.  To enable account locking for other tenants, log out and repeat the
-    steps given above from [step 2](#lockingaspecificuseraccount)
-    onwards.
+      3.  Click **Resident** under **Identity Providers** found in the
+         **Main** tab.
+      4.  Expand the **Login Policies** tab.
+    5.  Expand the **Account Locking** tab and select the **Account Lock
+        Enabled** checkbox. Click **Update** to save changes.  
+        ![login-policies](../../assets/img/using-wso2-identity-server/login-policies.png) 
+
+        !!! tip
+
+            If a user is assigned the **Internal/system** role, the user can
+            bypass account locking even if the user exceeds the specified number
+            of **Maximum Failed Login Attempts**.
+         
+            !!! note
+                  
+                  WSO2 Identity Server has the **Internal/system** role configured by
+                  default. But generally a new user is not assigned the
+                  **Internal/syste** m role by default. Required roles can be assigned
+                  to a user depending on the set of permission a user needs to have.
+                  For more information on roles and permission, see [Configuring Roles
+                  and
+                  Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
+                  .
+               
+                  Although the **Internal/system** role is configured by default in
+                  WSO2 Identity Server, you can delete the role if necessary. To allow
+                  users with the **Internal/system** role to bypass account locking,
+                  you need to ensure that the role exists in WSO2 Identity Server.
+               
+
+      6.  To enable account locking for other tenants, log out and repeat the
+         steps given above from [step 2](#lockingaspecificuseraccount)
+         onwards.
 
 !!! note
     
@@ -124,7 +98,7 @@ for instructions
 Once you have configured account locking as instructed above, you can
 use one of the following methods to lock a user account.
 
-###### Using the management console
+#### Using the management console
 
 An administrative user can lock a user account by editing the user’s
 profile in the management console.
@@ -146,7 +120,7 @@ profile in the management console.
     or deselect it to unlock the account and click **Update**.
     
 
-###### Using the AdminService
+#### Using the AdminService
 
 An administrative user (with the permission level
 /permission/admin/configure/security/usermgt/users ) can lock a user
@@ -179,7 +153,7 @@ account.
 </soapenv:Envelope>
 ```
 
-###### Unlocking a user account using the admin service
+#### Unlocking a user account using the admin service
 
 Similarly, you can use the `         setUserClaimValues        `
 operation `         RemoteUserStoreManagerService        ` AdminService
@@ -246,7 +220,7 @@ below.
 
     !!! tip
     
-        **Tip:** The email template used to send the email notification for
+        The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on

@@ -33,31 +33,31 @@ Follow the steps provided below to configure this.
     ![configuring-recaptcha-api-keys](../../assets/img/using-wso2-identity-server/configuring-recaptcha-api-keys.png) 
 3.  Take note of the site key and secret that you receive.
     ![note-site-key-secret](../../assets/img/using-wso2-identity-server/note-site-key-secret.png) 
-4.  Open the c `            aptcha-config.properties           ` file
-    located in the
-    `            <IS_HOME>/repository/conf/identity/           `
-    directory and configure the following properties.
+4.  Open the `deployment.toml           ` file located in the `            <IS_HOME>/repository/conf/         `
+    directory and add the following configurations.
 
-    ``` java
+    ``` toml 
     # Google reCAPTCHA settings
 
     # Enable Google reCAPTCHA
-    recaptcha.enabled=true
+    [identity.recaptcha] 
+    enabled= true
 
     # reCaptcha API URL
-    recaptcha.api.url=https://www.google.com/recaptcha/api.js
+    [identity.recaptcha] 
+    api_url="https://www.google.com/recaptcha/api.js"
 
     # reCaptcha verification URL
-    recaptcha.verify.url=https://www.google.com/recaptcha/api/siteverify
+    [identity.recaptcha] 
+    verify_url="https://www.google.com/recaptcha/api/siteverify"
 
     # reCaptcha site key
-    recaptcha.site.key=6Lc8THgUAAAAAPekxT991FGFXRrsiPCMNv5PwZHB
+    [identity.recaptcha] 
+    site_key="6Lc8THgUAAAAAPekxT991FGFXRrsiPCMNv5PwZHB"
 
     # reCaptcha secret key
-    recaptcha.secret.key=6Lc8THgUAAAAAEu83iOwSin_CSt6gqe97aa7EGFd
-
-    # reCaptcha failed redirect URL
-    #recaptcha.failed.redirect.urls=
+    [identity.recaptcha] 
+    secret_key="6Lc8THgUAAAAAEu83iOwSin_CSt6gqe97aa7EGFd"
     ```
 
     !!! note
@@ -78,8 +78,7 @@ Follow the steps provided below to configure this.
             recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
         ```
     
-
-5.  Restart the WSO2 IS server.
+5\.  Restart the WSO2 IS server.
 
 You have successfully set up reCaptcha for your site. You can now
 configure reCaptcha with any of the following:

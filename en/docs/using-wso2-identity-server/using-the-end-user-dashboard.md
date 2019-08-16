@@ -37,22 +37,20 @@ To edit your profile, do the following.
 
     ![manage-profile](../../assets/img/using-wso2-identity-server/manage-profile.png) 
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    here to know more about the fields in the form
-
-    |              |                                                      |
-    |--------------|------------------------------------------------------|
-    | First Name   | Your first name.                                     |
-    | Last Name    | Your last name.                                      |
-    | Organization | The organization you work in.                        |
-    | Country      | The name of the country you live in/work in.         |
-    | Email        | Your email address.                                  |
-    | Telephone    | Your local/organization contact number.              |
-    | Mobile       | Your mobile number.                                  |
-    | IM           | Your instant messaging number.                       |
-    | URL          | Your website/organization website's URL.             |
-    | Department   | The department you work in within your organization. |
-    | Role         | The role you have been assigned to.                  |
+    ??? note "Click here to know more about the fields in the form"
+        |              |                                                      |
+        |--------------|------------------------------------------------------|
+        | First Name   | Your first name.                                     |
+        | Last Name    | Your last name.                                      |
+        | Organization | The organization you work in.                        |
+        | Country      | The name of the country you live in/work in.         |
+        | Email        | Your email address.                                  |
+        | Telephone    | Your local/organization contact number.              |
+        | Mobile       | Your mobile number.                                  |
+        | IM           | Your instant messaging number.                       |
+        | URL          | Your website/organization website's URL.             |
+        | Department   | The department you work in within your organization. |
+        | Role         | The role you have been assigned to.                  |
 
     !!! tip
     
@@ -77,7 +75,7 @@ To export the user's personal information, do the following.
 
     !!! tip
     
-        **Note:** The consent receipts in the
+        The consent receipts in the
         `           userInfo.json          ` file contain the PII controller
         information as it is at the time that the receipt is generated. If
         the PII controller has changed after the receipt was generated, this
@@ -182,16 +180,16 @@ how this works.
 
 ### Configuring consent for services
 
-About Consent Receipt
+!!! info "About Consent Receipt"
 
-"A *consent receipt* is a record of consent provided to an individual at
-the point when a person agrees to the share of personal information.
- Its purpose is to capture the privacy policy and its purpose for
-sharing personal information so it can be easily used by people to
-communicate and manage consent and sharing of personal information once
-it is provided. For more information, see the [Consent Receipt
-Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
-.
+    "A *consent receipt* is a record of consent provided to an individual at
+    the point when a person agrees to the share of personal information.
+     Its purpose is to capture the privacy policy and its purpose for
+    sharing personal information so it can be easily used by people to
+    communicate and manage consent and sharing of personal information once
+    it is provided. For more information, see the [Consent Receipt
+    Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
+    .
 
 The user dashboard provides you a list of all the active consent
 receipts that have already been approved. It also gives the ability to
@@ -224,8 +222,6 @@ via WSO2 Identity Server. Follow the steps below to configure this.
 New users can do the following actions from this screen:
 
 !!! note
-    
-    **Note:**  
     Existing users (users who are already onboarded) will also see the
     ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon and can configure consent
     accordingly but will not see the **Revoke** button to revoke consent for
@@ -242,14 +238,12 @@ New users can do the following actions from this screen:
     service. Deselect claims accordingly to revoke consent. Click
     **Update**.
 
-    !!! tip
-    
-        Accepting consent for new attributes
-    
+    !!! tip "Accepting consent for new attributes"
+   
         -   For system consent, users can consent to newly added attributes
-            by selecting the new claims that appear on this screen.
-    
-            ![revoke-consent](../../assets/img/using-wso2-identity-server/revoke-consent.png) 
+            by selecting the new claims that appear on this screen. 
+        
+        ![revoke-consent](../../assets/img/using-wso2-identity-server/revoke-consent.png) 
     
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly

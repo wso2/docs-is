@@ -9,7 +9,7 @@ predefined path.
 
 !!! tip
     
-    **Tip** : Any defined workflow does not get applied to tenant admin user
+    Any defined workflow does not get applied to tenant admin user
     creation process during the tenant creation.
     
 
@@ -33,19 +33,21 @@ pre-requisites are necessary to implement this sample use case:
     For more information about workflow usecases and a demo of workflow
     management using the WSO2 IS management console, watch the screencast
     video below.
-    
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/2MM-0B3SI7A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Prerequisites
 
 -   [WSO2 Identity Server](http://wso2.com/products/identity-server/)
 
-An embedded Business Process Management engine is included in WSO2
-Identity Server to execute this feature. However, if you need more
-flexibility and more extensibility with this feature than what is
-currently provided, it is advisable to integrate the [Business Process
-Management (BPM) component of WSO2 Enterprise
-Integrator](https://docs.wso2.com/display/EI611/Business+Process+Management)
-with the Identity Server.
+!!! info 
+    An embedded Business Process Management engine is included in WSO2
+    Identity Server to execute this feature. However, if you need more
+    flexibility and more extensibility with this feature than what is
+    currently provided, it is advisable to integrate the [Business Process
+    Management (BPM) component of WSO2 Enterprise
+    Integrator](https://docs.wso2.com/display/EI611/Business+Process+Management)
+    with the Identity Server.
 
 The following sections will guide you through the process of
 implementing this sample use case. Follow them in the given order.

@@ -4,17 +4,14 @@ Follow the steps given below to configure the Business Process
 Management (BPM) profile of WSO2 EI so that it integrates and runs with
 WSO2 Identity Server to define work flows.
 
-!!! tip
-    
-    Before you begin!
-    
+!!! tip "Before you begin!"  
     Make sure to download [WSO2 Enterprise
     Integrator](https://wso2.com/integration) (WSO2 EI). The BPM profile is
     packaged inside WSO2 EI.
     
-
-The `          <EI_HOME>/wso2/business-process         ` is referred to
-as `          <BPM_HOME         ` \> throughout this document.
+!!! info 
+    The `          <EI_HOME>/wso2/business-process         ` is referred to
+    as `          <BPM_HOME         ` \> throughout this document.
 
 1.  Configure the
     `           <BPM_HOME>/repository/conf/user-mgt.xml          ` file.
