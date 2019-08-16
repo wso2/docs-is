@@ -2,17 +2,9 @@
 
 The OAuth Introspection endpoint is as follows:
 
-``` java
+``` 
 https://localhost:9443/oauth2/introspect
 ```
-
-Follow the sections given below to invoke the endpoint:
-
--   [Invoking the endpoint for the super
-    tenant](#InvoketheOAuthIntrospectionEndpoint-Invokingtheendpointforthesupertenant)
--   [Invoking the endpoint for
-    tenants](#InvoketheOAuthIntrospectionEndpoint-Invokingtheendpointfortenants)
-
 OAuth 2.0 Token Introspection defines a protocol that allows authorized
 protected resources to query the authorization server to determine the
 set of metadata for a given token that was presented to them by an OAuth
@@ -62,13 +54,6 @@ as follows.
 Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for the super tenant users.
 
--   [Get a valid
-    token](#InvoketheOAuthIntrospectionEndpoint-Getavalidtoken)
--   [Get a valid token with a
-    scope](#InvoketheOAuthIntrospectionEndpoint-Getavalidtokenwithascope)
--   [Invalid token](#InvoketheOAuthIntrospectionEndpoint-Invalidtoken)
--   [Empty token](#InvoketheOAuthIntrospectionEndpoint-Emptytoken)
-
 !!! note
     
     -   For requests that require
@@ -76,8 +61,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
-        Provider](_Configuring_Inbound_Authentication_for_a_Service_Provider_)
-        .
+        Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
     -   For requests that require `           USERNAME:PASSWORD          `,
         by default you can use credentials of any user with
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
@@ -87,7 +71,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
         `           <IS_HOME>/repository/conf/identity/identity.xml          `
         file.
     
-        ``` xml
+        ``` toml
             <Resource context="(.*)/oauth2/introspect(.*)" secured="true" http-method="all">
                 <Permissions>/permission/admin/manage/identity/applicationmgt/view</Permissions>
             </Resource>
@@ -281,13 +265,6 @@ following response :
 Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for tenant users.
 
--   [Get a valid
-    token](#InvoketheOAuthIntrospectionEndpoint-Getavalidtoken.1)
--   [Get a valid token with a
-    scope](#InvoketheOAuthIntrospectionEndpoint-Getavalidtokenwithascope.1)
--   [Invalid token](#InvoketheOAuthIntrospectionEndpoint-Invalidtoken.1)
--   [Empty token](#InvoketheOAuthIntrospectionEndpoint-Emptytoken.1)
-
 !!! note
     
     -   For requests that require
@@ -295,7 +272,7 @@ invoke the OAuth introspection endpoint for tenant users.
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
-        Provider](_Configuring_Inbound_Authentication_for_a_Service_Provider_)
+        Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
         .
     -   For requests that require
         `           USERNAME@TENANT_DOMAIN:PASSWORD          `, by default
