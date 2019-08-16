@@ -1,8 +1,7 @@
 # Error Catalog
 This document describes all the REST API error codes that are used in WSO2 Identity Server. 
 
-
-## Challenge Question Error Codes
+## Common Errors
 
 <div class="errorcode">
 <table>
@@ -19,6 +18,20 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>Invalid Request</td>
     <td>Provided request body content is not in the expected format.</td>
   </tr>
+  </tbody>
+</table>
+
+## User Challenge Question Management
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
   <tr>
     <td>CQM-10002</td>
     <td>500</td>
