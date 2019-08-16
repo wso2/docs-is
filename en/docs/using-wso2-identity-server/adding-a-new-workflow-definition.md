@@ -4,22 +4,21 @@ The instructions in this section guide you through the process of adding
 a new workflow in the WSO2 Identity Server. These workflows provide a
 means of fine-tuning the process of approving accounts.
 
-!!! note
-    
-    Important
-    
+!!! note "Important"
+
     Before adding a new workflow,
     
     1.  Create the required roles to do the approval. To do this, follow the
         instructions available in the [Configuring Roles and
         Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions) topic.
-    
-        To enable users assigned to these roles to approve human tasks, the
-        following permissions need to be enabled:
-    
-        -   Login
-        -   Human Tasks\>View Task List
-        -   Workflow Management\>BPS Profiles\>View
+
+        !!! info 
+            To enable users assigned to these roles to approve human tasks, the
+            following permissions need to be enabled:
+        
+            -   Login
+            -   Human Tasks\>View Task List
+            -   Workflow Management\>BPS Profiles\>View
     
     2.  Assign users to the roles that you created. See [Configuring
         Users](../../using-wso2-identity-server/configuring-users) for more information on how to do this.
@@ -57,7 +56,7 @@ To add a new workflow, do the following.
         ![workflow-fields](../../assets/img/using-wso2-identity-server/workflow-fields.png)
 
           
-
+    !!! info 
         The Workflow Template seen above defines the template for a
         specific workflow. A template will have a specific flow where
         the parameters can be customized (eg. Send an email notification

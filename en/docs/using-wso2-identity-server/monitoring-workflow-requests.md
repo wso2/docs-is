@@ -4,13 +4,14 @@ Workflow Requests can be monitored through the management console. To do
 this, go to **Monitor \> Workflow Requests** to analyze the workflow
 request data.
 
-In order to monitor these requests, a user needs to have
-`          /permission/admin/manage/identity/workflow/association/view         `
-and
-`          /permission/admin/manage/identity/workflow/monitor/view         `
-permissions.
+!!! info 
+    In order to monitor these requests, a user needs to have
+    `          /permission/admin/manage/identity/workflow/association/view         `
+    and
+    `          /permission/admin/manage/identity/workflow/monitor/view         `
+    permissions.
 
-![monitor-workflow-requests](../../assets/img/using-wso2-identity-server/monitor-workflow-requests.png) 
+    ![monitor-workflow-requests](../../assets/img/using-wso2-identity-server/monitor-workflow-requests.png) 
 
 Workflow requests can also be filtered based on the request type, the
 status of the Workflow request and based on the timestamp that the

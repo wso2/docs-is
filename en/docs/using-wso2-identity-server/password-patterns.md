@@ -14,11 +14,8 @@ multi-tenant environment.
 4.  Expand the **Password Patterns** tab and select **Enable Password
     Policy Feature**. Update the default values and click **Update**.
 
-    !!! note
-    
-        Configuring password policies for multiple tenants
-    
-        **Note:** To configure this separately for different tenants in a
+    !!! note "Configuring password policies for multiple tenants"
+        To configure this separately for different tenants in a
         multi-tenant environment, first login with Tenant A credentials and
         configure the password policy. Next, logout and login again with
         Tenant B credentials to configure a different policy for Tenant B.
@@ -49,7 +46,9 @@ multi-tenant environment.
     <td><div class="content-wrapper">
     <p>^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&amp;*])).{0,100}$</p>
     <div>
-    <p>For more information on the password pattern characters and the different patterns you can use, see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regex Pattern</a> .</p>
+    <div class="admonition info">
+    <p class="admonition-title">Info</p>
+    <p>For more information on the password pattern characters and the different patterns you can use, see <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Regex Pattern</a> .</p></div>
     </div>
     </div></td>
     </tr>
@@ -63,12 +62,12 @@ multi-tenant environment.
 
     ![password-policies](../../assets/img/using-wso2-identity-server/password-policies.png) 
 
-**Related Links**
+!!! info "Related Links"
 
--   To configure a global password policy that applies to all tenants,
-    you can write a custom password policy using the configuration file
-    instead of through the management console. For more information, see
-    [Writing a Custom Password
-    Validator](../../using-wso2-identity-server/writing-a-custom-password-validator).
--   To record user password history, see [Password History
-    Validation](../../using-wso2-identity-server/password-history-validation).
+    -   To configure a global password policy that applies to all tenants,
+        you can write a custom password policy using the configuration file
+        instead of through the management console. For more information, see
+        [Writing a Custom Password
+        Validator](../../using-wso2-identity-server/writing-a-custom-password-validator).
+    -   To record user password history, see [Password History
+        Validation](../../using-wso2-identity-server/password-history-validation).

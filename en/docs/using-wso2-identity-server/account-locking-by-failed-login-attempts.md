@@ -21,39 +21,28 @@ disabling. The following section explain how to configure this.
     .
     
 
-1.  Ensure that the " `            IdentityMgtEventListener           `
-    " with the `            orderId=50           ` is set to **false**
-    and the " `            IdentityMgtEventListener           `
-    " with the `            orderId=95           ` is set to **true**
+1.  Ensure that the identity listener
+    with the `            priority=50           ` is set to **false**
+    and the identity listener with the `            priority=95           ` is set to **true**
     in the
-    `            <IS_HOME>/repository/conf/identity/identity.xml           `
-    file.  
+    `            <IS_HOME>/repository/conf/deployment.toml           `
+    file by adding the following configuration.  
 
-    This is already configured this way by default. You can skip this
-    step if you have not changed this configuration previously.
+    !!! info 
+        This is already configured this way by default. You can skip this
+        step if you have not changed this configuration previously.
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    to see the code block
+    ??? note "Click to see the code block"
 
-    ``` xml
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="false"/>
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" name="org.wso2.carbon.identity.governance.listener.IdentityMgtEventListener" orderId="95" enable="true" />
-    ```
-
-    !!! tip
+        ``` xml
+        [event.default_listener.identity_mgt]
+        priority= "50"
+        enable = false
+        [event.default_listener.governance_identity_mgt]
+        priority= "95"
+        enable = true
+        ```
     
-        Tip
-    
-        The properties that you configure in the
-        `            <IS_HOME>/repository/conf/identity/identity-event.properties           `
-        file are applied at the time of WSO2 Identity Server startup.
-    
-        Once you start the server, any consecutive changes that you do in
-        the
-        `            <IS_HOME>/repository/conf/identity/identity-event.properties           `
-        file, will not be picked up.
-    
-
 2.  <a name= "failedloginattempts"></a> Start the Identity Server and log into the management console using
     your tenant credentials.
 
@@ -82,16 +71,13 @@ disabling. The following section explain how to configure this.
         of **Maximum Failed Login Attempts**.
     
         !!! note
-            
-                Note
-            
                 WSO2 Identity Server has the **Internal/system** role configured by
                 default. But generally a new user is not assigned the
                 **Internal/syste** m role by default. Required roles can be assigned
                 to a user depending on the set of permission a user needs to have.
                 For more information on roles and permission, see [Configuring Roles
                 and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
-            
+                
                 Although the **Internal/system** role is configured by default in
                 WSO2 Identity Server, you can delete the role if necessary. To allow
                 users with the **Internal/system** role to bypass account locking,
@@ -126,9 +112,10 @@ descriptions you need to configure:
 <p>Account unlock timeout = Configured <strong>Account Unlock Time</strong> * ( <strong>Lock Timeout Increment Factor</strong> ^ failed login attempt cycles)</p>
 <p>i.e.,</p>
 <p>10 minutes = 5 * ( 2 ^ 1 )</p>
-!!! tip
-    <p>Tip</p>
-    <p>If you want to configure the <strong>Lock Timeout Increment Factor</strong> property via the file based configuration, the parameter you need to configure is <code>                 account.lock.handler.login.fail.timeout.ratio                </code> found in the <code>                 &lt;IS_HOME&gt;/repository/conf/identity/identity-event.properties                </code> file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+    <p>If you want to configure the <strong>Lock Timeout Increment Factor</strong> property via the file based configuration, the parameter you need to configure is <code>                 auto_unlock_time_increment_ratio                </code> found within     
+    <code>  identity_mgt.account_locking </code>   in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml                </code> file.</p></div>
 </div>
 </div>
 <p>If the user attempts to log in with invalid credentials again after the wait time has elapsed and the account is unlocked, the number of login attempt cycles is now 2 and the wait time is 20 minutes.</p>
@@ -149,10 +136,8 @@ If you want to configure different settings for another tenant, log out
 and follow the same steps to configure these properties for the other
 tenants.
 
-!!! note
-    
-    Configuring WSO2 IS for automatic account unlock
-    
+!!! note "Configuring WSO2 IS for automatic account unlock"
+      
     The WSO2 Identity Server can be configured to automatically unlock a
     user account after a certain period of time. A user account locked by
     failed login attempts can be unlocked by setting a lock timeout period.
@@ -208,7 +193,7 @@ failed login attempts. To configure this, follow the steps below.
 
     !!! tip
     
-        **Tip:** The email template used to send the email notification for
+        The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on

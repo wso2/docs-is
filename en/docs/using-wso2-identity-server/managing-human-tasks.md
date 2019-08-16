@@ -48,22 +48,22 @@ IS as well. To test the workflow, follow the steps below.
     | Approve    | Approve the task.                                                                                                                                                         |
     | Disapprove | Disapprovethe task. The requested operation will be canceled.                                                                                                             |
     | Release    | Releasethe task so that other user can claim and approve or disapprove it.                                                                                                |
+!!! info 
+    The workflow comes with some advanced features such as:
 
-The workflow comes with some advanced features such as:
+    -   [Multi-step
+        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
+    -   [User specific
+        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
+    -   [Multiple role based
+        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
 
--   [Multi-step
-    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
--   [User specific
-    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
--   [Multiple role based
-    approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
-
-Instead of a one step approval, there can be multiple steps to the
-approval flow. For example, a workflow with two step approval where in
-the first step the role to authorize the request is the M anager and in
-the second step the role to authorize the request is the S eniorManager
-. In this case, when a user is added to the system, only users with M
-anager role can initially see the pending approvals. After the users
-with this role approves the pending tasks, then the users with S
-eniorManager role can see the pending tasks. After both the users
-approve, the task is completed.
+    Instead of a one step approval, there can be multiple steps to the
+    approval flow. For example, a workflow with two step approval where in
+    the first step the role to authorize the request is the M anager and in
+    the second step the role to authorize the request is the S eniorManager
+    . In this case, when a user is added to the system, only users with M
+    anager role can initially see the pending approvals. After the users
+    with this role approves the pending tasks, then the users with S
+    eniorManager role can see the pending tasks. After both the users
+    approve, the task is completed.

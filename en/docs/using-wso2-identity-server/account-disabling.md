@@ -39,10 +39,9 @@ locking and disabling. Follow the below steps to do this configuration.
         2.  Set the following property to **false** to disable account
             disabling. This will remove the account disabling option from
             all tenants.
-    
-            ``` java
-                    account.disable.handler.enable=false
-        ```
+            ``` xml
+                account.disable.handler.enable=false
+            ```
 
 
 5.  Next, enable account locking. Expand the **Login Policies** tab.
@@ -56,20 +55,19 @@ locking and disabling. Follow the below steps to do this configuration.
         bypass account locking even if the user exceeds the specified number
         of **Maximum Failed Login Attempts**.
     
-        ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-        here to see more information
+        ??? note "Click here to see more information"
     
-        WSO2 Identity Server has the **Internal/system** role configured by
-        default. But generally a new user is not assigned the
-        **Internal/syste** m role by default. Required roles can be assigned
-        to a user depending on the set of permission a user needs to have.
-        For more information on roles and permission, see [Configuring Roles
-        and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
+            WSO2 Identity Server has the **Internal/system** role configured by
+            default. But generally a new user is not assigned the
+            **Internal/syste** m role by default. Required roles can be assigned
+            to a user depending on the set of permission a user needs to have.
+            For more information on roles and permission, see [Configuring Roles
+            and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
     
-        Although the **Internal/system** role is configured by default in
-        WSO2 Identity Server, you can delete the role if necessary. To allow
-        users with the **Internal/system** role to bypass account locking,
-        you need to ensure that the role exists in WSO2 Identity Server.
+            Although the **Internal/system** role is configured by default in
+            WSO2 Identity Server, you can delete the role if necessary. To allow
+            users with the **Internal/system** role to bypass account locking,
+            you need to ensure that the role exists in WSO2 Identity Server.
     
 
 7.  To enable account locking and disabling for other tenants, log out
@@ -138,7 +136,7 @@ steps below.
 
     !!! tip
     
-        **Tip:** The email template used to send the email notification for
+        The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on

@@ -28,23 +28,24 @@ products.
     static property in the implementation and must be configured prior
     to run time.
 
-When multitenancy is enabled and a tenant becomes inactive for a long
-period of time, the tenant is unloaded from the server's memory. By
-default, the time period is 30 minutes. After that, the tenant has to
-log in again before sending requests to the server.
+!!! info 
+    When multitenancy is enabled and a tenant becomes inactive for a long
+    period of time, the tenant is unloaded from the server's memory. By
+    default, the time period is 30 minutes. After that, the tenant has to
+    log in again before sending requests to the server.
 
-You can change the default time period allowed for tenant inactiveness
-by adding `          -Dtenant.idle.time=<time_in_minutes>         ` Java
-property to the product's startup script (
-`          wso2server.sh         ` file for Linux and
-`          wso2server.bat         ` for Windows) as shown below:
+    You can change the default time period allowed for tenant inactiveness
+    by adding `          -Dtenant.idle.time=<time_in_minutes>         ` Java
+    property to the product's startup script (
+    `          wso2server.sh         ` file for Linux and
+    `          wso2server.bat         ` for Windows) as shown below:
 
-  
+    
 
-``` java
-JAVA_OPTS \
-    -Dtenant.idle.time=30 \
-```
+    ``` java
+    JAVA_OPTS \
+        -Dtenant.idle.time=30 \
+    ```
 
 In order to manage tenants, you need to be logged in as a super tenant.
 
@@ -86,17 +87,17 @@ tenant URL.
 To view existing tenants, on the **Configure** tab in the Identity
 Server Management Console, click **View Tenants**.
 
-**Related links**
+!!! info "Related Links"
 
-The following topics provide more information on various tenant related
-aspects of the WSO2 Identity Server.
+    The following topics provide more information on various tenant related
+    aspects of the WSO2 Identity Server.
 
--   See [Configuring a SP and IdP Using Configuration
-    Files](../../using-wso2-identity-server/configuring-a-sp-and-idp-using-configuration-files) for
-    more information on configuring an identity provider that can be
-    shared across multiple tenants.
--   See [Working with Multiple
-    Tenants](../../admin-guide/working-with-multiple-tenants)
-    for more information on multitenancy and its architecture.
--   See [Managing Tenants with APIs](../../using-wso2-identity-server/managing-tenants-with-apis) for
-    more information on using APIs to manage tenants.
+    -   See [Configuring a SP and IdP Using Configuration
+        Files](../../using-wso2-identity-server/configuring-a-sp-and-idp-using-configuration-files) for
+        more information on configuring an identity provider that can be
+        shared across multiple tenants.
+    -   See [Working with Multiple
+        Tenants](../../admin-guide/working-with-multiple-tenants)
+        for more information on multitenancy and its architecture.
+    -   See [Managing Tenants with APIs](../../using-wso2-identity-server/managing-tenants-with-apis) for
+        more information on using APIs to manage tenants.

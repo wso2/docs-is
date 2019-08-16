@@ -8,18 +8,16 @@ how to associate all your user accounts to the account with which you
 have logged on.
 
 !!! note
-    
-    Note
-    
     If you want to associate user accounts of federated users via the
-    dashboard, you have to edit the /repository/conf/identity/identity.xml
-    file and change the `         EnableFederatedUserAssociation        `
-    parameter to `         true        ` .
+    dashboard, add the following configuration to the `/repository/conf/deployment.toml`
+    file.
+    
+    ``` toml
+        [user.association]
+        enable_for_federated_users = true
+    ```
     
     !!! tip
-        
-        Tip
-        
         The recommended approach is to have the
         `         EnableFederatedUserAssociation        ` parameter set to
         `         false        ` so that manual federated user association is
@@ -91,9 +89,6 @@ You can connect your federated user IDs with your WSO2 Identity Server
 account from the end user dashboard. To set this up, do the following.
 
 !!! note
-    
-    Note
-    
     You need to setup an Identity Provider before continuing this process.
     For more information on how to do this, see [Adding and Configuring an
     Identity Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
