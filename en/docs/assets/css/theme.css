@@ -670,11 +670,17 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .md-footer-nav__title {
-    font-size: .7rem;
+    font-size: .75rem;
 }
 
 .md-footer-nav .md-flex__cell {
     vertical-align: baseline;
+}
+
+.md-footer-copyright__highlight,
+html .md-footer-meta.md-typeset a,
+.md-footer-copyright {
+    color: #424242;
 }
 
 .md-footer-copyright__highlight {
