@@ -21,7 +21,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 
-## User Challenge Question Management
+## Challenge Question Management
 
 <div class="errorcode">
 <table>
