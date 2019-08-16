@@ -421,17 +421,17 @@ nav:
           - 'Client Credentials Grant': using-wso2-identity-server/client-credentials-grant.md
           - 'Refresh Token Grant': using-wso2-identity-server/refresh-token-grant.md
           - 'Kerberos Grant': using-wso2-identity-server/kerberos-grant.md
-        - 'SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/SAML2-Bearer-Assertion-Profile-for-OAuth-2.0.md
-        - 'Setting Up OAuth Token Hashing': using-wso2-identity-server/setting-Up-OAuth-Token-Hashing.md
-        - 'JWT Token Generation': using-wso2-identity-server/jWT-Token-Generation.md
+        - 'SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/saml2-bearer-assertion-profile-for-oauth-2.0.md
+        - 'Setting Up OAuth Token Hashing': using-wso2-identity-server/setting-up-oauth-token-hashing.md
+        - 'JWT Token Generation': using-wso2-identity-server/jwt-token-generation.md
         - 'OAuth2 Token Validation and Introspection':
-          - 'OAuth2 Token Validation and Introspection': using-wso2-identity-server/oAuth2-Token-Validation-and-Introspection.md
-          - 'Invoke the OAuth Introspection Endpoint': using-wso2-identity-server/invoke-the-OAuth-Introspection-Endpoint.md
-          - 'OAuth Token Validation Using SOAP Service': using-wso2-identity-server/oAuth-Token-Validation-Using-SOAP-Service.md
-          - 'OAuth Transaction Logs': using-wso2-identity-server/oAuth-Transaction-Logs.md
-        - 'OAuth2 Token Revocation': using-wso2-identity-server/oAuth2-Token-Revocation.md
+          - 'OAuth2 Token Validation and Introspection': using-wso2-identity-server/oauth2-token-validation-and-introspection.md
+          - 'Invoke the OAuth Introspection Endpoint': using-wso2-identity-server/invoke-the-oauth-introspection-endpoint.md
+          - 'OAuth Token Validation Using SOAP Service': using-wso2-identity-server/oauth-token-validation-using-soap-service.md
+          - 'OAuth Transaction Logs': using-wso2-identity-server/oauth-transaction-logs.md
+        - 'OAuth2 Token Revocation': using-wso2-identity-server/oauth2-token-revocation.md
         - 'Self-contained Access Tokens': 
-          - 'Self-contained Access Tokens': using-wso2-identity-server/self-contained-Access-Tokens.md
+          - 'Self-contained Access Tokens': using-wso2-identity-server/self-contained-access-tokens.md
           - 'Handling Custom Claims with the JWT Bearer Grant Type': using-wso2-identity-server/handling-Custom-Claims-with-the-JWT-Bearer-Grant-Type.md
         - 'Writing A New OAuth Client Authenticator': using-wso2-identity-server/writing-A-New-OAuth-Client-Authenticator.md
         - 'Private Key JWT Client Authentication for OIDC': using-wso2-identity-server/private-Key-JWT-Client-Authentication-for-OIDC.md
@@ -848,6 +848,7 @@ nav:
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
     - 'API Permissions': references/api-permissions.md
+    - 'Error Catalog': references/error-catalog.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md
