@@ -4,19 +4,6 @@ This tutorial guides you through configuring SAML2 authentication for
 Office365 with WSO2 Identity Server (WSO2 IS) in multiple domains.
 Follow the instructions in the sections below to set this up.
 
-!!! tip
-    
-    Note that this feature is available from WSO2 IS 5.8.0 **5102 WUM
-    update**. You can apply the WUM update using the WSO2 Update Manager
-    (WUM). To deploy a WUM update into production, you need to have a paid
-    subscription. If you do not have a paid subscription, you can use this
-    feature with the next version of WSO2 Identity Server when it is
-    released. For more information on updating WSO2 Identity Server using
-    WUM, see [Getting Started with
-    WUM](../../setup/getting-started)in the WSO2
-    Administration Guide.
-
-
 ### The flow
 
 The diagram below demonstrates the flow of how Microsoft Office365 uses

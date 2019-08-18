@@ -205,6 +205,26 @@ provider. The following steps instruct you on how to do this.
 	         <td><code>                   travelocity.com                  </code></td>
 	      </tr>
 	      <tr class="even">
+          	 <td><strong>Service Provider Qualifier</strong></td>
+          	 <td>
+          	    <div class="content-wrapper">
+          	       <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same “Issuer” value. When an “Service Provider Qualifier” is defined here, it will be appended to the end of the “Issuer” value when registering the SAML SP in the Identity Server.</p>
+          	       <div>
+          	          <p>Ex : If you specify travelocity.com as the “Issuer” and sp1 as the “Service Provider Qualifier”, the configuration will be registered in IS by the value  <code> travelocity.com:urn:sp:qualifier:sp1 </code></p>
+          	       </div>
+          	       <p>You can configure any amount of SAML SPs with the same “Issuer” and different “Service Provider Qualifier”.</p>
+          	       <p>When an “Service Provider Qualifier” is defined, the SAML SSO authentication request’s issuer is the value specified as “Issuer” in the configuration (ex : travelocity.com). The service provider qualifier value should be sent as a query parameter “spQualifier” with the HTTP request in the following format.</p>
+          	       <div>
+          	          <p><code>                      https://{Hostname}:{Port}/samlsso?spQualifier={Service Provider Qualifier}                     </code> </p>
+          	       </div>
+          	       <div>
+                   	  <p>In Travelocity sample SP, this query parameter can be set by modifying <code>                      SAML2.IdPURL                     </code> value specified inside the <code>                      travelocity.com/WEB-INF/classes/travelocity.properties                     </code> file as <code>“https://localhost:9443/samlsso?spQualifier=sp1” </code></p>
+                   </div>
+          	    </div>
+          	 </td>
+          	 <td><code>                   sp1                  </code></td>
+          </tr>
+	      <tr class="odd">
 	         <td><strong>Assertion Consumer URLs</strong></td>
 	         <td>
 	            <div class="content-wrapper">
@@ -216,18 +236,18 @@ provider. The following steps instruct you on how to do this.
 	         </td>
 	         <td>Enter this value: <code>                   http://wso2is.local:8080/travelocity.com/home.jsp                  </code> and click <strong>Add</strong> .</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Default Assertion Consumer URL</strong></td>
 	         <td>This must be the same value defined above. If you have defined multiple <strong>Assertion Consumer URLs</strong>, this value must be the same as the <code>                   SAML2.AssertionConsumerURL                  </code> value mentioned inside the <code>                   travelocity.com/WEB-INF/classes/travelocity.properties                  </code> file as that is the default.</td>
 	         <td><br />
 	         </td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>NameID format</strong></td>
 	         <td>The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. There are some formats that are defined by SAML2 specification. Enter the default value of this format ( <code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code> )</td>
 	         <td><code>                   urn:oasis:names:<zero-width space>tc:SAML:1.1:nameid-format:emailAddress                  </code></td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Certificate Alias</strong></td>
 	         <td>
 	            <div class="content-wrapper">
@@ -242,7 +262,7 @@ provider. The following steps instruct you on how to do this.
 	            <p><code>                    In a tenant : Select the Certificate Alias with tenant domain name                                       </code></p>
 	         </td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Response Signing Algorithm</strong></td>
 	         <td>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding.<br />
 	            <br />
@@ -254,7 +274,7 @@ signing_alg=
 	         </td>
 	         <td><code>                   http://www.w3.org/2000/09/xmldsig#rsasha1                  </code></td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Response Digest Algorithm</strong></td>
 	         <td>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding.<br />
 	            <br />
@@ -266,7 +286,7 @@ digest_alg=
 	         </td>
 	         <td><code>                   http://www.w3.org/2000/09/xmldsig#sha1                  </code></td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Assertion Encryption Algorithm</strong></td>
 	         <td>The algorithm that the SAML2 assertion is encrypted.<br />
 	            <br />
@@ -278,7 +298,7 @@ assertion_encryption_alg=
 	         </td>
 	         <td><code>                   http://www.w3.org/2001/04/xmlenc#aes256-cbc                  </code></td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Key Encryption Algorithm</strong></td>
 	         <td>The algorithm that the SAML2 key is encrypted.  The default value can be configured by adding the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. If it is not provided the default algorithm is <code>                   rsa-oaep-mgf1                  </code>, at URI <code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code> .
 ```
@@ -288,7 +308,7 @@ key_encryption_alg=
 </td>
 	         <td><code>                   http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                  </code></td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Enable Response Signing</strong></td>
 	         <td>
 	            <p>This is used to sign the SAML2 Responses returned after the authentication process is complete.</p>
@@ -297,56 +317,56 @@ key_encryption_alg=
 	         </td>
 	         <td>Set as true by selecting the checkbox</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable Signature Validation in Authentication Requests and Logout Requests</strong></td>
 	         <td>This specifies whether the identity provider must validate the signature of the SAML2 authentication request and the SAML2 logout request that are sent by the service provider.</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Enable Assertion Encryption</strong></td>
 	         <td>This defines whether the SAML2 assertion must be encrypted or not. <strong></strong></td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable Single Logout</strong></td>
 	         <td>Enable this to ensure that all sessions are terminated once the user signs out from one server.</td>
 	         <td>Set this as true by selecting the checkbox</td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>SLO Response URL</strong></td>
 	         <td>If the service provider has a different endpoint which accepts single logout response other than the assertion consumer URL, you can provide that endpoint value here.</td>
 	         <td><br />
 	         </td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>SLO Request URL</strong></td>
 	         <td>If the service provider has a different endpoint which accepts single logout requests from the identity server other than the assertion consumer URL, you can provide that endpoint value here.</td>
 	         <td><br />
 	         </td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Logout Method</strong></td>
 	         <td>
 	            <p>SAML single logout is supported by both SAML Back-Channel Logout and SAML Front-Channel Logout methods. By default, when you select <strong>Enable Single Logout,</strong> it will enable Back-Channel Logout . In order to enable SAML Front-Channel Logout, you can either select <strong>Front-Channel Logout (HTTP Redirect Binding)</strong> or <strong>Front-Channel Logout (HTTP POST Binding)</strong> .</p>
 	         </td>
 	         <td>Select <strong>Back-Channel Logout</strong> for travelocity sample</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable Attribute Profile</strong></td>
 	         <td>The Identity Server supports a basic attribute profile where the identity provider can include the user’s attributes in the SAML Assertions as an attribute statement. You can define the claims that must be included under service provider claim configurations. Also, once you select the “Include Attributes in the Response Always” checkbox, the identity provider always includes the attribute values related to selected claims in the SAML Attribute statement.</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Enable Audience Restriction</strong></td>
 	         <td>You can define multiple audiences in the SAML Assertion. Configured audiences would be added into the SAML2 Assertion.</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable Recipent Validation</strong></td>
 	         <td>Select this if you require validation from the recipient of the response.</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Enable IdP Initiated SSO</strong></td>
 	         <td>
 	            <div class="content-wrapper">
@@ -362,7 +382,7 @@ key_encryption_alg=
 	            <p>Leave unchecked for travelocity sample</p>
 	         </td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable IdP initiated SLO</strong></td>
 	         <td>
 	            <div class="content-wrapper">
@@ -382,16 +402,28 @@ key_encryption_alg=
 	         </td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="even">
+	      <tr class="odd">
 	         <td><strong>Enable Assertion Query Request Profile</strong></td>
 	         <td>Enable Assertion Query Request Profile can used for query assertions following SAML2.0 specification. This can query assertions that are persisted to the database when you login to the service provider application. For more information, see <a href="/tutorials/querying-saml-asssertions">Querying SAML Assertions</a> .</td>
 	         <td>Leave unchecked for travelocity sample</td>
 	      </tr>
-	      <tr class="odd">
+	      <tr class="even">
 	         <td><strong>Enable SAML2 Artifact Binding</strong></td>
 	         <td>This is to define SAML2 artifact binding is enabled or not so that WSO2 Identity Server responds to each SAML SSO authentication request with an artifact. For more information, see <a href="/tutorials/configuring-saml-2.0-artifact-binding">Configuring SAML 2.0 Artifact Binding</a> .</td>
 	         <td>Unselected</td>
 	      </tr>
+	      <tr class="odd">
+          	  <td><strong>IdP Entity ID Alias</strong></td>
+          	  <td>
+              	 <div class="content-wrapper">
+              	      <p>This value can override the “Identity Provider Entity ID” specified under SAML SSO Inbound Authentication configuration in “Resident IdP”. The “Identity Provider Entity ID” is used as the “issuer” of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to “Identity Provider Entity ID” in Resident IdP’s SAML SSO inbound authentication configuration. But if you want that value to be unique for your SAML SP configuration, you can specify that value here, so that the IdP Entity ID will be overridden with this IdP Entity ID Alias value.</p>
+              	  <div> 
+              	      <p>In Travelocity sample SP, this value can be set by modifying <code>                      SAML2.IdPEntityId                     </code> value specified inside the <code>                      travelocity.com/WEB-INF/classes/travelocity.properties                     </code> file to the IdP Entity ID Alias you define in the SAML SP configuration.</p>
+              	  </div>
+              	 </div>
+              </td>
+              <td>any valid URL/URI</td>
+          </tr>
 	   </tbody>
 	</table>
 
