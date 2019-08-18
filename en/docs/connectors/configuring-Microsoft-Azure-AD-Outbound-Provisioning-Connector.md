@@ -162,8 +162,12 @@ to create a new identity provider for Office365 provisioning in WSO2 IS.
     </tr>
     <tr class="even">
     <td>Immutable ID</td>
-    <td>A valid claim which acts as the unique identifier of the user in the Azure AD.</td>
-    <td>http://wso2.org/claims/userid</td>
+    <td><div class="content-wrapper">
+    <p>A valid claim which acts as the unique identifier of the user in the Azure AD.</p>
+    !!! note
+    <p><strong>Note:</strong> The claim URI for the Immutable ID should match the Subject Claim URI given under the Claim Configuration section when creating a service provider.</p>
+    </div></td>
+    <td>http://wso2.org/claims/objectguid</td>
     </tr>
     <tr class="odd">
     <td><p>User Principal Name</p></td>
