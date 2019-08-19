@@ -76,14 +76,14 @@ menu items.
 -   See [Configuring Users, Roles and
     Permissions](_Configuring_Users_Roles_and_Permissions_) for
     configuring users and roles.
--   See [Configuring the Realm](_Configuring_the_Realm_) for configuring
+-   See [Configuring the Realm](../../using-wso2-identity-server/configuring-the-realm) for configuring
     user stores.
--   See [Claim Management](_Claim_Management_) for configuring claims.
+-   See [Claim Management](../../using-wso2-identity-server/claim-management) for configuring claims.
 -   See [Adding and Configuring a Service
-    Provider](_Adding_and_Configuring_a_Service_Provider_) for
+    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for
     configuring service providers.
 -   See [Adding and Configuring an Identity
-    Provider](_Adding_and_Configuring_an_Identity_Provider_) for
+    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) for
     configuring identity providers.
 
 #### Entitlement section
@@ -111,11 +111,11 @@ menu items.
 See the following topics for instructions on how to use each of these
 menu items.
 
--   See [Workflow Management](_Workflow_Management_) for information on
+-   See [Workflow Management](../../using-wso2-identity-server/workflow-management) for information on
     working with workflows.
 -   See [Managing Challenge Questions](_Managing_Challenge_Questions_)
     for information on configuring challenge questions. Also see [Using
-    the End User Dashboard](_Using_the_End_User_Dashboard_) for
+    the End User Dashboard](../../using-wso2-identity-server/using-the-end-user-dashboard) for
     information on challenge questions.
 -   See [Email Templates](_Email_Templates_) for configuring email
     templates. Also see [Customizing Automated

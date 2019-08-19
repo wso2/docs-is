@@ -5,4 +5,4 @@ Developers.
 
 -   [Writing a Custom Event Handler](_Writing_a_Custom_Event_Handler_)
 -   [Writing a Custom Workflow
-    Template](_Writing_a_Custom_Workflow_Template_)
+    Template](../../using-wso2-identity-server/writing-a-custom-workflow-template)

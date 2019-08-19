@@ -10,12 +10,12 @@ including the sample requests and responses.
 -   [Using the Authentication REST
     APIs](_Using_the_Authentication_REST_APIs_)
 -   [Using the Consent Management REST
-    APIs](_Using_the_Consent_Management_REST_APIs_)
+    APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis)
 -   [Using the Personal Information Export REST
     APIs](_Using_the_Personal_Information_Export_REST_APIs_)
 -   [Using the Configuration Management REST
     APIs](_Using_the_Configuration_Management_REST_APIs_)
--   [Using the SCIM 2.0 REST APIs](_Using_the_SCIM_2.0_REST_APIs_)
+-   [Using the SCIM 2.0 REST APIs](../../references/using-the-scim-2.0-rest-apis)
 -   [Using the OpenID Connect Dynamic Client Registration REST
     APIs](_Using_the../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_REST_APIs_)
 -   [Using OAuth2 Scopes REST APIs](_Using_OAuth2_Scopes_REST_APIs_)

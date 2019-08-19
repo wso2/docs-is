@@ -58,6 +58,6 @@ You can do the following tasks with the Claim Management feature.
 -   [Configuring Claim Dialects](_Configuring_Claim_Dialects_)
 -   [Configuring Claims](_Configuring_Claims_)
 -   [Configuring Claims for a Service
-    Provider](_Configuring_Claims_for_a_Service_Provider_)
+    Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider)
 -   [Configuring Claims for an Identity
-    Provider](_Configuring_Claims_for_an_Identity_Provider_)
+    Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider)

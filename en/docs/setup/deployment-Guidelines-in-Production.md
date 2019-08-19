@@ -281,7 +281,7 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a property file instead of in the Java
     code and secure the properties file with the [secure
-    vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation)
+    vault](../../admin-guide/carbon-secure-vault-implementation)
     .
 
 **Note** : When using SUSE Linux, it ignores

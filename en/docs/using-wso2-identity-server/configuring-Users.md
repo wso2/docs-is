@@ -58,7 +58,7 @@ its role.
     1.  In the **Domain** list, specify the user store where you want to
         create this user account. This includes the list of user stores
         you configured. See [Configuring the
-        Realm](_Configuring_the_Realm_) for more information.
+        Realm](../../using-wso2-identity-server/configuring-the-realm) for more information.
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters.
@@ -137,7 +137,7 @@ curl -v -k --user admin:admin --data "{"schemas":[],"name":{"familyName":"family
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_).
+admin services, see [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -248,7 +248,7 @@ operation.
 
 The users also can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_).
+admin services, see [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services).
 
 1.  Disable the hidden admin service property in the
     `            <IS_HOME>/repository/conf/carbon.xml           `
@@ -490,7 +490,7 @@ In SCIM filtering we support only Eq or equal operation!
 
 The user also can search user Ids by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_).
+admin services, see [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services).
 
 The following SOAP method like `         getUserId()        ` will give
 you the user ID of the relevant username. There are many more such
@@ -615,7 +615,7 @@ groups by performing CRUD operations on the group resource endpoint.
 
 The user also can delete user by calling the
 `         RemoteUserStoreManager service        ` . If you are new to
-admin services, see [Calling Admin Services](_Calling_Admin_Services_).
+admin services, see [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services).
 
 The following SOAP method like `         deleteUser()        ` will give
 you the user ID of the relevant username. There are many more such

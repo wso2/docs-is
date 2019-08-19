@@ -238,7 +238,7 @@
 
                 <!-- -->
 
-                -   [Configuring User Stores](_Configuring_User_Stores_)
+                -   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)
                     -   [Configuring the Primary User
                         Store](_Configuring_the_Primary_User_Store_)
                         -   [Configuring a JDBC User
@@ -273,7 +273,7 @@
                     <!-- -->
 
                     -   [Writing a Custom User Store
-                        Manager](_Writing_a_Custom_User_Store_Manager_)
+                        Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
 
     <!-- -->
 
@@ -432,7 +432,7 @@
 
             <!-- -->
 
-            -   [Configuring Users](_Configuring_Users_)
+            -   [Configuring Users](../../using-wso2-identity-server/configuring-users)
 
             <!-- -->
 

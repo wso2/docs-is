@@ -48,7 +48,7 @@ its role.
         create this user account. This list includes the primary user
         store and any other secondary user stores that are configured
         for your product. For information on configuring user stores,
-        see [Configuring User Stores](_Configuring_User_Stores_).
+        see [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters and should have at least one character with a capital

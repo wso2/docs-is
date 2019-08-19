@@ -270,7 +270,7 @@ Server version that you are working on.
 #### Configuring claims with IS 5.3.0 upwards
 
 1.  Sign in to the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     by entering your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add Claim Dialect** to create the Foursquare authenticator
