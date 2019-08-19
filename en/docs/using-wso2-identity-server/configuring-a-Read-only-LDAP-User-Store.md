@@ -6,7 +6,7 @@
     
     Please read following topics:
     
-    -   [Configuring User Stores](_Configuring_User_Stores_)
+    -   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)
     -   [Configuring the Primary User
         Store](_Configuring_the_Primary_User_Store_)
     -   [Configuring the Secondary User

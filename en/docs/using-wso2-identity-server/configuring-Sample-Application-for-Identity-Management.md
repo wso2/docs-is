@@ -84,7 +84,7 @@ identity management.
 
     -   **Recovering accounts using notification or secret question** -
         Refer to the [topic on password recovery with
-        notification](_Password_Recovery_) for a sample email template
+        notification](../../using-wso2-identity-server/password-recovery) for a sample email template
         and the attributes needed in the
         `             identity-mgt.properties            ` file.
 

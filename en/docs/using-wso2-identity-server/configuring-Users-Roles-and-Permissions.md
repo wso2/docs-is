@@ -69,14 +69,14 @@ The following items are things to note before you begin.
 For detailed information on configuring users, roles, and permissions,
 see the following topics.
 
--   [Configuring Users](_Configuring_Users_)
+-   [Configuring Users](../../using-wso2-identity-server/configuring-users)
 -   [Configuring Roles and
-    Permissions](_Configuring_Roles_and_Permissions_)
+    Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
 -   [Using Workflows with User
     Management](_Using_Workflows_with_User_Management_)
 
 You can also see the following pages for system administrator related
 configurations:
 
--   See [Configuring User Stores](_Configuring_User_Stores_) for
+-   See [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) for
     instructions on how to configure primary and secondary user stores.

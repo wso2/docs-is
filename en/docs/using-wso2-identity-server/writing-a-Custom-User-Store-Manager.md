@@ -578,7 +578,7 @@ login. This ensures that all your configurations work as intended.
 
 **Related Links**
 
--   [Setting up User Stores](_Configuring_User_Stores_)
+-   [Setting up User Stores](../../using-wso2-identity-server/configuring-user-stores)
 -   See [Writing a Custom
     Attribute](Managing-User-Attributes_103330458.html#ManagingUserAttributes-Writingcustomattributes)
     for instructions on how to write custom attributes for users.

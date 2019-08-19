@@ -47,7 +47,7 @@ this scenario:
         -   On Linux/Solaris:
             `              sh wso2server.sh             `
 6.  The [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     for the primary Identity Server can be accessed using the following
     URL: <https://localhost:9443/carbon>
 7.  The Management Console for the secondary Identity Server can be
