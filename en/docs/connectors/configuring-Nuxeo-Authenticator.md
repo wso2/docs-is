@@ -270,7 +270,7 @@ Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) in
 the WSO2 IS documentation.
 
 1.  Sign in to the [Management
-    Console](https://docs.wso2.com/display/IS530/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     with your username and password.
 2.  On the **Main** menu, click **Add** under **Claims**.
 

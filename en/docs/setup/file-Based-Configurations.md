@@ -5,4 +5,4 @@ data (such as Service Providers, Identity Providers) to the Identity
 Server at deployment time.
 
 -   [Configuring a SP and IdP Using Configuration
-    Files](_Configuring_a_SP_and_IdP_Using_Configuration_Files_)
+    Files](../../using-wso2-identity-server/configuring-a-sp-and-idp-using-configuration-files)

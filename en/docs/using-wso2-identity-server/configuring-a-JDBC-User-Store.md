@@ -14,7 +14,7 @@ Management Related Tables](_User_Management_Related_Tables_) section.
     
     Please read following topics:
     
-    -   Read [Configuring User Stores](_Configuring_User_Stores_) to get a
+    -   Read [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) to get a
         high-level understanding of the user stores available in WSO2
         Identity Server (WSO2 IS).
     -   If you want to configure a primary user store, you need to follow
