@@ -103,7 +103,7 @@ product by editing
 `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` . For
 more information on configuring the system administrator, see
 [Configuring the System
-Administrator](_Configuring_the_System_Administrator_).
+Administrator](../../using-wso2-identity-server/configuring-the-system-administrator).
 
 ``` html/xml
 <Configuration> 
