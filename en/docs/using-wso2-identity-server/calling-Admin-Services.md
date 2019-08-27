@@ -251,7 +251,7 @@ The following sample code lists the back-end Web services:
 -   See [Using APIs](_Using_APIs_) for more information on the key SOAP
     APIs relevant for developers.
 -   See [Permissions Required to Invoke Admin
-    Services](_Permissions_Required_to_Invoke_Admin_Services_) for a
+    Services](../../references/permissions-required-to-invoke-admin-services) for a
     list of the operations that can be performed with different
     permission levels.
 -   The following article guides you through transforming existing

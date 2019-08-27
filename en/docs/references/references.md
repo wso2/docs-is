@@ -5,7 +5,7 @@ Identity Server:
 
 -   [Default Ports of WSO2 Products](_Default_Ports_of_WSO2_Products_)
 -   [Permissions Required to Invoke Admin
-    Services](_Permissions_Required_to_Invoke_Admin_Services_)
+    Services](../../references/permissions-required-to-invoke-admin-services)
 -   [API Permissions](_API_Permissions_)
 -   [Evolution of Identity Federation
     Standards](_Evolution_of_Identity_Federation_Standards_)

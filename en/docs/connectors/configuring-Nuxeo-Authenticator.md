@@ -266,7 +266,7 @@ Now you have added the service provider. Next, let's configure claims.
 
 Follow the steps below to configure claims. For more information on
 configuring claims, see [Adding Claim
-Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) in
+Mapping](../../using-the-identity-server/adding-claim-mapping) in
 the WSO2 IS documentation.
 
 1.  Sign in to the [Management

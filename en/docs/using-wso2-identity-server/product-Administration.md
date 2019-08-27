@@ -74,7 +74,7 @@ the product server to connect to that database.
     databases](https://docs.wso2.com/display/ADMIN44x/Working+with+Databases)
     in the WSO2 product administration guide for instructions on how to
     set up and configure databases. First you need to [set up the
-    database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database)
+    database](../../admin-guide/setting-up-the-physical-database)
     and then configure it to run with WSO2 Is.  
     -   [Changing to Embedded
         Derby](https://docs.wso2.com/display/ADMIN44x/Changing+to+Embedded+Derby)
@@ -121,7 +121,7 @@ management.
     permissions.
 -   For information on how to remove references to a deleted user's
     identity, see [Removing References to Deleted User
-    Identities](_Removing_References_to_Deleted_User_Identities_).  
+    Identities](../../using-wso2-identity-server/removing-references-to-deleted-user-identities).  
 
 #### Configuring security
 
@@ -139,7 +139,7 @@ your server. It includes the following sections:
 -   [Configuring Transport-Level
     Security](https://docs.wso2.com/display/ADMIN44x/Configuring+Transport+Level+Security)
 -   [Using Asymmetric
-    Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption)
+    Encryption]((../../admin-guide/using-asymmetric-encryption))
 -   [Using Symmetric
     Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Symmetric+Encryption)
 -   [Enabling Java Security
