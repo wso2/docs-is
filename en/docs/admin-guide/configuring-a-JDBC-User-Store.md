@@ -230,7 +230,7 @@ super tenant. Otherwise, if the JDBC user store can be written to, you
 have the option of creating a new admin user in the user store when you
 start the system for the first time. F or information on configuring the
 system administrator user, see [Configuring the System
-Administrator](_Configuring_the_System_Administrator_).
+Administrator](../../using-wso2-identity-server/configuring-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 
