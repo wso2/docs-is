@@ -1,8 +1,7 @@
 # Error Catalog
 This document describes all the REST API error codes that are used in WSO2 Identity Server. 
 
-
-## Challenge Question Error Codes
+## Common Errors
 
 <div class="errorcode">
 <table>
@@ -19,6 +18,27 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>Invalid Request</td>
     <td>Provided request body content is not in the expected format.</td>
   </tr>
+    <tr>
+    <td>SE-50000</td>
+    <td>500</td>
+    <td>Unexpected processing error</td>
+    <td>Server encountered an error while serving the request.This is the default response for all the unhandled server errors, (ex:NullPointer). It is handled globally at API dispatcher.</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+## Challenge Question Management
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
   <tr>
     <td>CQM-10002</td>
     <td>500</td>
@@ -132,12 +152,6 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>500</td>
     <td></td>
     <td>Error when deleting challenge question sets.</td>
-  </tr>
-  <tr>
-    <td>SE-50000</td>
-    <td>500</td>
-    <td>Unexpected processing error</td>
-    <td>Server encountered an error while serving the request.This is the default response for all the unhandled server errors, (ex:NullPointer). It is handled globally at API dispatcher.</td>
   </tr>
   <tr>
     <td>CQM-50002</td>
