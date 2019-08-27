@@ -295,35 +295,35 @@ nav:
       - 'Working with Product Observability': using-wso2-identity-server/working-with-product-observability.md
     - 'Identity Administration and Provisioning':
       - 'Configuring the Realm':
-        - 'Configuring the Realm': using-wso2-identity-server/configuring-the-Realm.md
-        - 'Configuring the Authorization Manager': using-wso2-identity-server/configuring-the-Authorization-Manager.md
-        - 'Configuring the System Administrator': using-wso2-identity-server/configuring-the-System-Administrator.md
+        - 'Configuring the Realm': using-wso2-identity-server/configuring-the-realm.md
+        - 'Configuring the Authorization Manager': using-wso2-identity-server/configuring-the-authorization-manager.md
+        - 'Configuring the System Administrator': using-wso2-identity-server/configuring-the-system-administrator.md
         - 'Configuring User Stores': 
-          - 'Configuring User Stores': using-wso2-identity-server/configuring-User-Stores.md
-          - 'Configuring the Primary User Store': using-wso2-identity-server/configuring-the-Primary-User-Store.md
-          - 'Configuring Secondary User Stores': using-wso2-identity-server/configuring-Secondary-User-Stores.md
-          - 'Configuring a JDBC User Store': using-wso2-identity-server/configuring-a-JDBC-User-Store.md
-          - 'Configuring a Read-write Active Directory User Store': using-wso2-identity-server/configuring-a-Read-write-Active-Directory-User-Store.md
-          - 'Configuring a Read-only LDAP User Store': using-wso2-identity-server/configuring-a-Read-only-LDAP-User-Store.md
-          - 'Configuring a Read-write LDAP User Store': using-wso2-identity-server/configuring-a-Read-write-LDAP-User-Store.md
-          - 'Writing a Custom User Store Manager': using-wso2-identity-server/writing-a-Custom-User-Store-Manager.md
+          - 'Configuring User Stores': using-wso2-identity-server/configuring-user-stores.md
+          - 'Configuring the Primary User Store': using-wso2-identity-server/configuring-the-primary-user-store.md
+          - 'Configuring Secondary User Stores': using-wso2-identity-server/configuring-secondary-user-stores.md
+          - 'Configuring a JDBC User Store': using-wso2-identity-server/configuring-a-jdbc-user-store.md
+          - 'Configuring a Read-write Active Directory User Store': using-wso2-identity-server/configuring-a-read-write-active-directory-user-store.md
+          - 'Configuring a Read-only LDAP User Store': using-wso2-identity-server/configuring-a-read-only-ldap-user-store.md
+          - 'Configuring a Read-write LDAP User Store': using-wso2-identity-server/configuring-a-read-write-ldap-user-store.md
+          - 'Writing a Custom User Store Manager': using-wso2-identity-server/writing-a-custom-user-store-manager.md
       - 'Configuring Users, Roles and Permissions':
-        - 'Configuring Users, Roles and Permissions': using-wso2-identity-server/configuring-Users-Roles-and-Permissions.md
-        - 'Configuring Users': using-wso2-identity-server/configuring-Users.md
-        - 'Configuring Roles and Permissions': using-wso2-identity-server/configuring-Roles-and-Permissions.md
-        - 'Using Workflows with User Management': using-wso2-identity-server/using-Workflows-with-User-Management.md
+        - 'Configuring Users, Roles and Permissions': using-wso2-identity-server/configuring-users-roles-and-permissions.md
+        - 'Configuring Users': using-wso2-identity-server/configuring-users.md
+        - 'Configuring Roles and Permissions': using-wso2-identity-server/configuring-roles-and-permissions.md
+        - 'Using Workflows with User Management': using-wso2-identity-server/using-workflows-with-user-management.md
       - 'Claim Management':
-        - 'Claim Management': using-wso2-identity-server/claim-Management.md
+        - 'Claim Management': using-wso2-identity-server/claim-management.md
         - 'Configuring Claim Dialects':
-          - 'Configuring Claim Dialects': using-wso2-identity-server/configuring-Claim-Dialects.md
-          - 'Adding Claim Dialects': using-wso2-identity-server/adding-Claim-Dialects.md
-          - 'Editing Claim Dialects': using-wso2-identity-server/editing-Claim-Dialects.md
-          - 'Deleting Claim Dialects': using-wso2-identity-server/deleting-Claim-Dialects.md
+          - 'Configuring Claim Dialects': using-wso2-identity-server/configuring-claim-dialects.md
+          - 'Adding Claim Dialects': using-wso2-identity-server/adding-claim-dialects.md
+          - 'Editing Claim Dialects': using-wso2-identity-server/editing-claim-dialects.md
+          - 'Deleting Claim Dialects': using-wso2-identity-server/deleting-claim-dialects.md
         - 'Configuring Claims':
-          - 'Configuring Claims': using-wso2-identity-server/configuring-Claims.md
-          - 'Adding Claim Mapping': using-wso2-identity-server/adding-Claim-Mapping.md
-          - 'Editing Claim Mapping': using-wso2-identity-server/editing-Claim-Mapping.md
-          - 'Deleting Claim Mapping': using-wso2-identity-server/deleting-Claim-Mapping.md
+          - 'Configuring Claims': using-wso2-identity-server/configuring-claims.md
+          - 'Adding Claim Mapping': using-wso2-identity-server/adding-claim-mapping.md
+          - 'Editing Claim Mapping': using-wso2-identity-server/editing-claim-mapping.md
+          - 'Deleting Claim Mapping': using-wso2-identity-server/deleting-claim-mapping.md
       - 'Identity Provisioning':
         - 'Identity Provisioning': using-wso2-identity-server/identity-provisioning.md
         - 'The Evolution of Provisioning Standards': using-wso2-identity-server/the-evolution-of-provisioning-standards.md
