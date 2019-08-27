@@ -66,7 +66,7 @@ the **Users** page.
 In addition to creating users manually, user information stored in a CSV
 or Excel file can be imported in bulk to a user store configured in your
 WSO2 product. This possibility is only available if you have a [JDBC
-user store configured for your product](_Configuring_a_JDBC_User_Store_)
+user store configured for your product](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
 .
 
 Note the following before you use this feature:
