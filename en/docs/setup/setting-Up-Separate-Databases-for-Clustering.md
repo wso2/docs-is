@@ -39,7 +39,7 @@ works for all types of data.
     the local registry in a registry mount. However, in a production
     environment it is recommended to change this. For more information on
     how to do this, [set up the
-    database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database)
+    database](../../admin-guide/setting-up-the-physical-database)
     and see the [Changing the Carbon
     Database](https://docs.wso2.com/display/ADMIN44x/Changing+the+Carbon+Database)
     topic in the product administration guide.
@@ -124,7 +124,7 @@ Create the databases that you require using the RDBMS of your choice and
 run the relevant script for the RDBMS of your choice according to the
 table above. For instructions on how to do this, see [Setting up the
 Physical
-Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database)
+Database](../../admin-guide/setting-up-the-physical-database)
 in the WSO2 Product Administration Guide.
 
 #### Configuring the datasources
