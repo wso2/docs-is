@@ -22,7 +22,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>SE-50000</td>
     <td>500</td>
     <td>Unexpected processing error</td>
-    <td>Server encountered an error while serving the request.This is the default response for all the unhandled server errors, (ex:NullPointer). It is handled globally at API dispatcher.</td>
+    <td>Server encountered an error while serving the request.</td>
   </tr>
   </tbody>
 </table>
@@ -213,6 +213,81 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     <td>Unable to add challenge set</td>
     <td>Attributes of hallenge question to be set cannot be empty.</td>
   </tr>
+  </tbody>
+</table>
+</div>
+
+## Human Task Approval Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>HTA-10001</a></td>
+        <td>403</td>
+        <td>Access denied.</td>
+        <td>You are not authorized to perform this task.</td>
+      </tr>
+      <tr>
+        <td>HTA-10002</a></td>
+        <td>400</td>
+        <td>Invalid input provided.</td>
+        <td>The provided Task ID is not in the correct format.</td>
+      </tr>
+      <tr>
+        <td>HTA-10003</a></td>
+        <td>404</td>
+        <td>Task does not exist.</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>HTA-10004</a></td>
+        <td>400</td>
+        <td>Invalid input data provided.</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>HTA-10005</a></td>
+        <td>400</td>
+        <td>Unacceptable input provided.</td>
+        <td>Only [CLAIM, RELEASE, APPROVED, REJECTED] are acceptable.</td>
+      </tr>
+      <tr>
+        <td>HTA-10006</a></td>
+        <td>400</td>
+        <td>Unable to change the approval status.</td>
+        <td>Invalid state change is requested for the given task.</td>
+      </tr>
+      <tr>
+        <td>HTA-10007</a></td>
+        <td>400</td>
+        <td>Unable to update the approval status.</td>
+        <td>Invalid state change is requested for the given task.</td>
+      </tr>
+      <tr>
+        <td>HTA-15002</a></td>
+        <td>500</td>
+        <td>Unable to retrieve approvals for the user.</td>
+        <td>Server encountered an error while retrieving approvals for user.</td>
+      </tr>
+      <tr>
+        <td>HTA-15003</a></td>
+        <td>500</td>
+        <td>Unable to retrieve the user approval.</td>
+        <td>Server encountered an error while retrieving information on the approval task.</td>
+      </tr>
+      <tr>
+        <td>HTA-15004</a></td>
+        <td>500</td>
+        <td>Unable to update the approval status.</td>
+        <td>Server encountered an error while updating the approval task status.</td>
+      </tr>
   </tbody>
 </table>
 </div>
