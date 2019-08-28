@@ -258,7 +258,7 @@ You have now added and configured the service provider.
 ### Configuring claims
 
 [Add a new claim
-mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) for
+mapping](../../using-the-identity-server/adding-claim-mapping) for
 various user attributes related to Foursquare based on the WSO2 Identity
 Server version that you are working on.
 

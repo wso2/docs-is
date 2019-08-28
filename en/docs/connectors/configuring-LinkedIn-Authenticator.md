@@ -269,7 +269,7 @@ based on the WSO2 Identity Server version that you are working on.
 #### Configuring claims with IS 5.3.0 upwards
 
 For more information, see [Adding Claim
-Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) in
+Mapping](../../using-the-identity-server/adding-claim-mapping) in
 WSO2 IS guide.
 
 1.  Sign in to the [Management
@@ -357,7 +357,7 @@ WSO2 IS guide.
     ![](attachments/50507126/76748975.png) 
 
 4.  Click [Add New
-    Claim](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping).
+    Claim](../../using-the-identity-server/adding-claim-mapping).
 5.  Select the **Dialect** from the dropdown provided and enter the
     required information. You must add the following claims under the
     dialect <http://wso2.org/linkedin/claims>
