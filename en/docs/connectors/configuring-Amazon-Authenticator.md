@@ -224,7 +224,7 @@ based on the WSO2 Identity Server version that you are working on.
 #### Configuring claims with IS 5.3.0 upwards
 
 For more information, see [Adding Claim
-Mapping](https://docs.wso2.com/display/IS530/Adding+Claim+Mapping) in
+Mapping](../../using-the-identity-server/adding-claim-mapping) in
 WSO2 IS guide.
 
 1.  Sign in to the [Management
