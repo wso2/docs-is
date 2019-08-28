@@ -14,7 +14,7 @@ expose the users in IS2 to IS1 through the
 has a standard implementation which uses the admin services. The diagram
 below illustrates this scenario.
 
-![]( ../../assets/img/103330074/103330075.png)
+![carbon-remote-user-store-manager](../../assets/img/using-wso2-identity-server/carbon-remote-user-store-manager.png)
 
 ### Configuring a carbon remote user store manager 
 
@@ -35,13 +35,12 @@ following steps.
         https://\<remote\_sever\_url\>:\<remote\_server\_port\>/services  
 
         !!! note
-        
                 Make sure that you insert the same credentials used to invoke
                 the admin services in the remote server and the same remote
                 services URL.
         
 
-        ![]( ../../assets/img/103330074/103330077.png) 
+        ![add-carbon-remote-user-store](../../assets/img/using-wso2-identity-server/add-carbon-remote-user-store.png) 
 
 3.  Update other fields as required (description is give for each
     property) and click **Add**.
