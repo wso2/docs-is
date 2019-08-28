@@ -113,7 +113,7 @@ users and their roles. Your user store can be one of the following:
 ### Configuring the datasources
 
 1.  Create the databases. See [Setting up the Physical
-    Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database)
+    Database](../../admin-guide/setting-up-the-physical-database)
     in the WSO2 Administration Guide for db scripts and more
     information.  
     This tutorial demonstrates deployment with a user management
