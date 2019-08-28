@@ -442,15 +442,15 @@ nav:
         - 'OAuth2 Token Revocation': using-wso2-identity-server/oauth2-token-revocation.md
         - 'Self-contained Access Tokens': 
           - 'Self-contained Access Tokens': using-wso2-identity-server/self-contained-access-tokens.md
-          - 'Handling Custom Claims with the JWT Bearer Grant Type': using-wso2-identity-server/handling-Custom-Claims-with-the-JWT-Bearer-Grant-Type.md
-        - 'Writing A New OAuth Client Authenticator': using-wso2-identity-server/writing-A-New-OAuth-Client-Authenticator.md
-        - 'Private Key JWT Client Authentication for OIDC': using-wso2-identity-server/private-Key-JWT-Client-Authentication-for-OIDC.md
-        - 'Mutual TLS for OAuth Clients': using-wso2-identity-server/mutual-TLS-for-OAuth-Clients.md
+          - 'Handling Custom Claims with the JWT Bearer Grant Type': using-wso2-identity-server/handling-custom-claims-with-the-jwt-bearer-Ggant-type.md
+        - 'Writing A New OAuth Client Authenticator': using-wso2-identity-server/writing-a-new-oauth-client-authenticator.md
+        - 'Private Key JWT Client Authentication for OIDC': using-wso2-identity-server/private-key-jwt-client-authentication-for-oidc.md
+        - 'Mutual TLS for OAuth Clients': using-wso2-identity-server/mutual-tls-for-oauth-clients.md
         - 'Microprofile JWT 1.0 support for IS':
-          - 'Microprofile JWT 1.0 support for IS': using-wso2-identity-server/microprofile-JWT-1.0-support-for-IS.md
-          - 'Running the MP-JWT Sample': using-wso2-identity-server/running-the-MP-JWT-Sample.md 
-        - 'Validating JWT based on JWKS': using-wso2-identity-server/validating-JWT-based-on-JWKS.md
-        - 'Issuing New Tokens Per Request': using-wso2-identity-server/issuing-New-Tokens-Per-Request.md
+          - 'Microprofile JWT 1.0 support for IS': using-wso2-identity-server/microprofile-jwt-1.0-support-for-is.md
+          - 'Running the MP-JWT Sample': using-wso2-identity-server/running-the-mp-jwt-sample.md 
+        - 'Validating JWT based on JWKS': using-wso2-identity-server/validating-jwt-based-on-jwks.md
+        - 'Issuing New Tokens Per Request': using-wso2-identity-server/issuing-new-tokens-per-request.md
       - 'OpenID Connect':
         - 'OpenID Connect': using-wso2-identity-server/openID-Connect.md
         - 'OpenID Connect Discovery': using-wso2-identity-server/openID-Connect-Discovery.md
