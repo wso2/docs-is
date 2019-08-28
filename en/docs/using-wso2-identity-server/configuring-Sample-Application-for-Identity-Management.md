@@ -95,7 +95,7 @@ identity management.
 
     -   **Creating Users using the Ask Password Option** - Refer to the
         [topic on Creating Users using the Ask Password
-        Option](_Creating_Users_Using_the_Ask_Password_Option_) for a
+        Option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option) for a
         sample email template and the attributes needed in the
         `            identity-mgt.properties           ` file.
 
