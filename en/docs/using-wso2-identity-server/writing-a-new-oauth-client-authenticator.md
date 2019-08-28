@@ -27,14 +27,6 @@ mechanism following a specification or any other standard.  WSO2
 Identity Server 5.5.0 supports client secret basic authentication out of
 the box.
 
-This document covers the following sections:
-
--   [The default
-    authenticator](#WritingANewOAuthClientAuthenticator-Thedefaultauthenticator)
--   [Implementing a new
-    authenticator](#WritingANewOAuthClientAuthenticator-Implementinganewauthenticator)
--   [Try it out](#WritingANewOAuthClientAuthenticator-Tryitout)
-
 ### The default authenticator
 
 The default authenticator that is supported out of the box is named
@@ -125,7 +117,7 @@ Let's get started!
         If the method is not overridden here, the configuration in the
         identity.xml file is taken into consideration when executing
         this authenticator. See [step
-        3](#WritingANewOAuthClientAuthenticator-Step3) for more
+        3](#step3) for more
         information.
     -   **`             isEnabled            `**  
         Define if the authenticator is enabled of disabled. Overriding
@@ -133,7 +125,7 @@ Let's get started!
         If the method is not overridden here, the configuration in the
         identity.xml file is taken into consideration when executing
         this authenticator. See [step
-        3](#WritingANewOAuthClientAuthenticator-Step3) for more
+        3](#step3) for more
         information.
 
     It is mandatory that you implement the
@@ -143,9 +135,9 @@ Let's get started!
     `            getName           ` method.  It is not mandatory to
     override the `            isEnabled           ` and
     `            getPriority           ` methods as you can configure it
-    in the `            identity.xml           ` file too. For more
+    in the `            deployment.toml          ` file too. For more
     information, see [step
-    3](#WritingANewOAuthClientAuthenticator-Step3) below.
+    3](#step3) below.
 
     Optionally, if you need to send out a custom message with a custom
     error code when the authentication fails, you can do it by throwing
@@ -156,54 +148,59 @@ Let's get started!
     that the it is handled by the underlying implementation.
 
     ``` java
-        public class OAuthSampleClientAuthenticator extends AbstractOAuthClientAuthenticator {
-    
-         public boolean authenticateClient(HttpServletRequest httpServletRequest,
-          Map < String, List > map, OAuthClientAuthnContext oAuthClientAuthnContext)
-         throws OAuthClientAuthnException {
-          String clientId = httpServletRequest.getHeader("client_id");
-          String clientSecret = httpServletRequest.getHeader("client_secret");
-          try {
-           return OAuth2Util.authenticateClient(clientId, clientSecret);
-          } catch (IdentityOAuthAdminException | InvalidOAuthClientException | IdentityOAuth2Exception e) {
-           throw new OAuthClientAuthnException("Error while authenticating client", "INVALID_CLIENT", e);
-          }
-         }
-    
-         public boolean canAuthenticate(HttpServletRequest httpServletRequest, Map < String, List > map,
-          OAuthClientAuthnContext oAuthClientAuthnContext) {
-          if (httpServletRequest.getHeader("client_id") != null &&
-           httpServletRequest.getHeader("client_secret") != null) {
-           return true;
-          }
-          return false;
-         }
-    
-         public String getClientId(HttpServletRequest httpServletRequest, Map < String, List > map,
-          OAuthClientAuthnContext oAuthClientAuthnContext) throws OAuthClientAuthnException {
-          return httpServletRequest.getHeader("client_id");
-         }
-    
-         @Override
-         public int getPriority() {
-          return 150;
-         }
-    
-         @Override
-         public String getName() {
-          return "SampleOAuthClientAuthenticator";
-         }
-        }
-    ```
+    public class OAuthSampleClientAuthenticator extends AbstractOAuthClientAuthenticator {
 
+        public boolean authenticateClient(HttpServletRequest httpServletRequest,
+        Map < String, List > map, OAuthClientAuthnContext oAuthClientAuthnContext)
+        throws OAuthClientAuthnException {
+        String clientId = httpServletRequest.getHeader("client_id");
+        String clientSecret = httpServletRequest.getHeader("client_secret");
+        try {
+        return OAuth2Util.authenticateClient(clientId, clientSecret);
+        } catch (IdentityOAuthAdminException | InvalidOAuthClientException | IdentityOAuth2Exception e) {
+        throw new OAuthClientAuthnException("Error while authenticating client", "INVALID_CLIENT", e);
+        }
+        }
+
+        public boolean canAuthenticate(HttpServletRequest httpServletRequest, Map < String, List > map,
+        OAuthClientAuthnContext oAuthClientAuthnContext) {
+        if (httpServletRequest.getHeader("client_id") != null &&
+        httpServletRequest.getHeader("client_secret") != null) {
+        return true;
+        }
+        return false;
+        }
+
+        public String getClientId(HttpServletRequest httpServletRequest, Map < String, List > map,
+        OAuthClientAuthnContext oAuthClientAuthnContext) throws OAuthClientAuthnException {
+        return httpServletRequest.getHeader("client_id");
+        }
+
+        @Override
+        public int getPriority() {
+        return 150;
+        }
+
+        @Override
+        public String getName() {
+        return "SampleOAuthClientAuthenticator";
+        }
+    }
+    ```
+<a name="step3"></a>
 3.  If you did not override the `           getPriority          ` or
     `           isEnabled          ` methods in the authenticator class,
     you can define it in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file under the `           <EventListners>          ` property.
+    `           <IS_HOME>/repository/conf/deployment.toml        `
+    file as follows.
 
-    ``` java
-        <EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler" name="org.wso2.carbon.identity.oauth.client.auth.sample.OAuthSampleClientAuthenticator.java" orderId="899" enable="true" />
+    ``` toml
+    [[event_listener]]
+    id = "custom_event_listener"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+    name = "org.wso2.carbon.identity.oauth.client.auth.sample.OAuthSampleClientAuthenticator.java"
+    order = 899
+    enable = true
     ```
 
     <table>
@@ -227,7 +224,7 @@ Let's get started!
 5.  Build the OSGi bundle.
 
     ``` java
-        mvn clean install
+    mvn clean install
     ```
 
 6.  Deploy the authenticator by copying the build jar file to the
@@ -248,7 +245,7 @@ the steps given below to successfully get the token.
 3.  Build the sample.
 
     ``` java
-        mvn clean install
+    mvn clean install
     ```
 
 4.  Copy the
@@ -262,11 +259,11 @@ the steps given below to successfully get the token.
 5.  Run the cURL command given below to get the token.
 
     ``` java
-        curl -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i -H "client_id: 0gP9suHvLpKZLhVdgtXKWfiybdca" -H "client_secret: PIOpiS1637JvSVHn2lDGIOACDNwa"
+    curl -k -d "grant_type=password&username=admin&password=admin" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token -i -H "client_id: 0gP9suHvLpKZLhVdgtXKWfiybdca" -H "client_secret: PIOpiS1637JvSVHn2lDGIOACDNwa"
     ```
 
     The sample response:
 
     ``` java
-        "access_token":"8298afd0-7474-3ae2-837a-84d69ae0c107","refresh_token":"25b66aa7-253b-3704-9086-e53a5f386c1f","token_type":"Bearer","expires_in":3600"
+    "access_token":"8298afd0-7474-3ae2-837a-84d69ae0c107","refresh_token":"25b66aa7-253b-3704-9086-e53a5f386c1f","token_type":"Bearer","expires_in":3600"
     ```
