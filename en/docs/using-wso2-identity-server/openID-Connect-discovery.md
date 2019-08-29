@@ -17,24 +17,12 @@ https://localhost:9443/.well-known/oidcdiscovery
 The following sections provide information and instructions on the
 following:
 
--   [OpenID Provider Issuer
-    discovery](#OpenIDConnectDiscovery-OpenIDProviderIssuerdiscovery)
-    -   [Configuring the OpenID Provider Issuer
-        location](#OpenIDConnectDiscovery-ConfiguringtheOpenIDProviderIssuerlocation)
-    -   [Obtaining the OpenID Provider Issuer
-        location](#OpenIDConnectDiscovery-ObtainingtheOpenIDProviderIssuerlocation)
--   [Obtaining the OpenID Provider configuration
-    information](#OpenIDConnectDiscovery-ObtainingtheOpenIDProviderconfigurationinformation)
-
 ### OpenID Provider Issuer discovery
 
 OpenID Provider Issuer discovery refers to the process of determining
 the location of the OpenID Provider.
 
-!!! tip
-    
-    Tip
-    
+!!! tip     
     In WSO2 Identity Server, the default OpenID Provider Issuer location
     path is set to
     `         oidcdiscovery/.well-known/openid-configuration        ` .
@@ -47,6 +35,8 @@ the location of the OpenID Provider.
     
     ``` java
     <OIDCDiscoveryEPUrl>${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</OIDCDiscoveryEPUrl>
+    [oauth.endpoints]
+    oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</"
 ```
 
 
