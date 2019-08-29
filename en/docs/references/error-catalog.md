@@ -291,3 +291,48 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Authorized OAuth Apps Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>OAA-10001</a></td>
+        <td>404</td>
+        <td>Invalid application ID.</td>
+        <td>An application with provided ID cannot be found for the user.</td>
+      </tr>
+      <tr>
+        <td>OAA-10002</a></td>
+        <td>500</td>
+        <td>Error retrieving authorized application.</td>
+        <td>A system error occurred while retrieving the provided authorized application for the user.</td>
+      </tr>
+      <tr>
+        <td>OAA-10003</a></td>
+        <td>500</td>
+        <td>Error retrieving authorized applications.</td>
+        <td>A system error occurred while retrieving authorized applications for the provided user.</td>
+      </tr>
+      <tr>
+        <td>OAA-10004</a></td>
+        <td>500</td>
+        <td>Error revoking authorized application.</td>
+        <td>A system error occurred while revoking the provided authorized application for the user.</td>
+      </tr>
+      <tr>
+        <td>OAA-10005</a></td>
+        <td>500</td>
+        <td>Error revoking authorized application.</td>
+        <td>A system error occurred while revoking authorized applications for the provided user.</td>
+      </tr>
+  </tbody>
+</table>
+</div>
