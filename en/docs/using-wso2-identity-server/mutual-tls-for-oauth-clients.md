@@ -28,29 +28,20 @@ self-signed certificates.
 Let's try out configuring mutual TLS in WSO2 Identity Server and test
 with a sample.
 
--   [Deploying and Configuring Mutual TLS Client Authenticator
-    Artifacts](#MutualTLSforOAuthClients-DeployingandConfiguringMutualTLSClientAuthenticatorArtifacts)
--   [Testing the Sample](#MutualTLSforOAuthClients-TestingtheSample)
-
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"  
     1.  To disable the mutual SSL authenticator:
-    
         !!! warning
-            
                 The mutual SSL authenticator allows the OAuth client to access the
                 WSO2 Identity Server admin services without having the required
                 privileges.
             
 
-    1.  Open the `             authenticators.xml            ` file in
+    2.  Open the `             authenticators.xml            ` file in
         the
         `             <IS_HOME>/repository/conf/security            `
         directory.
 
-    2.  Set the `             disabled            ` attribute of the
+    3.  Set the `             disabled            ` attribute of the
         `             <Authenticator name="MutualSSLAuthenticator">            `
         property to `             true            ` .
 
@@ -65,6 +56,7 @@ with a sample.
             </Config>
         </Authenticator>
         ```
+
 
 2.  If WSO2 Identity Server is fronted by a load-balancer, enable SSL
     tunnelling.
@@ -94,14 +86,14 @@ with a sample.
         " entry.
 
         ``` java
-                <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                                   port="9443"
-                                   bindOnInit="false"
-                                   sslProtocol="TLS"
-                                   ---
-                                   ---
-                                   trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager" 
-                                   URIEncoding="UTF-8"/>
+        <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
+                            port="9443"
+                            bindOnInit="false"
+                            sslProtocol="TLS"
+                            ---
+                            ---
+                            trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager" 
+                            URIEncoding="UTF-8"/>
         ```
 
     2.  MutualTLS supports two-way TLS authentication that allows the
@@ -114,16 +106,16 @@ with a sample.
         `             want            ` .
 
         ``` java
-                <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                                   port="9443"
-                                   bindOnInit="false"
-                                   sslProtocol="TLS"
-                                   ---
-                                   ---
-                                   clientAuth="want"
-                                   ---
-                                   ---                   
-                                   URIEncoding="UTF-8"/>
+        <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
+                            port="9443"
+                            bindOnInit="false"
+                            sslProtocol="TLS"
+                            ---
+                            ---
+                            clientAuth="want"
+                            ---
+                            ---                   
+                            URIEncoding="UTF-8"/>
         ```
 
 3.  Download Mutual TLS Client Authenticator v2.0.3 connector from
@@ -136,13 +128,17 @@ with a sample.
     `           <IS_HOME>/repository/components/dropins          `
     directory.
 
-5.  Open the `           identity.xml          ` file in the
-    `           <IS_HOME>/repository/conf/identity          ` directory
-    and add the following configuration under the
-    `           <EventListners>          ` property .
+5.  Open the `           deployment.toml         ` file in the
+    `           <IS_HOME>/repository/conf/          ` directory
+    and add the following configuration.
 
-    ``` java
-        <EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler" name="org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator" orderId="158" enable="true" />
+    ``` toml
+    [[event_listener]]
+    id = "custom_event_listener"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+    name= "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
+    order = 158
+    enable = true
     ```
 
 6.  In order for mutual TLS authentication to work, the public
@@ -160,7 +156,7 @@ with a sample.
         directory in a command prompt.
 
         ``` java
-                cd <IS_HOME>/repository/resources/security
+        cd <IS_HOME>/repository/resources/security
         ```
 
     2.  To generate the client's private key and public certificate,
@@ -170,20 +166,19 @@ with a sample.
         **Format**
 
         ``` java
-                openssl req -newkey rsa:2048 -x509 -keyout <CLIENT_PRIVATE_KEY> -out <CLIENT_PUBLIC_CERTIFICATE> -days <VALIDITY_PERIOD> -nodes
+        openssl req -newkey rsa:2048 -x509 -keyout <CLIENT_PRIVATE_KEY> -out <CLIENT_PUBLIC_CERTIFICATE> -days <VALIDITY_PERIOD> -nodes
         ```
 
         **Example**
 
         ``` java
-                openssl req -newkey rsa:2048 -x509 -keyout key.pem -out client-certificate.pem -days 3650 -nodes
+        openssl req -newkey rsa:2048 -x509 -keyout key.pem -out client-certificate.pem -days 3650 -nodes
         ```
 
         !!! note
-        
-                The `             CLIENT_PRIVATE_KEY            ` and
-                `             CLIENT_PUBLIC_CERTIFICATE            ` will be
-                used to generate the access token at a later step.
+            The `             CLIENT_PRIVATE_KEY            ` and
+            `             CLIENT_PUBLIC_CERTIFICATE            ` will be
+            used to generate the access token at a later step.
         
 
     3.  To import the client's public certificate to the authorization
@@ -198,7 +193,7 @@ with a sample.
         **Example**
 
         ``` java
-                keytool -import -trustcacerts -alias client -file client-certificate.pem -keystore client-truststore.jks -storepass wso2carbon
+        keytool -import -trustcacerts -alias client -file client-certificate.pem -keystore client-truststore.jks -storepass wso2carbon
         ```
 
     4.  To export the public certificate of WSO2 Identity Server,
@@ -209,7 +204,7 @@ with a sample.
         **Format**
 
         ``` java
-                keytool -export -alias <WSO2_CERTIFICATE_ALIAS> -file <WSO2_CERTIFICATE> -keystore <WSO2_KEYSTORE> -storepass <WSO2_KEYSTORE_PASSOWRD>
+        keytool -export -alias <WSO2_CERTIFICATE_ALIAS> -file <WSO2_CERTIFICATE> -keystore <WSO2_KEYSTORE> -storepass <WSO2_KEYSTORE_PASSOWRD>
         ```
 
         Example:
@@ -217,7 +212,7 @@ with a sample.
         **Example**
 
         ``` java
-                keytool -export -alias wso2carbon -file wso2-certificate.crt -keystore wso2carbon.jks -storepass wso2carbon
+        keytool -export -alias wso2carbon -file wso2-certificate.crt -keystore wso2carbon.jks -storepass wso2carbon
         ```
 
     5.  Import the public certificate of WSO2 Identity Server to the
@@ -227,13 +222,13 @@ with a sample.
         **Format**
 
         ``` java
-                keytool -import -trustcacerts -alias <WSO2_PUBLIC_CERTIFICATE_ALIAS> -file <WSO2_PUBLIC_CERTIFICATE> -keystore <CLIENT_TRUSTSTORE> -storepass <CLIENT_TRUSTSTORE_PASSWORD>
+        keytool -import -trustcacerts -alias <WSO2_PUBLIC_CERTIFICATE_ALIAS> -file <WSO2_PUBLIC_CERTIFICATE> -keystore <CLIENT_TRUSTSTORE> -storepass <CLIENT_TRUSTSTORE_PASSWORD>
         ```
 
         **Example**
 
         ``` java
-                keytool -import -trustcacerts -alias wso2carbon -file wso2-certificate.crt -keystore truststore.jks -storepass client-password
+        keytool -import -trustcacerts -alias wso2carbon -file wso2-certificate.crt -keystore truststore.jks -storepass client-password
         ```
 
     6.  Click **Update**.
@@ -249,33 +244,31 @@ Follow the steps below to test the configurations.
     1.  Access the WSO2 Identity Server Management Console.
     2.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
-        ![]( ../../assets/img/103329642/119114809.png) 
+        ![add-sp]( ../../assets/img/using-wso2-identity-server/add-sp.png) 
     3.  Enter `            playground2           ` as the **Service
         Provider Name** and click **Register**.  
-        ![]( ../../assets/img/103329642/119114810.png) 
+        ![add-new-sp]( ../../assets/img/using-wso2-identity-server/add-new-sp-1.png) 
     4.  Copy the content in your client application's certificate in PEM
         format into the **Application Certificate** text field.  
-        ![]( ../../assets/img/103329642/119114811.png)   
+        ![add-sp-cert]( ../../assets/img/using-wso2-identity-server/add-sp-cert.png)   
         !!! note
-        
-                Instead of uploading the service provider certificate as shown
-                above, you can choose to use the JWKS enpoint as shown below and
-                add the relevant JWKS URI.
-        
-                ![image2019-4-23\_13-34-33.png]( ../../assets/img/92524687/119114653.png) 
-        
+            Instead of uploading the service provider certificate as shown
+            above, you can choose to use the JWKS enpoint as shown below and
+            add the relevant JWKS URI.
+    
+            ![configure-jwks-endpoint]( ../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
 
     5.  Expand **Inbound Authentication Configuration \> OAuth/OpenID
         Connect Configuration** and click **Configure**.  
-        ![]( ../../assets/img/103329642/119114812.png) 
+        ![oauth-oidc-configure]( ../../assets/img/using-wso2-identity-server/oauth-oidc-configure.png) 
     6.  Enter
         `                         http://localhost:8080/playground2/oauth2client                       `
         as the **Callback URL**.  
-        ![]( ../../assets/img/103329642/119114813.png) 
+        ![callback-url]( ../../assets/img/using-wso2-identity-server/callback-url.png) 
     7.  Click **Add**.  
         Note that the OAuth `            client key           ` and
         `            client secret           ` get generated.  
-        ![]( ../../assets/img/103329642/119114814.png){height="250"}
+        ![oauth-clientid-secret]( ../../assets/img/using-wso2-identity-server/oauth-clientid-secret.png)
 
 2.  To obtain an access token by invoking the OAuth token endpoint of
     WSO2 Identity Server, execute the following cRUL in a command
@@ -301,4 +294,4 @@ Follow the steps below to test the configurations.
     token to access the APIs or any other secured resources of the
     client application.  
     Sample response:  
-    ![]( ../../assets/img/103329642/119114815.png) 
+    ![oauth-access-token]( ../../assets/img/using-wso2-identity-server/oauth-access-token.png) 
