@@ -492,38 +492,35 @@ nav:
         - 'Viewing Alerts': using-wso2-identity-server/Viewing-Alerts.md
     - 'Authenticators and Provisioning Connectors': using-wso2-identity-server/authenticators-and-Provisioning-Connectors.md
     - 'Samples':
-      - 'Samples': using-wso2-identity-server/samples.md
-      - 'Downloading a Sample': using-wso2-identity-server/Downloading-a-Sample.md
+      - 'Downloading a Sample': using-wso2-identity-server/downloading-a-sample.md
       - 'OAuth2':
-        - 'OAuth2': using-wso2-identity-server/oAuth2.md
         - 'Writing a Custom OAuth 2.0 Grant Type':
-          - 'Writing a Custom OAuth 2.0 Grant Type': using-wso2-identity-server/writing-a-Custom-OAuth-2.0-Grant-Type.md
-          - 'Sending Custom Error Codes': using-wso2-identity-server/sending-Custom-Error-Codes.md
-        - '2-legged OAuth for Securing a RESTful Service': using-wso2-identity-server/2-legged-OAuth-for-Securing-a-RESTful-Service.md
+          - 'Writing a Custom OAuth 2.0 Grant Type': using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type.md
+          - 'Sending Custom Error Codes': using-wso2-identity-server/sending-custom-error-codes.md
+        - '2-legged OAuth for Securing a RESTful Service': using-wso2-identity-server/2-legged-oauth-for-securing-a-restful-service.md
         - 'OAuth 2.0 with WSO2 Playground':
-          - 'OAuth 2.0 with WSO2 Playground': using-wso2-identity-server/oAuth-2.0-with-WSO2-Playground.md
-          - 'Setting Up the Sample Webapp': using-wso2-identity-server/setting-Up-the-Sample-Webapp.md
-          - 'Try Authorization Code Grant': using-wso2-identity-server/try-Authorization-Code-Grant.md
-          - 'Try Client Credentials Grant': using-wso2-identity-server/try-Client-Credentials-Grant.md
-          - 'Try Implicit Grant': using-wso2-identity-server/try-Implicit-Grant.md
-          - 'Try Password Grant': using-wso2-identity-server/try-Password-Grant.md
-          - 'Try Request Path Authentication': using-wso2-identity-server/try-Request-Path-Authentication.md
-        - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/setting-up-a-SAML2-Bearer-Assertion-Profile-for-OAuth-2.0.md
+          - 'OAuth 2.0 with WSO2 Playground': using-wso2-identity-server/oauth-2.0-with-wso2-playground.md
+          - 'Setting Up the Sample Webapp': using-wso2-identity-server/setting-up-the-sample-webapp.md
+          - 'Try Authorization Code Grant': using-wso2-identity-server/try-authorization-code-grant.md
+          - 'Try Client Credentials Grant': using-wso2-identity-server/try-client-credentials-grant.md
+          - 'Try Implicit Grant': using-wso2-identity-server/try-implicit-grant.md
+          - 'Try Password Grant': using-wso2-identity-server/try-password-grant.md
+          - 'Try Request Path Authentication': using-wso2-identity-server/try-request-path-authentication.md
+        - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': using-wso2-identity-server/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0.md
       - 'OpenIDConnect':
-        - 'OpenIDConnect': using-wso2-identity-server/openIDConnect.md
-        - 'Basic Client Profile with Playground': using-wso2-identity-server/basic-Client-Profile-with-Playground.md
-        - 'Implicit Client Profile with Playground': using-wso2-identity-server/implicit-Client-Profile-with-Playground.md
-        - 'Verifying OpenID Connect ID Token Signatures': using-wso2-identity-server/verifying-OpenID-Connect-ID-Token-Signatures.md
-        - 'Decrypting OpenID Connect Encrypted ID Tokens': using-wso2-identity-server/decrypting-OpenID-Connect-Encrypted-ID-Tokens.md
-      - 'Configuring Sample Application for Identity Management': using-wso2-identity-server/configuring-Sample-Application-for-Identity-Management.md
-      - 'Writing a Web Service Client for Authentication and User Admin Services': using-wso2-identity-server/writing-a-Web-Service-Client-for-Authentication-and-User-Admin-Services.md
-      - 'Testing Passive STS': using-wso2-identity-server/testing-Passive-STS.md
-      - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': using-wso2-identity-server/consuming-SCIM-Rest-Endpoints-from-a-JAVA-Client-Application.md
-      - 'Running an STS Client': using-wso2-identity-server/running-an-STS-Client.md
-      - 'XACML Sample for an Online Trading Application': using-wso2-identity-server/xACML-Sample-for-an-Online-Trading-Application.md
-      - 'Broker Trust Relationships with WSO2 Identity Server': using-wso2-identity-server/broker-Trust-Relationships-with-WSO2-Identity-Server.md
-      - 'Log in to the Identity Server using another Identity Server - SAML2': using-wso2-identity-server/log-in-to-the-Identity-Server-using-another-Identity-Server---SAML2.md
-      - 'Login to Identity Server using another Identity Server - OAuth2': using-wso2-identity-server/login-to-Identity-Server-using-another-Identity-Server---OAuth2.md
+        - 'Basic Client Profile with Playground': using-wso2-identity-server/basic-client-profile-with-playground.md
+        - 'Implicit Client Profile with Playground': using-wso2-identity-server/implicit-client-profile-with-playground.md
+        - 'Verifying OpenID Connect ID Token Signatures': using-wso2-identity-server/verifying-openid-connect-id-token-signatures.md
+        - 'Decrypting OpenID Connect Encrypted ID Tokens': using-wso2-identity-server/decrypting-openid-connect-encrypted-id-tokens.md
+      - 'Configuring Sample Application for Identity Management': using-wso2-identity-server/configuring-sample-application-for-identity-management.md
+      - 'Writing a Web Service Client for Authentication and User Admin Services': using-wso2-identity-server/writing-a-web-service-client-for-authentication-and-user-admin-services.md
+      - 'Testing Passive STS': using-wso2-identity-server/testing-passive-sts.md
+      - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': using-wso2-identity-server/consuming-scim-rest-endpoints-from-a-java-client-application.md
+      - 'Running an STS Client': using-wso2-identity-server/running-an-sts-client.md
+      - 'XACML Sample for an Online Trading Application': using-wso2-identity-server/xacml-sample-for-an-online-trading-application.md
+      - 'Broker Trust Relationships with WSO2 Identity Server': using-wso2-identity-server/broker-trust-relationships-with-wso2-identity-server.md
+      - 'Log in to the Identity Server using another Identity Server - SAML2': using-wso2-identity-server/log-in-to-the-identity-server-using-another-identity-server-saml2.md
+      - 'Login to Identity Server using another Identity Server - OAuth2': using-wso2-identity-server/login-to-identity-server-using-another-identity-server-oauth2.md
     - 'Developer Guide':
       - 'Developer Guide': using-wso2-identity-server/developer-Guide.md
       - 'Working with the Source Code': using-wso2-identity-server/working-with-the-Source-Code.md
