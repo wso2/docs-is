@@ -857,3 +857,6 @@ html .md-footer-meta.md-typeset a,
     background-color: #e8e8e8;
     color: #4d4d4d;
 }
+.swagger-ui .topbar {
+    display: none;
+}
