@@ -3,18 +3,9 @@
 This section describes how to configure and run the MP-JWT sample. This
 also describes how to generate JWT tokens by invoking the endpoints.
 
--   [Configuring the
-    sample](#RunningtheMP-JWTSample-Configuringthesample)
--   [Running the sample](#RunningtheMP-JWTSample-Runningthesample)
--   [Invoking the
-    endpoints](#RunningtheMP-JWTSample-Invokingtheendpoints)
+#### Configuring the sample
 
-##### Configuring the sample
-
-!!! note
-    
-    Pre-requisites
-    
+!!! note "Pre-requisites" 
     Before running the samples, make sure you have [maven
     3.x](https://maven.apache.org/download.cgi) installed.
     
@@ -57,7 +48,7 @@ First, let's configure the sample. Follow the steps below:
 4.  Now, build the sample using the following command:
 
     ``` xml
-        mvn clean install
+    mvn clean install
     ```
 
     This will generate a
@@ -70,7 +61,7 @@ First, let's configure the sample. Follow the steps below:
     and run the following command to do the necessary configurations.
 
     ``` xml
-        sh configure_sample.sh
+    sh configure_sample.sh
     ```
 
     This configuration script will add the following configurations to
@@ -90,7 +81,7 @@ First, let's configure the sample. Follow the steps below:
         necessary configurations to generate an MP-JWT compatible JWT
         Token
 
-##### Running the sample
+#### Running the sample
 
 1.  Navigate to the target folder which was generated when the sample
     was built
@@ -98,7 +89,7 @@ First, let's configure the sample. Follow the steps below:
     Eclipse Microprofile Framework:
 
     ``` java
-        java -jar secure-wallet-service.jar
+    java -jar secure-wallet-service.jar
     ```
 
     This sample service creates following three endpoints:
@@ -142,17 +133,11 @@ Then you can invoke the endpoints using a REST client such as Postman.
 You need to provide the obtained JWT token in the Authorization header
 as a Bearer token.
 
-![](https://lh6.googleusercontent.com/ynCSOKFRjKT0d0HsXKUeY-UWmDU0aOVpW8qhIqmI3lAlZ7uOAJb23hZqthA03vgmcOJDd-Z3fCVQOoFNWnTedQviK8VrJKTAtYuIAIXzJeUr-NU283dP_AP3js6ekOBBf3G4o22P) 
-
 If you try to invoke the endpoints without an Authorization header, you
 will receive an HTTP 401 Unauthorized response.
 
-![](https://lh6.googleusercontent.com/cV4_RLTo5AmgvFg6upWzJ9u1eSAw9WCLB_x26SFZjVcMScJZ8oNOVSoOr4l6VsOiF5tugJf4Fds-b3yqJZ33Faua880Fbd0GhBSlP22lRB5Rlk3Emozy0fVnOWpqT_-SEKjnCDVP) 
 
 If you invoke an endpoint with a token obtained for a user which does
 not have access to, you can observe an HTTP 403 Forbidden response. For
 instance, If you try to invoke the /debit endpoint while you only have
 the Creditor role, you will get HTTP 403 response.
-
-![](https://lh3.googleusercontent.com/cSIg2SlUyjOJ6Cm26Il5-SVx-yClj_xzlBmtbFqW-AsKLBfECpzhDo3UBaU0VAjhmenqu-LRs84UXLZo1sNcXFSIJSigrCLnu3WSscn_FOGIddp1Yzq39X-HIPz6n5QzyIOxge3E){width="800"
-height="357"}

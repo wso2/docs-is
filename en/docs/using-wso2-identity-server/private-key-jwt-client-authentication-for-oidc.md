@@ -4,9 +4,6 @@ This section introduces you to Private Key JWT Client Authentication for
 OIDC and describes how this method is used by clients when
 authenticating to the authorization server.
 
--   [Pre-requisites](#PrivateKeyJWTClientAuthenticationforOIDC-Pre-requisites)
--   [Introduction](#PrivateKeyJWTClientAuthenticationforOIDC-Introduction)
-
 ### **Pre-requisites**
 
 -   Maven 3.x
@@ -14,7 +11,7 @@ authenticating to the authorization server.
 -   Java 1.7 or above
 
 -   [Playground sample
-    app](https://docs.wso2.com/display/IS550/Basic+Client+Profile+with+Playground)
+    app](../../using-wso2-identity-server/basic-client-profile-with-playground)
     is setup.
 
 ### Introduction
@@ -55,21 +52,23 @@ artifacts.
     to the `          <IS_HOME>/repository/component/dropins         `
     directory.
 3.  To register the JWT grant type, configure the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file by adding a new entry under the
-    `           <EventListeners>          ` element. Add a unique
-    `           <EventListener>          ` identifier as shown below.
+    `           <IS_HOME>/repository/conf/deployment.toml          `
+    file by adding a new entry as seen below. 
 
-    ``` xml
-     <EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"  name="org.wso2.carbon.identity.oauth2.token.handler.clientauth.jwt.PrivateKeyJWTClientAuthenticator" orderId="899" enable="true">
-      <Property name="preventTokenReuse">true</Property>
-      <Property name="RejectBeforeInMinutes">100</Property>
-      <Property name="TokenEndPointAlias">sample url</Property>
-    </EventListener>
+    ``` toml
+    [[event_listener]]                              
+    id = "custom_audit_listener"        
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler" 
+    name = "com.example.identity.AuditListener" 
+    order = 899 
+    [event_listener.properties] 
+    preventTokenReuse= true
+    RejectBeforeInMinutes= 100
+    TokenEndPointAlias= sampleurl
     ```
 
     The following table lists the optional properties that can be added
-    to the `           identity.xml          ` file:
+    to the `           deployment.toml          ` file:
 
     | Property              | Description                                                                                                                                                                                             |
     |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,12 +81,11 @@ artifacts.
     as shown below:
 
     ``` java
-        <CacheConfig>
-                <CacheManager name="IdentityApplicationManagementCacheManager">
-                   ….
-                <Cache name="PrivateKeyJWT" enable="true" timeout="10" capacity="5000" isDistributed="false"/>
-                </CacheManager>
-            </CacheConfig>
+    <CacheConfig>
+        <CacheManager name="IdentityApplicationManagementCacheManager">
+        <Cache name="PrivateKeyJWT" enable="true" timeout="10" capacity="5000" isDistributed="false"/>
+        </CacheManager>
+    </CacheConfig>
     ```
 
     The above cache configuration is needed because when too many calls
@@ -110,11 +108,11 @@ artifacts.
     the following commands. (one after the other)
 
     ``` java
-        keytool -importkeystore -srckeystore TodayApp.jks -destkeystore TodayApp.p12 -deststoretype PKCS12
+    keytool -importkeystore -srckeystore TodayApp.jks -destkeystore TodayApp.p12 -deststoretype PKCS12
     ```
 
     ``` java
-        openssl pkcs12 -in TodayApp.p12 -nokeys -out pubcert.pem
+    openssl pkcs12 -in TodayApp.p12 -nokeys -out pubcert.pem
     ```
 
 10. Rename the public key certificate file of the
@@ -122,15 +120,14 @@ artifacts.
     (mentioned as 'alias' below) of the above auth app.
 
     ``` java
-        keytool -export -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -file nwU59qy9AsDqftmwLcfmkvOhvuYa -keystore TodayApp.jkskeytool -genkey -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -keyalg RSA -keystore TodayApp.jks
+    keytool -export -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -file nwU59qy9AsDqftmwLcfmkvOhvuYa -keystore TodayApp.jkskeytool -genkey -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -keyalg RSA -keystore TodayApp.jks
     ```
 
     !!! note
-    
         Note that the above 'TodayApp.jks' and 'TodayApp.p12' are sample
         values used to demonstrate this feature. You may need to create your
         own values to test the feature. Refer [Creating New
-        Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores)
+        Keystores](../../admin-guide/creating-new-keystores)
         for more information.
     
 
@@ -139,24 +136,24 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![]( ../../assets/img/103329637/103329639.png) 
+    ![list-keystores]( ../../assets/img/using-wso2-identity-server/list-keystores.png) 
 
 13. Import the above cert (Click **Import Cert** under **Actions** ) in
     to the default key store defined in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` . ( In a
+    `           <IS_HOME>/repository/conf/deployment.toml          ` . ( In a
     default pack, keystore name is wso2carbon.jks)
 
-    ![]( ../../assets/img/103329637/103329638.png) 
+    ![keystores-list]( ../../assets/img/using-wso2-identity-server/keystores-list.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![]( ../../assets/img/103329637/103329640.png) 
+    ![keystore-cert]( ../../assets/img/using-wso2-identity-server/keystore-cert.png) 
 
     !!! note
     
         Alternatively, you can import above certificate (in step 9) to the
-        default key store defined in
-        `           <IS_HOME>/repository/conf/carbon.xml          ` . In a
+        default key store defined in the
+        `           <IS_HOME>/repository/conf/deployment.toml         ` file. In a
         default pack, keystore name is
         `           wso2carbon.jks.          `
     
@@ -167,7 +164,7 @@ artifacts.
         as shown above, you can choose to use the JWKS enpoint as shown
         below and add the relevant JWKS URI.
     
-        ![]( ../../assets/img/92524687/119114653.png) 
+        ![configure-jwks-endpoint]( ../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token
@@ -176,7 +173,6 @@ artifacts.
     For Authz\_code grant type
 
     !!! note
-    
         Authz\_code grant type: Replace \<authorization-code\> and
         \<private\_key\_jwt\> in below curl
     
@@ -192,15 +188,14 @@ artifacts.
     For client credential grant type:
 
     ``` java
-        curl -v POST -H "Content-Type: application/x-www-form-urlencoded;charset=ISO-8859-1" -k -d "grant_type=client_credentials&scope=openid&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<jwt_assertion>&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+    curl -v POST -H "Content-Type: application/x-www-form-urlencoded;charset=ISO-8859-1" -k -d "grant_type=client_credentials&scope=openid&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=<jwt_assertion>&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
     ```
 
     !!! note
-    
         A new table named IDN\_OIDC\_JTI has been introduced to store the
         JTI with the following columns. This table will be located in
         identity database (the data source that is configured in
-        `           identity.xml          ` file)
+        `           deployment.toml          ` file)
     
         JWT\_ID VARCHAR(255)
     

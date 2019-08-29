@@ -10,20 +10,20 @@ self contained access token with the JWT bearer grant type.
     access token with the JWT bearer grant type:
     
     -   Both
-        `          <ConvertOriginalClaimsFromAssertionsToOIDCDialect>         `
-        and `          <AddUnmappedUserAttributes>         ` are elements
-        that are configured under the `          <OpenIDConnect>         `
-        element in the `          identity.xml         ` file, and are
+        `       enable_oidc_dialect        `
+        and `          enable_unmapped_user_attributes         ` are elements
+        that are configured under the `          [oauth.oidc.claims]         `
+        group in the `          deployment.toml         ` file, and are
         considered to be `          false         ` by default.
     -   When the
-        `          <ConvertOriginalClaimsFromAssertionsToOIDCDialect>         `
+        `         enable_oidc_dialect         `
         element is set to `          false         ` in the
-        `          identity.xml         ` file, all custom claims coming
+        `          deployment.toml         ` file or is not configured in the `deployment.toml` file at all, this means that all custom claims coming
         with a JWT assertion are copied to the self contained access token.
     -   When the
-        `          <ConvertOriginalClaimsFromAssertionsToOIDCDialect>         `
+        `          enable_oidc_dialect        `
         element is set to `          true         ` in the
-        `          identity.xml         ` file, claims are handled in the
+        `          deployment.toml         ` file, claims are handled in the
         default OIDC flow. This means that claims are converted to OIDC
         dialect depending on service provider and Identity provider level
         claim mappings, and also based on claims configured in OIDC registry
@@ -31,17 +31,14 @@ self contained access token with the JWT bearer grant type.
         `          openid         ` scope are copied to the self contained
         access token.
     -   If you want to copy the attributes that do not have a mapping, you
-        need to add the `           <AddUnmappedUserAttributes>          `
-        element as follows under the `           <OpeIDConnect>          `
-        element in the `           identity.xml          ` file:
+        need to add the `           enable_unmapped_user_attributes          `
+        element as follows under the `           [oauth.oidc.claims]         `
+        group in the `           deployment.toml          ` file:
     
-        ``` java
-            <OpenIDConnect>
-            …
-            <ConvertOriginalClaimsFromAssertionsToOIDCDialect>true</ConvertOriginalClaimsFromAssertionsToOIDCDialect>
-            <AddUnmappedUserAttributes>true</AddUnmappedUserAttributes>
-            …
-            </OpenIDConnect>
+        ``` toml       
+            [oauth.oidc.claims]
+            enable_oidc_dialect= true
+            enable_unmapped_user_attributes= true
     ```
 
 
@@ -54,33 +51,18 @@ federated identity provider, and the other acts as the service provider.
 Let’s call the WSO2 Identity Server instance that acts as the identity
 provider as IS-IP, and the other instance as IS-SP.
 
-The following topics walk you through the steps you need to follow:
-
--   [Configuring IS-IP and
-    IS-SP](#HandlingCustomClaimswiththeJWTBearerGrantType-ConfiguringIS-IPandIS-SP)
--   [Calling the token endpoint with JWT bearer grant
-    type](#HandlingCustomClaimswiththeJWTBearerGrantType-CallingthetokenendpointwithJWTbearergranttype)
-    -   [Scenario
-        1](#HandlingCustomClaimswiththeJWTBearerGrantType-Scenario1)
-    -   [Scenario
-        2](#HandlingCustomClaimswiththeJWTBearerGrantType-Scenario2)
-    -   [Scenario
-        3](#HandlingCustomClaimswiththeJWTBearerGrantType-Scenario3)
-
 Before you begin
 
 Follow the steps below to set up the two WSO2 Identity Server instances:
 
 1.  [Download](http://wso2.com/products/identity-server/) and
     [install](../../setup/installing-the-product) two Identity Server instances.
-2.  In the
-    `            <IS-IP_HOME>/repository/conf/carbon.xml           `
-    file, locate the `            Offset           ` element and change
-    this to 1. This is done to increment the port value of IS-IP so that
+2.  Add the following configuration to the `<IS-IP_HOME>/repository/conf/deployment.toml` file and set the value to 1. This is done to increment the port value of IS-IP so that
     there is no port conflict with IS-SP.
 
-    ``` xml
-    <Offset>1</Offset>
+    ``` toml
+    [server]
+    offset = "1"
     ```
 
 Now that you have set up the Identity Server instances, you can proceed
@@ -91,12 +73,12 @@ with the configuration steps.
 -   Follow the steps below to configure IS-IP to generate a JWT token by
     using the password grant type and passing the scope as openid.
     1.  Open the
-        `             <IS-IP_HOME>/repository/conf/identity/identity.xml            `
-        file and uncomment the following entry under the
-        `             <OAuth>            ` element.
+        `             <IS-IP_HOME>/repository/conf/deployment.toml           `
+        file and add the following entry.
 
-        ``` xml
-                <IdentityOAuthTokenGenerator>org.wso2.carbon.identity.oauth2.token.JWTTokenIssuer</IdentityOAuthTokenGenerator>
+        ``` toml
+        [oauth.token_generation]
+        access_token_type= "self_contained"
         ```
 
     2.  Restart IS-IP.
@@ -144,34 +126,34 @@ with the configuration steps.
         Let's assume that the request sent is as follows:
 
         ``` java
-                curl -u q4h7UhUyt0wC8A2Awu_kfmxEpr0a:vlTwUeCAyYPRzkeayJpmdW0xfxAa -k -d "grant_type=password&username=megala&password=megala" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9444/oauth2/token?scope=openid
+        curl -u q4h7UhUyt0wC8A2Awu_kfmxEpr0a:vlTwUeCAyYPRzkeayJpmdW0xfxAa -k -d "grant_type=password&username=megala&password=megala" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9444/oauth2/token?scope=openid
         ```
 
         Then the self contained JWT access token that returns
         in response to the request would be as follows:
 
         ``` java
-                eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiU3JpIExhbmthIiwic3ViIjoibWVnYWxhQGNhcmJvbi5zdXBlciIsImF1ZCI6WyJxNGg3VWhVeXQwd0M4QTJBd3Vfa2ZteEVwcjBhIl0sImF6cCI6InE0aDdVaFV5dDB3QzhBMkF3dV9rZm14RXByMGEiLCJzY29wZSI6Im9wZW5pZCIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0NFwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUyODA5ODE1OCwiaWF0IjoxNTI4MDk0NTU4LCJlbWFpbCI6Im1lZ2FsYUB3c28yLmNvbSIsImp0aSI6IjIyMjMyNDZhLWI5MmUtNDMwNC1iYmY1LTE3MzExNTU3Y2FmNSJ9.c-WKt87FL24WAy24E2mp2uusPJAR2aDZDujqKkVlM5yDjUQ9hYvDX96KTo4ew1j9LGIb8cN9npX5NK-DtLeNHNuR1ypKhcyQ9Gwsqp42wEswH_IMHVRxERv5X0giz8rH-z7LGo2IGmGjLjhfGXP9C-_1r00krtkCTZpWPmUTW1BneFEEVF-WLaNmjC28CUdTcVealZOD9ByA44WTiA-nUmAp2j1zWb7K-rDm0cMaJ_ucYsnObmDovKyT-7y02zutBNm5plfn2cQbsLo0cAzWmTtdpX5gXmqtJHANRXwM8LriVJMTG7nDU5zDcU4GRYz5aWPQn3RgTA4donzpPvPYQw
+        eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiU3JpIExhbmthIiwic3ViIjoibWVnYWxhQGNhcmJvbi5zdXBlciIsImF1ZCI6WyJxNGg3VWhVeXQwd0M4QTJBd3Vfa2ZteEVwcjBhIl0sImF6cCI6InE0aDdVaFV5dDB3QzhBMkF3dV9rZm14RXByMGEiLCJzY29wZSI6Im9wZW5pZCIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0NFwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTUyODA5ODE1OCwiaWF0IjoxNTI4MDk0NTU4LCJlbWFpbCI6Im1lZ2FsYUB3c28yLmNvbSIsImp0aSI6IjIyMjMyNDZhLWI5MmUtNDMwNC1iYmY1LTE3MzExNTU3Y2FmNSJ9.c-WKt87FL24WAy24E2mp2uusPJAR2aDZDujqKkVlM5yDjUQ9hYvDX96KTo4ew1j9LGIb8cN9npX5NK-DtLeNHNuR1ypKhcyQ9Gwsqp42wEswH_IMHVRxERv5X0giz8rH-z7LGo2IGmGjLjhfGXP9C-_1r00krtkCTZpWPmUTW1BneFEEVF-WLaNmjC28CUdTcVealZOD9ByA44WTiA-nUmAp2j1zWb7K-rDm0cMaJ_ucYsnObmDovKyT-7y02zutBNm5plfn2cQbsLo0cAzWmTtdpX5gXmqtJHANRXwM8LriVJMTG7nDU5zDcU4GRYz5aWPQn3RgTA4donzpPvPYQw
         ```
 
         When you use a JWT decoder to decode the access token, you can
         see the following payload:
 
         ``` java
-                {
-                  "country": "Sri Lanka",
-                  "sub": "megala@carbon.super",
-                  "aud": [
-                    "q4h7UhUyt0wC8A2Awu_kfmxEpr0a"
-                  ],
-                  "azp": "q4h7UhUyt0wC8A2Awu_kfmxEpr0a",
-                  "scope": "openid",
-                  "iss": "https://localhost:9444/oauth2/token",
-                  "exp": 1528098158,
-                  "iat": 1528094558,
-                  "email": "megala@wso2.com",
-                  "jti": "2223246a-b92e-4304-bbf5-17311557caf5"
-                }
+        {
+          "country": "Sri Lanka",
+          "sub": "megala@carbon.super",
+          "aud": [
+            "q4h7UhUyt0wC8A2Awu_kfmxEpr0a"
+          ],
+          "azp": "q4h7UhUyt0wC8A2Awu_kfmxEpr0a",
+          "scope": "openid",
+          "iss": "https://localhost:9444/oauth2/token",
+          "exp": 1528098158,
+          "iat": 1528094558,
+          "email": "megala@wso2.com",
+          "jti": "2223246a-b92e-4304-bbf5-17311557caf5"
+        }
         ```
 
         Here, the `             country            ` and
@@ -203,33 +185,33 @@ the token endpoint with the JWT bearer grant type.
 
 First, let's take a look at how WSO2 Identity Server handles custom
 claims with the JWT bearer grant type when the
-`         ConvertToOIDCDialect        ` element is set to
-`         false        ` in the `         identity.xml        ` file.
+`        enable_oidc_dialect        ` element is set to
+`         false        ` in the `         deployment.toml       ` file.
 
 -   Send the following sample request to call the token endpoint:
 
     ``` java
-        curl -i -X POST -u EcvBCz8CDWFdALzavlakTTKkSPUa:LpElcqthcTOqilN1K_zAHf48fL4a -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:9443/oauth2/token?scope=openid
+    curl -i -X POST -u EcvBCz8CDWFdALzavlakTTKkSPUa:LpElcqthcTOqilN1K_zAHf48fL4a -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:9443/oauth2/token?scope=openid
     ```
 
     You will see the following payload when you use a JWT decoder and
     decode the JWT token:
 
     ``` java
-        {
-          "country": "Sri Lanka",
-          "sub": "megala@carbon.super",
-          "aud": [
-            "EcvBCz8CDWFdALzavlakTTKkSPUa"
-          ],
-          "azp": "EcvBCz8CDWFdALzavlakTTKkSPUa",
-          "scope": "openid",
-          "iss": "https://localhost:9443/oauth2/token",
-          "exp": 1528098158,
-          "iat": 1528096102,
-          "email": "megala@wso2.com",
-          "jti": "243702fe-8087-49c2-a439-f6dc7258021a"
-        }
+    {
+      "country": "Sri Lanka",
+      "sub": "megala@carbon.super",
+      "aud": [
+        "EcvBCz8CDWFdALzavlakTTKkSPUa"
+      ],
+      "azp": "EcvBCz8CDWFdALzavlakTTKkSPUa",
+      "scope": "openid",
+      "iss": "https://localhost:9443/oauth2/token",
+      "exp": 1528098158,
+      "iat": 1528096102,
+      "email": "megala@wso2.com",
+      "jti": "243702fe-8087-49c2-a439-f6dc7258021a"
+    }
     ```
 
     You will see that the `           country          ` and
@@ -238,7 +220,7 @@ claims with the JWT bearer grant type when the
 
 Here, the `         country        ` and `         email        ` are
 directly copied to the generated JWT token because the
-`         ConverToOIDCDialect        ` element is set to
+`         enable_oidc_dialect        ` element is set to
 `         false        `, which results in all custom claims coming
 from incoming JWT assertions  being directly copied to the generated JWT
 token.
@@ -247,10 +229,10 @@ token.
 
 Now, let's take a look at how WSO2 Identity Server handles custom claims
 with the JWT bearer grant type when the
-`         ConvertToOIDCDialect        ` element is set to
+`         enable_oidc_dialect= true        ` element is set to
 `         true        ` and the
-`         AddUnmappedUserAttributes        ` element is set to
-`         false        ` in the `         identity.xml        ` file.
+`         enable_unmapped_user_attributes        ` element is set to
+`         false        ` in the `         deployment.toml        ` file.
 
 -   **Sub-scenario 1** : In this scenario, if we consider a sub-scenario
     assuming that identity provider claim mappings and service provider
@@ -258,20 +240,20 @@ with the JWT bearer grant type when the
     you use a JWT decoder and decode the JWT token:
 
     ``` java
-        {
-          "country": "Sri Lanka",
-          "sub": "megala@carbon.super",
-          "aud": [
-            "q4h7UhUyt0wC8A2Awu_kfmxEpr0a"
-          ],
-          "azp": "q4h7UhUyt0wC8A2Awu_kfmxEpr0a",
-          "scope": "openid",
-          "iss": "https://localhost:9444/oauth2/token",
-          "exp": 1528100688,
-          "iat": 1528097088,
-          "email": "megala@wso2.com",
-          "jti": "d90bb7f4-25ce-466c-8ea8-8eb6f6624992"
-        }
+    {
+      "country": "Sri Lanka",
+      "sub": "megala@carbon.super",
+      "aud": [
+        "q4h7UhUyt0wC8A2Awu_kfmxEpr0a"
+      ],
+      "azp": "q4h7UhUyt0wC8A2Awu_kfmxEpr0a",
+      "scope": "openid",
+      "iss": "https://localhost:9444/oauth2/token",
+      "exp": 1528100688,
+      "iat": 1528097088,
+      "email": "megala@wso2.com",
+      "jti": "d90bb7f4-25ce-466c-8ea8-8eb6f6624992"
+    }
     ```
 
     You will see that this is similar to scenario 1. This means that
@@ -290,18 +272,18 @@ with the JWT bearer grant type when the
     token:
 
     ``` java
-        {
-          "sub": "megala@carbon.super",
-          "aud": [
-            "EcvBCz8CDWFdALzavlakTTKkSPUa"
-          ],
-          "azp": "EcvBCz8CDWFdALzavlakTTKkSPUa",
-          "scope": "openid",
-          "iss": "https://localhost:9443/oauth2/token",
-          "exp": 1528100688,
-          "iat": 1528097449,
-          "jti": "528dd371-df53-46a5-8276-62271eae53d4"
-        }
+    {
+      "sub": "megala@carbon.super",
+      "aud": [
+        "EcvBCz8CDWFdALzavlakTTKkSPUa"
+      ],
+      "azp": "EcvBCz8CDWFdALzavlakTTKkSPUa",
+      "scope": "openid",
+      "iss": "https://localhost:9443/oauth2/token",
+      "exp": 1528100688,
+      "iat": 1528097449,
+      "jti": "528dd371-df53-46a5-8276-62271eae53d4"
+    }
     ```
 
       
@@ -321,14 +303,14 @@ with the JWT bearer grant type when the
 -   1.  Map the
         `                         http://wso2.org/claims/country                       `
         local claim to `            customclaim           ` in the OIDC
-        dialect. ![]( ../../assets/img/103329629/103329632.png) 
+        dialect. ![custom-claim-country](../../assets/img/using-wso2-identity-server/custom-claim-country.png) 
     2.  Add the `            customclaim           ` to the openid
         scope.  
-        ![]( ../../assets/img/103329629/103329633.png) 
+        ![oidc-custom-claim-scope]( ../../assets/img/using-wso2-identity-server/oidc-custom-claim-scope.png) 
     3.  Add the following identity provider mapping.  
-        ![]( ../../assets/img/103329629/103329634.png) 
+        ![claim-config-custom-claims]( ../../assets/img/using-wso2-identity-server/claim-config-custom-claims.png) 
     4.  Add following service provider requested claim.  
-        ![]( ../../assets/img/103329629/103329635.png){height="250"}
+        ![claim-config2-custom-claims]( ../../assets/img/using-wso2-identity-server/claim-config2-custom-claims.png)
 
 Then you will see the following payload when you use a JWT decoder and
 decode the JWT token:
@@ -364,9 +346,9 @@ back with the self contained token.
 
 Let's take a look at how WSO2 Identity Server handles custom claims with
 the JWT bearer grant type when both
-`         ConvertToOIDCDialect        ` and
-`         AddUnmappedUserAttributes        ` elements are set to
-`         true        ` in the `         identity.xml        ` file.
+`         enable_oidc_dialect        ` and
+`         enable_unmapped_user_attributes        ` elements are set to
+`         true        ` in the `         deployment.toml        ` file.
 
 You will see the following payload when you use a JWT decoder and decode
 the JWT token:
