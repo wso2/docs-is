@@ -8,7 +8,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../assets/lib/swagger/approvals.yaml",
+    url: "../../references/restapis/approvals.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
