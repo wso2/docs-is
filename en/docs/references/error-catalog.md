@@ -292,7 +292,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 </table>
 </div>
 
-## Authorized OAuth Apps Errors
+## OAuth Authorized Apps Errors
 
 <div class="errorcode">
 <table>
