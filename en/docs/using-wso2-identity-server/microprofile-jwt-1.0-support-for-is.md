@@ -90,15 +90,7 @@ below:
 </tbody>
 </table>
 
-  
-
--   [Generating MP-JWT Compatible JWT token using Identity
-    Server](#MicroprofileJWT1.0supportforIS-GeneratingMP-JWTCompatibleJWTtokenusingIdentityServer)
-    -   [Configuring the service
-        provider](#MicroprofileJWT1.0supportforIS-Configuringtheserviceprovider)
--   [Testing it out](#MicroprofileJWT1.0supportforIS-Testingitout)
-
-#### **Generating MP-JWT Compatible JWT token using Identity Server**
+### Generating MP-JWT Compatible JWT token using Identity Server
 
 WSO2 Identity Server defines a set of claims that can be configured for
 situations where a service provider needs some information about the
@@ -110,30 +102,25 @@ when the service provider is created.
 
 Let's see how this can be done.
 
-##### **Configuring the service provider**
+#### Configuring the service provider
 
 1.  Log in to identity server using admin credentials.
 
 2.  Configure a service provider.
 
     1.  Give a name and a description and click **Register**.
-
-        ![]( ../../assets/img/103329643/103329646.png){width="700"
-        height="183"}
+        ![add-new-sp-1]( ../../assets/img/using-wso2-identity-server/add-new-sp-1.png)
 
     2.  Navigate to the claim configuration section and add the
         following requested claims:  
 
         <http://wso2.org/claims/userprincipal>  
         <http://wso2.org/claims/role>
-
-        ![]( ../../assets/img/103329643/103329645.png){width="700"
-        height="173"}
+        ![mandatory-claims]( ../../assets/img/using-wso2-identity-server/mandatory-claims.png)
 
     3.  Configure OAuth/OpenID Connect Configuration in Inbound
         Authentication Configuration section.  
-        ![]( ../../assets/img/103329643/103329644.png){width="700"
-        height="583"}  
+        ![configure-oauth]( ../../assets/img/using-wso2-identity-server/configure-oauth.png)
         Now the generated ID token using this client is compatible with
         the MP-JWT specification.
 
@@ -154,10 +141,9 @@ Let's see how this can be done.
     **Response**
 
     ``` xml
-        {"access_token":"16eaa123-122a-3bdd-9c55-e4cc12d350ef","refresh_token":"25cbe580-672e-3969-b007-2fb4e4381378","scope":"openid","id_token":"eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoidEhwckZ4UXRrdDF0Um9zRGozcFFXdyIsInN1YiI6ImNhbWVyb24iLCJhdWQiOlsieXFEUTJUU25LX25JZVJtZjBRNmlyeVVMQU9JYSJdLCJ1cG4iOiJjYW1lcm9uIiwiYXpwIjoieXFEUTJUU25LX25JZVJtZjBRNmlyeVVMQU9JYSIsImFtciI6WyJwYXNzd29yZCJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJncm91cHMiOlsiRGVidG9yIiwiSW50ZXJuYWxcL2V2ZXJ5b25lIl0sImV4cCI6MTUyNTc1ODQxOCwiaWF0IjoxNTI1NzU0ODE4fQ.OAawdar3iybUQJPxEJXvKZ3NIypdD5QhEfv7limhZ3pmar8vHCt0gocpuzGU63mbqVkUrnEejw5PP0UdMNDNNIGqfeLnourbWYBlu4QgS66NKnJoi-S8zWaTXPrSWUFyB-S4OhT7L-d2IWeTno0iNhvL1qMrxkbKPYO-zXyr4-VbP4Radepnf0FhhaNDdQhtMLiG6iF8wwXmaZ2doNYCz98HDZZHUHrv_7ZlYlThAaDH7pxmekt_CRJN0PMWMZBezn53UjFsvzIpYF77wZZPLGxwLaNqVkm8WcB8TIPd-rNXQMfuJTVsyP2yyAd9dFG7MTJszjQyb9BonoYJL1gEOw","token_type":"Bearer","expires_in":3600}
+    {"access_token":"16eaa123-122a-3bdd-9c55-e4cc12d350ef","refresh_token":"25cbe580-672e-3969-b007-2fb4e4381378","scope":"openid","id_token":"eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoidEhwckZ4UXRrdDF0Um9zRGozcFFXdyIsInN1YiI6ImNhbWVyb24iLCJhdWQiOlsieXFEUTJUU25LX25JZVJtZjBRNmlyeVVMQU9JYSJdLCJ1cG4iOiJjYW1lcm9uIiwiYXpwIjoieXFEUTJUU25LX25JZVJtZjBRNmlyeVVMQU9JYSIsImFtciI6WyJwYXNzd29yZCJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJncm91cHMiOlsiRGVidG9yIiwiSW50ZXJuYWxcL2V2ZXJ5b25lIl0sImV4cCI6MTUyNTc1ODQxOCwiaWF0IjoxNTI1NzU0ODE4fQ.OAawdar3iybUQJPxEJXvKZ3NIypdD5QhEfv7limhZ3pmar8vHCt0gocpuzGU63mbqVkUrnEejw5PP0UdMNDNNIGqfeLnourbWYBlu4QgS66NKnJoi-S8zWaTXPrSWUFyB-S4OhT7L-d2IWeTno0iNhvL1qMrxkbKPYO-zXyr4-VbP4Radepnf0FhhaNDdQhtMLiG6iF8wwXmaZ2doNYCz98HDZZHUHrv_7ZlYlThAaDH7pxmekt_CRJN0PMWMZBezn53UjFsvzIpYF77wZZPLGxwLaNqVkm8WcB8TIPd-rNXQMfuJTVsyP2yyAd9dFG7MTJszjQyb9BonoYJL1gEOw","token_type":"Bearer","expires_in":3600}
     ```
 
-      
     You can also run the following cURL command. Instead of passing the
     client\_key and client\_secret separately, you can send it with the
     authorization header as follows:
@@ -165,50 +151,47 @@ Let's see how this can be done.
     In order to send the client credentials with the Authorization
     header, you need to encode the client credentials as follows:
 
-    -   [**Linux/Mac**](#9e0fe4d67f1a492fb982a9a5f58c37c1)
-    -   [**Windows**](#a8cc7e870f394a08bfb2fbad220e6231)
-
-    ``` java
-        echo -n <CLIENT_KEY>:<CLIENT_SECRET> | base64
+    ``` java tab="<Linux/Mac>"
+    echo -n <CLIENT_KEY>:<CLIENT_SECRET> | base64
     ```
 
-    ``` java
-        powershell "[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"<CLIENT_KEY>:<CLIENT_SECRET>\"))
+    ``` java tab="Windows"
+    powershell "[convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes(\"<CLIENT_KEY>:<CLIENT_SECRET>\"))
     ```
 
     **Request**
 
     ``` xml
-        curl -H "Authorization: Basic <BASE64 ENCODED COMBINED CLIENT ID AND SECRET>" -H "Content-Type: application/x-www-form-urlencoded" -k -d "grant_type=password&username=<admin>&password=<password>&scope=openid" https://localhost:9443/oauth2/token
+    curl -H "Authorization: Basic <BASE64 ENCODED COMBINED CLIENT ID AND SECRET>" -H "Content-Type: application/x-www-form-urlencoded" -k -d "grant_type=password&username=<admin>&password=<password>&scope=openid" https://localhost:9443/oauth2/token
     ```
 
     **Decoded response (Sample)**
 
     ``` xml
-        {
-          "x5t": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
-          "kid": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
-          "alg": "RS256"
-        }
-        {
-          "at_hash": "tHprFxQtkt1tRosDj3pQWw",
-          "sub": "cameron",
-          "aud": [
-            "yqDQ2TSnK_nIeRmf0Q6iryULAOIa"
-          ],
-          "upn": "cameron",
-          "azp": "yqDQ2TSnK_nIeRmf0Q6iryULAOIa",
-          "amr": [
-            "password"
-          ],
-          "iss": "https://localhost:9443/oauth2/token",
-          "groups": [
-            "Debtor",
-            "Internal/everyone"
-          ],
-          "exp": 1525758418,
-          "iat": 1525754818
-        }
+    {
+      "x5t": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
+      "kid": "NTAxZmMxNDMyZDg3MTU1ZGM0MzEzODJhZWI4NDNlZDU1OGFkNjFiMQ",
+      "alg": "RS256"
+    }
+    {
+      "at_hash": "tHprFxQtkt1tRosDj3pQWw",
+      "sub": "cameron",
+      "aud": [
+        "yqDQ2TSnK_nIeRmf0Q6iryULAOIa"
+      ],
+      "upn": "cameron",
+      "azp": "yqDQ2TSnK_nIeRmf0Q6iryULAOIa",
+      "amr": [
+        "password"
+      ],
+      "iss": "https://localhost:9443/oauth2/token",
+      "groups": [
+        "Debtor",
+        "Internal/everyone"
+      ],
+      "exp": 1525758418,
+      "iat": 1525754818
+    }
     ```
 
     As you can see in the decoded response the “upn” and “groups” claims
