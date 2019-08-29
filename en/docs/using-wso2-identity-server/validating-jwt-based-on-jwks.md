@@ -2,15 +2,6 @@
 
 This section describes how a JWT can be validated based on JWKS.
 
--   [Introduction](#ValidatingJWTbasedonJWKS-Introduction)
--   [Configuring JWKS based JWT
-    Validator](#ValidatingJWTbasedonJWKS-ConfiguringJWKSbasedJWTValidator)
-    -   [Configuring
-        identity.xml](#ValidatingJWTbasedonJWKS-Configuringidentity.xml)
-    -   [Configuring the Identity
-        Provider](#ValidatingJWTbasedonJWKS-ConfiguringtheIdentityProvider)
--   -   [Invoking the Token API to generate
-    tokens](#ValidatingJWTbasedonJWKS-InvokingtheTokenAPItogeneratetokens)
 
 ### Introduction
 
@@ -32,7 +23,7 @@ allows smooth key rollover and integration.
 Following sequence diagram illustrates the scenario where a JWT obtained
 from a third party IDP is validated using the JWKS Based JWT Validator.
 
-![]( ../../assets/img/103329653/103329654.png) 
+![jwks-validation-flow]( ../../assets/img/using-wso2-identity-server/jwks-validation-flow.png) 
 
 The steps of the above diagram are explained below:
 
@@ -81,25 +72,22 @@ hence the matching key is not found in the cached JWKS. When a matching
 key is not found, the validator retrieves the latest JWKS from the IDP
 JWKS endpoint and obtain the matching key for signature validation.
 
-### Configuring JWKS based JWT Validator
+### Configuring JWKS based JWT validator
 
 Follow the below steps to configure JWKS based JWT Validator.
 
-#### Configuring identity.xml
+#### Configuring the JWKS endpoint
 
-1.  Make sure you have the following configurations to
-    `           <SERVER_HOME>/repository/conf/identity/identity.xml          `
-    . You can find this somewhere under \<Server\> tag.
+1.  Add the following configurations to
+    `           <SERVER_HOME>/repository/conf/deployment.toml          `
+    .
 
-    ``` xml
-    <JWTValidatorConfigs>
-       <Enable>true</Enable>
-       <JWKSEndpoint>
-        <HTTPConnectionTimeout>1000</HTTPConnectionTimeout>
-        <HTTPReadTimeout>1000</HTTPReadTimeout>
-        <HTTPSizeLimit>51200</HTTPSizeLimit>
-       </JWKSEndpoint>
-    </JWTValidatorConfigs>
+    ``` toml
+    [oauth.jwks_endpoint]
+    enable= true
+    connection_timeout= 1000
+    read_timeout= 1000
+    size_limit_bytes= 51200
     ```
 
     You can use customized values for the above HTTP connection
@@ -110,7 +98,7 @@ Follow the below steps to configure JWKS based JWT Validator.
 2.  Restart the server.  
       
 
-#### Configuring the Identity Provider
+#### Configuring the identity provider
 
 Now we need to configure JWKS IdP with as an Identity Provider in IS.
 
@@ -135,7 +123,7 @@ Now we need to configure JWKS IdP with as an Identity Provider in IS.
                 the jwks\_uri of the Identity Provider. e.g.,
                 [https://exampleidp.com/oauth2/default/v1/keys](https://dev-838836.oktapreview.com/oauth2/default/v1/keys)
 
-    ![]( ../../assets/img/103329653/103329656.png) 
+    ![add-jwt-idp]( ../../assets/img/using-wso2-identity-server/add-jwt-idp.png) 
 
 3.  Click **Register** to save the details.
 
@@ -153,7 +141,7 @@ tokens from JWT assertion.
     jwks\_uri.
 
     ``` xml
-        curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>&scope=openid" -H "Authorization: Basic <Base64 encoded consumer key:consumer secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS server>/oauth2/token
+    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<jwt_assertion>&scope=openid" -H "Authorization: Basic <Base64 encoded consumer key:consumer secret>" -H "Content-Type: application/x-www-form-urlencoded" https://<IS server>/oauth2/token
     ```
 
     In case of key-rollover at the external IDP, the latest keys will be
