@@ -855,6 +855,15 @@ nav:
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-Required-to-Invoke-Admin-Services.md
     - 'API Permissions': references/api-permissions.md
+    - 'REST APIs': 
+      - 'Challenge Question REST APIs': references/challenge-rest-api.md
+      - 'Approvals REST APIs': references/approvals-rest-api.md
+      - 'Associations REST APIs': references/association-rest-api.md
+      - 'Authorized Apps REST APIs': references/authorized-apps-rest-api.md
+      - 'Claim Management REST APIs': references/claim-mgt-rest-api.md
+      - 'Fido REST APIs': references/fido-rest-api.md
+      - 'Session Management REST APIs': references/session-mgt-rest-api.md
+      - 'Workflow Management REST APIs': references/workflow-rest-api.md
     - 'Error Catalog': references/error-catalog.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
