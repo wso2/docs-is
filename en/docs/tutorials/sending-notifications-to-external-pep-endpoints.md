@@ -102,7 +102,7 @@ permissions or attributes are updated.
     ``` java
     module.name.1=email
     email.subscription.1=userOperation
-    email.subscription.userOperation.template=/home/wso2dinali/SUPPORT/TRAVISPERKINSDEV-312/wso2is-5.3.0/repository/conf/email/entitlement-email-config.xml
+    email.subscription.userOperation.template=[IS_HOME]/repository/conf/email/entitlement-email-config.xml
     email.subscription.userOperation.salutation=Admin
     email.subscription.userOperation.subject=User operation change information
     email.subscription.userOperation.endpoint.1=privateMail
