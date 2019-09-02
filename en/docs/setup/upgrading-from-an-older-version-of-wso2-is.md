@@ -1,10 +1,5 @@
 # Upgrading From an Older Version of WSO2 IS
 
-!!! warning     
-    Note that these instructions have been tested for migration from WSO2 IS
-    5.0.0 to 5.8.0 only with the ORACLE and MySQL databases.
-    
-
 The following sections provide instructions that enable you to upgrade
 from older versions of WSO2 Identity Server (from version 5.0.0 onwards)
 to the latest version of WSO2 Identity Server. In this topic,
