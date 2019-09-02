@@ -20,8 +20,8 @@
 
 {% block styles %}
   {{ super() }}
-  <link rel="stylesheet" type="text/css" href="../../assets/lib/swagger/swagger-ui.css" >
-  <link rel="stylesheet" href="../../assets/css/theme-material.css">
+  <link rel="stylesheet" type="text/css" href="{{ 'assets/lib/swagger/swagger-ui.css' | url }}" >
+  <link rel="stylesheet" href="{{ 'assets/css/theme-material.css' | url }}">
   <style>
     .md-main .md-content {
       margin-right: 0;
@@ -31,6 +31,6 @@
       width: 0;
     }
   </style>
-  <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
-  <script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
+  <script src="{{ 'assets/lib/swagger/swagger-ui-bundle.js' | url }}"> </script>
+  <script src="{{ 'assets/lib/swagger/swagger-ui-standalone-preset.js' | url }}"> </script>
 {% endblock %}
