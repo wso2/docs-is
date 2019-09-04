@@ -750,3 +750,60 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Session Management Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>USM-00001</a></td>
+        <td>500</td>
+        <td>Unable to retrieve session information.</td>
+        <td>Server encountered an error while retrieving session information.</td>
+      </tr>
+      <tr>
+        <td>USM-00002</a></td>
+        <td>500</td>
+        <td>Unable to retrieve sessions.</td>
+        <td>Server encountered an error while retrieving session list of user, {userid/username}.</td>
+      </tr>      
+      <tr>
+        <td>USM-00003</a></td>
+        <td>501</td>
+        <td>Pagination not supported.</td>
+        <td>Pagination capabilities are not supported in this version of the API.</td>
+      </tr>
+      <tr>
+        <td>USM-00004</a></td>
+        <td>501</td>
+        <td>Filtering not supported.</td>
+        <td>Filtering capability is not supported in this version of the API.</td>
+      </tr>  
+      <tr>
+        <td>USM-00005</a></td>
+        <td>501</td>
+        <td>Sorting not supported.</td>
+        <td>Sorting capability is not supported in this version of the API.</td>
+      </tr>
+      <tr>
+        <td>USM-00006</a></td>
+        <td>500</td>
+        <td>Unable to validate user.</td>
+        <td>Server encountered an error while authorizing user, {userid/username}.</td>
+      </tr> 
+      <tr>
+        <td>USM-00007</a></td>
+        <td>403</td>
+        <td>Action forbidden.</td>
+        <td>Session terminate action is forbidden to user, {userid/username}.</td>
+      </tr>               
+  </tbody>
+</table>
+</div>
