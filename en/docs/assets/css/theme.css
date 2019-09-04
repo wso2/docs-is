@@ -844,6 +844,7 @@ html .md-footer-meta.md-typeset a,
     padding: 5px;
     line-height: 1;
 }
+
 .errorcode tbody tr>:nth-child(1) {
     color: white;
     background-color: hsl(14, 100%, 63%);
@@ -853,7 +854,12 @@ html .md-footer-meta.md-typeset a,
     margin: 0.5rem;
     white-space: nowrap;
 }
+
 .md-typeset table:not([class]) th {
     background-color: #e8e8e8;
     color: #4d4d4d;
+}
+
+.swagger-ui .topbar {
+    display: none;
 }
