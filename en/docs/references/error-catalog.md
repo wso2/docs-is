@@ -572,4 +572,181 @@ This document describes all the REST API error codes that are used in WSO2 Ident
       </tr>
   </tbody>
 </table>
+
+## User Associations Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>UAA-8500</a></td>
+        <td>400</td>
+        <td>Error while adding associations of user</td>
+        <td>Valid username and password must be provided.</td>
+      </tr>
+      <tr>
+        <td>UAA-8501</a></td>
+        <td>500</td>
+        <td>Error while adding associations of user.</td>
+        <td>Error occurred while associating the user account.</td>
+      </tr>
+      <tr>
+        <td>UAA-8503</a></td>
+        <td>500</td>
+        <td>Error while deleting user association</td>
+        <td>Database error occurred while deleting user account association.</td>
+      </tr>
+      <tr>
+        <td>UAA-8504</a></td>
+        <td>500</td>
+        <td>Error while adding associations of user.</td>
+        <td>Database error occurred while creating user account association.</td>
+      </tr>
+      <tr>
+        <td>UAA-8505</a></td>
+        <td>500</td>
+        <td>Error while adding associations of user</td>
+        <td>Database error occurred while updating user account association.</td>
+      </tr>
+      <tr>
+        <td>UAA-8506</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Database error occurred while validating user association.</td>
+      </tr>
+      <tr>
+        <td>UAA-8507</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Database error occurred while deleting user account associations.</td>
+      </tr>
+      <tr>
+        <td>UAA-8508</a></td>
+        <td>500</td>
+        <td>Error while etting/creating/deleting associations of user.</td>
+        <td>Error occurred while getting the RealmService.</td>
+      </tr>
+      <tr>
+        <td>UAA-8509</a></td>
+        <td>500</td>
+        <td>Error while etting/creating/deleting associations of user.</td>
+        <td>Error occurred while accessing the RealmService.</td>
+      </tr>
+      <tr>
+        <td>UAA-8510</a></td>
+        <td>500</td>
+        <td>Error while etting/creating/deleting associations of user.</td>
+        <td>Error occurred while getting the RealmService.</td>
+      </tr>
+      <tr>
+        <td>UAA-8511</a></td>
+        <td>500</td>
+        <td>Error while getting associations of user.</td>
+        <td>Error occurred while getting tenant name from tenant id.</td>
+      </tr>
+      <tr>
+        <td>UAA-8512</a></td>
+        <td>500</td>
+        <td>Error while getting/creating/deleting associations of user</td>
+        <td>Error occurred while getting tenant id from tenant name.</td>
+      </tr>
+      <tr>
+        <td>UAA-8512</a></td>
+        <td>400</td>
+        <td>Error while getting/creating/deleting associations of user</td>
+        <td>Error occurred while getting tenant id from tenant name.</td>
+      </tr>      
+      <tr>
+        <td>UAA-8513</a></td>
+        <td>500</td>
+        <td>Error while creating associations of user</td>
+        <td>Error occurred while authenticating user.</td>
+      </tr>
+      <tr>
+        <td>UAA-8514</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Error occurred while deleting user account association for user {{user}}.</td>
+      </tr>
+      <tr>
+        <td>UAA-8517</a></td>
+        <td>500</td>
+        <td>Error while creating associations of user.</td>
+        <td>Error occurred while executing pre/post user authenticators.</td>
+      </tr>
+      <tr>
+        <td>UAA-8524</a></td>
+        <td>400</td>
+        <td>Error while getting/creating/deleting associations of user.</td>
+        <td>Invalid or inactivated tenant domain</td>
+      </tr>
+      <tr>
+        <td>UAA-8525</a></td>
+        <td>409</td>
+        <td>Error while adding associations of user</td>
+        <td>Provided user account is already associated to the logged in user</td>
+      </tr>
+      <tr>
+        <td>UAA-8526</a></td>
+        <td>400</td>
+        <td>Error while adding associations of user.</td>
+        <td>The user name or password you entered is incorrect.</td>
+      </tr>
+      <tr>
+        <td>UAA-8527</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Error occurred while deleting the user account association.</td>
+      </tr>
+      <tr>
+        <td>UAA-8528</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Error occurred while deleting the user account associations for tenant id {{tenant Id}}.</td>
+      </tr>
+      <tr>
+        <td>UAA-8533</a></td>
+        <td>400</td>
+        <td>Error while adding associations of user.</td>
+        <td>User can not associate logged in user account to itself.</td>
+      </tr>
+      <tr>
+        <td>UAA-8535</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Database error occurred while deleting user association from {{user store domain}} domain  in the tenant 
+        {{tenant}}.</td>
+      </tr>
+      <tr>
+        <td>UAA-8536</a></td>
+        <td>500</td>
+        <td>Error while adding associations of user.</td>
+        <td>Error occurred while updating user domain of account associations with domain {{user store domain}}</td>
+      </tr>
+      <tr>
+        <td>UAA-8537</a></td>
+        <td>500</td>
+        <td>Error while deleting user association.</td>
+        <td>Error occurred while deleting user account associations with domain {{user store domain}} .</td>
+      </tr>
+      <tr>
+        <td>UAA-8538</a></td>
+        <td>500</td>
+        <td>Error while getting associations of user</td>
+        <td>Database error occurred while retrieving account associations of user {{user}}</td>
+      </tr> 
+      <tr>
+        <td>UAA-8539</a></td>
+        <td>500</td>
+        <td>Error while getting/creating/deleting associations of user.</td>
+        <td>Error while retrieving tenant ID of user {{user}}.</td>
+      </tr>                       
+  </tbody>
+</table>
 </div>
