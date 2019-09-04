@@ -30,13 +30,7 @@ authentication, click
 .
 
 The authentication token **must** be sent as the value of the
-client\_assertion parameter. The value of the
-`         client_assertion_type parameter        ` MUST be "
-`         urn:        ` ietf `         :params:        ` oauth
-`         :client-assertion-type:        ` jwt
-`         -bearer        ` ".
-
-  
+client\_assertion parameter. The value of the `client_assertion_type` parameter MUST be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
 Deploying and configuring JWT client-handler artifacts
 
@@ -136,18 +130,18 @@ artifacts.
 
 12. Click **List** under **Keystores** which is under **Manage** menu.
 
-    ![list-keystores]( ../../assets/img/using-wso2-identity-server/list-keystores.png) 
+    ![list-keystores](../../assets/img/using-wso2-identity-server/list-keystores.png) 
 
 13. Import the above cert (Click **Import Cert** under **Actions** ) in
     to the default key store defined in
     `           <IS_HOME>/repository/conf/deployment.toml          ` . ( In a
     default pack, keystore name is wso2carbon.jks)
 
-    ![keystores-list]( ../../assets/img/using-wso2-identity-server/keystores-list.png) 
+    ![keystores-list](../../assets/img/using-wso2-identity-server/keystores-list.png) 
 
     When you view the keystore in the same UI (using **View** ), there
     should be a certificate with clientID as below:  
-    ![keystore-cert]( ../../assets/img/using-wso2-identity-server/keystore-cert.png) 
+    ![keystore-cert](../../assets/img/using-wso2-identity-server/keystore-cert.png) 
 
     !!! note
     
@@ -164,7 +158,7 @@ artifacts.
         as shown above, you can choose to use the JWKS enpoint as shown
         below and add the relevant JWKS URI.
     
-        ![configure-jwks-endpoint]( ../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
+        ![configure-jwks-endpoint](../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
     
 
 14. Use the below cURL to retrieve the access token and refresh token
