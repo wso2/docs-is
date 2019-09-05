@@ -355,6 +355,14 @@ First deploy the sample authenticator dependency and web application in
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
 
+    3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
+        [[resource.access_control]]
+        context = "(.*)/sample-auth/(.*)"
+        secure = false
+        http_method = "all"  
+
+    And restart the identity server          
+
 Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
 factor.
