@@ -338,14 +338,25 @@ Cameron decides to use the Multi-factor Authentication (MFA) capability
 in WSO2 IS using the following factors:
 
 -   **First factor** : password
--   **Second factor** : Twitter
+-   **Second factor** : HARDWARE KEY
 
 Let's use the command-line to check the MFA functionality.
 
 ##### Configuring Multi-Factor Authentication
 
+First deploy the sample authenticator dependency and web application in
+    WSO2 IS.
+
+    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+        `              <IS_HOME>/repository/components/dropins             ` directory.
+
+    2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+        folder.  
+        This `             .war            ` file contains the WEB UI
+        for the sample authenticators used in this tutorial.
+
 Follow the steps below to configure MFA on the Pickup Dispatch and
-Pickup Manager applications where Twitter is the second authentication
+Pickup Manager applications where HARDWARE KEY is the second authentication
 factor.
 
 !!! tip
@@ -369,22 +380,9 @@ A message appears to pick a scenario.
 1.  Enter `              3             ` as the scenario number at the
     command prompt.  
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
-2.  Enter `               y              ` to confirm that you have
-    already registered an app in Twitter. (See the **Prerequisites**
-    tab)
-
-    ![qsg-configure-twitter-mfa](../../assets/img/getting-started/qsg-configure-twitter-mfa.png)
-
-3.  Enter the `               API key              ` and the secret of
-    the Twitter application when prompted.
-
-    ![qsg-configure-mfa-2](../../assets/img/getting-started/qsg-configure-mfa-2.png)
-
-4.  Note that a message with the user and application details appears.
-
-    ![qsg-configure-mfa-3](../../assets/img/getting-started/qsg-configure-mfa-3.png)
-
-5.  Go to the Enter the
+2.  Enter y to confirm that you have already done the folloing steps.
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-setup.png)
+5.  Enter the
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
@@ -400,12 +398,11 @@ A message appears to pick a scenario.
 
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
-    The Twitter login page appears as Twitter is the second
+    The HARDWARE KEY login page appears as HARDWARE KEY is the second
     authentication factor.
 
-8.  Enter your Twitter `               username              ` and
-    `               password              ` and click **Sign In**.
-    ![qsg-authorize-twitterapp](../../assets/img/getting-started/qsg-authorize-twitterapp.png)
+8.  Enter the DEMO key that appears in the browser and click **Sign In**.
+    ![qsg-authorize-twitterapp](../../assets/img/hardware-key.png)
 
     After successful authentication, the **User Consents** form of the
     Dispatch application appears.
