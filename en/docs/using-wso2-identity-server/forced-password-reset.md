@@ -18,33 +18,20 @@ corresponding dialogs or error messages based on account status.
 The below steps describe how you can configure WSO2 Identity Server
 for forced password reset:
 
-1.  Open the `          output-event-adapters.xml         ` file found
-    in the `          <IS_HOME>/repository/conf         ` directory.
-2.  Configure the relevant property values for the email server that you
-    need to configure for this service under the
-    `           <adapterConfig type="email">          ` tag.
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
 
-    ``` xml
-    <adapterConfig type="email">
-        <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-        based authentication rather username/password authentication -->
-        <property key="mail.smtp.from">abcd@gmail.com</property>
-        <property key="mail.smtp.user">abcd</property>
-        <property key="mail.smtp.password">xxxx</property>
-        <property key="mail.smtp.host">smtp.gmail.com</property>
-        <property key="mail.smtp.port">587</property>
-        <property key="mail.smtp.starttls.enable">true</property>
-        <property key="mail.smtp.auth">true</property>
-        <!-- Thread Pool Related Properties -->
-        <property key="minThread">8</property>
-        <property key="maxThread">100</property>
-        <property key="keepAliveTimeInMillis">20000</property>
-        <property key="jobQueueSize">10000</property>
-    </adapterConfig>
+    ``` toml
+    [output_adapter.email]
+    from_address= "wso2iamtest@gmail.com"
+    username= "wso2iamtest"
+    password= "Wso2@iam70"
+    hostname= smpt.gmail.com
+    port= 587
+    enable_start_tls= true
+    enable_authentication= true
     ```
 
     !!! tip
-    
         The email template used to send this email notification is
         the **AdminForcedPasswordReset** template for password recovery via
         recovery email, and the **AdminForcedPasswordResetWithOTP** template
@@ -63,7 +50,6 @@ for forced password reset:
     assign it to the new user, "tom".
 
     !!! tip
-    
         You can verify this by logging in to the
         [dashboard](https://localhost:9443/dashboard) as Tom. The log in
         attempt should be successful. Log out and log back in with admin
