@@ -257,7 +257,7 @@ above figure and video.
 <p>A user of the service provider (SP) attempts to log into the SPs application. The service provider sends an authentication request to the Identity Server. This request is met by the Inbound Authentication component of the Identity Server and comes in one of the following forms.</p>
 <ul>
 <li><a href="../../tutorials/saml-2.0-web-SSO">SAML</a> SSO</li>
-<li><a href="/tutorials/oauth2-openid-connect-overview">OAuth/OpenID Connect</a></li>
+<li><a href="../../tutorials/oauth2-openid-connect-overview">OAuth/OpenID Connect</a></li>
 <li>Passive STS</li>
 </ul>
 <p>The service provider receives the authentication confirmation from the Identity Server once it follows all the specified processes required in order to authenticate the SP's user.</p>
