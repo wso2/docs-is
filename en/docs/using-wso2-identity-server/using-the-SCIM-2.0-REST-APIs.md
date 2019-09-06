@@ -2592,4 +2592,4 @@ given below.
 
 More information about how to secure the REST APIs and configure
 authorization level can be found from [Authenticating and Authorizing
-REST APIs](_Authenticating_and_Authorizing_REST_APIs_)
+REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
