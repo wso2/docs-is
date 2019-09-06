@@ -72,7 +72,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 
 The following diagram illustrates the scenario:
 
-![](attachments/34611887/38767777.png)
+![saml2-web-sso-intro](../../assets/img/tutorials/saml2-web-sso-intro.png)
 
 #### SAML 2.0 SSO assertion consumers
 
@@ -88,20 +88,20 @@ The following code is a sketch of a sample service provider servlet in a
 SAML 2.0 Web-Browser based SSO system.
 
 ``` java
-public class Resource extends HttpServlet 
-{             
-     private static SamlConsumer consumer = new SamlConsumer();           
-     public void doGet(HttpServletRequest request, HttpServletResponse response) 
-     { 
-             requestMessage = consumer.buildRequestMessage();
-             response.sendRedirect(requestMessage);
-     }            
-     public void doPost(HttpServletRequest request, HttpServletResponse response) 
-     { 
-             responseMessage = request.getParameter("SAMLResponse").toString();  
-             result = consumer.processResponseMessage(responseMessage);
-     }
-}
+	public class Resource extends HttpServlet 
+	{             
+		 private static SamlConsumer consumer = new SamlConsumer();           
+		 public void doGet(HttpServletRequest request, HttpServletResponse response) 
+		 { 
+				 requestMessage = consumer.buildRequestMessage();
+				 response.sendRedirect(requestMessage);
+		 }            
+		 public void doPost(HttpServletRequest request, HttpServletResponse response) 
+		 { 
+				 responseMessage = request.getParameter("SAMLResponse").toString();  
+				 result = consumer.processResponseMessage(responseMessage);
+		 }
+	}
 ```
 
 When a web user attempts to access the above servlet, its **doGet()**
@@ -228,13 +228,14 @@ Identity Server:
 
 Likewise the message from the WSO2 Identity Server can be read easily.
 
-[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
-is an implementation of all the details discussed above, which can be
-used to implement SSO enabled web applications.
-[Travelocity](https://github.com/wso2/product-is/tree/5.x.x/modules/samples/sso/sso-agent-sample)
-is a sample SSO enabled web-app, which is implemented based on
-[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
-.
+!!! info 
+	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
+	is an implementation of all the details discussed above, which can be
+	used to implement SSO enabled web applications.
+	[Travelocity](https://github.com/wso2/product-is/tree/5.x.x/modules/samples/sso/sso-agent-sample)
+	is a sample SSO enabled web-app, which is implemented based on
+	[Identity-agent-sso](https://github.com/wso2-extensions/identity-agent-sso/)
+	.
 
 #### Relay state
 
@@ -263,9 +264,7 @@ foo.com)
 <https://localhost:9443/samlsso?spEntityID=foo.com>
 
 !!! note
-    
-    **Note:** To make this work, IdP initiated SSO should be enabled in your
-    IdP.
+    To make this work, IdP initiated SSO should be enabled in your IdP.
     
 
 This request will authenticate and redirect the user to the registered
@@ -277,18 +276,17 @@ parameter as follows.
 This request will authenticate and redirect the user to the URL in the
 RelayState parameter itself.
 
-Either you could have SP Initiated SSO only, or SP Initiated SSO and IdP
-Initiated SSO. You can't have IdP initiated SSO only. By design, SP
-Initiated SSO is more restrictive and secure. If a service provider is
-allowed to do IdP Initiated SSO, it would automatically imply that this
-service provider is allowed to do SP initiated SSO as well.
+!!! info 
+	Either you could have SP Initiated SSO only, or SP Initiated SSO and IdP
+	Initiated SSO. You can't have IdP initiated SSO only. By design, SP
+	Initiated SSO is more restrictive and secure. If a service provider is
+	allowed to do IdP Initiated SSO, it would automatically imply that this
+	service provider is allowed to do SP initiated SSO as well.
 
-**Related Topics**
-
--   See [Configuring SAML2 Web
-    Single-Sign-On](_Configuring_SAML2_Web_Single-Sign-On_) to configure
-    SAML2 Web Single-Sign-On in WSO2 Identity Server.
--   See [Configuring SAML2 Single-Sign-On Across Different WSO2
-    Products](_Configuring_SAML2_Single-Sign-On_Across_Different_WSO2_Products_)
-    to set up single sign on between different WSO2 products using
-    SAML2.
+!!! info "Related Topics"
+	-   See [Configuring SAML2 Web Single-Sign-On](../../tutorials/configuring-saml2-web-single-sign-On) to configure
+		SAML2 Web Single-Sign-On in WSO2 Identity Server.
+	-   See [Configuring SAML2 Single-Sign-On Across Different WSO2
+		Products](../../tutorials/configuring-saml2-single-sign-on-across-different-wso2-products)
+		to set up single sign on between different WSO2 products using
+		SAML2.

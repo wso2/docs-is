@@ -467,7 +467,7 @@ the Carbon runtime.
         documentation](http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html)
         for more information.
     -   See [Configuring WS-Trust Security Token
-        Service](https://docs.wso2.com/display/IS570/Configuring+WS-Trust+Security+Token+Service)
+        Service](../../tutorials/configuring-ws-trust-security-token-service)
         to configure WS-Trust in WSO2 Identity Server.
 
   
