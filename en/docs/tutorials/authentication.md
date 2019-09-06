@@ -39,7 +39,7 @@ authentication using WSO2 Identity Server.
 -   [Testing OIDC Encrypted ID Token with
     IS](_Testing_OIDC_Encrypted_ID_Token_with_IS_)
 -   [Passing OIDC Authentication Request Parameters in a Request
-    Object](_Passing_OIDC_Authentication_Request_Parameters_in_a_Request_Object_)
+    Object](../../tutorials/passing-oidc-authentication-request-parameters-in-a-request-object)
 -   [Enforcing Signature Validation for Request
     Objects](_Enforcing_Signature_Validation_for_Request_Objects_)
 

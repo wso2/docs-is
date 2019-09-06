@@ -8,18 +8,8 @@ endpoint, see the [OpenID Connect Discovery
 specification](http://openid.net/specs/openid-connect-discovery-1_0.html)
 .
 
-Let's take a look at the endpoints used in WSO2 Identity Server (WSO2
-IS):  
 
--   [The endpoint URL for the super
-    tenant](#JSONWebKeySetEndpoint-TheendpointURLforthesupertenant)
--   [The endpoint URL for
-    tenants](#JSONWebKeySetEndpoint-TheendpointURLfortenants)
-
-!!! tip
-    
-    Before you begin!
-    
+!!! tip "Before you begin!"
     Start WSO2 IS before you try out the endpoints.
     
 

@@ -6,9 +6,9 @@ authentication.
 Specifying any of the following `         response_type        ` values
 in an authorization request selects the hybrid flow for authentication:
 
--   [code token](#OpenIDConnectHybridFlow-codetoken)
--   [code id\_token](#OpenIDConnectHybridFlow-codeid_token)
--   [code id\_token token](#OpenIDConnectHybridFlow-codeid_tokentoken)
+-   [code token](#code-token)
+-   [code id\_token](#code-id_token)
+-   [code id\_token token](#code-id_token-token)
 
 To configure WSO2 Identity Server to support the OpenID Connect hybrid
 flow for authentication, you need to edit the
@@ -18,18 +18,18 @@ and add the following entries under
 
 ``` java
 <!-- Supported Response Types for Hybrid flow -->
-            <SupportedResponseType>
-                <ResponseTypeName>code token</ResponseTypeName>
-                <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-            </SupportedResponseType>
-            <SupportedResponseType>
-                <ResponseTypeName>code id_token</ResponseTypeName>
-                <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-            </SupportedResponseType>
-            <SupportedResponseType>
-                <ResponseTypeName>code id_token token</ResponseTypeName>
-                <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-            </SupportedResponseType>
+    <SupportedResponseType>
+        <ResponseTypeName>code token</ResponseTypeName>
+        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
+    </SupportedResponseType>
+    <SupportedResponseType>
+        <ResponseTypeName>code id_token</ResponseTypeName>
+        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
+    </SupportedResponseType>
+    <SupportedResponseType>
+        <ResponseTypeName>code id_token token</ResponseTypeName>
+        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
+    </SupportedResponseType>
 ```
 
 To understand how the `         response_type        ` value specified
@@ -37,7 +37,7 @@ in an authorization request selects the hybrid flow to be the
 authentication flow, let's take a look at the following
 `         response_type        ` values in detail .
 
-### `         code        ` `         token        `
+### code token
 
 This `         response_type        ` requests a code and an access
 token from the authorization endpoint.  
@@ -58,7 +58,7 @@ http://localhost:8080/playground2/oauth2client#access_token=1940a308-d492-3660-a
 
 You can send the code to the token endpoint to request for an access
 token, refresh token and id\_token.
-
+<a name="curl"></a>
 Following is the curl command to request tokens from the token endpoint:
 
 ``` java
@@ -92,7 +92,7 @@ There can be instances where you get two access tokens. One from the
 authorization endpoint and the other from the token endpoint. These two
 access tokens may or may not be same.
 
-### `         code id_token        `
+### code id_token 
 
 This `         response_type        ` requests a code and an id\_token
 from the authorization endpoint.
@@ -131,9 +131,6 @@ When you decrypt the `         id_token        ` it will be as follows:
 ```
 
 !!! tip
-    
-    Tip
-    
     Here, the id\_token is required to have a c\_hash value.
     
     c\_hash is the base64url encoding of the left-most half of a hash of the
@@ -149,7 +146,7 @@ When you decrypt the `         id_token        ` it will be as follows:
     You can send the code to the token endpoint to request for an access
     token, refresh token and id\_token. For this you can use the same curl
     command provided for the code token specified
-    [above](#OpenIDConnectHybridFlow-curl).
+    [above](#curl).
     
 
 Following is the response that you will receive from token endpoint:
@@ -174,7 +171,7 @@ When you decrypt the `         id_token        ` it will be as follows:
  “iat”: 1510832267
 }
 ```
-
+<a name="validations"></a>
 In case there are two id\_tokens issued, where one id\_token is from
 authorization endpoint and other is from token endpoint, be sure to
 perform the following validations based on the OpenID Connect
@@ -233,7 +230,7 @@ When you decrypt the `         id_token        ` it will be as follows:
 You can send the code to the token endpoint to request for an access
 token, refresh token and id\_token. You can use the same curl command
 provided for the code token specified
-[above](#OpenIDConnectHybridFlow-curl).
+[above](#curl).
 
 Following is the response that you will receive from token endpoint:
 
@@ -244,5 +241,5 @@ Following is the response that you will receive from token endpoint:
 In case there are two id\_tokens issued, where one id\_token is from
 authorization endpoint and other is from token endpoint, be sure to
 perform the validations mentioned
-[above](#OpenIDConnectHybridFlow-validations), which are based on the
+[above](#validations), which are based on the
 OpenID Connect specification:

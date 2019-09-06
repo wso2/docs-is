@@ -7,9 +7,6 @@ party (RP) sends an OpenID Connect (OIDC) logout request.
 Follow the steps below to send an OIDC logout request:
 
 !!! tip
-    
-    Tip
-    
     An OIDC logout request is generally a GET request (i.e., you construct a
     URL with the necessary parameters and perform a redirection).
     
@@ -22,7 +19,7 @@ Follow the steps below to send an OIDC logout request:
     
     To understand how you can send an OIDC logout request as a POST request,
     see [Sending a POST request as the OIDC logout
-    request](#OpenIDConnectLogoutURLRedirection-post).
+    request](#sending-a-post-request-as-the-oidc-logout-request).
     
 
 1.  Download and install WSO2 Identity Server. For detailed information
@@ -82,8 +79,6 @@ Follow the steps below to send an OIDC logout request:
     ``` java
         https://localhost:9443/oidc/logout?id_token_hint=<id_token>&post_logout_redirect_uri=<redirect URI>&state=<state>
     ```
-
-      
       
     Following are the parameters you need to specify in the URL:
 
@@ -110,8 +105,10 @@ Follow the steps below to send an OIDC logout request:
     <td><code>               post_logout_redirect_uri              </code></td>
     <td><div class="content-wrapper">
     <p>The URL to be redirected to when logging out. The value defined here should be the same as the <code>                 callbackURI                </code> of the client application.</p>
-    !!! note
-        <p>If you do not specify a value for the <code>                 post_logout_redirect_uri                </code> parameter, users are redirected to the default logout success page of WSO2 Identity Server .</p>
+    <div class="admonition note">
+	<p class="admonition-title">Note</p>
+    <p>If you do not specify a value for the <code>                 post_logout_redirect_uri                </code> parameter, users are redirected to the default logout success page of WSO2 Identity Server.</p>
+    </div>
     </div></td>
     <td>Yes</td>
     </tr>
