@@ -468,39 +468,40 @@ Datasources](../../admin-guide/managing-datasources)
     The RDBMS that is used for storing authorization information is
     configured in the ` <PRODUCT_HOME>/repository/conf/deployment.toml           ` file as shown below.
     The following example refers to the default WSO2CarbonDB datasource.
-    ``` xml
-        [realm_manager]
-        data_source = "jdbc/WSO2CarbonDB"
+    ``` toml
+    [realm_manager]
+    data_source = "jdbc/WSO2CarbonDB"
     ```
     
     Configuring user store manager no need to set the connection detail.
     See the following sample configuration.
 
     ??? note "sample property JDBC with datasource"
-        ``` xml
-            [user_store]
-            class = "org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager"
-            read_only  =  false
-            read_groups  =  true
-            write_groups  =  true
-            username_java_regex  =  "^[\S]{3,30}$"
-            username_javascript_regex  =  "^[\S]{3,30}$"
-            username_java_regex_violation_error_msg  =  "Username pattern policy violated"
-            password_java_regex  =  "^[\S]{5,30}$"
-            password_javascript_regex  =  "^[\S]{5,30}$"
-            password_java_regex_violation_error_msg  =  "Password length should be within 5 to 30 characters"
-            rolename_java_regex  =  "^[\S]{3,30}$"
-            rolename_javascript_regex  =  "^[\S]{3,30}$"
-            case_insensitive_username  =  true
-            scim_enabled  =  false
-            is_bulk_import_supported  =  true
-            password_digest  =  "SHA-256"
-            store_salted_password  =  true
-            multi_attribute_separator  = ","
-            max_user_name_list_length  =  100
-            max_role_name_list_length  =  100
-            user_roles_cache_enabled  =  true
-            user_name_unique_across_tenants  =  false
+        ``` toml
+        [user_store]
+        type = "database"
+        [user_store.properties]
+        read_only = false
+        read_groups = true
+        write_groups = true
+        case_insensitive_username = true
+        username_java_regex = "^[\\S]{3,30}$"
+        username_javascript_regex = "^[\\S]{3,30}$"
+        username_java_regex_violation_error_msg = "Username pattern policy violated"
+        password_java_regex = "^[\\S]{5,30}$"
+        password_javascript_regex = "^[\\S]{5,30}$"
+        password_java_regex_violation_error_msg = "Password length should be within 5 to 30 characters"
+        scim_enabled=false
+        rolename_java_regex = "^[\\S]{3,30}$"
+        rolename_javascript_regex = "^[\\S]{3,30}$"
+        is_bulk_import_supported = true
+        password_digest = "SHA-256"
+        store_salted_password = true
+        multi_attribute_separator = ","
+        max_user_name_list_length = "100"
+        max_role_name_list_length = "100"
+        user_roles_cache_enabled = true
+        user_name_unique_across_tenants = false
         ```   
 
     If you are using the same RDBMS as the user store in your system,
