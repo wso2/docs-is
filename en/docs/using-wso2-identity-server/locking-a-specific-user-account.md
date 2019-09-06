@@ -192,34 +192,22 @@ you can also configure the WSO2 IS to email to the user's email address
 when the user account is locked. To configure this, follow the steps
 below.
 
-1.  Open the `           output-event-adapters.xml          ` file found
-    in the `           <IS_HOME>/repository/conf          ` directory.
-2.  Configure the relevant property values for the email server under
-    the `            <adapterConfig type="email">           ` tag .
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
-    ``` xml
-        <adapterConfig type="email">
-            <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-            based authentication rather username/password authentication -->
-            <property key="mail.smtp.from">abcd@gmail.com</property>
-            <property key="mail.smtp.user">abcd</property>
-            <property key="mail.smtp.password">xxxx</property>
-            <property key="mail.smtp.host">smtp.gmail.com</property>
-            <property key="mail.smtp.port">587</property>
-            <property key="mail.smtp.starttls.enable">true</property>
-            <property key="mail.smtp.auth">true</property>
-            <!-- Thread Pool Related Properties -->
-            <property key="minThread">8</property>
-            <property key="maxThread">100</property>
-            <property key="keepAliveTimeInMillis">20000</property>
-            <property key="jobQueueSize">10000</property>
-        </adapterConfig>
+    ``` toml
+   [output_adapter.email]
+   from_address= "wso2iamtest@gmail.com"
+   username= "wso2iamtest"
+   password= "Wso2@iam70"
+   hostname= smtp.gmail.com
+   port= 587
+   enable_start_tls= true
+   enable_authentication= true
     ```
 
-3.  Restart the Server.
+3.  Restart the server.
 
     !!! tip
-    
         The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
