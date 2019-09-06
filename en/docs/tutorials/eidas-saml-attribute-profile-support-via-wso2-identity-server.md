@@ -1,7 +1,7 @@
 # eIDAS SAML Attribute Profile Support via WSO2 Identity Server
 
 [eIDAS (electronic IDentification, Authentication and trust
-Services)](_Electronic_Identification_Authentication_and_Trust_Services_Regulation_)
+Services)](../../compliance/electronic-identification-authentication-and-trust-services-regulation)
 is an EU regulation on electronic identification and trust services for
 electronic transactions in the internal market.
 
@@ -13,18 +13,6 @@ The following sections walk you through the steps you need to follow to
 integrate an eIDAS node with WSO2 Identity Server, and configure WSO2
 Identity Server to support the eIDAS SAML attribute profile:
 
--   [Integrating WSO2 Identity Server with an eIDAS
-    node](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-IntegratingWSO2IdentityServerwithaneIDASnode)
--   [Adding certificate for assertion
-    encryption](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-assertionEncryptionAddingcertificateforassertionencryption)
--   [Obtaining certificate for signature validation of apllication
-    requests](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-Obtainingcertificateforsignaturevalidationofapllicationrequests)
--   [Adding certificate for signing SAML
-    assertions/responses](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-AddingcertificateforsigningSAMLassertions/responses)
--   [Configuring a sample eIDAS application in WSO2
-    IS](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-ConfiguringasampleeIDASapplicationinWSO2IS)
--   [Testing eIDAS profile
-    support](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-TestingeIDASprofilesupport)
 
 ### Integrating WSO2 Identity Server with an eIDAS node
 
@@ -65,7 +53,7 @@ proxy service using the private key.
         file:
 
         ``` java
-                keytool -import -trustcacerts -alias eidasCrt -file eidasCrt.crt -keystore wso2carbon.jks
+            keytool -import -trustcacerts -alias eidasCrt -file eidasCrt.crt -keystore wso2carbon.jks
         ```
 
     -   If the service provider is configured in a tenant, follow the
@@ -80,12 +68,11 @@ proxy service using the private key.
             import the certificate to it.
 
         !!! note
-        
-                In the eIDAS node, the certificate required to decrypt the
-                assertion is obtained from the SAML response.
+            In the eIDAS node, the certificate required to decrypt the
+            assertion is obtained from the SAML response.
         
 
-### Obtaining certificate for signature validation of apllication requests
+### Obtaining certificate for signature validation of application requests
 
 SAML authentication request from the eIDAS node are signed using the
 private key of the eIDAS proxy service. To validate the signature of
@@ -93,7 +80,7 @@ SAML authentication requests, you need to use the public certificate of
 the eIDAS proxy service.
 
 Therefore, as mentioned in the [Adding the certificate for assertion
-encryption](#eIDASSAMLAttributeProfileSupportviaWSO2IdentityServer-assertionEncryption)
+encryption](#adding-certificate-for-assertion-encryption)
 section, you need to import the certificate of the eIDAS proxy service
 to the primary keystore or tenant keystore of WSO2 IS.
 
@@ -171,7 +158,7 @@ keystore.
     The SAML metadata URL is extracted from the issuer of the SAML
     response. You can change the WSO2 IS issuer value from management
     console as follows:  
-    ![](attachments/103331110/103331118.png) 
+    ![is-issuer-value](../../assets/img/tutorials/is-issuer-value.png) 
 
     -   If the service provider is configured in the super tenant,
         specify the **Identity Provider Entity Id** as follows:
@@ -209,78 +196,75 @@ Follow the steps below to configure the sample application:
     `                       http://eidas.europa.eu/attributes/legalperson                     `
     as service provider claim dialects.
 
-    ![](attachments/103331110/103331117.png) 
+    ![configuring-sample-eidas-app](../../assets/img/tutorials/configuring-sample-eidas-app.png) 
 
       
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
-    here for information on claims for eIDAS natural person and legal
-    person attributes
+    ??? note "Click here for information on claims for eIDAS natural person and legal person attributes"
 
-    WSO2 Identity Server supports the
-    `             http://eidas.europa.eu/attributes/naturalperson            `
-    and
-    `             http://eidas.europa.eu/attributes/legalperson            `
-    claim dialects by default for natural and legal person attributes:
+        WSO2 Identity Server supports the
+        `             http://eidas.europa.eu/attributes/naturalperson            `
+        and
+        `             http://eidas.europa.eu/attributes/legalperson            `
+        claim dialects by default for natural and legal person attributes:
 
-    Following are the supported natural person mandatory attributes:
+        Following are the supported natural person mandatory attributes:
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/PersonIdentifier              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentFamilyName              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentGivenName              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/DateOfBirth              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/DateOfBirth              `
 
-    Following are the supported natural person optional attributes:
+        Following are the supported natural person optional attributes:
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/BirthName              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/BirthName              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/PlaceOfBirth              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/PlaceOfBirth              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentAddress              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/CurrentAddress              `
 
-    -   `               http://eidas.europa.eu/attributes/naturalperson/Gender              `
+        -   `               http://eidas.europa.eu/attributes/naturalperson/Gender              `
 
-    Following are the supported legal person mandatory attributes:
+        Following are the supported legal person mandatory attributes:
 
-    -   `               http://eidas.europa.eu/attributes/legalperson/LegalPersonIdentifier              `
+        -   `               http://eidas.europa.eu/attributes/legalperson/LegalPersonIdentifier              `
 
-    -   `               http://eidas.europa.eu/attributes/legalperson/LegalName              `
+        -   `               http://eidas.europa.eu/attributes/legalperson/LegalName              `
 
-    Following are the supported legal person optional attributes:
+        Following are the supported legal person optional attributes:
 
-    -   `               http://eidas.europa.eu/attributes/legalperson/LegalPersonAddress              `
+        -   `               http://eidas.europa.eu/attributes/legalperson/LegalPersonAddress              `
 
-    -   `               http://eidas.europa.eu/attributes/legalperson/VATRegistrationNumber              `
+        -   `               http://eidas.europa.eu/attributes/legalperson/VATRegistrationNumber              `
 
-    -   `               http://eidas.europa.eu/attributes/legalperson/TaxReference              `
+        -   `               http://eidas.europa.eu/attributes/legalperson/TaxReference              `
 
-    All the claims that are provided by default are mapped with wso2
-    claims. If necessary you can also create new wso2 claims to map any
-    of the above claims.
+        All the claims that are provided by default are mapped with wso2
+        claims. If necessary you can also create new wso2 claims to map any
+        of the above claims.
 
-    Note
+        !!! note
+            Based on the eIDAS specification, the date of birth should be a date
+            in the following format:
 
-    Based on the eIDAS specification, the date of birth should be a date
-    in the following format:
+            ``` java
+                YYYY + “-“ + MM + “-“ + DD
+            ```
 
-    ``` java
-        YYYY + “-“ + MM + “-“ + DD
-    ```
+            Therefore, in order to restrict including values in other formats,
+            you need to add the following regex pattern for the mapped WSO2
+            claim of
+            `                             http://eidas.europa.eu/attributes/naturalperson/DateOfBirth                           `
+            .
 
-    Therefore, in order to restrict including values in other formats,
-    you need to add the following regex pattern for the mapped WSO2
-    claim of
-    `                             http://eidas.europa.eu/attributes/naturalperson/DateOfBirth                           `
-    .
+            ![update-eidas-claim](../../assets/img/tutorials/update-eidas-claim.png) 
 
-    ![](attachments/103331110/103331119.png) 
-
-    If you want wso2 claims that are mapped with the eIDAS claims to
-    display in the user profile claims, be sure to select **Supported by
-    Default** when you update the local claim.
+            If you want wso2 claims that are mapped with the eIDAS claims to
+            display in the user profile claims, be sure to select **Supported by
+            Default** when you update the local claim.
 
 5.  Expand **Inbound Authentication Configuration**, then expand
     **SAML2 Web SSO Configuration**, and click **Configure**.
@@ -296,7 +280,7 @@ Follow the steps below to configure the sample application:
     4.  Configure the **Response Signing Algorithm**, **Response Digest
         Algorithm**, **Assertion Encryption Algorithm**, and **Key
         Encryption Algorithm** as in the diagram below:  
-        ![](attachments/103331110/103331111.png) 
+        ![assertion-encryption-algorithm](../../assets/img/tutorials/assertion-encryption-algorithm.png) 
     5.  Select the following:  
         -   **Enable Response Signing**
         -   **Enable Signature Validation inAuthentication Requests and
@@ -313,7 +297,7 @@ citizen MS is also CA
 -   First, let's request natural person mandatory attributes. Assume
     that the corresponding user has all the user attributes that are
     requested.  
-    ![](attachments/103331110/103331125.png)   
+    ![request-mandatory-attributes](../../assets/img/tutorials/request-mandatory-attributes.png)   
     Follow the steps below to create a new user via the management
     consoleof WSO2 IS, and send the request via the sample service
     provider:  
@@ -324,44 +308,42 @@ citizen MS is also CA
     3.  Click **Add New User**, and  create a new user with all the
         natural person user attributes.
     4.  Use the sample service provider to send the request.  
-        ![](attachments/103331110/103331116.png)   
+        ![new-user-with-attributes](../../assets/img/tutorials/new-user-with-attributes.png)   
         When the signed SAML request is sent, you are redirected WSO2 IS
         for authentication.  
-        ![](attachments/103331110/103331124.png) 
+        ![redirected-for-authentication](../../assets/img/tutorials/redirected-for-authentication.png) 
     5.  Specify values for the **Username** and **Password**, and then
         click **SIGN IN**.
     6.  On successful authentication, you are asked to provide consent
         for the requested attributes. You need to provide consent, to
         continue.  
-        ![](attachments/103331110/103331123.png) 
+        ![consent-required](../../assets/img/tutorials/consent-required.png) 
     7.  Select the required attributes and click **Approve** to provide
         consent. You will see that the SAML response is sent to the
         eIDAS proxy service with the user attributes (i.e., the signed
         SAML response and encrypted assertion)  
-        ![](attachments/103331110/103331122.png)   
-        ![](attachments/103331110/103331121.png)   
-        ![](attachments/103331110/103331120.png) 
-
-      
+        ![demo-sp1](../../assets/img/tutorials/demo-sp1.png)   
+        ![demo-sp2](../../assets/img/tutorials/demo-sp2.png)   
+        ![demo-sp3](../../assets/img/tutorials/demo-sp3.png) 
       
 -   Now let's request legal person mandatory attributes for the same
     user.  
       
-    ![](attachments/103331110/103331115.png)   
+    ![request-legal-person-attributes](../../assets/img/tutorials/request-legal-person-attributes.png)   
     Here, you will see that you are asked to provide consent for the
     legal person attributes for which you have not provided consent
     before.  
-    ![](attachments/103331110/103331114.png)   
+    ![legal-person-attribute-consent](../../assets/img/tutorials/legal-person-attribute-consent.png)   
     Once you provide consent and approve, you will see that the SAML
     response is sent to the eIDAS proxy service with the user
     attributes.  
-    ![](attachments/103331110/103331126.png)   
+    ![eidas-proxy-service](../../assets/img/tutorials/eidas-proxy-service.png)   
       
       
 -   Next, let's request mandatory attributes where there are no values
     assigned to the claims so that you can see how an error response is
     sent from WSO2 IS.  
-    ![](attachments/103331110/103331113.png)   
-    ![](attachments/103331110/103331112.png) 
+    ![request-no-value-attributes](../../assets/img/tutorials/request-no-value-attributes.png)   
+    ![no-value-error-response](../../assets/img/tutorials/no-value-error-response.png) 
 
   
