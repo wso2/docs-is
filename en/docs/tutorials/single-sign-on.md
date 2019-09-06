@@ -1,166 +1,73 @@
-# Self-contained Access Tokens
+# Single Sign On
 
-Access tokens are credentials used to access protected resources.
-Typically, an access token is a string representing an authorization
-issued to the client. The string is usually opaque to the client.
+Single sign-on (SSO) is one of the key features of WSO2 Identity Server that enables users to provide their credentials once and obtain access to multiple applications. The users are not prompted for their credentials when accessing each application until their session is terminated. Additionally, the user can access all these applications without having to log into each and every one of them individually. So, if users log into application A, for example, they would automatically have access to application B as well for the duration of that session without having to re-enter their credentials.
 
-The [OAuth 2.0](https://tools.ietf.org/html/rfc6749) specification does
-not mandate any particular implementation for access tokens but it
-[mentions](https://tools.ietf.org/html/rfc6749#section-1.4) two possible
-strategies.
+WSO2 Identity Server can act as the identity provider of a single sign-on system with minimal configurations. This topic briefly introduces single-sign-on and how to configure the WSO2 Identity Server with different inbound authenticators by [Configuring a Service Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) to achieve this. 
 
-1.  The access token is an identifier that is hard to guess. For
-    example, a randomly generated string of sufficient length, that the
-    server handling the protected resource can use to lookup the
-    associated authorization information.
-2.  The access token self-contains the authorization information in a
-    manner that can be verified. For example, by encoding authorization
-    information along with a signature into the token.
+!!! note
+    For a tutorial on how to configure single sign on with a sample application, see [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on).
 
-So by default, a UUID is issued as an access token in WSO2 Identity
-Server, which is of the first type above. But, it also can be configured
-to issue a self-contained access token, which is of the second type
-above.
+### About SSO
 
-### Why do we need self-contained access tokens?
+Single Sign-On which is known as SSO, is a property of access control for independent software systems which are multiple related. With this property, a user can access to a connected system or systems using one user name and password without using a different user name or password.
 
-When short string identifiers are used as access tokens, a network
-request to the Authorization server is required to retrieve the
-authorization information associated with each access token. But with
-self-contained access tokens there is no need for a network call to
-retrieve the authorization information, as it’s self-contained. Thus,
-access token processing may be significantly quicker and more efficient.
-However, when it comes to token revocation self-contained access tokens
-lag, whereas access tokens with string identifiers can be revoked with
-almost immediate effect. The common practice is to have a short
-expiration time with self-contained access tokens, but that may result
-in more refresh token requests at the Authorization server.
+In a single sign-on system there are two roles; Service Providers and Identity Providers (IP). The important characteristic of a single sign-on system is the pre-defined trust relationship between the service providers and the identity providers. Service providers trust the assertions issued by identity providers which are essentially statements reading the authentication, authorization, and attributes related to the principal. Identity providers issue assertions based on the results of authentication and authorization of principles which access services on the service provider's side.
 
-### Configuring WSO2 Identity Server to issue self-contained access tokens
+The following are some of the advantages you can have with SSO:
 
-WSO2 Identity Server needs to be configured to issue above explained
-self-contained JWT access tokens as below.
+-   Users need only a single username/password pair to access multiple services. Thus they do not have the issue of remembering multiple             username/password pairs.
 
-1.  Add the following configuration property to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder.
-    ``` toml
-    [oauth.token_generation]
-    access_token_type= "self_contained"
-    ```
+-   Users are authenticated only once at the identity provider and then they are automatically logged into all services within that                  "trust-domain". This process is more convenient to users since they do not have to provide their username/password at every service provider.
 
-2.  Restart the server.
-3.  Configure an [OAuth service
-    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
-4.  Initiate an access token request to the WSO2 Identity Server, over a
-    known [grant type](../../using-wso2-identity-server/oauth-2.0-grant-types). For example, the
-    following cURL command illustrates the syntax of an access token
-    request that can be initiated over the [Resource Owner Password
-    Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant type.
+-   Service providers do not have the overhead of managing user identities, which is more convenient for them.
 
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td>cURL command</td>
-    <td><div class="content-wrapper">
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-    <strong>Request</strong>
-    </div>
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: powershell; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: powershell; gutter: false; theme: Confluence"><pre class="sourceCode powershell"><code class="sourceCode powershell"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">curl</span> -u &lt;CLIENT_ID&gt;:&lt;CLIENT_SECRET&gt; -k -d <span class="st">&quot;grant_type=password&amp;username=&lt;USERNAME&gt;&amp;password=&lt;PASSWORD&gt;&quot;</span> -H <span class="st">&quot;Content-Type:application/x-www-form-urlencoded&quot;</span> https://&lt;IS_HOST&gt;:&lt;IS_HTTPS_PORT&gt;/oauth2/token</a></code></pre></div>
-    </div>
-    </div>
-    <ul>
-    <li>Navigate to your service provider, expand Inbound Authenitcaion Configurations and expand OAuth/OpenID Connect Configuration.
-    <ul>
-    <li>Copy the OAuth Client Key as the value for <code>                    &lt;CLIENT_ID&gt;                   </code> .</li>
-    <li>Copy the OAuth Client Secret as the value for <code>                    &lt;CLIENT_SECRET&gt;                   </code> .</li>
-    </ul></li>
-    <li>Enter the username and password of the user you want to get the token as the value for <code>                  &lt;USERNAME&gt;                 </code> and <code>                  &lt;PASSWORD&gt;                 </code> respectively.</li>
-    <li>By default, <code>                  &lt;IS_HOST&gt;                 </code> is <code>                  localhost.                 </code> However, if you are using a public IP, the respective IP address or domain needs to be specified.</li>
-    <li>By default, <code>                  &lt;IS_HTTPS_PORT&gt;                 </code> has been set to 9443. However, if the port offset has been incremented by <code>                  n                 </code>, the default port value needs to be incremented by <code>                  n                 </code> .</li>
-    </ul>
-    <p>Example:</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -u liXJsel4bJ76arbg3DXC3rU4w60a:wQEYq83njU29ZFbpQWdZsUlXcnga -k -d <span class="st">&quot;grant_type=password&amp;username=testuser2&amp;password=testuser2 -H &quot;</span>Content-<span class="bu">Type</span>:application/x-www-form-urlencoded<span class="st">&quot; https://localhost:9443/oauth2/token</span></a></code></pre></div>
-    </div>
-    </div>
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td>Response</td>
-    <td><div class="content-wrapper">
-    <p>In response, the self-contained JWT access token will be returned as shown below.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-    <strong>Response</strong>
-    </div>
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{  </a>
-    <a class="sourceLine" id="cb3-2" title="2"><span class="st">&quot;access_token&quot;</span>:<span class="st">&quot;eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6WyJkZDlVM1FGd05GMlBRZnZsSHpUY1NTdU5DMndhIl0sImF6cCI6ImRkOVUzUUZ3TkYyUFFmdmxIelRjU1N1TkMyd2EiLCJpc3</span></a>
-    <a class="sourceLine" id="cb3-3" title="3">MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE1MTA4MjQ5MzUsImlhdCI6MTUxMDgyMTMzNSwianRpIjoiNDA1YjRkNGUtODUwMS00ZTFhLWExMzgtZWQ4NDU1Y2QxZDQ3I</a>
-    <a class="sourceLine" id="cb3-4" title="4">n0.<span class="fu">FCk3Wo8DnFEHb02JCd9BWAHQ48BBt3n2YLQV6TpLMpFvTRNCZJAA</span>-aEH4LrE7oVejvGd7YWGDy2Vzb7x-Bpg7yMYxozUerCkMy_F4Iw_xctgEJ3WF_TTJFhISGNoWlFXspM5d9EQvMvk0JxAovhE0HfXv5GCosGy</a>
-    <a class="sourceLine" id="cb3-5" title="5">-0oT7ShQrwZLBIwE9d0ceUcmly42dvDZSsqHDIzPjrFzvpXwbZqq_sRFnh6MHlmmug7t1UCs85caoLhfSweaT0z7ED8P2Tsg_HgmnaaeDapszG6LckeBglqYwbRHy6X6LAcJfAkkwAlqrU0Vu4azsuE8BsLPKMYzu9Ze</a>
-    <a class="sourceLine" id="cb3-6" title="6">CoHdLHYdtz-I0yKQ<span class="st">&quot;,</span></a>
-    <a class="sourceLine" id="cb3-7" title="7">   <span class="st">&quot;refresh_token&quot;</span>:<span class="st">&quot;5974cdcc-865e-3144-82c5-4f147ddcb519&quot;</span>,</a>
-    <a class="sourceLine" id="cb3-8" title="8">   <span class="st">&quot;token_type&quot;</span>:<span class="st">&quot;Bearer&quot;</span>,</a>
-    <a class="sourceLine" id="cb3-9" title="9">   <span class="st">&quot;expires_in&quot;</span>:<span class="dv">589</span></a>
-    <a class="sourceLine" id="cb3-10" title="10">}</a></code></pre></div>
-    </div>
-    </div>
-    <p>The access token you receive is a signed <a href="https://tools.ietf.org/html/rfc7519">JSON Web Token (JWT)</a> . Use a JWT decoder to decode the access token and you are able to see the payload of the token that includes the following JWT claims:</p>
-    <div class="table-wrap">
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Claim Name</th>
-    <th>Type</th>
-    <th>Claim Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>iss</td>
-    <td>string</td>
-    <td>The issuer of the JWT. The ' <em>Identity Provider Entity Id</em> ' value of the OAuth2/OpenID Connect Inbound Authentication configuration of the <a href="_Adding_and_Configuring_an_Identity_Provider_">Resident Identity Provider</a> is returned here.</td>
-    </tr>
-    <tr class="even">
-    <td>aud</td>
-    <td>string array</td>
-    <td>The token audience list. The client identifier of the OAuth clients that the JWT is intended for, is sent herewith.</td>
-    </tr>
-    <tr class="odd">
-    <td>azp</td>
-    <td>string</td>
-    <td>The autorized party for which the token is issued to. The client identifier of the OAuth client that the token is issued for, is sent herewith.</td>
-    </tr>
-    <tr class="even">
-    <td>iat</td>
-    <td>integer</td>
-    <td>The token issue time.</td>
-    </tr>
-    <tr class="odd">
-    <td>exp</td>
-    <td>integer</td>
-    <td>The token expiration time.</td>
-    </tr>
-    <tr class="even">
-    <td>jti</td>
-    <td>string</td>
-    <td>Unique identifier for the JWT token.</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    <div>
-    <p>In addition, a user claims can be obtained by an authorized user over this JWT as per <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">OpenID Connect claim</a> configurations, by <a href="_Configuring_Claims_for_a_Service_Provider_">configuring requested user claims</a> in the OAuth service provider. After configuring the service provider you can run the cURL command given below by providing the required details.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">curl -u &lt;CLIENT_ID&gt;:&lt;CLIENT_SECRET&gt; -k -d <span class="st">&quot;grant_type=password&amp;username=&lt;USERNAME&gt;&amp;password=&lt;PASSWORD&gt;&amp;scope=openid&quot;</span> -H <span class="st">&quot;Content-Type:application/x-www-form-urlencoded&quot;</span> https:<span class="co">//&lt;IS_HOST&gt;:&lt;IS_HTTPS_PORT&gt;/oauth2/token</span></a></code></pre></div>
-    </div>
-    </div>
-    </div>
-    </div></td>
-    </tr>
-    </tbody>
-    </table>
+-   User identities are managed at a central point. This is more secure, less complex and easily manageable.
+
+### SSO in reality
+
+Single Sign-On is widely used in web technologies. Google is one of the best examples.
+
+Try this simple exercise,
+
+1.  Visit [www.google.com](https://www.google.com) from your web browser.
+
+2.  Click on the SIGN IN button on the top right of the page.
+
+3.  Once you sign in, you are redirected to [https://accounts.google.com/ServiceLogin](https://accounts.google.com/ServiceLogin). There you are      requested to enter your Username and Password. Enter your Google credentials there.
+
+4.  Once you enter your Username and Password, you are directed back to [www.google.com](https://www.google.com) where you started.
+
+5.  Next visit [www.gmail.com](https://www.gmail.com), the Google mail server.
+
+6.  Notice that you are automatically signed in and you directly access your Gmail Inbox. You did not have to enter your Username and Password       at Gmail.
+
+7.  In addition to that; now try [www.youtube.com](https://www.youtube.com).
+
+8.  You are automatically signed in. You do not have to enter your username and password at YouTube.
+
+    !!! tip 
+        Note the URL of the web browser. Each time you access an application, you see that you are being redirected to [https://accounts.google.com/ServiceLogin](https://accounts.google.com/ServiceLogin) just before you return to the website.
+
+Single Sign-On (SSO) requires you to sign in only once but provides access to multiple resources without having to re-enter your username and password.
+
+### SSO and Federation
+
+You use SSO on it's own or use SSO and Federation coupled together. Identity Federation involves configuring a third party identity provider as the federated authenticator to login to an application. When federation is coupled with SSO, the user can log in to one application using the credentials of the federated authenticator, and simultaneously be authenticated to other connected applications without having to provide credentials again.
+
+For instance, you can set up google as a federated authenticator and then set up SSO between App1 and App2.  This will allow users to log in to App1 using their google credentials. Once the user is logged in, when the user attempts to access App2, he/she will not be prompted for credentails again and is logged in automatically. 
+
+For more information on Identity Federation on it's own (without SSO), see the [Identity Federation](../../tutorials/identity-federation) topic.
+
+### Configuring SSO
+The following topics discuss the various protocols that can be used to configure Single-Sign-On (SSO).
+
+!!! warning "Removed Feature!"
+    OpenID 2.0 has been removed from the base product in WSO2 Identity Server version 5.3.0 onwards as it is now an obsolete specification and has been superseded by OpenID Connect. Alternatively, we recommend that you use [OpenID Connect](../../tutorials/oauth2-openid-connect) instead. 
+
+!!! info "Related Topics"
+    -   See [Configuring a Service Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for more information on using single sign-on with a service provider. 
+    
+    -   See [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on) for a tutorial on how this works with a sample application.
+    
+    -   See [Tutorial](https://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/) SSO for Microsoft Sharepoint Web Applications with WSO2 Identity Server to configure single sign on for Microsoft Sharepoint web applications with the WSO2 Identity Server.
+
