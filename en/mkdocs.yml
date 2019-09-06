@@ -452,21 +452,21 @@ nav:
         - 'Validating JWT based on JWKS': using-wso2-identity-server/validating-jwt-based-on-jwks.md
         - 'Issuing New Tokens Per Request': using-wso2-identity-server/issuing-new-tokens-per-request.md
       - 'OpenID Connect':
-        - 'OpenID Connect': using-wso2-identity-server/openID-Connect.md
-        - 'OpenID Connect Discovery': using-wso2-identity-server/openID-Connect-Discovery.md
+        - 'OpenID Connect': using-wso2-identity-server/openid-connect.md
+        - 'OpenID Connect Discovery': using-wso2-identity-server/openid-connect-discovery.md
         - 'OpenID Connect Authentication': 
-          - 'OpenID Connect Authentication': using-wso2-identity-server/openID-Connect-Authentication.md
-          - 'OpenID Connect Basic Client Profile': using-wso2-identity-server/openID-Connect-Basic-Client-Profile.md
-          - 'OpenID Connect Implicit Client Profile': using-wso2-identity-server/openID-Connect-Implicit-Client-Profile.md
-          - 'OpenID Connect Hybrid Flow': using-wso2-identity-server/openID-Connect-Hybrid-Flow.md
-        - 'OpenID Connect Dynamic Client Registration': using-wso2-identity-server/openID-Connect-Dynamic-Client-Registration.md
-        - 'Request Object Support': using-wso2-identity-server/request-Object-Support.md
-        - 'Configuring OpenID Connect Authorization Server': using-wso2-identity-server/configuring-OpenID-Connect-Authorization-Server.md
-        - 'IDToken Signature Verification': using-wso2-identity-server/iDToken-Signature-Verification.md
-        - 'JSON Web Key Set Endpoint': using-wso2-identity-server/jSON-Web-Key-Set-Endpoint.md
-        - 'OpenID Connect Logout URL Redirection': using-wso2-identity-server/openID-Connect-Logout-URL-Redirection.md
-        - 'OpenID Connect Scopes and Claims': using-wso2-identity-server/openID-Connect-Scopes-and-Claims.md
-        - 'OpenID Connect Single Logout': using-wso2-identity-server/openID-Connect-Single-Logout.md
+          - 'OpenID Connect Authentication': using-wso2-identity-server/openid-connect-authentication.md
+          - 'OpenID Connect Basic Client Profile': using-wso2-identity-server/openid-connect-basic-client-profile.md
+          - 'OpenID Connect Implicit Client Profile': using-wso2-identity-server/openid-connect-implicit-client-profile.md
+          - 'OpenID Connect Hybrid Flow': using-wso2-identity-server/openid-connect-hybrid-flow.md
+        - 'OpenID Connect Dynamic Client Registration': using-wso2-identity-server/openid-connect-dynamic-client-registration.md
+        - 'Request Object Support': using-wso2-identity-server/request-object-support.md
+        - 'Configuring OpenID Connect Authorization Server': using-wso2-identity-server/configuring-openid-connect-authorization-server.md
+        - 'IDToken Signature Verification': using-wso2-identity-server/idtoken-signature-verification.md
+        - 'JSON Web Key Set Endpoint': using-wso2-identity-server/json-web-key-set-endpoint.md
+        - 'OpenID Connect Logout URL Redirection': using-wso2-identity-server/openid-connect-logout-url-redirection.md
+        - 'OpenID Connect Scopes and Claims': using-wso2-identity-server/openid-connect-scopes-and-claims.md
+        - 'OpenID Connect Single Logout': using-wso2-identity-server/openid-connect-single-logout.md
       - 'Extension Points for OAuth': using-wso2-identity-server/extension-Points-for-OAuth.md
       - 'User Managed Access':
         - 'User Managed Access': using-wso2-identity-server/user-managed-access.md
@@ -896,6 +896,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - markdown_include.include
     
 # Extra
 extra_css:
