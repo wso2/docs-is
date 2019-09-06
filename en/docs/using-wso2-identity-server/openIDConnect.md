@@ -5,9 +5,9 @@ See the following topics for OpenIDConnect related scenarios.
 ------------------------------------------------------------------------
 
 -   [Basic Client Profile with
-    Playground](_Basic_Client_Profile_with_Playground_)
+    Playground](../../using-wso2-identity-server/basic-client-profile-with-playground)
 -   [Implicit Client Profile with
-    Playground](_Implicit_Client_Profile_with_Playground_)
+    Playground](../../using-wso2-identity-server/implicit-client-profile-with-playground)
 -   [Session Management with
     Playground](_Session_Management_with_Playground_)
 -   [Verifying OpenID Connect ID Token
