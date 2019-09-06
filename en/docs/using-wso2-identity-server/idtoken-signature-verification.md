@@ -13,20 +13,20 @@ exact JSON values, do a Base64 decode for
     `           <header>.<body>          `  
 
     **Sample of unsigned ID token**
-
+    ```
     eyJhbGciOiJSUzI1NiJ9 .
     eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0dHBzOlwvXC9jMmlkLmNvbSIsImlhdCI6MTQxNjE1ODU0MX0
-
--   **If the signed ID token contains 3 portions:  
-    ** `           <header>.<body>.<signature>          `
+    ```
+-  **If the signed ID token contains 3 portions:**
+    `           <header>.<body>.<signature>          `
 
     **Sample of signed ID token**
-
+    ```
     eyJhbGciOiJSUzI1NiJ9 .
     eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0dHBzOlwvXC9jMmlkLmNvbSIsImlhdCI6MTQxNjE1ODU0MX0
     .
     iTf0eDBF-6-OlJwBNxCK3nqTUjwC71-KpqXVr21tlIQq4\_ncoPODQxuxfzIEwl3Ko\_Mkt030zJs-d36J4UCxVSU21hlMOscNbuVIgdnyWhVYzh\_-v2SZGfye9GxAhKOWL-\_xoZQCRF9fZ1j3dWleRqIcPBFHVeFseD\_64PNemyg
-
+    ```
 ### Validating the ID token signature
 
 The following code segment is a simple Java program that can be used to

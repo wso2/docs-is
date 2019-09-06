@@ -28,16 +28,12 @@ the location of the OpenID Provider.
     `         oidcdiscovery/.well-known/openid-configuration        ` .
     
     To move the OpenID provider issuer location path to the root
-    `         <issuer>/.well-known/openid-configuration        `, edit the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file,
-    and change the value of `         <OIDCDiscoveryEPUrl>        ` to the
-    issuer URL as shown below.
+    `         <issuer>/.well-known/openid-configuration        `, add the following configuration to the `         <IS_HOME>/repository/conf/deployment.toml        ` file.
     
     ``` java
-    <OIDCDiscoveryEPUrl>${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</OIDCDiscoveryEPUrl>
     [oauth.endpoints]
     oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</"
-```
+    ```
 
 
 ##### Configuring the OpenID Provider Issuer location
@@ -47,20 +43,19 @@ can be configured as the OpenID Provider Issuer location. Follow the
 instructions given below to configure the OpenID Provider Issuer
 location.
 
-1.  Open the `            identity.xm           ` l file found in the
-    `            <IS_HOME>/repository/conf/identity/           ` folder
-    and set the following property to **true**.
+1.  Add the following property to the `            deployment.toml         ` file found in the
+    `            <IS_HOME>/repository/conf/          ` folder.
 
     ``` java
-    <UseEntityIdAsIssuerInOidcDiscovery>true</UseEntityIdasIssuerInOidcDiscovery> 
+    [oauth]
+    use_entityid_as_issuer_in_oidc_discovery= "true"
     ```
 
     !!! warning
-    
         In future releases, the Entity ID will be used as the OpenID
         Provider Issuer location by default and will not need to be enabled
         manually using the property mentioned above. Therefore, the
-        `            <UseEntityIdAsIssuerInOidcDiscovery>           `
+        `            use_entityid_as_issuer_in_oidc_discovery           `
         property will be deprecated in the next release.
     
 
@@ -71,18 +66,17 @@ location.
     expand OAuth2/OpenID Connect Configuration.
 5.  Enter a valid OpenID Provider issuer location as the **Identity
     Provider Entity Id** value.  
-    ![]( ../../assets/img/103329578/112363872.png) 
+    ![idp-entity-id]( ../../assets/img/using-wso2-identity-server/idp-entity-id.png) 
 
     !!! tip
-    
         A valid OpenID Provider Issuer location in WSO2 Identity Server has
         the following format.
     
         **OpenID Provider Issuer URL format**
     
         ``` java
-            <Host>/oauth2/{issuer}
-    ```
+        <Host>/oauth2/{issuer}
+        ```
 
     -   **\<Host\>:** The host number of WSO2 Identity Server (e.g.,
         [https://localhost:9443](https://localhost:9443/) )
@@ -93,11 +87,11 @@ location.
     **Sample OpenID Provider Issuer location**
 
     ``` java
-        https://localhost:9443/oauth2/token
+    https://localhost:9443/oauth2/token
     ```
 
 
-##### Obtaining the OpenID Provider Issuer location
+### Obtaining the OpenID Provider Issuer location
 
 Once the issuer location has been configured as instructed in the
 previous section, you can send a request to the endpoint to obtain the
@@ -140,12 +134,12 @@ for the request.
 
 -   For more information on how to obtain an access token, see [Allowed
     grant types for OAuth2-OpenID
-    Connect](Configuring-OAuth2-OpenID-Connect-Single-Sign-On_103330833.html#ConfiguringOAuth2-OpenIDConnectSingle-Sign-On-grants)
+    Connect](../../tutorials/configuring-oauth2-openid-connect-single-sign-on#configuring-oauth2-openidconnect-single-sign-on-grants)
     .
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating
     and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_).
+    APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
 
 Sample requests and responses are given below:
 
