@@ -12,7 +12,7 @@ for the following situations:
 In such situations, the user has the option of contacting the admin and
 based on the validity of the request, the admin can force a password
 reset for the user account. Once it is initiated, at the point of login,
-the b asic authenticator processes the login request and prompts the
+the basic authenticator processes the login request and prompts the
 corresponding dialogs or error messages based on account status.
 
 The below steps describe how you can configure WSO2 Identity Server
@@ -25,7 +25,7 @@ for forced password reset:
     from_address= "wso2iamtest@gmail.com"
     username= "wso2iamtest"
     password= "Wso2@iam70"
-    hostname= smpt.gmail.com
+    hostname= smtp.gmail.com
     port= 587
     enable_start_tls= true
     enable_authentication= true
@@ -282,7 +282,7 @@ template for this option can be configured in the
 !!! info 
     In order to force a user to change the password after some specific time
     period, please refer " [Configuring Password Policy
-    Authenticator](../../connectors/configuring-password-policy-authenticator)
+    Authenticator](../../connectors/configuring-Password-Policy-Authenticator)
     " documentation.
 
 

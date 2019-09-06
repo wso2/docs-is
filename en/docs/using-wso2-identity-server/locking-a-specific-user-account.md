@@ -199,7 +199,7 @@ below.
    from_address= "wso2iamtest@gmail.com"
    username= "wso2iamtest"
    password= "Wso2@iam70"
-   hostname= smpt.gmail.com
+   hostname= smtp.gmail.com
    port= 587
    enable_start_tls= true
    enable_authentication= true
