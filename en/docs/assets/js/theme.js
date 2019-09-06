@@ -168,7 +168,7 @@ request.onload = function() {
 
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + data.all[data.current].doc);
+              .setAttribute('href', docSetUrl + 'next/');
       }
 
   } else {
