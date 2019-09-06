@@ -17,7 +17,7 @@ To register a new client at the authorization server:
     endpoint URL is discoverable via
     [WebFinger](http://openid.net/specs/openid-connect-discovery-1_0.html)
     . For more information on discovering the client registration
-    endpoint, see [OpenID Connect Discovery](../../using-wso2-identity-server/openid-connectDiscovery_)
+    endpoint, see [OpenID Connect Discovery](../../using-wso2-identity-server/openid-connect-discovery)
     .
 2.  Client sends an HTTP POST message to the client registration
     endpoint with client metadata parameters that the client chooses to
@@ -28,7 +28,6 @@ To register a new client at the authorization server:
     request with the issued client ID.
 
 !!! tip
-    
     To view sample requests and responses, see the [REST API swagger docs on
     OAuth2 Dynamic Client
     Registration](https://docs.wso2.com/display/IS580/apidocs/OAuth2-dynamic-client-registration/)
