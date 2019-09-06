@@ -17,8 +17,6 @@ can be specified to the authorization server either by *value* or by
 
 -   IS-5.5.0 has inbuilt support for passing Request Object by value.
 
-      
-
 **Request Object by Reference** (as ***request\_uri*** parameter )
 
 -   The request\_uri authorization request parameter enables OpenID
@@ -31,7 +29,6 @@ can be specified to the authorization server either by *value* or by
     by Reference. However, an extension point is provided which can be
     extended to provide support for understanding Request Object from
     reference URI specified by request\_uri.
-
       
 
 **Request Object by Value**
@@ -41,8 +38,6 @@ to request some claims other than the default Userinfo and IdToken claim
 set which is associated with the requested scope. Now, let us consider
 the following sample request that contains a JWT as the ***request***
 parameter value.
-
-  
 
 ``` java
 https://localhost:9443/oauth2/authorize?
@@ -174,13 +169,12 @@ The Identity Server will respond to the above sample request as follows:
     break.
 
 !!! note
-    
-    This behavior is common to the id token as well
+    This behavior is common to the id token as well.
     
 
 You can try out the sample listed in [Passing OIDC Authentication
 Request Parameters in a Request
-Object](_Passing_OIDC_Authentication_Request_Parameters_in_a_Request_Object_)
+Object](../../tutorials/passing-oidc-authentication-request-parameters-in-a-request-object)
 page to see how request objects work in IS.
 
 ##### Signature Validation
@@ -214,8 +208,6 @@ then the payload (Cipher Text) of the Request Object is a signed JWT. So
 the server will decrypt the JWE first and then check the payload for
 signature validation.
 
-**  
-**
 
 **Extension Points**  
 All the validations and the request object builder are extensible so
@@ -230,48 +222,35 @@ implementing org.wso2.carbon.identity.openidconnect.RequestObjectBuilder) to
 obtain the Request Object from *request\_uri* parameter and do the
 necessary customizations.  
   
-The following configuration changes should be done in
-`          $IS_HOME/repository/conf/identity/identity.xml         ` when
+The following configurations should be added to the 
+`          $IS_HOME/repository/conf/deployment.toml        ` file when
 writing extension points for this feature.
 
-  
 
-``` java
- <OpenIDConnect>
-  <RequestObjectBuilders>
-     <RequestObjectBuilder>
-        <Type>request_param_value_builder</Type>
-        <ClassName>org.wso2.carbon.identity.openidconnect.RequestParamRequestObjectBuilder</ClassName>
-     </RequestObjectBuilder>
-  </RequestObjectBuilders>
-  <RequestObjectValidator>org.wso2.carbon.identity.openidconnect.RequestObjectValidatorImpl</RequestObjectValidator>
-  </OpenIDConnect>
+``` toml
+[oauth.oidc.request_object_builder.request_param_value_builder]  
+enabled = true
+class = "org.wso2.carbon.identity.openidconnect.RequestParamRequestObjectBuilder"
+[oauth.oidc.extensions.request_object_validator] 
+request_object_validator = "org.wso2.carbon.identity.openidconnect.RequestObjectValidatorImpl"
 ```
 
 If the configuration is not present, the default classes will be
 executed.
 
-  
 
 !!! note
-    
-    Please note that Identity Server 5.5.0 does not have a default
+    Note that WSO2 Identity Server 5.5.0 onwards does not have a default
     implementation for request\_uri parameter.
     
     If you implement a `           CustomRequestObjectBuilder          ` to
     obtain Request Object from request\_uri, you need to register it as a
-    new `           RequestObjectBuilder          `, in
-    `           $IS_HOME/repository/conf/identity/identity.xml.          `
+    new `           RequestObjectBuilder          `, in the
+    `           $IS_HOME/repository/conf/deployment.toml         ` file
     
-    ``` java
-     <OpenIDConnect>
-      <RequestObjectBuilders>
-       ....
-      <RequestObjectBuilder>
-         <Type>request_uri_param_value_builder</Type>
-         <ClassName>xxx.CustomRequestObjectBuilder</ClassName>
-      </RequestObjectBuilder>
-      ...
-      </OpenIDConnect>
+    ``` toml
+    [oauth.oidc.custom_request_object_builder]]        
+    type = "foo"
+    class = "com.example.oauth.CustomRequestBuilder"
     ```
     

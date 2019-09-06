@@ -17,8 +17,8 @@ including the sample requests and responses.
     APIs](_Using_the_Configuration_Management_REST_APIs_)
 -   [Using the SCIM 2.0 REST APIs](../../references/using-the-scim-2.0-rest-apis)
 -   [Using the OpenID Connect Dynamic Client Registration REST
-    APIs](_Using_the../../using-wso2-identity-server/openid-connectDynamic_Client_Registration_REST_APIs_)
+    APIs](_Using_the../../using-wso2-identity-server/openid-connect-dynamic-client-registrationREST_APIs_)
 -   [Using OAuth2 Scopes REST APIs](_Using_OAuth2_Scopes_REST_APIs_)
 -   [Authenticating and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_)
+    APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
 -   [Authentication Data API](_Authentication_Data_API_)
