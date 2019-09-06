@@ -6,7 +6,7 @@ The following topics list out key APIs relevant for Developers.
 
 -   [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services)
 -   [Authenticating and Authorizing REST
-    APIs](_Authenticating_and_Authorizing_REST_APIs_)
+    APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
 
 ##### WSO2 Identity Server APIs
 

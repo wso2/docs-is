@@ -51,31 +51,26 @@ authorization request in order to execute this flow.
 </tbody>
 </table>
 
-!!! note
-    
-    About oidc-scope-config.xml file
-    
-    The `         oidc-scope-config.xml        ` file enables grouping of
+!!! note "About oidc-scope-config.xml file"
+    The `oidc-scope-config.xml` file enables grouping of
     claims that are bound to a scope value in OpenID Connect (OIDC). By
     default, the oidc-scope-config.xml file is located inside
-    `         {IS_Home}/repository/conf/identity        ` directory.
+    `{IS_Home}/repository/conf/identity` directory.
     
     This file can be modified to add custom scopes or claims. When the
     server starts, these configurations are stored in the registry located
-    in `         /oidc/        ` . You can customize claims or scopes from
+    in `/oidc/` . You can customize claims or scopes from
     here as well. The returned clams from id token or user info endpoint
     will be decided based on both the requested scopes and requested claims.
     
     When requesting for an OIDC token, you can specify a scope value that is
-    bound to a set of claims in the `         oidc-scope-config.xml        `
+    bound to a set of claims in the `oidc-scope-config.xml`
     file. When sending that OIDC token to the userinfo endpoint, only the
     claims that are common to both the oidc-scope-config.xml and the service
     provider claim configuration, will be returned.
     
-
-**Related Topics**
-
--   See the [Basic Client Profile with
-    Playground](_Basic_Client_Profile_with_Playground_) topic to try out
+!!! info "Related Topics"
+    See the [Basic Client Profile with
+    Playground](../../using-wso2-identity-server/basic-client-profile-with-playground) topic to try out
     this flow with the playground sample for OAuth in WSO2 Identity
     Server.

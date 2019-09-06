@@ -19,14 +19,11 @@ The following parameters are mandatory and have to be included in the
 authorization request in order to execute this flow.
 
 !!! note
-    
-    **Note:** The following parameters have a different usage in the
+    The following parameters have a different usage in the
     implicit flow vs its usage in the authorization code flow.
-    
     -   response\_type
     -   redirect\_uri/callback\_uri
-    -   nonce
-    
+    -   nonce 
 
 <table>
 <thead>
@@ -69,15 +66,11 @@ Description
 </tbody>
 </table>
 
-for details about oidc-scope-config.xml file, see excerpt below:
+For details about oidc-scope-config.xml file, see excerpt below:
+{! ../../using-wso2-identity-server/openid-connect-basic-client-profile.md !}
 
-**OpenID Connect Basic Client Profile**
-
-  
-
-**Related Topics**
-
--   See the [Implicit Client Profile with
-    Playground](_Implicit_Client_Profile_with_Playground_) topic to try
+!!! info "Related Topics"
+    See the [Implicit Client Profile with
+    Playground](../../using-wso2-identity-server/implicit-client-profile-with-playground) topic to try
     out this flow with the playground sample for OAuth in WSO2 Identity
     Server.
