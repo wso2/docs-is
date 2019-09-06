@@ -256,8 +256,8 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>A user of the service provider (SP) attempts to log into the SPs application. The service provider sends an authentication request to the Identity Server. This request is met by the Inbound Authentication component of the Identity Server and comes in one of the following forms.</p>
 <ul>
-<li><a href="../../tutorials/saml-2.0-web-SSO">SAML</a> SSO</li>
-<li><a href="/tutorials/oauth2-openid-connect-overview">OAuth/OpenID Connect</a></li>
+<li><a href="/tutorials/saml-2.0-web-SSO">SAML</a> SSO</li>
+<li><a href="/tutorials/oauth2-openid-connect">OAuth/OpenID Connect</a></li>
 <li>Passive STS</li>
 </ul>
 <p>The service provider receives the authentication confirmation from the Identity Server once it follows all the specified processes required in order to authenticate the SP's user.</p>
@@ -279,7 +279,7 @@ above figure and video.
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For information on how to configure inbound authentication, see <a href="../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider/">Configuring Inbound Authentication for a Service Provider</a> .</p>
+<p>For information on how to configure inbound authentication, see <a href="/using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider/">Configuring Inbound Authentication for a Service Provider</a> .</p>
 </div>
 </div>
 </div></td>
@@ -304,9 +304,9 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For information on mapping local claims and service provider claims, see <a href="../../using-wso2-identity-server/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a> .</li>
-<li>For mapping local claims and identity provider claims, see <a href="../../using-wso2-identity-server/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
-<li>For information on configuring Just-in-Time provisioning, see <a href="../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider">Configuring Just-In-Time Provisioning for an Identity Provider</a> .</li>
+<li>For information on mapping local claims and service provider claims, see <a href="/using-wso2-identity-server/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a> .</li>
+<li>For mapping local claims and identity provider claims, see <a href="/using-wso2-identity-server/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
+<li>For information on configuring Just-in-Time provisioning, see <a href="/using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider">Configuring Just-In-Time Provisioning for an Identity Provider</a> .</li>
 </ul>
 </div>
 </div>
@@ -336,7 +336,7 @@ above figure and video.
 <p>
 <ul>
 <li>For more information on how to configure local authenticators in the Identity Server, See <a href="../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider">Configuring Local and Outbound Authentication for a Service Provider</a> .</li>
-<li>For more information about windows-based authentication, see <a href="../../tutorials/integrated-windows-authentication">Integrated Windows Authentication</a> .</li>
+<li>For more information about windows-based authentication, see <a href="/tutorials/integrated-windows-authentication">Integrated Windows Authentication</a> .</li>
 </ul>
 </div>
 </div>
@@ -344,7 +344,7 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the local authenticators component.</p>
 <p><img src="../../assets/img/getting-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
-<p>The local authenticator does the authentication by checking the user name and password or by using <a href="../../tutorials/integrated-windows-authentication">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
+<p>The local authenticator does the authentication by checking the user name and password or by using <a href="/tutorials/integrated-windows-authentication">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
 <p><img src="../../assets/img/getting-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p><br/>
 </p>
@@ -400,7 +400,7 @@ above figure and video.
 <p>WSO2 Identity Server provides a friendly user interface for policy editing. It also supports multiple Policy Information Point (PIP) and policy distribution to various Policy Decision Points (PDPs). It provides a high-performance network protocol (over Thrift) for PEP/PDP interaction, and policy decision and attribute caching. Notifications are provided for policy updates. Moreover, the WSO2 Carbon TryIt tool that comes bundled with the Identity Server lets the user explore the policy impact.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For more information on how to use and manage entitlement within the Identity Server, see <a href="../../tutorials/working-with-entitlement">Working with Entitlement</a> .</p>
+<p>For more information on how to use and manage entitlement within the Identity Server, see <a href="/tutorials/working-with-entitlement">Working with Entitlement</a> .</p>
 </div>
 </div></td>
 <td>Authorization does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server. This is primarily a functionality that can be managed using APIs that are written to perform authorization tasks.</td>
