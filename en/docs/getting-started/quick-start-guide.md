@@ -199,10 +199,9 @@ protocol, follow the steps below:
     
         You can also perform the above using the WSO2 IS Management Console.
         For more information, see [Creating users and
-        roles](http://configuring%20users/#Adding%20a%20new%20user%20and%20assigning%20roles)
-       , [Configuring service
+        roles](../../using-wso2-identity-server/configuring-users-roles-and-permissions), [Configuring service
         providers](../../using-wso2-identity-server/adding-and-configuring-a-service-provider), and
-        [Configuring web app for SSO](_Configuring_Single_Sign-On_).
+        [Configuring web app for SSO](../../tutorials/configuring-single-sign-on).
     
 
 2.  Go to the URL
@@ -251,7 +250,8 @@ protocol, follow the steps below:
 
 8.  Note that the Pickup Manager application opens without having to
     enter the user credentials again.
-    ![qsg-sso-manager-home]( ../../assets/img/quick-start-guide/qsg-sso-manager-home.png)
+    
+    ![qsg-sso-manager-home](../../assets/img/getting-started/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter
@@ -298,13 +298,11 @@ follow the steps below:
     ![qsg-oidc-consent](../../assets/img/getting-started/qsg-oidc-consent.png)
 
     !!! note
-    
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
-        .
+        Management](../../using-wso2-identity-server/consent-management).
     
 
     Note that the Pickup Dispatch home screen appears.
@@ -603,7 +601,7 @@ Pickup Manager applications using WSO2 IS.
     ```
 
 
-1.  Enter `               5              ` as the scenario number at the
+1.  <a name="qsg-step1"></a> Enter `               5              ` as the scenario number at the
     command prompt.
 
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
@@ -662,12 +660,12 @@ Pickup Manager applications using WSO2 IS.
 8.  Click **Close**.
 
     1.  If you selected **Enable User Registration (without any
-        config)** at [step 1](#QuickStartGuide-WFStep01), navigate back
+        config)** at [step 1](#qsg-step1), navigate back
         to the Pickup Dispatch application and sign in using the new
         user credentials.
 
     2.  If you selected **Account Lock on Creation** at [step
-        1](#QuickStartGuide-WFStep01), access your email account to
+        1](#qsg-step1), access your email account to
         view the account registration confirmation mail.
 
         1.  Click **Confirm Registration** in the email or copy the link
@@ -856,4 +854,4 @@ This concludes the Quick Start Guide!
 
 You have set up WSO2 IS and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](../../tutorials/tutorials).
+[Tutorials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials).
