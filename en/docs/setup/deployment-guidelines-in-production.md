@@ -246,9 +246,7 @@ you can take the following approaches:
     code that reads the properties at runtime from that registry. Be
     sure to store sensitive data such as username and password to
     connect to the registry in a property file instead of in the Java
-    code and secure the properties file with the [secure
-    vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation)
-    .
+    code and secure the properties file with the [secure vault](../../admin-guide/carbon-secure-vault-implementation).
 
     !!! note
         When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `           /etc/hosts          ` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above
@@ -373,7 +371,7 @@ running the product.
 ### Hazelcast properties
 
 WSO2 products use
-[Hazelcast](../../admin-guide/clustering-Overview)
+[Hazelcast](../../admin-guide/clustering-overview)
 as its default clustering engine. The following configuration must be
 placed in the
 `          <PRODUCT_HOME>/repository/conf/hazelcast.properties         `
