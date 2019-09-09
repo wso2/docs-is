@@ -55,7 +55,6 @@ nav:
     - 'About this Release': getting-started/about-this-release.md
     - 'Quick Start Guide': getting-started/quick-start-guide.md
     - 'Key Concepts':
-      - 'Key Concepts': getting-started/key-concepts.md
       - 'Single Sign-On and Identity Federation': getting-started/single-sign-on-and-identity-federation.md
       - 'Identity Provisioning and its Standards': getting-started/identity-provisioning-and-its-standards.md
       - 'Access Control and Entitlement Management': getting-started/access-control-and-entitlement-management.md
