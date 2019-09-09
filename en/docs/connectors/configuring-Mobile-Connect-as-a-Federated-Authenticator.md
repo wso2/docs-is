@@ -44,13 +44,12 @@ Let's get started.
 
 There are two ways to deploy the Mobile Connect authenticator.
 
--   [**Download it from the store**](#c9526bdfdc9e45a8b01dd92fca2f8024)
--   [**Build it from the source**](#bddc5958075d4b04bb3daf15d400d58a)
+**[Download it from the store](#c9526bdfdc9e45a8b01dd92fca2f8024)**
 
 1.  The authenticator and the artifacts associated with it can be
     downloaded from the [WSO2 connector and authenticator
     store](https://store.wso2.com/store/assets/isconnector/details/b46b10c0-a52a-40fa-9fcf-00f7a1e0c345)
-    .
+    
 2.  Copy the .jar file (
     `             org.wso2.carbon.extension.identity.authenticator.mobileconnect.connector-1.0.0.jar            `
     ) that you downloaded into the
@@ -64,8 +63,11 @@ There are two ways to deploy the Mobile Connect authenticator.
     `             other_artifacats.zip            ` archive downloaded
     from the store.
 
-1.  Download or clone the code from github using the link:
+**[Build it from the source](#bddc5958075d4b04bb3daf15d400d58a)**
+
+1.  Download or clone the code from github using the link: 
     <https://github.com/wso2-extensions/identity-outbound-auth-oidc-mobileconnect>
+
 2.  Navigate to the folder you clones and build the code using the
     following command.
 
