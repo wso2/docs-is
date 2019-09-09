@@ -448,7 +448,7 @@ However, it is a hassle to keep adding and maintaining their accounts in
 the employee database as these consultants are temporary and they keep
 rotating. Therefore, Cameron decides to use the identity federation
 capability of WSO2 IS. This facilitates the external consultants to use
-their already existing Twitter account credentials to sign in to the
+their already existing Google account credentials to sign in to the
 Pickup applications.
 
 Let's use the command line utility to check out how an external
@@ -487,17 +487,31 @@ A message appears to pick a scenario.
 
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 
+2.  Register OAuth 2.0 Application in Google. As the first step, go to
+    [Google API Console](https://console.developers.google.com)
+    and navigate to the **Credentials** tab from the sidebar. You can
+    configure OAuth web application in Google by selecting **OAuth
+    Client ID** . You can find more details from
+    [here](https://developers.google.com/identity/protocols/OpenIDConnect).
+      
+    ![register-oauth2](../../assets/img/tutorials/register-oauth2.png)
+      
+    Select a web application and give it a name (e.g.,
+    SampleWebApllication). Enter the Authorized **redirect URI** as
+    `                     https://localhost.com:9443/commonauth                   `
+    (this is the endpoint in WSO2 Identity Server that accepts the
+    response sent by Google).  
+    
+    ![create-client-id](../../assets/img/tutorials/create-client-id.png)
+
 2.  Enter `               y              ` to confirm that you have
-    already registered an app in Twitter. (See **Prerequisites** tab)
+    already registered an app in Google. (See **Prerequisites** tab)
 
     ![qsg-configure-federated-auth](../../assets/img/getting-started/qsg-configure-federated-auth.png)
 
-      
 
-3.  Enter the `               API key              ` and the secret of
-    the Twitter application when prompted.
-
-    ![qsg-configure-federated-auth-2](../../assets/img/getting-started/qsg-configure-federated-auth-2.png)
+3.  Enter the `               client-id              ` and the secret of
+    the Google application when prompted.
 
     Note that a message with the user and application details appears.
 
@@ -511,7 +525,7 @@ A message appears to pick a scenario.
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)  
     The Twitter login page appears.
 
-6.  Enter your Twitter `               username              ` and
+6.  Enter your Google `               username              ` and
     `               password              ` and click **Sign In**.
 
     After a successful authentication, the **User Consents** form of the
