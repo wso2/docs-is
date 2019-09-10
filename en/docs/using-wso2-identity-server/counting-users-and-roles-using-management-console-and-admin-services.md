@@ -40,11 +40,12 @@ the steps below to do this:
 If you are using the Admin Services to count the users and roles, follow
 the below steps:
 
-1.  To get access to the WSDL's of the admin services, open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and set the `HideAdminServiceWSDLs` element to `false`.
+1.  To get access to the WSDL's of the admin services, open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and set the `HideAdminServiceWSDLs` element to `true`.
 
     ```
     [admin_service.wsdl]
-    enable = false
+    enable = true
+    ```
 
 2.  Access the WSDL of UserStoreCountService service by browsing
     <https://localhost:9443/services/UserStoreCountService?wsdl> . I f

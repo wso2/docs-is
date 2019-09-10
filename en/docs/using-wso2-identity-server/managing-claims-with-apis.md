@@ -14,12 +14,11 @@ prevent anonymous invocations, you cannot view the WSDL of the admin
 service by default. Follow the steps given below to view and invoke the
 admin service:
 
-1.  Set the element `           <HideAdminServiceWSDLs>          ` to
-    `           false          ` in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` file.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and set the `HideAdminServiceWSDLs` element to `true`.
 
-    ``` xml
-    <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+    ```
+    [admin_service.wsdl]
+    enable = true
     ```
 
 2.  Restart WSO2 Identity Server.
