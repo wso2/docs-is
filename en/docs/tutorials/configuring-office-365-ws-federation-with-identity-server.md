@@ -195,8 +195,7 @@ process.
 -   **Manually** - Add Office 365 users that match each Active Directory
     user account
 -   **Automate** - Automate the process with the [Microsoft Directory
-    Synch ronization
-    Tool](https://www.microsoft.com/en-us/download/details.aspx?id=22042)
+    Synchronization Tool](https://docs.microsoft.com/en-us/office365/enterprise/deploy-office-365-directory-synchronization-dirsync-in-microsoft-azure)
     .
 
 The following steps describe how to **manually** to synchronize a user

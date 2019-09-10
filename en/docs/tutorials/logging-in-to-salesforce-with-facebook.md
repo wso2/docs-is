@@ -227,7 +227,9 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 
 Let's get started!
 
-### <a name="ConfiguringSalesforce"></a>Configuring Salesforce
+<a name="configuring-salesforce"></a>
+
+### Configuring Salesforce
 
 1.  Sign up as a Salesforce developer if you don't have an account. If
     you already have an account, move on to step 2 and log in to
@@ -299,7 +301,7 @@ Let's get started!
     
 7.  Click **Save** to save this configuration change.
 
-8.	Obtain<a name="LoggingintoSalesforce"></a> the Salesforce certificate. You need to upload it to the
+8.	Obtain<a name="salesforce-step8"></a> the Salesforce certificate. You need to upload it to the
     Identity Server later on. Follow the steps given below to obtain the
     certificate.
 
@@ -361,6 +363,7 @@ Let's get started!
     </div></td>
     </tr>
     <tr class="even">
+    <a name= "entity-id"></a>
     <td>Entity Id</td>
     <td><div class="content-wrapper">
     <p><code>                 https://saml.salesforce.com                </code></p>
@@ -386,9 +389,9 @@ Let's get started!
     <tr class="even">
     <td>Request Signing Certificate</td>
     <td><div class="content-wrapper">
-    <p>From the dropdown, you must select the public certificate of Salesforce you created in <a href="../../tutorials/logging-in-to-salesforce-with-facebook#LoggingintoSalesforce">step 8</a> .<br />
+    <p>From the dropdown, you must select the public certificatLoggingie of Salesforce you created in <a href="../../tutorials/logging-in-to-salesforce-with-facebook#salesforce-step8">step 8</a> .<br />
     <br />
-    If you have not created this already, follow the steps given in <a href="#LoggingintoSalesforce">step 8</a> above. After creating the certificate, you need start filling the SAML Single Sign-On Setting form from beginning again.</p>
+    If you have not created this already, follow the steps given in <a href="#salesforce-step8">step 8</a> above. After creating the certificate, you need start filling the SAML Single Sign-On Setting form from beginning again.</p>
     </div></td>
     </tr>
     <tr class="odd">
@@ -541,7 +544,7 @@ Let's get started!
     <tr class="odd">
     <td>Issuer</td>
     <td><code>                                 https://saml.salesforce.com                               </code></td>
-    <td>This is the <code>                &lt;saml:Issuer&gt;               </code> element that contains the unique identifier of the service provider. <a href="#LoggingintoSalesforcewithFacebook-Entity-ID">This is the same value you entered as the Entity-ID when creating the salesforce application</a> . This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the ServiceProviderID value mentioned in the <code>                &lt;IS_HOME&gt;/repository/conf/security/authenticators.xm               </code> l file of the relying party Carbon server.</td>
+    <td>This is the <code>                &lt;saml:Issuer&gt;               </code> element that contains the unique identifier of the service provider. <a href="#entity-id">This is the same value you entered as the Entity-ID when creating the salesforce application</a> . This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the ServiceProviderID value mentioned in the <code>                &lt;IS_HOME&gt;/repository/conf/security/authenticators.xm               </code> l file of the relying party Carbon server.</td>
     </tr>
     <tr class="even">
     <td>Assertion Consumer URL</td>
@@ -552,7 +555,7 @@ Let's get started!
     <ol>
     <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a> .</li>
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#LoggingintoSalesforcewithFacebook-ConfiguringSalesforce">Configuring Salesforce</a> .</p></li>
+    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#configuring-salesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong> .</br> <img src="../../assets/img/tutorials/sso-setting-name.png" width="900" /></li>
@@ -696,7 +699,7 @@ new identity provider.
 		Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
 
 4.  Choose the salesforce certificate you downloaded in [step8 under
-    Configuring Salesforce](#LoggingintoSalesforcewithFacebook-S) for
+    Configuring Salesforce](#salesforce-step8) for
     **Identity Provider Public Certificate**.
     
 5.  Configuring claim mapping for Facebook:
