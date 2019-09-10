@@ -40,13 +40,11 @@ the steps below to do this:
 If you are using the Admin Services to count the users and roles, follow
 the below steps:
 
-1.  Change the `           HideAdminServiceWSDLs          ` property in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` to
-    **false** to get access to the WSDL's of the admin services.
+1.  To get access to the WSDL's of the admin services, open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and set the `HideAdminServiceWSDLs` element to `false`.
 
-    ``` xml
-    <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
     ```
+    [admin_service.wsdl]
+    enable = false
 
 2.  Access the WSDL of UserStoreCountService service by browsing
     <https://localhost:9443/services/UserStoreCountService?wsdl> . I f
