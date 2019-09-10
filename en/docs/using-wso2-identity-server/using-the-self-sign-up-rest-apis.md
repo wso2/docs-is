@@ -5,4 +5,4 @@
     
 
 !!! info "Related Links" 
-    For information on self-registration via the UI instead, see [Self-Registration and Account Confirmation](../../../using-wso2-identity-server/self-registration-and-account-confirmation).
+    For information on self-registration via the UI instead, see [Self-Registration and Account Confirmation](../../using-wso2-identity-server/self-registration-and-account-confirmation).
