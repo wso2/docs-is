@@ -1,5 +1,8 @@
 # Configuring Azure Active Directory to Trust WSO2 Identity Server
 
+This topic provides instructions on how to configure and federate the Office365 Passive STS client for single sign-on, 
+based on the WS-Federation protocol, through the WSO2 Identity server. 
+
 This section provides instructions on how to configure the Azure Active
 Directory to trust the on-premise IdP (the WSO2 Identity Server) as the
 first part of the process of configuring WS-Federation with Office 365.
