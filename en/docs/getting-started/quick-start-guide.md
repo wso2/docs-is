@@ -32,7 +32,7 @@ using WSO2 IS.
 ### Before you begin
     
 1. Download and install Oracle Java SE Development Kit (JDK) version 1.7.* or 1.8.
-2. Install WSO2 IS 5.7.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
+2. Install WSO2 IS 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
    The WSO2 IS installation location varies according to the OS as given below.
 
     |OS     |Home Directory                                |
@@ -46,10 +46,7 @@ using WSO2 IS.
 
 3. [Download](https://tomcat.apache.org/download-80.cgi) and [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat version 8.*.* or above.
 4. [Download](https://curl.haxx.se/download.html) and install curl.
-5. Create a Twitter application to try out multi-factor or federated authentication. 
-    1. Go to [https://twitter.com/](https://twitter.com/) and create an account.
-    2. Register a new application on Twitter at [https://apps.twitter.com](https://apps.twitter.com). You can use the following URL as the Callback URL for your Twitter application: `https://localhost:9443/commonauth`.
-    3. Note down the `API key` and `secret` for later use.
+
 6. Open the `/etc/hosts` file and add the following entry.        
     
         127.0.0.1        localhost.com    
@@ -62,12 +59,10 @@ using WSO2 IS.
 
 **Steps to configure and run the samples**
 
-1.  Download the samples from
-    [GitHub](https://github.com/wso2/samples-is/releases/tag/v2.0.0) and
-    unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/tag/v2.0.0) and unzip.
 
     ``` java
-    unzip /home/../is-samples-2.0.0.zip
+    unzip /home/../is-samples-distribution-4.0.0.zip
     ```
 
     !!! note
@@ -80,33 +75,14 @@ using WSO2 IS.
             which your Apache Tomcat server is installed.
     
 
-2.  Open the
-    `is-samples-2.0.0/IS-QSG/samples/QSG-bundle/QSG/bin/server.properties` file and configure the following properties.             
-
-    1.  WSO2 IS location, hostname, and port.
-    2.  Tomcat location, hostname, and port.
-
-        ``` java
-        wso2is.location=/home/Documents/wso2is-5.8.0
-        tomcat.location=/home/Documents/apache-tomcat-<VERSION>
-        wso2is.host.domain=localhost
-        wso2is.host.port=9443
-        tomcat.host.domain=localhost.com
-        tomcat.host.port=9090
-        ```
-
-3.  Navigate to the `is-samples-2.0.0/IS-QSG/samples/OIDC-APPS`             `
-    directory and copy `              pickup-dispatch.war             `
-    and `              pickup-manager.war             ` to the
-    `              Tomcat webapps             ` directory.
-
-4.  Navigate to
-    `              is-samples-2.0.0/IS-QSG/samples/SAML2-APPS             `
-    and copy
-    `              saml2-web-app-pickup-dispatch.com.war             `
-    and
-    `              saml2-web-app-pickup-manager.com.war             ` to
-    the `              Tomcat webapps             ` directory.
+2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/ ` and make sure that wso2is.host.domain and wso2is.host.port are configured as shown below.             
+    ```
+    #localhost.com is used to resolve naked hostname validation issue
+    wso2is.host.domain=localhost.com
+    wso2is.host.port=9443
+    server.host.domain=localhost.com
+    server.host.port=8080
+    ```
 
 5.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
@@ -115,32 +91,20 @@ using WSO2 IS.
         Windows --> wso2server.bat
     ```
 
-6.  Navigate to `              <TOMCAT_HOME>/bin             ` using the
-    command prompt and start the Tomcat server by executing either of
-    the following commands.
-
-    ``` java
-        Linux   --> sudo sh catalina.sh run
-        Windows --> sudo catalina.bat
+6.  Navigate to <IS_SAMPLE_DISTR>/IS-QSG/bin and execute either of the following commands to start the sample application. 
+       
+     ``` 
+         Linux   --> sh app-server.sh
+         Windows --> app-server.bat
     ```
-
-7.  Navigate to the `              <TOMCAT_HOME>/             `
-    directory and grant access to the files in the
-    `              <TOMCAT_HOME>/webapps             ` directory by
-    executing the following command.
-
-    ``` java
-        sudo chmod 775 -R webapps/
-    ```
-
 8.  Navigate to
     `              is-samples-2.0.0/IS-QSG/samples             ` /
     `              QSG-bundle/QSG/bin             ` and execute either
     of the following commands to start the Quick Start samples.
 
     ``` java
-        Linux   --> sudo sh qsg.sh run
-        Windows --> sudo qsg.bat run
+        Linux   --> sh qsg.sh 
+        Windows --> sh qsg.bat 
     ```
 
     A message appears to pick a scenario, which indicates that the
@@ -367,9 +331,7 @@ Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
 factor.
 
-!!! tip
-    
-    **Before you begin**
+!!! tip "Before you begin"
     
     If you have run any other samples in this Quick Start Guide, navigate
     back to the `             is-samples-1.0.0/IS-QSG/samples            ` /
@@ -502,8 +464,18 @@ A message appears to pick a scenario.
     (this is the endpoint in WSO2 Identity Server that accepts the
     response sent by Google).  
     
+3. Note down the `API key` and `secret` for later use.
+
     ![create-client-id](../../assets/img/tutorials/create-client-id.png)
 
+    !!! tip
+        In order to avoid getting the following error message, add `localhost.com`  to the authorized domains list.   
+        ```
+        If Invalid Redirect: domain must be added to the authorized domains list before submitting.
+        ```
+
+![authorized domains list](../../assets/img/tutorials/authorized-domains-list.png)
+    
 2.  Enter `               y              ` to confirm that you have
     already registered an app in Google. (See **Prerequisites** tab)
 
