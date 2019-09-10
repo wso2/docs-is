@@ -199,10 +199,9 @@ protocol, follow the steps below:
     
         You can also perform the above using the WSO2 IS Management Console.
         For more information, see [Creating users and
-        roles](http://configuring%20users/#Adding%20a%20new%20user%20and%20assigning%20roles)
-       , [Configuring service
+        roles](../../using-wso2-identity-server/configuring-users-roles-and-permissions), [Configuring service
         providers](../../using-wso2-identity-server/adding-and-configuring-a-service-provider), and
-        [Configuring web app for SSO](_Configuring_Single_Sign-On_).
+        [Configuring web app for SSO](../../tutorials/configuring-single-sign-on).
     
 
 2.  Go to the URL
@@ -251,7 +250,8 @@ protocol, follow the steps below:
 
 8.  Note that the Pickup Manager application opens without having to
     enter the user credentials again.
-    ![qsg-sso-manager-home]( ../../assets/img/quick-start-guide/qsg-sso-manager-home.png)
+    
+    ![qsg-sso-manager-home](../../assets/img/getting-started/qsg-sso-manager-home.png)
 
 9.  To try out other scenarios, navigate back to where you ran the Quick
     Start sample on the command-line and enter
@@ -298,13 +298,11 @@ follow the steps below:
     ![qsg-oidc-consent](../../assets/img/getting-started/qsg-oidc-consent.png)
 
     !!! note
-    
         Obtaining the user consent is one of the fundamental requirements of
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
-        .
+        Management](../../using-wso2-identity-server/consent-management).
     
 
     Note that the Pickup Dispatch home screen appears.
@@ -338,14 +336,33 @@ Cameron decides to use the Multi-factor Authentication (MFA) capability
 in WSO2 IS using the following factors:
 
 -   **First factor** : password
--   **Second factor** : Twitter
+-   **Second factor** : HARDWARE KEY
 
 Let's use the command-line to check the MFA functionality.
 
 ##### Configuring Multi-Factor Authentication
 
+First deploy the sample authenticator dependency and web application in
+    WSO2 IS.
+
+    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+        `              <IS_HOME>/repository/components/dropins             ` directory.
+
+    2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+        folder.  
+        This `             .war            ` file contains the WEB UI
+        for the sample authenticators used in this tutorial.
+
+    3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
+        [[resource.access_control]]
+        context = "(.*)/sample-auth/(.*)"
+        secure = false
+        http_method = "all"  
+
+    And restart the identity server          
+
 Follow the steps below to configure MFA on the Pickup Dispatch and
-Pickup Manager applications where Twitter is the second authentication
+Pickup Manager applications where HARDWARE KEY is the second authentication
 factor.
 
 !!! tip
@@ -369,22 +386,9 @@ A message appears to pick a scenario.
 1.  Enter `              3             ` as the scenario number at the
     command prompt.  
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
-2.  Enter `               y              ` to confirm that you have
-    already registered an app in Twitter. (See the **Prerequisites**
-    tab)
-
-    ![qsg-configure-twitter-mfa](../../assets/img/getting-started/qsg-configure-twitter-mfa.png)
-
-3.  Enter the `               API key              ` and the secret of
-    the Twitter application when prompted.
-
-    ![qsg-configure-mfa-2](../../assets/img/getting-started/qsg-configure-mfa-2.png)
-
-4.  Note that a message with the user and application details appears.
-
-    ![qsg-configure-mfa-3](../../assets/img/getting-started/qsg-configure-mfa-3.png)
-
-5.  Go to the Enter the
+2.  Enter y to confirm that you have already done the folloing steps.
+    ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-setup.png)
+5.  Enter the
     [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
@@ -400,12 +404,11 @@ A message appears to pick a scenario.
 
     ![qsg-sso-login-credentials](../../assets/img/getting-started/qsg-sso-login-credentials.png)
 
-    The Twitter login page appears as Twitter is the second
+    The HARDWARE KEY login page appears as HARDWARE KEY is the second
     authentication factor.
 
-8.  Enter your Twitter `               username              ` and
-    `               password              ` and click **Sign In**.
-    ![qsg-authorize-twitterapp](../../assets/img/getting-started/qsg-authorize-twitterapp.png)
+8.  Enter the DEMO key that appears in the browser and click **Sign In**.
+    ![qsg-authorize-twitterapp](../../assets/img/hardware-key.png)
 
     After successful authentication, the **User Consents** form of the
     Dispatch application appears.
@@ -443,7 +446,7 @@ However, it is a hassle to keep adding and maintaining their accounts in
 the employee database as these consultants are temporary and they keep
 rotating. Therefore, Cameron decides to use the identity federation
 capability of WSO2 IS. This facilitates the external consultants to use
-their already existing Twitter account credentials to sign in to the
+their already existing Google account credentials to sign in to the
 Pickup applications.
 
 Let's use the command line utility to check out how an external
@@ -482,17 +485,31 @@ A message appears to pick a scenario.
 
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
 
+2.  Register OAuth 2.0 Application in Google. As the first step, go to
+    [Google API Console](https://console.developers.google.com)
+    and navigate to the **Credentials** tab from the sidebar. You can
+    configure OAuth web application in Google by selecting **OAuth
+    Client ID** . You can find more details from
+    [here](https://developers.google.com/identity/protocols/OpenIDConnect).
+      
+    ![register-oauth2](../../assets/img/tutorials/register-oauth2.png)
+      
+    Select a web application and give it a name (e.g.,
+    SampleWebApllication). Enter the Authorized **redirect URI** as
+    `                     https://localhost.com:9443/commonauth                   `
+    (this is the endpoint in WSO2 Identity Server that accepts the
+    response sent by Google).  
+    
+    ![create-client-id](../../assets/img/tutorials/create-client-id.png)
+
 2.  Enter `               y              ` to confirm that you have
-    already registered an app in Twitter. (See **Prerequisites** tab)
+    already registered an app in Google. (See **Prerequisites** tab)
 
     ![qsg-configure-federated-auth](../../assets/img/getting-started/qsg-configure-federated-auth.png)
 
-      
 
-3.  Enter the `               API key              ` and the secret of
-    the Twitter application when prompted.
-
-    ![qsg-configure-federated-auth-2](../../assets/img/getting-started/qsg-configure-federated-auth-2.png)
+3.  Enter the `               client-id              ` and the secret of
+    the Google application when prompted.
 
     Note that a message with the user and application details appears.
 
@@ -506,7 +523,7 @@ A message appears to pick a scenario.
     ![qsg-sso-dispatch-login](../../assets/img/getting-started/qsg-sso-dispatch-login.png)  
     The Twitter login page appears.
 
-6.  Enter your Twitter `               username              ` and
+6.  Enter your Google `               username              ` and
     `               password              ` and click **Sign In**.
 
     After a successful authentication, the **User Consents** form of the
@@ -603,7 +620,7 @@ Pickup Manager applications using WSO2 IS.
     ```
 
 
-1.  Enter `               5              ` as the scenario number at the
+1.  <a name="qsg-step1"></a> Enter `               5              ` as the scenario number at the
     command prompt.
 
     ![qsg-configure-sso](../../assets/img/getting-started/qsg-configure-sso.png)
@@ -662,12 +679,12 @@ Pickup Manager applications using WSO2 IS.
 8.  Click **Close**.
 
     1.  If you selected **Enable User Registration (without any
-        config)** at [step 1](#QuickStartGuide-WFStep01), navigate back
+        config)** at [step 1](#qsg-step1), navigate back
         to the Pickup Dispatch application and sign in using the new
         user credentials.
 
     2.  If you selected **Account Lock on Creation** at [step
-        1](#QuickStartGuide-WFStep01), access your email account to
+        1](#qsg-step1), access your email account to
         view the account registration confirmation mail.
 
         1.  Click **Confirm Registration** in the email or copy the link
@@ -856,4 +873,4 @@ This concludes the Quick Start Guide!
 
 You have set up WSO2 IS and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](../../tutorials/tutorials).
+[Tutorials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials).
