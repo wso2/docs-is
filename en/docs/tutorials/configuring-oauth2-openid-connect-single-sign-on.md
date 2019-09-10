@@ -233,6 +233,6 @@ See [Delegated Access Control](../../using-wso2-identity-server/delegated-access
 information on working with OAuth2/OpenIDConnect. See the following
 topics for samples of configuring delegated access control:
 
--   [OAuth 2.0 with WSO2 Playground](../../using-wso2-identity-server/oauth-2.0-with-wso2-playground)
+-   [OAuth 2.0 with WSO2 Playground](../../using-wso2-identity-server/setting-up-the-sample-webapp)
 -   [Setting up a SAML2 Bearer Assertion Profile for OAuth
     2.0](../../using-wso2-identity-server/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)

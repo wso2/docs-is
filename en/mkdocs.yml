@@ -77,19 +77,17 @@ nav:
       - 'Customizing the Management Console': setup/customizing-the-Management-Console.md
       - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
     - 'Deployment Guide':
-      - 'Deployment Patterns':
+      - 'Deployment Guide': setup/deploying-the-identity-server.md
+      - 'Deployment Patterns': 
         - 'Deployment Patterns': setup/deployment-patterns.md
-        - 'Setting Up Deployment Pattern 1': setup/setting-up-deployment-pattern-1.md
-        - 'Setting Up Deployment Pattern 2': setup/setting-Up-Deployment-Pattern-2.md
-        - 'Setting Up Separate Databases for Clustering': setup/setting-Up-Separate-Databases-for-Clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-Guidelines-in-Production.md
+        - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
+        - 'Configuring the Datasource' :setup/configuring-the-datasources.md
+        - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
+      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-Production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
-      - 'Adding High Availability for LDAP': setup/adding-High-Availability-for-LDAP.md
-      - 'File Based Configurations': 
-        - 'File Based Configurations': setup/file-Based-Configurations.md
-        - 'Configuring a SP and IdP Using Configuration Files': setup/configuring-a-SP-and-IdP-Using-Configuration-Files.md
-      - 'Token Persistence': setup/token-Persistence.md
-      - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': setup/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
+      - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+      - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-an-sp-and-idp-using-configuration-files.md
+      - 'Token Persistence': setup/token-persistence.md
     - 'Migration Guide':
       - 'Migration Guide': setup/migration-guide.md
       - 'Upgrading from the Previous Release':
@@ -524,7 +522,26 @@ nav:
       - 'Developer Guide': using-wso2-identity-server/developer-Guide.md
       - 'Working with the Source Code': using-wso2-identity-server/working-with-the-Source-Code.md
       - 'Extending the Identity Server': using-wso2-identity-server/extending-the-Identity-Server.md
-      - 'Using APIs': using-wso2-identity-server/using-APIs.md
+      - 'Using APIs': 
+          - 'Using APIs': using-wso2-identity-server/using-apis.md
+          - 'Calling Admin Services': 
+            - 'Calling Admin Services': using-wso2-identity-server/calling-admin-services.md
+            - 'Admin Services for One Way Operations': using-wso2-identity-server/admin-services-for-one-way-operations.md
+          - 'REST APIs':
+            - 'REST APIs': using-wso2-identity-server/rest-apis.md
+            - 'Using the Account Recovery REST APIs': using-wso2-identity-server/using-the-account-recovery-rest-apis.md
+            - 'Using the Self Sign-Up REST APIs': using-wso2-identity-server/using-the-self-sign-up-rest-apis.md
+            - 'Using the Authentication REST APIs': using-wso2-identity-server/using-the-authentication-rest-apis.md
+            - 'Using the Consent Management REST APIs': using-wso2-identity-server/using-the-consent-management-rest-apis.md
+            - 'Using the Personal Information Export REST APIs': using-wso2-identity-server/using-the-personal-information-export-rest-apis.md
+            - 'Using the Configuration Management REST APIs': 
+              - 'Using the Configuration Management REST APIs': using-wso2-identity-server/using-the-configuration-management-rest-apis.md
+              - 'Retrieving Tenant Resources Based on Search Parameters': using-wso2-identity-server/retrieving-tenant-resources-based-on-search-parameters.md
+            - 'Using the SCIM 2.0 REST APIs': using-wso2-identity-server/using-the-scim-2.0-rest-apis.md
+            - 'Using the OpenID Connect Dynamic Client Registration REST APIs': using-wso2-identity-server/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+            - 'Using OAuth2 Scopes REST APIs': using-wso2-identity-server/using-oauth2-scopes-rest-apis.md
+            - 'Authenticating and Authorizing REST APIs': using-wso2-identity-server/authenticating-and-authorizing-rest-apis.md
+            - 'Authentication Data API': using-wso2-identity-server/authentication-data-api.md      
       - 'Customizing User Interfaces': using-wso2-identity-server/customizing-User-Interfaces.md
       - 'Customizing the Authentication Endpoint': using-wso2-identity-server/customizing-the-Authentication-Endpoint.md
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
