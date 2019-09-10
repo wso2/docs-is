@@ -1,8 +1,8 @@
 # Customizing Authentication Error Messages
 
-The Identity Server has standard error messages for different
+WSO2 Identity Server has standard error messages for different
 authentication errors that are encountered. See [Error Codes and
-Descriptions](https://docs.wso2.com/display/IS540/Error+Codes+and+Descriptions)
+Descriptions](../../using-wso2-identity-server/error-codes-and-descriptions)
 for more information on the standard error codes and descriptions of
 those errors. There are three types of custom errors handled here:
 
@@ -11,10 +11,9 @@ those errors. There are three types of custom errors handled here:
 -   Account Lock
 
 !!! note
-    
-    **Note** : Account Lock errors are returned only when account locking is
+    Account Lock errors are returned only when account locking is
     enabled on the server. Refer [User Account Locking and Account
-    Disabling](https://docs.wso2.com/display/IS540/User+Account+Locking+and+Account+Disabling)
+    Disabling](../../using-wso2-identity-server/user-account-locking-and-account-disabling)
     document to enable account locking.
     
 
