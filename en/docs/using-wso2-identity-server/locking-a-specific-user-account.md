@@ -32,7 +32,6 @@ account locking, expand the section below for instructions.
         your tenant credentials.
           
         !!! Tip
-
             Alternatively, you can also use the `   IdentityGovernanceAdminService     ` SOAP service to do this instead of using the management console UI. See [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services)
             for more information on how to invoke this SOAP service. If you are using the SOAP service to configure this, you do not need to follow the steps given below this note.
             
@@ -45,13 +44,11 @@ account locking, expand the section below for instructions.
         ![login-policies](../../assets/img/using-wso2-identity-server/login-policies.png) 
 
         !!! tip
-
             If a user is assigned the **Internal/system** role, the user can
             bypass account locking even if the user exceeds the specified number
             of **Maximum Failed Login Attempts**.
          
             !!! note
-                  
                   WSO2 Identity Server has the **Internal/system** role configured by
                   default. But generally a new user is not assigned the
                   **Internal/syste** m role by default. Required roles can be assigned
@@ -71,8 +68,7 @@ account locking, expand the section below for instructions.
          steps given above from [step 2](#lockingaspecificuseraccount)
          onwards.
 
-!!! note
-    
+!!! note 
     The user accounts that are assigned with the
     `         Internal/system        ` user role cannot be locked.
     
@@ -113,7 +109,6 @@ profile in the management console.
     ![admin-lock-account](../../assets/img/using-wso2-identity-server/admin-lock-account.png)
 
 !!! note
-    
     If it is not the first time you are locking this user account, there
     will be a check box instead of the text box (as shown above) in front of
     the **Account Locked** field. Select the check box to lock the account
