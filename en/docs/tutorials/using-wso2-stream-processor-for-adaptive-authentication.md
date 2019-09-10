@@ -62,7 +62,7 @@ WSO2 Identity Server for risk-based login.
 		response when you publish an event to a source. The code block given
 		below shows the sample HTTP source used in this tutorial. For more
 		information, see [HTTP
-		sources](https://wso2-extensions.github.io/siddhi-io-http/api/1.0.24/#http-source).
+		sources](https://siddhi-io.github.io/siddhi-io-http/).
 
     **Sample HTTP Source**
 

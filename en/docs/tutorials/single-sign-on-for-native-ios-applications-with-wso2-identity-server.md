@@ -213,11 +213,6 @@ required.
 There are two key configuration steps that you need to perform before
 you run the application.
 
--   [Configuring application
-    settings](#configuring-application-settings)
--   [Configuring endpoints and OAuth client
-    settings](#configuring-endpoints-and-oauth-client-settings)
-
 ##### Configuring application settings
 
 To configure application settings, right click on the
