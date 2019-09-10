@@ -11,10 +11,6 @@ WSO2 Identity Server has stored.
 
 -   Consent receipts that the user has approved
 
-!!! tip
-    
-    For information on the REST APIs, supported operations, and sample
-    requests/responses, see [Personal Information Export API Swagger
-    documentation](https://docs.wso2.com/display/IS580/apidocs/User-export-apis)
-    .
+!!! tip    
+    For information on the REST APIs, supported operations, and sample requests/responses, see [Personal Information Export API Swagger documentation](../../references/user-export-apis).
     

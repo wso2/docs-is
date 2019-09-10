@@ -24,18 +24,47 @@ need to configure the Identity Server as follows.
     `                       <IS_HOME>/repository/conf/identity                      `
     as per the descriptions provided below.
 
-    ``` java
+    ``` xml
     <AuthenticationEndpointRedirectParams action="include" 
     removeOnConsumeFromAPI="true">
     <AuthenticationEndpointRedirectParam name="sessionDataKey"/> 
     </AuthenticationEndpointRedirectParams>
     ```
 
-    | Field Name                          | Description                                                                                                                                                                                              |
-    |-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | action                              | Value is either **include** or **exclude**. An **include** indicates a whitelist, whereas an **exclude** indicates a blacklist.                                                                         |
-    | removeOnConsumeFromAPI              | The decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated at the backend. |
-    | AuthenticationEndpointRedirectParam | The list of parameters to be whitelisted/blacklisted. The name attribute is used to specify the parameter name.                                                                                          |
+    <table>
+        <thead>
+            <tr>
+                <th>Field Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>action</td>
+                <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates a whitelist, whereas an <b>exclude</b> indicates a blacklist.</td>
+            </tr>
+            <tr>
+                <td>removeOnConsumeFromAPI</td>
+                <td>The decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated at the backend.</td>
+            </tr>
+            <tr>
+                <td>AuthenticationEndpointRedirectParam</td>
+                <td>The list of parameters to be whitelisted/blacklisted. The name attribute is used to specify the parameter name.</td>
+            </tr>
+            <tr>
+                <td>sessionDataKey</td>
+                <td>
+                    <p>This is an identifier used by the Identity Server to maintain state information related to this particular request by the service provider.</p>
+                    <p>
+                        <div class="admonition note">
+                        <p class="admonition-title">Note</p>
+                        <p>The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.</p>
+                        </div> 
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 2.  Restart the server.
 
@@ -44,21 +73,20 @@ need to configure the Identity Server as follows.
 The data can be accessible at
 `                 https://<IS_HOST>:<PORT>/api/identity/auth/v1.1/data/<Type>/<Key>.                `
 
--   \<Type\> - This refers to the key type that should be used. The
+-   <Type\> - This refers to the key type that should be used. The
     value is **AuthRequestKey** for pages which directly communicate
     with the authentication framework using
     `                  sessionDataKey,                 ` and
     **OauthConsentKey** for the Oauth consent page which uses
     `                  sessionDataKeyConsent                 ` as the
     correlation key.
--   \<Key\> - The correlation key whose value is either
+-   <Key\> - The correlation key whose value is either
     **sessionDataKey** or **sessionDataKeyConsent**.
 
 ### Authenticating the API
 
 This API can be authenticated by following the steps given
-[here](https://docs.wso2.com/display/IS570/Authenticating+and+Authorizing+REST+APIs)
-.
+[here](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
 
 Following are the sample requests and responses using cURL.
 
@@ -83,11 +111,4 @@ curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/OauthConsentK
 **Response-2**
 
 ``` java
-{"paramKey1":"paramValue1","paramKey2":"paramValue2"}
-```
-
-  
-
-  
-
-  
+{"paramKey1":"paramValue1","paramKey2":"paramValue2"}  

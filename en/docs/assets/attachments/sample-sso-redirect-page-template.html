@@ -13,10 +13,10 @@
 
     <form method="post" action="$acUrl">
         <p>
-	    <input type="hidden" name="SAMLResponse" value="$response">
-	    <input type="hidden" name="RelayState" value="$relayState">
-	    <!-- $additionalParams -->
-	    <button type="submit">POST</button>
+        <input type="hidden" name="SAMLResponse" value="$response">
+        <input type="hidden" name="RelayState" value="$relayState">
+        <!-- $additionalParams -->
+        <button type="submit">POST</button>
         </p>
     </form>
 
@@ -24,10 +24,10 @@
         var url = "$acUrl";
 
         if (url === "https://localhost:9453/acs") {
-	    document.getElementById("content1").style.visibility = "visible";
+        document.getElementById("content1").style.visibility = "visible";
         }
         else if (url === "https://localhost:9463/acs") {
-	    document.getElementById("content2").style.visibility = "visible";
+        document.getElementById("content2").style.visibility = "visible";
         }
 
         document.forms[0].submit();           
