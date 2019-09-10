@@ -19,7 +19,7 @@ provider.
 	  SSO Profile in the
 	  [saml-core](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
 	  specification and the
-	  [saml-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-	  os.pdf)
+	  [saml-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
 	  specification.
 
 !!! Note
@@ -171,7 +171,7 @@ provider. The following steps instruct you on how to do this.
         the Application Certificate field is left blank.
 
         For more information on Application Certificate and its usage, click
-    	[here](../../using-wso2-identity-server/adding-and-configuring-a-service-		provider/#app-cert).
+    	[here](../../using-wso2-identity-server/adding-and-configuring-a-service-provider/#app-cert).
 
 5.  Expand the **Inbound Authentication Configuration** section and then
     expand **SAML2 Web SSO Configuration**.
@@ -210,7 +210,7 @@ provider. The following steps instruct you on how to do this.
           	    <div class="content-wrapper">
           	       <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same “Issuer” value. When an “Service Provider Qualifier” is defined here, it will be appended to the end of the “Issuer” value when registering the SAML SP in the Identity Server.</p>
           	       <div>
-          	          <p>Ex : If you specify travelocity.com as the “Issuer” and sp1 as the “Service Provider Qualifier”, the configuration will be registered in IS by the value  <code> travelocity.com:urn:sp:qualifier:sp1 </code></p>
+          	          <p>Ex : If you specify travelocity.com as the “Issuer” and sp1 as the “Service Provider Qualifier”, the configuration will be registered in IS by the value  <code> travelocity.com:urn<zero-width-space>:sp:qualifier:sp1 </code></p>
           	       </div>
           	       <p>You can configure any amount of SAML SPs with the same “Issuer” and different “Service Provider Qualifier”.</p>
           	       <p>When an “Service Provider Qualifier” is defined, the SAML SSO authentication request’s issuer is the value specified as “Issuer” in the configuration (ex : travelocity.com). The service provider qualifier value should be sent as a query parameter “spQualifier” with the HTTP request in the following format.</p>
@@ -534,21 +534,21 @@ management console. The next step is to run the sample.
 !!! Info "Related Topics"
 	   To configure single sign on with different standards or protocols,see the following topics:
 
-	   * [Configuring Single Sign-On](/tutorials/configuring-single-sign-on)
+	   * [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on)
 
-	   * [SAML 2.0 Web SSO](/tutorials/saml-2.0-web-sso)
+	   * [SAML 2.0 Web SSO](../../tutorials/saml-2.0-web-sso)
 
-	   * [WS-Trust](/tutorials/ws-trust)
+	   * [WS-Trust](../../tutorials/ws-trust)
 
-	   * [WS-Federation](/tutorials/ws-federation)
+	   * [WS-Federation](../../tutorials/ws-federation)
 
-           * [Integrated Windows Authentication](/tutorials/integrated-windows-authentication)
+           * [Integrated Windows Authentication](../../tutorials/integrated-windows-authentication)
 
-           * [OAuth2-OpenID Connect](tutorials/oauth2-openid-connect)
+           * [OAuth2-OpenID Connect](../../tutorials/oauth2-openid-connect)
 	  
 	   To set up reCaptcha for single sign on, see the following page:
 
-	   * [Configuring reCaptcha for Single Sign On](/tutorials/configuring-recaptcha-for-single-sign-on).
+	   * [Configuring reCaptcha for Single Sign On](../../tutorials/configuring-recaptcha-for-single-sign-on).
 
 	  To configure single sign on for Microsoft Sharepoint web applications with the WSO2 Identity Server, see the following article:
 

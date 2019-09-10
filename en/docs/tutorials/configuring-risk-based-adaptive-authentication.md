@@ -95,10 +95,10 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
-        a Service Provider for Adaptive Authentication](/tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        a Service Provider for Adaptive Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](/tutorials/adaptive-authentication).
+        Authentication](../../tutorials/adaptive-authentication).
     
 
 1.  Login to the management console and c reate a new user called "Alex"
