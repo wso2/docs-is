@@ -54,4 +54,4 @@ work?](https://ec.europa.eu/cefdigital/wiki/pages/viewpage.action?pageId=8277303
 
 !!! Info
 	  For a tutorial that describes how WSO2 Identity Server supports
-	  the eIDAS SAML attribute profile, see [eIDAS SAML Attribute Profile Support via 	  WSO2 Identity Server](_eidas_saml_attribute_profile_support_via_wso2_identity_server_).
+	  the eIDAS SAML attribute profile, see [eIDAS SAML Attribute Profile Support via WSO2 Identity Server](../../eidas-saml-attribute-profile-support-via-wso2-identity-server).
