@@ -11,12 +11,11 @@ Carbon platform. As admin services are secured to prevent anonymous
 invocations, you cannot view the WSDL of the admin service by default.
 Follow the steps below to view and invoke it:
 
-1.  Set the `           <HideAdminServiceWSDLs>          ` element to
-    `           false          ` in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` file.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and set the `HideAdminServiceWSDLs` element to `true`.
 
-    ``` xml
-    <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+    ```
+    [admin_service.wsdl]
+    enable = true
     ```
 
 2.  Restart the Identity Server.
