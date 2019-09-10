@@ -3,39 +3,12 @@
 This section lists out some sample configurations that can be used when
 configuring an Identity Provider.
 
--   [Federated authenticator configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfigFederatedauthenticatorconfigurationsamples)
-    -   [SAML2 Web SSO
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SAML2WebSSOconfiguration)
-    -   [OAuth2/OpenID Connect
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-OAuth2/OpenIDConnectconfiguration)
-    -   [WS-Federation (Passive)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-WS-Federation(Passive)configuration)
-    -   [Facebook
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Facebookconfiguration)
-    -   [Yahoo
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Yahooconfiguration)
-    -   [Google
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleconfiguration)
-    -   [Microsoft (Hotmail,MSN,Live)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Microsoft(Hotmail,MSN,Live)configuration)
--   [Outbound provisioning connector configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfigOutboundprovisioningconnectorconfigurationsamples)
-    -   [SalesForce provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SalesForceprovisioningconfiguration)
-    -   [Google provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleprovisioningconfiguration)
-    -   [SCIM provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SCIMprovisioningconfiguration)
-    -   [SPML provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SPMLprovisioningconfiguration)
-
 ### Federated authenticator configuration samples
 
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
 custom federated authenticator, see [Writing a Custom Federated
-Authenticator](_Writing_a_Custom_Federated_Authenticator_).
+Authenticator](../../using-wso2-identity-server/writing-a-custom-federated-authenticator).
 
 !!! warning
     
@@ -206,11 +179,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_).
                   <value>paramName1=value1&paramName2=value2</value>
                </properties>
             </federatedAuthenticatorConfigs>
-```
-
-  
-
-  
+```  
 
 <table>
 <colgroup>
@@ -325,7 +294,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_).
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ClientId       | This refers to the Client Id you received from the Facebook app you created.                                                                                                                                                                                                                                                                          |
 | ClientSecret   | This refers to the Client Secret you received from the Facebook app you created.                                                                                                                                                                                                                                                                      |
-| UserInfoFields | These are the claims related to the user account on Facebook. WSO2 Identity Server requests these fields from Facebook when a user is authenticated with Facebook through the IS. See [public\_profile permission](https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile) for more information about these fields. |
+| UserInfoFields | These are the claims related to the user account on Facebook. WSO2 Identity Server requests these fields from Facebook when a user is authenticated with Facebook through the IS. See [public_profile permission](https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile) for more information about these fields. |
 | Scope          | Defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.                                                                                                     |
 | callBackUrl    | Callback URL of the Identity Server.                                                                                                                                                                                                                                                                                                                  |
 
@@ -412,7 +381,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_).
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](_Writing_an_Outbound_Provisioning_Connector_).
+Connector](../../using-wso2-identity-server/writing-an-outbound-provisioning-connector).
 
 !!! warning
     
@@ -617,9 +586,6 @@ Connector](_Writing_an_Outbound_Provisioning_Connector_).
                </provisioningProperties>
    </provisioningConnectorConfigs>
 ```
-
-  
-
   
 
 <table>
