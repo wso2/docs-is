@@ -16,37 +16,6 @@ Then configure your extension in
 respective extension point below.  
 Restart the server to effect changes.
 
-The following are the available OAuth/OIDC extension points.
-
--   [OAuth Grant
-    Handler](#ExtensionPointsforOAuth-OAuthGrantHandlerOAuthGrantHandler)
--   [OAuth Grant
-    Validator](#ExtensionPointsforOAuth-OAuthGrantValidator)
--   [Client Authentication
-    Handler](#ExtensionPointsforOAuth-ClientAuthenticationHandler)
--   [OAuth Token
-    Generator](#ExtensionPointsforOAuth-OAuthTokenGenerator)
--   [OAuth Callback
-    Handler](#ExtensionPointsforOAuth-OAuthCallbackHandler)
--   [Token Persistence
-    Processor](#ExtensionPointsforOAuth-TokenPersistenceProcessorTokenPersistenceProcessor)
--   [OAuth2 Token
-    Validator](#ExtensionPointsforOAuth-OAuth2TokenValidator)
--   [AuthorizationContext Token
-    Generator](#ExtensionPointsforOAuth-AuthorizationContextTokenGeneratorAuthorizationContextTokenGenerator)
--   [Claims
-    Retriever](#ExtensionPointsforOAuth-ClaimsRetrieverClaimsRetriever)
--   [Response Type
-    Handler](#ExtensionPointsforOAuth-ResponseTypeHandler)
--   [UserInfo Access Token
-    Validator](#ExtensionPointsforOAuth-UserInfoAccessTokenValidator)
--   [UserInfo Claim
-    Retriever](#ExtensionPointsforOAuth-UserInfoClaimRetriever)
--   [UserInfo Request
-    Validator](#ExtensionPointsforOAuth-UserInfoRequestValidator)
--   [UserInfo Response
-    Builder](#ExtensionPointsforOAuth-UserInfoResponseBuilder)
-
 ### OAuth Grant Handler
 
 <table>
@@ -81,7 +50,7 @@ The following are the available OAuth/OIDC extension points.
 </tr>
 <tr class="odd">
 <td>Sample</td>
-<td>See <a href="_Writing_a_Custom_OAuth_2.0_Grant_Type_">Writing a Custom OAuth 2.0 Grant Type</a> for a sample implementation of this extension point.</td>
+<td>See <a href="../../using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type">Writing a Custom OAuth 2.0 Grant Type</a> for a sample implementation of this extension point.</td>
 </tr>
 </tbody>
 </table>
@@ -93,7 +62,7 @@ The following are the available OAuth/OIDC extension points.
 <tr class="odd">
 <td>Usage</td>
 <td><p>This extension point can be used to implement a grant validator that validates the grant request sent to the ' <em>/oauth2/token</em> ' endpoint. Request parameters and headers can be validated by implementing this extension point.<br />
-If a new grant type is being implemented and defined with a new grant type identifier with the <a href="#ExtensionPointsforOAuth-OAuthGrantHandler">OAuth Grant Handler</a> extension, you must also implement a grant validator and register that against the same grant type identifier from the <em>identity.xml</em> .<br />
+If a new grant type is being implemented and defined with a new grant type identifier with the <a href="#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also implement a grant validator and register that against the same grant type identifier from the <em>identity.xml</em> .<br />
 If a supported grant type is to be modified you may implement a grant validator if needed, otherwise supported grant type validators can be reused.</p></td>
 </tr>
 <tr class="even">
@@ -301,7 +270,7 @@ Use this if you want to store access tokens, refresh tokens, authorization codes
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used if token validation and scope validation needs to be customized when invoking the <a href="_OAuth_Token_Validation_Using_SOAP_Service_">token validation endpoint</a> . Token validators can be registered per token type such as ' <em>bearer</em> '.<br />
+<td><p>This extension point can be used if token validation and scope validation needs to be customized when invoking the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation endpoint</a> . Token validators can be registered per token type such as ' <em>bearer</em> '.<br />
 A default implementation that supports for 'bearer' token type is available.</p></td>
 </tr>
 <tr class="even">
@@ -335,11 +304,11 @@ A default implementation that supports for 'bearer' token type is available.</p>
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used to customize the token that can be generated relevant to the authorization context by invoking the <a href="_OAuth_Token_Validation_Using_SOAP_Service_">token validation endpoint</a> .<br />
+<td><p>This extension point can be used to customize the token that can be generated relevant to the authorization context by invoking the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation endpoint</a> .<br />
 By default, a <a href="../../using-wso2-identity-server/jwt-token-generation">JWT token generation</a> implementation is supported with following properties encoded to each token validation request.</p>
 <ul>
 <li>subscriber, applicationName, apiContext, version, tier, and endUserName</li>
-<li>Additional properties can be encoded by engaging a <a href="#ExtensionPointsforOAuth-ClaimsRetriever">claims retriever</a> .</li>
+<li>Additional properties can be encoded by engaging a <a href="#claims-retriever">claims retriever</a> .</li>
 <li>The JWT header and body are base64 encoded separately and concatenated with a dot</li>
 </ul>
 <p>Finally the token is signed using SHA256 with RSA algorithm.</p></td>
@@ -380,7 +349,7 @@ By default, a <a href="../../using-wso2-identity-server/jwt-token-generation">JW
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used if additional claims or properties needs to be engaged to the <a href="../../using-wso2-identity-server/jwt-token-generation">JWT token</a> generated in the <a href="_OAuth_Token_Validation_Using_SOAP_Service_">token validation response</a> as explained in extension point <a href="#ExtensionPointsforOAuth-AuthorizationContextTokenGenerator">above</a> .<br />
+<td><p>This extension point can be used if additional claims or properties needs to be engaged to the <a href="../../using-wso2-identity-server/jwt-token-generation">JWT token</a> generated in the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation response</a> as explained in extension point <a href="#authorizationcontext-token-generator">above</a> .<br />
 The default implementation reads user claim values from the default Carbon user store.</p></td>
 </tr>
 <tr class="even">
