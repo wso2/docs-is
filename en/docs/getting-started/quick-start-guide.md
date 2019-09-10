@@ -59,10 +59,10 @@ using WSO2 IS.
 
 **Steps to configure and run the samples**
 
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/tag/v2.0.0) and unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/tag/v4.1.0) and unzip.
 
     ``` java
-    unzip /home/../is-samples-distribution-4.0.0.zip
+    unzip /home/../is-samples-distribution-4.1.0.zip
     ```
 
     !!! note
@@ -87,9 +87,16 @@ using WSO2 IS.
 5.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
     ``` java
-        Linux   --> sh wso2server.sh
-        Windows --> wso2server.bat
+    Linux   --> sh wso2server.sh
+    Windows --> wso2server.bat
     ```
+    Note that the following appears in the command prompt after the server start.
+    ![qsg-start-server](../../assets/img/getting-started/qsg-start-server.png)
+
+    !!! tip "Shutting down the server"
+        To shutdown the server, press `Ctrl + C`.
+        Note that following log appears in the command prompt after the server shutdown.
+        ![qsg-stop-server](../../assets/img/getting-started/qsg-stop-server.png)
 
 6.  Navigate to <IS_SAMPLE_DISTR>/IS-QSG/bin and execute either of the following commands to start the sample application. 
        
