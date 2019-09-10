@@ -196,7 +196,6 @@ protocol, follow the steps below:
       
 
     !!! note
-    
         You can also perform the above using the WSO2 IS Management Console.
         For more information, see [Creating users and
         roles](../../using-wso2-identity-server/configuring-users-roles-and-permissions), [Configuring service
