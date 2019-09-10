@@ -4,6 +4,6 @@ The following topics list out key provisioning concepts relevant for
 Developers.
 
 -   [Writing an Outbound Provisioning
-    Connector](_Writing_an_Outbound_Provisioning_Connector_)
+    Connector](../../using-wso2-identity-server/writing-an-outbound-provisioning-connector)
 -   [Extensible SCIM User Schemas With WSO2 Identity
-    Server](_Extensible_SCIM_User_Schemas_With_WSO2_Identity_Server_)
+    Server](../../using-wso2-identity-server/extensible-scim-user-schemas-with-wso2-identity-server)
