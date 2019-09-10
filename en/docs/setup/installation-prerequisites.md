@@ -1,22 +1,16 @@
 # Installation Prerequisites
 
-Prior to installing any WSO2 Carbon based product, it is necessary to
+Prior to installing any WSO2 Identity Server, it is necessary to
 have the appropriate prerequisite software installed on your system.
 Verify that the computer has the supported operating system and
 development platforms before starting the installation.
-
--   [System requirements](#InstallationPrerequisites-Systemrequirements)
--   [Environment
-    compatibility](#InstallationPrerequisites-Environmentcompatibility)
--   [Required
-    applications](#InstallationPrerequisites-Requiredapplications)
 
 ### System requirements
 
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>Memory</strong></p></td>
+<th><p>Memory</p></th>
 <td><ul>
 <li>~ 2 GB minimum</li>
 <li>~ 512 MB heap size. This is generally sufficient on DEV/QA with a low number of users.</li>
@@ -24,7 +18,7 @@ development platforms before starting the installation.
 </ul></td>
 </tr>
 <tr class="even">
-<td><p><strong>Disk</strong></p></td>
+<th><p>Disk</p></th>
 <td><ul>
 <li>~ 1 GB, excluding space allocated for log files and databases.</li>
 </ul></td>
@@ -41,28 +35,31 @@ development platforms before starting the installation.
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><p><strong>Operating Systems/ Databases/ User Stores</strong></p></td>
+<th><p>Operating Systems/ Databases/ User Stores</p></th>
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 8</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="https://docs.wso2.com/display/ADMIN44x/Working+with+Databases">Working with Databases</a> .</li>
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../admin-guide/working-with-databases">Working with Databases</a> .</li>
 <li>WSO2 Identity Server supports using any of the following as a user store :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="_Configuring_User_Stores_">Custom user stores</a></li>
+<li><a href="../../using-wso2-identity-server/configuring-user-stores">Custom user stores</a></li>
 </ul></li>
 </ul>
-!!! note
-    <p>Note</p>
-    <ul>
-    <li>WSO2 Identity Server is shipped with a default embedded Apache DS that is suitable for development purposes. WSO2 does not recommend using Apache DS in a production environment due to scalability issues that exist with Apache DS.</li>
-    <li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
-    </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>
 <ul>
-<li>For environments that WSO2 products are tested with, see <a href="https://docs.wso2.com/display/TestedPlatforms/Environments+Tested+with+WSO2+Products">Environments Tested with WSO2 Products</a> .</li>
-<li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a> .</li>
+<li>WSO2 Identity Server is shipped with a default embedded Apache DS that is suitable for development purposes. WSO2 does not recommend using Apache DS in a production environment due to scalability issues that exist with Apache DS.</li>
+<li>WSO2 does not recommend using the H2 database as a user store in production environments. However, you can use the H2 database for development purposes if necessary.</li>
+</ul>
+</p>
+</div>
+<ul> 
+<li>For environments that WSO2 products are tested with, see <a href="../../admin-guide/environments-tested-with-wso2-products">Environments Tested with WSO2 Products</a> .</li>
+<li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
 </ul>
 </div></td>
 </tr>
@@ -77,11 +74,6 @@ samples or for building from the source code.
 !!! note
     
     The applications marked with an asterisk \* are mandatory.
-    
-
--   [Running the product](#InstallationPrerequisites-Runningtheproduct)
--   [Running samples and building from
-    source](#InstallationPrerequisites-Runningsamplesandbuildingfromsource)
 
 ##### Running the product
 
@@ -118,9 +110,10 @@ is recommended for most users.
 <li><p>Oracle JDK 8</p></li>
 <li><p>OpenJDK 8</p></li>
 </ul>
-!!! note
-    <p>Note</p>
-    <p>If you are using an Oracle JDK version lower than 8u161, you need to download the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy files from <a href="https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">here</a> and add the files to the security directory of your Java installation to avoid <code>               illegal key size              </code> errors when you try to invoke a secured Web service.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using an Oracle JDK version lower than 8u161, you need to download the Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy files from <a href="https://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">here</a> and add the files to the security directory of your Java installation to avoid <code>illegal key size</code> errors when you try to invoke a secured Web service.</p>
+</div>
 </div></td>
 <td><div class="line number1 index0 alt2">
 <a href="https://openjdk.java.net/install/">OpenJDK</a>
@@ -133,10 +126,12 @@ is recommended for most users.
 <td><p><strong>Web Browser*</strong></p></td>
 <td><div class="content-wrapper">
 <ul>
-<li>To access the product's <a href="../../setup/running-the-product">Management Console</a> .The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
+<li>To access the product's <a href="../../setup/running-the-product">Management Console</a>. The Web Browser must be JavaScript enabled to take full advantage of the Management console.</li>
 </ul>
-!!! note
-    <p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
+<div class="admonition note">
+<p class="admonition-tile">Note</p>
+<p><strong>Note:</strong> On Windows Server 2003, you must not go below the medium security level in Internet Explorer 6.x.</p>
+</div>    
 </div></td>
 <td><p><br />
 </p></td>

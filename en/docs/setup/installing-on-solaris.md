@@ -1,11 +1,9 @@
 # Installing on Solaris
 
-!!! tip
-    
-    **Before you begin**, [please see our compatibility
-    matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
+!!! tip "Before you begin"
+    See the [compatibility matrix](../../admin-guide/tested-operating-systems)
     to find out if this version of the product is fully tested on your
-    operating system.
+    operating system.  
     
 
 Follow the instructions below to install Identity Server on Solaris.
@@ -15,7 +13,7 @@ Follow the instructions below to install Identity Server on Solaris.
 1.  Establish an SSH connection to the Solaris machine or log in on the
     text console.
 2.  Be sure your system meets the [Installation
-    Prerequisites](Installation_Prerequisites).  Java Development Kit
+    Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server
@@ -26,14 +24,14 @@ Follow the instructions below to install Identity Server on Solaris.
     Server, which will hereafter be referred to as
     `           <IS_HOME>          ` .
 
-### Setting up JAVA\_HOME
+### Setting up JAVA_HOME
 
 You must set your `         JAVA_HOME        ` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer.
 
-Environment variables are global system variables accessible by all the
-processes running under the operating system.
+!!! info
+    Environment variables are global system variables accessible by all the processes running under the operating system.
 
 1.  In your home directory, open the BASHRC file in your favorite text
     editor, such as vi, emacs, pico, or mcedit.
@@ -49,18 +47,20 @@ processes running under the operating system.
 
 3.  Save the file.
 
-    If you do not know how to work with text editors in an SSH session,
-    run the following command: `            cat >> .bashrc           `
-
-    Paste the string from the clipboard and press "Ctrl+D."
+    !!! info
+        If you do not know how to work with text editors in an SSH session, run the following command.
+        ```
+        cat >> .bashrc
+        ``` 
+        Paste the string from the clipboard and press "Ctrl+D".
 
 4.  To verify that the `          JAVA_HOME         ` variable is set
-    correctly, execute the following command:  
+    correctly, execute the following command.
+    ```
+    echo $JAVA_HOME
+    ```
 
-        echo $JAVA_HOME
-
-    Example:  
-    ![](attachments/26838936/27042108.png)
+    ![Echo command](../../assets/img/setup/echo-command.png)
 
 5.  The system returns the JDK installation path.
 
@@ -82,7 +82,6 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a properties file instead of in the Java
     code and secure the properties file with the [secure
-    vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
-    .
+    vault](../../admin-guide/carbon-secure-vault-implementation).
 
 You are now ready to [run the product](../../setup/running-the-product).
