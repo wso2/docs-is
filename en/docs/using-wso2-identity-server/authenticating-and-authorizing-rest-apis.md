@@ -58,11 +58,11 @@ Let's learn how to authenticate and authorize REST APIs:
         Example:
 
         ``` xml
-                <ResourceAccessControl>
-                    <Resource context="/api/identity/*" secured="true" http-method="all">
-                        <Permissions>/permission/admin/login</Permissions>
-                    </Resource>
-                </ResourceAccessControl>
+        <ResourceAccessControl>
+            <Resource context="/api/identity/*" secured="true" http-method="all">
+                <Permissions>/permission/admin/login</Permissions>
+            </Resource>
+        </ResourceAccessControl>
         ```
 
 3.  To configure intermediate certificate validation, configure the
@@ -99,21 +99,22 @@ Let's learn how to authenticate and authorize REST APIs:
 
     Example:
 
-    ``` java
-        <IntermediateCertValidation enable="true">
-             <IntermediateCerts>
-                 <CertCN>wso2isintcert</CertCN>
-                 <CertCN>localhost</CertCN>
-             </IntermediateCerts>
-             <ExemptContext>
-                 <Context>scim2</Context>
-             </ExemptContext>
-         </IntermediateCertValidation>
+    ``` xml
+    <IntermediateCertValidation enable="true">
+            <IntermediateCerts>
+                <CertCN>wso2isintcert</CertCN>
+                <CertCN>localhost</CertCN>
+            </IntermediateCerts>
+            <ExemptContext>
+                <Context>scim2</Context>
+            </ExemptContext>
+        </IntermediateCertValidation>
     ```
 
-    When using intermediate certificate validation,
-    `            CN           ` will be taken as the
-    `            username           ` instead of retrieving from the
-    header.
+    !!! info
+        When using intermediate certificate validation,
+        `            CN           ` will be taken as the
+        `            username           ` instead of retrieving from the
+        header.
 
   
