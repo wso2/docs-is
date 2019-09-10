@@ -23,23 +23,24 @@ writing a simple custom password policy and enforcing it.
     directory and define the following custom classes.
 
     ``` java
-        Password.policy.extensions.1=org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordLengthPolicy
-        Password.policy.extensions.1.min.length=6
-        Password.policy.extensions.1.max.length=12
+    Password.policy.extensions.1=org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordLengthPolicy
+    Password.policy.extensions.1.min.length=6
+    Password.policy.extensions.1.max.length=12
     ```
 
-    `            min.length           ` and
-    `            max.length           ` are the parameters that are
-    passed to the custom password policy class (i.e.,
-    `            DefaultPasswordLengthPolicy           ` ). If you have
-    more than one custom class, it can be defined by incrementing the
-    integer as follows (e.g., "
-    `            Password.policy.extensions.                         2                        "           `
-    )  and providing the parameters mentioned above if needed.
+    !!! info
+        `            min.length           ` and
+        `            max.length           ` are the parameters that are
+        passed to the custom password policy class (i.e.,
+        `            DefaultPasswordLengthPolicy           ` ). If you have
+        more than one custom class, it can be defined by incrementing the
+        integer as follows (e.g., "
+        `            Password.policy.extensions.                         2                        "           `
+        )  and providing the parameters mentioned above if needed.
 
-    ``` java
+        ``` java
         Password.policy.extensions.2=org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordNamePolicy
-    ```
+        ```
 
 ### Writing the custom password policy
 
@@ -48,11 +49,12 @@ You can write the custom classes for password policies by extending the
 abstract class.
 
 The two methods you need to implement are as follows:
-
--   **public void init(Map\<String, String\> params)­** - This method is
-    used to initialize the configuration parameters.
--   **public boolean enforce(Object... args)­** - This method defines
-    the logic of the policy enforcement.
+<ul>
+    <li><b>public void init(Map&lt;String, String&gt; params)­</b> - This method is
+    used to initialize the configuration parameters.</li>
+    <li><b>public boolean enforce(Object... args)­</b> - This method defines
+    the logic of the policy enforcement.</li>
+</ul>
 
 The custom policies defined are added to a registry at runtime and are
 enforced in the order given in the configuration file. Therefore, you

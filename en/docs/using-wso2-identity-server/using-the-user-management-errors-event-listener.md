@@ -9,7 +9,7 @@ in the event of failures when executing user management scenarios or
 operations. The relevant caller class for this listener is
 `         org.wso2.carbon.user.core.common.AbstractUserManagementErrorListener        `
 . This type of event listener is similar to the [UserOperation
-Listeners](_User_Store_Listeners_). The registered event listeners of
+Listeners](../../using-wso2-identity-server/user-store-listeners). The registered event listeners of
 this type are called when there is a failure while doing user management
 related tasks.
 
@@ -40,14 +40,12 @@ additional activities in an event of failure.
 -   `          onGetUserListFailure         `  
     `                   `
 
-!!! tip
-    
-    **Note:** In order to return the order ID of a custom listener, you must
+!!! note    
+    In order to return the order ID of a custom listener, you must
     override the `          getExecutionOrderId         ` method. Specify a
     value greater than 0 for the custom listener as the order ID '0' is
     reserved for the default listener of WSO2 Identity Server.
     
     For more information about the purpose of each method, see the [java
-    docs](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserManagementErrorEventListener.java)
-    .
+    docs](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserManagementErrorEventListener.java).
     
