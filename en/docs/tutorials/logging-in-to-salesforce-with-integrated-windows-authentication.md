@@ -22,7 +22,7 @@ Authentication.
 !!! info "Related links"
 
 	See [Integrated Windows
-    Authentication](../../tutorials/integrated-windows-authentication) and
+    Authentication](../../tutorials/integrated-windows-authentication-overview) and
     [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on)
     for more information on Integrated Windows Authentication and
     details on how to enable it in the Identity Server.
