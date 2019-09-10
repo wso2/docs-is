@@ -10,9 +10,8 @@ The following topics list out key APIs relevant for Developers.
 
 ##### WSO2 Identity Server APIs
 
--   [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services)
--   [REST APIs](_REST_APIs_)
--   [SOAP APIs](_SOAP_APIs_)
--   [SCIM 1.1 APIs](_SCIM_1.1_APIs_)
+-   [REST APIs](../../using-wso2-identity-server/rest-apis)
+-   [SOAP APIs](../../using-wso2-identity-server/soap-apis)
+-   [SCIM 1.1 APIs](../../using-wso2-identity-server/scim-1.1-apis)
 -   [Managing Tenants with APIs](../../using-wso2-identity-server/managing-tenants-with-apis)
--   [Entitlement with APIs](_Entitlement_with_APIs_)
+-   [Entitlement with APIs](../../using-wso2-identity-server/entitlement-with-apis)
