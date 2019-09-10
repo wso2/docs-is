@@ -40,7 +40,7 @@ the following sample request that contains a JWT as the ***request***
 parameter value.
 
 ``` java
-https://localhost:9443/oauth2/authorize?
+  https://localhost:9443/oauth2/authorize?
     response_type=code%20id_token
     &client_id=s6BhdRkqt3
     &redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb
