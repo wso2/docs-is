@@ -238,14 +238,11 @@ Let's get started!
     .
 
     !!! note
-    
         This document is explained using the Salesforce lightning theme. If
         you are using the classic theme, follow the steps given below to
-        switch to the lightning theme:
-    
-        ??? note "Click here to find the steps on how to switch from the classic to the
-        lightning theme."
-    
+        switch to the lightning theme.
+
+        ??? note "Click here to find the steps on how to switch from the classic to the lightning theme."
 			1.  Click your username to expand the drop down.
 			2.  Click **Switch to Lightning Experience**.  
 				![switch-to-lightening-experience](../../assets/img/tutorials/switch-to-lightening-experience.png)
@@ -452,7 +449,7 @@ provider in WSO2 IS.
     <ol>
     <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a> .</li>
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#LoggingintoSalesforceusingtheIdentityServer-ConfiguringSalesforce">Configuring Salesforce</a> .</p></li>
+    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../tutorials/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
@@ -555,5 +552,5 @@ Salesforce and the Identity Server.
 Additional troubleshooting information regarding any Salesforce side SSO
 failures can be retrieved by using Salesforce SAML Assertion Validator.
 Further information regarding the steps are available
-[here](https://developer.salesforce.com/docs/atlas.en-us.identityImplGuide.meta/identityImplGuide/identity_quickstart_troubleshoot.htm)
+[here](https://developer.salesforce.com/docs/atlas.en-us.sso.meta/sso/sso_saml_validation_errors.htm#!)
 .
