@@ -27,12 +27,6 @@ scenario where you need to provide several local attributes of a user,
 which are stored in user store, together with a few additional
 attributes that should be read from an external data source.
 
--   [Introduction](#WritingaCustomClaimHandler-Introduction)
--   [Writing the custom claim
-    handler](#WritingaCustomClaimHandler-Writingthecustomclaimhandler)
--   [Deploying the custom claim
-    handler](#WritingaCustomClaimHandler-Deployingthecustomclaimhandler)
-
 ### Introduction
 
 The SAML response that should be sent from WSO2 IS to the relying party
@@ -99,9 +93,7 @@ and two external attributes as follows:
 -   `                     http://test.org/claims/keplerNumber                   `
 -   `                                 http://test.org/claims/status                              `
 
-The external attributes can be read from either a database, or a file,
-or via any other mechanism depending on your requirement.
-`                 `
+The external attributes can be read from either a database, or a file, or via any other mechanism depending on your requirement.
 
 To retrieve the external attributes in this response, you need to write
 a custom claim handler.
@@ -123,13 +115,13 @@ Follow the steps below:
         method should contain all the attributes that you want to add to
         the SAML response.
 
-    Following is a sample custom claim handler that implements the
-    `           org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler          `
-    interface:
+        Following is a sample custom claim handler that implements the
+        `           org.wso2.carbon.identity.application.authentication.framework.handler.claims.ClaimHandler          `
+        interface:
 
-    ``` java
+        ``` java
         public class CustomClaimHandler implements ClaimHandler {
-    
+
             private static Log log = LogFactory.getLog(CustomClaimHandler.class);
             private static volatile CustomClaimHandler instance;
             private String connectionURL = null;
@@ -137,8 +129,8 @@ Follow the steps below:
             private String password = null;
             private String jdbcDriver = null;
             private String sql = null;
-    
-    
+
+
             public static CustomClaimHandler getInstance() {
                 if (instance == null) {
                     synchronized (CustomClaimHandler.class) {
@@ -149,13 +141,13 @@ Follow the steps below:
                 }
                 return instance;
             }
-    
+
             public Map<String, String> handleClaimMappings(StepConfig stepConfig,
-                                                           AuthenticationContext context, Map<String, String> remoteAttributes,
-                                                           boolean isFederatedClaims) throws FrameworkException {
-    
+                                                            AuthenticationContext context, Map<String, String> remoteAttributes,
+                                                            boolean isFederatedClaims) throws FrameworkException {
+
                 String authenticatedUser = null;
-    
+
                 if (stepConfig != null) {
                     //calling from StepBasedSequenceHandler
                     authenticatedUser = stepConfig.getAuthenticatedUser();
@@ -163,40 +155,40 @@ Follow the steps below:
                     //calling from RequestPathBasedSequenceHandler
                     authenticatedUser = context.getSequenceConfig().getAuthenticatedUser();
                 }
-    
+
                 Map<String, String> claims = handleLocalClaims(authenticatedUser, context);
                 claims.putAll(handleExternalClaims(authenticatedUser));
-    
+
                 return claims;
             }
-    
-    
+
+
             /**
-             * @param context
-             * @return
-             * @throws FrameworkException
-             */
+                * @param context
+                * @return
+                * @throws FrameworkException
+                */
             protected Map<String, String> handleLocalClaims(String authenticatedUser,
                                                             AuthenticationContext context) throws FrameworkException {
             ....
             }
-    
+
             private Map<String, String> getFilteredAttributes(Map<String, String> allAttributes,
-                                                              Map<String, String> requestedClaimMappings, boolean isStandardDialect) {
+                                                                Map<String, String> requestedClaimMappings, boolean isStandardDialect) {
             ....
             }
-    
+
             protected String getDialectUri(String clientType, boolean claimMappingDefined) {
             ....
             }
-    
+
             /**
-             * Added method to retrieve claims from external sources. The results will be merged to the local claims when
-             * returning the final claim list to be added to the SAML response that is sent back to the SP.
-             *
-             * @param authenticatedUser : The user for whom we require claim values
-             * @return
-             */
+                * Added method to retrieve claims from external sources. The results will be merged to the local claims when
+                * returning the final claim list to be added to the SAML response that is sent back to the SP.
+                *
+                * @param authenticatedUser : The user for whom we require claim values
+                * @return
+                */
             private Map<String, String> handleExternalClaims(String authenticatedUser) throws FrameworkException {
                 Map<String, String> externalClaims = new HashMap<String, String>();
                 externalClaims.put("http://test.org/claims/keplerNumber","E90836W19881010");
@@ -204,10 +196,10 @@ Follow the steps below:
                 return externalClaims;
             }
         }
-    ```
+        ```
 
-    After you write the custom claim handler, and register the class as
-    an OSGI bundle, you can deploy the OSGi bundle in WSO2 IS.
+        After you write the custom claim handler, and register the class as
+        an OSGI bundle, you can deploy the OSGi bundle in WSO2 IS.
 
 ### Deploying the custom claim handler
 
@@ -222,8 +214,8 @@ implemented:
     file, and add the following under the
     `           <Extensions>          ` element.
 
-    ``` java
-        <ClaimHandler>com.wso2.sample.claim.handler.CustomClaimHandler</ClaimHandler>
+    ``` xml
+    <ClaimHandler>com.wso2.sample.claim.handler.CustomClaimHandler</ClaimHandler>
     ```
 
     This allows you to use the new custom claim implementation with WSO2

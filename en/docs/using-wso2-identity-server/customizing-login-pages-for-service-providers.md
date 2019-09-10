@@ -29,16 +29,7 @@ SAML SSO service providers that send authentication requests to it. The
 following steps indicate how to change the default login page into a
 customized one.
 
--   [Configuring two service
-    providers](#CustomizingLoginPagesforServiceProviders-Configuringtwoserviceproviders)
--   [Registering the two service providers in WSO2 Identity
-    Server](#CustomizingLoginPagesforServiceProviders-RegisteringthetwoserviceprovidersinWSO2IdentityServer)
--   [Configuring the login
-    page](#CustomizingLoginPagesforServiceProviders-Configuringtheloginpage)
-
-!!! tip
-    
-    Before you begin!
+!!! tip "Before you begin"
     
     -   To ensure you get the full understanding of customizing the login
         page with WSO2 IS, the sample travelocity application is used in
@@ -49,8 +40,7 @@ customized one.
         [here](https://tomcat.apache.org/download-70.cgi).
     -   Install Apache Maven to build the samples. For more information, see
         [Installation
-        Prerequisites](https://docs.wso2.com/display/IS540/Installation+Prerequisites)
-        .
+        Prerequisites](../../setup/installation-prerequisites).
     
 
 #### Configuring two service providers
@@ -70,13 +60,13 @@ customized one.
     following properties with the hostname (
     `           wso2is.local          ` ) that you configured above.
 
-    ``` text
-        #The URL of the SAML 2.0 Assertion Consumer
-        SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-    
-    
-        #openid.return_to parameter
-        OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
+    ```xml
+    #The URL of the SAML 2.0 Assertion Consumer
+    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
+
+
+    #openid.return_to parameter
+    OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
     ```
 
 3.  Open the avis.properties file found in the
@@ -85,12 +75,12 @@ customized one.
     following properties with the hostname (
     `           wso2is.local          ` ).
 
-    ``` text
-        #The URL of the SAML 2.0 Assertion Consumer
-        SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
-    
-        #openid.return_to parameter
-        OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
+    ``` xml
+    #The URL of the SAML 2.0 Assertion Consumer
+    SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
+
+    #openid.return_to parameter
+    OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
     ```
 
 4.  Start the application server and access following URLs to make sure
@@ -101,34 +91,33 @@ customized one.
     URL:
     [http://wso2is.local:8080/travelocity.com/index.jsp](http://localhost:8080/travelocity.com/index.jsp)
 
-    ![]( ../../assets/img/103330112/103330125.png) 
+    ![Travelocity screen](../../assets/img/using-wso2-identity-server/travelocity-screen.png) 
 
     **avis.com**
 
     URL:
     [http://wso2is.local:8080/avis.com/index.jsp](http://localhost:8080/avis.com/index.jsp)
 
-    ![]( ../../assets/img/103330112/103330124.png) 
+    ![Avis screen](../../assets/img/using-wso2-identity-server/avis-screen.png) 
 
 #### Registering the two service providers in WSO2 Identity Server
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../setup/getting-started-with-the-management-console)
-    .
+    Console](../../using-wso2-identity-server/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
     **Add**.
 3.  Enter `          travelocity.com         ` as the **Service Provider
     Name** in the form that appears and click **Register**. The Service
     Providers page appears.  
-    ![]( ../../assets/img/103330112/112392626.png) 
+    ![Add new service provider](../../assets/img/using-wso2-identity-server/add-new-service-provider.png) 
 4.  Under the **Inbound Authentication Configuration** section, click
     **SAML2 Web SSO Configuration \> Configure**. The Register New
     Service Provider page appears.  
-    ![]( ../../assets/img/103330112/112392631.png) 
+    ![SAML2 Web SSO Configuration option](../../assets/img/using-wso2-identity-server/saml2-web-sso-configuration-option.png) 
 5.  Configure the following details for travelocity.com and repeat steps
     1 to 6 and configure details for avis.com.
 
-    ![]( ../../assets/img/103330112/112392636.png) 
+    ![New application screen](../../assets/img/using-wso2-identity-server/new-application-screen.png) 
 
     **travelocity.com**
 
@@ -151,7 +140,7 @@ customized one.
     page located at
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp         `
     .  
-    ![]( ../../assets/img/103330112/103330122.png) 
+    ![Identity Server sign in screen](../../assets/img/using-wso2-identity-server/identity-server-sign-in-screen.png) 
 
 #### Configuring the login page
 
@@ -166,13 +155,14 @@ authenticationendpoint. The reason for storing this in a web app is:
     application server
 
 The Identity Server knows the location of this web application as it is
-specified in the
-`         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
-configuration file. This is referenced as shown below.
+specified with the following configurations.
 
-``` xml
-<AuthenticationEndpointURL>/authenticationendpoint/login.do</AuthenticationEndpointURL>
-<AuthenticationEndpointRetryURL>/authenticationendpoint/retry.do</AuthenticationEndpointRetryURL>
+```
+[authentication.endpoints] 
+login_url="/authenticationendpoint/login.do"
+
+[authentication.endpoints] 
+retry_url="/authenticationendpoint/retry.do" 
 ```
 
 By default it points to a location inside the Identity Server itself,
@@ -191,7 +181,7 @@ external application, the full path should be given instead.
 
 The following is the structure of this web app.
 
-![]( ../../assets/img/103330112/103330120.png)
+![Web app folder strcture](../../assets/img/using-wso2-identity-server/web-app-folder-strcture.png)
 
 The **authenticationendpoint** web application uses a carbon component
 called
@@ -232,7 +222,9 @@ focus is on the following two parameters:
 -   **sessionDataKey** : This is an identifier used by the Identity
     Server to maintain state information related to this particular
     request by the service provider.
--   **relyingParty** : This is the value we gave for the "Issuer" field
+    !!! note
+        The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.
+ -   **relyingParty** : This is the value we gave for the "Issuer" field
     when we registered the SAML2 SSO service provider (e.g.,
     [travelocity.com](http://travelocity.com) ). This value is used to
     display different login pages to different service providers.
@@ -242,17 +234,17 @@ When customizing the pages, ensure that the following is applied.
 1.  Form submissions should happen to the "commonauth" servlet as a
     POST.
 
-    ``` java
+    ``` xml
     <form id="form" name="form" action="../../commonauth" method="POST"> 
     ```
 
 2.  Make sure to send back the "sessionDataKey" with the form
     submission, by using a hidden input field.
 
-    ``` java
-        <%@ page import="org.owasp.encoder.Encode" %>
-    
-        <input type="hidden" name="sessionDataKey" value="<%=Encode.forHtmlAttribute(request.getParameter("sessionDataKey"))%>"/>
+    ``` xml
+    <%@ page import="org.owasp.encoder.Encode" %>
+
+    <input type="hidden" name="sessionDataKey" value="<%=Encode.forHtmlAttribute(request.getParameter("sessionDataKey"))%>"/>
     ```
 
 ##### **Using a JSP to redirect to SP relevant pages**
@@ -262,17 +254,17 @@ When customizing the pages, ensure that the following is applied.
     code.
 
     ``` java
-        <%  
-        String relyingParty = request.getParameter("relyingParty");
-    
-        if (relyingParty.equals("travelocity.com")) {
-         RequestDispatcher dispatcher = request.getRequestDispatcher("travelocity_login.jsp");
-         dispatcher.forward(request, response);
-        } else {
-         RequestDispatcher dispatcher = request.getRequestDispatcher("default_login.jsp");
-         dispatcher.forward(request, response);
-        } 
-          %>
+    <%  
+    String relyingParty = request.getParameter("relyingParty");
+
+    if (relyingParty.equals("travelocity.com")) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("travelocity_login.jsp");
+        dispatcher.forward(request, response);
+    } else {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("default_login.jsp");
+        dispatcher.forward(request, response);
+    } 
+        %>
     ```
 
     What this code basically does is it forwards the request to a
@@ -287,6 +279,6 @@ When customizing the pages, ensure that the following is applied.
     authenticationendpoint.
 4.  Log in to the [Travelocity.com](http://Travelocity.com) web app
     again. You are presented with a different page.  
-    ![]( ../../assets/img/103330112/103330130.png)   
+    ![Travelocity login screen](../../assets/img/using-wso2-identity-server/travelocity-login-screen.png)   
     If you access [Avis.com](http://Avis.com), it still displays the
     default login page.

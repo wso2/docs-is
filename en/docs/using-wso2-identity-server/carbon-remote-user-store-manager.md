@@ -14,7 +14,7 @@ expose the users in IS2 to IS1 through the
 has a standard implementation which uses the admin services. The diagram
 below illustrates this scenario.
 
-![carbon-remote-user-store-manager](../../assets/img/using-wso2-identity-server/carbon-remote-user-store-manager.png)
+![Carbon remote user store manager scenario](../../assets/img/using-wso2-identity-server/carbon-remote-user-store-manager.png)
 
 ### Configuring a carbon remote user store manager 
 
@@ -27,20 +27,18 @@ following steps.
 2.  Fill in the following values in the form as seen below. The image
     below shows a sample configuration.
     -   **User Store Manager Class:**
-        org.wso2.carbon.identity.user.store.remote.CarbonRemoteUserstoreManger
-    -   **Domain Name:** \<desired\_secondary\_userstore\_name\>
-    -   **Remote Server Username:** \<remote\_admin\_login\>
-    -   **Remote Server Password:** \<remote\_admin\_password\>
+        `org.wso2.carbon.identity.user.store.remote.CarbonRemoteUserstoreManger`
+    -   **Domain Name:** `<desired_secondary_userstore_name>`
+    -   **Remote Server Username:** `<remote_admin_login>`
+    -   **Remote Server Password:** `<remote_admin_password>`
     -   **Remote Server URL(s):**
-        https://\<remote\_sever\_url\>:\<remote\_server\_port\>/services  
+        `https://<remote_sever_url>:<remote_server_port>/services`   
 
-        !!! note
-                Make sure that you insert the same credentials used to invoke
-                the admin services in the remote server and the same remote
-                services URL.
+    !!! note        
+        Make sure that you insert the same credentials used to invoke the admin services in the remote server and the same remote services URL.
         
 
-        ![add-carbon-remote-user-store](../../assets/img/using-wso2-identity-server/add-carbon-remote-user-store.png) 
+    ![Add new user store](../../assets/img/using-wso2-identity-server/add-new-user-store.png) 
 
 3.  Update other fields as required (description is give for each
     property) and click **Add**.
