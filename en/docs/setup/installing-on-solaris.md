@@ -12,9 +12,7 @@ Follow the instructions below to install Identity Server on Solaris.
 
 1.  Establish an SSH connection to the Solaris machine or log in on the
     text console.
-2.  Be sure your system meets the [Installation
-    Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
-    (JDK) is essential to run the product.
+2.  Be sure your system meets the [Installation Prerequisites](../../setup/installation-prerequisites).  Java Development Kit (JDK) is essential to run the product.
 
 ### Installing the Identity Server
 
