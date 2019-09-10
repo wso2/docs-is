@@ -22,13 +22,6 @@ The Management Console user interface (
 The following topics explain how to download a Carbon product and
 customize its user interface.
 
--   [Setting up the development
-    environment](#CustomizingtheManagementConsole-Settingupthedevelopmentenvironment)
--   [Customizing the user
-    interface](#CustomizingtheManagementConsole-Customizingtheuserinterface)
--   [Starting the
-    server](#CustomizingtheManagementConsole-Startingtheserver)
-
 ### Setting up the development environment
 
 To download and set up the product environment for editing, take the
@@ -53,13 +46,6 @@ Customizing the product interface involves changing the layout/design of
 the Carbon framework as well as changing the styles and images specific
 to the product. The following topics explain how some of the main
 changes to the product interface can be done.
-
--   [Changing the
-    layout](#CustomizingtheManagementConsole-Changingthelayout)
--   [Changing the styles on the Carbon
-    framework](#CustomizingtheManagementConsole-ChangingthestylesontheCarbonframework)
--   [Changing the product specific styles and
-    images](#CustomizingtheManagementConsole-Changingtheproductspecificstylesandimages)
 
 #### Changing the layout
 
