@@ -44,7 +44,7 @@ accounts stored in an LDAP server. The partner organization cannot
 expose this LDAP server to the WSO2 Identity Server as a user store due
 to security reasons. However, this partner organization has a
 [Shibboleth identity
-provider](http://shibboleth.net/products/identity-provider.html) that is
+provider](https://wiki.shibboleth.net/confluence/#all-updates) that is
 connected to their LDAP server. Shibboleth is one of the most widely
 used and popular SAML2 identity providers. In the scenario, Shibboleth
 supports SAML2 SSO and it authenticates users in the partner
@@ -62,7 +62,7 @@ Shibboleth IdP.
     
     In this sample we have used Shibboleth version 2.0 . To find
     configuration for latest Shibboleth version refer
-    <https://wiki.shibboleth.net/confluence/display/IDP30/Home> .
+    <https://wiki.shibboleth.net/confluence/display/IDP30/Home>.
 
 ![authenticating-using-enterprise-userstore-and-shibolethidp](../../assets/img/tutorials/authenticating-using-enterprise-userstore-and-shibolethidp.png)
 
