@@ -8,29 +8,17 @@ through the Identity Provider Management Service API.
 This is exposed as a web service and the following operations are
 available.
 
--   [addIdp](#UsingtheIdentityProviderAPI-addIdp)
--   [deleteIdp](#UsingtheIdentityProviderAPI-deleteIdp)
--   [getAllFederatedAuthenticators](#UsingtheIdentityProviderAPI-getAllFederatedAuthenticators)
--   [getAllIdPs](#UsingtheIdentityProviderAPI-getAllIdPs)
--   [getAllLocalClaimURIs](#UsingtheIdentityProviderAPI-getAllLocalClaimURIs)
--   [getAllProvisioningConnectors](#UsingtheIdentityProviderAPI-getAllProvisioningConnectors)
--   [getEnabledAllIdPs](#UsingtheIdentityProviderAPI-getEnabledAllIdPs)
--   [getIdPByName](#UsingtheIdentityProviderAPI-getIdPByName)
--   [getResidentIdP](#UsingtheIdentityProviderAPI-getResidentIdP)
--   [updateIdP](#UsingtheIdentityProviderAPI-updateIdP)
--   [updateResidentIdP](#UsingtheIdentityProviderAPI-updateResidentIdP)
-
 The service contract of this admin service can be found at
-https://\<IS\_HOST\>:\<IS\_PORT\>/services/IdentityProviderMgtService?wsdl.
-Replace the tag \<IS\_HOST\>:\<IS\_PORT\> with the relevant host and
+https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl.
+Replace the tag <IS_HOST>:<IS_PORT> with the relevant host and
 port number, for example:
-https://localhost:9443/services/IdentityProviderMgtService?wsdl .
+`https://localhost:9443/services/IdentityProviderMgtService?wsdl`.
 
   
 
 !!! note
     
-    **Note** : Prior to calling any of these admin services, you need to
+    Prior to calling any of these admin services, you need to
     make them discoverable. See [Calling Admin
     Services](../../using-wso2-identity-server/calling-admin-services) for information on how to do this.
     
@@ -44,9 +32,7 @@ connectors as seen in the request below.
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request** **:**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -111,10 +97,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-Request with Minimum Configuration...
-
-``` xml
+``` xml tab="Sample Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -153,10 +136,7 @@ eyyFZDWGwkh2URpKHXdjU320zLS37MdB8wJR02DRGtx1/Dq5Xs+XWJqrr3F46iRK
 </soapenv:Envelope>
 ```
 
-**  
-Response:**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:addIdPResponse xmlns:ns="http://mgt.idp.carbon.wso2.org">
@@ -236,8 +216,6 @@ request body.
 
 #### **Role configuration**
 
-  
-
 ``` xml
 <permissionAndRoleConfig xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
                <idpRoles>IDPRole</idpRoles>
@@ -254,9 +232,7 @@ request body.
 
 The `          <federatedAuthenticatorConfigs>         ` parameter can
 be used to configure zero or more federated authenticators. For sample
-federated authenticator configurations, see [Federated Authenticator
-Configuration
-Samples](Identity-Provider-Configurations-used-with-APIs_103330047.html#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfig)
+federated authenticator configurations, see [Federated Authenticator Configuration Samples](../../using-wso2-identity-server/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples)
 .
 
 **Outbound provisioning connectors**
@@ -264,10 +240,7 @@ Samples](Identity-Provider-Configurations-used-with-APIs_103330047.html#Identity
 The `         <provisioningConnectorConfigs>        ` parameter can be
 used to configure zero or more outbound provisioning connectors. For
 sample outbound provisioning connector configurations, see [Outbound
-Provisioning Connectors Configuration
-Samples.](Identity-Provider-Configurations-used-with-APIs_103330047.html#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfig)
-
-  
+Provisioning Connectors Configuration Samples.](../../using-wso2-identity-server/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)   
 
 <table>
 <thead>
@@ -308,9 +281,7 @@ included in the request.
 
 Permission Level: `          /permission/admin/manage         `
 
-**Request:**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:mgt="http://mgt.idp.carbon.wso2.org">
@@ -324,13 +295,7 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
-  
-
-**Response**
-
-  
-
-``` xml
+``` xml tab="Response"
 None
 ```
 
@@ -344,9 +309,7 @@ Identity Server.
 
 Permission Level: `           /permission/admin/manage          `
 
-**Request:**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:mgt="http://mgt.idp.carbon.wso2.org">
@@ -357,11 +320,7 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-  
-
-**Response:**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllFederatedAuthenticatorsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -449,13 +408,8 @@ list of Identity Providers registered in WSO2 Identity Server.
 
 Permission Level: `          /permission/admin/login         `
 
-  
 
-**Request**
-
-  
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -464,9 +418,7 @@ Permission Level: `          /permission/admin/login         `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllIdPsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -504,9 +456,7 @@ obtain a list of local claim URIs available in IS.
 
 Permission Level: `           /permission/admin/manage          `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -515,9 +465,7 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllLocalClaimUrisResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -563,9 +511,7 @@ in WSO2 Identity Server.
   
 Permission Level: `          /permission/admin/manage         `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -574,9 +520,7 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllProvisioningConnectorsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -616,9 +560,7 @@ detailed list of IdPs which are enabled in WSO2 Identity Server.
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -627,9 +569,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getEnabledAllIdPsResponse xmlns:ns="http://mgt.idp.carbon.wso2.org" xmlns:ax2392="http://model.common.application.identity.carbon.wso2.org/xsd" xmlns:ax2390="http://common.application.identity.carbon.wso2.org/xsd">
@@ -662,9 +602,7 @@ identity provider by including the IdP name in the request.
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -676,9 +614,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getIdPByNameResponse xmlns:ns="http://mgt.idp.carbon.wso2.org">
@@ -866,9 +802,7 @@ Permission Level: `         /permission/admin/manage        `
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -877,9 +811,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getResidentIdPResponse xmlns:ns="http://mgt.idp.carbon.wso2.org">
@@ -1053,9 +985,7 @@ updateIdP request is similar to the parameters in addIdP request.
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request**
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1105,9 +1035,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 None
 ```
 
@@ -1124,9 +1052,8 @@ Permission Level: `         /permission/admin/manage        `
 
 The following request show how to update the above parameters.
 
-**Request**
 
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1174,8 +1101,6 @@ The following request show how to update the above parameters.
 </soapenv:Envelope>
 ```
 
-**Response**
-
-``` xml
+``` xml tab="Response"
 None
 ```

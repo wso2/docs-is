@@ -10,15 +10,13 @@ endpoint
     on the default port (without offset), the entitlement endpoint is as
     follows:
 
-    **Endpoint**
-
-    ``` java
+    ``` java tab="Endpoint"
     https://localhost:9443/api/identity/entitlement/decision/
     ```
 
 !!! note
     
-    **Note:** The REST APIs are secured with basic authentication. Follow
+    The REST APIs are secured with basic authentication. Follow
     the steps below to add a basic auth header when calling these methods.
     
     1.  1.  Build a string of the form username:password.
@@ -29,10 +27,7 @@ endpoint
             string. For example, the basic auth authorization header using
             "admin" as both username and password ( **admin:admin** ) is as
             follows:
-    
-            ``` java
-                    Authorization: Basic YWRtaW46YWRtaW4=
-            ```
+            <code>Authorization: Basic YWRtaW46YWRtaW4=</code>
     
 
 ####  Get API resource list
@@ -40,36 +35,36 @@ endpoint
 <table>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get the API resource list according to XACML 3.0 specification.</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/home</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>GET</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td>application/json
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -115,7 +110,7 @@ endpoint
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -173,7 +168,7 @@ A sample request and response is as follows:
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Sample request</td>
+<th>Sample Request</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -186,7 +181,7 @@ A sample request and response is as follows:
 </div></td>
 </tr>
 <tr class="even">
-<td>Sample Response</td>
+<th>Sample Response</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -222,36 +217,36 @@ A sample request and response is as follows:
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get a response by evaluating the JSON/XML XACML request.</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/pdp</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>POST</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td><p>application/json</p>
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -304,7 +299,7 @@ A sample request and response is as follows:
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -362,7 +357,7 @@ A sample request and response is as follows:
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>XACML Policy Evaluated</td>
+<th>XACML Policy Evaluated</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -387,7 +382,7 @@ A sample request and response is as follows:
 </div></td>
 </tr>
 <tr class="even">
-<td>Sample Request</td>
+<th>Sample Request</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -426,7 +421,7 @@ A sample request and response is as follows:
 </div></td>
 </tr>
 <tr class="odd">
-<td>Sample Response</td>
+<th>Sample Response</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -459,36 +454,36 @@ A sample request and response is as follows:
 <table>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get a response by evaluating attributes.</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/by-attrib</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>POST</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td>application/json
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -556,7 +551,7 @@ A sample request and response is as follows:
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -609,7 +604,7 @@ A sample request and response are as follows,
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>A sample request</td>
+<th>A sample request</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -631,7 +626,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="even">
-<td>A sample response</td>
+<th>A sample response</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -664,36 +659,36 @@ A sample request and response are as follows,
 <table>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get a boolean response by evaluating attributes.</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/by-attrib-boolean</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>POST</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td><p>application/json</p>
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -761,7 +756,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -815,7 +810,7 @@ A sample request and response are as follows,
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>A sample request</td>
+<th>A sample request</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -837,7 +832,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="even">
-<td>A sample response</td>
+<th>A sample response</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -859,36 +854,36 @@ A sample request and response are as follows,
 <table>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get entitled attributes for a given set of parameters.</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/entitled-attribs</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>POST</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td><p>application/json</p>
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -954,7 +949,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -1030,7 +1025,7 @@ A sample request and response are as follows,
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>A sample request</td>
+<th>A sample request</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -1051,7 +1046,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="even">
-<td>A sample response</td>
+<th>A sample response</th>
 <td><div class="content-wrapper" style="margin-left: 30.0px;">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -1087,36 +1082,36 @@ A sample request and response are as follows,
 <table>
 <tbody>
 <tr class="odd">
-<td>Description</td>
+<th>Description</th>
 <td>Get all entitlements for a given set of parameters</td>
 </tr>
 <tr class="even">
-<td>Resource Path</td>
+<th>Resource Path</th>
 <td>/entitlements-all</td>
 </tr>
 <tr class="odd">
-<td>HTTP Method</td>
+<th>HTTP Method</th>
 <td>POST</td>
 </tr>
 <tr class="even">
-<td>Request/Response Format</td>
+<th>Request/Response Format</th>
 <td><p>application/json</p>
 <p>application/xml</p></td>
 </tr>
 <tr class="odd">
-<td>Authentication</td>
+<th>Authentication</th>
 <td>Basic</td>
 </tr>
 <tr class="even">
-<td>Username</td>
+<th>Username</th>
 <td>admin</td>
 </tr>
 <tr class="odd">
-<td>Password</td>
+<th>Password</th>
 <td>admin</td>
 </tr>
 <tr class="even">
-<td>Parameters</td>
+<th>Parameters</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -1186,7 +1181,7 @@ A sample request and response are as follows,
 </div></td>
 </tr>
 <tr class="odd">
-<td>Response</td>
+<th>Response</th>
 <td><div class="table-wrap">
 <table>
 <colgroup>
