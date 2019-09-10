@@ -1,57 +1,18 @@
 # Using the SCIM 2.0 REST APIs
 
-!!! warning
-    
+!!! warning     
     This documentation is work in progress!
-    
-    
-    **Tip:** Prior to IS 5.4.0, SCIM 2.0 was supported as an external
-    connector that could be plugged in to WSO2 Identity Server. From 5.4.0
-    onwards, SCIM 2.0 is supported OOTB with WSO2 IS.
-    
 
+!!! tip
+    Prior to IS 5.4.0, SCIM 2.0 was supported as an external connector that could be plugged in to WSO2 Identity Server. From 5.4.0 onwards, SCIM 2.0 is supported OOTB with WSO2 IS.
+    
 This REST API implements the SCIM 2.0 Protocol according to the [SCIM
 2.0 specification.](https://tools.ietf.org/html/rfc7644) The following
 endpoints are supported with WSO2 Identity Server.
 
--   [Users endpoint](#UsingtheSCIM2.0RESTAPIs-Usersendpoint)
-    -   [GET/ Get User by ID](#UsingtheSCIM2.0RESTAPIs-GET/GetUserbyID)
-    -   [POST/ Create User](#UsingtheSCIM2.0RESTAPIs-POST/CreateUser)
-    -   [DELETE/ Delete User by
-        ID](#UsingtheSCIM2.0RESTAPIs-DELETE/DeleteUserbyID)
-    -   [GET/ Get Users (User
-        Listing/Filtering)](#UsingtheSCIM2.0RESTAPIs-GET/GetUsers(UserListing/Filtering))
-    -   [POST/ Search Users](#UsingtheSCIM2.0RESTAPIs-POST/SearchUsers)
-    -   [PATCH/ Update User](#UsingtheSCIM2.0RESTAPIs-PATCH/UpdateUser)
-    -   [PUT/ Update User](#UsingtheSCIM2.0RESTAPIs-PUT/UpdateUser)
--   [Groups endpoint](#UsingtheSCIM2.0RESTAPIs-Groupsendpoint)
-    -   [GET/ Group by ID](#UsingtheSCIM2.0RESTAPIs-GET/GroupbyID)
-    -   [POST/ Create Group](#UsingtheSCIM2.0RESTAPIs-POST/CreateGroup)
-    -   [POST/ Create
-        Group](#UsingtheSCIM2.0RESTAPIs-POST/CreateGroup.1)
-    -   [DELETE/ Delete Group By
-        ID](#UsingtheSCIM2.0RESTAPIs-DELETE/DeleteGroupByID)
-    -   [GET/ Filter Groups](#UsingtheSCIM2.0RESTAPIs-GET/FilterGroups)
-    -   [POST/ Search
-        Groups](#UsingtheSCIM2.0RESTAPIs-POST/SearchGroups)
-    -   [PATCH/ Update
-        User](#UsingtheSCIM2.0RESTAPIs-PATCH/UpdateUser.1)
-    -   [PUT/ Update User](#UsingtheSCIM2.0RESTAPIs-PUT/UpdateUser.1)
--   [Bulk Endpoint](#UsingtheSCIM2.0RESTAPIs-BulkEndpoint)
-    -   [POST/ Create Users in
-        Bulk](#UsingtheSCIM2.0RESTAPIs-POST/CreateUsersinBulk)
--   [ResourceType
-    Endpoint](#UsingtheSCIM2.0RESTAPIs-ResourceTypeEndpoint)
-    -   [GET/ Get Resource
-        Types](#UsingtheSCIM2.0RESTAPIs-GET/GetResourceTypes)
--   [ServiceProviderConfig
-    Endpoint](#UsingtheSCIM2.0RESTAPIs-ServiceProviderConfigEndpoint)
-    -   [GET/ Get Service Provider
-        Config](#UsingtheSCIM2.0RESTAPIs-GET/GetServiceProviderConfig)
--   [Required permissions for SCIM 2.0
-    APIs](#UsingtheSCIM2.0RESTAPIs-RequiredpermissionsforSCIM2.0APIs)
-
 ### Users endpoint
+
+This endpoint is used to create and manage users and their profile attributes.
 
 ##### GET/ Get User by ID
 
@@ -332,16 +293,12 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 !!! tip
     
-    **Tip:** To create a user in a particular user store, add the
-    {domainName}/ prefix in front of the user name.
+    To create a user in a particular user store, add the
+    {domainName}/ prefix in front of the user name.      
     
-      
-    
-    **Sample Request**
-    
-    ``` java
+    ``` java tab="Sample Request"
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackson","givenName":"kim"},"userName":"WSO2/kim","password":"kimwso2","emails":[{"primary":true,"value":"kim.jackson@gmail.com","type":"home"},{"value":"kim_j@wso2.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
-```
+	```
 
 
 ##### DELETE/ Delete User by ID
@@ -558,9 +515,11 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>A filter expression used to filter users.</p>
-<p>Supported filter operators are ‘ <code>                 EQ                </code> ’, ' <code>                 EW'                </code>, ‘ <code>                 CO                </code> ’, ‘ <code>                 SW                </code> ’, and ‘ <code>                 AND                </code> ’.</p>
-!!! tip
-    <p>Note that operators are case-insensitive.</p>
+<p>Supported filter operators are ‘ <code>                 EQ                </code> ’, ' <code>                 EW'                </code>, ‘ <code>                 CO                </code> ’, ‘ <code>                 SW                </code> ’, and ‘ <code>                 AND                </code> ’.
+</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Operators are case-insensitive.</p>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -579,10 +538,12 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>Specifies the desired maximum number of query results per page.</p>
-!!! tip
-    <p>This parameter is optional but it is recommended to include it in the request.</p>
-    <p>When this parameter is not included in the request, the response returns all users from a given domain or across all user stores.</p>
-    <p>When this parameter is set to 0 (zero) or is a negative value, no users are retrieved.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This parameter is optional but it is recommended to include it in the request.</p>
+<p>When this parameter is not included in the request, the response returns all users from a given domain or across all user stores.</p>
+<p>When this parameter is set to 0 (zero) or is a negative value, no users are retrieved.</p>
+</div>
 </div></td>
 <td>Integer</td>
 <td>-</td>
@@ -593,8 +554,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>Specifies the attribute whose value can be used to order the returned responses.</p>
-!!! warning
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
     <p>This parameter is not supported for this version.</p>
+</div>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -605,8 +568,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>The order in which the "sortBy" parameter is applied. (e.g., ascending order)</p>
-!!! warning
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
     <p>This parameter is not supported for this version.</p>
+</div>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -636,24 +601,22 @@ All the of the users dialect and meta dialect are supported. For more informatio
         Filter or list users from a particular domain by setting the domain
         query parameter as shown in the example below.
     
-        **Sample Request**
-    
-        ``` java
-            curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?startIndex=1&count=10&domain=WSO2
-    ```
+        ``` java tab="Sample Request"
+        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?startIndex=1&count=10&domain=WSO2
+    	```
 
-2.  **Adding the “ `              {domain}/             ` ” prefix in
-    front of the filter value**  
-    Filter or list users from a particular domain by specifying the
-    domain in front of the filter value as shown in the example below.  
-    Note that this feature can only be used with “userName” and “groups”
-    attributes.  
-    If the domain name is specified in both the query parameter and the
-    filter value, an ERROR is thrown if the two values are not equal.
+	2.  **Adding the “ `              {domain}/             ` ” prefix in
+	    front of the filter value**  
+	    Filter or list users from a particular domain by specifying the
+	    domain in front of the filter value as shown in the example below.  
+	    Note that this feature can only be used with “userName” and “groups”
+	    attributes.  
+	    If the domain name is specified in both the query parameter and the
+	    filter value, an ERROR is thrown if the two values are not equal.
 
-    ``` java
-        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?startIndex=1&count=10&filter=userName+sw+WSO2/ki'
-    ```
+	    ``` java
+	    curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?startIndex=1&count=10&filter=userName+sw+WSO2/ki'
+	    ```
 
 
 ##### POST/ Search Users
@@ -1054,6 +1017,11 @@ All the of the users dialect and meta dialect are supported. For more informatio
   
 
 ### Groups endpoint
+
+This endpoint is used to create and manage groups and group members.
+
+!!! info
+	From WSO2 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change. For more information, see [behavioral change #4 in the Migration Guide: Understanding What Has Changed topic](../../using-wso2-identity-server/understanding-what-has-changed#behavioral-changes).
 
 ##### GET/ Group by ID
 
@@ -1478,15 +1446,13 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 !!! tip
     
-    **Tip:** To create a user in a particular user store, add the
+    To create a user in a particular user store, add the
     {domainName}/ prefix in front of the user name as shown in the example
     below.
-    
-    **Sample Request**
-    
-    ``` java
+        
+    ``` java tab="Sample Request"
     curl -v -k --user admin:admin --data '{"displayName":"WSO2DOMAIN/manager"}' --header "Content-Type:application/json" https://localhost:9443/scim2/Groups
-```
+	```
 
 
 ##### DELETE/ Delete Group By ID
@@ -1701,8 +1667,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <td><div class="content-wrapper">
 <p>A filter expression used to filter users.</p>
 <p>Supported filter operators are ‘ <code>                  EQ                 </code> ’, ' <code>                  EW'                 </code>, ‘ <code>                  CO                 </code> ’, ‘ <code>                  SW                 </code> ’, and ‘ <code>                  AND                 </code> ’.</p>
-!!! tip
-    <p>Note that operators are case-insensitive.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Operators are case-insensitive.</p>
+</div>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -1713,8 +1681,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>The 1-based index of the first query result.</p>
-!!! warning
-    <p>Pagination is not supported.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pagination is not supported.</p>
+</div>
 </div></td>
 <td>Integer</td>
 <td>-</td>
@@ -1725,9 +1695,14 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>Specifies the desired maximum number of query results per page.</p>
-!!! warning
-    <p>Pagination is not supported.</p>
-    <p><strong>Note:</strong> When this parameter is not included in the request, the response returns all groups from the given domain or across all user stores. When the count is zero or any value less than zero, no groups are returned.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pagination is not supported.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When this parameter is not included in the request, the response returns all groups from the given domain or across all user stores. When the count is zero or any value less than zero, no groups are returned.</p>
+</div>
 </div></td>
 <td>Integer</td>
 <td>-</td>
@@ -1738,8 +1713,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>Specifies the attribute whose value can be used to order the returned responses.</p>
-!!! warning
-    <p>This parameter is not supported for this version.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This parameter is not supported for this version.</p>
+</div>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -1750,8 +1727,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
 <p>The order in which the "sortBy" parameter is applied. (e.g., ascending order)</p>
-!!! warning
-    <p>This parameter is not supported for this version.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This parameter is not supported for this version.</p>
+</div>
 </div></td>
 <td>String</td>
 <td>-</td>
@@ -1784,21 +1763,21 @@ All the of the users dialect and meta dialect are supported. For more informatio
         **Sample Request**
     
         ``` java
-            curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=3&count=20&domain=WSO2’
-    ```
+        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=3&count=20&domain=WSO2’
+    	```
 
-2.  **Adding the “ `              {domain}/             ` ” prefix in
-    front of the filter value**  
-    Filter or list users from a particular domain by specifying the
-    domain in front of the filter value as shown in the example below.  
-    Note that this feature can only be used with "displayName",
-    "members.display" and "members.value" attributes.  
-    If the domain name is specified in both the query parameter and the
-    filter value, an ERROR is thrown if the two values are not equal.
+	2.  **Adding the “ `              {domain}/             ` ” prefix in
+	    front of the filter value**  
+	    Filter or list users from a particular domain by specifying the
+	    domain in front of the filter value as shown in the example below.  
+	    Note that this feature can only be used with "displayName",
+	    "members.display" and "members.value" attributes.  
+	    If the domain name is specified in both the query parameter and the
+	    filter value, an ERROR is thrown if the two values are not equal.
 
-    ``` java
-        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=2&count=20&filter=displayName+eq+WSO2/manager'
-    ```
+	    ``` java
+	    curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=2&count=20&filter=displayName+eq+WSO2/manager'
+	    ```
 
 
 ##### POST/ Search Groups
@@ -2187,6 +2166,308 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 200 - Group has been successfully updated
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid group is not found
+
+### Me Endpoint 
+This endpoint is used to create and manage the currently authenticated user. 
+
+##### POST/ Create Users in Bulk
+`POST https://localhost/t/{tenant-domain}/scim2/Me`
+
+This API is used to register a user anonymously. It returns an HTTP 201 response if the user is successfully created. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis). 
+
+```java tab="Request"
+curl -v -k  --data '{"schemas":[],"name:{"familyName":[last name],"givenName":[name]},"userName":[username],"password":[password],"emails":[{"primary":[true/false],"value":[email address],"type":[home/work]},{"value":[email address 2],"type":[home/work]}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":[employee ID],"manager":{"value":[manager's name]}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```java tab="Sample cURL"
+curl -v -k --data '{"schemas":[],"name":{"familyName":"Johnson","givenName":"Alex"},"userName":"alex","password":"alexwso2","emails":[{"primary":true,"value":"alex.j@gmail.com","type":"home"},{"value":"alex_j@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```java tab="Response"
+{"emails":[{"type":"home","value":"alex.j@gmail.com","primary":true},{"type":"work","value":"alex_j@wso2.com"}],"meta":{"created":"2018-08-17T10:34:29Z","location":"https://localhost:9443/scim2/Users/008bba85-451d-414b-87de-c03b5a1f4217","lastModified":"2018-08-17T10:34:29Z","resourceType":"User"},"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"manager":{"value":"Taylor"},"employeeNumber":"123A"},"name":{"familyName":"Johnson","givenName":"Alex"},"id":"008bba85-451d-414b-87de-c03b5a1f4217","userName":"alex"}
+```
+
+**Parameters**
+<table>
+	<thead>
+		<tr>
+		<th>Type</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Schema</th>
+		<th>Default</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Query</td>
+			<td>attributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be included in the response. When this parameter is included in the request, the response returns only the attributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<details class="example">
+    			<summary>Click to see the Sample Request</summary>
+    			<p><code>curl -v -k --data '{"schemas":[],"name":{"familyName":"Johnson","givenName":"Alex"},"userName":"alex","password":"alexwso2","emails":[{"primary":true,"value":"alex.j@gmail.com","type":"home"},{"value":"alex_j@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me?attributes=userName,name.familyName</code>
+    			</p></details>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Query</td>
+			<td>excludedAttributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be excluded from the response. When this parameter is included in the request, the response returns all attributes except the excluded attributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<details class="example">
+    			<summary>Click to see the Sample Request</summary>
+    			<p><code>curl -v -k --data '{"schemas":[],"name":{"familyName":"Johnson","givenName":"Alex"},"userName":"alex","password":"alexwso2","emails":[{"primary":true,"value":"alex.j@gmail.com","type":"home"},{"value":"alex_j@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me?excludedAttributes=userName,name.familyName</code>
+    			</p></details>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Body</td>
+			<td>body (optional)</td>
+			<td>A JSON object that contains relevant values for creating a user.</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+	</tbody>
+</table>
+
+**Responses**
+
+-	HTTP 201 - Valid user is created
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Invalid user
+
+#### DELETE/ Delete Me
+
+`DELETE https://localhost/t/{tenant-domain}/scim2/Me`
+
+This API is used to delete the currently authenticated user. It returns `HTTP 204` if the user is successfully deleted.
+
+```curl tab="Request"
+curl -v -k --user  [username]:[password] -X DELETE https://localhost:9443/scim2/Me
+```
+
+```curl tab="Sample cURL"
+curl -v -k --user alex:alexwso2 -X DELETE https://localhost:9443/scim2/Me
+```
+
+```curl tab="Response"
+HTTP/1.1 204 NOT IMPLEMENTED
+```
+
+<table>
+	<thead>
+		<tr>
+			<th>Type</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Schema</th>
+			<th>Default Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Path</td>
+			<td>id (required)</td>
+			<td>Unique ID of the resource type.</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+	</tbody>
+</table>
+
+**Response** 
+-	HTTP 204 - User has been succesfully deleted
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Valid user is not found
+
+#### GET/ Get Me
+`GET https://localhost/t/{tenant-domain}/scim2/Me`
+
+This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
+
+```cur tab="Request"
+curl -v -k --user [username]:[password] https://localhost:9443/scim2/Me
+```
+
+```curl tab="Sample cURL"
+curl -v -k --user kim:kimwso2 https://localhost:9443/scim2/Me
+```
+
+```curl tab="Response"
+{"schemas":["urn:ietf:params:scim:schemas:core:2.0:ResourceType"],"resourceType":[{"schema":"urn:ietf:params:scim:schemas:core:2.0:User","endpoint":"/Users","meta":{"location":"https://localhost:9443/scim2/ResourceType/User","resourceType":"ResourceType"},"name":"User","description":"User Account","schemaExtensions":{"schema":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User","required":false},"id":"User"},{"schema":"urn:ietf:params:scim:schemas:core:2.0:Group","endpoint":"/Groups","meta":{"location":"https://localhost:9443/scim2/ResourceType/Group","resourceType":"ResourceType"},"name":"Group","description":"Group","id":"Group"}]}
+```
+
+**Parameters**
+None
+
+**Responses**
+
+-	HTTP 200 - Schema is found
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Schema is not found
+
+#### PATCH/ Update Me
+
+`PATCH https://localhost/t/{tenant-domain}/scim2/Me`
+
+This API uses a PATCH operation to update user details Returns `HTTP 404` if the user is not found.
+
+```curl tab="Request"
+curl -v -k --user [username]:[password] -X PATCH -d '{"schemas":[],"Operations":[{"op":[operation],"value":{[attributeName]:[attribute value]}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```curl tab="Sample cURL"
+curl -v -k --user kim:kimwso2 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","value":{"nickName":"shaggy"}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```curl tab="Response"
+{"emails":[{"type":"work","value":"jackson_k@wso2.com"},{"type":"home","value":"jacksonk@gmail.com"}],"meta":{"created":"2018-08-16T17:19:43Z","location":"https://localhost:9443/scim2/Users/f60e6ddd-8d04-411f-92b9-c7ba95fb0fa9","lastModified":"2018-08-17T11:43:34Z","resourceType":"User"},"nickName":"shaggy","schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"manager":{"value":"Taylor"},"employeeNumber":"123A"},"roles":[{"type":"default","value":"manager,Internal/everyone,admin"}],"name":{"givenName":"Kim","familyName":"JacksonJohn"},"groups":[{"display":"manager","value":"a43fe003-d90d-43ca-ae38-d2332ecc0f36"}],"id":"f60e6ddd-8d04-411f-92b9-c7ba95fb0fa9","userName":"kim"}
+```
+
+**Parameters**
+
+<table>
+	<thead>
+		<thead>
+			<tr>		
+			<th>Type</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>	<td>Schema</th>
+			<th>Default Value</th>
+			</tr>
+		</thead>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Query</td>
+			<td>attributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be included in the response. When this parameter is included in the request, the response returns only the attributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<p>
+				<details class="example">
+    			<summary>Click to see the sample request</summary>
+    			<p><code>curl -v -k --user kim:kimwso2 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","value":{"nickName":"shaggy"}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me?attributes=userName,name.familyName</code></p>
+				</details>
+				</p>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Query</td>
+			<td>excludedAttributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be excluded from the response. When this parameter is included in the request, the response returns all attributes except the excludedattributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<p>
+				<details class="example">
+    			<summary>Click to see the sample request</summary>
+    			<p><code>curl -v -k --user kim:kimwso2 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"add","value":{"nickName":"shaggy"}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me?excludedAttributes=userName,name.familyName</code></p>
+				</details>
+				</p>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Body</td>
+			<td>body (optional)</td>
+			<td>This is a JSON object that contains relevant values used to search for a user.</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+**Response**
+
+-	HTTP 200 - User has been successfully updated
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Valid user is not found 
+
+#### PUT/ Update User
+
+`PUT https://localhost/t/{tenant-domain}/scim2/Me`
+
+This API uses a PUT operation to update user details. It returns `HTTP 404` if the user is not found.
+
+``` curl tab="Request"
+curl -v -k --user [username]:[password] -X PUT -d '{"schemas":[],"name":{"familyName":[last name],"givenName":[name]},"emails":[{"primary":[true/false],"value":[email address],"type":[home/work]},{"value":[email address 2],"type":[home/work]}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```curl tab="Sample cURL"
+curl -v -k --user kim:kimwso2 -X PUT -d '{"schemas":[],"name":{"familyName":"JacksonJohn","givenName":"Kim"},"userName":"kim","emails":[{"primary":true,"value":"jacksonk@gmail.com","type":"home"},{"value":"jackson_k@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
+```
+
+```curl tab="Response"
+{"emails":[{"type":"work","value":"jackson_k@wso2.com"},{"type":"home","value":"jacksonk@gmail.com"}],"meta":{"created":"2018-08-16T17:19:43Z","location":"https://localhost:9443/scim2/Users/f60e6ddd-8d04-411f-92b9-c7ba95fb0fa9","lastModified":"2018-08-16T17:43:17Z","resourceType":"User"},"schemas":["urn:ietf:params:scim:schemas:core:2.0:User","urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"manager":{"value":"Taylor"},"employeeNumber":"123A"},"roles":[{"type":"default","value":"manager,Internal/everyone,admin"}],"name":{"givenName":"Kim","familyName":"JacksonJohn"},"groups":[{"display":"manager","value":"a43fe003-d90d-43ca-ae38-d2332ecc0f36"}],"id":"f60e6ddd-8d04-411f-92b9-c7ba95fb0fa9","userName":"kim"}
+```
+
+**Parameters**
+
+<table>
+	<thead>
+		<tr>		
+			<th>Type</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Schema</th>
+			<th>Default Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Query</td>
+			<td>attributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be included in the response. When this parameter is included in the request, the response returns only the attributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<p>
+					<details class="example">
+    				<summary>Click to see the sample request</summary>
+    				<p><code>curl -v -k --user kim:kimwso2 -X PUT -d '{"schemas":[],"name":{"familyName":"JacksonJohn","givenName":"Kim"},"userName":"kim","emails":[{"primary":true,"value":"jacksonk@gmail.com","type":"home"},{"value":"jackson_k@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Meattributes=userName,name.familyName</code></p>
+					</details>
+				</p>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Query</td>
+			<td>excludedAttributes (optional)</td>
+			<td>
+				<p>Attribute names of attributes that are to be excluded from the response. When this parameter is included in the request, the response returns all attributes except the excluded attributes that are specified in the request. All the attributes of the users dialect and meta dialect are supported. For more information about this parameter, see the SCIM 2.0 specification.</p>
+				<p>
+					<details class="example">
+    				<summary>Click to see the sample request</summary>
+    				<p><code>curl -v -k --user kim:kimwso2 -X PUT -d '{"schemas":[],"name":{"familyName":"JacksonJohn","givenName":"Kim"},"userName":"kim","emails":[{"primary":true,"value":"jacksonk@gmail.com","type":"home"},{"value":"jackson_k@wso2.com","type":"work"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":"123A","manager":{"value":"Taylor"}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/MeexcludedAttributes=userName,name.familyName</code></p>
+					</details>					
+				</p>
+			</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Body</td>
+			<td>body (optional)</td>
+			<td>This is a JSON object that contains relevant values used to search for a user.</td>
+			<td>String</td>
+			<td>-</td>
+		</tr>
+	</tbody>
+</table>
+
+**Responses**
+
+-	HTTP 200 - User has been successfully updated
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Valid users are not found
+
+
 
 ### Bulk Endpoint 
 
@@ -2589,7 +2870,8 @@ given below.
     <OverrideUsernameClaimFromInternalUsername>true</OverrideUsernameClaimFromInternalUsername>
     ```
     
+!!! info
+	More information about how to secure the REST APIs and configure
+	authorization level can be found from [Authenticating and Authorizing
+	REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
 
-More information about how to secure the REST APIs and configure
-authorization level can be found from [Authenticating and Authorizing
-REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
