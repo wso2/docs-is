@@ -120,7 +120,7 @@ parameters in a request object via WSO2 IS:
         -   `              http://wso2.org/claims/country             `
         -   `                             http://wso2.org/claims/emailaddress                                         `
 
-        !!! tip
+  !!! tip
         
 			If a user has already consented once to the requested
 			claims that are configured on the service provider, any further
@@ -137,7 +137,7 @@ parameters in a request object via WSO2 IS:
 				added/changed claims. For more information on
 				revoking/accepting user consent, see [Configuring consent
 				for
-				services](../../using-the-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
+				services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
 				.
 
     4.  Click **Update**.
