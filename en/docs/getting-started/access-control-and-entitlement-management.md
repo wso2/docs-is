@@ -11,7 +11,7 @@ entitlement management systems are governed by industry standard
 specifications, hence supporting security requirements for heterogeneous
 applications becomes easy.
 
-Click [here](../../tutorials/access-control.md) for
+Click [here](../../tutorials/access-control) for
 more information on Access control.
 
 ### Types of access control
@@ -36,7 +36,7 @@ The following table describes the various types of access control.
 <td><p>Role-based Access Control</p></td>
 <td><p>Role-based Access Control (RBAC) is an approach used to restrict access to authorized users based on their role. This is a static permission model which provides access control. It is used by the majority of enterprises with more than 500 users.</p>
 <p>This access control type is used when all users are categorized into different roles. The roles define the resources that can be accessed by users assigned to that role. This type of access control reduces management overhead. These users and roles can also be externalized using user stores. These roles need to be managed carefully. There can be instances where a user is assigned to multiple roles. This is a subset of ABAC.</p>
-<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="/using-wso2-identity-server/configuring-roles-and-permissions.md">here</a> for information on Configuring roles and permissions.</p></td>
+<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="../../using-wso2-identity-server/configuring-roles-and-permissions">here</a> for information on Configuring roles and permissions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Attribute-based Access Control</p></td>
@@ -431,7 +431,7 @@ Server is shipped with a DefaultAttributeFinder that communicates with
 the underlying user store of the Identity Server. The default user store
 of the Identity Server is ApacheDS where it can be changed using
 user-mgt.xml file. See [Configuring the
-Realm](https://docs.wso2.com/display/IS570/Configuring+the+Realm) for
+Realm](../../using-wso2-identity-server/configuring-the-realm) for
 more information.
 
 All modules would be initialized and supported attribute Ids are
@@ -782,7 +782,7 @@ such scenarios.
 For a set of tutorials that demonstrate how to work with XACML MDP
 requests in WSO2 Identity Server, see [Working with XACML Multiple
 Decision Profile
-Requests](https://docs.wso2.com/display/IS570/Working+with+XACML+Multiple+Decision+Profile+Requests)
+Requests](../../tutorials/working-with-xacml-multiple-decision-profile-requests)
 .
 
 #### XACML 3.0 JSON Profile
@@ -800,7 +800,7 @@ default XML format with regard to XACML 3.0 requests and responses.
     
     WSO2 Identity Server also supports [working with XACML MDP requests and
     responses in JSON
-    format](https://docs.wso2.com/display/IS570/Working+with+MDP+Requests+in+JSON+Format)
+    format](../../tutorials/working-with-mdp-requests-in-json-format)
     .
     
 

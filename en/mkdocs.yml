@@ -55,7 +55,6 @@ nav:
     - 'About this Release': getting-started/about-this-release.md
     - 'Quick Start Guide': getting-started/quick-start-guide.md
     - 'Key Concepts':
-      - 'Key Concepts': getting-started/key-concepts.md
       - 'Single Sign-On and Identity Federation': getting-started/single-sign-on-and-identity-federation.md
       - 'Identity Provisioning and its Standards': getting-started/identity-provisioning-and-its-standards.md
       - 'Access Control and Entitlement Management': getting-started/access-control-and-entitlement-management.md
@@ -78,19 +77,17 @@ nav:
       - 'Customizing the Management Console': setup/customizing-the-Management-Console.md
       - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
     - 'Deployment Guide':
-      - 'Deployment Patterns':
+      - 'Deployment Guide': setup/deploying-the-identity-server.md
+      - 'Deployment Patterns': 
         - 'Deployment Patterns': setup/deployment-patterns.md
-        - 'Setting Up Deployment Pattern 1': setup/setting-up-deployment-pattern-1.md
-        - 'Setting Up Deployment Pattern 2': setup/setting-Up-Deployment-Pattern-2.md
-        - 'Setting Up Separate Databases for Clustering': setup/setting-Up-Separate-Databases-for-Clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-Guidelines-in-Production.md
+        - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
+        - 'Configuring the Datasource' :setup/configuring-the-datasources.md
+        - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
+      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-Production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
-      - 'Adding High Availability for LDAP': setup/adding-High-Availability-for-LDAP.md
-      - 'File Based Configurations': 
-        - 'File Based Configurations': setup/file-Based-Configurations.md
-        - 'Configuring a SP and IdP Using Configuration Files': setup/configuring-a-SP-and-IdP-Using-Configuration-Files.md
-      - 'Token Persistence': setup/token-Persistence.md
-      - 'Configuring WSO2 Identity Server as the Key Manager in WSO2 API Manager': setup/configuring-WSO2-Identity-Server-as-the-Key-Manager-in-WSO2-API-Manager.md
+      - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+      - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-an-sp-and-idp-using-configuration-files.md
+      - 'Token Persistence': setup/token-persistence.md
     - 'Migration Guide':
       - 'Migration Guide': setup/migration-guide.md
       - 'Upgrading from the Previous Release':
