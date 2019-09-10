@@ -67,7 +67,7 @@ external claim:
     </tr>
     <tr class="odd">
     <td><strong>Regular Expression</strong></td>
-    <td>This is the regular expression used to validate inputs. Example : For a claim URI like <a href="http://wso2.org/claims/email">http://wso2.org/claims/email</a> the regex should be something like " <strong>^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$</strong> ". This will validate the claim value and will not let other values except an email.</td>
+    <td>This is the regular expression used to validate inputs. Example : For a claim URI likehttp://wso2.org/claims/email the regex should be something like " <strong>^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$</strong> ". This will validate the claim value and will not let other values except an email.</td>
     </tr>
     <tr class="even">
     <td><strong>Display Order</strong></td>
