@@ -4,15 +4,6 @@ This section guides you through the configurations you can include in a
 service provider application. See [Calling Admin
 Services](../../using-wso2-identity-server/calling-admin-services) to enable the admin service.
 
--   [Configuring SAML2 web
-    SSO](#ServiceProviderConfigurationsusedwithAPIs-ConfiguringSAML2webSSO)
--   [Configuring OAuth/OpenID
-    Connect](#ServiceProviderConfigurationsusedwithAPIs-ConfiguringOAuth/OpenIDConnect)
--   [Configuring WS-Trust Security Token
-    service](#ServiceProviderConfigurationsusedwithAPIs-ConfiguringWS-TrustSecurityTokenservice)
--   [Configuring WS-Federation
-    (passive)](#ServiceProviderConfigurationsusedwithAPIs-ConfiguringWS-Federation(passive))
-
 ### Configuring SAML2 web SSO
 
 Permission Level: `         /permission/admin/manage        `
@@ -21,17 +12,17 @@ To add a Service Provider with SAML2 Web SSO capability, you have to
 first add SAML2 Web SSO configuration. This is done through the
 `         IdentitySAMLSSOConfigService        ` exposed at
 `         https://<IS_HOST>:<IS_PORT>/services/IdentitySAMLSSOConfigService?wsdl        `
-. Replace the tag \<IS\_HOST\>:\<IS\_PORT\> with the relevant host and
+. Replace the tag `<IS_HOST>:<IS_PORT>` with the relevant host and
 port number, for example,
-<https://localhost:9443/services/IdentitySAMLSSOConfigService?wsdl> .
+`https://localhost:9443/services/IdentitySAMLSSOConfigService?wsdl`.
 
 #### Input parameters
 
 <table>
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 6%" />
-<col style="width: 81%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 90%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -56,8 +47,13 @@ port number, for example,
 <td>String</td>
 <td><div class="content-wrapper">
 <p>Since there can be multiple assertion consumer URLs, you must define a <strong>Default Assertion Consumer URL</strong> in case you are unable to retrieve it from the authentication request.</p>
-!!! tip
-    <p><strong>Tip</strong> : In a service provider initiated single sign-on setup, the following needs to be considered.</p>
+
+<p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>
+<p>In a service provider initiated single sign-on setup, the following needs to be considered.</p>
+<p>
     <ul>
     <li>If no ACS URL is given in the &lt; <code>                AuthnRequest               </code> &gt;, the Identity Server sends the response to the default ACS URL of the service provider (whether the request is signed or not).</li>
     <li>If the ACS URL in &lt; <code>                AuthnRequest               </code> &gt; matches with one of the registered URLs, the Identity Server sends the response to the matched one.</li>
@@ -68,6 +64,10 @@ port number, for example,
     <li>If the “acs” query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.</li>
     <li>If the "acs” parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.</li>
     </ul>
+</p>
+</p>
+</div>
+</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -76,7 +76,10 @@ port number, for example,
 <td><div class="content-wrapper">
 <p>Specify the <strong>NameID format</strong> . This defines the name identifier formats supported by the identity provider. The service provider and identity provider usually communicate with each other regarding a specific subject. That subject should be identified through a Name-Identifier (NameID), which should be in some format so that It is easy for the other party to identify it based on the format. Name identifiers are used to provide information regarding a user.</p>
 <div>
-<p>About NameID formats</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>
+<p><b>About NameID formats</b></p>
 <p>For SSO interactions, you can use the following types of NameID formats.</p>
 <ul>
 <li><code>                                   urn:oasis:names:tc:SAML:2.0:nameid-format:persistent                                 </code></li>
@@ -92,6 +95,7 @@ port number, for example,
 <ul>
 <li><code>                                   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                                 </code></li>
 </ul>
+</p>
 </div>
 </div></td>
 </tr>
@@ -105,11 +109,6 @@ port number, for example,
 <td>String</td>
 <td><div class="content-wrapper">
 <p>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/conf/identity.xml              </code> file, in the <code>               SSOService              </code> element with <code>               SAMLDefaultSigningAlgorithmURI              </code> tag. If it is not provided the default algorithm is RSA­SHA 1 - ' <code>                               http://www.w3.org/2000/09/xmldsig#rsa­sha1                             </code> ’.</p>
-<div id="expander-161181687" class="expand-container">
-<div id="expander-control-161181687" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand for more information on signature algorithms.
-</div>
-<div id="expander-content-161181687" class="expand-content">
 <p>The following table provides the list of signature algorithms available and their respective URI.</p>
 <div class="table-wrap">
 <table>
@@ -176,11 +175,6 @@ port number, for example,
 <td>String</td>
 <td><div class="content-wrapper">
 <p>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/conf/identity.xml              </code> file, in the <code>               SSOService              </code> element with <code>               SAMLDefaultDigestAlgorithmURI              </code> tag. If it is not provided the default algorithm is SHA 1 - ‘ <code>                               http://www.w3.org/2000/09/xmldsig#sha1                             </code> ’.</p>
-<div id="expander-1850114258" class="expand-container">
-<div id="expander-control-1850114258" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand for more information on digest algorithms.
-</div>
-<div id="expander-content-1850114258" class="expand-content">
 <p>The following table provides the list of digest algorithms available and their respective URI.</p>
 <div class="table-wrap">
 <table>
@@ -275,14 +269,13 @@ port number, for example,
 <tr class="even">
 <td>assertionQueryRequestProfileEnabled</td>
 <td>Boolean</td>
-<td>Set true to enable Assertion Query Request Profile to query assertions that are persisted to the database when you log in to the service provider application. For more information, see <a href="https://docs.wso2.com/display/IS530/Querying+SAML+Assertions">Querying SAML Assertions</a> .</td>
+<td>Set true to enable Assertion Query Request Profile to query assertions that are persisted to the database when you log in to the service provider application. For more information, see <a href="../../using-wso2-identity-server/querying-saml-assertions">Querying SAML Assertions</a> .</td>
 </tr>
 </tbody>
 </table>
 
-#### Request:
 
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.saml.sso.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -343,10 +336,7 @@ port number, for example,
 </soapenv:Envelope>
 ```
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-Request...
-
-``` xml
+``` xml tab="Sample Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.saml.sso.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -405,9 +395,7 @@ Request...
 </soapenv:Envelope>
 ```
 
-#### ** Response:**
-
-``` xml
+``` xml tab="Response"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -466,183 +454,107 @@ with the relevant host and port number, for example,
 
 #### Input parameters
 
-Parameter
+<table>
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>OAuthVersion</td>
+            <td>String</td>
+            <td>Specify the Oauth version using this parameter. Accepted values are 'OAuth-1.0a' and 'OAuth-2.0'. If you set <b>OAuth Version</b> as  <b>OAuth-1.0a</b>,  there is no need to fill the <b>grantTypes</b> parameter. This is because this version of OAuth does not support grant types.</td>
+        </tr>
+        <tr>
+            <td>applicationName</td>
+            <td>String</td>
+            <td>Service provider name</td>
+        </tr>
+        <tr>
+            <td>applicationAccessTokenExpiryTime</td>
+            <td>String</td>
+            <td>Specify the time the application access token needs to expire. The value needs to be specified in milliseconds.</td>
+        </tr>
+        <tr>
+            <td>callbackUrl</td>
+            <td></td>
+            <td>
+                <p>This is the exact location in the service provider's application where an access token would be sent. This is a required field and it is important to configure, as it is imperative that the service provider receives the access token. This is necessary for security purposes to ensure that the token is not compromised.</p>
+                <p>
+                    <div class="admonition info">
+                    <p class="admonition-title">Info</p>
+                    <p>
+                        <b>Configure multiple callback URLs</b>
+                        <p>From IS 5.2.0 onwards, regex-based consumer URLs are supported when defining the callback URL. This enables you to configure multiple callback URLs for one application.For example, if you have two serv ice providers that use the same application, you can now define a regex pattern which will work for both callback URLs instead of having to configure two different applications for the two service providers. Assume the two callback URLs for your two service providers are as follows:</p>
+                        <p>
+                        <ul>
+                            <li>https://myapp.com/callback</li>
+                            <li>https://testapp:8000/callback</li>
+                        </ul>
+                        </p>
+                    <p>To configure the callback URL to work for <b>both</b> of these URLs, set it using a regex pattern as follows:</p>
+                    <p><code>regexp=(https://myapp.com/callback|https://testapp:8000/callback)</code></p>
+                    <p>You must have the prefix '<b>regexp=</b>' before your regex pattern. To define a normal URL, you can specify the callback URL without this prefix.</p>
+                    </p>
+                    </div> 
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>grantTypes</td>
+            <td>String</td>
+            <td>
+                <p>Allowed Grant Types - The following are the grant types that are used to get the access token:</p>
+                <p>
+                <ul>
+                    <li><b>Code</b>: Entering the username and password required at the service provider will result in a code being generated. This code can be used to obtain the access token. For more information on this grant type, see this <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code specification</a>.</li>
+                    <li><b>Implicit</b>: This is similar to the code grant type, but instead of generating a code, this directly provides the access token. For more information on this grant type, see this <a href="https://tools.ietf.org/html/rfc6749#section-4.2">Implicit Grant specification</a>.</li>
+                    <li><b>Password</b>: This authenticates the user using the password provided and the access token is provided. For more information on this grant type, see this <a href="https://tools.ietf.org/html/rfc6749#section-4.3">Resource Owner Password Credentials Grant specification</a>.</li>
+                    <li><b>Client Credential</b>: This is the grant type for the client key and client secret. If these two items are provided correctly by the service provider, the access token is sent. For more information on this grant type, see this <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials specification</a>.</li>
+                    <li><b>Refresh Token</b>: This will enable the user to obtain an access token by using the refresh token once the originally provided access token is used up. For more information on this grant type, see this <a href="https://tools.ietf.org/html/rfc6749#section-1.5">Refresh Token specification</a>.</li>
+                    <li><b>SAML</b>: This uses SAML assertion to obtain the access token. For more information on this grant type, see this <a href="https://tools.ietf.org/id/draft-ietf-oauth-saml2-bearer-23.txt">SAML2 Bearer specification</a>.</li>
+                    <li><b>IWA-NTLM</b>: This is similar to the password grant type, but it is specific to Microsoft Windows users.</li>
+                    <li><b>urn:ietf:params:oauth: grant-type:jwt-bearer<b>: This is a custom grant type. It uses a JWT token to obtain the access token. For more information about this grant type, see this <a href="https://tools.ietf.org/html/rfc7523">JWT specification</a>.</li>
+                </ul>
+        </tr>
+        <tr>            
+            <td>oauthConsumerKey</td>
+            <td>String</td>
+            <td>This the consumer key of the OAuth application. If you keep this empty, Identity server will generate a consumer key.</td>
+        </tr>
+        <tr>            
+            <td>oauthConsumerSecret</td>
+            <td><b>String</b></td>
+            <td>This the consumer secret of the OAuth application. If you keep this empty, Identity server will generate a consumer secret.</td>
+        </tr>
+        <tr>            
+            <td>pkceMandatory</td>
+            <td>Boolean</td>
+            <td>Set true if you are using the Code grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="https://docs.wso2.com/display/IS530/Mitigating+Authorization+Code+Interception+Attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+        </tr>
+        <tr>            
+            <td>pkceSupportPlain</td>
+            <td>Boolean</td>
+            <td>Set true if you are using PKCE.</td>
+        </tr>
+        <tr>            
+            <td>refreshTokenExpiryTime</td>
+            <td>String</td>
+            <td>Specify the time the refresh token needs to expire. The value needs to be specified in milliseconds.</td>
+        </tr>
+        <tr>            
+            <td>userAccessTokenExpiryTime</td>
+            <td>String</td>
+            <td>Specify the time the user's access token needs to expire. The value needs to be specified in milliseconds.</td>
+        </tr>
+    </tbody>
+</table> 
 
-Type
 
-Description
-
-**OAuthVersion**
-
-String
-
-Specify the Oauth version using this parameter. Accepted values are
-'OAuth-1.0a' and 'OAuth-2.0'. If you set **OAuth Version** as
-**OAuth-1.0a,** there is no need to fill the **grantTypes** parameter.
-This is because this version of OAuth does not support grant types.
-
-**applicationName**
-
-String
-
-Service provider name
-
-**applicationAccessTokenExpiryTime**
-
-String
-
-Specify the time the application access token needs to expire. The value
-needs to be specified in milliseconds.
-
-**callbackUrl**
-
-  
-
-This is the exact location in the service provider's application where
-an access token would be sent. This is a required field and it is
-important to configure, as it is imperative that the service provider
-receives the access token. This is necessary for security purposes to
-ensure that the token is not compromised.
-
-Configure multiple callback URLs
-
-From IS 5.2.0 onwards, regex-based consumer URLs are supported when
-defining the callback URL. This enables you to configure multiple
-callback URLs for one application.  
-For example, if you have two service providers that use the same
-application, you can now define a regex pattern which will work for both
-callback URLs instead of having to configure two different applications
-for the two service providers. Assume the two callback URLs for your two
-service providers are as follows:
-
--   <https://myapp.com/callback>
--   <https://testapp:8000/callback>
-
-To configure the callback URL to work for **both** of these URLs, set it
-using a regex pattern as follows:
-
-``` java
-regexp=(https://myapp.com/callback|https://testapp:8000/callback)
-```
-
-!!! note
-    
-    You must have the prefix ' **regexp=** ' before your regex pattern. To
-    define a normal URL, you can specify the callback URL without this
-    prefix.
-    
-
-**grantTypes**
-
-String
-
-  
-
-**Allowed Grant Types - The following are the grant types that are used
-to get the access token:**
-
-**Code**
-
-Entering the username and password required at the service provider will
-result in a code being generated. This code can be used to obtain the
-access token. For more information on this grant type, see this
-[Authorization Code
-specification](https://tools.ietf.org/html/rfc6749#section-4.1).
-
-**Implicit**
-
-This is similar to the code grant type, but instead of generating a
-code, this directly provides the access token. For more information on
-this grant type, see this [Implicit Grant
-specification](https://tools.ietf.org/html/rfc6749#section-4.2).
-
-**Password**
-
-This authenticates the user using the password provided and the access
-token is provided. For more information on this grant type, see this
-[Resource Owner Password Credentials Grant
-specification](https://tools.ietf.org/html/rfc6749#section-4.3).
-
-**Client Credential**
-
-This is the grant type for the client key and client secret. If these
-two items are provided correctly by the service provider, the access
-token is sent. For more information on this grant type, see this [Client
-Credentials
-specification.](https://tools.ietf.org/html/rfc6749#section-4.4)
-
-**Refresh Token**
-
-This will enable the user to obtain an access token by using the refresh
-token once the originally provided access token is used up. For more
-information on this grant type, see this [Refresh Token
-specification](https://tools.ietf.org/html/rfc6749#section-1.5).
-
-**SAML**
-
-This uses SAML assertion to obtain the access token. For more
-information on this grant type, see this [SAML2 Bearer
-specification](https://tools.ietf.org/id/draft-ietf-oauth-saml2-bearer-23.txt)
-.
-
-**IWA-NTLM**
-
-This is similar to the password grant type, but it is specific to
-Microsoft Windows users.
-
-**urn:ietf:params:oauth: grant-type:jwt-bearer**
-
-This is a custom grant type. It uses a JWT token to obtain the access
-token. For more information about this grant type, see this [JWT
-specification](https://tools.ietf.org/html/rfc7523).
-
-**oauthConsumerKey**
-
-String
-
-This the consumer key of the OAuth application. If you keep this empty,
-Identity server will generate a consumer key.
-
-**oauthConsumerSecret**
-
-String
-
-This the consumer secret of the OAuth application. If you keep this
-empty, Identity server will generate a consumer secret.
-
-**pkceMandatory**
-
-Boolean
-
-Set true if you are using the **Code** grant type. PKCE is a recommended
-security measure used to mitigate a code interception attack. See
-[Mitigating Authorization Code Interception
-Attacks](https://docs.wso2.com/display/IS530/Mitigating+Authorization+Code+Interception+Attacks)
-for more information.
-
-**pkceSupportPlain**
-
-Boolean
-
-Set true if you are using PKCE.
-
-**refreshTokenExpiryTime**
-
-String
-
-Specify the time the refresh token needs to expire. The value needs to
-be specified in milliseconds.
-
-**userAccessTokenExpiryTime**
-
-String
-
-Specify the time the user's access token needs to expire. The value
-needs to be specified in milliseconds.
-
-#### Request:
-
-``` xml
+``` xml tab="Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.oauth.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -677,10 +589,7 @@ needs to be specified in milliseconds.
 </soapenv:Envelope>
 ```
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-Request...
-
-``` xml
+``` xml tab="Sample Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.oauth.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -711,9 +620,9 @@ Request...
 </soapenv:Envelope>
 ```
 
-#### ** Response:**
+#### Response
 
-``` xml
+``` xml 
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:registerOAuthApplicationDataResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -791,7 +700,7 @@ To configure a service provider with the WS-Trust Security Token Service
 `          https://<IS_HOST>:<IS_PORT>/services/STSAdminService?wsdl.         `
 Replace the tag `          <IS_HOST>:<IS_PORT>         ` with the
 relevant host and port number, for example,
-<https://localhost:9443/services/STSAdminService?wsdl> .
+`https://localhost:9443/services/STSAdminService?wsdl`.
 
 #### Input parameters
 
@@ -838,10 +747,7 @@ relevant host and port number, for example,
 </soapenv:Envelope>
 ```
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-Request...
-
-``` xml
+``` xml tab="Sample Request"
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.sts.security.carbon.wso2.org">
    <soapenv:Header/>
    <soapenv:Body>
@@ -855,7 +761,7 @@ Request...
 </soapenv:Envelope>
 ```
 
-#### ** Response:**
+#### Response:
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -944,15 +850,12 @@ For example: <code>               https://localhost:8080/PassiveSTSSampleApp/ind
 </xsd1:inboundAuthenticationConfig>
 ```
 
-**Related Links**
-
--   See [Using APIs](_Using_APIs_) for key APIs relevant for Developers
--   See [Permissions Required to Invoke Admin
-    Services](../../references/permissions-required-to-invoke-admin-services) for a
-    list of the operations that can be performed with different
-    permission levels
--   The following article guides you through transforming existing
-    SOAP-based services into REST services in WSO2 Identity Server:
-    [Exposing WSO2 Identity Server Admin Services the REST
-    Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2)
-    .
+!!! info "Related Links"
+    -   See [Using APIs](../../using-wso2-identity-server/using-apis) for key APIs relevant for Developers
+    -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a
+        list of the operations that can be performed with different
+        permission levels
+    -   The following article guides you through transforming existing
+        SOAP-based services into REST services in WSO2 Identity Server:
+        [Exposing WSO2 Identity Server Admin Services the REST
+        Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).
