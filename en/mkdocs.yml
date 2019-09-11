@@ -678,217 +678,217 @@ nav:
     - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': connectors/creating-a-third-Party-authenticator-or-connector-and-publishing-in-wso2-store.md
     - 'Getting Support': connectors/getting-support.md        
   - 'Admin Guide':
-    - 'WSO2 Administration Guide': admin-guide/wSO2-Administration-Guide.md
+    - 'WSO2 Administration Guide': admin-guide/wso2-administration-guide.md
     - 'Deployment and Clustering':
-      - 'Deployment and Clustering': admin-guide/deployment-and-Clustering.md
+      - 'Deployment and Clustering': admin-guide/deployment-and-clustering.md
       - 'Key Concepts':
-        - 'Key Concepts': admin-guide/key-Concepts.md
-        - 'Clustering Overview': admin-guide/clustering-Overview.md
-        - 'Load Balancing': admin-guide/load-Balancing.md    
-        - 'Separating the Worker and Manager Nodes': admin-guide/separating-the-Worker-and-Manager-Nodes.md
-        - 'Sharing Databases in a Cluster': admin-guide/sharing-Databases-in-a-Cluster.md
-        - 'Sticky Sessions with Manager Nodes': admin-guide/sticky-Sessions-with-Manager-Nodes.md
+        - 'Key Concepts': admin-guide/key-concepts.md
+        - 'Clustering Overview': admin-guide/clustering-overview.md
+        - 'Load Balancing': admin-guide/load-balancing.md    
+        - 'Separating the Worker and Manager Nodes': admin-guide/separating-the-worker-and-manager-nodes.md
+        - 'Sharing Databases in a Cluster': admin-guide/sharing-databases-in-a-cluster.md
+        - 'Sticky Sessions with Manager Nodes': admin-guide/sticky-sessions-with-manager-nodes.md
       - 'Production Deployment Guidelines': 
-        - 'Production Deployment Guidelines': admin-guide/production-Deployment-Guidelines.md
-        - 'Security Guidelines for Production Deployment': admin-guide/security-Guidelines-for-Production-Deployment.md
-        - 'Troubleshooting in Production Environments': admin-guide/troubleshooting-in-Production-Environments.md
-      - 'Configuring rsync for Deployment Synchronization': admin-guide/configuring-rsync-for-Deployment-Synchronization.md
+        - 'Production Deployment Guidelines': admin-guide/production-deployment-guidelines.md
+        - 'Security Guidelines for Production Deployment': admin-guide/security-guidelines-for-production-deployment.md
+        - 'Troubleshooting in Production Environments': admin-guide/troubleshooting-in-production-environments.md
+      - 'Configuring rsync for Deployment Synchronization': admin-guide/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
-      - 'Data Stores': admin-guide/data-Stores.md
+      - 'Data Stores': admin-guide/data-stores.md
       - 'Working with Databases':
-        - 'Working with Databases': admin-guide/working-with-Databases.md
+        - 'Working with Databases': admin-guide/working-with-databases.md
         - 'Setting up the Physical Database':
-          - 'Setting up the Physical Database': admin-guide/setting-up-the-Physical-Database.md
-          - 'Setting up IBM DB2': admin-guide/setting-up-IBM-DB2.md
-          - 'Setting up IBM Informix': admin-guide/setting-up-IBM-Informix.md
+          - 'Setting up the Physical Database': admin-guide/setting-up-the-physical-database.md
+          - 'Setting up IBM DB2': admin-guide/setting-up-ibm-db2.md
+          - 'Setting up IBM Informix': admin-guide/setting-up-ibm-informix.md
           - 'Setting up H2': 
-            - 'Setting up H2': admin-guide/setting-up-H2.md
-            - 'Setting up Embedded H2': admin-guide/setting-up-Embedded-H2.md
-            - 'Setting up Remote H2': admin-guide/setting-up-Remote-H2.md
-          - 'Setting up MariaDB': admin-guide/setting-up-MariaDB.md
-          - 'Setting up Microsoft SQL': admin-guide/setting-up-Microsoft-SQL.md
-          - 'Setting up MySQL': admin-guide/setting-up-MySQL.md
-          - 'Setting up a MySQL Cluster': admin-guide/setting-up-a-MySQL-Cluster.md
-          - 'Setting up Oracle': admin-guide/setting-up-Oracle.md
-          - 'Setting up Oracle RAC': admin-guide/setting-up-Oracle-RAC.md
-          - 'Setting up PostgreSQL': admin-guide/setting-up-PostgreSQL.md
+            - 'Setting up H2': admin-guide/setting-up-h2.md
+            - 'Setting up Embedded H2': admin-guide/setting-up-embedded-h2.md
+            - 'Setting up Remote H2': admin-guide/setting-up-remote-h2.md
+          - 'Setting up MariaDB': admin-guide/setting-up-mariadb.md
+          - 'Setting up Microsoft SQL': admin-guide/setting-up-microsoft-sql.md
+          - 'Setting up MySQL': admin-guide/setting-up-mysql.md
+          - 'Setting up a MySQL Cluster': admin-guide/setting-up-a-mysql-cluster.md
+          - 'Setting up Oracle': admin-guide/setting-up-oracle.md
+          - 'Setting up Oracle RAC': admin-guide/setting-up-oracle-rac.md
+          - 'Setting up PostgreSQL': admin-guide/setting-up-postgresql.md
           - 'Setting up Derby':
-            - 'Setting up Derby': admin-guide/setting-up-Derby.md
-            - 'Setting up Embedded Derby': admin-guide/setting-up-Embedded-Derby.md
-            - 'Setting up Remote Derby': admin-guide/setting-up-Remote-Derby.md
+            - 'Setting up Derby': admin-guide/setting-up-derby.md
+            - 'Setting up Embedded Derby': admin-guide/setting-up-embedded-derby.md
+            - 'Setting up Remote Derby': admin-guide/setting-up-remote-derby.md
         - 'Changing the Carbon Database':
-          - 'Changing the Carbon Database': admin-guide/changing-the-Carbon-Database.md
-          - 'Changing to Embedded Derby': admin-guide/changing-to-Embedded-Derby.md
-          - 'Changing to Embedded H2': admin-guide/changing-to-Embedded-H2.md
-          - 'Changing to IBM DB2': admin-guide/changing-to-IBM-DB2.md
-          - 'Changing to IBM Informix': admin-guide/changing-to-IBM-Informix.md
-          - 'Changing to MariaDB': admin-guide/changing-to-MariaDB.md
-          - 'Changing to MSSQL': admin-guide/changing-to-MSSQL.md
-          - 'Changing to MySQL': admin-guide/changing-to-MySQL.md
-          - 'Changing to Oracle': admin-guide/changing-to-Oracle.md
-          - 'Changing to Oracle RAC': admin-guide/changing-to-Oracle-RAC.md
-          - 'Changing to PostgreSQL': admin-guide/changing-to-PostgreSQL.md
-          - 'Changing to Remote H2': admin-guide/changing-to-Remote-H2.md
-        - 'Browsing the H2 Database': admin-guide/browsing-the-H2-Database.md
+          - 'Changing the Carbon Database': admin-guide/changing-the-carbon-database.md
+          - 'Changing to Embedded Derby': admin-guide/changing-to-embedded-derby.md
+          - 'Changing to Embedded H2': admin-guide/changing-to-embedded-h2.md
+          - 'Changing to IBM DB2': admin-guide/changing-to-ibm-db2.md
+          - 'Changing to IBM Informix': admin-guide/changing-to-ibm-informix.md
+          - 'Changing to MariaDB': admin-guide/changing-to-mariadb.md
+          - 'Changing to MSSQL': admin-guide/changing-to-mssql.md
+          - 'Changing to MySQL': admin-guide/changing-to-mysql.md
+          - 'Changing to Oracle': admin-guide/changing-to-oracle.md
+          - 'Changing to Oracle RAC': admin-guide/changing-to-oracle-rac.md
+          - 'Changing to PostgreSQL': admin-guide/changing-to-postgresql.md
+          - 'Changing to Remote H2': admin-guide/changing-to-remote-h2.md
+        - 'Browsing the H2 Database': admin-guide/browsing-the-h2-database.md
       - 'Working with the Registry': 
-        - 'Working with the Registry': admin-guide/working-with-the-Registry.md
+        - 'Working with the Registry': admin-guide/working-with-the-registry.md
         - 'Managing the Registry':
-          - 'Managing the Registry': admin-guide/managing-the-Registry.md
+          - 'Managing the Registry': admin-guide/managing-the-registry.md
           - 'Metadata': admin-guide/metadata.md
           - 'Properties': admin-guide/properties.md
           - 'Entries and Content':
-            - 'Entries and Content': admin-guide/entries-and-Content.md
-            - 'Adding a Resource': admin-guide/adding-a-Resource.md
-            - 'Link Creation': admin-guide/link-Creation.md
-            - 'Editing collections using the Entries panel': admin-guide/editing-collections-using-the-Entries-panel.md
-          - 'Role Permissions': admin-guide/role-Permissions.md
-        - 'Searching the Registry': admin-guide/searching-the-Registry.md
+            - 'Entries and Content': admin-guide/entries-and-content.md
+            - 'Adding a Resource': admin-guide/adding-a-resource.md
+            - 'Link Creation': admin-guide/link-creation.md
+            - 'Editing collections using the Entries panel': admin-guide/editing-collections-using-the-entries-panel.md
+          - 'Role Permissions': admin-guide/role-permissions.md
+        - 'Searching the Registry': admin-guide/searching-the-registry.md
         - 'Using Remote Registry Instances for the Registry Partitions':
-          - 'Using Remote Registry Instances for the Registry Partitions': admin-guide/using-Remote-Registry-Instances-for-the-Registry-Partitions.md
-          - 'All Partitions in a Single Server': admin-guide/all-Partitions-in-a-Single-Server.md
-          - 'Config and Governance Partitions in a Remote Registry': admin-guide/config-and-Governance-Partitions-in-a-Remote-Registry.md
-          - 'Governance Partition in a Remote Registry': admin-guide/governance-Partition-in-a-Remote-Registry.md
-          - 'Config and Governance Partitions in Separate Nodes': admin-guide/config-and-Governance-Partitions-in-a-Remote-Registry.md
+          - 'Using Remote Registry Instances for the Registry Partitions': admin-guide/using-remote-registry-instances-for-the-registry-partitions.md
+          - 'All Partitions in a Single Server': admin-guide/all-partitions-in-a-single-server.md
+          - 'Config and Governance Partitions in a Remote Registry': admin-guide/config-and-governance-partitions-in-a-remote-registry.md
+          - 'Governance Partition in a Remote Registry': admin-guide/governance-partition-in-a-remote-registry.md
+          - 'Config and Governance Partitions in Separate Nodes': admin-guide/config-and-governance-partitions-in-a-remote-registry.md
       - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': admin-guide/working-with-Users-Roles-and-Permissions.md
-        - 'Introduction to User Management': admin-guide/introduction-to-User-Management.md
+        - 'Working with Users, Roles and Permissions': admin-guide/working-with-users-roles-and-permissions.md
+        - 'Introduction to User Management': admin-guide/introduction-to-user-management.md
         - 'Configuring the User Realm': 
-          - 'Configuring the User Realm': admin-guide/configuring-the-User-Realm.md
-          - 'Configuring the System Administrator': admin-guide/configuring-the-System-Administrator.md
-          - 'Configuring the Authorization Manager': admin-guide/configuring-the-Authorization-Manager.md
+          - 'Configuring the User Realm': admin-guide/configuring-the-user-realm.md
+          - 'Configuring the System Administrator': admin-guide/configuring-the-system-administrator.md
+          - 'Configuring the Authorization Manager': admin-guide/configuring-the-authorization-manager.md
           - 'Configuring User Stores':
-            - 'Configuring User Stores': admin-guide/configuring-User-Stores.md
+            - 'Configuring User Stores': admin-guide/configuring-user-stores.md
             - 'Configuring the Primary User Store':
-              - 'Configuring the Primary User Store': admin-guide/configuring-the-Primary-User-Store.md
-              - 'Configuring a JDBC User Store': admin-guide/configuring-a-JDBC-User-Store.md
-              - 'Configuring a Read-Only LDAP User Store': admin-guide/configuring-a-Read-Only-LDAP-User-Store.md
-              - 'Configuring a Read-Write Active Directory User Store': admin-guide/configuring-a-Read-Write-Active-Directory-User-Store.md
-              - 'Configuring a Read-Write LDAP User Store': admin-guide/configuring-a-Read-Write-LDAP-User-Store.md
-            - 'Configuring Secondary User Stores': admin-guide/configuring-Secondary-User-Stores.md 
-            - 'Working with Properties of User Stores': admin-guide/working-with-Properties-of-User-Stores.md
-            - 'Writing a Custom User Store Manager': admin-guide/writing-a-Custom-User-Store-Manager.md
+              - 'Configuring the Primary User Store': admin-guide/configuring-the-primary-user-store.md
+              - 'Configuring a JDBC User Store': admin-guide/configuring-a-jdbc-user-store.md
+              - 'Configuring a Read-Only LDAP User Store': admin-guide/configuring-a-read-only-ldap-user-store.md
+              - 'Configuring a Read-Write Active Directory User Store': admin-guide/configuring-a-read-write-active-directory-user-store.md
+              - 'Configuring a Read-Write LDAP User Store': admin-guide/configuring-a-read-write-ldap-user-store.md
+            - 'Configuring Secondary User Stores': admin-guide/configuring-secondary-user-stores.md 
+            - 'Working with Properties of User Stores': admin-guide/working-with-properties-of-user-stores.md
+            - 'Writing a Custom User Store Manager': admin-guide/writing-a-custom-user-store-manager.md
     - 'Security':
       - 'Security': admin-guide/security.md
-      - 'Maintaining Logins and Passwords': admin-guide/maintaining-Logins-and-Passwords.md
+      - 'Maintaining Logins and Passwords': admin-guide/maintaining-logins-and-passwords.md
       - 'Securing Passwords in Configuration Files':
-        - 'Securing Passwords in Configuration Files': admin-guide/securing-Passwords-in-Configuration-Files.md
-        - 'Encrypting Passwords with Cipher Tool': admin-guide/encrypting-Passwords-with-Cipher-Tool.md
-        - 'Resolving Encrypted Passwords': admin-guide/resolving-Encrypted-Passwords.md
-        - 'Carbon Secure Vault Implementation': admin-guide/carbon-Secure-Vault-Implementation.md
-      - 'Configuring Transport Level Security': admin-guide/configuring-Transport-Level-Security.md
-      - 'Enabling Java Security Manager': admin-guide/enabling-Java-Security-Manager.md
+        - 'Securing Passwords in Configuration Files': admin-guide/securing-passwords-in-configuration-files.md
+        - 'Encrypting Passwords with Cipher Tool': admin-guide/encrypting-passwords-with-cipher-tool.md
+        - 'Resolving Encrypted Passwords': admin-guide/resolving-encrypted-passwords.md
+        - 'Carbon Secure Vault Implementation': admin-guide/carbon-secure-vault-implementation.md
+      - 'Configuring Transport Level Security': admin-guide/configuring-transport-level-security.md
+      - 'Enabling Java Security Manager': admin-guide/enabling-java-security-manager.md
       - 'Using Asymmetric Encryption':
-        - 'Using Asymmetric Encryption': admin-guide/using-Asymmetric-Encryption.md
-        - 'Creating New Keystores': admin-guide/creating-New-Keystores.md
-        - 'Renewing a CA-Signed Certificate in a Keystore': admin-guide/renewing-a-CA-Signed-Certificate-in-a-Keystore.md
-        - 'Configuring Keystores in WSO2 Products': admin-guide/configuring-Keystores-in-WSO2-Products.md
-        - 'Managing Keystores with the UI': admin-guide/managing-Keystores-with-the-UI.md
-      - 'Using Symmetric Encryption': admin-guide/using-Symmetric-Encryption.md
-      - 'Mitigating Cross Site Request Forgery Attacks': admin-guide/mitigating-Cross-Site-Request-Forgery-Attacks.md
-      - 'Mitigating Cross Site Scripting Attacks': admin-guide/mitigating-Cross-Site-Scripting-Attacks.md
-      - 'Enabling HostName Verification': admin-guide/enabling-HostName-Verification.md
-      - 'Configuring TLS Termination': admin-guide/configuring-TLS-Termination.md
+        - 'Using Asymmetric Encryption': admin-guide/using-asymmetric-encryption.md
+        - 'Creating New Keystores': admin-guide/creating-new-keystores.md
+        - 'Renewing a CA-Signed Certificate in a Keystore': admin-guide/renewing-a-ca-signed-certificate-in-a-keystore.md
+        - 'Configuring Keystores in WSO2 Products': admin-guide/configuring-keystores-in-wso2-products.md
+        - 'Managing Keystores with the UI': admin-guide/managing-keystores-with-the-ui.md
+      - 'Using Symmetric Encryption': admin-guide/using-symmetric-encryption.md
+      - 'Mitigating Cross Site Request Forgery Attacks': admin-guide/mitigating-cross-site-request-forgery-attacks.md
+      - 'Mitigating Cross Site Scripting Attacks': admin-guide/mitigating-cross-site-scripting-attacks.md
+      - 'Enabling HostName Verification': admin-guide/enabling-hostname-verification.md
+      - 'Configuring TLS Termination': admin-guide/configuring-tls-termination.md
     - 'Carbon Applications':
-      - 'Carbon Applications': admin-guide/carbon-Applications.md
-      - 'Adding a Custom Proxy Path': admin-guide/adding-a-Custom-Proxy-Path.md
+      - 'Carbon Applications': admin-guide/carbon-applications.md
+      - 'Adding a Custom Proxy Path': admin-guide/adding-a-custom-proxy-path.md
       - 'Changing the Default Ports': 
-        - 'Changing the Default Ports': admin-guide/changing-the-Default-Ports.md
-        - 'Default Ports of WSO2 Products': admin-guide/default-Ports-of-WSO2-Products.md
-      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': admin-guide/configuring-SAML2-Single-Sign-On-Across-Different-WSO2-Products.md
-      - 'Configuring the Task Scheduling Component': admin-guide/configuring-the-Task-Scheduling-Component.md
-      - 'Customizing Error Pages': admin-guide/customizing-Error-Pages.md
-      - 'Customizing the Management Console': admin-guide/customizing-the-Management-Console.md
+        - 'Changing the Default Ports': admin-guide/changing-the-default-ports.md
+        - 'Default Ports of WSO2 Products': admin-guide/default-ports-of-wso2-products.md
+      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': admin-guide/configuring-saml2-single-sign-on-across-different-wso2-products.md
+      - 'Configuring the Task Scheduling Component': admin-guide/configuring-the-task-scheduling-component.md
+      - 'Customizing Error Pages': admin-guide/customizing-error-pages.md
+      - 'Customizing the Management Console': admin-guide/customizing-the-management-console.md
       - 'Installing WSO2 Products as a Service':
-        - 'Installing WSO2 Products as a Service': admin-guide/installing-WSO2-Products-as-a-Service.md
-        - 'Installing as a Linux Service': admin-guide/installing-as-a-Linux-Service.md
-        - 'Installing as a Windows Service': admin-guide/installing-as-a-Windows-Service.md
+        - 'Installing WSO2 Products as a Service': admin-guide/installing-wso2-products-as-a-service.md
+        - 'Installing as a Linux Service': admin-guide/installing-as-a-linux-service.md
+        - 'Installing as a Windows Service': admin-guide/installing-as-a-windows-service.md
       - 'Managing Datasources':
-        - 'Managing Datasources': admin-guide/managing-Datasources.md
-        - 'Adding Datasources': admin-guide/adding-Datasources.md
+        - 'Managing Datasources': admin-guide/managing-datasources.md
+        - 'Adding Datasources': admin-guide/adding-datasources.md
         - 'Configuring an RDBMS Datasource':
-          - 'Configuring an RDBMS Datasource': admin-guide/configuring-an-RDBMS-Datasource.md
-          - 'Configuring the Datasource Provider': admin-guide/configuring-the-Datasource-Provider.md
-          - 'Configuring a JNDI Datasource': admin-guide/configuring-a-JNDI-Datasource.md
-          - 'Configuring the Datasource Connection Pool Parameters': admin-guide/configuring-the-Datasource-Connection-Pool-Parameters.md
-        - 'Configuring a Custom Datasource': admin-guide/configuring-a-Custom-Datasource.md
+          - 'Configuring an RDBMS Datasource': admin-guide/configuring-an-rdbms-datasource.md
+          - 'Configuring the Datasource Provider': admin-guide/configuring-the-datasource-provider.md
+          - 'Configuring a JNDI Datasource': admin-guide/configuring-a-jndi-datasource.md
+          - 'Configuring the Datasource Connection Pool Parameters': admin-guide/configuring-the-datasource-connection-pool-parameters.md
+        - 'Configuring a Custom Datasource': admin-guide/configuring-a-custom-datasource.md
       - 'Managing Users, Roles and Permissions':
-        - 'Managing Users, Roles and Permissions': admin-guide/managing-Users-Roles-and-Permissions.md
-        - 'Changing a Password': admin-guide/changing-a-Password.md
-        - 'Configuring Roles': admin-guide/configuring-Roles.md
-        - 'Configuring Users': admin-guide/configuring-Users.md
-        - 'Role-based Permissions': admin-guide/role-based-Permissions.md
-        - 'Managing User Attributes': admin-guide/managing-User-Attributes.md
+        - 'Managing Users, Roles and Permissions': admin-guide/managing-users-roles-and-permissions.md
+        - 'Changing a Password': admin-guide/changing-a-password.md
+        - 'Configuring Roles': admin-guide/configuring-roles.md
+        - 'Configuring Users': admin-guide/configuring-users.md
+        - 'Role-based Permissions': admin-guide/role-based-permissions.md
+        - 'Managing User Attributes': admin-guide/managing-user-attributes.md
         - 'Removing References to Deleted User Identities in WSO2 Products':
-          - 'Removing References to Deleted User Identities in WSO2 Products': admin-guide/removing-References-to-Deleted-User-Identities-in-WSO2-Products.md
-          - 'Extending the Identity Anonymization Tool': admin-guide/extending-the-Identity-Anonymization-Tool.md
-      - 'Securing Carbon Applications': admin-guide/securing-Carbon-Applications.md
+          - 'Removing References to Deleted User Identities in WSO2 Products': admin-guide/removing-references-to-deleted-user-identities-in-WSO2-Products.md
+          - 'Extending the Identity Anonymization Tool': admin-guide/extending-the-identity-anonymization-tool.md
+      - 'Securing Carbon Applications': admin-guide/securing-carbon-applications.md
       - 'Working with Composite Applications':
-        - 'Working with Composite Applications': admin-guide/working-with-Composite-Applications.md
-        - 'Introduction to Composite Applications': admin-guide/introduction-to-Composite-Applications.md
-        - 'Packaging Artifacts into Composite Applications': admin-guide/packaging-Artifacts-into-Composite-Applications.md
-        - 'Deploying Composite Applications in the Server': admin-guide/deploying-Composite-Applications-in-the-Server.md
-      - 'Working with Features': admin-guide/working-with-Features.md
+        - 'Working with Composite Applications': admin-guide/working-with-composite-applications.md
+        - 'Introduction to Composite Applications': admin-guide/introduction-to-composite-applications.md
+        - 'Packaging Artifacts into Composite Applications': admin-guide/packaging-artifacts-into-composite-applications.md
+        - 'Deploying Composite Applications in the Server': admin-guide/deploying-composite-applications-in-the-server.md
+      - 'Working with Features': admin-guide/working-with-features.md
       - 'Working with Multiple Tenants':
-        - 'Working with Multiple Tenants': admin-guide/working-with-Multiple-Tenants.md
-        - 'Introduction to Multitenancy': admin-guide/introduction-to-Multitenancy.md
-        - 'Configuring the Tenant Loading Policy': admin-guide/configuring-the-Tenant-Loading-Policy.md
-        - 'Adding New Tenants': admin-guide/adding-New-Tenants.md
+        - 'Working with Multiple Tenants': admin-guide/working-with-multiple-tenants.md
+        - 'Introduction to Multitenancy': admin-guide/introduction-to-multitenancy.md
+        - 'Configuring the Tenant Loading Policy': admin-guide/configuring-the-tenant-loading-policy.md
+        - 'Adding New Tenants': admin-guide/adding-new-tenants.md
       - 'Working with Transports':
-        - 'Working with Transports': admin-guide/working-with-Transports.md
-        - 'Introduction to Transports': admin-guide/introduction-to-Transports.md
+        - 'Working with Transports': admin-guide/working-with-transports.md
+        - 'Introduction to Transports': admin-guide/introduction-to-transports.md
         - 'Carbon Transports':
-          - 'Carbon Transports': admin-guide/carbon-Transports.md
-          - 'HTTP Servlet Transport': admin-guide/hTTP-Servlet-Transport.md
-          - 'HTTPS Servlet Transport': admin-guide/hTTPS-Servlet-Transport.md
-          - 'HTTP-NIO Transport': admin-guide/hTTP-NIO-Transport.md
-          - 'HTTPS-NIO Transport': admin-guide/hTTPS-NIO-Transport.md
-          - 'VFS Transport': admin-guide/vFS-Transport.md
-          - 'JMS Transport': admin-guide/jMS-Transport.md
-          - 'MailTo Transport': admin-guide/mailTo-Transport.md
-          - 'TCP Transport': admin-guide/tCP-Transport.md
-          - 'Local Transport': admin-guide/local-Transport.md
-          - 'UDP Transport': admin-guide/uDP-Transport.md
-          - 'FIX Transport': admin-guide/fIX-Transport.md
-    - 'Performance Tuning': admin-guide/performance-Tuning.md
+          - 'Carbon Transports': admin-guide/carbon-transports.md
+          - 'HTTP Servlet Transport': admin-guide/http-servlet-transport.md
+          - 'HTTPS Servlet Transport': admin-guide/https-servlet-transport.md
+          - 'HTTP-NIO Transport': admin-guide/http-nio-transport.md
+          - 'HTTPS-NIO Transport': admin-guide/https-nio-transport.md
+          - 'VFS Transport': admin-guide/vfs-transport.md
+          - 'JMS Transport': admin-guide/jms-transport.md
+          - 'MailTo Transport': admin-guide/mailto-transport.md
+          - 'TCP Transport': admin-guide/tcp-transport.md
+          - 'Local Transport': admin-guide/local-transport.md
+          - 'UDP Transport': admin-guide/udp-transport.md
+          - 'FIX Transport': admin-guide/fix-transport.md
+    - 'Performance Tuning': admin-guide/performance-tuning.md
     - 'Monitoring':
       - 'Monitoring': admin-guide/monitoring.md
-      - 'Capturing System Data in Error Situations': admin-guide/capturing-System-Data-in-Error-Situations.md
-      - 'JMX-Based Monitoring': admin-guide/jMX-Based-Monitoring.md
+      - 'Capturing System Data in Error Situations': admin-guide/capturing-system-data-in-error-situations.md
+      - 'JMX-Based Monitoring': admin-guide/jmx-based-monitoring.md
       - 'Monitoring Logs':
-        - 'Monitoring Logs': admin-guide/monitoring-Logs.md
+        - 'Monitoring Logs': admin-guide/monitoring-logs.md
         - 'Monitoring Logs using Management Console':
-          - 'Monitoring Logs using Management Console': admin-guide/monitoring-Logs-using-Management-Console.md
-          - 'Configuring Log4j Properties': admin-guide/configuring-Log4j-Properties.md
-          - 'Configuring the Log Provider': admin-guide/configuring-the-Log-Provider.md
-          - 'View and Download Logs': admin-guide/view-and-Download-Logs.md
-        - 'HTTP Access Logging': admin-guide/hTTP-Access-Logging.md
-        - 'Masking Sensitive Information in Logs': admin-guide/masking-Sensitive-Information-in-Logs.md
-      - 'Monitoring Message Flows': admin-guide/monitoring-Message-Flows.md
-      - 'Monitoring Performance Statistics': admin-guide/monitoring-Performance-Statistics.md
-      - 'Monitoring SOAP Messages': admin-guide/monitoring-SOAP-Messages.md
+          - 'Monitoring Logs using Management Console': admin-guide/monitoring-logs-using-management-console.md
+          - 'Configuring Log4j Properties': admin-guide/configuring-log4j-properties.md
+          - 'Configuring the Log Provider': admin-guide/configuring-the-log-provider.md
+          - 'View and Download Logs': admin-guide/view-and-download-logs.md
+        - 'HTTP Access Logging': admin-guide/http-access-logging.md
+        - 'Masking Sensitive Information in Logs': admin-guide/masking-sensitive-information-in-logs.md
+      - 'Monitoring Message Flows': admin-guide/monitoring-message-flows.md
+      - 'Monitoring Performance Statistics': admin-guide/monitoring-performance-statistics.md
+      - 'Monitoring SOAP Messages': admin-guide/monitoring-soap-messages.md
       - 'Monitoring TCP-Based Messages':
-        - 'Monitoring TCP-Based Messages': admin-guide/monitoring-TCP-Based-Messages.md
-        - 'Starting TCPMon': admin-guide/starting-TCPMon.md
-        - 'Message Monitoring with TCPMon': admin-guide/message-Monitoring-with-TCPMon.md
-        - 'Other Usages of TCPMon': admin-guide/other-Usages-of-TCPMon.md
+        - 'Monitoring TCP-Based Messages': admin-guide/monitoring-tcp-based-messages.md
+        - 'Starting TCPMon': admin-guide/starting-tcpmon.md
+        - 'Message Monitoring with TCPMon': admin-guide/message-monitoring-with-tcpmon.md
+        - 'Other Usages of TCPMon': admin-guide/other-usages-of-tcpmon.md
       - 'Monitoring with WSO2 Carbon Metrics':
-        - 'Monitoring with WSO2 Carbon Metrics': admin-guide/monitoring-with-WSO2-Carbon-Metrics.md
+        - 'Monitoring with WSO2 Carbon Metrics': admin-guide/monitoring-with-wso2-carbon-metrics.md
         - 'Setting Up Carbon Metrics': 
-          - 'Setting Up Carbon Metrics': admin-guide/setting-Up-Carbon-Metrics.md
-          - 'Enabling Metrics and Storage Types': admin-guide/enabling-Metrics-and-Storage-Types.md
-          - 'Configuring Metrics Properties': admin-guide/configuring-Metrics-Properties.md
-        - 'Using JVM Metrics': admin-guide/using-JVM-Metrics.md
-        - 'Using Messaging Metrics': admin-guide/using-Messaging-Metrics.md
-      - 'Monitoring Server Health': admin-guide/monitoring-Server-Health.md
-    - 'Getting WSO2 Updates': admin-guide/getting-WSO2-Updates.md
+          - 'Setting Up Carbon Metrics': admin-guide/setting-Up-carbon-metrics.md
+          - 'Enabling Metrics and Storage Types': admin-guide/enabling-metrics-and-storage-types.md
+          - 'Configuring Metrics Properties': admin-guide/configuring-metrics-properties.md
+        - 'Using JVM Metrics': admin-guide/using-jvm-metrics.md
+        - 'Using Messaging Metrics': admin-guide/using-messaging-metrics.md
+      - 'Monitoring Server Health': admin-guide/monitoring-server-health.md
+    - 'Getting WSO2 Updates': admin-guide/getting-wso2-updates.md
     - 'Reference Guide':
-      - 'Reference Guide': admin-guide/reference-Guide.md  
-      - 'Configuration Files': admin-guide/configuration-Files.md
-      - 'Database Upgrade Guide': admin-guide/database-Upgrade-Guide.md
-      - 'Product Startup Options': admin-guide/product-Startup-Options.md
-      - 'Supported Cipher Suites': admin-guide/supported-Cipher-Suites.md
-      - 'Directory Structure of WSO2 Products': admin-guide/directory-Structure-of-WSO2-Products.md
-      - 'WSO2 Patch Application Process': admin-guide/wSO2-Patch-Application-Process.md
+      - 'Reference Guide': admin-guide/reference-guide.md  
+      - 'Configuration Files': admin-guide/configuration-files.md
+      - 'Database Upgrade Guide': admin-guide/database-upgrade-guide.md
+      - 'Product Startup Options': admin-guide/product-startup-options.md
+      - 'Supported Cipher Suites': admin-guide/supported-cipher-suites.md
+      - 'Directory Structure of WSO2 Products': admin-guide/directory-structure-of-wso2-products.md
+      - 'WSO2 Patch Application Process': admin-guide/wso2-patch-application-process.md
   - 'References': 
     - 'References': references/references.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
