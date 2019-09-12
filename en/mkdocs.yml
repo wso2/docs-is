@@ -541,7 +541,30 @@ nav:
             - 'Using the OpenID Connect Dynamic Client Registration REST APIs': using-wso2-identity-server/using-the-openid-connect-dynamic-client-registration-rest-apis.md
             - 'Using OAuth2 Scopes REST APIs': using-wso2-identity-server/using-oauth2-scopes-rest-apis.md
             - 'Authenticating and Authorizing REST APIs': using-wso2-identity-server/authenticating-and-authorizing-rest-apis.md
-            - 'Authentication Data API': using-wso2-identity-server/authentication-data-api.md      
+            - 'Authentication Data API': using-wso2-identity-server/authentication-data-api.md
+          - 'SOAP APIs':
+            - 'SOAP APIs': using-wso2-identity-server/soap-apis.md
+            - 'User Management with APIs':
+              - 'User Management with APIs': using-wso2-identity-server/user-management-with-apis.md
+              - 'Managing Users and Roles with APIs': using-wso2-identity-server/managing-users-and-roles-with-apis.md
+              - 'Managing Claims with APIs': using-wso2-identity-server/managing-claims-with-apis.md
+              - 'Managing Permissions with APIs': using-wso2-identity-server/managing-permissions-with-apis.md
+              - 'Counting users and roles using Management Console and Admin Services': using-wso2-identity-server/counting-users-and-roles-using-management-console-and-admin-services.md
+              - 'Managing User Stores with APIs': using-wso2-identity-server/managing-user-stores-with-apis.md
+            - 'User Information Recovery Service': using-wso2-identity-server/user-information-recovery-service.md
+            - 'Identity Application Management API':
+              - 'Identity Application Management API': using-wso2-identity-server/identity-application-management-api.md
+              - 'Using the Service Provider API': using-wso2-identity-server/using-the-service-provider-api.md
+              - 'Service Provider Configurations used with APIs': using-wso2-identity-server/service-provider-configurations-used-with-apis.md
+            - 'Identity Provider Management API':
+              - 'Identity Provider Management API': using-wso2-identity-server/identity-provider-management-api.md
+              - 'Using the Identity Provider API': using-wso2-identity-server/using-the-identity-provider-api.md
+              - 'Identity Provider Configurations used with APIs': using-wso2-identity-server/identity-provider-configurations-used-with-apis.md
+          - 'SCIM 1.1 APIs': using-wso2-identity-server/scim--1.1-apis.md
+          - 'Managing Tenants with APIs': using-wso2-identity-server/managing-tenants-with-apis.md
+          - 'Entitlement with APIs':
+            - 'Entitlement with APIs': using-wso2-identity-server/entitlement-with-apis.md
+            - 'Entitlement with REST APIs': using-wso2-identity-server/entitlement-with-rest-apis.md
       - 'Customizing User Interfaces': using-wso2-identity-server/customizing-User-Interfaces.md
       - 'Customizing the Authentication Endpoint': using-wso2-identity-server/customizing-the-Authentication-Endpoint.md
       - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
