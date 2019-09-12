@@ -519,9 +519,40 @@ nav:
       - 'Log in to the Identity Server using another Identity Server - SAML2': using-wso2-identity-server/log-in-to-the-identity-server-using-another-identity-server-saml2.md
       - 'Login to Identity Server using another Identity Server - OAuth2': using-wso2-identity-server/login-to-identity-server-using-another-identity-server-oauth2.md
     - 'Developer Guide':
-      - 'Developer Guide': using-wso2-identity-server/developer-Guide.md
-      - 'Working with the Source Code': using-wso2-identity-server/working-with-the-Source-Code.md
-      - 'Extending the Identity Server': using-wso2-identity-server/extending-the-Identity-Server.md
+      - 'Developer Guide': using-wso2-identity-server/developer-guide.md
+      - 'Working with the Source Code': using-wso2-identity-server/working-with-the-source-code.md
+      - 'Extending the Identity Server':
+        - 'Extending the Identity Server': using-wso2-identity-server/extending-the-identity-server.md
+        - 'User Management for Developers':
+          - 'User Management for Developers': using-wso2-identity-server/user-management-for-developers.md
+          - 'Writing a Custom Password Validator': using-wso2-identity-server/writing-a-custom-password-validator.md
+          - 'Writing a Custom Claim Handler': using-wso2-identity-server/writing-a-custom-claim-handler.md
+          - 'User Store Listeners': using-wso2-identity-server/user-store-listeners.md
+          - 'Using the User Management Errors Event Listener': using-wso2-identity-server/using-the-user-management-errors-event-listener.md
+          - 'Carbon Remote User Store Manager': using-wso2-identity-server/carbon-remote-user-store-manager.md
+          - 'Working with Errors': 
+            - 'Working with Errors': using-wso2-identity-server/working-with-errors.md
+            - 'Customizing Authentication Error Messages': using-wso2-identity-server/customizing-authentication-error-messages.md
+            - 'Customizing Error Pages': using-wso2-identity-server/customizing-error-pages.md
+            - 'Error Codes and Descriptions': using-wso2-identity-server/error-codes-and-descriptions.md
+        - 'Provisioning for Developers':
+          - 'Provisioning for Developers': using-wso2-identity-server/provisioning-for-developers.md
+          - 'Writing an Outbound Provisioning Connector': using-wso2-identity-server/writing-an-outbound-provisioning-connector.md
+          - 'Extensible SCIM User Schemas With WSO2 Identity Server': using-wso2-identity-server/extensible-scim-user-schemas-with-wso2-identity-server.md
+        - 'Identity Federation for Developers':
+          - 'Identity Federation for Developers': using-wso2-identity-server/identity-federation-for-developers.md
+          - 'Writing a Custom Federated Authenticator': using-wso2-identity-server/writing-a-custom-federated-authenticator.md
+          - 'Writing a Custom Local Authenticator': using-wso2-identity-server/writing-a-custom-local-authenticator.md
+        - 'Access Control for Developers':
+          - 'Access Control for Developers': using-wso2-identity-server/access-control-for-developers.md
+          - 'Writing a Custom Policy Info Point': using-wso2-identity-server/writing-a-custom-policy-info-point.md 
+        - 'Workflow Management for Developers':
+          - 'Workflow Management for Developers': using-wso2-identity-server/workflow-management-for-developers.md
+          - 'Writing a Custom Event Handler': using-wso2-identity-server/writing-a-custom-event-handler.md
+          - 'Writing a Custom Workflow Template': using-wso2-identity-server/writing-a-custom-workflow-template.md
+        - 'Adaptive Authentication for Developers':
+          - 'Adaptive Authentication for Developers': using-wso2-identity-server/adaptive-authentication-for-developers.md
+          - 'Writing Custom Functions for Adaptive Authentication': using-wso2-identity-server/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
           - 'Using APIs': using-wso2-identity-server/using-apis.md
           - 'Calling Admin Services': 
@@ -565,10 +596,13 @@ nav:
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': using-wso2-identity-server/entitlement-with-apis.md
             - 'Entitlement with REST APIs': using-wso2-identity-server/entitlement-with-rest-apis.md
-      - 'Customizing User Interfaces': using-wso2-identity-server/customizing-User-Interfaces.md
-      - 'Customizing the Authentication Endpoint': using-wso2-identity-server/customizing-the-Authentication-Endpoint.md
-      - 'Localization Support in Identity Server': using-wso2-identity-server/localization-Support-in-Identity-Server.md
-      - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-Authentication-Endpoint-on-a-Different-Server.md
+      - 'Customizing User Interfaces': 
+        - 'Customizing User Interfaces': using-wso2-identity-server/customizing-user-interfaces.md
+        - 'Customizing Login Pages for Service Providers': using-wso2-identity-server/customizing-login-pages-for-service-providers.md
+        - 'Customizing the SSO Redirection Page': using-wso2-identity-server/customizing-the-sso-redirection-page.md      
+      - 'Customizing the Authentication Endpoint': using-wso2-identity-server/customizing-the-authentication-endpoint.md
+      - 'Localization Support in Identity Server': using-wso2-identity-server/localization-support-in-identity-server.md
+      - 'Hosting Authentication Endpoint on a Different Server': using-wso2-identity-server/hosting-authentication-endpoint-on-a-different-server.md
     - 'Logging Claims in Audit Logs': using-wso2-identity-server/logging-Claims-in-Audit-Logs.md 
   - 'Connectors':
     - 'Connectors': connectors/wso2-identity-server-authenticators-and-connectors-documentation.md
