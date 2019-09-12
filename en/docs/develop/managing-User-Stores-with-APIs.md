@@ -6,6 +6,11 @@ guides you through invoking and working with the
 **UserStoreConfigAdminService** and the operations you can work within
 this service.
 
+-   [Invoking the admin
+    service](#ManagingUserStoreswithAPIs-Invokingtheadminservice)
+-   [Operations included in the API and sample
+    requests](#ManagingUserStoreswithAPIs-OperationsincludedintheAPIandsamplerequests)
+
 ### Invoking the admin service
 
 `         UserStoreConfigAdminService        ` is an admin service of
@@ -29,31 +34,43 @@ default. Follow the steps below to view and invoke it:
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
 Admin Services from
-Apps](../../using-wso2-identity-server/calling-admin-services).
+Apps](https://docs.wso2.org/display/Carbon420/Calling+Admin+Services+from+Apps)
+section in WSO2 Carbon documentation.
 
 ### Operations included in the API and sample requests
 
 The following operations are available in the
 **UserStoreConfigAdminService** :
 
+-   [addUserStore()](#ManagingUserStoreswithAPIs-addUserStore())
+-   [changeUserStoreState()](#ManagingUserStoreswithAPIs-changeUserStoreState())
+-   [deleteUserStore()](#ManagingUserStoreswithAPIs-deleteUserStore())
+-   [deleteUserStoresSet()](#ManagingUserStoreswithAPIs-deleteUserStoresSet())
+-   [editUserStore()](#ManagingUserStoreswithAPIs-editUserStore())
+-   [editUserStoreWithDomainName()](#ManagingUserStoreswithAPIs-editUserStoreWithDomainName())
+-   [getAvailableUserStoreClasses()](#ManagingUserStoreswithAPIs-getAvailableUserStoreClasses())
+-   [getSecondaryRealmConfigurations()](#ManagingUserStoreswithAPIs-getSecondaryRealmConfigurations())
+-   [getUserStoreManagerProperties()](#ManagingUserStoreswithAPIs-getUserStoreManagerProperties())
+-   [testRDBMSConnection()](#ManagingUserStoreswithAPIs-testRDBMSConnection())
+
 ##### addUserStore()
 
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>addUserStore</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Add a secondary user store.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="content-wrapper">
 <div class="table-wrap">
 <table>
@@ -77,7 +94,7 @@ The following operations are available in the
 A list of available class names can be obtained using the <a href="#ManagingUserStoreswithAPIs-getAvailableUserStoreClasses()">getAvailableUserStoreClasses</a> function.</p></td>
 </tr>
 <tr class="even">
-<td>description</th>
+<td>description</td>
 <td>string</td>
 <td>Description of the user store.</td>
 </tr>
@@ -111,15 +128,16 @@ This is a unique name that identifies the user store.</td>
 </tbody>
 </table>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
-    <ul>    
-    <li><a href="../../using-wso2-identity-server/configuring-a-jdbc-user-store#properties-used-in-jdbc-userstore-manager">Properties used in JDBC user store manager</a></li>
-    <li><a href="../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager">Properties used in Read-write Active Directory user store manager</a></li>
-    <li><a href="../../using-wso2-identity-server/configuring-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-userstore-manager">Properties used in Read-only LDAP user store manager</a></li>
-    <li><a href="../../using-wso2-identity-server/configuring-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-userstore-manager">Properties used in Read-write LDAP user store manager</a></li>
-    <li><a href="../../using-wso2-identity-server/user-management-for-developers#configuring-a-carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
+!!! tip
+    <p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
+    <ul>
+    <li><ul>
+    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+JDBC+User+Store#ConfiguringaJDBCUserStore-PropertiesusedinJDBCuserstoremanager">Properties used in JDBC user store manager</a></li>
+    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+Active+Directory+User+Store#ConfiguringaRead-writeActiveDirectoryUserStore-PropertiesusedinRead-writeActiveDirectoryuserstoremanager">Properties used in Read-write Active Directory user store manager</a></li>
+    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-only+LDAP+User+Store#ConfiguringaRead-onlyLDAPUserStore-PropertiesusedinRead-onlyLDAPuserstoremanager">Properties used in Read-only LDAP user store manager</a></li>
+    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+LDAP+User+Store#ConfiguringaRead-writeLDAPUserStore-PropertiesusedinRead-writeLDAPuserstoremanager">Properties used in Read-write LDAP user store manager</a></li>
+    <li><a href="Carbon-Remote-User-Store-Manager_103330074.html#CarbonRemoteUserStoreManager-Configuringacarbonremoteuserstoremanager">Properties used in Carbon Remote user store manager</a></li>
+    </ul></li>
     </ul>
     <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>
 </div></td>
@@ -127,8 +145,18 @@ This is a unique name that identifies the user store.</td>
 </tbody>
 </table>
 
- 
-``` xml tab="JDBC Userstore Request"
+  
+  
+
+-   [**JDBC Userstore**](#a5596ce39f6a4d0e8d69276a904b4b55)
+-   [**Active Directory Userstore**](#ed48dc5bf13e42c58e0ecc506ad5d1ba)
+-   [**Read Only LDAP Userstore**](#538940c9b8ee47069f797ba9704a1d53)
+-   [**Read Write LDAP Userstore**](#9053379f73b24b5b9bce83248e6e9339)
+-   [**Carbon Remote Userstore**](#cd5c3d697938408f901a4ba193c1215f)
+
+**Request**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -211,7 +239,9 @@ This is a unique name that identifies the user store.</td>
 </soap:Envelope>
 ```
 
-``` xml tab="Active Directory Request"
+**Request**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -294,7 +324,9 @@ This is a unique name that identifies the user store.</td>
 </soap:Envelope>
 ```
 
-``` xml tab="Read Only LDAP Userstore Request"
+**Request**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -377,7 +409,9 @@ This is a unique name that identifies the user store.</td>
 </soap:Envelope>
 ```
 
-``` xml tab="Read Write Ldap Userstore"
+**Request**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -460,7 +494,9 @@ This is a unique name that identifies the user store.</td>
 </soap:Envelope>
 ```
 
-``` xml tab="Carbon Remote Userstore"
+**Request**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -548,19 +584,19 @@ This is a unique name that identifies the user store.</td>
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>changeUserStoreState</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Enable or disable the user store.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -587,13 +623,15 @@ Mark as <strong>false</strong> to enable the user store.</td>
 </div></td>
 </tr>
 <tr class="odd">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A boolean parameter indicating if the user store is read only or not</td>
 </tr>
 </tbody>
 </table>
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -612,19 +650,19 @@ Mark as <strong>false</strong> to enable the user store.</td>
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteUserStore</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete a user store.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -648,7 +686,9 @@ This is a unique name that identifies the user store.</td>
 </tbody>
 </table>
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -665,19 +705,19 @@ This is a unique name that identifies the user store.</td>
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteUserStoresSet</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete multiple user stores.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -700,7 +740,9 @@ This is a unique name that identifies the user store.</td>
 </tbody>
 </table>
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -717,19 +759,19 @@ This is a unique name that identifies the user store.</td>
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>editUserStore</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Edit a user store.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="content-wrapper">
 <div class="table-wrap">
 <table>
@@ -788,29 +830,28 @@ This is a unique name that identifies the user store.</td>
 </table>
 </div>
 <br />
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To use this operation, do the following:</p>
-<p>
-<ol>
-<li>Use the <a href="#get-secondary-realm-configurations()">getSecondaryRealmConfigurations</a> operation to retrieve the unique ID of the userstore.</li>
-<li>Include the Unique ID as a property when sending the editUserStore() request as seen in the sample request below.</li>
-</ol>
-<p>
-```
-<!--Optional:-->
-<xsd1:name>UniqueID</xsd1:name>
-<!--Optional:-->
-<xsd1:value>467eebo-3f96-4cad-9578-7ae3fe450yhe</xsd1:value>
-```
-</p>
-</div> 
+!!! tip
+    <p><strong>Tip:</strong> To use this operation, do the following:</p>
+    <ol>
+    <li>Use the <a href="#ManagingUserStoreswithAPIs-getSecondaryRealmConfigurations()">getSecondaryRealmConfigurations</a> operation to retrieve the unique ID of the userstore.</li>
+    <li><p>Include the Unique ID as a property when sending the editUserStore() request as seen in the sample request below.</p>
+    <div class="code panel pdl" style="border-width: 1px;">
+    <div class="codeContent panelContent pdl">
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;!--Optional:--&gt;</a>
+    <a class="sourceLine" id="cb1-2" title="2">&lt;xsd1:name&gt;UniqueID&lt;/xsd1:name&gt;</a>
+    <a class="sourceLine" id="cb1-3" title="3">&lt;!--Optional:--&gt;</a>
+    <a class="sourceLine" id="cb1-4" title="4">&lt;xsd1:value&gt;467eebo-3f96-4cad-<span class="dv">9578</span>-7ae3fe450yhe&lt;/xsd1:value&gt;</a></code></pre></div>
+    </div>
+    </div></li>
+    </ol>
 </div></td>
 </tr>
 </tbody>
 </table>
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.configuration.store.user.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -843,19 +884,19 @@ soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>editUserStoreWithDomainName</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Edit a user store and change its domain name.</td>
 </tr>
 <tr class="odd">
-<th>Permission Level</th>
+<td>Permission Level</td>
 <td>/permission/admin</td>
 </tr>
 <tr class="even">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <colgroup>
@@ -920,7 +961,9 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 </tbody>
 </table>
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.configuration.store.user.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -952,28 +995,16 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 
 ##### getAvailableUserStoreClasses()
 
-<table>
-<tbody>
-<tr>
-<th>Method</th>
-<td>getAvailableUserStoreClasses</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Retrieve the available user store classes.</td>
-</tr>
-<tr>
-<th>Permission Level</th>
-<td>/permission/admin</td>
-</tr>
-<tr>
-<th>Input Parameters</th>
-<td>None</td>
-</tr>
-</tbody>
-</table>
+|                  |                                            |
+|------------------|--------------------------------------------|
+| Method           | getAvailableUserStoreClasses               |
+| Description      | Retrieve the available user store classes. |
+| Permission Level | /permission/admin                          |
+| Input Parameters | None                                       |
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -982,7 +1013,9 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
    <soapenv:Body>
       <ns:getAvailableUserStoreClassesResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2466="http://api.user.carbon.wso2.org/xsd" xmlns:ax2462="http://utils.configuration.store.user.identity.carbon.wso2.org/xsd" xmlns:ax2464="http://dto.configuration.store.user.identity.carbon.wso2.org/xsd">
@@ -998,29 +1031,16 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 
 ##### getSecondaryRealmConfigurations()
 
-<table>
-<tbody>
-<tr>
-<th>Method</th>
-<td>getSecondaryRealmConfigurations</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Retrieve the configurations of secondary user stores.</td>
-</tr>
-<tr>
-<th>Permission Level</th>
-<td>/permission/admin</td>
-</tr>
-<tr>
-<th>Input Parameters</th>
-<td>None</td>
-</tr>
-</tbody>
-</table>                              
+|                  |                                                       |
+|------------------|-------------------------------------------------------|
+| Method           | getSecondaryRealmConfigurations                       |
+| Description      | Retrieve the configurations of secondary user stores. |
+| Permission Level | /permission/admin                                     |
+| Input Parameters | None                                                  |
 
+**Request**
 
-``` xml tab="Reqest"
+``` xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://org.apache.axis2/xsd">
    <soap:Header/>
    <soap:Body>
@@ -1029,7 +1049,9 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 </soap:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
    <soapenv:Body>
       <ns:getSecondaryRealmConfigurationsResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -1041,28 +1063,16 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 
 ##### getUserStoreManagerProperties()
 
-<table>
-<tbody>
-<tr>
-<th>Method</th>
-<td>getUserStoreManagerProperties</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Retrieve the properties of secondary user stores..</td>
-</tr>
-<tr>
-<th>Permission Level</th>
-<td>/permission/admin</td>
-</tr>
-<tr>
-<th>Input Parameters</th>
-<td>None</td>
-</tr>
-</tbody>
-</table>                                        
+|                  |                                                   |
+|------------------|---------------------------------------------------|
+| Method           | getUserStoreManagerProperties                     |
+| Description      | Retrieve the properties of secondary user stores. |
+| Permission Level | /permission/admin                                 |
+| Input Parameters | None                                              |
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://org.apache.axis2/xsd">
    <soap:Header/>
    <soap:Body>
@@ -1074,7 +1084,9 @@ Mark as <strong>false</strong> to enable the user store.</p></td>
 </soap:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
@@ -1305,29 +1317,16 @@ etc</ax2384:description>
 
 ##### testRDBMSConnection()
 
-<table>
-<tbody>
-<tr>
-<th>Method</th>
-<td>testRDBMSConnection</td>
-</tr>
-<tr>
-<th>Description</th>
-<td>Test the connection to the datasource used by a JDBC user store manager.</td>
-</tr>
-<tr>
-<th>Permission Level</th>
-<td>/permission/admin</td>
-</tr>
-<tr>
-<th>Input Parameters</th>
-<td>None</td>
-</tr>
-</tbody>
-</table>  
+|                  |                                                                          |
+|------------------|--------------------------------------------------------------------------|
+| Method           | testRDBMSConnection                                                      |
+| Description      | Test the connection to the datasource used by a JDBC user store manager. |
+| Permission Level | /permission/admin                                                        |
+| Input Parameters | None                                                                     |
 
+**Request**
 
-``` xml tab="Request"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1349,7 +1348,9 @@ etc</ax2384:description>
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
