@@ -1,6 +1,6 @@
 # Customizing Error Pages
 
-WSO2 Carbon servers display errors, exceptions, and HTTP status codes in
+WSO2 Identity Server display errors, exceptions, and HTTP status codes in
 full detail. These are known as Verbose error messages. These error
 messages contain technical details such as stack traces. There may also
 disclose other sensitive details. Attackers may fingerprint the server,
@@ -10,13 +10,13 @@ technical information about the server. You can avoid these situations
 by configuring the server to display generic, non-detailed error
 messages in Apache Tomcat.
 
-From Carbon 4.4.6 onwards, the pages that should be displayed on a
+The pages that should be displayed on a
 certain throwable exception, error or an HTTP status code are specified
 in the
-`          <CARBON_HOME>repository/conf/tomcat/carbon/WEB-INF/web.         `
+`          <IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.         `
 xml file. You can customize those error pages as preferred. For example,
 if you try to access a resource that is not available in the Carbon
-server (e.g., https://10.100.5.72:9443/abc ), you will view the error
+server (e.g., `https://10.100.5.72:9443/abc`), you will view the error
 page as follows: " `          Error 404 - Not Found         ` ".
 
 You can customize the above error message by following the instructions
@@ -33,8 +33,7 @@ given below.
     then create another directory named `            web           `
     inside it.
 
-    !!! tip
-    
+    !!! tip    
         `            <PROJECT_HOME>           ` denotes the top-level
         directory of your Maven project.
     
@@ -55,8 +54,7 @@ given below.
     </html>
     ```
 
-5.  Add the `           new_          `
-    `           error_404.html          ` file inside the
+5.  Add the `new_ error_404.html` file inside the
     `           <PROJECT_HOME>/src/main/web          ` directory.
 6.  Add the following property below the
     `            <version>           ` element in the
@@ -68,26 +66,26 @@ given below.
     `            <PROJECT_HOME>/pom.           ` xml file.
 
     ``` xml
-         <plugin>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>maven-bundle-plugin</artifactId>
-            <extensions>true</extensions>
-            <configuration>
-                <instructions>
-                    <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                    <Bundle-Name>${project.artifactId}</Bundle-Name>
-                    <Import-Package>
-                                                    org.osgi.framework,
-                                                    org.osgi.service.http,
-                                                    org.wso2.carbon.ui,
-                                                    javax.servlet.*;version="2.4.0",
-                                                    *;resolution:=optional
-                                                </Import-Package>
-                        <Fragment-Host>org.wso2.carbon.ui</Fragment-Host>
-                        <Carbon-Component>UIBundle</Carbon-Component>
-                    </instructions>
-                </configuration>
-            </plugin>
+    <plugin>
+    <groupId>org.apache.felix</groupId>
+    <artifactId>maven-bundle-plugin</artifactId>
+    <extensions>true</extensions>
+    <configuration>
+        <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Name>${project.artifactId}</Bundle-Name>
+            <Import-Package>
+                                            org.osgi.framework,
+                                            org.osgi.service.http,
+                                            org.wso2.carbon.ui,
+                                            javax.servlet.*;version="2.4.0",
+                                            *;resolution:=optional
+                                        </Import-Package>
+                <Fragment-Host>org.wso2.carbon.ui</Fragment-Host>
+                <Carbon-Component>UIBundle</Carbon-Component>
+            </instructions>
+        </configuration>
+    </plugin>
     ```
 
 8.  Add the following configurations inside the
@@ -95,11 +93,11 @@ given below.
     `            <PROJECT_HOME>/pom.           ` xml file:
 
     ``` xml
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.framework</artifactId>
-            <version>1.0.3</version>
-        </dependency>
+    <dependency>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>org.apache.felix.framework</artifactId>
+        <version>1.0.3</version>
+    </dependency>
     ```
 
 9.  Build the Maven project by executing the following command: mvn
@@ -107,29 +105,28 @@ given below.
 
 10. Once the project is built, copy the JAR file (from the
     `           <PROJECT_HOME>/target/          ` directory) to the
-    `           <CARBON_HOME>/repository/components/dropins/          `
+    `           <IS_HOME>/repository/components/dropins/          `
     directory.
 11. Change the following configurations in the
-    `            <CARBON_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml           `
+    `            <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml           `
     file.
 
-    ``` text
-        <error-page>
-            <error-code>404</error-code>
-            <location>/carbon/new_error_404.html</location>
-        </error-page>
+    ``` xml
+    <error-page>
+        <error-code>404</error-code>
+        <location>/carbon/new_error_404.html</location>
+    </error-page>
     ```
 
-    !!! tip
-    
+    !!! tip    
         You need to replicate this configuration, and change the values of
         the `            <error-code>           ` and
         `            <location>           ` elements accordingly for each
         new HTML error page you add.
     
 
-12. Restart the WSO2 Carbon server.
+12. Restart the WSO2 Identity Server.
 13. Access the following URL again, to test the error page you
-    customized: https://10.100.5.72:9443/abc.  
+    customized: `https://10.100.5.72:9443/abc`.  
     You will view the new error page with the following content: "
     `            Sorry, this resource is not found.           ` "

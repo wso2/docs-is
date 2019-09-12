@@ -4,4 +4,4 @@ The following topics list out key adaptive authentication extension
 points that can be leveraged by Developers.
 
 -   [Writing Custom Functions for Adaptive
-    Authentication](_Writing_Custom_Functions_for_Adaptive_Authentication_)
+    Authentication](../../using-wso2-identity-server/writing-custom-functions-for-adaptive-authentication)
