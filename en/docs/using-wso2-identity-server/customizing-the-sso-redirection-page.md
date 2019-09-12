@@ -16,16 +16,16 @@ SAML request. You can use these two variables along with
 `         $acUrl        ` to implement redirection logic in case of a
 failure.
 
-About having a different page for different tenants
+!!! info "About having a different page for different tenants" 
 
-Currently, the Identity Server does not contain a mechanism to have a
-separate redirection page template for each service provider. However, a
-simple workaround is possible when you have a small number of service
-providers. The variable `          $acUrl         ` contains the
-assertion consumer URL (redirecting URL). Depending on the value of
-this, you can customize this **samlsso\_response.html** page to display
-different content, with the help of some JavaScript if/else logic. See
-[here]( ../../assets/img/103330131/103330132.html) for a sample sso\_redirect
-page template that can display different content for two different
-$acUrls. However, this may become complex when you have a large number
-of service providers.
+    Currently, the Identity Server does not contain a mechanism to have a
+    separate redirection page template for each service provider. However, a
+    simple workaround is possible when you have a small number of service
+    providers. The variable `          $acUrl         ` contains the
+    assertion consumer URL (redirecting URL). Depending on the value of
+    this, you can customize this **samlsso\_response.html** page to display
+    different content, with the help of some JavaScript if/else logic. See
+    [here](../../assets/attachments/sample-sso-redirect-page-template.html) for a sample sso\_redirect
+    page template that can display different content for two different
+    $acUrls. However, this may become complex when you have a large number
+    of service providers.

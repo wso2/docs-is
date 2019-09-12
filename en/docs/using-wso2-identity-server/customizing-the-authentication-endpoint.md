@@ -2,17 +2,7 @@
 
 The authentication endpoint is the authentication URL used in
 authentication requests. The following sections discuss methods of
-customizing this endpoint for various scenarios.
-
--   [Customizing the authentication endpoint
-    URL](#CustomizingtheAuthenticationEndpoint-CustomizingtheauthenticationendpointURL)
--   [Controlling the request parameters going to the authentication
-    endpoint](#CustomizingtheAuthenticationEndpoint-Controllingtherequestparametersgoingtotheauthenticationendpoint)
--   [Loading tenants into the dropdown in the login page of the
-    authentication endpoint web
-    application](#CustomizingtheAuthenticationEndpoint-Loadingtenantsintothedropdownintheloginpageoftheauthenticationendpointwebapplication)
--   [Handling browser back button and bookmarked login
-    page](#CustomizingtheAuthenticationEndpoint-Handlingbrowserbackbuttonandbookmarkedloginpage)
+customizing this endpoint for various scenarios. 
 
 ### Customizing the authentication endpoint URL
 
@@ -21,25 +11,15 @@ that contains authentication related pages.
 
 Follow the steps below to customize the authentication endpoint URL:
 
-1.  Edit the
-    `           <IS_HOME>/repository/conf/identity/                       application-authentication.xml           `
-    file, and change the value of the following parameter depending on
-    the URL that the web application should run.
+1.  Edit the `<IS_HOME>/repository/conf/identity/application-authentication.properties`  file, and change the value of the following parameter depending on the URL that the web application should run. 
 
-    ``` xml
-    <AuthenticationEndpointURL>/sso/login</AuthenticationEndpointURL>
+    ```
+    [authentication.endpoints] 
+    login_url="/sso/login"
     ```
 
-    For example, If you specify the value as
-    `           /sso/login          `, the web application runs on
-    `           https://<host_name>:port_number>/sso/login          ` .
-
-    !!! note
-    
-        Note
-    
-        If you do not change the default value of the
-        `           <AuthenticationEndpointURL>          ` parameter,
+    !!! note 
+        If you do not change the default value of this configuration,
         accessing the dashboard redirects you to the WSO2 Identity Server
         management console.
     
@@ -51,20 +31,19 @@ Follow the steps below to customize the authentication endpoint URL:
 Additional request parameters can be added and customized for the
 request sent to the authentication endpoint. To customize this,
 uncomment the following configurations in the
-`         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
-file, under the `         ApplicationAuthentication        ` element
-(which is the root element).
+`         <IS_HOME>/repository/conf/identity/application-authentication.properties        `
+file, under the `         [authentication.endpoint.query_params]        ` element.
 
 ``` xml
-<!--AuthenticationEndpointQueryParams action="exclude"-->
-<!--AuthenticationEndpointQueryParam name="username"/-->
-<!--AuthenticationEndpointQueryParam name="password"/-->
-<!--/AuthenticationEndpointQueryParams-->
+[authentication.endpoint.query_params] 
+filter_policy = exclude 
+filter_parameters = [username]
+filter_parameters = [password]
 ```
 
 !!! note
     
-    **Note** : In the above configuration, username and password are just
+    In the above configuration, username and password are just
     given as examples. You can configure any query parameter here for your
     request and customize it according to your specifications.
     
@@ -95,48 +74,44 @@ Do the following configurations to enable this feature.
     when working on mobile apps). This makes two-way SSL authentication
     optional.
 
-    ``` java
+    ``` xml
     clientAuth="want"
     ```
 
-    The `            .jar           ` file enabling usage of Mutual SSL
-    is shipped with IS by default from IS versions 5.1.0 and upwards.
-    The
-    `            org.wso2.carbon.identity.authenticator.mutualssl_X.X.X.jar           `
-    file can be found in the
-    `            <IS_HOME>/repository/components/plugins           `
-    directory.
+    !!! info
+        The `            .jar           ` file enabling usage of Mutual SSL
+        is shipped with IS by default from IS versions 5.1.0 and upwards.
+        The
+        `            org.wso2.carbon.identity.authenticator.mutualssl_X.X.X.jar           `
+        file can be found in the
+        `            <IS_HOME>/repository/components/plugins           `
+        directory.
 
 2.  Open the
-    `           <IS_HOME>/repository/conf/security/authenticators.xml          `
+    `           <IS_HOME>/repository/conf/security/authenticators.properties          `
     file and add the
-    `                       disabled="false"                     `
+    `                       enable="true"                     `
     attribute within the `           <Authenticator>          ` tag for
     the `           MutualSSLAuthenticator          ` to enable the
     Mutual SSL Authenticator.
 
     ``` xml
-        <!-- Authenticator Configurations for MutualSSLAuthenticator-->
-        <Authenticator name="MutualSSLAuthenticator" disabled="false">
-            <Priority>5</Priority>
-            <Config>
-                <Parameter name="UsernameHeader">UserName</Parameter>
-                <Parameter name="WhiteListEnabled">false</Parameter>
-                <Parameter name="WhiteList"/>
-            </Config>
-        </Authenticator>
+    [admin_console.authenticator.mutual_ssl_authenticator]
+    enable = true
+    priority = 5 
+    username_header = UserName
+    white_list_enabled = false
+    white_list =
     ```
 
-3.  If the `           SAML2SSOAuthenticator          ` is enabled (
-    `           disabled="false"          ` ) in the
-    `           <IS_HOME>/repository/conf/security/authenticators.xml          `
+3.  If the `           SAML2SSOAuthenticator          ` is enabled in the
+    `           <IS_HOME>/repository/conf/security/authenticators.properties          `
     file, set its priority to 0. Otherwise ignore this step.
 
     ``` xml
-        <Authenticator name="SAML2SSOAuthenticator" disabled="false">
-            <Priority>0</Priority>
-            ...
-        </Authenticator>
+    "[admin_console.authenticator.saml_sso_authenticator]
+    enable = true
+    priority = 0
     ```
 
 4.  Add the following configuration into the
@@ -154,7 +129,7 @@ Do the following configurations to enable this feature.
 
     !!! note
     
-        **Note:** When configuring the
+        When configuring the
         `           TenantDataListenerURL          ` tag, note the
         following.
     
@@ -219,7 +194,7 @@ Do the following configurations to enable this feature.
 
     !!! note
     
-        **Note:** If you are hosting the
+        If you are hosting the
         `           autheticationendpoint.war          ` webapp outside the
         Identity Server (i.e in a different Tomcat or WSO2 Application
         Server), then you cannot use the
@@ -231,37 +206,21 @@ Do the following configurations to enable this feature.
     
         In this scenario, do the following:
     
-        -   Open the `             <WebApp_HOME>/            `
-            `             authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            `
-            file and p rovide the full URL to WSO2 Identity Server’s admin
-            services endpoint in the
-            `             identity.server.serviceURL            `
-            property following the format below.
+        -   Open the `<WebApp_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            ` file and p rovide the full URL to WSO2 Identity Server’s admin services endpoint in the
+            `             identity.server.serviceURL            ` property following the format below.
+            <code>identity.server.serviceURL=https://<ip>:<port>/services</code>
     
-            ``` xml
-                     identity.server.serviceURL=https://<ip>:<port>/services
-            ```
-    
-        -   Copy the
-            `                           org.wso2.carbon.identity.application.authentication.endpoint.util-5.0.7.jar                         `
-            file and paste it in the
-            `             <WebApp_HOME>/authenticationendpoint/WEB-INF/lib            `
-            folder.
-    
-              
-    
-            -   If you have applied the
-                `                WSO2-CARBON-PATCH-4.4.0-0073               `
+        -   Copy the `                           org.wso2.carbon.identity.application.authentication.endpoint.util-5.0.7.jar                         ` file and paste it in the
+            `             <WebApp_HOME>/authenticationendpoint/WEB-INF/lib            ` folder. 
+            -   If you have applied the <code> WSO2-CARBON-PATCH-4.4.0-0073</code>
                 security patch, copy the
-                `                .jar               ` file found in the
-                `                <CARBON_PATCH_HOME>/patch0073               `
+                <code>.jar</code> file found in the
+                <code><CARBON_PATCH_HOME>/patch0073</code>
                 folder.
             -   If you have **not** applied the
-                `                WSO2-CARBON-PATCH               `, copy
-                the `                .jar               ` file found in the
-                \<
-                `                IS_HOME>/repository/components/plugins               `
-                folder .
+                <code>WSO2-CARBON-PATCH</code>, copy
+                the <code>.jar</code> file found in the
+                <code><IS_HOME>/repository/components/plugins</code> folder.
     
 
 7.  For mutual SSL authentication, the public certificate of the
@@ -282,7 +241,7 @@ Do the following configurations to enable this feature.
     ```
 
     ``` java
-        keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
+    keytool -import -trustcacerts -alias carbon -file carbon_public2.crt -keystore client-truststore.jks -storepass wso2carbon
     ```
 
     !!! note
@@ -295,7 +254,7 @@ Do the following configurations to enable this feature.
         This property is enabled by default.
     
         ``` java
-            mutualSSLManagerEnabled=true
+        mutualSSLManagerEnabled=true
         ```
     
 
@@ -337,7 +296,8 @@ page, follow the steps below.
     file.
 
     ``` xml
-        <Authenticator name="MutualSSLAuthenticator" disabled="true">
+    [admin_console.authenticator.mutual_ssl_authenticator]
+    enable = true
     ```
 
 5.  Restart the server.
@@ -361,35 +321,35 @@ below steps:
 
 2.  Click on **Main Menu**, under **Registry**, click **Browse** to
     see the registry browser.  
-    ![]( ../../assets/img/103330101/103330108.png)
+    ![Registry Browse menu item](../../assets/img/using-wso2-identity-server/registry-browse-menu-item.png)
 
 3.  Browse the registry and go to
     `          /_system/config/identity/config.         `  
-    ![]( ../../assets/img/103330101/103330107.png){height="250"}  
+    ![Registry browser](../../assets/img/using-wso2-identity-server/registry-browser.png)  
     Once you navigate to
     `          /_system/config/identity/config         `, follow the
     steps below to add a registry resource.
 4.  Click **Add Resource**.  
-    ![]( ../../assets/img/103330101/103330106.png) 
+    ![Add resource option](../../assets/img/using-wso2-identity-server/add-resource-option.png) 
 5.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
-    ![]( ../../assets/img/103330101/103330105.png) 
+    ![Add resource form](../../assets/img/using-wso2-identity-server/add-resource-form.png) 
 6.  Click in **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
-    ![]( ../../assets/img/103330101/103330104.png) 
+    ![Registry resource](../../assets/img/using-wso2-identity-server/registry-resource.png) 
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
-    ![]( ../../assets/img/103330101/103330103.png) 
+    ![Resource properties](../../assets/img/using-wso2-identity-server/resource-properties.png) 
 8.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
 9.  Click **Add New Property**.  
-    ![]( ../../assets/img/103330101/103330102.png)
+    ![Add New Property option](../../assets/img/using-wso2-identity-server/add-new-property-option.png)
 10. Enter the relying party name for name and the redirect URL for
     value.  
-    ![]( ../../assets/img/103330101/103330109.png){height="250"}
+    ![Add New Property form](../../assets/img/using-wso2-identity-server/add-new-property-form.png)
 
     !!! note
     
@@ -397,34 +357,24 @@ below steps:
         when the back button is pressed.
     
 
-    Relying party name with redirect URL needs to be configured like the
-    below:
+    !!! info
+        - Relying party name with redirect URL needs to be configured like below:
+           <code>
+           \<Oauth2\_client\_id\>=\<login\_redirect\_url\>  
+           \<Issuer Name\>=\<login\_redirect\_url\>
+           </code>        
 
-    \<Oauth2\_client\_id\>=\<login\_redirect\_url\>  
-    \<Issuer Name\>=\<login\_redirect\_url\>
+        - Also note the following settings:
+            - Relying party for SAML = Issuer Name
+            - Relying party for Oauth2 = OAuth Client Key  
 
-      
+        - Following are two sample values for Name and value:
+            - Name : [wso2.my](http://wso2.my/).dashboard
+            - Value : <https://localhost:9443/dashboard/index.jag>         
 
-    Also note the following settings:
-
-    Relying party for SAML = Issuer Name
-
-    Relying party for Oauth2 = OAuth Client Key  
-
-    Following are two sample values for Name and value:
-
-    Name : [wso2.my](http://wso2.my/).dashboard
-
-    Value : <https://localhost:9443/dashboard/index.jag>
-
-      
-
-    If you are using travelocity as the sample app, you can use the
-    below values:
-
-    Name : travelocity.com
-
-    Value : <http://localhost:8080/travelocity.com/home.jsp>
+        - If you are using travelocity as the sample app, you can use the below values:
+            - Name : travelocity.com
+            - Value : <http://localhost:8080/travelocity.com/home.jsp>
 
 11. Once you fill name and the value, click the **Add** button.
 

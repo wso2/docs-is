@@ -1,10 +1,7 @@
 # Localization Support in Identity Server
 
 This page describes how WSO2 Identity Server can be configured to
-support localization of its UI:
-
--   [Configuring Localization for Authentication
-    Endpoints](#LocalizationSupportinIdentityServer-ConfiguringLocalizationforAuthenticationEndpoints)
+support localization of its UI.
 
 ### Configuring Localization for Authentication Endpoints
 
