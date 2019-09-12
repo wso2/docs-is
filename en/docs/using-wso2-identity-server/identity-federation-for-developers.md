@@ -4,6 +4,6 @@ The following topics list out key identity federation extension points
 that can be leveraged by Developers.
 
 -   [Writing a Custom Federated
-    Authenticator](_Writing_a_Custom_Federated_Authenticator_)
+    Authenticator](../../using-wso2-identity-server/writing-a-custom-federated-authenticator)
 -   [Writing a Custom Local
-    Authenticator](_Writing_a_Custom_Local_Authenticator_)
+    Authenticator](../../using-wso2-identity-server/writing-a-custom-local-authenticator)

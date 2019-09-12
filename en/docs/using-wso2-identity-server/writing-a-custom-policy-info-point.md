@@ -37,6 +37,7 @@ Identity Server. This sample project can be downloaded
     database. See
     [here](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/dbScript/testUserStore.sql)
     for a sample script that is used to create the tables.
+
 2.  Write a PIP module by extending “
     `          AbstractPIPAttributeFinder         ` ”. Download the “
     `          KMarketJDBCAttributeFinder         ` ” class
@@ -73,24 +74,29 @@ Identity Server. This sample project can be downloaded
     3.  **getSupportedAttributes()** : Here you can write the logic to
         find all the attribute IDs supported by your module.
     4.  **getModuleName()** : The name of the module.
+    
 3.  Create a .jar file from your class. To do this, you can build the
     project using maven 3 and create the .jar file.
+
 4.  Copy the created **org.xacmlinfo.xacml.pip.jdbc-1.0.0.jar** to the
     `          <IS_HOME>/repository/components/lib         ` directory.
+
 5.  Copy any dependency libraries for the PIP module to
     `          <IS_HOME>/repository/components/lib         ` directory.
     This includes the JDBC driver .jar file that helps to create the
     JDBC connection (e.g.,
     `          mysql-connector-java-5.1.10-bin.jar         ` ).
+
 6.  Additionally, you can configure new datasources using
     **master-datasources.xml** file found in the
     `           <IS_HOME>/repository/conf/datasources          `
     directory.
 
-    This only applies if you are defining datasource configurations
-    using the master-datasources.xml file.
+    !!! info
+        This only applies if you are defining datasource configurations
+        using the `master-datasources.xml` file.
 
-    The following is a sample datasource configuration for this
+    Following is a sample datasource configuration for this
     scenario.
 
     ``` xml
@@ -122,9 +128,9 @@ Identity Server. This sample project can be downloaded
     configuration for this scenario.
 
     ``` java
-        PIP.AttributeDesignators.Designator.2=org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder
-        #Define JNDI datasource name as property value
-        org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder.1=DataSourceName,jdbc/KMARKETUSERDB
+    PIP.AttributeDesignators.Designator.2=org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder
+    #Define JNDI datasource name as property value
+    org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder.1=DataSourceName,jdbc/KMARKETUSERDB
     ```
 
 8.  Restart the server if it has been started already.
@@ -150,20 +156,19 @@ Use the following steps to check the PIP module.
     [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Test-Request.xml)
     request.
 
-5.  Please [upload the policy](_Creating_a_XACML_Policy_) into the WSO2
+5.  Please [upload the policy](../../tutorials/creating-a-xacml-policy) into the WSO2
     Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt
-    PEP](_Using_the_XACML_TryIt_Tool_).
+    PEP](../../using-wso2-identity-server/using-the-xacml-tryit-tool).
 
-    About debugging the sample code
+    !!! info "About debugging the sample code"
+        This sample code can be debugged by starting the WSO2 Identity
+        Server in the debug mode as follows.
 
-    This sample code can be debugged by starting the WSO2 Identity
-    Server in the debug mode as follows.
+        **UNIX** : `            wso2server.sh –debug 5005           `
 
-    **UNIX** : `            wso2server.sh –debug 5005           `
+        **Windows** : `            wso2server.bat –debug 5005           `
 
-    **Windows** : `            wso2server.bat –debug 5005           `
-
-    Then you can clearly see how methods in the
-    “KMarketJDBCAttributeFinder” are called by the PDP.
+        Then you can clearly see how methods in the
+        “KMarketJDBCAttributeFinder” are called by the PDP.

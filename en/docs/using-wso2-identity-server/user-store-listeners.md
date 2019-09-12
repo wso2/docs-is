@@ -24,7 +24,7 @@ this flow will change depending on the implementation (for instance in
 the carbon authorization flow, there is only one listener method that is
 being called).
 
-![]( ../../assets/img/103330086/103330088.png)
+![User store operations](../../assets/img/using-wso2-identity-server/user-store-operations.png)
 
 ### How listeners work
 
@@ -126,7 +126,7 @@ Likewise, you can add custom extensions to any method of the user core.
 
 !!! tip
     
-    **Tip** : Make note of the following.
+    Make note of the following.
     
     1.  The `                     getExecutionOrderId()                   `
         method can return any random value. This is important when there is
@@ -162,11 +162,10 @@ Listeners.
 | [org.wso2.carbon.user.core.listener.UserStoreManagerConfigurationListener](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserStoreManagerConfigurationListener.java) | doPreOperation                     | [org.wso2.carbon.user.core.common.AbstractUserStoreManager](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/common/AbstractUserStoreManager.java)               | One listener method which is executed before the implemented logic                                  |
 | [org.wso2.carbon.user.core.listener.UserStoreManagerListener](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserStoreManagerListener.java)                           | doPreOperation                     | [org.wso2.carbon.user.core.common.AbstractUserStoreManager](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/common/AbstractUserStoreManager.java)               | One listener method which is executed before the implemented logic                                  |
 
-!!! note
-    
+!!! note    
     It is recommended to extend the existing abstract implementation of
     these interfaces rather than implementing from scratch. For example,
-    `         org.wso2.carbon.user.core.listener.UserOperationEventListener        `
+    `org.wso2.carbon.user.core.listener.UserOperationEventListener`
     is implemented in the
     `         org.wso2.carbon.user.core.common.AbstractUserOperationEventListener        `
     abstract class.
