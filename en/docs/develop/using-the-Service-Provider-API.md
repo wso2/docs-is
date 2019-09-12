@@ -3,17 +3,32 @@
 This section guides you through using the Identity Application
 Management API to create a service provider, update it, delete it, and
 the different operations you can use to work with it.  The following
-operations are available.
+operations are available:
+
+-   [createApplication](#UsingtheServiceProviderAPI-createApplication)
+-   [updateApplication](#UsingtheServiceProviderAPI-updateApplication)
+-   [deleteApplication](#UsingtheServiceProviderAPI-deleteApplication)
+-   [getAllApplicationBasicInfo](#UsingtheServiceProviderAPI-getAllApplicationBasicInfo)
+-   [getAllIdentityProviders](#UsingtheServiceProviderAPI-getAllIdentityProviders)
+-   [getAllLocalAuthenticators](#UsingtheServiceProviderAPI-getAllLocalAuthenticators)
+-   [getAllLocalClaimUris](#UsingtheServiceProviderAPI-getAllLocalClaimUris)
+-   [getAllRequestPathAuthenticators](#UsingtheServiceProviderAPI-getAllRequestPathAuthenticators)
+-   [getApplication](#UsingtheServiceProviderAPI-getApplication)
+-   [getIdentityProvider](#UsingtheServiceProviderAPI-getIdentityProvider)
 
 The service contract of this admin service can be found at
-`https://\<IS_HOST>:\<IS_PORT>/services/IdentityApplicationManagementService?wsdl`.
-Replace the tag `<IS_HOST>:<IS_PORT>` with the relevant host and
+https://\<IS\_HOST\>:\<IS\_PORT\>/services/IdentityApplicationManagementService?wsdl.
+Replace the tag \<IS\_HOST\>:\<IS\_PORT\> with the relevant host and
 port number, for example:
-`<https://localhost:9443/services/IdentityApplicationManagementService?wsdl>.
+<https://localhost:9443/services/IdentityApplicationManagementService?wsdl>
+.
 
-!!! tip "Before you begin"    
+!!! tip
+    
+    Before you begin
+    
     Follow the instructions given in the [Calling Admin
-    Services](../../using-wso2-identity-server/calling-admin-services)
+    Services](https://docs.wso2.com/display/IS530/Calling+Admin+Services)
     topic to enable the admin service.
     
 
@@ -28,16 +43,15 @@ two-step process.
     description using the `           createApplication          `
     operation. It returns a `           200 OK          ` response.  
 
-    !!! info
-        The service provider's application ID is required to use the
-        `            updateApplication           ` operation. You can
-        include an application ID for the new service provider within the
-        same SOAP request when calling the
-        `            createApplication           ` operation . If you do not
-        include an application ID in the request, you can retrieve the
-        auto-generated application ID value by calling the
-        `            getApplication           ` service method with the
-        application name.
+    The service provider's application ID is required to use the
+    `            updateApplication           ` operation. You can
+    include an application ID for the new service provider within the
+    same SOAP request when calling the
+    `            createApplication           ` operation . If you do not
+    include an application ID in the request, you can retrieve the
+    auto-generated application ID value by calling the
+    `            getApplication           ` service method with the
+    application name.
 
 2.  Update the service provider with other configurations using the
     `          updateApplication         ` operation. The service
@@ -64,12 +78,9 @@ two-step process.
 <td>String</td>
 <td><div class="content-wrapper">
 <p>The desired service provider name.</p>
-<p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Adding a service provider creates an internal application role for the given application name in the following format: Internal/<applicationName>. Therefore, creating another service provider for the same application name is not possible and will throw an <code>IdentityApplicationManagementException</code>.</p>
-</div> 
-</p>
+!!! note
+    <p>Adding a service provider creates an internal application role for the given application name in the following format: Internal/&lt;applicationName&gt;.<br />
+    Therefore, creating another service provider for the same application name is not possible and will throw an <code>               IdentityApplicationManagementException              </code> .</p>
 </div></td>
 </tr>
 <tr class="odd">
@@ -80,7 +91,10 @@ two-step process.
 </tbody>
 </table>
 
-``` xml tab="Request Format"
+**  
+Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -97,7 +111,10 @@ two-step process.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Sample Request"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -114,7 +131,53 @@ two-step process.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+****Request with application ID:**  
+**
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <xsd:createApplication>
+         <!--Optional:-->
+         <xsd:serviceProvider>
+            <!--Optional:-->
+            <xsd1:applicationID>?</xsd1:applicationID>
+            <!--Optional:-->
+            <xsd1:applicationName>?</xsd1:applicationName>
+            <!--Optional:-->
+            <xsd1:description>?</xsd1:description>
+         </xsd:serviceProvider>
+      </xsd:createApplication>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <xsd:createApplication>
+         <!--Optional:-->
+         <xsd:serviceProvider>
+            <!--Optional:-->
+            <xsd1:applicationID>2</xsd1:applicationID>
+            <!--Optional:-->
+            <xsd1:applicationName>travelocity.com</xsd1:applicationName>
+            <!--Optional:-->
+            <xsd1:description>sample service provider</xsd1:description>
+         </xsd:serviceProvider>
+      </xsd:createApplication>
+   </soapenv:Body>
+</soapenv:Envelope>
+```
+
+**Response:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -136,33 +199,37 @@ with the following configurations:
 -   Inbound and Outbound authentication configuration
 -   Inbound and Outbound provisioning configuration
 
-!!! info 
-    -   **Get application ID** - The service provider is updated based on
-        its application ID. If you have not provided an application ID when
-        creating the service provider, you can use the
-        [getApplication](#getapplication) operation to retrieve the application ID value from WSO2 IS.        
-    -   **Get certificate reference ID** - The certificate of the service
-        provider is updated based on its certificate reference ID. Use the
-        [getApplication](#getapplication)
-        operation to retrieve the certificate reference ID value from WSO2
-        IS and include it in the
-        `             updateApplication            ` SOAP request to update
-        the same certificate. The code block below shows the certificate
-        reference ID value included in the
-        `             getApplication            ` response.
-        ``` java
+-   **Get application ID** - The service provider is updated based on
+    its application ID. If you have not provided an application ID when
+    creating the service provider, you can use the
+    [getApplication](#UsingtheServiceProviderAPI-getApplication)
+    operation to retrieve the application ID value from WSO2 IS.
+
+      
+
+-   **Get certificate reference ID** - The certificate of the service
+    provider is updated based on its certificate reference ID. Use the
+    [getApplication](#UsingtheServiceProviderAPI-getApplication)
+    operation to retrieve the certificate reference ID value from WSO2
+    IS and include it in the
+    `             updateApplication            ` SOAP request to update
+    the same certificate. The code block below shows the certificate
+    reference ID value included in the
+    `             getApplication            ` response.
+
+    ``` java
         <ax2140:spProperties xsi:type="ax2140:ServiceProviderProperty">
             <ax2140:displayName>CERTIFICATE</ax2140:displayName>
             <ax2140:name>CERTIFICATE</ax2140:name>
             <ax2140:value>2</ax2140:value>
         </ax2140:spProperties>
-        ```
+    ```
 
-        To update the same certificate, include the certificate reference ID
-        you retrieved in the `             updateApplication            `
-        SOAP request as follows.
+    To update the same certificate, include the certificate reference ID
+    you retrieved in the `             updateApplication            `
+    SOAP request as follows.
 
-        ``` java
+    ``` java
         <xsd1:spProperties>
             <!--Optional:-->
             <xsd1:displayName>CERTIFICATE</xsd1:displayName>
@@ -171,11 +238,13 @@ with the following configurations:
             <!--Optional:-->
             <xsd1:value>2</xsd1:value>
         </xsd1:spProperties>
-        ```
+    ```
 
 The format of the update request should be as follows.
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -223,7 +292,12 @@ The format of the update request should be as follows.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Sample Request for SAML"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+For SAML
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -279,7 +353,9 @@ The format of the update request should be as follows.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Sample Request for OAuth"
+For OAuth
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -364,7 +440,10 @@ The format of the update request should be as follows.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**  
+Response:**
+
+``` java
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:updateApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -376,7 +455,9 @@ The format of the update request should be as follows.
 
 **Input parameters**
 
-Service provider level parameters   
+Service provider level parameters
+
+  
 
 <table>
 <thead>
@@ -410,7 +491,7 @@ Service provider level parameters
 <tr class="odd">
 <td><p>inboundAuthenticationConfig</p></td>
 <td><p>InboundAuthenticationConfig</p></td>
-<td><p><a href="../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider">Inbound authentication</a> related configurations</p></td>
+<td><p><a href="https://docs.wso2.com/display/IS550/Configuring+Inbound+Authentication+for+a+Service+Provider">Inbound authentication</a> related configurations</p></td>
 </tr>
 <tr class="even">
 <td><p>inboundProvisioningConfig</p></td>
@@ -467,9 +548,13 @@ where each is represented by a claimId and a claimURI.  The
 `          <localClaim>         ` denotes a standard claim which is
 local to the WSO2 Identity Server and the
 `          <remoteClaim>         ` denotes some remote claim value that
-maps to the local claim under the same [claim mapping](../../using-wso2-identity-server/claim-management). Remote claims are specifically used with identity federation scenarios to map claims received from the federated Identity Provider to local claims.
+maps to the local claim under the same [claim
+mapping](https://docs.wso2.com/display/IS550/Claim+Management). Remote
+claims are specifically used with identity federation scenarios to map
+claims received from the federated Identity Provider to local claims.
 
   
+
 <table>
 <thead>
 <tr class="header">
@@ -490,7 +575,8 @@ maps to the local claim under the same [claim mapping](../../using-wso2-identity
 <td><p>This is a boolean that specifies whether this service provider is using the local claim dialect or a custom claim dialect.</p>
 <p>true - using the local claim dialect</p>
 <p>false - using the custom claim dialect</p>
-<br /> 
+<br />
+
 <p>If it is using the custom claim dialect, the local claim should map with a remote claim in each <a href="https://docs.wso2.com/display/IS550/Claim+Management">claim mapping</a> otherwise, both the local claim URI and the remote claim URI should be the same (i.e. a URI defined under a dialect local to the WSO2 Identity Server).</p></td>
 </tr>
 <tr class="odd">
@@ -525,7 +611,9 @@ maps to the local claim under the same [claim mapping](../../using-wso2-identity
 </tbody>
 </table>
 
-``` xml tab="claimConfig Request Element"
+**claimConfig Request Element:**
+
+``` xml
 <xsd1:claimConfig>
     <!--Optional:-->
     <xsd1:alwaysSendMappedLocalSubjectId>?</xsd1:alwaysSendMappedLocalSubjectId>
@@ -568,7 +656,10 @@ maps to the local claim under the same [claim mapping](../../using-wso2-identity
 </xsd1:claimConfig>
 ```
 
-``` xml tab="Sample Request"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -715,7 +806,11 @@ the local role.
 </tbody>
 </table>
 
-``` xml tab="permissionAndRoleConfig Request Element"
+  
+
+**permissionAndRoleConfig Request Element:**
+
+``` xml
 <xsd1:permissionAndRoleConfig>
     <!--Zero or more repetitions:-->
     <xsd1:idpRoles>?</xsd1:idpRoles>
@@ -739,7 +834,10 @@ the local role.
 </xsd1:permissionAndRoleConfig>
 ```
 
-``` xml tab="Sample Request"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -816,7 +914,8 @@ the local role.
 
 #### Inbound authentication
 
-[Inbound Authentication](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
+[Inbound
+Authentication](https://docs.wso2.com/display/IS550/Configuring+Inbound+Authentication+for+a+Service+Provider)
 Configuration defines the protocol that the service provider and the
 Identity Server uses to communicate. You can add a common set of
 configurations for the service provider for any protocol such as SAML
@@ -824,8 +923,8 @@ configurations for the service provider for any protocol such as SAML
 is supported by WSO2 Identity Server.
 
 The `          <inboundAuthenticationConfig>         ` element consists
-zero or more <inboundAuthenticationRequestConfigs\> elements. The
-<inboundAuthenticationRequestConfigs\> element has following
+zero or more \<inboundAuthenticationRequestConfigs\> elements. The
+\<inboundAuthenticationRequestConfigs\> element has following
 elements(Note: Only the required element are mentioned).
 
 **IMPORTANT: You need to create inbound authenticator configurations
@@ -840,11 +939,12 @@ with inbound authenticator configurations.**
 | inboundAuthKey                             | String   | Specify an identifier for the service provider as the authentication key.  |
 | inboundAuthType                            | String   | Specify the authentication type. ex: samlsso, oauth2, wstrust, passivests, |
 | properties                                 | Property | Inbound authentication request properties                                  |
-| properties.name | String   | Specify the property name                                                  |
+| [properties.name](http://properties.name/) | String   | Specify the property name                                                  |
 | properties.value                           | String   | Specify the property value                                                 |
 
+**inboundAuthenticationConfig** **Request Element:**
 
-``` xml tab="inboundAuthenticationConfig Request Element"
+``` xml
 <xsd1:inboundAuthenticationConfig>
     <!--Zero or more repetitions:-->
     <xsd1:inboundAuthenticationRequestConfigs>
@@ -883,7 +983,10 @@ with inbound authenticator configurations.**
 </xsd1:inboundAuthenticationConfig>
 ```
 
-``` xml tab="Sample Request"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:xsd="http://org.apache.axis2/xsd"
@@ -981,8 +1084,9 @@ The inbound provisioning of the service provider can be configured.
 | provisioningEnabled   | Boolean | Specify whether inbound provisioning is enabled |
 | provisioningUserStore | String  | User store domain name                          |
 
+**inboundProvisioningConfig** **Request Element:**
 
-``` xml tab="inboundProvisioningConfig Request Element"
+``` xml
 <xsd1:inboundProvisioningConfig>
     <!--Optional:-->
     <xsd1:dumbMode>?</xsd1:dumbMode>
@@ -993,7 +1097,10 @@ The inbound provisioning of the service provider can be configured.
 </xsd1:inboundProvisioningConfig>
 ```
 
-``` xml tab="Sample Request"
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1052,7 +1159,8 @@ The inbound provisioning of the service provider can be configured.
   
 
 #### Local and outbound authentication configuration
- 
+
+  
 
 <table>
 <thead>
@@ -1088,15 +1196,12 @@ The inbound provisioning of the service provider can be configured.
 <td><p>authenticationSteps.federatedIdentityProviders</p></td>
 <td><p>IdentityProvider</p></td>
 <td><div class="content-wrapper">
-<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="../../using-wso2-identity-server/configuring-federated-authentication">federated authenticator</a> enabled.</p>
+<p>To configure federated IdPs, there should be one or more registered IdPs with at least one <a href="https://docs.wso2.com/display/IS550/Configuring+Federated+Authentication">federated authenticator</a> enabled.</p>
 <br />
+
 <p>With the request, it is necessary to include the IdP name and the federated authenticator name.</p>
-<p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The federated authenticator should be enabled in the IdP. If a federated authenticator is not mentioned, the default federated authenticator for the IdP will be used.</p>
-</div>
-</p>
+!!! note
+    <p>The federated authenticator should be enabled in the IdP. If a federated authenticator is not mentioned, the default federated authenticator for the IdP will be used.</p>
 </div></td>
 </tr>
 <tr class="odd">
@@ -1105,7 +1210,7 @@ The inbound provisioning of the service provider can be configured.
 <td><p>Local authentication related configs for the authentication step. For example, you can specify whether to use a basic or an IWA authenticator.</p>
 <br />
 
-<p>To use basic, localAuthenticatorConfigs.name should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
+<p>To use basic, <a href="http://localauthenticatorconfigs.name/">localAuthenticatorConfigs.name</a> should be 'BasicAuthenticator' while 'IWAAuthenticator' for iwa.</p></td>
 </tr>
 <tr class="even">
 <td><p>authenticationSteps.stepOrder</p></td>
@@ -1148,7 +1253,8 @@ The inbound provisioning of the service provider can be configured.
 </xsd1:localAndOutBoundAuthenticationConfig>
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -1237,7 +1343,8 @@ attributes.
 </xsd1:localAndOutBoundAuthenticationConfig>
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope
@@ -1347,7 +1454,8 @@ attributes.
 </xsd1:localAndOutBoundAuthenticationConfig>
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope
@@ -1430,7 +1538,9 @@ Multiple `          <         `
 `          authenticationSteps>         ` can be configured here.
 Therefore, in each `          <authenticationSteps>         `, the
 stepOrder and whether the subject identifiers and attributes should be
-used from that particular step.   
+used from that particular step.
+
+  
 
 ``` xml
 <xsd1:localAndOutBoundAuthenticationConfig>
@@ -1471,7 +1581,8 @@ used from that particular step.
     <xsd1:subjectClaimUri>http://wso2.org/cla
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope
@@ -1561,7 +1672,9 @@ used from that particular step.
 #### Request path authenticator configuration
 
 Specify configurations related to zero or more request path
-authenticators.   
+authenticators.
+
+  
 
 <table>
 <thead>
@@ -1603,6 +1716,9 @@ authenticators.
 </tbody>
 </table>
 
+**  
+**
+
 **requestPathAuthenticatorConfigs** **Request Element:**
 
 ``` xml
@@ -1620,7 +1736,8 @@ authenticators.
 </xsd1:requestPathAuthenticatorConfigs>
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope
@@ -1697,7 +1814,9 @@ authenticators.
 #### Outbound provisioning configuration
 
 To configure the outbound provisioning of the service provider, use the
-following parameters.   
+following parameters.
+
+  
 
 <table>
 <thead>
@@ -1753,7 +1872,8 @@ following parameters.
 </xsd1:outboundProvisioningConfig>
 ```
 
-**Sample Request**
+![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
+Request...
 
 ``` xml
 <soapenv:Envelope
@@ -1888,7 +2008,12 @@ parameters and the format of the request should be as follows.
 |-----------------|--------|-------------------------|
 | applicationName | String | Name of the application |
 
-``` xml tab="Request"
+**  
+**
+
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1900,7 +2025,12 @@ parameters and the format of the request should be as follows.
 </soapenv:Envelope>
 ```
 
-```xml tab="Response"
+**  
+**
+
+**Response:**
+
+``` java
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:deleteApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
@@ -1910,6 +2040,9 @@ parameters and the format of the request should be as follows.
 </soapenv:Envelope>
 ```
 
+**  
+**
+
 ### getAllApplicationBasicInfo
 
 Permission Level: `            /permission/admin/manage           `
@@ -1917,7 +2050,9 @@ Permission Level: `            /permission/admin/manage           `
 This method can use to get all available service provider names and
 their descriptions.
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1926,7 +2061,11 @@ their descriptions.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+  
+
+**Response:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllApplicationBasicInfoResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -1938,6 +2077,7 @@ their descriptions.
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+
   
 
 ### getAllIdentityProviders
@@ -1946,7 +2086,9 @@ Permission Level: `           /permission/admin/manage          `
 
 This method can use to get all available identity providers.
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1955,7 +2097,10 @@ This method can use to get all available identity providers.
 </soapenv:Envelope> 
 ```
 
-``` xml tab="Response"
+**  
+** **Response:**
+
+``` xml
  <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
@@ -2000,7 +2145,9 @@ Permission Level: `           /permission/admin/manage          `
 
 This method can use to get all available local authenticators.
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2009,7 +2156,14 @@ This method can use to get all available local authenticators.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**  
+**
+
+**Response:**
+
+  
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllLocalAuthenticatorsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -2040,7 +2194,9 @@ This method can use to get all available claim URI values which are in
 `                         http://wso2.org/claims                       `
 dialect.
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2049,7 +2205,11 @@ dialect.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+  
+
+**Response:**
+
+``` xml
  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllLocalClaimUrisResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -2086,14 +2246,18 @@ dialect.
 </soapenv:Envelope>
 ```
 
+**  
+**
+
 ### **getAllRequestPathAuthenticators**
 
 Permission Level: `           /permission/admin/manage          `
 
 This method can use to get all available request patch authenticators.
 
+**Request:**
 
-``` xml tab="Request"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2102,7 +2266,10 @@ This method can use to get all available request patch authenticators.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**  
+Response:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns:getAllRequestPathAuthenticatorsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2115="http://core.carbon.wso2.org/xsd" xmlns:ax2114="http://mgt.application.identity.carbon.wso2.org/xsd" xmlns:ax2120="http://common.application.identity.carbon.wso2.org/xsd" xmlns:ax2117="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -2122,9 +2289,10 @@ This method can use to get all available request patch authenticators.
    </soapenv:Body>
 </soapenv:Envelope>
 ```
+
   
 
-### getApplication
+### **getApplication** ** **
 
 Permission Level: `           /permission/admin/manage          `
 
@@ -2132,14 +2300,19 @@ This method can be used to get the service provider information while
 passing the application name. The input parameters and the format of the
 request should be as follows.
 
+  
+
 **Input parameters**
 
 | Parameter       | Type   | Description             |
 |-----------------|--------|-------------------------|
 | applicationName | String | Name of the application |
 
+  
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2151,7 +2324,9 @@ request should be as follows.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+**Response:**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
@@ -2205,7 +2380,9 @@ of the request should be as follows.
 
   
 
-``` xml tab="Request"
+**Request:**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2217,7 +2394,11 @@ of the request should be as follows.
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+  
+
+**Response:**
+
+``` xml
 <soapenv:Envelope
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
