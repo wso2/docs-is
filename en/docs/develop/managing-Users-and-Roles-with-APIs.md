@@ -1,16 +1,22 @@
 # Managing Users and Roles with APIs
 
-!!! warning    
+!!! warning
+    
     From 5.4.0 onwards, SCIM 2.0 REST APIs are supported out-of-the-box with
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
     service given below, see [Using the SCIM 2.0 REST
-    APIs](../../using-wso2-identity-server/using-the-scim-2.0-rest-apis).
+    APIs](../../references/using-the-scim-2.0-rest-apis).
     
 
 This section guides you through invoking and working with the
 **RemoteUserStoreManagerService** and the operations you can work with
 in this service.
+
+-   [Invoking the admin
+    service](#ManagingUsersandRoleswithAPIs-Invokingtheadminservice)
+-   [Operations included in the API and sample
+    requests](#ManagingUsersandRoleswithAPIs-OperationsincludedintheAPIandsamplerequests)
 
 ### Invoking the admin service
 
@@ -27,8 +33,7 @@ default. Follow the steps below to view and invoke it:
     <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
     ```
 
-2.  Restart WSO2 Identity Server.
-
+2.  Restart the Identity Server.
 3.  If you have started the server in default configurations, use the
     following URL in your browser to see the WSDL of the admin service:
     <https://localhost:9443/services/RemoteUserStoreManagerService?wsdl>
@@ -37,14 +42,48 @@ default. Follow the steps below to view and invoke it:
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
 Admin Services from
-Apps](../../using-wso2-identity-server/calling-admin-services).  
+Apps](https://docs.wso2.org/display/Carbon420/Calling+Admin+Services+from+Apps)
+section in WSO2 Carbon documentation.
+
+  
 
 ### Operations included in the API and sample requests
 
 The following operations are available in the
 **RemoteUserStoreManagerService** :
 
-!!! note     
+-   [authenticate()](#ManagingUsersandRoleswithAPIs-authenticate())
+-   [isReadOnly()](#ManagingUsersandRoleswithAPIs-isReadOnly())
+-   [getUserClaimValue()](#ManagingUsersandRoleswithAPIs-getUserClaimValue())
+-   [getUserList()](#ManagingUsersandRoleswithAPIs-getUserList())
+-   [getUserListOfRole()](#ManagingUsersandRoleswithAPIs-getUserListOfRole())
+-   [updateCredential()](#ManagingUsersandRoleswithAPIs-updateCredential())
+-   [getUserClaimValuesForClaims()](#ManagingUsersandRoleswithAPIs-getUserClaimValuesForClaims())
+-   [setUserClaimValue()](#ManagingUsersandRoleswithAPIs-setUserClaimValue())
+-   [deleteUserClaimValue()](#ManagingUsersandRoleswithAPIs-deleteUserClaimValue())
+-   [isExistingUser()](#ManagingUsersandRoleswithAPIs-isExistingUser())
+-   [deleteUserClaimValues()](#ManagingUsersandRoleswithAPIs-deleteUserClaimValues())
+-   [updateCredentialByAdmin()](#ManagingUsersandRoleswithAPIs-updateCredentialByAdmin())
+-   [getRoleNames()](#ManagingUsersandRoleswithAPIs-getRoleNames())
+-   [getAllProfileNames()](#ManagingUsersandRoleswithAPIs-getAllProfileNames())
+-   [listUsers()](#ManagingUsersandRoleswithAPIs-listUsers())
+-   [deleteRole()](#ManagingUsersandRoleswithAPIs-deleteRole())
+-   [deleteUser()](#ManagingUsersandRoleswithAPIs-deleteUser())
+-   [getRoleListOfUser()](#ManagingUsersandRoleswithAPIs-getRoleListOfUser())
+-   [updateRoleName()](#ManagingUsersandRoleswithAPIs-updateRoleName())
+-   [isExistingRole()](#ManagingUsersandRoleswithAPIs-isExistingRole())
+-   [updateRoleListOfUser()](#ManagingUsersandRoleswithAPIs-updateRoleListOfUser())
+-   [getHybridRoles()](#ManagingUsersandRoleswithAPIs-getHybridRoles())
+-   [getUserClaimValues()](#ManagingUsersandRoleswithAPIs-getUserClaimValues())
+-   [addUser()](#ManagingUsersandRoleswithAPIs-addUser())
+-   [addRole()](#ManagingUsersandRoleswithAPIs-addRole())
+-   [updateUserListOfRole()](#ManagingUsersandRoleswithAPIs-updateUserListOfRole())
+-   [setUserClaimValues()](#ManagingUsersandRoleswithAPIs-setUserClaimValues())
+-   [getTenantIdOfUser()](#ManagingUsersandRoleswithAPIs-getTenantIdOfUser())
+-   [getProfileNames()](#ManagingUsersandRoleswithAPIs-getProfileNames())
+
+!!! note
+    
     For the methods that have **profile name** as an input parameter, you
     can also pass null for the parameter in which case the default profile
     will then be considered instead.
@@ -55,15 +94,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>authenticate</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Authenticate users against the user store</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -89,7 +128,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A boolean parameter indicating if the user has been authenticated or not</td>
 </tr>
 </tbody>
@@ -111,49 +150,12 @@ The following operations are available in the
 
 ##### isReadOnly()
 
-<table>
-  <tbody>
-    <tr>
-      <th>Method</th>
-      <td>authenticate</td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>Authenticate users against the user store
-  </td>
-    </tr>
-    <tr>
-      <th>Input Parameters</th>
-      <td>
-        <table>
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Username</td>
-              <td>string</td>
-              <td>Provide the relevant user's username</td>
-            </tr>
-            <tr>
-              <td>Credential</td>
-              <td>string</td>
-              <td>Provide the relevant user's password</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <th>Output Parameters </th>
-      <td>A boolean parameter indicating if the user has been authenticated or not</td>
-    </tr>
-  </tbody>
-</table>
+|                   |                                                                      |
+|-------------------|----------------------------------------------------------------------|
+| Method            | isReadOnly                                                           |
+| Description       | Check whether the user store is read only                            |
+| Input Parameters  | None                                                                 |
+| Output Parameters | A boolean parameter indicating if the user store is read only or not |
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org">
@@ -169,15 +171,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getUserClaimValue</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Retrieve the value of the user property from the user profile</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -208,7 +210,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>Value of the claim as a string</td>
 </tr>
 </tbody>
@@ -237,15 +239,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getUserList</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Retrieve a list of all users</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -276,7 +278,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>List of users with the specified claim.</td>
 </tr>
 </tbody>
@@ -305,15 +307,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getUserListOfRole</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Retrieve a list of all users belonging to a role</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -334,7 +336,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>List of usernames as a string array</td>
 </tr>
 </tbody>
@@ -365,15 +367,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>updateCredential</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>This operation can be used by the user itself to update his/her own password</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -404,7 +406,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -431,15 +433,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getUserClaimValuesForClaims</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Retrieve the claim values of a user when given a set of claims and a user profile</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -470,7 +472,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>Array of objects of type ClaimValue which contains the claim mapping between claim URI and claim value</td>
 </tr>
 </tbody>
@@ -499,15 +501,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>setUserClaimValue</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Update the user claim value in a user profile</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -543,7 +545,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -574,15 +576,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteUserClaimValue</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete a single user claim value</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -613,7 +615,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -642,15 +644,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>isExistingUser</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Check whether a given user name exists in the system</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -671,7 +673,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A Boolean parameter indicating whether the user exists or not</td>
 </tr>
 </tbody>
@@ -696,15 +698,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteUserClaimValues</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete many user claim values</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -735,7 +737,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -765,15 +767,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>updateCredentialByAdmin</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>This operation can be used by the admin to update a user's password</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -799,7 +801,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -821,26 +823,12 @@ The following operations are available in the
 
 #####  getRoleNames()
 
-<table>
-  <tbody>
-    <tr>
-      <th>Method</th>
-      <td>getRoleNames</td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>Get a list of all the roles created in the system</td>
-    </tr>
-    <tr>
-      <th>Input Parameters</th>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>Output Parameters</th>
-      <td>A string array of all the role names</td>
-    </tr>
-  </tbody>
-</table>
+|                   |                                                   |
+|-------------------|---------------------------------------------------|
+| Method            | getRoleNames                                      |
+| Description       | Get a list of all the roles created in the system |
+| Input Parameters  | None                                              |
+| Output Parameters | A string array of all the role names              |
 
 ``` xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
@@ -855,26 +843,12 @@ The following operations are available in the
 
 ##### getAllProfileNames()
 
-<table>
-  <tbody>
-    <tr>
-      <th>Method</th>
-      <td>getAllProfileNames</td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>Get a list of all the profile names created in the system</td>
-    </tr>
-    <tr>
-      <th>Input Parameters</th>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>Output Parameters</th>
-      <td>A string array of all the profile names</td>
-    </tr>
-  </tbody>
-</table>
+|                   |                                                           |
+|-------------------|-----------------------------------------------------------|
+| Method            | getAllProfileNames                                        |
+| Description       | Get a list of all the profile names created in the system |
+| Input Parameters  | None                                                      |
+| Output Parameters | A string array of all the profile names                   |
 
 ``` xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
@@ -892,15 +866,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>listUsers</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Retrieves a list of user names upto a particular maximum limit</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="content-wrapper">
 <div class="table-wrap">
 <table>
@@ -941,7 +915,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A filtered string array of all the user names</td>
 </tr>
 </tbody>
@@ -968,15 +942,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteRole</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete a given role name</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -997,7 +971,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1022,15 +996,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>deleteUser</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Delete a user</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1051,7 +1025,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1074,15 +1048,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getRoleListOfUser</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Get the list of roles that a particular user belongs to</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1103,7 +1077,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A string array of the role names</td>
 </tr>
 </tbody>
@@ -1128,15 +1102,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>updateRoleName</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Change the name of a particular role</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1162,7 +1136,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1189,15 +1163,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>isExistingRole</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Check whether a given role exists</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1218,7 +1192,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>A Boolean parameter indicating whether the role exists or not</td>
 </tr>
 </tbody>
@@ -1243,15 +1217,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>updateRoleListOfUser</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Change the list of roles that a user belongs to</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1282,7 +1256,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1310,26 +1284,12 @@ The following operations are available in the
 
 ##### getHybridRoles()
 
-<table>
-  <tbody>
-    <tr>
-      <th>Method</th>
-      <td>getHybridRoles</td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td>Get the list of roles stored in the internal UserMgt database irrespective of the user store</td>
-    </tr>
-    <tr>
-      <th>Input Parameters</th>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>Output Parameters</th>
-      <td>A string array of all the roles</td>
-    </tr>
-  </tbody>
-</table>
+|                   |                                                                                                                         |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Method            | getHybridRoles                                                                                                          |
+| Description       | Get the list of roles stored in the internal `             UserMgt            ` database irrespective of the user store |
+| Input Parameters  | None                                                                                                                    |
+| Output Parameters | A string array of all the roles                                                                                         |
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org">
@@ -1347,15 +1307,15 @@ The following operations are available in the
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>getUserClaimValues</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Get a list of all claim information for a given user name and profile name</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1381,7 +1341,7 @@ The following operations are available in the
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>Array of objects of type 'claim' which includes all the information of the claims</td>
 </tr>
 </tbody>
@@ -1408,15 +1368,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>addUser</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Add a user to the user store</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1457,7 +1417,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1504,15 +1464,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>addRole</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Add a role to the system</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1543,7 +1503,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1579,15 +1539,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>updateUserListOfRole</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Add/remove users that belong to a particular role</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1618,7 +1578,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1649,15 +1609,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td>setUserClaimValues</td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Update the claim values of a given user</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1688,7 +1648,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>None</td>
 </tr>
 </tbody>
@@ -1728,15 +1688,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td><p>getTenantIdOfUser</p></td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Get the tenant ID of the tenant that a particular user belongs to</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1757,7 +1717,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>The Tenant ID as an integer</td>
 </tr>
 </tbody>
@@ -1782,15 +1742,15 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 <table>
 <tbody>
 <tr class="odd">
-<th>Method</th>
+<td>Method</td>
 <td><p>getProfileNames</p></td>
 </tr>
 <tr class="even">
-<th>Description</th>
+<td>Description</td>
 <td>Get all profile names of a user</td>
 </tr>
 <tr class="odd">
-<th>Input Parameters</th>
+<td>Input Parameters</td>
 <td><div class="table-wrap">
 <table>
 <thead>
@@ -1811,7 +1771,7 @@ soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="ht
 </div></td>
 </tr>
 <tr class="even">
-<th>Output Parameters</th>
+<td>Output Parameters</td>
 <td>The profile names as a string array</td>
 </tr>
 </tbody>

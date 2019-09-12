@@ -11,60 +11,48 @@ to add and delete (i.e., **actions** ) service providers (i.e., the
 **resource** ). The following set of actions can be performed on a
 resource.
 
-<table>
-<tbody>
-<tr>
-<td>
-<ul>
-<li>get</li>
-<li>add</li>
-<li>delete</li>
-<li>edit</li>
-<li>login</li>
-<ul>
-</td>
-<td>
-<ul>
-<li>man_config</li>
-<li>man_lc_config</li>
-<li>man_sec</li>
-<li>up_serv</li>
-<li>man_serv</li>
-<li>man_media</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>mon_sys</li>
-<li>del_id</li>
-<li>authorize</li>
-<li>inv_ser</li>
-<li>ui_execute</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>subscribe</li>
-<li>publish</li>
-<li>consume</li>
-<li>change_permission</li>
-<li>browse</li>
-</ul>
-</td>
-<td>
-<ul>
-<li>sqs_send_message</li>
-<li>sqs_receive_message</li>
-<li>sqs_delete_message</li>
-<li>sqs_change_message_visibility</li>
-<li>sqs_get_queue_attributes</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+-   get
+-   add
+-   delete
+-   edit
+-   login
+
+-   man\_config
+-   man\_lc\_config
+-   man\_sec
+-   up\_serv
+-   man\_serv
+-   man\_media
+
+-   mon\_sys
+-   del\_id
+-   authorize
+-   inv\_ser
+-   ui\_execute
+
+-   subscribe
+-   publish
+-   consume
+-   change\_permission
+-   browse
+
+-   sqs\_send\_message
+-   sqs\_receive\_message
+-   sqs\_delete\_message
+-   sqs\_change\_message\_visibility
+-   sqs\_get\_queue\_attributes
 
 The following operations are available in this API:
+
+-   [authorizeRole](#ManagingPermissionswithAPIs-authorizeRole)
+-   [clearAllRoleAuthorization](#ManagingPermissionswithAPIs-clearAllRoleAuthorization)
+-   [clearResourceAuthorizations](#ManagingPermissionswithAPIs-clearResourceAuthorizations)
+-   [clearRoleActionOnAllResources](#ManagingPermissionswithAPIs-clearRoleActionOnAllResources)
+-   [clearRoleAuthorization](#ManagingPermissionswithAPIs-clearRoleAuthorization)
+-   [denyRole](#ManagingPermissionswithAPIs-denyRole)
+-   [getAllowedRolesForResource](#ManagingPermissionswithAPIs-getAllowedRolesForResource)
+-   [getAllowedUIResourcesForUser](#ManagingPermissionswithAPIs-getAllowedUIResourcesForUser)
+-   [isRoleAuthorized](#ManagingPermissionswithAPIs-isRoleAuthorized)
 
 ### authorizeRole
 
@@ -80,9 +68,12 @@ on the given resource.
 | action     | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
   
+  
 
+-   [**Request**](#958fc1ddca894fb7a4fed1bca41ce27a)
+-   [**Response**](#d5a28adfce704fc88ad229e841d742c5)
 
-``` xml tab="Request"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -99,7 +90,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -126,8 +117,13 @@ This function clears all authorizations of the role.
 |-----------|--------------------------------------|
 | roleName  | The name of the role (e.g., "role1") |
 
+  
+  
 
-``` xml tab="Request"
+-   [**Request**](#d4dd969650d6440ea24b3a6578f845a9)
+-   [**Response**](#919a3bbc06704386958635ad6a8e93fd)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -140,7 +136,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-```xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -160,8 +156,13 @@ This function clears all the authorizations for the given resource.
 |------------|-----------------------------------------------------|
 | resourceId | The resource path (e.g., "/permission/admin/login") |
 
+  
+  
 
-``` xml tab="Request"
+-   [**Request**](#e859efc8422b4b5b8864aa4842f7758e)
+-   [**Response**](#d105204b8f6749a58b6da79de177325f)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -174,7 +175,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -196,7 +197,12 @@ specified action on all the resources.
 | action    | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
   
-``` xml tab="Request"
+  
+
+-   [**Request**](#58f2b8d0c6514e57a2d0e11a3542f2c1)
+-   [**Response**](#a51d31be7cc443a994203d535cb0b2fd)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -209,7 +215,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -233,7 +239,12 @@ the given action on the resource.
 | action     | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
   
-``` xml tab="Request"
+  
+
+-   [**Request**](#555ebceb8a684ce1be86da59372e97ca)
+-   [**Response**](#c303cea46a46439e841f919e1cedefe0)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -250,7 +261,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -274,7 +285,12 @@ action on the specified resource.
 | action     | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
   
-``` xml tab="Request"
+  
+
+-   [**Request**](#1e5d10e63cb14f8d8992e6371ddb6eb8)
+-   [**Response**](#8316798806ab438a9e9cf599f07a7f23)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -291,7 +307,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` java
 No response on Success
 ```
 
@@ -313,8 +329,13 @@ given action on the specified resource.
 | resourceId | The resource path (e.g., "/permission/admin/login")                                |
 | action     | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
+  
+  
 
-```xml tab="Request"
+-   [**Request**](#32d76dc691264bedaea604c14d86a021)
+-   [**Response**](#e0ac4a10c212458db91878b539d96d36)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -329,7 +350,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
  <soapenv:Body>
   <ns:getAllowedRolesForResourceResponse xmlns:ns="http://service.ws.um.carbon.wso2.org"
@@ -362,8 +383,13 @@ patch for which the user has authorization.
 | userName           | The username of the specific user (e.g., "admin") |
 | permissionRootPath | The permission root path                          |
 
+  
+  
 
-``` xml tab="Request"
+-   [**Request**](#80d86afc79984699ac2b000f2e608bdd)
+-   [**Response**](#bd74feb0c4e64d158c33602229d18537)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -378,7 +404,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
  <soapenv:Body>
   <ns:getAllowedUIResourcesForUserResponse xmlns:ns="http://service.ws.um.carbon.wso2.org"
@@ -416,8 +442,13 @@ action on the specified resource.
 | resourceId | The resource path (e.g., "/permission/admin/login")                                |
 | action     | The action name of the action to be performed on the resource (e.g., "ui.execute") |
 
+  
+  
 
-``` xml tab="Request"
+-   [**Request**](#3ec4a61ef32443049b4f82cb9acb6ee8)
+-   [**Response**](#a8267b7ca8804102858328a0c57ae2fb)
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:ser="http://service.ws.um.carbon.wso2.org">
  <soapenv:Header/>
@@ -434,7 +465,7 @@ xmlns:ser="http://service.ws.um.carbon.wso2.org">
 </soapenv:Envelope>
 ```
 
-``` xml tab="Response"
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
  <soapenv:Body>
   <ns:isRoleAuthorized xmlns:ns="http://service.ws.um.carbon.wso2.org">

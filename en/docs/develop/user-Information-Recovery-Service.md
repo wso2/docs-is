@@ -3,6 +3,21 @@
 This section lists out and describes the service methods available in
 the user information recovery API:
 
+-   [confirmUserSelfRegistration](#UserInformationRecoveryService-confirmUserSelfRegistration)
+-   [getAllChallengeQuestions](#UserInformationRecoveryService-getAllChallengeQuestions)
+-   [getCaptcha](#UserInformationRecoveryService-getCaptcha)
+-   [getUserChallengeQuestion](#UserInformationRecoveryService-getUserChallengeQuestion)
+-   [getUserChallengeQuestionIds](#UserInformationRecoveryService-getUserChallengeQuestionIds)
+-   [getUserIdentitySupportedClaims](#UserInformationRecoveryService-getUserIdentitySupportedClaims)
+-   [registerUser](#UserInformationRecoveryService-registerUser)
+-   [resendSignUpConfirmationCode](#UserInformationRecoveryService-resendSignUpConfirmationCode)
+-   [sendRecoveryNotification](#UserInformationRecoveryService-sendRecoveryNotification)
+-   [updatePassword](#UserInformationRecoveryService-updatePassword)
+-   [verifyAccount](#UserInformationRecoveryService-verifyAccount)
+-   [verifyConfirmationCode](#UserInformationRecoveryService-verifyConfirmationCode)
+-   [verifyUser](#UserInformationRecoveryService-verifyUser)
+-   [verifyUserChallengeAnswer](#UserInformationRecoveryService-verifyUserChallengeAnswer)
+
 ### confirmUserSelfRegistration
 
 This method is used to confirm the self registered user account and
@@ -10,7 +25,9 @@ unlock it.
 
 Permission level: `         /permission/admin/login        `
 
-``` xml tab="Request"
+**Request**
+
+``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd">
    <soapenv:Header/>
    <soapenv:Body>
