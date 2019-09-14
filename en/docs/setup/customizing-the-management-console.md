@@ -1,327 +1,178 @@
 # Customizing the Management Console
 
-See the following topics to do customizations to the management console:
+The Management Console user interface (
+`                     https://localhost:9443/carbon                   `
+) of a Carbon product consists of two layers:
 
--   [Changing the management console's
-    URL](#CustomizingtheManagementConsole-Changingthemanagementconsole'sURL)
--   [Configuring the session
-    time-out](#CustomizingtheManagementConsole-Configuringthesessiontime-out)
--   [Changing the management console's
-    interface](#CustomizingtheManagementConsole-Changingthemanagementconsole'sinterface)
-
-### Changing the management console's URL
-
-When you start a WSO2 server, the URL of the management console will be
-printed on the terminal. The URL format is as follows:
-`         https://<Server Host>:<Management Console Port>/carbon/.        `
-When accessing the management console from the same server where it is
-installed, you can type `         localhost        ` instead of the IP
-address.
-
-You can change the URL by modifying the value of the
-`         <MgtHostName>        ` property in the
-`         <EI_HOME>/conf/carbon.xml        ` file. When the host is
-internal or not resolved by a DNS, map the hostname alias to its IP
-address in the `         /etc/hosts        ` file of your system, and
-then enter that alias as the value of the
-`         <MgtHostName>        ` property in
-`         carbon.xml        ` . For example:
-
-``` java
-In /etc/hosts:
-127.0.0.1       localhost
-
-In carbon.xml:
-<MgtHostName>localhost</MgtHostName>
-```
-
-### Configuring the session time-out
-
-If you leave the management console unattended for a defined time, its
-login session will time out. The default timeout value is 15 minutes,
-but you can change this in the
-`         <PRODUCT_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml        `
-file as follows.
-
-``` html/xml
-<session-config>
-   <session-timeout>15</session-timeout>
-</session-config>
-```
-
-### Changing the management console's interface
-
-The user interfaces of every Carbon product allows you to configure,
-monitor, tune, and maintain the product. The components that formulate
-the design and style of these user interfaces are defined in resource
-(JAR) files.
-
-The user interface of every Carbon product consists of two layers:
-
--   The common product layout/design inherited from the Carbon platform:
-    All the common templates, styles (CSS files), and images are stored
-    in the Carbon core UI bundle, which is named
-    `           org.wso2.carbon.ui-<version-number>.jar          ` (
-    `           <version-number>          ` is the particular version of
-    the bundle). This bundle is responsible for the overall look and
-    feel of the entire Carbon platform.
-
--   The styles/images unique to each product: Each Carbon product (that
-    is built on Carbon kernel) has another style bundle, which contains
-    all the overriding style sheets and images:
-    `          org.wso2.<product-name>.styles-<version-number>.jar         `
-    .
-
-You can customize the user interfaces by modifying these resource files.
-You need to create a fragment bundle for the original resource file.
-Then, you can pack the modified resource files in the required bundle.
-The files in the required bundle will get precedence and will override
-the files in the original bundle.
-
-You can use this same technique to customize any aspect of the user
-interfaces. The advantage of this technique is that you will not lose
-your customizations when you apply official patches to the product by
-replacing the original bundles.
-
-For example, when you access the Management Console using the following
-URL, by default, it has the WSO2 product logo as shown below:
-<https://10.100.5.72:9443/carbon/>
-
-Note that the images and instructions given on this page are valid for
-WSO2 products that are based on Carbon 4.4.x.
-
-![current logo of the Management
-Console](../../assets/img/53125528/53287629.png "current logo of the Management Console")
-
-Follow the steps below to customize the above management console by
-changing the logo.
-
-1.  Open the
+1.  **UI inherited from WSO2 Carbon platform** contains the templates,
+    styles (css files), and images that are stored in the core Carbon UI
+    bundle stored in
     `           <PRODUCT_HOME>/repository/components/plugins/          `
-    directory. You need to find the bundle that contains the resource
-    files that you want to modify. In this case, the logo and the
-    related CSS files are contained in the
-    `           org.wso2.carbon.ui_<version-number>.jar          `
-    file. Copy the
-    `           org.wso2.carbon.ui_<version-number>.jar          ` file
-    to a separate location on your computer, and extract the file. Note
-    the symbolic name of this bundle, which is '
-    `           org.wso2.carbon.ui_          `
-    `           <version-number>          ` '.
+    `           org.wso2.carbon.ui_<version-number>.jar          ` where
+    `           <version-number>          ` is the version of the Carbon
+    kernel that the product is built on. This bundle is responsible for
+    the overall look and feel of the entire Carbon platform.
+2.  **UI unique to each product** contains all the styles and images
+    that override the ones in core Carbon platform. This file is in
+    `                       <PRODUCT_HOME>/repository/components/plugins/           `
+    org.wso2.\<product-name\>.styles\_\<version-number\>.jar where
+    `           <version-number>          ` is the version of the
+    product.
 
-2.  Create a new Maven project using your IDE. Be sure to include the
-    symbolic name of the original bundle that you extracted in the
-    previous step (which is '
-    `           org.wso2.carbon.ui_<version-number>          ` ') in the
-    Maven project name. For example, you can use
-    `           o          `
-    `           rg.wso2.carbon.ui_<version-number>_patch          `
-    as the Maven project name.
+The following topics explain how to download a Carbon product and
+customize its user interface.
 
-3.  Add the following content to the `           pom.xml          `
-    file of the
-    `           org.wso2.carbon.ui_<version-number>_patch          `
-    project. In this `           pom.xml          ` file, be sure to
-    replace the `           <version-number>          ` of
-    `           org.wso2.carbon.ui_<version-number>          `
-    `           _patch          ` with the correct version value.
+-   [Setting up the development
+    environment](#CustomizingtheManagementConsole-Settingupthedevelopmentenvironment)
+-   [Customizing the user
+    interface](#CustomizingtheManagementConsole-Customizingtheuserinterface)
+-   [Starting the
+    server](#CustomizingtheManagementConsole-Startingtheserver)
 
-    ``` xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <project xmlns="http://maven.apache.org/POM/4.0.0"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-            <modelVersion>4.0.0</modelVersion>
+### Setting up the development environment
+
+To download and set up the product environment for editing, take the
+following steps.
+
+1.  Download your product.
+2.  Extract the ZIP file into a separate folder in your hard drive.
+3.  Go to the
+    `           <PRODUCT_HOME>/repository/components/plugins/          `
+    directory to find the required JAR files:
+    -   `             org.wso2.carbon.ui_<version-number>.jar            `
+    -   `             org.wso2.<product-name>.styles_<version-number>.jar            `
+4.  Copy the JAR files to a separate location on your hard drive. Since
+    the JAR files are zipped, you must unzip them to make them editable.
+
+You can now customize the look and feel of your product by modifying the
+contents of the JAR files as described in the next section.
+
+### Customizing the user interface
+
+Customizing the product interface involves changing the layout/design of
+the Carbon framework as well as changing the styles and images specific
+to the product. The following topics explain how some of the main
+changes to the product interface can be done.
+
+-   [Changing the
+    layout](#CustomizingtheManagementConsole-Changingthelayout)
+-   [Changing the styles on the Carbon
+    framework](#CustomizingtheManagementConsole-ChangingthestylesontheCarbonframework)
+-   [Changing the product specific styles and
+    images](#CustomizingtheManagementConsole-Changingtheproductspecificstylesandimages)
+
+#### Changing the layout
+
+The layout of the Carbon framework is built using a tiles JSP tag
+library. The use of tiles allows us to break the presentation of the
+layout into small JSP snippets that perform a specific function. For
+example, `          header.jsp         ` and
+`          footer.jsp         ` are the tiles corresponding to the
+header and footer in the layout. The `          template.jsp         `
+file controls the main layout page of the Carbon framework, which holds
+all the tiles together. That is, the header part in the
+`          template.jsp         ` file is replaced with the
+`          <tiles:insertAttribute name="header"/>         ` tag, which
+refers to the `          header.jsp         ` file. The
+`          template.jsp         ` file as well as the JSP files
+corresponding to the tiles are located in the
+`          org.wso2.<product-name>.styles_<version-name>.jar/web/admin/layout/         `
+directory.
+
+Therefore, changing the layout of your product primarily involves
+changing the `          template.jsp         ` page (main layout page)
+and the JSP files of the relevant JSP tiles.
+
+!!! note
     
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.ui_<version-number>_patch</artifactId>
-            <version>1.0.0</version>
-            <packaging>bundle</packaging>
+    Ensure that you do not change or remove the ID attributes on the
+    `          .jsp         ` files.
     
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.felix</groupId>
-                        <artifactId>maven-bundle-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <instructions>
-                                <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                                <Bundle-Name>${project.artifactId}</Bundle-Name>
-                                <Export-Package>web.admin.*</Export-Package>
-                            </instructions>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </project>
+
+#### Changing the styles on the Carbon framework
+
+The `          global.css         ` file, which determines the styles of
+the Carbon framework, is located in the
+`          org.wso2.carbon.ui_<version-name>.jar/web/admin/css/         `
+directory. You can edit this file as per your requirement.
+Alternatively, you can apply a completely new stylesheet to your
+framework instead of the default `          global.css         `
+stylesheet.
+
+To apply a new style sheet to the carbon framework:
+
+1.  Copy your new CSS file to this same location.
+2.  Open the `           template.jsp          ` file located in the
+    `           org.wso2.carbon.ui_<version-name>.jar/web/admin/layout/          `
+    directory, which contains the main layout of the page and the
+    default JavaScript libraries.
+3.  Replace `            global.css           ` with the new style sheet
+    by pointing the `            String globalCSS           ` attribute
+    to the new stylesheet file.
+
+    ``` java
+    //Customization of UI theming per tenant
+        String tenantDomain = null;
+        String globalCSS = "../admin/css/global.css";
+        String mainCSS = "";
     ```
 
-4.  Create directories in your Maven project as explained below.
+#### Changing the product specific styles and images
 
-    1.  Create the `             /web            ` folder under the
-        `             /src/main/resources            ` directory of the
-        `             o            `
-        `             rg.wso2.carbon.ui_<version-number>_patch            `
-        project.
+The styles and images unique to your product are located in the
+`          org.wso2.<product-name>.styles_<version-number>.jar         `
+folder. To modify product specific styles and images, take the following
+steps.
 
-    2.  Then, create the /admin directory under /web.
+1.  Copy the necessary images to the
+    `           org.wso2.<product-name>.styles_<version-number>.jar/web/styles/images/          `
+    directory. For example, if you want to change the product banner,
+    add the new image file to this directory.
+2.  Open the `           main.css          ` file located in the
+    `           org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/          `
+    directory.
+3.  To specify a new product banner, change the
+    `            background-image           ` attribute of
+    `            org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/            main.css           `
+    file as follows:
 
-    3.  Finally, create the `             /            ` css,
-        `             /images            `, and
-        `             /layout            ` directories under
-        `             /admin            ` .
-
-    Your
-    `           org.wso2.carbon.ui_           <version-number>          `
-    `           _patch          ` project should now look as shown
-    below.  
-    ![](../../assets/img/53125528/80723769.png) 
-
-5.  Create a new CSS file (e.g.
-    `           customizations.css          ` ) with the following
-    content.
-
-    ``` css
-        #header div#header-div div.left-logo {
-            background-image: url( ../images/new-logo.png );
-            background-repeat: no-repeat;
-            background-position: left top;
-            background-size: contain;
-            height: 40px;
-            width: 300px;
-            margin-top: 23px;
-            margin-left: 20px;
-            float: left;
+    ``` java
+        /* ---------------- header styles ------------------ */
+        div#header-div {
+            background-image: url( ../images/newproduct-header-bg.png);
+            height:70px;
         }
     ```
 
-    !!! tip
+!!! note
     
-        This file includes the logo customization styles.
+    Note that the size of the images you use will affect the overall UI of
+    your product. For example, if the height of the product logo image
+    exceeds 28 pixels, you must adjust the `          main.css         `
+    file in the
+    `          org.wso2.<product-name>.styles_<version-name>.jar/web/styles/css/         `
+    directory to ensure that the other UI elements of your product aligns
+    with the product logo.
     
 
-6.  Add the `           customizations.css          ` file to the
-    `           <org.wso2.carbon.ui_<version-number>_patch>/src/main/resources/web/admin/css/          `
-    directory.
+### Starting the server
 
-7.  Locate the `           template.          ` jsp file that is in the
-    `           org.wso2.carbon.ui_           <version-number>           .jar          `
-    bundle, which you extracted in step 1 above. You will find template
-    `           .          ` jsp file inside the
-    `           <org.wso2.carbon.ui_<version-number>.jar>/          `
-    `           web/admin/layout/          ` directory. Then, copy this
-    file to the
-    `           <org.wso2.carbon.ui_<version-number>_patch>/src/main/resources/web/admin/layout/          `
-    directory.
+In the preceding steps, you have done the changes to the product
+interface after copying the JAR files to a separate location on your
+hard drive. Therefore, before you start your production server, these
+files must be correctly copied back to your production environment as
+explained below.
 
-8.  Locate the following line in the
-    `           <org.wso2.carbon.ui_<version-number>_patch>/           src/main/resources/          `
-    `           web/admin/layout/template.jsp          ` file, which you
-    added in the previous step:
-
-    ``` java
-    <link href="<%=globalCSS%>" rel="stylesheet" type="text/css" media="all"/>
-    ```
-
-9.  Replace the above line with the following:
-
-    ``` java
-        <link href="../admin/css/customizations.css" rel="stylesheet" type="text/css" media="all"/>
-    ```
-
-10. Add the below image as the new logo (e.g.
-    `           new-logo.png          ` ) to the
-    `           <org.wso2.carbon.ui_<version-number>_patch>/src/main/resources/          `
-    `           web/admin/images/          ` directory.
-
-    ![new logo](../../assets/img/53125528/53287628.png "new logo")
-
-11. Create another Maven project using your IDE. Be sure to include the
-    symbolic name of the original bundle that you extracted in step 1
-    above (which is '
-    `           org.wso2.carbon.ui_<version-number>          ` ') in the
-    project name. For example, you can use `           o          `
-    `           rg.wso2.carbon.ui_<version-number>_fragment          `
-    as the Maven project name.
-
-    This creates a project for the fragment bundle. Since the symbolic
-    name of the original bundle is ‘
-    `            org.wso2.carbon.ui           ` ’, the fragment host
-    value of this bundle should be the same (e.g. o
-    `            rg.wso2.carbon.ui_<version-number>_fragment           `
-    ). This fragment bundle will not contain anything (expect the
-    `            pom.xml           ` file) when it is built.
-
-12. Add the following content to the `           pom.xml          `
-    file of the
-    `           org.wso2.carbon.ui_<version-number>_fragment          `
-    project. In this `           pom.xml          ` file, replace the
-    `           <version-number>          ` of
-    `           org.wso2.carbon.ui_           <version-number>          `
-    `           _patch          ` and
-    `           org.wso2.carbon.ui_<version-number>          `
-    `           _fragment          ` with the correct version value.
-
-    This `            pom.xml           ` file of the fragment bundle
-    defines properties, which includes the required bundle value (i.e. ‘
-    `            org.wso2.carbon.ui_<version-number>_patch           `
-    ’).
-
-    ``` xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <project xmlns="http://maven.apache.org/POM/4.0.0"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-            <modelVersion>4.0.0</modelVersion>
-    
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.ui_<version-number>_fragment</artifactId>
-            <version>1.0.0</version>
-            <packaging>bundle</packaging>
-    
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.felix</groupId>
-                        <artifactId>maven-bundle-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <instructions>
-                                <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                                <Bundle-Name>${project.artifactId}</Bundle-Name>
-                                <Require-Bundle>org.wso2.carbon.ui_<version-number>_patch</Require-Bundle>
-                                <Fragment-Host>org.wso2.carbon.ui</Fragment-Host>
-                            </instructions>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </project>
-    ```
-
-13. Now you can build the two projects. Open a terminal, navigate to the
-    relevant project directory (listed above), and execute the following
-    command: mvn `          clean install.         `  
-    -   `             org.wso2.carbon.ui_<version-number>_fragment            `
-
-    -   `            org.wso2.carbon.ui_<version-number>_patch           `
-
-14. Once the project is built, copy the two JAR files listed below
-    (from the `          <PROJECT_HOME>/target/         ` directory)
-    to the
-    `          <PRODUCT_HOME>/repository/components/dropins/         `
-    directory.  
-    -   `             org.wso2.carbon.ui_<version-number>_fragment-1.0.0.jar            `
-
-    -   `            org.wso2.carbon.ui_<version-number>_patch-1.0.0.jar           `
-
-15. Restart the WSO2 product server.
-16. Access the management console of your WSO2 product using the
-    following URL: <https://10.100.5.12:9443/carbon/> . You view the new
-    logo, which the patch bundle contains as shown below.
-
-    ![Management Console with the new
-    logo](../../assets/img/53125528/80723770.png "Management Console with the new logo") 
+1.  Compress the contents of the
+    `           org.wso2.carbon.ui_<version-number>.jar          ` and
+    `           org.wso2.<product-name>.styles_<product-version>.jar          `
+    folders into separate ZIP files.
+2.  Change the name of the ZIP file to
+    `           org.wso2.carbon.ui_<version-number>.jar          ` and
+    `           org.wso2.<product-name>.styles_<version-number>.jar          `
+    respectively.
+3.  Copy these two new JAR files to the
+    `           <PRODUCT_HOME>          ` /
+    `           repository/components/plugins/          ` directory in
+    your product installation.
+4.  Start the server.
