@@ -6,14 +6,14 @@ for general production use, assuming moderate load conditions. For
 situations where a high volume of traffic is expected and if there are
 large deployments, these guidelines may not be sufficient. See
 [Troubleshooting in Production
-Environments](_Troubleshooting_in_Production_Environments_) for
+Environments](../../administer/troubleshooting-in-production-environments) for
 information on how to obtain and analyze information to solve production
 issues. The following are the topics addressed in this section.
 
 ------------------------------------------------------------------------
 
 \[ [Installation
-prerequisites](#ProductionDeploymentGuidelines-installation_prerequisitesInstallationprerequisites)
+prerequisites](#ProductionDeploymentGuidelines-installation-prerequisitesInstallationprerequisites)
 \] \[ [System
 requirements](#ProductionDeploymentGuidelines-Systemrequirements) \] \[
 [Installing the WSO2
@@ -32,7 +32,7 @@ properties](#ProductionDeploymentGuidelines-Hazelcastproperties) \] \[
 [Common guidelines and
 checklist](#ProductionDeploymentGuidelines-Commonguidelinesandchecklist)
 \] \[ [Backup and recovery
-recommendations](#ProductionDeploymentGuidelines-backup_recoveryBackupandrecoveryrecommendations)
+recommendations](#ProductionDeploymentGuidelines-backup-recoveryBackupandrecoveryrecommendations)
 \]
 
 ------------------------------------------------------------------------
@@ -107,7 +107,7 @@ have the appropriate hardware and software for running the product.
     some production environments. For most enterprise production
     environments, however, we recommend you use an industry-standard
     RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more
-    information, see [Working with Databases](_Working_with_Databases_)
+    information, see [Working with Databases](../../administer/working-with-databases)
     in the Administration Guide. Also, we do not recommend the H2
     database as a user store.
 -   It is **not recommended to use Apache DS** in a production
@@ -132,7 +132,7 @@ Given below is how to install a WSO2 product:
 ### Download and install the product
 
 If the installation
-[prerequisites](#ProductionDeploymentGuidelines-installation_prerequisites)
+[prerequisites](#ProductionDeploymentGuidelines-installation-prerequisites)
 are satisfied, follow the steps below:
 
 1.  Go to the [product page](https://wso2.com/) and download the product
@@ -273,7 +273,7 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a property file instead of in the Java
     code and secure the properties file with the [secure
-    vault](_Carbon_Secure_Vault_Implementation_).
+    vault](../../administer/carbon-secure-vault-implementation).
 
 **Note** : When using SUSE Linux, it ignores
 `          /etc/resolv.conf         ` and only looks at the
@@ -298,23 +298,23 @@ manage the product.
 
 -   When you move into a production environment, it is recommended to
     grant restricted access to the management console. See [Securing
-    Carbon Applications](_Securing_Carbon_Applications_) for
+    Carbon Applications](../../administer/securing-carbon-applications) for
     instructions.
 -   The `          config-validation.xml         ` file in the
     `          <PRODUCT_HOME>/repository/conf/etc         `
     directory contains a list of recommended system parameters, which
     are validated against your system when the server starts. See
     [Configuring
-    config-validation.xml](_Configuring_config-validation.xml_) for
+    config-validation.xml](Configuring-config-validation.xml) for
     details on modifying these parameters before starting the server.
 -   The Management Console uses the default [HTTP-NIO
-    transport](_HTTP-NIO_Transport_), which is configured in the
+    transport](../../administer/http-nio-transport), which is configured in the
     `          catalina-server.xml         ` file in the
     `          <PRODUCT_HOME>/repository/conf/tomcat         `
     directory. This transport must be properly configured in this file
     for the management console to be accessible.
 -   As explained in the [installation
-    prerequisites](#ProductionDeploymentGuidelines-installation_prerequisites)
+    prerequisites](#ProductionDeploymentGuidelines-installation-prerequisites)
    , the default product installation uses OpenJDK. Therefore, you
     don't require a different JDK. However, if you have set up Oracle
     JDK or IBM JDK, be sure to apply the following settings to your
@@ -431,7 +431,7 @@ Once you enable log4j for hazelcast as explained above, add
 `         log4j.logger.com.hazelcast=INFO        ` to the
 `         <PRODUCT_HOME>/repository/conf/log4j.properties        `
 file. For more information on logging, see [Monitoring
-Logs](_Monitoring_Logs_).
+Logs](Monitoring-Logs).
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network

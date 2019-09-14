@@ -34,7 +34,7 @@ WSO2 products (based on Carbon 4.4.x Kernel versions) are configured by
 default to store the information from metrics in the following
 reporters: JMX, CSV and JDBC. These reporters are configured in the
 `         metrics.xml        ` file (stored in the
-`         <PRODUCT_HOME>/repository/conf        ` directory). You can
+`         <PRODUCT-HOME>/repository/conf        ` directory). You can
 disable metrics for individual reporters by setting the
 `         Enabled        ` parameter to `         false        ` .
 
@@ -116,7 +116,7 @@ be used to configure a CSV storage for metrics data.
     cause file corruption failures. Please use an industry-standard RDBMS
     such as Oracle, PostgreSQL, MySQL, or MS SQL instead. See the
     instructions on [setting up an
-    RDBMS](_Setting_up_the_Physical_Database_).
+    RDBMS](../../administer/setting-up-the-physical-database).
     
 
 The following parameters in the `         metrics.xml        ` file can
@@ -513,5 +513,5 @@ configurations in the metrics.xml file
 ```
 
 Once you have enabled Metrics as explained above, proceed to the section
-on [configuring metric properties](_Configuring_Metrics_Properties_) for
+on [configuring metric properties](Configuring-Metrics-Properties) for
 information on how to configure the gauges on the metrics dashboard.

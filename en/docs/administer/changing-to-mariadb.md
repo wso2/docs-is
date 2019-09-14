@@ -14,7 +14,7 @@ with MariaDB, which is a drop-in replacement for MySQL.
     
     You need to set up MariaDB before following the steps to configure your
     product with it. For more information, see [Setting up
-    MariaDB](_Setting_up_MariaDB_).
+    MariaDB](../../administer/setting-up-mariadb).
     
 
 ### Setting up datasource configurations

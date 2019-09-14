@@ -23,7 +23,7 @@ See the following topics for details:
     Be sure to enable hostname verification for your production environment.
     This is necessary to avoid security issues in production. See the full
     list of [security recommendations for
-    production](_Security_Guidelines_for_Production_Deployment_)
+    production](../../administer/security-guidelines-for-production-deployment)
     environments.
     
 
@@ -49,7 +49,7 @@ WUM](https://docs.wso2.com/display/updates/Getting+Continuous+Updates)
 for more instructions on how to get updates. If you have already got the
 WUM updates, see the topic below on [Configuring hostname verification
 (Carbon 4.4.17
-onwards)](#EnablingHostNameVerification-hostname_verification_new) for
+onwards)](#EnablingHostNameVerification-hostname-verification-new) for
 instructions on how to apply this configuration.
 
 For all other product versions (that are not listed above), this

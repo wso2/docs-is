@@ -8,7 +8,7 @@
     
 
 WSO2 Carbon-based products use [asymmetric
-encryption](_Using_Asymmetric_Encryption_) by default as explained in
+encryption](../../administer/using-asymmetric-encryption) by default as explained in
 the previous section. From Carbon 4.4.3 onwards, you have the option of
 switching to symmetric encryption in your WSO2 product. Using symmetric
 encryption means that a single key will be shared for encryption and

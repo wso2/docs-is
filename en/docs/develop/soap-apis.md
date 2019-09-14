@@ -8,15 +8,15 @@ The following SOAP APIs are available in WSO2 Identity Server.
     through REST APIs. We recommend using REST APIs wherever possible.
     
     For more information on the available REST APIs, see [REST
-    APIs](_REST_APIs_).
+    APIs](REST-APIs).
     
 
--   [User Management with APIs](_User_Management_with_APIs_)
+-   [User Management with APIs](User-Management-with-APIs)
 -   [User Information Recovery
-    Service](_User_Information_Recovery_Service_)
+    Service](User-Information-Recovery-Service)
 -   [Identity Application Management
-    API](_Identity_Application_Management_API_)
+    API](Identity-Application-Management-API)
 -   [Identity Provider Management
-    API](_Identity_Provider_Management_API_)
+    API](Identity-Provider-Management-API)
 
   

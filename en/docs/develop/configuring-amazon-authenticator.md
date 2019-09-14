@@ -73,7 +73,7 @@ store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496
 
 The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario. See [deploying travelocity.com sample
-app](_Deploying_the_Sample_App_).
+app](Deploying-the-Sample-App).
 
 ### Step 3 - Configure the identity provider (IdP)
 

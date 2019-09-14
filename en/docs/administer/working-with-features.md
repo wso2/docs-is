@@ -35,7 +35,7 @@ Carbon 4.4.x versions is
 -   [Installing features from the management
     console](#WorkingwithFeatures-Installingfeaturesfromthemanagementconsole)
 -   [Installing features using pom
-    files](#WorkingwithFeatures-pom_approachInstallingfeaturesusingpomfiles)
+    files](#WorkingwithFeatures-pom-approachInstallingfeaturesusingpomfiles)
 -   [Uninstalling features (using the management
     console)](#WorkingwithFeatures-Uninstallingfeatures(usingthemanagementconsole))
 -   [Recovering from unsuccessful feature
@@ -54,7 +54,7 @@ new feature:
 
 -   Features will only be installed in the default profile. Features can
     be installed into other profiles, only using the [POM-based
-    approach](#WorkingwithFeatures-pom_approach).
+    approach](#WorkingwithFeatures-pom-approach).
 
 -   You need to start the server after installing new features from the
     management console, which will create logs, local indices (solr) and
@@ -62,11 +62,11 @@ new feature:
     get deployed. If you want to deploy the installed feature in a
     clustered environment, these data should first be cleared. It is not
     required to restart the server if you use the [POM-based
-    approach](#WorkingwithFeatures-pom_approach). You can use maven to
+    approach](#WorkingwithFeatures-pom-approach). You can use maven to
     install the feature, then directly take the pack (in which the
     required feature is installed), and deploy it in the cluster.
 
--   In the [POM-based approach](#WorkingwithFeatures-pom_approach), you
+-   In the [POM-based approach](#WorkingwithFeatures-pom-approach), you
     will have the list of features and the corresponding versions of the
     features that are installed. You can easily use this to refer what
     has been installed in the pack.

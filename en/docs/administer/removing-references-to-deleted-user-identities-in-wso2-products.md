@@ -61,7 +61,7 @@ tool.
 WSO2 also supports extending this tool to include additional modules
 from which you would want to remove deleted user identities. For
 information on how to extend the tool, see [Extending the Identity
-Anonymization Tool](_Extending_the_Identity_Anonymization_Tool_).
+Anonymization Tool](../../administer/extending-the-identity-anonymization-tool).
 
 The following topics walk you through the process of building the tool
 and configuring the appropriate files and directories so that you can

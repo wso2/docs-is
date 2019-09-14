@@ -2,7 +2,7 @@
 
 After you have [created a new keystore and updated the
 `          client-truststore.jks         `
-file](_Creating_New_Keystores_), you must update a few configuration
+file](Creating_New_Keystores), you must update a few configuration
 files in order to make the keystores work. Note that keystores are used
 for multiple functions in WSO2 products, which includes authenticating
 communication over SSL/TLS, encrypting passwords and other confidential
@@ -68,11 +68,11 @@ See the following for details:
 
 -   Be sure to go through the [recommendations for setting
     up keystores in WSO2
-    products](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+    products](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
     to understand the various keystores you will need.
 -   If you haven't already created the keystores required for your
     system, see the instructions for [creating new
-    keystores](_Creating_New_Keystores_).
+    keystores](Creating_New_Keystores).
 
 ### Configuring the primary keystore
 
@@ -243,7 +243,7 @@ ESB of WSO2 EI.
 
 ### Configuring a keystore for Java permissions
 
-The [Java Security Manager](_Enabling_Java_Security_Manager_) is used
+The [Java Security Manager](Enabling_Java_Security_Manager) is used
 for defining various security policies that prevent untrusted code from
 manipulating your system. Enabling the Java Security Manager for WSO2
 products will activate the Java permissions that are in the

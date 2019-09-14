@@ -6,252 +6,252 @@
 ## Available Pages:
 
 -   [WSO2 Identity Server Authenticators and Connectors
-    Documentation](_WSO2_Identity_Server_Authenticators_and_Connectors_Documentation_)
-    ![](images/icons/contenttypes/home_page_16.png){width="16"
+    Documentation](WSO2-Identity-Server-Authenticators-and-Connectors-Documentation)
+    ![](images/icons/contenttypes/home-page-16.png){width="16"
     height="16"}
-    -   [Authenticators and Connectors](_Authenticators_and_Connectors_)
-        -   [Deploying the Sample App](_Deploying_the_Sample_App_)
+    -   [Authenticators and Connectors](Authenticators-and-Connectors)
+        -   [Deploying the Sample App](Deploying-the-Sample-App)
 
         <!-- -->
 
-        -   [Amazon Authenticator](_Amazon_Authenticator_)
+        -   [Amazon Authenticator](Amazon-Authenticator)
             -   [Configuring Amazon
-                Authenticator](_Configuring_Amazon_Authenticator_)
+                Authenticator](Configuring-Amazon-Authenticator)
 
         <!-- -->
 
-        -   [Basecamp Authenticator](_Basecamp_Authenticator_)
+        -   [Basecamp Authenticator](Basecamp-Authenticator)
             -   [Configuring Basecamp
-                Authenticator](_Configuring_Basecamp_Authenticator_)
+                Authenticator](Configuring-Basecamp-Authenticator)
 
         <!-- -->
 
-        -   [Bitly Authenticator](_Bitly_Authenticator_)
+        -   [Bitly Authenticator](Bitly-Authenticator)
             -   [Configuring Bitly
-                Authenticator](_Configuring_Bitly_Authenticator_)
+                Authenticator](Configuring-Bitly-Authenticator)
 
         <!-- -->
 
-        -   [CAS Inbound Authenticator](_CAS_Inbound_Authenticator_)
+        -   [CAS Inbound Authenticator](CAS-Inbound-Authenticator)
             -   [Configuring CAS Inbound
-                Authenticator](_Configuring_CAS_Inbound_Authenticator_)
+                Authenticator](Configuring-CAS-Inbound-Authenticator)
 
         <!-- -->
 
-        -   [Dropbox Authenticator](_Dropbox_Authenticator_)
+        -   [Dropbox Authenticator](Dropbox-Authenticator)
             -   [Configuring Dropbox
-                Authenticator](_Configuring_Dropbox_Authenticator_)
+                Authenticator](Configuring-Dropbox-Authenticator)
 
         <!-- -->
 
         -   [Duo Security Authenticator and Provisioning
-            Connector](_Duo_Security_Authenticator_and_Provisioning_Connector_)
+            Connector](Duo-Security-Authenticator-and-Provisioning-Connector)
             -   [Configuring Duo Security Provisioning
-                Connector](_Configuring_Duo_Security_Provisioning_Connector_)
+                Connector](Configuring-Duo-Security-Provisioning-Connector)
 
             <!-- -->
 
             -   [Configuring Duo Security
-                Authenticator](_Configuring_Duo_Security_Authenticator_)
+                Authenticator](Configuring-Duo-Security-Authenticator)
 
         <!-- -->
 
-        -   [EmailOTP Authenticator](_EmailOTP_Authenticator_)
+        -   [EmailOTP Authenticator](EmailOTP-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                EmailOTP](_Configuring_Multi-factor_Authentication_using_EmailOTP_)
+                EmailOTP](Configuring-Multi-factor-Authentication-using-EmailOTP)
 
         <!-- -->
 
-        -   [Facebook Authenticator](_Facebook_Authenticator_)
+        -   [Facebook Authenticator](Facebook-Authenticator)
             -   [Configuring Facebook
-                Authenticator](_Configuring_Facebook_Authenticator_)
+                Authenticator](Configuring-Facebook-Authenticator)
 
         <!-- -->
 
-        -   [Foursquare Authenticator](_Foursquare_Authenticator_)
+        -   [Foursquare Authenticator](Foursquare-Authenticator)
             -   [Configuring Foursquare
-                Authenticator](_Configuring_Foursquare_Authenticator_)
+                Authenticator](Configuring-Foursquare-Authenticator)
 
         <!-- -->
 
-        -   [Github Authenticator](_Github_Authenticator_)
+        -   [Github Authenticator](Github-Authenticator)
             -   [Configuring Github
-                Authenticator](_Configuring_Github_Authenticator_)
+                Authenticator](Configuring-Github-Authenticator)
 
         <!-- -->
 
-        -   [Instagram Authenticator](_Instagram_Authenticator_)
+        -   [Instagram Authenticator](Instagram-Authenticator)
             -   [Configuring Instagram
-                Authenticator](_Configuring_Instagram_Authenticator_)
+                Authenticator](Configuring-Instagram-Authenticator)
 
         <!-- -->
 
         -   [Inwebo Authenticator and Provisioning
-            Connector](_Inwebo_Authenticator_and_Provisioning_Connector_)
+            Connector](Inwebo-Authenticator-and-Provisioning-Connector)
             -   [Configuring Inwebo
-                Authenticator](_Configuring_Inwebo_Authenticator_)
+                Authenticator](Configuring-Inwebo-Authenticator)
 
             <!-- -->
 
             -   [Configuring Inwebo
-                Provisioning](_Configuring_Inwebo_Provisioning_)
+                Provisioning](Configuring-Inwebo-Provisioning)
 
         <!-- -->
 
-        -   [JWT Grant Type for OAuth2](_JWT_Grant_Type_for_OAuth2_)
+        -   [JWT Grant Type for OAuth2](JWT-Grant-Type-for-OAuth2)
             -   [Configuring JWT Grant
-                Type](_Configuring_JWT_Grant_Type_)
+                Type](Configuring-JWT-Grant-Type)
 
         <!-- -->
 
-        -   [LinkedIn Authenticator](_LinkedIn_Authenticator_)
+        -   [LinkedIn Authenticator](LinkedIn-Authenticator)
             -   [Configuring LinkedIn
-                Authenticator](_Configuring_LinkedIn_Authenticator_)
+                Authenticator](Configuring-LinkedIn-Authenticator)
 
         <!-- -->
 
-        -   [MailChimp Authenticator](_MailChimp_Authenticator_)
+        -   [MailChimp Authenticator](MailChimp-Authenticator)
             -   [Configuring MailChimp
-                Authenticator](_Configuring_MailChimp_Authenticator_)
+                Authenticator](Configuring-MailChimp-Authenticator)
 
         <!-- -->
 
-        -   [MePIN Authenticator](_MePIN_Authenticator_)
+        -   [MePIN Authenticator](MePIN-Authenticator)
             -   [Configuring MePIN
-                Authenticator](_Configuring_MePIN_Authenticator_)
+                Authenticator](Configuring-MePIN-Authenticator)
 
         <!-- -->
 
         -   [Mobile Connect
-            Authenticator](_Mobile_Connect_Authenticator_)
+            Authenticator](Mobile-Connect-Authenticator)
             -   [Configuring Mobile Connect as a Federated
-                Authenticator](_Configuring_Mobile_Connect_as_a_Federated_Authenticator_)
+                Authenticator](Configuring-Mobile-Connect-as-a-Federated-Authenticator)
 
         <!-- -->
 
         -   [Microsoft Azure AD
-            Authenticator](_Microsoft_Azure_AD_Authenticator_)
+            Authenticator](Microsoft-Azure-AD-Authenticator)
             -   [Configuring Microsoft Azure AD
-                Authenticator](_Configuring_Microsoft_Azure_AD_Authenticator_)
+                Authenticator](Configuring-Microsoft-Azure-AD-Authenticator)
 
             <!-- -->
 
             -   [Configuring Microsoft Azure AD Outbound Provisioning
-                Connector](_Configuring_Microsoft_Azure_AD_Outbound_Provisioning_Connector_)
+                Connector](Configuring-Microsoft-Azure-AD-Outbound-Provisioning-Connector)
 
         <!-- -->
 
         -   [Password Policy
-            Authenticator](_Password_Policy_Authenticator_)
+            Authenticator](Password-Policy-Authenticator)
             -   [Configuring Password Policy
-                Authenticator](_Configuring_Password_Policy_Authenticator_)
+                Authenticator](Configuring-Password-Policy-Authenticator)
 
         <!-- -->
 
-        -   [Pinterest Authenticator](_Pinterest_Authenticator_)
+        -   [Pinterest Authenticator](Pinterest-Authenticator)
             -   [Configuring Pinterest
-                Authenticator](_Configuring_Pinterest_Authenticator_)
+                Authenticator](Configuring-Pinterest-Authenticator)
 
         <!-- -->
 
-        -   [Reddit Authenticator](_Reddit_Authenticator_)
+        -   [Reddit Authenticator](Reddit-Authenticator)
             -   [Configuring Reddit
-                Authenticator](_Configuring_Reddit_Authenticator_)
+                Authenticator](Configuring-Reddit-Authenticator)
 
         <!-- -->
 
-        -   [RSA SecurID Authenticator](_RSA_SecurID_Authenticator_)
+        -   [RSA SecurID Authenticator](RSA-SecurID-Authenticator)
             -   [Configuring RSA SecurID
-                Authenticator](_Configuring_RSA_SecurID_Authenticator_)
+                Authenticator](Configuring-RSA-SecurID-Authenticator)
 
         <!-- -->
 
         -   [SCIM 2.0 Provisioning
-            Connector](_SCIM_2.0_Provisioning_Connector_)
+            Connector](SCIM-2.0-Provisioning-Connector)
             -   [Configuring SCIM 2.0 Provisioning
-                Connector](_Configuring_SCIM_2.0_Provisioning_Connector_)
+                Connector](Configuring-SCIM-2.0-Provisioning-Connector)
 
         <!-- -->
 
-        -   [SMSOTP Authenticator](_SMSOTP_Authenticator_)
+        -   [SMSOTP Authenticator](SMSOTP-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                SMSOTP](_Configuring_Multi-factor_Authentication_using_SMSOTP_)
+                SMSOTP](Configuring-Multi-factor-Authentication-using-SMSOTP)
 
         <!-- -->
 
-        -   [Symantec VIP Authenticator](_Symantec_VIP_Authenticator_)
+        -   [Symantec VIP Authenticator](Symantec-VIP-Authenticator)
             -   [Configuring Symantec VIP
-                Authenticator](_Configuring_Symantec_VIP_Authenticator_)
+                Authenticator](Configuring-Symantec-VIP-Authenticator)
 
         <!-- -->
 
-        -   [Token2 Authenticator](_Token2_Authenticator_)
+        -   [Token2 Authenticator](Token2-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                Token2](_Configuring_Multi-factor_Authentication_using_Token2_)
+                Token2](Configuring-Multi-factor-Authentication-using-Token2)
 
         <!-- -->
 
-        -   [TOTP Authenticator](_TOTP_Authenticator_)
+        -   [TOTP Authenticator](TOTP-Authenticator)
             -   [Configuring TOTP
-                Authenticator](_Configuring_TOTP_Authenticator_)
+                Authenticator](Configuring-TOTP-Authenticator)
 
             <!-- -->
 
-            -   [Using the TOTP API](_Using_the_TOTP_API_)
+            -   [Using the TOTP API](Using-the-TOTP-API)
 
         <!-- -->
 
-        -   [Twitter Authenticator](_Twitter_Authenticator_)
+        -   [Twitter Authenticator](Twitter-Authenticator)
             -   [Configuring Twitter
-                Authenticator](_Configuring_Twitter_Authenticator_)
+                Authenticator](Configuring-Twitter-Authenticator)
 
         <!-- -->
 
-        -   [Wordpress Authenticator](_Wordpress_Authenticator_)
+        -   [Wordpress Authenticator](Wordpress-Authenticator)
             -   [Configuring Wordpress
-                Authenticator](_Configuring_Wordpress_Authenticator_)
+                Authenticator](Configuring-Wordpress-Authenticator)
 
         <!-- -->
 
         -   [X509Certificate
-            Authenticator](_X509Certificate_Authenticator_)
+            Authenticator](X509Certificate-Authenticator)
             -   [Configuring X509Certificate
-                Authenticator](_Configuring_X509Certificate_Authenticator_)
+                Authenticator](Configuring-X509Certificate-Authenticator)
                 -   [Configuring X509 Authenticator with SSL
-                    Termination](_Configuring_X509_Authenticator_with_SSL_Termination_)
+                    Termination](Configuring-X509-Authenticator-with-SSL-Termination)
 
             <!-- -->
 
             -   [Configuring Certificate Revocation
-                Validation](_Configuring_Certificate_Revocation_Validation_)
+                Validation](Configuring-Certificate-Revocation-Validation)
 
         <!-- -->
 
-        -   [Yammer Authenticator](_Yammer_Authenticator_)
+        -   [Yammer Authenticator](Yammer-Authenticator)
             -   [Configuring Yammer
-                Authenticator](_Configuring_Yammer_Authenticator_)
+                Authenticator](Configuring-Yammer-Authenticator)
 
         <!-- -->
 
-        -   [Upgrading an Authenticator](_Upgrading_an_Authenticator_)
+        -   [Upgrading an Authenticator](Upgrading-an-Authenticator)
 
         <!-- -->
 
-        -   [Nuxeo Authenticator](_Nuxeo_Authenticator_)
+        -   [Nuxeo Authenticator](Nuxeo-Authenticator)
             -   [Configuring Nuxeo
-                Authenticator](_Configuring_Nuxeo_Authenticator_)
+                Authenticator](Configuring-Nuxeo-Authenticator)
 
         <!-- -->
 
         -   [AWS Cloud Directory User
-            Store](_AWS_Cloud_Directory_User_Store_)
+            Store](AWS-Cloud-Directory-User-Store)
 
     <!-- -->
 
     -   [Creating a Third Party Authenticator or Connector and
         Publishing in WSO2
-        Store](_Creating_a_Third_Party_Authenticator_or_Connector_and_Publishing_in_WSO2_Store_)
+        Store](Creating-a-Third-Party-Authenticator-or-Connector-and-Publishing-in-WSO2-Store)
 
     <!-- -->
 
-    -   [Getting Support](_Getting_Support_)
+    -   [Getting Support](Getting-Support)

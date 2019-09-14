@@ -68,4 +68,4 @@ In WSO2 IoT Server copy the driver file to the
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MSSQL, see [Changing to
-MSSQL](_Changing_to_MSSQL_).
+MSSQL](../../administer/changing-to-mssql).

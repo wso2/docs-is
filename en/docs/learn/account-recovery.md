@@ -7,6 +7,6 @@ secret questions. Additionally it is also possible to retrieve the
 username if forgotten. See the following topics for more information on
 how to do all this.
 
--   [Username Recovery](_Username_Recovery_)
+-   [Username Recovery](Username_Recovery)
 -   [Password Recovery](../../using-wso2-identity-server/password-recovery)
--   [Managing Challenge Questions](_Managing_Challenge_Questions_)
+-   [Managing Challenge Questions](Managing_Challenge_Questions)

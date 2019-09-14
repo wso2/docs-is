@@ -4,20 +4,20 @@ See the following topics for information on the security configurations
 that are applicable to WSO2 products:
 
 -   [Maintaining Logins and
-    Passwords](_Maintaining_Logins_and_Passwords_)
+    Passwords](../../administer/maintaining-logins-and-passwords)
 -   [Securing Passwords in Configuration
-    Files](_Securing_Passwords_in_Configuration_Files_)
+    Files](../../administer/securing-passwords-in-configuration-files)
 -   [Configuring Transport Level
-    Security](_Configuring_Transport_Level_Security_)
--   [Enabling Java Security Manager](_Enabling_Java_Security_Manager_)
--   [Using Asymmetric Encryption](_Using_Asymmetric_Encryption_)
--   [Using Symmetric Encryption](_Using_Symmetric_Encryption_)
+    Security](Configuring-Transport-Level-Security)
+-   [Enabling Java Security Manager](../../administer/enabling-java-security-manager)
+-   [Using Asymmetric Encryption](../../administer/using-asymmetric-encryption)
+-   [Using Symmetric Encryption](../../administer/using-symmetric-encryption)
 -   [Mitigating Cross Site Request Forgery
-    Attacks](_Mitigating_Cross_Site_Request_Forgery_Attacks_)
+    Attacks](Mitigating-Cross-Site-Request-Forgery-Attacks)
 -   [Mitigating Cross Site Scripting
-    Attacks](_Mitigating_Cross_Site_Scripting_Attacks_)
--   [Enabling HostName Verification](_Enabling_HostName_Verification_)
--   [Configuring TLS Termination](_Configuring_TLS_Termination_)
+    Attacks](Mitigating-Cross-Site-Scripting-Attacks)
+-   [Enabling HostName Verification](../../administer/enabling-hostname-verification)
+-   [Configuring TLS Termination](Configuring-TLS-Termination)
 
 See the topics given below for information on applying security patches
 to your Carbon product.
