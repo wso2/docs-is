@@ -60,7 +60,7 @@ the following:
     -   Add a new service provider using a configuration file instead of
         using the management console. For instructions, see [Configuring a
         SP and IdP Using Configuration
-        Files](../../using-wso2-identity-server/configuring-a-sp-and-idp-using-configuration-files).
+        Files](../../using-wso2-identity-server/../../setup/configuring-a-sp-and-idp-using-configuration-files).
     
 
 1.  Sign in to the [Management

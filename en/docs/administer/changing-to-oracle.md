@@ -7,7 +7,7 @@ you need to follow in order to use an Oracle database for this purpose.
 -   [Setting up datasource
     configurations](#ChangingtoOracle-Settingupdatasourceconfigurations)
     -   [Changing the
-        default WSO2\_CARBON\_DB datasource](#ChangingtoOracle-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+        default WSO2\_CARBON\_DB datasource](#ChangingtoOracle-ChangingthedefaultdatabaseChangingthedefaultWSO2-CARBON-DBdatasource)
     -   [Configuring new datasources to manage registry or user
         management
         data](#ChangingtoOracle-ConfiguringanewdatabaseConfiguringnewdatasourcestomanageregistryorusermanagementdata)
@@ -20,7 +20,7 @@ you need to follow in order to use an Oracle database for this purpose.
     
     You need to set up Oracle before following the steps to configure your
     product with Oracle. For more information, see [Setting up
-    Oracle](_Setting_up_Oracle_).
+    Oracle](Setting-up-Oracle).
     
 
 ### Setting up datasource configurations

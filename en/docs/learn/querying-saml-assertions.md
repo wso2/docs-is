@@ -90,7 +90,7 @@ authority.
 
     !!! tip
         For more information on how to enable browsing of the H2 database,
-        see [Browsing the H2 Database](../../admin-guide/browsing-the-h2-database)
+        see [Browsing the H2 Database](../../administer/browsing-the-h2-database)
     
 4.  Access the application you configured a service provider for via the
     assertion consumer URL you configured in step 6.

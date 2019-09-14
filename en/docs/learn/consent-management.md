@@ -80,7 +80,7 @@ features.
 -   Admin portal support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. For more
     information, see [Managing Consent
-    Purposes](_Managing_Consent_Purposes_).
+    Purposes](Managing_Consent_Purposes).
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. For more information,
     see [Consent Management with

@@ -55,7 +55,7 @@ for references of the deleted user from the following file paths:
 -   **Log file name regex** : `          wso2carbon.log         `
 
 For information on changing these configurations, see [Configuring the
-config.json file](../../admin-guide/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
+config.json file](../../administer/removing-references-to-deleted-user-identities-in-wso2-products#configuring-the-master-configuration-file)
 in the Product Administration Guide.
 
 ### Changing the default configuration directory location
@@ -308,5 +308,5 @@ to run the tool on.
 For information on how to build, configure and run the standalone
 version of the Identity Anonymization tool to run on multiple WSO2
 products, see [Removing References to Deleted User Identities in WSO2
-Products](../../admin-guide/removing-references-to-deleted-user-identities-in-wso2-products)
+Products](../../administer/removing-references-to-deleted-user-identities-in-wso2-products)
 in the WSO2 Administration Guide.

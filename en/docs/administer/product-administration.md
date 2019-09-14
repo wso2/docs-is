@@ -45,7 +45,7 @@ mutual SSL](#ProductAdministration-EnablingmutualSSL) \]
 
 If you are upgrading from WSO2 IS 5.4.0 to WSO2 IS 5.5.0 version, see
 the [upgrade instructions for WSO2 Identity
-Server](_Upgrading_from_a_Previous_Release_).
+Server](Upgrading-from-a-Previous-Release).
 
 ------------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ the product server to connect to that database.
     databases](https://docs.wso2.com/display/ADMIN44x/Working+with+Databases)
     in the WSO2 product administration guide for instructions on how to
     set up and configure databases. First you need to [set up the
-    database](../../admin-guide/setting-up-the-physical-database)
+    database](../../administer/setting-up-the-physical-database)
     and then configure it to run with WSO2 Is.  
     -   [Changing to Embedded
         Derby](https://docs.wso2.com/display/ADMIN44x/Changing+to+Embedded+Derby)
@@ -99,10 +99,10 @@ the product server to connect to that database.
     -   [Changing to Remote
         H2](https://docs.wso2.com/display/ADMIN44x/Changing+to+Remote+H2)
 -   See [Setting Up Separate Databases for
-    Clustering](_Setting_Up_Separate_Databases_for_Clustering_) for
+    Clustering](../../setup/setting-up-separate-databases-for-clustering) for
     information on how to logically separate the databases and identity
     related database scripts.
--   See the [Data Dictionary](_Data_Dictionary_) for information on the
+-   See the [Data Dictionary](../../administer/customizing-the-management-console) for information on the
     data tables used in WSO2 Identity Server.
 
 ####  Configuring users, roles and permissions
@@ -117,7 +117,7 @@ management.
     in the WSO2 product administration guide for instructions on how to
     configure this feature.
 -   See the topic on [role-based permissions for WSO2 Identity
-    Server](_Role-based_Permissions_) for descriptions of all the
+    Server](../../administer/role-based-permissions) for descriptions of all the
     permissions.
 -   For information on how to remove references to a deleted user's
     identity, see [Removing References to Deleted User
@@ -139,7 +139,7 @@ your server. It includes the following sections:
 -   [Configuring Transport-Level
     Security](https://docs.wso2.com/display/ADMIN44x/Configuring+Transport+Level+Security)
 -   [Using Asymmetric
-    Encryption]((../../admin-guide/using-asymmetric-encryption))
+    Encryption](../../administer/using-asymmetric-encryption))
 -   [Using Symmetric
     Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Symmetric+Encryption)
 -   [Enabling Java Security
@@ -147,27 +147,27 @@ your server. It includes the following sections:
 -   [Securing Passwords in Configuration
     Files](https://docs.wso2.com/display/ADMIN44x/Securing+Passwords+in+Configuration+Files)
 -   [Resolving Hostname
-    Verification](../../admin-guide/enabling-hostname-verification)
+    Verification](../../administer/enabling-hostname-verification)
 -   [Mitigating Cross Site Request Forgery
     Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Request+Forgery+Attacks)
 -   [Mitigating Cross Site Scripting
     Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Scripting+Attacks)
 -   [Enabling or Customizing the Secure Vault
-    Implementation](../../admin-guide/carbon-secure-vault-implementation)
+    Implementation](../../administer/carbon-secure-vault-implementation)
 
 See the section on [implementing security in the Identity
-Server](_Implementing_Security_in_the_Identity_Server_) for information
+Server](../../administer/implementing-security-in-the-identity-server) for information
 and instructions on configuring security specific to the WSO2 Identity
 Server. It includes the following sections:
 
 -   [Saving Access Tokens in Separate
-    Tables](_Saving_Access_Tokens_in_Separate_Tables_)
+    Tables](../../administer/saving-access-tokens-in-separate-tables)
 -   [Timestamp in WS-Security to Mitigate Replay
-    Attacks](_Timestamp_in_WS-Security_to_Mitigate_Replay_Attacks_)
+    Attacks](Timestamp-in-WS-Security-to-Mitigate-Replay-Attacks)
 -   [Mitigating Authorization Code Interception
     Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
 -   [Mitigating Cross Site Request Forgery (CSRF)
-    Attacks](_Mitigating_Cross_Site_Request_Forgery_CSRF_Attacks_)
+    Attacks](Mitigating-Cross-Site-Request-Forgery-CSRF-Attacks)
 
 #### Configuring multitenancy
 
@@ -175,7 +175,7 @@ You can create multiple tenants in your product server, which will allow
 you to maintain tenant isolation in a single server/cluster.
 
 See the section on [working with multiple
-tenants](../../admin-guide/working-with-multiple-tenants)
+tenants](../../administer/working-with-multiple-tenants)
 in the WSO2 product administration guide for information and
 instructions.
 
@@ -203,7 +203,7 @@ product.
     tuning](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning)
     in the WSO2 product administration guide for details.
 -   See the topic on [XACML Performance in the Identity
-    Server](_XACML_Performance_in_the_Identity_Server_) for performance
+    Server](../../administer/xacml-performance-in-the-identity-server) for performance
     tuning specific to WSO2 Identity Server.
 
 #### Changing the default ports
@@ -285,7 +285,7 @@ how to set up and monitor the server.
 The WSO2 IS is a powerful tool for collecting statistical information.
 
 See the section on [monitoring the WSO2 Identity
-Server](_Monitoring_the_Identity_Server_) in the WSO2 Identity Server
+Server](../../administer/monitoring-the-identity-server) in the WSO2 Identity Server
 guide for more information on how to use the statistics feature.
 
 #### Monitoring using WSO2 metrics
@@ -313,5 +313,5 @@ Carbon Health Check API to check server health.
 
 ### Enabling mutual SSL
 
-See the section on [Enabling Mutual SSL](_Enabling_Mutual_SSL_) to
+See the section on [Enabling Mutual SSL](../../administer/enabling-mutual-ssl) to
 enable SSL authentication in WSO2 Identity Server.

@@ -8,7 +8,7 @@ WSO2 Identity Server.
 
 To get started with the provisioning connector, go to [Configuring SCIM
 2.0 Provisioning
-Connector](_Configuring_SCIM_2.0_Provisioning_Connector_).
+Connector](Configuring-SCIM-2.0-Provisioning-Connector).
 
 ### Additional information
 

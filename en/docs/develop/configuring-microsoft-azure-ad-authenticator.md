@@ -189,7 +189,7 @@ and 5.3.0.
 
 ### Deploying [travelocity.com](http://travelocity.com) sample app
 
-The next step is to [deploy the sample app](_Deploying_the_Sample_App_)
+The next step is to [deploy the sample app](Deploying-the-Sample-App)
 in order to use it in this scenario.
 
 Once this is done, the next step is to configure the WSO2 Identity

@@ -1021,7 +1021,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 This endpoint is used to create and manage groups and group members.
 
 !!! info
-	From WSO2 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change. For more information, see [behavioral change #4 in the Migration Guide: Understanding What Has Changed topic](../../using-wso2-identity-server/understanding-what-has-changed#behavioral-changes).
+	From WSO2 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change. For more information, see [behavioral change #4 in the Migration Guide: Understanding What Has Changed topic](../../using-wso2-identity-server/../../setup/understanding-what-has-changed#behavioral-changes).
 
 ##### GET/ Group by ID
 

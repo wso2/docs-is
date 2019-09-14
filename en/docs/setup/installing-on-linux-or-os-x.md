@@ -15,7 +15,7 @@ or Mac OS X.
 
 1.  Log in to the command line (Terminal on Mac).
 2.  Ensure that your system meets the [Installation
-    Prerequisites](_Installation_Prerequisites_).  Java Development Kit
+    Prerequisites](Installation_Prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server

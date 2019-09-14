@@ -48,7 +48,7 @@ To navigate to the outbound provisioning section, do the following.
             <tr>
               <td>Identity Provider Public Certificate</td>
               <td>
-                <p>The <strong>Identity Provider Public Certificate</strong> is the public certificate belonging to the identity provider. Uploading this is necessary to authenticate the response from the identity provider. See <a href="(../../admin-guide/using-asymmetric-encryption)">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for more information on how public keys work and how to sign these keys by a certification authority.</p>
+                <p>The <strong>Identity Provider Public Certificate</strong> is the public certificate belonging to the identity provider. Uploading this is necessary to authenticate the response from the identity provider. See <a href="(../../administer/using-asymmetric-encryption)">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for more information on how public keys work and how to sign these keys by a certification authority.</p>
               </td>
             </tr>
             <tr>

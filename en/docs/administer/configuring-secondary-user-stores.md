@@ -81,7 +81,7 @@ or using the management console:
     product repo itself and you can filter that based on the Identity
     Server version.
 
-4.  Enter a unique domain name with no underscore (\_) characters, and
+4.  Enter a unique domain name with no underscore (\) characters, and
     optionally enter a description for this user store.
 
 5.  Enter values for the properties, using the descriptions in the
@@ -90,7 +90,7 @@ or using the management console:
     additional properties in Optional or Advanced sections at the bottom
     of the screen. For information on the properties that are used when
     defining user stores, see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_).
+    Stores](Working_with_Properties_of_User_Stores).
 
     ![](../../assets/img/53125491/72424354.png) 
 
@@ -141,7 +141,7 @@ it as follows:
         `            PRODUCT_HOME>/repository/tenants/<tenantid>/userstores           `
         directory.
     -   The secondary user store configuration file must have the same
-        name as the domain with an underscore (\_) in place of the
+        name as the domain with an underscore (\) in place of the
         period. For example, if the domain is
         `            wso2.com,           ` name the file as
         `            wso2_com.xml           `

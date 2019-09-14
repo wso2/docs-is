@@ -10,15 +10,15 @@ configure the security settings for all your applications.
 See the following topics for instructions:
 
 -   [Enabling HTTPS access to the management
-    console](#SecuringCarbonApplications-https_accessEnablingHTTPSaccesstothemanagementconsole)
+    console](#SecuringCarbonApplications-https-accessEnablingHTTPSaccesstothemanagementconsole)
 -   [Enabling HTTP access to the management
     console](#SecuringCarbonApplications-EnablingHTTPaccesstothemanagementconsole)
 -   [Starting the server without the management
-    console](#SecuringCarbonApplications-without_uiStartingtheserverwithoutthemanagementconsole)
+    console](#SecuringCarbonApplications-without-uiStartingtheserverwithoutthemanagementconsole)
 -   [Enabling role-based permissions for the management
     console](#SecuringCarbonApplications-Enablingrole-basedpermissionsforthemanagementconsole)
 -   [Restricting access to Carbon
-    applications](#SecuringCarbonApplications-restrict_accessRestrictingaccesstoCarbonapplications)
+    applications](#SecuringCarbonApplications-restrict-accessRestrictingaccesstoCarbonapplications)
     -   [For the management console
         only](#SecuringCarbonApplications-Forthemanagementconsoleonly)
     -   [For jaggery Apps
@@ -53,7 +53,7 @@ default HTTPS transport, which is configured in the
 This transport must be properly configured in this file for the
 management console to be accessible.
 
-See [HTTPS Servlet Transport](_HTTPS_Servlet_Transport_) for
+See [HTTPS Servlet Transport](../../administer/https-servlet-transport) for
 instructions.
 
 ### Enabling HTTP access to the management console
@@ -63,7 +63,7 @@ sometimes allow HTTP access to the management console. Note that HTTPS
 access is enabled by default. You can follow the steps given below to
 enable HTTP access to the management console:
 
-1.  See [HTTP Servlet Transport](_HTTP_Servlet_Transport_) and make sure
+1.  See [HTTP Servlet Transport](../../administer/http-servlet-transport) and make sure
     that the HTTP transport connector is configured for your product.
     Note that 9763 is the default port that will be used.
 2.  Open the `           carbon.          ` xml file stored in the
@@ -92,10 +92,10 @@ You can now start the product server and access the management console
 through HTTP. Use the following URL:
 [http://localhost:\<port\>/carbon/admin/login.jsp](http://localhost:9763/carbon/admin/login.jsp)
 , where `         <port>        ` corresponds to the [HTTP port
-configured](_HTTP_Servlet_Transport_) for the server. The default HTTP
+configured](../../administer/http-nio-transport) for the server. The default HTTP
 port for all WSO2 servers is **9763**. However, this may change if a
 port offset is applied to your server as explained
-[here](_Changing_the_Default_Ports_).
+[here](../../administer/changing-the-default-ports).
 
 ### Starting the server without the management console
 
@@ -114,7 +114,7 @@ such as: `         sh <PRODUCT_HOME>/bin/wso2server.sh -help.        `
 ### Enabling role-based permissions for the management console
 
 You can grant management console access to selected users by
-[configuring role-based permissions](_Role-based_Permissions_).
+[configuring role-based permissions](../../administer/role-based-permissions).
 
 ### Restricting access to Carbon applications
 

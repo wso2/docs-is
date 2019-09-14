@@ -4,7 +4,7 @@ Given below are the common security guidelines for deploying a WSO2
 product in a **production environment.**
 
 Also, see the [production deployment
-guidelines](_Production_Deployment_Guidelines_) and any other
+guidelines](../../administer/production-deployment-guidelines) and any other
 product-specific guidelines that might come in the respective product's
 documentation.
 
@@ -47,7 +47,7 @@ documentation.
 <li><p>Use an SHA256 certificate.</p></li>
 <li><p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p></li>
 </ul>
-<p>See the <a href="Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations">recommendations for using keystores in WSO2 products</a> for information.<br />
+<p>See the <a href="../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations">recommendations for using keystores in WSO2 products</a> for information.<br />
 See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for information on how to create and configure your own keys.</p></td>
 </tr>
 <tr class="odd">
@@ -114,13 +114,13 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <td><p>Enabling HTTP Strict Transport Security Headers (HSTS)</p></td>
 <td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your WSO2 server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
 <p>Note that (for products based on Carbon 4.4.11 or later versions) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
-<p>See the topic on <a href="Securing-Carbon-Applications_68711839.html#SecuringCarbonApplications-EnablingHTTPStrictTransportSecurity(HSTS)Headers">Enabling HTTP Strict Transport Security Headers</a> for instructions.</p></td>
+<p>See the topic on <a href="../../administer/securing-carbon-applications_68711839.html#SecuringCarbonApplications-EnablingHTTPStrictTransportSecurity(HSTS)Headers">Enabling HTTP Strict Transport Security Headers</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Preventing browser caching</p></td>
 <td><p>If there are dynamic pages in your application with sensitive information, you need to prevent browser caching. This can be done by making sure that the applications deployed in your server will return the relevant HTTP response headers.</p>
 <p>Note that cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server.</p>
-<p>See the topic on <a href="Securing-Carbon-Applications_68711839.html#SecuringCarbonApplications-Preventingbrowsercaching">Preventing browser caching</a> for instructions.</p></td>
+<p>See the topic on <a href="../../administer/securing-carbon-applications_68711839.html#SecuringCarbonApplications-Preventingbrowsercaching">Preventing browser caching</a> for instructions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Increase Ephemeral Diffie-Hellman Key size</p></td>
@@ -204,18 +204,18 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <a class="sourceLine" id="cb6-4" title="4">log4j.<span class="fu">appender</span>.<span class="fu">CARBON_LOGFILE</span>.<span class="fu">MaxBackupIndex</span>=<span class="dv">10</span></a></code></pre></div>
 </div>
 </div>
-<p>See <a href="_Monitoring_Logs_">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p></td>
+<p>See <a href="../../administer/monitoring-logs">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Prevent Log Forging</p></td>
 <td><p>Log forging can be prevented by appending a UUID to the log message.</p>
-<p>See <a href="_Monitoring_Logs_">Monitoring Logs</a> for more information on configuring the log4j.properties file.</p></td>
+<p>See <a href="../../administer/monitoring-logs">Monitoring Logs</a> for more information on configuring the log4j.properties file.</p></td>
 </tr>
 <tr class="even">
 <td><p>Set appropriate JVM parameters</p>
 <p><br />
 </p></td>
-<td><p>The recommended JDK version is JDK 1.7 or 1.8. See the <a href="Production-Deployment-Guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">installation pre-requisites</a> for more information.</p>
+<td><p>The recommended JDK version is JDK 1.7 or 1.8. See the <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">installation pre-requisites</a> for more information.</p>
 <p>For JDK 1.7, set the appropriate Heap and Permgen values for the JVM based on your deployment scenario. These can be set in the <code>              &lt;PRODUCT_HOME&gt;/bin/wso2server.sh             </code> file. You do not need to set this in JDK 1.8 as the MaxPermSize value has been removed from Hotspot JVM.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -251,7 +251,7 @@ production environment.
 <tr class="even">
 <td><p>Minimize software to avoid vulnerability</p></td>
 <td><p>Make sure that you only install the software/packages that are relevant to your WSO2 product's deployment. Also, continuously monitor the software that you install.</p>
-<p>See the <a href="Production-Deployment-Guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p></td>
+<p>See the <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable the Firewall</p></td>
@@ -298,7 +298,7 @@ production environment.
 <tr class="odd">
 <td><p>Make regular backups</p></td>
 <td><p>Make sure to backup important files and archive them continuously.</p>
-<p>See <a href="Production-Deployment-Guidelines_56984556.html#ProductionDeploymentGuidelines-backup_recovery">Backup and Recovery Recommendations</a> for more information.</p></td>
+<p>See <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-backup_recovery">Backup and Recovery Recommendations</a> for more information.</p></td>
 </tr>
 </tbody>
 </table>

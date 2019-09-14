@@ -42,9 +42,9 @@ management console.
 
 This section provides the following information:
 
--   [Managing the Registry](_Managing_the_Registry_)
--   [Searching the Registry](_Searching_the_Registry_)
+-   [Managing the Registry](../../administer/managing-the-registry)
+-   [Searching the Registry](../../administer/searching-the-registry)
 -   [Using Remote Registry Instances for the Registry
-    Partitions](_Using_Remote_Registry_Instances_for_the_Registry_Partitions_)
+    Partitions](../../administer/using-remote-registry-instances-for-the-registry-partitions)
 
   

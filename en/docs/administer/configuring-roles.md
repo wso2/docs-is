@@ -40,7 +40,7 @@ Follow the instructions below to add a user role.
 2.  Click **Roles**. This link is only visible to users with
     **Security** level permissions role. By default, the admin user has
     this permission enabled. For more information on permissions, see
-    [Role-based Permissions](_Role-based_Permissions_).
+    [Role-based Permissions](Role-based_Permissions).
 3.  Click **Add New Role**. The following screen appears:  
     ![](../../assets/img/53125497/53287369.png)
 4.  Do the following:  
@@ -55,7 +55,7 @@ Follow the instructions below to add a user role.
     3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
     have. For more information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_).  
+    Permissions](Role-based_Permissions).  
     Note that when you assign this role to a user, you can override the
     role's permissions and customize them for the user.
 6.  Select the existing users to whom this role should be assigned. You

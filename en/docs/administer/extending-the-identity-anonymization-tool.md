@@ -23,7 +23,7 @@ the tool depending on your requirement:
         [here](https://github.com/wso2/identity-anonymization-tool), and
         build the tool. For detailed instructions on how to build the tool,
         see [Building the Identity Anonymization
-        tool](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)
+        tool](../../administer/removing-references-to-deleted-user-identities-in-wso2-products)
         .  
         Once you build the source you can extract the
         `           identity-anonymization-tool-SNAPSHOT          `

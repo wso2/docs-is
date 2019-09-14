@@ -39,7 +39,7 @@ Follow the relevant instructions based on the operating system you use.
 !!! tip
     
     **Tip:** If you running multiple WSO2 products on the same server, see
-    [Default Ports of WSO2 Products](_Default_Ports_of_WSO2_Products_) for
+    [Default Ports of WSO2 Products](Default_Ports_of_WSO2_Products) for
     instructions on setting a port offset.
     
 
@@ -49,7 +49,7 @@ To start the server, you run the script
 `         wso2server.bat        ` (on Windows) or
 `         wso2server.sh        ` (on Linux/Mac OS) from the
 `         bin        ` folder. Alternatively, you can install and run
-the server [as a Windows service](_Installing_as_a_Windows_Service_).
+the server [as a Windows service](Installing_as_a_Windows_Service).
 
 To start and stop the server in the background mode of Linux, run
 **`           wso2server.sh start          `** and

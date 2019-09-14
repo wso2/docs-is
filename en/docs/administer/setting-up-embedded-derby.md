@@ -18,4 +18,4 @@ Follow the steps below to set up an embedded Derby database:
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with it, see [Changing to Embedded
-Derby](_Changing_to_Embedded_Derby_).
+Derby](../../administer/changing-to-embedded-derby).

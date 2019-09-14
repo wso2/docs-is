@@ -1,18 +1,18 @@
 # Changing the Carbon Database
 
 WSO2 products are shipped with an H2 database, which serves as the
-default [Carbon database](_Working_with_Databases_). You can change
+default [Carbon database](../../administer/working-with-databases). You can change
 this default database to one of the standard databases. See the links
 given below.
 
--   [Changing to Embedded Derby](_Changing_to_Embedded_Derby_)
--   [Changing to Embedded H2](_Changing_to_Embedded_H2_)
--   [Changing to IBM DB2](_Changing_to_IBM_DB2_)
--   [Changing to IBM Informix](_Changing_to_IBM_Informix_)
--   [Changing to MariaDB](_Changing_to_MariaDB_)
--   [Changing to MSSQL](_Changing_to_MSSQL_)
--   [Changing to MySQL](_Changing_to_MySQL_)
--   [Changing to Oracle](_Changing_to_Oracle_)
--   [Changing to Oracle RAC](_Changing_to_Oracle_RAC_)
--   [Changing to PostgreSQL](_Changing_to_PostgreSQL_)
--   [Changing to Remote H2](_Changing_to_Remote_H2_)
+-   [Changing to Embedded Derby](../../administer/changing-to-embedded-derby)
+-   [Changing to Embedded H2](../../administer/changing-to-embedded-h2)
+-   [Changing to IBM DB2](../../administer/changing-to-ibm-db2)
+-   [Changing to IBM Informix](../../administer/changing-to-ibm-informix)
+-   [Changing to MariaDB](../../administer/changing-to-mariadb)
+-   [Changing to MSSQL](../../administer/changing-to-mssql)
+-   [Changing to MySQL](../../administer/changing-to-mysql)
+-   [Changing to Oracle](../../administer/changing-to-oracle)
+-   [Changing to Oracle RAC](../../administer/changing-to-oracle-rac)
+-   [Changing to PostgreSQL](../../administer/changing-to-postgresql)
+-   [Changing to Remote H2](../../administer/changing-to-remote-h2)

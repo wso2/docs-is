@@ -14,7 +14,7 @@ with embedded Derby:
     
     You need to set up the embedded Derby before following the steps to
     configure your product with Embedded Derby. For more information, see
-    [Setting up Embedded Derby](_Setting_up_Embedded_Derby_).
+    [Setting up Embedded Derby](../../administer/setting-up-embedded-derby).
     
 
 ### Setting up datasource configurations
@@ -25,7 +25,7 @@ to the default H2 database, which stores registry and user management
 data. After setting up the Embedded Derby database to replace the
 default H2 database, either [change the default configurations of the
 `          WSO2_CARBON_DB         `
-datasource](#ChangingtoEmbeddedDerby-ChangingthedefaultWSO2_CARBON_DBdatasource)
+datasource](#ChangingtoEmbeddedDerby-ChangingthedefaultWSO2-CARBON-DBdatasource)
 , or [configure a new
 datasource](#ChangingtoEmbeddedDerby-Configuringnewdatasourcestomanageregistryorusermanagementdata)
 and point it to the new database as explained below.
@@ -234,7 +234,7 @@ data separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#ChangingtoEmbeddedDerby-ChangingthedefaultWSO2_CARBON_DBdatasource)
+    datasource](#ChangingtoEmbeddedDerby-ChangingthedefaultWSO2-CARBON-DBdatasource)
     above to the \<
     `          PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml         `
     file. Change its elements with your custom values. For instructions,

@@ -65,7 +65,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [Deploying the Sample
-App](_Deploying_the_Sample_App_).
+App](Deploying-the-Sample-App).
 
 ### Configuring the identity provider
 
