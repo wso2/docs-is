@@ -14,9 +14,9 @@ Use the following steps to add a datasource:
     available options are based on the type of datasource you are
     creating:  
     -   [Configuring an RDBMS
-        Datasource](_Configuring_an_RDBMS_Datasource_)
+        Datasource](Configuring-an-RDBMS-Datasource)
     -   [Configuring a Custom
-        Datasource](_Configuring_a_Custom_Datasource_)
+        Datasource](Configuring-a-Custom-Datasource)
 
 After adding datasources, they will appear on the **Data Sources** page.
 You can edit and delete them as needed by clicking **Edit** or

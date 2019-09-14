@@ -163,7 +163,7 @@ To make this scenario work, you must do the following.
 
 To get started with the authenticator, see [Mobile Connect Federated
 Authenticator for WSO2 Identity
-Server](_Configuring_Mobile_Connect_as_a_Federated_Authenticator_).
+Server](Configuring-Mobile-Connect-as-a-Federated-Authenticator).
 Once you have completed your configurations, you can perform
 authentication with the Mobile Connect authenticator.
 

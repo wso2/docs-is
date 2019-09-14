@@ -74,7 +74,7 @@ See the following topics for instructions on how to use each of these
 menu items.
 
 -   See [Configuring Users, Roles and
-    Permissions](_Configuring_Users_Roles_and_Permissions_) for
+    Permissions](Configuring_Users_Roles_and_Permissions) for
     configuring users and roles.
 -   See [Configuring the Realm](../../using-wso2-identity-server/configuring-the-realm) for configuring
     user stores.
@@ -99,7 +99,7 @@ menu items.
     Point](../../tutorials/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
-    Point](_Configuring_the_Policy_Decision_Point_) for configuring the
+    Point](Configuring_the_Policy_Decision_Point) for configuring the
     policy decision point.
 
 #### Manage section
@@ -113,11 +113,11 @@ menu items.
 
 -   See [Workflow Management](../../using-wso2-identity-server/workflow-management) for information on
     working with workflows.
--   See [Managing Challenge Questions](_Managing_Challenge_Questions_)
+-   See [Managing Challenge Questions](Managing_Challenge_Questions)
     for information on configuring challenge questions. Also see [Using
     the End User Dashboard](../../using-wso2-identity-server/using-the-end-user-dashboard) for
     information on challenge questions.
--   See [Email Templates](_Email_Templates_) for configuring email
+-   See [Email Templates](Email_Templates) for configuring email
     templates. Also see [Customizing Automated
     Emails](https://docs.wso2.com/display/IS530/Customizing+Automated+Emails)
     for information on how to customize these templates.
@@ -130,7 +130,7 @@ menu items.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to monitoring the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](_Monitoring_the_Identity_Server_).
+[monitoring the Identity Server](Monitoring_the_Identity_Server).
 
 ![](attachments/103328985/103328987.png)
 
@@ -151,17 +151,17 @@ menu items.
     Guide for instructions on how to use features.
 -   See [Logging](#){.unresolved} in the WSO2 Product Administration
     Guide for information on logging.
--   See [Server Roles](_Server_Roles_) for information on server roles.
+-   See [Server Roles](Server_Roles) for information on server roles.
 -   See [Using Workflows with User
-    Management](_Using_Workflows_with_User_Management_) for information
+    Management](Using_Workflows_with_User_Management) for information
     on Workflow Engine Profiles.
--   See [Creating and Managing Tenants](_Creating_and_Managing_Tenants_)
+-   See [Creating and Managing Tenants](Creating_and_Managing_Tenants)
     for information on multitenancy.
 
 ### Tools menu
 
 The tools menu includes SAML and XACML tools. For more details on each
 of these tools and their usage, see the topics on [working with
-tools](_Using_Tools_).
+tools](Using_Tools).
 
 ![](attachments/103328985/103328989.png)

@@ -9,21 +9,21 @@ The following are Identity Server samples and the configurations
 necessary to make them work.
 
 -   [Downloading a Sample](../../using-wso2-identity-server/downloading-a-sample)
--   [OAuth2](_OAuth2_)
--   [OpenIDConnect](_OpenIDConnect_)
+-   [OAuth2](OAuth2)
+-   [OpenIDConnect](OpenIDConnect)
 -   [Configuring Sample Application for Identity
-    Management](_Configuring_Sample_Application_for_Identity_Management_)
+    Management](Configuring_Sample_Application_for_Identity_Management)
 -   [Writing a Web Service Client for Authentication and User Admin
-    Services](_Writing_a_Web_Service_Client_for_Authentication_and_User_Admin_Services_)
--   [Testing Passive STS](_Testing_Passive_STS_)
+    Services](Writing_a_Web_Service_Client_for_Authentication_and_User_Admin_Services)
+-   [Testing Passive STS](Testing_Passive_STS)
 -   [Consuming SCIM Rest Endpoints from a JAVA Client
-    Application](_Consuming_SCIM_Rest_Endpoints_from_a_JAVA_Client_Application_)
--   [Running an STS Client](_Running_an_STS_Client_)
+    Application](Consuming_SCIM_Rest_Endpoints_from_a_JAVA_Client_Application)
+-   [Running an STS Client](Running_an_STS_Client)
 -   [XACML Sample for an Online Trading
-    Application](_XACML_Sample_for_an_Online_Trading_Application_)
+    Application](XACML_Sample_for_an_Online_Trading_Application)
 -   [Broker Trust Relationships with WSO2 Identity
-    Server](_Broker_Trust_Relationships_with_WSO2_Identity_Server_)
+    Server](Broker_Trust_Relationships_with_WSO2_Identity_Server)
 -   [Log in to the Identity Server using another Identity Server -
-    SAML2](_Log_in_to_the_Identity_Server_using_another_Identity_Server_-_SAML2_)
+    SAML2](Log_in_to_the_Identity_Server_using_another_Identity_Server_-_SAML2)
 -   [Login to Identity Server using another Identity Server -
-    OAuth2](_Login_to_Identity_Server_using_another_Identity_Server_-_OAuth2_)
+    OAuth2](Login_to_Identity_Server_using_another_Identity_Server_-_OAuth2)

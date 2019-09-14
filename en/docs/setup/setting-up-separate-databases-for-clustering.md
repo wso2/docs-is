@@ -30,9 +30,9 @@ works for all types of data.
     the local registry in a registry mount. However, in a production
     environment it is recommended to change this. For more information on
     how to do this, [set up the
-    database]()../../admin-guide/setting-up-the-physical-database)
+    database](../../administer/setting-up-the-physical-database)
     and see the [Changing the Carbon
-    Database](../../admin-guide/changing-the-carbon-database)
+    Database](../../administer/changing-the-carbon-database)
     topic in the product administration guide.
     
 
@@ -107,7 +107,7 @@ To understand this concept further, see the following diagram.
 For more information on the concept of sharing governance and config
 registry databases across the cluster, see the topic on [Sharing
 Databases in a
-Cluster](../../admin-guide/sharing-databases-in-a-cluster).
+Cluster](../../administer/sharing-databases-in-a-cluster).
 
 Do the following configurations to implement the database setup.
 
@@ -117,7 +117,7 @@ Create the databases that you require using the RDBMS of your choice and
 run the relevant script for the RDBMS of your choice according to the
 table above. For instructions on how to do this, see [Setting up the
 Physical
-Database](../../admin-guide/setting-up-the-physical-database).
+Database](../../administer/setting-up-the-physical-database).
 
 #### Configuring the datasources
 
@@ -125,4 +125,4 @@ Configure the datasources for the databases that you created above in
 both the WSO2 Identity Server nodes of your cluster. For instructions on
 how to configure the datasources for the databases you created, see
 [Changing the Carbon
-Database](../../admin-guide/changing-the-carbon-database).
+Database](../../administer/changing-the-carbon-database).

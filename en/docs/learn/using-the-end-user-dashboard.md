@@ -11,7 +11,7 @@ includes the following tasks which can be done using the dashboard.
     Hostname verification may prevent loading the Dashboard. For
     instructions on how to disable hostname verification, see [Enabling
     HostName
-    Verification](../../admin-guide/enabling-hostname-verification)
+    Verification](../../administer/enabling-hostname-verification)
     .
     
 

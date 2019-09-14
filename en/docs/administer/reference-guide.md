@@ -3,10 +3,10 @@
 The following topics provide reference information for working with WSO2
 Carbon:
 
--   [Configuration Files](_Configuration_Files_)
--   [Database Upgrade Guide](_Database_Upgrade_Guide_)
--   [Product Startup Options](_Product_Startup_Options_)
--   [Supported Cipher Suites](_Supported_Cipher_Suites_)
+-   [Configuration Files](../../administer/configuration-files)
+-   [Database Upgrade Guide](../../administer/database-upgrade-guide)
+-   [Product Startup Options](../../administer/product-startup-options)
+-   [Supported Cipher Suites](../../administer/supported-cipher-suites)
 -   [Directory Structure of WSO2
-    Products](_Directory_Structure_of_WSO2_Products_)
--   [WSO2 Patch Application Process](_WSO2_Patch_Application_Process_)
+    Products](../../administer/directory-structure-of-wso2-products)
+-   [WSO2 Patch Application Process](../../administer/wso2-patch-application-process)

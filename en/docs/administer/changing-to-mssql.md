@@ -7,7 +7,7 @@ you need to follow in order to use a MSSQL database for this purpose.
 -   [Setting up datasource
     configurations](#ChangingtoMSSQL-Settingupdatasourceconfigurations)
     -   [Changing the
-        default WSO2\_CARBON\_DB datasource](#ChangingtoMSSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+        default WSO2\_CARBON\_DB datasource](#ChangingtoMSSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2-CARBON-DBdatasource)
     -   [Configuring new  datasources to manage registry or user
         management
         data](#ChangingtoMSSQL-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
@@ -20,7 +20,7 @@ you need to follow in order to use a MSSQL database for this purpose.
     
     You need to set up MSSQL before following the steps to configure your
     product with MSSQL. For more information, see [Setting up Microsoft
-    SQL](_Setting_up_Microsoft_SQL_).
+    SQL](../../administer/setting-up-microsoft-sql).
     
 
 ### Setting up datasource configurations

@@ -417,10 +417,10 @@ To define a datasource, you can use
 `         <PRODUCT_HOME>/repository/conf/datasources/        `
 directory. For detailed information on setting up databases, see
 [Setting Up the Physical
-Database](../../admin-guide/setting-up-the-physical-database)
+Database](../../administer/setting-up-the-physical-database)
 , and for information on the purpose of defining datasources and how
 they are configured for a product, see [Managing
-Datasources](../../admin-guide/managing-datasources)
+Datasources](../../administer/managing-datasources)
 .
 
 1.  There are two possible methods for updating datasources:  

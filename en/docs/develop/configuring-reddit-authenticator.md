@@ -55,7 +55,7 @@ supported by Identity Server 5.1.0 upwards.
 
 ### Deploying travelocity.com sample app
 
-The next step is to [deploy the sample app](_Deploying_the_Sample_App_)
+The next step is to [deploy the sample app](Deploying-the-Sample-App)
 in order to use it in this scenario.
 
 Once this is done, the next step is to configure the WSO2 Identity
@@ -88,7 +88,7 @@ Provider](http://docs.wso2.com/identity-server/Configuring+an+Identity+Provider)
         This is supported on Firefox and Safari browsers by default but it
         is not supported on some Chrome browsers.
     
-        ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
+        ![](images/icons/grey-arrow-down.png){.expand-control-image} Click
         here to know how to enable certificate downloading on Chrome.
     
         1.  Navigate to <chrome://flags/#show-cert-link> .
@@ -157,7 +157,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB_WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx_bp0wfH_10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="800"
+        ![](https://lh6.googleusercontent.com/qsYmfJRbhzqeKB-WHare-nLYmSL3DItCUqx3627JsK8aF0AibTUNO-s4DyG5Zx-bp0wfH-10Ap6dJ2ngKNYBtlgOCHZBSoKqhNbVac0DEWZ49C4Gpej3mzFoQpP2Z6XFP6iYkUCf){width="800"
         height="796"}
 
 7.  Click **Update** to save the changes. Now you will be sent back to
@@ -184,7 +184,7 @@ You have now added and configured the service provider.
 
 2.  Login with SAML from the WSO2 Identity Server.
 
-    ![](https://lh5.googleusercontent.com/q_O2Xna03g229TP1WsGtz8vzXC8zH1_LHkxdlw-FoYfYLgtvsQEFd8ABiatklW3DYP_CajueLWBVVPwIGLcP9Pvts5iGlzL8ni-S-a-bPrp--IEWJf9AnqzXzY8NSXjnZyn3qF2o)
+    ![](https://lh5.googleusercontent.com/q-O2Xna03g229TP1WsGtz8vzXC8zH1-LHkxdlw-FoYfYLgtvsQEFd8ABiatklW3DYP-CajueLWBVVPwIGLcP9Pvts5iGlzL8ni-S-a-bPrp--IEWJf9AnqzXzY8NSXjnZyn3qF2o)
 
 3.  Enter your Reddit credentials in the prompted login page of Reddit.
     Once you log in successfully you will be taken to the home page of

@@ -76,10 +76,10 @@ Location
 
 See the following topics for more information on configuration files:
 
--   [Configuring catalina-server.xml](_Configuring_catalina-server.xml_)
+-   [Configuring catalina-server.xml](Configuring-catalina-server.xml)
 -   [Configuring
-    master-datasources.xml](_Configuring_master-datasources.xml_)
--   [Configuring registry.xml](_Configuring_registry.xml_)
--   [Configuring user-mgt.xml](_Configuring_user-mgt.xml_)
+    master-datasources.xml](Configuring-master-datasources.xml)
+-   [Configuring registry.xml](Configuring-registry.xml)
+-   [Configuring user-mgt.xml](Configuring-user-mgt.xml)
 -   [Configuring
-    config-validation.xml](_Configuring_config-validation.xml_)
+    config-validation.xml](Configuring-config-validation.xml)

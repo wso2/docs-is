@@ -113,14 +113,14 @@ user5,password123, role=devops:tester
     
     Make sure you have the roles that you assign to the users available in
     the system. If not, the server will throw an error. See [Configuring
-    Roles](_Configuring_Roles_) for information on adding user roles to the
+    Roles](Configuring_Roles) for information on adding user roles to the
     server.
     
 
 In addition to importing users with their passwords and roles, you can
 import other user attributes such as **email address**, **full name**,
 **last name, mobile**, **given name etc.** using [claim URls that are
-defined for attributes](_Managing_User_Attributes_). Here's an example
+defined for attributes](Managing_User_Attributes). Here's an example
 of claim URls that you can defined for your product:
 
 ``` java
@@ -232,7 +232,7 @@ Deleting a user cannot be undone.
     tool](https://github.com/wso2/identity-anonymization-tool). For
     information on building and running the tool, see [Removing References
     to Deleted User Identities in WSO2
-    Products](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)
+    Products](Removing_References_to_Deleted_User_Identities_in_WSO2_Products)
     .
     
 

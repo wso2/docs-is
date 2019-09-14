@@ -161,4 +161,4 @@ create index
 !!! info
     If you want to remove unused tokens from the database, see [Removing
     Unused Tokens from the
-    Database](../../using-wso2-identity-server/removing-unused-tokens-from-the-database).
+    Database](../../administer/removing-unused-tokens-from-the-database).

@@ -8,7 +8,7 @@ the listener and sender APIs.
 -   `          org.apache.synapse.transport.vfs.VFSTransportSender         `
 
 The necessary classes can be found in the
-`         synapse-vfs-transport.jar        ` file. Unlike the transports
+`         synapse-../../administer/vfs-transport.jar        ` file. Unlike the transports
 described previously, VFS transport does not have any global parameters
 to be configured. Rather, it has a set of service level parameters that
 needs to be specified for each service. VFS transport implementation is

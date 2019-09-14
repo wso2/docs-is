@@ -2,11 +2,11 @@
 
 It is possible to monitor system logs and application logs in your
 server using the management console, if the [Logging Management
-feature](_Monitoring_Logs_using_Management_Console_) is installed .
+feature](../../administer/monitoring-logs-using-management-console) is installed .
 Further, when you monitor system logs, you can also download the
 archived log files using the management console. See [Configuring Log4j
-Properties](_Configuring_Log4j_Properties_) and [Configuring Log
-Providers](_Configuring_the_Log_Provider_) for details on how the server
+Properties](Configuring-Log4j-Properties) and [Configuring Log
+Providers](Configuring-the-Log-Provider) for details on how the server
 can be configured for log monitoring.
 
 The log files can be retrieved in two ways:
@@ -50,7 +50,7 @@ below to access statistics on system logs:
 
     The **Download** link can be used to download the log files. For
     example, if the server is configured to use the [default log
-    provider](_Configuring_the_Log_Provider_), the "wso2carbon.log"
+    provider](Configuring-the-Log-Provider), the "wso2carbon.log"
     file stored in the
     `           <PRODUCT_HOME>/repository/logs/          ` directory can
     be downloaded.

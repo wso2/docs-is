@@ -12,7 +12,7 @@ production deployment.
 -   [Setting the thread execution
     limit](#PerformanceTuning-Settingthethreadexecutionlimit)
 -   [Pooling LDAPS
-    connections](#PerformanceTuning-ldaps_poolingPoolingLDAPSconnections)
+    connections](#PerformanceTuning-ldaps-poolingPoolingLDAPSconnections)
 -   [Product-specific performance
     tuning](#PerformanceTuning-Product-specificperformancetuning)
 

@@ -57,7 +57,7 @@ add a self-signed certificate to both WSO2 Identity Server and the
 simulator.
 
 1.  Follow the steps
-    [here](../../admin-guide/creating-new-keystores#adding-ca-signed-certificate-to-keystores)
+    [here](../../administer/creating-new-keystores#adding-ca-signed-certificate-to-keystores)
     to add a self-signed certificate to WSO2 Identity Server.
 
     !!! note

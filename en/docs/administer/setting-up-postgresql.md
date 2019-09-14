@@ -57,4 +57,4 @@ Follow the steps below to set up a PostgreSQL database.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with PostgreSQL, see [Changing to
-PostgreSQL](_Changing_to_PostgreSQL_).
+PostgreSQL](../../administer/changing-to-postgresql).

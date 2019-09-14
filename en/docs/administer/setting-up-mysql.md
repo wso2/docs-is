@@ -149,4 +149,4 @@ mysql> source <path to the script>\mysql.sql;
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MySQL, see [Changing to
-MySQL](_Changing_to_MySQL_).
+MySQL](../../administer/changing-to-mysql).

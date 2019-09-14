@@ -17,7 +17,7 @@ WSO2 products is configured as the primary user store, except for WSO2
 Identity Server, which has an embedded LDAP as its primary user
 store. You can change the default configuration by replacing the default
 database according to your requirement. The primary user store is shared
-among all the [tenants](_Introduction_to_Multitenancy_) in the system.
+among all the [tenants](Introduction_to_Multitenancy) in the system.
 
 With the user management feature, any number of **Secondary User
 Stores** can be easily set up for your system using the management
@@ -45,7 +45,7 @@ The following topics include instructions on setting up user stores:
 -   [Configuring Secondary User
     Stores](../../using-wso2-identity-server/configuring-secondary-user-stores)
 -   [Working with Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_)
+    Stores](Working_with_Properties_of_User_Stores)
 -   [Writing a Custom User Store
     Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
 

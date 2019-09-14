@@ -14,7 +14,7 @@ with IBM Informix:
     
     You need to set up IBM Informix before following the steps to configure
     your product with it. For more information, see [Setting up IBM
-    Informix](_Setting_up_IBM_Informix_).
+    Informix](../../administer/setting-up-ibm-informix).
     
 
 ### Setting up datasource configurations
