@@ -139,7 +139,7 @@ your server. It includes the following sections:
 -   [Configuring Transport-Level
     Security](https://docs.wso2.com/display/ADMIN44x/Configuring+Transport+Level+Security)
 -   [Using Asymmetric
-    Encryption]((../../admin-guide/../../administer/using-asymmetric-encryption))
+    Encryption](../../administer/using-asymmetric-encryption))
 -   [Using Symmetric
     Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Symmetric+Encryption)
 -   [Enabling Java Security
@@ -153,7 +153,7 @@ your server. It includes the following sections:
 -   [Mitigating Cross Site Scripting
     Attacks](https://docs.wso2.com/display/ADMIN44x/Mitigating+Cross+Site+Scripting+Attacks)
 -   [Enabling or Customizing the Secure Vault
-    Implementation](../../administer/../../administer/carbon-secure-vault-implementation)
+    Implementation](../../administer/carbon-secure-vault-implementation)
 
 See the section on [implementing security in the Identity
 Server](../../administer/implementing-security-in-the-identity-server) for information

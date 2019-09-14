@@ -13,6 +13,6 @@ given below.
 -   [Changing to MSSQL](../../administer/changing-to-mssql)
 -   [Changing to MySQL](../../administer/changing-to-mysql)
 -   [Changing to Oracle](../../administer/changing-to-oracle)
--   [Changing to Oracle RAC](../../administer/../../administer/changing-to-oracle-rac)
+-   [Changing to Oracle RAC](../../administer/changing-to-oracle-rac)
 -   [Changing to PostgreSQL](../../administer/changing-to-postgresql)
 -   [Changing to Remote H2](../../administer/changing-to-remote-h2)

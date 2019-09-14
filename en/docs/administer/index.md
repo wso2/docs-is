@@ -149,7 +149,7 @@
 
                 <!-- -->
 
-                -   [Changing to Oracle RAC](../../administer/../../administer/changing-to-oracle-rac)
+                -   [Changing to Oracle RAC](../../administer/changing-to-oracle-rac)
 
                 <!-- -->
 

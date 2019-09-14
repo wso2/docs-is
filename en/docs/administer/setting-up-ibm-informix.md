@@ -69,4 +69,4 @@ Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with IBM Informix, see [Changing to
-IBM Informix](Changing_to-IBM-Informix).
+IBM Informix](changing-to-ibm-informix).
