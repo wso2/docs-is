@@ -22,7 +22,7 @@ This session can be implemented at the HTTP level or at the SOAP level.
 One downside of this approach is if a node has failed, the sessions
 associated with that node are lost and need to be restarted. It is
 common to couple this solution with a [shared
-database](_Sharing_Databases_in_a_Cluster_) solution. With sticky
+database](../../administer/sharing-databases-in-a-cluster) solution. With sticky
 sessions enabled, the session data is kept in memory, but persistent
 data is saved into a database.
 

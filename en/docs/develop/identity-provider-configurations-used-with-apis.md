@@ -35,7 +35,7 @@ configuring an Identity Provider.
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
 custom federated authenticator, see [Writing a Custom Federated
-Authenticator](_Writing_a_Custom_Federated_Authenticator_).
+Authenticator](Writing-a-Custom-Federated-Authenticator).
 
 !!! warning
     
@@ -325,7 +325,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_).
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ClientId       | This refers to the Client Id you received from the Facebook app you created.                                                                                                                                                                                                                                                                          |
 | ClientSecret   | This refers to the Client Secret you received from the Facebook app you created.                                                                                                                                                                                                                                                                      |
-| UserInfoFields | These are the claims related to the user account on Facebook. WSO2 Identity Server requests these fields from Facebook when a user is authenticated with Facebook through the IS. See [public\_profile permission](https://developers.facebook.com/docs/facebook-login/permissions#reference-public_profile) for more information about these fields. |
+| UserInfoFields | These are the claims related to the user account on Facebook. WSO2 Identity Server requests these fields from Facebook when a user is authenticated with Facebook through the IS. See [public\_profile permission](https://developers.facebook.com/docs/facebook-login/permissions#reference-public-profile) for more information about these fields. |
 | Scope          | Defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.                                                                                                     |
 | callBackUrl    | Callback URL of the Identity Server.                                                                                                                                                                                                                                                                                                                  |
 
@@ -412,7 +412,7 @@ Authenticator](_Writing_a_Custom_Federated_Authenticator_).
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](_Writing_an_Outbound_Provisioning_Connector_).
+Connector](Writing-an-Outbound-Provisioning-Connector).
 
 !!! warning
     

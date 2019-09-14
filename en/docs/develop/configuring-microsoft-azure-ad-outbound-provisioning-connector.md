@@ -29,7 +29,7 @@ Before you begin:
 -   Register a new application using the [Microsoft App Registration
     Portal](https://apps.dev.microsoft.com/). For instructions on how
     to do this, see [Registering an
-    application](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_register_app_v2)
+    application](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_register-app-v2)
     in the Microsoft documentation. !!! note
     
         ![](images/icons/grey_arrow_down.png){.expand-control-image} Click

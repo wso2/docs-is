@@ -12,7 +12,7 @@ Follow the steps below to view the **Login Sessions**.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](_Accessing_the_Analytics_Dashboard_).
+        Dashboard](Accessing_the_Analytics_Dashboard).
     2.  Click **menu** icon \> **Login Sessions**.
     
 

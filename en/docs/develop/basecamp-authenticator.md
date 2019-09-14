@@ -16,7 +16,7 @@ authentication with the Basecamp authenticator.
 ### Additional information
 
 To download the authenticator and other artifacts, go to
-[https://store.wso2.com/store/assets/isconnector/basecamp](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22basecamp%22)
+[https://store.wso2.com/store/assets/isconnector/basecamp](https://store.wso2.com/store/assets/isconnector/list?q=%22-default%22%3A%22basecamp%22)
 .
 
   

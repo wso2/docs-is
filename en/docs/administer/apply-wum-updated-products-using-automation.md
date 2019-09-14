@@ -46,7 +46,7 @@ you do not have one already.
 
 Do you have **Java Security Manager** in your environment? If so, follow
 the instructions in [Enabling Java Security
-Manager](_Enabling_Java_Security_Manager_) to sign your latest
+Manager](../../administer/enabling-java-security-manager) to sign your latest
 WUM-updated product distribution.
 
 ### Step 3: Apply the customized artifacts
@@ -63,7 +63,7 @@ you need to merge them to the latest WUM-updated distribution.
 This is done by comparing the deployment directory in your environment (
 `         <PRODUCT_HOME>/repository/deployment/server        `
 directory) with the same directory in your [latest WUM-updated product
-distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum_updated_packs)
+distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum-updated-packs)
 . If there is a difference in the artifacts found in the two
 distributions, it means that you have customized artifacts in your
 current environment. These customized artifacts can now be applied to
@@ -83,7 +83,7 @@ purpose:
     deployment script for this purpose. However, remember to increase
     the deployment time interval in your existing product nodes before
     running this script as explained
-    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying).
+    [below](#ApplyWUM-UpdatedProductsUsingAutomation-before-deploying).
 
 Let's start!
 
@@ -105,11 +105,11 @@ distribution is deployed. To increase the deployment time interval:
 2.  Restart all the server nodes in production.
 
 1.  Unpack the [previous WUM-updated
-    distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum_updated_packs)
+    distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum-updated-packs)
     . Note that this is the distribution that is currently applied in
     production.
 2.  Unpack the [latest WUM-updated
-    distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum_updated_packs)
+    distribution](#ApplyWUM-UpdatedProductsUsingAutomation-wum-updated-packs)
     .
 3.  Clone the customized artifacts that are in the deployment directory
     ( `          <PRODUCT_HOME>/repository/deployment/server         `
@@ -210,7 +210,7 @@ Your deployment synchronization tool now has all the customized
 artifacts merged with the updates. These customizations will be pushed
 to your WUM-updated distribution (by the deployment synchronization
 tool) when the [deployment update
-interval](#ApplyWUM-UpdatedProductsUsingAutomation-before_deploying)
+interval](#ApplyWUM-UpdatedProductsUsingAutomation-before-deploying)
 expires.
 
 ### Step 4: Apply the configurations
@@ -266,7 +266,7 @@ configurations.
     
     Please note that WSO2 **does not** recommend the practice of adding new
     features to standard products. See [Working with
-    Features](_Working_with_Features_) for more information.
+    Features](../../administer/working-with-features) for more information.
     
 
 ### Step 5: Deploy the WUM-updated distribution

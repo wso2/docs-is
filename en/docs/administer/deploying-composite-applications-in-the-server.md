@@ -17,7 +17,7 @@ Alternatively, you can also do this using one of the following options:
     plug-in](#DeployingCompositeApplicationsintheServer-DeployingusingtheMavenplug-in)
 
 **Before you begin**, [package your artifacts into a Composite
-Application](_Packaging_Artifacts_into_Composite_Applications_). Note
+Application](../../administer/packaging-artifacts-into-composite-applications). Note
 that the examples here are given using WSO2 ESB, but the steps are the
 same for any WSO2 server.
 
@@ -59,7 +59,7 @@ deploy](../../assets/img/57739657/87693726.png "select the composite app you wan
     !!! tip
     
         **Tip** : See [Default Ports of WSO2
-        Products](_Default_Ports_of_WSO2_Products_) for more information.
+        Products](../../administer/default-ports-of-wso2-products) for more information.
     
 
     ![](../../assets/img/53121319/53284206.png) 

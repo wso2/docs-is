@@ -12,7 +12,7 @@ in WSO2 products.
 -   [Understanding keystores and
     truststores](#UsingAsymmetricEncryption-Understandingkeystoresandtruststores)
 -   [Usage of keystores in WSO2
-    products](#UsingAsymmetricEncryption-setting_up_keystoresUsageofkeystoresinWSO2products)
+    products](#UsingAsymmetricEncryption-setting-up-keystoresUsageofkeystoresinWSO2products)
 -   [Recommendations for setting up keystores in WSO2
     products](#UsingAsymmetricEncryption-recommendationsRecommendationsforsettingupkeystoresinWSO2products)
 
@@ -120,7 +120,7 @@ following purposes:
     (SSL)/Transport Layer Security (TLS) protocols.
 -   Encrypting sensitive data such as plain-text passwords found in both
     product-level and product feature-level configurations/configuration
-    files using [secure vault](_Carbon_Secure_Vault_Implementation_).
+    files using [secure vault](../../administer/carbon-secure-vault-implementation).
 
 -   Encrypting and signing SOAP messages using WS-Security.
 
@@ -148,7 +148,7 @@ Follow the recommendations given below when you set up your keystores.
     In new versions of WSO2 products, you can have separate keystores
     for encrypting sensitive information for internal data encryption as
     a recommended practice. See [Configuring Keystores in WSO2
-    Products](_Configuring_Keystores_in_WSO2_Products_) for details.
+    Products](Configuring-Keystores-in-WSO2-Products) for details.
 
 -   Maintain another secondary keystore, containing the server’s public
     key certificate for authenticating communication over SSL/TLS (for
@@ -190,16 +190,16 @@ Follow the recommendations given below when you set up your keystores.
     generate CA-signed certificates and import them into the keystores .
     It is not recommended to create new keystores for the purpose of
     replacing the certificates in the keystore. See [Adding CA-signed
-    certificates](Creating-New-Keystores_53125463.html#CreatingNewKeystores-ca_certificate)
+    certificates](../../administer/creating-new-keystores-53125463.html#CreatingNewKeystores-ca-certificate)
     to keystores for instructions.
 
 !!! note
     
     For information on creating new keystores with the
     required certificates, see [Creating New
-    Keystores](_Creating_New_Keystores_), and for information on how to
+    Keystores](../../administer/creating-new-keystores), and for information on how to
     update configuration files in your product with keystore information,
     see [Configuring Keystores in WSO2
-    Products](_Configuring_Keystores_in_WSO2_Products_)
+    Products](Configuring-Keystores-in-WSO2-Products)
     [.](https://docs.wso2.com/display/Carbon443/Creating+New+Keystores)
     

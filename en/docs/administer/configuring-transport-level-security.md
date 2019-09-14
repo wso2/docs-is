@@ -261,7 +261,7 @@ ciphers by JSSE. This will enable the weak ciphers.
         ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
     ```
 
-    See the list of [supported cipher suites](_Supported_Cipher_Suites_)
+    See the list of [supported cipher suites](Supported_Cipher_Suites)
     .
 
 4.  Start the server.
@@ -281,7 +281,7 @@ ciphers by JSSE. This will enable the weak ciphers.
             contain any EXPORT ciphers.
     
         -   When you use the supported cipher suites listed
-            [here](_Supported_Cipher_Suites_), the BEAST attack status will
+            [here](Supported_Cipher_Suites), the BEAST attack status will
             be shown as vulnerable. Note that this is a client-side
             vulnerability caused by the TLSv1 protocol. You can make the
             BEAST status protected by removing TLSv1, which will make
@@ -365,5 +365,5 @@ name in the catalina `         -server.        ` xml file.
     ```
 
 See the [Security Guidelines for Production
-Deployment](_Security_Guidelines_for_Production_Deployment_) for the
+Deployment](Security_Guidelines_for_Production_Deployment) for the
 full list of security-related recommendations for WSO2 products.

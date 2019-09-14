@@ -331,7 +331,7 @@ You must first create a CSV file or an Excel file with the user
 information. It is possible to import the **username** and **password**
 directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
-attributes](_Managing_User_Attributes_). Shown below are the
+attributes](Managing_User_Attributes). Shown below are the
 claim URls that are defined be default in WSO2 IS. These will allow you
 to import the user's **email address**, **country**, **given name**
 etc. in addition to the **username** and **password**.

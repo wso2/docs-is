@@ -7,7 +7,7 @@ errors, security threats, and usage patterns.
 See the following topics for details:
 
 -   [Log types in WSO2
-    products](#MonitoringLogs-log_typesLogtypesinWSO2products)
+    products](#MonitoringLogs-log-typesLogtypesinWSO2products)
 -   [Configuring products for log
     monitoring](#MonitoringLogs-Configuringproductsforlogmonitoring)
     -   [Setting the Log4j log
@@ -66,7 +66,7 @@ the `          <PRODUCT_HOME>/repository/logs         ` directory .
     directory).
 -   **Patch logs:** These logs contain details related to patches
     applied to the product. Patch logs cannot be customized. See [WSO2
-    Patch Application Process](_WSO2_Patch_Application_Process_) for
+    Patch Application Process](../../administer/wso2-patch-application-process) for
     more information.
 -   **Service/Event logs:** These are logs that are enabled in some WSO2
     products for tracing services and events using a separate log file (
@@ -102,7 +102,7 @@ product.
     option in the management console to restore the original log4j
     configuration from the `           log4j.properties          ` file.
     The log levels that can be configured are [listed
-    below](#MonitoringLogs-log4j_levels).
+    below](#MonitoringLogs-log4j-levels).
 
     **Identifying forged messages:  
     **
@@ -132,7 +132,7 @@ product.
     `            <PRODUCT_HOME>/repository/conf           ` directory)
     for all WSO2 products. However, WSO2 DAS generates some additional
     Carbon logs (which will be stored in the same [Carbon log
-    file](#MonitoringLogs-Carbon_logs) ) that should be separately
+    file](#MonitoringLogs-Carbon-logs) ) that should be separately
     configured by creating a new
     `            log4j.properties           ` file in the
     `            <DAS_HOME>/repository/conf/analytics/spark           `
@@ -144,15 +144,15 @@ product.
 
     See the following topics for instructions:
 
-    -   [Configuring Log4j Properties](_Configuring_Log4j_Properties_)
-    -   [Configuring the Log Provider](_Configuring_the_Log_Provider_)
+    -   [Configuring Log4j Properties](Configuring-Log4j-Properties)
+    -   [Configuring the Log Provider](Configuring-the-Log-Provider)
 
 -   **Configuring Audit logs**
 
     Audit logs are enabled in WSO2 products by default. You can change
     the following default configuration by manually updating the the
     `           log4j.properties          ` file. The log levels that
-    can be configured are [listed below](#MonitoringLogs-log4j_levels).
+    can be configured are [listed below](#MonitoringLogs-log4j-levels).
 
     ``` java
         log4j.logger.AUDIT_LOG=INFO, AUDIT_LOGFILE
@@ -170,7 +170,7 @@ product.
 
 -   **Configuring HTTP access logs**
 
-    See [HTTP Access Logging](_HTTP_Access_Logging_) for instructions on
+    See [HTTP Access Logging](../../administer/http-access-logging) for instructions on
     how to configure and use HTTP access logs.
 
 -   **Configuring Service/Event tracing logs**  
@@ -229,7 +229,7 @@ below, the root log level (INFO) will apply to all appenders by default.
 
 For example, shown below is how the log level is set to DEBUG for the
 `         CARBON_LOGFILE        ` appender ( [Carbon
-log](#MonitoringLogs-Carbon_logs) ):
+log](#MonitoringLogs-Carbon-logs) ):
 
 ``` java
 log4j.appender.CARBON_LOGFILE.threshold=DEBUG
@@ -258,7 +258,7 @@ See the following content on managing the growth of **Carbon logs** and
 
 #### Managing the growth of Carbon logs
 
-Log growth (in [Carbon logs](#MonitoringLogs-Carbon_logs) ) can be
+Log growth (in [Carbon logs](#MonitoringLogs-Carbon-logs) ) can be
 managed by the following configurations in the
 `         <PRODUCT_HOME>/repository/conf/        `
 `         log4j.properties        ` file.
@@ -330,7 +330,7 @@ and monitor the logs:
 
 -   Carbon logs (system logs and application logs) of a running Carbon
     instance can be monitoring [using the management
-    console](_View_and_Download_Logs_).
+    console](../../administer/view-and-download-logs).
 -   Carbon logs, as well as HTTP access logs will be printed on the
     command terminal that open when you execute the product startup
     script.

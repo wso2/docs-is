@@ -113,7 +113,7 @@ Follow the instructions below to add a new identity provider.
         <p>Note that the <code>                 wso2.crt                </code> file is generated. This file is located in the <code>                 &lt;IS_HOME&gt;/repository/resources/security/                </code> directory.</p>
         <p>Click <strong>Choose File</strong> and navigate to this location to obtain and the file so that you can upload the file.</p>
         <div>
-        See <a href="../../admin-guide/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for more information.</div>
+        See <a href="../../administer/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for more information.</div>
         </div>
         <div class="admonition tip">
         <p class="admonition-title">Tip</p>
@@ -136,7 +136,7 @@ Follow the instructions below to add a new identity provider.
         <a class="sourceLine" id="cb2-14" title="14">&lt;/<span class="bu">Certificate</span>&gt;</a></code></pre></div>
         </div></div>
         </div>
-    <p>See <a href="../../admin-guide/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for information on how public keys work, and how to get the keys signed by a certification authority.</p>
+    <p>See <a href="../../administer/using-asymmetric-encryption">Using Asymmetric Encryption</a> in the WSO2 Product Administration Guide for information on how public keys work, and how to get the keys signed by a certification authority.</p>
     </div></td>
     <td><div class="content-wrapper">
     <p>This can be any certificate. If the identity provider is another Identity Server, this can be a wso2.crt file.</p>

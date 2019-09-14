@@ -16,7 +16,7 @@ product instance, you set the port offset to a unique value.
 
 ### Default ports of WSO2 products
 
-See [this link](_Default_Ports_of_WSO2_Products_) for the list of ports
+See [this link](../../administer/default-ports-of-wso2-products) for the list of ports
 that are used in all WSO2 products.
 
 ### Setting a port offset for the server
@@ -32,7 +32,7 @@ to a port:
     follows: `          <Offset>3</Offset>         `
 
 When you set the server-level port offset in WSO2 AS as shown above,
-[all the ports](_Default_Ports_of_WSO2_Products_) used by the server
+[all the ports](../../administer/default-ports-of-wso2-products) used by the server
 will change automatically. However, this may not be the case with some
 WSO2 products such as WSO2 APIM and WSO2 AM. See the [product
 documentation](https://docs.wso2.com/dashboard.action) for instructions

@@ -160,7 +160,7 @@ All the updates are now moved to your existing product distribution.
     This step is necessary, **only** if you are already using additional
     WSO2 features in your product. Please note that WSO2 **does not**
     recommend the practice of adding new features to standard products. See
-    [Working with Features](_Working_with_Features_) for more information.
+    [Working with Features](Working_with-Features) for more information.
     
 
 If you successfully completed the steps given above, you have now

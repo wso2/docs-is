@@ -1,10 +1,10 @@
 # Monitoring Logs using Management Console
 
-[Monitoring logs](_Monitoring_Logs_) using the management console of
+[Monitoring logs](../../administer/monitoring-logs-using-management-console) using the management console of
 your product is possible with the Logging Management feature. If this
 feature is not bundled in your Carbon product by default, you can
 install it following the instructions in the [Working with
-Features](_Working_with_Features_) section.
+Features](../../administer/working-with-features) section.
 
 Feature Name: WSO2 Carbon - Logging Management Feature  
 Feature Identifier: org.wso2.carbon.logging.mgt.feature.group
@@ -17,6 +17,6 @@ access the log viewer as shown below.
 
 To use this feature in your Carbon server, see the following topics:  
 
--   [Configuring Log4j Properties](_Configuring_Log4j_Properties_)
--   [Configuring the Log Provider](_Configuring_the_Log_Provider_)
--   [View and Download Logs](_View_and_Download_Logs_)
+-   [Configuring Log4j Properties](Configuring-Log4j-Properties)
+-   [Configuring the Log Provider](Configuring-the-Log-Provider)
+-   [View and Download Logs](../../administer/view-and-download-logs)

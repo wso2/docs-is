@@ -3,15 +3,15 @@
 This section provides instructions and information on how to use the
 WSO2 Identity Server.
 
--   [Product Administration](_Product_Administration_)
+-   [Product Administration](Product_Administration)
 -   [Identity Administration and
-    Provisioning](_Identity_Administration_and_Provisioning_)
--   [Identity Bus](_Identity_Bus_)
--   [Delegated Access Control](_Delegated_Access_Control_)
--   [Consent Management](_Consent_Management_)
--   [Analytics](_Analytics_)
+    Provisioning](Identity_Administration_and_Provisioning)
+-   [Identity Bus](Identity_Bus)
+-   [Delegated Access Control](Delegated_Access_Control)
+-   [Consent Management](Consent_Management)
+-   [Analytics](Analytics)
 -   [Authenticators and Provisioning
-    Connectors](_Authenticators_and_Provisioning_Connectors_)
--   [Samples](_Samples_)
--   [Developer Guide](_Developer_Guide_)
--   [Logging Claims in Audit Logs](_Logging_Claims_in_Audit_Logs_)
+    Connectors](Authenticators_and_Provisioning_Connectors)
+-   [Samples](Samples)
+-   [Developer Guide](Developer_Guide)
+-   [Logging Claims in Audit Logs](Logging_Claims_in_Audit_Logs)
