@@ -468,7 +468,7 @@ Do the following steps to run the travelocity application.
     `           <SAMPLE_HOME>/sso/          ` in the folder you checked
     out and build the sample using the following command. You must have
     Apache Maven installed to do this (see [Installation
-    Prerequisites](Installation_Prerequisites) for the appropriate
+    Prerequisites](_Installation_Prerequisites_) for the appropriate
     version to use).
 
     ``` java
@@ -503,7 +503,7 @@ Do the following steps to run the travelocity application.
 Now you can test if the configurations you have done work in a tenant
 scenario.
 
-1.  [Create new tenants](Creating_and_Managing_Tenants) in the
+1.  [Create new tenants](_Creating_and_Managing_Tenants_) in the
     **`            service provider IS           `**.
 
     !!! note
@@ -692,7 +692,7 @@ scenario.
 The following links provide additional information that may be relevant
 when attempting the instructions in this topic.
 
--   See [Configuring SAML SSO](Configuring_Single_Sign-On) for
+-   See [Configuring SAML SSO](_Configuring_Single_Sign-On_) for
     information on using the travelocity.com application for single
     sign-on. This provides insight on some parameters used.
 -   See [Adding and Configuring a Service
@@ -704,6 +704,6 @@ when attempting the instructions in this topic.
     information on creating an identity provider using the WSO2 Identity
     Server management console.
 -   See [Configuring a SP and IdP Using Service
-    Calls](Configuring_a_SP_and_IdP_Using_Service_Calls) for
+    Calls](_Configuring_a_SP_and_IdP_Using_Service_Calls_) for
     information on creating a service provider or identity provider
     using admin services.
