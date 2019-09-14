@@ -140,7 +140,7 @@ caused by the client application mishandling the
 `         CON_APP_KEY        ` constraint that is explained below.
 
 -   [CONN\_APP\_KEY
-    constraint](#TokenPersistence-CONN-APP-KEYconstraint)
+    constraint](#TokenPersistence-CONN_APP_KEYconstraint)
 -   [Asynchronous token
     persistence](#TokenPersistence-Asynchronoustokenpersistence.1)
     -   [The flow](#TokenPersistence-Theflow)

@@ -3,18 +3,18 @@
 The following topics provide information related to the deployment of
 the WSO2 Identity Server:
 
--   [Deployment Patterns](../../setup/deployment-patterns)
+-   [Deployment Patterns](_Deployment_Patterns_)
 -   [Deployment Guidelines in
-    Production](../../setup/deployment-guidelines-in-production)
--   [Changing the hostname](../../setup/changing-the-hostname)
+    Production](_Deployment_Guidelines_in_Production_)
+-   [Changing the hostname](_Changing_the_hostname_)
 -   [Adding High Availability for
-    LDAP](setup/adding-high-availability-for-ldap)
--   [File Based Configurations](../../setup/file-based-configurations)
--   [Token Persistence](../../setup/token-persistence)
+    LDAP](_Adding_High_Availability_for_LDAP_)
+-   [File Based Configurations](_File_Based_Configurations_)
+-   [Token Persistence](_Token_Persistence_)
 -   [Configuring WSO2 Identity Server as the Key Manager in WSO2 API
-    Manager](../../setup/configuring-wso2-identity-server-as-the-key-manager-in-wso2-api-manager)
+    Manager](_Configuring_WSO2_Identity_Server_as_the_Key_Manager_in_WSO2_API_Manager_)
 
 **Related Topics**
 
 When deciding which user store to use, see [LDAP vs
-JDBC](../../administer/ldap-vs-jdbc) for guidance.
+JDBC](_LDAP_vs_JDBC_) for guidance.

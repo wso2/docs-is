@@ -1,125 +1,63 @@
 # Installing as a Windows Service
 
-WSO2 Carbon and any WSO2 product can be run as a Windows service. It is
-also possible to install and run multiple WSO2 products as Windows
-services simultaneously. See the following topics for instructions:
+Any Java-based application, including WSO2 Carbon and Carbon-based
+products, can be run as a Windows service by using a bridging tool such
+as Yet Another Java Service Wrapper (YAJSW).
 
-!!! tip
-    
-    Read this if you are using WSO2 Enterprise Integrator
-    
-    **Tip** : If you are running multiple WSO2 Enterprise Integrator
-    profiles as Windows services, a separate copy of the server pack should
-    be used for each profile. This is done to avoid file locking and other
-    concurrency related issues that may occur when more than one process is
-    trying to access the same files.
-    
+Since YAJSW is distributed under the LGPL license and WSO2 is
+distributed under the Apache2 license, these two can not be packed
+together in a distribution. However, any end-user or customer can freely
+combine components under these two licenses as long as the combined work
+is not distributed. The instructions below guide you through using YAJSW
+to install a WSO2 product as a Windows Service.
 
-  
+Follow the instructions in the sections below to set it up.
 
 -   [Prerequisites](#InstallingasaWindowsService-Prerequisites)
--   [Installing a single product as a Windows
-    service](#InstallingasaWindowsService-InstallingasingleproductasaWindowsservice)
--   [Installing multiple products as Windows
-    services](#InstallingasaWindowsService-InstallingmultipleproductsasWindowsservices)
+-   [Setting up the YAJSW wrapper configuration
+    file](#InstallingasaWindowsService-SettinguptheYAJSWwrapperconfigurationfile)
+-   [Setting up
+    CARBON\_HOME](#InstallingasaWindowsService-SettingupCARBON_HOME)
+-   [Running the product in console
+    mode](#InstallingasaWindowsService-Runningtheproductinconsolemode)
+-   [Working with
+    the WSO2CARBON service](#InstallingasaWindowsService-WorkingwiththeWSO2CARBONservice)
 
 ### Prerequisites
 
--   **System requirements**
-
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Memory</strong></p></td>
-    <td><ul>
-    <li>~ 2 GB minimum<br />
-    </li>
-    <li>~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and  the number of messages processed concurrently.</li>
-    </ul></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Disk</strong></p></td>
-    <td><ul>
-    <li>~ 500 MB, excluding space allocated for log files and databases.</li>
-    </ul></td>
-    </tr>
-    </tbody>
-    </table>
-
--   **Environment compatibility**
-
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Operating Systems / Databases</strong></p></td>
-    <td><ul>
-    <li>All WSO2 Carbon-based products are Java applications that can be run on <strong>any platform that is Oracle JDK 7/8 compliant</strong> . <strong></strong></li>
-    <li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. For more information, see <a href="_Working_with_Databases_">Working with Databases</a> .<br />
-    </li>
-    <li>It is not recommended to use Apache DS in a production environment due to issues with scalability. Instead, it is recommended to use an LDAP like OpenLDAP for user management.</li>
-    <li>If you have difficulty in setting up any WSO2 product in a specific platform or database, please contact us .</li>
-    </ul></td>
-    </tr>
-    </tbody>
-    </table>
-
--   **Required applications**  
-    The following applications are required for running the product and
-    its samples or for building from the source code. Mandatory
-    installations are marked with an asterisk \*.
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th><p>Application</p></th>
-    <th><p>Purpose</p></th>
-    <th><p>Version</p></th>
-    <th>Download Links</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Oracle Java SE Development Kit (JDK)*</strong></p></td>
-    <td><ul>
-    <li><p>To launch the product as each product is a Java application.</p></li>
-    <li>To <a href="http://wso2.com/community">build the product from the source distribution</a> (both JDK and Apache Maven are required).</li>
-    <li>To run Apache Ant.</li>
-    </ul></td>
-    <td><p>JDK 7 or 8.</p>
-    <p>Oracle and IBM JRE 1.7 are also supported when running (not building) WSO2 products.</p></td>
-    <td><p><a href="http://java.sun.com/javase/downloads/index.jsp">http://java.sun.com/javase/downloads/index.jsp</a></p></td>
-    </tr>
-    </tbody>
-    </table>
-
-<!-- -->
-
+-   Install JDK and set up the `          JAVA_HOME         `
+    environment variable. For more information, see
+    [Installation Prerequisites](https://docs.wso2.com/display/IS510/Installation+Prerequisites)
+    .
 -   Download and install a service wrapper library to use for running
     your WSO2 product as a Windows service. WSO2 recommends Yet Another
     Java Service Wrapper (
-    [YAJSW](http://sourceforge.net/projects/yajsw/) ), and several WSO2
-    products provide a default `          wrapper.conf         ` file in
-    their `          <PRODUCT_HOME>/bin/yajsw/         ` directory.
+    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 11.03, and
+    several WSO2 products provide a default
+    `          wrapper.conf         ` file in their
+    `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The
+    instructions below describe how to set up this file.
 
-### Installing a single product as a Windows service
+### Setting up the YAJSW wrapper configuration file
 
-Given below are the steps for installing a single WSO2 server as a
-windows service.
+The configuration file used for wrapping Java Applications by YAJSW is
+the `         wrapper.conf        ` file. The
+`         wrapper.conf        ` file found in the
+`         <PRODUCT_HOME>/bin/yajsw/        ` directory holds the minimal
+configuration for running a WSO2 product as a Windows Service.
 
-1.  **Setting up the YAJSW wrapper:** The configuration file used for
-    wrapping Java Applications by YAJSW is
-    `           wrapper.conf          `, which is located in the
-    `           <YAJSW_HOME>/conf/          ` directory and in the
-    `           <PRODUCT_HOME>/bin/yajsw/          ` directory of many
-    WSO2 products. Following is the minimal
-    `           wrapper.conf          ` configuration for running a WSO2
-    product as a Windows service. Open your
-    `           wrapper.conf          ` file, set its properties as
-    follows, and save it in the
-    `           <YAJSW_HOME>/conf/          ` directory.
+1.  Copy the `           wrapper.conf          ` file found in the
+    `           <PRODUCT_HOME>/bin/yajsw/          ` directory and paste
+    it in the `           <YAJSW_HOME>/conf/          ` directory.  
+    A sample of the `           wrapper.conf          ` file that is
+    packed with the WSO2 product is given below.
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-    wrapper.conf file
+    If you wish to set additional properties from an external registry
+    at runtime, store sensitive information like usernames and passwords
+    for connecting to the registry in a properties file, and secure it
+    with [secure
+    vault](https://docs.wso2.com/display/Carbon444/Carbon+Secure+Vault+Implementation)
+    .
 
     **Minimal wrapper.conf configuration**
 
@@ -228,195 +166,98 @@ windows service.
     wrapper.java.additional.23 = -Dcom.sun.jndi.ldap.connect.pool.authentication=simple
     wrapper.java.additional.24 = -Dcom.sun.jndi.ldap.connect.pool.timeout=3000 
     wrapper.java.additional.25 = -Dorg.terracotta.quartz.skipUpdateCheck=true 
+    wrapper.java.additional.26 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
+    wrapper.java.additional.27 = -Dfile.encoding=UTF8
+    wrapper.java.additional.28 = -DworkerNode=false
+    wrapper.java.additional.29 = -Dhttpclient.hostnameVerifier=DefaultAndLocalhost
     ```
 
-    !!! note
-    
-        Only applicable to WSO2 ESB 4.9.0 and WSO2 EI 6.x.x versions!
-    
-        You must manually add the following property to the
-        `           wrapper.conf          ` file to avoid errors in the
-        management console:
-    
-        ``` java
-            wrapper.java.additional.26 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
-        ```
-    
-        If this property is not added, you may come across an exception that
-        will result in blank pages when you log in to the ESB's management
-        console.
-    
+### Setting up CARBON\_HOME
 
-    If you want to set additional properties from an external registry
-    at runtime, store sensitive information like usernames and passwords
-    for connecting to the registry in a properties file and secure it
-    with [secure vault](#){.unresolved} .
+Extract the Carbon-based product that you want to run as a Windows
+service, and then set the Windows environment variable
+`         CARBON_HOME        ` to the extracted product directory
+location. For example, if you want to run IS 5.1.0 or  IS 5.3.0 as a
+Windows service, you would set `         CARBON_HOME        ` to the
+extracted `         wso2is-5.1.0        ` or
+`         wso2is-5.3.0        ` directory.
 
-2.  **Setting up Carbon Home:** Extract the Carbon-based product that
-    you want to run as a Windows service, and then set the Windows
-    environment variable `           CARBON_HOME          ` to the
-    extracted product directory location. For example, if you want to
-    run ESB 4.5.0 as a Windows service, you would set
-    `           CARBON_HOME          ` to the extracted
-    `           wso2esb-4.5.0          ` directory.
+![](attachments/103328963/103328964.png)
 
-3.  **Test the service in console mode:** You can verify that YAJSW is
-    configured correctly for running the Carbon-based product as a
-    Windows service.
-    1.  Open a Windows command prompt and execute the
-        `             runConsole.bat            ` script from the
-        `             <YAJSW_HOME>/bat/            ` directory as shown
-        below.
+### Running the product in console mode
 
-        ``` java
-        cd C:\DocumentsandSettings\yajsw_home\bat\runConsole.bat
-        ```
+You will now verify that YAJSW is configured correctly for running the
+Carbon-based product as a Windows service.
 
-        If the configurations are set properly for YAJSW, you will see
-        console output similar to the following:  
-        ![](../../assets/img/45946424/46206534.png)
+1.  Open a Windows command prompt and go to the
+    `           <YAJSW_HOME>/bat/          ` directory. For example:
 
-    2.  You can now access the management console from your web browser
-        via <https://localhost:9443/carbon> .
+    ``` java
+        cd C:\Documents and Settings\yajsw_home\bat
+    ```
 
-4.  **Install and run the product as a service:** Execute the relevant
-    script as explained below.  
-    1.  First, install the WSO2 product as a Windows service, by
-        executing the following command in the
-        `             <YAJSW_HOME>/bat/            ` directory:
+2.  Start the wrapper in console mode using the following command:
 
-        ``` java
-                installService.bat
-        ```
+    ``` java
+        runConsole.bat
+    ```
 
-        The console will display a message confirming that
-        the WSO2CARBON service was installed:
+    For example:
 
-        ![](../../assets/img/28717183/29364285.png)
+    ![](attachments/28717183/29364287.png)
 
-    2.  Start the service by executing the following command in the same
-        console window:
+If the configurations are set properly for YAJSW, you will see console
+output similar to the following and can now access the WSO2 management
+console from your web browser via <https://localhost:9443/carbon> .
 
-        ``` java
-                startService.bat
-        ```
+![](attachments/28717183/29364286.png)
 
-        The console will display a message confirming that
-        the WSO2CARBON service was started:
+### Working with the WSO2CARBON service
 
-        ![](../../assets/img/28717183/29364288.png)
+To install the Carbon-based product as a Windows service, execute the
+following command in the `         <YAJSW_HOME>/bat/        ` directory:
 
-5.  **Stop and uninstall service:** Execute the relevant scripts as
-    shown below.
-    1.  To stop the service, execute the following command in the same
-        console window:
+``` java
+installService.bat
+```
 
-        ``` java
-                stopService.bat
-        ```
+The console will display a message confirming that
+the WSO2CARBON service was installed.
 
-        The console will display a message confirming that
-        the WSO2CARBON service has stopped:
+![](attachments/28717183/29364285.png)
 
-        ![](../../assets/img/28717183/29364290.png)
+To start the service, execute the following command in the same console
+window:
 
-    2.  To uninstall the service, execute the following command in the
-        same console window:
+``` java
+startService.bat
+```
 
-        ``` java
-                uninstallService.bat
-        ```
+The console will display a message confirming that
+the WSO2CARBON service was started.
 
-        The console will display a message confirming that
-        the WSO2CARBON service was removed:
+![](attachments/28717183/29364288.png)
 
-        ![](../../assets/img/28717183/29364291.png)
+To stop the service, execute the following command in the same console
+window:
 
-### Installing multiple products as Windows services
+``` java
+stopService.bat
+```
 
-The following instructions explain how to install multiple WSO2 servers
-in a single computer. In this scenario, you simple have to maintain
-separate YAJSW configuration files for each product. For example,
-consider that you need to install WSO2 ESB and WSO2 DSS as Windows
-services and follow the instructions given below.
+The console will display a message confirming that
+the WSO2CARBON service has stopped.
 
-1.  Download and unzip WSO2 ESB and WSO2 DSS.
-2.  Download and unzip
-    [yajsw](http://sourceforge.net/projects/yajsw/files/).
-3.  Create two directories 'esb\_service' and 'dss\_service'.
-4.  Copy the `          <YAJSW_HOME>         ` directory to
-    'esb\_service' and 'dss\_service' separately. Now you will have two
-    separate yajsw directories for the two products.
-5.  Now, update the `           wrapper.conf          ` file for each of
-    the products, which is stored in the
-    `           esb_service/           <ESB_YAJSW_HOME>           /conf/          `
-    and `           dss          `
-    `           _service/           <DSS_YAJSW_HOME>           /conf/          `
-    directories. You simply have to replace
-    `           carbon_home          ` with
-    `           esb_home          ` and `           dss_home          `
-    respectively.
+![](attachments/28717183/29364290.png)
 
-6.  Copy the `          <ESB_HOME>         ` directory to 'esb\_service'
-    and the `          <DSS_HOME>         ` directory to 'dss\_service'.
-7.  Set port offset for DSS to '1' in the
-    `          <DSS_HOME>/repository/conf/carbon.xml         ` file.
-    This will ensure that the DSS service will run on https port 9444
-    (default 9443 + 1). WSO2 ESB will be running on the default
-    port 9443.
-8.  Set the ESB\_HOME, DSS\_HOME and JAVA\_HOME environment variables,
-    which points to the extracted folders of each service.
-9.  Now, update the `           wrapper.conf          ` file for each of
-    the products, which is stored in the
-    `           esb_service/           <ESB_YAJSW_HOME>           /conf/          `
-    and `           dss          `
-    `           _service/           <DSS_YAJSW_HOME>           /conf/          `
-    directories. You simply have to replace
-    `           carbon_home          ` with
-    `           esb_home          ` and `           dss_home          `
-    respectively.
+To uninstall the service, execute the following command in the same
+console window:
 
-    !!! note
-    
-        Only applicable to WSO2 ESB 4.9.0 and WSO2 EI 6.x.x versions!
-    
-        You must manually add the following property to the
-        `           wrapper.conf          ` file to avoid errors in the
-        management console:
-    
-        ``` java
-            wrapper.java.additional.26 = -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false
-        ```
-    
-        If this property is not added, you may come across an exception that
-        will result in blank pages when you log in to the ESB's management
-        console.
-    
+``` java
+uninstallService.bat
+```
 
-10. Navigate to the
-    `          esb_service/          <ESB_YAJSW_HOME>          /bin         `
-    directory and execute the scripts as shown below.
-    1.  Run `            installService.bat           ` to install the
-        Windows service.
-    2.  Run `            startService.bat           ` to start the
-        service.
-11. Do the same above for the 'dss\_service' as well.
-12. Right click on **My Computer -\> Manage**. Then click **Services
-    and Applications -\> Services**. You can see both ESB and DSS
-    services running.  
-    ![](../../assets/img/53125425/53287331.png)
+The console will display a message confirming that
+the WSO2CARBON service was removed.
 
-    You can stop or restart the services from the UI as shown in the
-    diagram above.  
-    Alternatively, you can go to the
-    `            /<            YAJSW_HOME>            /bin           `
-    directory for each product and execute the
-    `            stopService.bat           ` and
-    `            uninstallService.bat           ` scripts to stop and
-    uninstall Windows services.
-
-13. You can now open the management consoles of the two products with
-    the following urls:
-
-    -   For ESB: https://localhost:9443/carbon .
-    -   For DSS: https://localhost:9444/carbon .
+![](attachments/28717183/29364291.png)
