@@ -2,8 +2,8 @@
 
 This chapter contains the following information:
 
--   [Introduction to Transports](_Introduction_to_Transports_)
--   [Carbon Transports](_Carbon_Transports_)
+-   [Introduction to Transports](../../administer/introduction-to-multitenancy)
+-   [Carbon Transports](../../administer/carbon-transports)
 
   
 

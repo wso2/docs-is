@@ -19,7 +19,7 @@ or the collection:
     the alterations.
 -   **Media Type** - An associated Media type of the
     resource/collection. For more information about Media types, see
-    [Adding a Resource](_Adding_a_Resource_).
+    [Adding a Resource](../../administer/adding-a-resource).
 -   **Checkpoint** - Allows to create a checkpoint (URL for the
     permanent link) of a resource/collection.
 -   **Versions** - Allows to view versions of a resource/collection.

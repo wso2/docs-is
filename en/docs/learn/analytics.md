@@ -26,9 +26,9 @@ For more information on how to work with WSO2 Identity Server Analytics,
 explore the following topics:
 
 -   [Prerequisites to Publish
-    Statistics](_Prerequisites_to_Publish_Statistics_)
+    Statistics](Prerequisites_to_Publish_Statistics)
 -   [Analyzing the Authentication
-    Operations](_Analyzing_the_Authentication_Operations_)
+    Operations](Analyzing_the_Authentication_Operations)
 -   [Monitoring the Authentication Operations with
-    Alerts](_Monitoring_the_Authentication_Operations_with_Alerts_)
--   [Purging Analytics Data](_Purging_Analytics_Data_)
+    Alerts](Monitoring_the_Authentication_Operations_with_Alerts)
+-   [Purging Analytics Data](Purging_Analytics_Data)

@@ -29,7 +29,7 @@ following ways:
     Therefore, you can replace this. For instructions on replacing this
     by setting up a new RDBMS and configuring it for your system, see
     [Setting Up the Physical
-    Database](_Setting_up_the_Physical_Database_).
+    Database](../../administer/setting-up-the-physical-database).
 
 Therefore, before you begin, ensure that the RDBMS that you want to use
 as the JDBC user store is correctly set up for your system. Then, follow
@@ -39,9 +39,9 @@ store in your product.
 -   [Step 1: Configuring the JDBC user store
     manager](#ConfiguringaJDBCUserStore-Step1:ConfiguringtheJDBCuserstoremanager)
 -   [Step 2: Updating the system
-    administrator](#ConfiguringaJDBCUserStore-Step_2_updating_the_system_administratorStep2:Updatingthesystemadministrator)
+    administrator](#ConfiguringaJDBCUserStore-Step-2-updating-the-system-administratorStep2:Updatingthesystemadministrator)
 -   [Step 3: Updating the
-    datasources](#ConfiguringaJDBCUserStore-Step_3_Updating_the_datasourcesStep3:Updatingthedatasources)
+    datasources](#ConfiguringaJDBCUserStore-Step-3-Updating-the-datasourcesStep3:Updatingthedatasources)
 -   [Step 4: Starting the
     server](#ConfiguringaJDBCUserStore-Step4:Startingtheserver)
 
@@ -72,7 +72,7 @@ change the `         JDBCUserStoreManager        ` section in the
     `           <PRODUCT_HOME>/repository/conf/           user-mgt.xm          `
     l file which are used for configuring the primary user store, see
     [Properties of Primary User
-    Stores](_Working_with_Properties_of_User_Stores_).
+    Stores](../../administer/working-with-properties-of-user-stores).
 
     -   [**Internal JDBC User
         Store**](#3c2de3f9c218436db8568c36ed6f5db7)
@@ -280,10 +280,10 @@ shipped with WSO2 products by default, is configured in the
 `         master-datasources.xml        ` file, which is stored in the
 `         <PRODUCT_HOME>/repository/conf/datasources/        `
 directory. F or detailed information on setting up databases, see
-[Setting Up the Physical Database](_Setting_up_the_Physical_Database_)
+[Setting Up the Physical Database](Setting_up_the_Physical_Database)
 , and for information on the purpose of defining datasources and how
 they are configured for a product, see [Managing
-Datasources](_Managing_Datasources_).
+Datasources](Managing_Datasources).
 
 1.  There are two possible methods for updating datasources:
     -   Shown below is how the

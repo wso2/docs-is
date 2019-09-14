@@ -245,7 +245,7 @@ The section below describes each concept in more detail.
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
-    Parameters](_Retrieving_Tenant_Resources_Based_on_Search_Parameters_).
+    Parameters](Retrieving_Tenant-Resources-Based-on-Search-Parameters).
     
 
 ### Try it out

@@ -22,6 +22,6 @@ default \<WSO2\_CARBON\_DB\> datasource.
 
 See the following for more details:
 
--   [Adding Datasources](_Adding_Datasources_)
--   [Configuring an RDBMS Datasource](_Configuring_an_RDBMS_Datasource_)
--   [Configuring a Custom Datasource](_Configuring_a_Custom_Datasource_)
+-   [Adding Datasources](../../administer/adding-datasources)
+-   [Configuring an RDBMS Datasource](Configuring-an-RDBMS-Datasource)
+-   [Configuring a Custom Datasource](Configuring-a-Custom-Datasource)

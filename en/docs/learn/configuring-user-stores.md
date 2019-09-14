@@ -16,7 +16,7 @@ configured under these two types.
 #### Primary User Store (Mandatory)
 
 This is the main user store that is shared among all the
-[tenants](../../admin-guide/introduction-to-multitenancy)
+[tenants](../../administer/introduction-to-multitenancy)
 in the system. Only one user store should be configured as the primary
 user store and it is configured in the
 `         <PRODUCT_HOME>/repository/conf/deployment.toml       ` file. By
@@ -54,6 +54,6 @@ user store, you have to set the user store manager class name.
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
     storing permission, see [Configuring the Authorization
-    Manager](../../admin-guide/configuring-the-authorization-manager)
+    Manager](../../administer/configuring-the-authorization-manager)
 
 The following topics include instructions on setting up different user stores.

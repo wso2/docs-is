@@ -9,13 +9,13 @@ the normal flow of events you would follow.
 As per the above diagram, when setting up WSO2 Identity Server, you would
 configure the following in the order mentioned.
 
--   **[Databases](../../admin-guide/working-with-databases)**  
+-   **[Databases](../../administer/working-with-databases)**  
     When configuring WSO2 Identity Server, the first step to do is to
     set up the databases. This includes creating the database and
     populating it with the various tables that are required. Once you
     have set up the databases, configure the datasources to point to the
     databases created. See [Setting up the Physical
-    Database](../../admin-guide/setting-up-the-physical-database)
+    Database](../../administer/setting-up-the-physical-database)
     for information on setting up the database with its tables and
     configuring the datasources.  
 
@@ -44,16 +44,16 @@ configure the following in the order mentioned.
     Install any additional features you need for WSO2 Identity Server. A
     common feature that can be installed is the key manager feature when
     [configuring IS as the key
-    manager](../../admin-guide/configuring-wso2-identity-server-as-the-key-manager-in-wso2-api-manager)
+    manager](../../setup/configuring-wso2-identity-server-as-the-key-manager-in-wso2-api-manager)
     in a distributed WSO2 API Manager set up. See
-    [Features](../../admin-guide/working-with-features)
+    [Features](../../administer/working-with-features)
     for more information.  
 
--   **[Setting up Keystores](../../admin-guide/using-asymmetric-encryption)**  
+-   **[Setting up Keystores](../../administer/using-asymmetric-encryption)**  
     Create and add a keystore to manage keys that are stored in the
     database. This is very useful in WS-Security scenarios. See [Using
     Asymmetric
-    Encryption](../../admin-guide/using-asymmetric-encryption)
+    Encryption](../../administer/using-asymmetric-encryption)
     in the WSO2 Product Administration Guide for more information.  
 
 -   **[Tenants](../../using-wso2-identity-server/creating-and-managing-tenants)**  
@@ -75,7 +75,7 @@ configure the following in the order mentioned.
         You can do the following using the tools available in the **Configure** menu.
 
         -   [Set up
-            logging](../../admin-guide/monitoring-logs-using-management-console)
+            logging](../../administer/monitoring-logs-using-management-console-using-management-console)
         -   [Working with Server Roles](../../using-wso2-identity-server/server-roles)
 
         On the **[Tools](../../using-wso2-identity-server/using-tools)** menu, you can do the following.

@@ -22,12 +22,12 @@ topics:
 
     -   For a detailed list of monitoring options, see the [Monitoring
         section in the WSO2 Administration
-        Guide](../../admin-guide/monitoring).
+        Guide](../../administer/monitoring).
     -   For information on the Carbon Health Check API to monitor server
         health, see [Monitoring Server Health in the WSO2 Administration
-        Guide](../../admin-guide/monitoring-server-health).
+        Guide](../../administer/monitoring-server-health).
     -   For information on monitoring workflows, see [Monitoring Workflow
         Requests](../../using-wso2-identity-server/monitoring-workflow-requests).
     -   For information on configuring metrics properties, see [Configuring
         Metrics Properties in the WSO2 Administration
-        Guide](../../admin-guide/configuring-metrics-properties).
+        Guide](../../administer/configuring-metrics-properties).

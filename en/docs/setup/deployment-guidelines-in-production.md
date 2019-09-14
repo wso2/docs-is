@@ -11,7 +11,7 @@ for general production use, assuming moderate load conditions. For
 situations where a high volume of traffic is expected and if there are
 large deployments, these guidelines may not be sufficient. See
 [Troubleshooting in Production
-Environments](../../admin-guide/troubleshooting-in-production-environments)
+Environments](../../administer/troubleshooting-in-production-environments)
 for information on how to obtain and analyze information to solve
 production issues. 
 
@@ -76,7 +76,7 @@ have the appropriate hardware and software for running the product.
         To use a different JDK, point the
         **`             JAVA_HOME            `** environment variable to the
         new JDK. Make sure your JDK version is [compatible with the WSO2
-        product](../../admin-guide/tested-operating-systems-and-jdks).
+        product](../../administer/tested-operating-systems-and-jdks).
     
 
 -   All WSO2 products are generally compatible with most common DBMSs.
@@ -84,7 +84,7 @@ have the appropriate hardware and software for running the product.
     some production environments. For most enterprise production
     environments, however, we recommend you use an industry-standard
     RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more
-    information, see [Working with Databases](../../admin-guide/working-with-databases). Also, we do not recommend the H2
+    information, see [Working with Databases](../../administer/working-with-databases). Also, we do not recommend the H2
     database as a user store.
 -   It is **not recommended to use Apache DS** in a production
     environment due to scalability issues. Instead, use an LDAP like
@@ -93,7 +93,7 @@ have the appropriate hardware and software for running the product.
     installed on latest releases of RedHat Enterprise Linux or Ubuntu
     Server LTS.  
 -   For environments that WSO2 products are tested with, see
-    [Compatibility of WSO2 Products](../../admin-guide/compatibility-of-wso2-products).
+    [Compatibility of WSO2 Products](../../administer/compatibility-of-wso2-products).
 -   If you have difficulty in setting up any WSO2 product in a specific
     platform or database, [contact us](http://wso2.com/contact/).
 
@@ -246,7 +246,7 @@ you can take the following approaches:
     code that reads the properties at runtime from that registry. Be
     sure to store sensitive data such as username and password to
     connect to the registry in a property file instead of in the Java
-    code and secure the properties file with the [secure vault](../../admin-guide/carbon-secure-vault-implementation).
+    code and secure the properties file with the [secure vault](../../administer/carbon-secure-vault-implementation).
 
     !!! note
         When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `           /etc/hosts          ` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above
@@ -270,18 +270,18 @@ manage the product.
 -   When you move into a production environment, it is recommended to
     grant restricted access to the management console. See [Securing
     Carbon
-    Applications](../../admin-guide/securing-carbon-applications)
+    Applications](../../administer/securing-carbon-applications)
     for instructions.
 -   The `           config-validation.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/etc          `
     directory contains a list of recommended system parameters, which
     are validated against your system when the server starts. See
     [Configuring
-    config-validation.xml](../../admin-guide/configuring-config-validation.xml)
+    config-validation.xml](../../administer/configuring-config-validation.xml)
     for details on modifying these parameters before starting the
     server.
 -   The Management Console uses the default [HTTP-NIO
-    transport](../../admin-guide/http-nio-transport)
+    transport](../../administer/http-nio-transport)
    , which is configured in the
     `           catalina-server.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/tomcat          `
@@ -371,7 +371,7 @@ running the product.
 ### Hazelcast properties
 
 WSO2 products use
-[Hazelcast](../../admin-guide/clustering-overview)
+[Hazelcast](../../administer/clustering-overview)
 as its default clustering engine. The following configuration must be
 placed in the
 `          <PRODUCT_HOME>/repository/conf/hazelcast.properties         `
@@ -400,7 +400,7 @@ Once you enable log4j for hazelcast as explained above, add
 `          log4j.logger.com.hazelcast=INFO         ` to the
 `          <PRODUCT_HOME>/repository/conf/log4j.properties         `
 file. For more information on logging, see [Monitoring
-Logs](../../admin-guide/monitoring-logs).
+Logs](../../administer/monitoring-logs).
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
@@ -439,7 +439,7 @@ for making an installed WSO2 product ready for production.
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>See <a href="../../admin-guide/security-guidelines-for-production-deployment">Security Guidelines for Production Deployment</a> for the detailed list of security-related recommendations.</p>
+<p>See <a href="../../administer/security-guidelines-for-production-deployment">Security Guidelines for Production Deployment</a> for the detailed list of security-related recommendations.</p>
 </div>
 </div>
 </div></td>
@@ -469,7 +469,7 @@ for making an installed WSO2 product ready for production.
 <ul>
 <li><a href="../../setup/changing-the-hostname">Changing the hostname</a></li>
 </ul></li>
-<li>See <a href="../../admin-guide/working-with-transports">Working with Transports</a> for information on transports in WSO2 products.</li>
+<li>See <a href="../../administer/working-with-transports">Working with Transports</a> for information on transports in WSO2 products.</li>
 </ul>
 </div>
 </div>
@@ -507,7 +507,7 @@ for making an installed WSO2 product ready for production.
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>See <a href="../../admin-guide/configuring-user-stores">Configuring User Stores</a> for more information on user stores, how they work, and how to configure them.</p>
+<p>See <a href="../../administer/configuring-user-stores">Configuring User Stores</a> for more information on user stores, how they work, and how to configure them.</p>
 </div>
 </div>
 </div></td>
@@ -528,7 +528,7 @@ for making an installed WSO2 product ready for production.
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>See <a href="../../admin-guide/jmx-based-monitoring">JMX-Based Monitoring</a> for information on monitoring WSO2 products using JMX.</p>
+<p>See <a href="../../administer/jmx-based-monitoring">JMX-Based Monitoring</a> for information on monitoring WSO2 products using JMX.</p>
 </div>
 </div>
 </div></td>
@@ -544,7 +544,7 @@ for making an installed WSO2 product ready for production.
 <div class="panelContent">
 <div>
 <ul>
-<li>See <a href="../../admin-guide/performance-tuning">Performance Tuning</a> for the general guidelines, which are common to all WSO2 products.</li>
+<li>See <a href="../../administer/performance-tuning">Performance Tuning</a> for the general guidelines, which are common to all WSO2 products.</li>
 <li>For performance tuning guidelines that are specific to each product, go to the product documentation for each product listed below and search for performance tuning guidelines.<br />
 <br />
 Listed below are the main WSO2 products:</li>
@@ -597,7 +597,7 @@ Listed below are the main WSO2 products:</li>
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<p>See <a href="../../admin-guide/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> for a list of common and product-specific ports used by WSO2 products.</p>
+<p>See <a href="../../administer/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> for a list of common and product-specific ports used by WSO2 products.</p>
 </div>
 </div>
 </div></td>
@@ -628,15 +628,15 @@ Listed below are the main WSO2 products:</li>
 <tr class="odd">
 <td>High availability</td>
 <td><div class="content-wrapper">
-<p>For high availability, WSO2 products must run on a <a href="../../admin-guide/clustering-overview">cluster</a> . This enables the WSO2 products to still work in the case of failover. Databases used for the repository, user management, and business activity monitoring can also be configured in a cluster or can use replication management provided by the RDBMS.</p>
+<p>For high availability, WSO2 products must run on a <a href="../../administer/clustering-overview">cluster</a> . This enables the WSO2 products to still work in the case of failover. Databases used for the repository, user management, and business activity monitoring can also be configured in a cluster or can use replication management provided by the RDBMS.</p>
 <div class="panel" style="border-width: 1px;">
 <div class="panelHeader" style="border-bottom-width: 1px;">
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
 <ul>
-<li>See <a href="../../admin-guide/clustering-overview">Overview</a> for more details on clustering, what it is, how it helps and other related information.</li>
-<li>See <a href="../../admin-guide/separating-the-worker-and-manager-nodes">Separating the Worker and Manager Nodes</a> for information on clustering WSO2 products by separating worker and manager concerns between the nodes.</li>
+<li>See <a href="../../administer/clustering-overview">Overview</a> for more details on clustering, what it is, how it helps and other related information.</li>
+<li>See <a href="../../administer/separating-the-worker-and-manager-nodes">Separating the Worker and Manager Nodes</a> for information on clustering WSO2 products by separating worker and manager concerns between the nodes.</li>
 </ul>
 </div>
 </div>
@@ -686,7 +686,7 @@ We recommend that you use a proper artifact management system such as
 **[Puppet](https://puppet.com/)** to back up and manage your artifacts
 before deploying them in the WSO2 Carbon runtime. Also, use the **[WSO2
 Update Manager
-(WUM)](../../admin-guide/updating-wso2-products)**
+(WUM)](../../administer/updating-wso2-products)**
 tool, which is a command-line utility that allows you to get the latest
 updates ( bug fixes and security fixes ) of a particular product
 release.
@@ -734,6 +734,6 @@ The following steps include how to recover your setup using the backups:
 3.  To recover the databases, follow the recovery strategy recommended
     by the databases you are using. For information on supported and
     tested databases, see [Tested Database Management
-    Systems](../../admin-guide/tested-dbmss).
+    Systems](../../administer/tested-dbmss).
 
   

@@ -198,7 +198,7 @@ Deploying travelocity.com sample app
 The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
-See [deploying travelocity.com sample app](_Deploying_the_Sample_App_)
+See [deploying travelocity.com sample app](Deploying-the-Sample-App)
 for instructions on how to do this.
 
 ### Configuring the service provider

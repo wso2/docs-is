@@ -30,7 +30,7 @@ trusted by the CA, i.e., the SSL connection to the peer is terminated.
     
     To learn about configuring the X509 certificate authenticator, see
     [Configuring X509Certificate
-    Authenticator](_Configuring_X509Certificate_Authenticator_).
+    Authenticator](Configuring-X509Certificate-Authenticator).
     
 
 Explore the following sections below to configure CRL and OCCP for

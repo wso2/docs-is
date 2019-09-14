@@ -3,7 +3,7 @@
 See the following topics for information on how multitenancy works in
 WSO2 products.
 
--   [Introduction to Multitenancy](_Introduction_to_Multitenancy_)
+-   [Introduction to Multitenancy](../../administer/introduction-to-multitenancy)
 -   [Configuring the Tenant Loading
-    Policy](_Configuring_the_Tenant_Loading_Policy_)
--   [Adding New Tenants](_Adding_New_Tenants_)
+    Policy](Configuring-the-Tenant-Loading-Policy)
+-   [Adding New Tenants](../../administer/adding-new-tenants)

@@ -7,7 +7,7 @@ you need to follow in order to use PostgreSQL for this purpose.
 -   [Setting
     up datasource configurations](#ChangingtoPostgreSQL-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
     -   [Changing the
-        default WSO2\_CARBON\_DB datasource](#ChangingtoPostgreSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+        default WSO2\_CARBON\_DB datasource](#ChangingtoPostgreSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2-CARBON-DBdatasource)
     -   [Configuring new datasources to manage registry or user
         management
         data](#ChangingtoPostgreSQL-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
@@ -20,7 +20,7 @@ you need to follow in order to use PostgreSQL for this purpose.
     
     You need to set up PostgreSQL before following the steps to configure
     your product with PostgreSQL. For more information, see [Setting up
-    PostgreSQL](_Setting_up_PostgreSQL_).
+    PostgreSQL](../../administer/setting-up-postgresql).
     
 
 ### Setting up datasource configurations

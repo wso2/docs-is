@@ -67,7 +67,7 @@ primary user store.
     If you have added a custom user store manager to the system, that
     also be available in this drop-down menu.
 
-3.  Enter a unique domain name with no underscore (\_) characters, and a
+3.  Enter a unique domain name with no underscore (\) characters, and a
     description (optional) for this user store.
 4.  Enter values for the properties, using the descriptions in the
     'Descriptions' column for guidance. The properties that appear, vary
@@ -140,7 +140,7 @@ steps to create and save the .xml file:
     !!! note
     
         The secondary user store configuration file must have the same name
-        as the domain with an underscore (\_) in place of the period. For
+        as the domain with an underscore (\) in place of the period. For
         example, if the domain is 'wso2.com', name the file as
         `           wso2_com.xml          ` . One file contains the
         definition for one user store domain.

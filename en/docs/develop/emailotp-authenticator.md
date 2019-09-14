@@ -10,7 +10,7 @@ services using Email APIs through WSO2 IS.
     .
 -   To get started with the authenticator, go to [Configuring
     Multi-factor Authentication using
-    EmailOTP](_Configuring_Multi-factor_Authentication_using_EmailOTP_)
+    EmailOTP](Configuring-Multi-factor-Authentication-using-EmailOTP)
     .
 -   Once you have completed your configurations, you can authenticate
     users via the EmailOTP authenticator.

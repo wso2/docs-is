@@ -116,9 +116,9 @@ nav:
         - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
         - 'SAML 2.0 Web SSO':
           - 'SAML 2.0 Web SSO': learn/sAML-2.0-Web-SSO.md
-          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-SAML-2.0-Web-SSO.md
-          - 'Querying SAML Assertions': learn/querying-SAML-Assertions.md
-          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-SAML-2.0-Artifact-Binding.md
+          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml-2.0-web-sso.md
+          - 'Querying SAML Assertions': learn/querying-saml-assertions.md
+          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
         - 'WS-Trust':
           - 'WS-Trust': learn/ws-trust.md
           - 'Configuring WS-Trust Security Token Service': learn/configuring-ws-trust-security-token-service.md
@@ -392,21 +392,21 @@ nav:
       - 'Analytics':
         - 'Analytics': learn/analytics.md
         - 'Prerequisites to Publish Statistics':
-          - 'Prerequisites to Publish Statistics': learn/prerequisites-to-Publish-Statistics.md
-          - 'Enabling Geolocation Based Statistics': learn/enabling-Geolocation-Based-Statistics.md
+          - 'Prerequisites to Publish Statistics': learn/prerequisites-to-publish-statistics.md
+          - 'Enabling Geolocation Based Statistics': learn/enabling-geolocation-based-statistics.md
         - 'Analyzing the Authentication Operations':
-          - 'Analyzing the Authentication Operations': learn/analyzing-the-Authentication-Operations.md
-          - 'Accessing the Analytics Dashboard': learn/accessing-the-Analytics-Dashboard.md
-          - 'Analyzing Overall Login Attempts': learn/analyzing-Overall-Login-Attempts.md
-          - 'Analyzing the Local Login Attempts': learn/analyzing-the-Local-Login-Attempts.md
-          - 'Analyzing the Federated Login Attempts': learn/analyzing-the-Federated-Login-Attempts.md
-          - 'Analyzing Session Statistics': learn/analyzing-Session-Statistics.md
+          - 'Analyzing the Authentication Operations': learn/analyzing-the-authentication-operations.md
+          - 'Accessing the Analytics Dashboard': learn/accessing-the-analytics-dashboard.md
+          - 'Analyzing Overall Login Attempts': learn/analyzing-overall-login-attempts.md
+          - 'Analyzing the Local Login Attempts': learn/analyzing-the-local-login-attempts.md
+          - 'Analyzing the Federated Login Attempts': learn/analyzing-the-federated-login-attempts.md
+          - 'Analyzing Session Statistics': learn/analyzing-session-statistics.md
         - 'Monitoring the Authentication Operations with Alerts':
-          - 'Monitoring the Authentication Operations with Alerts': learn/Monitoring-the-Authentication-Operations-with-Alerts.md
-          - 'Alert Types': learn/alert-Types.md
-          - 'Configuring Alerts': learn/configuring-Alerts.md
-          - 'Viewing Alerts': learn/Viewing-Alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-Provisioning-Connectors.md
+          - 'Monitoring the Authentication Operations with Alerts': learn/monitoring-the-authentication-operations-with-alerts.md
+          - 'Alert Types': learn/alert-types.md
+          - 'Configuring Alerts': learn/configuring-alerts.md
+          - 'Viewing Alerts': learn/Viewing-alerts.md
+      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
@@ -437,7 +437,7 @@ nav:
         - 'Broker Trust Relationships with WSO2 Identity Server': learn/broker-trust-relationships-with-wso2-identity-server.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
-      - 'Logging Claims in Audit Logs': learn/logging-Claims-in-Audit-Logs.md
+      - 'Logging Claims in Audit Logs': learn/logging-claims-in-audit-logs.md
   - 'Develop': 
     - 'Developer Guide': 
       - 'Developer guide': develop/developer-guide.md
@@ -531,120 +531,120 @@ nav:
         - 'Deploying the Sample App': develop/deploying-the-sample-app.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
         - 'Basecamp Authenticator':
-          - 'Basecamp Authenticator': develop/basecamp-Authenticator.md
-          - 'Configuring Basecamp Authenticator': develop/configuring-Basecamp-Authenticator.md
+          - 'Basecamp Authenticator': develop/basecamp-authenticator.md
+          - 'Configuring Basecamp Authenticator': develop/configuring-basecamp-authenticator.md
         - 'Bitly Authenticator':
-          - 'Bitly Authenticator': develop/bitly-Authenticator.md
-          - 'Configuring Bitly Authenticator': develop/configuring-Bitly-Authenticator.md
+          - 'Bitly Authenticator': develop/bitly-authenticator.md
+          - 'Configuring Bitly Authenticator': develop/configuring-bitly-authenticator.md
         - 'CAS Inbound Authenticator':
-          - 'CAS Inbound Authenticator': develop/cAS-Inbound-Authenticator.md
-          - 'Configuring CAS Inbound Authenticator': develop/configuring-CAS-Inbound-Authenticator.md
+          - 'CAS Inbound Authenticator': develop/cas-inbound-authenticator.md
+          - 'Configuring CAS Inbound Authenticator': develop/configuring-cas-inbound-authenticator.md
         - 'Dropbox Authenticator':
-          - 'Dropbox Authenticator': develop/dropbox-Authenticator.md
-          - 'Configuring Dropbox Authenticator': develop/configuring-Dropbox-Authenticator.md
+          - 'Dropbox Authenticator': develop/dropbox-authenticator.md
+          - 'Configuring Dropbox Authenticator': develop/configuring-dropbox-authenticator.md
         - 'Duo Security Authenticator and Provisioning Connector':
-          - 'Duo Security Authenticator and Provisioning Connector': develop/duo-Security-Authenticator-and-Provisioning-Connector.md
-          - 'Configuring Duo Security Provisioning Connector': develop/configuring-Duo-Security-Provisioning-Connector.md
-          - 'Configuring Duo Security Authenticator': develop/configuring-Duo-Security-Authenticator.md
+          - 'Duo Security Authenticator and Provisioning Connector': develop/duo-security-authenticator-and-provisioning-connector.md
+          - 'Configuring Duo Security Provisioning Connector': develop/configuring-duo-security-provisioning-connector.md
+          - 'Configuring Duo Security Authenticator': develop/configuring-duo-security-authenticator.md
         - 'EmailOTP Authenticator':
-          - 'EmailOTP Authenticator': develop/emailOTP-Authenticator.md
-          - 'Configuring Multi-factor Authentication using EmailOTP': develop/configuring-Multi-factor-Authentication-using-EmailOTP.md
+          - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
+          - 'Configuring Multi-factor Authentication using EmailOTP': develop/configuring-multi-factor-authentication-using-emailotp.md
         - 'Facebook Authenticator':
-          - 'Facebook Authenticator': develop/facebook-Authenticator.md
-          - 'Configuring Facebook Authenticator': develop/configuring-Facebook-Authenticator.md
+          - 'Facebook Authenticator': develop/facebook-authenticator.md
+          - 'Configuring Facebook Authenticator': develop/configuring-facebook-authenticator.md
         - 'Foursquare Authenticator':
-          - 'Foursquare Authenticator': develop/foursquare-Authenticator.md
-          - 'Configuring Foursquare Authenticator': develop/configuring-Foursquare-Authenticator.md
+          - 'Foursquare Authenticator': develop/foursquare-authenticator.md
+          - 'Configuring Foursquare Authenticator': develop/configuring-foursquare-authenticator.md
         - 'Github Authenticator':
-          - 'Github Authenticator': develop/github-Authenticator.md
-          - 'Configuring Github Authenticator': develop/configuring-Github-Authenticator.md
+          - 'Github Authenticator': develop/github-authenticator.md
+          - 'Configuring Github Authenticator': develop/configuring-github-authenticator.md
         - 'Instagram Authenticator':
-          - 'Instagram Authenticator': develop/instagram-Authenticator.md
-          - 'Configuring Instagram Authenticator': develop/configuring-Instagram-Authenticator.md
+          - 'Instagram Authenticator': develop/instagram-authenticator.md
+          - 'Configuring Instagram Authenticator': develop/configuring-instagram-authenticator.md
         - 'Inwebo Authenticator and Provisioning Connector':
-          - 'Inwebo Authenticator and Provisioning Connector': develop/inwebo-Authenticator-and-Provisioning-Connector.md
-          - 'Configuring Inwebo Authenticator': develop/configuring-Inwebo-Authenticator.md
-          - 'Configuring Inwebo Provisioning': develop/configuring-Inwebo-Provisioning.md
+          - 'Inwebo Authenticator and Provisioning Connector': develop/inwebo-authenticator-and-provisioning-connector.md
+          - 'Configuring Inwebo Authenticator': develop/configuring-inwebo-authenticator.md
+          - 'Configuring Inwebo Provisioning': develop/configuring-inwebo-provisioning.md
         - 'JWT Grant Type for OAuth2':
-          - 'JWT Grant Type for OAuth2': develop/jWT-Grant-Type-for-OAuth2.md
-          - 'Configuring JWT Grant Type': develop/configuring-JWT-Grant-Type.md
+          - 'JWT Grant Type for OAuth2': develop/jwt-grant-type-for-oauth2.md
+          - 'Configuring JWT Grant Type': develop/configuring-jwt-grant-type.md
         - 'LinkedIn Authenticator':
-          - 'LinkedIn Authenticator': develop/linkedIn-Authenticator.md
-          - 'Configuring LinkedIn Authenticator': develop/configuring-LinkedIn-Authenticator.md
+          - 'LinkedIn Authenticator': develop/linkedin-authenticator.md
+          - 'Configuring LinkedIn Authenticator': develop/configuring-linkedIn-authenticator.md
         - 'MailChimp Authenticator':
           - 'MailChimp Authenticator': develop/mailChimp-Authenticator.md
-          - 'Configuring MailChimp Authenticator': develop/configuring-MailChimp-Authenticator.md
+          - 'Configuring MailChimp Authenticator': develop/configuring-mailchimp-authenticator.md
         - 'MePIN Authenticator':
           - 'MePIN Authenticator': develop/mePIN-Authenticator.md
-          - 'Configuring MePIN Authenticator': develop/configuring-MePIN-Authenticator.md
+          - 'Configuring MePIN Authenticator': develop/configuring-mepin-authenticator.md
         - 'Mobile Connect Authenticator':
-          - 'Mobile Connect Authenticator': develop/mobile-Connect-Authenticator.md
-          - 'Configuring Mobile Connect as a Federated Authenticator': develop/configuring-Mobile-Connect-as-a-Federated-Authenticator.md
+          - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
+          - 'Configuring Mobile Connect as a Federated Authenticator': develop/configuring-mobile-connect-as-a-federated-authenticator.md
         - 'Microsoft Azure AD Authenticator':
-          - 'Microsoft Azure AD Authenticator': develop/microsoft-Azure-AD-Authenticator.md
-          - 'Configuring Microsoft Azure AD Authenticator': develop/configuring-Microsoft-Azure-AD-Authenticator.md
-          - 'Configuring Microsoft Azure AD Outbound Provisioning Connector': develop/configuring-Microsoft-Azure-AD-Outbound-Provisioning-Connector.md
+          - 'Microsoft Azure AD Authenticator': develop/microsoft-azure-ad-authenticator.md
+          - 'Configuring Microsoft Azure AD Authenticator': develop/configuring-microsoft-azure-ad-authenticator.md
+          - 'Configuring Microsoft Azure AD Outbound Provisioning Connector': develop/configuring-microsoft-azure-ad-outbound-provisioning-connector.md
         - 'Password Policy Authenticator':
-          - 'Password Policy Authenticator': develop/password-Policy-Authenticator.md
-          - 'Configuring Password Policy Authenticator': develop/configuring-Password-Policy-Authenticator.md
+          - 'Password Policy Authenticator': develop/password-policy-authenticator.md
+          - 'Configuring Password Policy Authenticator': develop/configuring-password-policy-authenticator.md
         - 'Pinterest Authenticator':
-          - 'Pinterest Authenticator': develop/pinterest-Authenticator.md
-          - 'Configuring Pinterest Authenticator': develop/configuring-Pinterest-Authenticator.md
+          - 'Pinterest Authenticator': develop/pinterest-authenticator.md
+          - 'Configuring Pinterest Authenticator': develop/configuring-pinterest-authenticator.md
         - 'Reddit Authenticator':
-          - 'Reddit Authenticator': develop/reddit-Authenticator.md
-          - 'Configuring Reddit Authenticator': develop/configuring-Reddit-Authenticator.md
+          - 'Reddit Authenticator': develop/reddit-authenticator.md
+          - 'Configuring Reddit Authenticator': develop/configuring-reddit-authenticator.md
         - 'RSA SecurID Authenticator':
-          - 'RSA SecurID Authenticator': develop/rSA-SecurID-Authenticator.md
-          - 'Configuring RSA SecurID Authenticator': develop/configuring-RSA-SecurID-Authenticator.md
+          - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
+          - 'Configuring RSA SecurID Authenticator': develop/configuring-rsa-securid-authenticator.md
         - 'SCIM 2.0 Provisioning Connector':
-          - 'SCIM 2.0 Provisioning Connector': develop/sCIM-2.0-Provisioning-Connector.md
-          - 'Configuring SCIM 2.0 Provisioning Connector': develop/configuring-SCIM-2.0-Provisioning-Connector.md
+          - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
+          - 'Configuring SCIM 2.0 Provisioning Connector': develop/configuring-scim-2.0-provisioning-connector.md
         - 'SMSOTP Authenticator':
-          - 'SMSOTP Authenticator': develop/sMSOTP-Authenticator.md
-          - 'Configuring Multi-factor Authentication using SMSOTP': develop/configuring-Multi-factor-Authentication-using-SMSOTP.md
+          - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
+          - 'Configuring Multi-factor Authentication using SMSOTP': develop/configuring-multi-factor-authentication-using-smsotp.md
         - 'Token2 Authenticator':
-          - 'Token2 Authenticator': develop/token2-Authenticator.md
-          - 'Configuring Multi-factor Authentication using Token2': develop/configuring-Multi-factor-Authentication-using-Token2.md
+          - 'Token2 Authenticator': develop/token2-authenticator.md
+          - 'Configuring Multi-factor Authentication using Token2': develop/configuring-multi-factor-authentication-using-token2.md
         - 'TOTP Authenticator':
-          - 'TOTP Authenticator': develop/tOTP-Authenticator.md
-          - 'Configuring TOTP Authenticator': develop/configuring-TOTP-Authenticator.md
-          - 'Using the TOTP API': develop/using-the-TOTP-API.md
+          - 'TOTP Authenticator': develop/totp-authenticator.md
+          - 'Configuring TOTP Authenticator': develop/configuring-totp-authenticator.md
+          - 'Using the TOTP API': develop/using-the-totp-api.md
         - 'Twitter Authenticator':
-          - 'Twitter Authenticator': develop/twitter-Authenticator.md
-          - 'Configuring Twitter Authenticator': develop/configuring-Twitter-Authenticator.md
+          - 'Twitter Authenticator': develop/twitter-authenticator.md
+          - 'Configuring Twitter Authenticator': develop/configuring-twitter-authenticator.md
         - 'Wordpress Authenticator':
-          - 'Wordpress Authenticator': develop/wordpress-Authenticator.md
-          - 'Configuring Wordpress Authenticator': develop/configuring-Wordpress-Authenticator.md
+          - 'Wordpress Authenticator': develop/wordpress-authenticator.md
+          - 'Configuring Wordpress Authenticator': develop/configuring-wordpress-authenticator.md
         - 'X509Certificate Authenticator':
-          - 'X509Certificate Authenticator': develop/x509Certificate-Authenticator.md 
+          - 'X509Certificate Authenticator': develop/x509certificate-authenticator.md 
           - 'Configuring X509Certificate Authenticator': 
-            - 'Configuring X509Certificate Authenticator': develop/configuring-X509Certificate-Authenticator.md
-            - 'Configuring X509 Authenticator with SSL Termination': develop/configuring-X509-Authenticator-with-SSL-Termination.md
-          - 'Configuring Certificate Revocation Validation': develop/configuring-Certificate-Revocation-Validation.md
+            - 'Configuring X509Certificate Authenticator': develop/configuring-x509certificate-authenticator.md
+            - 'Configuring X509 Authenticator with SSL Termination': develop/configuring-x509-authenticator-with-ssl-termination.md
+          - 'Configuring Certificate Revocation Validation': develop/configuring-certificate-revocation-validation.md
         - 'Yammer Authenticator':
-          - 'Yammer Authenticator': develop/yammer-Authenticator.md
-          - 'Configuring Yammer Authenticator': develop/configuring-Yammer-Authenticator.md
-        - 'Upgrading an Authenticator': develop/upgrading-an-Authenticator.md
+          - 'Yammer Authenticator': develop/yammer-authenticator.md
+          - 'Configuring Yammer Authenticator': develop/configuring-yammer-authenticator.md
+        - 'Upgrading an Authenticator': develop/upgrading-an-authenticator.md
         - 'Nuxeo Authenticator':
-          - 'Nuxeo Authenticator': develop/nuxeo-Authenticator.md
-          - 'Configuring Nuxeo Authenticator': develop/configuring-Nuxeo-Authenticator.md
-        - 'AWS Cloud Directory User Store': develop/aWS-Cloud-Directory-User-Store.md    
-      - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-Party-authenticator-or-connector-and-publishing-in-wso2-store.md
+          - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
+          - 'Configuring Nuxeo Authenticator': develop/configuring-nuxeo-authenticator.md
+        - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md    
+      - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
       - 'Getting Support': develop/getting-support.md 
   - 'Setup':
     - 'Installation Guide': 
       - 'Installing the Product': 
-        - 'Installing the Product': setup/installing-the-Product.md
-        - 'Installation Prerequisites': setup/installation-Prerequisites.md
-        - 'Installing on Linux or OS X': setup/installing-on-Linux-or-OS-X.md
-        - 'Installing on Solaris': setup/installing-on-Solaris.md
-        - 'Installing on Windows': setup/installing-on-Windows.md
-        - 'Installing as a Linux Service': setup/installing-as-a-Linux-Service.md
-        - 'Installing as a Windows Service': setup/installing-as-a-Windows-Service.md
-      - 'Running the Product': setup/running-the-Product.md
-      - 'Getting Started with the Management Console': setup/getting-Started-with-the-Management-Console.md
-      - 'Customizing the Management Console': setup/customizing-the-Management-Console.md
-      - 'Shutting Down and Restarting the Server': setup/shutting-Down-and-Restarting-the-Server.md
+        - 'Installing the Product': setup/installing-the-product.md
+        - 'Installation Prerequisites': setup/installation-prerequisites.md
+        - 'Installing on Linux or OS X': setup/installing-on-linux-or-os-x.md
+        - 'Installing on Solaris': setup/installing-on-solaris.md
+        - 'Installing on Windows': setup/installing-on-windows.md
+        - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
+        - 'Installing as a Windows Service': setup/installing-as-a-windows-service.md
+      - 'Running the Product': setup/running-the-product.md
+      - 'Getting Started with the Management Console': setup/getting-started-with-the-management-console.md
+      - 'Customizing the Management Console': setup/customizing-the-management-console.md
+      - 'Shutting Down and Restarting the Server': setup/shutting-down-and-restarting-the-server.md
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 
@@ -667,7 +667,7 @@ nav:
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Product Administration': 
-      - 'Product Administration': administer/product-Administration.md
+      - 'Product Administration': administer/product-administration.md
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
         - 'Role-based Permissions': administer/role-based-permissions.md
@@ -715,215 +715,215 @@ nav:
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
       - 'Working with Product Observability': administer/working-with-product-observability.md    
     - 'Deployment and Clustering':
-      - 'Deployment and Clustering': admin-guide/deployment-and-clustering.md
+      - 'Deployment and Clustering': administer/deployment-and-clustering.md
       - 'Key Concepts':
-        - 'Key Concepts': admin-guide/key-concepts.md
-        - 'Clustering Overview': admin-guide/clustering-overview.md
-        - 'Load Balancing': admin-guide/load-balancing.md    
-        - 'Separating the Worker and Manager Nodes': admin-guide/separating-the-worker-and-manager-nodes.md
-        - 'Sharing Databases in a Cluster': admin-guide/sharing-databases-in-a-cluster.md
-        - 'Sticky Sessions with Manager Nodes': admin-guide/sticky-sessions-with-manager-nodes.md
+        - 'Key Concepts': administer/key-concepts.md
+        - 'Clustering Overview': administer/clustering-overview.md
+        - 'Load Balancing': administer/load-balancing.md    
+        - 'Separating the Worker and Manager Nodes': administer/separating-the-worker-and-manager-nodes.md
+        - 'Sharing Databases in a Cluster': administer/sharing-databases-in-a-cluster.md
+        - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
       - 'Production Deployment Guidelines': 
-        - 'Production Deployment Guidelines': admin-guide/production-deployment-guidelines.md
-        - 'Security Guidelines for Production Deployment': admin-guide/security-guidelines-for-production-deployment.md
-        - 'Troubleshooting in Production Environments': admin-guide/troubleshooting-in-production-environments.md
-      - 'Configuring rsync for Deployment Synchronization': admin-guide/configuring-rsync-for-deployment-synchronization.md
+        - 'Production Deployment Guidelines': administer/production-deployment-guidelines.md
+        - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
+        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
+      - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
-      - 'Data Stores': admin-guide/data-stores.md
+      - 'Data Stores': administer/data-stores.md
       - 'Working with Databases':
-        - 'Working with Databases': admin-guide/working-with-databases.md
+        - 'Working with Databases': administer/working-with-databases.md
         - 'Setting up the Physical Database':
-          - 'Setting up the Physical Database': admin-guide/setting-up-the-physical-database.md
-          - 'Setting up IBM DB2': admin-guide/setting-up-ibm-db2.md
-          - 'Setting up IBM Informix': admin-guide/setting-up-ibm-informix.md
+          - 'Setting up the Physical Database': administer/setting-up-the-physical-database.md
+          - 'Setting up IBM DB2': administer/setting-up-ibm-db2.md
+          - 'Setting up IBM Informix': administer/setting-up-ibm-informix.md
           - 'Setting up H2': 
-            - 'Setting up H2': admin-guide/setting-up-h2.md
-            - 'Setting up Embedded H2': admin-guide/setting-up-embedded-h2.md
-            - 'Setting up Remote H2': admin-guide/setting-up-remote-h2.md
-          - 'Setting up MariaDB': admin-guide/setting-up-mariadb.md
-          - 'Setting up Microsoft SQL': admin-guide/setting-up-microsoft-sql.md
-          - 'Setting up MySQL': admin-guide/setting-up-mysql.md
-          - 'Setting up a MySQL Cluster': admin-guide/setting-up-a-mysql-cluster.md
-          - 'Setting up Oracle': admin-guide/setting-up-oracle.md
-          - 'Setting up Oracle RAC': admin-guide/setting-up-oracle-rac.md
-          - 'Setting up PostgreSQL': admin-guide/setting-up-postgresql.md
+            - 'Setting up H2': administer/setting-up-h2.md
+            - 'Setting up Embedded H2': administer/setting-up-embedded-h2.md
+            - 'Setting up Remote H2': administer/setting-up-remote-h2.md
+          - 'Setting up MariaDB': administer/setting-up-mariadb.md
+          - 'Setting up Microsoft SQL': administer/setting-up-microsoft-sql.md
+          - 'Setting up MySQL': administer/setting-up-mysql.md
+          - 'Setting up a MySQL Cluster': administer/setting-up-a-mysql-cluster.md
+          - 'Setting up Oracle': administer/setting-up-oracle.md
+          - 'Setting up Oracle RAC': administer/setting-up-oracle-rac.md
+          - 'Setting up PostgreSQL': administer/setting-up-postgresql.md
           - 'Setting up Derby':
-            - 'Setting up Derby': admin-guide/setting-up-derby.md
-            - 'Setting up Embedded Derby': admin-guide/setting-up-embedded-derby.md
-            - 'Setting up Remote Derby': admin-guide/setting-up-remote-derby.md
+            - 'Setting up Derby': administer/setting-up-derby.md
+            - 'Setting up Embedded Derby': administer/setting-up-embedded-derby.md
+            - 'Setting up Remote Derby': administer/setting-up-remote-derby.md
         - 'Changing the Carbon Database':
-          - 'Changing the Carbon Database': admin-guide/changing-the-carbon-database.md
-          - 'Changing to Embedded Derby': admin-guide/changing-to-embedded-derby.md
-          - 'Changing to Embedded H2': admin-guide/changing-to-embedded-h2.md
-          - 'Changing to IBM DB2': admin-guide/changing-to-ibm-db2.md
-          - 'Changing to IBM Informix': admin-guide/changing-to-ibm-informix.md
-          - 'Changing to MariaDB': admin-guide/changing-to-mariadb.md
-          - 'Changing to MSSQL': admin-guide/changing-to-mssql.md
-          - 'Changing to MySQL': admin-guide/changing-to-mysql.md
-          - 'Changing to Oracle': admin-guide/changing-to-oracle.md
-          - 'Changing to Oracle RAC': admin-guide/changing-to-oracle-rac.md
-          - 'Changing to PostgreSQL': admin-guide/changing-to-postgresql.md
-          - 'Changing to Remote H2': admin-guide/changing-to-remote-h2.md
-        - 'Browsing the H2 Database': admin-guide/browsing-the-h2-database.md
+          - 'Changing the Carbon Database': administer/changing-the-carbon-database.md
+          - 'Changing to Embedded Derby': administer/changing-to-embedded-derby.md
+          - 'Changing to Embedded H2': administer/changing-to-embedded-h2.md
+          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
+          - 'Changing to IBM Informix': administer/changing-to-ibm-informix.md
+          - 'Changing to MariaDB': administer/changing-to-mariadb.md
+          - 'Changing to MSSQL': administer/changing-to-mssql.md
+          - 'Changing to MySQL': administer/changing-to-mysql.md
+          - 'Changing to Oracle': administer/changing-to-oracle.md
+          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
+          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
+          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
+        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
       - 'Working with the Registry': 
-        - 'Working with the Registry': admin-guide/working-with-the-registry.md
+        - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Managing the Registry':
-          - 'Managing the Registry': admin-guide/managing-the-registry.md
-          - 'Metadata': admin-guide/metadata.md
-          - 'Properties': admin-guide/properties.md
+          - 'Managing the Registry': administer/managing-the-registry.md
+          - 'Metadata': administer/metadata.md
+          - 'Properties': administer/properties.md
           - 'Entries and Content':
-            - 'Entries and Content': admin-guide/entries-and-content.md
-            - 'Adding a Resource': admin-guide/adding-a-resource.md
-            - 'Link Creation': admin-guide/link-creation.md
-            - 'Editing collections using the Entries panel': admin-guide/editing-collections-using-the-entries-panel.md
-          - 'Role Permissions': admin-guide/role-permissions.md
-        - 'Searching the Registry': admin-guide/searching-the-registry.md
+            - 'Entries and Content': administer/entries-and-content.md
+            - 'Adding a Resource': administer/adding-a-resource.md
+            - 'Link Creation': administer/link-creation.md
+            - 'Editing collections using the Entries panel': administer/editing-collections-using-the-entries-panel.md
+          - 'Role Permissions': administer/role-permissions.md
+        - 'Searching the Registry': administer/searching-the-registry.md
         - 'Using Remote Registry Instances for the Registry Partitions':
-          - 'Using Remote Registry Instances for the Registry Partitions': admin-guide/using-remote-registry-instances-for-the-registry-partitions.md
-          - 'All Partitions in a Single Server': admin-guide/all-partitions-in-a-single-server.md
-          - 'Config and Governance Partitions in a Remote Registry': admin-guide/config-and-governance-partitions-in-a-remote-registry.md
-          - 'Governance Partition in a Remote Registry': admin-guide/governance-partition-in-a-remote-registry.md
-          - 'Config and Governance Partitions in Separate Nodes': admin-guide/config-and-governance-partitions-in-a-remote-registry.md
+          - 'Using Remote Registry Instances for the Registry Partitions': administer/using-remote-registry-instances-for-the-registry-partitions.md
+          - 'All Partitions in a Single Server': administer/all-partitions-in-a-single-server.md
+          - 'Config and Governance Partitions in a Remote Registry': administer/config-and-governance-partitions-in-a-remote-registry.md
+          - 'Governance Partition in a Remote Registry': administer/governance-partition-in-a-remote-registry.md
+          - 'Config and Governance Partitions in Separate Nodes': administer/config-and-governance-partitions-in-a-remote-registry.md
       - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': admin-guide/working-with-users-roles-and-permissions.md
-        - 'Introduction to User Management': admin-guide/introduction-to-user-management.md
+        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
+        - 'Introduction to User Management': administer/introduction-to-user-management.md
         - 'Configuring the User Realm': 
-          - 'Configuring the User Realm': admin-guide/configuring-the-user-realm.md
-          - 'Configuring the System Administrator': admin-guide/configuring-the-system-administrator.md
-          - 'Configuring the Authorization Manager': admin-guide/configuring-the-authorization-manager.md
+          - 'Configuring the User Realm': administer/configuring-the-user-realm.md
+          - 'Configuring the System Administrator': administer/configuring-the-system-administrator.md
+          - 'Configuring the Authorization Manager': administer/configuring-the-authorization-manager.md
           - 'Configuring User Stores':
-            - 'Configuring User Stores': admin-guide/configuring-user-stores.md
+            - 'Configuring User Stores': administer/configuring-user-stores.md
             - 'Configuring the Primary User Store':
-              - 'Configuring the Primary User Store': admin-guide/configuring-the-primary-user-store.md
-              - 'Configuring a JDBC User Store': admin-guide/configuring-a-jdbc-user-store.md
-              - 'Configuring a Read-Only LDAP User Store': admin-guide/configuring-a-read-only-ldap-user-store.md
-              - 'Configuring a Read-Write Active Directory User Store': admin-guide/configuring-a-read-write-active-directory-user-store.md
-              - 'Configuring a Read-Write LDAP User Store': admin-guide/configuring-a-read-write-ldap-user-store.md
-            - 'Configuring Secondary User Stores': admin-guide/configuring-secondary-user-stores.md 
-            - 'Working with Properties of User Stores': admin-guide/working-with-properties-of-user-stores.md
-            - 'Writing a Custom User Store Manager': admin-guide/writing-a-custom-user-store-manager.md
+              - 'Configuring the Primary User Store': administer/configuring-the-primary-user-store.md
+              - 'Configuring a JDBC User Store': administer/configuring-a-jdbc-user-store.md
+              - 'Configuring a Read-Only LDAP User Store': administer/configuring-a-read-only-ldap-user-store.md
+              - 'Configuring a Read-Write Active Directory User Store': administer/configuring-a-read-write-active-directory-user-store.md
+              - 'Configuring a Read-Write LDAP User Store': administer/configuring-a-read-write-ldap-user-store.md
+            - 'Configuring Secondary User Stores': administer/configuring-secondary-user-stores.md 
+            - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
+            - 'Writing a Custom User Store Manager': administer/writing-a-custom-user-store-manager.md
     - 'Security':
-      - 'Security': admin-guide/security.md
-      - 'Maintaining Logins and Passwords': admin-guide/maintaining-logins-and-passwords.md
+      - 'Security': administer/security.md
+      - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
       - 'Securing Passwords in Configuration Files':
-        - 'Securing Passwords in Configuration Files': admin-guide/securing-passwords-in-configuration-files.md
-        - 'Encrypting Passwords with Cipher Tool': admin-guide/encrypting-passwords-with-cipher-tool.md
-        - 'Resolving Encrypted Passwords': admin-guide/resolving-encrypted-passwords.md
-        - 'Carbon Secure Vault Implementation': admin-guide/carbon-secure-vault-implementation.md
-      - 'Configuring Transport Level Security': admin-guide/configuring-transport-level-security.md
-      - 'Enabling Java Security Manager': admin-guide/enabling-java-security-manager.md
+        - 'Securing Passwords in Configuration Files': administer/securing-passwords-in-configuration-files.md
+        - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
+        - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
+        - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
+      - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
+      - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
       - 'Using Asymmetric Encryption':
-        - 'Using Asymmetric Encryption': admin-guide/using-asymmetric-encryption.md
-        - 'Creating New Keystores': admin-guide/creating-new-keystores.md
-        - 'Renewing a CA-Signed Certificate in a Keystore': admin-guide/renewing-a-ca-signed-certificate-in-a-keystore.md
-        - 'Configuring Keystores in WSO2 Products': admin-guide/configuring-keystores-in-wso2-products.md
-        - 'Managing Keystores with the UI': admin-guide/managing-keystores-with-the-ui.md
-      - 'Using Symmetric Encryption': admin-guide/using-symmetric-encryption.md
-      - 'Mitigating Cross Site Request Forgery Attacks': admin-guide/mitigating-cross-site-request-forgery-attacks.md
-      - 'Mitigating Cross Site Scripting Attacks': admin-guide/mitigating-cross-site-scripting-attacks.md
-      - 'Enabling HostName Verification': admin-guide/enabling-hostname-verification.md
-      - 'Configuring TLS Termination': admin-guide/configuring-tls-termination.md
+        - 'Using Asymmetric Encryption': administer/using-asymmetric-encryption.md
+        - 'Creating New Keystores': administer/creating-new-keystores.md
+        - 'Renewing a CA-Signed Certificate in a Keystore': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
+        - 'Configuring Keystores in WSO2 Products': administer/configuring-keystores-in-wso2-products.md
+        - 'Managing Keystores with the UI': administer/managing-keystores-with-the-ui.md
+      - 'Using Symmetric Encryption': administer/using-symmetric-encryption.md
+      - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
+      - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
+      - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
+      - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Carbon Applications':
-      - 'Carbon Applications': admin-guide/carbon-applications.md
-      - 'Adding a Custom Proxy Path': admin-guide/adding-a-custom-proxy-path.md
+      - 'Carbon Applications': administer/carbon-applications.md
+      - 'Adding a Custom Proxy Path': administer/adding-a-custom-proxy-path.md
       - 'Changing the Default Ports': 
-        - 'Changing the Default Ports': admin-guide/changing-the-default-ports.md
-        - 'Default Ports of WSO2 Products': admin-guide/default-ports-of-wso2-products.md
-      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': admin-guide/configuring-saml2-single-sign-on-across-different-wso2-products.md
-      - 'Configuring the Task Scheduling Component': admin-guide/configuring-the-task-scheduling-component.md
-      - 'Customizing Error Pages': admin-guide/customizing-error-pages.md
-      - 'Customizing the Management Console': admin-guide/customizing-the-management-console.md
+        - 'Changing the Default Ports': administer/changing-the-default-ports.md
+        - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
+      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': administer/configuring-saml2-single-sign-on-across-different-wso2-products.md
+      - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
+      - 'Customizing Error Pages': administer/customizing-error-pages.md
+      - 'Customizing the Management Console': administer/customizing-the-management-console.md
       - 'Installing WSO2 Products as a Service':
-        - 'Installing WSO2 Products as a Service': admin-guide/installing-wso2-products-as-a-service.md
-        - 'Installing as a Linux Service': admin-guide/installing-as-a-linux-service.md
-        - 'Installing as a Windows Service': admin-guide/installing-as-a-windows-service.md
+        - 'Installing WSO2 Products as a Service': administer/installing-wso2-products-as-a-service.md
+        - 'Installing as a Linux Service': administer/installing-as-a-linux-service.md
+        - 'Installing as a Windows Service': administer/installing-as-a-windows-service.md
       - 'Managing Datasources':
-        - 'Managing Datasources': admin-guide/managing-datasources.md
-        - 'Adding Datasources': admin-guide/adding-datasources.md
+        - 'Managing Datasources': administer/managing-datasources.md
+        - 'Adding Datasources': administer/adding-datasources.md
         - 'Configuring an RDBMS Datasource':
-          - 'Configuring an RDBMS Datasource': admin-guide/configuring-an-rdbms-datasource.md
-          - 'Configuring the Datasource Provider': admin-guide/configuring-the-datasource-provider.md
-          - 'Configuring a JNDI Datasource': admin-guide/configuring-a-jndi-datasource.md
-          - 'Configuring the Datasource Connection Pool Parameters': admin-guide/configuring-the-datasource-connection-pool-parameters.md
-        - 'Configuring a Custom Datasource': admin-guide/configuring-a-custom-datasource.md
+          - 'Configuring an RDBMS Datasource': administer/configuring-an-rdbms-datasource.md
+          - 'Configuring the Datasource Provider': administer/configuring-the-datasource-provider.md
+          - 'Configuring a JNDI Datasource': administer/configuring-a-jndi-datasource.md
+          - 'Configuring the Datasource Connection Pool Parameters': administer/configuring-the-datasource-connection-pool-parameters.md
+        - 'Configuring a Custom Datasource': administer/configuring-a-custom-datasource.md
       - 'Managing Users, Roles and Permissions':
-        - 'Managing Users, Roles and Permissions': admin-guide/managing-users-roles-and-permissions.md
-        - 'Changing a Password': admin-guide/changing-a-password.md
-        - 'Configuring Roles': admin-guide/configuring-roles.md
-        - 'Configuring Users': admin-guide/configuring-users.md
-        - 'Role-based Permissions': admin-guide/role-based-permissions.md
-        - 'Managing User Attributes': admin-guide/managing-user-attributes.md
+        - 'Managing Users, Roles and Permissions': administer/managing-users-roles-and-permissions.md
+        - 'Changing a Password': administer/changing-a-password.md
+        - 'Configuring Roles': administer/configuring-roles.md
+        - 'Configuring Users': administer/configuring-users.md
+        - 'Role-based Permissions': administer/role-based-permissions.md
+        - 'Managing User Attributes': administer/managing-user-attributes.md
         - 'Removing References to Deleted User Identities in WSO2 Products':
-          - 'Removing References to Deleted User Identities in WSO2 Products': admin-guide/removing-references-to-deleted-user-identities-in-WSO2-Products.md
-          - 'Extending the Identity Anonymization Tool': admin-guide/extending-the-identity-anonymization-tool.md
-      - 'Securing Carbon Applications': admin-guide/securing-carbon-applications.md
+          - 'Removing References to Deleted User Identities in WSO2 Products': administer/removing-references-to-deleted-user-identities-in-WSO2-Products.md
+          - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
+      - 'Securing Carbon Applications': administer/securing-carbon-applications.md
       - 'Working with Composite Applications':
-        - 'Working with Composite Applications': admin-guide/working-with-composite-applications.md
-        - 'Introduction to Composite Applications': admin-guide/introduction-to-composite-applications.md
-        - 'Packaging Artifacts into Composite Applications': admin-guide/packaging-artifacts-into-composite-applications.md
-        - 'Deploying Composite Applications in the Server': admin-guide/deploying-composite-applications-in-the-server.md
-      - 'Working with Features': admin-guide/working-with-features.md
+        - 'Working with Composite Applications': administer/working-with-composite-applications.md
+        - 'Introduction to Composite Applications': administer/introduction-to-composite-applications.md
+        - 'Packaging Artifacts into Composite Applications': administer/packaging-artifacts-into-composite-applications.md
+        - 'Deploying Composite Applications in the Server': administer/deploying-composite-applications-in-the-server.md
+      - 'Working with Features': administer/working-with-features.md
       - 'Working with Multiple Tenants':
-        - 'Working with Multiple Tenants': admin-guide/working-with-multiple-tenants.md
-        - 'Introduction to Multitenancy': admin-guide/introduction-to-multitenancy.md
-        - 'Configuring the Tenant Loading Policy': admin-guide/configuring-the-tenant-loading-policy.md
-        - 'Adding New Tenants': admin-guide/adding-new-tenants.md
+        - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
+        - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
+        - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
+        - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'Working with Transports':
-        - 'Working with Transports': admin-guide/working-with-transports.md
-        - 'Introduction to Transports': admin-guide/introduction-to-transports.md
+        - 'Working with Transports': administer/working-with-transports.md
+        - 'Introduction to Transports': administer/introduction-to-transports.md
         - 'Carbon Transports':
-          - 'Carbon Transports': admin-guide/carbon-transports.md
-          - 'HTTP Servlet Transport': admin-guide/http-servlet-transport.md
-          - 'HTTPS Servlet Transport': admin-guide/https-servlet-transport.md
-          - 'HTTP-NIO Transport': admin-guide/http-nio-transport.md
-          - 'HTTPS-NIO Transport': admin-guide/https-nio-transport.md
-          - 'VFS Transport': admin-guide/vfs-transport.md
-          - 'JMS Transport': admin-guide/jms-transport.md
-          - 'MailTo Transport': admin-guide/mailto-transport.md
-          - 'TCP Transport': admin-guide/tcp-transport.md
-          - 'Local Transport': admin-guide/local-transport.md
-          - 'UDP Transport': admin-guide/udp-transport.md
-          - 'FIX Transport': admin-guide/fix-transport.md
-    - 'Performance Tuning': admin-guide/performance-tuning.md
+          - 'Carbon Transports': administer/carbon-transports.md
+          - 'HTTP Servlet Transport': administer/http-servlet-transport.md
+          - 'HTTPS Servlet Transport': administer/https-servlet-transport.md
+          - 'HTTP-NIO Transport': administer/http-nio-transport.md
+          - 'HTTPS-NIO Transport': administer/https-nio-transport.md
+          - 'VFS Transport': administer/vfs-transport.md
+          - 'JMS Transport': administer/jms-transport.md
+          - 'MailTo Transport': administer/mailto-transport.md
+          - 'TCP Transport': administer/tcp-transport.md
+          - 'Local Transport': administer/local-transport.md
+          - 'UDP Transport': administer/udp-transport.md
+          - 'FIX Transport': administer/fix-transport.md
+    - 'Performance Tuning': administer/performance-tuning.md
     - 'Monitoring':
-      - 'Monitoring': admin-guide/monitoring.md
-      - 'Capturing System Data in Error Situations': admin-guide/capturing-system-data-in-error-situations.md
-      - 'JMX-Based Monitoring': admin-guide/jmx-based-monitoring.md
+      - 'Monitoring': administer/monitoring.md
+      - 'Capturing System Data in Error Situations': administer/capturing-system-data-in-error-situations.md
+      - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
       - 'Monitoring Logs':
-        - 'Monitoring Logs': admin-guide/monitoring-logs.md
+        - 'Monitoring Logs': administer/monitoring-logs.md
         - 'Monitoring Logs using Management Console':
-          - 'Monitoring Logs using Management Console': admin-guide/monitoring-logs-using-management-console.md
-          - 'Configuring Log4j Properties': admin-guide/configuring-log4j-properties.md
-          - 'Configuring the Log Provider': admin-guide/configuring-the-log-provider.md
-          - 'View and Download Logs': admin-guide/view-and-download-logs.md
-        - 'HTTP Access Logging': admin-guide/http-access-logging.md
-        - 'Masking Sensitive Information in Logs': admin-guide/masking-sensitive-information-in-logs.md
-      - 'Monitoring Message Flows': admin-guide/monitoring-message-flows.md
-      - 'Monitoring Performance Statistics': admin-guide/monitoring-performance-statistics.md
-      - 'Monitoring SOAP Messages': admin-guide/monitoring-soap-messages.md
+          - 'Monitoring Logs using Management Console': administer/monitoring-logs-using-management-console.md
+          - 'Configuring Log4j Properties': administer/configuring-log4j-properties.md
+          - 'Configuring the Log Provider': administer/configuring-the-log-provider.md
+          - 'View and Download Logs': administer/view-and-download-logs.md
+        - 'HTTP Access Logging': administer/http-access-logging.md
+        - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
+      - 'Monitoring Message Flows': administer/monitoring-message-flows.md
+      - 'Monitoring Performance Statistics': administer/monitoring-performance-statistics.md
+      - 'Monitoring SOAP Messages': administer/monitoring-soap-messages.md
       - 'Monitoring TCP-Based Messages':
-        - 'Monitoring TCP-Based Messages': admin-guide/monitoring-tcp-based-messages.md
-        - 'Starting TCPMon': admin-guide/starting-tcpmon.md
-        - 'Message Monitoring with TCPMon': admin-guide/message-monitoring-with-tcpmon.md
-        - 'Other Usages of TCPMon': admin-guide/other-usages-of-tcpmon.md
+        - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+        - 'Starting TCPMon': administer/starting-tcpmon.md
+        - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+        - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
       - 'Monitoring with WSO2 Carbon Metrics':
-        - 'Monitoring with WSO2 Carbon Metrics': admin-guide/monitoring-with-wso2-carbon-metrics.md
+        - 'Monitoring with WSO2 Carbon Metrics': administer/monitoring-with-wso2-carbon-metrics.md
         - 'Setting Up Carbon Metrics': 
-          - 'Setting Up Carbon Metrics': admin-guide/setting-Up-carbon-metrics.md
-          - 'Enabling Metrics and Storage Types': admin-guide/enabling-metrics-and-storage-types.md
-          - 'Configuring Metrics Properties': admin-guide/configuring-metrics-properties.md
-        - 'Using JVM Metrics': admin-guide/using-jvm-metrics.md
-        - 'Using Messaging Metrics': admin-guide/using-messaging-metrics.md
-      - 'Monitoring Server Health': admin-guide/monitoring-server-health.md
-    - 'Getting WSO2 Updates': admin-guide/getting-wso2-updates.md
+          - 'Setting Up Carbon Metrics': administer/setting-Up-carbon-metrics.md
+          - 'Enabling Metrics and Storage Types': administer/enabling-metrics-and-storage-types.md
+          - 'Configuring Metrics Properties': administer/configuring-metrics-properties.md
+        - 'Using JVM Metrics': administer/using-jvm-metrics.md
+        - 'Using Messaging Metrics': administer/using-messaging-metrics.md
+      - 'Monitoring Server Health': administer/monitoring-server-health.md
+    - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
-      - 'Reference Guide': admin-guide/reference-guide.md  
-      - 'Configuration Files': admin-guide/configuration-files.md
-      - 'Database Upgrade Guide': admin-guide/database-upgrade-guide.md
-      - 'Product Startup Options': admin-guide/product-startup-options.md
-      - 'Supported Cipher Suites': admin-guide/supported-cipher-suites.md
-      - 'Directory Structure of WSO2 Products': admin-guide/directory-structure-of-wso2-products.md
-      - 'WSO2 Patch Application Process': admin-guide/wso2-patch-application-process.md
+      - 'Reference Guide': administer/reference-guide.md  
+      - 'Configuration Files': administer/configuration-files.md
+      - 'Database Upgrade Guide': administer/database-upgrade-guide.md
+      - 'Product Startup Options': administer/product-startup-options.md
+      - 'Supported Cipher Suites': administer/supported-cipher-suites.md
+      - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
+      - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
   - 'References': 
     - 'References': references/references.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
