@@ -68,7 +68,7 @@ configuring your external read-write LDAP as the primary user store.
     For more information about each of the properties used in the
     `           user-mgt.xml          ` file for configuring the primary
     user store, see [Properties of User
-    Stores](_Working_with_Properties_of_User_Stores_).
+    Stores](Working_with_Properties_of_User_Stores).
 
     ``` html/xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
@@ -155,7 +155,7 @@ configuring your external read-write LDAP as the primary user store.
                     ```
         
                 -   You also need to [enable connection
-                    pooling](Performance-Tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+                    pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
                     for LDAPS connections at the time of starting your server,
                     which will enhance server performance.
         

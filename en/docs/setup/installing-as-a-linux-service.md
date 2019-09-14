@@ -4,7 +4,7 @@ Follow the sections below to run a WSO2 product as a Linux service:
 
 -   [Prerequisites](#InstallingasaLinuxService-Prerequisites)
 -   [Setting up
-    CARBON\_HOME](#InstallingasaLinuxService-SettingupCARBON_HOME)
+    CARBON\_HOME](#InstallingasaLinuxService-SettingupCARBON-HOME)
 -   [Running the product as a Linux
     service](#InstallingasaLinuxService-RunningtheproductasaLinuxservice)
 

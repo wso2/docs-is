@@ -3,7 +3,7 @@
 Given below are the cipher suites that are functional in Tomcat ( Tomcat
 version 7.0.59 with the JSSE providers 7/8) for the following SSL
 protocols: TLSv1, TLSv1.1 and TLSv1.2. See [Configuring Transport-Level
-Security](_Configuring_Transport_Level_Security_) for instructions on
+Security](Configuring-Transport-Level-Security) for instructions on
 how to enable the required ciphers and to disable the weak ciphers for
 your WSO2 server.
 

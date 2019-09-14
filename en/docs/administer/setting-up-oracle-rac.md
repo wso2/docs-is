@@ -62,4 +62,4 @@ directory when you upgrade the database driver.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with Oracle RAC, see [Changing to
-Oracle RAC](_Setting_up_Oracle_RAC_).
+Oracle RAC](../../administer/setting-up-oracle-rac).

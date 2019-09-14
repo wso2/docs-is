@@ -13,7 +13,7 @@ with IBM DB2:
     
     You need to set up IBM DB2 before following the steps to configure your
     product with it. For more information, see [Setting up IBM
-    DB2](_Setting_up_IBM_DB2_).
+    DB2](../../administer/setting-up-ibm-db2).
     
 
 ### Setting up datasource configurations

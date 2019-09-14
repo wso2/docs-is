@@ -19,7 +19,7 @@ Printrest federated authenticator.
 ### Getting started
 
 To get started with the authenticator, see [Configuring Pinterest
-Authenticator](_Configuring_Pinterest_Authenticator_) for information
+Authenticator](Configuring-Pinterest_Authenticator) for information
 and configuration steps.
 
 Once you have completed your configurations, you can authenticate users

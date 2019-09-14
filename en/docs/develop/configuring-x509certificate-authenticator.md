@@ -394,7 +394,7 @@ Identity Server was started before.
 
 For more information on CRL and OCSP certificate validation, see
 [Configuring Certificate Revocation
-Validation](_Configuring_Certificate_Revocation_Validation_).
+Validation](Configuring-Certificate-Revocation-Validation).
 
 ### **Configuring the Authentication Endpoint**
 
@@ -606,7 +606,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 See the topic on [deploying the travelocity.com sample
-app](_Deploying_the_Sample_App_) for information on how to configure
+app](Deploying-the-Sample-App) for information on how to configure
 this.
 
 ### Configuring the service provider

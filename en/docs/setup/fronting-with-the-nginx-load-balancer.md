@@ -10,7 +10,7 @@ setting up the cluster following the above instructions).
     the dashboard to work and if we disable temporary session data
     persistence in the
     `<IS_HOME>/repository/conf/deployment.toml`
-    file. For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../admin-guide/sticky-sessions-with-manager-nodes).
+    file. For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../administer/sticky-sessions-with-manager-nodes).
    
 Following is the deployment diagram with the load balancer.
 

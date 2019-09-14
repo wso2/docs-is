@@ -26,7 +26,7 @@ with Embedded H2:
     
     You need to set up Embedded H2 before following the steps to configure
     your product with it. For more information, see [Setting up Embedded
-    H2](_Setting_up_Embedded_H2_).
+    H2](../../administer/setting-up-embedded-h2).
     
 
 ### Setting up datasource configurations

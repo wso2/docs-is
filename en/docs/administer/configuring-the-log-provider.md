@@ -7,11 +7,11 @@ product, the logs are stored in the
 `         <PRODUCT_HOME>/repository/logs/        ` directory as
 `         .log        ` files.
 
-To [view and download the logs](_View_and_Download_Logs_) using the
+To [view and download the logs](View_and_Download_Logs) using the
 management console, the following configurations are required: the
-[Logging Management](_Monitoring_Logs_using_Management_Console_) feature
+[Logging Management](Monitoring_Logs_using_Management_Console) feature
 should be installed, [the log4j properties should be
-configured](_Configuring_Log4j_Properties_) and the LogProvider and
+configured](Configuring_Log4j_Properties) and the LogProvider and
 LogFileProvider interfaces should be implemented and configured for the
 server as described below.
 

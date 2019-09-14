@@ -30,7 +30,7 @@ authenticator.
 ### Getting started
 
 To get started with the authenticator, go to [Configuring Microsoft
-Azure AD Authenticator](_Configuring_Microsoft_Azure_AD_Authenticator_)
+Azure AD Authenticator](Configuring-Microsoft-Azure-AD-Authenticator)
 . Once you have completed your configurations, you can authenticate
 users using the Microsoft Azure AD authenticator.
 

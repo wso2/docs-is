@@ -8,7 +8,7 @@ purpose.
 -   [Setting
     up datasource configurations](#ChangingtoOracleRAC-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
     -   [Changing the
-        default WSO2\_CARBON\_DB datasource](#ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+        default WSO2\_CARBON\_DB datasource](#ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2-CARBON-DBdatasource)
     -   [Configuring new datasources to manage registry or user
         management
         data](#ChangingtoOracleRAC-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
@@ -21,7 +21,7 @@ purpose.
     
     You need to set up Oracle RAC before following the steps to configure
     your product with Oracle RAC. For more information, see [Setting up
-    Oracle RAC](_Setting_up_Oracle_RAC_).
+    Oracle RAC](../../administer/setting-up-oracle-rac).
     
 
 ### Setting up datasource configurations

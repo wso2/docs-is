@@ -1,7 +1,7 @@
 # Configuring Metrics Properties
 
 When the [monitoring capability with metrics is
-enabled](_Enabling_Metrics_and_Storage_Types_) in your product, the
+enabled](Enabling_Metrics_and_Storage_Types) in your product, the
 metrics dashboard will be available when you log into the management
 console. The metrics dashboard will provide a page for viewing the
 statistics that use JVM metrics. Further, depending on the WSO2 product

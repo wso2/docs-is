@@ -85,4 +85,4 @@ WSO2 product instance.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with IBM DB2, see [Changing to IBM
-DB2](_Changing_to_IBM_DB2_).
+DB2](../../administer/changing-to-ibm-db2).

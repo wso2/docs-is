@@ -121,7 +121,7 @@ artifacts.
         Note that the above 'TodayApp.jks' and 'TodayApp.p12' are sample
         values used to demonstrate this feature. You may need to create your
         own values to test the feature. Refer [Creating New
-        Keystores](../../admin-guide/creating-new-keystores)
+        Keystores](../../administer/creating-new-keystores)
         for more information.
     
 
