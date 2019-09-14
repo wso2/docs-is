@@ -99,7 +99,7 @@ is structured to work in WSO2 products:
     </table>
 
 For information on how you can set up and configure the user management
-realm, see [Configuring the User Realm](_Configuring_the_User_Realm_),
+realm, see [Configuring the User Realm](Configuring-the-User-Realm),
 and for information on how you can manage the users, roles and
 permissions using the Management Console, see [Managing Users, Roles and
-Permissions](_Managing_Users_Roles_and_Permissions_).
+Permissions](../../administer/managing-users-roles-and-permissions).

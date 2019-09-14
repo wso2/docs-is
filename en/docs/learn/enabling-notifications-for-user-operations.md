@@ -105,7 +105,7 @@ information on how to send an email when a user operation takes place.
     the important facts that you must keep in your mind is that the
     properties included in this file can be secured using secure vault.
     You may refer [Carbon Secure Vault
-    Implementation](../../admin-guide/carbon-secure-vault-implementation)
+    Implementation](../../administer/../../administer/carbon-secure-vault-implementation)
     in the WSO2 Product Administration Guide for more information on how
     to use secure vault to encrypt sensitive information in this
     property file. The following table lists out the properties and

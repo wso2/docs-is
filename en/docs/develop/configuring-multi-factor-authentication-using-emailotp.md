@@ -133,7 +133,7 @@ Email OTP is enabled.
         </AuthenticatorConfig>
     ```
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} To view
+    ![](images/icons/grey-arrow-down.png){.expand-control-image} To view
     the parameter definitions, click here
 
     <table>
@@ -251,7 +251,7 @@ Email OTP is enabled.
     <ul>
     <li>If you use a <strong>tenant</strong>,
     <ul>
-    <li>Upload the same XML file ( <code>                       application-authentication.xml                      </code> ) into a specific registry location ( <code>                       /_system/governance/EmailOTP                      </code> ).</li>
+    <li>Upload the same XML file ( <code>                       application-authentication.xml                      </code> ) into a specific registry location ( <code>                       /-system/governance/EmailOTP                      </code> ).</li>
     <li>Create the collection named <code>                       EmailOTP                      </code>, add the resource and upload the <code>                       application-authentication.                      </code> <code>                       xml                      </code> file into the registry.</li>
     <li>While doing the authentication,thesysetmfirstcheckswhetherthereisanXML file uploaded to the registry. If that is so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
     <li>You can use the registry or local file to get the property values.</li>
@@ -564,7 +564,7 @@ mechanisam to send the OTP.
     </tbody>
     </table>
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click
+    ![](images/icons/grey-arrow-down.png){.expand-control-image} Click
     here to see a sample configuration
 
     ``` java
@@ -587,7 +587,7 @@ mechanisam to send the OTP.
     ```
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -672,7 +672,7 @@ For example,
     
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -698,7 +698,7 @@ provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identi
     You have now added the identity provider.
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -785,7 +785,7 @@ Follow the steps below add a service provider:
     
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -806,7 +806,7 @@ Follow the steps given below to update the user's email address.
     4.  Click **Update**.
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -848,7 +848,7 @@ Follow the steps below to map the user claims:
         authentication for the admin user.
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
 
 ------------------------------------------------------------------------
 
@@ -874,4 +874,4 @@ Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
     ![](attachments/50504065/50684388.png) 
 
 \[ [Back to
-Top](_Configuring_Multi-factor_Authentication_using_EmailOTP_) \]
+Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]

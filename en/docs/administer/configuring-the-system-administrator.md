@@ -46,7 +46,7 @@ repositories.
     Manager](../../using-wso2-identity-server/configuring-the-authorization-manager) : This topic
     explains how the repository (RDBMS) for storing authorization
     information (role-based permissions) is configured for your product.
--   [Changing a Password](_Changing_a_Password_) : This topic explains
+-   [Changing a Password](Changing_a_Password) : This topic explains
     how you can change the admin password using the management console
     of the product.
 

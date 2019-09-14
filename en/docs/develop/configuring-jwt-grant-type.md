@@ -23,7 +23,7 @@ See the following sections for more information.
     
         If you want to upgrade the JWT Grant Type (.jar) that is available
         in your existing WSO2 Identity Server distribution, see [upgrade
-        instructions.](_Upgrading_an_Authenticator_)
+        instructions.](Upgrading-an-Authenticator)
     
 
 2.  To register the JWT grant type, configure the

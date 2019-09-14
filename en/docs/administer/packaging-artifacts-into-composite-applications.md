@@ -37,7 +37,7 @@ Applications](#PackagingArtifactsintoCompositeApplications-Packagingindividualar
 #### Creating a Composite Application Archive (CAR) file
 
 To [deploy a C-App via the product's management
-console](_Deploying_Composite_Applications_in_the_Server_), you will
+console](../../administer/default-ports-of-wso2-products), you will
 need to first create a Composite Application Archive (CAR) file of that
 C-App.
 
@@ -62,7 +62,7 @@ OR
 
 You have now exported all your project's artifacts into a single CAR
 file. Next, [deploy the Composite Application in the
-server](_Deploying_Composite_Applications_in_the_Server_).
+server](../../administer/default-ports-of-wso2-products).
 
 !!! note
     

@@ -84,4 +84,4 @@ directory.
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with MariaDB, see [Changing to
-MariaDB](_Changing_to_MariaDB_).
+MariaDB](../../administer/changing-to-mariadb).

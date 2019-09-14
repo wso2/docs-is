@@ -6,7 +6,7 @@ implementation that is built into WSO2 products. Note that you can
 customize the default secure vault configurations in the product by
 implementing a new secret repository, call back handler etc. Read more
 about the [Secure Vault
-implementation](_Carbon_Secure_Vault_Implementation_) in WSO2 products.
+implementation](../../administer/carbon-secure-vault-implementation) in WSO2 products.
 
 In any WSO2 product that is based on Carbon 4.4.0 or a later
 version, the Cipher Tool feature will be installed by default. You can
@@ -22,7 +22,7 @@ configuration files.
         your product build.
     -   The default keystore that is shipped with your WSO2 product (i.e.
         `          wso2carbon.jks         ` ) is used for password
-        encryption by default. See this [link](_Creating_New_Keystores_) for
+        encryption by default. See this [link](../../administer/creating-new-keystores) for
         details on how to set up and configure new keystores for encrypting
         plain text passwords.
     
@@ -34,9 +34,9 @@ Follow the topics given below for instructions.
 -   [Encrypting passwords using the automated
     process](#EncryptingPasswordswithCipherTool-automatedEncryptingpasswordsusingtheautomatedprocess)
 -   [Encrypting passwords
-    manually](#EncryptingPasswordswithCipherTool-manual_processEncryptingpasswordsmanually)
+    manually](#EncryptingPasswordswithCipherTool-manual-processEncryptingpasswordsmanually)
 -   [Changing encrypted
-    passwords](#EncryptingPasswordswithCipherTool-changing_encrypted_passwordsChangingencryptedpasswords)
+    passwords](#EncryptingPasswordswithCipherTool-changing-encrypted-passwordsChangingencryptedpasswords)
 
 ### Before you begin
 
@@ -48,7 +48,7 @@ If you are using Windows, you need to have **Ant** (
 This automated process can only be used for passwords that can be given
 as an XPath. If you cannot give an XPath for the password that you want
 to encrypt, you must use the [manual encryption
-process](#EncryptingPasswordswithCipherTool-manual_process) explained in
+process](#EncryptingPasswordswithCipherTool-manual-process) explained in
 the next section.
 
 Follow the steps given below to have passwords encrypted using the
@@ -303,7 +303,7 @@ automated process:
 4.  The following message will be prompted:  "\[Please Enter Primary
     KeyStore Password of Carbon Server :\]". Enter the keystore password
     (which is "wso2carbon" for the default
-    [keystore](_Using_Asymmetric_Encryption_) ) and proceed. If the
+    [keystore](../../administer/using-asymmetric-encryption) ) and proceed. If the
     script execution is successful, you will see the following
     message: "Secret Configurations are written to the property file
     successfully".
@@ -422,7 +422,7 @@ below to encrypt it manually.
     log4j.properties file. For example, the jndi.properties file used in
     WSO2 ESB contains the password in the connection URL. In such cases,
     you need to encrypt the entire connection URL as explained
-    [here](#EncryptingPasswordswithCipherTool-encrypting_jndi).
+    [here](#EncryptingPasswordswithCipherTool-encrypting-jndi).
 
 7.  You will receive the encrypted value. For example:
 
@@ -508,7 +508,7 @@ connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) '). To encrypt this
 password, you can follow the same manual process [explained
-above](#EncryptingPasswordswithCipherTool-encrypting_log4j). However,
+above](#EncryptingPasswordswithCipherTool-encrypting-log4j). However,
 you must encrypt the entire connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) ') and not just the
@@ -597,5 +597,5 @@ If you have encrypted passwords as explained above, note that these
 passwords have to be decrypted again for the server to be usable. That
 is, the passwords have to be resolved by a system administrator during
 server startup. The [Resolving
-Passwords](_Resolving_Encrypted_Passwords_) topic explains how encrypted
+Passwords](../../administer/resolving-encrypted-passwords) topic explains how encrypted
 passwords are resolved.

@@ -9,14 +9,14 @@ managing users and roles in the **Remote User Management API:**
     management function, you can directly integrate with the WSO2
     Identity Server instead of dealing with the user store.  
       
--   [RemoteClaimManagerService](_Managing_Claims_with_APIs_) : This
+-   [RemoteClaimManagerService](Managing-Claims-with-APIs) : This
     service exposes more claim management functionalities such as add,
     and delete claim mappings.  
       
 -   RemoteProfileConfigurationManagerService: This exposes functionality
     of profile management features such as add, update, delete profile
     configuration.  
--   [RemoteAuthorizationManagerService](_Managing_Permissions_with_APIs_)
+-   [RemoteAuthorizationManagerService](Managing-Permissions-with-APIs)
     :  This service exposes functionality of handling authorization of
     users to different resources.  
       

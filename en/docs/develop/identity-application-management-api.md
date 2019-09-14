@@ -6,6 +6,6 @@ Server](http://wso2.com/products/identity-server/). The following
 topics guide you through the different operations and configurations
 used with this API
 
--   [Using the Service Provider API](_Using_the_Service_Provider_API_)
+-   [Using the Service Provider API](Using-the-Service-Provider-API)
 -   [Service Provider Configurations used with
-    APIs](_Service_Provider_Configurations_used_with_APIs_)
+    APIs](Service-Provider-Configurations-used-with-APIs)

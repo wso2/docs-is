@@ -366,7 +366,7 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
         -   If you are using geolocation-based statistics, do the necessary
             configurations prior to the restart. For more information, see
             [Enabling Geolocation Based
-            Statistics](_Enabling_Geolocation_Based_Statistics_).
+            Statistics](Enabling_Geolocation_Based_Statistics).
     
         <!-- -->
     

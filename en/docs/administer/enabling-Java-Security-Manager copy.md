@@ -22,7 +22,7 @@ modify this file to change the Java security permissions as required.
     keystore in your WSO2 product (
     `           wso2carbon.jks          ` ). You can read about the
     recommendations for using keystores from
-    [here](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products)
+    [here](../../administer/using-asymmetric-encryption-53125461.html#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products)
     .
 
 The steps below show how to enable the Java Security Manager for WSO2

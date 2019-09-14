@@ -7,7 +7,7 @@ certificate, which contains public key information.
 ### Getting started
 
 To get started with the authenticator, see [Configuring X509Certificate
-Authenticator](_Configuring_X509Certificate_Authenticator_) for
+Authenticator](Configuring-X509Certificate-Authenticator) for
 information and configuration steps. Once you have completed your
 configurations, you can authenticate users using the X509Certificate
 authenticator.

@@ -4,8 +4,8 @@ The topics below explain Composite Applications (C-Apps) and about how
 to deploy them:  
 
 -   [Introduction to Composite
-    Applications](_Introduction_to_Composite_Applications_)
+    Applications](../../administer/introduction-to-composite-applications)
 -   [Packaging Artifacts into Composite
-    Applications](_Packaging_Artifacts_into_Composite_Applications_)
+    Applications](../../administer/packaging-artifacts-into-composite-applications)
 -   [Deploying Composite Applications in the
-    Server](_Deploying_Composite_Applications_in_the_Server_)
+    Server](../../administer/default-ports-of-wso2-products)

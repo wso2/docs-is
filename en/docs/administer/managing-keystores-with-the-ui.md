@@ -16,10 +16,10 @@
 All the required keystore files should first be created and stored in
 the `         <PRODUCT_HOME>/repository/resources/security/        `
 directory. For information on how to create new keystore files see
-[Creating New Keystores](_Creating_New_Keystores_), and for information
+[Creating New Keystores](../../administer/creating-new-keystores), and for information
 on how to update configuration files in your product with keystore
 information, see [Configuring Keystores in WSO2
-Products](_Configuring_Keystores_in_WSO2_Products_).
+Products](Configuring-Keystores-in-WSO2-Products).
 
 The default `          wso2carbon.jks         ` keystore cannot be
 deleted.

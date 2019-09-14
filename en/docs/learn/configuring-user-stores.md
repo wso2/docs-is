@@ -16,7 +16,7 @@ configured under these two types.
 #### Primary User Store (Mandatory)
 
 This is the main user store that is shared among all the
-[tenants](../../admin-guide/introduction-to-multitenancy)
+[tenants](../../administer/introduction-to-multitenancy)
 in the system. Only one user store should be configured as the primary
 user store and it is configured in the
 `         <PRODUCT_HOME>/repository/conf/deployment.toml       ` file. By

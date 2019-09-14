@@ -71,7 +71,7 @@ You have now enabled the token2 hardware device.
 
 ### Deploying [travelocity.com](http://travelocity.com) sample
 
-The next step is to [deploy the sample app](_Deploying_the_Sample_App_)
+The next step is to [deploy the sample app](Deploying-the-Sample-App)
 in order to use it in this scenario.
 
 O nce this is done, the next step is to configure the WSO2 Identity
@@ -106,7 +106,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     | Field        | Description                                                                                                                              | Sample Value                                                                                                                           |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
+    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](Configuring-Multi-factor-Authentication-using-Token2). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
     | Callback URL | This is the service provider's URL to which the code is sent.                                                                            | `                                                   https://localhost:9443/commonauth                                                ` |
 
 9.  Click **Register**.  

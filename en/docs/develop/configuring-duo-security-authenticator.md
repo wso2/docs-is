@@ -65,7 +65,7 @@ See the following sections for more information.
 ### Deploying Duo Security artifacts
 
 To download the authenticator and artifacts, go to [the WSO2
-store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22duo%22)
+store](https://store.wso2.com/store/assets/isconnector/list?q=%22-default%22%3A%22duo%22)
 .
 
 1.  Place the `            duoauthenticationendpoint.war           `
@@ -95,7 +95,7 @@ store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%
     
         You may have done this step already if you configured the [Duo
         Security Provisioning
-        Connector](_Configuring_Duo_Security_Provisioning_Connector_). If
+        Connector](Configuring-Duo-Security-Provisioning-Connector). If
         so, you can skip this step.
     
 
@@ -130,7 +130,7 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To do this, see the topic on [deploying the travelocity.com sample
-app](_Deploying_the_Sample_App_).
+app](Deploying-the-Sample-App).
 
 ### Configuring the identity provider
 

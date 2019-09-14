@@ -1,11 +1,11 @@
 # Configuring Log4j Properties
 
 All WSO2 products are shipped with the [log4j logging
-capabilities](_Monitoring_Logs_), which generates administrative
+capabilities](../../administer/monitoring-logs), which generates administrative
 activities and server side logs. The `         log4j.properties        `
 file, which governs how logging is performed by the server can be found
 in the `         <PRODUCT_HOME>/repository/conf        ` directory. If
-the [Logging Management feature is installed](_Monitoring_Logs_), log4j
+the [Logging Management feature is installed](../../administer/monitoring-logs), log4j
 properties can be configured using the management console.
 
 There are three main components when configuring log4j. They are
@@ -55,7 +55,7 @@ all loggers.
 
 -   **Log Level** - Severity of the message. Reflects a minimum level
     that the logger requires. See descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
+    levels](../../administer/monitoring-logs-using-management-console_53125394.html#MonitoringLogs-log4j_levels).
 -   **Log Pattern** - Defines the output format of the log file. This is
     the layout pattern which describes the log message format
 
@@ -135,7 +135,7 @@ one logger.
     into appender. If its level is 'WARN', 'ERROR' or 'FATAL', other
     entries will be discarded. This is the minimum log level at which
     you can log a message. See descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
+    levels](../../administer/monitoring-logs-using-management-console_53125394.html#MonitoringLogs-log4j_levels).
 
 #### Configure Log4J Loggers
 
@@ -162,7 +162,7 @@ After editing, the logging properties are read only from the database.
     level, then it inherits one from its closest ancestor with an
     assigned level. Refer to the hierarchy of levels given above. See
     descriptions of the [available log
-    levels](Monitoring-Logs_53125394.html#MonitoringLogs-log4j_levels).
+    levels](../../administer/monitoring-logs-using-management-console_53125394.html#MonitoringLogs-log4j_levels).
 -   **Additivity** - Allows to inherit all the appenders of the parent
     Logger if set as 'True'.  
 

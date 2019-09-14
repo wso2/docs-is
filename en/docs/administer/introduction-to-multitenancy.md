@@ -121,7 +121,7 @@ the loading policy for web applications and axis2 services deployed in
 your tenants using the **GhostDeployment** setting.
 
 See [Configuring the Tenant Loading
-Policy](_Configuring_the_Tenant_Loading_Policy_) for more information.
+Policy](Configuring-the-Tenant-Loading-Policy) for more information.
 
 ### Restrictions
 
