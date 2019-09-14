@@ -204,12 +204,12 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <a class="sourceLine" id="cb6-4" title="4">log4j.<span class="fu">appender</span>.<span class="fu">CARBON_LOGFILE</span>.<span class="fu">MaxBackupIndex</span>=<span class="dv">10</span></a></code></pre></div>
 </div>
 </div>
-<p>See <a href="_../../administer/monitoring-logs_">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p></td>
+<p>See <a href="../../administer/monitoring-logs">Monitoring Logs</a> for details on how to configure logging details in WSO2 products.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Prevent Log Forging</p></td>
 <td><p>Log forging can be prevented by appending a UUID to the log message.</p>
-<p>See <a href="_../../administer/monitoring-logs_">Monitoring Logs</a> for more information on configuring the log4j.properties file.</p></td>
+<p>See <a href="../../administer/monitoring-logs">Monitoring Logs</a> for more information on configuring the log4j.properties file.</p></td>
 </tr>
 <tr class="even">
 <td><p>Set appropriate JVM parameters</p>
