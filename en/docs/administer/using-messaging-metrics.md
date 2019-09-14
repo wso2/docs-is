@@ -7,7 +7,7 @@ monitoring broker-specific statistics.
 !!! note
     
     The metrics feature is enabled in the broker by default. See the topic
-    on [setting up WSO2 Carbon metrics](_Setting_Up_Carbon_Metrics_) for
+    on [setting up WSO2 Carbon metrics](../../administer/setting-up-carbon-metrics.md) for
     details on how metrics are enabled.
     
 

@@ -25,10 +25,10 @@ with Remote H2:
     Before you begin
     
     -   Set up the database as explained in [Setting up Remote
-        H2](_Setting_up_Remote_H2_).
+        H2](../../administer/setting-up-remote-h2).
     -   Download the H2 database driver and copy it to WSO2 IoT Server by
         following the steps under [Setting up
-        drivers](Setting-up-Remote-H2_53125507.html#SettingupRemoteH2-Settingupdrivers)
+        drivers](../../administer/setting-up-remote-h2-53125507.html#SettingupRemoteH2-Settingupdrivers)
         .
     
 

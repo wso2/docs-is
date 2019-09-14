@@ -2,8 +2,8 @@
 
 See the following topics on how to deploy and cluster WSO2 products:
 
--   [Key Concepts](_Key_Concepts_)
+-   [Key Concepts](../../administer/kerberos-security)
 -   [Production Deployment
-    Guidelines](_Production_Deployment_Guidelines_)
+    Guidelines](../../administer/production-deployment-guidelines)
 -   [Configuring rsync for Deployment
-    Synchronization](_Configuring_rsync_for_Deployment_Synchronization_)
+    Synchronization](Configuring-rsync-for-Deployment-Synchronization)

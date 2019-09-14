@@ -18,7 +18,7 @@ Windows.
 ### Installing the required applications
 
 1.  Ensure that your system meets the requirements specified in the
-    [Installation Prerequisites](_Installation_Prerequisites_).  Java
+    [Installation Prerequisites](Installation_Prerequisites).  Java
     Development Kit (JDK) is essential to run the product.
 2.  Ensure that the `          PATH         ` environment variable is
     set to `          C:\Windows\System32         `, because the

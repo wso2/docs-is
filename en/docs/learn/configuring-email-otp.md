@@ -1,7 +1,7 @@
 # Configuring Email OTP
 
 This section provides the instructions to configure [multi-factor
-authentication (MFA)](_Multi-factor_Authentication_for_WSO2_IS_) using
+authentication (MFA)](Multi-factor_Authentication_for_WSO2_IS) using
 Email One Time Password (Email OTP) in WSO2 Identity Server (WSO2
 IS). The Email OTP enables a one-time password (OTP) to be used at the
 second step of MFA.

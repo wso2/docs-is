@@ -53,9 +53,9 @@ tables using the scripts provided in the product pack. See the following
 topics for instructions:
 
 -   [Setting up the Physical
-    Database](_Setting_up_the_Physical_Database_)
--   [Changing the Carbon Database](_Changing_the_Carbon_Database_)
--   [Browsing the H2 Database](_Browsing_the_H2_Database_)
+    Database](../../administer/setting-up-the-physical-database)
+-   [Changing the Carbon Database](../../administer/changing-the-carbon-database)
+-   [Browsing the H2 Database](../../administer/browsing-the-h2-database)
 
 **Changing the default product-specific databases:** The process of
 setting up and configuring product-specific databases is similar to

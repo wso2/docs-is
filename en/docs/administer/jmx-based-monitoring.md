@@ -139,7 +139,7 @@ First, start the WSO2 product:
     `           wso2server.bat          ` for Windows) to start the
     server.  
 
-    If [JMX is enabled](_JMX-Based_Monitoring_), the **JMX server URL**
+    If [JMX is enabled](JMX-Based_Monitoring), the **JMX server URL**
     will be published on the console when the server starts as shown
     below.
 
@@ -160,7 +160,7 @@ Once the product server is started, you can start the JC
     1.  Enter the **JMX server URL** in the **Remote Process** field.
         This URL is published on the command prompt when you start the
         WSO2 server as explained
-        [above](#JMX-BasedMonitoring-start_jconsole).
+        [above](#JMX-BasedMonitoring-start-jconsole).
 
         Tip
 
@@ -172,7 +172,7 @@ Once the product server is started, you can start the JC
         `              wso2server.sh             ` for Linux and
         `              wso2server.bat             ` for Windows). For
         more information, read [Troubleshooting Connection Problems in
-        JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole)
+        JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting-connection-problems-in-jconsole)
         .
 
         ``` java
@@ -188,7 +188,7 @@ Once the product server is started, you can start the JC
 
         Make sure that the user ID you are using for JMX monitoring is
         assigned a role that has the **Server Admin** permission. See
-        [Configuring Roles](_Configuring_Roles_) for further information
+        [Configuring Roles](Configuring-Roles) for further information
         about configuring roles assigned to users. Any user assigned to
         the **admin** role can log in to JMX.
 
@@ -341,7 +341,7 @@ in the `         master-datasources.xml.        ` file, the [JDBC
 connection pool
 parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that
 are configured for the Carbon datasource will be listed as attributes as
-shown below. See the [performance tuning guide](_Performance_Tuning_)
+shown below. See the [performance tuning guide](../../administer/performance-tuning)
 for instructions on how these parameters are configured for a
 datasource.  
 ![](../../assets/img/53125400/57747097.png) 

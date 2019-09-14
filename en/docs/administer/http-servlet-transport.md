@@ -1,6 +1,6 @@
 # HTTP Servlet Transport
 
-The HTTP and [HTTPS](_HTTPS_Servlet_Transport_) transports in WSO2
+The HTTP and [HTTPS](HTTPS_Servlet-Transport) transports in WSO2
 products are based on Apache Tomcat's connector implementation. The
 connector configurations for both HTTP and HTTPS are available in the
 `         catalina-server.xml        ` file (stored in the

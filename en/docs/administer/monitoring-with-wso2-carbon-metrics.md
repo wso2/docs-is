@@ -10,6 +10,6 @@ monitoring WSO2 products.
 The following sections explain how the Carbon Metrics functionality is
 used in WSO2 products:
 
--   [Setting Up Carbon Metrics](_Setting_Up_Carbon_Metrics_)
--   [Using JVM Metrics](_Using_JVM_Metrics_)
--   [Using Messaging Metrics](_Using_Messaging_Metrics_)
+-   [Setting Up Carbon Metrics](../../administer/setting-up-carbon-metrics.md)
+-   [Using JVM Metrics](../../administer/using-asymmetric-encryption)
+-   [Using Messaging Metrics](../../administer/using-messaging-metrics)

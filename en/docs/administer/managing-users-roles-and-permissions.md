@@ -37,7 +37,7 @@ Before you begin your configurations, note the following:
 -   Only system administrators or other users with **Security** level
     permissions can add, modify and remove users and roles. For more
     information on permissions, see [Role-based
-    Permissions](_Role-based_Permissions_).
+    Permissions](../../administer/role-based-permissions).
 -   Your product has a primary user store where the users/roles that you
     create using the management console are stored by default. The
     default `           RegEx          ` configurations for this user
@@ -71,10 +71,10 @@ Before you begin your configurations, note the following:
 
 See the following topics for instructions:
 
--   [Changing a Password](_Changing_a_Password_)
--   [Configuring Roles](_Configuring_Roles_)
+-   [Changing a Password](../../administer/changing-a-password)
+-   [Configuring Roles](Configuring-Roles)
 -   [Configuring Users](../../using-wso2-identity-server/configuring-users)
--   [Role-based Permissions](_Role-based_Permissions_)
--   [Managing User Attributes](_Managing_User_Attributes_)
+-   [Role-based Permissions](../../administer/role-based-permissions)
+-   [Managing User Attributes](../../administer/managing-user-attributes)
 -   [Removing References to Deleted User Identities in WSO2
-    Products](_Removing_References_to_Deleted_User_Identities_in_WSO2_Products_)
+    Products](../../administer/removing-references-to-deleted-user-identities-in-wso2-products)

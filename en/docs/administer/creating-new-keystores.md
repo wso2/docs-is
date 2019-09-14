@@ -1,7 +1,7 @@
 # Creating New Keystores
 
 WSO2 Carbon-based products are shipped with a default
-[keystore](_Using_Asymmetric_Encryption_) named **wso2carbon.jks**,
+[keystore](Using_Asymmetric_Encryption) named **wso2carbon.jks**,
 which is stored in the
 `         <PRODUCT_HOME>/repository/resources/security        `
 directory. This keystore comes with a private/public key pair that is
@@ -33,7 +33,7 @@ Let's get started with creating new keystores.
 
 Be sure to go through the [recommendations for setting up keystores in
 WSO2
-products](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+products](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
 to understand the types of keystores you need.
 
 ### Creating a new keystore
@@ -48,10 +48,10 @@ the time of generating the keystore. See the instructions given below.
     **Important!**
     
     If you are creating a new keystore for [data
-    encryption](_Securing_Passwords_in_Configuration_Files_), be sure to
+    encryption](Securing_Passwords_in_Configuration_Files), be sure to
     acquire a public key certificate that contains the **Data Encipherment**
     key usage as explained in the [keystore
-    recommendations](Using-Asymmetric-Encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+    recommendations](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
     . Otherwise, the following error can occur when you attempt data
     encryption:
     
@@ -302,10 +302,10 @@ product's default truststore (
 
 For information on the concepts of keystores and about how keystores are
 used in WSO2 products, see [Using Asymmetric
-Encryption](_Using_Asymmetric_Encryption_).
+Encryption](Using_Asymmetric_Encryption).
 
 ### What's next?
 
 Once you have created a new keystore in your product as explained above,
 update the relevant configuration files as explained in [Configuring
-Keystores in WSO2 Products](_Configuring_Keystores_in_WSO2_Products_).
+Keystores in WSO2 Products](Configuring_Keystores_in_WSO2_Products).

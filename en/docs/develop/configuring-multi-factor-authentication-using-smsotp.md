@@ -288,7 +288,7 @@ connector in the identity provider would also change based on this.
 
 ### Deploying [travelocity.com](http://travelocity.com) sample
 
-The next step is to [deploy the sample app](_Deploying_the_Sample_App_)
+The next step is to [deploy the sample app](Deploying-the-Sample-App)
 in order to use it in this scenario.
 
 O nce this is done, the next step is to configure the WSO2 Identity

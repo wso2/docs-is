@@ -6,13 +6,13 @@ methods of working with the available administration and user features
 available in the Identity Server. The topics in this section are listed
 as follows:
 
--   [Working with the Source Code](_Working_with_the_Source_Code_)
--   [Extending the Identity Server](_Extending_the_Identity_Server_)
--   [Using APIs](_Using_APIs_)
--   [Customizing User Interfaces](_Customizing_User_Interfaces_)
+-   [Working with the Source Code](Working_with_the_Source_Code)
+-   [Extending the Identity Server](Extending_the_Identity_Server)
+-   [Using APIs](Using_APIs)
+-   [Customizing User Interfaces](Customizing_User_Interfaces)
 -   [Customizing the Authentication
-    Endpoint](_Customizing_the_Authentication_Endpoint_)
+    Endpoint](Customizing_the_Authentication_Endpoint)
 -   [Localization Support in Identity
-    Server](_Localization_Support_in_Identity_Server_)
+    Server](Localization_Support_in_Identity_Server)
 -   [Hosting Authentication Endpoint on a Different
-    Server](_Hosting_Authentication_Endpoint_on_a_Different_Server_)
+    Server](Hosting_Authentication_Endpoint_on_a_Different_Server)

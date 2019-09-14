@@ -42,10 +42,10 @@ In this page, you can find information on:
 <a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />
 <br />
 If you are connecting over ldaps (secured LDAP), you need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="(../../admin-guide/using-asymmetric-encryption)">using asymmetric encryption</a><br />
+<a href="(../../administer/using-asymmetric-encryption)">using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="(../../admin-guide/performance-tuning#performance-tuning-ldaps-pooling)">performance tuning ldaps pooling</a></p></td>
+<a href="(../../administer/performance-tuning#performance-tuning-ldaps-pooling)">performance tuning ldaps pooling</a></p></td>
 </tr>
 <tr class="odd">
 <td>connection_name </td>

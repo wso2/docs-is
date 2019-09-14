@@ -76,4 +76,4 @@ driver, take the following steps:
 ## What's next
 
 Next, you need to configure your product with Embedded H2 database. For
-more information, see [Changing to Remote H2](_Changing_to_Remote_H2_).
+more information, see [Changing to Remote H2](../../administer/changing-to-remote-h2).

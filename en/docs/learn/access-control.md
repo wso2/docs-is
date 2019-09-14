@@ -17,16 +17,16 @@ request/response language (both written in XML).
 The following topics discuss how Entitlement Management and XACML can be
 used in access control.
 
--   [Working with Entitlement](_Working_with_Entitlement_)
+-   [Working with Entitlement](Working_with_Entitlement)
     -   [Configuring the Policy Administration
         Point](../../tutorials/configuring-the-policy-administration-point)
     -   [Configuring the Policy Decision
-        Point](_Configuring_the_Policy_Decision_Point_)
+        Point](Configuring_the_Policy_Decision_Point)
     -   [Configuring Access Control Policy for a Service
-        Provider](_Configuring_Access_Control_Policy_for_a_Service_Provider_)
+        Provider](Configuring_Access_Control_Policy_for_a_Service_Provider)
     -   [Validating the Scope of OAuth Access Tokens using XACML
-        Policies](_Validating_the_Scope_of_OAuth_Access_Tokens_using_XACML_Policies_)
--   [Working with XACML](_Working_with_XACML_)
+        Policies](Validating_the_Scope_of_OAuth_Access_Tokens_using_XACML_Policies)
+-   [Working with XACML](Working_with_XACML)
     -   [Configuring WSO2 EI Entitlement Mediator with Identity
         Server](../../tutorials/configuring-wso2-ei-entitlement-mediator-with-identity-server)
     -   [Enabling REST Notifications For XACML Policy
