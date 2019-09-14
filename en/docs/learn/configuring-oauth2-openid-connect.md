@@ -54,7 +54,7 @@ the users with an authorization server-based authentication.
         For information on
         possible values that you can specify based on your
         requirement, see [Supported token persistence
-        processors](../../using-wso2-identity-server/extension-points-for-oauth#../../administer/token-persistence-processor).
+        processors](../../using-wso2-identity-server/extension-points-for-oauth#supported-token-persistence-processor).
     
         Once you configure a required token persistence processor, be sure
         to restart the server for the changes to be applied to WSO2 Identity
