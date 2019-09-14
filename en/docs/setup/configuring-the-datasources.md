@@ -6,7 +6,7 @@
         Alternatively, you can create more databases for each type of data to separate the data logically. Note that this will NOT make a difference in performance and is not actually neccessary. 
         However, if you do wish to separate the data logically into separate databases, see the [Setting Up Separate Databases for Clustering](../../setup/setting-up-separate-databases-for-clustering) topic.
 
-2. Configure the datasource for the databases in both nodes of your cluster in the  `master-datasources.xml`   file found in the  `<IS_HOME>/repository/conf/datasources` folder.  The code block below shows a sample configuration of the user mangement database and identity database for a mysql database.  For instructions on how to configure the datasource depending on the type of database you created, see [Changing the Carbon Database](../../administer/../../administer/changing-the-carbon-database).
+2. Configure the datasource for the databases in both nodes of your cluster in the  `master-datasources.xml`   file found in the  `<IS_HOME>/repository/conf/datasources` folder.  The code block below shows a sample configuration of the user mangement database and identity database for a mysql database.  For instructions on how to configure the datasource depending on the type of database you created, see [Changing the Carbon Database](../../administer/changing-the-carbon-database).
 
     ??? example "Click to see the sample configuration of master-datasource.xml"
         ```xml

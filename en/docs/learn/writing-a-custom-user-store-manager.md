@@ -529,7 +529,7 @@ in your WSO2 product.
         configure this as a secondary user store if you already have a
         different primary user store configured. For more information
         configuring user stores in WSO2 products, see [Configuring User
-        Stores](../../admin-guide/configuring-user-stores).
+        Stores](../../administer/configuring-user-stores).
     
 
     You do not need to change anything else since you extend the

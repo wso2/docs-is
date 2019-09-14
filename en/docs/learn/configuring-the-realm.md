@@ -19,7 +19,7 @@ repositories:
 ![configuring-the-realm.png](../../assets/img/using-wso2-identity-server/configuring-the-realm.png)
 
 For more information on Configuring master-datasources.xml, click
-[here](../../admin-guide/configuring-master-datasources.xml).
+[here](../../administer/configuring-master-datasources.xml).
 
 See the following topics for instructions on setting up user stores.
 
