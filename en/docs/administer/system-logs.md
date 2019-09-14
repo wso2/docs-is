@@ -10,7 +10,7 @@ can be retrieved in two ways:
 -   If syslog-ng is not configured, log files are taken from the local
     file system (super-tenant or Stand alone apps).
 
-See [Monitoring Logs](../../administer/monitoring-logs-using-management-console-using-management-console) in the WSO2 Product Administration
+See [Monitoring Logs](../../administer/monitoring-logs) in the WSO2 Product Administration
 Guide for more information about logging.
 
 Follow the instructions below to access the System Log statistics.

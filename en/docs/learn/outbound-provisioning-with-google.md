@@ -20,7 +20,7 @@ in Google too.
         for more information on creating the domain.
     -   Make sure you have a WUM updated WSO2 Identity Server 5.4.0 pack.
         For more information on how to WUM update, see [Updating WSO2
-        Products](../../admin-guide/updating-wso2-products)
+        Products](../../administer/updating-wso2-products)
     
 
 ### Configuring Google
