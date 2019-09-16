@@ -34,7 +34,7 @@ The first approach is to use the `         AdminService        ` . You
 can access this admin service using the following URL: '
 `         https://<HOST_NAME>:9443/services/UserAccountAssociationService?wsdl        `
 '. If you are new to admin services, see [Calling Admin
-Services](../../using-wso2-identity-server/calling-admin-services).
+Services](../../develop/calling-admin-services).
 
 The following actions can be performed using above admin service.
 

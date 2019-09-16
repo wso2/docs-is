@@ -72,7 +72,7 @@ features.
 
 -   RESTful consent APIs to manage consents remotely. For more
     infomation, see [Using the Consent Management REST
-    APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis).
+    APIs](../../develop/using-the-consent-management-rest-apis).
 -   Consent portal for individuals to review, modify, and revoke already
     given consents. For more information, see [Configuring consent for
     services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
@@ -196,5 +196,5 @@ Specification](https://kantarainitiative.org/confluence/display/infosharing/Cons
     
     For more information and instructions for setting up this use case, see
     [Using the Consent Management REST
-    APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis).
+    APIs](../../develop/using-the-consent-management-rest-apis).
     

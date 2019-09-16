@@ -26,7 +26,7 @@ Let's get started to configure the service provider you created!
     
         The grant type highlighted below is a **custom** grant type. This
         will only appear on the UI if you have [configured the JWT grant
-        type](../../connectors/configuring-jwt-grant-type). The value specified as the `           name        `
+        type](../../develop/configuring-jwt-grant-type). The value specified as the `           name        `
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see

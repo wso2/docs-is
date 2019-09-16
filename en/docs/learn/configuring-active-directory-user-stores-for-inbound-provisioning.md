@@ -2,7 +2,7 @@
 
 WSO2 Identity Server can act both as a SCIM Provider and as a SCIM
 consumer at the same time. You can test the WSO2 Identity Server's SCIM
-Provider API as described [here](../../using-wso2-identity-server/scim-1.1-apis). The WSO2 Identity
+Provider API as described [here](../../develop/scim-1.1-apis). The WSO2 Identity
 Server build includes the ApacheDS embedded LDAP server. The LDAP
 server's schema is customized to have the mandatory SCIM attributes,
 therefore SCIM implementation works by default with the WSO2 Identity

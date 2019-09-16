@@ -161,7 +161,7 @@ Server and as well as the Resource Server.
     assertion for a valid access token, you can use the received access
     token to access a protected resource in WSO2 Identity Server. Here,
     to retrieve users, you can use the [SCIM User
-    Endpoint](../../using-wso2-identity-server/scim-1.1-apis) which is secured with OAuth.
+    Endpoint](../../develop/scim-1.1-apis) which is secured with OAuth.
 
     **Response**
 
