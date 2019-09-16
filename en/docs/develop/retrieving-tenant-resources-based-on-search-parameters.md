@@ -2,7 +2,7 @@
 
 This section guides you through using the `         /search        `
 endpoint of the [Configuration Management REST
-API](../../using-wso2-identity-server/using-the-configuration-management-rest-apis) to search for
+API](../../develop/using-the-configuration-management-rest-apis) to search for
 tenant resources.  
 
 ### /search endpoint

@@ -87,7 +87,7 @@ to see a sample of how this works.
     1.  Discover the [UserProfileMgtService admin
         service](https://localhost:9443/services/UserProfileMgtService?wsdl)
         . For information on how to do this, see [Calling Admin
-        Services](../../using-wso2-identity-server/calling-admin-services)
+        Services](../../develop/calling-admin-services)
         .
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:
@@ -156,7 +156,7 @@ template for this option can be configured in the
     1.  Discover the [UserProfileMgtService admin
         service](https://localhost:9443/services/UserProfileMgtService?wsdl)
         . For information on how to do this, see [Calling Admin
-        Services](../../using-wso2-identity-server/calling-admin-services)
+        Services](../../develop/calling-admin-services)
         .
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:
@@ -228,7 +228,7 @@ template for this option can be configured in the
     1.  Discover the [UserProfileMgtService admin
         service](https://localhost:9443/services/UserProfileMgtService?wsdl)
         . For information on how to do this, see [Calling Admin
-        Services](../../using-wso2-identity-server/calling-admin-services)
+        Services](../../develop/calling-admin-services)
         .
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:

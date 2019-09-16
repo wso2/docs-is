@@ -139,7 +139,7 @@ for the request.
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating
     and Authorizing REST
-    APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
+    APIs](../../develop/authenticating-and-authorizing-rest-apis).
 
 Sample requests and responses are given below:
 

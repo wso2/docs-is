@@ -215,14 +215,14 @@ The Identity Server mainly acts as a resident service provider while
 adding users to the system. You can enable provisioning configurations
 for the resident service provider. For example, if you try to add users
 to the system via the [SCIM
-API](../../using-wso2-identity-server/scim-1.1-apis) ( You must use a
+API](../../develop/scim-1.1-apis) ( You must use a
 privileged local account to invoke the API to authenticate with HTTP
 Basic Authentication ), the system will read the provisioning
 configurations from the resident service provider.
 
 At the same time, if you want to configure outbound provisioning for any
 user management operation done via the management console, [SOAP
-API](../../using-wso2-identity-server/managing-users-and-roles-with-apis#adduser())
+API](../../develop/managing-users-and-roles-with-apis#adduser())
 or the [SCIM
 API](../../using-wso2-identity-server/outbound-provisioning-with-scim)
 , you must configure outbound provisioning identity providers against
