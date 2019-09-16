@@ -107,7 +107,7 @@ below:
 !!! info "Related Topics"
 
     For information on the JIT provisioning architecture, see [Provisioning
-    Architecture](../../getting-started/architecture).
+    Architecture](../../get-started/architecture).
 
     For information on how to configure purposes and appropriate user
     attributes to obtain user consent at the time of JIT provisioning, see

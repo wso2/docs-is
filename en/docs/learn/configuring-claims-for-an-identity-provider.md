@@ -7,7 +7,7 @@ the user attributes in the response sent from the identity provider. As
 an example, Facebook IdP will return authenticated user email as 'email'
 and identity server will map it to the '
 http://wso2.org/claims/emailaddress ' using the IdP claim mapping. See
-the [Identity Server Architecture](../../getting-started/architecture) topic for more
+the [Identity Server Architecture](../../get-started/architecture) topic for more
 information on how claim mapping fits into the identity provider
 scenario.
 

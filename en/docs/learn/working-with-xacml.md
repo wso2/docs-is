@@ -10,7 +10,7 @@ than it being just a fine grained authorization mechanism.
 
 !!! info
     For more information about XACML, see [Access Control and Entitlement
-    Management](../../getting-started/access-control-and-entitlement-management#introducing-xacml).
+    Management](../../get-started/access-control-and-entitlement-management#introducing-xacml).
 
 We generally uses the HTTPS transport for calling the Web Service API
 that has been exposed by the PDP.  With WSO2 Identity Server, we can

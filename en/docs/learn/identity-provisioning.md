@@ -19,7 +19,7 @@ component is responsible for provisioning users from WSO2 Identity
 Server to external applications.  The user store management system is
 used to persist users within the system. For more information on how
 Identity provisioning is linked with the WSO2 Identity Server
-architecture, see [Architecture](../../getting-started/architecture).
+architecture, see [Architecture](../../get-started/architecture).
 
 The diagram given below gives you a high level idea of the provisioning
 framework.
@@ -34,7 +34,7 @@ external applications are referred to as service providers. WSO2
 Identity Server support the  SCIM API and SOAP-based Web service API
 standards for inbound provisioning. To get an understanding of how
 inbound provisioning is linked to the WSO2 Identity Server architecture,
-see [Architecture](../../getting-started/architecture).
+see [Architecture](../../get-started/architecture).
 
 Once the users or groups are provisioned to WSO2 Identity Server, you
 can:
@@ -99,7 +99,7 @@ console.
 !!! tip
     
     For more information on how outbound provisioning fits with the WSO2
-    Identity Server architecture, see [Architecture](../../getting-started/architecture).
+    Identity Server architecture, see [Architecture](../../get-started/architecture).
     
 
 The following topics discuss the various ways you can configure outbound
@@ -133,5 +133,5 @@ Using JIT provisioning you can:
 !!! tip
     
     For more information on how outbound provisioning fits with the WSO2
-    Identity Server architecture, see [Architecture](../../getting-started/architecture).
+    Identity Server architecture, see [Architecture](../../get-started/architecture).
     

@@ -9,7 +9,7 @@ values.
 
 To handle such scenarios, WSO2 Identity Server supports [XACML Multiple
 Decision
-Profile](../../getting-started/access-control-and-entitlement-management#mdp)
+Profile](../../get-started/access-control-and-entitlement-management#mdp)
 (MDP) requests.
 
 MDP allows you to group multiple decisions as a single response after
