@@ -16,7 +16,7 @@ Once the local authentication is successfully completed, the local
 authenticator will notify the framework. The framework will now decide
 no more authentication is needed and hand over the control to the
 corresponding response builder of the inbound authenticator. See
-[Architecture](../../getting-started/architecture) for more information on this.
+[Architecture](../../get-started/architecture) for more information on this.
 
 You can configure the following for local and outbound authentication.
 

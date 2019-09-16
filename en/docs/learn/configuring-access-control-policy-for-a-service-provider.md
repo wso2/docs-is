@@ -62,7 +62,7 @@ done to try out this scenario.
 You need to define and configure your service provider in the WSO2
 Identity Server so that the authentication and/or provisioning happens
 as expected. For more information on how the service provider fits into
-the WSO2 IS architecture, see [Architecture](../../getting-started/architecture).
+the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 
 1.  Start the WSO2 Identity Server and log in to the management console.
 2.  Click **Add** under **Users and Roles** and then select **Add New

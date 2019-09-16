@@ -2,7 +2,7 @@
 
 You can configure the WSO2 Identity Server to provision users to
 external applications. See the [Identity Server
-Architecture](../../getting-started/architecture) for more information on how this process
+Architecture](../../get-started/architecture) for more information on how this process
 fits into the overall picture.
 
 To navigate to the outbound provisioning section, do the following.

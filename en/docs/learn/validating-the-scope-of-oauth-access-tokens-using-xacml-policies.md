@@ -18,7 +18,7 @@ XACML policies:
 Follow the steps below to configure a service provider in WSO2 Identity
 Server so that the authentication happens as expected. For more
 information on how the service provider fits into the WSO2 IS
-architecture, see [Architecture](../../getting-started/architecture).
+architecture, see [Architecture](../../get-started/architecture).
 
 1.  Start WSO2 Identity Server and access the Management Console via
     <https://localhost:9443/carbon/> .
