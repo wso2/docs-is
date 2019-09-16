@@ -9,7 +9,7 @@ organization’s applications.
 ### Getting started
 
 To get started with the authenticator, go to [Configuring Facebook
-Authenticator](Configuring-Facebook-Authenticator). Once you have
+Authenticator](../../develop/facebook-authenticator). Once you have
 completed your configurations, you can perform authentication with the
 Facebook authenticator.
 
