@@ -36,5 +36,5 @@ subsections.
     Identity Server but can be downloaded from the [WSO2
     store](https://store.wso2.com/store/) and plugged in to work with WSO2
     IS. For more information on those authenticators and connectors, see the
-    [WSO2 Identity Server Connectors documentation](../../connectors/authenticators-and-connectors).
+    [WSO2 Identity Server Connectors documentation](../../develop/authenticators-and-connectors).
     

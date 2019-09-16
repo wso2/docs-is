@@ -102,6 +102,6 @@ function someCommonFunction(context) {
     Reference](../../references/adaptive-authentication-js-api-reference).
 -   To learn about the guidelines on writing custom functions for
     adaptive authentication, see [Writing Custom Functions for Adaptive
-    Authentication](../../using-wso2-identity-server/writing-custom-functions-for-adaptive-authentication).
+    Authentication](../../develop/writing-custom-functions-for-adaptive-authentication).
 
   

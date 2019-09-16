@@ -8,7 +8,7 @@ that are applicable to WSO2 products:
 -   [Securing Passwords in Configuration
     Files](../../administer/securing-passwords-in-configuration-files)
 -   [Configuring Transport Level
-    Security](Configuring-Transport-Level-Security)
+    Security](../../administer/configuring-transport-level-security)
 -   [Enabling Java Security Manager](../../administer/enabling-java-security-manager)
 -   [Using Asymmetric Encryption](../../administer/using-asymmetric-encryption)
 -   [Using Symmetric Encryption](../../administer/using-symmetric-encryption)

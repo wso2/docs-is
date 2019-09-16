@@ -281,7 +281,7 @@ The created SCIM user object can be viewed in the following screen:
 
 ### Related links
 
--   See [SCIM 1.1 APIs](../../using-wso2-identity-server/scim-1.1-apis) for more cURL commands that can
+-   See [SCIM 1.1 APIs](../../develop/scim-1.1-apis) for more cURL commands that can
     be used to do various functions using the SCIM endpoints available.
 
 
