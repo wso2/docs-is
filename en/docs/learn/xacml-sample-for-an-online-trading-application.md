@@ -92,7 +92,7 @@ sample.
 7.  Implement PIP attribute finder module to retrieve the user's
     attributes from custom JDBC user store of the "Kmarket". More
     information on writing a custom PIP attribute finder module for this
-    scenario can be found [here](../../using-wso2-identity-server/writing-a-custom-policy-info-point).
+    scenario can be found [here](../../develop/writing-a-custom-policy-info-point).
 8.  Run the sample by navigating inside the
     `           <Sample_Home>/kmarket-trading-sample          `
     directory on the command line and executing the **run** script.

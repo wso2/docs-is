@@ -63,7 +63,7 @@ To add a new workflow, do the following.
         for some users, get approval from a user to continue). Identity
         Server supports custom templates that can be deployed as OSGi
         services. More information on writing workflow templates can be
-        found [here](../../using-wso2-identity-server/writing-a-custom-workflow-template).
+        found [here](../../develop/writing-a-custom-workflow-template).
 
 4.  Fill in the deployment information of the template as described
     below. Use the screen capture as a guide for the sample values to

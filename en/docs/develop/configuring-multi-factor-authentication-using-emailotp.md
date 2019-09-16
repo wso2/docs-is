@@ -587,7 +587,7 @@ mechanisam to send the OTP.
     ```
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -672,7 +672,7 @@ For example,
     
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -698,7 +698,7 @@ provider](https://docs.wso2.com/identity-server/Adding+and+Configuring+an+Identi
     You have now added the identity provider.
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -785,7 +785,7 @@ Follow the steps below add a service provider:
     
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -806,7 +806,7 @@ Follow the steps given below to update the user's email address.
     4.  Click **Update**.
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -848,7 +848,7 @@ Follow the steps below to map the user claims:
         authentication for the admin user.
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]
 
 ------------------------------------------------------------------------
 
@@ -874,4 +874,4 @@ Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
     ![](attachments/50504065/50684388.png) 
 
 \[ [Back to
-Top](Configuring-Multi-factor-Authentication-using-EmailOTP) \]
+Top](../../develop/configuring-multi-factor-authentication-using-emailotp) \]

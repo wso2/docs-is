@@ -68,6 +68,6 @@ multi-tenant environment.
         you can write a custom password policy using the configuration file
         instead of through the management console. For more information, see
         [Writing a Custom Password
-        Validator](../../using-wso2-identity-server/writing-a-custom-password-validator).
+        Validator](../../develop/writing-a-custom-password-validator).
     -   To record user password history, see [Password History
         Validation](../../using-wso2-identity-server/password-history-validation).

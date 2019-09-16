@@ -61,7 +61,7 @@ APIs are protected by Basic authentication and Oauth 2.0.
     
     -   [Using the management console](../../using-wso2-identity-server/configuring-users)
     
-    -   [Self registration API](../../using-wso2-identity-server/using-the-self-sign-up-rest-apis)
+    -   [Self registration API](../../develop/using-the-self-sign-up-rest-apis)
     
     -   [Just-In-Time (JIT)
         Provisioning](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
@@ -90,7 +90,7 @@ provisioning connectors.
 
 That's not all, you can plug custom connectors to WSO2 Identity Server.
 See [Writing an Outbound Provisioning
-Connector](../../using-wso2-identity-server/writing-an-outbound-provisioning-connector), for more
+Connector](../../develop/writing-an-outbound-provisioning-connector), for more
 information on writing an extension for a custom connector. Outbound
 provisioning configurations can be found under the **Identity Provider
 configuration** user interface of the WSO2 Identity Server management
