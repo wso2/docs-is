@@ -301,7 +301,7 @@
         <!-- -->
 
         -   [Configuring Transport Level
-            Security](Configuring-Transport-Level-Security)
+            Security](../../administer/configuring-transport-level-security)
 
         <!-- -->
 

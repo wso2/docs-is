@@ -240,6 +240,6 @@ The following sample code lists the back-end Web services:
     ```
 
 !!! info "Related Links"
-    -   See [Using APIs](../../using-wso2-identity-server/using-apis) for more information on the key SOAP APIs relevant for developers.
+    -   See [Using APIs](../../develop/using-apis) for more information on the key SOAP APIs relevant for developers.
     -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a list of the operations that can be performed with different permission levels.
     -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server: [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).

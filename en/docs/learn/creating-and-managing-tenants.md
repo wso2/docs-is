@@ -99,5 +99,5 @@ Server Management Console, click **View Tenants**.
     -   See [Working with Multiple
         Tenants](../../administer/working-with-multiple-tenants)
         for more information on multitenancy and its architecture.
-    -   See [Managing Tenants with APIs](../../using-wso2-identity-server/managing-tenants-with-apis) for
+    -   See [Managing Tenants with APIs](../../develop/managing-tenants-with-apis) for
         more information on using APIs to manage tenants.

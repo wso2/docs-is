@@ -51,7 +51,7 @@ disabling. The following section explain how to configure this.
         **Alternatively**, you can also use the
         `                         IdentityGovernanceAdminService                       `
         SOAP service to do this instead of using the management console UI.
-        See [Calling Admin Services](../../using-wso2-identity-server/calling-admin-services) for more
+        See [Calling Admin Services](../../develop/calling-admin-services) for more
         information on how to invoke this SOAP service. If you are using the
         SOAP service to configure this, you do not need to follow the steps
         given below this note.

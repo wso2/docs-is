@@ -205,7 +205,7 @@ scenario.
         !!! note
             The grant type highlighted below is a **custom** grant type. This
             will only appear on the UI if you have [configured the JWT grant
-            type](../../connectors/configuring-jwt-grant-type)
+            type](../../develop/configuring-jwt-grant-type)
             . The value specified in the
             `              <GrantTypeName>             ` property of the
             `              identity.xml             ` file when creating the

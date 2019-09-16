@@ -91,7 +91,7 @@ To export the user's personal information, do the following.
             again. A new consent receipt will be generated for the WSO2 IS
             dashboard consent).
         2.  Use the [Consent Management REST
-            APIs](../../using-wso2-identity-server/using-the-consent-management-rest-apis) to revoke the
+            APIs](../../develop/using-the-consent-management-rest-apis) to revoke the
             existing consent and add a new consent.
     
 
