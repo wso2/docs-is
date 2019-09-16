@@ -74,8 +74,7 @@ app](../../connectors/deploying-the-sample-app).
 
 Now you must configure the WSO2 Identity Server by [adding a new
 identity
-provider](../../using-wso2-identity-server/configuring-an-identity-provider)
-.
+provider](../../learn/adding-and-configuring-an-identity-provider).
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
@@ -88,8 +87,7 @@ provider](../../using-wso2-identity-server/configuring-an-identity-provider)
 4.  Give a suitable name for **Identity Provider Name** (e.g., Amazon)
     and click **Register**.
 
-5.  Navigate to the **Amazon Configurations** under ****Federated
-    Authenticators****
+5.  Navigate to the **Amazon Configurations** under **Federated Authenticators**
     -   In IS 5.1.0 or 5.2.0, go to **AmazonAuthenticator
         Configuration** under **Federated Authenticators**.
     -   In IS 5.3.0, go to **Amazon Configuration** under **Federated
@@ -164,7 +162,7 @@ The next step is to configure the service provider.
 8.  Configure the Local and Outbound Authentication for Amazon.  
     For more information, see [Configuring Local and Outbound
     Authentication for a Service
-    Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider).  
+    Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider).  
     
     1.  Click on the **Federated Authentication** radio button.
     
@@ -220,7 +218,7 @@ Add a new claim mapping for various user attributes related to Amazon.
 
 !!! info
     For more information, see [Adding Claim
-    Mapping](../../using-wso2-identity-server/adding-claim-mapping).
+    Mapping](../../learn/adding-claim-mapping).
 
 1.  Sign in to the [Management
     Console](../../setup/getting-started-with-the-management-console)
