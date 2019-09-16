@@ -17,7 +17,7 @@ authentication.
         Single Sign-On](../../tutorials/single-sign-on) tutorial.
     -   Consent management is enabled by default in WSO2 Identity Server. If
         you wish to disable it, see [Disabling consent management for
-        SSO](../../using-wso2-identity-server/consent-management-with-single-sign-on#disabling-consent-management-for-sso)
+        SSO](../../learn/consent-management-with-single-sign-on#disabling-consent-management-for-sso)
         .
 
 1.  When configuring claims for a service provider, the identity admin
@@ -77,7 +77,7 @@ authentication.
     -   The user has revoked consent for the application. For more
         information on revoking user consent, see [Configuring consent
         for
-        services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
+        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
         .
 
     -   The application requires new mandatory claims that the user has
@@ -141,7 +141,7 @@ authentication.
     
         For more information on revoking/accepting user consent, see
         [Configuring consent for
-        services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
+        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
         .
     
 

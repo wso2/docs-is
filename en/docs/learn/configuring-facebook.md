@@ -25,7 +25,7 @@ authenticate users using their Facebook credentials.
     
 
 Follow the steps given below to [add a new identity
-provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) in WSO2
+provider](../../learn/adding-and-configuring-an-identity-provider) in WSO2
 Identity Server.
 	
 1.  Download the WSO2 Identity Server from
@@ -111,7 +111,7 @@ You have now added the identity provider.
 	-   Identity Federation is part of the process of configuring an
 		identity provider. For more information on how to configure an
 		identity provider, see [Configuring an Identity
-		Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+		Provider](../../learn/adding-and-configuring-an-identity-provider).
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
 		-   [Logging in to your application via Identity Server using

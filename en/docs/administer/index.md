@@ -229,41 +229,41 @@
             -   [Configuring the User
                 Realm](Configuring-the-User-Realm)
                 -   [Configuring the System
-                    Administrator](../../using-wso2-identity-server/configuring-the-system-administrator)
+                    Administrator](../../learn/configuring-the-system-administrator)
 
                 <!-- -->
 
                 -   [Configuring the Authorization
-                    Manager](../../using-wso2-identity-server/configuring-the-authorization-manager)
+                    Manager](../../learn/configuring-the-authorization-manager)
 
                 <!-- -->
 
-                -   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)
+                -   [Configuring User Stores](../../learn/configuring-user-stores)
                     -   [Configuring the Primary User
-                        Store](../../using-wso2-identity-server/configuring-the-primary-user-store)
+                        Store](../../learn/configuring-the-primary-user-store)
                         -   [Configuring a JDBC User
-                            Store](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
+                            Store](../../learn/configuring-a-jdbc-user-store)
 
                         <!-- -->
 
                         -   [Configuring a Read-Only LDAP User
-                            Store](../../using-wso2-identity-server/configuring-a-read-only-ldap-user-store)
+                            Store](../../learn/configuring-a-read-only-ldap-user-store)
 
                         <!-- -->
 
                         -   [Configuring a Read-Write Active Directory
                             User
-                            Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+                            Store](../../learn/configuring-a-read-write-active-directory-user-store)
 
                         <!-- -->
 
                         -   [Configuring a Read-Write LDAP User
-                            Store](../../using-wso2-identity-server/configuring-a-read-write-ldap-user-store)
+                            Store](../../learn/configuring-a-read-write-ldap-user-store)
 
                     <!-- -->
 
                     -   [Configuring Secondary User
-                        Stores](../../using-wso2-identity-server/configuring-secondary-user-stores)
+                        Stores](../../learn/configuring-secondary-user-stores)
 
                     <!-- -->
 
@@ -273,7 +273,7 @@
                     <!-- -->
 
                     -   [Writing a Custom User Store
-                        Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
+                        Manager](../../learn/writing-a-custom-user-store-manager)
 
     <!-- -->
 
@@ -432,7 +432,7 @@
 
             <!-- -->
 
-            -   [Configuring Users](../../using-wso2-identity-server/configuring-users)
+            -   [Configuring Users](../../learn/configuring-users)
 
             <!-- -->
 

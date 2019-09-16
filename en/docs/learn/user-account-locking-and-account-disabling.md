@@ -16,10 +16,10 @@ disabled.
 !!! info "Related Topics"
 
     -   See [Enable last login and last password modified
-        timestamps](../../using-wso2-identity-server/configuring-users)
+        timestamps](../../learn/configuring-users)
         for more information on how to customize a user's profile to enable
         viewing of timestamps for the last time the user logged in and last
         time the user modified the password.
     -   See [Configuring
-        Claims](../../using-wso2-identity-server/configuring-claims) for
+        Claims](../../learn/configuring-claims) for
         more information on how to store the claim values in the user store.

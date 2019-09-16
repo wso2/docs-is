@@ -4,11 +4,11 @@
     
     Please read following topics:
     
-    -   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)
+    -   [Configuring User Stores](../../learn/configuring-user-stores)
     -   [Configuring the Primary User
-        Store](../../using-wso2-identity-server/configuring-the-primary-user-store)
+        Store](../../learn/configuring-the-primary-user-store)
     -   [Configuring the Secondary User
-        Store](../../using-wso2-identity-server/configuring-secondary-user-stores)
+        Store](../../learn/configuring-secondary-user-stores)
     
 
 Read-only LDAP user store manager is configured with
@@ -79,7 +79,7 @@ Default: wso2Person ( Is a custom object class defined in WSO2 products)</td>
 <td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Sample values: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="(../../using-wso2-identity-server/using-email-address-as-the-username)">Using email address as the username</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="(../../learn/using-email-address-as-the-username)">Using email address as the username</a></p></td>
 </tr>
 <tr class="even">
 <td>user_name_search_filter</td>

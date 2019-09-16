@@ -84,7 +84,7 @@ features.
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. For more information,
     see [Consent Management with
-    Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
+    Single-Sign-On](../../learn/consent-management-with-single-sign-on).
 -   Support for the Kantara consent receipt specification. For more
     information, see the [Kantara Consent Receipt
     Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification)
@@ -135,7 +135,7 @@ WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Configuring self-registration consent
-    purposes](../../using-wso2-identity-server/self-registration-and-account-confirmation)
+    purposes](../../learn/self-registration-and-account-confirmation)
     .
     
 
@@ -166,7 +166,7 @@ supported in WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Consent Management with
-    Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
+    Single-Sign-On](../../learn/consent-management-with-single-sign-on).
     
 
 ##### Manage consents that belong to third party applications

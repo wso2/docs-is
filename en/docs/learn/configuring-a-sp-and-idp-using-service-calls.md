@@ -354,11 +354,11 @@ console](../../setup/getting-started-with-the-management-console) user interface
       for information on using the travelocity.com application for single
       sign-on. This provides insight on some parameters used.
       -   See [Configuring a Service
-      Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+      Provider](../../learn/adding-and-configuring-a-service-provider)
       for information on creating a service provider using the WSO2
       Identity Server management console.
       -   See [Configuring an Identity
-      Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+      Provider](../../learn/adding-and-configuring-an-identity-provider)
       for information on creating an identity provider using the WSO2
       Identity Server management console.
       -   See [Configuring a SP and IdP Using Configuration

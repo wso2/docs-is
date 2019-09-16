@@ -4,7 +4,7 @@ You can register external PEP Endpoints in the WSO2 Identity Server. The
 Identity Server sends cache invalidation notifications (JSON, XML,
 EMAIL) to the pre-configured external PEP endpoints. Basic
 authentication will be used as the [authentication
-mechanism](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+mechanism](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
 .
 
 This topic describes how you can enable the XACML engine to send

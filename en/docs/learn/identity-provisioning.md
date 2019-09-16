@@ -9,9 +9,9 @@ provisioning key concepts that are used in WSO2 Identity Server.
 The identity provisioning framework is the main component that handles
 user/ role provisioning in WSO2 Identity Server. The WSO2 Identity
 Provisioning framework can be separated into three main components, such
-as [Inbound provisioning](../../using-wso2-identity-server/inbound-provisioning), [Outbound
-provisioning](../../using-wso2-identity-server/outbound-provisioning), and [User store
-management](../../using-wso2-identity-server/configuring-user-stores).
+as [Inbound provisioning](../../learn/inbound-provisioning), [Outbound
+provisioning](../../learn/outbound-provisioning), and [User store
+management](../../learn/configuring-user-stores).
 
 The inbound provisioning component is used by the external applications
 to provision users to WSO2 Identity Server while outbound provisioning
@@ -28,7 +28,7 @@ framework.
 
 ### Inbound provisioning
 
-[Inbound provisioning](../../using-wso2-identity-server/inbound-provisioning) provisions users or
+[Inbound provisioning](../../learn/inbound-provisioning) provisions users or
 groups in to the WSO2 Identity Server by an external application. These
 external applications are referred to as service providers. WSO2
 Identity Server support the  SCIM API and SOAP-based Web service API
@@ -43,7 +43,7 @@ can:
 
 -   Persist the users or groups to the Identity Server and provision
     them to external applications using [outbound
-    provisioning](../../using-wso2-identity-server/outbound-provisioning).
+    provisioning](../../learn/outbound-provisioning).
 
 -   Provision the users or groups to the external applications using
     outbound provisioning, without persisting them  internally.
@@ -59,17 +59,17 @@ APIs are protected by Basic authentication and Oauth 2.0.
     Apart from the inbound provisioning mechanism, given below are the other
     methods you can add and manage users to WSO2 Identity Server:
     
-    -   [Using the management console](../../using-wso2-identity-server/configuring-users)
+    -   [Using the management console](../../learn/configuring-users)
     
     -   [Self registration API](../../develop/using-the-self-sign-up-rest-apis)
     
     -   [Just-In-Time (JIT)
-        Provisioning](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
+        Provisioning](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
     
 
 ### Outbound provisioning
 
-[Outbound provisioning](../../using-wso2-identity-server/outbound-provisioning) provisions users to a
+[Outbound provisioning](../../learn/outbound-provisioning) provisions users to a
 trusted identity provider from the WSO2 Identity Server. A trusted
 identity provider is basically an identity provider that supports
 inbound provisioning. It can be Google, Salesforce, another Identity
@@ -105,14 +105,14 @@ console.
 The following topics discuss the various ways you can configure outbound
 provisioning:
 
--   **[Role Based Provisioning](../../using-wso2-identity-server/role-based-provisioning)**
--   **[Rule Based Provisioning](../../using-wso2-identity-server/rule-based-provisioning)**
--   **[Provisioning Patterns](../../using-wso2-identity-server/provisioning-patterns)**
+-   **[Role Based Provisioning](../../learn/role-based-provisioning)**
+-   **[Rule Based Provisioning](../../learn/rule-based-provisioning)**
+-   **[Provisioning Patterns](../../learn/provisioning-patterns)**
 
 ### Just In Time provisioning
 
 [Just-In-Time (JIT)
-provisioning](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
+provisioning](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
 provisions users to the Identity Server at the time of [federated
 authentication](../../tutorials/identity-federation). When WSO2 Identity Server is
 used for federated authentication, it redirects the user to an external

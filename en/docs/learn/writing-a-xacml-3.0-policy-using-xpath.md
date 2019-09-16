@@ -109,7 +109,7 @@ For this, the easiest way is to use the **Try It** tool available in our
 !!! note
     
     **You can follow the following steps in
-    [here](../../using-wso2-identity-server/evaluating-a-xacml-policy) to
+    [here](../../learn/evaluating-a-xacml-policy) to
     try this using Try It tool.**
     
 

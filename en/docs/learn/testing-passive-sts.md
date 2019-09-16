@@ -15,7 +15,7 @@ of Identity Server's Passive STS.
     website](http://tomcat.apache.org/).
 -   Passive STS Sample - This can be downloaded from the GitHub
     repository by following the instructions in the [Downloading a
-    Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
+    Sample](../../learn/downloading-a-sample) topic.
 
 ### Configuring the sample
 
@@ -77,7 +77,7 @@ file.
 3.  Expand the **Inbound Authentication Configuration\>**
     **WS-Federation (Passive) Configuration** section and provide the
     following values. See [Configuring WS-Federation
-    (Passive)](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-ws-federation)
+    (Passive)](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-ws-federation)
     for more information.  
       
     -   **Passive STS Realm** - Provide the same realm name given to the

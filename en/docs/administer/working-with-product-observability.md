@@ -105,7 +105,7 @@ Now you are ready to test the product observability of WSO2 IS.
     provider and generate client key and client secret, with which you can
     perform a secure database call. For more information on creating service
     providers, see [Adding a Service
-    Provider.](../../using-wso2-identity-server/adding-and-configuring-a-service-provider#adding-a-service-provider)
+    Provider.](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider)
     
 
 ### Log patterns

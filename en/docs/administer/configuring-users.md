@@ -48,7 +48,7 @@ its role.
         create this user account. This list includes the primary user
         store and any other secondary user stores that are configured
         for your product. For information on configuring user stores,
-        see [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
+        see [Configuring User Stores](../../learn/configuring-user-stores).
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters and should have at least one character with a capital
@@ -66,7 +66,7 @@ the **Users** page.
 In addition to creating users manually, user information stored in a CSV
 or Excel file can be imported in bulk to a user store configured in your
 WSO2 product. This possibility is only available if you have a [JDBC
-user store configured for your product](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
+user store configured for your product](../../learn/configuring-a-jdbc-user-store)
 .
 
 Note the following before you use this feature:

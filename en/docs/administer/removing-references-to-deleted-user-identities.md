@@ -132,7 +132,7 @@ steps below to run the tool:
         remove references to a specific deleted user.  
         For information on how to enable tracking deleted users, see
         [Tracking user deletion on deleting a
-        user](../../using-wso2-identity-server/configuring-users#tracking-user-deletion-on-deleting-a-user).
+        user](../../learn/configuring-users#tracking-user-deletion-on-deleting-a-user).
           
 
     !!! Note
@@ -178,7 +178,7 @@ steps below to run the tool:
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../using-wso2-identity-server/working-with-multiple-tenants">Working with Multiple Tenants</a> .</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../learn/working-with-multiple-tenants">Working with Multiple Tenants</a> .</p>
     <p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>

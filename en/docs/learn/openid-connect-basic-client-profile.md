@@ -71,6 +71,6 @@ authorization request in order to execute this flow.
     
 !!! info "Related Topics"
     See the [Basic Client Profile with
-    Playground](../../using-wso2-identity-server/basic-client-profile-with-playground) topic to try out
+    Playground](../../learn/basic-client-profile-with-playground) topic to try out
     this flow with the playground sample for OAuth in WSO2 Identity
     Server.

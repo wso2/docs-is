@@ -34,7 +34,7 @@ its role.
     1.  In the **Domain** list, specify the user store where you want to
         create this user account. This includes the list of user stores
         you configured. See [Configuring the
-        Realm](../../using-wso2-identity-server/configuring-the-realm) for more information.
+        Realm](../../learn/configuring-the-realm) for more information.
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters.
@@ -74,7 +74,7 @@ by clicking on the **View Roles** link on the user list.
 #### Creating new users using the ask password option
 
 See the [Creating users using the ask password
-option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option) page for
+option](../../learn/creating-users-using-the-ask-password-option) page for
 guidance on user creation using the ask password option.
 
 #### Creating new users using SCIM
@@ -85,7 +85,7 @@ be done using a SCIM request as seen below.
 !!! info 
       In the request, you can avoid providing the password of new user by
       enabling the [ask password
-      option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option) and providing
+      option](../../learn/creating-users-using-the-ask-password-option) and providing
       the email address of the user in the request so that the user will get
       an email to that email address to confirm the account and set the
       password.
@@ -304,7 +304,7 @@ file or Microsoft Excel (.xls) file.
          `            deployment.toml           ` file (stored in the
          `            <PRODUCT_HOME>/repository/conf           ` directory).
          Please see the [User Store
-         management](../../using-wso2-identity-server/configuring-the-primary-user-store) section for more
+         management](../../learn/configuring-the-primary-user-store) section for more
          information.
 
          ``` xml
@@ -364,7 +364,7 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
     In WSO2 IS, you can choose to leave the password empty as shown by the
     third line in the below sample file. To use this option, you need to
     first enable the [Ask Password
-    option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option)
+    option](../../learn/creating-users-using-the-ask-password-option)
     for the server.
     
     ``` java
@@ -505,7 +505,7 @@ screen. Make the changes required and click **Update**.
 #### Add multiple profiles for a user
 
 You can also add multiple profiles for a user. [Claim
-Management](../../using-wso2-identity-server/adding-claim-mapping) can be used to update the details
+Management](../../learn/adding-claim-mapping) can be used to update the details
 that are shown in the User Profile page.
 
 !!! note
@@ -609,12 +609,12 @@ methods you can use according to your requirement.
     
     If necessary you can log details related to a user deletion on deleting
     a user. For more information see, [Tracking user deletion on deleting a
-    user](../../using-wso2-identity-server/configuring-users#tracking-user-deletion-on-deleting-a-user).
+    user](../../learn/configuring-users#tracking-user-deletion-on-deleting-a-user).
     
     Once you delete a user, WSO2 IS allows you to remove all references to
     the deleted user's identity. For information on how to remove references
     to a deleted user's identity, see [Removing References to Deleted User
-    Identities](../../using-wso2-identity-server/removing-references-to-deleted-user-identities).
+    Identities](../../learn/removing-references-to-deleted-user-identities).
     
 
 ### Tracking user deletion on deleting a user
@@ -633,7 +633,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities](../../using-wso2-identity-server/removing-references-to-deleted-user-identities).
+identities](../../learn/removing-references-to-deleted-user-identities).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:
@@ -702,6 +702,6 @@ related to user deletion each time you delete a user:
 !!! info "Related Topics"
 
       -   See [Configuring User
-         Stores](../../using-wso2-identity-server/configuring-user-stores)
+         Stores](../../learn/configuring-user-stores)
          for instructions on how to configure primary and secondary user
          stores.

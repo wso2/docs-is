@@ -40,11 +40,11 @@ the following:
     framework talks to the service provider configuration component,
     find the claim mapping and do the claim conversion. See [Configuring
     Inbound Authentication for a Service
-    Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
+    Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
     for more information about response builder. Now the response
     builder will receive the claims in a manner understood by the
     corresponding service provider. [Read more about claim
-    management](../../using-wso2-identity-server/claim-management).
+    management](../../learn/claim-management).
 
 
 ### Adding a service provider
@@ -56,7 +56,7 @@ the following:
     
     -   Export an existing service provider and import it using the
         management console. For instructions, see [Importing or Exporting a
-        Service Provider](../../using-wso2-identity-server/importing-or-exporting-a-service-provider).
+        Service Provider](../../learn/importing-or-exporting-a-service-provider).
     -   Add a new service provider using a configuration file instead of
         using the management console. For instructions, see [Configuring a
         SP and IdP Using Configuration
@@ -83,7 +83,7 @@ the following:
         "Application/travelocity"). Users who wish to manage the created
         service provider should have this application role assigned. See
         [Configuring
-        Roles](../../using-wso2-identity-server/configuring-roles-and-permissions)
+        Roles](../../learn/configuring-roles-and-permissions)
         for guidance on how to do this.
     
 
@@ -183,7 +183,7 @@ the following:
             TB, TC users are able to log into the web application.
     
         -   For more information on creating and managing tenants, see
-            [Creating and Managing Tenants](../../using-wso2-identity-server/creating-and-managing-tenants)
+            [Creating and Managing Tenants](../../learn/creating-and-managing-tenants)
             .
     
 In the resulting screen, click the arrow buttons to expand the forms available to update.
@@ -191,17 +191,17 @@ In the resulting screen, click the arrow buttons to expand the forms available t
 ![click-to-expand](../../assets/img/using-wso2-identity-server/click-to-expand.png)
 
 
--   See [here](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) for details on how to configure claims.   
+-   See [here](../../learn/configuring-claims-for-a-service-provider) for details on how to configure claims.   
 
--   See [here](../../using-wso2-identity-server/configuring-roles-and-permissions-for-a-service-provider) for details on how to configure roles and permissions. 
+-   See [here](../../learn/configuring-roles-and-permissions-for-a-service-provider) for details on how to configure roles and permissions. 
 
--   See [here](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider) for details on how to configure inbound authentication.   
+-   See [here](../../learn/configuring-inbound-authentication-for-a-service-provider) for details on how to configure inbound authentication.   
 
--   See [here](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider) for details on how to configure local and outbound authentication.   
+-   See [here](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider) for details on how to configure local and outbound authentication.   
 
--   See [here](../../using-wso2-identity-server/configuring-inbound-provisioning-for-a-service-provider) for details on how to configure inbound provisioning.
+-   See [here](../../learn/configuring-inbound-provisioning-for-a-service-provider) for details on how to configure inbound provisioning.
 
--   See [here](../../using-wso2-identity-server/configuring-outbound-provisioning-for-a-service-provider) for details on how to configure outbound provisioning.   
+-   See [here](../../learn/configuring-outbound-provisioning-for-a-service-provider) for details on how to configure outbound provisioning.   
        
 
 ### Configuring a resident service provider
@@ -224,7 +224,7 @@ At the same time, if you want to configure outbound provisioning for any
 user management operation done via the management console, [SOAP
 API](../../develop/managing-users-and-roles-with-apis#adduser())
 or the [SCIM
-API](../../using-wso2-identity-server/outbound-provisioning-with-scim)
+API](../../learn/outbound-provisioning-with-scim)
 , you must configure outbound provisioning identity providers against
 the resident service provider. So, based on the outbound configuration,
 users added from the management console will also be provisioned to
@@ -248,7 +248,7 @@ in the WSO2 Identity Server.
         button to add this identity provider for provisioning. For an
         identity provider to appear on this list you have to [add the
         identity
-        provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) in the
+        provider](../../learn/adding-and-configuring-an-identity-provider) in the
         Identity Server. The following are the names that would appear
         for each type of provisioning connector.
         -   Google provisioning connector - Google and googleapps
@@ -297,7 +297,7 @@ Follow the instructions below to edit a service provider's details.
     corresponding **Edit** link.  
     ![edit-sp](../../assets/img/using-wso2-identity-server/edit-sp.png)
 4.  You are directed to the edit screen. See
-    [here](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for details on
+    [here](../../learn/adding-and-configuring-a-service-provider) for details on
     the editable form.
 
 #### Deleting service providers
@@ -323,7 +323,7 @@ Follow the instructions below to delete a service provider.
     -   See the [Single Sign-On](../../tutorials/single-sign-on) topic for details on how
         to configure a service provider for single sign-on using different
         specifications.
-    -   See [Identity Provisioning](../../using-wso2-identity-server/identity-provisioning) for information
+    -   See [Identity Provisioning](../../learn/identity-provisioning) for information
         on configuring inbound and outbound provisioning with a service
         provider.
 

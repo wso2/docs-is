@@ -43,7 +43,7 @@ and login to the other one.
 
     ![create-an-idp](../../assets/img/using-wso2-identity-server/create-an-idp.png)   
 
-4.  Setup the [playground sample](../../using-wso2-identity-server/setting-up-the-sample-webapp) in the
+4.  Setup the [playground sample](../../learn/setting-up-the-sample-webapp) in the
     first Identity Server instance.
 5.  Edit the service provider in the first Identity Server and select
     the Federation Authentication for Authentication type in Local and
@@ -52,7 +52,7 @@ and login to the other one.
     Authentication.  
     ![select-federation-authentication](../../assets/img/using-wso2-identity-server/select-federation-authentication.png)
 6.  Try the authorization code grant as described
-    [here](../../using-wso2-identity-server/try-authorization-code-grant). You will be redirected to
+    [here](../../learn/try-authorization-code-grant). You will be redirected to
     the 2nd Identity Server instead of the 1st Identity Server for
     authentication.
     ![second-idp](../../assets/img/using-wso2-identity-server/second-idp.png) 

@@ -6,7 +6,7 @@ using a custom grant handler.
 
 This simply uses the mobile grant sample and adds the specific error
 codes/messages to it. See the [Writing a Custom OAuth 2.0 Grant
-Type](../../using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type) topic for instructions on
+Type](../../learn/writing-a-custom-oauth-2.0-grant-type) topic for instructions on
 how to implement and use the mobile grant sample before adding the
 custom error codes to it.
 

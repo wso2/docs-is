@@ -36,17 +36,17 @@ embedded H2 database is used for storing permissions as well as users
 and roles. The instructions in this section explain how you can change
 the default user store. F or information on how to set up an RDBMS
 repository for storing permission, s ee [Configuring the Authorization
-Manager](../../using-wso2-identity-server/configuring-the-authorization-manager).
+Manager](../../learn/configuring-the-authorization-manager).
 
 The following topics include instructions on setting up user stores:
 
 -   [Configuring the Primary User
-    Store](../../using-wso2-identity-server/configuring-the-primary-user-store)
+    Store](../../learn/configuring-the-primary-user-store)
 -   [Configuring Secondary User
-    Stores](../../using-wso2-identity-server/configuring-secondary-user-stores)
+    Stores](../../learn/configuring-secondary-user-stores)
 -   [Working with Properties of User
     Stores](Working_with_Properties_of_User_Stores)
 -   [Writing a Custom User Store
-    Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager)
+    Manager](../../learn/writing-a-custom-user-store-manager)
 
   
