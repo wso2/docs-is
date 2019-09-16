@@ -14,7 +14,7 @@
 
         <!-- -->
 
-        -   [Amazon Authenticator](Amazon-Authenticator)
+        -   [Amazon Authenticator](../../develop/amazon-authenticator)
             -   [Configuring Amazon
                 Authenticator](Configuring-Amazon-Authenticator)
 
@@ -58,7 +58,7 @@
 
         -   [EmailOTP Authenticator](EmailOTP-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                EmailOTP](Configuring-Multi-factor-Authentication-using-EmailOTP)
+                EmailOTP](../../develop/configuring-multi-factor-authentication-using-emailotp)
 
         <!-- -->
 
@@ -98,9 +98,9 @@
 
         <!-- -->
 
-        -   [JWT Grant Type for OAuth2](JWT-Grant-Type-for-OAuth2)
+        -   [JWT Grant Type for OAuth2](../../develop/jwt-grant-type-for-oauth2)
             -   [Configuring JWT Grant
-                Type](Configuring-JWT-Grant-Type)
+                Type](../../develop/configuring-jwt-grant-type)
 
         <!-- -->
 
@@ -175,7 +175,7 @@
 
         -   [SMSOTP Authenticator](SMSOTP-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                SMSOTP](Configuring-Multi-factor-Authentication-using-SMSOTP)
+                SMSOTP](../../develop/configuring-multi-factor-authentication-using-smsotp)
 
         <!-- -->
 
@@ -187,7 +187,7 @@
 
         -   [Token2 Authenticator](Token2-Authenticator)
             -   [Configuring Multi-factor Authentication using
-                Token2](Configuring-Multi-factor-Authentication-using-Token2)
+                Token2](../../develop/configuring-multi-factor-authentication-using-token2)
 
         <!-- -->
 
@@ -197,7 +197,7 @@
 
             <!-- -->
 
-            -   [Using the TOTP API](Using-the-TOTP-API)
+            -   [Using the TOTP API](../../develop/using-the-totp-api)
 
         <!-- -->
 
@@ -223,7 +223,7 @@
             <!-- -->
 
             -   [Configuring Certificate Revocation
-                Validation](Configuring-Certificate-Revocation-Validation)
+                Validation](../../develop/certificate-revocation-validation)
 
         <!-- -->
 
@@ -233,7 +233,7 @@
 
         <!-- -->
 
-        -   [Upgrading an Authenticator](Upgrading-an-Authenticator)
+        -   [Upgrading an Authenticator](../../develop/upgrading-an-authenticator)
 
         <!-- -->
 
@@ -244,14 +244,14 @@
         <!-- -->
 
         -   [AWS Cloud Directory User
-            Store](AWS-Cloud-Directory-User-Store)
+            Store](../../develop/authenticators-and-connectors)
 
     <!-- -->
 
     -   [Creating a Third Party Authenticator or Connector and
         Publishing in WSO2
-        Store](Creating-a-Third-Party-Authenticator-or-Connector-and-Publishing-in-WSO2-Store)
+        Store](../../develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store)
 
     <!-- -->
 
-    -   [Getting Support](Getting-Support)
+    -   [Getting Support](../../develop/getting-support)

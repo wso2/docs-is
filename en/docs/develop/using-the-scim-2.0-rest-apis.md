@@ -2173,7 +2173,7 @@ This endpoint is used to create and manage the currently authenticated user.
 ##### POST/ Create Users in Bulk
 `POST https://localhost/t/{tenant-domain}/scim2/Me`
 
-This API is used to register a user anonymously. It returns an HTTP 201 response if the user is successfully created. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis). 
+This API is used to register a user anonymously. It returns an HTTP 201 response if the user is successfully created. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis). 
 
 ```java tab="Request"
 curl -v -k  --data '{"schemas":[],"name:{"familyName":[last name],"givenName":[name]},"userName":[username],"password":[password],"emails":[{"primary":[true/false],"value":[email address],"type":[home/work]},{"value":[email address 2],"type":[home/work]}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{"employeeNumber":[employee ID],"manager":{"value":[manager's name]}}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Me
@@ -2288,7 +2288,7 @@ HTTP/1.1 204 NOT IMPLEMENTED
 #### GET/ Get Me
 `GET https://localhost/t/{tenant-domain}/scim2/Me`
 
-This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
+This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis).
 
 ```cur tab="Request"
 curl -v -k --user [username]:[password] https://localhost:9443/scim2/Me
@@ -2873,5 +2873,5 @@ given below.
 !!! info
 	More information about how to secure the REST APIs and configure
 	authorization level can be found from [Authenticating and Authorizing
-	REST APIs](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis)
+	REST APIs](../../develop/authenticating-and-authorizing-rest-apis)
 

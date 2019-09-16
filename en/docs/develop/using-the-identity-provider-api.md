@@ -32,7 +32,7 @@ https://localhost:9443/services/IdentityProviderMgtService?wsdl .
     
     **Note** : Prior to calling any of these admin services, you need to
     make them discoverable. See [Calling Admin
-    Services](../../using-wso2-identity-server/calling-admin-services) for information on how to do this.
+    Services](../../develop/calling-admin-services) for information on how to do this.
     
 
 ### addIdp
@@ -256,7 +256,7 @@ The `          <federatedAuthenticatorConfigs>         ` parameter can
 be used to configure zero or more federated authenticators. For sample
 federated authenticator configurations, see [Federated Authenticator
 Configuration
-Samples](Identity-Provider-Configurations-used-with-APIs_103330047.html#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfig)
+Samples](../../develop/identity-provider-configurations-used-with-apis_103330047.html#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfig)
 .
 
 **Outbound provisioning connectors**
@@ -265,7 +265,7 @@ The `         <provisioningConnectorConfigs>        ` parameter can be
 used to configure zero or more outbound provisioning connectors. For
 sample outbound provisioning connector configurations, see [Outbound
 Provisioning Connectors Configuration
-Samples.](Identity-Provider-Configurations-used-with-APIs_103330047.html#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfig)
+Samples.](../../develop/identity-provider-configurations-used-with-apis_103330047.html#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfig)
 
   
 

@@ -68,7 +68,7 @@ relevant section.
 ![outbound-provisioning-connectors](../../assets/img/using-wso2-identity-server/outbound-provisioning-connectors.png)
 
 In addition to this, you can also create [custom
-connectors](../../using-wso2-identity-server/writing-an-outbound-provisioning-connector) that are added
+connectors](../../develop/writing-an-outbound-provisioning-connector) that are added
 to the list of outbound provisioning connectors once created.
 
 #### Configuring Google provisioning

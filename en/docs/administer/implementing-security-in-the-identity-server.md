@@ -3,7 +3,7 @@
 WSO2 Identity Server provides many methods for implementing and managing
 security. These are described in the following topics.
 
--   [Configuring Transport Level Security](../../using-wso2-identity-server/configuring-transport-level-security)
+-   [Configuring Transport Level Security](../../administer/configuring-transport-level-security)
 -   [Saving Access Tokens in Separate Tables](../../using-wso2-identity-server/saving-access-tokens-in-separate-tables)
 -   [Timestamp in WS-Security to Mitigate Replay Attacks](../../using-wso2-identity-server/timestamp-in-ws-security-to-mitigate-replay-attacks)
 -   [Enabling Java Security Manager](../../administer/enabling-java-security-manager)

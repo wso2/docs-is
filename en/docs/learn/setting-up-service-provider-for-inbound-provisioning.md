@@ -72,7 +72,7 @@ To confirm that the provisioning works, do the following.
     curl -v -k --user admin:admin --data "{"schemas":[],"name":{"familyName":"mervyn","givenName":"samuel"},"userName":"samuel","password":"samuel","emails":[{"primary":true,"value":"samuel@wso2.com"}]}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
     !!! info 
-        Refer [SCIM 1.1 APIs](../../using-wso2-identity-server/scim-1.1-apis) page for more details on SCIM
+        Refer [SCIM 1.1 APIs](../../develop/scim-1.1-apis) page for more details on SCIM
 
 2.  On the Management Console, click on **Users and Roles** in the
     **Identity** menu in **Main** tab.
@@ -179,7 +179,7 @@ To confirm that the provisioning works, do the following.
     ```
 
     !!! info 
-        Refer [SCIM 1.1 APIs](../../using-wso2-identity-server/scim-1.1-apis) page for more details on SCIM
+        Refer [SCIM 1.1 APIs](../../develop/scim-1.1-apis) page for more details on SCIM
 
 2.  On the Management Console, click on **Users and Roles** in the
     **Identity** menu in **Main** tab.
