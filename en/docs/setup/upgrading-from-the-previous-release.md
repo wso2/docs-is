@@ -13,7 +13,7 @@ users receive the latest updates for the product.
 
 -   For a high level overview of what has been added, changed, or
     deprecated in this release, see [About this
-    release](../../getting-started/about-this-release).
+    release](../../get-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
     [Understanding What Has Changed](../../setup/understanding-what-has-changed).
 

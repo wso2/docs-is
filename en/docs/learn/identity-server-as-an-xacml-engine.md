@@ -7,7 +7,7 @@ authorization. It includes full support for policies based on XACML
 !!! info
     For more information on XACML and the concept of XACML engine, see
     [Access Control and Entitlement
-    Management](../../getting-started/access-control-and-entitlement-management).
+    Management](../../get-started/access-control-and-entitlement-management).
 
 The following steps describe how you can configure the Identity Server
 as an XACML engine.

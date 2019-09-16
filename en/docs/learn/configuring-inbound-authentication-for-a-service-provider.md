@@ -21,7 +21,7 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](../../getting-started/architecture).
+[Architecture](../../get-started/architecture).
 
 Let's learn how to configure inbound authentication for a service
 provider.

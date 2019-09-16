@@ -1,12 +1,12 @@
 # Adding and Configuring a Service Provider
 
 This topic provides instructions on how to add a new [service
-provider](../../getting-started/architecture).
+provider](../../get-started/architecture).
 You must provide configuration details to add this service provider in
 the WSO2 Identity Server so that the authentication and/or provisioning
 happens as expected. For more information on how the service provider
 fits into the WSO2 IS architecture, see
-[Architecture](../../getting-started/architecture).
+[Architecture](../../get-started/architecture).
 
 The responsibility of the service provider configuration is to represent
 external service providers. The service provider configurations cover

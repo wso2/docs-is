@@ -7,7 +7,7 @@ information of the user from the Identity Server where the service
 provider authenticates, the claim mapping is useful. Once the user is
 authenticated, the service provider can use these received claim details
 to provide its service.  See the [Identity Server
-Architecture](../../getting-started/architecture) for more
+Architecture](../../get-started/architecture) for more
 information on how claim mapping fits in to the overall scheme of
 things.
 

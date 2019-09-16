@@ -3,9 +3,9 @@
 The topics in this section introduce WSO2 Identity Server, including the
 business cases it solves, its features, and architecture.
 
--   [Overview](../../getting-started/overview)
--   [Architecture](../../getting-started/architecture)
--   [About this release](../../getting-started/about-this-release)
+-   [Overview](../../get-started/overview)
+-   [Architecture](../../get-started/architecture)
+-   [About this release](../../get-started/about-this-release)
 
 You can also view the following webinars and articles to expand your
 knowledge on WSO2 Identity Server:

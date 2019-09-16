@@ -94,7 +94,7 @@ configure the following in the order mentioned.
     Once everything else is configured, you can add an identity
     provider. You can link this to the user store you configured and
     also specify which protocols you wish to use to configure your IdP.
-    See the [architecture](../../getting-started/architecture) of the Identity Server to see
+    See the [architecture](../../get-started/architecture) of the Identity Server to see
     how the identity provider configurations are used in the bigger
     picture.  
 -   **[Service
