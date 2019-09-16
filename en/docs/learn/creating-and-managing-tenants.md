@@ -93,7 +93,7 @@ Server Management Console, click **View Tenants**.
     aspects of the WSO2 Identity Server.
 
     -   See [Configuring a SP and IdP Using Configuration
-        Files](../../using-wso2-identity-server/../../setup/configuring-a-sp-and-idp-using-configuration-files) for
+        Files](../../setup/configuring-a-sp-and-idp-using-configuration-files) for
         more information on configuring an identity provider that can be
         shared across multiple tenants.
     -   See [Working with Multiple

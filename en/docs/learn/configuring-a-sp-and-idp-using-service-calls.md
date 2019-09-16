@@ -362,6 +362,6 @@ console](../../setup/getting-started-with-the-management-console) user interface
       for information on creating an identity provider using the WSO2
       Identity Server management console.
       -   See [Configuring a SP and IdP Using Configuration
-      Files](../../using-wso2-identity-server/../../setup/configuring-a-sp-and-idp-using-configuration-files) for
+      Files](../../setup/configuring-a-sp-and-idp-using-configuration-files) for
       information on creating a service provider or identity provider
       using the Identity Server configuration files.
