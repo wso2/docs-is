@@ -1,0 +1,123 @@
+# Installing on Linux or OS X
+
+!!! tip
+    
+    **Before you begin**, [please see our compatibility
+    matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
+    to find out if this version of the product is fully tested on your
+    operating system.
+    
+
+Follow the instructions below to install WSO2 Identity Server on Linux
+or Mac OS X.
+
+### Installing the required applications
+
+1.  Log in to the command line (Terminal on Mac).
+2.  Ensure that your system meets the [Installation
+    Prerequisites](Installation_Prerequisites).  Java Development Kit
+    (JDK) is essential to run the product.
+
+### Installing the Identity Server
+
+1.  Download the latest version of the Identity Server from
+    <http://wso2.com/products/identity-server/> .
+2.  Extract the archive file to a dedicated directory for the Identity
+    Server, which will hereafter be referred to as
+    `           <IS_HOME>          ` .
+
+    !!! warning
+    
+        If you are using Mac OS with High Sierra, you may encounter the
+        following warning message when logging in to the management console
+        due to a compression issue that exists in the High Sierra SDK.
+    
+        ``` java
+        WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+        ```
+    
+        To avoid this issue, open the `           <IS_HOME>/          `
+        `           repository/conf/tomcat/catalina-server.xml          `
+        file and change the `           compression="on"          ` to
+        `           compression="off"          ` in the HTTPS connector
+        configuration, and restart WSO2 IS.
+    
+
+### Setting up JAVA\_HOME
+
+You must set your `         JAVA_HOME        ` environment variable to
+point to the directory where the Java Development Kit (JDK) is installed
+on the computer.
+
+Environment variables are global system variables accessible by all the
+processes running under the operating system.
+
+1.  In your home directory, open the BASHRC file (.bash\_profile file 
+    on Mac) using editors such as vi, emacs, pico, or mcedit.
+2.  Assuming you have JDK 1.8.0\_141 in your system, add the following
+    two lines at the bottom of the file, replacing
+    `           /usr/java/jdk1.8.0_141          ` with the actual
+    directory where the JDK is installed.
+
+    ``` java
+    On Linux:
+    export JAVA_HOME=/usr/java/jdk1.8.0_141
+    export PATH=${JAVA_HOME}/bin:${PATH}
+     
+    On OS X:
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141/Contents/Home
+    ```
+
+3.  Save the file.
+
+    If you do not know how to work with text editors in a Linux SSH
+    session, run the following command:
+    `            cat >> .bashrc.           ` Paste the string from the
+    clipboard and press "Ctrl+D."
+
+4.  To verify that the `           JAVA_HOME          ` variable is set
+    correctly, execute the following command:
+
+    ``` java
+        On Linux:
+        echo $JAVA_HOME
+         
+        On OS X:
+        which java
+    
+        If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
+        ls -l `which java`
+    ```
+
+5.  The system returns the JDK installation path.
+
+### Setting system properties
+
+If you need to set additional system properties when the server starts,
+you can take the following approaches:
+
+-   **Set the properties from a script** : Setting your system
+    properties in the startup script is ideal, because it ensures that
+    you set the properties every time you start the server. To avoid
+    having to modify the script each time you upgrade, the best approach
+    is to create your own startup script that wraps the WSO2 startup
+    script and adds the properties you want to set, rather than editing
+    the WSO2 startup script directly.
+-   **Set the properties from an external registry** : If you want to
+    access properties from an external registry, you could create Java
+    code that reads the properties at runtime from that registry. Be
+    sure to store sensitive data such as username and password to
+    connect to the registry in a properties file instead of in the Java
+    code and secure the properties file with the [secure
+    vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
+    .
+
+When using SUSE Linux, it ignores `          /etc/resolv.conf         `
+and only looks at the `          /etc/hosts         ` file. This means
+that the server will throw an exception on startup if you have not
+specified anything besides localhost. To avoid this error, add the
+following line above `          127.0.0.1 localhost         ` in the
+`          /etc/hosts         ` file: `          <ip_address>         `
+`          <machine_name> localhost         `
+
+You are now ready to [run the product](../../setup/running-the-product).

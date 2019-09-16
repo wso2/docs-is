@@ -11,7 +11,7 @@ You can run multiple nodes of WSO2 Identity Server in a cluster mode to achieve 
 1. If one node becomes unavailable or is experiencing high traffic, another node will seamlessly handle the requests. 
 2. Balancing traffic handling: Multiple nodes can handle the traffic together so that cluster throughput is higher than the throughput of a single node.
 
-For complete information on clustering concepts, see [Clustering Overview](../../admin-guide/clustering-overview). 
+For complete information on clustering concepts, see [Clustering Overview](../../administer/clustering-overview). 
 The following sections guide you through setting up the deployment pattern, which is an HA Clustered Deployment of 2 WSO2 Identity Server nodes. 
 
 ### Deployment prerequisites
@@ -83,9 +83,9 @@ The following is a high-level component diagram showing how the system would loo
 ![Component diagram](../../assets/img/setup/component-diagram.png)
 
 !!! note
-    For db scripts and more information related to databases, see [Setting up the Physical Database](../../admin-guide/setting-up-the-physical-database).
+    For db scripts and more information related to databases, see [Setting up the Physical Database](../../administer/setting-up-the-physical-database).
 
-WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_HOME>/repository/conf/datasources` directory, to configure all databases in a single location. We define data sources that can be referred to in other configuration files as necessary. The code block below shows a sample configuration for a MySQL database. For instructions on how to configure the data sources for other databases, please see, [Changing the Carbon Database](../../admin-guide/changing-the-carbon-database).
+WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_HOME>/repository/conf/datasources` directory, to configure all databases in a single location. We define data sources that can be referred to in other configuration files as necessary. The code block below shows a sample configuration for a MySQL database. For instructions on how to configure the data sources for other databases, please see, [Changing the Carbon Database](../../administer/changing-the-carbon-database).
 
 
 ??? example Click here to view the sample code block
@@ -206,7 +206,7 @@ WSO2 Identity Server comprises of three different registry repositories.
 3. **Governance Repository**: Used to store configuration and data that are shared across the whole platform. This typically includes services, service descriptions, endpoints or data sources.
 
 !!! info
-    For more information about the registry, see [Working with the Registry](../../admin-guide/working-with-the-registry).
+    For more information about the registry, see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the governance and configuration registries should be mounted to share across all nodes. To do this add the following to the file `<IS_HOME>/repository/conf/registry.xml` in both nodes. 
 
@@ -235,7 +235,7 @@ In this cluster setup, we use the default h2 database as the local registry in e
 </mount>
 ```
 
-The local registry information is kept within each node in the in-built h2 database. This is reffered as **WSO2CarbonDB** in the above data sources configuration. There is no harm losing the local registry information and there is no backup requirement on this database. For more information on mounting the registry, see [Sharing Databases in a Cluster](../../admin-guide/sharing-databases-in-a-cluster).
+The local registry information is kept within each node in the in-built h2 database. This is reffered as **WSO2CarbonDB** in the above data sources configuration. There is no harm losing the local registry information and there is no backup requirement on this database. For more information on mounting the registry, see [Sharing Databases in a Cluster](../../administer/sharing-databases-in-a-cluster).
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` file to false. This is because the automatic versioning of resources can be an extremely expensive operation. 
@@ -274,7 +274,7 @@ Following configurations need to be done to both WSO2 Identity Server nodes in o
         ```  
         <parameter name="membershipScheme">wka</parameter>
         ```
-        For more information, see [Clustering WSO2 Products - About Membership Schemes](../../admin-guide/clustering-wso2-products).
+        For more information, see [Clustering WSO2 Products - About Membership Schemes](../../administer/clustering-wso2-products).
     
     ??? tip "Click to see the instructions for WKA scheme"            
         Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
