@@ -178,7 +178,7 @@ To register a service provider, do the following.
 
                 For more information about consent management during
                 authentication, see [Consent Management with
-                Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
+                Single-Sign-On](../../learn/consent-management-with-single-sign-on).
 
 2.  Select the **Subject Claim URI** and the **Role Claim URI** (for
     custom claims)from the drop-down. The claims you mapped are listed

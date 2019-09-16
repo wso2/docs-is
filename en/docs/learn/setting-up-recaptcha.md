@@ -86,7 +86,7 @@ configure reCaptcha with any of the following:
 -   [Configuring Google reCaptcha for single
     sign-on](../../tutorials/configuring-recaptcha-for-single-sign-on)
 -   [Configuring Google reCaptcha for self
-    registration](../../using-wso2-identity-server/configuring-recaptcha-for-self-registration)
+    registration](../../learn/configuring-recaptcha-for-self-registration)
 -   [Configuring Google reCaptcha for security-question based password
-    recovery](../../using-wso2-identity-server/configuring-recaptcha-for-security-question-based-password-recovery)
+    recovery](../../learn/configuring-recaptcha-for-security-question-based-password-recovery)
     (password recovery with secret questions)

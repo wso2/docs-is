@@ -12,9 +12,9 @@ brute force attacks.
 !!! info 
     -   For more information on setting up self registration, see
         [Self-Registration and Account
-        Confirmation](../../using-wso2-identity-server/self-registration-and-account-confirmation).
+        Confirmation](../../learn/self-registration-and-account-confirmation).
     -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../using-wso2-identity-server/mitigating-brute-force-attacks).
+        Force Attacks](../../learn/mitigating-brute-force-attacks).
 
 There are two ways to configure this feature.
 
@@ -26,7 +26,7 @@ The instructions for both these approaches are as follows.
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha)
+    ReCaptcha](../../learn/setting-up-recaptcha)
     .
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **List** under **Identity Providers** on the **Main** tab
@@ -167,7 +167,7 @@ The instructions for both these approaches are as follows.
 
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha).
+    ReCaptcha](../../learn/setting-up-recaptcha).
 5.  Start the WSO2 Identity Server and log in to the end user dashboard
     using the following link: <https://localhost:9443/dashboard>
 

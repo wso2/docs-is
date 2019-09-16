@@ -75,7 +75,7 @@ that, follow the steps given below.
     integrate this with the Identity Server, you need to configure WSO2
     IS to enable users to log in using their email addresses. In order
     to do that, follow the steps found in the [Using Email Address as
-    the Username](../../using-wso2-identity-server/using-email-address-as-the-username) topic.
+    the Username](../../learn/using-email-address-as-the-username) topic.
 3.  Restart the Identity Server. Since the username and password of the
     admin user were updated, start the WSO2 IS server using the -Dsetup
     parameter as shown in the command below.
@@ -103,7 +103,7 @@ email address, configure the service provider.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
-    Configuration](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
+    Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
     .  
     See the following table for details.
 

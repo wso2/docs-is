@@ -63,7 +63,7 @@ to configure primary user stores.
 <div>
 <p>The name of the attribute is considered as the username.</p>
 </div>
-<p>For information on using email address to authenticate users, click <a href="(../../using-wso2-identity-server/using-email-address-as-the-username)">here</a> .</p>
+<p>For information on using email address to authenticate users, click <a href="(../../learn/using-email-address-as-the-username)">here</a> .</p>
 </div></td>
 </tr>
 <tr class="even">

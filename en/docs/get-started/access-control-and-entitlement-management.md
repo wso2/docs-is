@@ -36,7 +36,7 @@ The following table describes the various types of access control.
 <td><p>Role-based Access Control</p></td>
 <td><p>Role-based Access Control (RBAC) is an approach used to restrict access to authorized users based on their role. This is a static permission model which provides access control. It is used by the majority of enterprises with more than 500 users.</p>
 <p>This access control type is used when all users are categorized into different roles. The roles define the resources that can be accessed by users assigned to that role. This type of access control reduces management overhead. These users and roles can also be externalized using user stores. These roles need to be managed carefully. There can be instances where a user is assigned to multiple roles. This is a subset of ABAC.</p>
-<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="../../using-wso2-identity-server/configuring-roles-and-permissions">here</a> for information on Configuring roles and permissions.</p></td>
+<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="../../learn/configuring-roles-and-permissions">here</a> for information on Configuring roles and permissions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Attribute-based Access Control</p></td>
@@ -431,7 +431,7 @@ Server is shipped with a DefaultAttributeFinder that communicates with
 the underlying user store of the Identity Server. The default user store
 of the Identity Server is ApacheDS where it can be changed using
 user-mgt.xml file. See [Configuring the
-Realm](../../using-wso2-identity-server/configuring-the-realm) for
+Realm](../../learn/configuring-the-realm) for
 more information.
 
 All modules would be initialized and supported attribute Ids are

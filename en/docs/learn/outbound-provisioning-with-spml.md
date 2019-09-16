@@ -14,7 +14,7 @@ providers. The following steps illustrate how to do this.
     administrator.
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**. See
-    [here](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) for more
+    [here](../../learn/adding-and-configuring-an-identity-provider) for more
     information on this.
 5.  Enter "spml Identity provider" as Identity Provider name for the
     purposes of this scenario.
@@ -48,18 +48,18 @@ providers. The following steps illustrate how to do this.
 
         -   If **Enable Rules** is enabled, the users will be provisioned
                 based on pre-defined XACML rules. For more information about
-                this, see [Rule Based Provisioning](../../using-wso2-identity-server/rule-based-provisioning).
+                this, see [Rule Based Provisioning](../../learn/rule-based-provisioning).
 
 10. Click **Update**.
 11. On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the **Identity** menu.
 12. Click **Add New Role** and add a role named "spml". See [Configuring
-    Roles and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions) for more
+    Roles and Permissions](../../learn/configuring-roles-and-permissions) for more
     information on this process.
 13. On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the ****Identity**** menu .
 14. Click **Add New User**. See [Configuring
-    Users](../../using-wso2-identity-server/configuring-users) for more information on this process.
+    Users](../../learn/configuring-users) for more information on this process.
 15. Provide a username and a password(with confirmation) and Click
     **Next**.
 16. Add "spml" as the role in the resulting screen.

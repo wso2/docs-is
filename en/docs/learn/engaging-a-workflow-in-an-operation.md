@@ -18,7 +18,7 @@ demonstrates the steps used to do this.
 
     4.  Workflow: The workflow you need to engage for the event. You can
         use an existing workflow definition or [create a workflow
-        definition](../../using-wso2-identity-server/adding-a-new-workflow-definition)
+        definition](../../learn/adding-a-new-workflow-definition)
         .
 
     5.  The Application condition:
@@ -67,4 +67,4 @@ Now that all the configurations are done, when you add a user it won’t
 be displayed under the users section immediately and the user won’t be
 able to login. The user will be enabled once the user addition task is
 approved by a user who has the role of Manager. To try this out, see
-[Managing Human Tasks](../../using-wso2-identity-server/managing-human-tasks).
+[Managing Human Tasks](../../learn/managing-human-tasks).

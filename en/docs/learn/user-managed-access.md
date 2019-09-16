@@ -42,7 +42,7 @@ The Protection API consists of three endpoints:
 <td><p>Allows the resource server to request permission(s) when the client’s resource request is unaccompanied by a Requesting Party Token (RPT) or is accompanied by an invalid RPT.</p></td>
 </tr>
 <tr class="odd">
-<td><a href="../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint">Token introspection endpoint</a></td>
+<td><a href="../../learn/invoke-the-oauth-introspection-endpoint">Token introspection endpoint</a></td>
 <td>Allows the resource server to introspect the RPT which is required to access an UMA protected resource.</td>
 </tr>
 </tbody>
@@ -68,6 +68,6 @@ other relevant information.
 -   For a tutorial that demonstrates how you can use WSO2 Identity
     Server as the authorization server to try out UMA, see [User Managed
     Access with WSO2 Identity
-    Server](../../using-wso2-identity-server/user-managed-access-with-wso2-identity-server).
+    Server](../../learn/user-managed-access-with-wso2-identity-server).
 
   

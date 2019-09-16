@@ -11,7 +11,7 @@ authenticating to the authorization server.
 -   Java 1.7 or above
 
 -   [Playground sample
-    app](../../using-wso2-identity-server/basic-client-profile-with-playground)
+    app](../../learn/basic-client-profile-with-playground)
     is setup.
 
 ### Introduction
@@ -89,7 +89,7 @@ artifacts.
 
 5.  **Restart** the server.
 6.  Log in to Management Console and Add the [service
-    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    provider](../../learn/adding-and-configuring-a-service-provider).
 7.  **Expand** the OAuth/OpenID Connect Configuration under Inbound
     Authentication section and click **Configure**.
 
@@ -176,7 +176,7 @@ artifacts.
     ```
 
     For information on how to get the authorization-code, check [Try
-    Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant) page.
+    Authorization Code Grant](../../learn/try-authorization-code-grant) page.
 
       
     For client credential grant type:

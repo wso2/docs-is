@@ -8,5 +8,5 @@
     Registration](../../references/oAuth2-dynamic-client-registration).
     
     For more information on how it works, see [OpenID Connect Dynamic Client
-    Registration](../../using-wso2-identity-server/openid-connect-dynamic-client-registration).
+    Registration](../../learn/openid-connect-dynamic-client-registration).
     

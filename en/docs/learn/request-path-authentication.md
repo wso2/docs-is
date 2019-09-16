@@ -26,9 +26,9 @@ The following types of request path authenticators can be used to
 achieve this.
 
 -   [Basic Auth Request Path
-    Authentication](../../using-wso2-identity-server/request-path-authentication)
+    Authentication](../../learn/request-path-authentication)
 -   [OAuth Request Path
-    Authenticator](../../using-wso2-identity-server/oauth-request-path-authenticator)
+    Authenticator](../../learn/oauth-request-path-authenticator)
 
 For more information on how request path authentication works, see [Try
-Request Path Authentication](../../using-wso2-identity-server/request-path-authentication).
+Request Path Authentication](../../learn/request-path-authentication).

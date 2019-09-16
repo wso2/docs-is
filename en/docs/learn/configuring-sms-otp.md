@@ -22,7 +22,7 @@ sections for more information.
     -   To ensure you get the full understanding of configuring SMS OTP with
         WSO2 IS, the sample travelocity application is used in this use
         case. Therefore, make sure to [download the
-        samples](../../using-wso2-identity-server/downloading-a-sample) before you begin.
+        samples](../../learn/downloading-a-sample) before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
         [here](https://tomcat.apache.org/download-70.cgi) .
@@ -137,8 +137,8 @@ Now the web application is successfully deployed on a web container.
 
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
-provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
-and a [service provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+provider](../../learn/adding-and-configuring-an-identity-provider)
+and a [service provider](../../learn/adding-and-configuring-a-service-provider).
 
 ### Configuring the identity provider
 
@@ -444,7 +444,7 @@ You have now added and configured the service provider.
 Follow the steps given below to update the mobile number of the users in
 WSO2 IS as this field is empty by default if you are [creating the user
 using the WSO2 IS management
-console](../../using-wso2-identity-server/configuring-users#adding-a-new-user-and-assigning-roles)
+console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
 ..
 
 1.  Select **List** that is under **Users** **and** **Roles**, and

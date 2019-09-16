@@ -25,10 +25,10 @@ The diagram below illustrates the authorization code flow.
 
 ![oauth-authorization-code-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-authorization-code-grant-diagram.png)
 
-**Support for** [**refresh token grant**](../../using-wso2-identity-server/refresh-token-grant) -
+**Support for** [**refresh token grant**](../../learn/refresh-token-grant) -
 **Yes**
 
 !!! info "Related Topics"
     See the [Try Authorization Code
-    Grant](../../using-wso2-identity-server/try-authorization-code-grant) topic to try out a sample of
+    Grant](../../learn/try-authorization-code-grant) topic to try out a sample of
     it with WSO2 Identity Server and WSO2 OAuth2 Playground.

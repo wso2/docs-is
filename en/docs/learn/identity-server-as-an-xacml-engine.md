@@ -32,7 +32,7 @@ as an XACML engine.
     Point(PDP)](../../tutorials/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
-    tool.](../../using-wso2-identity-server/evaluating-a-xacml-policy)
+    tool.](../../learn/evaluating-a-xacml-policy)
 
 Here you can build your own XACML request to evaluate the policy you
 just added. Copy and paste the following on the above screen and click

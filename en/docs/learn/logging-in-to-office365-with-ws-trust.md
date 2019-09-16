@@ -57,12 +57,12 @@ you through the entire process.
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
     [Configuring an Active Directory User
-    Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+    Store](../../learn/configuring-a-read-write-active-directory-user-store)
     .  
 -   Configure WSO2 Identity Server to authenticate users using the email
     address as the username. For more information on how to do this, see
     [Using Email Address as the
-    Username](../../using-wso2-identity-server/using-email-address-as-the-username)
+    Username](../../learn/using-email-address-as-the-username)
     .
 
 ### Configuring Office 365 WS-Trust
@@ -85,7 +85,7 @@ you through the entire process.
 
 4.  Navigate to **Claims\>Add** in the **Main** menu and click **Add New
     Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
-    below. See [Adding Claim Mapping](../../using-wso2-identity-server/adding-claim-mapping) for more
+    below. See [Adding Claim Mapping](../../learn/adding-claim-mapping) for more
     information.
 
     ![claim-user-principle](../../assets/img/tutorials/claim-user-principle.png)

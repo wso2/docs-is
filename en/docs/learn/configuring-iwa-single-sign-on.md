@@ -29,7 +29,7 @@ Windows Authentication](../../tutorials/integrated-windows-authentication-overvi
 2.  Extract the ZIP file in the file system.
 3.  Configure WSO2 IS to use your Active Directory as the user store
     (WSO2 is configured to use a built-in LDAP server by default). See
-    [Configuring Primary User Stores](../../using-wso2-identity-server/configuring-the-primary-user-store) on how to configure a primary user
+    [Configuring Primary User Stores](../../learn/configuring-the-primary-user-store) on how to configure a primary user
     store and then go to Active Directory user store configuration
     section to get Active Directory specific configurations.
 4.  Start the WSO2 Identity Server with

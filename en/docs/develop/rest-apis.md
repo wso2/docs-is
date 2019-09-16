@@ -10,7 +10,7 @@ including the sample requests and responses.
 -   [Using the Personal Information Export REST APIs](../../develop/using-the-personal-information-export-rest-apis)
 -   [Using the Configuration Management REST APIs](../../develop/using-the-configuration-management-rest-apis)
 -   [Using the SCIM 2.0 REST APIs](../../develop/using-the-scim-2.0-rest-apis)
--   [Using the OpenID Connect Dynamic Client Registration REST APIs](Using-the../../using-wso2-identity-server/openid-connectdynamic-client-registration-rest-apis)
+-   [Using the OpenID Connect Dynamic Client Registration REST APIs](Using-the../../learn/openid-connectdynamic-client-registration-rest-apis)
 -   [Using OAuth2 Scopes REST APIs](../../develop/using-oauth2-scopes-rest-apis)
 -   [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis)
 -   [Authentication Data API](../../develop/authenticating-and-authorizing-rest-apis)

@@ -208,7 +208,7 @@ new users.
     to integrate this with the Identity Server, you need to configure
     WSO2 IS to enable users to log in using their email addresses. In
     order to do that, follow the steps found in the [Using Email Address
-    as the Username](../../using-wso2-identity-server/using-email-address-as-the-username) topic.
+    as the Username](../../learn/using-email-address-as-the-username) topic.
 4.  Restart the Identity Server.
 
 Now that you are done with configuring the email address for use in
@@ -230,7 +230,7 @@ Provider.
     by filling in the **Identity Provider Name**. You can use
     "Salesforce.com" as an example, but this can be any name you choose.
     See [Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) for
+    Provider](../../learn/adding-and-configuring-an-identity-provider) for
     information on registering and configuring an identity provider.
 4.  Upload the Salesforce public certificate that you generated and
     saved in [step 7 under Configuring
@@ -258,11 +258,11 @@ Provider.
         via WSO2 Identity Server. Here, the **Identity Provider Claim URI**
         is the claim URI in Salesforce, which maps local claim URI in WSO2
         Identity Server. Read more about [Claim
-        Management](../../using-wso2-identity-server/claim-management).
+        Management](../../learn/claim-management).
 
         For more information on configuring advanced claims, see
         [Configuring Claims for an Identity
-        Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider#configuring-advanced-claims)
+        Provider](../../learn/configuring-claims-for-an-identity-provider#configuring-advanced-claims)
         .
 
 6.  Click **Add Claim Mapping** and add the following claims.  
@@ -375,7 +375,7 @@ Provider.
     the **Salesforce Provisioning Configuration** section.
 11. Do the following configurations for Salesforce provisioning. For
     more information on any of these fields, see [Configuring Salesforce
-    provisioning](../../using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-salesforce-provisioning)
+    provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-salesforce-provisioning)
     .
     1.  Select **Enable Connector** to enable the Salesforce connector.
     2.  Enter the **API version**. This is the version of the API you
@@ -481,7 +481,7 @@ Provider.
 For this scenario, WSO2 Identity Server acts as the service provider, so
 we need to add it as a resident service provider. For more information
 on the resident service provider, see [Configuring a resident service
-provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider#configuring-a-resident-service-provider)
+provider](../../learn/adding-and-configuring-a-service-provider#configuring-a-resident-service-provider)
 .
 
 1.  In the **Main** menu under the **Identity** section, click
@@ -500,7 +500,7 @@ provider](../../using-wso2-identity-server/adding-and-configuring-a-service-prov
         provisioning till the rule completely evaluate and get the response
         back to the WSO2 IDP. Afterwards, you need to enable the XACML
         policy. For more information, see [Rule Based
-        Provisioning](../../using-wso2-identity-server/rule-based-provisioning)
+        Provisioning](../../learn/rule-based-provisioning)
 
 4.  Click **Update**.
 

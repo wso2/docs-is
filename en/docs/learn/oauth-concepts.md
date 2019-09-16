@@ -134,7 +134,7 @@ oauth_nonce="kllo9940pd9333jh",
 oauth_version="1.0" 
 ```
 
-See [here](../../using-wso2-identity-server/2-legged-oauth-for-securing-a-restful-service) to know how
+See [here](../../learn/2-legged-oauth-for-securing-a-restful-service) to know how
 to use 2-legged OAuth with OAuth 1.0 to secure a RESTful service.
 
 #### OAuth 2.0
@@ -173,7 +173,7 @@ This specification defines the following four grant types:
 
 !!! info
       More information about the grant types can found from
-      [here](../../using-wso2-identity-server/oauth-2.0-grant-types).
+      [here](../../learn/oauth-2.0-grant-types).
 
 Client Credentials is the grant type which goes closely with 2-legged
 OAuth. With the Client Credentials grant type, the client can request an

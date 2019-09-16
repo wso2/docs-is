@@ -5,7 +5,7 @@ SAML stands for Security Assertion Markup Language which is a XML based data for
 Let's start configuring SAML2 Web SSO.
 
 !!! tip "Before you begin"
-    In order to configure Single-Sign-On (SSO) for SAML2, you must first [register a service provider for inbound authentication](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider). To register a service provider:
+    In order to configure Single-Sign-On (SSO) for SAML2, you must first [register a service provider for inbound authentication](../../learn/configuring-inbound-authentication-for-a-service-provider). To register a service provider:
 
     1.  Sign in to WSO2 Identity Server Management Console as an admin.
 
@@ -368,4 +368,4 @@ of entity configuration.
         Products](../../tutorials/configuring-saml2-single-sign-on-across-different-wso2-products)
 
     See [Using the SAML2
-    Toolkit](../../using-wso2-identity-server/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
+    Toolkit](../../learn/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.

@@ -163,7 +163,7 @@ GetAllRolesOfUserEnabled = true
 
 !!! info "Related Topics"
 
-    -   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) : This topic
+    -   [Configuring User Stores](../../learn/configuring-user-stores) : This topic
         explains how the repositories for storing information about Users
         and Roles are configured.
     -   [Setting up the Physical Database](#setting-up-the-repository) : This section

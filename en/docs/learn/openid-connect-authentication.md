@@ -41,9 +41,9 @@ See the following topics for more information on each OpenID Connect
 flow for authentication:
 
 -   [OpenID Connect Basic Client
-    Profile](../../using-wso2-identity-server/openid-connect-basic-client-profile)
+    Profile](../../learn/openid-connect-basic-client-profile)
 -   [OpenID Connect Implicit Client
-    Profile](../../using-wso2-identity-server/openid-connect-implicit-client-profile)
--   [OpenID Connect Hybrid Flow](../../using-wso2-identity-server/openid-connect-hybrid-flow)
+    Profile](../../learn/openid-connect-implicit-client-profile)
+-   [OpenID Connect Hybrid Flow](../../learn/openid-connect-hybrid-flow)
 
   

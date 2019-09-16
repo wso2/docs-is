@@ -22,7 +22,7 @@ store. This mapping can be done using the claim mapping setup in the
 Identity Server. This mapping can be done in the claim mapping setup in
 the Identity Server. You can find Active directory specific claim
 configuration in [Configuring Active Directory User Stores for Inbound
-Provisioning](../../using-wso2-identity-server/configuring-active-directory-user-stores-for-inbound-provisioning)
+Provisioning](../../learn/configuring-active-directory-user-stores-for-inbound-provisioning)
 .
 
 Now let's assume you have an AD user store as the primary user store and
@@ -37,10 +37,10 @@ Attribute" value as indicated below.
     console](../../setup/getting-started-with-the-management-console).
 2.  In the **Main** menu of the management console, click **List** under
     **Claims**. For more information on configuring claims, see [Claim
-    Management](../../using-wso2-identity-server/claim-management).
+    Management](../../learn/claim-management).
 3.  Click on **urn:scim:schemas:core:1.0** claim dialect and find the
     mapped local claim to the SCIM claim that you need to edit. You can
-    alternatively [Add a New Claim](../../using-wso2-identity-server/adding-claim-mapping) if the claim
+    alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim
     you wish to modify is not available.
 4.  Once you found the Mapped Local Claim, select theat claim under
     **http://wso2.org/claims**
@@ -55,7 +55,7 @@ values for user store domain name and mapped attribute.
 
 !!! info 
     For information about Local Claim Dialect attributes, click
-    [here](../../using-wso2-identity-server/adding-claim-mapping).
+    [here](../../learn/adding-claim-mapping).
 
 Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user

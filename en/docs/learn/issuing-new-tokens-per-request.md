@@ -20,7 +20,7 @@ renew_access_token_per_request = true
 
 !!! note
     If the [OAuthTokenGenerator extension
-    point](../../using-wso2-identity-server/extension-points-for-oauth)
+    point](../../learn/extension-points-for-oauth)
     is used, it overrides the value of
     `         renew_access_token_per_request        ` . Here, the code level changes
     take precedence over our configuration change. Hence, this configuration

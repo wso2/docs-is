@@ -172,7 +172,7 @@ password feature:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 4.  Start the Identity Server and log in to the **Management Console**.
@@ -238,8 +238,8 @@ ask password option.
     
 
 -   [Management
-    console](../../using-wso2-identity-server/creating-users-using-the-ask-password-option#management-console)
--   [SCIM 2.0](../../using-wso2-identity-server/creating-users-using-the-ask-password-option#scim-2.0)
+    console](../../learn/creating-users-using-the-ask-password-option#management-console)
+-   [SCIM 2.0](../../learn/creating-users-using-the-ask-password-option#scim-2.0)
 
 #### Management console
 
@@ -267,7 +267,7 @@ option.
     1.  Select the user store where you want to create this user account
         from the drop-down as the **Domain**.  
         This includes the list of user stores you configured. See
-        [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) for more
+        [Configuring User Stores](../../learn/configuring-user-stores) for more
         information.
     2.  Enter a unique **User Name** that is used by the user to log in.
 
@@ -309,7 +309,7 @@ option.
 !!! info "Related Links"
 
     -   For information on how to edit an existing email template, see
-        [Email Templates](../../using-wso2-identity-server/email-templates).
+        [Email Templates](../../learn/email-templates).
     -   See [Configuring
-        Claims](../../using-wso2-identity-server/configuring-claims) for more information on how to store
+        Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.
