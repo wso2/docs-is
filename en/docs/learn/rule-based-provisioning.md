@@ -3,7 +3,7 @@
 Under [Outbound Provisioning](../../learn/outbound-provisioning), in general, we
 have discussed how to provision users to trusted identity providers. In
 this document, we discuss how to provision users based on defined
-[XACML](../../getting-started/access-control-and-entitlement-management) rules. This is the
+[XACML](../../get-started/access-control-and-entitlement-management) rules. This is the
 rule-based method of role-based provisioning
 
 To get a better understanding of rule-based provisioning, let's look a

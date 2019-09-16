@@ -451,7 +451,7 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For more information, see <a href="../../getting-started/user-management-architecture">User Management Architecture</a></li>
+<li>For more information, see <a href="../../get-started/user-management-architecture">User Management Architecture</a></li>
 <li>For more information on how to configure user stores, see <a href="../../learn/configuring-the-realm">Configuring the Realm</a> .</li>
 <li>For more information on how to work with users and roles, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a> .</li>
 </ul>

@@ -3,7 +3,7 @@
 The WSO2 Identity Server (WSO2 IS) has the ability to provision users
 into different domains like Salesforce, Google, Facebook, etc., using
 its [identity provisioning
-framework](../../getting-started/provisioning-architecture)
+framework](../../get-started/provisioning-architecture)
 .
 
 This topic provides instructions on how to configure Google as the

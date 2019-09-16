@@ -19,7 +19,7 @@ Administration Point(PAP), and other additional information such as
 subject, resource, action and environmental resources in the Policy
 Information Point(PIP) to make the decision. For more information about
 this process, see [XACML system
-architecture](../../getting-started/access-control-and-entitlement-management#xacml-system-architecture).
+architecture](../../get-started/access-control-and-entitlement-management#xacml-system-architecture).
 
 You can publish a XACML policy to PDP for runtime evaluation using the
 instructions in this topic.
