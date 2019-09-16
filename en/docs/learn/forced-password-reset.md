@@ -282,7 +282,7 @@ template for this option can be configured in the
 !!! info 
     In order to force a user to change the password after some specific time
     period, please refer " [Configuring Password Policy
-    Authenticator](../../connectors/configuring-Password-Policy-Authenticator)
+    Authenticator](../../develop/password-policy-authenticator)
     " documentation.
 
 

@@ -14,9 +14,9 @@ the Duo Security authenticator.
 
 -   To get started with the provisioning connector, see [Configuring Duo
     Security Provisioning
-    Connector](Configuring-Duo-Security-Provisioning-Connector).
+    Connector](../../develop/duo-security-provisioning-connector).
 -   To get started with the authenticator, see [Configuring Duo Security
-    Authenticator](Configuring-Duo-Security-Authenticator).
+    Authenticator](../../develop/duo-security-authenticator).
 
 Once you have completed your configurations, you can perform
 authentication with the Duo authenticator.
