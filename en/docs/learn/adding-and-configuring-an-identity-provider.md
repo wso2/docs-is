@@ -246,15 +246,15 @@ Follow the instructions below to add a new identity provider.
     ![Adding Configurations for the Identity
     Provider](../../assets/img/using-wso2-identity-server/adding-configs-for-the-idp.png)
 
-    -   See [here](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider) for details on how to configure claims.
+    -   See [here](../../learn/configuring-claims-for-an-identity-provider) for details on how to configure claims.
 
-    -   See [here](../../using-wso2-identity-server/configuring-roles-for-an-identity-provider) for details on how to configure roles.
+    -   See [here](../../learn/configuring-roles-for-an-identity-provider) for details on how to configure roles.
 
     -   See [here](../../tutorials/configuring-federated-authentication) for details on how to configure federated authenticators.
     
-    -   See [here](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider) for details on how to configure just-in-time provisioning.
+    -   See [here](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider) for details on how to configure just-in-time provisioning.
 
-    -   See [here](../../using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider) for details on how to configure outbound provisioning connectors.
+    -   See [here](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider) for details on how to configure outbound provisioning connectors.
 
 6.  Click **Register** to add the Identity Provider.  
       

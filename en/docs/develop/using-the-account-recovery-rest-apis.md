@@ -6,4 +6,4 @@
     
 !!! info "Related Links" 
     For information on password and username recovery via the UI instead,
-    see [Account Recovery](../../using-wso2-identity-server/account-recovery).
+    see [Account Recovery](../../learn/account-recovery).

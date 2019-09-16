@@ -15,12 +15,12 @@ you through this process.
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
     [Configuring a Read-write Active Directory User
-    Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+    Store](../../learn/configuring-a-read-write-active-directory-user-store)
     .  
 -   Configure WSO2 Identity Server to authenticate users using the email
     address as the username. For more information on how to do this, see
     [Using Email Address as the
-    Username](../../using-wso2-identity-server/using-email-address-as-the-username)
+    Username](../../learn/using-email-address-as-the-username)
     .
 
 Azure AD expects to receive the following attributes with a SAML 2.0
@@ -44,7 +44,7 @@ message.
 <p>This must be the email address of the Office365 user. Usually this is the userPrincipalName attribute in AD. Basically this is the login username that a user tries out to login for Office365. It should match with the domain name. (ex: <a href="mailto:wso2@wso2test.com">wso2@wso2test.com</a> ).<br />
 </p>
 !!! note
-    <p>Since this attribute requires an email address as the username, make sure you have configured the IS to authenticate users using the email address. See <a href="../../using-wso2-identity-server/using-email-address-as-the-username">Using Email Address as the Username</a> for more information.</p>
+    <p>Since this attribute requires an email address as the username, make sure you have configured the IS to authenticate users using the email address. See <a href="../../learn/using-email-address-as-the-username">Using Email Address as the Username</a> for more information.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -79,7 +79,7 @@ message.
 4.  Navigate to **Claims\>Add** in the **Main** menu and click **Add New
     Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
     below. See [Adding Claim
-    Mapping](../../using-wso2-identity-server/adding-claim-mapping)
+    Mapping](../../learn/adding-claim-mapping)
     for more information.
 
     ![add-user-principle-claim](../../assets/img/tutorials/add-user-principle-claim.png)

@@ -24,7 +24,7 @@ This page consists of the procedure to secure a RESTful service with
 4.  Go to WSO2 IS Management Console by pointing your browser to
     `                     https://localhost:9443/carbon/                   `
     .
-5.  [Register a user with WSO2 Identity Server](../../using-wso2-identity-server/configuring-users) by
+5.  [Register a user with WSO2 Identity Server](../../learn/configuring-users) by
     providing a username and password.
 6.  Download sample OAuth client source code from following SVN
     location:  

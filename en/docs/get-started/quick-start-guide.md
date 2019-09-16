@@ -169,8 +169,8 @@ protocol, follow the steps below:
     !!! note
         You can also perform the above using the WSO2 IS Management Console.
         For more information, see [Creating users and
-        roles](../../using-wso2-identity-server/configuring-users-roles-and-permissions), [Configuring service
-        providers](../../using-wso2-identity-server/adding-and-configuring-a-service-provider), and
+        roles](../../learn/configuring-users-roles-and-permissions), [Configuring service
+        providers](../../learn/adding-and-configuring-a-service-provider), and
         [Configuring web app for SSO](../../tutorials/configuring-single-sign-on).
     
 
@@ -201,7 +201,7 @@ protocol, follow the steps below:
         the GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
+        Management](../../learn/consent-management)
         .
     
 
@@ -272,7 +272,7 @@ follow the steps below:
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management).
+        Management](../../learn/consent-management).
     
 
     Note that the Pickup Dispatch home screen appears.
@@ -392,7 +392,7 @@ A message appears to pick a scenario.
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
+        Management](../../learn/consent-management)
         .
     
 
@@ -518,7 +518,7 @@ A message appears to pick a scenario.
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
+        Management](../../learn/consent-management)
         .
     
 
@@ -840,7 +840,7 @@ A message appears to pick a scenario.
         GDPR regulation. WSO2 IS facilitates this through its **Consent
         Management** features. To know more about GDPR and how WSO2 IS
         handles consent, see [Consent
-        Management](../../using-wso2-identity-server/consent-management)
+        Management](../../learn/consent-management)
         .
     
     Note that the Pickup Dispatch home screen appears.

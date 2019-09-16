@@ -1,7 +1,7 @@
 # Mutual TLS with client id and secret using OIDC
 
 This authenticator has the same architecture as [Mutual TLS for OAuth
-Clients](../../using-wso2-identity-server/mutual-tls-for-oauth-clients)
+Clients](../../learn/mutual-tls-for-oauth-clients)
 except for the fact that we need to pass the client secret as a query
 parameter in the token request.
 
@@ -36,7 +36,7 @@ In order to consume the request, follow the steps given below.
 
 4.  Create a service provider and generate a client id and client
     secret. For further details on how to do this, click
-    [here](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    [here](../../learn/adding-and-configuring-a-service-provider).
 5.  Generate a certificate and import it to the
     `           client-truststore.jks          ` in
     `           <IS_Home>/repository/resources/security          ` .Use

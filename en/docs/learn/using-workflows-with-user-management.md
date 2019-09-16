@@ -26,5 +26,5 @@ can configure workflows to do the following.
 
 **Related Topics**
 
--   See [Workflow Management](../../using-wso2-identity-server/workflow-management) for details on how
+-   See [Workflow Management](../../learn/workflow-management) for details on how
     to configure workflows and how to configure the approval process.

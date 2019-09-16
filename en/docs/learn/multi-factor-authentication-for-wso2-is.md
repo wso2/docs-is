@@ -117,7 +117,7 @@ MEPin** and more.
     !!! tip
     
         If you are adding FIDO as an authenticator, see [Multi-factor
-        Authentication using FIDO](../../using-wso2-identity-server/multi-factor-authentication-using-fido)
+        Authentication using FIDO](../../learn/multi-factor-authentication-using-fido)
         for more information and follow the instructions given in the topic
         to configure it.
     

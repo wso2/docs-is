@@ -19,24 +19,24 @@ configure the following in the order mentioned.
     for information on setting up the database with its tables and
     configuring the datasources.  
 
--   **[User stores](../../using-wso2-identity-server/configuring-the-realm)**  
+-   **[User stores](../../learn/configuring-the-realm)**  
     The next step is to configure user stores. These can be either
     primary or secondary user stores. Instead of using the user store
     that comes inbuilt with the product, you can configure your own user
     store with the Identity Server. See [Configuring User
-    Stores](../../using-wso2-identity-server/configuring-user-stores) or information on user store
+    Stores](../../learn/configuring-user-stores) or information on user store
     configurations.
 
--   **[Users, roles and permissions](../../using-wso2-identity-server/configuring-users-roles-and-permissions)**  
+-   **[Users, roles and permissions](../../learn/configuring-users-roles-and-permissions)**  
     You can now add users and assign roles to the user stores. Each role
     can have specific permissions. See [Configuring Users, Roles and
-    Permissions](../../using-wso2-identity-server/configuring-users-roles-and-permissions) for more
+    Permissions](../../learn/configuring-users-roles-and-permissions) for more
     information on working with users, roles and permissions.  
       
 
--   **[Claims](../../using-wso2-identity-server/claim-management)**  
+-   **[Claims](../../learn/claim-management)**  
     You can map a set of attributes from the underlying user store to a
-    set of defined claims. See [Claim Management](../../using-wso2-identity-server/claim-management) to
+    set of defined claims. See [Claim Management](../../learn/claim-management) to
     work with claim dialects and provide mapping instructions.  
       
 
@@ -56,11 +56,11 @@ configure the following in the order mentioned.
     Encryption](../../administer/using-asymmetric-encryption)
     in the WSO2 Product Administration Guide for more information.  
 
--   **[Tenants](../../using-wso2-identity-server/creating-and-managing-tenants)**  
+-   **[Tenants](../../learn/creating-and-managing-tenants)**  
     Add and view tenants. This feature enables users to have a
     customized experience. See [Creating and Managing
-    Tenants](../../using-wso2-identity-server/creating-and-managing-tenants) for more information. Also
-    see [Email Templates](../../using-wso2-identity-server/email-templates) for more information on
+    Tenants](../../learn/creating-and-managing-tenants) for more information. Also
+    see [Email Templates](../../learn/email-templates) for more information on
     customizing automated emails for users configured under specific
     tenants.  
 
@@ -68,7 +68,7 @@ configure the following in the order mentioned.
     Once you have configured the user stores, you can configure
     various tools available to you in the [management
     console](../../setup/getting-started-with-the-management-console). See [Using
-    WSO2 Identity Server](../../using-wso2-identity-server/using-wso2-identity-server) for information
+    WSO2 Identity Server](../../learn/using-wso2-identity-server) for information
     on working with the features in the **Main** menu.
 
     !!! abstract "Management console features" 
@@ -76,29 +76,29 @@ configure the following in the order mentioned.
 
         -   [Set up
             logging](../../administer/monitoring-logs-using-management-console-using-management-console)
-        -   [Working with Server Roles](../../using-wso2-identity-server/server-roles)
+        -   [Working with Server Roles](../../learn/server-roles)
 
-        On the **[Tools](../../using-wso2-identity-server/using-tools)** menu, you can do the following.
+        On the **[Tools](../../learn/using-tools)** menu, you can do the following.
 
-        -   [Work with the SAML2 toolkit](../../using-wso2-identity-server/using-the-saml2-toolkit)
-        -   [Work with the TryIt tool](../../using-wso2-identity-server/using-the-xacml-tryit-tool)
+        -   [Work with the SAML2 toolkit](../../learn/using-the-saml2-toolkit)
+        -   [Work with the TryIt tool](../../learn/using-the-xacml-tryit-tool)
 
-        On the **[Monitor](../../using-wso2-identity-server/monitoring-the-identity-server)** menu, you can
+        On the **[Monitor](../../learn/monitoring-the-identity-server)** menu, you can
         do the following.
 
-        -   [View system statistics](../../using-wso2-identity-server/system-statistics)
-        -   [View system logs](../../using-wso2-identity-server/system-logs)
-        -   [Work with SOAP tracer](../../using-wso2-identity-server/soap-tracer)
+        -   [View system statistics](../../learn/system-statistics)
+        -   [View system logs](../../learn/system-logs)
+        -   [Work with SOAP tracer](../../learn/soap-tracer)
 
--   **[Identity providers](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)**  
+-   **[Identity providers](../../learn/adding-and-configuring-an-identity-provider)**  
     Once everything else is configured, you can add an identity
     provider. You can link this to the user store you configured and
     also specify which protocols you wish to use to configure your IdP.
-    See the [architecture](../../getting-started/architecture) of the Identity Server to see
+    See the [architecture](../../get-started/architecture) of the Identity Server to see
     how the identity provider configurations are used in the bigger
     picture.  
 -   **[Service
-    providers](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)**  
+    providers](../../learn/adding-and-configuring-a-service-provider)**  
     Finally, configure the service provider to integrate with the
     identity provider and the Identity Server. You can link this to the
     user store you configured and also specify which protocols you wish

@@ -19,7 +19,7 @@ IS as well. To test the workflow, follow the steps below.
     ![workflow-pending-status](../../assets/img/using-wso2-identity-server/workflow-pending-status.png)  
 
     1.  [Login to the IS User
-        Portal](../../using-wso2-identity-server/using-the-end-user-dashboard#accessing-the-dashboard-and-its-components)
+        Portal](../../learn/using-the-end-user-dashboard#accessing-the-dashboard-and-its-components)
         as a manager at this link: <https://localhost:9443/dashboard>  
         ![pending-approvals](../../assets/img/using-wso2-identity-server/pending-approvals.png)   
           
@@ -52,11 +52,11 @@ IS as well. To test the workflow, follow the steps below.
     The workflow comes with some advanced features such as:
 
     -   [Multi-step
-        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
+        approvals](../../learn/using-workflows-with-user-management)
     -   [User specific
-        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
+        approvals](../../learn/using-workflows-with-user-management)
     -   [Multiple role based
-        approvals](../../using-wso2-identity-server/using-workflows-with-user-management)
+        approvals](../../learn/using-workflows-with-user-management)
 
     Instead of a one step approval, there can be multiple steps to the
     approval flow. For example, a workflow with two step approval where in

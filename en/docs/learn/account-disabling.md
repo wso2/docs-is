@@ -62,7 +62,7 @@ locking and disabling. Follow the below steps to do this configuration.
             **Internal/syste** m role by default. Required roles can be assigned
             to a user depending on the set of permission a user needs to have.
             For more information on roles and permission, see [Configuring Roles
-            and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
+            and Permissions](../../learn/configuring-roles-and-permissions).
     
             Although the **Internal/system** role is configured by default in
             WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -83,7 +83,7 @@ management console.
     http://wso2.org/claims '.
 
 2.  Edit the **Account Disabled** claim. See [Editing Claim
-    Mapping](../../using-wso2-identity-server/editing-claim-mapping) for more information on how to do
+    Mapping](../../learn/editing-claim-mapping) for more information on how to do
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
@@ -141,6 +141,6 @@ steps below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails)
+        Emails](../../learn/customizing-automated-emails)
         .
     

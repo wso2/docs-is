@@ -42,7 +42,7 @@ scenario.
 
     1.  You can check out the repository of the OAuth 2.0 sample from
         GitHub. Follow the instructions
-        [here](../../using-wso2-identity-server/downloading-a-sample) to
+        [here](../../learn/downloading-a-sample) to
         checkout the folder. We refer
         `              <SAMPLE_HOME>             ` as the modules/samples
         folder inside the folder where the product-is repository is checked
@@ -169,19 +169,19 @@ scenario.
     grant types:
 
     -   [Authorization Code
-        Grant](../../using-wso2-identity-server/try-authorization-code-grant)
+        Grant](../../learn/try-authorization-code-grant)
     -   [Client Credentials
-        Grant](../../using-wso2-identity-server/try-client-credentials-grant)
+        Grant](../../learn/try-client-credentials-grant)
     -   [Implicit
-        Grant](../../using-wso2-identity-server/try-implicit-grant)
+        Grant](../../learn/try-implicit-grant)
     -   [Try Password/Resource Owner
-        Grant](../../using-wso2-identity-server/try-password-grant)
+        Grant](../../learn/try-password-grant)
 
 
 ??? note "Register the Playground application in WSO2 Identity Server"
     In order to configure Single-Sign-On (SSO) for OAuth2-OpenID Connect,
     you must first [register a service provider for inbound
-    authentication](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
+    authentication](../../learn/configuring-inbound-authentication-for-a-service-provider).
 
     [OAuth 2.0](https://oauth.net/2/) has three main phases. They are;
     requesting an Authorization Grant, exchanging the Authorization Grant
@@ -212,7 +212,7 @@ scenario.
             custom grant type is the value that will appear on the UI. For more
             information on writing a custom grant type, see [Writing a Custom
             OAuth 2.0 Grant
-            Type](../../using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type).
+            Type](../../learn/writing-a-custom-oauth-2.0-grant-type).
         
         ![select-allowed-grant-types](../../assets/img/using-wso2-identity-server/select-allowed-grant-types.png) 
 
@@ -299,7 +299,7 @@ scenario.
         </tr>
         <tr class="even">
             <td><strong>PKCE Mandatory</strong></td>
-            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="(../../using-wso2-identity-server/mitigating-authorization-code-interception-attack)">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="(../../learn/mitigating-authorization-code-interception-attack)">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
         </tr>
         <tr class="odd">
             <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
@@ -348,7 +348,7 @@ scenario.
         </tr>
         <tr class="odd">
             <td><strong>Enable OIDC Back Channel Logout</strong></td>
-            <td>This is to define whether OIDC back channel logout should be enabled or not. For more information, see <a href="../../using-wso2-identity-server/configuring-openid-connect-back-channel-logout">Configuring OpenID Connect Back-Channel Logout</a> .</td>
+            <td>This is to define whether OIDC back channel logout should be enabled or not. For more information, see <a href="../../learn/configuring-openid-connect-back-channel-logout">Configuring OpenID Connect Back-Channel Logout</a> .</td>
         </tr>
         <tr class="even">
             <td><strong>Scope Validators</strong></td>
@@ -425,22 +425,22 @@ scenario.
         to configure single logout or session management with OpenID Connect.
 
         See [Delegated Access
-        Control](../../using-wso2-identity-server/oauth-concepts)
+        Control](../../learn/oauth-concepts)
         for more information on working with OAuth2/OpenIDConnect. See the
         following topics for samples of configuring delegated access control:
 
         -   [OAuth 2.0 with WSO2
-            Playground](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+            Playground](../../learn/setting-up-the-sample-webapp)
         -   [Setting up a SAML2 Bearer Assertion Profile for OAuth
-            2.0](../../using-wso2-identity-server/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)
+            2.0](../../learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)
 
 
 ??? note "Complete the user profile"
-    1.  [Create a user](../../using-wso2-identity-server/configuring-users).
+    1.  [Create a user](../../learn/configuring-users).
     2.  Log in as the user you created and go to the
-        [dashboard](../../using-wso2-identity-server/using-the-end-user-dashboard).
+        [dashboard](../../learn/using-the-end-user-dashboard).
     3.  [Update your
-        profile](../../using-wso2-identity-server/configuring-users#update-users)
+        profile](../../learn/configuring-users#update-users)
         filling the user attributes.
         
         !!! info 

@@ -214,7 +214,7 @@ Server credentials.
 
 			For more information on how to configure primary and secondary user
 			stores, see [Configuring User
-			Stores](../../using-wso2-identity-server/configuring-user-stores).
+			Stores](../../learn/configuring-user-stores).
 
 
 Let's get started!
@@ -423,7 +423,7 @@ provider in WSO2 IS.
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
-    Configuration](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
+    Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
     .
 
     <table>

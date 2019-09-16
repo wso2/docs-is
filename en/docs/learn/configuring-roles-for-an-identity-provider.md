@@ -19,7 +19,7 @@ following.
     Mapping](../../assets/img/using-wso2-identity-server/idp-role-mapping.png) 
 3.  Enter the **Identity Provider Role** and map it to the **Local
     Role** available in the Identity Server. See
-    [here](../../using-wso2-identity-server/configuring-roles-and-permissions#adding-a-user-role)
+    [here](../../learn/configuring-roles-and-permissions#adding-a-user-role)
     for information on how the local role can be created in the Identity
     Server. Click the **Delete** button to remove the mapping.
 4.  Enter the **Identity Provider Provisioning Role**. This

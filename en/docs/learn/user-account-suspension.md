@@ -117,7 +117,7 @@ task that checks for idle accounts is common to all tenants.
     
         For more information on how to edit and customize the email
         templates, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 #### Configuring account suspension settings
@@ -156,5 +156,5 @@ task that checks for idle accounts is common to all tenants.
 
 !!! info "Related Links"
     See [Configuring
-    Claims](../../using-wso2-identity-server/configuring-claims) for more
+    Claims](../../learn/configuring-claims) for more
     information on how to store the claim values in the user store.

@@ -2,7 +2,7 @@
 
 Single sign-on (SSO) is one of the key features of WSO2 Identity Server that enables users to provide their credentials once and obtain access to multiple applications. The users are not prompted for their credentials when accessing each application until their session is terminated. Additionally, the user can access all these applications without having to log into each and every one of them individually. So, if users log into application A, for example, they would automatically have access to application B as well for the duration of that session without having to re-enter their credentials.
 
-WSO2 Identity Server can act as the identity provider of a single sign-on system with minimal configurations. This topic briefly introduces single-sign-on and how to configure the WSO2 Identity Server with different inbound authenticators by [Configuring a Service Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) to achieve this. 
+WSO2 Identity Server can act as the identity provider of a single sign-on system with minimal configurations. This topic briefly introduces single-sign-on and how to configure the WSO2 Identity Server with different inbound authenticators by [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) to achieve this. 
 
 !!! note
     For a tutorial on how to configure single sign on with a sample application, see [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on).
@@ -65,7 +65,7 @@ The following topics discuss the various protocols that can be used to configure
     OpenID 2.0 has been removed from the base product in WSO2 Identity Server version 5.3.0 onwards as it is now an obsolete specification and has been superseded by OpenID Connect. Alternatively, we recommend that you use [OpenID Connect](../../tutorials/oauth2-openid-connect) instead. 
 
 !!! info "Related Topics"
-    -   See [Configuring a Service Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for more information on using single sign-on with a service provider. 
+    -   See [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) for more information on using single sign-on with a service provider. 
     
     -   See [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on) for a tutorial on how this works with a sample application.
     

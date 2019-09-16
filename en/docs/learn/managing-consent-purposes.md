@@ -15,7 +15,7 @@ domain.
     
     -   For more information on how the consent purpose is used within the
         self registration flow, see [Configuring self-registration consent
-        purposes](../../using-wso2-identity-server/self-registration-and-account-confirmation)
+        purposes](../../learn/self-registration-and-account-confirmation)
         .
     -   For definitions on the consent receipt, purposes, and PII
         categories, expand the section below.
@@ -130,7 +130,7 @@ management console.
         authentication flow. Basically, it is used when WSO2 IS acts as the
         IdP for SSO authentication. This **DEFAULT** purpose includes all
         the PII categories. For more information about consent management
-        with single sign on, see [Consent Management with single sign on](../../using-wso2-identity-server/consent-management-with-single-sign-on)
+        with single sign on, see [Consent Management with single sign on](../../learn/consent-management-with-single-sign-on)
 
     ![consent-purpose-list](../../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
 

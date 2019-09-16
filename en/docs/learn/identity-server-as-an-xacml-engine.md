@@ -7,7 +7,7 @@ authorization. It includes full support for policies based on XACML
 !!! info
     For more information on XACML and the concept of XACML engine, see
     [Access Control and Entitlement
-    Management](../../getting-started/access-control-and-entitlement-management).
+    Management](../../get-started/access-control-and-entitlement-management).
 
 The following steps describe how you can configure the Identity Server
 as an XACML engine.
@@ -32,7 +32,7 @@ as an XACML engine.
     Point(PDP)](../../tutorials/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
-    tool.](../../using-wso2-identity-server/evaluating-a-xacml-policy)
+    tool.](../../learn/evaluating-a-xacml-policy)
 
 Here you can build your own XACML request to evaluate the policy you
 just added. Copy and paste the following on the above screen and click

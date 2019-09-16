@@ -76,7 +76,7 @@ disabling. The following section explain how to configure this.
                 **Internal/syste** m role by default. Required roles can be assigned
                 to a user depending on the set of permission a user needs to have.
                 For more information on roles and permission, see [Configuring Roles
-                and Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions).
+                and Permissions](../../learn/configuring-roles-and-permissions).
                 
                 Although the **Internal/system** role is configured by default in
                 WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -156,7 +156,7 @@ tenants.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Account locking for a
-    particular user](../../using-wso2-identity-server/locking-a-specific-user-account).
+    particular user](../../learn/locking-a-specific-user-account).
     
 
 ### Sending email notifications for account locking
@@ -199,5 +199,5 @@ failed login attempts. To configure this, follow the steps below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     

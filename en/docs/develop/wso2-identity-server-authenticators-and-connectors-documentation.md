@@ -14,7 +14,7 @@ party authentication systems with a single authentication request.
 A **provisioning connector** allows you to provision the users from WSO2
 Identity Server to other external systems. If you want to provision a
 user to an external identity provider, say for example to Salesforce or
-Google Apps, you need to [Configuring Outbound Provisioning Connectors for an Identity Provider](../../using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider).
+Google Apps, you need to [Configuring Outbound Provisioning Connectors for an Identity Provider](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider).
 
 To browse the available Identity Server connectors, go to the [WSO2
 Store](https://store.wso2.com/store/).

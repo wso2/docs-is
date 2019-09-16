@@ -27,7 +27,7 @@ any administration overheads.
 !!! info 
     For instructions to try out this fow, see [Configuring Microsoft Azure
     AD Outbound Provisioning
-    Connector](../../connectors/configuring-microsoft-azure-ad-outbound-provisioning-connector)
+    Connector](../../develop/microsoft-azure-ad-outbound-provisioning-connector)
     .
 
 The diagram below demonstrates the flow.
@@ -48,7 +48,7 @@ of provisioning users based on role:
     !!! info 
         For instructions, see [Configuring Microsoft Azure AD Outbound
         Provisioning
-        Connector](../../connectors/configuring-microsoft-azure-ad-outbound-provisioning-connector)
+        Connector](../../develop/microsoft-azure-ad-outbound-provisioning-connector)
         .
 
 -   **On-demand provisioning**  

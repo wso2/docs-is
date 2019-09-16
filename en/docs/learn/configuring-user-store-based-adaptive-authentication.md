@@ -111,7 +111,7 @@ of authentication.
         accordingly.
     -   For more information about secondary user store properties, see
         [Configuring Secondary User
-        Stores](../../using-wso2-identity-server/configuring-secondary-user-stores).
+        Stores](../../learn/configuring-secondary-user-stores).
 
 1.  **Connection URL:** ldap://localhost:10390
 2.  **Connection Name:** uid=admin,ou=system

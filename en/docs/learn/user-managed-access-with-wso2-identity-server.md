@@ -471,5 +471,5 @@ This is how UMA works.
     resources, read resource description of a UMA resource, update a UMA
     resource and delete a UMA resource. For more information, see [Resource
     registration
-    endpoint](../../using-wso2-identity-server/user-managed-access-endpoints#resource-registration-endpoint)
+    endpoint](../../learn/user-managed-access-endpoints#resource-registration-endpoint)
     .

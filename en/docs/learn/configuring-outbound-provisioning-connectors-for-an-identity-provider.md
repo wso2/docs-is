@@ -2,7 +2,7 @@
 
 You can configure the WSO2 Identity Server to provision users to
 external applications. See the [Identity Server
-Architecture](../../getting-started/architecture) for more information on how this process
+Architecture](../../get-started/architecture) for more information on how this process
 fits into the overall picture.
 
 To navigate to the outbound provisioning section, do the following.
@@ -156,7 +156,7 @@ If there are multiple identity providers configured for same Google domain.</p><
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to Salesforce. See [Outbound Provisioning with
-Salesforce](../../using-wso2-identity-server/outbound-provisioning-with-salesforce) for more
+Salesforce](../../learn/outbound-provisioning-with-salesforce) for more
 information on how this is configured from end to end.
 
 1.  Expand the **Salesforce Provisioning Configuration** form.  
@@ -194,12 +194,12 @@ information on how this is configured from end to end.
     </tr>
     <tr class="even">
     <td>Client ID</td>
-    <td>This is the username of the client you are using to access Salesforce. This Consumer Key value is obtained when configuring Salesforce. See <a href="../../using-wso2-identity-server/outbound-provisioning-with-salesforce">Outbound Provisioning with Salesforce</a> for more information.</td>
+    <td>This is the username of the client you are using to access Salesforce. This Consumer Key value is obtained when configuring Salesforce. See <a href="../../learn/outbound-provisioning-with-salesforce">Outbound Provisioning with Salesforce</a> for more information.</td>
     <td>3MVG8123wefw763na2452683KJNsvrgKBwe4gyksKJ22f3g45</td>
     </tr>
     <tr class="odd">
     <td>Client Secret</td>
-    <td>This is the password of the client you are using to access Salesforce. This Consumer Secret value is obtained when configuring Salesforce. See <a href="../../using-wso2-identity-server/outbound-provisioning-with-salesforce">Outbound Provisioning with Salesforce</a> for more information.</td>
+    <td>This is the password of the client you are using to access Salesforce. This Consumer Secret value is obtained when configuring Salesforce. See <a href="../../learn/outbound-provisioning-with-salesforce">Outbound Provisioning with Salesforce</a> for more information.</td>
     <td>&lt;password&gt;</td>
     </tr>
     <tr class="even">
@@ -243,7 +243,7 @@ information on how this is configured from end to end.
 
         The following claims must be configured when configuring Salesforce
         for outbound provisioning. See [Outbound Provisioning with
-        Salesforce](../../using-wso2-identity-server/outbound-provisioning-with-salesforce) for more
+        Salesforce](../../learn/outbound-provisioning-with-salesforce) for more
         information on how to do this.
 
         -   Email
@@ -270,7 +270,7 @@ that are initiated either by humans directly or by automated tasks.
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to an external application that supports SCIM. See
-[Outbound Provisioning with SCIM](../../using-wso2-identity-server/outbound-provisioning-with-scim) for
+[Outbound Provisioning with SCIM](../../learn/outbound-provisioning-with-scim) for
 more information on how this works in a typical scenario.
 
 1.  Expand the **SCIM Provisioning Configuration** form.  
@@ -299,7 +299,7 @@ generate provisioning requests within and across organizations
 
 This configuration involves setting up the Identity Server to send
 provisioning requests to an external application that supports SPML. See
-[Outbound Provisioning with SPML](../../using-wso2-identity-server/outbound-provisioning-with-spml) for
+[Outbound Provisioning with SPML](../../learn/outbound-provisioning-with-spml) for
 more information on how this works in a typical scenario.
 
 1.  Expand the **SPML Provisioning Configuration** form.  
@@ -317,6 +317,6 @@ more information on how this works in a typical scenario.
 !!! info "Related Topics"
 
     -   See [Outbound
-        Provisioning](../../using-wso2-identity-server/outbound-provisioning)
+        Provisioning](../../learn/outbound-provisioning)
         for more information on configuring user stores and service
         providers for outbound provisioning.

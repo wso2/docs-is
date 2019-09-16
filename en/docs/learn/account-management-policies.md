@@ -6,6 +6,6 @@ This section includes the following topics.
 -   [Self-Registration and Account
     Confirmation](Self-Registration_and_Account_Confirmation)
 -   [Creating Users Using the Ask Password
-    Option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option)
+    Option](../../learn/creating-users-using-the-ask-password-option)
 -   [Forced Password Reset](Forced_Password_Reset)
 -   [User Account Suspension](User_Account_Suspension)
