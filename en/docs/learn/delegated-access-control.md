@@ -6,8 +6,8 @@ client application, without enabling the client application to
 impersonate the user. The following topics discuss the various features
 that are key to delegated access control.
 
--   [OAuth Concepts](../../using-wso2-identity-server/oauth-concepts)
--   [Working with OAuth](../../using-wso2-identity-server/working-with-oauth)
--   [OpenID Connect](../../using-wso2-identity-server/openid-connect)
--   [Extension Points for OAuth](../../using-wso2-identity-server/extension-points-for-oauth)
--   [User Managed Access](../../using-wso2-identity-server/user-managed-access)
+-   [OAuth Concepts](../../learn/oauth-concepts)
+-   [Working with OAuth](../../learn/working-with-oauth)
+-   [OpenID Connect](../../learn/openid-connect)
+-   [Extension Points for OAuth](../../learn/extension-points-for-oauth)
+-   [User Managed Access](../../learn/user-managed-access)

@@ -15,7 +15,7 @@ a Facebook developer.
 
 !!! tip "Before you begin!"
     
-    Refer [this](../../using-wso2-identity-server/downloading-a-sample)
+    Refer [this](../../learn/downloading-a-sample)
     document to download the `         travelocity.com        ` sample
     application.
     
@@ -124,7 +124,7 @@ app in order to use it in this scenario.
 
 !!! tip "Before you begin!"
     If you haven't downloaded the samples, refer
-    [this](../../using-wso2-identity-server/downloading-a-sample)
+    [this](../../learn/downloading-a-sample)
     document to download the `         travelocity.com        ` sample
     application.  
     Once the samples are downloaded, you can find the
@@ -210,7 +210,7 @@ Server by adding a service provider and identity provider.
 ### Configuring the identity provider
 
 Follow the steps given below to [add a new identity
-provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+provider](../../learn/adding-and-configuring-an-identity-provider)
 in WSO2 Identity Server.
 
 1.  Download the WSO2 Identity Server from
@@ -297,7 +297,7 @@ You have now added the identity provider.
 ### Configuring the service provider
 
 The next step is to [configure the service
-provider.](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+provider.](../../learn/adding-and-configuring-a-service-provider)
 
 1.  Return to the Management Console.
 

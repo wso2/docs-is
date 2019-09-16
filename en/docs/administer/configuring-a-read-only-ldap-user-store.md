@@ -301,7 +301,7 @@ explained below.
 
 For information information about the system administrator user, see
 [Configuring the System
-Administrator](../../using-wso2-identity-server/configuring-the-system-administrator), and for
+Administrator](../../learn/configuring-the-system-administrator), and for
 information on how keystores are used in WSO2 products, see [Using
 Asymmetric Encryption](Using_Asymmetric_Encryption).  
 

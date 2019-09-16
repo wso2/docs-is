@@ -22,7 +22,7 @@ the users with an authorization server-based authentication.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
     For more information, see [Adding and Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+    Provider](../../learn/adding-and-configuring-an-identity-provider).
     
 3.  Fill in the details in the **Basic Information** section.
 
@@ -54,7 +54,7 @@ the users with an authorization server-based authentication.
         For information on
         possible values that you can specify based on your
         requirement, see [Supported token persistence
-        processors](../../using-wso2-identity-server/extension-points-for-oauth#supported-token-persistence-processor).
+        processors](../../learn/extension-points-for-oauth#supported-token-persistence-processor).
     
         Once you configure a required token persistence processor, be sure
         to restart the server for the changes to be applied to WSO2 Identity
@@ -78,8 +78,8 @@ the users with an authorization server-based authentication.
 	-   Identity Federation is part of the process of configuring an
 		identity provider. For more information on how to configure an
 		identity provider, see [Configuring an Identity
-		Provider.](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+		Provider.](../../learn/adding-and-configuring-an-identity-provider)
 	-   See [Log into Identity Server using another Identity Server -
-		OAuth2](../../using-wso2-identity-server/login-to-identity-server-using-another-identity-server-oauth2)
+		OAuth2](../../learn/login-to-identity-server-using-another-identity-server-oauth2)
 		for a sample of using OAuth2/OpenIDConnect for federated
 		authentication.

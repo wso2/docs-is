@@ -8,5 +8,5 @@ username if forgotten. See the following topics for more information on
 how to do all this.
 
 -   [Username Recovery](Username_Recovery)
--   [Password Recovery](../../using-wso2-identity-server/password-recovery)
+-   [Password Recovery](../../learn/password-recovery)
 -   [Managing Challenge Questions](Managing_Challenge_Questions)

@@ -70,7 +70,7 @@ sample.
 
 1.  The code for the sample can be checked out from the GitHub
     repository. To do this, follow the instructions on the [Downloading
-    a Sample](../../using-wso2-identity-server/downloading-a-sample) topic.
+    a Sample](../../learn/downloading-a-sample) topic.
 
 2.  Start up [Identity Server](../../setup/running-the-product) and log in to the
     management console.

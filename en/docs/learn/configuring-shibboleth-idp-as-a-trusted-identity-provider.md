@@ -289,7 +289,7 @@ in the Identity Server.
     
 4.  Register new federated identity provider in the Identity Server. See
     [Adding and Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+    Provider](../../learn/adding-and-configuring-an-identity-provider)
     for more information on how to do this.  
     ![registering-new-federated-idp](../../assets/img/tutorials/registering-new-federated-idp.png)  
    
@@ -384,7 +384,7 @@ provider as a federated identity provider.
 To configure the service provider, do the following.
 
 1.  Register the service provider. See [Configuring a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+    Provider](../../learn/adding-and-configuring-a-service-provider)
     for more information on how to do this.
     
 2.  Expand the **Local and Inbound Authentication** section and do one

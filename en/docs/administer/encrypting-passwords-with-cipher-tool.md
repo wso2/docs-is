@@ -186,7 +186,7 @@ automated process:
         ```
 
         **Example 2:** Consider the password that is used to [connect to
-        an LDAP user store](../../using-wso2-identity-server/configuring-the-primary-user-store)
+        an LDAP user store](../../learn/configuring-the-primary-user-store)
         (configured in the `             user-mgt.xml            ` file)
         shown below.
 

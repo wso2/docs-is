@@ -12,7 +12,7 @@ to the OAuth request path authenticator in two ways.
     `          "&token=<access_token>"         `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](../../using-wso2-identity-server/request-path-authentication).
+[Request Path Authentication](../../learn/request-path-authentication).
 
 ### Using the authorization header
 
@@ -125,4 +125,4 @@ For more information on Request Path Authentication in general, see
 -   To try out request path authentication by sending the access token
     as a query parameter in the request URL with the WSO2 Playground
     sample, see [Try Request Path
-    Authentication](../../using-wso2-identity-server/request-path-authentication).
+    Authentication](../../learn/request-path-authentication).

@@ -47,7 +47,7 @@ The following actions can be performed using above admin service.
 ### Using the dashboard
 
 The WSO2 Identity Server [end user
-dashboard](../../using-wso2-identity-server/using-the-end-user-dashboard) can be used to associate the
+dashboard](../../learn/using-the-end-user-dashboard) can be used to associate the
 accounts. You can associate a local user account or a federated user
 account:
 
@@ -91,7 +91,7 @@ account from the end user dashboard. To set this up, do the following.
 !!! note
     You need to setup an Identity Provider before continuing this process.
     For more information on how to do this, see [Adding and Configuring an
-    Identity Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+    Identity Provider](../../learn/adding-and-configuring-an-identity-provider).
     
 
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>

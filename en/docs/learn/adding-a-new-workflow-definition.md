@@ -10,7 +10,7 @@ means of fine-tuning the process of approving accounts.
     
     1.  Create the required roles to do the approval. To do this, follow the
         instructions available in the [Configuring Roles and
-        Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions) topic.
+        Permissions](../../learn/configuring-roles-and-permissions) topic.
 
         !!! info 
             To enable users assigned to these roles to approve human tasks, the
@@ -21,7 +21,7 @@ means of fine-tuning the process of approving accounts.
             -   Workflow Management\>BPS Profiles\>View
     
     2.  Assign users to the roles that you created. See [Configuring
-        Users](../../using-wso2-identity-server/configuring-users) for more information on how to do this.
+        Users](../../learn/configuring-users) for more information on how to do this.
     
 
 To add a new workflow, do the following.
@@ -93,4 +93,4 @@ To add a new workflow, do the following.
 
 Now you need to add the workflow you created to an operation. For more
 information, see [Engaging a Workflow in an
-Operation](../../using-wso2-identity-server/engaging-a-workflow-in-an-operation).
+Operation](../../learn/engaging-a-workflow-in-an-operation).

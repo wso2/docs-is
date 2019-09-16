@@ -1,6 +1,6 @@
 # Configuring Inbound Provisioning for a Service Provider
 
-See [Inbound Provisioning](../../using-wso2-identity-server/inbound-provisioning) for more information
+See [Inbound Provisioning](../../learn/inbound-provisioning) for more information
 on inbound provisioning. To configure inbound provisioning for the
 service provider, follow the steps below.
 
@@ -21,7 +21,7 @@ Do the following to configure inbound provisioning.
 
 !!! info "Related Topics"
 
-    -   See [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) for more
+    -   See [Configuring User Stores](../../learn/configuring-user-stores) for more
         information.
-    -   See [Inbound Provisioning](../../using-wso2-identity-server/inbound-provisioning) for configuring
+    -   See [Inbound Provisioning](../../learn/inbound-provisioning) for configuring
         user stores and service providers for inbound provisioning.

@@ -16,7 +16,7 @@ Basic Auth request path authenticator in two ways.
     `                   `
 
 For more information on Request Path Authentication in general, see
-[Request Path Authentication](../../using-wso2-identity-server/request-path-authentication).
+[Request Path Authentication](../../learn/request-path-authentication).
 
 !!! note
     
@@ -87,7 +87,7 @@ For more information on Request Path Authentication in general, see
 -   To try out request path authentication by sending the user
     credentials as a query parameter in the request URL with the WSO2
     Playground sample, see [Try Request Path
-    Authentication](../../using-wso2-identity-server/try-request-path-authentication)
+    Authentication](../../learn/try-request-path-authentication)
     .
 
   

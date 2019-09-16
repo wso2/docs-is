@@ -222,7 +222,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 		!!! info "Related Topics"
 			For more information on how to configure primary and secondary user
 			stores, see [Configuring User
-			Stores](../../using-wso2-identity-server/configuring-user-stores).
+			Stores](../../learn/configuring-user-stores).
 
 
 Let's get started!
@@ -524,7 +524,7 @@ Let's get started!
         ![email-from-subject-claim-uri](../../assets/img/tutorials/email-from-subject-claim-uri.png)
         
         For more information about claim mapping, see [Claim
-        Management](../../using-wso2-identity-server/claim-management).
+        Management](../../learn/claim-management).
 
 6.  Expand the **Inbound Authentication Configuration** and the **SAML2
     Web SSO Configuration** and click **Configure**.
@@ -696,7 +696,7 @@ new identity provider.
 	!!! info 
 		For detailed information on the Identity Provider configurations,
 		see [Adding and Configuring an Identity
-		Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+		Provider](../../learn/adding-and-configuring-an-identity-provider).
 
 4.  Choose the salesforce certificate you downloaded in [step8 under
     Configuring Salesforce](#salesforce-step8) for
@@ -757,7 +757,7 @@ new identity provider.
         . You can map these attributes to any **Local Claim URI** that
         is suitable.  
         For more information about claim mapping, see [Claim
-        Management](../../using-wso2-identity-server/claim-management).
+        Management](../../learn/claim-management).
 
 6.  Go to **Facebook Configuration** under **Federated Authenticators**.
 

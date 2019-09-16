@@ -1,7 +1,7 @@
 # Role Based Provisioning
 
 Under [Outbound
-Provisioning](../../using-wso2-identity-server/outbound-provisioning)
+Provisioning](../../learn/outbound-provisioning)
 in general we have discussed how to provision users to trusted identity
 providers. In this document we discuss how to provision users based on
 the roles they are assigned. In role based provisioning, the user is
@@ -22,14 +22,14 @@ To do role-based provisioning, we need to configure the following,
 3.  Navigate to the **Main** menu and access the **Identity** menu.
     Click **Add** under **Identity Providers**.  
     See the [Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+    Provider](../../learn/adding-and-configuring-an-identity-provider)
     topic for more information.
 4.  Enter "role-based provisioning" as the Identity Provider name for
     this scenario.
 5.  Configure the **Outbound Provisioning Connectors** with
-    [SPML](../../using-wso2-identity-server/outbound-provisioning-with-spml),
-    [SCIM](../../using-wso2-identity-server/outbound-provisioning-with-scim#configuring-an-identity-provider)
-    or [Salesforce connecter](../../using-wso2-identity-server/outbound-provisioning-with-salesforce).
+    [SPML](../../learn/outbound-provisioning-with-spml),
+    [SCIM](../../learn/outbound-provisioning-with-scim#configuring-an-identity-provider)
+    or [Salesforce connecter](../../learn/outbound-provisioning-with-salesforce).
 6.  Expand the **Role Configuration** section and enter a role name (or
     set of roles as a comma-separated list) for the **Identity Provider
     OutBound Provisioning Roles** field as seen below.  
@@ -38,7 +38,7 @@ To do role-based provisioning, we need to configure the following,
 
     !!! info
         If you do not have roles already, see the [Configuring Role and
-        Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions#adding-a-user-role)
+        Permissions](../../learn/configuring-roles-and-permissions#adding-a-user-role)
         topic to add roles.
 
     ![configuring-role-and-perrmissions](../../assets/img/using-wso2-identity-server/configuring-role-and-perrmissions.png)
@@ -68,7 +68,7 @@ Now let's try provisioning user with the defined role.
 1.  In the **Main** menu of the management console, click **Add** under
     **Users and Roles** under the **Identity** menu.
 2.  Click **Add New User**. See [Configuring
-    Users](../../using-wso2-identity-server/configuring-users) for
+    Users](../../learn/configuring-users) for
     more information.
 3.  Provide a username and a password(with confirmation) and click
     **Next**.

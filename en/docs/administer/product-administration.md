@@ -121,7 +121,7 @@ management.
     permissions.
 -   For information on how to remove references to a deleted user's
     identity, see [Removing References to Deleted User
-    Identities](../../using-wso2-identity-server/removing-references-to-deleted-user-identities).  
+    Identities](../../learn/removing-references-to-deleted-user-identities).  
 
 #### Configuring security
 
@@ -165,7 +165,7 @@ Server. It includes the following sections:
 -   [Timestamp in WS-Security to Mitigate Replay
     Attacks](Timestamp-in-WS-Security-to-Mitigate-Replay-Attacks)
 -   [Mitigating Authorization Code Interception
-    Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
+    Attacks](../../learn/mitigating-authorization-code-interception-attacks)
 -   [Mitigating Cross Site Request Forgery (CSRF)
     Attacks](Mitigating-Cross-Site-Request-Forgery-CSRF-Attacks)
 

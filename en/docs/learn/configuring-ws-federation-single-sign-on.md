@@ -9,7 +9,7 @@ WSO2 Identity Server's passive security token service (Passive STS) is used as t
 
 !!! Tip "Before you begin"
 	In order to configure WS-Federation SSO, you must first
-	 [register a service provider for inbound authentication](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider). 
+	 [register a service provider for inbound authentication](../../learn/configuring-inbound-authentication-for-a-service-provider). 
 	 To register a service provider:
 	 
 	 1. Sign in to WSO2 Identity Server Management Console as an admin.
@@ -50,7 +50,7 @@ To configure WS-Federation SSO:
 
 2.  Expand the **Claim Configuration** section and map the relevant
     claims. See [Configuring Claims for a Service
-    Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) for more
+    Provider](../../learn/configuring-claims-for-a-service-provider) for more
     information.
 3.  Click **Update** to save changes.
 
@@ -58,4 +58,4 @@ To configure WS-Federation SSO:
 
 -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
-    STS](../../using-wso2-identity-server/testing-passive-sts).
+    STS](../../learn/testing-passive-sts).

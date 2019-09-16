@@ -8,7 +8,7 @@ scripts to execute available sample scenarios.
 The following are Identity Server samples and the configurations
 necessary to make them work.
 
--   [Downloading a Sample](../../using-wso2-identity-server/downloading-a-sample)
+-   [Downloading a Sample](../../learn/downloading-a-sample)
 -   [OAuth2](OAuth2)
 -   [OpenIDConnect](OpenIDConnect)
 -   [Configuring Sample Application for Identity

@@ -4,13 +4,13 @@ Grant types are used to authorize access to protected resources in
 different ways. This section lists out the main OAuth2 grant types
 supported by WSO2 Identity Server.
 
--   [Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant)
--   [Implicit Grant](../../using-wso2-identity-server/implicit-grant)
+-   [Authorization Code Grant](../../learn/authorization-code-grant)
+-   [Implicit Grant](../../learn/implicit-grant)
 -   [Resource Owner Password Credentials
-    Grant](../../using-wso2-identity-server/resource-owner-password-credentials-grant)
--   [Client Credentials Grant](../../using-wso2-identity-server/client-credentials-grant)
--   [Refresh Token Grant](../../using-wso2-identity-server/refresh-token-grant)
--   [Kerberos Grant](../../using-wso2-identity-server/kerberos-grant)
+    Grant](../../learn/resource-owner-password-credentials-grant)
+-   [Client Credentials Grant](../../learn/client-credentials-grant)
+-   [Refresh Token Grant](../../learn/refresh-token-grant)
+-   [Kerberos Grant](../../learn/kerberos-grant)
 
 !!! note
     

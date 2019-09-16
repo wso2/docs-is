@@ -53,4 +53,4 @@ WSO2 Identity Server to define work flows.
 
 Now you need to create a new work flow definition. For more information,
 see [Adding a New Workflow
-Definition](../../using-wso2-identity-server/adding-a-new-workflow-definition).
+Definition](../../learn/adding-a-new-workflow-definition).

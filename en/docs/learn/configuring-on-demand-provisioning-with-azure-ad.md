@@ -19,7 +19,7 @@ them to the Azure Active Directory at the point of authentication.
 
 -   [Configure a WSO2 IS instance with the Office 365 Outbound
     provisioning
-    Connector](../../connectors/configuring-microsoft-azure-ad-outbound-provisioning-connector).
+    Connector](../../develop/microsoft-azure-ad-outbound-provisioning-connector).
 
 -   If you are using the default H2 database in WSO2 Identity Server and
     not an Active Directory user store, expand the section below and

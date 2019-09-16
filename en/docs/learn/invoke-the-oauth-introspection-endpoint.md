@@ -61,7 +61,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
-        Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
+        Provider](../../learn/configuring-inbound-authentication-for-a-service-provider).
     -   For requests that require `           USERNAME:PASSWORD          `,
         by default you can use credentials of any user with
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
@@ -272,7 +272,7 @@ invoke the OAuth introspection endpoint for tenant users.
         client secret of the OAuth service provider. For more information on
         creating an OAuth service provider, see [Configuring Inbound
         Authentication for a Service
-        Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
         .
     -   For requests that require
         `           USERNAME@TENANT_DOMAIN:PASSWORD          `, by default

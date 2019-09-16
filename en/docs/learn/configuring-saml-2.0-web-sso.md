@@ -25,7 +25,7 @@ the following.
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.  
     For more information, see [Adding and Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+    Provider](../../learn/adding-and-configuring-an-identity-provider).
     
 3.  Fill in the details in the **Basic Information** section.
 
@@ -196,7 +196,7 @@ If the external IDP support for logout you can select <strong>Enable Logout</str
 </tr>
 <tr class="odd">
 <td>SAML2 Web SSO User Id Location</td>
-<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found amongthe claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="../../using-wso2-identity-server/configuring-claims-for-an-identity-provider">identity provider claim mapping section</a> .</td>
+<td>Select whether the User ID is found in 'Name Identifier' or if it is found among claims. If the user ID is found amongthe claims, it can override the <strong>User ID Claim URI</strong> configuration in the <a href="../../learn/configuring-claims-for-an-identity-provider">identity provider claim mapping section</a> .</td>
 <td>User ID found among claims</td>
 </tr>
 <tr class="even">
@@ -451,7 +451,7 @@ Example: <code>                locale={lang}&amp;scope=openid email profile     
 	-   Identity Federation is part of the process of configuring an
 		identity provider. For more information on how to configure an
 		identity provider, see [Configuring an Identity
-		Provider.](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+		Provider.](../../learn/adding-and-configuring-an-identity-provider)
 	-   See [Configuring Shibboleth IdP as a Trusted Identity
 		Provider](../../tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider)
 		for a sample of using SAML2 Web SSO configuration.

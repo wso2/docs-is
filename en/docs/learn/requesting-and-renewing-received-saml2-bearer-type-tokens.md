@@ -102,7 +102,7 @@ party to grant the security token from the STS.
     
     Before you begin!
     
-    [Download the samples directory](../../using-wso2-identity-server/downloading-a-sample).
+    [Download the samples directory](../../learn/downloading-a-sample).
     
 
 1.  Navigate to
@@ -126,7 +126,7 @@ party to grant the security token from the STS.
 
     It prints the received SAML assertion on the terminal. You can also
     view the RST and RSTR on the [SOAP
-    tracer](../../using-wso2-identity-server/soap-tracer) of the
+    tracer](../../learn/soap-tracer) of the
     Management Console in the Identity Server.
 
 #### Changing the client properties

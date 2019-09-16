@@ -55,7 +55,7 @@ account locking, expand the section below for instructions.
                   to a user depending on the set of permission a user needs to have.
                   For more information on roles and permission, see [Configuring Roles
                   and
-                  Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
+                  Permissions](../../learn/configuring-roles-and-permissions)
                   .
                
                   Although the **Internal/system** role is configured by default in
@@ -80,7 +80,7 @@ account locking, expand the section below for instructions.
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
     claim dialect.  
     For more information about claims, see [Claim
-    Management](../../using-wso2-identity-server/claim-management).
+    Management](../../learn/claim-management).
 2.  Select the Account Locked claim and click **Edit**.  
     ![account-locked-claim](../../assets/img/using-wso2-identity-server/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
@@ -208,7 +208,7 @@ below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails)
+        Emails](../../learn/customizing-automated-emails)
         .
     
 

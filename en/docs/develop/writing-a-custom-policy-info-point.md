@@ -160,7 +160,7 @@ Use the following steps to check the PIP module.
     Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt
-    PEP](../../using-wso2-identity-server/using-the-xacml-tryit-tool).
+    PEP](../../learn/using-the-xacml-tryit-tool).
 
     !!! info "About debugging the sample code"
         This sample code can be debugged by starting the WSO2 Identity

@@ -25,9 +25,9 @@ This section guides you through enabling the logger for OAuth endpoints.
     will be created in the
     `          <IS_HOME>/repository/logs/         ` folder.
 
-Whenever you [generate an OAuth token](../../using-wso2-identity-server/working-with-oauth) or perform
+Whenever you [generate an OAuth token](../../learn/working-with-oauth) or perform
 an [OAuth token
-introspection](../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint) related
+introspection](../../learn/invoke-the-oauth-introspection-endpoint) related
 operation, the action will be logged in the
 `         transaction.log        ` file. Sample log entries are shown
 below.

@@ -181,4 +181,4 @@
 !!! info "Related Topics"
 
     For more information on how to configure primary and secondary user
-    stores, see [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
+    stores, see [Configuring User Stores](../../learn/configuring-user-stores).
