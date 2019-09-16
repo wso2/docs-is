@@ -286,7 +286,7 @@ option.
     
     Follow the steps given in the [Configuring SCIM 2.0 Provisioning
     Connector
-    Documentation](../../connectors/configuring-scim-2.0-provisioning-connector)
+    Documentation](../../develop/scim-2.0-provisioning-connector)
     to configure WSO2 IS with SCIM 2.0.
     
 
