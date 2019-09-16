@@ -4,7 +4,7 @@ WSO2 Identity Server (WSO2 IS) supports passing OIDC authentication
 request parameters in a self contained JWT, instead of passing plain
 request parameters. For more information on OIDC request object support
 in WSO2 IS, see [Request Object Support in WSO2 Identity
-Server](../../using-wso2-identity-server/request-object-support).
+Server](../../learn/request-object-support).
 
 !!! tip
     A JWT that contains a set of request parameters as its claims is known
@@ -27,7 +27,7 @@ parameters in a request object via WSO2 IS:
 
 1.  Set up the playground sample. For instructions on how to set up the
     playground sample, see [Basic Client Profile with
-    Playground](../../using-wso2-identity-server/basic-client-profile-with-playground).
+    Playground](../../learn/basic-client-profile-with-playground).
 2.  Follow the steps below to configure a public certificate for the
     service provider:  
     1.  Execute the following command from the
@@ -82,7 +82,7 @@ parameters in a request object via WSO2 IS:
     1.  Add two new external claims as follows for the
         `             http://wso2.org/oidc/claim            ` dialect.
         For detailed instructions on how to add a new claim mapping to a
-        claim dialect, see [Adding Claim Mapping](../../using-wso2-identity-server/adding-claim-mapping).  
+        claim dialect, see [Adding Claim Mapping](../../learn/adding-claim-mapping).  
         ![external-claim-1](../../assets/img/tutorials/external-claim-1.png)
         ![external-claim-2](../../assets/img/tutorials/external-claim-2.png)
 
@@ -137,7 +137,7 @@ parameters in a request object via WSO2 IS:
 				added/changed claims. For more information on
 				revoking/accepting user consent, see [Configuring consent
 				for
-				services](../../using-wso2-identity-server/using-the-end-user-dashboard#configuring-consent-for-services)
+				services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
 				.
 
     4.  Click **Update**.
@@ -146,7 +146,7 @@ parameters in a request object via WSO2 IS:
     values for the **email**, **country**, **challenge Question1** as
     well as **challenge Question 2** in the user profile. For detailed
     instructions on creating a user and customizing a user's profile,
-    see [Configuring Users](../../using-wso2-identity-server/configuring-users).
+    see [Configuring Users](../../learn/configuring-users).
 5.  <a name="passingoidc"> </a> Create a JWT with the following payload and sign(RSA256) it with the
     private key of the keystore created in step 2. (You can use
     <https://jwt.io/> for this)

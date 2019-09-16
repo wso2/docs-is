@@ -23,7 +23,7 @@ authenticate users using their Microsoft Live user accounts.
     2.  Navigate to the **Main** menu to access the **Identity** menu.
         Click **Add** under **Identity Providers**.  
         For more information, see [Adding and Configuring an Identity
-        Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+        Provider](../../learn/adding-and-configuring-an-identity-provider).
         
     3.  Fill in the details in the **Basic Information** section.
 
@@ -51,4 +51,4 @@ authenticate users using their Microsoft Live user accounts.
 	-   Identity Federation is part of the process of configuring an
 		identity provider. For more information on how to configure an
 		identity provider, see [Configuring an Identity
-		Provider.](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+		Provider.](../../learn/adding-and-configuring-an-identity-provider)

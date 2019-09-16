@@ -14,7 +14,7 @@ in different tables according to their user store domain. This is
 referred to as **user token partitioning** and it ensures better
 security when there are multiple user stores configured in the system.
 For information on configuring user stores other than the default one,
-see [Configuring Secondary User Stores](../../using-wso2-identity-server/configuring-secondary-user-stores).
+see [Configuring Secondary User Stores](../../learn/configuring-secondary-user-stores).
 
 To enable user token partitioning, you should change the
 `         <EnableAssertions>        ` and

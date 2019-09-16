@@ -35,7 +35,7 @@ mentioned user attributes.
 2.  Navigate to the **Main** menu and click **List** under **Identity
     Providers.**
 3.  Configure the [salesforce outbound provisioning
-    connector](../../using-wso2-identity-server/outbound-provisioning-with-salesforce)
+    connector](../../learn/outbound-provisioning-with-salesforce)
     or the google outbound provisioning connector.
 
     !!! info 
@@ -64,7 +64,7 @@ mentioned user attributes.
 1.  On the **Main** tab in the management console, click **Add** under
     **Users and Roles** in the **Identity** menu.
 2.  Click **Add New User**. See [Configuring
-    Users](../../using-wso2-identity-server/configuring-users) for
+    Users](../../learn/configuring-users) for
     more information on this process.
 3.  Provide a username and a password(with confirmation) and click
     **Next**.  

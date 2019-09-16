@@ -13,10 +13,10 @@ Follow the instructions below to access the statistics features.
 Components of the **Monitor** menu are described in the following
 topics:
 
--   [System Statistics](../../using-wso2-identity-server/system-statistics)
--   [System Logs](../../using-wso2-identity-server/system-logs)
--   [SOAP Tracer](../../using-wso2-identity-server/soap-tracer)
--   [Application Logs](../../using-wso2-identity-server/application-logs)
+-   [System Statistics](../../learn/system-statistics)
+-   [System Logs](../../learn/system-logs)
+-   [SOAP Tracer](../../learn/soap-tracer)
+-   [Application Logs](../../learn/application-logs)
 
 !!! info "Recommended reading"
 
@@ -27,7 +27,7 @@ topics:
         health, see [Monitoring Server Health in the WSO2 Administration
         Guide](../../administer/monitoring-server-health).
     -   For information on monitoring workflows, see [Monitoring Workflow
-        Requests](../../using-wso2-identity-server/monitoring-workflow-requests).
+        Requests](../../learn/monitoring-workflow-requests).
     -   For information on configuring metrics properties, see [Configuring
         Metrics Properties in the WSO2 Administration
         Guide](../../administer/configuring-metrics-properties).

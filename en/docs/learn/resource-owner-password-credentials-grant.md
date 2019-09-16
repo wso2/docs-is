@@ -19,7 +19,7 @@ grant flow.
 
 ![oauth-resource-owner-diagram](../../assets/img/using-wso2-identity-server/oauth-resource-owner-diagram.png)
 
-**Support for [refresh token grant](../../using-wso2-identity-server/refresh-token-grant)** - **Yes**
+**Support for [refresh token grant](../../learn/refresh-token-grant)** - **Yes**
 
 The cURL commands below can be used to try this grant type.
 
@@ -42,6 +42,6 @@ You will receive a response similar to the format below.
 ```
 
 !!! info "Related Topics"
-    See the [Try Password Grant](../../using-wso2-identity-server/try-password-grant) topic to try out
+    See the [Try Password Grant](../../learn/try-password-grant) topic to try out
     a sample of the resource owner password credentials grant with WSO2
     Identity Server and WSO2 OAuth2 Playground.

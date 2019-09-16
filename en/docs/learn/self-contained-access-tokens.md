@@ -49,12 +49,12 @@ self-contained JWT access tokens as below.
 
 2.  Restart the server.
 3.  Configure an [OAuth service
-    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    provider](../../learn/adding-and-configuring-a-service-provider).
 4.  Initiate an access token request to the WSO2 Identity Server, over a
-    known [grant type](../../using-wso2-identity-server/oauth-2.0-grant-types). For example, the
+    known [grant type](../../learn/oauth-2.0-grant-types). For example, the
     following cURL command illustrates the syntax of an access token
     request that can be initiated over the [Resource Owner Password
-    Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant type.
+    Credential](../../learn/resource-owner-password-credentials-grant) grant type.
 
     <table>
     <tbody>

@@ -48,7 +48,7 @@ Next, follow the steps below to configure roles and define custom permission for
     Once you add/update service provider specific permission details,
     the permission details will be listed as available permission when
     [adding
-    roles](../../using-wso2-identity-server/configuring-roles-and-permissions#adding-a-user-role)
+    roles](../../learn/configuring-roles-and-permissions#adding-a-user-role)
     via WSO2 IS.
 
 3.  Click **Add Role Mapping** and enter appropriate values for the
@@ -68,4 +68,4 @@ Now that you have configured roles and permission for the service
 provider, you can go ahead and assign the application role permission to
 any user who should be able to view and manage the service provider. For
 information on how to assign roles to a user, see [Configuring
-Users](../../using-wso2-identity-server/configuring-users).
+Users](../../learn/configuring-users).

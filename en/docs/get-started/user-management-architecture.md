@@ -109,13 +109,13 @@ is structured to work in WSO2 products:
 
 #### Related Topics
 
--   [Configuring the Realm](../../using-wso2-identity-server/configuring-the-realm) : The topics in
+-   [Configuring the Realm](../../learn/configuring-the-realm) : The topics in
     this section explain how you can set up and configure the user
     management realm.
 -   [Configuring Users, Roles and
-    Permissions](../../using-wso2-identity-server/configuring-users-roles-and-permissions) : The topics
+    Permissions](../../learn/configuring-users-roles-and-permissions) : The topics
     in this section explain how you can manage the Users, Roles and
     Permissions using the management console.
 -   [Engaging a Workflow in an
-    Operation](../../using-wso2-identity-server/engaging-a-workflow-in-an-operation) : This topic
+    Operation](../../learn/engaging-a-workflow-in-an-operation) : This topic
     explains how to engage workflows for user-related operations.

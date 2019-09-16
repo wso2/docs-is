@@ -8,8 +8,8 @@ to try it with any of the four OAuth 2.0 grant types supported with WSO2
 Identity Server.
 
 -   [Setting Up the Sample Webapp](Setting_Up_the_Sample_Webapp)
--   [Try Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
--   [Try Client Credentials Grant](../../using-wso2-identity-server/try-client-credentials-grant)
--   [Try Implicit Grant](../../using-wso2-identity-server/try-implicit-grant)
--   [Try Password Grant](../../using-wso2-identity-server/try-password-grant)
+-   [Try Authorization Code Grant](../../learn/try-authorization-code-grant)
+-   [Try Client Credentials Grant](../../learn/try-client-credentials-grant)
+-   [Try Implicit Grant](../../learn/try-implicit-grant)
+-   [Try Password Grant](../../learn/try-password-grant)
 -   [Try Request Path Authentication](Try_Request_Path_Authentication)

@@ -85,7 +85,7 @@ with the WSO2 IS.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 2.  Start the WSO2 IS server and login to the management console.
@@ -138,7 +138,7 @@ with the WSO2 IS.
 ### Try out username recovery
 
 1.  [Create a user using the management
-    console](../../using-wso2-identity-server/configuring-users#creating-a-new-user-using-the-management-console)
+    console](../../learn/configuring-users#creating-a-new-user-using-the-management-console)
     . Ensure that the user has login permissions.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
@@ -166,6 +166,6 @@ with the WSO2 IS.
         swagger docs on Account Recovery REST
         APIs](https://docs.wso2.com/display/IS580/apidocs/account-recovery).
     -   See [Configuring
-        Claims](../../using-wso2-identity-server/configuring-claims) for more information on how to store
+        Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.
     

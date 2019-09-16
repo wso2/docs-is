@@ -34,7 +34,7 @@ application as it is hidden by the claim management.
     claims mapped for SCIM in the super tenant's [management
     console](../../setup/getting-started-with-the-management-console) are not seen by
     a newly created tenant as the [User
-    Realm](../../using-wso2-identity-server/configuring-the-system-administrator) is always built using the
+    Realm](../../learn/configuring-the-system-administrator) is always built using the
     configuration found in the deployment.toml file. So the recommended
     approach is to do the claim mapping in the
     `          <IS_HOME>/repository/conf/deployment.toml        ` file.

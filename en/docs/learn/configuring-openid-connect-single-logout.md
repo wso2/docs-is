@@ -37,4 +37,4 @@ as follows.
 **Related Links**
 
 To test this feature with WSO2 Playground sample, see the [Session
-Management with Playground](../../using-wso2-identity-server/session-management-with-playground) topic.
+Management with Playground](../../learn/session-management-with-playground) topic.

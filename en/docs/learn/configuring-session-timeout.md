@@ -38,7 +38,7 @@ default time out value.
 
     -   After configuring the session timeout **,** see the [Configuring
         Inbound Authentication for a Service
-        Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
         page to setup Single Sign On with WSO2 Identity Server.
     -   See [Single
         Sign-On](../../tutorials/single-sign-on) for

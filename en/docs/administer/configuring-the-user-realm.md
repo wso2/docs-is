@@ -22,9 +22,9 @@ The following sections include instructions on the above required
 configurations and repositories:
 
 -   [Configuring the System
-    Administrator](../../using-wso2-identity-server/configuring-the-system-administrator)
+    Administrator](../../learn/configuring-the-system-administrator)
 -   [Configuring the Authorization
-    Manager](../../using-wso2-identity-server/configuring-the-authorization-manager)
--   [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores)
+    Manager](../../learn/configuring-the-authorization-manager)
+-   [Configuring User Stores](../../learn/configuring-user-stores)
 
   

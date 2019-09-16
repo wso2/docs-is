@@ -28,7 +28,7 @@ provider.
 
 !!! tip "Before you begin"
     
-    See [here](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) to learn the instrructions to register a service provider. 
+    See [here](../../learn/adding-and-configuring-a-service-provider) to learn the instrructions to register a service provider. 
     
     
 !!! warning "Removed Feature!"

@@ -250,7 +250,7 @@ above figure and video.
 <p>Salesforce and Google Apps are examples of service providers and are used as such in this case.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For information on how to add a service provider to the Identity Server, and do the necessary configurations to integrate the SP with the Identity Server, see <a href="../../using-wso2-identity-server/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</p>
+<p>For information on how to add a service provider to the Identity Server, and do the necessary configurations to integrate the SP with the Identity Server, see <a href="../../learn/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</p>
 </div>
 </div></td>
 <td><div class="content-wrapper">
@@ -279,7 +279,7 @@ above figure and video.
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For information on how to configure inbound authentication, see <a href="../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider/">Configuring Inbound Authentication for a Service Provider</a> .</p>
+<p>For information on how to configure inbound authentication, see <a href="../../learn/configuring-inbound-authentication-for-a-service-provider/">Configuring Inbound Authentication for a Service Provider</a> .</p>
 </div>
 </div>
 </div></td>
@@ -304,9 +304,9 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For information on mapping local claims and service provider claims, see <a href="../../using-wso2-identity-server/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a> .</li>
-<li>For mapping local claims and identity provider claims, see <a href="../../using-wso2-identity-server/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
-<li>For information on configuring Just-in-Time provisioning, see <a href="../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider">Configuring Just-In-Time Provisioning for an Identity Provider</a> .</li>
+<li>For information on mapping local claims and service provider claims, see <a href="../../learn/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a> .</li>
+<li>For mapping local claims and identity provider claims, see <a href="../../learn/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
+<li>For information on configuring Just-in-Time provisioning, see <a href="../../learn/configuring-just-in-time-provisioning-for-an-identity-provider">Configuring Just-In-Time Provisioning for an Identity Provider</a> .</li>
 </ul>
 </div>
 </div>
@@ -335,7 +335,7 @@ above figure and video.
 <p class="admonition-title">Related Links</p>
 <p>
 <ul>
-<li>For more information on how to configure local authenticators in the Identity Server, See <a href="../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider">Configuring Local and Outbound Authentication for a Service Provider</a> .</li>
+<li>For more information on how to configure local authenticators in the Identity Server, See <a href="../../learn/configuring-local-and-outbound-authentication-for-a-service-provider">Configuring Local and Outbound Authentication for a Service Provider</a> .</li>
 <li>For more information about windows-based authentication, see <a href="../../tutorials/integrated-windows-authentication">Integrated Windows Authentication</a> .</li>
 </ul>
 </div>
@@ -413,8 +413,8 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For more information on how to configure the service provider, see <a href="../../using-wso2-identity-server/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</li>
-<li>For more information on how to configure the identity provider, see <a href="../../using-wso2-identity-server/adding-and-configuring-an-identity-provider">Adding and Configuring an Identity Provider</a> .</li>
+<li>For more information on how to configure the service provider, see <a href="../../learn/adding-and-configuring-a-service-provider">Adding and Configuring a Service Provider</a> .</li>
+<li>For more information on how to configure the identity provider, see <a href="../../learn/adding-and-configuring-an-identity-provider">Adding and Configuring an Identity Provider</a> .</li>
 </ul>
 </div>
 </div></td>
@@ -452,8 +452,8 @@ above figure and video.
 <p class="admonition-title">Related Links</p>
 <ul>
 <li>For more information, see <a href="../../getting-started/user-management-architecture">User Management Architecture</a></li>
-<li>For more information on how to configure user stores, see <a href="../../using-wso2-identity-server/configuring-the-realm">Configuring the Realm</a> .</li>
-<li>For more information on how to work with users and roles, see <a href="../../using-wso2-identity-server/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a> .</li>
+<li>For more information on how to configure user stores, see <a href="../../learn/configuring-the-realm">Configuring the Realm</a> .</li>
+<li>For more information on how to work with users and roles, see <a href="../../learn/configuring-users-roles-and-permissions">Configuring Users, Roles and Permissions</a> .</li>
 </ul>
 </div>
 </div></td>
@@ -473,9 +473,9 @@ above figure and video.
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
 <ul>
-<li>For more information on managing claims, see <a href="../../using-wso2-identity-server/claim-management">Claim Management</a></li>
-<li>For information on how to configure claims on the service provider side, see <a href="../../using-wso2-identity-server/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a></li>
-<li>For information on how to configure claims on the identity provider side, See <a href="../../using-wso2-identity-server/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
+<li>For more information on managing claims, see <a href="../../learn/claim-management">Claim Management</a></li>
+<li>For information on how to configure claims on the service provider side, see <a href="../../learn/configuring-claims-for-a-service-provider">Configuring Claims for a Service Provider</a></li>
+<li>For information on how to configure claims on the identity provider side, See <a href="../../learn/configuring-claims-for-an-identity-provider">Configuring Claims for an Identity Provider</a> .</li>
 </ul>
 </div>
 </div></td>
@@ -531,7 +531,7 @@ above figure and video.
 <p>These connectors reach out to identity providers that perform the provisioning.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For more information on how to configure outbound provisioning connectors, see <a href="../../using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider">Configuring Outbound Provisioning Connectors for an Identity Provider</a> .</p>
+<p>For more information on how to configure outbound provisioning connectors, see <a href="../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider">Configuring Outbound Provisioning Connectors for an Identity Provider</a> .</p>
 </div>
 </div></td>
 <td><div class="content-wrapper">

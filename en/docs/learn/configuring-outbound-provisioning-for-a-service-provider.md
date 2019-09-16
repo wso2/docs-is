@@ -3,7 +3,7 @@
 You might want to outbound provision users that self-register to your
 applications (service provider) to other entities, such as Google or
 Salesforce. This section guides you on how to configure [outbound
-provisioning](../../using-wso2-identity-server/outbound-provisioning) for a service provider.
+provisioning](../../learn/outbound-provisioning) for a service provider.
 
 !!! info "Scenario"
 
@@ -56,18 +56,18 @@ Do the following to configure outbound provisioning.
             enable this, you need to configure JIT provisioning for the
             Identity Provider. For more information, see [Configuring
             Just-In-Time
-            Provisioning](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
+            Provisioning](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
             .
         -   If you select **Enable Rules**, the users are provisioned based
             on the pre-defined XACML rules. For more information, see [Rule
             Based
-            Provisioning](../../using-wso2-identity-server/rule-based-provisioning)
+            Provisioning](../../learn/rule-based-provisioning)
             .
         -   Click the **Delete** button to remove the identity provider you
             added.
 
 !!! info "Related Topics" 
 
-    -   See [Outbound Provisioning](../../using-wso2-identity-server/outbound-provisioning) for more
+    -   See [Outbound Provisioning](../../learn/outbound-provisioning) for more
         information on configuring user stores and service providers for
         outbound provisioning.

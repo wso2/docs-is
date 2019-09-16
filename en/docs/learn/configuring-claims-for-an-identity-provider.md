@@ -122,7 +122,7 @@ configurations you have made.
             blocked until the provisioning finishes - while in the non-blocking
             mode, provisioning happens in a different thread. This can be specified
             in the [service provider
-            configuration](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+            configuration](../../learn/adding-and-configuring-a-service-provider).
             
 
         In both these scenarios, only some specific user attributes must be
@@ -189,4 +189,4 @@ provider.
 -   [Logging in to Salesforce with
     Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
 -   [Outbound Provisioning with
-    Salesforce](../../using-wso2-identity-server/outbound-provisioning-with-salesforce)
+    Salesforce](../../learn/outbound-provisioning-with-salesforce)

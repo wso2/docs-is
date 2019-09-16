@@ -34,7 +34,7 @@ customized one.
     -   To ensure you get the full understanding of customizing the login
         page with WSO2 IS, the sample travelocity application is used in
         this use case. Therefore, make sure to [download the
-        samples](../../using-wso2-identity-server/downloading-a-sample) before you begin.
+        samples](../../learn/downloading-a-sample) before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
         [here](https://tomcat.apache.org/download-70.cgi).
@@ -103,7 +103,7 @@ customized one.
 #### Registering the two service providers in WSO2 Identity Server
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../using-wso2-identity-server/getting-started-with-the-management-console).
+    Console](../../learn/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
     **Add**.
 3.  Enter `          travelocity.com         ` as the **Service Provider

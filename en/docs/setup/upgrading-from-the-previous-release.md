@@ -40,7 +40,7 @@ Follow this guide before you begin migration.
     5.7.0. This backup is necessary in case the migration causes issues
     in the existing database.
 4.  We recommend running the [cleanup
-    scripts](../../using-wso2-identity-server/removing-unused+tokens+from+the+database)
+    scripts](../../learn/removing-unused+tokens+from+the+database)
     before migration to clean the expired, inactive, and revoked
     tokens/codes. This reduces the time taken for migration.
 5.  The `           CONN_APP_KEY          ` unique constraint has been

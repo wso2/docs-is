@@ -6,7 +6,7 @@ provider is basically an identity provider that supports inbound
 provisioning. It can be Google, Salesforce, another Identity Server,
 etc.
 
-[Outbound Provisioning](../../using-wso2-identity-server/outbound-provisioning) is supported via
+[Outbound Provisioning](../../learn/outbound-provisioning) is supported via
 [SCIM](https://tools.ietf.org/html/rfc7644#section-3.2) or
 [SPML](https://docs.oasis-open.org/provision/spml-2.0-cd-01/pstc-spml2-cd-01.pdfhttps://docs.oasis-open.org/provision/spml-2.0-cd-01/pstc-spml2-cd-01.pdf)
 standards. There are [outbound provisioning
@@ -147,7 +147,7 @@ provider if your application supports OAuth.
         means outbound provisioning request will be executed along with
         the XACML rules enabled.
     5.  You can also enable [just-in-time
-        provisioning](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
+        provisioning](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
         by selecting the **Enable JIT** checkbox. Once you enable this,
         when a user is JIT provisioned to IS when authenticating from a
         federated authenticator, that user will be outbound provisioned

@@ -12,7 +12,7 @@ prior to autenticating the user using the password.
     !!! info 
         For more information on creating a service provider, see [Adding and
         Configuring a Service
-        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+        Provider](../../learn/adding-and-configuring-a-service-provider).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
@@ -26,7 +26,7 @@ prior to autenticating the user using the password.
         For more information on configuring the local and outbound
         authentication configuration, see [Configuring Local and Outbound
         Authentication for a Service
-        Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
         .
 
     ![configure-local-outbound](../../assets/img/using-wso2-identity-server/configure-local-outbound.png)

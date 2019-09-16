@@ -111,7 +111,7 @@ be configured using FIDO U2F.
 !!! info 
     For more information on Multi-factor Authentication concepts with
     Identity Server, refer [Multi-factor Authentication for WSO2
-    IS](../../using-wso2-identity-server/multi-factor-authentication-for-wso2-is). For more information on
+    IS](../../learn/multi-factor-authentication-for-wso2-is). For more information on
     FIDO alliance, refer [What is
     FIDO](https://fidoalliance.org/about/what-is-fido/) page.
 
@@ -238,7 +238,7 @@ multi-factor authentication using the WSO2 Identity Server.
 #### Setting up an account for MFA
 
 1.  Log in to the [WSO2 Identity Server end-user
-    dashboard](../../using-wso2-identity-server/using-the-end-user-dashboard).
+    dashboard](../../learn/using-the-end-user-dashboard).
 2.  Navigate to the **My Profile** section by clicking the associated
     **View Details** button.
 3.  Click **Manage U2F Authentication**.
@@ -278,7 +278,7 @@ multi-factor authentication using the WSO2 Identity Server.
     !!! info 
         For more information on creating a service provider, see [Adding and
         Configuring a Service
-        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+        Provider](../../learn/adding-and-configuring-a-service-provider).
 
     1.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. Only **Service Provider
@@ -292,7 +292,7 @@ multi-factor authentication using the WSO2 Identity Server.
         For more information on configuring the local and outbound
         authentication configuration, see [Configuring Local and Outbound
         Authentication for a Service
-        Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
         .
 
     ![local-outbound-auth-config](../../assets/img/using-wso2-identity-server/local-outbound-auth-config.png)

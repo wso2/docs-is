@@ -6,12 +6,12 @@ Token with Identity Server 5.5.0
 ### Setup Playground Sample
 
 First, you should [setup the Playground sample
-app](../../using-wso2-identity-server/basic-client-profile-with-playground#setting-up-the-playground-sample).
+app](../../learn/basic-client-profile-with-playground#setting-up-the-playground-sample).
 
 ### Configuring the service provider
 
 The next step is to [configure the service
-provider.](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+provider.](../../learn/adding-and-configuring-a-service-provider)
 
 ### Configuring Service Provider Public Certificate
 
@@ -160,7 +160,7 @@ Follow the below steps to enable ID Token Encryption:
 ### Testing the flow - Implicit Grant Type
 
 1.  Before you begin, you must first [set up the sample
-    webapp.](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+    webapp.](../../learn/setting-up-the-sample-webapp)
 
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
@@ -209,7 +209,7 @@ Follow the below steps to enable ID Token Encryption:
 ### Testing the flow - Password Grant Type
 
 1.  Before you begin, you must first [set up the sample
-    webapp.](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+    webapp.](../../learn/setting-up-the-sample-webapp)
 
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.

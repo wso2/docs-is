@@ -3,7 +3,7 @@
 The Password Grant is one of the four grant types in the OAuth 2.0
 specification. For more information about this grant type, see [Resource
 Owner Password Credentials
-Grant](../../using-wso2-identity-server/resource-owner-password-credentials-grant)
+Grant](../../learn/resource-owner-password-credentials-grant)
 .
 
 #### **Running the application**
@@ -11,7 +11,7 @@ Grant](../../using-wso2-identity-server/resource-owner-password-credentials-gran
 !!! note
     
     Before you begin, you must first [set up the sample
-    webapp.](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+    webapp.](../../learn/setting-up-the-sample-webapp)
     
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
@@ -69,5 +69,5 @@ Grant](../../using-wso2-identity-server/resource-owner-password-credentials-gran
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection
-        Endpoint](../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint)
+        Endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
         to invoke the OAuth introspection endpoint using cURL commands.

@@ -93,7 +93,7 @@ which is `         carbon.super        ` .
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 2.  [Start WSO2
@@ -158,7 +158,7 @@ which is `         carbon.super        ` .
     account. Once the user activates the account through the email
     received, the account is unlocked. For more information about
     account locking, see [Account
-    Locking](../../using-wso2-identity-server/account-locking-by-failed-login-attempts).
+    Locking](../../learn/account-locking-by-failed-login-attempts).
 
     ![account-locking](../../assets/img/using-wso2-identity-server/account-locking.png) 
 
@@ -288,11 +288,11 @@ Next, you can try out self-registration.
         
         You can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 ## Related Links
 
 See [Configuring
-Claims](../../using-wso2-identity-server/configuring-claims) for more information on how to store the
+Claims](../../learn/configuring-claims) for more information on how to store the
 claim values in the user store.

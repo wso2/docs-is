@@ -147,7 +147,7 @@ sections below to set this up.
     `           saml2-web-app-pickup-dispatch.com          `  
     For more information about configuring a service provider, see
     [Adding and Configuring a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    Provider](../../learn/adding-and-configuring-a-service-provider).
 
 5.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
     configuration** section, and click **Configure**.
