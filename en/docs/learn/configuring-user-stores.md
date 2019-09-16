@@ -46,7 +46,7 @@ Adapters used to connect with different users stores are called *User
 Store Managers* . By default, there are user store managers for JDBC,
 LDAP and Active Directory user stores. If you need to add a new user
 store implementation, see [Writing a Custom User Store
-Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager). When you configure the
+Manager](../../learn/writing-a-custom-user-store-manager). When you configure the
 user store, you have to set the user store manager class name.
 
 !!! info 

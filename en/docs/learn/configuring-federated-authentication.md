@@ -11,7 +11,7 @@ To navigate to the federated authenticators configuration section, do the follow
 1. Sign in. Enter your username and password to log on to the [Management Console](../../setup/getting-started-with-the-management-console). 
 
 2. Navigate to the **Main** menu to access the **Identity** menu. Click Add under Identity Providers. 
-For more information, see [Adding and Configuring an Identity Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).  
+For more information, see [Adding and Configuring an Identity Provider](../../learn/adding-and-configuring-an-identity-provider).  
 
 3. Fill in the details in the **Basic Information** section. 
 

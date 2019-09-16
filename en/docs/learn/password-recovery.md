@@ -86,7 +86,7 @@ with email notification.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails)
+        Emails](../../learn/customizing-automated-emails)
         .
     
 
@@ -107,7 +107,7 @@ with email notification.
         To enable password recovery with reCaptcha verification, select the
         **Enable reCaptcha for Password Recovery** checkbox. For more
         information, see [Configuring reCaptcha for Password
-        Recovery](../../using-wso2-identity-server/configuring-recaptcha-for-password-recovery).
+        Recovery](../../learn/configuring-recaptcha-for-password-recovery).
 
 5.  To enable sending a confirmation email to the user's registered
     email address after the password reset, select the **Notify when
@@ -120,7 +120,7 @@ with email notification.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails)
+        Emails](../../learn/customizing-automated-emails)
         .
     
 
@@ -150,7 +150,7 @@ with email notification.
 ### Try out recovery using notification
 
 1.  [Create a user using the management
-    console](../../using-wso2-identity-server/configuring-users#creating-a-new-user-using-the-management-console)
+    console](../../learn/configuring-users#creating-a-new-user-using-the-management-console)
     . Ensure that the user has login permissions.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
@@ -225,7 +225,7 @@ ways:
 
 To set up challenge questions or to manage the questions with different
 locales (languages), see [Managing Challenge
-Questions](../../using-wso2-identity-server/managing-challenge-questions).
+Questions](../../learn/managing-challenge-questions).
 
 #### Using the end user dashboard
 
@@ -305,9 +305,9 @@ To try this out, first create a user in the Identity Server.
 
         -   To set up reCaptcha for password recovery with secret questions, see
         [Configuring Google reCaptcha for Security-Question Based Password
-        Recovery](../../using-wso2-identity-server/configuring-google-recaptcha-for-security-question-based-password-recovery).
+        Recovery](../../learn/configuring-google-recaptcha-for-security-question-based-password-recovery).
         -   See [Configuring
-        Claims](../../using-wso2-identity-server/configuring-claims) for
+        Claims](../../learn/configuring-claims) for
         more information on how to store the claim values in the user store.
 
   

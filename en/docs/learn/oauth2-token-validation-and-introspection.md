@@ -4,10 +4,10 @@ WSO2 Identity Server provides a SOAP service to validate the OAuth2
 token it has issued, which can be used by the resource server.
 
 -   [Invoke the OAuth Introspection
-    Endpoint](../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint)
+    Endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
 -   [OAuth Token Validation Using SOAP
-    Service](../../using-wso2-identity-server/oauth-token-validation-using-soap-service)
--   [OAuth Transaction Logs](../../using-wso2-identity-server/oauth-transaction-logs)
+    Service](../../learn/oauth-token-validation-using-soap-service)
+-   [OAuth Transaction Logs](../../learn/oauth-transaction-logs)
 
 **However from these 2 methods, the recommended approach is to use the
 REST API given above.**

@@ -51,7 +51,7 @@ The diagram below shows the process of SAML Artifact Binding.
     [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
     ". For more information about configuring a service provider, see
     [Adding and Configuring a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+    Provider](../../learn/adding-and-configuring-a-service-provider)
     .
 3.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
     configuration** section, and click **Configure**.

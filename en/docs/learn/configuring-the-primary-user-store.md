@@ -4,7 +4,7 @@ This is the main user store that is shared among all the tenants in the
 system. Only one user store can be configured as the primary user store.
 This documentation explains the process of setting up a primary user
 store. If you need more information on WSO2 Carbon user stores, see
-[Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores).
+[Configuring User Stores](../../learn/configuring-user-stores).
 
 !!! info 
     By default, the embedded H2 database (JDBC) that is shipped with WSO2
@@ -69,13 +69,13 @@ There are two steps involved in setting up the primary user store:
     It provides the additional steps and recommendations specific to
     each user store manager.  
 
-    -   [Configuring a JDBC User Store](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
+    -   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
     -   [Configuring a Read-Only LDAP User
-        Store](../../using-wso2-identity-server/configuring-a-read-only-ldap-user-store)
+        Store](../../learn/configuring-a-read-only-ldap-user-store)
     -   [Configuring a Read-Write Active Directory User
-        Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+        Store](../../learn/configuring-a-read-write-active-directory-user-store)
     -   [Configuring a Read-Write LDAP User
-        Store](../../using-wso2-identity-server/configuring-a-read-write-ldap-user-store)
+        Store](../../learn/configuring-a-read-write-ldap-user-store)
 
     In `           deployment.toml          ` file, you can configure user store managers by adding the relevant properties.
     But it is important to read each user store configuration
@@ -111,7 +111,7 @@ There are two steps involved in setting up the primary user store:
         Server system administrator who is capable of all the actions in the
         system is configured within the user-mgt.xml. If you have not
         configured the system administrator yet, see [Configuring the System
-        Administrator](../../using-wso2-identity-server/configuring-the-system-administrator).
+        Administrator](../../learn/configuring-the-system-administrator).
     
 
 3.  Now, restart the server.

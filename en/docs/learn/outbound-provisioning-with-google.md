@@ -137,7 +137,7 @@ new users.
     IS to enable users to log in using their email addresses. In order
     to do that, follow the steps found in the [Using Email Address as
     the
-    Username](../../using-wso2-identity-server/using-email-address-as-the-username)
+    Username](../../learn/using-email-address-as-the-username)
     topic.
 3.  Restart the Identity Server. Since the username and password of the
     admin user were updated, start the WSO2 IS server using the -Dsetup
@@ -168,7 +168,7 @@ Provider.
 
     !!! info
         See [Configuring an Identity
-        Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider)
+        Provider](../../learn/adding-and-configuring-an-identity-provider)
         for more information on registering and configuring an identity
         provider.
 
@@ -178,7 +178,7 @@ Provider.
 
     !!! info 
         For more information on any of these fields, see [Configuring Google
-        provisioning](../../using-wso2-identity-server/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-google-provisioning)
+        provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-google-provisioning)
         .
 
     1.  Select **Enable Connector** to enable the Google connector.
@@ -231,7 +231,7 @@ just created. For this scenario, WSO2 Identity Server acts as the
 service provider, so we need to add it as a resident service provider.
 For more information on the resident service provider, see [Configuring
 a resident service
-provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider#configuring-a-resident-service-provider)
+provider](../../learn/adding-and-configuring-a-service-provider#configuring-a-resident-service-provider)
 .
 
 1.  In the **Main** menu under the **Identity** section, click
@@ -250,7 +250,7 @@ provider](../../using-wso2-identity-server/adding-and-configuring-a-service-prov
         the provisioning till the rule completely evaluates and get the
         response back to the WSO2 IdP. Afterwards, you need to enable the
         XACML policy. For more information, see [Rule-Based
-        Provisioning](../../using-wso2-identity-server/rule-based-provisioning)
+        Provisioning](../../learn/rule-based-provisioning)
 
 4.  Click **Update**.
 
@@ -284,8 +284,8 @@ from WSO2 IS to Google.
 -   If you want to JIT provision users from Google to WSO2 Identity
     Server in this use case, see [Configuring Just-In-Time Provisioning
     for an Identity
-    Provider](../../using-wso2-identity-server/configuring-just-in-time-provisioning-for-an-identity-provider)
+    Provider](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
     .
 -   You can configure WSO2 IS to outbound provision users only if a
     given XACML rule is met. For more information, see [Rule-Based
-    Provisioning](../../using-wso2-identity-server/rule-based-provisioning).
+    Provisioning](../../learn/rule-based-provisioning).

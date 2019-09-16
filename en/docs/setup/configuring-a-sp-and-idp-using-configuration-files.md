@@ -439,7 +439,7 @@ provider in the **`          service provider IS         `**.
 Do the following steps to run the travelocity application.
 
 1.  Check out the single sign on sample from the following GitHub
-    repository. See the [Downloading a Sample](../../using-wso2-identity-server/downloading-a-sample)
+    repository. See the [Downloading a Sample](../../learn/downloading-a-sample)
     topic for more information.
 
     ``` java
@@ -696,11 +696,11 @@ when attempting the instructions in this topic.
     information on using the travelocity.com application for single
     sign-on. This provides insight on some parameters used.
 -   See [Adding and Configuring a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for
+    Provider](../../learn/adding-and-configuring-a-service-provider) for
     information on creating a service provider using the WSO2 Identity
     Server management console.
 -   See [Adding and Configuring an Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider) for
+    Provider](../../learn/adding-and-configuring-an-identity-provider) for
     information on creating an identity provider using the WSO2 Identity
     Server management console.
 -   See [Configuring a SP and IdP Using Service

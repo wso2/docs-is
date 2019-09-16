@@ -42,7 +42,7 @@ goes through the client first.
 
 ![oauth2-auth-code-diagram](../../assets/img/using-wso2-identity-server/oauth2-auth-code-diagram.png)
 
-Typically, the [authorization code grant type](../../using-wso2-identity-server/authorization-code-grant) is
+Typically, the [authorization code grant type](../../learn/authorization-code-grant) is
 used with these clients.
 
   
@@ -63,7 +63,7 @@ the browser then makes direct requests to the Authorization server.
 
 ![oauth2-implicit-diagram](../../assets/img/using-wso2-identity-server/oauth2-implicit-diagram.png)
 
-Typically, the [implicit grant type](../../using-wso2-identity-server/implicit-grant) is used with these
+Typically, the [implicit grant type](../../learn/implicit-grant) is used with these
 clients.
 
 !!! tip
@@ -87,8 +87,8 @@ might be protected from other applications residing on the same device.
 It is usually recommended to take the advantage of
 [PKCE](https://tools.ietf.org/html/rfc7636) extension with native
 clients to mitigate [code interception
-attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks) when
-using [authorization code grant type](../../using-wso2-identity-server/authorization-code-grant) to
+attacks](../../learn/mitigating-authorization-code-interception-attacks) when
+using [authorization code grant type](../../learn/authorization-code-grant) to
 access secured services.
 
   

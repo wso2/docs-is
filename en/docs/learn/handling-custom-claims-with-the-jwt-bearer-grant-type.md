@@ -83,12 +83,12 @@ with the configuration steps.
 
     2.  Restart IS-IP.
     3.  Configure an [OAuth service
-        provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+        provider](../../learn/adding-and-configuring-a-service-provider).
     4.  Initiate an access token request to IS-IP over a known [grant
-        type](../../using-wso2-identity-server/oauth-2.0-grant-types). The following cURL command
+        type](../../learn/oauth-2.0-grant-types). The following cURL command
         illustrates the syntax of an access token request that can be
         initiated using the [Resource Owner Password
-        Credential](../../using-wso2-identity-server/resource-owner-password-credentials-grant) grant
+        Credential](../../learn/resource-owner-password-credentials-grant) grant
         type, and specifying the scope as openid. For more information,
         see [Configuring WSO2 Identity Server to issue self-contained
         access
@@ -171,7 +171,7 @@ with the configuration steps.
     3.  Provide appropriate values to configure IS-IP as the identity
         provider. For detailed instructions on how to add a new identity
         provider, see [Adding and Configuring an Identity
-        Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+        Provider](../../learn/adding-and-configuring-an-identity-provider).
     4.  Click **Register**.
 
 Now that you have configured IS-IP and IS-SP, let's take a look at how

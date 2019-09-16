@@ -15,7 +15,7 @@ the instructions found
 
 1.  The code for the sample can be checked out from the GitHub
     repository. To do this, follow the instructions on the [Downloading
-    a Sample](../../using-wso2-identity-server/downloading-a-sample)
+    a Sample](../../learn/downloading-a-sample)
     topic.
 
 2.  Once downloaded the identity server samples, go inside to

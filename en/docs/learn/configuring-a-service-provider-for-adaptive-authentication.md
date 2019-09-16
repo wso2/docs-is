@@ -112,7 +112,7 @@ application by setting up inbound authentication.
     This tutorial guides you through setting up a service provider for a
     SAML application. To configure a service provider with other protocols
     such as OAuth and WS-Federation, see [Configuring Inbound Authentication
-    for a Service Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider).
+    for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider).
 
 1.  On the **Main** tab, click **Service Providers &gt; Add** and add a
     new service provider called
@@ -120,7 +120,7 @@ application by setting up inbound authentication.
 
     For more information about configuring a service provider, see
     [Adding and Configuring a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+    Provider](../../learn/adding-and-configuring-a-service-provider).
 
 2.  Expand the **Inbound Authentication configuration&gt; SAML2 Web SSO
     configuration** section, and click **Configure**.  

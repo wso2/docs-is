@@ -80,16 +80,16 @@ primary user store.
     and it provides the additional steps and recommendations specific to
     each user store manager.  
       
-    -   [Configuring a JDBC User Store](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
+    -   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
 
     -   [Configuring a Read-only LDAP User
-        Store](../../using-wso2-identity-server/configuring-a-read-only-ldap-user-store)
+        Store](../../learn/configuring-a-read-only-ldap-user-store)
 
     -   [Configuring a Read-write Active Directory User
-        Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+        Store](../../learn/configuring-a-read-write-active-directory-user-store)
 
     -   [Configuring a Read-write LDAP User
-        Store](../../using-wso2-identity-server/configuring-a-read-write-ldap-user-store)
+        Store](../../learn/configuring-a-read-write-ldap-user-store)
 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying

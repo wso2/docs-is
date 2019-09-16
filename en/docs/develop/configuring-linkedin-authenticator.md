@@ -213,7 +213,7 @@ Go to the **Local and Outbound Authentication Configuration** section.
 Configure the Local and Outbound Authentication for LinkedIn.  
 For more information, see [Configuring Local and Outbound Authentication
 for a Service
-Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
 in the WSO2 IS 5.3.0 guide.  
 
 1.  Click on the **Federated Authentication** radio button.

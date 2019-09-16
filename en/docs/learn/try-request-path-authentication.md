@@ -4,7 +4,7 @@ This section demonstrates the use of the basic auth request path
 authenticator and the OAuth request path authenticator with the WSO2
 playground sample. Follow the instructions below to try out this
 scenario (Steps 1-6 are common for both authenticators).  See [Request
-Path Authentication](../../using-wso2-identity-server/request-path-authentication) for more
+Path Authentication](../../learn/request-path-authentication) for more
 information.
 
 1.  Start the WSO2 Identity Server and log in to the management console.
@@ -35,7 +35,7 @@ information.
         ![select-oauth-bearer](../../assets/img/using-wso2-identity-server/select-oauth-bearer.png) 
 7.  Click **Update** to save changes to the service provider.
 8.  Now you can use [Playground
-    sample](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+    sample](../../learn/setting-up-the-sample-webapp)
     application to test the configured request path authenticator. Start
     the tomcat server and visit the URL
     http://wso2is.local:8080/playground2/oauth2.jsp.

@@ -240,7 +240,7 @@ to, you have the option of creating a new admin user in the user store
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
 about the system administrator user, see [Configuring the System
-Administrator](../../using-wso2-identity-server/configuring-the-system-administrator).
+Administrator](../../learn/configuring-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 

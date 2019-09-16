@@ -32,7 +32,7 @@ or federated authentication in WSO2 Identity Server (IS).
 		Authentication](../../tutorials/integrated-windows-authentication)
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory User
-		Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store).
+		Store](../../learn/configuring-a-read-write-active-directory-user-store).
 
 ### How IWA with Kerberos works
 

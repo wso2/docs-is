@@ -35,7 +35,7 @@ The following configurations are optional and can be configured as
 needed.
 
 1.  See the [Extension Points for
-    OAuth](../../using-wso2-identity-server/extension-points-for-oauth#authorization-context-token-generator)
+    OAuth](../../learn/extension-points-for-oauth#authorization-context-token-generator)
     topic for more details about the usage of the '
     `            TokenGeneratorImplClass           ` ' and '
     `            ClaimsRetrieverImplClass           ` '.
@@ -63,7 +63,7 @@ needed.
     Select **JWT** as the Token Issuer for a new or existing OAuth/OpenID
     connect consumer application. See [Configuring inbound authentication
     with OAuth/OpenID
-    Connect](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-oauth-/-openid-connect)
+    Connect](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-oauth-/-openid-connect)
     for more information.
     
     ![jwt-token-issuer]( ../../assets/img/using-wso2-identity-server/jwt-token-issuer.png) 
@@ -73,7 +73,7 @@ needed.
 
 After configuring the elements mentioned above, see the [OAuth2 Token
 Validation and
-Introspection](../../using-wso2-identity-server/oauth2-token-validation-and-introspection) topic
+Introspection](../../learn/oauth2-token-validation-and-introspection) topic
 to call the `         OAuth2ValidationService        ` . The following
 screenshot is the request and response of the
 `         OAuth2ValidationService        ` from the SOAP

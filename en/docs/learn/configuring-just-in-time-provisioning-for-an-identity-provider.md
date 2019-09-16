@@ -76,7 +76,7 @@ below:
                 -   If you specify the user name as `                user1               `, the user is provisioned to the PRIMARY user store domain.
 
 
-            -   If you want to select a user store domain other than the default primary user store domain, you need to [configure a user store](../../using-wso2-identity-server/configuring-user-stores) of your preference for it to appear in the list for you to select.
+            -   If you want to select a user store domain other than the default primary user store domain, you need to [configure a user store](../../learn/configuring-user-stores) of your preference for it to appear in the list for you to select.
 
 
     -   When you select **Always provision to User Store Domain**, you
@@ -98,7 +98,7 @@ below:
             `             UsernameJavaRegEx            ` and  
             `             RolenameJavaScriptRegEx            ` in the [user
             store
-            configuration](../../using-wso2-identity-server/configuring-user-stores)
+            configuration](../../learn/configuring-user-stores)
             .
         
 
@@ -112,9 +112,9 @@ below:
     For information on how to configure purposes and appropriate user
     attributes to obtain user consent at the time of JIT provisioning, see
     [Configuring Just-In-Time Provisioning Consent
-    Purposes](../../using-wso2-identity-server/configuring-just-in-time-provisioning-consent-purposes).
+    Purposes](../../learn/configuring-just-in-time-provisioning-consent-purposes).
 
     For information on how to customize the default user name and password
     provisioning user interfaces, see [Customizing Just-In-Time Provisioning
     User
-    Interfaces](../../using-wso2-identity-server/customizing-just-in-time-provisioning-user-interfaces).
+    Interfaces](../../learn/customizing-just-in-time-provisioning-user-interfaces).
