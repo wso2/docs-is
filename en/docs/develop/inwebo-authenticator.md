@@ -1,38 +1,40 @@
 # Configuring Inwebo Authenticator
 
+The Inwebo connector allows you to authenticate a user using Inwebo
+through WSO2 Identity Server . Inwebo provides security beyond
+passwords. The diagram below illustrates the flow of the Inwebo
+federated authenticator
+
+![](../../assets/img/48276415/76746223.png)  
+
+This is tested with the Inwebo API version 3.1
+
 This topic provides instructions on how to configure the Inwebo app and
 the Identity Server to integrate using a sample app. See the following
 sections for more information.
 
-Inwebo Authenticator is supported by Identity Server version 5.1.0
+!!! info 
+	Inwebo Authenticator is supported by Identity Server version 5.1.0
 
--   [Configuring the Inwebo
-    app](#ConfiguringInweboAuthenticator-ConfiguringtheInweboapp)
--   [Deploying Inwebo
-    artifacts](#ConfiguringInweboAuthenticator-DeployingInweboartifacts)
--   [Deploying travelocity.com sample
-    app](#ConfiguringInweboAuthenticator-Deployingtravelocity.comsampleapp)
--   [Configuring the identity
-    provider](#ConfiguringInweboAuthenticator-Configuringtheidentityprovider)
--   [Configuring the service
-    provider](#ConfiguringInweboAuthenticator-Configuringtheserviceprovider)
--   [Configuring user
-    claim](#ConfiguringInweboAuthenticator-ConfiguringUserClaim)
--   [Testing the
-    sample](#ConfiguringInweboAuthenticator-Testingthesample)
+!!! info 
+	You have to have Inwebo android or IOS application on your mobile device
+	to go with this authenticator. To download the authenticator and
+	artifacts, go to
+	[https://store.wso2.com/store/assets/isconnector/inweboauthenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22Inwebo%22).
+
 
 ### Configuring the Inwebo app
 
 1.  Go to <http://www.inwebo.com/> and click free signup and register.
 2.  Activate your email notification and go to
-    <https://www.myinwebo.com/> .
+    <https://www.myinwebo.com/>.
 3.  Go to Administration console and get the Service Id of admin user.  
-    ![](attachments/48276420/51252020.png)   
+    ![](../../assets/img/48276420/51252020.png)   
 4.  Navigate to Secure Sites and download the certificate for API access
     (.p12 format).
 5.  Go to MyInweboAccount and navigate to My Devices, click add a Device
     button. The following window appears.
-    ![](attachments/48276420/48206313.png)
+    ![](../../assets/img/48276420/48206313.png)
 6.  Download Inwebo app in your mobile or any other devices. Add the
     above secure site ID or scan the QR code to activate the account
 
@@ -49,15 +51,9 @@ Inwebo Authenticator is supported by Identity Server version 5.1.0
     directory.
 
     !!! note
-    
         If you want to upgrade the Inwebo Authenticator in your existing IS
-        pack, please refer [upgrade
-        instructions.](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions)
+        pack, please refer [upgrade instructions.](../../develop/upgrading-an-authenticator)
     
-
-To download the authenticator and artifacts, go to
-[https://store.wso2.com/store/assets/isconnector/inwebo](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22Inwebo%22)
-.  
 
 ### Deploying travelocity.com sample app
 
@@ -65,27 +61,27 @@ The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
 To configure this, see [Deploying the Sample
-App](Deploying-the-Sample-App).
+App](../../develop/deploying-the-sample-app).
 
 ### Configuring the identity provider
 
 Now you have to configure WSO2 Identity Server by [adding a new identity
-provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
-.
+provider](../../learn/adding-and-configuring-an-identity-provider).
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
-    it](https://docs.wso2.com/display/IS510/Running+the+Product).
+    it](../../setup/running-the-product).
 2.  Log in to the [management
-    console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
+    console](../../setup/getting-started-with-the-management-console)
     as an administrator.
 3.  In the **Identity** section under the **Main** tab of the management
     console, click **Add** under **Identity Providers**.
 4.  Give a suitable name as the **Identity Provider Name** and fill out
     the form to configure Inwebo by expanding **Inwebo Configuration**
     under **Federated Authenticators**.  
-    ![](attachments/48276420/48214226.png) Fill in the following.  
-
+    ![](../../assets/img/48276420/48214226.png) 
+	
+	Fill in the following.  
     <table>
     <thead>
     <tr class="header">
@@ -142,7 +138,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](attachments/48276420/49222042.png) 
+    ![](../../assets/img/48276420/49222042.png) 
 
 5.  Now set the configuration as follows:
 
@@ -171,7 +167,7 @@ The next step is to configure the service provider.
 
 10. Add the basic authentication as first step and Inwebo authentication
     as the second step  
-    ![](attachments/48276420/48211344.png) 
+    ![](../../assets/img/48276420/48211344.png) 
 
 You have now added and configured the service provider.
 
@@ -181,45 +177,46 @@ You have now added and configured the service provider.
 2.  Select Add New Claim
 3.  Add new claim UserId (Change Claim Uri as (
     <http://wso2.org/claims/authentication/inwebo/userId> )  
-    ![](attachments/48276420/49221143.png) 
+    ![](../../assets/img/48276420/49221143.png) 
 4.  Go to Service provider, select travalocity.com→Edit → Claim
     configuration
 5.  Update the claim UserId  
       
-    ![](attachments/48276420/48214228.png) 
+    ![](../../assets/img/48276420/48214228.png) 
+
 6.  Now go to Users and Roles
+
 7.  Add the details and update the profile.  
       
-    ![](attachments/48276420/48211847.png) 
+    ![](../../assets/img/48276420/48211847.png) 
 
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
     [http://localhost:8080/travelocity.com
-    ![](attachments/48276420/48206317.png){width="780"
-    height="502"}](http://localhost:8080/travelocity.com)
+    ![](../../assets/img/48276420/48206317.png)](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.
 
-    ![](attachments/48276420/48214229.png) 
+    ![](../../assets/img/48276420/48214229.png) 
 
 4.  Hit Click! Button to authenticate Inwebo .  
-    ![](attachments/48276420/49221869.png) 
+    ![](../../assets/img/48276420/49221869.png) 
 5.  You will get a notification in your external device(mobile).
 
-    ![](attachments/48276420/49222015.jpg) 
+    ![](../../assets/img/48276420/49222015.jpg) 
 
 6.  Enter your Inwebo PIN
 
-    ![](attachments/48276420/49222016.jpg) 
+    ![](../../assets/img/48276420/49222016.jpg) 
 
 7.  Click accept  
-    ![](attachments/48276420/49222017.jpg) 
+    ![](../../assets/img/48276420/49222017.jpg) 
 8.  Click ok and taken to the home page of the travelocity.com app
 
-    ![](attachments/48276420/48211848.png)   
+    ![](../../assets/img/48276420/48211848.png)   
 
   
