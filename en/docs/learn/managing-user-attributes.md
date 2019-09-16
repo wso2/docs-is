@@ -36,7 +36,7 @@ attributes of a user in the Identity Server.
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
-    APIs](../../references/managing-users-and-roles-with-apis). Supposing you want to
+    APIs](../../develop/managing-users-and-roles-with-apis). Supposing you want to
     set a user attribute, you can call the following method.
 
     ``` java

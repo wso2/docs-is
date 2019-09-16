@@ -120,7 +120,7 @@ the role as needed.
 #### Add role using SCIM
 
 -   In SCIM creating role means creating a **group.** Read more on
-    [SCIM](../../using-wso2-identity-server/scim-1.1-apis).
+    [SCIM](../../develop/scim-1.1-apis).
 
     !!! note
     
@@ -160,7 +160,7 @@ the role as needed.
 A role can be created by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
 services, see [Calling Admin
-Services.](../../using-wso2-identity-server/calling-admin-services)
+Services.](../../develop/calling-admin-services)
 
 1.  Disable the hidden admin service property in the file
     `           <IS_HOME>/repository/conf/carbon.xml          ` .  
@@ -314,7 +314,7 @@ If you need to make modifications to a role, use the links in the
 
 In SCIM roles are considered as **groups.** You can edit or delete a
 group using SCIM. Please read more about
-[SCIM](../../using-wso2-identity-server/scim-1.1-apis) for further
+[SCIM](../../develop/scim-1.1-apis) for further
 details.
 
 #### Using SOAP
@@ -322,7 +322,7 @@ details.
 A role can be edited or deleted by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
 services, see [Calling Admin
-Services.](../../using-wso2-identity-server/calling-admin-services)
+Services.](../../develop/calling-admin-services)
 
 1.  Disable the hidden admin service property in the
     `           <IS_HOME>/repository/conf/deployment.toml          ` file.  

@@ -136,7 +136,7 @@ This is a unique name that identifies the user store.</td>
     <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+Active+Directory+User+Store#ConfiguringaRead-writeActiveDirectoryUserStore-PropertiesusedinRead-writeActiveDirectoryuserstoremanager">Properties used in Read-write Active Directory user store manager</a></li>
     <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-only+LDAP+User+Store#ConfiguringaRead-onlyLDAPUserStore-PropertiesusedinRead-onlyLDAPuserstoremanager">Properties used in Read-only LDAP user store manager</a></li>
     <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+LDAP+User+Store#ConfiguringaRead-writeLDAPUserStore-PropertiesusedinRead-writeLDAPuserstoremanager">Properties used in Read-write LDAP user store manager</a></li>
-    <li><a href="Carbon-Remote-User-Store-Manager_103330074.html#CarbonRemoteUserStoreManager-Configuringacarbonremoteuserstoremanager">Properties used in Carbon Remote user store manager</a></li>
+    <li><a href="../../develop/carbon-remote-user-store-manager_103330074.html#CarbonRemoteUserStoreManager-Configuringacarbonremoteuserstoremanager">Properties used in Carbon Remote user store manager</a></li>
     </ul></li>
     </ul>
     <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>

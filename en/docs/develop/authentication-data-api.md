@@ -86,7 +86,7 @@ The data can be accessible at
 ### Authenticating the API
 
 This API can be authenticated by following the steps given
-[here](../../using-wso2-identity-server/authenticating-and-authorizing-rest-apis).
+[here](../../develop/authenticating-and-authorizing-rest-apis).
 
 Following are the sample requests and responses using cURL.
 

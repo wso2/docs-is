@@ -4,7 +4,7 @@ For this inbound provisioning WSO2 Identity server supports for SCIM 1.1
 and SCIM 2.0 this document we provide the additional steps that need to
 follow when you used SCIM 1.1 as inbound provisioning mechanism.  And if
 you need more information on SCIM see [SCIM
-APIs](../../using-wso2-identity-server/scim-1.1-apis)
+APIs](../../develop/scim-1.1-apis)
 
 When a user or a group is created with SCIM, there are set of mandatory
 SCIM  claim values that need to be saved along with the user or group.
