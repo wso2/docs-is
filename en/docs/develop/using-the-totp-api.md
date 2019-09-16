@@ -1,30 +1,16 @@
 # Using the TOTP API
 
 !!! warning
-    
     **Note** : This is a draft version of this document.
     
-
 This page guides you through using the TOTP API to enable TOTP
 authenticator and generate QR-Code url and the different operations you
 can use to work with it. See the following sections for more
 information.
 
--   [Configuring user
-    claims](#UsingtheTOTPAPI-ConfiguringuserclaimsConfiguringuserclaims)
--   [Deploying TOTP
-    artifacts](#UsingtheTOTPAPI-DeployingTOTPartifactsDeployingTOTPartifacts)
--   [Enable TOTP admin
-    service](#UsingtheTOTPAPI-EnableTOTPadminserviceEnableTOTPadminservice)
--   [Enable TOTP](#UsingtheTOTPAPI-EnableTOTPEnableTOTP)
--   [Disable TOTP](#UsingtheTOTPAPI-DisableTOTPDisableTOTP)
--   [Refresh Secret
-    Key](#UsingtheTOTPAPI-RefreshSecretKeyRefreshSecretKey)
-
 ### Configuring user claims
 
-Add the claims ' **Enable TOTP** ', ' **Encoding** ', and ' **Secret
-Key** ' as described in [Configuring user
+Add the claims ' **Enable TOTP** ', ' **Encoding** ', and ' **Secret Key** ' as described in [Configuring user
 claims](https://docs.wso2.com/display/ISCONNECTORS/Configuring+TOTP+Authenticator#ConfiguringTOTPAuthenticator-ConfiguringUserClaimsConfiguringuserclaims)
 .
 
@@ -105,15 +91,11 @@ encoded QR-Code URL, which is in the format that can be scanned with
 Google Authenticator Mobile Application. You can decode the QR-Code URL
 and use any QR-Code generator library to generate the QR-Code.
 
-Using TOTP Authenticator
-
-You can scan the QR-Code with the Google Authenticator Mobile App and
-get the code to authenticate the user using TOTP authenticator. Follow
-[Configuring the service
-provider](https://docs.wso2.com/display/ISCONNECTORS/Configuring+TOTP+Authenticator#ConfiguringTOTPAuthenticator-ConfiguringtheserviceproviderConfiguringtheserviceprovider)
-and [Testing the
-sample](https://docs.wso2.com/display/ISCONNECTORS/Configuring+TOTP+Authenticator#ConfiguringTOTPAuthenticator-TestingthesampleTestingthesample)
-to continue the authentication using TOTP.
+!!! info "Using TOTP Authenticator"
+    You can scan the QR-Code with the Google Authenticator Mobile App and
+    get the code to authenticate the user using TOTP authenticator. Follow
+    [Configuring the service provider](../../develop/totp-authenticator#configuring-the-service-provider)
+    and [Testing the sample](../../develop/totp-authenticator#testing-the-sample) to continue the authentication using TOTP.
 
 ### Disable TOTP
 

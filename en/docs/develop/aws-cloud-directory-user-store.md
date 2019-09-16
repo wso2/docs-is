@@ -16,7 +16,6 @@ the
 class to configure AWS user store manager.
 
 !!! tip
-    
     The AWS user store extension is compatible with WSO2 Identity Server
     5.5.0, 5.6.0 as well as 5.7.0.
     
@@ -24,18 +23,6 @@ class to configure AWS user store manager.
 The following topics provide information on how you can configure the
 AWS user store extension with WSO2 Identity Server and then use AWS
 as the primary or secondary user store in WSO2 Identity Server:
-
--   [Prerequisites](#AWSCloudDirectoryUserStore-Prerequisites)
--   [Adding AWS user store extension to WSO2 Identity
-    Server](#AWSCloudDirectoryUserStore-addAddingAWSuserstoreextensiontoWSO2IdentityServer)
--   [Configuring AWS as the secondary user
-    store](#AWSCloudDirectoryUserStore-ConfiguringAWSasthesecondaryuserstore)
--   [Configuring AWS as the primary user
-    store](#AWSCloudDirectoryUserStore-ConfiguringAWSastheprimaryuserstore)
--   [AWS user store manager
-    properties](#AWSCloudDirectoryUserStore-propertiesAWSuserstoremanagerproperties)
-
-  
 
 ### Prerequisites
 
@@ -99,9 +86,6 @@ as the primary or secondary user store in WSO2 Identity Server:
     ```
 
     !!! note
-    
-        Note
-    
         If you are going to maintain a set of claims such as
         `           givenName          `, `           mail          `,
         `           sn          `, and
@@ -251,12 +235,11 @@ Follow the steps below to configure AWS as the secondary user store.
     fields.
 3.  Enter appropriate values for all the mandatory properties. For
     information on each property, see [AWS user store manager
-    properties](#AWSCloudDirectoryUserStore-properties).
+    properties](#aws-user-store-manager-properties).
 
 ### Configuring AWS as the primary user store
 
 !!! tip
-    
     Configuring AWS as the secondary user store is straightforward once you
     add the AWS user store extension to WSO2 Identity Server,. However, if
     you want to use AWS as the primary user store in WSO2 Identity Server,
@@ -267,16 +250,13 @@ Follow the steps below to configure AWS as the primary user store in
 WSO2 Identity Server:
 
 1.  Follow steps 1 and 2 under [Adding AWS user store extension to WSO2
-    Identity Server](#AWSCloudDirectoryUserStore-add).
+    Identity Server](#adding-aws-user-store-extension-to-wso2-identity-server).
 
 2.  Edit the
     `           <IS_HOME>/repository/conf/user-mgt.xml          ` file
     and add the following configuration:
 
     !!! note
-    
-        Note
-    
         When you add the following configuration, be sure to specify
         applicable values for the following properties:
     
@@ -285,7 +265,6 @@ WSO2 Identity Server:
         <Property name="SecretAccessKey">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</Property>
         ```
     
-
     **user-mgt.xml**
 
     ``` java
@@ -374,7 +353,7 @@ between the `         Users        ` object and `         Roles        `
 object. Therefore, the directory structure should be similar to what is
 depicted in the following diagram:
 
-![](attachments/97561749/103326406.png) 
+![](../../assets/img/97561749/103326406.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, and you want to establish a relationship between the objects, you
@@ -382,8 +361,6 @@ have to create the following typed links:
 
 -   User1 → Role1
 -   User1 → Role2
-
-  
 
 **Scenario 2 :** Let's take a look at how you can maintain different
 object relationship details (i.e., `         Users        `,
@@ -433,7 +410,7 @@ ownership relationship between the `         Users        ` object and
 `         Roles        ` object. Therefore, the directory structure
 should be similar to what is depicted in the following diagram:
 
-![](attachments/97561749/103326407.png) 
+![](../../assets/img/97561749/103326407.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, then the relationship between the objects should be kept as an
@@ -623,10 +600,7 @@ Default value is <code>              ^[\S]{5,30}$             </code></p></td>
 </tbody>
 </table>
 
-  
-
 !!! note
-    
     The `         listObjectChildren        ` REST API operation is used to
     get the list of users/roles. This operation does not guarantee that all
     object children of `         PathToUsers        ` or
