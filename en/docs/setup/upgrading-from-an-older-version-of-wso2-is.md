@@ -371,7 +371,7 @@ relevant configurations according to the features you are using.
                                 ```
                                 </p>
                                 <hr>
-                                <p>If you have enabled the [using email address as the username](../../using-wso2-identity-server/using-email-address-as-the-username) option, the confirmation codes are retained after they are used, due to the special character '@' contained in the email address. To resolve this, you can set the <code>UserInfoRecovery.UseHashedUserNames</code> parameter to true so that the registry resources will be saved by <b>hash of username</b> instead of the email address username which contains the '@' sign.</p>
+                                <p>If you have enabled the [using email address as the username](../../learn/using-email-address-as-the-username) option, the confirmation codes are retained after they are used, due to the special character '@' contained in the email address. To resolve this, you can set the <code>UserInfoRecovery.UseHashedUserNames</code> parameter to true so that the registry resources will be saved by <b>hash of username</b> instead of the email address username which contains the '@' sign.</p>
                                 <hr>
                                 <p>The following properties were added to support notification sending for account enabling and disabling: 
                                 ``` java
@@ -379,7 +379,7 @@ relevant configurations according to the features you are using.
                                 Notification.Sending.Enable.Account.Enable=false
                                 ```
                                 </p>
-                                <p>For more information, see [User Account Locking and Account Disabling](../../using-wso2-identity-server/user-account-locking-and-account-disabling).</p>
+                                <p>For more information, see [User Account Locking and Account Disabling](../../learn/user-account-locking-and-account-disabling).</p>
                                 <hr>
                                 <p>The following property was added to check if the account has been locked, at the point of authentication.</p>
                                 ``` java
@@ -631,7 +631,7 @@ relevant configurations according to the features you are using.
                         </td>
                         <td>
                             <div class="content-wrapper">
-                                <p>The following claims were added. For more information on configuring these, see [Configuring Users](../../using-wso2-identity-server/configuring-users#ConfiguringUsers-Customizingauser'sprofile) or [User Account Locking and Account Disabling](../../using-wso2-identity-server/user-account-locking-and-account-disabling) depending on the claim you want to configure.</p>
+                                <p>The following claims were added. For more information on configuring these, see [Configuring Users](../../learn/configuring-users#ConfiguringUsers-Customizingauser'sprofile) or [User Account Locking and Account Disabling](../../learn/user-account-locking-and-account-disabling) depending on the claim you want to configure.</p>
                                 ``` java
                                 <Claim>
                                     <ClaimURI>http://wso2.org/claims/identity/lastLoginTime</ClaimURI>
@@ -1156,7 +1156,7 @@ relevant configurations according to the features you are using.
                                 </ol>
                             <div class="admonition info">
                             <p class="admonition-title">Info</p>
-                            <p>For more information about this feature, see [Email Templates](../../using-wso2-identity-server/email-templates).</p>
+                            <p>For more information about this feature, see [Email Templates](../../learn/email-templates).</p>
                             </div>
                         </div>
                     </td>                        
@@ -3132,7 +3132,7 @@ relevant configurations according to the features you are using.
                             </TempDataCleanup>
                             ```
                             <hr>
-                            <p>Add the following property within the `<OAuth>` tag for OAuth key hashing. For more information, see [Setting Up OAuth Token Hashing](../../using-wso2-identity-server/setting-up-oauth-token-hasing).</p>
+                            <p>Add the following property within the `<OAuth>` tag for OAuth key hashing. For more information, see [Setting Up OAuth Token Hashing](../../learn/setting-up-oauth-token-hasing).</p>
                             ```
                             <!-- This should be true if the oauth keys (consumer secret, access token, refresh token and authorization code) need to be hashed,before storing them in the database. If the value is false, the oauth keys will be saved in a plain text format.
                             By default : false.
@@ -4297,7 +4297,7 @@ relevant configurations according to the features you are using.
                             ```
                             <p><b>Why?</b></p>
                                 <ul>
-                                    <li>AbstractIdentityHandler - Enabling this listener logs the audit data for OAuth token issuance and token introspection. Adding this property allows you to disable logging, else if this property is not present in the configuration file, logging is enabled by default. For more information about auditing, see [OAuth Transaction Logs](../../using-wso2-identity-server/oauth-transaction-logs).</li>
+                                    <li>AbstractIdentityHandler - Enabling this listener logs the audit data for OAuth token issuance and token introspection. Adding this property allows you to disable logging, else if this property is not present in the configuration file, logging is enabled by default. For more information about auditing, see [OAuth Transaction Logs](../../learn/oauth-transaction-logs).</li>
                                     <li>UserOperationEventListener - This event listener is used to support session termination at the point renaming the username.</li>
                                     <li>UserOperationEventListener - This event listener allows adding claims to the audit logs.</li>
                                 </ul>
