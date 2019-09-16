@@ -14,11 +14,11 @@ to perform different operations.
 !!! info 
     You can learn more about the admin services used in this sample by
     referring [Calling Admin
-    Services](../../using-wso2-identity-server/calling-admin-services),
+    Services](../../develop/calling-admin-services),
     [Managing Users and Roles with
-    APIs](../../using-wso2-identity-server/managing-users-and-roles-with-apis)
+    APIs](../../develop/managing-users-and-roles-with-apis)
     and [Managing Permissions with
-    APIs](../../using-wso2-identity-server/managing-permissions-with-apis)
+    APIs](../../develop/managing-permissions-with-apis)
     .
 
 1.  The code for the sample can be checked out from the GitHub

@@ -405,7 +405,7 @@ nav:
           - 'Monitoring the Authentication Operations with Alerts': learn/monitoring-the-authentication-operations-with-alerts.md
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
-          - 'Viewing Alerts': learn/Viewing-alerts.md
+          - 'Viewing Alerts': learn/viewing-alerts.md
       - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
@@ -445,34 +445,27 @@ nav:
       - 'Extending the Identity Server':
         - 'Extending the Identity Server': develop/extending-the-identity-server.md
         - 'User Management for Developers':
-          - 'User Management for Developers': develop/user-management-for-developers.md
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': develop/carbon-remote-user-store-manager.md
           - 'Working with Errors': 
-            - 'Working with Errors': develop/working-with-errors.md
             - 'Customizing Authentication Error Messages': develop/customizing-authentication-error-messages.md
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
         - 'Provisioning for Developers':
-          - 'Provisioning for Developers': develop/provisioning-for-developers.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extensible-scim-user-schemas-with-wso2-identity-server.md
         - 'Identity Federation for Developers':
-          - 'Identity Federation for Developers': develop/identity-federation-for-developers.md
           - 'Writing a Custom Federated Authenticator': develop/writing-a-custom-federated-authenticator.md
           - 'Writing a Custom Local Authenticator': develop/writing-a-custom-local-authenticator.md
         - 'Access Control for Developers':
-          - 'Access Control for Developers': develop/access-control-for-developers.md
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md 
         - 'Workflow Management for Developers':
-          - 'Workflow Management for Developers': develop/workflow-management-for-developers.md
           - 'Writing a Custom Event Handler': develop/writing-a-custom-event-handler.md
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
-          - 'Adaptive Authentication for Developers': develop/adaptive-authentication-for-developers.md
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
           - 'Using APIs': develop/using-apis.md
@@ -480,7 +473,6 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
-            - 'REST APIs': develop/rest-apis.md
             - 'Using the Account Recovery REST APIs': develop/using-the-account-recovery-rest-apis.md
             - 'Using the Self Sign-Up REST APIs': develop/using-the-self-sign-up-rest-apis.md
             - 'Using the Authentication REST APIs': develop/using-the-authentication-rest-apis.md
@@ -512,7 +504,7 @@ nav:
               - 'Identity Provider Management API': develop/identity-provider-management-api.md
               - 'Using the Identity Provider API': develop/using-the-identity-provider-api.md
               - 'Identity Provider Configurations used with APIs': develop/identity-provider-configurations-used-with-apis.md
-          - 'SCIM 1.1 APIs': develop/scim--1.1-apis.md
+          - 'SCIM 1.1 APIs': develop/scim-1.1-apis.md
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
@@ -525,112 +517,57 @@ nav:
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
       - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md      
     - 'Connectors':
-      - 'Connectors': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
-      - 'Configuring Connectors':
+      - 'Configuring Connectors': 
+        - 'Connectors Overview': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
         - 'Configuring Connectors': develop/authenticators-and-connectors.md    
         - 'Deploying the Sample App': develop/deploying-the-sample-app.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
-        - 'Basecamp Authenticator':
-          - 'Basecamp Authenticator': develop/basecamp-authenticator.md
-          - 'Configuring Basecamp Authenticator': develop/configuring-basecamp-authenticator.md
-        - 'Bitly Authenticator':
-          - 'Bitly Authenticator': develop/bitly-authenticator.md
-          - 'Configuring Bitly Authenticator': develop/configuring-bitly-authenticator.md
-        - 'CAS Inbound Authenticator':
-          - 'CAS Inbound Authenticator': develop/cas-inbound-authenticator.md
-          - 'Configuring CAS Inbound Authenticator': develop/configuring-cas-inbound-authenticator.md
-        - 'Dropbox Authenticator':
-          - 'Dropbox Authenticator': develop/dropbox-authenticator.md
-          - 'Configuring Dropbox Authenticator': develop/configuring-dropbox-authenticator.md
+        - 'Basecamp Authenticator': develop/basecamp-authenticator.md
+        - 'Bitly Authenticator': develop/bitly-authenticator.md
+        - 'CAS Inbound Authenticator': develop/cas-inbound-authenticator.md
+        - 'Dropbox Authenticator': develop/dropbox-authenticator.md
         - 'Duo Security Authenticator and Provisioning Connector':
-          - 'Duo Security Authenticator and Provisioning Connector': develop/duo-security-authenticator-and-provisioning-connector.md
-          - 'Configuring Duo Security Provisioning Connector': develop/configuring-duo-security-provisioning-connector.md
-          - 'Configuring Duo Security Authenticator': develop/configuring-duo-security-authenticator.md
-        - 'EmailOTP Authenticator':
-          - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
-          - 'Configuring Multi-factor Authentication using EmailOTP': develop/configuring-multi-factor-authentication-using-emailotp.md
-        - 'Facebook Authenticator':
-          - 'Facebook Authenticator': develop/facebook-authenticator.md
-          - 'Configuring Facebook Authenticator': develop/configuring-facebook-authenticator.md
-        - 'Foursquare Authenticator':
-          - 'Foursquare Authenticator': develop/foursquare-authenticator.md
-          - 'Configuring Foursquare Authenticator': develop/configuring-foursquare-authenticator.md
-        - 'Github Authenticator':
-          - 'Github Authenticator': develop/github-authenticator.md
-          - 'Configuring Github Authenticator': develop/configuring-github-authenticator.md
-        - 'Instagram Authenticator':
-          - 'Instagram Authenticator': develop/instagram-authenticator.md
-          - 'Configuring Instagram Authenticator': develop/configuring-instagram-authenticator.md
+          - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
+          - 'Duo Security Authenticator': develop/duo-security-authenticator.md
+        - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
+        - 'Facebook Authenticator': develop/facebook-authenticator.md
+        - 'Foursquare Authenticator': develop/foursquare-authenticator.md
+        - 'Github Authenticator': develop/github-authenticator.md
+        - 'Instagram Authenticator': develop/instagram-authenticator.md
         - 'Inwebo Authenticator and Provisioning Connector':
-          - 'Inwebo Authenticator and Provisioning Connector': develop/inwebo-authenticator-and-provisioning-connector.md
-          - 'Configuring Inwebo Authenticator': develop/configuring-inwebo-authenticator.md
-          - 'Configuring Inwebo Provisioning': develop/configuring-inwebo-provisioning.md
-        - 'JWT Grant Type for OAuth2':
-          - 'JWT Grant Type for OAuth2': develop/jwt-grant-type-for-oauth2.md
-          - 'Configuring JWT Grant Type': develop/configuring-jwt-grant-type.md
-        - 'LinkedIn Authenticator':
-          - 'LinkedIn Authenticator': develop/linkedin-authenticator.md
-          - 'Configuring LinkedIn Authenticator': develop/configuring-linkedIn-authenticator.md
-        - 'MailChimp Authenticator':
-          - 'MailChimp Authenticator': develop/mailChimp-Authenticator.md
-          - 'Configuring MailChimp Authenticator': develop/configuring-mailchimp-authenticator.md
-        - 'MePIN Authenticator':
-          - 'MePIN Authenticator': develop/mePIN-Authenticator.md
-          - 'Configuring MePIN Authenticator': develop/configuring-mepin-authenticator.md
-        - 'Mobile Connect Authenticator':
-          - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
-          - 'Configuring Mobile Connect as a Federated Authenticator': develop/configuring-mobile-connect-as-a-federated-authenticator.md
+          - 'Inwebo Authenticator': develop/inwebo-authenticator.md
+          - 'Inwebo Provisioning': develop/inwebo-provisioning.md
+        - 'JWT Grant Type for OAuth2': develop/jwt-grant-type-for-oauth2.md
+        - 'LinkedIn Authenticator': develop/linkedin-authenticator.md
+        - 'MailChimp Authenticator': develop/mailchimp-authenticator.md
+        - 'MePIN Authenticator': develop/mepin-authenticator.md
+        - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
+        - 'Configuring Mobile Connect Authenticator': develop/configuring-mobile-connect-authenticator.md
         - 'Microsoft Azure AD Authenticator':
           - 'Microsoft Azure AD Authenticator': develop/microsoft-azure-ad-authenticator.md
-          - 'Configuring Microsoft Azure AD Authenticator': develop/configuring-microsoft-azure-ad-authenticator.md
-          - 'Configuring Microsoft Azure AD Outbound Provisioning Connector': develop/configuring-microsoft-azure-ad-outbound-provisioning-connector.md
-        - 'Password Policy Authenticator':
-          - 'Password Policy Authenticator': develop/password-policy-authenticator.md
-          - 'Configuring Password Policy Authenticator': develop/configuring-password-policy-authenticator.md
-        - 'Pinterest Authenticator':
-          - 'Pinterest Authenticator': develop/pinterest-authenticator.md
-          - 'Configuring Pinterest Authenticator': develop/configuring-pinterest-authenticator.md
-        - 'Reddit Authenticator':
-          - 'Reddit Authenticator': develop/reddit-authenticator.md
-          - 'Configuring Reddit Authenticator': develop/configuring-reddit-authenticator.md
-        - 'RSA SecurID Authenticator':
-          - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
-          - 'Configuring RSA SecurID Authenticator': develop/configuring-rsa-securid-authenticator.md
-        - 'SCIM 2.0 Provisioning Connector':
-          - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
-          - 'Configuring SCIM 2.0 Provisioning Connector': develop/configuring-scim-2.0-provisioning-connector.md
-        - 'SMSOTP Authenticator':
-          - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
-          - 'Configuring Multi-factor Authentication using SMSOTP': develop/configuring-multi-factor-authentication-using-smsotp.md
-        - 'Token2 Authenticator':
-          - 'Token2 Authenticator': develop/token2-authenticator.md
-          - 'Configuring Multi-factor Authentication using Token2': develop/configuring-multi-factor-authentication-using-token2.md
+          - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
+        - 'Password Policy Authenticator': develop/password-policy-authenticator.md
+        - 'Pinterest Authenticator': develop/pinterest-authenticator.md
+        - 'Reddit Authenticator': develop/reddit-authenticator.md
+        - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
+        - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
+        - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
+        - 'Token2 Authenticator': develop/token2-authenticator.md
         - 'TOTP Authenticator':
-          - 'TOTP Authenticator': develop/totp-authenticator.md
           - 'Configuring TOTP Authenticator': develop/configuring-totp-authenticator.md
           - 'Using the TOTP API': develop/using-the-totp-api.md
-        - 'Twitter Authenticator':
-          - 'Twitter Authenticator': develop/twitter-authenticator.md
-          - 'Configuring Twitter Authenticator': develop/configuring-twitter-authenticator.md
-        - 'Wordpress Authenticator':
-          - 'Wordpress Authenticator': develop/wordpress-authenticator.md
-          - 'Configuring Wordpress Authenticator': develop/configuring-wordpress-authenticator.md
+        - 'Twitter Authenticator': develop/twitter-authenticator.md
+        - 'Wordpress Authenticator': develop/wordpress-authenticator.md
         - 'X509Certificate Authenticator':
-          - 'X509Certificate Authenticator': develop/x509certificate-authenticator.md 
-          - 'Configuring X509Certificate Authenticator': 
-            - 'Configuring X509Certificate Authenticator': develop/configuring-x509certificate-authenticator.md
-            - 'Configuring X509 Authenticator with SSL Termination': develop/configuring-x509-authenticator-with-ssl-termination.md
-          - 'Configuring Certificate Revocation Validation': develop/configuring-certificate-revocation-validation.md
-        - 'Yammer Authenticator':
-          - 'Yammer Authenticator': develop/yammer-authenticator.md
-          - 'Configuring Yammer Authenticator': develop/configuring-yammer-authenticator.md
+            - 'X509Certificate Authenticator': develop/x509certificate-authenticator.md
+            - 'X509 Authenticator with SSL Termination': develop/x509-authenticator-with-ssl-termination.md
+        - 'Certificate Revocation Validation': develop/configuring-certificate-revocation-validation.md
+        - 'Yammer Authenticator': develop/yammer-authenticator.md
         - 'Upgrading an Authenticator': develop/upgrading-an-authenticator.md
-        - 'Nuxeo Authenticator':
-          - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
-          - 'Configuring Nuxeo Authenticator': develop/configuring-nuxeo-authenticator.md
+        - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
         - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md    
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
-      - 'Getting Support': develop/getting-support.md 
+    - 'Getting Support': develop/getting-support.md 
   - 'Setup':
     - 'Installation Guide': 
       - 'Installing the Product': 
@@ -832,11 +769,6 @@ nav:
       - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': administer/configuring-saml2-single-sign-on-across-different-wso2-products.md
       - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
       - 'Customizing Error Pages': administer/customizing-error-pages.md
-      - 'Customizing the Management Console': administer/customizing-the-management-console.md
-      - 'Installing WSO2 Products as a Service':
-        - 'Installing WSO2 Products as a Service': administer/installing-wso2-products-as-a-service.md
-        - 'Installing as a Linux Service': administer/installing-as-a-linux-service.md
-        - 'Installing as a Windows Service': administer/installing-as-a-windows-service.md
       - 'Managing Datasources':
         - 'Managing Datasources': administer/managing-datasources.md
         - 'Adding Datasources': administer/adding-datasources.md
@@ -854,7 +786,7 @@ nav:
         - 'Role-based Permissions': administer/role-based-permissions.md
         - 'Managing User Attributes': administer/managing-user-attributes.md
         - 'Removing References to Deleted User Identities in WSO2 Products':
-          - 'Removing References to Deleted User Identities in WSO2 Products': administer/removing-references-to-deleted-user-identities-in-WSO2-Products.md
+          - 'Removing References to Deleted User Identities in WSO2 Products': administer/removing-references-to-deleted-user-identities-in-wso2-products.md
           - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
       - 'Securing Carbon Applications': administer/securing-carbon-applications.md
       - 'Working with Composite Applications':
@@ -909,7 +841,7 @@ nav:
       - 'Monitoring with WSO2 Carbon Metrics':
         - 'Monitoring with WSO2 Carbon Metrics': administer/monitoring-with-wso2-carbon-metrics.md
         - 'Setting Up Carbon Metrics': 
-          - 'Setting Up Carbon Metrics': administer/setting-Up-carbon-metrics.md
+          - 'Setting Up Carbon Metrics': administer/setting-up-carbon-metrics.md
           - 'Enabling Metrics and Storage Types': administer/enabling-metrics-and-storage-types.md
           - 'Configuring Metrics Properties': administer/configuring-metrics-properties.md
         - 'Using JVM Metrics': administer/using-jvm-metrics.md
@@ -934,10 +866,8 @@ nav:
       - 'Approvals REST APIs': references/approvals-rest-api.md
       - 'Associations REST APIs': references/association-rest-api.md
       - 'Authorized Apps REST APIs': references/authorized-apps-rest-api.md
-      - 'Claim Management REST APIs': references/claim-mgt-rest-api.md
       - 'Fido REST APIs': references/fido-rest-api.md
       - 'Session Management REST APIs': references/session-mgt-rest-api.md
-      - 'Workflow Management REST APIs': references/workflow-rest-api.md
     - 'Error Catalog': references/error-catalog.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-Identity-Federation-Standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md

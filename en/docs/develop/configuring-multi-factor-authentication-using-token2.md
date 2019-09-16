@@ -106,7 +106,7 @@ provider](https://docs.wso2.com/display/IS510/Configuring+an+Identity+Provider)
 
     | Field        | Description                                                                                                                              | Sample Value                                                                                                                           |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](Configuring-Multi-factor-Authentication-using-Token2). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
+    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](../../develop/configuring-multi-factor-authentication-using-token2). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
     | Callback URL | This is the service provider's URL to which the code is sent.                                                                            | `                                                   https://localhost:9443/commonauth                                                ` |
 
 9.  Click **Register**.  

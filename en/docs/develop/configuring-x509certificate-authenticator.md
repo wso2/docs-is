@@ -394,7 +394,7 @@ Identity Server was started before.
 
 For more information on CRL and OCSP certificate validation, see
 [Configuring Certificate Revocation
-Validation](Configuring-Certificate-Revocation-Validation).
+Validation](../../develop/certificate-revocation-validation).
 
 ### **Configuring the Authentication Endpoint**
 
