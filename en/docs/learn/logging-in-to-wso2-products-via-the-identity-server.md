@@ -41,7 +41,7 @@ needs to be done in order to enable SSO:
 	For single sign-on to work, you need to configure the WSO2 products to
 	share a common user store. For more information on configuring this, see
 	[Configuring the Primary User
-	Store](../../using-wso2-identity-server/configuring-the-primary-user-store).
+	Store](../../learn/configuring-the-primary-user-store).
 
 ### Configuring WSO2 Application Server
 

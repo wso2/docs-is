@@ -31,5 +31,5 @@ password. Follow the steps below to configure the count.
 !!! info "Related Links"
 
     See [Configuring
-    Claims](../../using-wso2-identity-server/configuring-claims) for more
+    Claims](../../learn/configuring-claims) for more
     information on how to store the claim values in the user store.

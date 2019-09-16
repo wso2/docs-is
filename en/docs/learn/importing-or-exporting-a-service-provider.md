@@ -16,10 +16,10 @@ you need to take backups of your service provider configurations.
     For more information:
 
     -   See
-        [Architecture](../../getting-started/architecture)
+        [Architecture](../../get-started/architecture)
         for more information on what a service provider is.
     -   See [Adding and Configuring a Service
-        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) for
+        Provider](../../learn/adding-and-configuring-a-service-provider) for
         instructions on how to add and configure a service provider using
         the management console.
 

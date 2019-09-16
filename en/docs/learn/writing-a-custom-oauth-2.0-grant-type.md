@@ -133,7 +133,7 @@ directly used as well.
         Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. See [Adding a Service
-        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+        Provider](../../learn/adding-and-configuring-a-service-provider)
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.
@@ -212,7 +212,7 @@ This section provides instructions on how to
         Click **Add** under **Service Providers**.
     3.  Fill in the **Service Provider Name** and provide a brief
         **Description** of the service provider. See [Adding a Service
-        Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+        Provider](../../learn/adding-and-configuring-a-service-provider)
         for more information.
     4.  Expand the **OAuth/OpenID Connect Configuration** and click
         **Configure**.

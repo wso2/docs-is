@@ -16,7 +16,7 @@ permissions are added together.
 
     -   Only system administrators can add, modify and remove users and
         roles. To set up administrators, see [Configuring the System
-        Administrator](../../using-wso2-identity-server/configuring-the-system-administrator).  
+        Administrator](../../learn/configuring-the-system-administrator).  
         
 
     -   Your product has a primary user store where the users/roles that you
@@ -41,8 +41,8 @@ permissions are added together.
         change the `            RegEx           ` configuration or enter
         values that conform to the `            RegEx           ` . If you
         [change the default user
-        store](../../using-wso2-identity-server/configuring-the-primary-user-store) or [set up a secondary
-        user store](../../using-wso2-identity-server/configuring-secondary-user-stores), configure the
+        store](../../learn/configuring-the-primary-user-store) or [set up a secondary
+        user store](../../learn/configuring-secondary-user-stores), configure the
         `            RegEx           ` accordingly under the user store
         manager configurations in the
         `            <IS_HOME>/repository/conf/deployment.toml          `
@@ -69,13 +69,13 @@ permissions are added together.
     For detailed information on configuring users, roles, and permissions,
     see the following topics.
 
-    -   [Configuring Users](../../using-wso2-identity-server/configuring-users)
+    -   [Configuring Users](../../learn/configuring-users)
     -   [Configuring Roles and
-        Permissions](../../using-wso2-identity-server/configuring-roles-and-permissions)
+        Permissions](../../learn/configuring-roles-and-permissions)
     -   [Using Workflows with User
-        Management](../../using-wso2-identity-server/using-workflows-with-user-management)
+        Management](../../learn/using-workflows-with-user-management)
     You can also see the following pages for system administrator related
     configurations:
 
-    -   See [Configuring User Stores](../../using-wso2-identity-server/configuring-user-stores) for
+    -   See [Configuring User Stores](../../learn/configuring-user-stores) for
         instructions on how to configure primary and secondary user stores.

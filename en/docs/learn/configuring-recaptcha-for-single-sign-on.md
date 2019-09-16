@@ -8,11 +8,11 @@ attacks.
     -   For more information on configuring single sign on, see [Configuring
     Single Sign-On](../../tutorials/configuring-single-sign-on).
     -   For more information on brute force attacks, see [Mitigating Brute
-    Force Attacks](../../using-wso2-identity-server/mitigating-brute-force-attacks).
+    Force Attacks](../../learn/mitigating-brute-force-attacks).
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha).
+    ReCaptcha](../../learn/setting-up-recaptcha).
 
     !!! note
     

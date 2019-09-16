@@ -50,7 +50,7 @@ Restart the server to effect changes.
 </tr>
 <tr class="odd">
 <td>Sample</td>
-<td>See <a href="../../using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type">Writing a Custom OAuth 2.0 Grant Type</a> for a sample implementation of this extension point.</td>
+<td>See <a href="../../learn/writing-a-custom-oauth-2.0-grant-type">Writing a Custom OAuth 2.0 Grant Type</a> for a sample implementation of this extension point.</td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +246,7 @@ Use this if you want to store access tokens, refresh tokens, authorization codes
 </p>
 <div>
 <p>Note</p>
-<p>For more information on OAuth token hashing, and for instructions on how to enable OAuth token hashing, see <a href="../../using-wso2-identity-server/setting-up-oauth-token-hashing">Setting Up OAuth Token Hashing</a> .</p>
+<p>For more information on OAuth token hashing, and for instructions on how to enable OAuth token hashing, see <a href="../../learn/setting-up-oauth-token-hashing">Setting Up OAuth Token Hashing</a> .</p>
 </div></li>
 </ul>
 </div></td>
@@ -270,7 +270,7 @@ Use this if you want to store access tokens, refresh tokens, authorization codes
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used if token validation and scope validation needs to be customized when invoking the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation endpoint</a> . Token validators can be registered per token type such as ' <em>bearer</em> '.<br />
+<td><p>This extension point can be used if token validation and scope validation needs to be customized when invoking the <a href="../../learn/oauth-token-validation-using-soap-service">token validation endpoint</a> . Token validators can be registered per token type such as ' <em>bearer</em> '.<br />
 A default implementation that supports for 'bearer' token type is available.</p></td>
 </tr>
 <tr class="even">
@@ -304,8 +304,8 @@ A default implementation that supports for 'bearer' token type is available.</p>
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used to customize the token that can be generated relevant to the authorization context by invoking the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation endpoint</a> .<br />
-By default, a <a href="../../using-wso2-identity-server/jwt-token-generation">JWT token generation</a> implementation is supported with following properties encoded to each token validation request.</p>
+<td><p>This extension point can be used to customize the token that can be generated relevant to the authorization context by invoking the <a href="../../learn/oauth-token-validation-using-soap-service">token validation endpoint</a> .<br />
+By default, a <a href="../../learn/jwt-token-generation">JWT token generation</a> implementation is supported with following properties encoded to each token validation request.</p>
 <ul>
 <li>subscriber, applicationName, apiContext, version, tier, and endUserName</li>
 <li>Additional properties can be encoded by engaging a <a href="#claims-retriever">claims retriever</a> .</li>
@@ -336,7 +336,7 @@ By default, a <a href="../../using-wso2-identity-server/jwt-token-generation">JW
 </div>
 </div>
 <div>
-<p>For more infomation on above configuration refer <a href="../../using-wso2-identity-server/jwt-token-generation">here</a> .</p>
+<p>For more infomation on above configuration refer <a href="../../learn/jwt-token-generation">here</a> .</p>
 </div>
 </div></td>
 </tr>
@@ -349,7 +349,7 @@ By default, a <a href="../../using-wso2-identity-server/jwt-token-generation">JW
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used if additional claims or properties needs to be engaged to the <a href="../../using-wso2-identity-server/jwt-token-generation">JWT token</a> generated in the <a href="../../using-wso2-identity-server/oauth-token-validation-using-soap-service">token validation response</a> as explained in extension point <a href="#authorizationcontext-token-generator">above</a> .<br />
+<td><p>This extension point can be used if additional claims or properties needs to be engaged to the <a href="../../learn/jwt-token-generation">JWT token</a> generated in the <a href="../../learn/oauth-token-validation-using-soap-service">token validation response</a> as explained in extension point <a href="#authorizationcontext-token-generator">above</a> .<br />
 The default implementation reads user claim values from the default Carbon user store.</p></td>
 </tr>
 <tr class="even">
@@ -375,7 +375,7 @@ The default implementation reads user claim values from the default Carbon user 
 </div>
 </div>
 <div>
-<p>For more infomation on above configuration refer <a href="../../using-wso2-identity-server/jwt-token-generation">here</a> .</p>
+<p>For more infomation on above configuration refer <a href="../../learn/jwt-token-generation">here</a> .</p>
 </div>
 </div></td>
 </tr>

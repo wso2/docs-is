@@ -70,4 +70,4 @@ multi-tenant environment.
         [Writing a Custom Password
         Validator](../../develop/writing-a-custom-password-validator).
     -   To record user password history, see [Password History
-        Validation](../../using-wso2-identity-server/password-history-validation).
+        Validation](../../learn/password-history-validation).

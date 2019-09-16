@@ -62,10 +62,10 @@ user store configuration, you must uncomment them in the code and
 comment out the ones that you do not need as explained in the following
 topics.
 
--   [Configuring a JDBC User Store](../../using-wso2-identity-server/configuring-a-jdbc-user-store)
+-   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
 -   [Configuring a Read-Only LDAP User
-    Store](../../using-wso2-identity-server/configuring-a-read-only-ldap-user-store)
+    Store](../../learn/configuring-a-read-only-ldap-user-store)
 -   [Configuring a Read-Write Active Directory User
-    Store](../../using-wso2-identity-server/configuring-a-read-write-active-directory-user-store)
+    Store](../../learn/configuring-a-read-write-active-directory-user-store)
 -   [Configuring a Read-Write LDAP User
-    Store](../../using-wso2-identity-server/configuring-a-read-write-ldap-user-store)
+    Store](../../learn/configuring-a-read-write-ldap-user-store)

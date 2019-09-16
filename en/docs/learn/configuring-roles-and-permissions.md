@@ -381,7 +381,7 @@ Services.](../../develop/calling-admin-services)
 !!! info "Related Links"
 
     -   See [Role-based
-        Permissions](../../using-wso2-identity-server/role-based-permissions)
+        Permissions](../../learn/role-based-permissions)
         for more information.
     -   See [Permissions Required to Invoke Admin
         Services](../../references/permissions-required-to-invoke-admin-services) for a

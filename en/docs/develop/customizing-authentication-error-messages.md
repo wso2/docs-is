@@ -13,7 +13,7 @@ those errors. There are three types of custom errors handled here:
 !!! note
     Account Lock errors are returned only when account locking is
     enabled on the server. Refer [User Account Locking and Account
-    Disabling](../../using-wso2-identity-server/user-account-locking-and-account-disabling)
+    Disabling](../../learn/user-account-locking-and-account-disabling)
     document to enable account locking.
     
 

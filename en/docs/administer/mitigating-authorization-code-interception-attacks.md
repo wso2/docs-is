@@ -3,7 +3,7 @@
 The following sections describe the impact of the code interception
 attack and the approaches you can use to mitigate it. You may need to
 mitigate these kind of attacks when creating an OAuth application that
-uses the [Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant) type for
+uses the [Authorization Code Grant](../../learn/authorization-code-grant) type for
 authentication.
 
 ### How can code interception attacks be harmful?
@@ -106,7 +106,7 @@ In order to mitigate these attacks using PKCE with WSO2 Identity Server,
 you need to enable PKCE when creating the OAuth application. Follow the
 steps below to do this.
 
-1.  [Add a new service provider.](../../using-wso2-identity-server/adding-and-configuring-a-service-provider.md)
+1.  [Add a new service provider.](../../learn/adding-and-configuring-a-service-provider.md)
 2.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** section. Click
     **Configure**.
@@ -116,6 +116,6 @@ steps below to do this.
 
 
 !!! info "Related Topics" 
-    -   See [Try Authorization Code Grant](../../using-wso2-identity-server/try-authorization-code-grant)
+    -   See [Try Authorization Code Grant](../../learn/try-authorization-code-grant)
         to try out PKCE with the authorization code grant type using the
         WSO2 Playground web application.

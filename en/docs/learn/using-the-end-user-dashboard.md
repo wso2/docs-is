@@ -56,7 +56,7 @@ To edit your profile, do the following.
     
         For information on managing U2F authentication for multi-factor
         authentication, see [Universal Second Factor (U2F)
-        Authentication](../../using-wso2-identity-server/multi-factor-authentication-using-fido#universal-second-factor-(u2f)))
+        Authentication](../../learn/multi-factor-authentication-using-fido#universal-second-factor-(u2f)))
         .
     
 
@@ -118,7 +118,7 @@ following.
     ![set-challenge-questions](../../assets/img/using-wso2-identity-server/set-challenge-questions.png) 
 4.  Click **Update** to save your changes.
 
-See [Password Recovery](../../using-wso2-identity-server/password-recovery) for more information on how
+See [Password Recovery](../../learn/password-recovery) for more information on how
 this works.
 
 ### Changing your password
@@ -144,7 +144,7 @@ Identity Server account, do the following.
     Accounts**. The list of social identities linked to your account
     appear.
 
-See [Associating User Accounts](../../using-wso2-identity-server/associating-user-accounts) for more
+See [Associating User Accounts](../../learn/associating-user-accounts) for more
 information on using this section of the dashboard.
 
 ### Working with your authorized applications
@@ -175,7 +175,7 @@ following.
     the pending task and complete the workflow process).  
     ![approve-pending-tasks](../../assets/img/using-wso2-identity-server/approve-pending-tasks.png) 
 
-See [Workflow Management](../../using-wso2-identity-server/workflow-management) for more information on
+See [Workflow Management](../../learn/workflow-management) for more information on
 how this works.
 
 ### Configuring consent for services
@@ -248,12 +248,12 @@ New users can do the following actions from this screen:
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly
             added **mandatory** attributes during the [SSO
-            flow](../../using-wso2-identity-server/consent-management-with-single-sign-on).
+            flow](../../learn/consent-management-with-single-sign-on).
     
         -   To **accept** consent for any optional attributes, revoke the
             whole consent receipt and provide consent again at the point of
             authentication. For more information, see [Consent Management
-            with Single-Sign-On](../../using-wso2-identity-server/consent-management-with-single-sign-on).
+            with Single-Sign-On](../../learn/consent-management-with-single-sign-on).
     
 
 -   **Set an expiration date for consent** - Click the

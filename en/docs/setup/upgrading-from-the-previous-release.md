@@ -13,7 +13,7 @@ users receive the latest updates for the product.
 
 -   For a high level overview of what has been added, changed, or
     deprecated in this release, see [About this
-    release](../../getting-started/about-this-release).
+    release](../../get-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
     [Understanding What Has Changed](../../setup/understanding-what-has-changed).
 
@@ -40,7 +40,7 @@ Follow this guide before you begin migration.
     5.7.0. This backup is necessary in case the migration causes issues
     in the existing database.
 4.  We recommend running the [cleanup
-    scripts](../../using-wso2-identity-server/removing-unused+tokens+from+the+database)
+    scripts](../../learn/removing-unused+tokens+from+the+database)
     before migration to clean the expired, inactive, and revoked
     tokens/codes. This reduces the time taken for migration.
 5.  The `           CONN_APP_KEY          ` unique constraint has been

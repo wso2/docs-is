@@ -27,7 +27,7 @@ to use this sample.
 To obtain and configure the Playground sample, follow the steps below.
 
 1.  You can check out the repository of the OAuth 2.0 sample from
-    GitHub. Follow the instructions [here](../../using-wso2-identity-server/downloading-a-sample) to
+    GitHub. Follow the instructions [here](../../learn/downloading-a-sample) to
     checkout the folder. We refer `           <SAMPLE_HOME>          `
     as the modules/samples folder inside the folder where the product-is
     repository is checked out.

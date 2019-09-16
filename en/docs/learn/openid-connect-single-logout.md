@@ -68,7 +68,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](../../using-wso2-identity-server/openid-connect-discovery).
+    Discovery](../../learn/openid-connect-discovery).
 
 -   The logout endpoint URL is in the following format.
 
@@ -143,7 +143,7 @@ OP endpoint URLs:
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](../../using-wso2-identity-server/openid-connect-discovery).
+    Discovery](../../learn/openid-connect-discovery).
 
 -   The OP iframe URL is in the following format.
 
@@ -209,7 +209,7 @@ You can configure an RP for OIDC session management in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](../../using-wso2-identity-server/openid-connect-dynamic-client-registration)
+    Registration](../../learn/openid-connect-dynamic-client-registration)
 
 -   Manual configuration through WSO2 Identity Server Management Console
 
@@ -359,7 +359,7 @@ logout endpoint URL.
     Discovery response.
 
     For more information on OIDC Discovery, see [OpenID Connect
-    Discovery](../../using-wso2-identity-server/openid-connect-discovery).
+    Discovery](../../learn/openid-connect-discovery).
 
 -   The logout endpoint URL is in the following format.
 
@@ -459,7 +459,7 @@ OIDC back-channel logout.
     <td><strong>iss</strong></td>
     <td>Issuer Identifier</td>
     <td><div class="content-wrapper">
-    <p>This identifies the OP. To learn how WSO2 Identity Server manages identity providers, see <a href="../../using-wso2-identity-server/adding-and-configuring-an-identity-provider#configuring-a-resident-identity-provider">Configuring a resident identity provider</a> .</p>
+    <p>This identifies the OP. To learn how WSO2 Identity Server manages identity providers, see <a href="../../learn/adding-and-configuring-an-identity-provider#configuring-a-resident-identity-provider">Configuring a resident identity provider</a> .</p>
     </div></td>
     </tr>
     <tr class="even">
@@ -529,7 +529,7 @@ You can configure an RP for OIDC back-channel logout in WSO2 Identity
 Server with either of the following methods:
 
 -   [OpenID Connect Dynamic Client
-    Registration](../../using-wso2-identity-server/openid-connect-dynamic-client-registration)
+    Registration](../../learn/openid-connect-dynamic-client-registration)
 
     !!! note
         If you are configuring the RP for OIDC back-channel logout in WSO2

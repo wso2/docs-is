@@ -114,7 +114,7 @@ in the secondary IS instance.
 The client application in this scenario is the travelocity sample
 application that can be checked out from the following GitHub repo. See
 [Downloading a
-Sample](../../using-wso2-identity-server/downloading-a-sample) topic
+Sample](../../learn/downloading-a-sample) topic
 for more information.
 
 ``` java

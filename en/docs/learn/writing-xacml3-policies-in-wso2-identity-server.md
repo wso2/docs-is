@@ -12,9 +12,9 @@ Identity Server.
     start writing XACML policies.
     
     -   [Why we need XACML and the XACML
-        architecture.](../../getting-started/access-control-and-entitlement-management#why-xacml)
+        architecture.](../../get-started/access-control-and-entitlement-management#why-xacml)
     -   [XACML Policy language and
-        Syntax](../../getting-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
+        Syntax](../../get-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
     
 
 For detailed information, please visit the following pages:

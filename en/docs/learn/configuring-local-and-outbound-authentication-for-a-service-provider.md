@@ -4,7 +4,7 @@ The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
 Authentication)](../../tutorials/integrated-windows-authentication) or [FIDO (Fast
-IDentity Online)](../../using-wso2-identity-server/multi-factor-authentication-using-fido). Local
+IDentity Online)](../../learn/multi-factor-authentication-using-fido). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
 inbound authenticator, the authentication framework talks to the service
@@ -16,7 +16,7 @@ Once the local authentication is successfully completed, the local
 authenticator will notify the framework. The framework will now decide
 no more authentication is needed and hand over the control to the
 corresponding response builder of the inbound authenticator. See
-[Architecture](../../getting-started/architecture) for more information on this.
+[Architecture](../../get-started/architecture) for more information on this.
 
 You can configure the following for local and outbound authentication.
 
@@ -174,12 +174,12 @@ authentication types.
 
 A request path authenticator will get executed only if the initial
 authentication request brings the applicable set of credentials with it.
-See [Request Path Authentication](../../using-wso2-identity-server/request-path-authentication) for
+See [Request Path Authentication](../../learn/request-path-authentication) for
 more details.
 
 !!! info "Related Topics"
     -   See [Multi-factor Authentication using
-        FIDO](../../using-wso2-identity-server/multi-factor-authentication-using-fido) for more information
+        FIDO](../../learn/multi-factor-authentication-using-fido) for more information
         on configuring multi-step and multi-option authentication using
         FIDO.
     -   See [Integrated Windows
@@ -187,10 +187,10 @@ more details.
         [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on)
         for more information on configuring the IWA authenticator with WSO2
         Identity Server.
-    -   See [Request Path Authentication](../../using-wso2-identity-server/request-path-authentication) for
+    -   See [Request Path Authentication](../../learn/request-path-authentication) for
         information on a local authenticator that is executed if the initial
         authentication request brings a set of credentials with it.
     -   See [Try Request Path
-        Authentication](../../using-wso2-identity-server/try-request-path-authentication)
+        Authentication](../../learn/try-request-path-authentication)
         for more information on how the request path authenticator works
         using the WSO2 playground sample .

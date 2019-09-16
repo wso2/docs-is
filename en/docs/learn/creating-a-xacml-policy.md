@@ -443,4 +443,4 @@ create your policy.
 !!! Info "Related Topics"
 	To evaluate the policy you just created and see a sample request and
 	response to it, see [Evaluating a XACML
-	Policy](../../using-wso2-identity-server/evaluating-a-xacml-policy).
+	Policy](../../learn/evaluating-a-xacml-policy).

@@ -95,7 +95,7 @@ store](https://store.wso2.com/store/assets/isconnector/list?q=%22-default%22%3A%
     
         You may have done this step already if you configured the [Duo
         Security Provisioning
-        Connector](Configuring-Duo-Security-Provisioning-Connector). If
+        Connector](../../develop/duo-security-provisioning-connector). If
         so, you can skip this step.
     
 

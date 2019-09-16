@@ -152,7 +152,7 @@ the scope of this document.
 
 For more information on the topic, see [Removing References to Deleted
 User
-Identities](../../using-wso2-identity-server/removing-references-to-deleted-user-identities).
+Identities](../../learn/removing-references-to-deleted-user-identities).
 
 ####  Exercising individual rights
 
@@ -258,4 +258,4 @@ control can be used to cater this requirement.
 
 !!! Info
 	  For more information on Role-based Access control, Attribute-based
-	  Access Control, and XACML, see [Access Control and Entitlement](../../getting-started/access-control-and-entitlement-management) page.
+	  Access Control, and XACML, see [Access Control and Entitlement](../../get-started/access-control-and-entitlement-management) page.

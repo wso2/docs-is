@@ -2,23 +2,23 @@
 
 This topic guides you through configuring reCaptcha for secret questions
 in the [password recovery
-flow](../../using-wso2-identity-server/password-recovery#recovery-using-challenge-questions)
+flow](../../learn/password-recovery#recovery-using-challenge-questions)
 . By configuring reCaptcha, you can mitigate or block brute force
 attacks.
 
 !!! info 
         -   For more information on setting up password recovery with secret
         questions, see [Password
-        Recovery](../../using-wso2-identity-server/password-recovery#recovery-using-challenge-questions)
+        Recovery](../../learn/password-recovery#recovery-using-challenge-questions)
         .
         -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../using-wso2-identity-server/mitigating-brute-force-attacks).
+        Force Attacks](../../learn/mitigating-brute-force-attacks).
 
   
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha)
+    ReCaptcha](../../learn/setting-up-recaptcha)
     .
 2.  Start the WSO2 IS Server and login to the management console.
 3.  Click **Resident** under **Identity Providers** found in the

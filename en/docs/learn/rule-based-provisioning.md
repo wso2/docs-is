@@ -1,9 +1,9 @@
 # Rule Based Provisioning
 
-Under [Outbound Provisioning](../../using-wso2-identity-server/outbound-provisioning), in general, we
+Under [Outbound Provisioning](../../learn/outbound-provisioning), in general, we
 have discussed how to provision users to trusted identity providers. In
 this document, we discuss how to provision users based on defined
-[XACML](../../getting-started/access-control-and-entitlement-management) rules. This is the
+[XACML](../../get-started/access-control-and-entitlement-management) rules. This is the
 rule-based method of role-based provisioning
 
 To get a better understanding of rule-based provisioning, let's look a
@@ -23,7 +23,7 @@ Follow the steps given below:
     to create a new Identity Provider (IdP).  
     For more information on creating identity providers, see [Adding an
     Identity
-    Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
+    Provider](../../learn/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
     .
 3.  Provide a preferred name for your IdP.
 4.  Expand the **Outbound Provisioning Connectors** section and
@@ -116,7 +116,7 @@ Follow the steps given below:
 6.  Navigate to **Add** under **Service Providers** on the **Main** tab
     and create a new service provider. For more information on creating
     service providers, see [Adding a Service
-    Provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider#adding-a-service-provider)
+    Provider](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider)
     .
 7.  Expand the **Outbound Provisioning Configuration** section and
     select the provisioning connector you just configured above. Let's

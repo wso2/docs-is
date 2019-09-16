@@ -39,11 +39,11 @@ the following documentation for instructions on how to set up these
 repositories.
 
 -   [Configuring the Primary User
-    Stores](../../using-wso2-identity-server/configuring-the-primary-user-store) : This topic explains
+    Stores](../../learn/configuring-the-primary-user-store) : This topic explains
     how the primary user store is set up and configured for your
     product.
 -   [Configuring the Authorization
-    Manager](../../using-wso2-identity-server/configuring-the-authorization-manager) : This topic
+    Manager](../../learn/configuring-the-authorization-manager) : This topic
     explains how the repository (RDBMS) for storing authorization
     information (role-based permissions) is configured for your product.
 -   [Changing a Password](Changing_a_Password) : This topic explains

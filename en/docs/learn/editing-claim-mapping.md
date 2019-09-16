@@ -28,7 +28,7 @@ Follow the instructions below to edit a claim.
     !!! note
 
         When you are using [more than one user
-        store](../../using-wso2-identity-server/configuring-secondary-user-stores), you must map the
+        store](../../learn/configuring-secondary-user-stores), you must map the
         attributes correctly using claim management. Under “Mapped
         Attribute(s)” you need to follow the pattern.
     

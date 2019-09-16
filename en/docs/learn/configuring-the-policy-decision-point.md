@@ -4,7 +4,7 @@ The Policy Decision Point (PDP) is the system entity that evaluates an
 applicable policy and returns an authorization decision. The following
 diagram shows the components in the PDP. For more details about PDP
 archtecture, [Read
-this](../../getting-started/access-control-and-entitlement-management)
+this](../../get-started/access-control-and-entitlement-management)
 .
 
 ![policy-decision-point](../../assets/img/tutorials/policy-decision-point.png)

@@ -2,7 +2,7 @@
 
 The WSO2 Identity Server enables you to send automated emails to users.
 You can also [customize these automated
-emails](../../using-wso2-identity-server/customizing-automated-emails) sent to the user.
+emails](../../learn/customizing-automated-emails) sent to the user.
 
 1.  Log in to the WSO2 Identity Server management console using your
     tenant credentials.
@@ -33,4 +33,4 @@ emails](../../using-wso2-identity-server/customizing-automated-emails) sent to t
 !!! info "Recommended reading" 
     For an example of how email templates are used, see [Creating Users
     Using the Ask Password
-    Option](../../using-wso2-identity-server/creating-users-using-the-ask-passwordOption).
+    Option](../../learn/creating-users-using-the-ask-passwordOption).
