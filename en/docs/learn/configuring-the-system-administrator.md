@@ -108,9 +108,9 @@ Note the following regarding the configuration above.
 !!! info "Related Topics"
 
     -   [Configuring the Primary User
-        Store](../../using-wso2-identity-server/configuring-the-primary-user-store)
+        Store](../../learn/configuring-the-primary-user-store)
     -   [Configuring the Authorization
-        Manager](../../using-wso2-identity-server/configuring-the-authorization-manager)
-    -   [Performance tuning](../../using-wso2-identity-server/performance-tuning-recommendations)
+        Manager](../../learn/configuring-the-authorization-manager)
+    -   [Performance tuning](../../learn/performance-tuning-recommendations)
     -   [Changing a
-        Password](../../using-wso2-identity-server/configuring-users#changing-a-user's-password)
+        Password](../../learn/configuring-users#changing-a-user's-password)

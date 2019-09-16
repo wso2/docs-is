@@ -16,13 +16,13 @@
 
         -   [Amazon Authenticator](../../develop/amazon-authenticator)
             -   [Configuring Amazon
-                Authenticator](Configuring-Amazon-Authenticator)
+                Authenticator](../../develop/amazon-authenticator)
 
         <!-- -->
 
-        -   [Basecamp Authenticator](Basecamp-Authenticator)
+        -   [Basecamp Authenticator](../../develop/basecamp-authenticator)
             -   [Configuring Basecamp
-                Authenticator](Configuring-Basecamp-Authenticator)
+                Authenticator](../../develop/basecamp-authenticator)
 
         <!-- -->
 
@@ -32,27 +32,27 @@
 
         <!-- -->
 
-        -   [CAS Inbound Authenticator](CAS-Inbound-Authenticator)
+        -   [CAS Inbound Authenticator](../../develop/cas-inbound-authenticator)
             -   [Configuring CAS Inbound
-                Authenticator](Configuring-CAS-Inbound-Authenticator)
+                Authenticator](../../develop/cas-inbound-authenticator)
 
         <!-- -->
 
         -   [Dropbox Authenticator](Dropbox-Authenticator)
             -   [Configuring Dropbox
-                Authenticator](Configuring-Dropbox-Authenticator)
+                Authenticator](../../develop/dropbox-authenticator)
 
         <!-- -->
 
         -   [Duo Security Authenticator and Provisioning
             Connector](Duo-Security-Authenticator-and-Provisioning-Connector)
             -   [Configuring Duo Security Provisioning
-                Connector](Configuring-Duo-Security-Provisioning-Connector)
+                Connector](../../develop/duo-security-provisioning-connector)
 
             <!-- -->
 
             -   [Configuring Duo Security
-                Authenticator](Configuring-Duo-Security-Authenticator)
+                Authenticator](../../develop/duo-security-authenticator)
 
         <!-- -->
 
@@ -64,7 +64,7 @@
 
         -   [Facebook Authenticator](Facebook-Authenticator)
             -   [Configuring Facebook
-                Authenticator](Configuring-Facebook-Authenticator)
+                Authenticator](../../develop/facebook-authenticator)
 
         <!-- -->
 

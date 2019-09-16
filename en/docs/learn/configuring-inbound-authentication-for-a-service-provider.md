@@ -21,14 +21,14 @@ a SAML response out of it.
 Both the request processors and the response builders are
 protocol-aware, while the authentication framework is not coupled to any
 protocol. For more information on the inbound authentication flow, see
-[Architecture](../../getting-started/architecture).
+[Architecture](../../get-started/architecture).
 
 Let's learn how to configure inbound authentication for a service
 provider.
 
 !!! tip "Before you begin"
     
-    See [here](../../using-wso2-identity-server/adding-and-configuring-a-service-provider) to learn the instrructions to register a service provider. 
+    See [here](../../learn/adding-and-configuring-a-service-provider) to learn the instrructions to register a service provider. 
     
     
 !!! warning "Removed Feature!"

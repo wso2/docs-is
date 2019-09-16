@@ -16,7 +16,7 @@ Email OTP:
     -   To ensure you get the full understanding of configuring Email OTP
         with WSO2 IS, the sample travelocity application is used in this use
         case. Therefore, make sure to [download the
-        samples](../../using-wso2-identity-server/downloading-a-sample)
+        samples](../../learn/downloading-a-sample)
         before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
@@ -452,7 +452,7 @@ Now the web application is successfully deployed on a web container.
 ### Configure the Identity Provider
 
 Follow the steps below to add an [identity
-provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider):
+provider](../../learn/adding-and-configuring-an-identity-provider):
 
 1.  Click **Add** under **Main \> Identity \> Identity Providers**.  
     ![adding-an-identity-provider](../../assets/img/tutorials/adding-an-identity-provider.png)
@@ -581,7 +581,7 @@ Follow the steps below to map the user claims:
 !!! note
     
     For more information about claims, see [Adding Claim
-    Mapping](../../using-wso2-identity-server/adding-claim-mapping).
+    Mapping](../../learn/adding-claim-mapping).
     
 
 1.  Click **Add** under **Main \> Identity \> Claims**.  

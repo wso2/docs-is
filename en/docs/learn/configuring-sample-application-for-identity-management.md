@@ -15,7 +15,7 @@ identity management.
 -   Apache Tomcat 6 - To deploy the sample web application.
 -   InfoRecoverySample (located in
     `          /is-samples/modules/samples/identity-mgt/info-recovery-sample         `
-    folder) - Follow [these instructions](../../using-wso2-identity-server/downloading-a-sample) to
+    folder) - Follow [these instructions](../../learn/downloading-a-sample) to
     check out the samples folder.
 
 ### Configuring the sample
@@ -82,7 +82,7 @@ identity management.
 
     -   **Recovering accounts using notification or secret question** -
         Refer to the [topic on password recovery with
-        notification](../../using-wso2-identity-server/password-recovery) for a sample email template
+        notification](../../learn/password-recovery) for a sample email template
         and the attributes needed in the
         `             deployment.toml          ` file.
 
@@ -93,7 +93,7 @@ identity management.
 
     -   **Creating Users using the Ask Password Option** - Refer to the
         [topic on Creating Users using the Ask Password
-        Option](../../using-wso2-identity-server/creating-users-using-the-ask-password-option) for a
+        Option](../../learn/creating-users-using-the-ask-password-option) for a
         sample email template and the attributes needed in the
         `            deployment.toml          ` file.
 

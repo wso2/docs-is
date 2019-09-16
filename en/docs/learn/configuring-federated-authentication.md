@@ -4,14 +4,14 @@ This topic includes information on how to configure federated
 authenticators in WSO2 Identity Server.
 
 !!! Info "Before you begin"
-	For more information on what federated authenticators are, see [Outbound/federated authenticators in the Identity Server architecture](../../getting-started/architecture#outbound/federated-authenticators).
+	For more information on what federated authenticators are, see [Outbound/federated authenticators in the Identity Server architecture](../../get-started/architecture#outbound/federated-authenticators).
 
 To navigate to the federated authenticators configuration section, do the following.
 
 1. Sign in. Enter your username and password to log on to the [Management Console](../../setup/getting-started-with-the-management-console). 
 
 2. Navigate to the **Main** menu to access the **Identity** menu. Click Add under Identity Providers. 
-For more information, see [Adding and Configuring an Identity Provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).  
+For more information, see [Adding and Configuring an Identity Provider](../../learn/adding-and-configuring-an-identity-provider).  
 
 3. Fill in the details in the **Basic Information** section. 
 

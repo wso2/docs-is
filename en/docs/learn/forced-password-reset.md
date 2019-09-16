@@ -39,7 +39,7 @@ for forced password reset:
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../using-wso2-identity-server/customizing-automated-emails).
+        Emails](../../learn/customizing-automated-emails).
     
 
 3.  Start the Identity Server and log in to the management console with
@@ -282,10 +282,10 @@ template for this option can be configured in the
 !!! info 
     In order to force a user to change the password after some specific time
     period, please refer " [Configuring Password Policy
-    Authenticator](../../connectors/configuring-Password-Policy-Authenticator)
+    Authenticator](../../develop/password-policy-authenticator)
     " documentation.
 
 
 !!! info "Related Links"
-    See [Configuring Claims](../../using-wso2-identity-server/configuring-claims) for more
+    See [Configuring Claims](../../learn/configuring-claims) for more
     information on how to store the claim values in the user store.

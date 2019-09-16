@@ -56,7 +56,7 @@ attributes of a user in the Identity Server.
 
 When you are using more than one user store, you must map the attributes
 correctly by [adding a claim
-mapping](../../using-wso2-identity-server/adding-claim-mapping).
+mapping](../../learn/adding-claim-mapping).
 Under “Mapped Attribute(s)” you need to follow the pattern.
 
 ![mapped-attributes](../../assets/img/using-wso2-identity-server/mapped-attributes.png)
@@ -138,7 +138,7 @@ retrieve/add a user attribute. Other methods can be kept as they are.
     ```
 
 See [Writing a Custom User Store
-Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for more information on
+Manager](../../learn/writing-a-custom-user-store-manager) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -188,7 +188,7 @@ LDAP.
     `          user-mgt.xml         ` file found in the
     `          <IS_HOME>/repository/conf         ` directory. For more
     information on configuring user stores, see [Configuring the
-    Realm](../../using-wso2-identity-server/configuring-the-realm).
+    Realm](../../learn/configuring-the-realm).
     1.  Configure the `             UserNameSearchFilter            `
         property as shown below to search for the user object in the
         LDAP using both **mail** and **uid** attributes.
@@ -211,7 +211,7 @@ LDAP.
         `             <IS_HOME>/repository/conf            ` directory
         and uncomment the following. For more information on email
         authentication, see [Using Email Address as the
-        Username](../../using-wso2-identity-server/using-email-address-as-the-username)
+        Username](../../learn/using-email-address-as-the-username)
         .
 
         ``` xml
@@ -264,15 +264,15 @@ configured to return any attribute by changing the '
     For more information, see the following links.
 
     -   For working with claim dialects and mapping claims, see [Claim
-        Management](../../using-wso2-identity-server/claim-management).
+        Management](../../learn/claim-management).
     -   See [Configuring Claims for a Service
-        Provider](../../using-wso2-identity-server/configuring-claims-for-a-service-provider) on how to
+        Provider](../../learn/configuring-claims-for-a-service-provider) on how to
         configure claims when [adding a service
-        provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+        provider](../../learn/adding-and-configuring-a-service-provider).
     -   See [Configuring Claims for an Identity
-        Provider](../../using-wso2-identity-server/configuring-claims-for-an-identity-provider) on how to
+        Provider](../../learn/configuring-claims-for-an-identity-provider) on how to
         configure claims when [adding an identity
-        provider](../../using-wso2-identity-server/adding-and-configuring-an-identity-provider).
+        provider](../../learn/adding-and-configuring-an-identity-provider).
     -   See [Writing a Custom User Store
-        Manager](../../using-wso2-identity-server/writing-a-custom-user-store-manager) for instructions on
+        Manager](../../learn/writing-a-custom-user-store-manager) for instructions on
         how to write a custom user store manager.

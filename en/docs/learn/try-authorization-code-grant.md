@@ -2,12 +2,12 @@
 
 The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
-[Authorization Code Grant](../../using-wso2-identity-server/authorization-code-grant).
+[Authorization Code Grant](../../learn/authorization-code-grant).
 
 !!! note
     
     Before you begin, you must first [set up the sample
-    webapp.](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+    webapp.](../../learn/setting-up-the-sample-webapp)
     
 
 This section demonstrates the Authorization Code Grant with PKCE and
@@ -17,7 +17,7 @@ without PKCE.
     The Proof Key for Code Exchange (PKCE) is a specification supported by
     WSO2 Identity Server to mitigate code interception attacks. See
     [Mitigating Authorization Code Interception
-    Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
+    Attacks](../../learn/mitigating-authorization-code-interception-attacks)
     to configure PKCE for an OAuth application.
 
 #### **Running the application (without PKCE)**
@@ -175,8 +175,8 @@ without PKCE.
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection
-        Endpoint](../../using-wso2-identity-server/invoke-the-oauth-introspection-endpoint)
+        Endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
         to invoke the OAuth introspection endpoint using cURL commands.
     -   See [Mitigating Authorization Code Interception
-        Attacks](../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks)
+        Attacks](../../learn/mitigating-authorization-code-interception-attacks)
         for more information about using PKCE with an OAuth application.

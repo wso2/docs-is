@@ -220,7 +220,7 @@ configuration.
 
 Log into the Identity Server and do the claim mapping for the following
 claim URIs (see
-[here](../../using-wso2-identity-server/configuring-active-directory-user-stores-for-inbound-provisioning)
+[here](../../learn/configuring-active-directory-user-stores-for-inbound-provisioning)
 for more information on how to do claim mappings).
 
 -   `                     urn:scim:schemas:extension:wso2:1.0:wso2Extension.costCenter                             `

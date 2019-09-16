@@ -31,7 +31,7 @@ Let's get started to configure the service provider you created!
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
         [Writing a Custom OAuth 2.0 Grant
-        Type](../../using-wso2-identity-server/writing-a-custom-oauth-2.0-grant-type).
+        Type](../../learn/writing-a-custom-oauth-2.0-grant-type).
     
 
     ![configure-oauth-oidc](../../assets/img/tutorials/configure-oauth-oidc.png)
@@ -114,7 +114,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="even">
          <td><strong>PKCE Mandatory</strong></td>
-         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../using-wso2-identity-server/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../learn/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
       </tr>
       <tr class="odd">
          <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
@@ -153,7 +153,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="odd">
          <td><strong>Enable OIDC Back Channel Logout</strong></td>
-         <td>This is to define whether OIDC back channel logout should be enabled or not. For more information, see <a href="../../using-wso2-identity-server/configuring-openid-connect-back-channel-logout">Configuring OpenID Connect Back-Channel Logout</a>.</td>
+         <td>This is to define whether OIDC back channel logout should be enabled or not. For more information, see <a href="../../learn/configuring-openid-connect-back-channel-logout">Configuring OpenID Connect Back-Channel Logout</a>.</td>
       </tr>
       <tr class="even">
          <td><strong>Scope Validators</strong></td>
@@ -229,10 +229,10 @@ See [Configuring OpenID Connect Single
 Logout](../../tutorials/configuring-openid-connect-single-logout) to configure single
 logout or session management with OpenID Connect.
 
-See [Delegated Access Control](../../using-wso2-identity-server/delegated-access-control) for more
+See [Delegated Access Control](../../learn/delegated-access-control) for more
 information on working with OAuth2/OpenIDConnect. See the following
 topics for samples of configuring delegated access control:
 
--   [OAuth 2.0 with WSO2 Playground](../../using-wso2-identity-server/setting-up-the-sample-webapp)
+-   [OAuth 2.0 with WSO2 Playground](../../learn/setting-up-the-sample-webapp)
 -   [Setting up a SAML2 Bearer Assertion Profile for OAuth
-    2.0](../../using-wso2-identity-server/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)
+    2.0](../../learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)

@@ -7,7 +7,7 @@ the user attributes in the response sent from the identity provider. As
 an example, Facebook IdP will return authenticated user email as 'email'
 and identity server will map it to the '
 http://wso2.org/claims/emailaddress ' using the IdP claim mapping. See
-the [Identity Server Architecture](../../getting-started/architecture) topic for more
+the [Identity Server Architecture](../../get-started/architecture) topic for more
 information on how claim mapping fits into the identity provider
 scenario.
 
@@ -122,7 +122,7 @@ configurations you have made.
             blocked until the provisioning finishes - while in the non-blocking
             mode, provisioning happens in a different thread. This can be specified
             in the [service provider
-            configuration](../../using-wso2-identity-server/adding-and-configuring-a-service-provider).
+            configuration](../../learn/adding-and-configuring-a-service-provider).
             
 
         In both these scenarios, only some specific user attributes must be
@@ -189,4 +189,4 @@ provider.
 -   [Logging in to Salesforce with
     Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
 -   [Outbound Provisioning with
-    Salesforce](../../using-wso2-identity-server/outbound-provisioning-with-salesforce)
+    Salesforce](../../learn/outbound-provisioning-with-salesforce)

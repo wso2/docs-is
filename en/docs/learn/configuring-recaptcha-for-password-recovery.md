@@ -9,10 +9,10 @@ By configuring reCaptcha, you can mitigate or block brute force attacks.
 
 !!! info 
     For more information on setting up password recovery, see [Password
-    Recovery](../../using-wso2-identity-server/username-recovery).
+    Recovery](../../learn/username-recovery).
 
     For more information on brute force attacks, see [Mitigating Brute Force
-    Attacks](../../using-wso2-identity-server/mitigating-brute-force-attacks).
+    Attacks](../../learn/mitigating-brute-force-attacks).
 
 There are two ways to configure this feature.
 
@@ -26,7 +26,7 @@ reCaptcha for a specific tenant.
 
 1.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this, and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha)
+    ReCaptcha](../../learn/setting-up-recaptcha)
     .
 
 2.  Enable the **EnableMultiTenancy** context-parameter in the
@@ -109,7 +109,7 @@ reCaptcha globally.
 
 2.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this, and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../using-wso2-identity-server/setting-up-recaptcha)
+    ReCaptcha](../../learn/setting-up-recaptcha)
     .
 
 3.  You have now successfully configured reCaptcha for the password

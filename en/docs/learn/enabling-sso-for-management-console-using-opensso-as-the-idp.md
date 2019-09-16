@@ -10,7 +10,7 @@ management console using OpenSSO as the IDP.
 
     !!! info "Installing OpenAM"
 		See
-		[here](https://backstage.forgerock.com/docs/openam/12/getting-started/#install-openam)
+		[here](https://backstage.forgerock.com/docs/open../../get-started/#install-openam)
 		for instructions on how to install OpenAM.
 
 2.  Download the WSO2 Identity Server from

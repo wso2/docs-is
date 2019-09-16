@@ -67,10 +67,10 @@ Description
 </table>
 
 For details about oidc-scope-config.xml file, see excerpt below:
-{! ../../using-wso2-identity-server/openid-connect-basic-client-profile.md !}
+{! ../../learn/openid-connect-basic-client-profile.md !}
 
 !!! info "Related Topics"
     See the [Implicit Client Profile with
-    Playground](../../using-wso2-identity-server/implicit-client-profile-with-playground) topic to try
+    Playground](../../learn/implicit-client-profile-with-playground) topic to try
     out this flow with the playground sample for OAuth in WSO2 Identity
     Server.

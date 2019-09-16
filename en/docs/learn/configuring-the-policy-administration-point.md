@@ -30,6 +30,6 @@ Identity Server.
 
 !!! info
 	For more information on XACML, see [Access Control and Entitlement
-	Management](../../getting-started/access-control-and-entitlement-management).
+	Management](../../get-started/access-control-and-entitlement-management).
 
 The following topics provide instructions on how to configure the PAP.

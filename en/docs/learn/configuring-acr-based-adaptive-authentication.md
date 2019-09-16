@@ -27,7 +27,7 @@ Follow the instructions given in the sections below to set this up.
 
 	-   Set up the OAuth2 Playground sample application for adaptive
 		authentication. For instructions on how to do this, see [Setting Up
-		the Sample Webapp](../../using-wso2-identity-server/setting-up-the-sample-webapp).
+		the Sample Webapp](../../learn/setting-up-the-sample-webapp).
 	-   For more information about adaptive authentication with WSO2
 		Identity Server, see [Adaptive Authentication](../../tutorials/adaptive-authentication).
 

@@ -62,19 +62,19 @@ done to try out this scenario.
 You need to define and configure your service provider in the WSO2
 Identity Server so that the authentication and/or provisioning happens
 as expected. For more information on how the service provider fits into
-the WSO2 IS architecture, see [Architecture](../../getting-started/architecture).
+the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 
 1.  Start the WSO2 Identity Server and log in to the management console.
 2.  Click **Add** under **Users and Roles** and then select **Add New
     Role** in the Identity section.
-3.  [Create a role](../../using-wso2-identity-server/configuring-roles-and-permissions#adding-a-user-role)
+3.  [Create a role](../../learn/configuring-roles-and-permissions#adding-a-user-role)
     called "finance" and give the role login permission.
-4.  [Create two new users](../../using-wso2-identity-server/configuring-users#adding-a-new-user-and-assigning-roles)
+4.  [Create two new users](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
     and assign User1 to the role you just created. Assign the User2 to
     the "admin" role or any other role.
 5.  Click **Add** under **Service Providers** on the Main tab and [add a
     new service
-    provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+    provider](../../learn/adding-and-configuring-a-service-provider)
     in the Identity section. Here we can put any name for the service
     provider name, but since we are using we can use a name like
     "travelocityApp".
@@ -111,7 +111,7 @@ the WSO2 IS architecture, see [Architecture](../../getting-started/architecture)
 	
 	!!! info 
 		Refer [Configuring Local and Outbound Authentication for a Service
-		Provider](../../using-wso2-identity-server/configuring-local-and-outbound-authentication-for-a-service-provider)
+		Provider](../../learn/configuring-local-and-outbound-authentication-for-a-service-provider)
 		for more information.
 
 8.  Select the **Enable Authorization** checkbox and click **Update** to
@@ -270,4 +270,4 @@ for users who are not assigned to the **finance** role.
 
 !!!info "Related Topics"
 
-	[How to configure a service provider](../../using-wso2-identity-server/adding-and-configuring-a-service-provider)
+	[How to configure a service provider](../../learn/adding-and-configuring-a-service-provider)

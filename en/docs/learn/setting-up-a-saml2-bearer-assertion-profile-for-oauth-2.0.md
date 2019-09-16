@@ -11,7 +11,7 @@ for Travelocity sample application over [SAML 2.0](../../tutorials/saml-2.0-web.
 via WSO2 Identity Server. You will also see how Travelocity application
 exchanges the SAML assertion received, with the WSO2 Identity Server to
 receive an OAuth access token using [SAML2 Bearer Assertion
-Profile](../../using-wso2-identity-server/saml2-bearer-assertion-profile-for-oauth-2.0). Finally, you
+Profile](../../learn/saml2-bearer-assertion-profile-for-oauth-2.0). Finally, you
 will see how an OAuth protected resource can be accessed using the
 access token received.
 
@@ -25,7 +25,7 @@ Server and as well as the Resource Server.
 ### Configure OAuth/OpenID and SAML SSO
 
 1.  See the [Configuring Inbound Authentication for a Service
-    Provider](../../using-wso2-identity-server/configuring-inbound-authentication-for-a-service-provider)
+    Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
     to configure the OAuth/OpenID Connect service provider. Access token
     will be issued for this application, exchanging with SAML2
     assertion .

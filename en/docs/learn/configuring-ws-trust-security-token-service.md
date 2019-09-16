@@ -123,7 +123,7 @@ Confirmation](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-O
 	party.
 	
 !!! note "Before you begin"
-	Configure a service provider. For instructions, see [Configuring a Service Provider](../../using-wso2-identity-server/configuring-a-service-provider).	
+	Configure a service provider. For instructions, see [Configuring a Service Provider](../../learn/configuring-a-service-provider).	
 
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
@@ -171,6 +171,6 @@ Confirmation](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-O
     !!! info "Related Topics"
 		Run the STS client after configuring the service provider. For
 		instructions on trying out a sample STS client, see [Running an STS
-		Client](../../using-wso2-identity-server/running-an-sts-client).
+		Client](../../learn/running-an-sts-client).
 
   
