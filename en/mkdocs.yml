@@ -115,7 +115,7 @@ nav:
           - 'Configuring reCaptcha for Single Sign On': learn/configuring-recaptcha-for-single-sign-on.md
         - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
         - 'SAML 2.0 Web SSO':
-          - 'SAML 2.0 Web SSO': learn/sAML-2.0-Web-SSO.md
+          - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
           - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml-2.0-web-sso.md
           - 'Querying SAML Assertions': learn/querying-saml-assertions.md
           - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
@@ -154,9 +154,9 @@ nav:
           - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': learn/wso2-identity-server-and-claim-aware-proxy-services-with-esb.md
           - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': learn/accessing-claim-aware-services-using-sts-secured-with-non-repudiation.md
           - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': learn/requesting-and-renewing-received-saml2-bearer-type-tokens.md
-          - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-SAML2-Single-Sign-On-Across-Different-WSO2-Products.md
-          - 'Client-side Support for SAML Artifact Binding': learn/client-side-Support-for-SAML-Artifact-Binding.md
-          - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eIDAS-SAML-Attribute-Profile-Support-via-WSO2-Identity-Server.md
+          - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-saml2-single-sign-on-across-different-wso2-products.md
+          - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
+          - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
@@ -382,12 +382,12 @@ nav:
           - 'OpenID Connect Logout URL Redirection': learn/openid-connect-logout-url-redirection.md
           - 'OpenID Connect Scopes and Claims': learn/openid-connect-scopes-and-claims.md
           - 'OpenID Connect Single Logout': learn/openid-connect-single-logout.md
-        - 'Extension Points for OAuth': learn/extension-Points-for-OAuth.md
+        - 'Extension Points for OAuth': learn/extension-points-for-oauth.md
         - 'User Managed Access':
           - 'User Managed Access': learn/user-managed-access.md
           - 'User Managed Access Endpoints': learn/user-managed-access-endpoints.md
           - 'User Managed Access with WSO2 Identity Server': learn/user-managed-access-with-wso2-identity-server.md
-      - 'Consent Management': learn/consent-Management.md
+      - 'Consent Management': learn/consent-management.md
       - 'Analytics':
         - 'Analytics': learn/analytics.md
         - 'Prerequisites to Publish Statistics':

@@ -13,7 +13,7 @@ and login to the other one.
     Server.  
     For more infomation on how to do this, see [Configuring
     OAuth2-OpenID Connect
-    Single-Sign-On](../../tutorials/configuring-oauth2-openid-connect-single-sign-on)
+    Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     .
 
     Callback Url: <https://localhost:9443/commonauth>
@@ -22,7 +22,7 @@ and login to the other one.
 
 3.  Create an identity provider in the first Identity Server.  
     For more information on how to do this, see [Configuring
-    OAuth2-OpenID Connect](../../tutorials/configuring-oauth2-openid-connect).
+    OAuth2-OpenID Connect](../../learn/configuring-oauth2-openid-connect).
 
     -   Enable OAuth2/OpenIDConnect: selected
 

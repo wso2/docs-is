@@ -11,7 +11,7 @@ XACML 3.0 requests in XML format and try them.
 !!! tip "Before you begin"
     
     Prior to creating a basic XACML 3.0 request for evaluation you need to
-    [create a policy](../../tutorials/creating-a-xacml-policy).
+    [create a policy](../../learn/creating-a-xacml-policy).
     
 
 Follow the instructions below to create a basic XACML 3.0 request for
