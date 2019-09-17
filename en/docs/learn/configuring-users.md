@@ -25,10 +25,8 @@ its role.
 
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
-         special character ("&", "$", "%") as specified in
-         `             user-mgt.xml            ` in
-         `             <IS_HOME>/repository/conf            ` under
-         `             <Property name="UsernameJavaRegEx">            `
+         special character ("&", "$", "%") as specified in the
+         `             deployment.toml            ` file.
 
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
@@ -331,7 +329,7 @@ You must first create a CSV file or an Excel file with the user
 information. It is possible to import the **username** and **password**
 directly from the CSV/Excel to the product. Other user attributes can be
 imported if [claim URls are defined for such
-attributes](Managing_User_Attributes). Shown below are the
+attributes](../../learn/managing-user-attributes). Shown below are the
 claim URls that are defined be default in WSO2 IS. These will allow you
 to import the user's **email address**, **country**, **given name**
 etc. in addition to the **username** and **password**.
@@ -614,7 +612,7 @@ methods you can use according to your requirement.
     Once you delete a user, WSO2 IS allows you to remove all references to
     the deleted user's identity. For information on how to remove references
     to a deleted user's identity, see [Removing References to Deleted User
-    Identities](../../learn/removing-references-to-deleted-user-identities).
+    Identities](../../administer/removing-references-to-deleted-user-identities).
     
 
 ### Tracking user deletion on deleting a user
@@ -633,7 +631,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities](../../learn/removing-references-to-deleted-user-identities).
+identities](../../administer/removing-references-to-deleted-user-identities).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:

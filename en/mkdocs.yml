@@ -382,12 +382,12 @@ nav:
           - 'OpenID Connect Logout URL Redirection': learn/openid-connect-logout-url-redirection.md
           - 'OpenID Connect Scopes and Claims': learn/openid-connect-scopes-and-claims.md
           - 'OpenID Connect Single Logout': learn/openid-connect-single-logout.md
-        - 'Extension Points for OAuth': learn/extension-Points-for-OAuth.md
+        - 'Extension Points for OAuth': learn/extension-points-for-oauth.md
         - 'User Managed Access':
           - 'User Managed Access': learn/user-managed-access.md
           - 'User Managed Access Endpoints': learn/user-managed-access-endpoints.md
           - 'User Managed Access with WSO2 Identity Server': learn/user-managed-access-with-wso2-identity-server.md
-      - 'Consent Management': learn/consent-Management.md
+      - 'Consent Management': learn/consent-management.md
       - 'Analytics':
         - 'Analytics': learn/analytics.md
         - 'Prerequisites to Publish Statistics':
