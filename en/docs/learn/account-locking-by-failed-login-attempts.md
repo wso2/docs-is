@@ -73,7 +73,7 @@ disabling. The following section explain how to configure this.
         !!! note
                 WSO2 Identity Server has the **Internal/system** role configured by
                 default. But generally a new user is not assigned the
-                **Internal/syste** m role by default. Required roles can be assigned
+                **Internal/system** role by default. Required roles can be assigned
                 to a user depending on the set of permission a user needs to have.
                 For more information on roles and permission, see [Configuring Roles
                 and Permissions](../../learn/configuring-roles-and-permissions).
@@ -101,8 +101,23 @@ descriptions you need to configure:
 <tbody>
 <tr class="odd">
 <td><p>Maximum Failed Login Attempts</p></td>
-<td>This indicates the number of consecutive attempts that a user can try to log in without the account getting locked. If the value you specify is 2, the account gets locked if the login attempt fails twice.</td>
-</tr>
+<td>
+ <div class="content-wrapper">
+ <p>
+   This indicates the number of consecutive attempts that a user can try to log in without the account getting locked. If the value you specify is 2, the account gets locked if the login attempt fails twice.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
+configure the <strong>Maximum Failed Login Attempts</strong> property by default for all the tenants at tenant creation. 
+<div class="code panel pdl" style="border-width: 1px;">
+    <div class="codeContent panelContent pdl">
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>allowed_failed_attempts=5</code></pre>
+    </div>
+  </div>
+ </div>
+ </div>
+</td>
 <tr class="even">
 <td><p>Lock Timeout Increment Factor</p></td>
 <td><div class="content-wrapper">
@@ -111,10 +126,12 @@ descriptions you need to configure:
 <p>i.e.,10 minutes = 5 * ( 2 ^ 1 )</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to configure the <strong>Lock Timeout Increment Factor</strong> property. 
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
+configure the <strong>Lock Timeout Increment Factor</strong> property by default for all the tenants at tenant creation. 
 <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>auto_unlock_time_increment_ratio=</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>auto_unlock_time_increment_ratio=2</code></pre>
     </div></div>
     </div>
 </div>
@@ -124,11 +141,41 @@ Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/de
 </tr>
 <tr class="odd">
 <td><p>Account Unlock Time</p></td>
-<td><p>The time specified here is in minutes. According to the values in the screenshot above, the account is locked for 5 minutes after the user's second failed attempt and authentication can be attempted once this time has passed.</p></td>
+<td>
+  <div class="content-wrapper">
+    <p>The time specified here is in minutes. According to the values in the screenshot above, the account is locked for 5 minutes after the user's second failed attempt and authentication can be attempted once this time has passed.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
+configure the <strong>Account Unlock Time</strong> property by default for all the tenants at tenant creation. 
+<div class="code panel pdl" style="border-width: 1px;">
+    <div class="codeContent panelContent pdl">
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>auto_unlock_after=5</code></pre>
+    </div>
+  </div>
+ </div>
+ </div>
+</td>
 </tr>
 <tr class="even">
 <td><p>Account Lock Enabled</p></td>
-<td><p>This enables locking the account when authentication fails.</p></td>
+<td>
+<div class="content-wrapper">
+<p>This enables locking the account when authentication fails.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+Add the following configuration to the <code> &lt;IS_HOME&gt;/repository/conf/deployment.toml </code> file to 
+<strong>Enable</strong> Account lock on failed login by default for all the tenants at tenant creation. 
+<div class="code panel pdl" style="border-width: 1px;">
+    <div class="codeContent panelContent pdl">
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" 
+    data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[identity_mgt.account_locking]<br>enable_account_locking=true</code></pre>
+    </div>
+  </div>
+ </div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -139,20 +186,8 @@ tenants.
 
 !!! note "Configuring WSO2 IS for automatic account unlock"
       
-    The WSO2 Identity Server can be configured to automatically unlock a
-    user account after a certain period of time. A user account locked by
-    failed login attempts can be unlocked by setting a lock timeout period.
-    
-    Configure the `         Authentication.Policy.Account.Lock.Time        `
-    property in the `        `
-    `         <IS_HOME>/repository/conf/identity/identity-mgt.properties        `
-    file . As mentioned in the above table, the value refers to the number
-    of minutes that the account is locked for, after which, authentication
-    can be attempted again.
-    
-    ``` bash
-    Authentication.Policy.Account.Lock.Time=5 
-    ```
+    A user account locked by failed login attempts can be unlocked 
+    by setting the <strong>Account Unlock Time</strong> period.
     
     If the lock time is set to 0, the account has to be unlocked by an admin
     user. For more information about this, see [Account locking for a
@@ -166,31 +201,20 @@ failed login attempts, you can also configure the WSO2 IS to send an
 email to the user's email address when the user account is locked due to
 failed login attempts. To configure this, follow the steps below.
 
-1.  Open the `           output-event-adapters.xml          ` file found
-    in the `           <IS_HOME>/repository/conf          ` directory.
-2.  Configure the relevant property values for the email server under
-    the `            <adapterConfig type="email">           ` tag .
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
-    ``` xml
-    <adapterConfig type="email">
-        <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-        based authentication rather username/password authentication -->
-        <property key="mail.smtp.from">abcd@gmail.com</property>
-        <property key="mail.smtp.user">abcd</property>
-        <property key="mail.smtp.password">xxxx</property>
-        <property key="mail.smtp.host">smtp.gmail.com</property>
-        <property key="mail.smtp.port">587</property>
-        <property key="mail.smtp.starttls.enable">true</property>
-        <property key="mail.smtp.auth">true</property>
-        <!-- Thread Pool Related Properties -->
-        <property key="minThread">8</property>
-        <property key="maxThread">100</property>
-        <property key="keepAliveTimeInMillis">20000</property>
-        <property key="jobQueueSize">10000</property>
-    </adapterConfig>
-    ```
+   ```
+   [output_adapter.email]
+   from_address= "wso2iamtest@gmail.com"
+   username= "wso2iamtest"
+   password= "Wso2@iam70"
+   hostname= smtp.gmail.com
+   port= 587
+   enable_start_tls= true
+   enable_authentication= true
+   ```
 
-3.  Restart the Server.
+2.  Restart the Server.
 
     !!! tip
     
