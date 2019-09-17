@@ -35,7 +35,7 @@ provider.
     OpenID 2.0 has been removed from the base product in WSO2 Identity
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
-    you use [OpenID Connect](../../learn/oauth2-openid-connect).
+    you use [OpenID Connect](../../learn/oauth2-openid-connect-overview).
 
 You can configure inbound authentication in the following ways:
 
@@ -56,7 +56,7 @@ for instructions on configuring inbound authentication with WS-Federation.
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
-See [here](../../learn/configuring-ws-trest-security-token-service)
+See [here](../../learn/configuring-ws-trust-security-token-service)
 for instructions on configuring inbound authentication with ws-trest security token service.
 
 !!! info "Related Topics"
@@ -65,6 +65,6 @@ for instructions on configuring inbound authentication with ws-trest security to
     sign-on for service provider using inbound authentication. See the
     following topics for samples of configuring single sign-on:
 
-    -   [Configuring Single Sign-On](../../learn/single-sign-on)
+    -   [Configuring Single Sign-On](../../learn/configuring-single-sign-on)
     -   [Logging in to WSO2 Products via the Identity
         Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)
