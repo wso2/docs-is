@@ -12,11 +12,12 @@ Certificate Revocation List (CRL) and OCSP (Online Certificate Status
 Protocol) are two protocols that are used to check whether a given X509
 certificate is revoked by its issuer.
 
--   **CRL** is a list of digital certificates that have been revoked by
-    the issuing CA.
--   **OCSP** is an internet protocol that is used for obtaining the
-    revocation status of an X509 digital certificate using the
-    certificate serial number.
+!!! info
+    -   **CRL** is a list of digital certificates that have been revoked by
+        the issuing CA.
+    -   **OCSP** is an internet protocol that is used for obtaining the
+        revocation status of an X509 digital certificate using the
+        certificate serial number.
 
 WSO2 X509 authenticator, which perms client X509 certificate
 authentication supports certificate validation with CRL and OCSP. At the
@@ -27,18 +28,15 @@ certificate is revoked, it indicates that the certificate is no longer
 trusted by the CA, i.e., the SSL connection to the peer is terminated.
 
 !!! note
-    
     To learn about configuring the X509 certificate authenticator, see
     [Configuring X509Certificate
-    Authenticator](Configuring-X509Certificate-Authenticator).
+    Authenticator](../../develop/x509-certificate-authenticator).
     
 
 Explore the following sections below to configure CRL and OCCP for
 certificate validation.
 
-!!! tip
-    
-    **Before you begin**
+!!! tip "Before you begin"
     
     Locate the
     `         <IS_HOME>/repository/conf/security/certificate-validation.xml        `
@@ -62,7 +60,7 @@ certificate validation.
         </Validator>
     </Validators> 
     </CertificateValidation>
-```
+    ```
 
 
 #### Enabling and Disabling Certificate Validation
@@ -80,13 +78,14 @@ Follow the steps below to enable or disable certificate validation.
     `             true            ` or `             false            `
     respectively.
 
-    These configurations are added to the tenant registry at
-    `              /_system/governance/repository/security/certificate/validator             `
-    during the tenant creation. There will be separate registry resource
-    for each validator with the properties such as name, enable, and
-    priority. During the certificate validation process, all the
-    validator configurations are loaded from the registry and based on
-    the status and priority, the corresponding validator gets invoked.
+    !!! info 
+        These configurations are added to the tenant registry at
+        `              /_system/governance/repository/security/certificate/validator             `
+        during the tenant creation. There will be separate registry resource
+        for each validator with the properties such as name, enable, and
+        priority. During the certificate validation process, all the
+        validator configurations are loaded from the registry and based on
+        the status and priority, the corresponding validator gets invoked.
 
 #### Prioritizing Certificate Validation
 
@@ -100,15 +99,11 @@ Follow the steps below to prioritize certificate validation.
 2.  To prioritize certificate validation, set a priority value to the
     `             <Parameter name="priority">            ` element.
 
-    !!! note
-    
-        **Validation when both CRL and OCSP methods are enabled**
-    
+    !!! note "Validation when both CRL and OCSP methods are enabled"
         If the highest priority method returns a successful validation or
         status is not "Unknown", the second method is not attempted. The
         methods with the second and beyond proprieties are used as backup.
     
-
 #### Configuring Full-Chain Certificate Validation
 
 The certificate chain is a list of certificates that enables the
@@ -125,14 +120,13 @@ When the full-chain certificate validation is enabled, the system
 validates with the CRL/OCSP of every intermediate certificate within the
 trust chain for the client except for the root CA certificate.
 
-**Sample full-chain certificate validation**
+!!! info "Sample full-chain certificate validation"
+    The intermediate CA CRL is used to verify whether the client certificate
+    is valid. The root CA CRL is used to verity whether the Intermediate CA
+    Cert is valid.
 
-The intermediate CA CRL is used to verify whether the client certificate
-is valid. The root CA CRL is used to verity whether the Intermediate CA
-Cert is valid.
-
-Root CA (root CA CRL) Cert ==\> Intermediate CA Cert (inter CA CRL) ==\>
-Client Cert
+    Root CA (root CA CRL) Cert ==\> Intermediate CA Cert (inter CA CRL) ==\>
+    Client Cert
 
   
 Follow the steps below to configure full-chain certificate validation.
@@ -214,14 +208,13 @@ certificates.
 
 #### Testing Certificate Revocation
 
+**Certificate Revocation with CRL**
+
 After revoking the client certificate, test the X509 authentication with
 CRL validation by the self signed CA as mentioned below.
 
 !!! note
-    
-    As mentioned in [Configure CRL and OCSP
-    URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-   , the <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
+    The <http://pki.google.com/GIAG2.crl> is a CRL URL of a  well-known
     CA. In order to test the revocation of certificates through a CRL from
     our end, generate an own CRL and upload it to the own CRL URL. The CRL
     URL should be configured in the
@@ -259,14 +252,13 @@ CRL validation by the self signed CA as mentioned below.
 6.  Once the certificate is revoked and the CRL is updated, upload it so
     that a new version can be downloaded from the CRL URL.
 
+**Certification Revocation with OCSP**
+
 After revoking the client certificate, test the X509 authentication with
 OCSP validation by the self signed CA as mentioned below.
 
 !!! note
-    
-    As mentioned in [Configure CRL and OCSP
-    URLs](https://docs.wso2.com/display/IS570/Working+with+Certificates#WorkingwithCertificates-Step03:ConfigureCRLandOCSPURLs){.toc-link}
-   , the <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
+    The <http://clients1.google.com/ocsp> is an OCSP URL of a  well-known
     CA. In order to test the revocation of certificates through OCSP from
     our end, generate an own OCSP. This OCSP should be configured in the
     `             validation.cnf            ` file.
@@ -349,11 +341,12 @@ OCSP validation by the self signed CA as mentioned below.
     certificate is revoked. Test the X509 authentication, by enabling
     the OCSP validation. With this, validation should be failed.
 
+**Update Validator Configurations**
+
 Follow the steps below to change the priority of the validators of any
 other validator configurations.
 
 !!! note
-    
     File-based configurations are taken only at the initial start up, after
     which the changes are to be made in the registry via the WSO2 Identity
     Server Management Console.
@@ -369,11 +362,13 @@ other validator configurations.
     ```
 
 2.  On the **Main** tab, click **Registry \> Browse**.  
-    ![](attachments/103328122/103328123.png) 
+    ![](../../assets/img/103328122/103328123.png) 
+    
 3.  Enter the registry path
     `              /_system/governance/repository/security/certificate/validator             `
     to the **Location** text box and click **Go**.  
-    ![](attachments/103328122/103328124.png) 
+    ![](../../assets/img/103328122/103328124.png) 
+
 4.  To update the properties, expand **Properties**.
 
-    ![](attachments/103328122/103328125.png) 
+    ![](../../assets/img/103328122/103328125.png) 
