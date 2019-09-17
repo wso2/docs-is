@@ -63,7 +63,7 @@ nav:
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
-    - 'learn':
+    - 'Tutorials':
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
