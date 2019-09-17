@@ -24,7 +24,7 @@ visualization.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](Accessing_the_Analytics_Dashboard).
+        Dashboard](../../learn/accessing-the-analytics-dashboard).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Overall Login Attempts Summary**
             tile.
@@ -73,7 +73,7 @@ addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](Enabling_Geolocation_Based_Statistics).
+    Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
 ##### Purpose
