@@ -28,13 +28,15 @@ Follow the steps below to view the **Local Login Attempts**.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](Accessing_the_Analytics_Dashboard).
+        Dashboard](../../learn/accessing-the-analytics-dashboard).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Local Login Attempts Summary** tile.
         2.  Click **menu** icon \> **Local**.
     
 
 Let's analyze the local login attempts with the following widgets.
+
+### Login Attempts Over Time
 
 ##### **Description**
 
@@ -49,6 +51,8 @@ downtime, etc.
 
 ![]( ../../assets/img/103329237/103329248.png) 
 
+### Compact Summary
+
 ##### Description
 
 This chart presents a **summary of the local login attempts**.
@@ -58,7 +62,9 @@ This chart presents a **summary of the local login attempts**.
 This chart allows identifying the percentages of the successful and
 failed local login attempts.
 
-![]( ../../assets/img/103329237/103329246.png) 
+![]( ../../assets/img/103329237/103329246.png)
+
+### Map View
 
 ##### Description
 
@@ -69,7 +75,7 @@ IP addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](Enabling_Geolocation_Based_Statistics).
+    Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
 ##### Purpose
@@ -82,7 +88,9 @@ IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../../assets/img/103329237/103329238.png) 
+![]( ../../assets/img/103329237/103329238.png)
+
+### Distribution By Service Providers
 
 ##### Description
 
@@ -96,7 +104,9 @@ IP addresses.
 This chart allows viewing the local login attempts sorted based on the
 service providers.
 
-![]( ../../assets/img/103329237/103329244.png) 
+![]( ../../assets/img/103329237/103329244.png)
+
+### Distribution By User Store
 
 ##### Description
 
@@ -110,7 +120,9 @@ service providers.
 This chart allows viewing the local login attempts sorted based on the
 user store domain.
 
-![]( ../../assets/img/103329237/103329243.png) 
+![]( ../../assets/img/103329237/103329243.png)
+
+### Distribution By User Role
 
 ##### Description
 
@@ -124,7 +136,9 @@ user store domain.
 This chart allows viewing the local login attempts sorted based on the
 user role.
 
-![]( ../../assets/img/103329237/103329242.png) 
+![]( ../../assets/img/103329237/103329242.png)
+
+### Distribution By User Name
 
 ##### Description
 
@@ -138,7 +152,9 @@ user role.
 This chart allows viewing the local login attempts sorted based on the
 user names.
 
-![]( ../../assets/img/103329237/103329241.png) 
+![]( ../../assets/img/103329237/103329241.png)
+
+### Detail View
 
 ##### Description
 
