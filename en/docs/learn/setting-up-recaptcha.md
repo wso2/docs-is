@@ -78,7 +78,7 @@ Follow the steps provided below to configure this.
             recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
         ```
     
-5\.  Restart the WSO2 IS server.
+5.  Restart the WSO2 IS server.
 
 You have successfully set up reCaptcha for your site. You can now
 configure reCaptcha with any of the following:
