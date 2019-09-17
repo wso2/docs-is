@@ -46,9 +46,9 @@ Directory and their descriptions:
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the <code>              client-truststore.jks             </code> of the WSO2 product.</p>
-<p>For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption doc in <a href="(../../administer/using-asymmetric-encryption)">Using asymmetric encryption</a></p>
+<p>For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption doc in <a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a></p>
 <p>If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="(../../administer/performance-tuning#performance-tuning-ldaps-pooling)">performance tuning ldaps pooling</a></p></td>
+<a href="../../administer/performance-tuning#performance-tuning-ldaps-pooling">performance tuning ldaps pooling</a></p></td>
 </tr>
 <tr class="even">
 <td>connection_name</td>
@@ -79,7 +79,7 @@ Sample values: uid=admin,ou=system</td>
 <td><p>The attribute used to uniquely identify a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Sample values: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set email address as username, see <a href="(../../learn/using-email-address-as-the-username)">(../../learn/using-email-address-as-the-username)</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set email address as username, see <a href="../../learn/using-email-address-as-the-username">(../../learn/using-email-address-as-the-username)</a></p></td>
 </tr>
 <tr class="odd">
 <td>user_name_search_filter</td>
