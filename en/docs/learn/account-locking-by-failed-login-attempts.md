@@ -7,20 +7,6 @@ disabling. The following section explain how to configure this.
 
 ### Configuring WSO2 IS for account locking
 
-!!! warning
-    
-    The instructions given on this page follow the **recommended approach**
-    for account locking and account disabling in WSO2 Identity Server, which
-    is to use the governance `         identity.mgt        ` listener.
-    
-    Prior to the WSO2 IS 5.2.0 release, account locking and account
-    disabling was configured in a different way. If you require
-    documentation with regard to the old method for backward compatibility,
-    see the [WSO2 IS 5.2.0
-    documentation](https://docs.wso2.com/display/IS520/User+Account+Locking+and+Account+Disabling)
-    .
-    
-
 1.  Ensure that the identity listener
     with the `            priority=50           ` is set to **false**
     and the identity listener with the `            priority=95           ` is set to **true**
@@ -203,16 +189,16 @@ failed login attempts. To configure this, follow the steps below.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
-   ```
-   [output_adapter.email]
-   from_address= "wso2iamtest@gmail.com"
-   username= "wso2iamtest"
-   password= "Wso2@iam70"
-   hostname= smtp.gmail.com
-   port= 587
-   enable_start_tls= true
-   enable_authentication= true
-   ```
+       ```
+       [output_adapter.email]
+       from_address= "wso2iamtest@gmail.com"
+       username= "wso2iamtest"
+       password= "Wso2@iam70"
+       hostname= smtp.gmail.com
+       port= 587
+       enable_start_tls= true
+       enable_authentication= true
+       ```
 
 2.  Restart the Server.
 

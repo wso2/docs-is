@@ -277,9 +277,8 @@ nav:
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
         - 'Login Policies':
-          - 'Login Policies': learn/login-policies.md
-          - 'User Account Locking and Account Disabling': 
-            - 'User Account Locking and Account Disabling': learn/user-account-locking-and-account-disabling.md
+          - 'User Account Locking and Account Disabling':
+            - 'Overview': learn/user-account-locking-and-account-disabling.md
             - 'Account Locking by Failed Login Attempts': learn/account-locking-by-failed-login-attempts.md
             - 'Locking a Specific User Account': learn/locking-a-specific-user-account.md
             - 'Account Disabling': learn/account-disabling.md
