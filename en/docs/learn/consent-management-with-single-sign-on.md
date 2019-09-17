@@ -91,16 +91,16 @@ authentication.
 
     Configure the Travelocity sample app as a service provider in WSO2
     Identity Server. For more information on how to do this, see the
-    [Configuring Single Sign-On](../../learn/single-sign-on) tutorial.
+    [Configuring Single Sign-On](../../learn/configuring-single-sign-on) tutorial.
     
 
 1.  Configure the following service provider claims.
 
-    -   http://\<claim\_dialect\>/claims/fullname **(mandatory claim)**
+    -   http://<claim\_dialect\>/claims/fullname **(mandatory claim)**
 
-    -   http://\<claim\_dialect\>/claims/email **(mandatory claim)**
-    -   http://\<claim\_dialect\>/claims/gender
-    -   http://\<claim\_dialect\>/claims/dob
+    -   http://<claim\_dialect\>/claims/email **(mandatory claim)**
+    -   http://<claim\_dialect\>/claims/gender
+    -   http://<claim\_dialect\>/claims/dob
 
     ![sp-claims](../../assets/img/using-wso2-identity-server/sp-claims.png)
 
