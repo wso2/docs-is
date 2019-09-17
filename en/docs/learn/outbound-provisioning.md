@@ -5,19 +5,19 @@ identity provider from the WSO2 Identity Server. A trusted identity
 provider is basically an identity provider that supports inbound
 provisioning. It can be Google, Salesforce, another Identity Server,
 etc. For more information, see [Outbound
-provisioning](identity-provisioning.md).
+provisioning](../../learn/identity-provisioning).
 
 Outbound Provisioning involves sending provisioning requests from the
 Identity Server to other external applications. See the following
 document for more details on configuring outbound provisioning (SCIM
 connector is used for example).
 
--   [Outbound Provisioning with SCIM](outbound-provisioning-with-scim.md)
--   [Outbound Provisioning with SPML](outbound-provisioning-with-spml.md)
+-   [Outbound Provisioning with SCIM](../../learn/outbound-provisioning-with-scim)
+-   [Outbound Provisioning with SPML](../../learn/outbound-provisioning-with-spml)
 -   [Outbound Provisioning with
-    Salesforce](outbound-provisioning-with-salesforce.md)
+    Salesforce](../../learn/outbound-provisioning-with-salesforce)
 -   [Outbound Provisioning with
-    Google](outbound-provisioning-with-google.md)
+    Google](../../learn/outbound-provisioning-with-google)
 
 The following topics discuss the various ways you can configure outbound
 provisioning:
