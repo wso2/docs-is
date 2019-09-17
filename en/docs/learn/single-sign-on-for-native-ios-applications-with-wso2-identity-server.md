@@ -410,7 +410,7 @@ Follow the steps below to sign out of the sample application:
 5.  Click **Yes**. This will log you out from the server and will
     redirect you to the sign-in page of the sample application.
 
-    !!! warning
+    !!! note
     
         -   If you do not log out from WSO2 Identity Server and the
             application is not cleared from memory, you can access the
