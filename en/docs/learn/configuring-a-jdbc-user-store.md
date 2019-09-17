@@ -6,11 +6,10 @@ user store manager class. By default, the WSO2 product database contains
 user store tables. When you configure a RDBMS (JDBC) user store, you can
 use internal user store tables or you can use an external database as a
 user store. If you going to use default user store tables, see [User
-Management Related Tables](../../learn/user-management-related-tables) section.
+Management Related Tables](../../administer/user-management-related-tables) section.
 
 !!! tip "Before you begin!"  
     Please read following topics:
-    
     -   Read [Configuring User Stores](../../learn/configuring-user-stores) to get a
         high-level understanding of the user stores available in WSO2
         Identity Server (WSO2 IS).
