@@ -315,21 +315,21 @@ Let's use the command-line to check the MFA functionality.
 First deploy the sample authenticator dependency and web application in
     WSO2 IS.
 
-    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+   1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
         `              <IS_HOME>/repository/components/dropins             ` directory.
 
-    2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+   2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
         folder.  
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
 
-    3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
+   3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
         [[resource.access_control]]
         context = "(.*)/sample-auth/(.*)"
         secure = false
         http_method = "all"  
 
-    And restart the identity server          
+   And restart the identity server          
 
 Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
@@ -376,7 +376,7 @@ A message appears to pick a scenario.
     authentication factor.
 
 8.  Enter the DEMO key that appears in the browser and click **Sign In**.
-    ![qsg-authorize-twitterapp](../../assets/img/hardware-key.png)
+    ![qsg-authorize-hardware-key](../../assets/img/getting-started/hardware-key.png)
 
     After successful authentication, the **User Consents** form of the
     Dispatch application appears.
@@ -851,4 +851,4 @@ This concludes the Quick Start Guide!
 
 You have set up WSO2 IS and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials).
+[Tutorials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials).
