@@ -67,12 +67,12 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
 Explore the following topics:
 
 -   [Analyzing Overall Login
-    Attempts](../../learn/analyzing-overall-login-attempts)
+    Attempts](Analyzing_Overall_Login_Attempts)
 
 -   [Analyzing the Local Login
-    Attempts](../../learn/analyzing-the-local-login-attempts)
+    Attempts](Analyzing_the_Local_Login_Attempts)
 
 -   [Analyzing the Federated Login
-    Attempts](../../learn/analyzing-the-federated-login-attempts)
+    Attempts](Analyzing_the_Federated_Login_Attempts)
 
--   [Analyzing Session Statistics](../../learn/analyzing-session-statistics)
+-   [Analyzing Session Statistics](Analyzing_Session_Statistics)
