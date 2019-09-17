@@ -7,7 +7,7 @@ OAuth 2.0 access tokens in order to access protected resources on behalf
 of the resource owner.
 
 In this sample use case, you will see how a user will be authenticated
-for Travelocity sample application over [SAML 2.0](../../tutorials/saml-2.0-web.sso)
+for Travelocity sample application over [SAML 2.0](../../learn/saml-2.0-web.sso)
 via WSO2 Identity Server. You will also see how Travelocity application
 exchanges the SAML assertion received, with the WSO2 Identity Server to
 receive an OAuth access token using [SAML2 Bearer Assertion
@@ -41,7 +41,7 @@ Server and as well as the Resource Server.
 
 2.  Configure single sign-on with the Travelocity sample.
 
-    See [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on) to
+    See [Configuring Single Sign-On](../../learn/configuring-single-sign-on) to
     configure Travelocity application with WSO2 Identity Server.
 
 3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to

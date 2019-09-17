@@ -84,7 +84,7 @@ You have successfully set up reCaptcha for your site. You can now
 configure reCaptcha with any of the following:
 
 -   [Configuring Google reCaptcha for single
-    sign-on](../../tutorials/configuring-recaptcha-for-single-sign-on)
+    sign-on](../../learn/configuring-recaptcha-for-single-sign-on)
 -   [Configuring Google reCaptcha for self
     registration](../../learn/configuring-recaptcha-for-self-registration)
 -   [Configuring Google reCaptcha for security-question based password
