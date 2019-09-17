@@ -9,7 +9,7 @@ policies. Fine-grained authorization specifies the requirements and
 variables in an access control policy that is used to authorize access
 to a resource. WSO2 Identity provider supports XACML 1.0, 2.0 and
 3.0. For more information on XACML, see [XACML
-Architecture](../../setup/access-control-and-entitlement-management).
+Architecture](../../get-started/access-control-and-entitlement-management).
 
 In today's world, businesses and their customers need to access multiple
 service providers that support multiple heterogeneous identity
