@@ -22,9 +22,6 @@ obtain access to multiple applications. In SSO, the users are not
 prompted for their credentials when accessing each application until
 their session is terminated.
 
-The following topics discuss the various features that are key to using
-Identity Federation and Single-Sign-On (SSO).
-
 !!! info "Related Topics"
 	See [Adding and Configuring an Identity
     Provider](using-wso2-identity-server/adding-and-configuring-an-identity-provider) for
