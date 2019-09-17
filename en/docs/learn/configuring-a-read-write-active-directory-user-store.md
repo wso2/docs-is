@@ -79,7 +79,7 @@ Sample values: uid=admin,ou=system</td>
 <td><p>The attribute used to uniquely identify a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Sample values: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set email address as username, see <a href="../../learn/using-email-address-as-the-username">(../../learn/using-email-address-as-the-username)</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set email address as username, see <a href="../../learn/using-email-address-as-the-username">using email address as the username</a></p></td>
 </tr>
 <tr class="odd">
 <td>user_name_search_filter</td>
