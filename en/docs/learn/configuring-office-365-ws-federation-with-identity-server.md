@@ -102,7 +102,7 @@ message.
 
     -   Organization - http://wso2.org/claims/organization
     
-    -   IM - <http://wso2.org/claims/im>
+    -   IM - http://wso2.org/claims/im
 
 2.  Navigate to **Service Providers \> Add** in the **Main** menu and
     add a new Service Provider named ' Office365'.
