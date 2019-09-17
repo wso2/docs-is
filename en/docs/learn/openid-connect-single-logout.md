@@ -96,7 +96,7 @@ OP endpoint URLs:
     <td>Recommended</td>
     <td><div class="content-wrapper">
     <p>This is the previously-issued ID token that was passed to the logout endpoint hinting about the user's current authentication session with the RP. This indicates the identity of the user that the RP is requesting to be logged out by the OP.</p>
-    <p>If the <code>                 id_token_hint                </code> is passed to the logout endpoint, WSO2 Identity Server identifies the RP to which the token is issued to and redirects the user to the <code>                 callback URL                </code> of the RP that is configured in WSO2 Identity Server. To learn how to configure the RP in WSO2 Identity Server, see <a href="https://docs.wso2.com/display/IS580/OpenID+Connect+Single+Logout+Mechanisms#session_configs">Configurations</a> .</p>
+    <p>If the <code>                 id_token_hint                </code> is passed to the logout endpoint, WSO2 Identity Server identifies the RP to which the token is issued to and redirects the user to the <code>                 callback URL                </code> of the RP that is configured in WSO2 Identity Server. To learn how to configure the RP in WSO2 Identity Server, see <a href="../../learn/openid-connect-single-logout#configurations">Configurations</a> .</p>
     <p>If the <code>                 id_token_hint                </code> is not passed to the logout endpoint, the user is redirected to the default logout page subsequent to a successful logout.</p>
     </div></td>
     </tr>
@@ -108,7 +108,7 @@ OP endpoint URLs:
     <div class="admonition note">
     <p class="admonition-title">Note</p>
     <p>The <code>                 post_logout_redirect_uri                </code> should be registered in WSO2 Identity Server based on the regex option provided for configuring multiple callback URLs.</p>
-    <p>To learn how to configure the RP with multiple callback URLs in WSO2 Server, see <a href="https://docs.wso2.com/display/IS580/OpenID+Connect+Single+Logout+Mechanisms#session_configs">Configurations</a> .</p>
+    <p>To learn how to configure the RP with multiple callback URLs in WSO2 Server, see <a href="../../learn/openid-connect-single-logout#configurations">Configurations</a> .</p>
     </div>
     </div></td>
     </tr>
@@ -174,7 +174,7 @@ OP endpoint URLs:
     <p>This is the <code>                 client key                </code> of the RP that is configured in WSO2 Identity Server.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>To learn the step at which the <code>                 client key                </code> is generated when configuring the RP in WSO2 Identity Server, see step 2.g under <a href="https://docs.wso2.com/display/IS580/OpenID+Connect+Single+Logout+Mechanisms#session_configs">Configurations</a> .</p>
+    <p>To learn the step at which the <code>                 client key                </code> is generated when configuring the RP in WSO2 Identity Server, see step 2.g under <a href="../../learn/openid-connect-single-logout#configurations">Configurations</a> .</p>
     </div>
     </div></td>
     </tr>

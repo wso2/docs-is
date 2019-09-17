@@ -29,7 +29,7 @@ Follow the instructions given in the sections below to set this up.
 		authentication. For instructions on how to do this, see [Setting Up
 		the Sample Webapp](../../learn/setting-up-the-sample-webapp).
 	-   For more information about adaptive authentication with WSO2
-		Identity Server, see [Adaptive Authentication](../../tutorials/adaptive-authentication).
+		Identity Server, see [Adaptive Authentication](../../learn/adaptive-authentication).
 
 
 ### Configuring the service provider

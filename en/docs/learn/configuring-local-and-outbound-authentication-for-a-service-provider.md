@@ -3,7 +3,7 @@
 The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
-Authentication)](../../tutorials/integrated-windows-authentication) or [FIDO (Fast
+Authentication)](../../learn/integrated-windows-authentication) or [FIDO (Fast
 IDentity Online)](../../learn/multi-factor-authentication-using-fido). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
@@ -50,7 +50,7 @@ You can configure the following for local and outbound authentication.
         authorization policies for the service provider. For more
         information, see [Configuring Access Control Policy for a
         Service
-        Provider](../../tutorials/configuring-access-control-policy-for-a-service-provider)
+        Provider](../../learn/configuring-access-control-policy-for-a-service-provider)
         .
 
 2.  Select the **Authentication Type** you require from the available
@@ -183,8 +183,8 @@ more details.
         on configuring multi-step and multi-option authentication using
         FIDO.
     -   See [Integrated Windows
-        Authentication](../../tutorials/integrated-windows-authentication) and
-        [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on)
+        Authentication](../../learn/integrated-windows-authentication) and
+        [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on)
         for more information on configuring the IWA authenticator with WSO2
         Identity Server.
     -   See [Request Path Authentication](../../learn/request-path-authentication) for
