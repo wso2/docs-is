@@ -27,7 +27,7 @@ Follow the instructions given in the sections below to set this up.
 1.  Log in to the management console.
 2.  Create a new user called "Kim".
 3.  Navigate to **Service Providers\>List** and click **Edit** on the
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
+    `              saml2-web-app-dispatch.com             `
     service provider.
 4.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
