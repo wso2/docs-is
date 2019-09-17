@@ -21,7 +21,7 @@ an XACML Policy.
     !!! note
     
         To get more details on available XACML templates, [Read
-        me](../../tutorials/writing-a-xacml-policy-using-a-policy-template).
+        me](../../learn/writing-a-xacml-policy-using-a-policy-template).
     
 -   A set of UI editors to create a XACML policy using UI
     configurations.
@@ -443,4 +443,4 @@ create your policy.
 !!! Info "Related Topics"
 	To evaluate the policy you just created and see a sample request and
 	response to it, see [Evaluating a XACML
-	Policy](../../learn/evaluating-a-xacml-policy).
+	Policy](../../administer/evaluating-a-xacml-policy).
