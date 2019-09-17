@@ -268,13 +268,13 @@ configurations.
     **Expected response**
 
     ``` xml
-   <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
-      <soapenv:Body>
-         <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
-            <ns:return>16</ns:return>
-         </ns:createApplicationResponse>
-      </soapenv:Body>
-   </soapenv:Envelope>
+        <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+          <soapenv:Body>
+             <ns:createApplicationResponse xmlns:ns="http://org.apache.axis2/xsd">
+                <ns:return>16</ns:return>
+             </ns:createApplicationResponse>
+          </soapenv:Body>
+        </soapenv:Envelope>
     ```
 
     You can extract the application ID from the above response.

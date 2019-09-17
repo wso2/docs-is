@@ -20,7 +20,7 @@ Follow the instructions below to set up OAuth token hashing:
     -   Add the following token persistence processor to  enable token hashing:
         ``` toml
         [oauth.extensions]
-        token_persistance_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
+        token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
         ```
 
     -   Add the following property and set it to true to enable hashing. 
