@@ -157,7 +157,7 @@ when you send an OIDC logout request as a POST request:
 ```
 
 For descriptions of all the parameters that you need to specify in the
-POST request, see the <a href="<../../using-wso2-identity-server/openID-Connect-Logout-URL-Redirection#parameters
+POST request, see the <a href="<../../learn/openid-connect-logout-url-redirection#parameters
 >parameter descriptions given above</a>
 Following is the sample HTML form with sample parameter values to render
 the page in a browser:
