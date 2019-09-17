@@ -61,11 +61,11 @@ or federated authentication in WSO2 Identity Server (IS).
 		Kerberos does not work with IP addresses, it relies on
 		domain names and correct DNS entries only.
 
-2.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
+2.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
 
     ``` xml
-   		[server]
-		hostname="idp.wso2.com"
+    [server]
+    hostname="idp.wso2.com"
     ```
 
 3.  Open the `           jaas.conf          ` file found in the
@@ -75,18 +75,18 @@ or federated authentication in WSO2 Identity Server (IS).
     for more information on JAAS)
 
     ``` java
-        Server {
-        com.sun.security.auth.module.Krb5LoginModule required
-        useKeyTab=false
-        storeKey=true
-        useTicketCache=false
-        isInitiator=false;
-        };
+    Server {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=false
+    storeKey=true
+    useTicketCache=false
+    isInitiator=false;
+    };
     
-        Client {
-        com.sun.security.auth.module.Krb5LoginModule required
-        useTicketCache=false;
-        };
+    Client {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useTicketCache=false;
+    };
     ```
 
 4.  Register WSO2 IS using the same hostname (
@@ -98,7 +98,7 @@ or federated authentication in WSO2 Identity Server (IS).
 
 5.  Create a service account in the Active Directory for WSO2 IS or use
     an existing account. (For this tutorial, the sample username of the
-    service account is **is\_linux** ).
+    service account is **is_linux** ).
 
     !!! note
         The account used for WSO2 IS needs to be different from
