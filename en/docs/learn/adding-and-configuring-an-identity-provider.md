@@ -5,8 +5,8 @@
 An Identity Provider (IdP) is responsible for authenticating users and
 issuing identification information by using security tokens like [SAML
 2.0](../../learn/saml-2.0-web-sso), [OpenID
-Connect](../../learn/oauth2-openid-connect),
-[OAuth 2.0](../../learn/oauth2-openid-connect)
+Connect](../../learn/oauth2-openid-connect-overview),
+[OAuth 2.0](../../learn/oauth2-openid-connect-overview)
 and [WS-Trust](../../learn/ws-trust). This is a
 favourable alternative to explicitly authenticating a user within a
 security realm.
@@ -186,28 +186,27 @@ Follow the instructions below to add a new identity provider.
             When the Home Realm Identifier is not specified, you can either
             select the domain name from a dropdown in the login page, or you
             have to enter the domain value in a separate page prior to logging
-            in. This can be configured as explained below.
-
-            Open the
-            `              <IS_HOME>/repository/conf/identity/application-authentication.xml             `
-            file. The `              ProxyMode             ` configuration
-            allows the framework to operate in either
-            `              smart             ` mode or
-            `              dumb             ` mode. In
-            `              smart             ` mode, both local and federated
-            authentication is supported, while in
-            `              dumb             ` mode, only federated
-            authentication is supported. If `              dumb             `
-            mode is configured here, you must provide the Home Realm Identifier,
+            in (as shown below).
+            
+            ![home-realm-identifier]( ../../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
+                     
+            The `proxy_mode` configuration allows the framework to operate in either
+            `smart` mode or `dumb` mode. 
+            
+            In `smart` mode, both local and federated authentication is supported, while in `dumb` mode, only federated
+            authentication is supported. If `dumb` mode is configured here, you must provide the Home Realm Identifier,
             or you have to display a separate screen to the user to get it.
 
-            ![home-realm-identifier]( ../../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
-
-            If smart mode is configured, the default behavior applies, where you
-            can enter a local username and password, or use federated
-            authenticators for authentication.
-
-            `              <ProxyMode>smart</ProxyMode>             `
+            If smart mode is configured, the default behavior applies, where you can enter a local username and 
+            password, or use federated authenticators for authentication.
+            
+            To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
+            and add the following configuration.
+            ```               
+            [authentication] 
+            proxy_mode="smart" 
+            ```       
+            
 
     ??? note "Click here for more information on the Alias"
 
