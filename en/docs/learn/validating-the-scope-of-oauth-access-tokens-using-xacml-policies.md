@@ -57,7 +57,7 @@ template that is available by default with WSO2 IS:
     **PAP** \> **Policy Administration** under the **Entitlement** menu.
     For more information on Policy Administration Point (PAP), see
     [Configuring the Policy Administration
-    Point](../../tutorials/configuring-the-policy-administration-point).
+    Point](../../learn/configuring-the-policy-administration-point).
     
 2.  Select the
     `                       scope_based_token_validation_policy_template                     `
@@ -83,7 +83,7 @@ template that is available by default with WSO2 IS:
     !!! note
     
         For more information on Publishing a XACML policy, see
-        [here](../../tutorials/publishing-a-xacml-policy).
+        [here](../../learn/publishing-a-xacml-policy).
     
 
     To ensure that the policy has been published successfully, click on
@@ -150,4 +150,4 @@ Follow the steps below to try out the policy using the XACML TryIt tool:
 
 	For a tutorial on how to configure an access control policy for a
 	service provider, see [Configuring Access Control Policy for a Service
-	Provider](../../tutorials/configuring-access-control-policy-for-a-service-provider).
+	Provider](../../learn/configuring-access-control-policy-for-a-service-provider).
