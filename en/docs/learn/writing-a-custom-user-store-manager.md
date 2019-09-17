@@ -555,8 +555,6 @@ login. This ensures that all your configurations work as intended.
     5.  Click Add.
     
 !!! info "Related Links"
-
     -   [Setting up User Stores](../../learn/configuring-user-stores)
-    -   See [Writing a Custom
-        Attribute](../../managing-user-attributes#writing-custom-attributes)
+    -   See [Writing a Custom Attribute](../../administer/managing-user-attributes#writing-custom-attributes)
         for instructions on how to write custom attributes for users.
