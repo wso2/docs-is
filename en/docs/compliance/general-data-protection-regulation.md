@@ -2,7 +2,7 @@
 
 #### About GDPR compliance
 
-The General Data Protection Regulation (GDPR) is a new legal framework
+The General Data Protection Regulation (GDPR) is a legal framework
 formalized by the European Union (EU) in 2016. This regulation comes
 into effect from 28, May 2018, and can affect any organization that
 processes Personally Identifiable Information (PII) of individuals who
@@ -147,7 +147,7 @@ features:
     -   Password History information.
 
 Additionally, WSO2 Privacy Toolkit can be extended to clear privacy data
-in any relational database or any textual log file but that is out of
+in any relational database or any textual log file, but that is out of
 the scope of this document.
 
 For more information on the topic, see [Removing References to Deleted
