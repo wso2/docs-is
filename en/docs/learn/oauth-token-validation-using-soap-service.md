@@ -6,7 +6,7 @@ section guides you through calling the SOAP service using the SOAP UI.
 
 The relevant code segment in the sample webapp [WSO2
 playground2](../../learn/downloading-a-sample) for OAuth2 can be found
-[here](https://github.com/wso2/product-is/blob/5.x.x/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
+[here](https://github.com/wso2/product-is/blob/master/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
 .
 
 1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf`
