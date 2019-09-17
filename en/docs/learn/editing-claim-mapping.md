@@ -51,7 +51,7 @@ Follow the instructions below to edit a claim.
 !!! tip "Alternatively"  
     
     You can edit the file configuration in
-    **\<IS\_HOME\>/repository/conf/claim-config.xml** and start the server
+    **<IS\_HOME\>/repository/conf/claim-config.xml** and start the server
     to view the changed claims.
     
     Note that the claims configured in
