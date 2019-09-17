@@ -6,8 +6,8 @@ WS-Federation protocol, through the WSO2 Identity server. The following
 sections guide you through the entire process.
 
 -   [Configuring Azure Active Directory to Trust WSO2 Identity
-    Server](../../tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
 -   [Configuring Office 365 WS-Federation with Identity
-    Server](../../tutorials/configuring-office-365-ws-federation-with-identity-server)
+    Server](../../learn/configuring-office-365-ws-federation-with-identity-server)
 
   

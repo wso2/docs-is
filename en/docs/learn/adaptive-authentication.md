@@ -94,9 +94,9 @@ function someCommonFunction(context) {
 
 -   To try out adaptive authentication, see [Configuring a Service
     Provider for Adaptive
-    Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
+    Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
 -   To set up common adaptive authentication scenarios, see [Adaptive
-    Authentication Scenarios](../../tutorials/adaptive-authentication-scenarios).
+    Authentication Scenarios](../../learn/adaptive-authentication-scenarios).
 -   To learn about the functions and fields related to authentication
     scripts, see [Adaptive Authentication JS API
     Reference](../../references/adaptive-authentication-js-api-reference).

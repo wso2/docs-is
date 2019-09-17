@@ -75,7 +75,7 @@ sample.
 2.  Start up [Identity Server](../../setup/running-the-product) and log in to the
     management console.
 3.  Upload the policy by following the first three steps found
-    [here](../../tutorials/creating-a-xacml-policy)
+    [here](../../learn/creating-a-xacml-policy)
     and click on **Import Existing Policy**
 4.  Click **Choose File** and upload the three policies found
     [here](https://svn.wso2.org/repos/wso2/people/asela/xacml/sample/kmarket/resources/)
@@ -85,7 +85,7 @@ sample.
     directory.
 5.  Publish the policies in PDP runtime. More information on this can be
     found in the [Publishing a XACML Policy
-    page](../../tutorials/publishing-a-xacml-policy).
+    page](../../learn/publishing-a-xacml-policy).
 6.  Navigate to the **Entitlement** menu. Click **Policy View** under
     **PDP** and click **Enable** under the **Actions** section, for each
     policy.

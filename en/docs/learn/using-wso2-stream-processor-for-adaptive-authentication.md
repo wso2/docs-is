@@ -435,5 +435,5 @@ Now that you have successfully deployed a Siddhi application for risk
 based login, you can configure WSO2 Identity Server to receive data from
 this Siddhi application and set up rules for adaptive authentication.
 Follow the [Configuring Risk-Based Adaptive
-Authentication](../../tutorials/configuring-risk-based-adaptive-authentication)
+Authentication](../../learn/configuring-risk-based-adaptive-authentication)
 tutorial to set this up.

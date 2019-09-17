@@ -36,7 +36,7 @@ the users with an authorization server-based authentication.
     server in the federated authorization server and get the application
     information such as client ID and secret. For more information, see
     [configuring OAuth2-OpenID Connect single
-    sign-on](../../tutorials/configuring-oauth2-openid-connect-single-sign-on).
+    sign-on](../../learn/configuring-oauth2-openid-connect-single-sign-on).
 
     !!! tip
         By default, the **Client Id** and **Client Secret** are stored as

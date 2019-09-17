@@ -351,5 +351,5 @@ provider of WSO2 IS and the Azure Active Directory.
 
 To see how this feature works, try out the [Configuring On-Demand
 Provisioning with Azure
-AD](../../tutorials/configuring-on-demand-provisioning-with-azure-ad) tutorial to
+AD](../../learn/configuring-on-demand-provisioning-with-azure-ad) tutorial to
 provision users directly to Azure AD at the point of authentication.

@@ -16,7 +16,7 @@ or federated authentication in WSO2 Identity Server (IS).
     on NTLM. If you still want to use the previous IWA authenticator that
     was based on NTLM, it is [available as an extension](https://github.com/wso2-extensions/identity-local-auth-iwa-ntlm)
     . For more information on how to setup the NTLM-based IWA authenticator,
-    see [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on).
+    see [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on).
     
     The benefits of using the authenticator based on Kerberos vs the
     authenticator based on NTLM are as follows:
@@ -30,6 +30,7 @@ or federated authentication in WSO2 Identity Server (IS).
 
 	-   For more information about IWA, see [Integrated Windows
 		Authentication](../../learn/integrated-windows-authentication-overview)
+    
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory User
 		Store](../../learn/configuring-a-read-write-active-directory-user-store).
@@ -224,7 +225,7 @@ authenticator.
     by following the steps above.
 2.  Download and set up the Travelocity sample application. To do this,
     follow the instructions on the [Configuring Single
-    Sign-On](../../tutorials/configuring-single-sign-on) page.
+    Sign-On](../../learn/configuring-single-sign-on) page.
 
 3.  Edit the service provider you created for the Travelocity sample,
     and expand the **Local and Outbound Authentication** section.

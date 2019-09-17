@@ -18,18 +18,18 @@ as an XACML engine.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**. For more information
     on policy administration, see [Configuring the Policy Administration
-    Point](../../tutorials/configuring-the-policy-administration-point).  
+    Point](../../learn/configuring-the-policy-administration-point).  
     ![entitlement-policy-administration](../../assets/img/tutorials/entitlement-policy-administration.png) 
     \|
 3.  Add a new policy or import external policy files to the system. Once
     you click **Add**, a  policy will be added. You can [edit a
     template
-    policy](../../tutorials/writing-a-xacml-policy-using-a-policy-template)
+    policy](../../learn/writing-a-xacml-policy-using-a-policy-template)
     it to suit your requirements, or you may [add a completely new
-    policy](../../tutorials/creating-a-xacml-policy)
+    policy](../../learn/creating-a-xacml-policy)
     .
 4.  After adding you can [publish the policy to Policy Decision
-    Point(PDP)](../../tutorials/publishing-a-xacml-policy)
+    Point(PDP)](../../learn/publishing-a-xacml-policy)
     .
 5.  Now try to evaluate the published policy by [using Try It
     tool.](../../learn/evaluating-a-xacml-policy)
