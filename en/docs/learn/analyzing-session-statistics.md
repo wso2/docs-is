@@ -12,24 +12,26 @@ Follow the steps below to view the **Login Sessions**.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](Accessing_the_Analytics_Dashboard).
+        Dashboard](../../learn/accessing-the-analytics-dashboard).
     2.  Click **menu** icon \> **Login Sessions**.
     
 
 Let's analyze the login sessions with the following widgets.
+
+### Active Sessions
 
 ##### **Description**
 
 This widget presents the **currently active sessions** and gets updated
 for each event that is coming from WSO2 IS.
 
-![]( ../../assets/img/103329312/103329313.png){height="250"}
+![]( ../../assets/img/103329312/103329313.png)
 
   
 
   
 
-  
+### Session Count Over Time
 
 ##### Description
 
@@ -69,7 +71,9 @@ application is particularly high, you can allocate more resources to
 handle the increased load. Similarly, you can allocate less resources
 during time intervals when the load is relatively low.
 
-![]( ../../assets/img/103329312/103329320.png) 
+![]( ../../assets/img/103329312/103329320.png)
+
+### Top Longest Session
 
 ##### Description
 
@@ -86,7 +90,9 @@ session is displayed.
     enables to identify the users who are most active during different
     time intervals.
 
-![]( ../../assets/img/103329312/103329319.png) 
+![]( ../../assets/img/103329312/103329319.png)
+
+### Average Session Duration
 
 ##### Description
 
@@ -115,7 +121,9 @@ actions where necessary, e.g., increase/decrease the efficiency of the
 application and enhance/reduce user experience features that results in
 users spending more/less time on the application.
 
-![]( ../../assets/img/103329312/103329318.png) 
+![]( ../../assets/img/103329312/103329318.png)
+
+### Session Count
 
 ##### Description
 
@@ -142,7 +150,9 @@ changes and take necessary steps, e.g., increase/decrease the efficiency
 of the application and enhance/reduce user experience features that
 results in users spending more/less time on the application.
 
-![]( ../../assets/img/103329312/103329317.png) 
+![]( ../../assets/img/103329312/103329317.png)
+
+### Detail View
 
 ##### Description
 
