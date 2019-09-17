@@ -22,7 +22,7 @@ For more information on Request Path Authentication in general, see
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](../../tutorials/configuring-oauth2-openid-connect-single-sign-on).
+    Connect](../../learn/configuring-oauth2-openid-connect-single-sign-on).
 
     Use the following **Callback URL** when configuring OAuth:
     [https://curl-app/callback](https://www.google.com/url?q=https%3A%2F%2Fcurl-app%2Fcallback&sa=D&sntz=1&usg=AFQjCNFg_ALm4TWPOaAI9WC2YYeVsjmcZA)

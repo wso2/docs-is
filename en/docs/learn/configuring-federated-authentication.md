@@ -19,7 +19,7 @@ For more information, see [Adding and Configuring an Identity Provider](../../le
     
     OpenID 2.0 has been removed from the base product as it is now
     an obsolete specification and has been superseded by OpenID Connect. We
-    recommend using [OpenID Connect](../../tutorials/configuring-oauth2-openid-connect)
+    recommend using [OpenID Connect](../../learn/configuring-oauth2-openid-connect)
     instead.
     
 
