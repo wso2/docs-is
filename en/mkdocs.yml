@@ -63,7 +63,7 @@ nav:
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
-    - 'learn':
+    - 'Tutorials':
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -274,7 +274,6 @@ nav:
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
         - 'Password Policies':
-          - 'Password Policies': learn/password-policies.md
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
         - 'Login Policies':

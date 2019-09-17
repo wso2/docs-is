@@ -97,7 +97,7 @@ applications.
 !!! Info "Recommended reading"
     For more information on XACML specifications and other related
     information, see [the OASIS 
-    website](http://oasis-open.org/committees/xacml rel="noopener").
+    website](http://oasis-open.org/committees/xacml "(target|_blank)").
 
   
 
