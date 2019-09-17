@@ -217,7 +217,7 @@ To disable the claims, do the following.
     ![configure-sp-fields](../../assets/img/tutorials/configure-sp-fields.png)
 
 3.  Expand **Claim Configuration** and select **Define Custom Claim
-    Dialect.
+    Dialect**.
 
 4.  Click **Add Claim URI** and add the following claims.
       
