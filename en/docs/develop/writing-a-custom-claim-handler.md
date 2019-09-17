@@ -209,14 +209,11 @@ implemented:
 1.  Add the compiled OSGi bundle to the
     `          IS_HOME/repository/components/dropins         `
     directory.
-2.  Edit the
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
-    file, and add the following under the
-    `           <Extensions>          ` element.
-
-    ``` xml
-    <ClaimHandler>com.wso2.sample.claim.handler.CustomClaimHandler</ClaimHandler>
+2.  Open the ` deployment.toml ` file in ` IS_HOME/repository/conf ` folder and add the custom claim handler package name under the `[authentication.framework.extensions]` tag as shown below,
+    
+    ```$xslt
+       [authentication.framework.extensions] 
+        claim_handler="com.wso2.sample.claim.handler.CustomClaimHandler"
     ```
-
-    This allows you to use the new custom claim implementation with WSO2
-    IS.
+    
+This allows you to use the new custom claim implementation with WSO2 IS.
