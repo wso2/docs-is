@@ -156,7 +156,7 @@ Use the following steps to check the PIP module.
     [this](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/Test-Request.xml)
     request.
 
-5.  Please [upload the policy](../../tutorials/creating-a-xacml-policy) into the WSO2
+5.  Please [upload the policy](../../learn/creating-a-xacml-policy) into the WSO2
     Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt

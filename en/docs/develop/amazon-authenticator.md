@@ -138,7 +138,7 @@ The next step is to configure the service provider.
     1.  **Select Mode** : Manual Configuration  
         For more information on the SAML2 Web Single-Sign-On
         Configuration methods, see [Configuring SAML2 Web
-        Single-Sign-On](../../tutorials/configuring-saml2-web-single-sign-on).
+        Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on).
 
     2.  **Issuer** : travelocity.com
 

@@ -14,7 +14,7 @@ authentication.
 
 !!! info 
     -   For more information on SSO authentication, see the [Configuring
-        Single Sign-On](../../tutorials/single-sign-on) tutorial.
+        Single Sign-On](../../learn/single-sign-on) tutorial.
     -   Consent management is enabled by default in WSO2 Identity Server. If
         you wish to disable it, see [Disabling consent management for
         SSO](../../learn/consent-management-with-single-sign-on#disabling-consent-management-for-sso)
@@ -91,7 +91,7 @@ authentication.
 
     Configure the Travelocity sample app as a service provider in WSO2
     Identity Server. For more information on how to do this, see the
-    [Configuring Single Sign-On](../../tutorials/single-sign-on) tutorial.
+    [Configuring Single Sign-On](../../learn/single-sign-on) tutorial.
     
 
 1.  Configure the following service provider claims.

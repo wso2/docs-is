@@ -41,5 +41,5 @@ default time out value.
         Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
         page to setup Single Sign On with WSO2 Identity Server.
     -   See [Single
-        Sign-On](../../tutorials/single-sign-on) for
+        Sign-On](../../learn/single-sign-on) for
         more information.
