@@ -274,7 +274,6 @@ nav:
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
         - 'Password Policies':
-          - 'Password Policies': learn/password-policies.md
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
         - 'Login Policies':
