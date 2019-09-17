@@ -124,7 +124,7 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
 1.  The client application must be set up as a service provider in the
     primary Identity Server instance and this can be done by following
     the instructions given in the [Configuring Single
-    Sign-On](../../tutorials/configuring-single-sign-on)
+    Sign-On](../../learn/configuring-single-sign-on)
     topic.
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and

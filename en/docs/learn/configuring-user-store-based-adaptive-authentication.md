@@ -24,12 +24,12 @@ of authentication.
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
     -   Download and install [Apache Directory
         Studio](http://directory.apache.org/studio/downloads.html).
     -   For more information about adaptive authentication with WSO2
         Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication).
+        Authentication](../../learn/adaptive-authentication).
     
 
 1.  Login to the mangement console.

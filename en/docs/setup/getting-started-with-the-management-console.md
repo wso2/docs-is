@@ -96,7 +96,7 @@ See the following topics for instructions on how to use each of these
 menu items.
 
 -   See [Configuring the Policy Administration
-    Point](../../tutorials/configuring-the-policy-administration-point) for
+    Point](../../learn/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
     Point](Configuring_the_Policy_Decision_Point) for configuring the

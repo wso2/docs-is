@@ -228,7 +228,7 @@ authorization code flow with a signed request object.
 	service provider to only accept signed request objects. For a tutorial
 	on how to enforce signature validation for request objects, See
 	[Enforcing Signature Validation for Request
-	Objects](../../tutorials/enforcing-signature-validation-for-request-objects).
+	Objects](../../learn/enforcing-signature-validation-for-request-objects).
 
   
 

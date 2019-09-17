@@ -11,7 +11,7 @@ entitlement management systems are governed by industry standard
 specifications, hence supporting security requirements for heterogeneous
 applications becomes easy.
 
-Click [here](../../tutorials/access-control) for
+Click [here](../../learn/access-control) for
 more information on Access control.
 
 ### Types of access control
@@ -782,7 +782,7 @@ such scenarios.
 For a set of tutorials that demonstrate how to work with XACML MDP
 requests in WSO2 Identity Server, see [Working with XACML Multiple
 Decision Profile
-Requests](../../tutorials/working-with-xacml-multiple-decision-profile-requests)
+Requests](../../learn/working-with-xacml-multiple-decision-profile-requests)
 .
 
 #### XACML 3.0 JSON Profile
@@ -800,7 +800,7 @@ default XML format with regard to XACML 3.0 requests and responses.
     
     WSO2 Identity Server also supports [working with XACML MDP requests and
     responses in JSON
-    format](../../tutorials/working-with-mdp-requests-in-json-format)
+    format](../../learn/working-with-mdp-requests-in-json-format)
     .
     
 
@@ -1026,7 +1026,7 @@ above request:
 For a tutorial that demonstrate how WSO2 IS supports fine-grained
 authorization using XACML requests in JSON format, see [Fine-grained
 Authorization using XACML Requests in JSON
-Format](../../tutorials/fine-grained-authorization-using-xacml-requests-in-json-format).
+Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format).
 
 #### Administrative Delegation Profile
 

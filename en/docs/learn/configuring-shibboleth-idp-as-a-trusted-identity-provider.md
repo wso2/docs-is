@@ -406,7 +406,7 @@ To configure the service provider, do the following.
 ### Testing the scenario
 
 1.  [Set up the travelocity web
-    application](../../tutorials/configuring-single-sign-on#configuring-the-sso-web-application)
+    application](../../learn/configuring-single-sign-on#configuring-the-sso-web-application)
     and access it from
     `                     http://wso2is.local:8080/travelocity.com                   `.
     

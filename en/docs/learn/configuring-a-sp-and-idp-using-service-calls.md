@@ -350,7 +350,7 @@ console](../../setup/getting-started-with-the-management-console) user interface
       when attempting the instructions in this topic.
 
       -   See [Configuring SAML
-      SSO](../../tutorials/configuring-single-sign-on)
+      SSO](../../learn/configuring-single-sign-on)
       for information on using the travelocity.com application for single
       sign-on. This provides insight on some parameters used.
       -   See [Configuring a Service
