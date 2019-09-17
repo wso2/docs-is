@@ -23,11 +23,11 @@ The following topics discuss the various ways you can configure outbound
 provisioning:
 
 -   [Role Based
-    Provisioning](https://docs.wso2.com/display/IS540/Role+Based+Provisioning)
+    Provisioning](../../learn/role-based-provisioning)
 -   [Rule Based
-    Provisioning](https://docs.wso2.com/display/IS540/Rule+Based+Provisioning)
+    Provisioning](../../learn/rule-based-provisioning)
 -   [Provisioning
-    Patterns](https://docs.wso2.com/display/IS540/Provisioning+Patterns)
+    Patterns](../../learn/provisioning-patterns)
 
 Following documents provide configuration information for SPML and
 Salesforce outbound provisioning connector configurations.
