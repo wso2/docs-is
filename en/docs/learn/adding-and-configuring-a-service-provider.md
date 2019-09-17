@@ -96,12 +96,12 @@ the following:
         Therefore, the certificate is used for the following scenarios:
 
         -   [Configuring single
-            sign-on](../../tutorials/configuring-single-sign-on#configuring-the-service-provider) -
+            sign-on](../../learn/configuring-single-sign-on#configuring-the-service-provider) -
             the certificate is used to validate the signature of the SAML2
             authentication requests and the SAML2 logout requests that are
             sent by the service provider.
         -   [Passing OIDC authentication request
-            parameters](../../tutorials/passing-oidc-authentication-request-parameters-in-a-request-object) -
+            parameters](../../learn/passing-oidc-authentication-request-parameters-in-a-request-object) -
             the certificate is used to:
             -   Encrypt the `                id_token               ` sent
                 to the service provider in the OIDC Authentication Response.
@@ -320,7 +320,7 @@ Follow the instructions below to delete a service provider.
     See the following topics for information on configuring service
     providers using different specifications.
 
-    -   See the [Single Sign-On](../../tutorials/single-sign-on) topic for details on how
+    -   See the [Single Sign-On](../../learn/single-sign-on) topic for details on how
         to configure a service provider for single sign-on using different
         specifications.
     -   See [Identity Provisioning](../../learn/identity-provisioning) for information
@@ -331,12 +331,12 @@ Follow the instructions below to delete a service provider.
     providers in Identity Server.
 
     -   [Logging in to SimpleSAMLphp using Identity
-        Server](../../tutorials/logging-in-to-simplesamlphp-using-identity-server)
+        Server](../../learn/logging-in-to-simplesamlphp-using-identity-server)
     -   [Logging in to Salesforce using the Identity
-        Server](../../tutorials/logging-in-to-salesforce-using-the-identity-server)
+        Server](../../learn/logging-in-to-salesforce-using-the-identity-server)
     -   [Logging in to Salesforce with
-        Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
+        Facebook](../../learn/logging-in-to-salesforce-with-facebook)
     -   [Logging in to Salesforce with Integrated Windows
-        Authentication](../../tutorials/logging-in-to-salesforce-with-integrated-windows-authentication)
+        Authentication](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Logging in to WSO2 Products via the Identity
-        Server](../../tutorials/logging-in-to-wso2-products-via-the-identity-server)
+        Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)
