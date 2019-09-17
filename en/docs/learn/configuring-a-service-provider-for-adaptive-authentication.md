@@ -23,7 +23,7 @@ WSO2 IS.
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
         version 8.\*.\* or higher.
     
-    2.  Install WSO2 IS version 5.7.0. by downloading the
+    2.  Install WSO2 IS latest version by downloading the
         [installer](https://wso2.com/identity-and-access-management/install/)
         .
     3.  Open the `            /etc/hosts           ` file, add the following
