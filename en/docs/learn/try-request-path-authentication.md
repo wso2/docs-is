@@ -13,7 +13,7 @@ information.
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **OAuth2/OpenID Connect Configuration** and click **Configure.**
     For more information, see [Configuring OAuth/OpenID
-    Connect](../../tutorials/configuring-oauth2-openid-connect-single-sign-on).
+    Connect](../../learn/configuring-oauth2-openid-connect-single-sign-on).
     
     !!! info 
         Use the following **Callback URL** when configuring OAuth for WSO2
