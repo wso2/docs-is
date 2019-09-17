@@ -467,7 +467,6 @@ nav:
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
-          - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
