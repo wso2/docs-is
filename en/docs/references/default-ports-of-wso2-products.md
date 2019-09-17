@@ -10,12 +10,12 @@ For example, if you are running two WSO2 products on the same server,
 and you set the port offset to 1 in one product and 2 in the second
 product, the management console port will be changed from the default of
 9443 to 9444 in the first product and to 9445 in the second product. See
-[here](#DefaultPortsofWSO2Products-offset) for more information on
+[here](#changing-the-offset-for-default-ports) for more information on
 changing the offset.
 
--   [Common ports](#DefaultPortsofWSO2Products-Commonports)
+-   [Common ports](#common-ports)
 -   [Product-specific
-    ports](#DefaultPortsofWSO2Products-Product-specificports)
+    ports](#product-specific-ports)
 
 ### Common ports
 
@@ -24,12 +24,12 @@ given feature. Some features are bundled in the WSO2 Carbon platform
 itself and therefore are available in all WSO2 products by default.
 
 [Management console
-ports](#DefaultPortsofWSO2Products-Managementconsoleports) \| [LDAP
-server ports](#DefaultPortsofWSO2Products-LDAPserverports) \| [KDC
-ports](#DefaultPortsofWSO2Products-KDCports) \| [JMX monitoring
-ports](#DefaultPortsofWSO2Products-JMXmonitoringports) \| [Clustering
-ports](#DefaultPortsofWSO2Products-Clusteringports) \| [Random
-ports](#DefaultPortsofWSO2Products-Randomports)
+ports](#management-console-ports) \| [LDAP
+server ports](#ldap-server-ports) \| [KDC
+ports](#kdc-ports) \| [JMX monitoring
+ports](#jmx-monitoring-ports) \| [Clustering
+ports](#clustering-ports) \| [Random
+ports](#random-ports)
 
 #### Management console ports
 
@@ -90,18 +90,18 @@ every time the server is started.
 
 Some products open additional ports.
 
-[API Manager](#DefaultPortsofWSO2Products-APIManager) \|
-[BAM](#DefaultPortsofWSO2Products-BAM) \|
-[BPS](#DefaultPortsofWSO2Products-BPS) \| [Data Analytics
-Server](#DefaultPortsofWSO2Products-DataAnalyticsServer) \| [Complex
-Event Processor](#DefaultPortsofWSO2Products-ComplexEventProcessor) \|
-[Elastic Load Balancer](#DefaultPortsofWSO2Products-ElasticLoadBalancer)
-\| [ESB](#DefaultPortsofWSO2Products-ESB) \| [Identity
-Server](#DefaultPortsofWSO2Products-IdentityServer) \| [Message
-Broker](#DefaultPortsofWSO2Products-MessageBroker) \| [Machine
-Learner](#DefaultPortsofWSO2Products-MachineLearner) \| [Storage
-Server](#DefaultPortsofWSO2Products-StorageServer) \| [Enterprise
-Mobility Manager](#DefaultPortsofWSO2Products-EnterpriseMobilityManager)
+[API Manager](#api-manager) \|
+[BAM](#bam) \|
+[BPS](#bps) \| [Data Analytics
+Server](#data-analytics-server) \| [Complex
+Event Processor](#complex-event-processor) \|
+[Elastic Load Balancer](#elastic-load-balancer)
+\| [ESB](#esb) \| [Identity
+Server](#identity-server) \| [Message
+Broker](#message-broker) \| [Machine
+Learner](#machine-learner) \| [Storage
+Server](#storage-server) \| [Enterprise
+Mobility Manager](#enterprise-mobility-manager)
 
 ##### API Manager
 
@@ -115,7 +115,7 @@ Mobility Manager](#DefaultPortsofWSO2Products-EnterpriseMobilityManager)
     If you change the default API Manager ports with a port offset, most of
     its ports will be changed automatically according to the offset except a
     few exceptions described in the [APIM Manager
-    documentation](https://docs.wso2.org/api-manager/Changing+the+Default+Ports+with+Offset)
+    documentation](https://https://docs.wso2.com/display/AM200/Changing+the+Default+Ports+with+Offset)
     .
     
 
@@ -140,8 +140,6 @@ Mobility Manager](#DefaultPortsofWSO2Products-EnterpriseMobilityManager)
 -   For a list of Apache Spark related ports, see [WSO2 Data Analytics
     Server Documentation  - Spark
     Configurations](http://docs.wso2.com/data-analytics-server/Spark%20Configurations)
-    [s](http://docs.wso2.com/data-analytics-server#Spark%20Configurations)
-    .
 
 ##### Complex Event Processor
 
