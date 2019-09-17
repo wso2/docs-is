@@ -77,7 +77,7 @@ played a major role in building the SPML 1.0.
 1.  [Information Technology Markup Language
     (ITML)](http://xml.coverpages.org/itml.html)
 2.  [Active Digital Profile (ADPr)](http://xml.coverpages.org/adpr.html)
-3.  [eXtensible Resource Provisioning Management
+3.  [Extensible Resource Provisioning Management
     (XRPM)](http://xml.coverpages.org/xrpm.html)
 
 [SPML

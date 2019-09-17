@@ -3,7 +3,7 @@
 Inbound provisioning involves provisioning users or groups to the WSO2
 Identity Server’s user store via an external application. For more
 information, see [Inbound
-provisioning](../../learn/identity-Provisioning#inbound-provisioning)
+provisioning](../../learn/identity-provisioning#inbound-provisioning)
 .
 
 The following documentation provides information on configuring WSO2
