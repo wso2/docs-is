@@ -63,7 +63,7 @@ Follow the steps provided below to configure this.
     !!! note
     
         If you have additional authorization endpoints, you need to include
-        the [login.do](http://login.do) URL paths of these endpoints in the
+        the `login.do` URL paths of these endpoints in the
         **captcha-config.properties** file in the following pattern. Here,
         url\_path is the URL without the host parameters.
     
@@ -78,7 +78,7 @@ Follow the steps provided below to configure this.
             recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
         ```
     
-5\.  Restart the WSO2 IS server.
+5.  Restart the WSO2 IS server.
 
 You have successfully set up reCaptcha for your site. You can now
 configure reCaptcha with any of the following:
@@ -89,4 +89,3 @@ configure reCaptcha with any of the following:
     registration](../../learn/configuring-recaptcha-for-self-registration)
 -   [Configuring Google reCaptcha for security-question based password
     recovery](../../learn/configuring-recaptcha-for-security-question-based-password-recovery)
-    (password recovery with secret questions)
