@@ -10,7 +10,7 @@ authenticate users using their Facebook credentials.
     Identity provider so that it acts as a federated authenticator. **Check
     out the [Logging in to your application via Identity Server using
     Facebook
-    Credentials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+    Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
     tutorial** to try out an end to end scenario of using Facebook as a
     federated authenticator.
     
@@ -115,5 +115,5 @@ You have now added the identity provider.
 	-   See the following topics for samples of configuring Facebook for
 		federated authentication:
 		-   [Logging in to your application via Identity Server using
-			Facebook Credentials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
-		-   [Logging in to Salesforce with Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
+			Facebook Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+		-   [Logging in to Salesforce with Facebook](../../learn/logging-in-to-salesforce-with-facebook)

@@ -534,21 +534,21 @@ management console. The next step is to run the sample.
 !!! Info "Related Topics"
 	   To configure single sign on with different standards or protocols,see the following topics:
 
-	   * [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on)
+	   * [Configuring Single Sign-On](../../learn/configuring-single-sign-on)
 
-	   * [SAML 2.0 Web SSO](../../tutorials/saml-2.0-web-sso)
+	   * [SAML 2.0 Web SSO](../../learn/saml-2.0-web-sso)
 
-	   * [WS-Trust](../../tutorials/ws-trust)
+	   * [WS-Trust](../../learn/ws-trust)
 
-	   * [WS-Federation](../../tutorials/ws-federation)
+	   * [WS-Federation](../../learn/ws-federation)
 
-           * [Integrated Windows Authentication](../../tutorials/integrated-windows-authentication)
+           * [Integrated Windows Authentication](../../learn/integrated-windows-authentication)
 
-           * [OAuth2-OpenID Connect](../../tutorials/oauth2-openid-connect)
+           * [OAuth2-OpenID Connect](../../learn/oauth2-openid-connect)
 	  
 	   To set up reCaptcha for single sign on, see the following page:
 
-	   * [Configuring reCaptcha for Single Sign On](../../tutorials/configuring-recaptcha-for-single-sign-on).
+	   * [Configuring reCaptcha for Single Sign On](../../learn/configuring-recaptcha-for-single-sign-on).
 
 	  To configure single sign on for Microsoft Sharepoint web applications with the WSO2 Identity Server, see the following article:
 

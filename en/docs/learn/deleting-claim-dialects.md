@@ -26,7 +26,8 @@ located in the `         <IS_HOME>/repository/conf        ` folder. A
 sample claim dialect is given below.
 
 ``` java
-<Dialect dialectURI="http://wso2.org/SampleAppClaims">    <Claim>
+<Dialect dialectURI="http://wso2.org/SampleAppClaims">
+    <Claim>
         <ClaimURI>http://wso2.org/SampleAppClaims/givenname</ClaimURI>
         <DisplayName>First Name</DisplayName>
         <MappedLocalClaim>http://wso2.org/claims/givenname</MappedLocalClaim>

@@ -17,7 +17,7 @@ to use this sample.
     4.  Click **Register** to add the new service provider.
 2.  Expand the **Inbound Authentication Configuration** section and
     [configure OAuth/OpenID
-    Connect.](../../tutorials/configuring-oauth2-openid-connect-single-sign-on)
+    Connect.](../../learn/configuring-oauth2-openid-connect-single-sign-on)
 
     !!! note 
         You can use the following **Callback URL** when configuring

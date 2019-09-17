@@ -1,6 +1,6 @@
 # Password Patterns
 
-WSO2 Identity Server allows you to define custom password policies
+WSO2 Identity Server (IS) allows you to define custom password policies
 and enforce them at the point of user creation. This topic guides you
 through configuring a simple custom password policy and enforcing it.
 You can also have a different password policy for each tenant in a
@@ -14,10 +14,9 @@ multi-tenant environment.
 4.  Expand the **Password Patterns** tab and select **Enable Password
     Policy Feature**. Update the default values and click **Update**.
     
- ![password-policies](../../assets/img/using-wso2-identity-server/password-policies.png) 
- 
+    ![password-policies](../../assets/img/using-wso2-identity-server/password-policies.png) 
 
-   !!! note "Configuring password policies for multiple tenants"
+    !!! note "Configuring password policies for multiple tenants"
         To configure this separately for different tenants in a
         multi-tenant environment, first login with Tenant A credentials and
         configure the password policy. Next, logout and login again with
@@ -62,6 +61,7 @@ multi-tenant environment.
     </tr>
     </tbody>
     </table>
+
 
 !!! info "Related Links"
 

@@ -8,7 +8,7 @@ etc.
 
 [Outbound Provisioning](../../learn/outbound-provisioning) is supported via
 [SCIM](https://tools.ietf.org/html/rfc7644#section-3.2) or
-[SPML](https://docs.oasis-open.org/provision/spml-2.0-cd-01/pstc-spml2-cd-01.pdfhttps://docs.oasis-open.org/provision/spml-2.0-cd-01/pstc-spml2-cd-01.pdf)
+[SPML](https://docs.oasis-open.org/provision/spml-2.0-cd-01/pstc-spml2-cd-01.pdf)
 standards. There are [outbound provisioning
 connectors](https://store.wso2.com/store/assets/isconnector/list) for
 Google and Salesforce available by default in the Identity Server. If
@@ -54,7 +54,7 @@ identity provider in the Identity Server.
 5.  Fill out the details in the form.  
     ![scim-config-form](../../assets/img/using-wso2-identity-server/scim-config-form.png)   
     Do the configurations as described in [Configuring SCIM
-    provisioning](configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-scim-provisioning)
+    provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider)
     . The following are the configurations in brief.
 
     -   Select **Enable Connector** to enable identity provisioning.
