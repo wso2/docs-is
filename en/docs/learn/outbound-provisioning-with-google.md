@@ -106,7 +106,7 @@ Google domain yet? Follow the steps given here.
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
         1.  Paste the [Client ID value you copied
-            previously](outbound-provisioning-with-google#copy)
+            previously](../../learn/outbound-provisioning-with-google#copy)
             as the value for Client Name.
         2.  Enter
             `                             https://www.googleapis.com/auth/admin.directory.user,https://www.googleapis.com/auth/admin.directory.orgunit,https://www.googleapis.com/auth/admin.directory.group                           `
@@ -159,7 +159,7 @@ Provider.
     log in using the email you configured for the realm configurations
     as instructed above in [step 2 of Configuring the Identity Server to
     use the email address as the
-    username](outbound-provisioning-with-google#email).
+    username](../../learn/outbound-provisioning-with-google#email).
 2.  On the Management Console, click on **Add** under **Identity
     Providers**.
 3.  In the form that appears, provide a name for your identity provider
@@ -206,7 +206,7 @@ Provider.
             3.  Note the service account ID of your service account.
 
     7.  Attach the private key you downloaded in [step 4.e under
-        Configuring Google](outbound-provisioning-with-google#create) as
+        Configuring Google](../../learn/outbound-provisioning-with-google#create) as
         the **Private Key**.
     8.  Enter the email address you created using your domain before
         starting this tutorial as the Administrator's Email.
