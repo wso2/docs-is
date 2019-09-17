@@ -47,18 +47,18 @@ instructions on how to set up these repositories.
 
 ### Updating the administrator
 
-The `          <Configuration>         ` section at the top of the
-`          <PRODUCT_HOME>/repository/conf/user-mgt.xml         ` file
-allows you to configure the administrator user in your system as well as
+The deployment.toml file allows you to configure the administrator user in your system as well as
 the RDBMS that will be used for storing information related to user
 authentication (i.e. role-based permissions).
 
 ```xml
-[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true
-admin_role = "admin"
+    [super_admin]
+    create_admin_account= true
+    admin_role = "admin"
+    username = "admin"
+    password = "admin"
+    create_admin_account= true
+```
 
 Note the following regarding the configuration above.
 
@@ -82,10 +82,6 @@ Note the following regarding the configuration above.
 <td><code>              admin_role = "wso2admin"            </code></td>
 <td>This is the role that has all administrative privileges of the WSO2 product, so all users having this role are admins of the product. You can provide any meaningful name for this role. This role is created in the internal H2 database when the product starts. This role has permission to carry out any actions related to the Management Console. If the user store is read-only, this role is added to the system as a special internal role where users are from an external user store.</td>
 </tr>
-<tr class="odd">
-<td><code>              &lt;AdminUser&gt;             </code></td>
-<td><p>Configures the default administrator for the WSO2 product. If the user store is read-only, the admin user must exist in the user store or the system will not start. If the external user store is read-only, you must select a user already existing in the external user store and add it as the admin user that is defined in the <code>               &lt;AdminUser&gt;              </code> element. If the external user store is in read/write mode, and you set <code>               create_admin_account              </code> to <code>               true              </code>, the user you specify will be automatically created.</p></td>
-</tr>
 <tr class="even">
 <td><code>              username          </code></td>
 <td>This is the username of the default administrator or super tenant of the user store. If the user store is read-only, the admin user MUST exist in the user store for the process to work.</td>
@@ -95,7 +91,7 @@ Note the following regarding the configuration above.
 <td><p>Do NOT put the password here but leave the default value. If the user store is read-only, this element and its value are ignored. This password is used only if the user store is read-write and the <code>            create_admin_account           </code> value is set to <code>               true              </code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-    <p>Note that the password in the <code>               user-mgt.xml              </code> file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the <code>               user-mgt.xml              </code> file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the <code>               user-mgt.xml              </code> file. To change the admin password, you must use the <strong>Change Password</strong> option from the management console. See the <a href="#related-topics">related topics</a> for instructions.
+    <p>Note that the password in the <code>               deployment.toml              </code> file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the <code>               deployment.toml             </code> file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the <code>               deployment.toml             </code> file. To change the admin password, you must use the <strong>Change Password</strong> option from the management console. See the <a href="#related-topics">related topics</a> for instructions.
     </p></div></td>
 </tr>
 <tr class="even">
@@ -105,12 +101,13 @@ Note the following regarding the configuration above.
 </tbody>
 </table>
 
-!!! info "Related Topics"
+<a name="related-topics"></a>
 
+!!! info "Related Topics"
     -   [Configuring the Primary User
         Store](../../learn/configuring-the-primary-user-store)
     -   [Configuring the Authorization
         Manager](../../learn/configuring-the-authorization-manager)
-    -   [Performance tuning](../../learn/performance-tuning-recommendations)
+    -   [Performance tuning](../../administer/performance-tuning-recommendations)
     -   [Changing a
         Password](../../learn/configuring-users#changing-a-user's-password)
