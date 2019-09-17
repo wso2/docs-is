@@ -243,6 +243,7 @@ above figure and video.
 </thead>
 <tbody>
 <tr class="odd">
+<a name="service-provider-section"></a>
 <td>Service providers</td>
 <td><div class="content-wrapper">
 <p><img src="../../assets/img/getting-started/service-provider.png" title = "service providers" alt="service providers"></p>
