@@ -80,27 +80,27 @@
                 </tbody>
             </table>   
         
-        6.  Add the following property to the ` identity.xml    ` file under the `  <ResourceControlAccess> ` tag to secure the WebAuthn endpoints.
+        6.  Add the following property to the `deployment.toml` to secure the WebAuthn endpoints.
             ```xml
-            <Resource context="(.*)/api/users/v1/me/webauthn(.*)" secured="true" http-method="all"/>
+            [[resource.access_control]]
+            context = "(.*)/api/users/v1/me/webauthn(.*)"
+            secured = true
+            http_method = "all"            
             ```
 
-        7.  Add the following property to the `identity.xml` file under the `<TenantContextsToRewrite>`tag
+        7.  Then add the following property.
             ```xml
-            <Context>/api/users/v1/</Context>
+            [tenant_context.rewrite]
+            webapps= ["/api/users/v1/"]
             ```
-
-        8.  Add the following property to the application-authentication.xml file found in the `<IS_HOME>/repository/conf/identity `folder within the `<AuthenticatorConfig  name="FIDOAuthenticator">` tag.
-            ```xml
-            <Parameter name="Fido2Auth">/authenticationendpoint/fido2-auth.jsp</Parameter>
-            ```
-        9.  Restart the server using one of the following commands.
+            
+        8.  Restart the server using one of the following commands.
             
             a.  Linux/Unix: sh wso2server.sh
 
             b.  Windows: wso2server.bat
 
-        10. Once you have restarted the server, navigate to the extracted authenticationendpoint folder found in the `<CARBON_SERVER>/repository/deployment/server/webapps/` folder and merge any customizations to the new artifact using the backup copy of the file you took in step 2 as a reference.
+        9. Once you have restarted the server, navigate to the extracted authenticationendpoint folder found in the `<CARBON_SERVER>/repository/deployment/server/webapps/` folder and merge any customizations to the new artifact using the backup copy of the file you took in step 2 as a reference.
                                                                                                                                                          
 The following topics provide details and instructions on how to
 configure multi-factor authentication (MFA) using the WSO2 Identity
@@ -222,16 +222,11 @@ multi-factor authentication using the WSO2 Identity Server.
 !!! tip "Before you begin"
     
     If you are using a reverse proxy enabled setup, configure the relevant
-    server URL as the `         AppID        ` under the
-    **`          FidoAuthenticator         `** of the
-    `         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
-    file.
+    server URL as the `AppID`.
     
-    ``` java
-    <AuthenticatorConfig  name="FIDOAuthenticator" enabled="true">
-        .................................
-        <Parameter name="AppID">https://hostname</Parameter>
-    </AuthenticatorConfig>
+    ``` xml
+    [authentication.authenticator.fido.parameters]
+    app_id="https://hostname"
     ```
 
 

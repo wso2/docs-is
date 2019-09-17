@@ -296,9 +296,7 @@ Follow the instructions below to edit a service provider's details.
 3.  Locate the service provider you want to edit and click on the
     corresponding **Edit** link.  
     ![edit-sp](../../assets/img/using-wso2-identity-server/edit-sp.png)
-4.  You are directed to the edit screen. See
-    [here](../../learn/adding-and-configuring-a-service-provider) for details on
-    the editable form.
+4.  You are directed to the edit screen.
 
 #### Deleting service providers
 
