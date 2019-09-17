@@ -10,7 +10,7 @@ hiding the lower level implementation. Claims are also used in identity
 propagation which is the replication of authenticated **identities**,
 by packaging the claims into one or more tokens (such as SAML). These
 tokens are then issued by an issuer (eg., [security token
-service](../../key-concepts/single-sign-on-and-identity-federation#ws-trust)
+service](../../learn/configuring-ws-trust-security-token-service#ws-trust)
 
 The Claim Management component of [WSO2
 Carbon](https://docs.wso2.com/display/Carbon4411/WSO2+Carbon+Documentation)
@@ -18,7 +18,7 @@ allows you to map a set of attributes from the underlying user store to
 a set of defined claims. The underlying user store can either be an
 internal or external JDBC user store, Active Directory or LDAP user
 store. You can configure the [primary user store using the deployment.toml
-file](../../using-the-identity-server/configuring-the-primary-user-store#setting-up-the-primary-user-store)
+file](../../learn/configuring-the-primary-user-store)
 . Each claim can be uniquely identified within the claim dialect by the
 Claim URI. Claim URIs are independent from the user store and each claim
 URI can be mapped into any desired attribute in the user store.
@@ -43,7 +43,7 @@ application as it is hidden by the claim management.
     file after the first startup would not have any effect.
 
     For more information on SCIM, click
-    [here](../../using-the-identity-server/identity-provisioning-and-its-standards)
+    [here](../../get-started/identity-provisioning-and-its-standards)
     .
 
 A set of claims is identified as a dialect. Different dialects represent
