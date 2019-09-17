@@ -464,7 +464,7 @@ relevant configurations according to the features you are using.
                                 ``` java
                                 <SLOHostNameVerificationEnabled>true</SLOHostNameVerificationEnabled>
                                 ```
-                                <p>For more information on configuring hostname verification, see the info note at the bottom of the [Configuring WS-Federation](../../tutorials/configuring-ws-federation)page.</p>
+                                <p>For more information on configuring hostname verification, see the info note at the bottom of the [Configuring WS-Federation](../../learn/configuring-ws-federation)page.</p>
                                 <p>Listeners and properties related to analytics in WSO2 Identity Server were added. For more information, see [Prerequisites to Publish Statistics](../../using-wso2-is/prerequisites-to-publish-statistics).</p>
                                 <p><b>Listeners</b></p>
                                 ``` java
@@ -3379,7 +3379,7 @@ relevant configurations according to the features you are using.
                             ```
                             <hr>
                             <p>Add the following claims within the root tag. This new claim dialect and the claims within it are required for eiDAS.</p>
-                            <p>For more information, see [eIDAS SAML Attribute Profile Support via WSO2 Identity Server](../../tutorials/eidas-saml-attribute-profile-via-wso2-identity-server).</p>
+                            <p>For more information, see [eIDAS SAML Attribute Profile Support via WSO2 Identity Server](../../learn/eidas-saml-attribute-profile-via-wso2-identity-server).</p>
                             <details class="note" open="">
                                 <summary>click here to view the claims</summary>
                                 <p>

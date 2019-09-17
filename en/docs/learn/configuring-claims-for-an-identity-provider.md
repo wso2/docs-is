@@ -185,8 +185,8 @@ See the following topics for samples of claim mapping for an identity
 provider.
 
 -   [Logging in to your application via Identity Server using Facebook
-    Credentials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+    Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
 -   [Logging in to Salesforce with
-    Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
+    Facebook](../../learn/logging-in-to-salesforce-with-facebook)
 -   [Outbound Provisioning with
     Salesforce](../../learn/outbound-provisioning-with-salesforce)

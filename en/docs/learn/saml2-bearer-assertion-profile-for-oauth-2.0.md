@@ -45,4 +45,4 @@ token to the authorization server and exchanging it directly to an OAuth
     see [Setting up a SAML2 Bearer Assertion Profile for OAuth
     2.0](../../learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0).
 -   For more information on how to use SAML2.0 assertions for client
-    authentication, see [SAML 2.0 Web SSO](../../tutorials/saml-2.0-web-sso).
+    authentication, see [SAML 2.0 Web SSO](../../learn/saml-2.0-web-sso).

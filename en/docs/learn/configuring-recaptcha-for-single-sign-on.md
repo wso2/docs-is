@@ -6,7 +6,7 @@ attacks.
 
 !!! Info 
     -   For more information on configuring single sign on, see [Configuring
-    Single Sign-On](../../tutorials/configuring-single-sign-on).
+    Single Sign-On](../../learn/configuring-single-sign-on).
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks](../../administer/mitigating-brute-force-attacks).
 
