@@ -46,13 +46,3 @@ supported by WSO2 Identity Server.
     **Note:** By default, issuing ID token for
     `         client_credentials        ` grant type is disabled as it is
     logically invalid.
-    
-    ``` xml
-    <SupportedGrantType>
-        <GrantTypeName>client_credentials</GrantTypeName>
-        <GrantTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.token.handlers.grant.ClientCredentialsGrantHandler</GrantTypeHandlerImplClass>
-        <IsRefreshTokenAllowed>false</IsRefreshTokenAllowed>
-        <IdTokenAllowed>false</IdTokenAllowed>
-    </SupportedGrantType>
-    ```
-    
