@@ -9,7 +9,7 @@ resource owners to control the access to their protected resources.
 
   
 
-![user-managed-access-diagram]( ../../assets/img/using-wso2-identity-server/user-managed-access-diagram.png) 
+![user-managed-access-diagram](../assets/img/using-wso2-identity-server/user-managed-access-diagram.png) 
 
 There are five main roles in a UMA workflow:
 
