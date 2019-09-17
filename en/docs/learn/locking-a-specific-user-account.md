@@ -76,11 +76,8 @@ account locking, expand the section below for instructions.
 ### Enable claims for account locking
 
 1.  Navigate to **Claims\>List** on the **Configure** menu and select
-    the
-    [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
-    claim dialect.  
-    For more information about claims, see [Claim
-    Management](../../learn/claim-management).
+    the `http://wso2.org/claims` claim dialect.  
+    For more information about claims, see [Claim Management](../../learn/claim-management).
 2.  Select the Account Locked claim and click **Edit**.  
     ![account-locked-claim](../../assets/img/using-wso2-identity-server/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
@@ -189,18 +186,18 @@ below.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
-    ``` toml
-   [output_adapter.email]
-   from_address= "wso2iamtest@gmail.com"
-   username= "wso2iamtest"
-   password= "Wso2@iam70"
-   hostname= smtp.gmail.com
-   port= 587
-   enable_start_tls= true
-   enable_authentication= true
-    ```
+       ``` toml
+       [output_adapter.email]
+       from_address= "wso2iamtest@gmail.com"
+       username= "wso2iamtest"
+       password= "Wso2@iam70"
+       hostname= smtp.gmail.com
+       port= 587
+       enable_start_tls= true
+       enable_authentication= true
+       ```
 
-3.  Restart the server.
+2.  Restart the server.
 
     !!! tip
         The email template used to send the email notification for
