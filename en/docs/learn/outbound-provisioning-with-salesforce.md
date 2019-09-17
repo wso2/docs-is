@@ -234,7 +234,7 @@ Provider.
     information on registering and configuring an identity provider.
 4.  Upload the Salesforce public certificate that you generated and
     saved in [step 7 under Configuring
-    Salesforce](../../learn/outbound-provisioning-with-salesforce)
+    Salesforce](../../learn/outbound-provisioning-with-salesforce#public)
     .  
     Do this by clicking the **Choose File** button next to **Identity
     Provider Public Certificate**.
@@ -299,7 +299,7 @@ Provider.
     Salesforce.  
     For example, the alias, email, profile ID and all the values listed
     below are [shown when a user is
-    created](../../learn/outbound-provisioning-with-salesforce).  
+    created](../../learn/outbound-provisioning-with-salesforce#usershown).  
     These are sample values to help you understand better about claim
     URI and its value types.
     <table>
@@ -430,7 +430,7 @@ Provider.
 
     4.  Enter the **Client ID**. This is the Consumer Key obtained in
         [step 5 when configuring
-        Salesforce](../../learn/outbound-provisioning-with-salesforce)
+        Salesforce](../../learn/outbound-provisioning-with-salesforce#step5)
         .
 
         ??? note "Did not save the details? Click here for more information on getting the details."
@@ -446,7 +446,7 @@ Provider.
 
     5.  Enter the **Client Secret**. This is the Consumer Secret
         obtained in [step 5 when configuring
-        Salesforce](../../learn/outbound-provisioning-with-salesforce)
+        Salesforce](../../learn/outbound-provisioning-with-salesforce#step5)
         .
     6.  Enter the **Username**. This is the Salesforce username.
     7.  Enter the **Password**. This is the Salesforce password and
