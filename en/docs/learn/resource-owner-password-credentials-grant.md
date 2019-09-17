@@ -19,8 +19,6 @@ grant flow.
 
 ![oauth-resource-owner-diagram](../../assets/img/using-wso2-identity-server/oauth-resource-owner-diagram.png)
 
-**Support for [refresh token grant](../../learn/refresh-token-grant)** - **Yes**
-
 The cURL commands below can be used to try this grant type.
 
 ``` powershell
@@ -40,6 +38,10 @@ You will receive a response similar to the format below.
 ``` java
 {"token_type":"Bearer","expires_in":2510,"refresh_token":"5ba3dedc77581df5f84f9b228eef0b91","access_token":"ca19a540f544777860e44e75f605d927"}
 ```
+
+!!! info "Support for refresh token grant - Yes"
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+	
 
 !!! info "Related Topics"
     See the [Try Password Grant](../../learn/try-password-grant) topic to try out
