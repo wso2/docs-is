@@ -17,7 +17,7 @@ the regions of the users authenticated though WSO2 Identity Server.
         mysql -u <MYSQL_USERNAME> -p
         ```
 
-        Provide the `             mysql password            ` when
+        Provide the mysql password when
         prompted.
 
     2.  Create the database by executing the following command.
@@ -77,7 +77,7 @@ the regions of the users authenticated though WSO2 Identity Server.
                 mysqlimport -u <mysql username> -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <PATH_OF_LOCATION.csv_FILE>
         ```
 
-        Provide the `             mysql password            ` when
+        Provide the mysql password when
         prompted.
 
 5.  Download a JDBC provider depending on the database you are using
@@ -135,7 +135,7 @@ the regions of the users authenticated though WSO2 Identity Server.
     
         Follow the steps below to load test data to the system.
     
-        1.  Naviagte to the
+        1.  Navigate to the
             `            <IS_ANALYTICS_HOME>/samples/sample-clients/is-analytics-client           `
             directory on a command prompt.
         2.  Run the following command.
