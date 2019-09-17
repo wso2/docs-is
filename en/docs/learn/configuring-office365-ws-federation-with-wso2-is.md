@@ -72,8 +72,9 @@ the instructions in the sections below to set this up.
     the **Main** tab.
 4.  Expand the **Inbound Authentication Configuration** section and then
     expand **WS-Federation (Passive) Configuration**.
-5.  Enter " `          wso2.microsoft"         ` as the **Identity
-    Provider Entity Id** value.  
+5.  Enter " `          wso2.microsoft         `" as the **Identity
+    Provider Entity Id** value. 
+     
     ![configure-wso2-is-issuer](../../assets/img/tutorials/configure-wso2-is-issuer.png)
 
 ### Configuring the claims
@@ -176,7 +177,7 @@ To disable the claims, do the following.
 1.  Click **List** under **Claims** and select the
     [http://wso2.org/claims](https://localhost:9443/carbon/identity-claim-mgt/list-local-claims.jsp)
     dialect.
-2.  Click Edit next to the following claims and unselect the **Supported
+2.  Click **Edit** next to the following claims and unselect the **Supported
     by Default** checkbox to disable the claim.
     -   Country
     -   Organization
@@ -204,9 +205,9 @@ To disable the claims, do the following.
 
     | Service Provider Claim                           | Local Claim     |  Requested Claim                                                  |
     |--------------------------------------------------|-----------------|-------------------------------------------------------------------|
-    | http://schemas.microsoft.com/ws/2008/06/identity/claims/role       | [http://wso2.org/claims/](http://wso2.org/claims/objectguid) role | Selected (True) |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/role       | http://wso2.org/claims/role                                       | Selected (True) |
     | http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID | http://wso2.org/claims/objectguid                                 | Selected (True) |
-    | http://schemas.xmlsoap.org/claims/UPN                              | <http://wso2.org/claims/upn>                                      | Selected (True) |
+    | http://schemas.xmlsoap.org/claims/UPN                              | http://wso2.org/claims/upn                                        | Selected (True) |
 
     ![claim-uri](../../assets/img/tutorials/claim-uri.jpg)
 
@@ -214,7 +215,7 @@ To disable the claims, do the following.
     `                       http://schemas.xmlsoap.org/claims/UPN                     `
     as the **Subject Claim URI** and
     `                       http://schemas.microsoft.com/ws/2008/06/identity/claims/role                     `
-    as the **Role Claim UR** I.
+    as the **Role Claim URI**.
 
 6.  Click **Update** to save changes.
 
