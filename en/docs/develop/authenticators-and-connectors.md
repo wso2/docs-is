@@ -2,8 +2,7 @@
 
 !!! tip "Before you begin"
     
-    Download [WSO2 Identity
-    Server](https://wso2.com/identity-and-access-management).
+    Download [WSO2 Identity Server](https://wso2.com/identity-and-access-management).
     
 
 Each authenticator provides you a way to authenticate the user using

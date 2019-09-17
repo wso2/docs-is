@@ -34,7 +34,7 @@ following sections.
     !!! note    
         If you want to upgrade the Amazon Authenticator (.jar) in your
         existing IS pack, please refer [upgrade
-        instructions.](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions)
+        instructions.](../../develop/upgrading-an-authenticator)
     
 
 2.  Navigate to <http://login.amazon.com/>, click **App Console.**
@@ -74,8 +74,7 @@ app](../../connectors/deploying-the-sample-app).
 
 Now you must configure the WSO2 Identity Server by [adding a new
 identity
-provider](../../learn/configuring-an-identity-provider)
-.
+provider](../../learn/adding-and-configuring-an-identity-provider).
 
 1.  Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/) and [run
@@ -88,8 +87,7 @@ provider](../../learn/configuring-an-identity-provider)
 4.  Give a suitable name for **Identity Provider Name** (e.g., Amazon)
     and click **Register**.
 
-5.  Navigate to the **Amazon Configurations** under ****Federated
-    Authenticators****
+5.  Navigate to the **Amazon Configurations** under **Federated Authenticators**
     -   In IS 5.1.0 or 5.2.0, go to **AmazonAuthenticator
         Configuration** under **Federated Authenticators**.
     -   In IS 5.3.0, go to **Amazon Configuration** under **Federated
@@ -108,7 +106,11 @@ provider](../../learn/configuring-an-identity-provider)
     -   Select both checkboxes **Enable** and **Default** to enable the
         Amazon Authenticator and to make it the default authenticator.
 
-        ![Add New Identity Provider screen](../../assets/img/connectors/add-new-identity-provider-as-amazon.png) 
+    IS 5.3.0:
+    ![Add New Identity Provider screen](../../assets/img/connectors/add-new-identity-provider-as-amazon.png) 
+
+    IS 5.1.0/IS 5.2.0:
+    ! [Add New IDP for older versions](../../assets/img/connectors/amazon-idp-older-version.png)
 
 7.  Click **Update**.
 
@@ -117,6 +119,9 @@ You have now added the identity provider.
 ### Step 4 - Configure the service provider
 
 The next step is to configure the service provider.
+
+#### Configuring a service provider with IS 5.3.0 upwards
+
 1.  Return to the management console.
 
 2.  In the **Service Providers** section under the **Main** tab, click
@@ -173,8 +178,43 @@ The next step is to configure the service provider.
 
 You have now added and configured the service provider.
 
+#### Configuring a service provider with IS 5.1.0 or IS 5.2.0
+
+1.  Return to the management console.
+
+2.  In the **Service Providers** section under the **Main** tab, click **Add**.
+
+3.  Since you are using travelocity as the sample, enter travelocity.com in the **Service Provider Name** text box and click **Register**.
+
+4.  In the **Inbound Authentication Configuration** section, click **Configure** under the **SAML2 Web SSO Configuration** section.
+
+5.  Now set the configuration as follows:
+    1.  **Issuer**: travelocity.com
+    2.  **Assertion Consumer URL**: http://localhost:8080/travelocity.com/home.jsp
+
+6.  Select the following check-boxes:
+    1.  Enable Response Signing.
+    2.  Enable Single Logout.
+    3.  Enable Attribute Profile.
+    4.  Include Attributes in the Response Always.
+
+7.  Click **Update** to save the changes. Now you will be sent back to the **Service Providers** page.
+
+8.  Go to the **Local and Outbound Authentication Configuration** section.
+
+9.  Select the identity provider you created from the drop-down list under **Federated Authentication**.
+
+    ![amazon-federated-auth](../../assets/img/connectors/amazon-federated-auth.png)
+
+10.  Ensure that the **Federated Authentication** radio button is selected and click **Update** to save the changes.
+
+You have now added and configured the service provider.
+
 ### Step 5 - Configure claims 
+
 Add a new claim mapping for various user attributes related to Amazon.
+
+#### Configuring claims with IS 5.3.0 upwards
 
 !!! info
     For more information, see [Adding Claim
@@ -255,6 +295,98 @@ Add a new claim mapping for various user attributes related to Amazon.
         </table>
 
 7.  Click **Update**.
+
+#### Configuring claims with IS 5.1.0 or IS 5.2.0
+
+1.  Sign in to the [Management
+    Console](../../setup/getting-started-with-the-management-console)
+    by entering your username and password.
+
+2.  In the **Main** menu, click **Add** under **Claims**.
+
+3.  Click **Add Claim Dialect** to create the Amazon authenticator
+    specific claim dialect.
+    ![dialect-details-old-version](../../assets/img/connectors/dialect-details-old-version.png)
+
+    -   Use the Dialect Uri as - http://wso2.org/amazon/claims
+    -   Enter the values for mandatory fields. It will create the claim for the given user field under the Amazon claim dialect.
+
+    <table>
+    <tr>
+    <th>Display Name</th>
+    <td>User ID</td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td>Claim to user ID</td>
+    </tr>
+    <tr>
+    <th>Mapped Attribute</th>
+    <td>uid</td>
+    </tr>
+    <tr>
+    <th>Claim URL</th>
+    <td>http://wso2.org/amazon/claims/user_id</td>
+    </tr>
+    <tr>
+    <th>Supported by Default</th>
+    <td>selected</td>
+    </tr>
+    </table>
+
+4.  Click Add New Claim.
+
+5.  Select the Dialect from the dropdown provided and enter the required information.
+
+6.  Add the following claims under the dialect  http://wso2.org/amazon/claims.
+    <table>
+    <tr>
+    <th>Display Name</th>
+    <td>Email Address</td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td>Claim to Email Address</td>
+    </tr>
+    <tr>
+    <th>Mapped Attribute</th>
+    <td>mail</td>
+    </tr>
+    <tr>
+    <th>Claim URL</th>
+    <td>http://wso2.org/amazon/claims/email</td>
+    </tr>
+    <tr>
+    <th>Supported by DefaultL</th>
+    <td>selected</td>
+    </tr>
+    </table>
+
+    <table>
+    <tr>
+    <th>Display Name</th>
+    <td>Name</td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td>Claim to Name</td>
+    </tr>
+    <tr>
+    <th>Mapped Attribute</th>
+    <td>givenName</td>
+    </tr>
+    <tr>
+    <th>Claim URL</th>
+    <td>http://wso2.org/amazon/claims/name</td>
+    </tr>
+    <tr>
+    <th>Supported by DefaultL</th>
+    <td>selected</td>
+    </tr>
+    </table>
+
+6.  Similarly, you can create the claims for all the public information of the Amazon user.
+    ![claims-for-amazon-info](../../assets/img/connectors/claims-for-amazon-info.png)
 
 ### Step 6 - Configure requested claims for travelocity.com
 

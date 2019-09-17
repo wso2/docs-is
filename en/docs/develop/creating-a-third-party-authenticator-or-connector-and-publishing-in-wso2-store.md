@@ -27,20 +27,20 @@ connectors in [WSO2 Store](https://store.wso2.com/store).
         <http://maven.wso2.org/nexus/content/repositories/wso2-public>
         ```
 
-        !!! note    
-            If maven version is 2.x.x, use the following command in the directory
-            where you want to create the connector on your local machine:
-            ```
-            mvn
-            archetype:generate -DarchetypeGroupId=org.wso2.carbon.extension.archetype
-            -DarchetypeArtifactId=
-            [org.wso2.carbon.extension.is](http://org.wso2.carbon.extension.is/)
-            .authenticator-archetype -DarchetypeVersion=2.0.4
-            -DgroupId=org.wso2.carbon.extension.identity.authenticator
-            -DartifactId=org.wso2.carbon.extension.identity.authenticator.\<Connector\_name\>
-            -Dversion=1.0.0 -DarchetypeRepository=
-            ```
-            When prompted, enter a name for the connector. Specify the name in upper camel case, such as `HelloWorld`. Type `y` to confirm.
+    !!! note    
+        If maven version is 2.x.x, use the following command in the directory
+        where you want to create the connector on your local machine:
+        ```
+        mvn
+        archetype:generate -DarchetypeGroupId=org.wso2.carbon.extension.archetype
+        -DarchetypeArtifactId=
+        [org.wso2.carbon.extension.is](http://org.wso2.carbon.extension.is/)
+        .authenticator-archetype -DarchetypeVersion=2.0.4
+        -DgroupId=org.wso2.carbon.extension.identity.authenticator
+        -DartifactId=org.wso2.carbon.extension.identity.authenticator.\<Connector\_name\>
+        -Dversion=1.0.0 -DarchetypeRepository=
+        ```
+        When prompted, enter a name for the connector. Specify the name in upper camel case, such as `HelloWorld`. Type `y` to confirm.
 
 
     -   <https://github.com/wso2-extensions/archetypes/tree/master/is-provisioning-connector-archetype>
@@ -56,7 +56,6 @@ connectors in [WSO2 Store](https://store.wso2.com/store).
         ```
 
         !!! note
-            
             If maven version is 2.x.x, use the following command in the directory
             where you want to create the connector on your local machine:
             ```                      
@@ -86,15 +85,13 @@ can be used in the connector store.
 -   580x300
 -   220x200
 
-### **Publishing the connector**
+### Publishing the connector
 
 When the connector development is complete, create a
-[JIRA](https://wso2.org/jira/browse/ISCONNECT) under the **IS
-Connectors** project with the following information:
+[JIRA](https://wso2.org/jira/browse/ISCONNECT) under the **IS Connectors** project with the following information:
 
 -   Source code can be directly attached to the JIRA or do the
     development in your own git repo.
--   Once we review the code we will create a repo under [https://github.com/wso2-extensions](https://github.com/ wso2-extensions), and ask you to send the
-    pull request.
+-   Once we review the code we will create a repo under [https://github.com/wso2-extensions](https://github.com/wso2-extensions), and ask you to send the pull request.
 -   If GPL or LGPL licensed connectors are used, specify reasons for the
     use of such libraries.

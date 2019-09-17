@@ -18,17 +18,6 @@ an identity and access management system can help achieve this.
 
 ------------------------------------------------------------------------
 
--   [What is Mobile
-    Connect?](#MobileConnectAuthenticator-WhatisMobileConnect?)
--   [How does Mobile Connect
-    work?](#MobileConnectAuthenticator-HowdoesMobileConnectwork?)
--   [Why would you use Mobile
-    Connect?](#MobileConnectAuthenticator-WhywouldyouuseMobileConnect?)
--   [How WSO2 Identity Server can be used with Mobile
-    Connect](#MobileConnectAuthenticator-HowWSO2IdentityServercanbeusedwithMobileConnect)
-
-------------------------------------------------------------------------
-
 #### What is Mobile Connect?
 
 Mobile Connect is a mobile operator facilitated authentication solution
@@ -50,7 +39,7 @@ the perspective of a consumer.
 
 ##### Technical perspective
 
-![](attachments/57740505/72427914.png)
+![](../../assets/img/57740505/72427914.png)
 
 The sequence above depicts the flow of actions from a technical
 perspective, or the perspective of someone who is setting this up.
@@ -65,7 +54,7 @@ perspective, or the perspective of someone who is setting this up.
 
 ##### Consumer perspective
 
-![](attachments/57740505/72423055.png) 
+![](../../assets/img/57740505/72423055.png) 
 
 The given sequence above depicts the Mobile Connect flow, from sign
 up/login to the complete authentication in just 4 steps. The
@@ -124,18 +113,17 @@ Connect does the authentication and sends the response back to the
 Identity Server, which in turn sends the response back to the
 application and authenticates the user. The following diagram
 illustrates this scenario.  
-![](attachments/57740505/72426717.png) 
+![](../../assets/img/57740505/72426717.png) 
 
-Configurations to be done
+!!! info "Configurations to be done"
+    To make this scenario work, you must do the following.
 
-To make this scenario work, you must do the following.
-
--   Configure your application in Mobile Connect.
--   Configure your application as a service provider in the WSO2
-    Identity Server.
--   Mobile Connect is configured as an Identity Provider in the WSO2
-    Identity Server.
--   Federated authentication is enabled in the Identity Server.
+    -   Configure your application in Mobile Connect.
+    -   Configure your application as a service provider in the WSO2
+        Identity Server.
+    -   Mobile Connect is configured as an Identity Provider in the WSO2
+        Identity Server.
+    -   Federated authentication is enabled in the Identity Server.
 
 ##### Scenario 2: Multi-factor authentication
 
@@ -148,24 +136,17 @@ sends the response back to the Identity Server, which in turn sends the
 response back to the application and authenticates the user. The
 following diagram illustrates this scenario.
 
-![](attachments/57740505/72426724.png) 
+![](../../assets/img/57740505/72426724.png) 
 
-Configurations to be done
+!!! info "Configurations to be done"
+    To make this scenario work, you must do the following.
 
-To make this scenario work, you must do the following.
-
--   Configure your application in Mobile Connect.
--   Configure your application as a service provider in the WSO2
-    Identity Server.
--   Mobile Connect is configured as an Identity Provider in the WSO2
-    Identity Server.
--   Multi-step authentication is configured in the Identity Server.
-
-To get started with the authenticator, see [Mobile Connect Federated
-Authenticator for WSO2 Identity
-Server](Configuring-Mobile-Connect-as-a-Federated-Authenticator).
-Once you have completed your configurations, you can perform
-authentication with the Mobile Connect authenticator.
+    -   Configure your application in Mobile Connect.
+    -   Configure your application as a service provider in the WSO2
+        Identity Server.
+    -   Mobile Connect is configured as an Identity Provider in the WSO2
+        Identity Server.
+    -   Multi-step authentication is configured in the Identity Server.
 
 ------------------------------------------------------------------------
 
