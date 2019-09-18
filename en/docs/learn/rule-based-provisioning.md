@@ -276,9 +276,8 @@ the policy according to our requirement.
     !!! note
     
         For more information on Publishing an XACML policy, click
-        [here](../../learn/publishing-a-xacml-policy)
+        [here](../../learn/publishing-a-xacml-policy).
     
-
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on
     the **Main** tab of the management console.
 10. To ensure that the policy has been published successfully, check if
