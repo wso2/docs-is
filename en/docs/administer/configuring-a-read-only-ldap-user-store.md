@@ -10,16 +10,15 @@ read-write Active directory). The instructions given below explains how
 to configure a read-only LDAP or Active Directory as the primary user
 store for the WSO2 server.
 
-The default User Store
-
-The primary user store that is configured by default in the user-mgt.xml
-file is a JDBC user store, which reads/writes into the internal database
-of the product server. By default, the internal database is H2 for all
-WSO2 products excluding the Identity Server. This database is used by
-the Authorization Manager (for user authentication information) as well
-as the User Store Manager (for defining users and roles). In the case of
-the WSO2 Identity Server, the default user store is an LDAP (Apache DS)
-that is shipped with the product.
+!!! info "The default User Store"
+    The primary user store that is configured by default in the user-mgt.xml
+    file is a JDBC user store, which reads/writes into the internal database
+    of the product server. By default, the internal database is H2 for all
+    WSO2 products excluding the Identity Server. This database is used by
+    the Authorization Manager (for user authentication information) as well
+    as the User Store Manager (for defining users and roles). In the case of
+    the WSO2 Identity Server, the default user store is an LDAP (Apache DS)
+    that is shipped with the product.
 
 Note that the RDBMS used in the default configuration can remain as the
 database used for storing Authorization information.
@@ -27,23 +26,16 @@ database used for storing Authorization information.
 Follow the given steps to configure a read-only LDAP/AD as the primary
 user store:
 
--   [Step 1: Setting up the read-only LDAP/AD user store
-    manager](#ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
--   [Step 2: Updating the system
-    administrator](#ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
--   [Step 3: Starting the
-    server](#ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
 
-Before you begin
-
--   If you create the `           user-mgt.xml          ` file yourself,
-    be sure to save it in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory.
--   The `           class          ` attribute for a read-only
-    LDAP/Active Directory is
-    `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">.          `
+!!! info "Before you begin"
+    -   If you create the `           user-mgt.xml          ` file yourself,
+        be sure to save it in the
+        `           <PRODUCT_HOME>/repository/conf          ` directory.
+    -   The `           class          ` attribute for a read-only
+        LDAP/Active Directory is
+        `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">.          `
 
 1.  Uncomment the following user store in the
     `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          `
@@ -58,47 +50,47 @@ Before you begin
     `           <PRODUCT_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file which are used for
     configuring the primary user store, see [Properties of User
-    Stores](Working_with_Properties_of_User_Stores).
+    Stores](../../administer/working-with-properties-of-user-stores).
 
     ``` html/xml
-    <UserManager>
-     <Realm>
-      ...
-       <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"> 
-                <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
-                <Property name="ConnectionURL">ldap://localhost:10389</Property>
-                <Property name="ConnectionName">uid=admin,ou=system</Property>
-                <Property name="ConnectionPassword">admin</Property>
-                <Property name="AnonymousBind">false</Property>
-                <Property name="UserSearchBase">ou=system</Property>
-                <Property name="UserNameAttribute"></Property>
-                <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
-                <Property name="UserNameListFilter">(objectClass=person)</Property>
-                <Property name="DisplayNameAttribute"/>
-                <Property name="ReadGroups">true</Property>
-                <Property name="GroupSearchBase">ou=system</Property>
-                <Property name="GroupNameAttribute">cn</Property>
-                <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
-                <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
-                <Property name="MembershipAttribute">member</Property>
-                <Property name="BackLinksEnabled">false</Property>
-                <Property name="UsernameJavaRegEx">[a-zA-Z0-9._-|//]{3,30}$</Property>
-                <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
-                <Property name="RolenameJavaRegEx">[a-zA-Z0-9._-|//]{3,30}$</Property>
-                <Property name="SCIMEnabled">false</Property>
-                <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
-                <Property name="MultiAttributeSeparator">,</Property>
-                <Property name="MaxUserNameListLength">100</Property>
-                <Property name="MaxRoleNameListLength">100</Property>
-                <Property name="UserRolesCacheEnabled">true</Property>
-                <Property name="ConnectionPoolingEnabled">true</Property>
-                <Property name="LDAPConnectionTimeout">5000</Property>
-                <Property name="ReadTimeout"/>
-                <Property name="RetryAttempts"/>
-                <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property> 
-            </UserStoreManager>
-     </Realm>
-    </UserManager> 
+        <UserManager>
+        <Realm>
+        ...
+        <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"> 
+                    <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
+                    <Property name="ConnectionURL">ldap://localhost:10389</Property>
+                    <Property name="ConnectionName">uid=admin,ou=system</Property>
+                    <Property name="ConnectionPassword">admin</Property>
+                    <Property name="AnonymousBind">false</Property>
+                    <Property name="UserSearchBase">ou=system</Property>
+                    <Property name="UserNameAttribute"></Property>
+                    <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
+                    <Property name="UserNameListFilter">(objectClass=person)</Property>
+                    <Property name="DisplayNameAttribute"/>
+                    <Property name="ReadGroups">true</Property>
+                    <Property name="GroupSearchBase">ou=system</Property>
+                    <Property name="GroupNameAttribute">cn</Property>
+                    <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
+                    <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
+                    <Property name="MembershipAttribute">member</Property>
+                    <Property name="BackLinksEnabled">false</Property>
+                    <Property name="UsernameJavaRegEx">[a-zA-Z0-9._-|//]{3,30}$</Property>
+                    <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
+                    <Property name="RolenameJavaRegEx">[a-zA-Z0-9._-|//]{3,30}$</Property>
+                    <Property name="SCIMEnabled">false</Property>
+                    <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
+                    <Property name="MultiAttributeSeparator">,</Property>
+                    <Property name="MaxUserNameListLength">100</Property>
+                    <Property name="MaxRoleNameListLength">100</Property>
+                    <Property name="UserRolesCacheEnabled">true</Property>
+                    <Property name="ConnectionPoolingEnabled">true</Property>
+                    <Property name="LDAPConnectionTimeout">5000</Property>
+                    <Property name="ReadTimeout"/>
+                    <Property name="RetryAttempts"/>
+                    <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property> 
+                </UserStoreManager>
+        </Realm>
+        </UserManager> 
     ```
 
     1.  Update the connection details to match your user store. For
@@ -117,29 +109,29 @@ Before you begin
 
         !!! note
         
-                If you are using `             ldaps            ` (secured LDAP)
-                to connect to the LDAP/Active Directory:
-        
-                -   You need set the
-                    `               ConnectionURL              ` as shown
-                    below.  
-        
-                    ``` xml
-                                <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
-                    ```
-        
-                -   For Active Directory, you need to import the certificate of
-                    Active Directory to the
-                    `               client-truststore.jks              ` of the
-                    WSO2 product. For information on how to add certificates to
-                    the truststore and how keystores are configured and used in
-                    a system, see [Using Asymmetric
-                    Encryption](Using_Asymmetric_Encryption).
-        
-                -   You also need to [enable connection
-                    pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
-                    for LDAPS connections at the time of starting your server,
-                    which will enhance server performance.
+            If you are using `             ldaps            ` (secured LDAP)
+            to connect to the LDAP/Active Directory:
+    
+            -   You need set the
+                `               ConnectionURL              ` as shown
+                below.  
+    
+                ``` xml
+                            <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
+                ```
+    
+            -   For Active Directory, you need to import the certificate of
+                Active Directory to the
+                `               client-truststore.jks              ` of the
+                WSO2 product. For information on how to add certificates to
+                the truststore and how keystores are configured and used in
+                a system, see [Using Asymmetric
+                Encryption](Using_Asymmetric_Encryption).
+    
+            -   You also need to [enable connection
+                pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+                for LDAPS connections at the time of starting your server,
+                which will enhance server performance.
         
 
     2.  Obtain a user who has permission to read all users/attributes
@@ -149,7 +141,7 @@ Before you begin
         sections of the user store configuration as shown below. Note
         that this user does NOT have to be the system administrator that
         you define
-        [here](#ConfiguringaRead-OnlyLDAPUserStore-Updatingthesystemadministrator)
+        [here](#updating-the-system-administrator)
         .
 
         ``` html/xml
@@ -264,6 +256,8 @@ Before you begin
         (in milliseconds) specified by this property, the connection
         will be terminated.
 
+<a name = "updating-the-system-administrator"></a>
+
 ### Step 2: Updating the system administrator
 
 The admin user is the super tenant that will be able to manage all other
@@ -274,15 +268,15 @@ information. Update this configuration for the read-only LDAP/AD as
 explained below.
 
 ``` java
-<Configuration>
-        <AddAdmin>False</AddAdmin>
-        <AdminRole>admin</AdminRole>
-        <AdminUser>
-             <UserName>AdminSOA</UserName>
-             <Password>XXXXXX</Password>
-        </AdminUser>
-        ............
-</Configuration> 
+    <Configuration>
+            <AddAdmin>False</AddAdmin>
+            <AdminRole>admin</AdminRole>
+            <AdminUser>
+                <UserName>AdminSOA</UserName>
+                <Password>XXXXXX</Password>
+            </AdminUser>
+            ............
+    </Configuration> 
 ```
 
 -   **\<AddAdmin\>:** This should be set to 'False' as it will not be
@@ -303,7 +297,7 @@ For information information about the system administrator user, see
 [Configuring the System
 Administrator](../../learn/configuring-the-system-administrator), and for
 information on how keystores are used in WSO2 products, see [Using
-Asymmetric Encryption](Using_Asymmetric_Encryption).  
+Asymmetric Encryption](../../administer/using-asymmetric-encryption).  
 
 ### Step 3: Starting the server
 
