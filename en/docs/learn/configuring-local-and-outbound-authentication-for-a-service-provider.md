@@ -3,7 +3,7 @@
 The responsibility of the local authenticators is to authenticate the
 user with locally available credentials. This can be either
 username/password or even [IWA (Integrated Windows
-Authentication)](../../learn/integrated-windows-authentication) or [FIDO (Fast
+Authentication)](../../learn/integrated-windows-authentication-overview) or [FIDO (Fast
 IDentity Online)](../../learn/multi-factor-authentication-using-fido). Local
 authenticators are decoupled from the Inbound Authenticators. Once the
 initial request is handed over to the authentication framework from an
@@ -121,19 +121,7 @@ authentication types.
 <tr class="odd">
 <td>Default</td>
 <td><div class="content-wrapper">
-<p>This is the default authenticator sequence for a configured service provider in the Identity Server. This sequence can be modified by updating following section in the <code>               &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.              </code> xml file.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;Sequences&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="co">&lt;!-- Default Sequence. This is mandatory --&gt;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;Sequence</span><span class="ot"> appId=</span><span class="st">&quot;default&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;Step</span><span class="ot"> order=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">            <span class="kw">&lt;Authenticator</span><span class="ot"> name=</span><span class="st">&quot;BasicAuthenticator&quot;</span><span class="kw">/&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">        <span class="kw">&lt;/Step&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">&lt;/Sequence&gt;</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw">&lt;/Sequences&gt;</span></a></code></pre></div>
-</div>
-</div>
+<p>This is the default authenticator sequence for a configured service provider in the Identity Server.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -183,7 +171,7 @@ more details.
         on configuring multi-step and multi-option authentication using
         FIDO.
     -   See [Integrated Windows
-        Authentication](../../learn/integrated-windows-authentication) and
+        Authentication](../../learn/integrated-windows-authentication-overview) and
         [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on)
         for more information on configuring the IWA authenticator with WSO2
         Identity Server.
