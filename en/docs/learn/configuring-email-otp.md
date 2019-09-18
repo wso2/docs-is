@@ -552,7 +552,7 @@ Follow the steps below add a service provider:
     !!! note
     
         For more information on service provider configuration, see
-        [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on).
+        [Configuring Single Sign-On](../../learn/configuring-single-sign-on).
     
 ------------------------------------------------------------------------
 
@@ -642,7 +642,7 @@ Follow the steps below to map the user claims:
 ## What's next?
 
 -   Want to see more federated authenticators? See, [Configuring
-    Federated Authentication](../../tutorials/configuring-federated-authentication).
+    Federated Authentication](../../learn/configuring-federated-authentication).
 -   [Try out enabling multi factor authentication using the SMSOTP
     feature of WSO2
-    IS](../../tutorials/configuring-sms-otp).
+    IS](../../learn/configuring-sms-otp).

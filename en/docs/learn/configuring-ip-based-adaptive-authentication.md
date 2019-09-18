@@ -18,16 +18,16 @@ Follow the instructions given below:
     -   Set up the service provider and sample application for adaptive
         authentication. For instructions on how to do this, see [Configuring
         a Service Provider for Adaptive
-        Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
+        Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
     -   For more information about adaptive authentication with WSO2 Identity Server, see [Adaptive
-        Authentication](../../tutorials/adaptive-authentication).
+        Authentication](../../learn/adaptive-authentication).
     
 
 ### Configuring the sample scenario
 
 1.  Log in to the management console.
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com/)
+    `              saml2-web-app-dispatch.com             `
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.

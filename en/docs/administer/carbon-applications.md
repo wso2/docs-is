@@ -22,4 +22,3 @@ various components in WSO2 products:
     Applications](../../administer/working-with-composite-applications)
 -   [Working with Features](../../administer/working-with-features)
 -   [Working with Multiple Tenants](../../administer/working-with-multiple-tenants)
--   [Working with Transports](../../administer/working-with-properties-of-user-stores)

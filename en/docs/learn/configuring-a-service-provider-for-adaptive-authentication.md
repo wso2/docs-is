@@ -9,7 +9,7 @@ location causes the adaptive authentication mechanism to prompt an extra
 authentication in order to increase security.
 
 For more information on adaptive authentication with WSO2 IS, see
-[Adaptive Authentication](../../tutorials/adaptive-authentication).
+[Adaptive Authentication](../../learn/adaptive-authentication).
 
 This tutorial guides you through setting up a sample application to try
 out adaptive authentication and configuring it as a service provider in
@@ -23,7 +23,7 @@ WSO2 IS.
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
         version 8.\*.\* or higher.
     
-    2.  Install WSO2 IS version 5.7.0. by downloading the
+    2.  Install WSO2 IS latest version by downloading the
         [installer](https://wso2.com/identity-and-access-management/install/)
         .
     3.  Open the `            /etc/hosts           ` file, add the following
@@ -153,6 +153,6 @@ application by setting up inbound authentication.
 ## What's Next?
 
 Now that you have set up the service provider, the sample application,
-and the demo authenticators, you can try out the [scenarios](../../tutorials/adaptive-authentication-scenarios)
+and the demo authenticators, you can try out the [scenarios](../../learn/adaptive-authentication-scenarios)
 that use pre-defined templates for different adaptive authentication use
 cases.

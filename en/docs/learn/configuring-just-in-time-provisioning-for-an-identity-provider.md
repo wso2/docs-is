@@ -35,8 +35,8 @@ To configure JIT provisioning for an identity provider, follow the steps
 below:
 
 1.  Start WSO2 Identity Server and access the Management Console via
-    `                     https://localhost:9443/carbon                   `
-    /. For detailed instructions on starting WSO2 Identity Server, see
+    `                     https://localhost:9443/carbon/`. 
+    For detailed instructions on starting WSO2 Identity Server, see
     [Running the Product](../../setup/running-the-product).
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Identity Providers**.

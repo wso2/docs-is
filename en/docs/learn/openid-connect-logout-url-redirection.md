@@ -81,7 +81,7 @@ Follow the steps below to send an OIDC logout request:
     ```
       
     Following are the parameters you need to specify in the URL:
-
+    <a name="parameters"></a>
     <table>
     <thead>
     <tr class="header">
@@ -157,9 +157,8 @@ when you send an OIDC logout request as a POST request:
 ```
 
 For descriptions of all the parameters that you need to specify in the
-POST request, see the [parameter descriptions given
-above](#OpenIDConnectLogoutURLRedirection-parameters).
-
+POST request, see the <a href="<../../learn/openid-connect-logout-url-redirection#parameters
+>parameter descriptions given above</a>
 Following is the sample HTML form with sample parameter values to render
 the page in a browser:
 

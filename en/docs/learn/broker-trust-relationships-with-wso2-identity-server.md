@@ -215,7 +215,7 @@ Now, we have our Web Service secured with a claim-aware security policy.
     console](../../setup/getting-started-with-the-management-console).
 3.  Do the following steps if you are using a Holder of Key confirmation
     method. See
-    [here](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)
+    [here](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)
     for more information.
     1.  Navigate to the **Service Providers** section by clicking
         **Add** in the **Main** menu under **Service Providers**.
