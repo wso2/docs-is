@@ -273,10 +273,9 @@ the policy according to our requirement.
     are and click **Publish**.  
     ![publish-policy](../../assets/img/using-wso2-identity-server/publish-policy.png)
 
-    !!! note
-    
-        For more information on Publishing an XACML policy, click
-        [here](../../learn/publishing-a-xacml-policy).
+!!! note
+    For more information on Publishing an XACML policy, click
+    [here](../../learn/publishing-a-xacml-policy)
     
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on
     the **Main** tab of the management console.
