@@ -136,36 +136,49 @@ Add the following configuration to the
 
 ``` xml
     [session_data.persistence]
-    enable_persistance = true
+    enable_persistence = true
     persist_temporary_data = true
-    persistance_pool_size = true
+    persistence_pool_size = "0"
+
     [session_data.cleanup]
     enable_expired_data_cleanup = true
-    expire_session_data_after = "20160"
-    clean_expired_session_data_in_chunks_of = "5000"
-    enable_pre_session_data_cleanup= true
+    expire_session_data_after = "14d"
+    clean_expired_session_data_every = "1d"
+    clean_expired_session_data_in_chunks_of = "8192"
+    clean_logged_out_sessions_at_immediate_cycle = "true"
+
+    enable_pre_session_data_cleanup = true
     pre_session_data_cleanup_thread_pool_size= "20"
-    expire_pre_session_data_after= "40"       
+    expire_pre_session_data_after= "40m"       
 ```
 
 The following table describes the elements of the configurations
 mentioned above.
 
+`[session_data.persistence]` section of the configuration is related to the persistence of session data.                                                                                                                                                                                         
+
 | Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Enable                | This enables the persistence of session data. Therefore, this must be configured to `              true             ` if you wish to enable session persistence.                                                                                                                                                                                          |
-| Temporary             | Setting this to `              true             ` enables persistence of temporary caches that are created within an authentication request.                                                                                                                                                                                                              |
-| PoolSize              | ‘PoolSize’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is completed. To execute the persistence task in asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. |
-| SessionDataCleanUp    | This section of the configuration is related to the cleaning up of session data.                                                                                                                                                                                                                                                                          |
-| Enable                | Setting this to true enables the cleanup task and ensures that it starts running.                                                                                                                                                                                                                                                                         |
-| CleanUpTimeOut        | This is the timeout value (in minutes) of the session data that is removed by the cleanup task. The default value is 2 weeks.                                                                                                                                                                                                                             |
-| CleanUpPeriod         | This is the time period (in minutes) that the cleanup task would run. The default value is 1 day. This is used for both session data cleanup and operation data cleanup through the same task.                                                                                                                                                            |
-| DeleteChunkSize       | This value determines (limits) the number of rows that will be deleted in a single delete query statement. The default value is 50000. If the number of rows to delete is larger than this limit, the DELETE statement is repeated until the number of affected rows is less than the LIMIT value.                                                        |
-| OperationDataCleanUp  | This section of the configuration is related to the cleaning up of operation data.                                                                                                                                                                                                                                                                        |
-| TempDataCleanup       | This section of the configuration is related to the cleaning up of temporary authentication context data.                                                                                                                                                                                                                                                 |
-| Enable                | Setting this to true enables separated cleanup for temporary authentication context data.                                                                                                                                                                                                                                                                 |
-| PoolSize              | Defines the maximum number of threads to be allocated for temp data deletion. When Poolsize \> 0, temporary data that has no usage after the authentication flow is completed, is deleted immediately. When Poolsize = 0, data is deleted only by the scheduled cleanup task.                                                                             |
-| CleanUpTimeout        | All temporary authentication context data older than the `             CleanUpTimeout            ` value is considered as expired and is deleted during the cleanup task.                                                                                                                                                                                 |
+| enable_persistence                | This enables the persistence of session data. Therefore, this must be configured to `true` if you wish to enable session persistence.                                                                                                                                                                                          |
+| persist_temporary_data             | Setting this to `true` enables persistence of temporary caches that are created within an authentication request.                                                                                                                                                                                                              |
+| persistence_pool_size              | ‘persistence_pool_size’ equals to 0 means that it is disabled and then the authentication flow is blocked until this particular data persistence task is completed. To execute the persistence task in asynchronously, set the value to \>0 value. Based on the pool size, the system creates the task parallel to execute the persistence task that was in the queue. |
+
+
+`[session_data.cleanup]` section of the configuration is related to the cleaning up of session data.    
+                                                                                                                                                                                                                                                                      
+| Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| enable_expired_data_cleanup               | Setting this to true enables the expired session data cleanup task and ensures that it starts running.                                                                                                                                                                                                                                                                         |
+| expire_session_data_after        | This is the timeout value of the session data that is removed by the cleanup task. The default value is 14 days.                                                                                                                                                                                                                             |
+| clean_expired_session_data_every         | This is the time period that the cleanup task would run. The default value is 1 day. This is used for both session data cleanup and operation data cleanup through the same task.                                                                                                                                                            |
+| clean_expired_session_data_in_chunks_of       | This value determines (limits) the number of rows that will be deleted in a single delete query statement. The default value is 8192. If the number of rows to delete is larger than this limit, the DELETE statement is repeated until the number of affected rows is less than the LIMIT value.                                                        |
+| clean_logged_out_sessions_at_immediate_cycle       | Setting this to true enables the operational data cleanup task and ensures that it starts running. |
+
+| Configuration element | Description                                                                                                                                                                                                                                                                                                                                               |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| enable_pre_session_data_cleanup       | Setting this to true enables separated cleanup for temporary authentication context data.                                                                                                                                                                                                                                                 |
+| expire_pre_session_data_after        | All temporary authentication context data older than the `expire_pre_session_data_after` value is considered as expired and is deleted during the cleanup task.                                                                                                                                                                                 |
+| pre_session_data_cleanup_thread_pool_size              | Defines the maximum number of threads to be allocated for temp data deletion. When `pre_session_data_cleanup_thread_pool_size` => 0, temporary data that has no usage after the authentication flow is completed, is deleted immediately. When `pre_session_data_cleanup_thread_pool_size = 0`, data is deleted only by the scheduled cleanup task.                                                                             |
 
 !!! info "About size of Delete Chunks"
 
