@@ -806,7 +806,6 @@ nav:
           - 'HTTPS Servlet Transport': administer/https-servlet-transport.md
           - 'HTTP-NIO Transport': administer/http-nio-transport.md
           - 'HTTPS-NIO Transport': administer/https-nio-transport.md
-          - 'VFS Transport': administer/vfs-transport.md
           - 'JMS Transport': administer/jms-transport.md
           - 'MailTo Transport': administer/mailto-transport.md
           - 'TCP Transport': administer/tcp-transport.md
