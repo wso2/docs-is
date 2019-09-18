@@ -7,7 +7,7 @@ authentication sequence using authentication scripts written in
 JavaScript.
 
 For more information on adaptive authentication, see [Adaptive
-Authentication](tutorials/adaptive-authentication-overview.md)
+Authentication](../../learn/adaptive-authentication-overview.md)
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
@@ -51,7 +51,7 @@ following.
 <tr class="even">
 <td>options</td>
 <td>An optional map that can configure step execution. Authentication option filtering is supported.<br />
-For more information, see <a href="#AdaptiveAuthenticationJSAPIReference-Authenticationstepf">authentication step filtering</a> .</td>
+For more information, see <a href="#authentication-step-filtering">authentication step filtering</a> .</td>
 </tr>
 <tr class="odd">
 <td>eventCallbacks</td>
@@ -445,7 +445,7 @@ accessed as follows.
 -   `           context.steps[<n>]          ` :  Access the
     authentication step information, where &lt;n&gt; is the step number
     (1-based). See [step
-    Object](#AdaptiveAuthenticationJSAPIReference-stepObject) for more
+    Object](#step-object) for more
     information.
 
     !!! note
@@ -456,11 +456,11 @@ accessed as follows.
 
 -   `          context.request         ` :  Access the HTTP
     authentication request information. See [request
-    Object](#AdaptiveAuthenticationJSAPIReference-requestObject) for
+    Object](#request-object) for
     more information.
 -   `          context.response         ` :  Access the HTTP response
     which will be sent back to the client. See [response
-    Object](#AdaptiveAuthenticationJSAPIReference-responseObject) for
+    Object](#responseObject) for
     more information.
 -   `          context.serviceProviderName         ` :  Get the
     application name.
@@ -473,7 +473,7 @@ step number.
 -   `          step.subject         ` :  Contains the authenticated
     user’s information from this step. May be null if the step is not
     yet executed. See [user
-    Object](#AdaptiveAuthenticationJSAPIReference-userObject) for more
+    Object](#userObject) for more
     information.
 -   `          step.idp         ` :  Gives the Idp name which was used
     to authenticate this user.
