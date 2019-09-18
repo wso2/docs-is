@@ -11,7 +11,7 @@ point.
 When the implementation is done, package your classes as a .jar file and
 place it in the *\<IS\_HOME\>/repository/component/lib* directory.  
 Then configure your extension in
-*\<IS\_HOME\>/repository/conf/deployment.toml* file referring to the ' *Configuration* ' section of the
+*<IS\_HOME\>/repository/conf/deployment.toml* file referring to the ' *Configuration* ' section of the
 respective extension point below.  
 Restart the server to effect changes.
 
@@ -59,7 +59,8 @@ Restart the server to effect changes.
 <td>Usage</td>
 <td><p>This extension point can be used to implement a grant validator that validates the grant request sent to the ' <em>/oauth2/token</em> ' endpoint. Request parameters and headers can be validated by implementing this extension point.<br />
 If a new grant type is being implemented and defined with a new grant type identifier with the <a 
-href="#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also implement a grant validator and register
+href="../../learn/extension-points-for-oauth#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also 
+implement a grant validator and register
  that against the same grant type identifier from the <em>deployment.toml</em> .<br />
 If a supported grant type is to be modified you may implement a grant validator if needed, otherwise supported grant type validators can be reused.</p></td>
 </tr>
