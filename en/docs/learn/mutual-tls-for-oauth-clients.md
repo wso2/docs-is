@@ -52,10 +52,6 @@ with a sample.
 1.  Open the `           deployment.toml          ` file in the
     `           <IS_HOME>/repository/conf/          ` directory.
 
-2.  Locate the connector protocol tag with the
-    `           sslProtocol="TLS"          ` entry and do the following
-    configurations.
-
     1.  Add
         `             trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager            `
         " entry.
