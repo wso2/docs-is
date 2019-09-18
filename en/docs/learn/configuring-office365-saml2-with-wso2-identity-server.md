@@ -217,7 +217,7 @@ To disable the claims, do the following.
     ![configure-sp-fields](../../assets/img/tutorials/configure-sp-fields.png)
 
 3.  Expand **Claim Configuration** and select **Define Custom Claim
-    Dialect.
+    Dialect**.
 
 4.  Click **Add Claim URI** and add the following claims.
       
@@ -380,5 +380,5 @@ provider of WSO2 IS and the Azure Active Directory.
 
 To see how this feature works, try out the [Configuring On-Demand
 Provisioning with Azure
-AD](../../tutorials/configuring-on-demand-provisioning-with-azure-ad) tutorial to
+AD](../../learn/configuring-on-demand-provisioning-with-azure-ad) tutorial to
 provision users directly to Azure AD at the point of authentication.

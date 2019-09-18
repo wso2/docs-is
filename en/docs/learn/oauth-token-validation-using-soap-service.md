@@ -6,12 +6,11 @@ section guides you through calling the SOAP service using the SOAP UI.
 
 The relevant code segment in the sample webapp [WSO2
 playground2](../../learn/downloading-a-sample) for OAuth2 can be found
-[here](https://github.com/wso2/product-is/blob/5.x.x/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
+[here](https://github.com/wso2/product-is/blob/master/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
 .
 
 1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf`
-    folder and set the `           <HideAdminServiceWSDLs>          `
-    property to true.
+    folder to enable admin service WSDLs.
 
     !!! note "Note"
         This step is just to make the admin services WSDL
@@ -21,8 +20,6 @@ playground2](../../learn/downloading-a-sample) for OAuth2 can be found
         
 
     ``` java
-    <!-- If this parameter is set, the ?wsdl on an admin service will not give the admin service wsdl. --> 
-    <HideAdminServiceWSDLs>true</HideAdminServiceWSDLs>
     [admin_service.wsdl] 
     enable = true
     ```
