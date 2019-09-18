@@ -3,13 +3,13 @@
 This topic guides you through configuring and enforcing an XACML access
 control policy for a service provider. The authorization is done using
 Identity Server’s [XACML
-engine](../../tutorials/identity-server-as-an-xacml-engine)
+engine](../../learn/identity-server-as-an-xacml-engine)
 , which provides fine-grained access control using
 policies. Fine-grained authorization specifies the requirements and
 variables in an access control policy that is used to authorize access
 to a resource. WSO2 Identity provider supports XACML 1.0, 2.0 and
 3.0. For more information on XACML, see [XACML
-Architecture](../../setup/access-control-and-entitlement-management).
+Architecture](../../get-started/access-control-and-entitlement-management).
 
 In today's world, businesses and their customers need to access multiple
 service providers that support multiple heterogeneous identity
@@ -90,7 +90,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 
 		For this tutorial, we will set up the travelocity sample application
 		by following the instructions in [Configuring Single
-		Sign-On](../../tutorials/configuring-single-sign-on)
+		Sign-On](../../learn/configuring-single-sign-on)
 		. Here we use **SAML2** as the inbound authentication protocol.
 
 		Since this is the only available configuration that we have for
@@ -98,7 +98,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 		SAML configuration for the travelocity sample service provider. If
 		your service provider needs any claims of the authenticated user to
 		provide the service, you can [configure claims of the service
-		provider](../../tutorials/configuring-single-sign-on). Then once the access is
+		provider](../../learn/configuring-single-sign-on). Then once the access is
 		provided after evaluating the XACML policy, the Service Provider can
 		get those claim details of the authorized user from the Identity
 		Provider side.
@@ -130,7 +130,7 @@ our requirement.
 1.  Click on **Policy Administration** under the **Entitlement \> PAP**
     section on the **Main** tab of the management console. To get more
     information about Policy Administration Point(PAP), [Read
-    more](../../tutorials/configuring-the-policy-administration-point)
+    more](../../learn/configuring-the-policy-administration-point)
     .
 2.  Since this sample scenario is based on role, we select the policy
     `                       authn_role_based_policy_template.                     `
@@ -140,7 +140,7 @@ our requirement.
 		placeholders for different types of policies. For a full list of the
 		available XACML policy templates, see [Writing an XACML Policy using
 		a Policy
-		Template](../../tutorials/writing-a-xacml-policy-using-a-policy-template).
+		Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
     ![writing-a-xacml-policy-using-a-policy-template](../../assets/img/tutorials/writing-a-xacml-policy-using-a-policy-template.png)
 
@@ -226,13 +226,13 @@ our requirement.
     !!! note
     
         For more information on Publishing an XACML policy, click
-        [here](../../tutorials/publishing-a-xacml-policy).
+        [here](../../learn/publishing-a-xacml-policy).
     
 
 9.  Click on **Policy View** under the **Entitlement \> PDP** section on
     the **Main** tab of the management console. To get more information
     about Policy Decision Point(PDP), [Read
-    more](../../tutorials/configuring-the-policy-decision-point).
+    more](../../learn/configuring-the-policy-decision-point).
     
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
@@ -244,7 +244,7 @@ our requirement.
 	!!! info 
 		If you want to write a more complicated policy you can use our XACML
 		policy editors available. To get more information Read, [How to create
-		a XACML Policy](../../tutorials/creating-a-xacml-policy)
+		a XACML Policy](../../learn/creating-a-xacml-policy)
 
 	!!! info
 		In a SaaS scenario, only the XACML policies that were created in the

@@ -5,29 +5,29 @@ identity provider from the WSO2 Identity Server. A trusted identity
 provider is basically an identity provider that supports inbound
 provisioning. It can be Google, Salesforce, another Identity Server,
 etc. For more information, see [Outbound
-provisioning](Identity_Provisioning).
+provisioning](../../learn/identity-provisioning).
 
 Outbound Provisioning involves sending provisioning requests from the
 Identity Server to other external applications. See the following
 document for more details on configuring outbound provisioning (SCIM
 connector is used for example).
 
--   [Outbound Provisioning with SCIM](Outbound_Provisioning_with_SCIM)
--   [Outbound Provisioning with SPML](Outbound_Provisioning_with_SPML)
+-   [Outbound Provisioning with SCIM](../../learn/outbound-provisioning-with-scim)
+-   [Outbound Provisioning with SPML](../../learn/outbound-provisioning-with-spml)
 -   [Outbound Provisioning with
-    Salesforce](Outbound_Provisioning_with_Salesforce)
+    Salesforce](../../learn/outbound-provisioning-with-salesforce)
 -   [Outbound Provisioning with
-    Google](Outbound_Provisioning_with_Google)
+    Google](../../learn/outbound-provisioning-with-google)
 
 The following topics discuss the various ways you can configure outbound
 provisioning:
 
 -   [Role Based
-    Provisioning](https://docs.wso2.com/display/IS540/Role+Based+Provisioning)
+    Provisioning](../../learn/role-based-provisioning)
 -   [Rule Based
-    Provisioning](https://docs.wso2.com/display/IS540/Rule+Based+Provisioning)
+    Provisioning](../../learn/rule-based-provisioning)
 -   [Provisioning
-    Patterns](https://docs.wso2.com/display/IS540/Provisioning+Patterns)
+    Patterns](../../learn/provisioning-patterns)
 
 Following documents provide configuration information for SPML and
 Salesforce outbound provisioning connector configurations.

@@ -1,16 +1,15 @@
 # Configuring a Read-Write Active Directory User Store
 
-The default User Store
-
-The primary user store that is configured by default in the
-`          user-mgt.xml         ` file is a JDBC user store, which
-reads/writes into the internal database of the product server. By
-default, the internal database is H2 for all WSO2 products excluding
-WSO2 Identity Server. This database is used by the Authorization Manager
-(for user authentication information) as well as the User Store Manager
-(for defining users and roles). In the case of the WSO2 Identity Server,
-the default user store is an LDAP (Apache DS) that is shipped with the
-product.
+!!! info "The default User Store"
+    The primary user store that is configured by default in the
+    `          user-mgt.xml         ` file is a JDBC user store, which
+    reads/writes into the internal database of the product server. By
+    default, the internal database is H2 for all WSO2 products excluding
+    WSO2 Identity Server. This database is used by the Authorization Manager
+    (for user authentication information) as well as the User Store Manager
+    (for defining users and roles). In the case of the WSO2 Identity Server,
+    the default user store is an LDAP (Apache DS) that is shipped with the
+    product.
 
 Note that the RDBMS used in the default configuration can remain as the
 database used for storing Authorization information.
@@ -18,22 +17,14 @@ database used for storing Authorization information.
 Follow the given steps to configure an external Active Directory as the
 primary user store:
 
--   [Step 1: Setting up the external AD user store
-    manager](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step1:SettinguptheexternalADuserstoremanager)
--   [Step 2: Updating the system
-    administrator](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step2:Updatingthesystemadministrator)
--   [Step 3: Starting the
-    server](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step3:Startingtheserver)
-
 ### Step 1: Setting up the external AD user store manager
 
-Before you begin
-
--   If you create the `           user-mgt.xml          ` file yourself,
-    be sure to save it in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory.
--   The `           class          ` attribute for an external AD is
-    `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">.          `
+!!! info "Before you begin"
+    -   If you create the `           user-mgt.xml          ` file yourself,
+        be sure to save it in the
+        `           <PRODUCT_HOME>/repository/conf          ` directory.
+    -   The `           class          ` attribute for an external AD is
+        `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">.          `
 
 1.  Enable the `           ActiveDirectoryUserStoreManager          `
     class in the
@@ -42,7 +33,6 @@ Before you begin
     reads/writes into the Active Directory user store.
 
     !!! note
-    
         Note that these configurations already exist in the
         `           user-mgt.xml          ` file so you only need to
         uncomment them and make the appropriate adjustments. Also ensure
@@ -55,7 +45,7 @@ Before you begin
     Change the values according to your requirement. For more
     information on each of the properties used in the user-mgt.xml file
     for configuring the primary user store, see [Properties of User
-    Stores](Working_with_Properties_of_User_Stores).
+    Stores](../../administer/working-with-properties-of-user-stores).
 
     ``` html/xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
@@ -108,10 +98,7 @@ Before you begin
     </UserStoreManager>
     ```
 
-    !!! note
-    
-        When working with Active Directory;
-    
+    !!! note "When working with Active Directory;" 
         -   It is best to enable the
             `             GetAllRolesOfUserEnabled            ` property in
             the `             AuthorizationManager            ` as follows.
@@ -147,7 +134,7 @@ Before you begin
             ```
     
         -   You also need to [enable connection
-            pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+            pooling](../../administer/performance-tuning#pooling-ldaps-connections)
             for LDAPS connections at the time of starting your server, which
             will enhance server performance.  
     
@@ -254,11 +241,9 @@ user store when you start the system for the first time. Alternatively,
 you can also use a user ID that already exists in the user store. For
 more information on setting up the system administrator and the
 authorization manager, see [Configuring the User
-Realm](Configuring_the_User_Realm).
+Realm](../../administer/configuring-the-user-realm).
 
 -   These two alternative configurations can be done as explained below.
-
-<!-- -->
 
 -   Find a valid user that already resides in the user store. For
     example, say a valid username is AdminSOA. Update the

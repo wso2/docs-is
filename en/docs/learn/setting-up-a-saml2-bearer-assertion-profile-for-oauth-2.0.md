@@ -7,7 +7,7 @@ OAuth 2.0 access tokens in order to access protected resources on behalf
 of the resource owner.
 
 In this sample use case, you will see how a user will be authenticated
-for Travelocity sample application over [SAML 2.0](../../tutorials/saml-2.0-web.sso)
+for Travelocity sample application over [SAML 2.0](../../learn/saml-2.0-web-sso)
 via WSO2 Identity Server. You will also see how Travelocity application
 exchanges the SAML assertion received, with the WSO2 Identity Server to
 receive an OAuth access token using [SAML2 Bearer Assertion
@@ -41,7 +41,7 @@ Server and as well as the Resource Server.
 
 2.  Configure single sign-on with the Travelocity sample.
 
-    See [Configuring Single Sign-On](../../tutorials/configuring-single-sign-on) to
+    See [Configuring Single Sign-On](../../learn/configuring-single-sign-on) to
     configure Travelocity application with WSO2 Identity Server.
 
 3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to
@@ -137,24 +137,25 @@ Server and as well as the Resource Server.
     ![travelocity-sign-in](../../assets/img/using-wso2-identity-server/travelocity-sign-in.png) 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
     ![request-oauth2-access-token](../../assets/img/using-wso2-identity-server/request-oauth2-access-token.png)   
-    You receive an access token as shown below:  
+5.  You'll receive an access token as shown below:  
     ![oauth2-token-details](../../assets/img/using-wso2-identity-server/oauth2-token-details.png) 
-5.  Now, you can use the introspection endpoint of the Identity Server
+6.  Now, you can use the introspection endpoint of the Identity Server
     to get the token information.
 
     **Request**
 
-    ``` java
-        curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
-    
-        Example:
-        curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
+    ``` java tab="Request Format"
+    curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access token>' https://<IS_HOST>:<IS_PORT>/oauth2/introspect
+    ```
+
+    ``` java tab="Sample Request"
+    curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=f3116b04-924f-3f1a-b323-4f0988b94f9f' https://localhost:9443/oauth2/introspect
     ```
 
     **Response**
 
     ``` java
-        {"active":true,"token_type":"Bearer","exp":1508927700,"iat":1508924100,"client_id":"EiqKsYfVH6dffF0b6LmrFBJW95Aa","username":"admin@carbon.super"}
+    {"active":true,"token_type":"Bearer","exp":1508927700,"iat":1508924100,"client_id":"EiqKsYfVH6dffF0b6LmrFBJW95Aa","username":"admin@carbon.super"}
     ```
 
 6.  Now since the Travelocity application has exchanged the SAML
@@ -163,17 +164,18 @@ Server and as well as the Resource Server.
     to retrieve users, you can use the [SCIM User
     Endpoint](../../develop/scim-1.1-apis) which is secured with OAuth.
 
+    **Request**
+
+    ``` java tab="Request Format"
+    curl -v -k --header "Authorization: Bearer <access token>" https://<IS_HOST>:<IS_PORT>/wso2/scim/Users
+    ```
+
+    ``` java tab="Sample Request"
+    curl -v -k --header "Authorization: Bearer 865c60a5-969b-36b4-95e2-721a1fb5c867" https://localhost:9443/wso2/scim/Users
+    ```
+    
     **Response**
 
     ``` java
-        {"totalResults":1,"schemas":["urn:scim:schemas:core:1.0"],"Resources":[{"meta":{"created":"2017-11-15T11:23:25","location":"https://localhost:9443/wso2/scim/Users/admin","lastModified":"2017-11-15T11:23:25"},"id":"0fb2af3f-03f2-4d6b-8340-957012df23f4","userName":"admin"}]}
-    ```
-
-    **Request**
-
-    ``` java
-        curl -v -k --header "Authorization: Bearer <access token>" https://<IS_HOST>:<IS_PORT>/wso2/scim/Users
-    
-        Example:
-        curl -v -k --header "Authorization: Bearer 865c60a5-969b-36b4-95e2-721a1fb5c867" https://localhost:9443/wso2/scim/Users
+    {"totalResults":1,"schemas":["urn:scim:schemas:core:1.0"],"Resources":[{"meta":{"created":"2017-11-15T11:23:25","location":"https://localhost:9443/wso2/scim/Users/admin","lastModified":"2017-11-15T11:23:25"},"id":"0fb2af3f-03f2-4d6b-8340-957012df23f4","userName":"admin"}]}
     ```

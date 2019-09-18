@@ -4,10 +4,10 @@
 
 An Identity Provider (IdP) is responsible for authenticating users and
 issuing identification information by using security tokens like [SAML
-2.0](../../tutorials/saml-2.0-web-sso), [OpenID
-Connect](../../tutorials/oauth2-openid-connect),
-[OAuth 2.0](../../tutorials/oauth2-openid-connect)
-and [WS-Trust](../../tutorials/ws-trust). This is a
+2.0](../../learn/saml-2.0-web-sso), [OpenID
+Connect](../../learn/oauth2-openid-connect-overview),
+[OAuth 2.0](../../learn/oauth2-openid-connect-overview)
+and [WS-Trust](../../learn/ws-trust). This is a
 favourable alternative to explicitly authenticating a user within a
 security realm.
 
@@ -186,28 +186,27 @@ Follow the instructions below to add a new identity provider.
             When the Home Realm Identifier is not specified, you can either
             select the domain name from a dropdown in the login page, or you
             have to enter the domain value in a separate page prior to logging
-            in. This can be configured as explained below.
-
-            Open the
-            `              <IS_HOME>/repository/conf/identity/application-authentication.xml             `
-            file. The `              ProxyMode             ` configuration
-            allows the framework to operate in either
-            `              smart             ` mode or
-            `              dumb             ` mode. In
-            `              smart             ` mode, both local and federated
-            authentication is supported, while in
-            `              dumb             ` mode, only federated
-            authentication is supported. If `              dumb             `
-            mode is configured here, you must provide the Home Realm Identifier,
+            in (as shown below).
+            
+            ![home-realm-identifier]( ../../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
+                     
+            The `proxy_mode` configuration allows the framework to operate in either
+            `smart` mode or `dumb` mode. 
+            
+            In `smart` mode, both local and federated authentication is supported, while in `dumb` mode, only federated
+            authentication is supported. If `dumb` mode is configured here, you must provide the Home Realm Identifier,
             or you have to display a separate screen to the user to get it.
 
-            ![home-realm-identifier]( ../../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
-
-            If smart mode is configured, the default behavior applies, where you
-            can enter a local username and password, or use federated
-            authenticators for authentication.
-
-            `              <ProxyMode>smart</ProxyMode>             `
+            If smart mode is configured, the default behavior applies, where you can enter a local username and 
+            password, or use federated authenticators for authentication.
+            
+            To configure the `proxy_mode`, open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory 
+            and add the following configuration.
+            ```               
+            [authentication] 
+            proxy_mode="smart" 
+            ```       
+            
 
     ??? note "Click here for more information on the Alias"
 
@@ -250,7 +249,7 @@ Follow the instructions below to add a new identity provider.
 
     -   See [here](../../learn/configuring-roles-for-an-identity-provider) for details on how to configure roles.
 
-    -   See [here](../../tutorials/configuring-federated-authentication) for details on how to configure federated authenticators.
+    -   See [here](../../learn/configuring-federated-authentication) for details on how to configure federated authenticators.
     
     -   See [here](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider) for details on how to configure just-in-time provisioning.
 
@@ -273,7 +272,7 @@ identity provider, it is called the **resident identity provider**.
     via SAML, OpenID Connect, SCIM, or WS-Trust. For an example on how a
     resident identity provider is used to implement a security token
     service, see [Configuring WS-Trust Security Token
-    Service](../../tutorials/configuring-ws-trust-security-token-service). The Resident
+    Service](../../learn/configuring-ws-trust-security-token-service). The Resident
     identity provider configuration is a one-time configuration for a given
     tenant. It shows WSO2 Identity Server's metadata, e.g., endpoints. The
     resident identity provider configurations can be used to secure the
@@ -366,7 +365,7 @@ Follow the instructions below to configure a resident identity provider:
         ![ws-trust-endpoint-security]( ../../assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)   
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
-        Service](../../tutorials/configuring-ws-trust-security-token-service).
+        Service](../../learn/configuring-ws-trust-security-token-service).
 
 6.  You may view the inbound provisioning configurations by clicking
     **Inbound Provisioning Configuration** section.
@@ -503,17 +502,17 @@ Follow the instructions below to disable or enable an identity provider.
     See the following topics for information on configuring service
     providers using different specifications.
 
-    -   See [Identity Federation](../../tutorials/identity-federation) for information on
+    -   See [Identity Federation](../../learn/identity-federation) for information on
         configuring federated authenticators.
 
     See the following topics to configure different applications as service
     providers in Identity Server.
 
     -   [Configuring Shibboleth IdP as a Trusted Identity
-        Provider](../../tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider)
+        Provider](../../learn/configuring-shibboleth-idp-as-a-trusted-identity-provider)
     -   [Logging in to Salesforce with
-        Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
+        Facebook](../../learn/logging-in-to-salesforce-with-facebook)
     -   [Logging in to Salesforce with Integrated Windows
-        Authentication](../../tutorials/logging-in-to-salesforce-with-integrated-windows-authentication)
+        Authentication](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Logging in to your application via Identity Server using Facebook
-        Credentials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+        Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)

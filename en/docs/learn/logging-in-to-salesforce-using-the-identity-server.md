@@ -449,7 +449,7 @@ provider in WSO2 IS.
     <ol>
     <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a> .</li>
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../tutorials/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a> .</p></li>
+    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
