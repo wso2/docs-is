@@ -116,7 +116,7 @@ nav:
         - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
         - 'SAML 2.0 Web SSO':
           - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
-          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml-2.0-web-sso.md
+          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml2-web-single-sign-on.md
           - 'Querying SAML Assertions': learn/querying-saml-assertions.md
           - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
         - 'WS-Trust':
