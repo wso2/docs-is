@@ -351,7 +351,7 @@ You have now added and configured the service provider.
 
 !!! note "Related Topics"
 
-	For more information on SSO, see [Single Sign-On](../../tutorials/single-sign-on).
+	For more information on SSO, see [Single Sign-On](../../learn/single-sign-on).
 
 ### Configuring claim mappings for Facebook (optional)
 

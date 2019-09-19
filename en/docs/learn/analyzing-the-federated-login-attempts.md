@@ -31,7 +31,7 @@ Follow the steps below to view the **Federated Login Attempts**.
     
     1.  Access the WSO2 IS Analytics Dashboard. For more information, see
         [Accessing the Analytics
-        Dashboard](Accessing_the_Analytics_Dashboard).
+        Dashboard](../../learn/accessing-the-analytics-dashboard).
     2.  Perform either of the following.
         1.  Click **SEE MORE** in the **Federated Login Attempts Summary**
             tile.
@@ -39,6 +39,8 @@ Follow the steps below to view the **Federated Login Attempts**.
     
 
 Let's analyze the federated login attempts with the following widgets.
+
+### Login Attempts Over Time
 
 ##### **Description**
 
@@ -51,7 +53,9 @@ This chart allows deriving the **federated login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-![]( ../../assets/img/103329263/103329271.png) 
+![]( ../../assets/img/103329263/103329271.png)
+
+### Compact Summary
 
 ##### Description
 
@@ -62,7 +66,9 @@ This chart presents a **summary of the federated login attempts**.
 This chart allows identifying the percentages of the successful and
 failed federated login attempts.
 
-![]( ../../assets/img/103329263/103329270.png) 
+![]( ../../assets/img/103329263/103329270.png)
+
+### Map View
 
 ##### Description
 
@@ -73,7 +79,7 @@ the IP addresses.
     
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
-    Statistics](Enabling_Geolocation_Based_Statistics).
+    Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
 ##### Purpose
@@ -86,7 +92,9 @@ the IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../../assets/img/103329263/103329269.png) 
+![]( ../../assets/img/103329263/103329269.png)
+
+### Distribution By Service Providers
 
 ##### Description
 
@@ -100,7 +108,9 @@ the IP addresses.
 This chart allows viewing the federated login attempts sorted based on
 the service providers.
 
-![]( ../../assets/img/103329263/103329267.png) 
+![]( ../../assets/img/103329263/103329267.png)
+
+### Distribution By Identity Provider
 
 ##### Description
 
@@ -114,7 +124,9 @@ the service providers.
 This chart allows viewing the federated login attempts sorted based on
 the identity provider.
 
-![]( ../../assets/img/103329263/103329266.png) 
+![]( ../../assets/img/103329263/103329266.png)
+
+### Distribution By User Name
 
 ##### Description
 
@@ -128,7 +140,9 @@ the identity provider.
 This chart allows viewing the federated login attempts sorted based on
 the user names.
 
-![]( ../../assets/img/103329263/103329265.png) 
+![]( ../../assets/img/103329263/103329265.png)
+
+### Detail View
 
 ##### Description
 

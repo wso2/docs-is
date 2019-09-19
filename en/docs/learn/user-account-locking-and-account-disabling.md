@@ -9,7 +9,7 @@ many consecutive, unsuccessful login attempts. Account disabling is a
 more of a **long-term** security measure, which disables the account for
 a significant amount of time.
 
-The following pages describe various ways the account can be locked and
+Next pages describe various ways the account can be locked and
 disabled.
       
 

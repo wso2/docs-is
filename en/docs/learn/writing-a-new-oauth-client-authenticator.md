@@ -41,7 +41,7 @@ handle the basic client authenticator as follows:
     in the body of the request.
 
 [Click here to take a look at the default
-implementation](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/5.6.x/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/client/authentication/BasicAuthClientAuthenticator.java)
+implementation](https://github.com/wso2-extensions/identity-inbound-auth-oauth/blob/master/components/org.wso2.carbon.identity.oauth/src/main/java/org/wso2/carbon/identity/oauth2/client/authentication/BasicAuthClientAuthenticator.java)
 .
 
 The elements used in each method are explained below:
@@ -198,7 +198,7 @@ Let's get started!
     [[event_listener]]
     id = "custom_event_listener"
     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-    name = "org.wso2.carbon.identity.oauth.client.auth.sample.OAuthSampleClientAuthenticator.java"
+    name = "org.wso2.carbon.identity.oauth.client.auth.sample.OAuthSampleClientAuthenticator"
     order = 899
     enable = true
     ```
@@ -218,7 +218,7 @@ Let's get started!
     </table>
 
 4.  Register the authenticator as an OSGi service. For example, see
-    [here](https://github.com/wso2/samples-is/blob/master/oauth-sample-client-authenticator/src/main/java/org/wso2/carbon/identity/oauth/client/auth/sample/internal/OAuth2SampleClientAuthnServiceComponent.java#L46)
+    [here](https://github.com/wso2/samples-is/blob/master/etc/oauth-sample-client-authenticator/src/main/java/org/wso2/carbon/identity/oauth/client/auth/sample/internal/OAuth2SampleClientAuthnServiceComponent.java#L46)
     .
 
 5.  Build the OSGi bundle.
@@ -238,9 +238,9 @@ Let's get started!
 To try out the sample implementation that was used in this guide, follow
 the steps given below to successfully get the token.
 
-1.  [Download the samples](../../learn/downloading-a-sample).
+1.  [Download or clone the samples](https://github.com/wso2/samples-is).
 2.  Navigate to the
-    `           is-samples/oauth-sample-client-authenticator          `
+    `           samples-is/etc/oauth-sample-client-authenticator/          `
     directory.
 3.  Build the sample.
 
@@ -250,7 +250,7 @@ the steps given below to successfully get the token.
 
 4.  Copy the
     org.wso2.carbon.identity.oauth.client.auth.sample-1.0-SNAPSHOT.jar
-    file that is in `            is-samples/           `
+    file that is in `            samples-is/etc           `
     `            oauth-sample-client-authenticator/target           `
     directory to the
     `            <IS_HOME>/repository/components/dropins           `

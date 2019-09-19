@@ -138,7 +138,7 @@ To register a service provider, do the following.
                     
                         1.  Configure the travelocity sample application by
                             following the steps in the [Configuring Single
-                            Sign-On](../../tutorials/single-sign-on) topic.
+                            Sign-On](../../learn/single-sign-on) topic.
             
                         2.  Configure a few claims and select the checkbox for
                             mandatory claims.
@@ -214,5 +214,5 @@ To register a service provider, do the following.
 
 !!! info "Related Topics"
     -   See the [Logging in to Salesforce with
-        Facebook](../../tutorials/logging-in-to-salesforce-with-facebook) topic for a
+        Facebook](../../learn/logging-in-to-salesforce-with-facebook) topic for a
         sample of claim mapping for a service provider.

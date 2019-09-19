@@ -39,7 +39,7 @@ authenticate users using their Twitter login credentials:
         Identity Server via SAML, OpenID Connect, SCIM, or WS-Trust. For an
         example on how a resident identity provider is used to implement a
         security token service, see [Configuring WS-Trust Security Token
-        Service](../../tutorials/configuring-ws-trust-security-token-service)
+        Service](../../learn/configuring-ws-trust-security-token-service)
         . The Resident identity provider configuration is a one-time
         configuration for a given tenant. It shows WSO2 Identity Server's
         metadata, e.g., endpoints. The resident identity provider
@@ -134,7 +134,7 @@ authenticate users using their Twitter login credentials:
             click **Security Token Service Configuration** section.  
             ![security-token-service-config](../../assets/img/tutorials/security-token-service-config.png)  
             For more information on security token service (STS), see
-            [Configuring WS-Trust Security Token Service](../../tutorials/configuring-ws-trust-security-token-service).
+            [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
             .
 
     6.  You may view the inbound provisioning configurations by clicking

@@ -1,18 +1,11 @@
 # Using the Configuration Management REST APIs
 
-The configuration management APIs in WSO2 Identity Server manages
-configurations that are required at runtime. The following sections
-guide you through the configuration management concepts and the APIs you
-can use.
+The configuration management APIs in WSO2 Identity Server manages configurations that are required to be stored as tenant-wise key-pair values. These stored configuration values are not changed frequently and are consumed at runtime. Some examples of such values are:
 
--   [Prerequisites](#UsingtheConfigurationManagementRESTAPIs-Prerequisites)
--   [Configuration management
-    architecture](#UsingtheConfigurationManagementRESTAPIs-Configurationmanagementarchitecture)
--   [Configuration management
-    concepts](#UsingtheConfigurationManagementRESTAPIs-Configurationmanagementconcepts)
--   [APIs and supported
-    operations](#UsingtheConfigurationManagementRESTAPIs-APIsandsupportedoperations)
--   [Try it out](#UsingtheConfigurationManagementRESTAPIs-Tryitout)
+- SMTP configurations of an email server
+- A server configuration where analytics data is published
+
+Configurations for the above scenarios can be stored using the configuration management APIs. A detailed example is included in the [try-it-out](#try-it-out) section below.
 
 ### Prerequisites
 
@@ -24,7 +17,7 @@ met.
     `           <IS_HOME>/repository/conf/identity          ` folder.  
     For more information about data sources, see [Setting Up Separate
     Databases for
-    Clustering](https://docs.wso2.com/display/IS570/Setting+Up+Separate+Databases+for+Clustering)
+    Clustering](../../setup/setting-up-separate-databases-for-clustering)
     .
 
     !!! tip
@@ -33,56 +26,56 @@ met.
         MySQL5.7 databases.
     
 
-    -   [**H2**](#d2625696a1ef450297cdbba5a2ef0bea)
-    -   [**MYSQL 5.7**](#f14264cab4b84ee1aa73b6c221a075f6)
+    
+     ``` sql tab="H2"
+        CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
+          ID          VARCHAR(255)  NOT NULL,
+          NAME        VARCHAR(255)  NOT NULL,
+          DESCRIPTION VARCHAR(1023) NULL,
+          PRIMARY KEY (ID),
+          CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
+        );
+    
+        CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
+          ID            VARCHAR(255) NOT NULL,
+          TENANT_ID     INT          NOT NULL,
+          NAME          VARCHAR(255) NOT NULL,
+          CREATED_TIME  TIMESTAMP    NOT NULL,
+          LAST_MODIFIED TIMESTAMP    NOT NULL,
+          HAS_FILE      BOOLEAN(1)   NOT NULL,
+          HAS_ATTRIBUTE BOOLEAN(1)   NOT NULL,
+          TYPE_ID       VARCHAR(255) NOT NULL,
+          UNIQUE (NAME, ID, TYPE_ID),
+          PRIMARY KEY (ID)
+        );
+    
+        ALTER TABLE IDN_CONFIG_RESOURCE
+          ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+    
+        CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
+          ID         VARCHAR(255)  NOT NULL,
+          RESOURCE_ID  VARCHAR(255)  NOT NULL,
+          ATTR_KEY   VARCHAR(1023) NOT NULL,
+          ATTR_VALUE VARCHAR(1023) NULL,
+          PRIMARY KEY (ID),
+          UNIQUE (RESOURCE_ID, ATTR_KEY, ATTR_VALUE)
+        );
+        ALTER TABLE IDN_CONFIG_ATTRIBUTE
+          ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+    
+        CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
+          ID        VARCHAR(255) NOT NULL,
+          VALUE     BLOB         NULL,
+          RESOURCE_ID VARCHAR(255) NOT NULL,
+          PRIMARY KEY (ID)
+        );
+        ALTER TABLE IDN_CONFIG_FILE
+          ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+        ```
 
-    ``` sql
-    CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
-      ID          VARCHAR(255)  NOT NULL,
-      NAME        VARCHAR(255)  NOT NULL,
-      DESCRIPTION VARCHAR(1023) NULL,
-      PRIMARY KEY (ID),
-      CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
-    );
-
-    CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
-      ID            VARCHAR(255) NOT NULL,
-      TENANT_ID     INT          NOT NULL,
-      NAME          VARCHAR(255) NOT NULL,
-      CREATED_TIME  TIMESTAMP    NOT NULL,
-      LAST_MODIFIED TIMESTAMP    NOT NULL,
-      HAS_FILE      BOOLEAN(1)   NOT NULL,
-      HAS_ATTRIBUTE BOOLEAN(1)   NOT NULL,
-      TYPE_ID       VARCHAR(255) NOT NULL,
-      UNIQUE (NAME, ID, TYPE_ID),
-      PRIMARY KEY (ID)
-    );
-
-    ALTER TABLE IDN_CONFIG_RESOURCE
-      ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-
-    CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
-      ID         VARCHAR(255)  NOT NULL,
-      RESOURCE_ID  VARCHAR(255)  NOT NULL,
-      ATTR_KEY   VARCHAR(1023) NOT NULL,
-      ATTR_VALUE VARCHAR(1023) NULL,
-      PRIMARY KEY (ID),
-      UNIQUE (RESOURCE_ID, ATTR_KEY, ATTR_VALUE)
-    );
-    ALTER TABLE IDN_CONFIG_ATTRIBUTE
-      ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-
-    CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
-      ID        VARCHAR(255) NOT NULL,
-      VALUE     BLOB         NULL,
-      RESOURCE_ID VARCHAR(255) NOT NULL,
-      PRIMARY KEY (ID)
-    );
-    ALTER TABLE IDN_CONFIG_FILE
-      ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-    ```
-
-    ``` sql
+    
+   
+    ``` sql sql tab="MYSQL 5.7"
         CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
           ID          VARCHAR(255)  NOT NULL,
           NAME        VARCHAR(255)  NOT NULL,
@@ -131,52 +124,17 @@ met.
     for its database CRUD operations; especially in the
     `           /search          ` endpoint (for more information, see
     [Configuration Management REST
-    APIs](https://docs.wso2.com/display/IS580/apidocs/Configuration-management-apis)
+    APIs](../../develop/using-the-configuration-management-rest-apis)
     ). However, a query that is too long can lead to errors. To prevent
     this, an upper limit to the dynamic query size is applied by default
     (the default value is the maximum packet size for MySQL 5.7 in
     bytes). To configure this upper limit value, do the following:
 
-    1.  Open the `             identity.xml            ` file found in
-        the
-        `             <IS_HOME>/repository/conf/identity            `
-        folder.
-
-    2.  Add the following configuration block as a new line to the end
-        of the file.
-
-        ``` xml
-                <!--Configuration Store properties-->
-                <ConfigurationStore>
-                    <!--Set an upper limit to the database call queries. Configuration store uses dynamic query generation,
-                     especially for searching resources. This property will prevent any unwanted errors due to too large queries.
-                     Default value is the maximum packet size for MySQL 5.7 in bytes.-->
-                    <MaximumQueryLength>4194304</MaximumQueryLength>
-                </ConfigurationStore>
-        ```
-
-3.  Secure the configuration management REST API before using it. To do
-    this:
-    1.  Open the `            identity.xml           ` file found in the
-        `            <IS_HOME>/repository/conf/identity           `
-        folder.
-    2.  Add the following configuration block under the
-        `             <Server> <ResourceAccessControl>            ` tag.
-
-        ``` xml
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/search(.*)" secured="true" http-method="GET"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource-type" secured="true" http-method="POST"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource-type" secured="true" http-method="PUT"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource-type/(.*)" secured="true" http-method="GET"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource-type/(.*)" secured="true" http-method="DELETE"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)" secured="true" http-method="POST"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)" secured="true" http-method="PUT"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)" secured="true" http-method="GET"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)" secured="true" http-method="DELETE"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)" secured="true" http-method="POST"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)" secured="true" http-method="PUT"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)/(.*)" secured="true" http-method="GET"/>
-                <Resource context="(.*)/api/identity/config-mgt/v1.0/resource/(.*)/(.*)/(.*)" secured="true" http-method="DELETE"/>
+    1. Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+        
+        ``` 
+        [configuration.store.query_length]
+        max="4194304
         ```
 
 ### Configuration management architecture
@@ -184,7 +142,7 @@ met.
 The configuration manager exposed with the configuration management REST
 APIs manages configurations as **Resources**.
 
-![]( ../../assets/img/119111748/119111749.png){.image-left width="252"}
+![]( ../../assets/img/119111748/119111749.png)
 
   
 
@@ -212,8 +170,8 @@ The section below describes each concept in more detail.
 
 ### Configuration management concepts
 
--   **Resource -  
-    ** A resource contains one or more attributes which will be used to
+-   **Resource -**
+     A resource contains one or more attributes which will be used to
     store resource data. A resource is created in the tenant domain and
     it belongs to the authenticated user who creates the resource. When
     creating the resource, it is mandatory to assign a resource type.  
@@ -245,7 +203,7 @@ The section below describes each concept in more detail.
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
-    Parameters](Retrieving_Tenant-Resources-Based-on-Search-Parameters).
+    Parameters](../../develop/retrieving-tenant-resources-based-on-search-parameters).
     
 
 ### Try it out

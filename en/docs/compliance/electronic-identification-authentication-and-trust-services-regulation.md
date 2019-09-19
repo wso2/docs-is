@@ -20,7 +20,7 @@ eIDAS service (an eIDAS service can operate either in an eIDAS proxy
 service or eIDAS middleware service).
 
 Following is an example eIDAS network with proxy to proxy connection
-between two member states(MS).
+between two "**member states**"(MS).
 
 ![eidas-diagram](../../assets/img/compliance/eidas-diagram.png)
   

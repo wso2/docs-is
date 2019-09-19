@@ -10,5 +10,5 @@ Security Token Service (STS).
 
 !!! info "Related Topics"
 	See [Configuring WS-Federation Single
-    Sign-On](../../tutorials/configuring-ws-federation-single-sign-on) via Identity
+    Sign-On](../../learn/configuring-ws-federation-single-sign-on) via Identity
     Server to configure WS-Federation in WSO2 Identity Server

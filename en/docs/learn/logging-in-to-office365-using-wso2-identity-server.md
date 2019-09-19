@@ -63,6 +63,6 @@ of provisioning users based on role:
         protocol you wish to use):
 
         -   [Configuring Office365 SAML2 with WSO2 Identity
-            Server](../../tutorials/configuring-office365-saml2-with-wso2-identity-server)
+            Server](../../learn/configuring-office365-saml2-with-wso2-identity-server)
         -   [Configuring Office365 WS-Federation with WSO2
-            IS](../../tutorials/configuring-office365-ws-federation-with-wso2-is)
+            IS](../../learn/configuring-office365-ws-federation-with-wso2-is)

@@ -32,28 +32,36 @@ The diagram below illustrates the refresh token grant flow.
 
 ### Configurations
 
-1.  Configure the validity period of the refresh token by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. The validity period is configured in seconds. 
+1.  Configure the validity period of the refresh token by configuring the following property in the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. 
     ``` toml
     [oauth.token_validation]
-    refresh_token_validity= "" 
+    refresh_token_validity= "86400s"
     ```
+
+    !!! info
+
+        You can also provide the validity period in minutes, hours, or days using different unit suffixes as follows.
+            <ul>
+                <li>1 day -> refresh_token_validity= "1d"</li>
+                <li>1 hour -> refresh_token_validity= "1h"</li>
+                <li>1 minute -> refresh_token_validity= "1m"</li>
+            </ul>
+
+        **Note**: You cannot combine two units together. Ex: "1h 30m" is not allowed. You'll have to go with "90m" instead.
+
 2.  Refresh tokens are renewed by default. If you wish to change this, add the following property in the `deployment.toml` file and set it to false. 
     ``` toml
     [oauth.token_renewal]
     renew_refresh_token= "false"
     ```
 
-    The refresh token is renewed when the refresh grant is used to get
-    an access token. A new refresh token is issued with a new expiry
-    time and the previous refresh token is made inactive and can no
-    longer be used. If this element is set to false, unless the refresh
-    token has expired, the same refresh token is returned.
+    !!! info
 
-    To configure the refresh token validity period, add the following property to the `deployment.toml` file.
-    ```toml
-    [oauth.token_validation]
-    refresh_token_validity= ""
-    ```
+        The refresh token is renewed when the refresh grant is used to get
+        an access token. A new refresh token is issued with a new expiry
+        time and the previous refresh token is made inactive and can no
+        longer be used. If this element is set to false, unless the refresh
+        token has expired, the same refresh token is returned.
 
 ### Try it out
 

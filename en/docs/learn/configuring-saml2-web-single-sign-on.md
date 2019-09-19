@@ -356,16 +356,16 @@ of entity configuration.
     
 
 !!! info "Related Topics"
-    See [SAML 2.0 Web SSO](../../tutorials/saml-2.0-web-sso) for more
+    See [SAML 2.0 Web SSO](../../learn/saml-2.0-web-sso) for more
     information on SAML2 single-sign-on and see the following topics for
     samples of configuring single-sign-on using SAML2.
 
     -   [Configuring Single
-        Sign-On](../../tutorials/configuring-single-sign-on)
+        Sign-On](../../learn/configuring-single-sign-on)
     -   [Logging in to WSO2 Products via Identity
-        Server](../../tutorials/logging-in-to-salesforce-with-integrated-windows-authentication)
+        Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2
-        Products](../../tutorials/configuring-saml2-single-sign-on-across-different-wso2-products)
+        Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
 
     See [Using the SAML2
     Toolkit](../../learn/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
