@@ -1,12 +1,10 @@
 # Using Symmetric Encryption
 
 !!! note
-    
     The capability of using symmetric encryption was introduced by the
     Carbon 4.4.3 release. Therefore, note that this feature is only
     applicable to products that are based on Carbon 4.4.3 or later versions.
     
-
 WSO2 Carbon-based products use [asymmetric
 encryption](../../administer/using-asymmetric-encryption) by default as explained in
 the previous section. From Carbon 4.4.3 onwards, you have the option of
@@ -51,11 +49,7 @@ Follow the steps given below to enable symmetric encryption.
     ```
 
     If Secure Vault has been used for encrypting the symmetric key, this
-    value will be replaced by the secret alias as shown below. F or
-    detailed instructions on how the secret key can be encrypted using
-    Secure Vault, s ee [Encrypting Passwords with Cipher
-    Tool](https://docs.wso2.com/display/Carbon443/Encrypting+Passwords+with+Cipher+Tool)
-    .
+    value will be replaced by the secret alias as shown below. 
 
     ``` java
         symmetric.key=secretAlias:symmetric.key.value

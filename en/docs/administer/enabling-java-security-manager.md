@@ -1,7 +1,6 @@
 # Enabling Java Security Manager
 
 !!! warning
-    
     **Please note that this document is currently under review. Currently,
     WSO2 does not recommend Java security manager for production
     environments due to some known issues.**
@@ -14,16 +13,14 @@ that are in the
 `         <PRODUCT_HOME>/repository/conf/sec.policy        ` file. You
 modify this file to change the Java security permissions as required.
 
-**Before you begin**
-
--   Ensure that you have Java 1.8 installed.
--   Note that you need to use a keystore for signing JARs using the Java
-    security manager. In this example, you will be using the default
-    keystore in your WSO2 product (
-    `           wso2carbon.jks          ` ). You can read about the
-    recommendations for using keystores from
-    [here](../../administer/using-asymmetric-encryption-53125461.html#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products)
-    .
+!!! info "Before you begin"
+    -   Ensure that you have Java 1.8 installed.
+    -   Note that you need to use a keystore for signing JARs using the Java
+        security manager. In this example, you will be using the default
+        keystore in your WSO2 product (
+        `           wso2carbon.jks          ` ). You can read about the
+        recommendations for using keystores from
+        [here](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products).
 
 The steps below show how to enable the Java Security Manager for WSO2
 products.
@@ -72,22 +69,21 @@ products.
 
     ``` java
         $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_PRODUCT_HOME>/repository/resources/security/wso2carbon.jks
-            Enter keystore password:  
-            Owner: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-            Issuer: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-            Serial number: 5486f3b0
-            Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
-            Certificate fingerprints:
-            MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
-            SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
-            Signature algorithm name: SHA1withRSA
-            Version: 3
-            Trust this certificate? [no]:  yes
-            Certificate was added to keystore
+        Enter keystore password:  
+        Owner: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Issuer: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Serial number: 5486f3b0
+        Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
+        Certificate fingerprints:
+        MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
+        SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
+        Signature algorithm name: SHA1withRSA
+        Version: 3
+        Trust this certificate? [no]:  yes
+        Certificate was added to keystore
     ```
 
     !!! note
-    
         Note that WSO2 no longer recommends MD5 for JAR signing due to
         cryptographic limitations.
     
@@ -155,7 +151,6 @@ products.
     ```
 
     !!! tip
-    
         Every time you add an external JAR to the WSO2 product, sign them
         manually using the above instructions for the Java Security Manager
         to be effective. You add external JARs to the server when extending

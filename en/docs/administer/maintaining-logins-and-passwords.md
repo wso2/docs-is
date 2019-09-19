@@ -2,15 +2,6 @@
 
 This section covers the following topics:
 
--   [Changing the super admin
-    password](#MaintainingLoginsandPasswords-Changingthesuperadminpassword)
--   [Unlocking the admin
-    user](#MaintainingLoginsandPasswords-Unlockingtheadminuser)
--   [Recovering a
-    password](#MaintainingLoginsandPasswords-Recoveringapassword)
--   [Setting up an email
-    login](#MaintainingLoginsandPasswords-Settingupanemaillogin)
-
 ### Changing the super admin password
 
 To change the default admin password, log in to the management console
@@ -32,33 +23,25 @@ After changing the credentials, change the same in the
 </UserManager>
 ```
 
-!!! tip
-    
-    **Do you have any special characters in passwords?**
-    
-    For usernames and passwords inside XML files, take care when giving
-    special characters. According to XML specification (
-    <http://www.w3.org/TR/xml/> ), some special characters can disrupt the
-    configuration. For example, the ampersand character (&) must not appear
-    in the literal form in XML files. It can cause a Java Null Pointer
-    exception. You must wrap it with CDATA (
-    <http://www.w3schools.com/xml/xml_cdata.asp> ) as shown below or remove
-    the character:
-    
-    ``` xml
-    <Password>
-        <![CDATA[xnvYh?@VHAkc?qZ%Jv855&A4a,%M8B@h]]>
-    </Password>
-```
-
-`                   `
-
+!!! tip "Do you have any special characters in passwords?"
+      For usernames and passwords inside XML files, take care when giving
+      special characters. According to XML specification (<http://www.w3.org/TR/xml/>), some special characters can disrupt the
+      configuration. For example, the ampersand character (&) must not appear
+      in the literal form in XML files. It can cause a Java Null Pointer
+      exception. You must wrap it with CDATA as shown below or remove
+      the character:
+      
+      ``` xml
+      <Password>
+         <![CDATA[xnvYh?@VHAkc?qZ%Jv855&A4a,%M8B@h]]>
+      </Password>
+      ```
 
 ### Unlocking the admin user
 
 To unlock an admin user who is locked due to an exceeding number of
 login failures, restart the server using the -
-`         unlockAdmin        ` system property
+`         DunlockAdmin        ` system property
 
 ### Recovering a password
 
@@ -73,7 +56,7 @@ The '@' is a special character in usernames of WSO2 products as it is
 used in multi-tenant environments to build the user's fully-qualified
 name. For example, user *daniel* from the tenant domain
 [WSO2.com](http://WSO2.com) has the fully-qualified name
-*<daniel@WSO2.com>* . Before using an email as the username, configure
+*<daniel@WSO2.com>*. Before using an email as the username, configure
 the WSO2 product to differentiate between the '@' symbol in the user's
 emails and usernames as follows:
 
@@ -89,8 +72,7 @@ emails and usernames as follows:
     ```
 
     !!! tip
-    
-        **Tip** : When you do this configuration, the email becomes the
+        When you do this configuration, the email becomes the
         admin username and you cannot configure your email address as an
         attribute in your user profile.
     
@@ -100,7 +82,6 @@ emails and usernames as follows:
     You might be connected to an LDAP, Active Directory, or a JDBC-based
     user store. Regardless of the user store manager, change the
     following:
-
     <table>
     <colgroup>
     <col style="width: 50%" />
