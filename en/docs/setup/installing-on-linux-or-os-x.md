@@ -12,8 +12,8 @@ or Mac OS X.
 ### Installing the required applications
 
 1.  Log in to the command line (Terminal on Mac).
-2.  Ensure that your system meets the [Installation
-    Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
+
+2.  Ensure that your system meets the [Installation Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server
@@ -110,13 +110,6 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a properties file instead of in the Java
     code and secure the properties file with the [secure
-    vault](../../admin-guide/carbon-secure-vault-implementation).
-
-!!! info
-    When using SUSE Linux, it ignores `          /etc/resolv.conf         ` and only looks at the `          /etc/hosts         ` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `          127.0.0.1 localhost         ` in the
-        `          /etc/hosts         ` file.
-    ```
-    <ip_address> <machine_name> localhost
-    ```
+    vault](../../administer/carbon-secure-vault-implementation).
 
 You are now ready to [run the product](../../setup/running-the-product).
