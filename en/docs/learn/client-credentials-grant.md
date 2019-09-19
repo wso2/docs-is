@@ -16,23 +16,20 @@ except in this case, only the client’s credentials are used to
 authenticate a request for an access token.
 
   
-
 The diagram below illustrates the client credentials grant flow.
-
   
 
 ![oauth-client-credentials-diagram]( ../../assets/img/103329605/oauth-client-credentials-diagram.png)
 
-**Support for [refresh token grant](../../learn/refresh-token-grant) -** No
 
 The cURL commands below can be used to try this grant type.
 
-``` powershell
+``` java tab="Request 1"
 curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
-``` powershell
- curl -u <client id>:<client secret> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+``` java tab="Request 2"
+curl -u <client id>:<client secret> -k -d "grant_type=client_credentials" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
 You will receive a response similiar to the format below.
@@ -43,9 +40,11 @@ You will receive a response similiar to the format below.
 {"token_type":"Bearer","expires_in":2061,"access_token":"ca19a540f544777860e44e75f605d927"}
 ```
 
-**Related Topics**
+!!! info "Support for refresh token grant - No"
+	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
 
--   See the [Try Client Credentials
-    Grant](../../learn/try-client-credentials-grant) topic to try out a sample of
+
+!!! info "Related Topics"
+	See the [Try Client Credentials Grant](../../learn/try-client-credentials-grant) topic to try out a sample of
     the resource owner password credentials grant with WSO2 Identity
     Server and WSO2 OAuth2 Playground.

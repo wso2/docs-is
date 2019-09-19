@@ -103,5 +103,5 @@ some of those libraries:
 **Related Topics**
 
 -   See [Configuring IWA
-    Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on) to configure
+    Single-Sign-On](../../learn/configuring-iwa-single-sign-on) to configure
     integrated windows authentication in WSO2 Identity Server.

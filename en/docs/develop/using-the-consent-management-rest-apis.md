@@ -26,31 +26,26 @@ management.
 -   **PII Controller**: A private stakeholder that determines the purposes and means for
     processing personally identifiable information (PII) other than the
     natural persons who use data for personal purposes.  
-    You can configure a default PII controller in the
-    `            consent-mgt-config.xml           ` file found in the
-    `            <IS_HOME>/repository/conf           ` folder.
+Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     !!! info 
         For more information on how to extend or customize this, see
         [Extension points](#extension-points).
 
-    ``` java
-    <PIIController>
-        <PiiController>Kim</PiiController>
-        <Contact>Kim</Contact>
-        <Email>kim@abc.com</Email>
-        <Phone>+01433444333</Phone>
-        <OnBehalf>false</OnBehalf>
-        <PiiControllerUrl>https://sample.piicontroller.url</PiiControllerUrl>
-        <Address>
-            <Country>USA</Country>
-            <Locality>Mountain View</Locality>
-            <Region>CA</Region>
-            <PostOfficeBoxNumber>233</PostOfficeBoxNumber>
-            <PostalCode>94043</PostalCode>
-            <StreetAddress>1600 Amphitheatre Pkwy</StreetAddress>
-        </Address>
-    </PIIController>
+    ``` 
+    [authentication.pii_controller]
+    name = "Kim"
+    contact = "Kim"
+    email = "kim@abc.com"
+    phone = "01433444333"
+    on_behalf = "false"
+    url = "https://sample.piicontroller.url"
+    country ="USA"
+    locality = "Mountain View"
+    region = "CA"
+    po_box  = "233"
+    postal_code  = "94043"
+    street_address = "1600"
     ```
             
     | Property             | Type    | Required/Optional | Description                                                                                                                            |

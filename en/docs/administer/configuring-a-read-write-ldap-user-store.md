@@ -10,16 +10,15 @@ read-write Active directory). The instructions given below explains how
 to configure a read-write LDAP as the primary user store for the WSO2
 server.
 
-The default User Store
-
-The primary user store that is configured by default in the user-mgt.xml
-file of WSO2 products is a JDBC user store, which reads/writes into the
-internal database of the product server. By default, the internal
-database is H2. This database is used by the Authorization Manager (for
-user authentication information) as well as the User Store Manager (for
-defining users and roles). In the case of the WSO2 Identity Server, the
-default user store is an LDAP (Apache DS) that is shipped with the
-product.
+!!! info "The default User Store"
+    The primary user store that is configured by default in the user-mgt.xml
+    file of WSO2 products is a JDBC user store, which reads/writes into the
+    internal database of the product server. By default, the internal
+    database is H2. This database is used by the Authorization Manager (for
+    user authentication information) as well as the User Store Manager (for
+    defining users and roles). In the case of the WSO2 Identity Server, the
+    default user store is an LDAP (Apache DS) that is shipped with the
+    product.
 
 Note that the RDBMS used in the default configuration can remain as the
 database used for storing Authorization information.
@@ -27,22 +26,15 @@ database used for storing Authorization information.
 Follow the given steps to configure a read-write LDAP as the primary
 user store:
 
--   [Step 1: Setting up the read-write LDAP user store
-    manager](#ConfiguringaRead-WriteLDAPUserStore-Step1:Settinguptheread-writeLDAPuserstoremanager)
--   [Step 2: Updating the system
-    administrator](#ConfiguringaRead-WriteLDAPUserStore-Step2:Updatingthesystemadministrator)
--   [Step 3: Starting the
-    server](#ConfiguringaRead-WriteLDAPUserStore-Step3:Startingtheserver)
 
 ### Step 1: Setting up the read-write LDAP user store manager
 
-Before you begin
-
--   If you create the `           user-mgt.xml          ` file yourself,
-    be sure to save it in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory.
--   The `           class          ` attribute for a read-write LDAP is
-    `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">          `
+!!! info "Before you begin"
+    -   If you create the `           user-mgt.xml          ` file yourself,
+        be sure to save it in the
+        `           <PRODUCT_HOME>/repository/conf          ` directory.
+    -   The `           class          ` attribute for a read-write LDAP is
+        `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">          `
 
 Once the above points are made note of and completed, you can start
 configuring your external read-write LDAP as the primary user store.
@@ -53,7 +45,6 @@ configuring your external read-write LDAP as the primary user store.
     manager reads/writes into the LDAP user store.
 
     !!! note
-    
         Note that these configurations already exist in the
         `           user-mgt.xml          ` file so you only need to
         uncomment them and make the appropriate adjustments.Also ensure that
@@ -68,7 +59,7 @@ configuring your external read-write LDAP as the primary user store.
     For more information about each of the properties used in the
     `           user-mgt.xml          ` file for configuring the primary
     user store, see [Properties of User
-    Stores](Working_with_Properties_of_User_Stores).
+    Stores](../../administer/working-with-properties-of-user-stores).
 
     ``` html/xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
@@ -143,21 +134,20 @@ configuring your external read-write LDAP as the primary user store.
         ```
 
         !!! note
-        
-                If you are using `             ldaps            ` (secured LDAP)
-                to connect to the LDAP:
-        
-                -   You need set the
-                    `               ConnectionURL              ` as shown below.
-        
-                    ``` xml
-                                <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
-                    ```
-        
-                -   You also need to [enable connection
-                    pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
-                    for LDAPS connections at the time of starting your server,
-                    which will enhance server performance.
+            If you are using `             ldaps            ` (secured LDAP)
+            to connect to the LDAP:
+    
+            -   You need set the
+                `               ConnectionURL              ` as shown below.
+    
+                ``` xml
+                            <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
+                ```
+    
+            -   You also need to [enable connection
+                pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+                for LDAPS connections at the time of starting your server,
+                which will enhance server performance.
         
 
     4.  In WSO2 products based on Carbon 4.4.x, you can set the

@@ -11,15 +11,7 @@ secondary stores.
 The topics below explain how to configure secondary user stores manually
 or using the management console:
 
--   [Configuring using the management
-    console](#ConfiguringSecondaryUserStores-Configuringusingthemanagementconsole)
--   [Configuring
-    manually](#ConfiguringSecondaryUserStores-Configuringmanually)
-
-!!! tip
-    
-    Before you begin:
-    
+!!! tip "Before you begin:"    
     If you are setting up a database other than the default H2 that comes
     with the product to store user information, select the script relevant
     to your database type from the
@@ -38,7 +30,6 @@ or using the management console:
 
 3.  In the User Store Manager Class list, select the type of user store
     you are creating.
-
     <table>
     <thead>
     <tr class="header">
@@ -67,8 +58,9 @@ or using the management console:
     <td><code>               org.wso2.carbon.identity.user.store.remote.CarbonRemoteUserStoreManger              </code></td>
     <td><div class="content-wrapper">
     <p>Use <code>                 CarbonRemoteUserStoreManager                </code> to configure another WSO2 product based on WSO2 Carbon as the user store manager.</p>
-    !!! note
-        <p><strong>Note</strong> : Any secondary user stores that are configured to the WSO2 product are not supported. However, the primary user store of the WSO2 product you point to works as expected.</p>
+    <div class="admonition note">
+	<p class="admonition-title">Note</p>
+	<p><strong>Note</strong> : Any secondary user stores that are configured to the WSO2 product are not supported. However, the primary user store of the WSO2 product you point to works as expected.</p></div>
     </div></td>
     </tr>
     </tbody>
@@ -90,12 +82,11 @@ or using the management console:
     additional properties in Optional or Advanced sections at the bottom
     of the screen. For information on the properties that are used when
     defining user stores, see [Properties of User
-    Stores](Working_with_Properties_of_User_Stores).
+    Stores](../../administer/working-with-properties-of-user-stores).
 
     ![](../../assets/img/53125491/72424354.png) 
 
     !!! note
-    
         Make sure that you do not enter “federated” as the domain name as
         the term is reserved for federated users.
     

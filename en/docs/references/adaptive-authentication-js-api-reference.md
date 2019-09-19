@@ -7,7 +7,7 @@ authentication sequence using authentication scripts written in
 JavaScript.
 
 For more information on adaptive authentication, see [Adaptive
-Authentication](tutorials/adaptive-authentication-overview.md)
+Authentication](../../learn/adaptive-authentication-overview.md)
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
@@ -51,7 +51,7 @@ following.
 <tr class="even">
 <td>options</td>
 <td>An optional map that can configure step execution. Authentication option filtering is supported.<br />
-For more information, see <a href="#AdaptiveAuthenticationJSAPIReference-Authenticationstepf">authentication step filtering</a> .</td>
+For more information, see <a href="#authentication-step-filtering">authentication step filtering</a> .</td>
 </tr>
 <tr class="odd">
 <td>eventCallbacks</td>
@@ -82,16 +82,26 @@ The API can be called in either of the following ways:
 
 -   With the `           stepId          `,
     `           options          `, and an empty
-    `           eventCallbacks          ` array. Example:
+    `           eventCallbacks          ` array.  Different properties can be defined in the `           options          ` object such as `           authenticationOptions          `, `           authenticatorParams          `. See the following two examples:
 
     ``` java
-        executeStep(1,{
-            authenticationOptions:[{
-                authenticator: 'totp'
-            }]},
-        });
+    executeStep(1,{
+        authenticationOptions:[{
+            authenticator: 'totp'
+        }]},
+    });
     ```
-
+    ``` java
+    executeStep(1, {
+        authenticatorParams: {
+                local: {
+                    SessionExecutor: {
+                        MaxSessionCount: '1'
+                                      }
+                }
+        }
+    });
+    ```
       
     !!! note
     
@@ -435,6 +445,41 @@ function onLoginRequest(context) {
 }
 ```
 
+##### getUserSessions(user)
+
+This function returns a session object  (i.e. all the active user sessions of the specified user and returns an empty array if there are no sessions). It includes the following parameters.
+
+| Parameter     | Description                                             |
+|---------------|---------------------------------------------------------|
+| user          | This is a user object that represents the user details. |
+
+``` java
+var user = context.currentKnownSubject;
+var sessions = getUserSessions(user);
+for (var key in sessions) {
+    Log.info(“Session ID: ” + sessions[key].id);
+}
+```
+
+##### terminateUserSession(user, sessionId)
+
+This function returns a session object  (i.e. all the active user sessions of the specified user and returns an empty array if there are no sessions). It includes the following parameters.
+
+| Parameter     | Description                                                                |
+|---------------|----------------------------------------------------------------------------|
+| user          | This is a user object that represents the user details.                    |
+| sessionId     | This is the `sessionId` string of the session that needs to be terminated. |
+
+``` java
+var user = context.currentKnownSubject;
+var sessions = getUserSessions(user);
+if (sessions.length > 0) {
+    var result = terminateUserSession(user, sessions[0]);
+    Log.info(“Terminate Operation Successful?: ” + result);
+}
+
+```
+
 ### Object Reference
 
 ##### context Object
@@ -445,7 +490,7 @@ accessed as follows.
 -   `           context.steps[<n>]          ` :  Access the
     authentication step information, where &lt;n&gt; is the step number
     (1-based). See [step
-    Object](#AdaptiveAuthenticationJSAPIReference-stepObject) for more
+    Object](#step-object) for more
     information.
 
     !!! note
@@ -456,11 +501,11 @@ accessed as follows.
 
 -   `          context.request         ` :  Access the HTTP
     authentication request information. See [request
-    Object](#AdaptiveAuthenticationJSAPIReference-requestObject) for
+    Object](#request-object) for
     more information.
 -   `          context.response         ` :  Access the HTTP response
     which will be sent back to the client. See [response
-    Object](#AdaptiveAuthenticationJSAPIReference-responseObject) for
+    Object](#responseObject) for
     more information.
 -   `          context.serviceProviderName         ` :  Get the
     application name.
@@ -473,7 +518,7 @@ step number.
 -   `          step.subject         ` :  Contains the authenticated
     user’s information from this step. May be null if the step is not
     yet executed. See [user
-    Object](#AdaptiveAuthenticationJSAPIReference-userObject) for more
+    Object](#userObject) for more
     information.
 -   `          step.idp         ` :  Gives the Idp name which was used
     to authenticate this user.
@@ -514,3 +559,30 @@ step number.
 -   `          request.headers[“<header_name>”]         ` : (Write)
     Response header value for the given header name by
     &lt;header\_name&gt;
+
+##### session Object
+
+-   `          session.userAgent         ` :  This is userAgent object of the user session.. See [userAgent
+    Object](#AdaptiveAuthenticationJSAPIReference-userAgentObject) for more
+    information.
+-   `          session.ip         ` :  This is the session’s IP address.
+-   `          session.loginTime         ` :  This is the session’s last login time.
+-   `          session.lastAccessTime         ` :  This is the session’s last accessed time.
+-   `          session.id         ` :  This is the session’s id.
+-   `          session.applications         ` :  This is the list of application objects in the session. See [application
+    Object](#AdaptiveAuthenticationJSAPIReference-applicationObject) for more
+    information.
+
+##### application Object
+
+-   `          application.subject         ` :  This is the subject of the application.
+-   `          application.appName         ` :  This is the name of the application.
+-   `          application.appId         ` :  This is the id of the application.
+    
+##### userAgent Object
+
+-   `          userAgent.raw         ` :  This is the raw userAgent string.
+-   `          userAgent.browser         ` :  This is the Web Browser property that is extracted from the raw userAgent string.
+-   `          userAgent.platform         ` :  This is the Operating System property that is extracted from the raw userAgent string.
+-   `          userAgent.device         ` :  This is the Device property that is extracted from the raw userAgent string.
+    

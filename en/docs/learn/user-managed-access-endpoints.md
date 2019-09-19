@@ -306,6 +306,7 @@ The error code can either be `         invalid_resource_id        ` or
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | `             Invalid_resource_id            `    | This indicates that the resource ID does not exist in the authorization server.                                        |
 | `             Invalid_resource_scope            ` | This indicates that at least one of the scopes corresponding to the resource is not found at the authorization server. |
+
 <a name="permissionticket"></a>
 ##### Creating a permission ticket
 

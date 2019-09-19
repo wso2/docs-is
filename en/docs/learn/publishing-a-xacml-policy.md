@@ -4,7 +4,7 @@
     
     Before publishing a XACML policy to the Policy Decision Point (PDP), you
     need to create the policy first. For more information on how to create a
-    XACML policy, see [Creating a XACML Policy](../../tutorials/creating-a-xacml-policy).
+    XACML policy, see [Creating a XACML Policy](../../learn/creating-a-xacml-policy).
     
 
 In order to use a XACML policy for authorization in WSO2 Identity

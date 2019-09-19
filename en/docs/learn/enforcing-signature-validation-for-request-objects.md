@@ -2,7 +2,7 @@
 
 The tutorial [Passing OIDC Authentication Request Parameters in a
 Request
-Object](../../tutorials/passing-oidc-authentication-request-parameters-in-a-request-object)
+Object](../../learn/passing-oidc-authentication-request-parameters-in-a-request-object)
 describes how you can pass OIDC authentication request parameters in a
 request object via WSO2 Identity Server (WSO2 IS). Request objects can
 either be signed or unsigned. Therefore, if you want to only accept
