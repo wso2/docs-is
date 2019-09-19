@@ -39,7 +39,7 @@ Any user management system has the following basic components:
 The following diagram illustrates how the user management functionality
 is structured to work in WSO2 products:
 
-![](../../assets/img/53125483/53287367.png){.image-center}
+![](../../assets/img/53125483/53287367.png)
 
 -   **User stores:** A **user store** is the database where information
     about the users and user roles is stored, including login name,
@@ -54,9 +54,9 @@ is structured to work in WSO2 products:
 
 -   **Realm configuration:** The user realm consists of the
     configurations required to initialise the user realm. The
-    `           user-mgt.xml          ` file stored in the
+    `           deployment.toml          ` file stored in the
     `           <PRODUCT_HOME>/repository/conf/          ` directory is
-    used as the realm configuration XML. This includes setting up the
+    used as the realm configuration TOML. This includes setting up the
     **User Store Manager**, the **Authorization Manager** and the
     **System Administrator**. These configurations are explained
     below.  
@@ -75,7 +75,7 @@ is structured to work in WSO2 products:
     <li><code>                 LDAPUserStoreManager                </code> (read-only)</li>
     <li><code>                 ApacheDSUserStoreManager                </code> (read and write)</li>
     </ul>
-    <p><img src="../../assets/img/33134346/33345382.jpg" width="500" /></p>
+    <p><img src="../../assets/img/administer/user-store-managers.png"></p>
     <p>You can write a custom user store manager implementation by implementing <code>                UserStoreManager               </code> or by extending <code>                AbstractUserStoreManager               </code> or one of the default implementations.</p>
     <h5 id="IntroductiontoUserManagement-UsingJDBCUserStoreManager">Using JDBCUserStoreManager</h5>
     <p>The <code>                JDBCUserStoreManager               </code> class uses a schema that is specific to WSO2 Carbon. It contains the following tables:</p>
@@ -99,7 +99,7 @@ is structured to work in WSO2 products:
     </table>
 
 For information on how you can set up and configure the user management
-realm, see [Configuring the User Realm](Configuring-the-User-Realm),
+realm, see [Configuring the User Realm](../../administer/configuring-the-user-realm),
 and for information on how you can manage the users, roles and
 permissions using the Management Console, see [Managing Users, Roles and
 Permissions](../../administer/managing-users-roles-and-permissions).

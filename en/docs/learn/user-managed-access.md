@@ -34,11 +34,11 @@ The Protection API consists of three endpoints:
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><strong><a href="User-Managed-Access-Endpoints_103329668.html#UserManagedAccessEndpoints-Resourceregistrationendpoint">Resource registration endpoint</a></strong></td>
+<td><strong><a href="../../learn/user-managed-access-endpoints#resource-registration-endpoint">Resource registration endpoint</a></strong></td>
 <td><p>Allows the resource owner to secure the resources using the authorization server and manage them over time.</p></td>
 </tr>
 <tr class="even">
-<td><strong><a href="User-Managed-Access-Endpoints_103329668.html#UserManagedAccessEndpoints-Permissionendpoint">Permission endpoint</a></strong></td>
+<td><strong><a href="../../learn/user-managed-access-endpoints#permission-endpoint">Permission endpoint</a></strong></td>
 <td><p>Allows the resource server to request permission(s) when the client’s resource request is unaccompanied by a Requesting Party Token (RPT) or is accompanied by an invalid RPT.</p></td>
 </tr>
 <tr class="odd">

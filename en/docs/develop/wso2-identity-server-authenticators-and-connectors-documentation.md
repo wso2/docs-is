@@ -3,7 +3,7 @@
 A WSO2 Identity Server **authenticator** allows you to authenticate the user
 using third party authentication systems such as LinkedIn, Duo security
 and Foursquare. You can [configure the authenticators for your identity
-provider](../../tutorials/configuring-federated-authentication)
+provider](../../learn/configuring-federated-authentication)
 to reach out to third party authentication systems to authenticate a
 user who logs in to your application. For example, if you configure
 LinkedIn authenticator as your authenticator in WSO2 Identity Server,

@@ -10,7 +10,7 @@ re-evaluated.
 !!! info "For more details"
 
 	Refer [Improving XACML PDP Performance with Caching
-	Techniques](../../tutorials/improving-xacml-pdp-performance-with-caching-techniques)
+	Techniques](../../learn/improving-xacml-pdp-performance-with-caching-techniques)
 	to get more information about caching techniques used in WSO2 Identity
 	Server.
 

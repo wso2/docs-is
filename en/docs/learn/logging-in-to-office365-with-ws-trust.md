@@ -52,7 +52,7 @@ you through the entire process.
 -   Configure Azure Active Directory (AD) to trust WSO2 Identity Server.
     For more information on how to do this, see [Configuring Azure
     Active Directory toTrust WSO2 Identity
-    Server](../../tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     .
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
@@ -76,7 +76,7 @@ you through the entire process.
 3.  Replace the value of the **Identity Provider Entity Id** with the
     value given for the parameter **$issueruri** when configuring Azure
     AD (configured in step 3 of [this
-    topic](../../tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    topic](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     ), and click **Update** to save changes.  
     In this sample scenario, the value for the Identity Provider Entity
     Id is https://wso2test.com.
@@ -108,7 +108,7 @@ you through the entire process.
 1.  -   Country - http://wso2.org/claims/country
 
     -   Organization - http://wso2.org/claims/organization
-    -   IM - <http://wso2.org/claims/im>
+    -   IM - http://wso2.org/claims/im
 
 2.  Navigate to **Service Providers \> Add** in the **Main** menu and
     add a new Service Provider named ' Office365'.
@@ -119,7 +119,7 @@ you through the entire process.
 
 4.  Enter the following details in the form that appears and click
     **Apply** . See [Configuring WS-Trust Security Token
-    Service](../../tutorials/configuring-ws-trust-security-token-service) for more
+    Service](../../learn/configuring-ws-trust-security-token-service) for more
     information about these fields.
 
     -   **Endpoint Address:**

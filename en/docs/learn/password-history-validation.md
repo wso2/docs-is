@@ -24,12 +24,11 @@ password. Follow the steps below to configure the count.
         configure the password policy. Next, logout and login again with
         Tenant B credentials to configure a different policy for Tenant B.
     
-
       
     ![password-history-validation](../../assets/img/using-wso2-identity-server/password-history-validation.png) 
 
 !!! info "Related Links"
 
-    See [Configuring
-    Claims](../../learn/configuring-claims) for more
-    information on how to store the claim values in the user store.
+    By default, the claim values of the identity claims used in this feature are stored in 
+    the JDBC datasource based on a configuration. See [Configuring Claims](../../learn/configuring-claims) 
+    for more information on how to store the claim values in the user store.
