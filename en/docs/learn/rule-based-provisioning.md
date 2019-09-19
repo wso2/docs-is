@@ -155,7 +155,7 @@ the policy according to our requirement.
          placeholders for different types of policies. For a full list of the
          available XACML policy templates, see [Writing an XACML Policy using
          a Policy
-         Template](../../tutorials/writing-a-xacml-policy-using-a-policy-template).
+         Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
     ![xacml-policy-templates](../../assets/img/using-wso2-identity-server/xacml-policy-templates.png) 
 
@@ -273,13 +273,10 @@ the policy according to our requirement.
     are and click **Publish**.  
     ![publish-policy](../../assets/img/using-wso2-identity-server/publish-policy.png)
 
-    !!! note
+!!! note
+    For more information on Publishing an XACML policy, click
+    [here](../../learn/publishing-a-xacml-policy)
     
-        For more information on Publishing an XACML policy, click
-        [here](../../tutorials/publishing-a-xacml-policy)
-        .
-    
-
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on
     the **Main** tab of the management console.
 10. To ensure that the policy has been published successfully, check if
@@ -293,7 +290,7 @@ the policy according to our requirement.
       If you want to write a more complicated policy, you can use the XACML
       policy editors available. For more information, read [How to create
       XACML
-      Policy](../../tutorials/creating-a-xacml-policy)
+      Policy](../../learn/creating-a-xacml-policy)
 
 #### Step3: Try it out
 

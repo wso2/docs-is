@@ -29,7 +29,10 @@ The diagram below illustrates the implicit grant flow.
 
 ![oauth-implicit-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-implicit-grant-diagram.png)
 
-**Support for [refresh token grant](../../learn/refresh-token-grant)** - No
+
+!!! info "Support for refresh token grant - No"
+	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+
 
 !!! info "Related Topics"
     See the [Try Implicit Grant](../../learn/try-implicit-grant) topic to try out

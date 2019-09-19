@@ -7,7 +7,7 @@ may cause conflict with other authenticators. Therefore, the IWA
 authenticator is not enabled in WSO2 Identity Server by default but can
 be enabled in WSO2 Identity Server with some configurations. For more
 information on how IWA is used for single-sign-on, see the [Integrated
-Windows Authentication](../../tutorials/integrated-windows-authentication-overview) page.
+Windows Authentication](../../learn/integrated-windows-authentication-overview) page.
 
 **Prerequisites:**
 
@@ -92,6 +92,6 @@ the following.
 **Related Topics**
 
 -   See [Logging in to Salesforce with Integrated Windows
-    Authentication](../../tutorials/logging-into-salesforce-with-integrated-windows-authentication)
+    Authentication](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     for a sample of configuring the IWA authenticator with WSO2 Identity
     Server.

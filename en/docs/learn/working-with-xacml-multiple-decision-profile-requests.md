@@ -29,7 +29,7 @@ resources.
     tutorial that walks you through a scenario that requires sending a
     MDP request with repeated attribute categories, see [Working with
     MDP Requests by Repeating Attribute
-    Categories](../../tutorials/working-with-mdp-requests-by-repeating-attribute-categories)
+    Categories](../../learn/working-with-mdp-requests-by-repeating-attribute-categories)
     .
 -   If you have a scenario where you need to provide access control to a
     set of hierarchical resources stored in a repository, depending on
@@ -38,11 +38,11 @@ resources.
     walks you through an authorization scenario that requires sending a
     MDP request to authorize the hierarchical resources, see [Working
     with MDP Requests to Authorize Hierarchical
-    Resources](../../tutorials/working-with-mdp-requests-to-authorize-hierarchical-resources)
+    Resources](../../learn/working-with-mdp-requests-to-authorize-hierarchical-resources)
     .
 
 -   You can also work with XACML MDP requests and responses in JSON format
     using WSO2 Identity Server. For a tutorial that walks you through how to
     work with MDP requests and responses in JSON format using WSO2 Identity
     Server, see [Working with MDP Requests in JSON
-    Format](../../tutorials/working-with-mdp-requests-in-json-format).
+    Format](../../learn/working-with-mdp-requests-in-json-format).

@@ -2,7 +2,7 @@
 
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
-`         user-mgt.xml        ` file found in the
+`         deployment.toml       ` file found in the
 `         <PRODUCT_HOME>/repository/conf/        ` directory. The
 following documentation explains the configurations that should be done
 in WSO2 products in order to set up the User Management module.
