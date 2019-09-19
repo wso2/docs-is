@@ -6,20 +6,20 @@ confidentiality of client credentials as below.
 
 -   Confidential:
 
-A Confidential client is capable of maintaining the confidentiality of
-its credentials provided by an authorization server. For example a web
-application where only the administrator can get access to the server
-and see the client credentials would be a confidential client.
+	A Confidential client is capable of maintaining the confidentiality of
+	its credentials provided by an authorization server. For example a web
+	application where only the administrator can get access to the server
+	and see the client credentials would be a confidential client.
 
 -   Public:
 
-A public client is not capable of maintaining the confidentiality of its
-credentials provided by an authorization server. For example a mobile
-phone application or a desktop application that has the client secret
-embedded, could get cracked, and the secret could be revealed. The same
-is true for a JavaScript application running in the users browser. The
-user could use a JavaScript debugger to look into the application, and
-see client credentials.
+	A public client is not capable of maintaining the confidentiality of its
+	credentials provided by an authorization server. For example a mobile
+	phone application or a desktop application that has the client secret
+	embedded, could get cracked, and the secret could be revealed. The same
+	is true for a JavaScript application running in the users browser. The
+	user could use a JavaScript debugger to look into the application, and
+	see client credentials.
 
 With respect to above two client types there are applications invoking
 OAuth 2.0 APIs, that can be either confidential or public. These
@@ -86,9 +86,6 @@ might be protected from other applications residing on the same device.
 
 It is usually recommended to take the advantage of
 [PKCE](https://tools.ietf.org/html/rfc7636) extension with native
-clients to mitigate [code interception
-attacks](../../learn/mitigating-authorization-code-interception-attacks) when
+clients to mitigate [code interception attacks](../../learn/mitigating-authorization-code-interception-attacks) when
 using [authorization code grant type](../../learn/authorization-code-grant) to
 access secured services.
-
-  

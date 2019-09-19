@@ -22,9 +22,9 @@ management, when it makes sense for them.
 **Related Topics**
 
 -   See [Configuring OAuth2-OpenID Connect
-    Single-Sign-On](../../tutorials/configuring-oauth2-openid-connect-single-sign-on)
+    Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     to configure OAuth2-OpenID Connect single sign-on in WSO2 Identity
     Server.
 -   See [Configuring OpenID Connect Single
-    Logout](../../tutorials/configuring-openid-connect-single-logout) to configure
+    Logout](../../learn/configuring-openid-connect-single-logout) to configure
     OAuth2-OpenID Connect single logout in WSO2 Identity Server.

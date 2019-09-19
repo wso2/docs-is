@@ -277,4 +277,4 @@ Since you have got a clear idea of what is an XACML request and the
 elements of an XACML request, Now you can easily write an XACML policy
 using the policy editors available in WSO2 Identity Server. Please read
 [Creating a XACML
-Policy](../../tutorials/creating-a-xacml-policy).
+Policy](../../learn/creating-a-xacml-policy).

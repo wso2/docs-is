@@ -44,10 +44,10 @@ In this page, you can find information on:
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="(../../administer/using-asymmetric-encryption)">Using asymmetric encryption</a><br />
+<a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="(../../administer/performance-tuning#performance-tuning-ldaps-pooling)">performance tuning ldaps pooling)</a></p></td>
+<a href="../../administer/performance-tuning#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
 </tr>
 <tr class="odd">
 <td>connection_name</td>
@@ -79,7 +79,7 @@ Default: wso2Person ( Is a custom object class defined in WSO2 products)</td>
 <td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Sample values: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="(../../learn/using-email-address-as-the-username)">Using email address as the username</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
 </tr>
 <tr class="even">
 <td>user_name_search_filter</td>

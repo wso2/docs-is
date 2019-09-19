@@ -86,8 +86,7 @@ To add a new workflow, do the following.
     
 
 5.  Click **Finish** to complete the process. You will be able to view
-    the workflow you just added, by navigating to **Workflow Defi
-    **nitions** \> List** under the **Manage** Section.
+    the workflow you just added, by navigating to **Workflow Definitions \> List** under the **Manage** Section.
 
 ### What's next?
 

@@ -3,6 +3,8 @@
 By default WSO2 IS is capable of triggering alerts for the following
 situations.
 
+### Suspicious Login
+
 -   **Reason for Triggering** : A successful login after a particular
     number of failed login attempts during a given time interval.
 -   **Indication** : A sudden change in the level of access granted to a
@@ -15,6 +17,9 @@ situations.
     -   Same incorrect user store
 
     -   Same incorrect tenant domain
+
+### Long Sessions
+
 
 -   **Reason for Triggering** : The session duration of a specific user
     exceeds a predefined time duration.
