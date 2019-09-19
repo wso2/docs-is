@@ -158,7 +158,7 @@ keystore.
     The SAML metadata URL is extracted from the issuer of the SAML
     response. You can change the WSO2 IS issuer value from management
     console as follows:  
-    ![is-issuer-value](../../assets/img/tutorials/is-issuer-value.png) 
+    ![is-issuer-value](../assets/img/tutorials/is-issuer-value.png) 
 
     -   If the service provider is configured in the super tenant,
         specify the **Identity Provider Entity Id** as follows:
@@ -196,7 +196,7 @@ Follow the steps below to configure the sample application:
     `                       http://eidas.europa.eu/attributes/legalperson                     `
     as service provider claim dialects.
 
-    ![configuring-sample-eidas-app](../../assets/img/tutorials/configuring-sample-eidas-app.png) 
+    ![configuring-sample-eidas-app](../assets/img/tutorials/configuring-sample-eidas-app.png) 
 
       
 
@@ -260,7 +260,7 @@ Follow the steps below to configure the sample application:
             `                             http://eidas.europa.eu/attributes/naturalperson/DateOfBirth                           `
             .
 
-            ![update-eidas-claim](../../assets/img/tutorials/update-eidas-claim.png) 
+            ![update-eidas-claim](../assets/img/tutorials/update-eidas-claim.png) 
 
             If you want wso2 claims that are mapped with the eIDAS claims to
             display in the user profile claims, be sure to select **Supported by
@@ -280,7 +280,7 @@ Follow the steps below to configure the sample application:
     4.  Configure the **Response Signing Algorithm**, **Response Digest
         Algorithm**, **Assertion Encryption Algorithm**, and **Key
         Encryption Algorithm** as in the diagram below:  
-        ![assertion-encryption-algorithm](../../assets/img/tutorials/assertion-encryption-algorithm.png) 
+        ![assertion-encryption-algorithm](../assets/img/tutorials/assertion-encryption-algorithm.png) 
     5.  Select the following:  
         -   **Enable Response Signing**
         -   **Enable Signature Validation inAuthentication Requests and
@@ -297,7 +297,7 @@ citizen MS is also CA
 -   First, let's request natural person mandatory attributes. Assume
     that the corresponding user has all the user attributes that are
     requested.  
-    ![request-mandatory-attributes](../../assets/img/tutorials/request-mandatory-attributes.png)   
+    ![request-mandatory-attributes](../assets/img/tutorials/request-mandatory-attributes.png)   
     Follow the steps below to create a new user via the management
     consoleof WSO2 IS, and send the request via the sample service
     provider:  
@@ -308,42 +308,42 @@ citizen MS is also CA
     3.  Click **Add New User**, and  create a new user with all the
         natural person user attributes.
     4.  Use the sample service provider to send the request.  
-        ![new-user-with-attributes](../../assets/img/tutorials/new-user-with-attributes.png)   
+        ![new-user-with-attributes](../assets/img/tutorials/new-user-with-attributes.png)   
         When the signed SAML request is sent, you are redirected WSO2 IS
         for authentication.  
-        ![redirected-for-authentication](../../assets/img/tutorials/redirected-for-authentication.png) 
+        ![redirected-for-authentication](../assets/img/tutorials/redirected-for-authentication.png) 
     5.  Specify values for the **Username** and **Password**, and then
         click **SIGN IN**.
     6.  On successful authentication, you are asked to provide consent
         for the requested attributes. You need to provide consent, to
         continue.  
-        ![consent-required](../../assets/img/tutorials/consent-required.png) 
+        ![consent-required](../assets/img/tutorials/consent-required.png) 
     7.  Select the required attributes and click **Approve** to provide
         consent. You will see that the SAML response is sent to the
         eIDAS proxy service with the user attributes (i.e., the signed
         SAML response and encrypted assertion)  
-        ![demo-sp1](../../assets/img/tutorials/demo-sp1.png)   
-        ![demo-sp2](../../assets/img/tutorials/demo-sp2.png)   
-        ![demo-sp3](../../assets/img/tutorials/demo-sp3.png) 
+        ![demo-sp1](../assets/img/tutorials/demo-sp1.png)   
+        ![demo-sp2](../assets/img/tutorials/demo-sp2.png)   
+        ![demo-sp3](../assets/img/tutorials/demo-sp3.png) 
       
 -   Now let's request legal person mandatory attributes for the same
     user.  
       
-    ![request-legal-person-attributes](../../assets/img/tutorials/request-legal-person-attributes.png)   
+    ![request-legal-person-attributes](../assets/img/tutorials/request-legal-person-attributes.png)   
     Here, you will see that you are asked to provide consent for the
     legal person attributes for which you have not provided consent
     before.  
-    ![legal-person-attribute-consent](../../assets/img/tutorials/legal-person-attribute-consent.png)   
+    ![legal-person-attribute-consent](../assets/img/tutorials/legal-person-attribute-consent.png)   
     Once you provide consent and approve, you will see that the SAML
     response is sent to the eIDAS proxy service with the user
     attributes.  
-    ![eidas-proxy-service](../../assets/img/tutorials/eidas-proxy-service.png)   
+    ![eidas-proxy-service](../assets/img/tutorials/eidas-proxy-service.png)   
       
       
 -   Next, let's request mandatory attributes where there are no values
     assigned to the claims so that you can see how an error response is
     sent from WSO2 IS.  
-    ![request-no-value-attributes](../../assets/img/tutorials/request-no-value-attributes.png)   
-    ![no-value-error-response](../../assets/img/tutorials/no-value-error-response.png) 
+    ![request-no-value-attributes](../assets/img/tutorials/request-no-value-attributes.png)   
+    ![no-value-error-response](../assets/img/tutorials/no-value-error-response.png) 
 
   

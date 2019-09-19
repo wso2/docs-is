@@ -14,7 +14,7 @@ multi-tenant environment.
 4.  Expand the **Password Patterns** tab and select **Enable Password
     Policy Feature**. Update the default values and click **Update**.
     
-    ![password-policies](../../assets/img/using-wso2-identity-server/password-policies.png) 
+    ![password-policies](../assets/img/using-wso2-identity-server/password-policies.png) 
 
     !!! note "Configuring password policies for multiple tenants"
         To configure this separately for different tenants in a

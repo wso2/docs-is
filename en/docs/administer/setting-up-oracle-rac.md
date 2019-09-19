@@ -31,9 +31,9 @@ Follow the steps below to set up an Oracle RAC database.
     `          /oracle/app/oracle/product/11.2.0/dbhome_1         `,
     `          $PATH:<ORACLE_HOME>/bin         `, and
     `          orcl1         ` ) as follows:  
-    ![](../../assets/img/53125514/53287565.png) 
+    ![](../assets/img/53125514/53287565.png) 
 2.  Connect to Oracle using SQL\*Plus as SYSDBA.  
-    ![](../../assets/img/53125514/53287577.png) 
+    ![](../assets/img/53125514/53287577.png) 
 3.  Create a database user and grant privileges to the user as shown
     below:
 

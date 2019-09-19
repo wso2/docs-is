@@ -20,7 +20,7 @@ The figure below shows the flow of the request made by the
 resource server to the authorization server (01) and response generated
 by authorization server to the resource server (02).
 
-![uma-resource-registration-endpoint]( ../../assets/img/using-wso2-identity-server/uma-resource-registration-endpoint.png) 
+![uma-resource-registration-endpoint]( ../assets/img/using-wso2-identity-server/uma-resource-registration-endpoint.png) 
 
 Resource description is a JSON object which explains the characteristics
 of the resource that is to be put under the protection of the
@@ -290,7 +290,7 @@ scopes corresponding to a resource identifier.
 The diagram given below illustrates a request made to the permission
 endpoint with a success response in return.
 
-![]( ../../assets/img/using-wso2-identity-server/permission-endpoint.png) 
+![]( ../assets/img/using-wso2-identity-server/permission-endpoint.png) 
 
 -   [Error messages](#errormsgs)
 -   [Creating a permission

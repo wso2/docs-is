@@ -13,7 +13,7 @@ emails](../../learn/customizing-automated-emails) sent to the user.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![]( ../../assets/img/using-wso2-identity-server/email-template-dropdown.png)
+        ![]( ../assets/img/using-wso2-identity-server/email-template-dropdown.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to

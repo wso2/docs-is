@@ -4,7 +4,7 @@ The Bitly authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Bitly users to log in to your
 organization’s applications.
 
-![](../../assets/img/50518501/76746252.png)   
+![](../assets/img/50518501/76746252.png)   
 
 
 !!! info 
@@ -43,13 +43,13 @@ information in the following sections.
 1.  Create a bitly account using the URL " <https://bitly.com/a/sign_up>
     ".
 2.  Register your app at <https://bitly.com/a/oauth_apps>.  
-    ![](../../assets/img/50518515/51251641.png) 
+    ![](../assets/img/50518515/51251641.png) 
 
 3.  Use <https://localhost:9443/commonauth> as the authorization
     callback URL when you register the client.
 
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](../../assets/img/50518515/51252818.png) 
+    ![](../assets/img/50518515/51252818.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -77,7 +77,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider).
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name**.  
-    ![](../../assets/img/50518515/51251655.png) 
+    ![](../assets/img/50518515/51251655.png) 
 
 6.  Navigate to **Bitly Configuration** under **Federated
     Authenticators**.
@@ -140,7 +140,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the drop-down list
     under **Federated Authentication**.
 
-    ![](../../assets/img/50518515/51252329.png) 
+    ![](../assets/img/50518515/51252329.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -155,7 +155,7 @@ You have now added and configured the service provider.
 
 2.  Login with SAML from the WSO2 Identity Server.
 
-    ![](../../assets/img/50518515/103332428.png)  
+    ![](../assets/img/50518515/103332428.png)  
 
 3.  Enter your Bitly credentials in the prompted login page of Bitly .
     Once you log in successfully you will be taken to the home page of

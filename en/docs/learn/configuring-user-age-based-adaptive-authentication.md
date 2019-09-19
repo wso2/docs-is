@@ -28,7 +28,7 @@ prevented from logging in to the application.
 3.  Click on the **Edit** corresponding to the **BirthDate** claim and
     select the **Supported By Default** checkbox to enable the birth
     date claim.  
-    ![enable dob claim](../../assets/img/tutorials/enable-dob-claim.png)
+    ![enable dob claim](../assets/img/tutorials/enable-dob-claim.png)
 4.  Create a user called "Alex" and edit the user profile. Enter a birth
     date that specifies Alex as under 18 years of age.  
 
@@ -45,7 +45,7 @@ prevented from logging in to the application.
     section and click **Advanced Configuration**.
 8.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **User-Age-Based**.  
-    ![user age based template](../../assets/img/tutorials/user-age-based-template.png)
+    ![user age based template](../assets/img/tutorials/user-age-based-template.png)
 9.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script grants access only to
     users who are 18 years or above and restricts underage users.
@@ -59,10 +59,10 @@ prevented from logging in to the application.
     <http://localhost.com:8080/saml2-web-app-dispatch.com>
 2.  Click **Login** and enter Kim's credentials. You are successfully
     logged in to the application.  
-    ![pickup sign in kim](../../assets/img/tutorials/pickup-sign-in-kim.png)
+    ![pickup sign in kim](../assets/img/tutorials/pickup-sign-in-kim.png)
 3.  Logout and login as Alex. Note that you are now restricted from
     logging in because Alex is underage.  
-    ![age validation](../../assets/img/tutorials/age-validation.png)
+    ![age validation](../assets/img/tutorials/age-validation.png)
 
 
   

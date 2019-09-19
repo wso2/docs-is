@@ -35,10 +35,10 @@ the steps below to do this:
     can count (by clicking **Count Users** button) the number of users
     in each domain for different claims and user name patterns etc. (In
     this example '%admin' is given as search pattern)  
-    ![]( ../../assets/img/103330053/103330054.png) 
+    ![]( ../assets/img/103330053/103330054.png) 
 3.  Similarly, under **Roles,** you see a table named **Count Roles**
     where you can count roles in different user store domains.  
-    ![]( ../../assets/img/103330053/103330055.png) 
+    ![]( ../assets/img/103330053/103330055.png) 
 
 #### Using the Admin Services
 

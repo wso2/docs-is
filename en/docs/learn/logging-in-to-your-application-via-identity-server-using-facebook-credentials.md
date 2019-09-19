@@ -31,19 +31,19 @@ following sections for more information.
     Facebook credentials.
     
 2.  Click on **Create App**.  
-    ![create-app-facebook](../../assets/img/tutorials/create-app-facebook.png)
+    ![create-app-facebook](../assets/img/tutorials/create-app-facebook.png)
     
 3.  Enter a **Display Name**, Contact Email, and click **Create App
     ID**.  
-    ![create-app-id](../../assets/img/tutorials/create-app-id.png)
+    ![create-app-id](../assets/img/tutorials/create-app-id.png)
     
 4.  Enter code for security check, and click **Submit**.
 5.  On Select product page, click **Set up** under **Facebook Login**.  
-    ![setup-facebook](../../assets/img/tutorials/setup-facebook.png)
+    ![setup-facebook](../assets/img/tutorials/setup-facebook.png)
     
 6.  Select **Website** as the platform for the app used in this
     sample.  
-    ![select-website-as-the-platform](../../assets/img/tutorials/select-website-as-the-platform.png)
+    ![select-website-as-the-platform](../assets/img/tutorials/select-website-as-the-platform.png)
     
 7.  Enter **`             https://localhost:9443/            `** as the
     Site URL and click **Save**.
@@ -54,14 +54,14 @@ following sections for more information.
 		, you need to provide the IP or hostname instead of
 		`             localhost            `.
 
-    ![enter-site-url](../../assets/img/tutorials/enter-site-url.png)
+    ![enter-site-url](../assets/img/tutorials/enter-site-url.png)
 
 8.  Under Products on the left navigation panel, Click **Facebook
     Login**.
 
 9.  You can configure the **Client OAuth Settings** on the window that
     appears.  
-    ![client-oauth-setting](../../assets/img/tutorials/client-oauth-setting.png)
+    ![client-oauth-setting](../assets/img/tutorials/client-oauth-setting.png)
 
     1.  **Client OAuth Login** should be set to **Yes**.  
         Client OAuth Login is the global on-off switch for using OAuth
@@ -90,7 +90,7 @@ following sections for more information.
 		Secret in OAuth terminology. The API Version is Facebook’s API that
 		is used to create the application.
 
-    ![id-secret-for-facebook](../../assets/img/tutorials/id-secret-for-facebook.png)
+    ![id-secret-for-facebook](../assets/img/tutorials/id-secret-for-facebook.png)
 
 12. Click **Settings** on the left menu and navigate to the **Basic**
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
@@ -115,7 +115,7 @@ Now you have finished configuring Facebook as an Identity Provider.
 	navigation menu of the dashboard and specify the required Facebook users
 	as Developers or Testers.
 
-	![submit-fb-app-for-review](../../assets/img/tutorials/submit-fb-app-for-review.png)
+	![submit-fb-app-for-review](../assets/img/tutorials/submit-fb-app-for-review.png)
 
 ### Deploying travelocity.com sample app
 
@@ -224,7 +224,7 @@ in WSO2 Identity Server.
     Console, click **Add** under **Identity Providers**.
     
 3.  Give a suitable name as the **Identity Provider Name**.  
-    ![identity-provider-name](../../assets/img/tutorials/identity-provider-name.png)
+    ![identity-provider-name](../assets/img/tutorials/identity-provider-name.png)
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**
     .
@@ -253,7 +253,7 @@ in WSO2 Identity Server.
     <li>Click on your app from the <strong>My Apps</strong> drop-down list.<br />
     You are navigated to the <strong>Dashboard</strong> of the application. Note down the App ID and the App secret.</li>
     </ol>
-    <p><img src="../../assets/img/tutorials/fb-app-on-dashboard.png"/></p>.</p>
+    <p><img src="../assets/img/tutorials/fb-app-on-dashboard.png"/></p>.</p>
     </div>    
     </td>
     <td><div class="content-wrapper">
@@ -285,7 +285,7 @@ in WSO2 Identity Server.
     </tbody>
     </table>
 
-    ![facebook-configuration](../../assets/img/tutorials/facebook-configuration.png)
+    ![facebook-configuration](../assets/img/tutorials/facebook-configuration.png)
 
 6.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.
@@ -326,7 +326,7 @@ provider.](../../learn/adding-and-configuring-a-service-provider)
 
         4.	Include Attributes in the Response Always
 
-    ![configuring-sp-fields](../../assets/img/tutorials/configuring-sp-fields.png)
+    ![configuring-sp-fields](../assets/img/tutorials/configuring-sp-fields.png)
     
 5.  Click **Register**. Now you will be sent back to the **Service
     Providers** page.
@@ -337,7 +337,7 @@ provider.](../../learn/adding-and-configuring-a-service-provider)
 7.  Select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
-    ![identity-provider-in-federated-authentication](../../assets/img/tutorials/identity-provider-in-federated-authentication.png)
+    ![identity-provider-in-federated-authentication](../assets/img/tutorials/identity-provider-in-federated-authentication.png)
 
 8.  Click **Update** to save the changes.
 
@@ -379,10 +379,10 @@ them with Facebook.
     
 5.  Click **Add Claim Mapping.** The following screen will be
     displayed.  
-    ![add-claim-mapping-for-facebook](../../assets/img/tutorials/add-claim-mapping-for-facebook.png)
+    ![add-claim-mapping-for-facebook](../assets/img/tutorials/add-claim-mapping-for-facebook.png)
     
 6.  Now add custom claim mappings as follows.  
-    ![custom-claim-mapping](../../assets/img/tutorials/custom-claim-mapping.png)
+    ![custom-claim-mapping](../assets/img/tutorials/custom-claim-mapping.png)
     
 7.  You can retrieve all the public information of the user and the
     email address. The following are some common attribute names.
@@ -432,7 +432,7 @@ For that follow the below steps:
 		authentication process, the SP can request those claims from IDP as
 		" **Requested Claims**".
 
-    ![add-requested-claims](../../assets/img/tutorials/add-requested-claims.png)
+    ![add-requested-claims](../assets/img/tutorials/add-requested-claims.png)
 
 	!!! info 
 		Here, the claims which are marked as **mandatory** are requested by
@@ -454,7 +454,7 @@ Now you have configured the Identity Server.
 
 1.  To test the sample, go to the following URL:
     `                     http://wso2is.local:8080/travelocity.com                   `.  
-    ![testing-the-sample](../../assets/img/tutorials/testing-the-sample.png)
+    ![testing-the-sample](../assets/img/tutorials/testing-the-sample.png)
     
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 

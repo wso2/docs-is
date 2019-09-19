@@ -161,10 +161,10 @@ password feature:
             1.  Navigate to <https://myaccount.google.com/security> .
             2.  Click **Signing in to Google** on the left menu and make sure
                 that the **2-step Verification** is disabled or off.  
-                ![google-2-step-verification](../../assets/img/using-wso2-identity-server/google-2-step-verification.png)
+                ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
             3.  Click **Connected apps and sites** on the left menu and enable
                 **Allow less secure apps**.  
-                ![enabling-less-secure-app](../../assets/img/using-wso2-identity-server/enabling-less-secure-app.png)
+                ![enabling-less-secure-app](../assets/img/using-wso2-identity-server/enabling-less-secure-app.png)
         
     !!! tip 
         The email template used to send this email notification is
@@ -253,7 +253,7 @@ option.
 
 3.  Click **Add new User.**
 
-    ![add-a-new-user](../../assets/img/using-wso2-identity-server/add-a-new-user.png)
+    ![add-a-new-user](../assets/img/using-wso2-identity-server/add-a-new-user.png)
 
     !!! note
     

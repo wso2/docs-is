@@ -8,7 +8,7 @@ images or videos to their own or others' boards and browsing what other
 users have pinned. The diagram below illustrates the flow of the
 Printrest federated authenticator.
 
-![](../../assets/img/60096519/76746244.png)
+![](../assets/img/60096519/76746244.png)
 
 This page provides instructions on how to configure the Pinterest
 authenticator and the WSO2 Identity Server using a sample app to
@@ -40,15 +40,15 @@ following sections.
     .
 3.  Enter the **Name** and **Description** of your new app and then
     click the **Create** button.  
-    ![](../../assets/img/60096589/60096627.png)
+    ![](../assets/img/60096589/60096627.png)
 4.  Enter the redirect URL as <https://localhost:9443/commonauth> in the
     page that appears.  
     This is the WSO2 IS endpoint to which Pintrest, who is the federated
     authenticator, needs to send the authentication response.  
-    ![](../../assets/img/60096589/60096629.png) 
+    ![](../assets/img/60096589/60096629.png) 
 5.  You have now finished configuring Pinterest. Copy the **App ID** and
     **App secret** from the resulting page.  
-    ![](../../assets/img/60096589/60096630.png) 
+    ![](../assets/img/60096589/60096630.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -77,7 +77,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     [this](../../learn/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
     document for more information regarding the identity provider
     configurations.  
-    ![](../../assets/img/60096589/60096632.png)   
+    ![](../assets/img/60096589/60096632.png)   
     Do the following configurations.
 
     | Field         | Description                                                                                                                                                                                            | Sample Value                                                     |
@@ -109,7 +109,7 @@ The next step is to configure the service provider.
     in the **Service Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](../../assets/img/60096589/60096633.png) 
+    ![](../assets/img/60096589/60096633.png) 
 5.  Now set the configuration as follows:  
     -   **Issuer** : travelocity.com
     -   **Assertion Consumer URL** :
@@ -125,7 +125,7 @@ The next step is to configure the service provider.
     section.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](../../assets/img/60096589/60096634.png) 
+    ![](../assets/img/60096589/60096634.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -139,13 +139,13 @@ The next step is to configure the service provider.
     specific claim dialect.
 
 4.  Specify the **Dialect URI** as http://wso2.org/pinterest/claims.  
-    ![](../../assets/img/60096589/60489892.png) 
+    ![](../assets/img/60096589/60489892.png) 
 
 5.  Click [Add external
     claim](../../learn/adding-claim-mapping#add-external-claim)
     . Use the Dialect Uri as http://wso2.org/pinterest/claims. You can
     create the external claims here.  
-    ![](../../assets/img/60096589/60490348.png)
+    ![](../assets/img/60096589/60490348.png)
     Create the claim for Pinterest user id while creating the claim
     dialect.
 
@@ -203,7 +203,7 @@ The next step is to configure the service provider.
         Claim mapping Dialect**.
     5.  Click **Add Claim Mapping** to add custom claim mappings as
         follows.  
-        ![](../../assets/img/60096589/61047736.png)
+        ![](../assets/img/60096589/61047736.png)
     6.  Select a suitable **User ID Claim URI** (e.g.,
         http://wso2.org/pinterest/claims/id ).
     7.  Click **Update** to save changes.
@@ -224,18 +224,18 @@ the service provider for different purposes.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as follows. Here you should add the claims you
     mapped in the Identity Provider claim configuration.  
-    ![](../../assets/img/60096589/72437732.png) 
+    ![](../assets/img/60096589/72437732.png) 
 
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
     `            http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp           `
     . E.g., <http://localhost:8080/travelocity.com>  
-    ![](../../assets/img/60096589/60096639.png)
+    ![](../assets/img/60096589/60096639.png)
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Pinterest sign in page. Enter your
     Pinterest credentials and click **Log in**.  
-    ![](../../assets/img/60096589/60096640.png)
+    ![](../assets/img/60096589/60096640.png)
 4.  Authenticate the user by clicking **Allow access**.
 5.  You are taken to the home page of the travelocity.com app.  
-    ![](../../assets/img/60096589/60490392.png)
+    ![](../assets/img/60096589/60490392.png)

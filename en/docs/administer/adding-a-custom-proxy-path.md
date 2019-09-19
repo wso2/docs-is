@@ -17,7 +17,7 @@ products under a single domain and assign proxy paths for each product
 separately as shown below: 
  
 ![Custom Proxy
-Paths](../../assets/img/53125476/53287365.png "Custom Proxy Paths")  
+Paths](../assets/img/53125476/53287365.png "Custom Proxy Paths")  
 
 **Proxy URLs mapped to Carbon server URLs:**
 

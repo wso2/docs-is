@@ -39,7 +39,7 @@ Any user management system has the following basic components:
 The following diagram illustrates how the user management functionality
 is structured to work in WSO2 products:
 
-![](../../assets/img/53125483/53287367.png)
+![](../assets/img/53125483/53287367.png)
 
 -   **User stores:** A **user store** is the database where information
     about the users and user roles is stored, including login name,
@@ -75,7 +75,7 @@ is structured to work in WSO2 products:
     <li><code>                 LDAPUserStoreManager                </code> (read-only)</li>
     <li><code>                 ApacheDSUserStoreManager                </code> (read and write)</li>
     </ul>
-    <p><img src="../../assets/img/administer/user-store-managers.png"></p>
+    <p><img src="../assets/img/administer/user-store-managers.png"></p>
     <p>You can write a custom user store manager implementation by implementing <code>                UserStoreManager               </code> or by extending <code>                AbstractUserStoreManager               </code> or one of the default implementations.</p>
     <h5 id="IntroductiontoUserManagement-UsingJDBCUserStoreManager">Using JDBCUserStoreManager</h5>
     <p>The <code>                JDBCUserStoreManager               </code> class uses a schema that is specific to WSO2 Carbon. It contains the following tables:</p>

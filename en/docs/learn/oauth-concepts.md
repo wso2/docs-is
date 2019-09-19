@@ -17,7 +17,7 @@ contributed OAuth 1.0 to the IETF. It was within the IETF Working Group
 that the original OAuth 1.0 was reworked and clarified to become the
 Informative [RFC 5849](http://tools.ietf.org/html/rfc5849).
 
-![oauth-concepts-diagram](../../assets/img/using-wso2-identity-server/oauth-concepts-diagram.png)
+![oauth-concepts-diagram](../assets/img/using-wso2-identity-server/oauth-concepts-diagram.png)
 
 After more standardization, in 2010, Microsoft, Yahoo!, and Google
 created the Web Resource Authentication Protocol (WRAP), which was soon

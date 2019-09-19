@@ -352,22 +352,22 @@ mechanisam to send the OTP.
 
 7.  Select **OAuth client ID** option.
 
-    ![](../../assets/img/50504065/76749378.png) 
+    ![](../assets/img/50504065/76749378.png) 
 
 8.  Click **Configure consent screen**.  
-    ![](../../assets/img/50504065/80728982.png)
+    ![](../assets/img/50504065/80728982.png)
 9.  Enter the Product name that needs to be shown to users, enter values
     to any other fields you prefer to update, and click **Save**.
 10. Select the **Web application** option.  
     Enter `           https://localhost:9443/commonauth          ` as
     the **Authorize redirect URIs** text-box, and click **Create**.  
-    ![](../../assets/img/50504065/80728977.png) 
+    ![](../assets/img/50504065/80728977.png) 
 
     The `           client ID          ` and the
     `           client secret          ` are displayed.  
     Copy the client ID and secret and keep it in a safe place as you
     require it for the next step.  
-    ![](../../assets/img/50504065/76749399.png) 
+    ![](../assets/img/50504065/76749399.png) 
 
 11. Copy the URL below and replace the
     `           <ENTER_CLIENT_ID>          ` tag with the generated
@@ -395,7 +395,7 @@ mechanisam to send the OTP.
     3.  Obtain the `             authorization code            ` using a
         SAML tracer on your browser.
 
-        ![](../../assets/img/50504065/76749411.png) 
+        ![](../assets/img/50504065/76749411.png) 
 
 <a name = "emailotp-step13"></a>
 
@@ -465,7 +465,7 @@ mechanisam to send the OTP.
 
     Paste the updated cURL command in your terminal to generate the
     OAuth2 access token, token validity period, and the refresh token.  
-    ![](../../assets/img/50504065/76749415.png) 
+    ![](../assets/img/50504065/76749415.png) 
 
 14. Update the following configurations under the
     `           <AuthenticatorConfigs>          ` section in the
@@ -661,9 +661,9 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 :
 
 1.  Click **Add** under **Main \> Identity \> Identity Providers**.  
-    ![](../../assets/img/50504065/76749441.png) 
+    ![](../assets/img/50504065/76749441.png) 
 2.  Provide a suitable name for the identity provider.  
-    ![](../../assets/img/50504065/76749432.png) 
+    ![](../assets/img/50504065/76749432.png) 
 3.  Expand the **EmailOTPAuthenticator Configuration** under **Federated
     Authenticators**.  
 
@@ -671,7 +671,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 
     2.  Click **Register**.
 
-        ![](../../assets/img/50504065/76749434.png) 
+        ![](../assets/img/50504065/76749434.png) 
 
     You have now added the identity provider.
 ------------------------------------------------------------------------
@@ -684,11 +684,11 @@ Follow the steps below add a service provider:
 
 2.  Click **Add** under **Add** under **Main \> Identity \> Service
     Providers**.  
-    ![](../../assets/img/50504065/76749440.png) 
+    ![](../assets/img/50504065/76749440.png) 
 
 3.  Enter `           travelocity.com          ` as the **Service
     Provider Name**.  
-    ![](../../assets/img/50504065/76749442.png) 
+    ![](../assets/img/50504065/76749442.png) 
 
 4.  Click **Register**.
 
@@ -697,7 +697,7 @@ Follow the steps below add a service provider:
 
 6.  Click **Configure**.
 
-    ![](../../assets/img/50504065/50684302.png) 
+    ![](../assets/img/50504065/50684302.png) 
 
 7.  Now set the configuration as follows:
 
@@ -716,7 +716,7 @@ Follow the steps below add a service provider:
 9.  Go to **Claim Configuration** and select the
     **http://wso2.org/claims/emailaddress** claim.
 
-    ![](../../assets/img/50504065/76749444.png) 
+    ![](../assets/img/50504065/76749444.png) 
 
 10. Go to **Local and Outbound Authentication Configuration** section.
 
@@ -744,7 +744,7 @@ Follow the steps below add a service provider:
             SMSOTP is a second step that adds another layer of
             authentication and security.
 
-    ![](../../assets/img/50504065/50684304.png) 
+    ![](../assets/img/50504065/50684304.png) 
 
 11. Click **Update**.
 
@@ -765,13 +765,13 @@ Follow the steps given below to update the user's email address.
 1.  Return to the WSO2 Identity Server Management Console home screen.
 2.  Click **List** under **Add** under **Main \> Identity \> Users and
     Roles**.  
-    ![](../../assets/img/50504065/76749451.png) 
+    ![](../assets/img/50504065/76749451.png) 
     1.  Click **Users**.  
-        ![](../../assets/img/50504065/76749454.png) 
+        ![](../assets/img/50504065/76749454.png) 
     2.  Click **User Profile** under **Admin**.  
-        ![](../../assets/img/50504065/76749456.png) 
+        ![](../assets/img/50504065/76749456.png) 
     3.  Update the **email address**.  
-        ![](../../assets/img/50504065/50684305.png) 
+        ![](../assets/img/50504065/50684305.png) 
     4.  Click **Update**.
 
 
@@ -789,9 +789,9 @@ Follow the steps below to map the user claims:
     
 
 1.  Click **Add** under **Main \> Identity \> Claims**.  
-    ![](../../assets/img/50504065/76749457.png)   
+    ![](../assets/img/50504065/76749457.png)   
     1.  Click **Add Local Claim**.  
-        ![](../../assets/img/50504065/76749458.png) 
+        ![](../assets/img/50504065/76749458.png) 
     2.  Select the **Dialect** from the drop down provided and enter the
         required information.
     3.  Add the following:
@@ -805,7 +805,7 @@ Follow the steps below to map the user claims:
         4.  **Mapped Attribute (s):** `              title             `
         5.  **Supported by Default:** checked
 
-        ![](../../assets/img/50504065/75107402.png) 
+        ![](../assets/img/50504065/75107402.png) 
 
     4.  Click **Add**.
 
@@ -824,18 +824,18 @@ Follow the steps below to map the user claims:
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com>
 
-    [![](../../assets/img/50504065/50684306.jpeg) ](http://localhost:8080/travelocity.com)
+    [![](../assets/img/50504065/50684306.jpeg) ](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page appears. Use your WSO2 Identity Server
     credentials.  
-    ![](../../assets/img/50504065/50684387.png) 
+    ![](../assets/img/50504065/50684387.png) 
 
 4.  You receive a token to your email account. Enter the code to
     authenticate. If the authentication is successful, you are taken to
     the home page of the travelocity.com app.
 
-    ![](../../assets/img/50504065/50684386.png) 
+    ![](../assets/img/50504065/50684386.png) 
 
-    ![](../../assets/img/50504065/50684388.png) 
+    ![](../assets/img/50504065/50684388.png) 

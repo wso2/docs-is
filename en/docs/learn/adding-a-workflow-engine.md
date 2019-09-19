@@ -22,7 +22,7 @@ and use one of them when creating a workflow.
 
 2.  Fill in the details using the descriptions below to guide you and
     click **Add**.  
-    ![creating-a-bpm-profile](../../assets/img/using-wso2-identity-server/creating-a-bpm-profile.png) 
+    ![creating-a-bpm-profile](../assets/img/using-wso2-identity-server/creating-a-bpm-profile.png) 
 
     | Attribute                     | Description                                                                                                                                                                                                                                       | Sample Value                                                                                                                                                         |
     |-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

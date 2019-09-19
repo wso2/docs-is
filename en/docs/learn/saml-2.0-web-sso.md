@@ -72,7 +72,7 @@ Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml
 
 The following diagram illustrates the scenario:
 
-![saml2-web-sso-intro](../../assets/img/tutorials/saml2-web-sso-intro.png)
+![saml2-web-sso-intro](../assets/img/tutorials/saml2-web-sso-intro.png)
 
 #### SAML 2.0 SSO assertion consumers
 

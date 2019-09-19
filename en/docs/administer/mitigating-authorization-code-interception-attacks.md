@@ -63,7 +63,7 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow]( ../../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow]( ../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
 
 ### Mitigating code interception attacks using PKCE
 
@@ -112,7 +112,7 @@ steps below to do this.
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![]( ../../assets/img/using-wso2-identity-server/register-a-new-application.png)
+    ![]( ../assets/img/using-wso2-identity-server/register-a-new-application.png)
 
 
 !!! info "Related Topics" 
