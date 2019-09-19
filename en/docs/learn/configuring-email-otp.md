@@ -127,10 +127,10 @@ mechanism to send the OTP.
 
 7.  Select **OAuth client ID** option.
 
-    ![oauth-client-id](../../assets/img/tutorials/oauth-client-id.png)
+    ![oauth-client-id](../assets/img/tutorials/oauth-client-id.png)
 
 8.  Click **Configure consent screen**.  
-    ![configure-consent-screen](../../assets/img/tutorials/configure-consent-screen.png)
+    ![configure-consent-screen](../assets/img/tutorials/configure-consent-screen.png)
     
 9.  Enter the Product name that needs to be shown to users, enter values
     to any other fields you prefer to update, and click **Save**.
@@ -140,13 +140,13 @@ mechanism to send the OTP.
     `                       https://localhost:9443/commonauth                     `
     as the **Authorize redirect URIs** text-box, and click **Create**.
       
-    ![authorize-redirect-uris](../../assets/img/tutorials/authorize-redirect-uris.png)
+    ![authorize-redirect-uris](../assets/img/tutorials/authorize-redirect-uris.png)
 
     The `           client ID          ` and the
     `           client secret          ` are displayed.  
     Copy the client ID and secret and keep it in a safe place as you
     require it for the next step.  
-    ![client-id-client-secret](../../assets/img/tutorials/client-id-client-secret.png)
+    ![client-id-client-secret](../assets/img/tutorials/client-id-client-secret.png)
 
 11. Copy the URL below and replace the
     `           <ENTER_CLIENT_ID>          ` tag with the generated
@@ -172,7 +172,7 @@ mechanism to send the OTP.
     3.  Obtain the `             authorization code            ` using a
         SAML tracer on your browser.
 
-        ![authorization-code](../../assets/img/tutorials/authorization-code.png)
+        ![authorization-code](../assets/img/tutorials/authorization-code.png)
 
 13. <a name="configuring-emailotp-copy-url"></a>To generate the access token, copy the following cURL command and
     replace the following place holders:
@@ -233,7 +233,7 @@ mechanism to send the OTP.
 
     Paste the updated cURL command in your terminal to generate the
     OAuth2 access token, token validity period, and the refresh token.  
-    ![oauth2-access-refresh](../../assets/img/tutorials/oauth2-access-refresh.png)
+    ![oauth2-access-refresh](../assets/img/tutorials/oauth2-access-refresh.png)
 
 14. Update the following configurations under the
     `           <AuthenticatorConfigs>          ` section in the
@@ -455,10 +455,10 @@ Follow the steps below to add an [identity
 provider](../../learn/adding-and-configuring-an-identity-provider):
 
 1.  Click **Add** under **Main \> Identity \> Identity Providers**.  
-    ![adding-an-identity-provider](../../assets/img/tutorials/adding-an-identity-provider.png)
+    ![adding-an-identity-provider](../assets/img/tutorials/adding-an-identity-provider.png)
     
 2.  Provide a suitable name for the identity provider.  
-    ![name-the-identity-provider](../../assets/img/tutorials/name-the-identity-provider.png)
+    ![name-the-identity-provider](../assets/img/tutorials/name-the-identity-provider.png)
     
 3.  Expand the **EmailOTPAuthenticator Configuration** under **Federated
     Authenticators**.  
@@ -469,7 +469,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
     2.  Click **Register**.
 
-        ![registering-an-identity-provider](../../assets/img/tutorials/registering-an-identity-provider.png)
+        ![registering-an-identity-provider](../assets/img/tutorials/registering-an-identity-provider.png)
 
     You have now added the identity provider.
 
@@ -483,7 +483,7 @@ Follow the steps below add a service provider:
 
 2.  Click **Add** under **Add** under **Main \> Identity \> Service
     Providers**.  
-    ![add-service-provider](../../assets/img/tutorials/add-service-provider.png)
+    ![add-service-provider](../assets/img/tutorials/add-service-provider.png)
 
 3.  Enter `                       travelocity.com                     `
     as the **Service Provider Name**.  
@@ -496,7 +496,7 @@ Follow the steps below add a service provider:
 
 6.  Click **Configure**.
 
-    ![configuring-the-service-provider](../../assets/img/tutorials/configuring-the-service-provider.png)
+    ![configuring-the-service-provider](../assets/img/tutorials/configuring-the-service-provider.png)
 
 7.  Now set the configuration as follows:
 
@@ -515,7 +515,7 @@ Follow the steps below add a service provider:
 9.  Go to **Claim Configuration** and select the
     **http://wso2.org/claims/emailaddress** claim.
 
-    ![claim-configuration](../../assets/img/tutorials/claim-configuration.png)
+    ![claim-configuration](../assets/img/tutorials/claim-configuration.png)
 
 10. Go to **Local and Outbound Authentication Configuration** section.
 
@@ -543,7 +543,7 @@ Follow the steps below add a service provider:
             EMAIL OTP is a second step that adds another layer of
             authentication and security.
 
-    ![add-authenticator](../../assets/img/tutorials/add-authenticator.png)
+    ![add-authenticator](../assets/img/tutorials/add-authenticator.png)
 
 11. Click **Update**.
 
@@ -563,13 +563,13 @@ Follow the steps given below to update the user's email address.
 1.  Return to the WSO2 Identity Server Management Console home screen.
 2.  Click **List** under **Add** under **Main \> Identity \> Users and
     Roles**.  
-    ![management-console](../../assets/img/tutorials/management-console.png)
+    ![management-console](../assets/img/tutorials/management-console.png)
     1.  Click **Users**.  
-        ![console-users-options](../../assets/img/tutorials/console-users-options.png)
+        ![console-users-options](../assets/img/tutorials/console-users-options.png)
     2.  Click **User Profile** under **Admin**.  
-        ![console-user-profile](../../assets/img/tutorials/console-user-profile.png)
+        ![console-user-profile](../assets/img/tutorials/console-user-profile.png)
     3.  Update the **email address**.  
-        ![console-email-address](../../assets/img/tutorials/console-email-address.png)
+        ![console-email-address](../assets/img/tutorials/console-email-address.png)
     4.  Click **Update**.
 
 ------------------------------------------------------------------------
@@ -585,10 +585,10 @@ Follow the steps below to map the user claims:
     
 
 1.  Click **Add** under **Main \> Identity \> Claims**.  
-    ![adding-claims](../../assets/img/tutorials/adding-claims.png) 
+    ![adding-claims](../assets/img/tutorials/adding-claims.png) 
      
     1.  Click **Add Local Claim**.  
-        ![add-local-claim](../../assets/img/tutorials/add-local-claim.png)
+        ![add-local-claim](../assets/img/tutorials/add-local-claim.png)
         
     2.  Select the **Dialect** from the drop down provided and enter the
         required information.
@@ -604,7 +604,7 @@ Follow the steps below to map the user claims:
         4.  **Mapped Attribute (s):** `              title             `
         5.  **Supported by Default:** checked
 
-        ![filling-claim-fields](../../assets/img/tutorials/filling-claim-fields.png)
+        ![filling-claim-fields](../assets/img/tutorials/filling-claim-fields.png)
 
     4.  Click **Add**.
 
@@ -621,21 +621,21 @@ Follow the steps below to map the user claims:
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com>
 
-    ![testing-travelocity-sample](../../assets/img/tutorials/testing-travelocity-sample.jpeg)
+    ![testing-travelocity-sample](../assets/img/tutorials/testing-travelocity-sample.jpeg)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page appears. Use your WSO2 Identity Server
     credentials.  
-    ![basic-authentication-credentials](../../assets/img/tutorials/basic-authentication-credentials.png)
+    ![basic-authentication-credentials](../assets/img/tutorials/basic-authentication-credentials.png)
 
 4.  You receive a token to your email account. Enter the code to
     authenticate. If the authentication is successful, you are taken to
     the home page of the [travelocity.com](http://travelocity.com) app.
 
-    ![email-otp-authenticating](../../assets/img/tutorials/email-otp-authenticating.png)
+    ![email-otp-authenticating](../assets/img/tutorials/email-otp-authenticating.png)
 
-    ![travelocity-home](../../assets/img/tutorials/travelocity-home.png)
+    ![travelocity-home](../assets/img/tutorials/travelocity-home.png)
 
 ------------------------------------------------------------------------
 

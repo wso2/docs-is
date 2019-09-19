@@ -14,14 +14,14 @@ dialect link. Follow the instructions below to edit a claim dialect.
 2.  Click **Main** to access the **Main** menu and click **List** under
     **Claims**.
 3.  Click on any available dialect links.  
-    ![dialect-links](../../assets/img/using-wso2-identity-server/dialect-links.png)
+    ![dialect-links](../assets/img/using-wso2-identity-server/dialect-links.png)
 4.  From the **Claim Dialect** view, you can view the claims defined for
     that particular dialect. If you need to edit a claim, click on the
     appropriate **Edit** link.  
-    ![edit-claim-link](../../assets/img/using-wso2-identity-server/edit-claim-link.png)
+    ![edit-claim-link](../assets/img/using-wso2-identity-server/edit-claim-link.png)
 5.  Enter the new claim information in the required fields and click on
     the **Update** button.  
-    ![new-claim-info](../../assets/img/using-wso2-identity-server/new-claim-info.png)
+    ![new-claim-info](../assets/img/using-wso2-identity-server/new-claim-info.png)
 
     | Attribute            | Description                                                                | Sample value                                                                                                                       |
     |----------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|

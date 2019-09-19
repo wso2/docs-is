@@ -75,7 +75,7 @@ the instructions in the sections below to set this up.
 5.  Enter " `          wso2.microsoft         `" as the **Identity
     Provider Entity Id** value. 
      
-    ![configure-wso2-is-issuer](../../assets/img/tutorials/configure-wso2-is-issuer.png)
+    ![configure-wso2-is-issuer](../assets/img/tutorials/configure-wso2-is-issuer.png)
 
 ### Configuring the claims
 
@@ -122,7 +122,7 @@ the instructions in the sections below to set this up.
     </tbody>
     </table>
 
-    ![add-claim](../../assets/img/tutorials/add-claim.png)
+    ![add-claim](../assets/img/tutorials/add-claim.png)
 
     <table>
     <colgroup>
@@ -164,7 +164,7 @@ the instructions in the sections below to set this up.
     </tbody>
     </table>
 
-    ![add-local-claim-fields](../../assets/img/tutorials/add-local-claim-fields.png)
+    ![add-local-claim-fields](../assets/img/tutorials/add-local-claim-fields.png)
 
 **Remove unsupported claims**
 
@@ -197,7 +197,7 @@ To disable the claims, do the following.
     | Passive STS Realm      | urn:federation:MicrosoftOnline              |
     | Passive STS WReply URL | https://login.microsoftonline.com/login.srf |
 
-    ![configure-sp-fields](../../assets/img/tutorials/configure-sp-fields.jpg)
+    ![configure-sp-fields](../assets/img/tutorials/configure-sp-fields.jpg)
 
 3.  Expand **Claim Configuration** and select **Define Custom Claim
     Dialect.**
@@ -209,7 +209,7 @@ To disable the claims, do the following.
     | http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID | http://wso2.org/claims/objectguid                                 | Selected (True) |
     | http://schemas.xmlsoap.org/claims/UPN                              | http://wso2.org/claims/upn                                        | Selected (True) |
 
-    ![claim-uri](../../assets/img/tutorials/claim-uri.jpg)
+    ![claim-uri](../assets/img/tutorials/claim-uri.jpg)
 
 5.  Set
     `                       http://schemas.xmlsoap.org/claims/UPN                     `
@@ -230,7 +230,7 @@ To disable the claims, do the following.
         $cred=Get-Credential
     ```
 
-    ![azure-ad-admin-credentials](../../assets/img/tutorials/azure-ad-admin-credentials.jpg)
+    ![azure-ad-admin-credentials](../assets/img/tutorials/azure-ad-admin-credentials.jpg)
 
 3.  Enter the credentials and click OK. Run the following command to
     connect to the service with the stored credentials.
@@ -248,7 +248,7 @@ To disable the claims, do the following.
         Get-MsolDomain
     ```
 
-    ![domain-availability](../../assets/img/tutorials/domain-availability.jpeg)
+    ![domain-availability](../assets/img/tutorials/domain-availability.jpeg)
 
 5.  Configure the domain as a federated domain by providing the
     respective federation settings that match the WSO2 IS IdP. Store the
@@ -327,7 +327,7 @@ To disable the claims, do the following.
         Get-MsolDomainFederationSettings -Domain $dom
     ```
 
-    ![federation-settings](../../assets/img/tutorials/federation-settings.jpg)
+    ![federation-settings](../assets/img/tutorials/federation-settings.jpg)
 
 You have now successfully set up trust between the on-premise identity
 provider of WSO2 IS and the Azure Active Directory.

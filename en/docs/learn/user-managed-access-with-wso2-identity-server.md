@@ -91,7 +91,7 @@ behalf of the requesting party.
         **Configure**.
     4.  Enter `            https://localhost/callback           ` as the
         value for the **Callback Url**.  
-        ![register-uma-app]( ../../assets/img/using-wso2-identity-server/register-uma-app.png) 
+        ![register-uma-app]( ../assets/img/using-wso2-identity-server/register-uma-app.png) 
     5.  Click **Add**.
     <a name="clientsp"></a>
 2.  Follow the steps below to configuring a service provider for the
@@ -105,7 +105,7 @@ behalf of the requesting party.
     4.  Enter
         `                         https://localhost/callback                       `
         as the value for the **Callback Url**.  
-        ![register-uma-app]( ../../assets/img/using-wso2-identity-server/register-uma-app.png) 
+        ![register-uma-app]( ../assets/img/using-wso2-identity-server/register-uma-app.png) 
     5.  Click **Add**.
 
 Note down the **Client ID** and **Client Secret** values. You need those
@@ -252,7 +252,7 @@ Follow the steps given below to create, register and publish a policy:
 
 5.  **Save** the policy. You will see the new policy that you created
     listed in the **Policy Administration** page.  
-    ![add-uma-policy]( ../../assets/img/using-wso2-identity-server/add-uma-policy.png) 
+    ![add-uma-policy]( ../assets/img/using-wso2-identity-server/add-uma-policy.png) 
 
 6.  Select the policy and click **Publish To My PDP**. This displays
     the **Publish Policy** page.
@@ -261,7 +261,7 @@ Follow the steps given below to create, register and publish a policy:
     publish the policy.
 8.  Click **Yes**. This publishes the policy. If you want to view the
     published policy, click **Policy View** under **PDP**.  
-    ![view-uma-policy]( ../../assets/img/using-wso2-identity-server/view-uma-policy.png) 
+    ![view-uma-policy]( ../assets/img/using-wso2-identity-server/view-uma-policy.png) 
 
 #### Obtain a permission ticket
 

@@ -51,11 +51,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![add-client-key](../../assets/img/using-wso2-identity-server/add-client-key.png)
+    ![add-client-key](../assets/img/using-wso2-identity-server/add-client-key.png)
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **basic-auth** from the dropdown and click **Add.** **  
-    ** ![add-basic-auth](../../assets/img/using-wso2-identity-server/add-basic-auth.png)
+    ** ![add-basic-auth](../assets/img/using-wso2-identity-server/add-basic-auth.png)
 7.  Click **Update** to save changes to the service provider.
 8.  Send a cURL request with the `           <SEC_TOKEN>          ` in
     the authorization header, to the token endpoint. Replace the

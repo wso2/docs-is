@@ -30,7 +30,7 @@ Carbon server at run time:
 1.  Log in to the management console of your product and go to
     **Configure** -\> **Logging** in the navigator. The **Logging
     Configuration** window appears as shown below.  
-    ![](../../assets/img/28705820/28870019.png)
+    ![](../assets/img/28705820/28870019.png)
 2.  If you select the **Persist All Configuration Changes** check box,
     all the modifications will persist and they will be available even
     after the server restarts.  
@@ -48,7 +48,7 @@ Carbon server at run time:
 
 #### Global Log4J Configuration
 
-![](../../assets/img/28705820/28870018.png)
+![](../assets/img/28705820/28870018.png)
 
 This section allows you to assign a single log level and log pattern to
 all loggers.
@@ -65,7 +65,7 @@ logging configurations specified in the
 
 #### Configure Log4J Appenders
 
-![](../../assets/img/28705820/28870017.png)
+![](../assets/img/28705820/28870017.png)
 
 This section allows you to configure appenders individually. Log4j
 allows logging requests to print to multiple destinations. These output
@@ -139,7 +139,7 @@ one logger.
 
 #### Configure Log4J Loggers
 
-![](../../assets/img/28705820/28870022.png)
+![](../assets/img/28705820/28870022.png)
 
 A Logger is an object used to log messages for a specific system or
 application component. Loggers are normally named using a hierarchical

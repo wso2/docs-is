@@ -14,7 +14,7 @@ setting up the cluster following the above instructions).
    
 Following is the deployment diagram with the load balancer.
 
-![Deployment with the loadbalancer](../../assets/img/setup/deployment-with-the-loadbalancer.png) 
+![Deployment with the loadbalancer](../assets/img/setup/deployment-with-the-loadbalancer.png) 
 
 #### Configuring Nginx
 

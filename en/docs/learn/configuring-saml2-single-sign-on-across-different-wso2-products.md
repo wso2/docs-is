@@ -140,6 +140,6 @@ configuration for registering a Carbon server as a service provider.
     -   Select **Use user store domain in local subject identifier**
         to append the user store domain that the user resides in the
         local subject identifier.  
-        ![](../../assets/img/53125544/53287694.png) 
+        ![](../assets/img/53125544/53287694.png) 
 8.  Click the **Update** button to update the details of the service
     provider.

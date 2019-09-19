@@ -18,11 +18,11 @@ is divided into these two categories ( **Super Admin** permissions and
 other categories of permissions enabled for a WSO2 product, depending on
 the type of features that are installed in the product.
 
-![](../../assets/img/44826804/45088792.png)
+![](../assets/img/44826804/45088792.png)
 
 You can access the permissions navigator for a particular role by
 clicking **Permissions** as shown below.  
-![](../../assets/img/53125499/53287373.png)
+![](../assets/img/53125499/53287373.png)
 
 By default, every WSO2 product comes with the following User, Role and
 Permissions configured:

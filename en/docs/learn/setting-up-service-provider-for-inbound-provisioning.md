@@ -22,10 +22,10 @@ The following steps provide instructions on how to configure this.
     Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>
     Resident**.  
-    ![sp-resident](../../assets/img/using-wso2-identity-server/sp-resident.png)
+    ![sp-resident](../assets/img/using-wso2-identity-server/sp-resident.png)
 3.  Under the **Inbound Provisioning Configuration** section, click
     **Inbound Provisioning Configuration**.  
-    ![idp-provisioning-config](../../assets/img/using-wso2-identity-server/idp-provisioning-config.png)
+    ![idp-provisioning-config](../assets/img/using-wso2-identity-server/idp-provisioning-config.png)
 
     !!! info
         When configuring Inbound Provisioning Configuration, you can enable
@@ -81,7 +81,7 @@ To confirm that the provisioning works, do the following.
     has been created in the configured or requested user store, the
     provisioning has worked successfully.  
       
-    ![user-list](../../assets/img/using-wso2-identity-server/user-list.png)
+    ![user-list](../assets/img/using-wso2-identity-server/user-list.png)
 
       
 
@@ -106,13 +106,13 @@ provider.
 2.  Enter the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
-    ![description-sp](../../assets/img/using-wso2-identity-server/description-sp.png) 
+    ![description-sp](../assets/img/using-wso2-identity-server/description-sp.png) 
 3.  Click **Register**. The service provider details page appears.
 
 4.  Expand the **Inbound Provisioning Configuration** section and select
     the user store from the drop down.
 
-    ![inbound-provisioning-configuration](../../assets/img/using-wso2-identity-server/inbound-provisioning-configuration.png) 
+    ![inbound-provisioning-configuration](../assets/img/using-wso2-identity-server/inbound-provisioning-configuration.png) 
 
     !!! info 
         When configuring Inbound Provisioning Configuration, you can enable
@@ -137,22 +137,22 @@ configuring an OAuth service provider.
 2.  Find the service provider you just created and click **Edit**.
 3.  Under the **Inbound Authentication Configuration** section, click
     **OAuth/OpenID Connect Configuration \>** **Configure**.
-4.  ![config-oauth-openid](../../assets/img/using-wso2-identity-server/config-oauth-openid.png) 
+4.  ![config-oauth-openid](../assets/img/using-wso2-identity-server/config-oauth-openid.png) 
 
 5.  Enter the required information.  
-    ![oauth-openid-info](../../assets/img/using-wso2-identity-server/oauth-openid-info.png)   
+    ![oauth-openid-info](../assets/img/using-wso2-identity-server/oauth-openid-info.png)   
     Here we use the playground sample as the Callback Url for the
     purposes of this example scenario.
 6.  Click **Add**.
 7.  We now have an **OAuth Client Key** and **OAuth Client Secret**.
     Click **Show** to view the **OAuth Client Secret**.  
-    ![show-oauth-client-secret](../../assets/img/using-wso2-identity-server/show-oauth-client-secret.png)
+    ![show-oauth-client-secret](../assets/img/using-wso2-identity-server/show-oauth-client-secret.png)
 8.  Use a service like [Base64](https://www.base64encode.org/) to encode
     your **OAuth Client Key** and **OAuth Client Secret**. For this
     example, click **Encode** and enter your client key and client
     secret separated by a colon ":". Click the **\> ENCODE \<** button
     to encode this.  
-    ![encode-key-secret](../../assets/img/using-wso2-identity-server/encode-key-secret.png)
+    ![encode-key-secret](../assets/img/using-wso2-identity-server/encode-key-secret.png)
 
 9.  Use the encoded value to generate the access token by inserting it
     into the following cURL command after `           Basic          ` .
@@ -162,7 +162,7 @@ configuring an OAuth service provider.
     ```
 
     The access token can be found in the output.  
-    ![access-token](../../assets/img/using-wso2-identity-server/access-token.png)
+    ![access-token](../assets/img/using-wso2-identity-server/access-token.png)
 
 10. The access token is then entered in the provisioning request after
     `           Bearer          ` .

@@ -47,7 +47,7 @@ authentication to each step. For example, you can configure
 User-ID/Password authentication as the first factor (knowledge factors)
 and then FIDO authentication as the second factor (possession factors).
 
-![mfa-with-is](../../assets/img/using-wso2-identity-server/mfa-with-is.png)
+![mfa-with-is](../assets/img/using-wso2-identity-server/mfa-with-is.png)
 
 WSO2 Identity Server has comprehensive support for multi-factor
 authentication, with authenticators available for **SMSOTP, FIDO,
@@ -72,7 +72,7 @@ MEPin** and more.
     a service provider name and click **Register**.  
     Since the service provider is for the WSO2 Identity Server itself,
     in this tutorial the service provider is referred to as 'self'.  
-    ![configure-mfa-for-is](../../assets/img/using-wso2-identity-server/configure-mfa-for-is.png)
+    ![configure-mfa-for-is](../assets/img/using-wso2-identity-server/configure-mfa-for-is.png)
 3.  Expand **Inbound Authentication Configuration\>SAML2 Web SSO
     Configuration** and click **Configure**.
 4.  Select **Manual Configuration** and enter the following details.
@@ -81,7 +81,7 @@ MEPin** and more.
     2.  **Assertion Consumer URLs -** https://localhost:9443/acs
     3.  **Enable Response Signing -** true
 
-    ![enable-response-signing](../../assets/img/using-wso2-identity-server/enable-response-signing.png)
+    ![enable-response-signing](../assets/img/using-wso2-identity-server/enable-response-signing.png)
 
 5.  Expand **Local and Outbound Authentication Configuration** and
     select **Advanced Configuration** to configure multi-factor
@@ -97,7 +97,7 @@ MEPin** and more.
         you to create another authentication step. These can be either
         local or federated authenticators.
 
-    ![add-auth-step](../../assets/img/using-wso2-identity-server/add-auth-step.png)
+    ![add-auth-step](../assets/img/using-wso2-identity-server/add-auth-step.png)
 
 6.  Click **Add Authenticator** to add a **Local Authenticator**. You
     can choose the type of authenticator using the dropdown. Clicking
@@ -122,7 +122,7 @@ MEPin** and more.
         to configure it.
     
 
-    ![mfa-using-fido](../../assets/img/using-wso2-identity-server/mfa-using-fido.png)
+    ![mfa-using-fido](../assets/img/using-wso2-identity-server/mfa-using-fido.png)
 
 7.  Select **Use subject identifier from this step**, **Use** a
     **ttributes from this step** or both. In the case of multiple steps,

@@ -109,7 +109,7 @@ is expired or not for this flow to work.
 		any attribute name as the mapped attribute if it is a JDBC user
 		store.
 
-    ![](../../assets/img/50511336/97551782.png)   
+    ![](../assets/img/50511336/97551782.png)   
 
 ### Deploying travelocity.com sample
 
@@ -138,7 +138,7 @@ The next step is to configure the service provider.
 
 5.  Configure the sample application (travelocity) as the service
     provider.  
-    ![](../../assets/img/50511336/50688127.png)   
+    ![](../assets/img/50511336/50688127.png)   
     Do the following configurations.
 
     1.  **Issuer** : travelocity.com
@@ -177,7 +177,7 @@ The next step is to configure the service provider.
         The **Use attributes from this step** option is unchecked
         when the second step is added and selected.
 
-    ![](../../assets/img/50511336/50688128.png)
+    ![](../assets/img/50511336/50688128.png)
 
 You have now added and configured the service provider.
 
@@ -194,21 +194,21 @@ You have now added and configured the service provider.
         configuration.
     
 
-    ![](../../assets/img/50511336/51252088.png)   
+    ![](../assets/img/50511336/51252088.png)   
 
 2.  Enter a date and time of the past for the Password Changed Time
     field. Make sure to provide the value in the Epoch format.  
-    ![](../../assets/img/50511336/51252089.png) 
+    ![](../assets/img/50511336/51252089.png) 
 3.  Go to the following URL: http://localhost:8080/travelocity.com
 4.  Click the link to log in with SAML from WSO2 Identity Server.  
-    ![](../../assets/img/50511336/50688116.png)
+    ![](../assets/img/50511336/50688116.png)
 
 5.  The basic authentication page appears. Use your WSO2 Identity Server
     credentials.
 
 6.  During the authentication flow, if the password is expired, you will
     be prompted to reset the password.  
-    ![](../../assets/img/50511336/50688130.png) 
+    ![](../assets/img/50511336/50688130.png) 
 7.  Enter the current password, new password and repeat password. If the
     authentication is successful, you are taken to the home page of the
     travelocity.com app.

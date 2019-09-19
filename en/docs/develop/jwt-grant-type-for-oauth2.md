@@ -94,7 +94,7 @@ See the following sections for more information.
     provider](../../learn/adding-and-configuring-an-identity-provider)
     for more information.  
       
-    ![](../../assets/img/50507537/50685934.png) 
+    ![](../assets/img/50507537/50685934.png) 
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 5.  Fill in the **Service Provider Name** and provide a brief
@@ -108,7 +108,7 @@ See the following sections for more information.
     and click **Add**.
 8.  The **OAuth Client Key** and **OAuth Client Secret** will now be
     visible.  
-    ![](../../assets/img/50507537/50685935.png) 
+    ![](../assets/img/50507537/50685935.png) 
 
 !!! note 
     While configuring the JWT grant type, the IAT validating time

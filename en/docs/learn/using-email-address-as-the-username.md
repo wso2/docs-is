@@ -146,7 +146,7 @@
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src=" ../../assets/img/using-wso2-identity-server/super-admin.png" width="878" height="250" /></p></div>
+    <img src=" ../assets/img/using-wso2-identity-server/super-admin.png" width="878" height="250" /></p></div>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
     <p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>

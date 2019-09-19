@@ -22,7 +22,7 @@ Let's get started!
 		Can't see the Security section? Click the **MORE CONTROLS** bar at
 		the bottom and you can see the Security section.
 
-    ![more-controls](../../assets/img/tutorials/more-controls.png)
+    ![more-controls](../assets/img/tutorials/more-controls.png)
 
 3.  Click **Set up single sign-on(SSO)** and select **Setup SSO with
     third party identity provider**.
@@ -36,7 +36,7 @@ Let's get started!
     -   **Sign-out page URL:**
         `             https://<SERVER_HOSTNAME>:9443/samlsso            `
 
-    ![third-party-idp](../../assets/img/tutorials/third-party-idp.png)
+    ![third-party-idp](../assets/img/tutorials/third-party-idp.png)
 
 5.  Upload the Identity Server certificate:  
     The certificate file must contain the public key for Google to
@@ -180,7 +180,7 @@ Let's look at how you can try it out:
     2.  Click **Users**. This link is only visible to users with the
         Admin role.
     3.  Click **Add New User**. The following screen appears.  
-        ![adding-new-users](../../assets/img/tutorials/adding-new-users.png)
+        ![adding-new-users](../assets/img/tutorials/adding-new-users.png)
 
     4.  Click **Next \>**.
     5.  Optionally, select the role(s) you want this user to have. If

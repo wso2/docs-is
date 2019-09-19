@@ -58,11 +58,11 @@ account:
 2.  Log in using your username and password.
 3.  Click the **View details** button that corresponds to the
     **Associated User Accounts** gadget.  
-    ![associated-user-accounts](../../assets/img/using-wso2-identity-server/associated-user-accounts.png) 
+    ![associated-user-accounts](../assets/img/using-wso2-identity-server/associated-user-accounts.png) 
 4.  You can see all associated accounts of the user that you logged in
     as. This table includes the user ID and identity provider of all the
     associated user accounts of the user.  
-    ![associated-accounts](../../assets/img/using-wso2-identity-server/associated-accounts.png) 
+    ![associated-accounts](../assets/img/using-wso2-identity-server/associated-accounts.png) 
 5.  You can initiate a new user account association by clicking the
     **Add Association** button under **Associated Accounts**.
 6.  Select **Local** as the **Account Type**, and enter the username
@@ -71,7 +71,7 @@ account:
     authentic, WSO2 Identity Server authenticates the user account and
     saves that user account as an association to the user account of the
     logged in user.  
-    ![associate-user-account](../../assets/img/using-wso2-identity-server/associate-user-account.png) 
+    ![associate-user-account](../assets/img/using-wso2-identity-server/associate-user-account.png) 
 7.  You can delete this user account association by clicking **Remove**
     in the **Associated Accounts** list.
 8.  You can also switch between associated user accounts without having
@@ -81,7 +81,7 @@ account:
     between accounts by selecting the required user account from the
     dropdown. Note that the session key does not change during this
     operation.  
-    ![switch-user-accounts](../../assets/img/using-wso2-identity-server/switch-user-accounts.png) 
+    ![switch-user-accounts](../assets/img/using-wso2-identity-server/switch-user-accounts.png) 
 
 #### Managing federated user IDs
 
@@ -98,17 +98,17 @@ account from the end user dashboard. To set this up, do the following.
 2.  Log in using your username and password.
 3.  Click the **View details** button that corresponds to the
     **Associated User Accounts** gadget.  
-    ![associated-user-accounts](../../assets/img/using-wso2-identity-server/associated-user-accounts.png) 
+    ![associated-user-accounts](../assets/img/using-wso2-identity-server/associated-user-accounts.png) 
 4.  You can see all associated accounts of the user that you logged in
     as. This table includes user ID and the identity provider of all
     associated user accounts of the user.  
-    ![associated-accounts](../../assets/img/using-wso2-identity-server/associated-accounts.png) 
+    ![associated-accounts](../assets/img/using-wso2-identity-server/associated-accounts.png) 
 5.  You can initiate a new user account association by clicking the
     **Add Association** button under **Associated Accounts**.
 6.  Select the **Federated** as the **Account Type** from the dropdown
     provided, and enter the username and password.  
     Click **Associate** to connect this user account to the WSO2
     Identity Server account of the logged in user.  
-    ![associate-user-account](../../assets/img/using-wso2-identity-server/associate-user-account.png) 
+    ![associate-user-account](../assets/img/using-wso2-identity-server/associate-user-account.png) 
 7.  You can delete this user account association by clicking **Remove**
     on the **Associated Accounts** list.

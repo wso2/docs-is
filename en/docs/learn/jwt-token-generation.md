@@ -62,7 +62,7 @@ needed.
     [Configuring inbound authentication with OAuth/OpenID Connect](../../learn/configuring-inbound-authentication-for-a-service-provider/#configuring-inbound-authentication-with-oauthopenid-connect)
     for more information.
     
-    ![jwt-token-issuer]( ../../assets/img/using-wso2-identity-server/jwt-token-issuer.png) 
+    ![jwt-token-issuer]( ../assets/img/using-wso2-identity-server/jwt-token-issuer.png) 
     
 
 **Calling the OAuth2ValidationService with a valid token**
@@ -79,7 +79,7 @@ the `<tokenString>` element.
     values for the user are returned.
     
 
-![jwt-request1]( ../../assets/img/using-wso2-identity-server/jwt-request1.png) 
+![jwt-request1]( ../assets/img/using-wso2-identity-server/jwt-request1.png) 
 
 **Header Metadata:**  
 The header contains the metadata for the token as seen below.

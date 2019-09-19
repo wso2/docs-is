@@ -4,7 +4,7 @@ The X509Certificate authenticator allows users to access your
 organization’s applications by getting authenticated through an X509
 certificate, which contains public key information.
 
-![x509-authenticator](../../assets/img/connectors/x509-authenticator.png)
+![x509-authenticator](../assets/img/connectors/x509-authenticator.png)
 
 This page provides instructions on how to configure the X509 certificate
 authenticator and the WSO2 Identity Server using a sample app to
@@ -349,20 +349,20 @@ Identity Server was started before.
 
 1.  Access the WSO2 Identity Server Management Console.
 2.  Click **Main \> Registry \> Browse**.  
-    ![](../../assets/img/50501577/112378780.png) 
+    ![](../assets/img/50501577/112378780.png) 
 3.  Disable CRL certificate validation.
     1.  Locate the CRL parameter by entering
         `            _system/governance/repository/security/certificate/validator/crlvalidator           `
         in the **Location** search box.  
-        ![](../../assets/img/50501577/112378782.png) 
+        ![](../assets/img/50501577/112378782.png) 
     2.  Expand **Properties**.  
-        ![](../../assets/img/50501577/112378786.png) 
+        ![](../assets/img/50501577/112378786.png) 
     3.  Click **Edit** pertaining to the **Enable** property.  
-        ![](../../assets/img/50501577/112378794.png)   
+        ![](../assets/img/50501577/112378794.png)   
         
     4.  Change the value to `            false           ` and click
         **Save**.  
-        ![](../../assets/img/50501577/112378795.png) 
+        ![](../assets/img/50501577/112378795.png) 
 4.  Similarly, disable OCSP certificate validation in the
     `          _system/governance/repository/security/certificate/validator/ocspvalidator         `
     registry parameter.
@@ -437,13 +437,13 @@ retrieved certificate from the request.
     ```
 
 2.  On the **Main** tab, click **Claims \> Add**.  
-    ![](../../assets/img/50501577/103328153.png) 
+    ![](../assets/img/50501577/103328153.png) 
 3.  Click **Add Local Claim**.  
-    ![](../../assets/img/50501577/103328154.png) 
+    ![](../assets/img/50501577/103328154.png) 
 4.  Add a new claim for the **certificate** by giving the details as
     below, e.g., select a mapped attribute for the claim that is
     supported by the underlying database type.
-    ![](../../assets/img/50501577/103328155.png) 
+    ![](../assets/img/50501577/103328155.png) 
 5.  Click **Add**.
 
 ### Updating the column size of the database for X509 certificates
@@ -597,7 +597,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
     4.  **Include Attributes in the Response Always**.
 
-    ![](../../assets/img/50501577/56985063.png)
+    ![](../assets/img/50501577/56985063.png)
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
 8.  Go to the **Local and Outbound Authentication Configuration**
@@ -609,18 +609,18 @@ The next step is to configure the service provider.
 
         2.  Add the **basic** authentication as a first step and
             **X509Certificate** authentication as the second step.  
-            ![](../../assets/img/50501577/56985064.png)
+            ![](../assets/img/50501577/56985064.png)
 
     2.  First factor
         -   Select **Local Authentication** as the **Authentication
             Type** and select **X509Certificate** from the drop-down
             list.  
-            ![](../../assets/img/50501577/56985065.png) 
+            ![](../assets/img/50501577/56985065.png) 
         -   When using X509 as first step authentication, you need to
             create a user in IS management console with the Email
             provided while creating the browser certificate.  
             Example:  
-            ![](../../assets/img/50501577/72423358.png)
+            ![](../assets/img/50501577/72423358.png)
 
             !!! note
                 For more information on creating users and assigning roles
@@ -661,7 +661,7 @@ Follow the steps below to configure CRL caching.
 -   **Chrome**
     1.  In your browser, navigate to **Settings \> HTTPS/SSL \> Manage
         certificates**.  
-        ![](../../assets/img/50501577/56985081.png)
+        ![](../assets/img/50501577/56985081.png)
     2.  Click on **Import,** select the **localhost.p12** file, and then
         click **Open**. Note that you may have to enter the password that
         you used to generate the p12 file, (browserpwd) to open it.
@@ -670,13 +670,13 @@ Follow the steps below to configure CRL caching.
     1.  Click on the menu option on the right of the screen and select
         **Preferences**.  
         
-        ![](../../assets/img/50501577/76747279.png)
+        ![](../assets/img/50501577/76747279.png)
     2.  Click Privacy & Security in the left navigation and scroll down to
         the **Certificates** section. Click **View Certificates**.  
         
-        ![](../../assets/img/50501577/76747282.png) 
+        ![](../assets/img/50501577/76747282.png) 
     3.  In the window that appears, click **Import**.  
-        ![](../../assets/img/50501577/76747286.png) 
+        ![](../assets/img/50501577/76747286.png) 
     4.  Select the **localhost.p12** file, and then click **Open**. Note
         that you may have to enter the password that you used to generate
         the p12 file, (browserpwd) to open it.
@@ -692,15 +692,15 @@ Follow the steps below to configure CRL caching.
         If you have set this up as the first factor you will not
         get basic authentication.
       
-    ![](../../assets/img/50501577/56985082.png)
+    ![](../assets/img/50501577/56985082.png)
 
 3.  The basic authentication page appears unless it is not set as the
     first factor. Use your username and password and click **Sign In**
     (Only for the second step).  
-    ![](../../assets/img/50501577/56985083.png)
+    ![](../assets/img/50501577/56985083.png)
     
 4.  You are directed to the X509 certificate authentication page (
     `          https://localhost:8443/x509-certificate-servlet         `
     ). If the authentication is successful, you will be taken to the
     home page of the travelocity.com app.  
-    ![](../../assets/img/50501577/56985084.png) 
+    ![](../assets/img/50501577/56985084.png) 

@@ -32,10 +32,10 @@ templates available in WSO2 Identity Server to write your own policy.
     original template policy will remain unchanged for later use).
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-pdp](../../assets/img/tutorials/publish-to-pdp.png)
+    ![publish-to-pdp](../assets/img/tutorials/publish-to-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publishing-a-xacml-policy](../../assets/img/tutorials/publishing-a-xacml-policy.png)
+    ![publishing-a-xacml-policy](../assets/img/tutorials/publishing-a-xacml-policy.png)
 
     !!! note
     
@@ -47,4 +47,4 @@ templates available in WSO2 Identity Server to write your own policy.
     the **Main** tab of the management console.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.
-    ![check-policy-list](../../assets/img/tutorials/check-policy-list.png)
+    ![check-policy-list](../assets/img/tutorials/check-policy-list.png)

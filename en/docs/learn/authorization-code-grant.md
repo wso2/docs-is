@@ -23,7 +23,7 @@ server.
 
 The diagram below illustrates the authorization code flow.
 
-![oauth-authorization-code-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-authorization-code-grant-diagram.png)
+![oauth-authorization-code-grant-diagram](../assets/img/using-wso2-identity-server/oauth-authorization-code-grant-diagram.png)
 
 
 !!! info "Support for refresh token grant - Yes"

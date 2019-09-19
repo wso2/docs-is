@@ -26,7 +26,7 @@ senior HR manager has to approve new user additions. Once this is done,
 the user can login to the system and continue his work. The following
 pre-requisites are necessary to implement this sample use case:
 
-![sample-for-workflow](../../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
+![sample-for-workflow](../assets/img/using-wso2-identity-server/sample-for-workflow.png) 
 
 !!! tip
     

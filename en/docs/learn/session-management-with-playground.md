@@ -158,7 +158,7 @@ implementing OpenID Connect
             You are directed to the landing page of the sample
             application. Click on **Import Photos** and the following
             page appears.  
-            ![]( ../../assets/img/103329944/103329945.png){width="750"
+            ![]( ../assets/img/103329944/103329945.png){width="750"
             height="410"}
 
         !!! note
@@ -189,7 +189,7 @@ implementing OpenID Connect
     -   `             http://wso2is.local:8080/playground2/            `
     -   `                           http://wso2is.local:8080/playground3/                          /            `
 
-    ![]( ../../assets/img/103329986/103330000.png) 
+    ![]( ../assets/img/103329986/103330000.png) 
 
 ### Registering the relying party applications
 
@@ -197,7 +197,7 @@ implementing OpenID Connect
 2.  [Add a new service
     provider](https://docs.wso2.com/display/IS530/Adding+and+Configuring+a+Service+Provider#AddingandConfiguringaServiceProvider-ConfiguringaServiceProvider-Addingaserviceprovider)
     named "playground2" and click **Register**.  
-    ![]( ../../assets/img/103329986/103329999.png) 
+    ![]( ../assets/img/103329986/103329999.png) 
 3.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** and click
     **Configure.**  
@@ -208,7 +208,7 @@ implementing OpenID Connect
     and select **Use tenant domain in local subject identifier** to sign
     the ID token with the user's tenant domain.
 
-    ![]( ../../assets/img/103329986/103329988.png) 
+    ![]( ../assets/img/103329986/103329988.png) 
 
     !!! note
     
@@ -227,14 +227,14 @@ implementing OpenID Connect
 5.  Enter
     `                       http://wso2is.local:8080/playground2/oauth2client                     `
     as the callback URL and click **Add**.  
-    ![]( ../../assets/img/103329986/103329987.png) 
+    ![]( ../assets/img/103329986/103329987.png) 
 
     !!! note
     
         At this point, you will see the **client key** and **client secret**
         .
     
-        ![]( ../../assets/img/103329986/103329989.png) 
+        ![]( ../assets/img/103329986/103329989.png) 
     
         Note these values as you will need them later in this process.
     
@@ -263,7 +263,7 @@ implementing OpenID Connect
     -   **Session Iframe Endpoint:**
         `            https://localhost:9443/oidc/checksession?client_id=<clientID of playground2 application>           `
 
-    ![]( ../../assets/img/103329986/103329990.png) 
+    ![]( ../assets/img/103329986/103329990.png) 
 3.  Log in with the user credentials and click **Approve Always** at the
     consent page.
 
@@ -272,7 +272,7 @@ implementing OpenID Connect
     work, and without passive requests, the SLO protocol will not work. 
     Do this to avoid errors during execution.
 
-    ![]( ../../assets/img/103329986/103329996.png) 
+    ![]( ../assets/img/103329986/103329996.png) 
 
 4.  Once it is successfully authenticated, the OpenIDConnect
     Provider(OP) will redirect back to the client application with the
@@ -287,12 +287,12 @@ implementing OpenID Connect
     -   **Client Secret:** Enter the client secret of playground2
         application
 
-    ![]( ../../assets/img/103329986/103329991.png){height="250"}
+    ![]( ../assets/img/103329986/103329991.png){height="250"}
 6.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo?schema=openid                   `
     to use the received access token to obtain user claims if needed.  
-    ![]( ../../assets/img/103329986/103329994.png) 
+    ![]( ../assets/img/103329986/103329994.png) 
 7.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
     `          http://wso2is.local:8080/playground3/         `
@@ -305,7 +305,7 @@ implementing OpenID Connect
     received, the app will update it’s session state value and keep
     polling the OP iframe again.
 
-    ![]( ../../assets/img/103329986/103329993.png) 
+    ![]( ../assets/img/103329986/103329993.png) 
 
 10. Go back to the browser window of the playground3 app, and click
     **Logout**. Click **Approve** when prompted for consent.
@@ -315,7 +315,7 @@ implementing OpenID Connect
     passive authentication request and has received an error since the
     end user session has ended. This means the app has successfully
     handled this as a single logout scenario.  
-    ![]( ../../assets/img/103329986/103329992.png) 
+    ![]( ../assets/img/103329986/103329992.png) 
 
 How to keep the user session live in Identity Server
 

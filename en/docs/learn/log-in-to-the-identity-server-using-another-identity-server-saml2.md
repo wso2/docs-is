@@ -55,7 +55,7 @@ Server as an identity provider (IdP) in the primary Identity Server.
     scenario.
 4.  Expand the **Federated Authenticators** section and then expand the
     **SAML2 Web SSO** **Configuration** section.  
-    ![saml2-web-sso-config](../../assets/img/using-wso2-identity-server/saml2-web-sso-config.png) 
+    ![saml2-web-sso-config](../assets/img/using-wso2-identity-server/saml2-web-sso-config.png) 
 
 5.  Make the following changes.
     1.  Select the **Enable SAML2 Web SSO** check box.
@@ -134,7 +134,7 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     section. Here we set the travelocity client to use the primary IS
     instance and the identity provider named 'Secondary' also as its
     identity provider. For this we have to add authentication steps.  
-    ![add-authentication-steps](../../assets/img/using-wso2-identity-server/add-authentication-steps.png)   
+    ![add-authentication-steps](../assets/img/using-wso2-identity-server/add-authentication-steps.png)   
     1.  Click **Advanced Configuration** and from next UI, click
         **Add Authentication Step**.
     2.  Under **Local Authenticators** add the “ **basic** ”
@@ -161,14 +161,14 @@ https://github.com/wso2/product-is/tree/master/modules/samples/sso
     2.  Go to
         [http://wso2is.local:8080/travelocity.com](http://localhost:8080/travelocity.com)
         . This is the client application.  
-        ![client-application](../../assets/img/using-wso2-identity-server/client-application.png) 
+        ![client-application](../assets/img/using-wso2-identity-server/client-application.png) 
     3.  Since we are using SAML for authentication, click the link in
         the first line.
     4.  In the resulting screen, log in with the username 'primaryuser'
         and the password 'primepass' for authentication as a local user
         in the primary IS instance.  
           
-        ![sign-into-travelocity](../../assets/img/using-wso2-identity-server/sign-into-travelocity.png)   
+        ![sign-into-travelocity](../assets/img/using-wso2-identity-server/sign-into-travelocity.png)   
         If you wish to authenticate a user in the secondary IS instance
         which is the secondary IdP, click “Secondary” under **Other
         login options**. In the resulting screen, log in using the

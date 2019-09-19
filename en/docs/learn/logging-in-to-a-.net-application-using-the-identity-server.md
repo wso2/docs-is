@@ -12,7 +12,7 @@ using a sample OpenID Connect application.
     Providers**.
 4.  Enter a name for the service provider and expand the **Inbound
     Authentication and Configuration** section.  
-    ![enter-sp-name](../../assets/img/tutorials/enter-sp-name.png)
+    ![enter-sp-name](../assets/img/tutorials/enter-sp-name.png)
 5.  Expand the **OAuth/OpenID Connect Configuration** section and
     configure it with the following callback URL
     format: \[server-url\]/callback.aspx. Click **Add**.  
@@ -21,7 +21,7 @@ using a sample OpenID Connect application.
     Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     .
 6.  Take note of the client key and client secret that you receive.  
-    ![key-and-secret](../../assets/img/tutorials/key-and-secret.png)
+    ![key-and-secret](../assets/img/tutorials/key-and-secret.png)
 7.  Open the `          oidc.sln         ` file found in the
     `          <SAMPLE_HOME>         ` directory using [Visual
     Studio](https://www.visualstudio.com/downloads/) and run the .NET
@@ -32,11 +32,11 @@ using a sample OpenID Connect application.
     -   **Response Type:** code
     -   **Scope:** openid
 
-    ![run-dotnet-app](../../assets/img/tutorials/run-dotnet-app.png)
+    ![run-dotnet-app](../assets/img/tutorials/run-dotnet-app.png)
     
 9.  Sign in using admin/admin credentials and then select **Approve** or
     **Approve Always.**  
-    ![admin-credentials-to-approve](../../assets/img/tutorials/admin-credentials-to-approve.png)
+    ![admin-credentials-to-approve](../assets/img/tutorials/admin-credentials-to-approve.png)
     
 10. You will be redirected to the callback page along with the OAuth
     code. Fill in the following fields and click **Submit** to retrieve
@@ -47,7 +47,7 @@ using a sample OpenID Connect application.
     -   **Grant Type:** authorization\_code
     -   **Request URI:** http://localhost:50420/callback.aspx  
 
-    ![callback-page-with-oauth-code](../../assets/img/tutorials/callback-page-with-oauth-code.png)
+    ![callback-page-with-oauth-code](../assets/img/tutorials/callback-page-with-oauth-code.png)
 
     !!! info 
 		It does a REST call to the token endpoint and retrieve the token
@@ -57,4 +57,4 @@ using a sample OpenID Connect application.
 
 11. Once the REST call succeeds, you can see the token details with the
     base64 decoded JWT (ID Token) details.  
-    ![jwt-id-token-details](../../assets/img/tutorials/jwt-id-token-details.png)
+    ![jwt-id-token-details](../assets/img/tutorials/jwt-id-token-details.png)

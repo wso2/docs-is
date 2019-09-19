@@ -23,7 +23,7 @@ authenticate users using their Google user accounts.
     Client ID** . You can find more details from
     [here](https://developers.google.com/identity/protocols/OpenIDConnect).
       
-    ![register-oauth2](../../assets/img/tutorials/register-oauth2.png)
+    ![register-oauth2](../assets/img/tutorials/register-oauth2.png)
       
     Select a web application and give it a name (e.g.,
     SampleWebApllication). Enter the Authorized **redirect URI** as
@@ -31,7 +31,7 @@ authenticate users using their Google user accounts.
     (this is the endpoint in WSO2 Identity Server that accepts the
     response sent by Google).  
     
-    ![create-client-id](../../assets/img/tutorials/create-client-id.png)
+    ![create-client-id](../assets/img/tutorials/create-client-id.png)
      
 3.  Expand the **Google Configuration** form and configure the Google
     authenticator as shown below. Make sure to add your Redirect URI as
@@ -39,9 +39,9 @@ authenticate users using their Google user accounts.
     above Google application. You can find the client id and secret
     from edit OAuth client.  
     
-    ![google-app](../../assets/img/tutorials/google-app.png)
+    ![google-app](../assets/img/tutorials/google-app.png)
      
-    ![google-configuration](../../assets/img/tutorials/google-configuration.png)
+    ![google-configuration](../assets/img/tutorials/google-configuration.png)
     
 4.  Fill in the following fields where relevant.
 

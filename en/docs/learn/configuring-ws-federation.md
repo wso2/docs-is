@@ -38,7 +38,7 @@ the following.
 <!-- -->
 
 1.  Expand the **WS-Federation(Passive) Configuration** form.  
-    ![ws-federation-passive-configuration](../../assets/img/tutorials/ws-federation-passive-configuration.png)
+    ![ws-federation-passive-configuration](../assets/img/tutorials/ws-federation-passive-configuration.png)
     
 2.  Fill in the following fields where relevant.
 

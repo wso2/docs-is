@@ -31,7 +31,7 @@ the following.
 
 Expand the **SAML2 Web SSO Configuration** form. The following appears.
 
-![saml2-web-sso-configuration](../../assets/img/tutorials/saml2-web-sso-configuration.png)
+![saml2-web-sso-configuration](../assets/img/tutorials/saml2-web-sso-configuration.png)
 
 SAML configuration information can be entered through one of the
 following ways:
@@ -41,7 +41,7 @@ following ways:
 
 1.  Select the **Manual Configuration** (selected by default).
   
-    ![manual-configuration](../../assets/img/tutorials/manual-configuration.png)
+    ![manual-configuration](../assets/img/tutorials/manual-configuration.png)
     
 2.  Fill in the following fields where relevant. The \* indicates
     required fields.
@@ -316,10 +316,10 @@ Example: <code>                locale={lang}&amp;scope=openid email profile     
 	Management Console and URL.
 
 1.  Select **Metadata File Configuration**.  
-    ![metadata-file-configuration](../../assets/img/tutorials/metadata-file-configuration.png)  
+    ![metadata-file-configuration](../assets/img/tutorials/metadata-file-configuration.png)  
       
     The following screen appears:
-    ![upload-id-provider](../../assets/img/tutorials/upload-id-provider.png)
+    ![upload-id-provider](../assets/img/tutorials/upload-id-provider.png)
     
 2.  Choose the correct IdP metadata file and click **Register**.
 

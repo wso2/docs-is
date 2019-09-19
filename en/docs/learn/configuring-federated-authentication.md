@@ -27,7 +27,7 @@ You can configure the following federated authenticators by expanding
 the **Federated Authenticators** section followed by the required
 subsections.
 
-![federated-authenticators](../../assets/img/tutorials/federated-authenticators.png)
+![federated-authenticators](../assets/img/tutorials/federated-authenticators.png)
 
 
 !!! tip "More Federated Authenticators"

@@ -24,9 +24,9 @@ To secure the Security Token Service:
 
 1.  On the **Main** tab, click **Identity \> Identity Providers \>
     Resident**.  
-    ![main-tab-resident](../../assets/img/tutorials/main-tab-resident.png)  
+    ![main-tab-resident](../assets/img/tutorials/main-tab-resident.png)  
     The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../../assets/img/tutorials/resident-identity-provider.png)
+    ![resident-identity-provider](../assets/img/tutorials/resident-identity-provider.png)
 
 2.  Enter the required values as given below.
 
@@ -63,19 +63,19 @@ To secure the Security Token Service:
 3.  Under the **Inbound Authentication Configuration** section, click
     **Security Token Service Configuration \> Apply Security Policy**
     .  
-    ![security-token-service-config](../../assets/img/tutorials/security-token-service-config.png)
+    ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)
 4.  Select **Yes** in the **Enable Security?** drop down and  select a
     pre-configured security scenario according to your requirements. For
     this tutorial, use **UsernameToken** under the **Basic Scenarios**
     section.  
-    ![enable-security](../../assets/img/tutorials/enable-security.png)
+    ![enable-security](../assets/img/tutorials/enable-security.png)
 
     !!! note
     
         You can find further details about security policy scenarios from
         the **view scenario** option **.**
     
-        ![security-policy-scenarios](../../assets/img/tutorials/security-policy-scenarios.png)
+        ![security-policy-scenarios](../assets/img/tutorials/security-policy-scenarios.png)
     
 
 5.  Click **Next**. The user domain and user group selection appears.
@@ -96,7 +96,7 @@ To secure the Security Token Service:
                 **User Groups** can vary depending on the domain selected.
         
 
-    	![select-domain](../../assets/img/tutorials/select-domain.png)
+    	![select-domain](../assets/img/tutorials/select-domain.png)
 
 7.  Click **Finish**.
 8.  Click **Ok** on the confirmation dialog window that appears.
@@ -128,7 +128,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
-    ![sts-config](../../assets/img/tutorials/sts-config.png)
+    ![sts-config](../assets/img/tutorials/sts-config.png)
 2.  Enter the required details as given below.
  	
 	<table>
@@ -164,7 +164,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 	   </tbody>
 	</table>
     
-	![add-new-trusted-service](../../assets/img/tutorials/add-new-trusted-service.png)
+	![add-new-trusted-service](../assets/img/tutorials/add-new-trusted-service.png)
 
 3.  Click **Update** to save the changes made to the service provider.
 
