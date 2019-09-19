@@ -7,7 +7,7 @@ This section covers the following topics:
 To change the default admin password, log in to the management console
 with admin/admin credentials and use the **Change my password** option.
 After changing the credentials, change the same in the
-`         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file:
+`         <IS_HOME>/repository/conf/user-mgt.xml        ` file:
 
 ``` xml
 <UserManager>
@@ -45,7 +45,7 @@ login failures, restart the server using the -
 
 ### Recovering a password
 
-Use `         <PRODUCT_HOME>/bin/chpasswd.sh        ` script.
+Use `         <IS_HOME>/bin/chpasswd.sh        ` script.
 
 ### Setting up an email login
 
@@ -61,7 +61,7 @@ the WSO2 product to differentiate between the '@' symbol in the user's
 emails and usernames as follows:
 
 1.  Open
-    `           <PRODUCT_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/carbon.xml          `
 
 2.  Uncomment the commented out configuration
     `           EnableEmailUserName          ` . This enables email

@@ -54,7 +54,7 @@ default. This setting is disabled using the
 `         org.wso2.ignoreHostnameVerification        ` property in the
 product startup script ( `         wso2server.sh        ` for Linux, or
 `         wso2server.bat        ` for Windows) that is stored in the
-`         <PRODUCT_HOME>/bin/        ` directory.
+`         <IS_HOME>/bin/        ` directory.
 
 ``` java
 -Dorg.wso2.ignoreHostnameVerification=true
@@ -72,7 +72,7 @@ done using the `         httpclien        ` t
 script ( `         wso2server.sh        ` for Linux and
 `         wso2server.bat        ` for Windows) as shown below. The
 product startup script is stored in the
-`         <PRODUCT_HOME>/bin        ` directory. This property will be
+`         <IS_HOME>/bin        ` directory. This property will be
 effective during server startup.
 
 ``` java

@@ -81,7 +81,7 @@ contains a CSRF token.
             issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
             1.  Open the `              catalina-server.xml             `
                 file from the
-                `              <PRODUCT_HOME>/repository/conf/tomcat/             `
+                `              <IS_HOME>/repository/conf/tomcat/             `
                 directory.
             2.  Set the `               compression              ` parameter
                 (under each of the connector configurations) to false as

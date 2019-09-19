@@ -3,7 +3,7 @@
 WSO2 Carbon-based products are shipped with a default
 [keystore](../../administer/using-asymmetric-encryption) named **wso2carbon.jks**,
 which is stored in the
-`         <PRODUCT_HOME>/repository/resources/security        `
+`         <IS_HOME>/repository/resources/security        `
 directory. This keystore comes with a private/public key pair that is
 used for all purposes, such as encrypting sensitive information,
 communicating over SSL and for message encryption/signing purposes in
@@ -89,7 +89,7 @@ certificate as explained
 [previously](#creating-a-keystore-using-an-existing-certificate).
 
 1.  Open a command prompt and go to the
-    `          <PRODUCT_HOME>/repository/resources/security/         `
+    `          <IS_HOME>/repository/resources/security/         `
     directory. All keystores should be stored here.
 2.  Create the keystore that includes the private key by executing the
     following command:
@@ -117,7 +117,7 @@ certificate as explained
         provide those details individually.
     
 3.  Open the
-    `          <PRODUCT_HOME>/repository/resources/security/         `
+    `          <IS_HOME>/repository/resources/security/         `
     directory and check if the new keystore file is created. Make a
     backup of it and move it to a secure location. This is important as
     it is the only place with your private key.
@@ -150,7 +150,7 @@ certificates. These certificates certify the ownership of a public key.
     
     You will be asked to give the keystore password. Once the password
     is given, the command will output the newcertreq.csr file to the
-    `            <PRODUCT_HOME>/repository/resources/security/           `
+    `            <IS_HOME>/repository/resources/security/           `
     directory. This is the CSR that you must submit to a CA.
 
 2.  You must provide this CSR file to the CA. For testing purposes, try
@@ -232,7 +232,7 @@ certificates it trusts, in a trust store. To enable secure and trusted
 backend communication, all WSO2 products are shipped with a trust store
 named client-truststore.jks, which resides in the same directory as the
 default keystore (
-`          <PRODUCT_HOME>/repository/resources/security/         ` ).
+`          <IS_HOME>/repository/resources/security/         ` ).
 
 Follow the steps given below to import the same CA-signed public key
 certificate (which you obtained in the previous step) into your WSO2
@@ -241,7 +241,7 @@ product's default truststore (
 
 1.  Get a copy of the `           client-truststore.jks          ` file
     from the
-    `           <PRODUCT_HOME>/repository/resources/security/          `
+    `           <IS_HOME>/repository/resources/security/          `
     directory.
 2.  Export the public key from your .jks file using the following
     command.
@@ -267,7 +267,7 @@ product's default truststore (
     public key added to the
     `            client-truststore.jks           ` file. Note that both
     these files should be in the
-    `            <PRODUCT_HOME>/repository/resources/security/           `
+    `            <IS_HOME>/repository/resources/security/           `
     directory. You can now replace the default wso2carbon.jks keystore
     in your product with the newly created keystore by updating the
     relevant configuration files in your product.
