@@ -2,7 +2,7 @@
 
 After you have [created a new keystore and updated the
 `          client-truststore.jks         `
-file](Creating_New_Keystores), you must update a few configuration
+file](../../administer/configuring-new-keystores), you must update a few configuration
 files in order to make the keystores work. Note that keystores are used
 for multiple functions in WSO2 products, which includes authenticating
 communication over SSL/TLS, encrypting passwords and other confidential
@@ -18,12 +18,11 @@ functions. However, in a production environment, it is recommended
 to create new keystores with new keys and certificates.
 
 !!! note
-    
     Please note that in WSO2 IoT Server and WSO2 Enterprise Integrator the
     `         <PRODUCT_HOME>/repository/conf        ` directory is in the
     following location: `         <PRODUCT_HOME>/conf        `
     
-    
+!!! tip   
     If you want an easy way to locate all the configuration files that have
     references to keystores, you can use the `         grep        ` command
     as follows:
@@ -44,35 +43,17 @@ to create new keystores with new keys and certificates.
     ./carbon.xml:332:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
     ./identity.xml:180:             <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
     ./security/secret-conf.properties:21:#keystore.identity.location=repository/resources/security/wso2carbon.jks
-```
-
-
-See the following for details:
-
--   [Before you
-    begin](#ConfiguringKeystoresinWSO2Products-Beforeyoubegin)
--   [Configuring the primary
-    keystore](#ConfiguringKeystoresinWSO2Products-ConfiguringtheprimarykeystoreConfiguringtheprimarykeystore)
--   [Configuring a separate keystore for encrypting data in internal
-    data
-    stores](#ConfiguringKeystoresinWSO2Products-second_keystore_internal_dataConfiguringaseparatekeystoreforencryptingdataininternaldatastores)
--   [Configuring a secondary keystore (for SSL
-    connections)](#ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforSSLconnectionsConfiguringasecondarykeystore(forSSLconnections))
--   [Configuring a keystore for Java
-    permissions](#ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforJavapermissionsConfiguringakeystoreforJavapermissions)
--   [Configuring keystores for
-    WS-Security](#ConfiguringKeystoresinWSO2Products-ConfiguringkeystoresforWS-SecurityConfiguringkeystoresforWS-Security)
--   [What's next?](#ConfiguringKeystoresinWSO2Products-What'snext?)
+    ```
 
 ### Before you begin
 
 -   Be sure to go through the [recommendations for setting
     up keystores in WSO2
-    products](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+    products](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products)
     to understand the various keystores you will need.
 -   If you haven't already created the keystores required for your
     system, see the instructions for [creating new
-    keystores](Creating_New_Keystores).
+    keystores](../../administer/creating-new-keystores).
 
 ### Configuring the primary keystore
 
@@ -87,7 +68,7 @@ default.
     information, which are maintained in various configuration files as
     well as internal data stores. Note that you also have the option of
     [separating the keystore for encrypting information in internal data
-    stores](#ConfiguringKeystoresinWSO2Products-second_keystore_internal_data)
+    stores](#configuring-a-separate-keystore-for-encrypting-data-in-internal-data-stores)
     .
 -   **S** **igning messages** when the WSO2 product communicates with
     external parties (such SAML, OIDC id\_token signing).
@@ -115,17 +96,18 @@ The default configuration is shown below.
 
 ### Configuring a separate keystore for encrypting data in internal data stores
 
-This feature is available via the WUM update 2792 released on the 8th of
-July 2018 for the following product versions:
+!!! info 
+    This feature is available via the WUM update 2792 released on the 8th of
+    July 2018 for the following product versions:
 
--   WSO2 Identity Server 5.5.0
--   WSO2 API Manager 2.2.0
--   WSO2 Data Analytics Server 3.2.0
--   WSO2 Enterprise Integrator 6.2.0
+    -   WSO2 Identity Server 5.5.0
+    -   WSO2 API Manager 2.2.0
+    -   WSO2 Data Analytics Server 3.2.0
+    -   WSO2 Enterprise Integrator 6.2.0
 
-This is available as part of the newly introduced Crypto Service. It is
-an extensible framework that facilitates the cryptography needs of WSO2
-products.
+    This is available as part of the newly introduced Crypto Service. It is
+    an extensible framework that facilitates the cryptography needs of WSO2
+    products.
 
 Currently, the primary keystore configured by the
 `         <Security>/<KeyStore>        ` element in the
@@ -146,8 +128,7 @@ This feature allows you to create a separate keystore for encrypting
 data in internal data stores. Follow the instructions given below.
 
 !!! warning
-    
-    **Warning** : Using a totally new keystore for internal data encryption
+    Using a totally new keystore for internal data encryption
     in an existing deployment will make already encrypted data unusable. In
     such cases, an appropriate data migration effort is needed.
     
@@ -174,11 +155,9 @@ data in internal data stores. Follow the instructions given below.
     file.
 
     !!! note
-    
-        **Note** : The values of the properties such as passwords must be
+        The values of the properties such as passwords must be
         changed based on the keystore.
     
-
     ``` xml
     <InternalKeyStore>
       <Location>${carbon.home}/repository/resources/security/internal.jks</Location>
@@ -212,9 +191,7 @@ that the `         axis2.xml        ` file is stored in the
 APIM, and the `         <EI_HOME>/conf/axis2/        ` directory for the
 ESB of WSO2 EI.
 
--   [**Transport Listener**](#3e57aabb002e4500b75804c4fa151cf5)
--   [**Transport Sender**](#0e0e95f4f11a4ddba2bc2acd9d577f81)
-
+-   **Transport Listener**
 ``` java
 <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">
         <parameter name="keystore" locked="false">
@@ -228,6 +205,7 @@ ESB of WSO2 EI.
 </transportReceiver>
 ```
 
+-   **Transport Sender**
 ``` java
 <transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">
         <parameter name="keystore" locked="false">
@@ -243,7 +221,7 @@ ESB of WSO2 EI.
 
 ### Configuring a keystore for Java permissions
 
-The [Java Security Manager](Enabling_Java_Security_Manager) is used
+The [Java Security Manager](../../administer/enabling-java-security-manager) is used
 for defining various security policies that prevent untrusted code from
 manipulating your system. Enabling the Java Security Manager for WSO2
 products will activate the Java permissions that are in the

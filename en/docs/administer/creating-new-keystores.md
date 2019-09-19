@@ -1,7 +1,7 @@
 # Creating New Keystores
 
 WSO2 Carbon-based products are shipped with a default
-[keystore](Using_Asymmetric_Encryption) named **wso2carbon.jks**,
+[keystore](../../administer/using-asymmetric-encryption) named **wso2carbon.jks**,
 which is stored in the
 `         <PRODUCT_HOME>/repository/resources/security        `
 directory. This keystore comes with a private/public key pair that is
@@ -12,28 +12,11 @@ your product, or you can create multiple keystores for each purpose.
 
 Let's get started with creating new keystores.
 
--   [Before you begin](#CreatingNewKeystores-Beforeyoubegin)
--   [Creating a new
-    keystore](#CreatingNewKeystores-Creatinganewkeystore)
-    -   [Creating a keystore using an existing
-        certificate](#CreatingNewKeystores-existing_certificateCreatingakeystoreusinganexistingcertificate)
-    -   [Creating a keystore using a new
-        certificate](#CreatingNewKeystores-Creatingakeystoreusinganewcertificate)
--   [Adding CA-signed certificates to
-    keystores](#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores)
-    -   [Step 1: Generating a CA-signed
-        certificate](#CreatingNewKeystores-Step1:GeneratingaCA-signedcertificate)
-    -   [Step 2: Importing certificates to
-        the keystore](#CreatingNewKeystores-Step2:Importingcertificatestothekeystore)
-    -   [Step 3: Importing certificates to the
-        truststore](#CreatingNewKeystores-Step3:Importingcertificatestothetruststore)
--   [What's next?](#CreatingNewKeystores-What'snext?)
-
 ### Before you begin
 
 Be sure to go through the [recommendations for setting up keystores in
 WSO2
-products](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+products](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products)
 to understand the types of keystores you need.
 
 ### Creating a new keystore
@@ -43,15 +26,12 @@ either generate a keystore using an already existing public key
 certificate (CA-signed), or you can create the public key certificate at
 the time of generating the keystore. See the instructions given below.
 
-!!! note
-    
-    **Important!**
-    
+!!! note "Important"
     If you are creating a new keystore for [data
-    encryption](Securing_Passwords_in_Configuration_Files), be sure to
+    encryption](../../administer/securing-passwords-in-configuration-files), be sure to
     acquire a public key certificate that contains the **Data Encipherment**
     key usage as explained in the [keystore
-    recommendations](../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations)
+    recommendations](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products)
     . Otherwise, the following error can occur when you attempt data
     encryption:
     
@@ -74,8 +54,9 @@ keytool.
     **[PKCS12/PFX](http://en.wikipedia.org/wiki/PKCS_12)** format. Give
     strong passwords whenever required.
 
-    In WSO2 products, it is a must to have the same password for both
-    the keystore and private key.
+    !!! info 
+        In WSO2 products, it is a must to have the same password for both
+        the keystore and private key.
 
     Execute the following command to export the entries of a trust chain
     into a keystore of .pfx format:
@@ -102,10 +83,10 @@ the pubic key certificate we generate for the keystore is
 **self-signed**. Therefore, if you need a public key certificate that
 is CA-signed, you need to generate a CA-signed certificate and import it
 to the keystore as explained in the [next
-section](#CreatingNewKeystores-ca_certificate). Alternatively, you can
+section](#adding-ca-signed-certificates-to-keystores). Alternatively, you can
 choose the option of generating a new keystore using a CA-signed public
 certificate as explained
-[previously](#CreatingNewKeystores-existing_certificate).
+[previously](#creating-a-keystore-using-an-existing-certificate).
 
 1.  Open a command prompt and go to the
     `          <PRODUCT_HOME>/repository/resources/security/         `
@@ -126,7 +107,6 @@ certificate as explained
         same as keystore password)
 
     !!! note
-    
         Note that if you did not specify values for the '-keypass' and the
         '-storepass' in the above command, you will be asked to give a value
         for the '-storepass' (password of the keystore). As a best practice,
@@ -136,7 +116,6 @@ certificate as explained
         if you did not specify values for -dname, you will be asked to
         provide those details individually.
     
-
 3.  Open the
     `          <PRODUCT_HOME>/repository/resources/security/         `
     directory and check if the new keystore file is created. Make a
@@ -166,11 +145,9 @@ certificates. These certificates certify the ownership of a public key.
     ```
 
     !!! note
-    
         As mentioned before, use the same alias that you used during the
         keystore creation process.
     
-
     You will be asked to give the keystore password. Once the password
     is given, the command will output the newcertreq.csr file to the
     `            <PRODUCT_HOME>/repository/resources/security/           `
@@ -181,7 +158,6 @@ certificates. These certificates certify the ownership of a public key.
     Comodo](https://www.instantssl.com/free-ssl-certificate.html).
 
     !!! note
-    
         It is preferable to have a wildcard certificate or multiple domain
         certificates if you wish to have multiple subdomains like
         *[gateway.sampledomain.org](http://gateway.sampledomain.org/)*,
@@ -191,7 +167,6 @@ certificates. These certificates certify the ownership of a public key.
         CSR request by adding subject alternative names. Most of the SSL
         providers give instructions to generate the CSR in such cases.
     
-
 3.  After accepting the request, a signed certificate is provided along
     with a root certificate and several intermediate certificates
     (depending on the CA) as a bundle (.zip file).
@@ -223,7 +198,6 @@ keystore.
     ```
 
     !!! note
-    
         Optionally we can append the
         `            -storepass <keystore password>           ` option to
         avoid having to enter the password when prompted later in the
@@ -239,7 +213,6 @@ keystore.
     ```
 
     !!! note
-    
         In this command, use the same alias (i.e., 'newcert') that you used
         while creating the keystore
     
@@ -286,7 +259,6 @@ product's default truststore (
     ```
 
     !!! note
-    
         Note that 'wso2carbon' is the keystore password of the default
         client-truststore.jks file.
     
@@ -302,10 +274,10 @@ product's default truststore (
 
 For information on the concepts of keystores and about how keystores are
 used in WSO2 products, see [Using Asymmetric
-Encryption](Using_Asymmetric_Encryption).
+Encryption](../../administer/using-asymmetric-encryption).
 
 ### What's next?
 
 Once you have created a new keystore in your product as explained above,
 update the relevant configuration files as explained in [Configuring
-Keystores in WSO2 Products](Configuring_Keystores_in_WSO2_Products).
+Keystores in WSO2 Products](../../administer/configuring-keystores-in-wso2-products).
