@@ -13,23 +13,13 @@ product, the management console port will be changed from the default of
 [here](#DefaultPortsofWSO2Products-offset) for more information on
 changing the offset.
 
--   [Common ports](#DefaultPortsofWSO2Products-Commonports)
--   [Product-specific
-    ports](#DefaultPortsofWSO2Products-Product-specificports)
-
 ### Common ports
 
 The following ports are common to all WSO2 products that provide the
 given feature. Some features are bundled in the WSO2 Carbon platform
 itself and therefore are available in all WSO2 products by default.
 
-[Management console
-ports](#DefaultPortsofWSO2Products-Managementconsoleports) \| [LDAP
-server ports](#DefaultPortsofWSO2Products-LDAPserverports) \| [KDC
-ports](#DefaultPortsofWSO2Products-KDCports) \| [JMX monitoring
-ports](#DefaultPortsofWSO2Products-JMXmonitoringports) \| [Clustering
-ports](#DefaultPortsofWSO2Products-Clusteringports) \| [Random
-ports](#DefaultPortsofWSO2Products-Randomports)
+
 
 #### Management console ports
 
@@ -89,19 +79,6 @@ every time the server is started.
 ### Product-specific ports
 
 Some products open additional ports.
-
-[API Manager](#DefaultPortsofWSO2Products-APIManager) \|
-[BAM](#DefaultPortsofWSO2Products-BAM) \|
-[BPS](#DefaultPortsofWSO2Products-BPS) \| [Data Analytics
-Server](#DefaultPortsofWSO2Products-DataAnalyticsServer) \| [Complex
-Event Processor](#DefaultPortsofWSO2Products-ComplexEventProcessor) \|
-[Elastic Load Balancer](#DefaultPortsofWSO2Products-ElasticLoadBalancer)
-\| [ESB](#DefaultPortsofWSO2Products-ESB) \| [Identity
-Server](#DefaultPortsofWSO2Products-IdentityServer) \| [Message
-Broker](#DefaultPortsofWSO2Products-MessageBroker) \| [Machine
-Learner](#DefaultPortsofWSO2Products-MachineLearner) \| [Storage
-Server](#DefaultPortsofWSO2Products-StorageServer) \| [Enterprise
-Mobility Manager](#DefaultPortsofWSO2Products-EnterpriseMobilityManager)
 
 ##### API Manager
 

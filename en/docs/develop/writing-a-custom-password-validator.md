@@ -1,5 +1,8 @@
 # Writing a Custom Password Validator
 
+!!! warning
+    These instructions will be deprecated.
+
 The Identity Server admin can define custom password policies and
 enforce them at user creation. This page demonstrates the process of
 writing a simple custom password policy and enforcing it.
