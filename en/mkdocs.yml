@@ -399,6 +399,7 @@ nav:
           - 'Analyzing the Local Login Attempts': learn/analyzing-the-local-login-attempts.md
           - 'Analyzing the Federated Login Attempts': learn/analyzing-the-federated-login-attempts.md
           - 'Analyzing Session Statistics': learn/analyzing-session-statistics.md
+          - 'Purging Analytics Data': learn/purging-analytics-data.md
         - 'Monitoring the Authentication Operations with Alerts':
           - 'Monitoring the Authentication Operations with Alerts': learn/monitoring-the-authentication-operations-with-alerts.md
           - 'Alert Types': learn/alert-types.md
