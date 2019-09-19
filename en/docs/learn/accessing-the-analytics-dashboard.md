@@ -23,7 +23,7 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
     
 
 1.  Access the WSO2 IS Analytics Portal using the following URL:
-    http://\<HTTPS\_IS\_ANALYTICS\_HOST\>: 9643 /carbon
+    http://\<HTTPS\_IS\_ANALYTICS\_HOST\>: 9643 /portal
 
     ![]( ../../assets/img/103329341/103329342.png) 
 
@@ -65,14 +65,8 @@ Follow the steps below to access the WSO2 IS Analytics Dashboard.
 ## What's Next?
 
 Explore the following topics:
-
--   [Analyzing Overall Login
-    Attempts](Analyzing_Overall_Login_Attempts)
-
--   [Analyzing the Local Login
-    Attempts](Analyzing_the_Local_Login_Attempts)
-
--   [Analyzing the Federated Login
-    Attempts](Analyzing_the_Federated_Login_Attempts)
-
--   [Analyzing Session Statistics](Analyzing_Session_Statistics)
+	
+   -   [Analyzing Overall Login Attempts](../../learn/analyzing-overall-login-attempts)	
+   -   [Analyzing the Local Login Attempts](../../learn/analyzing-the-local-login-attempts)	
+   -   [Analyzing the Federated Login Attempts](../../learn/analyzing-the-federated-login-attempts)
+   -   [Analyzing Session Statistics](../../learn/analyzing-session-statistics)
