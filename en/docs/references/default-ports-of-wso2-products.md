@@ -13,23 +13,11 @@ product, the management console port will be changed from the default of
 [here](#changing-the-offset-for-default-ports) for more information on
 changing the offset.
 
--   [Common ports](#common-ports)
--   [Product-specific
-    ports](#product-specific-ports)
-
 ### Common ports
 
 The following ports are common to all WSO2 products that provide the
 given feature. Some features are bundled in the WSO2 Carbon platform
 itself and therefore are available in all WSO2 products by default.
-
-[Management console
-ports](#management-console-ports) \| [LDAP
-server ports](#ldap-server-ports) \| [KDC
-ports](#kdc-ports) \| [JMX monitoring
-ports](#jmx-monitoring-ports) \| [Clustering
-ports](#clustering-ports) \| [Random
-ports](#random-ports)
 
 #### Management console ports
 
@@ -89,19 +77,6 @@ every time the server is started.
 ### Product-specific ports
 
 Some products open additional ports.
-
-[API Manager](#api-manager) \|
-[BAM](#bam) \|
-[BPS](#bps) \| [Data Analytics
-Server](#data-analytics-server) \| [Complex
-Event Processor](#complex-event-processor) \|
-[Elastic Load Balancer](#elastic-load-balancer)
-\| [ESB](#esb) \| [Identity
-Server](#identity-server) \| [Message
-Broker](#message-broker) \| [Machine
-Learner](#machine-learner) \| [Storage
-Server](#storage-server) \| [Enterprise
-Mobility Manager](#enterprise-mobility-manager)
 
 ##### API Manager
 

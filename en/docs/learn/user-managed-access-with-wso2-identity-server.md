@@ -46,10 +46,9 @@ resource owner:
 3.  Click **Add New User**.
 4.  Specify the following values to create a new user.
 
-    |                  |                                        |
-    |------------------|----------------------------------------|
+
     | Domain           | `               PRIMARY              ` |
-    | Username         | `               kate              ` .  |
+    | Username         | `               kate              `    |
     | Password         | `               kate123              ` |
     | Confirm password | `               kate123              ` |
 
@@ -67,8 +66,7 @@ requesting party:
 2.  Click **Add New User**.
 3.  Specify the following values to create a new user:
 
-    |                  |                                        |
-    |------------------|----------------------------------------|
+
     | Domain           | `               PRIMARY              ` |
     | Username         | `               sam              `     |
     | Password         | `               sam123              `  |
@@ -156,7 +154,7 @@ Now, you need to register the resource.
     !!! tip
         -   Make sure to replace the `            <PAT>           ` tag with
             the [access token you got in the previous
-            section](#obtain-the-protection-api-access-token-(pat)).
+            section](#obtain-the-protection-api-access-token-pat).
     
 
     ``` java
@@ -297,7 +295,7 @@ in this tutorial contains a single permission.
 
     -   Make sure to replace the `             <PAT>            `
         tag with the [access token you got in the previous
-        section](#obtain-the-protection-api-access-token-(pat))
+        section](#obtain-the-protection-api-access-token-pat)
         .
     -   Replace the `             <RESOURCE_ID>            ` tag with
         the ID you got when [registering the
@@ -374,7 +372,7 @@ claim token.
         section.
     -   Make sure to replace the `              <ID_TOKEN>             `
         tag with the [OIDC id\_token you
-        obtained](#obtain-the-oidc-token)
+        obtained](#obtain-the-oidc-id95token)
         .
 
     ``` java
@@ -401,10 +399,10 @@ token that it has issued, which the resource server can use.
 
     -   Make sure to replace the `               <PAT>              `
         tag with the [access token you got in the previous
-        section](#obtain-the-protection-api-access-token-(pat))
+        section](#obtain-the-protection-api-access-token-pat)
         .
 
-    -   Replace the \<RPT\> tag with the [request party token you
+    -   Replace the `               <RPT>              ` tag with the [request party token you
         obtained](#obtain-the-requesting-party-token)
         .
 

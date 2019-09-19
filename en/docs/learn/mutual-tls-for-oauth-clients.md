@@ -29,32 +29,17 @@ Let's try out configuring mutual TLS in WSO2 Identity Server and test
 with a sample.
 
 !!! tip "Before you begin"  
-    1.  To disable the mutual SSL authenticator:
+    1.  Disable the mutual SSL authenticator:
         !!! warning
-                The mutual SSL authenticator allows the OAuth client to access the
-                WSO2 Identity Server admin services without having the required
-                privileges.
-            
+            The mutual SSL authenticator allows the OAuth client to access the
+            WSO2 Identity Server admin services without having the required
+            privileges.
+        Open the `           deployment.toml         ` file in the `           <IS_HOME>/repository/conf/          ` 
+        directory and add the following configuration.
 
-    2.  Open the `             authenticators.xml            ` file in
-        the
-        `             <IS_HOME>/repository/conf/security            `
-        directory.
-
-    3.  Set the `             disabled            ` attribute of the
-        `             <Authenticator name="MutualSSLAuthenticator">            `
-        property to `             true            ` .
-
-        ``` xml
-        <!-- Authenticator Configurations for MutualSSLAuthenticator-->
-        <Authenticator name="MutualSSLAuthenticator" disabled="true">
-            <Priority>5</Priority>
-            <Config>
-                <Parameter name="UsernameHeader">UserName</Parameter>
-                <Parameter name="WhiteListEnabled">false</Parameter>
-                <Parameter name="WhiteList"/>
-            </Config>
-        </Authenticator>
+        ``` toml
+        [admin_console.authenticator.mutual_ssl_authenticator]
+        enable = false
         ```
 
 
@@ -64,36 +49,16 @@ with a sample.
 
 ### Deploying and Configuring Mutual TLS Client Authenticator Artifacts
 
-1.  Open the `           catalina-server.xml          ` file in the
-    `           <IS_HOME>/repository/conf/tomcat          ` directory.
-
-2.  Locate the connector protocol tag with the
-    `           sslProtocol="TLS"          ` entry and do the following
-    configurations.
-
-    ``` java
-    <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                       port="9443"
-                       bindOnInit="false"
-                       sslProtocol="TLS"
-                       ---
-                       ---
-                       URIEncoding="UTF-8"/>
-    ```
+1.  Open the `           deployment.toml          ` file in the
+    `           <IS_HOME>/repository/conf/          ` directory.
 
     1.  Add
         `             trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager            `
         " entry.
 
-        ``` java
-        <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                            port="9443"
-                            bindOnInit="false"
-                            sslProtocol="TLS"
-                            ---
-                            ---
-                            trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager" 
-                            URIEncoding="UTF-8"/>
+        ``` toml
+        [transport.https]
+        trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
         ```
 
     2.  MutualTLS supports two-way TLS authentication that allows the
@@ -103,19 +68,12 @@ with a sample.
 
         To make the server-side validation optional, set the
         `             clientAuth            ` attribute to
-        `             want            ` .
+        `             want            ` in the same configuration similar to following.
 
-        ``` java
-        <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                            port="9443"
-                            bindOnInit="false"
-                            sslProtocol="TLS"
-                            ---
-                            ---
-                            clientAuth="want"
-                            ---
-                            ---                   
-                            URIEncoding="UTF-8"/>
+        ``` toml
+            [transport.https]
+            trustManagerClassName="org.wso2.carbon.identity.core.util.ClientAuthX509TrustManager"
+            clientAuth="want"
         ```
 
 3.  Download Mutual TLS Client Authenticator v2.0.3 connector from

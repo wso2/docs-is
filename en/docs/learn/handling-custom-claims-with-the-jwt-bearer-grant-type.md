@@ -39,7 +39,7 @@ self contained access token with the JWT bearer grant type.
             [oauth.oidc.claims]
             enable_oidc_dialect= true
             enable_unmapped_user_attributes= true
-    ```
+        ```
 
 
 Let's take a look at how you can use WSO2 Identity Server to handle
@@ -92,7 +92,7 @@ with the configuration steps.
         type, and specifying the scope as openid. For more information,
         see [Configuring WSO2 Identity Server to issue self-contained
         access
-        tokens](Self-contained-Access-Tokens_103329628.html#Self-containedAccessTokens-config)
+        tokens](../../learn/self-contained-access-tokens)
         .
 
         <table>

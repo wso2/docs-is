@@ -152,11 +152,13 @@ artifacts.
         `           wso2carbon.jks.          `
     
         ``` java
-        keytool -export -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -file nwU59qy9AsDqftmwLcfmkvOhvuYa -keystore wso2carbon.jks
+        keytool -import -alias nwU59qy9AsDqftmwLcfmkvOhvuYa -file nwU59qy9AsDqftmwLcfmkvOhvuYa -keystore wso2carbon.jks
         ```
+        
+    !!! note
     
-        as shown above, you can choose to use the JWKS enpoint as shown
-        below and add the relevant JWKS URI.
+        Instead of importing the service provider certificate as shown above, you can choose to use the JWKS enpoint 
+        as shown below and add the relevant JWKS URI.
     
         ![configure-jwks-endpoint](../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
     
