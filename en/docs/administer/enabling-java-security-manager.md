@@ -10,7 +10,7 @@ The Java Security Manager is used to define various security policies
 that prevent untrusted code from manipulating your system. Enabling the
 Java Security Manager for WSO2 products activates the Java permissions
 that are in the
-`         <PRODUCT_HOME>/repository/conf/sec.policy        ` file. You
+`         <IS_HOME>/repository/conf/sec.policy        ` file. You
 modify this file to change the Java security permissions as required.
 
 !!! info "Before you begin"
@@ -48,7 +48,7 @@ products.
 3.  By default, WSO2 products use the default
     `           wso2carbon.          ` jks keystore for signing JARs.
     This keystore is stored in the
-    `           <PRODUCT_HOME>/repository/resources/security          `
+    `           <IS_HOME>/repository/resources/security          `
     directory. Therefore, you need to add the
     `           signFiles          ` public key certificate that you
     created earlier into the `           wso2carbon.jks          `
@@ -158,7 +158,7 @@ products.
     
 
 7.  Open the startup script in the
-    `          <PRODUCT_HOME>/bin         ` folder. For Linux, it is
+    `          <IS_HOME>/bin         ` folder. For Linux, it is
     `          wso2server.sh         ` .
 8.  Add the following system properties to the startup script and save
     the file:
@@ -172,7 +172,7 @@ products.
 
 9.  Create a `           sec.policy          ` file with the required
     security policies in the
-    `           <PRODUCT_HOME>/repository/conf          ` folder and
+    `           <IS_HOME>/repository/conf          ` folder and
     start the server. Starting the server makes the Java permissions
     defined in the `           sec.policy          ` file to take
     effect.

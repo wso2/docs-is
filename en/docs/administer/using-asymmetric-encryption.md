@@ -92,7 +92,7 @@ certificates. These certificates can be either of the following:
 
 All WSO2 products are by default shipped with a keystore file
 and truststore file (stored in the
-`         <PRODUCT_HOME>/repository/resources/security/        `
+`         <IS_HOME>/repository/resources/security/        `
 directory):
 
 -   `          wso2carbon.jks         ` : This is the default keystore,

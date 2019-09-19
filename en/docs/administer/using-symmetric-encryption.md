@@ -15,7 +15,7 @@ decryption of information.
 Follow the steps given below to enable symmetric encryption.
 
 1.  Open the `          carbon.xml         ` file from the
-    `          <PRODUCT_HOME>/repository/conf         ` directory.
+    `          <IS_HOME>/repository/conf         ` directory.
 2.  Add the following properties:
 
     ``` java
@@ -38,7 +38,7 @@ Follow the steps given below to enable symmetric encryption.
 
 3.  Create a file named '
     `           symmetric-key.properties          ` ' in the
-    `           <PRODUCT_HOME>/repository/resources/security          `
+    `           <IS_HOME>/repository/resources/security          `
     folder and enter the symmetric key using the
     `           symmetric.key          ` property. See the following
     example where a plain text key is entered in the

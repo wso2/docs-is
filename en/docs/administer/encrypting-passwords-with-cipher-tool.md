@@ -54,7 +54,7 @@ automated process:
 
     1.  Open the `             cipher-tool.properties            `
         file stored in the
-        `             <PRODUCT_HOME>/repository/conf/security            `
+        `             <IS_HOME>/repository/conf/security            `
         folder. This file should contain information about the
         configuration files in which the passwords (that require
         encryption) are located. The following format is used:
@@ -71,7 +71,7 @@ automated process:
                 the path to the XML file that contains the password. This
                 can be the relative file path, or the absolute file path
                 (starting from
-                `                <PRODUCT_HOME>               ` ).
+                `                <IS_HOME>               ` ).
 
             -   The `               <xpath>              ` specifies the
                 XPath to the XML **element** / **attribute** / **tag** that
@@ -84,10 +84,10 @@ automated process:
 
             -   When using Secure Vault, as you use the password aliases in
                 the
-                `                <PRODUCT_HOME>/repository/conf/carbon.xml               `
+                `                <IS_HOME>/repository/conf/carbon.xml               `
                 file, make sure to define these aliases in the following
                 files, which are in the
-                `                <PRODUCT_HOME>/repository/conf/security               `
+                `                <IS_HOME>/repository/conf/security               `
                 directory as follows:
 
                 -   Define your password in the
@@ -112,7 +112,7 @@ automated process:
             When using Secure Vault with WSO2 API Manager Analytics (WSO2
             API-M Analytics), make sure to define the password aliases in
             the following files, which are in the
-            `             <PRODUCT_HOME>/repository/conf/security            `
+            `             <IS_HOME>/repository/conf/security            `
             directory as follows:
     
             -   Define your password in the
@@ -226,7 +226,7 @@ automated process:
 
     2.  Open the `             cipher-text.properties            `
         file stored in the
-        `             <PRODUCT_HOME>/repository/conf/security            `
+        `             <IS_HOME>/repository/conf/security            `
         folder. This file should contain the secret alias names and the
         corresponding plaintext passwords (enclosed within square
         brackets) as shown below.
@@ -261,7 +261,7 @@ automated process:
     
 
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  Execute the cipher tool script from the command prompt using the
@@ -313,7 +313,7 @@ automated process:
 
     -   Open the `             secret-conf.properties            `
         file from the
-        `             <PRODUCT_HOME>/repository/conf/security/            `
+        `             <IS_HOME>/repository/conf/security/            `
         folder and see that the default configurations are changed.
 
 ### Encrypting passwords manually
@@ -349,7 +349,7 @@ below to encrypt it manually.
 
 1.  Download and install a WSO2 product.
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  You must first enable the Cipher tool for the product by executing
@@ -404,7 +404,7 @@ below to encrypt it manually.
 
 8.  Open the `           cipher-text.properties          ` file, stored
     in the
-    `           <PRODUCT_HOME>/repository/conf/security          `
+    `           <IS_HOME>/repository/conf/security          `
     folder.
 
 9.  Add the encrypted password against the secret alias as shown below.
@@ -416,7 +416,7 @@ below to encrypt it manually.
     ```
 
 10. Now, open the `           log4j.properties          ` file, stored
-    in the `           <PRODUCT_HOME>/repository/conf          `
+    in the `           <IS_HOME>/repository/conf          `
     folder and replace the plain text element with the alias of the
     encrypted value as shown below.
 
@@ -428,7 +428,7 @@ below to encrypt it manually.
     ```
 
 11. If you are encrypting a password in the
-    `           <PRODUCT_HOME>/repository/conf/identity/EndpointConfig.properties          `
+    `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
     file, you need to add the encrypted values of the keys in the
     `           EndpointConfig.properties          ` file itself.
 
@@ -444,7 +444,7 @@ below to encrypt it manually.
     -   `             Carbon.Security.TrustStore.Password            `
 
     Then you need to add a new key named `           protectedTokens          ` in the
-    `           <PRODUCT_HOME>/repository/conf/identity/EndpointConfig.properties          `
+    `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
     file and add the above keys using comma separated values shown
     below:
 
@@ -519,7 +519,7 @@ steps:
 1.  Be sure to shut down the server.
 
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  Execute the following command for your OS:
