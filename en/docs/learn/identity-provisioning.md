@@ -1,7 +1,7 @@
 # Identity Provisioning
 
 Identity provisioning is key for [Identity
-Federation](../../tutorials/identity-federation).  See the following identity
+Federation](../../learn/identity-federation).  See the following identity
 provisioning key concepts that are used in WSO2 Identity Server.
 
 ### Provisioning framework
@@ -114,7 +114,7 @@ provisioning:
 [Just-In-Time (JIT)
 provisioning](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
 provisions users to the Identity Server at the time of [federated
-authentication](../../tutorials/identity-federation). When WSO2 Identity Server is
+authentication](../../learn/identity-federation). When WSO2 Identity Server is
 used for federated authentication, it redirects the user to an external
 Identity Provider for authentication. JIT provisioning is triggered when
 the Identity Server receives a positive authentication response from the

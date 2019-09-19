@@ -25,6 +25,8 @@ connects the system to this RDBMS.
 Follow the instructions given below to set up and configure the
 Authorization Manager.
 
+<a name="setting-up"></a>
+
 ### Step 1: Setting up the repository
 
 By default, the embedded H2 database is used for storing permissions.
@@ -161,11 +163,12 @@ GetAllRolesOfUserEnabled = true
         <Property name="CaseSensitiveAuthorizationRules">true</Property>
     ```
 
-!!! info "Related Topics"
+<a name="related-topics></a>
 
+!!! info "Related Topics"
     -   [Configuring User Stores](../../learn/configuring-user-stores) : This topic
         explains how the repositories for storing information about Users
         and Roles are configured.
-    -   [Setting up the Physical Database](#setting-up-the-repository) : This section
+    -   [Setting up the Physical Database](#setting-up) : This section
         explains how you can set up a new RDBMS and configure it for your
         system.

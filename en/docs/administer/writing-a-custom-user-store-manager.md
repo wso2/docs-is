@@ -14,23 +14,6 @@ integrate an existing JDBC user store with a WSO2 product.
 The following sections provide information that you need to be aware of
 when writing a custom user store manager:
 
--   [AbstractUserStoreManager and
-    implementations](#WritingaCustomUserStoreManager-AbstractUserStoreManagerandimplementations)
-    -   [Important
-        methods](#WritingaCustomUserStoreManager-Importantmethods)
-    -   [Read-write
-        methods](#WritingaCustomUserStoreManager-Read-writemethods)
-    -   [Read methods](#WritingaCustomUserStoreManager-Readmethods)
-    -   [Implementations](#WritingaCustomUserStoreManager-Implementations)
--   [Implementing a custom JDBC user store
-    manager](#WritingaCustomUserStoreManager-ImplementingacustomJDBCuserstoremanager)
-    -   [Setting up the
-        implementation](#WritingaCustomUserStoreManager-Settinguptheimplementation)
-    -   [Writing a custom user store manager for a sample
-        scenario](#WritingaCustomUserStoreManager-Writingacustomuserstoremanagerforasamplescenario)
-    -   [Deploying and configuring the custom user store
-        manager](#WritingaCustomUserStoreManager-Deployingandconfiguringthecustomuserstoremanager)
-
 ### AbstractUserStoreManager and implementations
 
 There are a set of methods available in the
@@ -39,10 +22,7 @@ used when interacting with user stores. When we implement a custom user
 store manager, it is important to identify the methods that must be
 implemented or overridden.
 
-!!! tip
-    
-    **Tip about overriding methods** :
-    
+!!! tip "Tip about overriding methods"   
     You must select the methods to override based on your requirement. For
     example, if you want to change the way you encrypt the password, you
     only need to implement the `          preparePassword         ` method.

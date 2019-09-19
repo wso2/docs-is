@@ -453,5 +453,5 @@ Example: <code>                locale={lang}&amp;scope=openid email profile     
 		identity provider, see [Configuring an Identity
 		Provider.](../../learn/adding-and-configuring-an-identity-provider)
 	-   See [Configuring Shibboleth IdP as a Trusted Identity
-		Provider](../../tutorials/configuring-shibboleth-idp-as-a-trusted-identity-provider)
+		Provider](../../learn/configuring-shibboleth-idp-as-a-trusted-identity-provider)
 		for a sample of using SAML2 Web SSO configuration.

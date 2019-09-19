@@ -57,7 +57,7 @@ in the identity provider that must be mapped to the Identity Server).
         | Property                    | Description                                         | Sample Value                          |
         |-----------------------------|-----------------------------------------------------|---------------------------------------|
         | Identity Provider Claim URI | Claim identifier used in the Identity Provider side | emailID                               |
-        | Local Claim URI             | Claim identifier used in the WSO2 Identity Server   | <http://wso2.org/claims/emailaddress> |
+        | Local Claim URI             | Claim identifier used in the WSO2 Identity Server   | http://wso2.org/claims/emailaddress |
 
     3.  Select the **User ID Claim URI** from the dropdown that includes
         the list of identity provider claims you defined. This is used
@@ -185,8 +185,8 @@ See the following topics for samples of claim mapping for an identity
 provider.
 
 -   [Logging in to your application via Identity Server using Facebook
-    Credentials](../../tutorials/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
+    Credentials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials)
 -   [Logging in to Salesforce with
-    Facebook](../../tutorials/logging-in-to-salesforce-with-facebook)
+    Facebook](../../learn/logging-in-to-salesforce-with-facebook)
 -   [Outbound Provisioning with
     Salesforce](../../learn/outbound-provisioning-with-salesforce)

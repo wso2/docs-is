@@ -7,7 +7,6 @@ WSO2 Carbon platform:
 -   [HTTPS Servlet Transport](../../administer/https-servlet-transport)
 -   [HTTP-NIO Transport](../../administer/http-nio-transport)
 -   [HTTPS-NIO Transport](../../administer/https-nio-transport)
--   [VFS Transport](../../administer/vfs-transport)
 -   [JMS Transport](../../administer/jms-transport)
 -   [MailTo Transport](../../administer/mailto-transport)
 -   [TCP Transport](../../administer/tcp-transport)

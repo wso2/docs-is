@@ -28,7 +28,7 @@ without PKCE.
 2.  Enter the following details and click **Authorize**. For
     information on how to obtain these authorization details, see
     [Configuring OAuth2-OpenID
-    Connect](../../tutorials/configuring-oauth2-openid-connect).
+    Connect](../../learn/configuring-oauth2-openid-connect).
 
     Authorization Grant Type: Authorization Code  
     Client ID: (the client id received at the application

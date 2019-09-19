@@ -35,15 +35,16 @@ Kerberos ticket for an OAuth2 token.
     You can use one of the following two cURL commands to request for
     the OAuth2 token.
 
-    ``` java tab="Request1"
+    ``` java tab="Request 1"
     curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret value>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
-    ``` java tab="Request2"
+    ``` java tab="Request 2"
     curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
-    ``` java tab="Response"
+    **Response**
+    ``` java
     POST /oauth2/token HTTP/1.1
     Host: idp.example.com:9443
     Content-Type: application/x-www-form-urlencoded
@@ -51,8 +52,9 @@ Kerberos ticket for an OAuth2 token.
     grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1…
     ```
 
-4.  The Kerberos client receives the OAuth2 token.  
-    The Kerberos Grant validates the received token with the provided
+4.  The Kerberos client receives the OAuth2 token. 
+
+5.  The Kerberos Grant validates the received token with the provided
     Identity Provider (IDP) credentials and if it is a valid token, it
     issues an OAuth2 token to the client.
 
@@ -68,16 +70,13 @@ Kerberos ticket for an OAuth2 token.
         }
     ```
 
-### Configuring Kerberos Grant with Identity Server
+### Configuring Kerberos Grant with the Identity Server
 
 Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
-1.  Download the ![kerberos grant .jar file](../../assets/ ../../assets/img/kerberos-grant-1.0.0.jar)
-2.  Copy the JAR into the
-    `           <IS_HOME>/repository/components/lib          `
-    directory.
-
-3.  Add the following entry to the `deployment.toml` file in the `           <IS_HOME>/repository/conf/          ` folder.
+1.  Download the [kerberos grant.jar](../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file.
+2.  Copy the JAR into the `<IS_HOME>/repository/components/lib` directory.
+3.  Add the following entry to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.kerberos_grant]
@@ -163,7 +162,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
         follows.  
         -   **Server Principal Name** :
             <HTTP/idp.example.com@EXAMPLE.COM>
-        -   **Server Principal Password:** \<password\>
+        -   **Server Principal Password:** <password\>
 
         ![configure-kerberos](../../assets/img/using-wso2-identity-server/configure-kerberos.png)
         

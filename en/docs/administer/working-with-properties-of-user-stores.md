@@ -206,9 +206,10 @@ to configure primary user stores.
 <td><p><code>              StoreSaltedPassword             </code></p></td>
 <td><div class="content-wrapper">
 <p>(JDBC) Indicates whether to salt the password.</p>
-!!! tip
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
     <p><strong>Tip:</strong> Make sure you secure the password with salt and key.</p>
-</div></td>
+</div></div></td>
 </tr>
 <tr class="even">
 <td><p><code>              UserNameUniqueAcrossTenants             </code></p></td>

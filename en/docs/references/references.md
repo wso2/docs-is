@@ -3,11 +3,11 @@
 The following topics provide reference information for working with WSO2
 Identity Server:
 
--   [Default Ports of WSO2 Products](Default_Ports_of_WSO2_Products)
+-   [Default Ports of WSO2 Products](../../references/default-ports-of-wso2-products)
 -   [Permissions Required to Invoke Admin
     Services](../../references/permissions-required-to-invoke-admin-services)
--   [API Permissions](API_Permissions)
+-   [API Permissions](../../references/api-permissions)
 -   [Evolution of Identity Federation
-    Standards](Evolution_of_Identity_Federation_Standards)
+    Standards](../../references/evolution-of-Identity-Federation-Standards)
 -   [Adaptive Authentication JS API
-    Reference](Adaptive_Authentication_JS_API_Reference)
+    Reference](../../references/adaptive-authentication-js-api-reference)

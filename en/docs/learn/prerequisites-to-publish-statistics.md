@@ -4,15 +4,15 @@ Following are the prerequisites that should be fulfilled, in order for
 the Analytics Dashboard to publish the data processed by WSO2 IS.
 
 -   [Step 01: Download WSO2 IS
-    Analytics](#PrerequisitestoPublishStatistics-Step01:DownloadWSO2ISAnalytics)
+    Analytics](#step-01-download-wso2-is-analytics)   
 -   [Step 02: Enable Analytics in WSO2
-    IS](#PrerequisitestoPublishStatistics-Step02:EnableAnalyticsinWSO2IS)
+    IS](#step-02-enable-analytics-in-wso2-is)
 -   [Step 03: Configure Event
-    Publishers](#PrerequisitestoPublishStatistics-Step03:ConfigureEventPublishers)
+    Publishers](#step-03-configure-event-publishers)
 -   [Step 04: Change the Admin
-    Password](#PrerequisitestoPublishStatistics-Step04:ChangetheAdminPassword)
+    Password](#step-04-change-the-admin-password)
 -   [Step 05: Run the
-    Servers](#PrerequisitestoPublishStatistics-Step05:RuntheServers)
+    Servers](#step-05-run-the-servers)
 
 ------------------------------------------------------------------------
 
@@ -51,9 +51,9 @@ distribution.
 
 Follow the steps below to enable event publishing in WSO2 IS.
 
-1.  Open the `          identity.xml         ` file in the
-    `          <IS_HOME>/repository/conf/identity         ` directory.
-2.  Enable the following listener.
+1.  Open the `          deployment.toml         ` file in the
+    `          <IS_HOME>/repository/conf/         ` directory.
+2.  Add the following configuration.
 
     <table>
     <tbody>
@@ -74,9 +74,13 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;<span class="bu">EventListener</span> type=<span class="st">&quot;org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler&quot;</span></a>
-    <a class="sourceLine" id="cb1-2" title="2">               name=<span class="st">&quot;org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy&quot;</span></a>
-    <a class="sourceLine" id="cb1-3" title="3">               orderId=<span class="st">&quot;11&quot;</span> enable=<span class="st">&quot;true&quot;</span>/&gt;</a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java">
+    <a class="sourceLine" id="cb1-1" title="1">[[event_listener]]</a>
+    <a class="sourceLine" id="cb1-2" title="2">id = "authn_data_publisher_proxy"</a>
+    <a class="sourceLine" id="cb1-3" title="3">type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"</a>
+    <a class="sourceLine" id="cb1-4" title="4">name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" </a>
+    <a class="sourceLine" id="cb1-5" title="5">order = 11 </a>
+    </code></pre></div>
     </div>
     </div>
     </div></td>
@@ -98,7 +102,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tr>
     <tr class="even">
     <td>Purpose</td>
-    <td><p>Enable this handler only when you want to analyze login statistics in WSO2 IS. For more information, see <a href="https://docs.wso2.com/display/IS580/Analyzing+Statistics+for+Local+Login+Attempts">Analyzing Statistics for Local Login Attempts</a> .</p></td>
+    <td><p>Enable this handler only when you want to analyze login statistics in WSO2 IS. For more information, see <a href="../../learn/analyzing-the-local-login-attempts">Analyzing Statistics for Local Login Attempts</a> .</p></td>
     </tr>
     <tr class="odd">
     <td>Configuration</td>
@@ -121,7 +125,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tr>
     <tr class="even">
     <td>Purpose</td>
-    <td><p>Enable this handler only when you want to analyze session statistics in WSO2 IS Analytics. For more information, see <a href="https://docs.wso2.com/display/IS580/Analyzing+Statistics+for+Sessions">Analyzing Statistics for Sessions</a> .</p></td>
+    <td><p>Enable this handler only when you want to analyze session statistics in WSO2 IS Analytics. For more information, see <a href="../../learn/analyzing-session-statistics">Analyzing Statistics for Sessions</a> .</p></td>
     </tr>
     <tr class="odd">
     <td>Configuration</td>
@@ -158,7 +162,7 @@ Follow the steps below to configure the event publishers:
 1.  Configure the login analytics and session analytics using the
     following files.
 
-    1.  **Logi analytics** :
+    1.  **Login analytics** :
         `            <IS_HOME>/repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-AuthenticationData.xml           `
     2.  **Session analytics** :
         `             <IS_HOME>/repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-SessionData.xml            `
@@ -208,7 +212,7 @@ Follow the steps below to configure the event publishers:
         <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">{tcp:<span class="co">//&lt;HOSTNAME&gt;:&lt;PORT&gt;,tcp://&lt;hostname&gt;:&lt;PORT&gt;,...}</span></a></code></pre></div>
         </div>
         </div></li>
-        <li>As per the above configuration, events are published to all the defined receivers. For other ways of configuring the receiver URLs, see <a href="https://docs.wso2.com/display/SP430/Collecting+Events">Collectinve Events</a> .</li>
+        <li>As per the above configuration, events are published to all the defined receivers. For other ways of configuring the receiver URLs, see <a href="https://docs.wso2.com/display/SP430/Collecting+Events">Collecting Events</a> .</li>
         </ul>
         </div></td>
         <td><code>                 receiverURL                </code></td>
@@ -261,7 +265,7 @@ Follow the steps below to configure the event publishers:
         <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">&lt;property name=<span class="st">&quot;username&quot;</span>&gt;admin<span class="at">@wso2</span>.<span class="fu">com</span><span class="at">@carbon</span>.<span class="fu">super</span>&lt;/property&gt;</a></code></pre></div>
         </div>
         </div>
-        <p>For more information, see <a href="_Using_Email_Address_as_the_Username_">Using Email Address as the User Name</a> .</p></li>
+        <p>For more information, see <a href="../../learn/using-email-address-as-the-username">Using Email Address as the User Name</a> .</p></li>
         </ul>
         <p><br />
         </p>
@@ -366,7 +370,7 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
         -   If you are using geolocation-based statistics, do the necessary
             configurations prior to the restart. For more information, see
             [Enabling Geolocation Based
-            Statistics](Enabling_Geolocation_Based_Statistics).
+            Statistics](../../learn/enabling-geolocation-based-statistics).
     
         <!-- -->
     

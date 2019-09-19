@@ -1,7 +1,7 @@
 # Configuring WS-Trust Security Token Service
 
 WSO2 Identity Server uses the security token service (STS) as the
-[WS-Trust](../../tutorials/ws-trust) implementation. The STS is capable of issuing
+[WS-Trust](../../learn/ws-trust) implementation. The STS is capable of issuing
 SAML 1.1 and 2.0 security tokens and has a SOAP/XML API for token
 issuance. This API can be secured with the
 `         UserNameToken        ` or with any other WS-Security mechanism
@@ -112,7 +112,7 @@ The next step is to add a service provider to consume the STS.
 Do the following steps if you are using a Holder of Key **subject
 confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
-Confirmation](../../tutorials/configuring-sts-for-obtaining-tokens-with-holder-Of-key-subject-confirmation).
+Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-key-subject-confirmation).
 
 !!! info
 	The **Subject confirmation methods** define how a relying party (RP),
