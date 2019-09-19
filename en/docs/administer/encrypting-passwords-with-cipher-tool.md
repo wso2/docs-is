@@ -14,12 +14,6 @@ use this tool to easily encrypt passwords or other elements in
 configuration files.
 
 !!! note
-    
-    -   If you are a developer who is building a Carbon product, see the
-        topic on enabling [Cipher Tool for password
-        encryption](https://docs.wso2.com/display/Carbon4410/Enabling+Cipher+Tool+for+Password+Encryption)
-        for instructions on how to include the Cipher Tool as a feature in
-        your product build.
     -   The default keystore that is shipped with your WSO2 product (i.e.
         `          wso2carbon.jks         ` ) is used for password
         encryption by default. See this [link](../../administer/creating-new-keystores) for
@@ -29,26 +23,16 @@ configuration files.
 
 Follow the topics given below for instructions.
 
--   [Before you
-    begin](#EncryptingPasswordswithCipherTool-Beforeyoubegin)
--   [Encrypting passwords using the automated
-    process](#EncryptingPasswordswithCipherTool-automatedEncryptingpasswordsusingtheautomatedprocess)
--   [Encrypting passwords
-    manually](#EncryptingPasswordswithCipherTool-manual-processEncryptingpasswordsmanually)
--   [Changing encrypted
-    passwords](#EncryptingPasswordswithCipherTool-changing-encrypted-passwordsChangingencryptedpasswords)
-
 ### Before you begin
 
-If you are using Windows, you need to have **Ant** (
-<http://ant.apache.org/> ) installed before using the Cipher Tool.
+If you are using Windows, you need to have **Ant** (<http://ant.apache.org/>) installed before using the Cipher Tool.
 
 ### Encrypting passwords using the automated process
 
 This automated process can only be used for passwords that can be given
 as an XPath. If you cannot give an XPath for the password that you want
 to encrypt, you must use the [manual encryption
-process](#EncryptingPasswordswithCipherTool-manual-process) explained in
+process](#encrypting-passwords-manually) explained in
 the next section.
 
 Follow the steps given below to have passwords encrypted using the
@@ -59,17 +43,18 @@ automated process:
     `           cipher-text.properties          ` file with information
     of the passwords that you want to encrypt.
 
-    By default, the `            cipher-tool.properties           ` and
-    `            cipher-text.properties           ` files that are
-    shipped with your product will contain information on the most
-    common passwords that require encryption. If a required password is
-    missing in the default files, you can **add them manually**.
+    !!! info 
+        By default, the `            cipher-tool.properties           ` and
+        `            cipher-text.properties           ` files that are
+        shipped with your product will contain information on the most
+        common passwords that require encryption. If a required password is
+        missing in the default files, you can **add them manually**.
 
     Follow the steps given below.
 
     1.  Open the `             cipher-tool.properties            `
         file stored in the
-        `             <PRODUCT_HOME>/repository/conf/security            `
+        `             <IS_HOME>/repository/conf/security            `
         folder. This file should contain information about the
         configuration files in which the passwords (that require
         encryption) are located. The following format is used:
@@ -78,84 +63,78 @@ automated process:
         <alias>=<file_name>//<xpath>,<true/false>
         ```
 
-        **Important!**
+        !!! info "Important"
+            -   The `               <alias>              ` should be the
+                same value that is hard-coded in the relevant Carbon
+                component.
+            -   The `                <file_path>               ` specifies
+                the path to the XML file that contains the password. This
+                can be the relative file path, or the absolute file path
+                (starting from
+                `                <IS_HOME>               ` ).
 
-        -   The `               <alias>              ` should be the
-            same value that is hard-coded in the relevant Carbon
-            component.
-        -   The `                <file_path>               ` specifies
-            the path to the XML file that contains the password. This
-            can be the relative file path, or the absolute file path
-            (starting from
-            `                <PRODUCT_HOME>               ` ).
+            -   The `               <xpath>              ` specifies the
+                XPath to the XML **element** / **attribute** / **tag** that
+                should be encrypted. See the examples given below.
+            -   The flag that follows the XPath should be set to 'false' if
+                you are encrypting the value of an **XML element,** or the
+                value of an **XML attribute's tag.** The flag should be
+                'true' if you are encrypting the **tag** of an **XML**
+                **attribute**. See the examples given below.
 
-        -   The `               <xpath>              ` specifies the
-            XPath to the XML **element** / **attribute** / **tag** that
-            should be encrypted. See the examples given below.
-        -   The flag that follows the XPath should be set to 'false' if
-            you are encrypting the value of an **XML element,** or the
-            value of an **XML attribute's tag.** The flag should be
-            'true' if you are encrypting the **tag** of an **XML**
-            **attribute**. See the examples given below.
-
-        -   When using Secure Vault, as you use the password aliases in
-            the
-            `                <PRODUCT_HOME>/repository/conf/carbon.xml               `
-            file, make sure to define these aliases in the following
-            files, which are in the
-            `                <PRODUCT_HOME>/repository/conf/security               `
-            directory as follows:
-
-            -   Define your password in the
-                `                  cipher-text.properties                 `
-                file.
-
-                ``` java
-                                Carbon.Security.InternalKeyStore.Password=[your_password]
-                                Carbon.Security.InternalKeyStore.KeyPassword=[your_password]
-                ```
-
-            -   Define the XPath of your password in the
-                `                  cipher-tool.properties                 `
-                file.
-
-                ``` java
-                                Carbon.Security.InternalKeyStore.Password=repository/conf/carbon.xml//Server/Security/InternalKeyStore/Password,false
-                                Carbon.Security.InternalKeyStore.KeyPassword=repository/conf/carbon.xml//Server/Security/InternalKeyStore/KeyPassword,false
-                ```
-
-        !!! note
-        
-                Only applicable when using WSO2 API Manager Analytics
-        
-                When using Secure Vault with WSO2 API Manager Analytics (WSO2
-                API-M Analytics), make sure to define the password aliases in
-                the following files, which are in the
-                `             <PRODUCT_HOME>/repository/conf/security            `
+            -   When using Secure Vault, as you use the password aliases in
+                the
+                `                <IS_HOME>/repository/conf/carbon.xml               `
+                file, make sure to define these aliases in the following
+                files, which are in the
+                `                <IS_HOME>/repository/conf/security               `
                 directory as follows:
-        
+
                 -   Define your password in the
-                    `               cipher-text.properties              ` file.
-        
+                    `                  cipher-text.properties                 `
+                    file.
+
                     ``` java
-                                DataBridge.Config.keyStorePassword=[your_password]
-                                Analytics.DASPassword=[your_password]
-                                Analytics.DASRestApiPassword=[your_password]
+                                    Carbon.Security.InternalKeyStore.Password=[your_password]
+                                    Carbon.Security.InternalKeyStore.KeyPassword=[your_password]
                     ```
-        
+
                 -   Define the XPath of your password in the
-                    `               cipher-tool.properties              ` file.
-        
+                    `                  cipher-tool.properties                 `
+                    file.
+
                     ``` java
-                                DataBridge.Config.keyStorePassword=repository/conf/data-bridge/data-bridge-config.xml//dataBridgeConfiguration/keyStorePassword,false
-                                Analytics.DASPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASPassword,true
-                                Analytics.DASRestApiPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASRestApiPassword,true
+                        Carbon.Security.InternalKeyStore.Password=repository/conf/carbon.xml//Server/Security/InternalKeyStore/Password,false
+                        Carbon.Security.InternalKeyStore.KeyPassword=repository/conf/carbon.xml//Server/Security/InternalKeyStore/KeyPassword,false
                     ```
+
+        !!! note "Only applicable when using WSO2 API Manager Analytics"
+            When using Secure Vault with WSO2 API Manager Analytics (WSO2
+            API-M Analytics), make sure to define the password aliases in
+            the following files, which are in the
+            `             <IS_HOME>/repository/conf/security            `
+            directory as follows:
+    
+            -   Define your password in the
+                `               cipher-text.properties              ` file.
+    
+                ``` java
+                    DataBridge.Config.keyStorePassword=[your_password]
+                    Analytics.DASPassword=[your_password]
+                    Analytics.DASRestApiPassword=[your_password]
+                ```
+    
+            -   Define the XPath of your password in the
+                `               cipher-tool.properties              ` file.
+    
+                ``` java
+                    DataBridge.Config.keyStorePassword=repository/conf/data-bridge/data-bridge-config.xml//dataBridgeConfiguration/keyStorePassword,false
+                    Analytics.DASPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASPassword,true
+                    Analytics.DASRestApiPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASRestApiPassword,true
+                ```
         
 
-        **  
-        Example 1:** Consider the admin user's password in the
-        `             user-mgt.xml            ` file shown below.
+        **Example 1:** Consider the admin user's password in the `             user-mgt.xml            ` file shown below.
 
         ``` java
         <UserManager>
@@ -182,7 +161,7 @@ automated process:
         that follows the XPath is set to 'false'.
 
         ``` java
-                UserManager.AdminUser.Password=repository/conf/user-mgt.xml//UserManager/Realm/Configuration/AdminUser/Password,false
+            UserManager.AdminUser.Password=repository/conf/user-mgt.xml//UserManager/Realm/Configuration/AdminUser/Password,false
         ```
 
         **Example 2:** Consider the password that is used to [connect to
@@ -191,7 +170,7 @@ automated process:
         shown below.
 
         ``` java
-                <Property name="ConnectionPassword">admin</Property>
+            <Property name="ConnectionPassword">admin</Property>
         ```
 
         To encrypt this password, the
@@ -205,12 +184,9 @@ automated process:
         'Property\[@name='ConnectionPassword'\]', and the flag that
         follows the XPath is set to 'false'.
 
-        -   Using the
-            `               UserStoreManager.Property.ConnectionPassword              `
-            alias:
-
+        -   Using the `               UserStoreManager.Property.ConnectionPassword              ` alias:
             ``` java
-                        UserStoreManager.Property.ConnectionPassword=repository/conf/user-mgt.xml//UserManager/Realm/UserStoreManager/Property[@name='ConnectionPassword'],false
+                UserStoreManager.Property.ConnectionPassword=repository/conf/user-mgt.xml//UserManager/Realm/UserStoreManager/Property[@name='ConnectionPassword'],false
             ```
 
         -   Using the
@@ -218,18 +194,15 @@ automated process:
             alias:
 
             ``` java
-                        UserManager.Configuration.Property.ConnectionPassword=repository/conf/user-mgt.xml//UserManager/Realm/UserStoreManager/Property[@name='ConnectionPassword'],false
+                UserManager.Configuration.Property.ConnectionPassword=repository/conf/user-mgt.xml//UserManager/Realm/UserStoreManager/Property[@name='ConnectionPassword'],false
             ```
 
         !!! note
-        
-                If you are trying the above example, be sure that only the
-                relevant user store manager is enabled in the
-                `             user-mgt.            ` xml file.
-        
+            If you are trying the above example, be sure that only the relevant user store manager is enabled in the
+            `             user-mgt.            ` xml file.
+    
 
-        **Example 3:** Consider the keystore password specified in the
-        `             catalina-server.xml            ` file shown below.
+        **Example 3:** Consider the keystore password specified in the `             catalina-server.xml            ` file shown below.
 
         ``` java
         <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"  
@@ -253,13 +226,13 @@ automated process:
 
     2.  Open the `             cipher-text.properties            `
         file stored in the
-        `             <PRODUCT_HOME>/repository/conf/security            `
+        `             <IS_HOME>/repository/conf/security            `
         folder. This file should contain the secret alias names and the
         corresponding plaintext passwords (enclosed within square
         brackets) as shown below.
 
         ``` java
-                <alias>=[plain_text_password]
+            <alias>=[plain_text_password]
         ```
 
         Shown below are the records in the
@@ -267,17 +240,16 @@ automated process:
         three examples discussed above.
 
         ``` java
-                //Example 1: Encrypting the admin user's password in the user-mgt.xml file.
-                UserManager.AdminUser.Password=[admin]
-                //Example 2: Encrypting the LDAP connection password in the user-mgt.xml file. Use one of the following:
-                UserStoreManager.Property.ConnectionPassword=[admin]
-                # UserManager.Configuration.Property.ConnectionPassword=[admin]
-                //Example 3: Encrypting the keystore password in the catalina-server.xml file.
-                Server.Service.Connector.keystorePass=[wso2carbon]
+            //Example 1: Encrypting the admin user's password in the user-mgt.xml file.
+            UserManager.AdminUser.Password=[admin]
+            //Example 2: Encrypting the LDAP connection password in the user-mgt.xml file. Use one of the following:
+            UserStoreManager.Property.ConnectionPassword=[admin]
+            # UserManager.Configuration.Property.ConnectionPassword=[admin]
+            //Example 3: Encrypting the keystore password in the catalina-server.xml file.
+            Server.Service.Connector.keystorePass=[wso2carbon]
         ```
 
     !!! note
-    
         If your password contains a backslash character (\\) you need to use
         an alias with the escape characters. For example, if your password
         is `           admin\}          ` the value should be given as shown
@@ -289,7 +261,7 @@ automated process:
     
 
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  Execute the cipher tool script from the command prompt using the
@@ -309,7 +281,6 @@ automated process:
     successfully".
 
     !!! note
-    
         If you are using the cipher tool for the first time, the
         `          ` - `           Dconfigure          ` command will first
         initialize the tool for your product. The tool will then start
@@ -342,7 +313,7 @@ automated process:
 
     -   Open the `             secret-conf.properties            `
         file from the
-        `             <PRODUCT_HOME>/repository/conf/security/            `
+        `             <IS_HOME>/repository/conf/security/            `
         folder and see that the default configurations are changed.
 
 ### Encrypting passwords manually
@@ -351,7 +322,7 @@ This manual process can be used for encrypting any password in a
 configuration file. However, if you want to encrypt any elements that
 cannot use an xpath to specify the location in a configuration file, you
 must use manual encryption. It is not possible to use the [automated
-encryption process](#EncryptingPasswordswithCipherTool-automated)
+encryption process](#encrypting-passwords-using-the-automated-process)
 if an xpath is not specified for the element.
 
 For example, consider the `         log4j.properties        ` file given
@@ -370,15 +341,15 @@ log4j.appender.LOGEVENT.password=admin
 log4j.appender.LOGEVENT.processingLimit=1000
 log4j.appender.LOGEVENT.maxTolerableConsecutiveFailure=20
 ```
+<a name= "manualprocess"></a>
 
-Since we cannot use the [automated
-process](#EncryptingPasswordswithCipherTool-automated) to encrypt the
+Since we cannot use the [automated process](#encrypting-passwords-using-the-automated-process) to encrypt the
 `         admin        ` password shown above, follow the steps given
 below to encrypt it manually.
 
 1.  Download and install a WSO2 product.
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  You must first enable the Cipher tool for the product by executing
@@ -391,15 +362,13 @@ below to encrypt it manually.
         `             ./ciphertool.bat -Dconfigure            `
 
     !!! note
-    
         If you are using the cipher tool for the first time, this command
         will first initialize the tool for your product. The tool will then
         encrypt any plain text passwords that are specified in the
         `           cipher-text.properties          ` file. See the
         [automated encryption
-        process](#EncryptingPasswordswithCipherTool-automated) for more
+        process](#encrypting-passwords-using-the-automated-process) for more
         information.
-    
 
 4.  Now, you can start encrypting the admin password manually. Execute
     the Cipher tool using the relevant command for your OS:
@@ -417,12 +386,13 @@ below to encrypt it manually.
     Enter Plain Text Value :admin
     ```
 
-    Note that in certain configuration files, the password that requires
-    encryption may not be specified as a single value as it is in the
-    log4j.properties file. For example, the jndi.properties file used in
-    WSO2 ESB contains the password in the connection URL. In such cases,
-    you need to encrypt the entire connection URL as explained
-    [here](#EncryptingPasswordswithCipherTool-encrypting-jndi).
+    !!! info 
+        Note that in certain configuration files, the password that requires
+        encryption may not be specified as a single value as it is in the
+        log4j.properties file. For example, the jndi.properties file used in
+        WSO2 ESB contains the password in the connection URL. In such cases,
+        you need to encrypt the entire connection URL as explained
+        [here](#entire-url).
 
 7.  You will receive the encrypted value. For example:
 
@@ -434,7 +404,7 @@ below to encrypt it manually.
 
 8.  Open the `           cipher-text.properties          ` file, stored
     in the
-    `           <PRODUCT_HOME>/repository/conf/security          `
+    `           <IS_HOME>/repository/conf/security          `
     folder.
 
 9.  Add the encrypted password against the secret alias as shown below.
@@ -446,7 +416,7 @@ below to encrypt it manually.
     ```
 
 10. Now, open the `           log4j.properties          ` file, stored
-    in the `           <PRODUCT_HOME>/repository/conf          `
+    in the `           <IS_HOME>/repository/conf          `
     folder and replace the plain text element with the alias of the
     encrypted value as shown below.
 
@@ -458,12 +428,11 @@ below to encrypt it manually.
     ```
 
 11. If you are encrypting a password in the
-    `           <PRODUCT_HOME>/repository/conf/identity/EndpointConfig.properties          `
+    `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
     file, you need to add the encrypted values of the keys in the
     `           EndpointConfig.properties          ` file itself.
 
     !!! note
-    
         This step is **only applicable** if you are encrypting a password in
         the `           EndpointConfig.properties          ` file.
     
@@ -474,9 +443,8 @@ below to encrypt it manually.
 
     -   `             Carbon.Security.TrustStore.Password            `
 
-    Then you need to add a new key named
-    `           protectedTokens          ` in the
-    `           <PRODUCT_HOME>/repository/conf/identity/EndpointConfig.properties          `
+    Then you need to add a new key named `           protectedTokens          ` in the
+    `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
     file and add the above keys using comma separated values shown
     below:
 
@@ -484,20 +452,15 @@ below to encrypt it manually.
     protectedTokens=Carbon.Security.KeyStore.Password,Carbon.Security.TrustStore.Password
     ```
 
-    As we have already disabled this feature by setting
-    "tenantListEnabled=false" in the EndpointConfig.properties, the
+    As we have already disabled this feature by setting "tenantListEnabled=false" in the EndpointConfig.properties, the
     mutual SSL is not required. Therefore, add below property as well to
     the properties.
 
-``` java
-mutualSSLManagerEnabled=false
-```
+    ``` java
+    mutualSSLManagerEnabled=false
+    ```
 
-  
-
-  
-
-  
+<a name=#entire-url></a>
 Another example of a configuration file that uses passwords
 without an XPath notation is the jndi.properties file. This file is used
 in WSO2 Enterprise Service Bus (WSO2 ESB) for the purpose of connecting
@@ -508,7 +471,7 @@ connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) '). To encrypt this
 password, you can follow the same manual process [explained
-above](#EncryptingPasswordswithCipherTool-encrypting-log4j). However,
+above](#manualprocess). However,
 you must encrypt the entire connection URL (
 [amqp://admin:admin@clientID/carbon?brokerlist=](amqp://admin:admin@clientID/carbon?brokerlist=)
 ' [tcp://localhost:5673](tcp://localhost:5673) ') and not just the
@@ -528,11 +491,7 @@ queue.MyQueue = example.MyQueue
 topic.MyTopic = example.MyTopic
 ```
 
-!!! note
-    
-    ***NOTE! Please note that the following instructions are currently under
-    review!***
-    
+!!! note "Please note that the following instructions are currently under review!"
     If you have special characters in the passwords on your
     `         jndi.properties        ` file, note the following:
     
@@ -552,7 +511,6 @@ topic.MyTopic = example.MyTopic
         For a list of possible URL parsing patterns, see [URL encoding
         reference](http://www.w3schools.com/tags/ref_urlencode.asp).
     
-
 ### Changing encrypted passwords
 
 To change any password which we have encrypted already, follow the below
@@ -561,7 +519,7 @@ steps:
 1.  Be sure to shut down the server.
 
 2.  Open a command prompt and go to the
-    `           <PRODUCT_HOME>/bin          ` directory, where the
+    `           <IS_HOME>/bin          ` directory, where the
     cipher tool scripts (for Windows and Linux) are stored.
 
 3.  Execute the following command for your OS:
@@ -571,12 +529,11 @@ steps:
     -   On Windows: `             ./ciphertool.bat -Dchange            `
 
     !!! note
-    
         If you are using the cipher tool for the first time, this command
         will first initialize the tool for your product. The tool will then
         encrypt any plain text passwords that are specified in the
         `           cipher-text.properties          ` file for [automatic
-        encryption](#EncryptingPasswordswithCipherTool-automated).
+        encryption](#encrypting-passwords-using-the-automated-process).
     
 
 4.  It will prompt for the primary keystore password. Enter
@@ -593,9 +550,10 @@ steps:
 7.  The system will then prompt you (twice) to enter the new password.
     Enter your new password.
 
-If you have encrypted passwords as explained above, note that these
-passwords have to be decrypted again for the server to be usable. That
-is, the passwords have to be resolved by a system administrator during
-server startup. The [Resolving
-Passwords](../../administer/resolving-encrypted-passwords) topic explains how encrypted
-passwords are resolved.
+!!! info 
+    If you have encrypted passwords as explained above, note that these
+    passwords have to be decrypted again for the server to be usable. That
+    is, the passwords have to be resolved by a system administrator during
+    server startup. The [Resolving
+    Passwords](../../administer/resolving-encrypted-passwords) topic explains how encrypted
+    passwords are resolved.

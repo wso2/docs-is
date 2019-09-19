@@ -8,25 +8,13 @@ product's SSL certificate. If hostname verification is enabled, you will
 be able to configure how hostnames are filtered during the verification
 process.
 
-See the following topics for details:
-
--   [Prerequisites](#EnablingHostNameVerification-Prerequisites)
--   [Configuring hostname verification (Carbon 4.4.6 to Carbon
-    4.4.16)](#EnablingHostNameVerification-Configuringhostnameverification(Carbon4.4.6toCarbon4.4.16))
--   [Configuring hostname verification (Carbon 4.4.17
-    onwards)](#EnablingHostNameVerification-hostname_verification_newConfiguringhostnameverification(Carbon4.4.17onwards))
-
-!!! note
-    
-    **Important!**
-    
+!!! note "Important"  
     Be sure to enable hostname verification for your production environment.
     This is necessary to avoid security issues in production. See the full
     list of [security recommendations for
     production](../../administer/security-guidelines-for-production-deployment)
     environments.
     
-
 ### Prerequisites
 
 Note that this configuration is **only** available as a [WUM
@@ -44,24 +32,21 @@ for the following product versions:
 -   **WSO2 Enterprise Service Bus** version 5.0.0 can use this feature
     with WUM updates obtained after the 2nd of October, 2017.
 
-See [Getting Started with
-WUM](https://docs.wso2.com/display/updates/Getting+Continuous+Updates)
+See [Getting Started with WUM](https://docs.wso2.com/display/updates/Getting+Continuous+Updates)
 for more instructions on how to get updates. If you have already got the
 WUM updates, see the topic below on [Configuring hostname verification
-(Carbon 4.4.17
-onwards)](#EnablingHostNameVerification-hostname-verification-new) for
+(Carbon 4.4.17 onwards)](#configuring-hostname-verification-carbon-4.4.6-to-carbon-4.4.16) for
 instructions on how to apply this configuration.
 
 For all other product versions (that are not listed above), this
 configuration will apply based on the Carbon version. Therefore, check
-the [Carbon version of your WSO2
-product](https://wso2.com/products/carbon/release-matrix/), and then
+the [Carbon version of your WSO2 product](https://wso2.com/products/carbon/release-matrix/), and then
 following the instructions given below.
 
 ### Configuring hostname verification (Carbon 4.4.6 to Carbon 4.4.16)
 
-Before you begin, be sure to check the
-[prerequisites](#EnablingHostNameVerification-Prerequisites).
+!!! info 
+    Before you begin, be sure to check the [prerequisites](#prerequisites).
 
 If you are using a WSO2 product that is based on a Carbon version
 between 4.4.6 and 4.4.16,  hostname verification is **disabled** by
@@ -69,7 +54,7 @@ default. This setting is disabled using the
 `         org.wso2.ignoreHostnameVerification        ` property in the
 product startup script ( `         wso2server.sh        ` for Linux, or
 `         wso2server.bat        ` for Windows) that is stored in the
-`         <PRODUCT_HOME>/bin/        ` directory.
+`         <IS_HOME>/bin/        ` directory.
 
 ``` java
 -Dorg.wso2.ignoreHostnameVerification=true
@@ -77,8 +62,8 @@ product startup script ( `         wso2server.sh        ` for Linux, or
 
 ### Configuring hostname verification (Carbon 4.4.17 onwards)
 
-Before you begin, be sure to check the
-[prerequisites](#EnablingHostNameVerification-Prerequisites).
+!!! info 
+    Before you begin, be sure to check the [prerequisites](#EnablingHostNameVerification-Prerequisites).
 
 If you are using a WSO2 product that is based on Carbon 4.4.17 or a
 later version, hostname verification is **enabled** by default. This is
@@ -87,7 +72,7 @@ done using the `         httpclien        ` t
 script ( `         wso2server.sh        ` for Linux and
 `         wso2server.bat        ` for Windows) as shown below. The
 product startup script is stored in the
-`         <PRODUCT_HOME>/bin        ` directory. This property will be
+`         <IS_HOME>/bin        ` directory. This property will be
 effective during server startup.
 
 ``` java
@@ -116,8 +101,7 @@ options.
     the SSL certificate (such as \*. [foo.com](http://foo.com/) ), all
     the subdomains of \*. [foo.com](http://foo.com/) are also included.
     That is, a hostname that matches a subdomain of \*.
-    [foo.com](http://foo.com/) will also be allowed access. **  
-    **
+    [foo.com](http://foo.com/) will also be allowed access. 
 
 -   **Strict:** When this mode is enabled, hostnames will be strictly
     verified against the hostname specified in the product's SSL
@@ -131,10 +115,7 @@ options.
     server. Note that this is not recommended in a production setup and
     should only be used for demonstrations and testing.
 
-    !!! note
-    
-        **Important!**
-    
+    !!! note "Important"    
         If you are disabling hostname verification for **WSO2 AM 2.0.0** or
         **2.1.0**, you need to use both system properties listed below.
     

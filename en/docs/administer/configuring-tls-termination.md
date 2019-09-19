@@ -13,11 +13,6 @@ services and the admin console of your product using HTTP (without SSL).
 
 Given below are the steps you need to follow:
 
--   [Step 1: Configuring the load balancer with TLS
-    termination](#ConfiguringTLSTermination-Step1:ConfiguringtheloadbalancerwithTLStermination)
--   [Step 2: Enabling RemoteIpValve for Carbon
-    servers](#ConfiguringTLSTermination-Step2:EnablingRemoteIpValveforCarbonservers)
-
 ### Step 1: Configuring the load balancer with TLS termination
 
 See the documentation of the load balancer that you are using for
@@ -30,7 +25,7 @@ Termination](https://www.nginx.com/resources/admin-guide/nginx-ssl-termination/)
 
 You can enable Tomcat's RemoteIpValve for your Carbon server by simply
 adding the valve to the `         catalina-sever.xml        ` file
-(stored in the `         <PRODUCT_HOME>/repository/conf/tomcat        `
+(stored in the `         <IS_HOME>/repository/conf/tomcat        `
 directory). This valve should be specified under the
 `         <Host>        ` element (shown below) in the
 `         catalina-sever.xml        ` file. See the [Tomcat
@@ -38,8 +33,8 @@ documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/
 for more information about `         RemoteIpValve        ` .
 
 ``` java
-<Host name="localhost" unpackWARs="true" deployOnStartup="false" autoDeploy="false" appBase="${carbon.home}/repository/deployment/server/webapps/">
-   ............
-   <Valve className=/>
-</Host>
+   <Host name="localhost" unpackWARs="true" deployOnStartup="false" autoDeploy="false" appBase="${carbon.home}/repository/deployment/server/webapps/">
+      ............
+      <Valve className=/>
+   </Host>
 ```
