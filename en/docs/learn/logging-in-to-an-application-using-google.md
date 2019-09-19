@@ -45,20 +45,20 @@ sections below to set this up.
 		If you do not see the Apps button on the home page, click **More
 		Controls** at the bottom of the page.
 
-	![more-controls-saml-apps](../../assets/img/tutorials/more-controls-saml-apps.png)
+	![more-controls-saml-apps](../assets/img/tutorials/more-controls-saml-apps.png)
 	
 
 5.  Click on the 
-    ![more-controls-icon](../../assets/img/tutorials/more-controls-icon.png) icon found at
+    ![more-controls-icon](../assets/img/tutorials/more-controls-icon.png) icon found at
     the bottom-right of the page.
 6.  Click **SETUP MY OWN CUSTOM APP**  
-    ![setup-my-own-custom-app](../../assets/img/tutorials/setup-my-own-custom-app.png)
+    ![setup-my-own-custom-app](../assets/img/tutorials/setup-my-own-custom-app.png)
     
 7.  Click **Download** next to the **IDP Metadata** field to download
     the Google identity provider metadata.  
     A `          GoogleIDPMetadata.xml         ` file is downloaded on
     to your machine.  
-    ![idp-metadata](../../assets/img/tutorials/idp-metadata.png)
+    ![idp-metadata](../assets/img/tutorials/idp-metadata.png)
     
 8.  Click **Next** and enter an **Application Name** and **Description**
     for your application. This is the name and description that your
@@ -77,7 +77,7 @@ sections below to set this up.
         `                         http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp                       `
     4.  **Name ID Format:** `            EMAIL           `
         `                       `
-        ![start-url](../../assets/img/tutorials/start-url.png)
+        ![start-url](../assets/img/tutorials/start-url.png)
 
 10. Click **Next** and then click **Finish**.
 11. Once the application is configured, click **Edit Service** and
@@ -113,17 +113,17 @@ sections below to set this up.
 6.  Select **Metadata File Configuration** as the **Mode** and upload
     the `          GoogleIDPMetadata         ` .xml file you downloaded
     earlier.  
-    ![metadata-file-config](../../assets/img/tutorials/metadata-file-config.png)
+    ![metadata-file-config](../assets/img/tutorials/metadata-file-config.png)
     
 7.  Click **Register** to save the identity provider configurations.
 8.  Once the IdP is registered, it is listed under Identity
     Providers. Click **Edit** and expand **Federated
     Authenticators\>SAML2 Web SSO Configuration**.  
-    ![idp-list](../../assets/img/tutorials/idp-list.png)
+    ![idp-list](../assets/img/tutorials/idp-list.png)
     
 9.  Select **Enable Logout** and enter "
     https://accounts.google.com/logout" as the Logout URL.
-    ![enter-the-logout-url](../../assets/img/tutorials/enter-the-logout-url.png)
+    ![enter-the-logout-url](../assets/img/tutorials/enter-the-logout-url.png)
     
 10. Click **Update** to save the changes.
 
@@ -165,7 +165,7 @@ sections below to set this up.
     Authentication**.
 9.  Select "GoogleIdP" (the identity provider you created before) as the
     federated authenticator.
-    ![googleidp](../../assets/img/tutorials/googleidp.png)
+    ![googleidp](../assets/img/tutorials/googleidp.png)
     
 10. Click **Update** to save.
 
@@ -174,7 +174,7 @@ sections below to set this up.
 1.  Access the Pickup sample application URL:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 2.  Click **Login**. You are redirected to the Google login page.  
-    ![google-login-page](../../assets/img/tutorials/google-login-page.png)
+    ![google-login-page](../assets/img/tutorials/google-login-page.png)
     
 3.  Sign in using your Google credentials. You are redirected to the
     Pickup sample homepage.

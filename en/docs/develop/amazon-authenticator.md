@@ -5,7 +5,7 @@ WSO2 Identity Server to authenticate Amazon users to log in to your
 organization’s applications. The diagram that is given below illustrates
 the flow of the Amazon federated authenticator.
 
-![Amazon authenticator](../../assets/img/connectors/amazon-authenticator.jpeg)
+![Amazon authenticator](../assets/img/connectors/amazon-authenticator.jpeg)
 
 This page provides instructions on how to configure the Amazon
 authenticator and WSO2 Identity Server using a sample app to
@@ -53,7 +53,7 @@ following sections.
     3.  **Privacy Notice URL -** The privacy policy URL for your
         application. Ex: `<http://wso2.com/privacy-policy>`.
 
-        ![Login with Amazon screen](../../assets/img/connectors/login-with-amazon-screen.png)   
+        ![Login with Amazon screen](../assets/img/connectors/login-with-amazon-screen.png)   
     You have now finished configuring Amazon.
 
 6.  Expand the **Web Settings** section. Copy the **Client ID** and
@@ -62,7 +62,7 @@ following sections.
 7.  Click **Edit** and enter the redirect URL as
     <https://localhost:9443/commonauth> in the window that appears and
     save it.  
-    ![Amazon Settings](../../assets/img/connectors/amazon-settings.png) 
+    ![Amazon Settings](../assets/img/connectors/amazon-settings.png) 
 
 ### Step 2 - Deploy travelocity.com sample app
 
@@ -107,10 +107,10 @@ provider](../../learn/adding-and-configuring-an-identity-provider).
         Amazon Authenticator and to make it the default authenticator.
 
     IS 5.3.0:
-    ![Add New Identity Provider screen](../../assets/img/connectors/add-new-identity-provider-as-amazon.png) 
+    ![Add New Identity Provider screen](../assets/img/connectors/add-new-identity-provider-as-amazon.png) 
 
     IS 5.1.0/IS 5.2.0:
-    ! [Add New IDP for older versions](../../assets/img/connectors/amazon-idp-older-version.png)
+    ! [Add New IDP for older versions](../assets/img/connectors/amazon-idp-older-version.png)
 
 7.  Click **Update**.
 
@@ -151,7 +151,7 @@ The next step is to configure the service provider.
         -   **Enable Attribute Profile**.
         -   **Include Attributes in the Response Always**.
 
-        ![Register a new service provider screen](../../assets/img/connectors/register-a-service-provider-screen.png) 
+        ![Register a new service provider screen](../assets/img/connectors/register-a-service-provider-screen.png) 
 
 6.  Click **Register** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -172,7 +172,7 @@ The next step is to configure the service provider.
     3.  Select the following options:
         -   Use tenant domain in local subject identifier.
         -   Use user store domain in local subject identifier.
-        ![Outbound authentication configs](../../assets/img/connectors/outbound-authentication-configs.png) 
+        ![Outbound authentication configs](../assets/img/connectors/outbound-authentication-configs.png) 
 
 9.  Click **Update** to save the changes.
 
@@ -204,7 +204,7 @@ You have now added and configured the service provider.
 
 9.  Select the identity provider you created from the drop-down list under **Federated Authentication**.
 
-    ![amazon-federated-auth](../../assets/img/connectors/amazon-federated-auth.png)
+    ![amazon-federated-auth](../assets/img/connectors/amazon-federated-auth.png)
 
 10.  Ensure that the **Federated Authentication** radio button is selected and click **Update** to save the changes.
 
@@ -231,7 +231,7 @@ Add a new claim mapping for various user attributes related to Amazon.
 5.  Map a new external claim to an existing local claim dialect.  
     You need to map at least one claim under this new dialect.
     Therefore, let's map the claim for the Amazon user ID.
-    ![Add external claim screen](../../assets/img/connectors/add-external-claim-screen.png) 
+    ![Add external claim screen](../assets/img/connectors/add-external-claim-screen.png) 
     1.  In the **Main** menu, click **Add** under **Claims**.
     2.  Click **Add External Claim** to add a new claim to the Amazon
         claim dialect.
@@ -306,7 +306,7 @@ Add a new claim mapping for various user attributes related to Amazon.
 
 3.  Click **Add Claim Dialect** to create the Amazon authenticator
     specific claim dialect.
-    ![dialect-details-old-version](../../assets/img/connectors/dialect-details-old-version.png)
+    ![dialect-details-old-version](../assets/img/connectors/dialect-details-old-version.png)
 
     -   Use the Dialect Uri as - http://wso2.org/amazon/claims
     -   Enter the values for mandatory fields. It will create the claim for the given user field under the Amazon claim dialect.
@@ -386,7 +386,7 @@ Add a new claim mapping for various user attributes related to Amazon.
     </table>
 
 6.  Similarly, you can create the claims for all the public information of the Amazon user.
-    ![claims-for-amazon-info](../../assets/img/connectors/claims-for-amazon-info.png)
+    ![claims-for-amazon-info](../assets/img/connectors/claims-for-amazon-info.png)
 
 ### Step 6 - Configure requested claims for travelocity.com
 
@@ -401,7 +401,7 @@ Add a new claim mapping for various user attributes related to Amazon.
     Select the Mandatory Claim checkbox for all the claim URIs that you
     added.
 
-    ![Claim configuration](../../assets/img/connectors/claim-configuration.png)
+    ![Claim configuration](../assets/img/connectors/claim-configuration.png)
 
     You should add the claims you mapped in the Identity Provider claim
     configuration and select the Claim URI.
@@ -421,11 +421,11 @@ Add a new claim mapping for various user attributes related to Amazon.
     E.g., `<http://localhost:8080/travelocity.com>`.
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the Rediect Biniding or the Post Binding option.  
-    ![travelocity home](../../assets/img/connectors/travelocity-home.png) 
+    ![travelocity home](../assets/img/connectors/travelocity-home.png) 
 3.  You are redirected to the Amazon login page. Enter your Amazon
     credentials.  
-    ![Amazon Sign In](../../assets/img/connectors/amazon-sign-in.png) 
+    ![Amazon Sign In](../assets/img/connectors/amazon-sign-in.png) 
 4.  Allow user to authenticate and click **Continue**.  
-    ![Amazon authentication](../../assets/img/connectors/amazon-authentication.png) 
+    ![Amazon authentication](../assets/img/connectors/amazon-authentication.png) 
 5.  You are taken to the home page of the travelocity.com app.  
-    ![Travelocity](../../assets/img/connectors/travelocity.png) 
+    ![Travelocity](../assets/img/connectors/travelocity.png) 

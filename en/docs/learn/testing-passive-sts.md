@@ -72,7 +72,7 @@ file.
 2.  Enter a unique name for the service provider and click **Register.**
     The following form appears.  
 
-    ![configure-identity-server](../../assets/img/using-wso2-identity-server/configure-identity-server.png)
+    ![configure-identity-server](../assets/img/using-wso2-identity-server/configure-identity-server.png)
 
 3.  Expand the **Inbound Authentication Configuration\>**
     **WS-Federation (Passive) Configuration** section and provide the

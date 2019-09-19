@@ -18,7 +18,7 @@ Follow the instructions below to access the SOAP Tracer.
 2.  Click on **Monitor** on the left side of the screen to access the
     **Monitor** menu and click on **SOAP Tracer**.
 3.  In the drop-down menu, select **Yes**.  
-    ![SOAP message tracer](../../assets/img/using-wso2-identity-server/soap-message-tracer.png) 
+    ![SOAP message tracer](../assets/img/using-wso2-identity-server/soap-message-tracer.png) 
 4.  The Tracer will show the messages of the operations that were
     invoked.
 5.  SOAP message information includes the time-stamp, service name,
@@ -26,7 +26,7 @@ Follow the instructions below to access the SOAP Tracer.
     most recent SOAP messages are listed on top. When a particular SOAP
     message is selected, its **Request** and **Response** information
     can be viewed.  
-    ![Request and response](../../assets/img/using-wso2-identity-server/request-and-response.png) 
+    ![Request and response](../assets/img/using-wso2-identity-server/request-and-response.png) 
 
     !!! info
         This Tracer does not apply to operations invoked in the admin
@@ -35,8 +35,8 @@ Follow the instructions below to access the SOAP Tracer.
 6.  Use the **Search** function to find a message. In the appropriate
     field, enter a word (or part of a word or multiple words) that the
     message should contain, and click on the **Search** button.  
-    ![Search button](../../assets/img/using-wso2-identity-server/search-button.png)
+    ![Search button](../assets/img/using-wso2-identity-server/search-button.png)
 7.  You will see the message in the **Messages** list, and its full
     description will be shown in the **Request** or **Response** text
     area.  
-    ![Request and response displayed](../../assets/img/using-wso2-identity-server/request-and-response-displayed.png)
+    ![Request and response displayed](../assets/img/using-wso2-identity-server/request-and-response-displayed.png)

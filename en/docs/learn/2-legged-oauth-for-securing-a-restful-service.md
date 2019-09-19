@@ -94,7 +94,7 @@ The following steps iterate what is occurring during this process:
 
 1.  The user is registered with WSO2 Identity Server.
 2.  The consumer secret is registered with WSO2 Identity Server.  
-    ![consumer-secret-registered](../../assets/img/using-wso2-identity-server/consumer-secret-registered.png)  
+    ![consumer-secret-registered](../assets/img/using-wso2-identity-server/consumer-secret-registered.png)  
     1.  Invoke the **AuthenticationAdmin** service and the user is
         authenticated with the WSO2 IS entity server
     2.  Invoke the **OAuthAdminService** service and register the
@@ -110,4 +110,4 @@ The following steps iterate what is occurring during this process:
     been registered by the user.
 8.  If signature verification is done, the request is authenticated and
     sent to the RESTful service  
-    ![signature-verification](../../assets/img/using-wso2-identity-server/signature-verification.png)
+    ![signature-verification](../assets/img/using-wso2-identity-server/signature-verification.png)

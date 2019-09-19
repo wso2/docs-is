@@ -18,7 +18,7 @@ and login to the other one.
 
     Callback Url: <https://localhost:9443/commonauth>
 
-    ![configure-oauth-oidc-sp](../../assets/img/using-wso2-identity-server/configure-oauth-oidc-sp.png)
+    ![configure-oauth-oidc-sp](../assets/img/using-wso2-identity-server/configure-oauth-oidc-sp.png)
 
 3.  Create an identity provider in the first Identity Server.  
     For more information on how to do this, see [Configuring
@@ -41,7 +41,7 @@ and login to the other one.
 
     -   Callback Url: <https://localhost:9443/commonauth>
 
-    ![create-an-idp](../../assets/img/using-wso2-identity-server/create-an-idp.png)   
+    ![create-an-idp](../assets/img/using-wso2-identity-server/create-an-idp.png)   
 
 4.  Setup the [playground sample](../../learn/setting-up-the-sample-webapp) in the
     first Identity Server instance.
@@ -50,9 +50,9 @@ and login to the other one.
     Outbound Authentication Configuration. Then select the created
     identity provider from the dropdown menu in Federation
     Authentication.  
-    ![select-federation-authentication](../../assets/img/using-wso2-identity-server/select-federation-authentication.png)
+    ![select-federation-authentication](../assets/img/using-wso2-identity-server/select-federation-authentication.png)
 6.  Try the authorization code grant as described
     [here](../../learn/try-authorization-code-grant). You will be redirected to
     the 2nd Identity Server instead of the 1st Identity Server for
     authentication.
-    ![second-idp](../../assets/img/using-wso2-identity-server/second-idp.png) 
+    ![second-idp](../assets/img/using-wso2-identity-server/second-idp.png) 

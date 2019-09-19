@@ -9,7 +9,7 @@ posts called tweets.
 The diagram below illustrates the flow of the Twitter federated
 authenticator.
 
-![](../../assets/img/50515575/76746182.png) 
+![](../assets/img/50515575/76746182.png) 
 
 This page provides instructions on how to configure the Twitter
 authenticator and Identity Server using a sample app. You can find more
@@ -64,7 +64,7 @@ information in the following sections.
 
     -   Click **Create your Twitter application**.
 
-    ![](../../assets/img/50515587/75109897.png) 
+    ![](../assets/img/50515587/75109897.png) 
 
     !!! note
         **Callback URL** is the URL to which the browser should be
@@ -77,7 +77,7 @@ information in the following sections.
 3.  After creating the app, go to the **Keys and Access Tokens** tab to
     get the **API Key** and **API Secret**. These are the **Consumer Key** and **Consumer Secret** values shown.  
     Example:  
-    ![](../../assets/img/50515587/75109896.png) 
+    ![](../assets/img/50515587/75109896.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -106,7 +106,7 @@ Provider](../../learn/adding-and-configuring-an-identity-provider)
 4.  Give a suitable name for **Identity Provider Name**. Expand
     **Federated Authenticators** and expand **TwitterAuthenticator Configuration**.  
     
-    ![](../../assets/img/50515587/51249933.png)   
+    ![](../assets/img/50515587/51249933.png)   
     
     Enter the values as given when you [created the twitter
     application](#configuring-the-twitter-app).
@@ -162,7 +162,7 @@ The next step is to configure the service provider.
 8.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
-    ![](../../assets/img/50515587/51249934.png) 
+    ![](../assets/img/50515587/51249934.png) 
 
 9.  Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -178,14 +178,14 @@ You have now added and configured the service provider.
 2.  Click the option available to log in with SAML from the WSO2
     Identity Server.
 
-    ![](../../assets/img/50515587/80723423.png) 
+    ![](../assets/img/50515587/80723423.png) 
 
     You are navigated to the Twitter application. Enter the username and
     password of your Twitter account to log in.  
     Example:  
-    ![](../../assets/img/50515587/75109949.png) 
+    ![](../assets/img/50515587/75109949.png) 
 
 3.  Once the authentication is complete, you will be taken to the home
     page of the travelocity.com app.  
     Example:  
-    ![](../../assets/img/50515587/75109950.png) 
+    ![](../assets/img/50515587/75109950.png) 

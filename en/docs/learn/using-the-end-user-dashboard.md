@@ -20,7 +20,7 @@ includes the following tasks which can be done using the dashboard.
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>
 2.  Enter your username and password and click the **Sign In** button.
 3.  The dashboard appears.  
-    ![dashboard](../../assets/img/using-wso2-identity-server/dashboard.png) 
+    ![dashboard](../assets/img/using-wso2-identity-server/dashboard.png) 
 4.  Click the **View details** button to access the components.
 5.  Click the drop-down at the top right corner of the screen to sign
     out.
@@ -35,7 +35,7 @@ To edit your profile, do the following.
 3.  In the resulting screen, populate the fields with your personal
     information.  
 
-    ![manage-profile](../../assets/img/using-wso2-identity-server/manage-profile.png) 
+    ![manage-profile](../assets/img/using-wso2-identity-server/manage-profile.png) 
 
     ??? note "Click here to know more about the fields in the form"
         |              |                                                      |
@@ -95,7 +95,7 @@ To export the user's personal information, do the following.
             existing consent and add a new consent.
     
 
-    ![user-info-export](../../assets/img/using-wso2-identity-server/user-info-export.png) 
+    ![user-info-export](../assets/img/using-wso2-identity-server/user-info-export.png) 
 
     !!! tip
     
@@ -115,7 +115,7 @@ following.
     Recovery**.
 3.  Set the challenge question from the drop-down and enter an answer
     for the question you choose.  
-    ![set-challenge-questions](../../assets/img/using-wso2-identity-server/set-challenge-questions.png) 
+    ![set-challenge-questions](../assets/img/using-wso2-identity-server/set-challenge-questions.png) 
 4.  Click **Update** to save your changes.
 
 See [Password Recovery](../../learn/password-recovery) for more information on how
@@ -131,7 +131,7 @@ To change your password, do the following.
 3.  In the resulting screen, enter your **Current Password**, fill in
     the **New Password** and confirm it by filling out the **Confirm New
     Password** field.  
-    ![confirm-new-password](../../assets/img/using-wso2-identity-server/confirm-new-password.png) 
+    ![confirm-new-password](../assets/img/using-wso2-identity-server/confirm-new-password.png) 
 4.  Click **Update** to save your changes.
 
 ### Connecting your social identity with your account
@@ -173,7 +173,7 @@ following.
     selected task to a new state and to complete the workflow approval
     process (e.g., clicking **Start** and then **Approve** will approve
     the pending task and complete the workflow process).  
-    ![approve-pending-tasks](../../assets/img/using-wso2-identity-server/approve-pending-tasks.png) 
+    ![approve-pending-tasks](../assets/img/using-wso2-identity-server/approve-pending-tasks.png) 
 
 See [Workflow Management](../../learn/workflow-management) for more information on
 how this works.
@@ -200,7 +200,7 @@ via WSO2 Identity Server. Follow the steps below to configure this.
 2.  Once you have logged in, click **View details** under **Consent
     Management**.
 
-    ![configure-consent-for-services](../../assets/img/using-wso2-identity-server/configure-consent-for-services.png) 
+    ![configure-consent-for-services](../assets/img/using-wso2-identity-server/configure-consent-for-services.png) 
 
 3.  You will see a list of consent receipts that you have already
     approved to be consumed by services. The consent receipts listed
@@ -217,13 +217,13 @@ via WSO2 Identity Server. Follow the steps below to configure this.
         during self registration.
     
 
-    ![system-consent](../../assets/img/using-wso2-identity-server/system-consent.png) 
+    ![system-consent](../assets/img/using-wso2-identity-server/system-consent.png) 
 
 New users can do the following actions from this screen:
 
 !!! note
     Existing users (users who are already onboarded) will also see the
-    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon and can configure consent
+    ![configure-icon](../assets/img/using-wso2-identity-server/configure-icon.png) icon and can configure consent
     accordingly but will not see the **Revoke** button to revoke consent for
     all attributes.
     
@@ -232,7 +232,7 @@ New users can do the following actions from this screen:
     consent for all consented attributes.
 
 -   **Revoke consent for specific attributes** - Click the
-    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon.  You can see the
+    ![configure-icon](../assets/img/using-wso2-identity-server/configure-icon.png) icon.  You can see the
     detailed view of the consent receipt. It contains brief information
     about the service and shows the consented attributes for this
     service. Deselect claims accordingly to revoke consent. Click
@@ -243,7 +243,7 @@ New users can do the following actions from this screen:
         -   For system consent, users can consent to newly added attributes
             by selecting the new claims that appear on this screen. 
         
-        ![revoke-consent](../../assets/img/using-wso2-identity-server/revoke-consent.png) 
+        ![revoke-consent](../assets/img/using-wso2-identity-server/revoke-consent.png) 
     
         -   For consents in other applications (other than the system
             consent), the user will be prompted to provide consent for newly
@@ -257,9 +257,9 @@ New users can do the following actions from this screen:
     
 
 -   **Set an expiration date for consent** - Click the
-    ![configure-icon](../../assets/img/using-wso2-identity-server/configure-icon.png) icon and set an expiry date
+    ![configure-icon](../assets/img/using-wso2-identity-server/configure-icon.png) icon and set an expiry date
     for a particular consent by selecting a value from the date picker
-    ![date-icon](../../assets/img/using-wso2-identity-server/date-icon.png)  shown in the
+    ![date-icon](../assets/img/using-wso2-identity-server/date-icon.png)  shown in the
     consent detail page. When an expiry date is selected, the consent
     will only be valid until the specified date. Once the consent
     expires, the details gathered are set to a 'revoked' state. At the
@@ -268,4 +268,4 @@ New users can do the following actions from this screen:
     However, the user is not prompted to give consent for non mandatory
     attributes and the corresponding service will not be able to receive
     those attributes in new authentication requests.  
-    ![consent-expiry](../../assets/img/using-wso2-identity-server/consent-expiry.png) 
+    ![consent-expiry](../assets/img/using-wso2-identity-server/consent-expiry.png) 

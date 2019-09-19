@@ -14,35 +14,35 @@ Metrics](../../administer/setting-up-carbon-metrics.md).
     page.
 2.  Specify the source for the JVM metrics by selecting a value from the
     drop-down list for the **Source** parameter in the top panel.  
-    ![](../../assets/img/53125402/53287291.png)
+    ![](../assets/img/53125402/53287291.png)
 3.  Specify the time interval for which the statistics should be
     displayed in the dashboard by selecting a value from the following
     drop-down list in the top panel.  
-    ![](../../assets/img/53125402/53287286.png)
+    ![](../assets/img/53125402/53287286.png)
 4.  Click the required buttons opposite **Views** in the top panel to
     select the types of information you want to view in the dashboard
     and refresh the web page.  
-    ![](../../assets/img/53125402/53287285.png)  
+    ![](../assets/img/53125402/53287285.png)  
     Statistics corresponding to each button can be viewed as follows:
     -   **CPU  
         ** Click this button to view statistics relating to the CPU as
         shown below.  
-        ![](../../assets/img/53125402/53287284.png)
-        ![](../../assets/img/53125402/53287293.png)
+        ![](../assets/img/53125402/53287284.png)
+        ![](../assets/img/53125402/53287293.png)
     -   **Memory**  
         Click **Memory** to view statistics relating to the memory as
         shown below.  
-        ![](../../assets/img/53125402/53287292.png)
-        ![](../../assets/img/53125402/53287290.png)
+        ![](../assets/img/53125402/53287292.png)
+        ![](../assets/img/53125402/53287290.png)
     -   **Threading  
         ** Click **Threading** to view statistics relating to threading
         as shown below.  
-        ![](../../assets/img/53125402/53287289.png)
+        ![](../assets/img/53125402/53287289.png)
     -   **Class Loading  
         ** Click **Class Loading** to view statistics relating to class
         loading as shown below.  
-        ![](../../assets/img/53125402/53287288.png)
+        ![](../assets/img/53125402/53287288.png)
     -   **File Descriptor  
         ** Click **File Descriptor** to view information relating to the
         file descriptor count as shown below.  
-        ![](../../assets/img/53125402/53287287.png)
+        ![](../assets/img/53125402/53287287.png)

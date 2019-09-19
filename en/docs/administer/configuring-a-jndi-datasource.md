@@ -11,7 +11,7 @@ When adding a datasource, to expose a RDBMS datasource as a JNDI
 datasource, click **Expose as a JNDI Data Source** to display the JNDI
 fields as follows:
 
-![](../../assets/img/53125520/53287618.png) 
+![](../assets/img/53125520/53287618.png) 
 
 Following are descriptions of the JNDI fields:
 

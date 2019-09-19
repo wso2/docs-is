@@ -14,7 +14,7 @@ A XACML policy has a clearly identifiable life cycle inside a PAP.
 The following illustration shows the life cycle of a policy within WSO2
 Identity Server.
 
-![policy-life-cycle](../../assets/img/tutorials/policy-life-cycle.png)
+![policy-life-cycle](../assets/img/tutorials/policy-life-cycle.png)
 
 1.  We can create XACML policies using the provided editors.
 2.  Once we are satisfied with the policy we have written, we can

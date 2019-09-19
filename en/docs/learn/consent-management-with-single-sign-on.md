@@ -37,7 +37,7 @@ authentication.
         time of login as shown in the image below.
     
 
-    ![requested-claims](../../assets/img/using-wso2-identity-server/requested-claims.png)
+    ![requested-claims](../assets/img/using-wso2-identity-server/requested-claims.png)
 
 2.  When a user is authenticated for the relevant application, the
     service provider requests the user information represented by these
@@ -67,7 +67,7 @@ authentication.
             management console and clicking **Edit** next to the claim.
     
 
-    ![claims-list](../../assets/img/using-wso2-identity-server/claims-list.png)
+    ![claims-list](../assets/img/using-wso2-identity-server/claims-list.png)
 
 4.  Once the user provides approval to share the user attributes, WSO2
     Identity Server will store the consent in relation to the user and
@@ -102,20 +102,20 @@ authentication.
     -   http://<claim\_dialect\>/claims/gender
     -   http://<claim\_dialect\>/claims/dob
 
-    ![sp-claims](../../assets/img/using-wso2-identity-server/sp-claims.png)
+    ![sp-claims](../assets/img/using-wso2-identity-server/sp-claims.png)
 
 2.  Access the following URL: <http://wso2is.local:8080/travelocity.com>
     .  
     You are directed to the following page.  
 
-    ![access-travelocity-url](../../assets/img/using-wso2-identity-server/access-travelocity-url.png)
+    ![access-travelocity-url](../assets/img/using-wso2-identity-server/access-travelocity-url.png)
 
 3.  Click **Click here to login with SAML from Identity Server**. You
     are redirected to the WSO2 Identity Server for authentication.
 
 4.  Enter the user credentials and click **Submit**.
 
-    ![user-credentials](../../assets/img/using-wso2-identity-server/user-credentials.png)  
+    ![user-credentials](../assets/img/using-wso2-identity-server/user-credentials.png)  
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  
@@ -129,7 +129,7 @@ authentication.
         enter those values before the consent screen will appear.
     
 
-    ![consent-screen](../../assets/img/using-wso2-identity-server/consent-screen.png)
+    ![consent-screen](../assets/img/using-wso2-identity-server/consent-screen.png)
 
 6.  Select the claims that you consent to share with the Travelocity
     application and click **Approve**. You must select all mandatory

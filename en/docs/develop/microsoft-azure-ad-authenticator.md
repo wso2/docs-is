@@ -24,7 +24,7 @@ Internet (cloud services).
 The diagram below illustrates the flow of the Office365 federated
 authenticator.
 
-![](../../assets/img/50520526/76746216.png)
+![](../assets/img/50520526/76746216.png)
 
 This page provides instructions on how to configure the Microsoft Azure
 AD authenticator and Identity Server using a sample app. This
@@ -67,15 +67,15 @@ sections given below to configure this authenticator.
         2.  Select the **Active Directory** node, then select the
             **Directory** tab and, at the bottom of the screen, select
             **New**.  
-            ![](../../assets/img/50520581/51252169.png) 
+            ![](../assets/img/50520581/51252169.png) 
         3.  On the **New** menu, select **Active Directory** \>
             **Directory** \> **Custom Create**.  
-            ![](../../assets/img/50520581/51252170.png) 
+            ![](../assets/img/50520581/51252170.png) 
         4.  In **Add directory**, in the **Directory** drop-down box,
             select **Use existing directory**. Select **I am ready to
             be signed out**, and then select the check mark in the
             lower-right corner.  
-            ![](../../assets/img/50520581/51252171.png)   
+            ![](../assets/img/50520581/51252171.png)   
               
             This takes you back to the Azure Management Portal.
         5.  Log in with your Office 365 account information. You will be
@@ -100,10 +100,10 @@ sections given below to configure this authenticator.
         register and manage apps.  
         1.  Log on to Office 365. From the **Home** page, select the
             **Admin** icon to open the Office 365 admin center.  
-            ![](../../assets/img/50520581/51252172.png) 
+            ![](../assets/img/50520581/51252172.png) 
         2.  In the **menu** page on the left side of the page, scroll
             down to **Admin** and select **Azure **AD**.  
-            ![](../../assets/img/50520581/51252173.png)
+            ![](../assets/img/50520581/51252173.png)
 
             !!! warning "Important"
                 To open the Office 365 admin center and
@@ -116,7 +116,7 @@ sections given below to configure this authenticator.
             Azure AD is limited to customers with paid services. You can
             still create a free trial 30-day Azure subscription, but you
             will need to perform a few extra steps:  
-            ![](../../assets/img/50520581/51252174.png) 
+            ![](../assets/img/50520581/51252174.png) 
             1.  Select your country or region, and then choose
                 **Azure subscription**.
             2.  Enter your personal information. For verification
@@ -140,21 +140,21 @@ sections given below to configure this authenticator.
         credentials.
     2.  Click **Active Directory** on the left menu, then click on the
         **Directory** for your Office 365 developer site.  
-        ![](../../assets/img/50520581/51252175.png) 
+        ![](../assets/img/50520581/51252175.png) 
     3.  On the top menu, click **Applications .** 
         **
     4.  Click **Add** from the bottom menu.  
-        ![](../../assets/img/50520581/51252176.png) 
+        ![](../assets/img/50520581/51252176.png) 
     5.  Click **Add an application my organization is developing**.  
-        ![](../../assets/img/50520581/51252177.png) 
+        ![](../assets/img/50520581/51252177.png) 
     6.  Specify the application name and select **WEB APPLICATION AND/OR WEB API** for **Type**.  
     7.  Click the arrow icon on the bottom-right corner of the page.  
-        ![](../../assets/img/50520581/51252178.png) 
+        ![](../assets/img/50520581/51252178.png) 
     8.  Specify a sign-on URL. You can specify
         `                                          https://localhost:9443/commonauth                                       `
         .  
     9.  Click the **checkbox** in the bottom right corner of the page.  
-        ![](../../assets/img/50520581/51252179.png) 
+        ![](../assets/img/50520581/51252179.png) 
     10. Once the application has been successfully added, you will be
         taken to the Quick Start page for the application. From here,
         click **Configure** in the top menu.  
@@ -164,19 +164,19 @@ sections given below to configure this authenticator.
             will need it later when configuring Office365 as a federated
             authenticator.
 
-        ![](../../assets/img/50520581/76746011.png) 
-        ![](../../assets/img/50520581/76746012.png) 
+        ![](../assets/img/50520581/76746011.png) 
+        ![](../assets/img/50520581/76746012.png) 
 
     11. In **permissions to other applications**, click **Add**
         application.  
     12. Click **Office 365 Exchange Online**, and then click the check
         mark icon.  
-        ![](../../assets/img/50520581/51252184.png) 
+        ![](../assets/img/50520581/51252184.png) 
     13. Under **permissions to other applications**, click the
         **Delegated Permissions** column for Office 365
         Exchange Online.  
     14. Click **Save** in the bottom menu.  
-        ![](../../assets/img/50520581/51252185.png) 
+        ![](../assets/img/50520581/51252185.png) 
 
 ### Deploying [travelocity.com](http://travelocity.com) sample app
 
@@ -209,7 +209,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     [this](../../learn/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
     document for more information regarding the identity provider
     configurations.  
-    ![](../../assets/img/50520581/51252816.png) 
+    ![](../assets/img/50520581/51252816.png) 
 6.  Navigate to **Office365 Configuration** under **Federated
     Authenticators**.
 7.  Enter the values as given in the above figure.  
@@ -248,7 +248,7 @@ You have now added the identity provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](../../assets/img/50520581/51252142.png) 
+        ![](../assets/img/50520581/51252142.png) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -256,7 +256,7 @@ You have now added the identity provider.
     section.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](../../assets/img/50520581/51252143.png) 
+    ![](../assets/img/50520581/51252143.png) 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
 
@@ -268,13 +268,13 @@ You have now added and configured the service provider.
     `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/                       travelocity.com/index.jsp                     `
     . E.g., <http://localhost:8080/travelocity.com>
 2.  Login with SAML from the WSO2 Identity Server.  
-    ![](../../assets/img/50520581/51252144.png) 
+    ![](../assets/img/50520581/51252144.png) 
 3.  Enter your Office365 credentials in the prompted login page of
     Microsoft.  
-    ![](../../assets/img/50520581/51252145.png) 
+    ![](../assets/img/50520581/51252145.png) 
 4.  Once you login successfully  you will be taken to the home page of
     the [travelocity.com](http://travelocity.com) app.  
-    ![](../../assets/img/50520581/51252146.png) 
+    ![](../assets/img/50520581/51252146.png) 
 
   
 

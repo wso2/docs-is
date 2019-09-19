@@ -101,7 +101,7 @@ with the WSO2 IS.
     Recovery REST
     API](https://docs.wso2.com/display/IS580/apidocs/account-recovery)
     .  
-    ![account-recovery](../../assets/img/using-wso2-identity-server/account-recovery.png) 
+    ![account-recovery](../assets/img/using-wso2-identity-server/account-recovery.png) 
 
     !!! info   
         To enable username recovery with reCaptcha verification, select the
@@ -129,10 +129,10 @@ with the WSO2 IS.
             1.  Navigate to <https://myaccount.google.com/security>.
             2.  Click **Signing in to Google** on the left menu and make sure
                 that the **2-step Verification** is disabled or off.  
-                ![signing-into-google](../../assets/img/using-wso2-identity-server/signing-into-google.png)
+                ![signing-into-google](../assets/img/using-wso2-identity-server/signing-into-google.png)
             3.  Click **Connected apps and sites** on the left menu and enable
                 **Allow less secure apps**.  
-                ![connected-apps-and-sites](../../assets/img/using-wso2-identity-server/connected-apps-and-sites.png)
+                ![connected-apps-and-sites](../assets/img/using-wso2-identity-server/connected-apps-and-sites.png)
     
 
 ### Try out username recovery
@@ -146,7 +146,7 @@ with the WSO2 IS.
 3.  Access the [WSO2 Identity Server dashboard](https://localhost:9443/dashboard/).
 4.  Click the **Forgot Username** link.
 5.  Enter the required fields and click **Submit**.  
-    ![enter-fields-dashboard](../../assets/img/using-wso2-identity-server/enter-fields-dashboard.png) 
+    ![enter-fields-dashboard](../assets/img/using-wso2-identity-server/enter-fields-dashboard.png) 
 
     !!! note
     
@@ -154,11 +154,11 @@ with the WSO2 IS.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![recover-username](../../assets/img/using-wso2-identity-server/recover-username.png) 
+        ![recover-username](../assets/img/using-wso2-identity-server/recover-username.png) 
 
 6.  An email notification is sent to the user's email address with the
     recovered username.  
-    ![email-notification](../../assets/img/using-wso2-identity-server/email-notification.png) 
+    ![email-notification](../assets/img/using-wso2-identity-server/email-notification.png) 
 
 !!! tip "Related Links" 
     

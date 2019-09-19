@@ -39,7 +39,7 @@ attributes of a user in the product.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
         **User Profile**.  
-        ![](../../assets/img/43997703/44195174.png)
+        ![](../assets/img/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. Supposing you
@@ -99,7 +99,7 @@ this.
 
     See the following screen for how this will look in the user
     interface of the product's Management Console.  
-    ![](../../assets/img/43997703/44195175.png)
+    ![](../assets/img/43997703/44195175.png)
 
 2.  When using the `           RemoteUserStoreManagerService          `
     API, call it as follows.
@@ -116,7 +116,7 @@ this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![](../../assets/img/43997703/44195177.png) 
+    ![](../assets/img/43997703/44195177.png) 
 
 ### Writing custom attributes
 

@@ -27,7 +27,7 @@ The diagram below shows how the connection between the client
 applications, WSO2 Stream Processor, and WSO2 Identity Server works to
 assess risk and provide adaptive authentication to users.
 
-![risk-based-adaptive-authentication](../../assets/img/tutorials/risk-based-adaptive-authentication.png)
+![risk-based-adaptive-authentication](../assets/img/tutorials/risk-based-adaptive-authentication.png)
 
 1.  The user performs bank transactions through different applications.
 2.  Transactional data from all these applications are published to the
@@ -110,7 +110,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     **Advanced Authentication**.
 4.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **Risk-Based**.
-    ![template-for-risk-based-authentication](../../assets/img/tutorials/template-for-risk-based-authentication.png)
+    ![template-for-risk-based-authentication](../assets/img/tutorials/template-for-risk-based-authentication.png)
 5.  Click **Ok**. The authentication script and authentication steps
     are configured. The authentication script defines a conditional step
     that executes the second step of authentication (the hardware key
@@ -124,10 +124,10 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
     add the following sample authenticator instead.  
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
-        ![second-step-risk-based-authentication](../../assets/img/tutorials/second-step-risk-based-authentication.png)
+        ![second-step-risk-based-authentication](../assets/img/tutorials/second-step-risk-based-authentication.png)
     2.  Select **Sample Hardware Key Authenticator** and click
         **Add**.  
-        ![sample-hardware-key-authenticator](../../assets/img/tutorials/sample-hardware-key-authenticator.png)
+        ![sample-hardware-key-authenticator](../assets/img/tutorials/sample-hardware-key-authenticator.png)
         
 7.  Save the service provider configurations.
 

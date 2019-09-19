@@ -34,10 +34,10 @@ in the identity provider that must be mapped to the Identity Server).
 -   If you choose to **Use Local Claim Dialect**, select the claim you
     require from the **User ID Claim URI** dropdown that includes a list
     of all the claims defined in the Identity Server.  
-    ![user-id-claim-uri](../../assets/img/using-wso2-identity-server/user-id-claim-uri.png)   
+    ![user-id-claim-uri](../assets/img/using-wso2-identity-server/user-id-claim-uri.png)   
 -   You can alternatively choose the **Define Custom Claim Dialect**
     option.  
-    ![custom-claim-dialect](../../assets/img/using-wso2-identity-server/custom-claim-dialect.png)   
+    ![custom-claim-dialect](../assets/img/using-wso2-identity-server/custom-claim-dialect.png)   
     For custom claim dialects, you must map the attributes of the user
     in the identity provider to the claims that are local to the
     Identity Server. These claims can be part of the response that is
@@ -52,7 +52,7 @@ in the identity provider that must be mapped to the Identity Server).
     2.  Map the value of the corresponding claim in the identity
         provider to the claim in the Identity Server. Click the
         **Delete** button to remove the claim mapping.  
-        ![delete-claim-mapping](../../assets/img/using-wso2-identity-server/delete-claim-mapping.png)
+        ![delete-claim-mapping](../assets/img/using-wso2-identity-server/delete-claim-mapping.png)
 
         | Property                    | Description                                         | Sample Value                          |
         |-----------------------------|-----------------------------------------------------|---------------------------------------|
@@ -83,7 +83,7 @@ configurations you have made.
         provisioning happens. For both these scenarios, advanced claims are very
         useful.
 
-        ![provisioning-scenarios](../../assets/img/using-wso2-identity-server/provisioning-scenarios.png)
+        ![provisioning-scenarios](../assets/img/using-wso2-identity-server/provisioning-scenarios.png)
 
         In the above scenario, Google Apps is configured as an identity provider
         in the Identity Server and you would configure the Google provisioning
@@ -143,7 +143,7 @@ Use the following instructions to configure advanced claims.
         from the dropdown list and click **Add Claim**. Clicking this
         button again enables you to add a new entry.  
         ![Advanced Claim for local
-        claims](../../assets/img/using-wso2-identity-server/advanced-claim-for-local-claim.png) 
+        claims](../assets/img/using-wso2-identity-server/advanced-claim-for-local-claim.png) 
     2.  Enter a **Default Value** for your claim. This value is the
         default value used when provisioning this claim. This value will
         be used in all instances of this field, e.g., if all users are
@@ -156,7 +156,7 @@ Use the following instructions to configure advanced claims.
         dropdown list and click **Add Claim**. Clicking this button
         again will add a new entry.  
         ![Advanced Claim for custom
-        claims](../../assets/img/using-wso2-identity-server/advanced-claim-for-custom-claims.png) 
+        claims](../assets/img/using-wso2-identity-server/advanced-claim-for-custom-claims.png) 
     2.  Enter a **Default Value** for your claim. This value is the
         default value used when provisioning this claim. This value will
         be used in all instances of this field, e.g., if all users are

@@ -7,7 +7,7 @@ photo-sharing, video-sharing, and social networking service. The
 Instagram authenticator is configured as a federated authenticator in
 WSO2 Identity Server.
 
-![](../../assets/img/49091418/76746190.png)
+![](../assets/img/49091418/76746190.png)
 
 This page provides instructions on how to configure the Instagram
 authenticator and Identity Server using a sample app. You can find more
@@ -49,7 +49,7 @@ information in the following sections.
     **Register Your Application** ' button and register a new client.
 6.  Use <https://localhost:9443/commonauth> as the redirect URL when you
     register the client.  
-    ![](../../assets/img/49091422/49224545.png) 
+    ![](../assets/img/49091422/49224545.png) 
 
     !!! note
         If you are getting an error while registering you may have to
@@ -108,7 +108,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     the authenticator. To do this, navigate to **Instagram
     Configuration** under **Federated Authenticators** and fill the
     form.  
-    ![](../../assets/img/49091422/51251951.png)   
+    ![](../assets/img/49091422/51251951.png)   
     Do the following configurations.
 
     | Field         | Description                                                                                                                                                                                            | Sample value                      |
@@ -166,7 +166,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
-    ![](../../assets/img/49091422/49227071.png) 
+    ![](../assets/img/49091422/49227071.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -189,7 +189,7 @@ various user attributes related to Instagram.
 -   In the **Main** menu, click **Add** under **Claims**.
 -   Click **Add New Claim Dialect** to create the Instagram
     authenticator specific claim dialect.  
-    ![](../../assets/img/49091422/58473586.png) 
+    ![](../assets/img/49091422/58473586.png) 
 -   Specify the Dialect Uri as <http://wso2.org/instagram/claims> and
     create claims. It is required to create at least one claim under
     this new dialect. Therefore, create the claim for the Instagram user
@@ -199,16 +199,16 @@ various user attributes related to Instagram.
 -   Similarly, you can create claims for all the public information of
     the Instagram user. Add the following claims under the dialect
     <http://wso2.org/instagram/claims>  
-    ![](../../assets/img/49091422/58473593.png) 
+    ![](../assets/img/49091422/58473593.png) 
 
-![](../../assets/img/49091422/58473594.png)   
+![](../assets/img/49091422/58473594.png)   
 
 
 -   You can create the local claim to map it with the Instagram claim.
     Create the local claim **http://wso2.org/claims/profilepicture**
     with the map attribute **profile picture**.
 
-![](../../assets/img/49091422/58473595.png) 
+![](../assets/img/49091422/58473595.png) 
 
   
 ### Configuring requested claims for travelocity.com
@@ -221,7 +221,7 @@ various user attributes related to Instagram.
     requested claims as indicated in the image below. Here you must add
     the claims you mapped in the Identity Provider claim configuration.
 
-![](../../assets/img/49091422/58473599.png) 
+![](../assets/img/49091422/58473599.png) 
 
 ### Testing the sample
 
@@ -236,4 +236,4 @@ various user attributes related to Instagram.
     Instagram. Once you login successfully you will be taken to the home
     page of the [travelocity.com](http://travelocity.com) app.  
 
-![](../../assets/img/49091422/58473600.png) 
+![](../assets/img/49091422/58473600.png) 

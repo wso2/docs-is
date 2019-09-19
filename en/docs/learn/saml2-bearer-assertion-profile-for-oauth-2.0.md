@@ -37,7 +37,7 @@ relationship between the SP and the IDP, by presenting the SAML 2.0
 token to the authorization server and exchanging it directly to an OAuth
 2.0 access token.
 
-![saml-2.0-flow]( ../../assets/img/using-wso2-identity-server/saml-2.0-flow.jpg)
+![saml-2.0-flow]( ../assets/img/using-wso2-identity-server/saml-2.0-flow.jpg)
 
 !!! info "Related Topics"
 	-   To try the SAML2.0 Assertion grant type with WSO2 Identity Server,

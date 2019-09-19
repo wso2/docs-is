@@ -70,7 +70,7 @@ authenticator with WSO2 Identity Server:
         Secret**, and **Redirect URI**. You can use
         <https://localhost:9443/commonauth> as the **Redirect URI**.
     5.  Click **Create**.  
-        ![](../../assets/img/92526518/92534118.png) 
+        ![](../assets/img/92526518/92534118.png) 
 
   
 Now you have configured the Nuxeo application .
@@ -134,7 +134,7 @@ console of WSO2 Identity Server.
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add.**
 5.  Specify an appropriate name as the **Identity Provider Name**.  
-    ![](../../assets/img/92526518/112363883.png) 
+    ![](../assets/img/92526518/112363883.png) 
 6.  Expand the **Federated Authenticators** section, and then expand the
     **Nuxeo Configuration** section.
 7.  Select **Enable** to enable the Nuxeo authenticator for the identity
@@ -367,7 +367,7 @@ the WSO2 IS documentation.
 4.  Click **Add Claim URI** under **Requested Claims** and add the
     requested claims as follows:
 
-    ![](../../assets/img/92526518/92534139.png) 
+    ![](../assets/img/92526518/92534139.png) 
 
 5.  Select the **Subject Claim** URI as
     `                       http://wso2.org/claims/username                     `
@@ -383,7 +383,7 @@ the WSO2 IS documentation.
     . For example, <http://localhost:8181/travelocity.com> .
 2.  Click the appropriate link to log in with SAML from WSO2 Identity
     Server.  
-    ![](../../assets/img/92526518/92526852.png)   
+    ![](../assets/img/92526518/92526852.png)   
 3.  Enter your Nuxeo credentials in the log in prompt of Nuxeo. Once you
     log in successfully you will be taken to the homepage of the t
     `          ravelocity.com         ` application.  

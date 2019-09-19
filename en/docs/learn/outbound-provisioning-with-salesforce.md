@@ -36,10 +36,10 @@ too.
     
             1.  Click your username to expand the drop down.
             2.  Click **Switch to Lightning Experience**.  
-                ![lighteninig-experience](../../assets/img/using-wso2-identity-server/lighteninig-experience.png)
+                ![lighteninig-experience](../assets/img/using-wso2-identity-server/lighteninig-experience.png)
             3.  Click the settings icon on the top-right-hand corner, and click
                 **Set Up**.  
-                ![setup-lightening](../../assets/img/using-wso2-identity-server/setup-lightening.png) 
+                ![setup-lightening](../assets/img/using-wso2-identity-server/setup-lightening.png) 
         
             Now you are navigated to the lightening theme of Salesforce.
     
@@ -67,7 +67,7 @@ too.
         configure outbound provisioning with Salesforce.
 
     1.  Expand **Apps** and click **App Manager**.  
-        ![app-manager](../../assets/img/using-wso2-identity-server/app-manager.png) 
+        ![app-manager](../assets/img/using-wso2-identity-server/app-manager.png) 
     2.  In the window that appears, click **New** **Connected Apps**
         that is on the top right corner.
     3.  Fill in the form that appears with relevant details.  
@@ -116,7 +116,7 @@ too.
         </tbody>
         </table>
 
-        ![new-connected-app](../../assets/img/using-wso2-identity-server/new-connected-app.png) 
+        ![new-connected-app](../assets/img/using-wso2-identity-server/new-connected-app.png) 
 
     4.  Click **Save** **\> Continue** to add the connected app.
 
@@ -138,7 +138,7 @@ too.
         ownership of the consumer key. Referred to as client\_secret in
         OAuth 2.0.
 
-    ![consumer-secret](../../assets/img/using-wso2-identity-server/consumer-secret.png) 
+    ![consumer-secret](../assets/img/using-wso2-identity-server/consumer-secret.png) 
 
 6.  Add your connected app to the profile you are going to use. This is
     necessary as this profile is used when you add users in to
@@ -152,13 +152,13 @@ too.
 
     1.  Expand **Users** and click **Profiles**. A list of existing
         profiles can be viewed.  
-        ![user-profiles](../../assets/img/using-wso2-identity-server/user-profiles.png) 
+        ![user-profiles](../assets/img/using-wso2-identity-server/user-profiles.png) 
 
     2.  As an example, if you use the profile “Chatter Free User”, click
         **Edit** and select the connected app you created to configure
         with the Identity Server using the provided checkbox.  
         Example:  
-        ![select-connected-app](../../assets/img/using-wso2-identity-server/select-connected-app.png) 
+        ![select-connected-app](../assets/img/using-wso2-identity-server/select-connected-app.png) 
 
     3.  Click **Save**. Make a note of the profile ID (or address URL)
         of the Chatter Free User profile.
@@ -183,11 +183,11 @@ too.
     1.  In the left navigation pane, Expand **Security** and click
         **Certificate and Key Management** or you can search for
         Certificate and Key Management in the Quick Find search box.  
-        ![certificate-and-key-management](../../assets/img/using-wso2-identity-server/certificate-and-key-management.png) 
+        ![certificate-and-key-management](../assets/img/using-wso2-identity-server/certificate-and-key-management.png) 
     2.  Click **Create Self-Signed Certificate**.
     3.  Enter the **Label** and a **Unique Name** and click **Save**.
         The certificate is generated.  
-        ![self-signed-certificate](../../assets/img/using-wso2-identity-server/self-signed-certificate.png) 
+        ![self-signed-certificate](../assets/img/using-wso2-identity-server/self-signed-certificate.png) 
     4.  Click the **Download Certificate** button to download the
         certificate.
 
@@ -246,7 +246,7 @@ Provider.
         Identity Provider and to send encrypted data to the Identity
         Provider.
 
-    ![idp-public-certificate](../../assets/img/using-wso2-identity-server/idp-public-certificate.png) 
+    ![idp-public-certificate](../assets/img/using-wso2-identity-server/idp-public-certificate.png) 
 
 5.  Expand the **Claim Configuration** section of the form, followed by
     the **Basic Claim Configuration** section, and select **Define
@@ -288,12 +288,12 @@ Provider.
     | UserPermissionsOfflineUser         | `               http://wso2.org/claims/country              `                  |
     | Username                           | `               http://wso2.org/claims/emailaddress              `             |
 
-    ![add-claim-mapping](../../assets/img/using-wso2-identity-server/add-claim-mapping.png) 
+    ![add-claim-mapping](../assets/img/using-wso2-identity-server/add-claim-mapping.png) 
 
 7.  Expand the **Advanced Claim Configuration** section.
 8.  Select the Claim URI you added from the **Provisioning Claim
     Filter** dropdown and click **Add Claim**.  
-    ![provisioning-claim-filter](../../assets/img/using-wso2-identity-server/provisioning-claim-filter.png) 
+    ![provisioning-claim-filter](../assets/img/using-wso2-identity-server/provisioning-claim-filter.png) 
 9.  For each Claim URI, enter a default value as shown in the following
     table. The default values are used when creating the role in
     Salesforce.  
@@ -369,7 +369,7 @@ Provider.
     </tbody>
     </table>
 
-    ![advanced-claim-config](../../assets/img/using-wso2-identity-server/advanced-claim-config.png) 
+    ![advanced-claim-config](../assets/img/using-wso2-identity-server/advanced-claim-config.png) 
 
 10. Expand the **Outbound Provisioning Connectors** section followed by
     the **Salesforce Provisioning Configuration** section.
@@ -401,7 +401,7 @@ Provider.
 
             1.  Search for My Domain in the search bar that is on the left
                 navigation panel.  
-                ![my-domain](../../assets/img/using-wso2-identity-server/my-domain.png) 
+                ![my-domain](../assets/img/using-wso2-identity-server/my-domain.png) 
             2.  Click **My Domain**.
             3.  In the page that appears, come up with a name for your
                 domain. You can check if the domain is available by clicking
@@ -409,7 +409,7 @@ Provider.
                 !!! info 
                     For the page given below to load on your browser, make sure
                     that the Salesforce cookies are not blocked.
-                ![check-domain-availability](../../assets/img/using-wso2-identity-server/check-domain-availability.png)
+                ![check-domain-availability](../assets/img/using-wso2-identity-server/check-domain-availability.png)
 
             4.  If the domain is available, select **I agree to Terms and
                 Conditions** and click **Register Domain** to register your
@@ -439,7 +439,7 @@ Provider.
                 and click **App Manager**.
             2.  Click the expand button for your Connected App and click
                 **View**.  
-                ![view-connected-app](../../assets/img/using-wso2-identity-server/view-connected-app.png) 
+                ![view-connected-app](../assets/img/using-wso2-identity-server/view-connected-app.png) 
             3.  You are navigated to the page that has the Client ID and
                 Client Secret of the app under **API (Enable OAuth
                 Settings)**.
@@ -463,15 +463,15 @@ Provider.
             1.  Log in to Salesforce: <https://login.salesforce.com/>
             2.  Click on your avatar and click My Settings. You are
                 navigated to the Personal Information page.  
-                ![salesforce-personal-info](../../assets/img/using-wso2-identity-server/salesforce-personal-info.png) 
+                ![salesforce-personal-info](../assets/img/using-wso2-identity-server/salesforce-personal-info.png) 
             3.  On the left navigation, click **Reset My Security Token**
                 .  
-                ![reset-security-token](../../assets/img/using-wso2-identity-server/reset-security-token.png) 
+                ![reset-security-token](../assets/img/using-wso2-identity-server/reset-security-token.png) 
             4.  Click **Reset Security Token**.  
                 An email is sent to you with the new security token. Check
                 the email of the email address you configured for
                 Salesforce.  
-                ![new-security-token](../../assets/img/using-wso2-identity-server/new-security-token.png) 
+                ![new-security-token](../assets/img/using-wso2-identity-server/new-security-token.png) 
         
 
 12. Click **Register**.
@@ -490,7 +490,7 @@ provider](../../learn/adding-and-configuring-a-service-provider#configuring-a-re
     that appears.
 3.  Select the identity provider you configured from the drop down and
     click the (+).  
-    ![idp-dropdown](../../assets/img/using-wso2-identity-server/idp-dropdown.png) 
+    ![idp-dropdown](../assets/img/using-wso2-identity-server/idp-dropdown.png) 
 
     !!! info 
         If you enable **Blocking**, Identity Server will wait for the
@@ -520,13 +520,13 @@ management console, this user should also appear in Salesforce.
         won't be able to update the email address.
 
 4.  Assign a role to the user.  
-    ![role-assigning](../../assets/img/using-wso2-identity-server/role-assigning.png) 
+    ![role-assigning](../assets/img/using-wso2-identity-server/role-assigning.png) 
 5.  Click **Finish**.
 6.  <a name="usershown"></a>In Salesforce, log into <https://login.salesforce.com/> .  
     On the left navigation pane, expand **Users** and click **Users**.
     You will see that the user you created in the Identity Server has
     been added to Salesforce as well.  
-    ![salesforce-user-addition](../../assets/img/using-wso2-identity-server/salesforce-user-addition.png) 
+    ![salesforce-user-addition](../assets/img/using-wso2-identity-server/salesforce-user-addition.png) 
 
 **Adding a user using SCIM.**
 
@@ -537,7 +537,7 @@ must do the following.
     **Resident** under **Identity Providers**.
 2.  Expand the **Inbound Provisioning Configuration** in the screen that
     appears.  
-    ![expand-inbound-provisioning](../../assets/img/using-wso2-identity-server/expand-inbound-provisioning.png) 
+    ![expand-inbound-provisioning](../assets/img/using-wso2-identity-server/expand-inbound-provisioning.png) 
 3.  Select the correct SCIM user endpoint and use it in the cURL
     command.  
     The following is a sample cURL command to add users.

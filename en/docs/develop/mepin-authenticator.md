@@ -4,7 +4,7 @@ through WSO2 Identity Server. MePIN is a user authentication and
 transaction authorization solution. The diagram below illustrates the
 flow of the mePIN federated authenticator.
 
-![](../../assets/img/48283193/76746236.png)
+![](../assets/img/48283193/76746236.png)
 
 This topic provides instructions on how to configure the MePIN app and
 the Identity Server to integrate using a sample app.
@@ -249,7 +249,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider).
     management console, click **Add**.
 4.  Give a suitable name as the **Identity Provider Name**.  
       
-    ![](../../assets/img/48283197/49222048.png) 
+    ![](../assets/img/48283197/49222048.png) 
 
 5.  Go to MePIN Configuration under Federated Authenticators .
 
@@ -295,7 +295,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](../../assets/img/48283197/48220892.png) 
+    ![](../assets/img/48283197/48220892.png) 
 
 5.  Now set the configuration as follows:
 
@@ -313,7 +313,7 @@ The next step is to configure the service provider.
 
     4.  **Include Attributes in the Response Always**.  
           
-        ![](../../assets/img/48283197/49222047.png) 
+        ![](../assets/img/48283197/49222047.png) 
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the Service Providers page.
@@ -325,7 +325,7 @@ The next step is to configure the service provider.
 10. Using the available drop-down list, add the **basic** authentication
     as the first step and MePIN authentication as the second step and
     click **Update** to save the changes.  
-    ![](../../assets/img/48283197/48221108.png) 
+    ![](../assets/img/48283197/48221108.png) 
 
 You have now added and configured the service provider.
 
@@ -346,12 +346,12 @@ You have now added and configured the service provider.
 7.  Add the user claim <http://wso2.org/claims/identity/mepinid> as
     following under ' http://wso2.org/claims' . This claim is mandatory
     for mepin authentication.  
-    ![](../../assets/img/48283197/61053762.png)   
+    ![](../assets/img/48283197/61053762.png)   
 8.  Add the user claim
     [http://wso2.org/claims/identity/mepin\_disabled](http://wso2.org/claims/identity/emailotp_disabled)
     as following under ' http://wso2.org/claims'.  
       
-    ![](../../assets/img/48283197/61053763.png) 
+    ![](../assets/img/48283197/61053763.png) 
 
 ### Testing the sample
 
@@ -362,39 +362,39 @@ You have now added and configured the service provider.
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
-    ![](../../assets/img/48283197/48220894.png) 
+    ![](../assets/img/48283197/48220894.png) 
 
 3.  The basic authentication page appears. Use your username and
     password to log in.  
-    ![](../../assets/img/48283197/57007838.png)
+    ![](../assets/img/48283197/57007838.png)
 4.  I f you are enrolling for the first time, then you are directed to
     MePIN authentication page as shown below.  
-    ![](../../assets/img/48283197/57007836.png)
+    ![](../assets/img/48283197/57007836.png)
 5.  Once you hit the Link MePIN button, you will be shown a MePIN login
     dialogue. Enter there your app’s nickname and get a random access
     code. Enter or scan the given access code to your app and finally
     confirm the linking.  
-    ![](../../assets/img/48283197/57007837.png)
+    ![](../assets/img/48283197/57007837.png)
 6.  If the linking succeeds, you will be taken to the home page of the
     travelocity.com app. After that, your MePIN app has been linked to
     the service and can be used for secure login.  
-    ![](../../assets/img/48283197/57007839.png) 
+    ![](../assets/img/48283197/57007839.png) 
 7.  If you are already linked, you will be directed to MePIN
     authentication page like below. You need to click "Login with
     MePIN".  
-    ![](../../assets/img/48283197/57007840.png)  
+    ![](../assets/img/48283197/57007840.png)  
 8.  Once you confirmed the login through your app, you will be taken to
     the home page of the travelocity.com app.
     -   For the confirmation policy - swipe you will be prompted to
         confirm as follows  
-        ![](../../assets/img/48283197/48220946.png) 
+        ![](../assets/img/48283197/48220946.png) 
     -   For the confirmation policy - tap you will be prompted to
         confirm as follows  
-        ![](../../assets/img/48283197/51252037.png) 
+        ![](../assets/img/48283197/51252037.png) 
 
 -   -   For the confirmation policy - pin you will be prompted to
         confirm as follows  
-        ![](../../assets/img/48283197/51252038.png) 
+        ![](../assets/img/48283197/51252038.png) 
     -   For the confirmation policy - fingerprint you will be prompted
         to confirm as follows  
-        ![](../../assets/img/48283197/51252039.png) 
+        ![](../assets/img/48283197/51252039.png) 

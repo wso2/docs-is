@@ -27,7 +27,7 @@ the resource owner and the registration of the redirection URI.
 
 The diagram below illustrates the implicit grant flow.
 
-![oauth-implicit-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-implicit-grant-diagram.png)
+![oauth-implicit-grant-diagram](../assets/img/using-wso2-identity-server/oauth-implicit-grant-diagram.png)
 
 
 !!! info "Support for refresh token grant - No"

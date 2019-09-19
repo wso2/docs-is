@@ -48,7 +48,7 @@ disabling. The following section explain how to configure this.
 4.  Expand the **Login Policies** tab.
 5.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![account-lock-enabled](../../assets/img/using-wso2-identity-server/account-lock-enabled.png) 
+    ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png) 
 
     !!! tip
     

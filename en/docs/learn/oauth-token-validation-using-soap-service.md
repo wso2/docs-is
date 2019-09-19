@@ -32,7 +32,7 @@ playground2](../../learn/downloading-a-sample) for OAuth2 can be found
     2.  **WSDL location:** https://localhost:9443/services/OAuth2TokenValidationService?wsdl
 
 4.  Provide the following parameters to call the validate method as seen
-    below. ![oauth-token-validation-request]( ../../assets/img/using-wso2-identity-server/oauth-token-validation-request.png)
+    below. ![oauth-token-validation-request]( ../assets/img/using-wso2-identity-server/oauth-token-validation-request.png)
 
     1.  Since this validation service is an admin service, a valid user
         name and password needs to be provided in order to consume the

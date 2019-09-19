@@ -27,7 +27,7 @@ you can configure a fine-grained access control policy for a service
 provider in WSO2 IS.
 
   
-![fine-grained-access-control-policy](../../assets/img/tutorials/fine-grained-access-control-policy.png)
+![fine-grained-access-control-policy](../assets/img/tutorials/fine-grained-access-control-policy.png)
 
   
 !!! info 
@@ -103,7 +103,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 		get those claim details of the authorized user from the Identity
 		Provider side.
 
-    ![inbound-authentication-protocol](../../assets/img/tutorials/inbound-authentication-protocol.png)
+    ![inbound-authentication-protocol](../assets/img/tutorials/inbound-authentication-protocol.png)
 
 7.  Expand the **Local and Outbound Authentication Configuration**
     section and select the authenticator used to authenticate users in
@@ -116,7 +116,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 
 8.  Select the **Enable Authorization** checkbox and click **Update** to
     finish registering the service provider.  
-    ![enable-authorization](../../assets/img/tutorials/enable-authorization.png)
+    ![enable-authorization](../assets/img/tutorials/enable-authorization.png)
 
 ### Step2: Setting up the policy
 
@@ -142,7 +142,7 @@ our requirement.
 		a Policy
 		Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
-    ![writing-a-xacml-policy-using-a-policy-template](../../assets/img/tutorials/writing-a-xacml-policy-using-a-policy-template.png)
+    ![writing-a-xacml-policy-using-a-policy-template](../assets/img/tutorials/writing-a-xacml-policy-using-a-policy-template.png)
 
 3.  Once you click on **Edit**, the XML based policy will appear in
     the policy editor. There are placeholders in capitals for entering
@@ -214,14 +214,14 @@ our requirement.
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy
     will remain unchanged for later use).  
-    ![created-policy-in-policy-list](../../assets/img/tutorials/created-policy-in-policy-list.png)
+    ![created-policy-in-policy-list](../assets/img/tutorials/created-policy-in-policy-list.png)
 
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-pdp](../../assets/img/tutorials/publish-to-pdp.png)
+    ![publish-to-pdp](../assets/img/tutorials/publish-to-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publishing-a-xacml-policy](../../assets/img/tutorials/publishing-a-xacml-policy.png)
+    ![publishing-a-xacml-policy](../assets/img/tutorials/publishing-a-xacml-policy.png)
 
     !!! note
     
@@ -237,7 +237,7 @@ our requirement.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
       
-    ![check-policy-list](../../assets/img/tutorials/check-policy-list.png)
+    ![check-policy-list](../assets/img/tutorials/check-policy-list.png)
 
 11. To test out whether the policy works, follow the steps in the **Try it out** section below.
 

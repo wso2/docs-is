@@ -12,7 +12,7 @@ is integrated with Office365 using federated identity, which means the
 password or password hash is not synchronized to the Azure AD because
 the user authentication is provided by the on-premise WSO2 IS.
 
-![log-in-to-office365](../../assets/img/tutorials/log-in-to-office365.jpg)
+![log-in-to-office365](../assets/img/tutorials/log-in-to-office365.jpg)
 
 ### Group-based license management
 
@@ -32,7 +32,7 @@ any administration overheads.
 
 The diagram below demonstrates the flow.
 
-![group-based-license-management](../../assets/img/tutorials/group-based-license-management.jpg)
+![group-based-license-management](../assets/img/tutorials/group-based-license-management.jpg)
 
 ### Role-based provisioning
 
