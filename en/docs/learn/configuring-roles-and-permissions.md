@@ -264,10 +264,10 @@ some time.
 
 3.  After the changes have been made, restart the server.
 
--   [Update before the first startup
-    (recommended)](#update-before-the-first-startup-(recommended))
--   [Update after the product is used for sometime (advanced
-    configuration)](#update-after-the-product-is-used-for-sometime-(advancedconfiguration))
+    -   [Update before the first startup
+        (recommended)](#update-before-the-first-startup-recommended)
+    -   [Update after the product is used for sometime (advanced
+        configuration)](#update-after-the-product-is-used-for-sometime-advancedconfiguration)
 
 ### Searching for roles
 
@@ -379,10 +379,7 @@ Services.](../../develop/calling-admin-services)
   
 
 !!! info "Related Links"
-
-    -   See [Role-based
-        Permissions](../../learn/role-based-permissions)
+    -   See [Role-based Permissions](../../administer/role-based-permissions)
         for more information.
-    -   See [Permissions Required to Invoke Admin
-        Services](../../references/permissions-required-to-invoke-admin-services) for a
+    -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a
         complete list of permissions required to invoke admin services.

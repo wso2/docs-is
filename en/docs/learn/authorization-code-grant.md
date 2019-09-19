@@ -25,8 +25,10 @@ The diagram below illustrates the authorization code flow.
 
 ![oauth-authorization-code-grant-diagram](../../assets/img/using-wso2-identity-server/oauth-authorization-code-grant-diagram.png)
 
-**Support for** [**refresh token grant**](../../learn/refresh-token-grant) -
-**Yes**
+
+!!! info "Support for refresh token grant - Yes"
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+
 
 !!! info "Related Topics"
     See the [Try Authorization Code
