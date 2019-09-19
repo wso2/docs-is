@@ -9,13 +9,6 @@ keys used for different use cases are kept unique. The following topics
 explain more details on keystores and truststores, and how they are used
 in WSO2 products.
 
--   [Understanding keystores and
-    truststores](#UsingAsymmetricEncryption-Understandingkeystoresandtruststores)
--   [Usage of keystores in WSO2
-    products](#UsingAsymmetricEncryption-setting-up-keystoresUsageofkeystoresinWSO2products)
--   [Recommendations for setting up keystores in WSO2
-    products](#UsingAsymmetricEncryption-recommendationsRecommendationsforsettingupkeystoresinWSO2products)
-
 ### Understanding keystores and truststores
 
 A keystore is a repository (protected by a password) that holds the keys
@@ -62,7 +55,7 @@ certificates (self-signed or CA-signed) can be effectively used
 depending on the sensitivity of the information that is protected by the
 keys.
 
-I n summary, each trust chain entry in a keystore contains the
+In summary, each trust chain entry in a keystore contains the
 following:
 
 -   A private key protected by a password.
@@ -95,11 +88,11 @@ certificates. These certificates can be either of the following:
     successful SSL connection is established between the WSO2 server and
     the third party.
 
-Default keystore and truststore in WSO2 products
+### Default keystore and truststore in WSO2 products
 
 All WSO2 products are by default shipped with a keystore file
 and truststore file (stored in the
-`         <PRODUCT_HOME>/repository/resources/security/        `
+`         <IS_HOME>/repository/resources/security/        `
 directory):
 
 -   `          wso2carbon.jks         ` : This is the default keystore,
@@ -125,7 +118,6 @@ following purposes:
 -   Encrypting and signing SOAP messages using WS-Security.
 
 !!! note
-    
     The default keystore that is shipped with a WSO2 product (
     `         wso2carbon.jks)        ` is by default configured for all of
     the above purposes. However, in a production environment, it is advised
@@ -145,10 +137,11 @@ Follow the recommendations given below when you set up your keystores.
     communicates with external parties (such SAML, OIDC id\_token
     signing).
 
-    In new versions of WSO2 products, you can have separate keystores
-    for encrypting sensitive information for internal data encryption as
-    a recommended practice. See [Configuring Keystores in WSO2
-    Products](Configuring-Keystores-in-WSO2-Products) for details.
+    !!! info
+        In new versions of WSO2 products, you can have separate keystores
+        for encrypting sensitive information for internal data encryption as
+        a recommended practice. See [Configuring Keystores in WSO2
+        Products](../../administer/configuring-keystores-in-wso2-products) for details.
 
 -   Maintain another secondary keystore, containing the server’s public
     key certificate for authenticating communication over SSL/TLS (for
@@ -190,16 +183,14 @@ Follow the recommendations given below when you set up your keystores.
     generate CA-signed certificates and import them into the keystores .
     It is not recommended to create new keystores for the purpose of
     replacing the certificates in the keystore. See [Adding CA-signed
-    certificates](../../administer/creating-new-keystores-53125463.html#CreatingNewKeystores-ca-certificate)
+    certificates](../../administer/creating-new-keystores#adding-ca-signed-certificates-to-keystores)
     to keystores for instructions.
 
 !!! note
-    
     For information on creating new keystores with the
     required certificates, see [Creating New
     Keystores](../../administer/creating-new-keystores), and for information on how to
     update configuration files in your product with keystore information,
     see [Configuring Keystores in WSO2
-    Products](Configuring-Keystores-in-WSO2-Products)
-    [.](https://docs.wso2.com/display/Carbon443/Creating+New+Keystores)
+    Products](../../administer/configuring-keystores-in-wso2-products).
     
