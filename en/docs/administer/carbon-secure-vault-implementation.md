@@ -29,7 +29,7 @@ follows:
 -   **Secret Repository:** This is used to store the secret values
     (encrypted values). T he `          cipher-text.properties         `
     file, located in the
-    `          <PRODUCT_HOME>/repository/conf/security         ` folder
+    `          <IS_HOME>/repository/conf/security         ` folder
     is the default file based secret repository used by the Secret
     Manager in your Carbon product. Note that, currently, Secure Vault
     only implements file based secret repositories. The Secret
@@ -49,7 +49,7 @@ follows:
     which can be used to resolve encrypted secret values. The keystore
     and Secret Repository are configurable through the
     `          secret-conf.properties         ` file, which is created
-    in the `          <PRODUCT_HOME>/repository/conf/security         `
+    in the `          <IS_HOME>/repository/conf/security         `
     folder when you execute the Cipher Tool.  
 -   **Secret Callback:** This provides the actual password for a given
     alias. There is a SecretManagerSecretCallbackHandler, which is
@@ -109,9 +109,9 @@ encrypted values.
     ```
 
 3.  Create a JAR or an OSGI bundle and copy the JAR file to the
-    `          <PRODUCT_HOME>/repository/component/lib/         `
+    `          <IS_HOME>/repository/component/lib/         `
     directory or the OSGI bundle to the
-    `          <PRODUCT_HOME>/repository/component/dropins/ directory         `
+    `          <IS_HOME>/repository/component/dropins/ directory         `
     .
 
 4.  Configure the `           master-datasources.xml          ` file
@@ -142,12 +142,12 @@ encrypted values.
     ```
 
     Also, replace the secret callback handler class name in
-    `           <PRODUCT_HOME>/repository/conf/security/secret-conf.properties          `
+    `           <IS_HOME>/repository/conf/security/secret-conf.properties          `
     file with your Secret Callback handler class name.
 
-5.  Go to ` <PRODUCT_HOME>/bin  ` and execute ` ./ciphertool.sh -Dconfigure `.
+5.  Go to ` <IS_HOME>/bin  ` and execute ` ./ciphertool.sh -Dconfigure `.
 
-6.  Replace the values of two the properties `  keystore.identity.store.secretProvider and keystore.identity.key.secretProvider ` in `  <PRODUCT_HOME>/   repository/conf/security/secret-conf.properties   ` file with your Secret Callback handler class name.
+6.  Replace the values of two the properties `  keystore.identity.store.secretProvider and keystore.identity.key.secretProvider ` in `  <IS_HOME>/   repository/conf/security/secret-conf.properties   ` file with your Secret Callback handler class name.
 
 7.  Restart the server.
 
@@ -196,13 +196,13 @@ To create a custom secret repository, you need to implement the
 
 3.  Create a JAR or an OSGI bundle.
 
-4.  Then, copy the JAR file to the `               <PRODUCT_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the
-    `               <PRODUCT_HOME>/repository/component/              ` dropins `               /              ` directory .
+4.  Then, copy the JAR file to the `               <IS_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the
+    `               <IS_HOME>/repository/component/              ` dropins `               /              ` directory .
 
 
 5.  Replace the `                   secretRepositories.file.provider                  `
     entry in the
     `                   secret-conf.properties                  ` file
     (stored in the
-    `                   <PRODUCT_HOME>/repository/conf/security/                  `
+    `                   <IS_HOME>/repository/conf/security/                  `
     directory) with your secret repository class name.

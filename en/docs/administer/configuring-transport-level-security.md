@@ -8,7 +8,7 @@ instructions.
 
 The transport-level security protocol of the Tomcat server is configured
 in the
-`         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        `
+`         <IS_HOME>/repository/conf/tomcat/catalina-server.xml        `
 file. By default, "TLS" is configured as the SSL protocol for HTTPS
 communication by setting the sslProtocol="TLS" attribute in the
 `         catalina-server.xml        ` file. Specifying TLS as the SSL
@@ -21,7 +21,7 @@ Note that in some WSO2 products, such as WSO2 Enterprise Integrator (ESB
 profile) and WSO2 API Manager, pass-thru transports are enabled.
 Therefore, to disable SSL in such products, the
 `         axis2.xml        ` file stored in the
-`         <PRODUCT_HOME>/repository/conf/axis2/        `
+`         <IS_HOME>/repository/conf/axis2/        `
 directory should also be configured.
 
 !!! info "Poodle Attack:"
@@ -40,7 +40,7 @@ Follow the steps given below to disable SSL support for the Tomcat
 layer.
 
 1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml         `
+    `          <IS_HOME>/repository/conf/tomcat/catalina-server.xml         `
     file.
 2.  Make a backup of the `          catalina-server.xml         `
     file and stop the product server.
@@ -100,7 +100,7 @@ If you have enabled the PassThrough transport, do the following:
 1.  Stop the server.
 
 2.  Open the
-    `           <PRODUCT_HOME>/repository/conf/axis2/axis2.xml          `
+    `           <IS_HOME>/repository/conf/axis2/axis2.xml          `
     file and add the specified parameter under the
     `           <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">          `
     element as well as under the
@@ -194,7 +194,7 @@ setting a system property.
 4.  Open the product startup script (
     `           wso2server.sh          ` for Linux, or
     `           wso2server.bat          ` for Windows), which is stored
-    in the `           <PRODUCT_HOME>/bin          ` directory.
+    in the `           <IS_HOME>/bin          ` directory.
 
 5.  Add the following system properties to the script:
 
@@ -227,7 +227,7 @@ ciphers by JSSE. This will enable the weak ciphers.
 #### Disabling weak ciphers for the Tomcat transport
 
 1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/tomcat/                     catalina-server.xml          `
+    `          <IS_HOME>/repository/conf/tomcat/                     catalina-server.xml          `
     file.
 2.  Make a backup of the `          catalina-server.xml         `
     file and stop the WSO2 product server.
@@ -276,10 +276,10 @@ ciphers by JSSE. This will enable the weak ciphers.
 Remove any weak ciphers from the PassThrough transport and ensure that
 the server does not accept connections using those weak ciphers. The
 PassThrough transport is configured using the axis2. xml file (stored in
-the `         <PRODUCT_HOME>/repository/conf/axis2/        ` directory).
+the `         <IS_HOME>/repository/conf/axis2/        ` directory).
 
 1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/axis2/                     axis2.xml          `
+    `          <IS_HOME>/repository/conf/axis2/                     axis2.xml          `
     file.
 2.  Make a backup of the `          axis2.xml         ` file and stop
     the WSO2 product server.
@@ -333,7 +333,7 @@ responses. It is recommended to change this by configuring the server
 name in the catalina `         -server.        ` xml file.
 
 1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/tomcat/                     catalina-server.xml          `
+    `          <IS_HOME>/repository/conf/tomcat/                     catalina-server.xml          `
     file.
 2.  Add a new server name using the `           server          `
     property (under the relevant Tomcat connector configuration):

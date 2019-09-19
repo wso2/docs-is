@@ -19,8 +19,8 @@ to create new keystores with new keys and certificates.
 
 !!! note
     Please note that in WSO2 IoT Server and WSO2 Enterprise Integrator the
-    `         <PRODUCT_HOME>/repository/conf        ` directory is in the
-    following location: `         <PRODUCT_HOME>/conf        `
+    `         <IS_HOME>/repository/conf        ` directory is in the
+    following location: `         <IS_HOME>/conf        `
     
 !!! tip   
     If you want an easy way to locate all the configuration files that have
@@ -28,7 +28,7 @@ to create new keystores with new keys and certificates.
     as follows:
     
     1.  Open a command prompt and navigate to the
-        `          <PRODUCT_HOME>/repository/conf/         ` directory where
+        `          <IS_HOME>/repository/conf/         ` directory where
         your product stores all configuration files.
     2.  Execute the following command: `          grep -nr ".jks"         `
         .
@@ -111,7 +111,7 @@ The default configuration is shown below.
 
 Currently, the primary keystore configured by the
 `         <Security>/<KeyStore>        ` element in the
-`         <PRODUCT_HOME>/repository/conf/carbon.xml        ` file is
+`         <IS_HOME>/repository/conf/carbon.xml        ` file is
 used for internal data encryption (encrypting data in internal data
 stores and configuration files) as well as for signing messages that are
 communicated with external parties. However, it is sometimes a common
@@ -135,7 +135,7 @@ data in internal data stores. Follow the instructions given below.
 
 1.  Enable the Crypto Service by adding the following configuration
     block to the
-    `           <PRODUCT_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/carbon.xml          `
     file.
 
     ``` xml
@@ -151,7 +151,7 @@ data in internal data stores. Follow the instructions given below.
 
 2.  Configure the new keystore by adding the following configuration
     block inside the `           <Security>          ` tag in the
-    `           <PRODUCT_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/carbon.xml          `
     file.
 
     !!! note
@@ -171,7 +171,7 @@ data in internal data stores. Follow the instructions given below.
 ### Configuring a secondary keystore (for SSL connections)
 
 The `         catalina-server.xml        ` file stored in the
-`         <PRODUCT_HOME>/repository/conf/tomcat/        ` directory
+`         <IS_HOME>/repository/conf/tomcat/        ` directory
 should be updated with the keystore used for certifying SSL connections
 to Carbon servers. Given below is the default configuration in the
 `         catalina-server.xml        ` file, which points to the default
@@ -225,7 +225,7 @@ The [Java Security Manager](../../administer/enabling-java-security-manager) is 
 for defining various security policies that prevent untrusted code from
 manipulating your system. Enabling the Java Security Manager for WSO2
 products will activate the Java permissions that are in the
-`         <PRODUCT_HOME>/repository/conf/sec.policy        ` file.
+`         <IS_HOME>/repository/conf/sec.policy        ` file.
 Administrators can modify this file to change the Java security
 permissions as required and grant various application-level permissions
 to the signed and trusted code using Java.
