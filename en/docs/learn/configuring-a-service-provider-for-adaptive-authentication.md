@@ -142,7 +142,7 @@ application by setting up inbound authentication.
     ![Adaptive Authentication Templates](../../assets/img/tutorials/adaptive-auth-templates.png)
 7.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
-   ```toml
+   ``` toml
    [[resource.access_control]]
    context = "/sample-auth(.*)"
    secure = false
