@@ -171,7 +171,7 @@ protocol, follow the steps below:
         For more information, see [Creating users and
         roles](../../learn/configuring-users-roles-and-permissions), [Configuring service
         providers](../../learn/adding-and-configuring-a-service-provider), and
-        [Configuring web app for SSO](../../tutorials/configuring-single-sign-on).
+        [Configuring web app for SSO](../../learn/configuring-single-sign-on).
     
 
 2.  Go to the URL

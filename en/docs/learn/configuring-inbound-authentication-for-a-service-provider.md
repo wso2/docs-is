@@ -35,36 +35,36 @@ provider.
     OpenID 2.0 has been removed from the base product in WSO2 Identity
     Server version 5.3.0 onwards as it is now an obsolete specification and
     has been superseded by OpenID Connect. Alternatively, we recommend that
-    you use [OpenID Connect](../../tutorials/oauth2-openid-connect).
+    you use [OpenID Connect](../../learn/oauth2-openid-connect-overview).
 
 You can configure inbound authentication in the following ways:
 
 ### Configuring inbound authentication with SAML2 Web SSO
 
-See [here](../../tutorials/configuring-saml2-web-single-sign-on)
+See [here](../../learn/configuring-saml2-web-single-sign-on)
 for instructions on configuring inbound authentication with SAML2 Web SSO. 
 
 ### Configuring inbound authentication with OAuth/OpenID Connect
 
-See [here](../../tutorials/configuring-oauth2-openid-connect-single-sign-on)
+See [here](../../learn/configuring-oauth2-openid-connect-single-sign-on)
 for instructions on configuring inbound authentication with Oauth/OpenID Comnnect.
 
 ### Configuring inbound authentication with WS-Federation
 
-See [here](../../tutorials/configuring-ws-federation-single-sign-on)
+See [here](../../learn/configuring-ws-federation-single-sign-on)
 for instructions on configuring inbound authentication with WS-Federation.
 
 ### Configuring inbound authentication with WS-Trest Security Token Service
 
-See [here](../../tutorials/configuring-ws-trest-security-token-service)
+See [here](../../learn/configuring-ws-trust-security-token-service)
 for instructions on configuring inbound authentication with ws-trest security token service.
 
 !!! info "Related Topics"
 
-    See [Single Sign-On](../../tutorials/single-sign-on) for details on configuring single
+    See [Single Sign-On](../../learn/single-sign-on) for details on configuring single
     sign-on for service provider using inbound authentication. See the
     following topics for samples of configuring single sign-on:
 
-    -   [Configuring Single Sign-On](../../tutorials/single-sign-on)
+    -   [Configuring Single Sign-On](../../learn/configuring-single-sign-on)
     -   [Logging in to WSO2 Products via the Identity
-        Server](../../tutorials/logging-in-to-wso2-products-via-the-identity-server)
+        Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)

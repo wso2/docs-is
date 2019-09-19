@@ -1,7 +1,7 @@
 # Adding Claim Mapping
 
 You can add new claim mapping to an existing claim dialect (see the
-[Configuring Claim Dialects](../../using-the-identity-server/configuring-claim-dialects) page for
+[Configuring Claim Dialects](../../learn/configuring-claim-dialects) page for
 configuring dialects). You can add either a new local claim, or an
 external claim:
 

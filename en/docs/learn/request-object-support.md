@@ -174,7 +174,7 @@ The Identity Server will respond to the above sample request as follows:
 
 You can try out the sample listed in [Passing OIDC Authentication
 Request Parameters in a Request
-Object](../../tutorials/passing-oidc-authentication-request-parameters-in-a-request-object)
+Object](../../learn/passing-oidc-authentication-request-parameters-in-a-request-object)
 page to see how request objects work in IS.
 
 ##### Signature Validation

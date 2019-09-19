@@ -25,7 +25,7 @@ tutorial.
 
 7. Enter the SAML 2.0 SSO service URL of the relying party as the
 commonauth endpoint .  
-The endpoint for WSO2 IS is https://localhost:9443/commonauth.
+The endpoint for WSO2 IS is `https://localhost:9443/commonauth`.
 
 8. Enter a value for the **relying party trust identifier** and click
 **Next**.  
@@ -106,7 +106,7 @@ tutorial.
 	g.  Select SAML Logout as the value for the **Endpoint Type** and the
     Binding as the value **POST**.
 
-	h.  Set the Trusted URL as https://\<AD\_FS\_server\>/adfs/ls and the
+	h.  Set the Trusted URL as `https://<AD_FS_server>/adfs/ls` and the
     Response URL as the `            /commonauth           ` endpoint of
     WSO2 IS.
 
@@ -157,15 +157,15 @@ Identity Provider (IdP).
     b.  Identity Provider Entity Id: This can be found in
         FederationMetadata.xml under entityID attribute. The
         FederationMetadata.xml can be accessed through
-        https://\<AD\_FS\_server\>/FederationMetadata/2007-06/
-        FederationMetadata.xml . The Entity ID is usually in the form
-        `            http://<AD_FS_server>/adfs/services/trust           `
+        `https://<AD_FS_server>/FederationMetadata/2007-06/FederationMetadata.xml`. The Entity ID is usually in the 
+        form
+        `http://<AD_FS_server>/adfs/services/trust`
         
     c.  Service Provider Entity Id should be same as what’s given in AD
         FS RP trust identifier. **eg:wso2-is**
         
     d.  SSO URL should be in the form of
-        http://\<AD\_FS\_server\>/adfs/ls.
+        `http://<AD_FS_server>/adfs/ls`.
         
     e.  Check Enable Logout.
     

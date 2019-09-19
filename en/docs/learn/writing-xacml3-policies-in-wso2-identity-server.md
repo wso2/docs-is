@@ -20,23 +20,23 @@ Identity Server.
 For detailed information, please visit the following pages:
 
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    1](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-1)
+    1](../../learn/writing-xacml-3-policies-in-wso2-identity-server-1)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    2](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-2)
+    2](../../learn/writing-xacml-3-policies-in-wso2-identity-server-2)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    3](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-3)
+    3](../../learn/writing-xacml-3-policies-in-wso2-identity-server-3)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    4](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-4)
+    4](../../learn/writing-xacml-3-policies-in-wso2-identity-server-4)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    5](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-5)
+    5](../../learn/writing-xacml-3-policies-in-wso2-identity-server-5)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    6](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-6)
+    6](../../learn/writing-xacml-3-policies-in-wso2-identity-server-6)
 -   [Writing XACML 3 Policies in WSO2 Identity Server -
-    7](../../tutorials/writing-xacml-3-policies-in-wso2-identity-server-7)
+    7](../../learn/writing-xacml-3-policies-in-wso2-identity-server-7)
 
   
 
 Now you can easily write an XACML policy using the policy editors
 available in WSO2 Identity Server. You can try these sample policies in
 our editors, for that Please follow [Creating an XACML
-Policy](../../tutorials/creating-a-xacml-policy).
+Policy](../../learn/creating-a-xacml-policy).
