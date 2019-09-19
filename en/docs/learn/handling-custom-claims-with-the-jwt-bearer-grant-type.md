@@ -303,14 +303,14 @@ with the JWT bearer grant type when the
 -   1.  Map the
         `                         http://wso2.org/claims/country                       `
         local claim to `            customclaim           ` in the OIDC
-        dialect. ![custom-claim-country](../../assets/img/using-wso2-identity-server/custom-claim-country.png) 
+        dialect. ![custom-claim-country](../assets/img/using-wso2-identity-server/custom-claim-country.png) 
     2.  Add the `            customclaim           ` to the openid
         scope.  
-        ![oidc-custom-claim-scope]( ../../assets/img/using-wso2-identity-server/oidc-custom-claim-scope.png) 
+        ![oidc-custom-claim-scope]( ../assets/img/using-wso2-identity-server/oidc-custom-claim-scope.png) 
     3.  Add the following identity provider mapping.  
-        ![claim-config-custom-claims]( ../../assets/img/using-wso2-identity-server/claim-config-custom-claims.png) 
+        ![claim-config-custom-claims]( ../assets/img/using-wso2-identity-server/claim-config-custom-claims.png) 
     4.  Add following service provider requested claim.  
-        ![claim-config2-custom-claims]( ../../assets/img/using-wso2-identity-server/claim-config2-custom-claims.png)
+        ![claim-config2-custom-claims]( ../assets/img/using-wso2-identity-server/claim-config2-custom-claims.png)
 
 Then you will see the following payload when you use a JWT decoder and
 decode the JWT token:

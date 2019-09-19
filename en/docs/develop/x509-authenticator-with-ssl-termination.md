@@ -203,7 +203,7 @@ in order to configure X509 Authenticator.
         Valve name = <Valve className=”org.wso2.carbon.extension.identity.x509Certificate.valve.X509CertificateAuthenticationValve”/>
     ```
 
-    ![](../../assets/img/119111969/119112177.png) 
+    ![](../assets/img/119111969/119112177.png) 
 
 6.  Configure in `           identity.xml          ` file in
     /repository/conf/identity by adding the value of the certificate

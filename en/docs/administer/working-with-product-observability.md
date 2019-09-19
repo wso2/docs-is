@@ -7,7 +7,7 @@ down any latencies caused by database calls in an instance. The request
 calls and response calls are correlated via a correlation ID that is
 sent in the request call.
 
-![Correleation ID](../../assets/img/using-wso2-identity-server/correlation-id.png) 
+![Correleation ID](../assets/img/using-wso2-identity-server/correlation-id.png) 
 
 !!! note    
     By default, product observability is not enabled as it impacts on the
@@ -96,7 +96,7 @@ Follow the steps below to enable product observability.
     Notice that a separate log file called
     `           correlation.log          ` is created.
 
-    ![Correlation.log](../../assets/img/using-wso2-identity-server/correlation-log.png) 
+    ![Correlation.log](../assets/img/using-wso2-identity-server/correlation-log.png) 
 
 Now you are ready to test the product observability of WSO2 IS.
 
@@ -287,7 +287,7 @@ configuration.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![Correlatino log screenshot](../../assets/img/using-wso2-identity-server/correleation-log-screenshot.png)
+    ![Correlatino log screenshot](../assets/img/using-wso2-identity-server/correleation-log-screenshot.png)
 
 #### Multiple header configs
 
@@ -345,4 +345,4 @@ headers.
     tail -f ../repository/logs/correlation.log
     ```
 
-    ![Correlation log screenshot](../../assets/img/using-wso2-identity-server/correlation-log-screenshot-2.png)
+    ![Correlation log screenshot](../assets/img/using-wso2-identity-server/correlation-log-screenshot-2.png)

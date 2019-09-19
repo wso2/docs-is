@@ -136,7 +136,7 @@ To obtain and configure the Playground sample, follow the steps below.
     playground application.  
     You are directed to the landing page of the sample application.
     Click on **Import Photos** and the following page appears.  
-    ![import-photos](../../assets/img/using-wso2-identity-server/import-photos.png) 
+    ![import-photos](../assets/img/using-wso2-identity-server/import-photos.png) 
 
 !!! note
     

@@ -25,7 +25,7 @@ password. Follow the steps below to configure the count.
         Tenant B credentials to configure a different policy for Tenant B.
     
       
-    ![password-history-validation](../../assets/img/using-wso2-identity-server/password-history-validation.png) 
+    ![password-history-validation](../assets/img/using-wso2-identity-server/password-history-validation.png) 
 
 !!! info "Related Links"
 

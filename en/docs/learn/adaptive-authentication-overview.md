@@ -7,7 +7,7 @@ are used for validation can depend on the risk probability associated
 with the particular user access request. This enables adjusting the
 authentication strength based on the context at hand.
 
-![](../../assets/img/tutorials/adaptive-authentication-overview-diagram.png)
+![](../assets/img/tutorials/adaptive-authentication-overview-diagram.png)
 
 WSO2 Identity Server (WSO2 IS) supports script-based adaptive
 authentication, which allows you to use a script to set up appropriate

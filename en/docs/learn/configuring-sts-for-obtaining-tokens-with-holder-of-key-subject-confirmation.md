@@ -19,7 +19,7 @@ Holder-Of-Key subject confirmation (Symmetric Key).
         **Add** in the **Main** menu under **Service Providers**.
     2.  Add a **Service Provider Name** and **Description** and click
         **Register**.  
-        ![add-new-service-provider](../../assets/img/tutorials/add-new-service-provider.png)
+        ![add-new-service-provider](../assets/img/tutorials/add-new-service-provider.png)
     3.  In the resulting page, expand the **Inbound Authentication
         Configuration** and the **WS-Trust Security Token Service
         Configuration** sections.
@@ -37,7 +37,7 @@ Holder-Of-Key subject confirmation (Symmetric Key).
         token.  
         Example: Enter the endpoint address of the service that you are
         running.  
-        ![configure-sts](../../assets/img/tutorials/configure-sts.png)
+        ![configure-sts](../assets/img/tutorials/configure-sts.png)
 
     6.  Click **Apply**.
 

@@ -39,15 +39,15 @@ REST API works via XACML.
     **Policy Administration** under PAP. You are directed to a page
     with sample policies.
 3.  Click Add New Entitlement Policy.  
-    ![new-entitlement](../../assets/img/tutorials/new-entitlement.png)
+    ![new-entitlement](../assets/img/tutorials/new-entitlement.png)
     
 4.  Select **Import Existing Policy** from the available policy creation
     methods.
-    ![import-existing-policy](../../assets/img/tutorials/import-existing-policy.png) 
+    ![import-existing-policy](../assets/img/tutorials/import-existing-policy.png) 
    
 5.  In the Import New Entitlement Policy page, choose the policy file
     and click Upload.
-    ![import-new-entitlement](../../assets/img/tutorials/import-new-entitlement.png)
+    ![import-new-entitlement](../assets/img/tutorials/import-new-entitlement.png)
     
     ??? note "Click to see a sample policy XML"	
 		``` java
@@ -68,18 +68,18 @@ REST API works via XACML.
 
 6.  The uploaded policy is listed in Policy Administration page. Select
     the policy and click **Publish To My PDP** button.  
-    ![publish-to-my-pdp-xacml](../../assets/img/tutorials/publish-to-my-pdp-xacml.png)
+    ![publish-to-my-pdp-xacml](../assets/img/tutorials/publish-to-my-pdp-xacml.png)
     
 7.  In the Publish Policy page, click Publish.
 
 8.  Click **Yes** to confirm publishing to PDP.  
-    ![confirm-publishing-to-pdp](../../assets/img/tutorials/confirm-publishing-to-pdp.png)
+    ![confirm-publishing-to-pdp](../assets/img/tutorials/confirm-publishing-to-pdp.png)
     
 9.  Click **Policy View** under PDP.  
-    ![policy-view-under-pdp](../../assets/img/tutorials/policy-view-under-pdp.png)
+    ![policy-view-under-pdp](../assets/img/tutorials/policy-view-under-pdp.png)
     
     The **PDP Policy View** lists the published policy.  
-    ![published-policy](../../assets/img/tutorials/published-policy.png)
+    ![published-policy](../assets/img/tutorials/published-policy.png)
 
 ### Test how REST API works via XACML
 
@@ -96,7 +96,7 @@ to accomplish this. First you need to install the Postman plugin.
     the **Authorization** tab, for **Type** select 'Basic Auth',
     and provide admin/admin as user ID and password. Then click **Update
     Request**.  
-    ![http-get-method](../../assets/img/tutorials/http-get-method.png)
+    ![http-get-method](../assets/img/tutorials/http-get-method.png)
     
 2.  In the **Headers** tab, provide the values as below, and click
     **Send.**
@@ -106,15 +106,15 @@ to accomplish this. First you need to install the Postman plugin.
 	-   Content-Type : application/json or application/xml
 	-   Accept : application/json or application/xml
 
-	![headers-tab-values](../../assets/img/tutorials/headers-tab-values.png)
+	![headers-tab-values](../assets/img/tutorials/headers-tab-values.png)
 
 	The JSON response you get is similar to the following:
 
-	![json-response](../../assets/img/tutorials/json-response.png)
+	![json-response](../assets/img/tutorials/json-response.png)
 
 	The XML response you get is similar to the following:
 
-	![xml-response](../../assets/img/tutorials/xml-response.png)
+	![xml-response](../assets/img/tutorials/xml-response.png)
 
 ##### To evaluate the XACML request
 
@@ -123,7 +123,7 @@ to accomplish this. First you need to install the Postman plugin.
 2.  In the **Authorization** tab, for **Type**, select **Basic Auth**,
     and provide admin/admin as the **Username** and **Password**. Click
     **Update Request**.  
-    ![update-request](../../assets/img/tutorials/update-request.png)
+    ![update-request](../assets/img/tutorials/update-request.png)
     
 3.  In the **Headers** tab, provide the values as indicated below:
 
@@ -132,7 +132,7 @@ to accomplish this. First you need to install the Postman plugin.
     -   Content-Type : application/json or application/xml
     -   Accept : application/json or application/xml
 	
-	![update-request](../../assets/img/tutorials/update-request.png)
+	![update-request](../assets/img/tutorials/update-request.png)
       
     In the body tab, copy and paste the following code and click
     **Send.**  
@@ -164,7 +164,7 @@ to accomplish this. First you need to install the Postman plugin.
 
     The JSON response you get is similar to the following:
 
-    ![json-response-header-request](../../assets/img/tutorials/json-response-header-request.png)  
+    ![json-response-header-request](../assets/img/tutorials/json-response-header-request.png)  
     
     If you are using XML, copy the following XML code, paste it in the body, and click **Send**.
 
@@ -184,7 +184,7 @@ to accomplish this. First you need to install the Postman plugin.
     ```
 
     The XML response is similar to the following:  
-    ![xml-response-header-tab](../../assets/img/tutorials/xml-response-header-tab.png)
+    ![xml-response-header-tab](../assets/img/tutorials/xml-response-header-tab.png)
 
 !!! note "For Tenant Users"
     

@@ -51,7 +51,7 @@ below is how to discover them using the
 
 5.  The list of admin services of your product are listed. For
     example:  
-    ![Admin services list](../../assets/img/using-wso2-identity-server/admin-services-list.png) 
+    ![Admin services list](../assets/img/using-wso2-identity-server/admin-services-list.png) 
 
 **Things to note!**
 

@@ -107,7 +107,7 @@ Follow the steps given below:
          </tbody>
          </table>
 
-         ![google-prrovisioning-config](../../assets/img/using-wso2-identity-server/google-prrovisioning-config.png) 
+         ![google-prrovisioning-config](../assets/img/using-wso2-identity-server/google-prrovisioning-config.png) 
 
     For this scenario your are configuring Google but if you prefer you
     can use Salesforce, SCIM or SPML too.
@@ -125,7 +125,7 @@ Follow the steps given below:
 8.  Click on the **+** button and add **wso2IDP**,  then select the
     ****Enable Rules**** in order to enable rules during provisioning.
     Click **Update** to save.  
-    ![enable-rules](../../assets/img/using-wso2-identity-server/enable-rules.png)  
+    ![enable-rules](../assets/img/using-wso2-identity-server/enable-rules.png)  
     If you wish to configure outbound provisioning under Resident
     Service Provider configurations, Click **Resident** under **Service
     Providers** and expand the **Outbound Provisioning Configuration**
@@ -134,7 +134,7 @@ Follow the steps given below:
     creation in the second IDP) till the rule completely evaluate and
     get the response back to the WSO2 IDP.
 
-    ![expand-outbound-provisioning-config](../../assets/img/using-wso2-identity-server/expand-outbound-provisioning-config.png)
+    ![expand-outbound-provisioning-config](../assets/img/using-wso2-identity-server/expand-outbound-provisioning-config.png)
 
 Now you are done with configuring outbound provisioning. Since we are
 enabling rules here, we have to enforce some XACML rules. To do that,
@@ -157,7 +157,7 @@ the policy according to our requirement.
          a Policy
          Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
-    ![xacml-policy-templates](../../assets/img/using-wso2-identity-server/xacml-policy-templates.png) 
+    ![xacml-policy-templates](../assets/img/using-wso2-identity-server/xacml-policy-templates.png) 
 
 3.  Once you click **Edit**, the XML based policy will appear in the
     policy editor. There are placeholders in capitals for entering the
@@ -264,14 +264,14 @@ the policy according to our requirement.
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy
     will remain unchanged for later use).  
-    ![save-created-policy](../../assets/img/using-wso2-identity-server/save-created-policy.png) 
+    ![save-created-policy](../assets/img/using-wso2-identity-server/save-created-policy.png) 
 
 7.  Click on the **Publish to My PDP** link corresponding to the new
     policy.  
-    ![publish-to-my-pdp](../../assets/img/using-wso2-identity-server/publish-to-my-pdp.png)
+    ![publish-to-my-pdp](../assets/img/using-wso2-identity-server/publish-to-my-pdp.png)
 8.  On the UI that appears, leave the default selected values as they
     are and click **Publish**.  
-    ![publish-policy](../../assets/img/using-wso2-identity-server/publish-policy.png)
+    ![publish-policy](../assets/img/using-wso2-identity-server/publish-policy.png)
 
 !!! note
     For more information on Publishing an XACML policy, click
@@ -282,7 +282,7 @@ the policy according to our requirement.
 10. To ensure that the policy has been published successfully, check if
     the policy is listed.  
       
-    ![policy-view](../../assets/img/using-wso2-identity-server/policy-view.png)
+    ![policy-view](../assets/img/using-wso2-identity-server/policy-view.png)
 11. To test out whether the policy works, follow the **Step3: Try it
     out** section.
 

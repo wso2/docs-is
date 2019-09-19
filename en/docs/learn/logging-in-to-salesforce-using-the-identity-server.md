@@ -178,7 +178,7 @@ Server credentials.
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username admin and password admin was considered the super administrator. The super administrator user cannot be deleted.</p>
 			<p>After this configuration, the user having the username admin@wso2.com is considered the super administrator. The user having the username admin is considered as a normal administrator.</p>
-			<img src="../../assets/img/tutorials/realm-config.png"
+			<img src="../assets/img/tutorials/realm-config.png"
 			</div>
 			<div class="admonition tip">
 			<p class="admonition-title">Tip</p>
@@ -245,10 +245,10 @@ Let's get started!
         ??? note "Click here to find the steps on how to switch from the classic to the lightning theme."
 			1.  Click your username to expand the drop down.
 			2.  Click **Switch to Lightning Experience**.  
-				![switch-to-lightening-experience](../../assets/img/tutorials/switch-to-lightening-experience.png)
+				![switch-to-lightening-experience](../assets/img/tutorials/switch-to-lightening-experience.png)
 			3.  Click the settings icon on the top-right-hand corner, and click
 				**Set Up**.  
-				![switch-from-classic](../../assets/img/tutorials/switch-from-classic.png)
+				![switch-from-classic](../assets/img/tutorials/switch-from-classic.png)
 	
 			Now you are navigated to the lightening theme of Salesforce.
     
@@ -259,7 +259,7 @@ Let's get started!
     this, do the following steps.  
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        ![my-domain](../../assets/img/tutorials/my-domain.png)
+        ![my-domain](../assets/img/tutorials/my-domain.png)
     2.  Click **My Domain**.
     3.  In the page that appears, come up with a name for your domain.
         You can check if the domain is available by clicking the **Check
@@ -269,7 +269,7 @@ Let's get started!
 			For the page given below to load on your browser, make sure that
 			the Salesforce cookies are not blocked.
 
-        ![sales-force-cookies](../../assets/img/tutorials/sales-force-cookies.png)
+        ![sales-force-cookies](../assets/img/tutorials/sales-force-cookies.png)
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -283,13 +283,13 @@ Let's get started!
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** check box to enable federated single sign-on using SAML.  
-    ![saml-enabled](../../assets/img/tutorials/saml-enabled.png)
+    ![saml-enabled](../assets/img/tutorials/saml-enabled.png)
     
 7.  Click **Save** to save this configuration change.
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting](../../assets/img/tutorials/saml-sso-setting.png)
+    ![saml-sso-setting](../assets/img/tutorials/saml-sso-setting.png)
     
     Ensure that you configure the following properties.
 
@@ -391,7 +391,7 @@ Let's get started!
     
 12. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
-    ![authentication-service-sso](../../assets/img/tutorials/authentication-service-sso.png)
+    ![authentication-service-sso](../assets/img/tutorials/authentication-service-sso.png)
     
 13. Click **Save**.
 
@@ -413,7 +413,7 @@ provider in WSO2 IS.
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    ![service-provider-name](../../assets/img/tutorials/service-provider-name.png)
+    ![service-provider-name](../assets/img/tutorials/service-provider-name.png)
     
 4.  Click **Register**.
 
@@ -452,8 +452,8 @@ provider in WSO2 IS.
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a> .</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
+    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../assets/img/tutorials/Click-sso-setting-name.png" /></li>
+    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
     </ol>
     </td>
     <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong> . In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>
@@ -537,11 +537,11 @@ Salesforce and the Identity Server.
 			
 		5.  Click on the name of the Single Sign-On Setting you created. In
 			this use case click **SSO**.  
-			![single-sign-on-setting](../../assets/img/tutorials/single-sign-on-setting.png)
+			![single-sign-on-setting](../assets/img/tutorials/single-sign-on-setting.png)
 			
 		6.  Copy the URL that is defined for Login URL to access
 			Salesforce.  
-			![login-url-for-salesforce](../../assets/img/tutorials/login-url-for-salesforce.png)
+			![login-url-for-salesforce](../assets/img/tutorials/login-url-for-salesforce.png)
 
 4.  Log in using the new credentials of the user you just created. You
     are then redirected back to Salesforce.

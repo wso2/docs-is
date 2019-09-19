@@ -24,14 +24,14 @@ HTTP Redirect response.
     
     The format of a SAML artifact is shown below:
     
-    ![artifact-format](../../assets/img/tutorials/artifact-format.png)
+    ![artifact-format](../assets/img/tutorials/artifact-format.png)
     
 artifact resolution service using the synchronous SOAP binding to obtain
 the SAML message that corresponds to the artifact.
 
 Following diagram shows the process of the SAML artifact binding:
 
-![artifact-binding](../../assets/img/tutorials/artifact-binding.png)
+![artifact-binding](../assets/img/tutorials/artifact-binding.png)
 
 ##### Configuring identity provider UI for client-side SAML artifact binding
 
@@ -40,7 +40,7 @@ Following diagram shows the process of the SAML artifact binding:
 3.  Click Add and give a name for Identity Provider Name.
 4.  Click Federated Authenticators.
 5.  Click SAML Web SSO configuration and configure as follows:  
-    ![saml-web-sso-config](../../assets/img/tutorials/saml-web-sso-config.png)
+    ![saml-web-sso-config](../assets/img/tutorials/saml-web-sso-config.png)
     The table below gives descriptions about each of the above
     configuration parameters:
 

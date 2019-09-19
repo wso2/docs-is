@@ -20,7 +20,7 @@ Below diagram illustrates the request/response flow with respect to this
 sample use case where WSO2 Identity Server acts as the Authorization
 Server and as well as the Resource Server.
 
-![request-response-flow](../../assets/img/using-wso2-identity-server/request-response-flow.png) 
+![request-response-flow](../assets/img/using-wso2-identity-server/request-response-flow.png) 
 
 ### Configure OAuth/OpenID and SAML SSO
 
@@ -69,7 +69,7 @@ Server and as well as the Resource Server.
         **Recipient** :
         `                           https://localhost:9443/oauth2/token?tenantDomain=wso2.com                         `
 
-    ![enable-audience-restriction](../../assets/img/using-wso2-identity-server/enable-audience-restriction.png) 
+    ![enable-audience-restriction](../assets/img/using-wso2-identity-server/enable-audience-restriction.png) 
 
 4.  Open the `           travelocity.properties          ` file found in
     the
@@ -129,16 +129,16 @@ Server and as well as the Resource Server.
     `                     http://wso2is.local:8080/travelocity.com                   `
     .  
     You are directed to the following page.  
-    ![running-travelocity](../../assets/img/using-wso2-identity-server/running-travelocity.png) 
+    ![running-travelocity](../assets/img/using-wso2-identity-server/running-travelocity.png) 
 2.  Click **Click here to login with SAML from Identity Server (Post
     binding or Redirect Binding)**. You are redirected to the Identity
     Server for authentication.
 3.  Enter the username and password and click **SIGN IN**.  
-    ![travelocity-sign-in](../../assets/img/using-wso2-identity-server/travelocity-sign-in.png) 
+    ![travelocity-sign-in](../assets/img/using-wso2-identity-server/travelocity-sign-in.png) 
 4.  Click **Request OAuth2 Access Token** to receive the access token.  
-    ![request-oauth2-access-token](../../assets/img/using-wso2-identity-server/request-oauth2-access-token.png)   
+    ![request-oauth2-access-token](../assets/img/using-wso2-identity-server/request-oauth2-access-token.png)   
 5.  You'll receive an access token as shown below:  
-    ![oauth2-token-details](../../assets/img/using-wso2-identity-server/oauth2-token-details.png) 
+    ![oauth2-token-details](../assets/img/using-wso2-identity-server/oauth2-token-details.png) 
 6.  Now, you can use the introspection endpoint of the Identity Server
     to get the token information.
 

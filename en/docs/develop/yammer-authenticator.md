@@ -5,7 +5,7 @@ WSO2 Identity Server to authenticate Yammer users to log in to your
 organization’s applications. The diagram below illustrates the flow of
 the Yammer federated authenticator.
 
-![](../../assets/img/48290727/76746158.png) 
+![](../assets/img/48290727/76746158.png) 
 
 This page provides instructions on how to configure the Yammer
 authenticator and WSO2 Identity Server using a sample app. You can find
@@ -37,9 +37,9 @@ more information in the following sections.
     using your account credentials.
 2.  Register a new application in
     <https://www.yammer.com/client_applications> .  
-    ![](../../assets/img/48290733/48220784.png) 
+    ![](../assets/img/48290733/48220784.png) 
 3.  Fill in the form provided to add your application.  
-    ![](../../assets/img/48290733/48220783.png)   
+    ![](../assets/img/48290733/48220783.png)   
     Fill in the following required fields and click **Continue** :
     -   **Application name** : The name of your application
     -   **Organization** : The organization that the app represents.
@@ -53,7 +53,7 @@ more information in the following sections.
 4.  Obtain the `           Client ID          ` and the
     `           Client Secret          ` that were generated for your
     application via the App Dashboard.  
-    ![](../../assets/img/48290733/76747751.png)   
+    ![](../assets/img/48290733/76747751.png)   
       
 
 ### Deploying [travelocity.com](http://travelocity.com) sample app
@@ -83,7 +83,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 3.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
     1.  Give a suitable name for **Identity Provider Name**.  
-        ![](../../assets/img/48290733/76747696.png) 
+        ![](../assets/img/48290733/76747696.png) 
 4.  Next, navigate to the **Federated Authenticators \> Yammer
     Configuration**.
 
@@ -99,7 +99,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 | **Client Secret** | This is the `              client secret             ` that wasgenerated for the application you registered via Yammer. | `              AV0acZHX1fPhJdk5VhTdCW6utt0hP7FHxOb72Gznqo             `                                                    |
 | **Callback URL**  | This is the service provider's URL to which the code is sent to.                                                        | `                                             https://localhost:9443/commonauth                                          ` |
 
-![](../../assets/img/48290733/76747701.png) 
+![](../assets/img/48290733/76747701.png) 
 
 You have now added the identity provider.
 
@@ -138,7 +138,7 @@ The next step is to configure the service provider.
 
     4.  Click **Register** to save the changes.
 
-        ![](../../assets/img/48290733/103332432.png)
+        ![](../assets/img/48290733/103332432.png)
 
     5.  Now you will be sent back to the **Service Providers** page.
 
@@ -162,10 +162,10 @@ You have now added and configured the service provider.
 2.  Click “Login with SAML” to log in with SAML from the WSO2 Identity
     Server.
 
-    ![](../../assets/img/48290733/76747730.png)  
+    ![](../assets/img/48290733/76747730.png)  
 
 3.  Enter your Yammer credentials in the prompted login page to login.
     Once you log in successfully you will be taken to the home page of
     the [travelocity.com](http://travelocity.com) app.
 
-    ![](../../assets/img/48290733/76747748.png) 
+    ![](../assets/img/48290733/76747748.png) 

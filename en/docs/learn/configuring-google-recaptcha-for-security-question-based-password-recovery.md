@@ -27,7 +27,7 @@ attacks.
     **Account Recovery** tab.
 5.  Select **Enable reCaptcha for Security Question Based Password
     Recovery** to enable reCaptcha for account recovery.  
-    ![recaptcha-for-account-recovery](../../assets/img/using-wso2-identity-server/recaptcha-for-account-recovery.png) 
+    ![recaptcha-for-account-recovery](../assets/img/using-wso2-identity-server/recaptcha-for-account-recovery.png) 
 
 6.  Enable account locking and Configure the **Max Failed Attempts for
     ReCaptcha**.
@@ -37,7 +37,7 @@ attacks.
         **Note:** This value should be less than the number of failed
         attempts configured in the account locking connector.
     
-        ![max-failed-attempts-for-recaptcha](../../assets/img/using-wso2-identity-server/max-failed-attempts-for-recaptcha.png)
+        ![max-failed-attempts-for-recaptcha](../assets/img/using-wso2-identity-server/max-failed-attempts-for-recaptcha.png)
     
 
 7.  You have now successfully configured reCaptcha for the password
@@ -47,4 +47,4 @@ attacks.
     Attempts for ReCaptcha** was configured as 2 above, if the user
     answers a question incorrectly twice, the reCaptcha will be prompted
     as seen in the window below.  
-    ![error-max-failed-attempts](../../assets/img/using-wso2-identity-server/error-max-failed-attempts.png)
+    ![error-max-failed-attempts](../assets/img/using-wso2-identity-server/error-max-failed-attempts.png)

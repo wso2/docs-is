@@ -13,7 +13,7 @@ and adopt OAuth 2.0.
 
 The following section describes the flow involved in exchanging a
 Kerberos ticket for an OAuth2 token.  
-![oauth-kerberos-diagram](../../assets/img/using-wso2-identity-server/oauth-kerberos-diagram.png)
+![oauth-kerberos-diagram](../assets/img/using-wso2-identity-server/oauth-kerberos-diagram.png)
 
 1.  The Kerberos client requests the Kerberos Service Ticket from the
     Kerberos Key Distribution Center (KDC) to invoke the service.  
@@ -105,10 +105,10 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
             2.  Fill in the form that appears. For the **Allowed Grant
                 Types** you can disable the ones you do not require or wish
                 to block. Select the **kerberos** grant type as an allowed grant type.
-                ![register-new-oauth-app](../../assets/img/using-wso2-identity-server/register-new-oauth-app.png)
+                ![register-new-oauth-app](../assets/img/using-wso2-identity-server/register-new-oauth-app.png)
             3.  Click **Add**. The following information is added to your
                 service provider.
-                ![oauth-sp-clientid-clientsecret](../../assets/img/using-wso2-identity-server/oauth-sp-clientid-clientsecret.png)
+                ![oauth-sp-clientid-clientsecret](../assets/img/using-wso2-identity-server/oauth-sp-clientid-clientsecret.png)
                 -   **OAuth Client Key** - This is the client key of the
                     service provider, which will be checked for
                     authentication by the Identity Server before providing
@@ -155,7 +155,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
         -   **Alias** : <https://192.168.53.12:9443/oauth/token>
 
-        ![add-new-idp](../../assets/img/using-wso2-identity-server/add-new-idp.png)
+        ![add-new-idp](../assets/img/using-wso2-identity-server/add-new-idp.png)
 
     3.  Expand the **Federated Authenticators** tab, and then the **IWA
         Kerberos Configuration** tab. Enter the required details as
@@ -164,7 +164,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
             <HTTP/idp.example.com@EXAMPLE.COM>
         -   **Server Principal Password:** <password\>
 
-        ![configure-kerberos](../../assets/img/using-wso2-identity-server/configure-kerberos.png)
+        ![configure-kerberos](../assets/img/using-wso2-identity-server/configure-kerberos.png)
         
         <a name="step6"></a>
 6.  Generate the kerberos token.

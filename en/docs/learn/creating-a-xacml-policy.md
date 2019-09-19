@@ -35,13 +35,13 @@ management console of WSO2 Identity Server.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  Click **Add New Entitlement Policy**.  
-    ![new-entitlement-policy](../../assets/img/tutorials/new-entitlement-policy.png)
+    ![new-entitlement-policy](../assets/img/tutorials/new-entitlement-policy.png)
 
 The **Add New Policy** page appears which gives the 6 ways of writing an
 XACML 3.0 policy. You can select one out of the six methods mentioned below to create the
 policy using UI according to your preference.
 
-![add-new-policy](../../assets/img/tutorials/add-new-policy.png)
+![add-new-policy](../assets/img/tutorials/add-new-policy.png)
 
 #### **Simple Policy Editor**
 
@@ -52,7 +52,7 @@ policy using UI according to your preference.
     control rules.  
       
 
-![create-xacml-policy](../../assets/img/tutorials/create-xacml-policy.png)
+![create-xacml-policy](../assets/img/tutorials/create-xacml-policy.png)
 
 This editor is based on four categories which we are mostly talking
 about access control rules. i.e User, Resource, Action, and Environment
@@ -136,10 +136,10 @@ You can build the above-mentioned policy example using Simple Policy
 Editor as shown below. Here, "foo" can be the main resource and the
 other resource “foo/wso2″ can be the child resource. If you have further
 resources to evaluate you can add them as child resources by clicking on the
-![simple-policy-editor-child-resource](../../assets/img/tutorials/simple-policy-editor-child-resource.png) the icon and create separate
+![simple-policy-editor-child-resource](../assets/img/tutorials/simple-policy-editor-child-resource.png) the icon and create separate
 rules.
 
-![sample-policy-editor](../../assets/img/tutorials/sample-policy-editor.png)
+![sample-policy-editor](../assets/img/tutorials/sample-policy-editor.png)
 
 #### Basic Policy Editor
 
@@ -158,7 +158,7 @@ rules.
     respectively. There are extension points that you can use to extend
     and bring more attribute values on to the policy editor UI.
     
-![xacml-basic-policy](../../assets/img/tutorials/xacml-basic-policy.png)
+![xacml-basic-policy](../assets/img/tutorials/xacml-basic-policy.png)
 
 !!! Info
 	In the Basic Editor, you can see the following,
@@ -196,13 +196,13 @@ Let's implement this sample policy using Basic Policy Editor,
 
 **Step1:** Define a name for the policy.
 
-![edit-xacml-policy](../../assets/img/tutorials/edit-xacml-policy.png)
+![edit-xacml-policy](../assets/img/tutorials/edit-xacml-policy.png)
 
 **Step 2:** This is similar to defining the policy target element.
 Configure it such as **“policy is applied for resource attribute value
 /patient//\*  with reg-ex match”**.
 
-![basic-policy-resource-names](../../assets/img/tutorials/basic-policy-resource-names.png)
+![basic-policy-resource-names](../assets/img/tutorials/basic-policy-resource-names.png)
 
 **Step 3:** Define the 1st rule. The rule is “Users can only access
 patient records from 09.00pm to 04.00pm”. It means that if the user
@@ -214,22 +214,22 @@ from the environment.  Select functions as “is not” and  “greater than
 and less than”. Write the time with GMT offset value.  After defining
 you can add this rule to the policy.
 
-![define-entitlement](../../assets/img/tutorials/define-entitlement.png)
+![define-entitlement](../assets/img/tutorials/define-entitlement.png)
 
 **Step 4:** Define the 2nd rule. Rule name must be given. Then select
 “Role” as user’s attribute. You can select your “MedAdminstrator” role
 name from user attribute source. So just click on the icon.
 
-![define-entitlement-rules](../../assets/img/tutorials/define-entitlement-rules.png)
+![define-entitlement-rules](../assets/img/tutorials/define-entitlement-rules.png)
 
 **Step 5:** You can do a search for attributes values.
 
-![select-attribute-values](../../assets/img/tutorials/select-attribute-values.png)
+![select-attribute-values](../assets/img/tutorials/select-attribute-values.png)
 
 **Step 6:** Select only the “MediAdminstrator” role from the attribute
 source.
 
-![attribute-role](../../assets/img/tutorials/attribute-role.png)
+![attribute-role](../assets/img/tutorials/attribute-role.png)
 
 **Step 7:** You can see, the text box has been filled with the selected
 “MediAdminstrator” role name. Now let define actions. Here let us make
@@ -237,17 +237,17 @@ the function name as “at-least-one”. Then this rule would be satisfied
 even when at least one action is going to perform.  Finally, let us add
 this rule in to the policy
 
-![action-name](../../assets/img/tutorials/action-name.png)
+![action-name](../assets/img/tutorials/action-name.png)
 
 **Step 8:** Let's define the 3rd rule. Which allows “MediStaff” roles to
 access the resource with action read and edit. You can follow same
 **steps 4, 5, 6, 7**. Then finally, add this rule into the policy.
 
-![action-read-and-write](../../assets/img/tutorials/action-read-and-write.png)
+![action-read-and-write](../assets/img/tutorials/action-read-and-write.png)
 
 **Step 9:** Finally define the rule to deny all other access,  as
 follows:
-![deny-rule](../../assets/img/tutorials/deny-rule.png)
+![deny-rule](../assets/img/tutorials/deny-rule.png)
 
 **Step 10:** We have defined the target and rules.  Now it is time to
 define the rule-combining algorithm. Let select is as “first
@@ -281,7 +281,7 @@ You can click on “finish” and finish policy creation.
       
 -   Here the attribute, **Define Policy Obligation or Advice** is optional.
 
-![create-xacml-policy-in-standard-policy-editor](../../assets/img/tutorials/create-xacml-policy-in-standard-policy-editor.png)
+![create-xacml-policy-in-standard-policy-editor](../assets/img/tutorials/create-xacml-policy-in-standard-policy-editor.png)
 
 ##### A sample policy requirement:
 
@@ -308,7 +308,7 @@ requirement in Advance Policy Editor.
 obligation after the policy is evaluated, you can define a policy
 obligation or advice as follows:
 
-![define-a-policy-obligation](../../assets/img/tutorials/define-a-policy-obligation.png)
+![define-a-policy-obligation](../assets/img/tutorials/define-a-policy-obligation.png)
 **Step 11:** We have defined the target, rules, and obligation.  Now it
 is time to define the rule-combining algorithm. Let select is as “first
 applicable”. Then rule effect of the 1st rule that is evaluated
@@ -321,7 +321,7 @@ You can click on “finish” and finish policy creation.
 When you want to create a set of policies to evaluate at one time, you
 can create a **Policy Set**. You can add policies as shown in the
 figure and Click "Finish" to create the policy set.  
-![policy-set-editor](../../assets/img/tutorials/policy-set-editor.png)
+![policy-set-editor](../assets/img/tutorials/policy-set-editor.png)
 
 #### Import Existing Policy
 
@@ -329,14 +329,14 @@ You can add a policy by using a policy XML file.
 
 -   Write a policy in an XML file and upload it.
 
-![import-existing-policy](../../assets/img/tutorials/import-existing-policy.png)
+![import-existing-policy](../assets/img/tutorials/import-existing-policy.png)
 
 Click **Choose File** and browse to the location of the policy in your
 local machine.
 
 #### Write Policy in XML
 
-![write-policy-in-xml](../../assets/img/tutorials/write-policy-in-xml.png)
+![write-policy-in-xml](../assets/img/tutorials/write-policy-in-xml.png)
     
 !!!Note
     

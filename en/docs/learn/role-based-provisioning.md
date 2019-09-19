@@ -41,7 +41,7 @@ To do role-based provisioning, we need to configure the following,
         Permissions](../../learn/configuring-roles-and-permissions#adding-a-user-role)
         topic to add roles.
 
-    ![configuring-role-and-perrmissions](../../assets/img/using-wso2-identity-server/configuring-role-and-perrmissions.png)
+    ![configuring-role-and-perrmissions](../assets/img/using-wso2-identity-server/configuring-role-and-perrmissions.png)
 
 7.  Click **Update** to save changes.
 
@@ -53,7 +53,7 @@ To do role-based provisioning, we need to configure the following,
     the name of the identity provider you just created, and select the
     connector from the dropdown list.
 
-    ![outbound-provisioning-config](../../assets/img/using-wso2-identity-server/outbound-provisioning-config.png)
+    ![outbound-provisioning-config](../assets/img/using-wso2-identity-server/outbound-provisioning-config.png)
 
     !!! info
         If you enable **Blocking**, WSO2 Identity Server will wait for the

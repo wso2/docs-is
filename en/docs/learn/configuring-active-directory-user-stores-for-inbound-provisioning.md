@@ -52,10 +52,10 @@ Management Feature.
     **List** under **Claims**.
 3.  Select `          urn:scim:schemas:core:1.0         ` from the list.
 4.  Choose the **Id** claim and click on **Edit**.  
-    ![id-claim](../../assets/img/using-wso2-identity-server/id-claim.png) 
+    ![id-claim](../assets/img/using-wso2-identity-server/id-claim.png) 
 5.  Change the **Mapped Attribute** value to **homePostalAddress** and
     click **Update**.  
-    ![update-mapped-attribute](../../assets/img/using-wso2-identity-server/update-mapped-attribute.png)
+    ![update-mapped-attribute](../assets/img/using-wso2-identity-server/update-mapped-attribute.png)
 6.  Edit the other four claims in the same way.
 7.  Now the basic claim mapping is done. You can now add a user using
     the following curl command.
