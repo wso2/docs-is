@@ -12,28 +12,14 @@ configuration file. You would then map that alias to the actual password
 vault and then decrypt and use its password.
 
 !!! note
-    
     The Cipher Tool is used in WSO2 products to create encrypted values for
     passwords. See the following sections in the documentation for more
-    information:
-    
+    information. 
     -   [Encrypting Passwords with Cipher
-        Tool](https://docs.wso2.com/display/ADMIN44x/Encrypting+Passwords+with+Cipher+Tool)
+        Tool](../../administer/encrypting-passwords-with-cipher-tool)
     -   [Resolving Encrypted
-        Passwords](https://docs.wso2.com/display/ADMIN44x/Resolving+Encrypted+Passwords)
+        Passwords](../../administer/resolving-encrypted-passwords)
     
-
-See the following topics:
-
--   [Elements of the Secure Vault
-    implementation](#CarbonSecureVaultImplementation-ElementsoftheSecureVaultimplementation)
--   [Customizing the Secure Vault
-    configuration](#CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration)
-    -   [Creating a Secret Callback
-        Handler](#CarbonSecureVaultImplementation-CreatingaSecretCallbackHandler)
-    -   [Creating a custom Secret
-        Repository](#CarbonSecureVaultImplementation-CreatingacustomSecretRepository)
-
 ### Elements of the Secure Vault implementation
 
 Some of the important elements in the secure vault implementation, which
@@ -53,7 +39,7 @@ follows:
     `          SecretRepository         ` and
     `          SecretRepositoryProvider         ` classes. See the topic
     on [customizing the Secure Vault
-    configuration](#CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration)
+    configuration](#customizing-the-secure-vault-configuration)
     .
 -   **Secret Manager:** The Secret Manager initializes the Secret
     Repository and the keystore configured for the Carbon server. The
@@ -70,7 +56,7 @@ follows:
     combined with Secret Manager to resolve the secret. Any callback can
     be written by implementing the SecretCallbackHandler class. See the
     topic on [customizing the Secure Vault
-    configuration](#CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration)
+    configuration](#customizing-the-secure-vault-configuration)
     .
 -   **Secret Resolver:** Any configuration builder that uses secret
     information within its own configuration file needs to initialize
@@ -127,6 +113,7 @@ encrypted values.
     directory or the OSGI bundle to the
     `          <PRODUCT_HOME>/repository/component/dropins/ directory         `
     .
+
 4.  Configure the `           master-datasources.xml          ` file
     with an alias name and your Secret Callback handler class name. For
     example,  
@@ -158,7 +145,11 @@ encrypted values.
     `           <PRODUCT_HOME>/repository/conf/security/secret-conf.properties          `
     file with your Secret Callback handler class name.
 
-5.  Restart the server.
+5.  Go to ` <PRODUCT_HOME>/bin  ` and execute ` ./ciphertool.sh -Dconfigure `.
+
+6.  Replace the values of two the properties `  keystore.identity.store.secretProvider and keystore.identity.key.secretProvider ` in `  <PRODUCT_HOME>/   repository/conf/security/secret-conf.properties   ` file with your Secret Callback handler class name.
+
+7.  Restart the server.
 
 #### Creating a custom Secret Repository
 
@@ -205,14 +196,11 @@ To create a custom secret repository, you need to implement the
 
 3.  Create a JAR or an OSGI bundle.
 
-4.  Then, copy the JAR file to the
-    `               <PRODUCT_HOME>/repository/component/lib/              `
-    directory or the OSGI bundle to the
-    `               <PRODUCT_HOME>/repository/component/              `
-    dropins `               /              ` directory .
+4.  Then, copy the JAR file to the `               <PRODUCT_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the
+    `               <PRODUCT_HOME>/repository/component/              ` dropins `               /              ` directory .
 
-5.  Replace the
-    `                   secretRepositories.file.provider                  `
+
+5.  Replace the `                   secretRepositories.file.provider                  `
     entry in the
     `                   secret-conf.properties                  ` file
     (stored in the
