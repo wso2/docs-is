@@ -4,9 +4,7 @@ This tutorial demonstrates how you can set up active user session limiting based
 To understand how to set up the concurrent session limiting feature, let's consider a scenario where you want a user who has an administrator role that cannot have more than one active concurrent session at a time.
 Here, you will use a sample application named **Pickup Dispatch** to deploy and set up sample authenticators required to try out the scenario. 
 
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     -   Set up the service provider and sample application for adaptive
         authentication if you have not done so already. For instructions on
@@ -16,8 +14,6 @@ Here, you will use a sample application named **Pickup Dispatch** to deploy and 
         Identity Server, see [Adaptive Authentication](../../tutorials/adaptive-authentication).
         
 The following topics walk you through the steps you need to follow:
-- Configuring the sample scenario
-- Testing the sample scenario
 
 ### Configuring the sample scenario
 
