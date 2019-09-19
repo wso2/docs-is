@@ -1,28 +1,25 @@
 # Managing Keystores with the UI
 
-!!! note
-    
-    **Important!**
-    
+!!! note "Important"
     In WSO2 products (based on Carbon 4.4.0 and later versions), you can use
     the management console to view details of your keystores. To do this,
     you must first upload the relevant keystore from the UI, and then view
     details such as the certificates available in the keystore. See details
     below.
     
-
 ### Prerequisites
 
 All the required keystore files should first be created and stored in
-the `         <PRODUCT_HOME>/repository/resources/security/        `
+the `         <IS_HOME>/repository/resources/security/        `
 directory. For information on how to create new keystore files see
 [Creating New Keystores](../../administer/creating-new-keystores), and for information
 on how to update configuration files in your product with keystore
 information, see [Configuring Keystores in WSO2
-Products](Configuring-Keystores-in-WSO2-Products).
+Products](../../administer/configuring-keystores-in-wso2-products).
 
-The default `          wso2carbon.jks         ` keystore cannot be
-deleted.
+!!! info 
+    The default `          wso2carbon.jks         ` keystore cannot be
+    deleted.
 
 ### Viewing keystore details from the UI
 

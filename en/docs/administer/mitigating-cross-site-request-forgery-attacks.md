@@ -3,17 +3,6 @@
 The following sections describe the impact of the Cross Site Request
 Forgery (CSRF) attack and how to mitigate it.
 
--   [How can CSRF attacks be
-    harmful?](#MitigatingCrossSiteRequestForgeryAttacks-HowcanCSRFattacksbeharmful?)
--   [Mitigating CSRF
-    attacks](#MitigatingCrossSiteRequestForgeryAttacks-MitigatingCSRFattacks)
--   [Configuring applications in WSO2 product to mitigate CSRF
-    attacks](#MitigatingCrossSiteRequestForgeryAttacks-ConfiguringapplicationsinWSO2producttomitigateCSRFattacks)
-    -   [Securing web
-        applications](#MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
-    -   [Securing Jaggery
-        applications](#MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
-
 ### How can CSRF attacks be harmful?
 
 Cross Site Request Forgery (CSRF) attacks trick you to send a malicious
@@ -42,8 +31,7 @@ example:
 
 ### Mitigating CSRF attacks
 
-[OWASP
-CSRFGuard](https://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project)
+[OWASPCSRFGuard](https://www.owasp.org/index.php/Category:OWASP_CSRFGuard_Project)
 is an OWASP flagship project that provides synchronizer token
 pattern-based CSRF protection in a comprehensive and customizable
 manner. You can use the best practices and configuration recommendations
@@ -67,10 +55,7 @@ contains a CSRF token.
 
 ### Configuring applications in WSO2 product to mitigate CSRF attacks
 
-!!! note
-    
-    **Before you begin**, note the following:
-    
+!!! note "Before you begin"   
     -   If your WSO2 product is based on Carbon 4.4.6 or a later version, t
         he configurations for mitigating CSRF attacks are enabled by default
         for all the applications that are built into the product. Therefore,
@@ -80,9 +65,9 @@ contains a CSRF token.
         4.4.6, the configurations for mitigating CSRF attacks should be
         applied to all applications manually.
     
-    -   **Important!** Some updates of JDK 1.8 (for example,
-        **JDK1.8.0\_151** ) are affected by a [known
-        issue](https://bugs.openjdk.java.net/browse/JDK-8189789) related to
+    -   **Important!** 
+    Some updates of JDK 1.8 (for example, **JDK1.8.0\_151** ) are affected by a [known issue]
+    (https://bugs.openjdk.java.net/browse/JDK-8189789) related to
         GZIP decoding, which may prevent these CSRF-related configurations
         from working for your product. Therefore, until this issue is fixed,
         we recommend one of the following approaches:
@@ -96,7 +81,7 @@ contains a CSRF token.
             issue](https://bugs.openjdk.java.net/browse/JDK-8189789).
             1.  Open the `              catalina-server.xml             `
                 file from the
-                `              <PRODUCT_HOME>/repository/conf/tomcat/             `
+                `              <IS_HOME>/repository/conf/tomcat/             `
                 directory.
             2.  Set the `               compression              ` parameter
                 (under each of the connector configurations) to false as
@@ -111,11 +96,6 @@ contains a CSRF token.
 
 See the following for instructions on manually updating CSRF
 configurations in WSO2 products:  
-
--   [Securing web
-    applications](#MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
--   [Securing Jaggery
-    applications](#MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
 
 #### Securing web applications
 
