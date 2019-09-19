@@ -4,7 +4,7 @@ The Basecamp authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Basecamp users to log in to your
 organization’s applications.
 
-![](../../assets/img/49092836/76746249.png) 
+![](../assets/img/49092836/76746249.png) 
 
 !!! info 
     To download the authenticator and other artifacts, go to
@@ -58,7 +58,7 @@ information in the following sections.
 2.  Log in to [integrate.37signals.com](https://integrate.37signals.com/) to
     register an app. Then you will be redirected to the page like below.
     Select Basecamp 2 under integration.  
-    ![](../../assets/img/49092838/57759606.jpg)   
+    ![](../assets/img/49092838/57759606.jpg)   
 3.  Us e <https://localhost:9443/commonauth> as the redirect URL when
     you register the client.
 4.  Now you can get clientId and clientSecret of your created app.  
@@ -102,7 +102,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     management console, click **Add**.
 7.  Give a suitable name for **Identity Provider Name**.  
       
-    ![](../../assets/img/49092838/51252027.png) 
+    ![](../assets/img/49092838/51252027.png) 
 8.  Navigate to **Basecamp Configuration** under **Federated
     Authenticators**.
 
@@ -193,7 +193,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](../../assets/img/49092838/103332609.png)
+        ![](../assets/img/49092838/103332609.png)
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -204,7 +204,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
-    ![](../../assets/img/49092838/49227070.png) 
+    ![](../assets/img/49092838/49227070.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -219,7 +219,7 @@ You have now added and configured the service provider.
 
 2.  Log in with SAML from the WSO2 Identity Server.
 
-    ![](../../assets/img/49092838/103332635.png) 
+    ![](../assets/img/49092838/103332635.png) 
 
 3.  Enter your Basecamp credentials in the prompted login page of
     Basecamp. Once you login successfully you will be taken to the home

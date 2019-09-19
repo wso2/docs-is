@@ -66,7 +66,7 @@ location.
     expand OAuth2/OpenID Connect Configuration.
 5.  Enter a valid OpenID Provider issuer location as the **Identity
     Provider Entity Id** value.  
-    ![idp-entity-id]( ../../assets/img/using-wso2-identity-server/idp-entity-id.png) 
+    ![idp-entity-id]( ../assets/img/using-wso2-identity-server/idp-entity-id.png) 
 
     !!! tip
         A valid OpenID Provider Issuer location in WSO2 Identity Server has

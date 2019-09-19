@@ -49,7 +49,7 @@ This chart allows deriving **the local login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-![]( ../../assets/img/103329237/103329248.png) 
+![]( ../assets/img/103329237/103329248.png) 
 
 ### Compact Summary
 
@@ -62,7 +62,7 @@ This chart presents a **summary of the local login attempts**.
 This chart allows identifying the percentages of the successful and
 failed local login attempts.
 
-![]( ../../assets/img/103329237/103329246.png)
+![]( ../assets/img/103329237/103329246.png)
 
 ### Map View
 
@@ -88,7 +88,7 @@ IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../../assets/img/103329237/103329238.png)
+![]( ../assets/img/103329237/103329238.png)
 
 ### Distribution By Service Providers
 
@@ -104,7 +104,7 @@ IP addresses.
 This chart allows viewing the local login attempts sorted based on the
 service providers.
 
-![]( ../../assets/img/103329237/103329244.png)
+![]( ../assets/img/103329237/103329244.png)
 
 ### Distribution By User Store
 
@@ -120,7 +120,7 @@ service providers.
 This chart allows viewing the local login attempts sorted based on the
 user store domain.
 
-![]( ../../assets/img/103329237/103329243.png)
+![]( ../assets/img/103329237/103329243.png)
 
 ### Distribution By User Role
 
@@ -136,7 +136,7 @@ user store domain.
 This chart allows viewing the local login attempts sorted based on the
 user role.
 
-![]( ../../assets/img/103329237/103329242.png)
+![]( ../assets/img/103329237/103329242.png)
 
 ### Distribution By User Name
 
@@ -152,7 +152,7 @@ user role.
 This chart allows viewing the local login attempts sorted based on the
 user names.
 
-![]( ../../assets/img/103329237/103329241.png)
+![]( ../assets/img/103329237/103329241.png)
 
 ### Detail View
 

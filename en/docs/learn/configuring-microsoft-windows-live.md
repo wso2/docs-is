@@ -30,7 +30,7 @@ authenticate users using their Microsoft Live user accounts.
 2.  Expand the **Federated Authenticators** link.
 
 3.  Expand the **Microsoft (Hotmail, MSN, Live) Configuration** form.  
-    ![microsoft-configuration](../../assets/img/tutorials/microsoft-configuration.png)
+    ![microsoft-configuration](../assets/img/tutorials/microsoft-configuration.png)
     
 4.  Fill in the following fields where relevant.  
     Prior to configuring, you need to have an application created in

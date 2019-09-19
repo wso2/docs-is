@@ -402,15 +402,15 @@ Let's begin.
     (You must have the app deployed on the tomcat server.)
 
 11. In the service provider configuration, under **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**. 
-    ![OAuth/OpenID Connect Configuration option](../../assets/img/using-wso2-identity-server/oauth-openid-connect-configuration-option.png) 
+    ![OAuth/OpenID Connect Configuration option](../assets/img/using-wso2-identity-server/oauth-openid-connect-configuration-option.png) 
 
 12. Provide the `callback URL` and register it as an OAuth2 client app.
 
-    ![Callback url](../../assets/img/using-wso2-identity-server/callbacl-url.jpeg) 
+    ![Callback url](../assets/img/using-wso2-identity-server/callbacl-url.jpeg) 
 
 13. Under **Local & Outbound Authentication Configuration**, select **Local
     authentication** check box.
-    ![Local authentication check box](../../assets/img/using-wso2-identity-server/local-authentication-check-box.jpeg) 
+    ![Local authentication check box](../assets/img/using-wso2-identity-server/local-authentication-check-box.jpeg) 
 
     !!! note
         On the corresponding drop-down list, you can see, `BasicCustom` which is the display name of the custom authenticator that was written. From the above step, you can make sure your custom authenticator is there and ready for use.    
@@ -418,7 +418,7 @@ Let's begin.
 14. Visit the playground app and provide **Client ID** of the registered
     playground app and give the **Scope** as `openid` to make sure it is
     in the OpenID Connect flow. Click **Authorize**.  
-    ![Playground app](../../assets/img/using-wso2-identity-server/playground-app.jpeg)
+    ![Playground app](../assets/img/using-wso2-identity-server/playground-app.jpeg)
     Note that you will be directed to WSO2 Identity Server login page.
 
 15. Provide the username and password of the user `Alice` who is in the

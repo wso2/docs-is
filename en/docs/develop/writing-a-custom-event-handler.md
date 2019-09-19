@@ -14,7 +14,7 @@ can create a .jar file as described below.
 
 Following is the hierarchy where we need to structure this new handler.
 
-![Handler hierarchy](../../assets/img/using-wso2-identity-server/handler-hierarchy.png)
+![Handler hierarchy](../assets/img/using-wso2-identity-server/handler-hierarchy.png)
 
 We need to add a separate handler for each operation we need to add
 workflow support. In this example to implement workflow support for SP
@@ -220,9 +220,9 @@ After adding the .jar file of this handler to the
 will see the new operation category and the operation is available to
 select when adding a new workflow engagement.
 
-![Operation category selection](../../assets/img/using-wso2-identity-server/operation-category-selection.png)
+![Operation category selection](../assets/img/using-wso2-identity-server/operation-category-selection.png)
 
-![Operation category name](../../assets/img/using-wso2-identity-server/operation-category-name.png)
+![Operation category name](../assets/img/using-wso2-identity-server/operation-category-name.png)
 
 A sample handler implementation is available
 [here](https://github.com/wso2/product-is/tree/v5.3.0/modules/samples/workflow).

@@ -64,7 +64,7 @@ for forced password reset:
 8.  Expand the **Password Reset** tab. You will see the following
     options for forced password reset:
 
-    ![forced-password-reset](../../assets/img/using-wso2-identity-server/forced-password-reset.png) 
+    ![forced-password-reset](../assets/img/using-wso2-identity-server/forced-password-reset.png) 
 
 #### Password Reset via Recovery Email
 
@@ -121,7 +121,7 @@ to see a sample of how this works.
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![add-basic-authorization](../../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in as the user you created above, "Tom". The login
@@ -190,7 +190,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![add-basic-authorization](../../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to login again as the user you created above, "Tom". The
@@ -262,7 +262,7 @@ template for this option can be configured in the
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
-        ![add-basic-authorization](../../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
 
 7.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in again as the user you created above, "Tom". The

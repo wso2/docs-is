@@ -30,14 +30,14 @@ Follow the instructions below to access the System Log statistics.
     -   **Log Message -** The log message or action.
     -   **More** - Allows you to view more details about the log
 
-    ![System logs](../../assets/img/using-wso2-identity-server/system-logs.png) 
+    ![System logs](../assets/img/using-wso2-identity-server/system-logs.png) 
 
 4.  To view more details of a particular log, click on the **More** link
     that is associated with the file.  
-    ![More link](../../assets/img/using-wso2-identity-server/more-link.png) 
+    ![More link](../assets/img/using-wso2-identity-server/more-link.png) 
 
 5.  The details of the system log appear.  
-    ![System log details](../../assets/img/using-wso2-identity-server/system-log-details.png) 
+    ![System log details](../assets/img/using-wso2-identity-server/system-log-details.png) 
 6.  You can filter the system logs using the **Level** drop-down. Select
     the category of logs you want to view. The available categories are:
     -   **FATAL** - Fatal error messages (Severe error events that will
@@ -53,11 +53,11 @@ Follow the instructions below to access the System Log statistics.
     -   **TRACE** - Trace messages (Finer-grained informational events
         than the DEBUG)
 
-    ![Log levels](../../assets/img/using-wso2-identity-server/log-levels.png) 
+    ![Log levels](../assets/img/using-wso2-identity-server/log-levels.png) 
 7.  You can also find a particular log using the search function. Enter
     the name (or part of the name) of the log on the **Search Logs**
     field and click on the **Search** icon.  
-    ![Search logs field](../../assets/img/using-wso2-identity-server/search-logs-field.png) 
+    ![Search logs field](../assets/img/using-wso2-identity-server/search-logs-field.png) 
 
     The logs containing the search term are listed on the screen.  
       

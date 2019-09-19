@@ -9,7 +9,7 @@ this topic.
 2.  Navigate to the **Main** menu to access the **Entitlement** menu.
     Click **Policy Administration** under **PAP**.
 3.  Click **Versions** next to the policy you require.  
-    ![managing-a-xacml-policy-version](../../assets/img/tutorials/managing-a-xacml-policy-version.png)
+    ![managing-a-xacml-policy-version](../assets/img/tutorials/managing-a-xacml-policy-version.png)
     The following information is provided in the resulting screen.
     -   **Entitlement Policy Id** - This is the name of the policy you
         created.

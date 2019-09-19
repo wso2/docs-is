@@ -62,7 +62,7 @@ layer.
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../../assets/img/53125465/53287360.jar).
+    and run the [TestSSLServer.jar](../assets/img/53125465/53287360.jar).
 
     ``` java
         java -jar TestSSLServer.jar localhost 9443
@@ -182,8 +182,8 @@ running on JDK 1.7. You cannot configure this using the
 setting a system property.
 
 1.  Download the following artifacts:
-    -   [wso2-ssl-socket-factory-provider-1.0.0.jar](../../assets/img/53125465/72434246.jar)
-    -   [wso2-ssl-security](../../assets/img/53125465/72434248)
+    -   [wso2-ssl-socket-factory-provider-1.0.0.jar](../assets/img/53125465/72434246.jar)
+    -   [wso2-ssl-security](../assets/img/53125465/72434248)
 2.  Copy the `          wso2-         ` ssl
     `          -socket-factory-provider-1.0.0.jar         ` file to the
     `          <                     PRODUCT_HOME>                    /lib/endorsed         `
@@ -251,7 +251,7 @@ ciphers by JSSE. This will enable the weak ciphers.
 
 4.  Start the server.
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../../assets/img/53125465/53287360.jar).
+    and run the [TestSSLServer.jar](../assets/img/53125465/53287360.jar).
 
     ``` java
         $ java -jar TestSSLServer.jar localhost 9443

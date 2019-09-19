@@ -143,7 +143,7 @@ service provider .
 
 4.  Enter **cas-client-webapp** in the **Service Provider Name** text
     box and click **Register**.  
-    ![](../../assets/img/57005726/57008598.png) 
+    ![](../assets/img/57005726/57008598.png) 
 
 5.  In the **Inbound Authentication Configuration** section, click **CAS
     Configuration**.
@@ -151,7 +151,7 @@ service provider .
 6.  Configure the **Service Url** :
     [https://localhost:8443/cas-client-webapp/](https://localhost:8080/cas-sample-java-webapp/)  
     
-    ![](../../assets/img/57005726/68710333.png) 
+    ![](../assets/img/57005726/68710333.png) 
 
     !!! info 
         Service URL refers to the URL of the application that the client is
@@ -163,7 +163,7 @@ service provider .
     otherwise, no attributes will be shown.) Add the **Service Provider
     Claim** name that corresponds to the **Local Claim** URI and mark it
     as **Requested Claim**.  
-    ![](../../assets/img/57005726/72418344.png) 
+    ![](../assets/img/57005726/72418344.png) 
 
 8.  Click **Update** to save the changes. Now you have configured the
     service provider.  
@@ -176,9 +176,9 @@ service provider .
     <https://localhost:8443/cas-client-webapp/> ).
 2.  The basic authentication page appears. Use your IS username and
     password.  
-    ![](../../assets/img/57005726/57737891.png)   
+    ![](../assets/img/57005726/57737891.png)   
 3.  If you have successfully logged in, you will see the following CAS
     Home page of cas-client-webapp with the authenticated user and user
     attributes.  
-    ![](../../assets/img/57005726/57739209.png)   
+    ![](../assets/img/57005726/57739209.png)   
 

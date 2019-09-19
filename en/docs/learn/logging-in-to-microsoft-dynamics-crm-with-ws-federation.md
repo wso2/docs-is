@@ -70,7 +70,7 @@ match exactly.
     by the **WS-Federation (Passive) Configuration** section.
 5.  Enter an appropriate value for the **Passive STS Realm** as
     explained above.  
-    ![passive-sts-realm](../../assets/img/tutorials/passive-sts-realm.png)
+    ![passive-sts-realm](../assets/img/tutorials/passive-sts-realm.png)
 6.  Expand the **Claim Configuration** section. Claims must be
     configured in order to log the requester into CRM as the correct
     user. Microsoft Dynamics CRM expects two specific claims returned
@@ -92,7 +92,7 @@ match exactly.
     matches up to a username that exists in the CRM organization that is
     being accessed.
 
-    ![sub-claim-uri](../../assets/img/tutorials/sub-claim-uri.png)
+    ![sub-claim-uri](../assets/img/tutorials/sub-claim-uri.png)
 
 7.  Click **Update**.
 
@@ -114,12 +114,12 @@ Identity Server and CRM, claims based authentication can be enabled from
 the CRM deployment wizard. The federation metadata URL should point to
 the file that was created above.
 
-![configure-ms-dynamics-crm](../../assets/img/tutorials/configure-ms-dynamics-crm.png)
+![configure-ms-dynamics-crm](../assets/img/tutorials/configure-ms-dynamics-crm.png)
 
 On the next screen, select the certificate that is used to encrypt the
 data sent between the STS and CRM.
 
-![encrypt-data-sts-crm](../../assets/img/tutorials/encrypt-data-sts-crm.png)
+![encrypt-data-sts-crm](../assets/img/tutorials/encrypt-data-sts-crm.png)
 
 Continue through the wizard and apply the final settings. In this
 example, an IFD CRM environment is used, so IFD needs to be re-enabled
@@ -129,7 +129,7 @@ should now be enabled, and if configured correctly, redirect the user to
 the WSO2 logon screen when the user navigates
 to https://\<orgname\>.crmdomain.com.
 
-![wso2-login](../../assets/img/tutorials/wso2-login.png)
+![wso2-login](../assets/img/tutorials/wso2-login.png)
 
 !!! info "Related Topics"
 	To test out WSO2 Identity Server's passive security token service

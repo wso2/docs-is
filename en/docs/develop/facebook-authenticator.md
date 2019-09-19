@@ -4,7 +4,7 @@ The Facebook authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Facebook users to log in to your
 organization’s applications.
 
-![](../../assets/img/68686695/76746162.png) 
+![](../assets/img/68686695/76746162.png) 
 
 Current trends require usage of services from hundreds of websites in a
 connected world. Most of these websites need the user to create an
@@ -59,20 +59,20 @@ following sections for more information.
 1.  Go to <https://developers.facebook.com/> and log in using your
     Facebook credentials.
 2.  Click on **My Apps** and then click **Create a New App**.  
-    ![](../../assets/img/68686690/68686671.png) 
+    ![](../assets/img/68686690/68686671.png) 
 3.  Choose the platform you wish to use. Select **Website** here when
     working with this sample.  
-    ![](../../assets/img/68686690/68686672.png) 
+    ![](../assets/img/68686690/68686672.png) 
 4.  Enter the name of your new app in the window that appears and click
     **Create New Facebook App ID**.  
-    ![](../../assets/img/68686690/68686673.png)
+    ![](../assets/img/68686690/68686673.png)
 5.  Enter a Display Name, Contact Email and select an appropriate
     category from the dropdown. Click **Create App ID**.  
-    ![](../../assets/img/68686690/68686674.png)
+    ![](../assets/img/68686690/68686674.png)
 6.  This will lead you to the quick start guide. You can view the
     configuration there and skip the quick start guide to access the
     developer dashboard.  
-    ![](../../assets/img/68686690/68686675.png) 
+    ![](../assets/img/68686690/68686675.png) 
 7.  This will take you to the app **Dashboard** where you can find the
     **App ID** and **App Secret** as shown in the image below. Click
     **Show** to view the **App Secret**.
@@ -81,27 +81,27 @@ following sections for more information.
     Secret in OAuth terminology. The API Version is Facebook’s API that
     is used to create the application.
 
-    ![](../../assets/img/68686690/68686676.png) 
+    ![](../assets/img/68686690/68686676.png) 
 
 8.  Click **Settings** on the left menu and navigate to the **Basic**
     tab. Add the **App Domains** (since WSO2 IS is running on localhost,
     you can add localhost as the App Domain) and click **Add Platform**
     .  
-    ![](../../assets/img/68686690/68686677.png) 
+    ![](../assets/img/68686690/68686677.png) 
 
 9.  Select **Website** as the platform for the application and enter the
     following as the site URL:
     [https://localhost:9443](https://localhost:9443/). Click **Save
     Changes**.  
-    ![](../../assets/img/68686690/68686678.png) 
-    ![](../../assets/img/68686690/68686679.png) 
+    ![](../assets/img/68686690/68686678.png) 
+    ![](../assets/img/68686690/68686679.png) 
 10. On the left panel, click **Add Product** and click **Get Started**
     for a **Facebook Login** product.  
-    ![](../../assets/img/68686690/68686680.png)
+    ![](../assets/img/68686690/68686680.png)
 
 11. You can configure the **Client OAuth Settings** on the window that
     appears.  
-    ![](../../assets/img/68686690/68686681.png) 
+    ![](../assets/img/68686690/68686681.png) 
 
     1.  **Client OAuth Login** should be set to **Yes**.
     2.  **Web OAuth Login** should be set to **Yes**.
@@ -128,7 +128,7 @@ Now you have finished configuring Facebook as an Identity Provider.
     navigation menu of the dashboard and specify the required Facebook users
     as Developers or Testers.
 
-    ![](../../assets/img/68686690/68686682.png) 
+    ![](../assets/img/68686690/68686682.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -164,7 +164,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 3.  In the **Identity** section under the **Main** tab of the Management
     Console, click **Add** under **Identity Providers**.
 4.  Give a suitable name as the **Identity Provider Name**.  
-    ![](../../assets/img/68686690/68686683.png) 
+    ![](../assets/img/68686690/68686683.png) 
 5.  Go to **Facebook Configuration** under **Federated Authenticators**
     .
 
@@ -203,7 +203,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     </tbody>
     </table>
 
-    ![](../../assets/img/68686690/68686684.png) 
+    ![](../assets/img/68686690/68686684.png) 
 
 7.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.
@@ -223,7 +223,7 @@ The next step is to configure the service provider.
     Provider Name** text box and click **Register**.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
-    ![](../../assets/img/68686690/68686685.png)   
+    ![](../assets/img/68686690/68686685.png)   
       
     Now set the configuration as follows:
     1.  Enter the following values:
@@ -252,7 +252,7 @@ The next step is to configure the service provider.
 7.  Select the **Federated Authentication** radio button and select the
     Identity Provider you created from the dropdown list under
     **Federated Authentication**.  
-    ![](../../assets/img/68686690/68686686.png)
+    ![](../assets/img/68686690/68686686.png)
 
 8.  Click **Update** to save the changes.
 
@@ -278,7 +278,7 @@ with Facebook.
     Claim mapping Dialect**.
 5.  Click **Add Claim Mapping** to add custom claim mappings as
     follows.  
-    ![](../../assets/img/68686690/68686687.png) 
+    ![](../assets/img/68686690/68686687.png) 
 6.  You can retrieve all the public information of the user and the
     email address. The following are some common attribute names.
 
@@ -311,7 +311,7 @@ with Facebook.
 4.  Click on **Add Claim URI** under **Requested Claims** to add the
     requested claims as follows. Here you should add the claims you
     mapped in the Identity Provider claim configuration.  
-    ![](../../assets/img/68686690/68686688.png) 
+    ![](../assets/img/68686690/68686688.png) 
 5.  Select a suitable claim for the **Subject Claim URI**.
 
     !!! note
@@ -329,7 +329,7 @@ Now you have configured the Identity Server.
 
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com> .  
-    ![](../../assets/img/68686690/68686689.png) 
+    ![](../assets/img/68686690/68686689.png) 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 3.  You are redirected to the Facebook Login page. Enter your Facebook
     credentials and you will be taken to the home page of the

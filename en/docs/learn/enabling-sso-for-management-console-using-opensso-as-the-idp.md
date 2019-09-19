@@ -91,11 +91,11 @@ configure OpenSSO:
 3.  Go to **Federation** \> **Entity Providers** in the OpenSSO
     management console and select the newly registered service provider.
 4.  Select the response signing attribute.  
-    ![response-signing-attribute](../../assets/img/tutorials/response-signing-attribute.png)
+    ![response-signing-attribute](../assets/img/tutorials/response-signing-attribute.png)
     
 5.  Under the **NameID** **Format** list, make sure you specify the ‘
     **transient** ’ and ‘ **unspecified** ’ **Name ID** **Formats**.  
-    ![nameid-format-list](../../assets/img/tutorials/nameid-format-list.png)
+    ![nameid-format-list](../assets/img/tutorials/nameid-format-list.png)
 
 #### Setting up the WSO2 product
 

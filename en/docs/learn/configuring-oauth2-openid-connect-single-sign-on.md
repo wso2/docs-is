@@ -34,7 +34,7 @@ Let's get started to configure the service provider you created!
         Type](../../learn/writing-a-custom-oauth-2.0-grant-type).
     
 
-    ![configure-oauth-oidc](../../assets/img/tutorials/configure-oauth-oidc.png)
+    ![configure-oauth-oidc](../assets/img/tutorials/configure-oauth-oidc.png)
 
     When filling out the **New Application** form, the following details
     should be taken into consideration.
@@ -182,7 +182,7 @@ Let's get started to configure the service provider you created!
 
 3.  Click **Add**. Note that `          client key         ` and
     `          client secret         ` get generated.  
-    ![oidc-clientkey-clientsecret](../../assets/img/tutorials/oidc-clientkey-clientsecret.png)
+    ![oidc-clientkey-clientsecret](../assets/img/tutorials/oidc-clientkey-clientsecret.png)
 
     -   **OAuth Client Key** - This is the client key of the service
         provider, which will be checked for authentication by the

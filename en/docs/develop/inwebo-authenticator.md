@@ -5,7 +5,7 @@ through WSO2 Identity Server . Inwebo provides security beyond
 passwords. The diagram below illustrates the flow of the Inwebo
 federated authenticator
 
-![](../../assets/img/48276415/76746223.png)  
+![](../assets/img/48276415/76746223.png)  
 
 This is tested with the Inwebo API version 3.1
 
@@ -29,12 +29,12 @@ sections for more information.
 2.  Activate your email notification and go to
     <https://www.myinwebo.com/>.
 3.  Go to Administration console and get the Service Id of admin user.  
-    ![](../../assets/img/48276420/51252020.png)   
+    ![](../assets/img/48276420/51252020.png)   
 4.  Navigate to Secure Sites and download the certificate for API access
     (.p12 format).
 5.  Go to MyInweboAccount and navigate to My Devices, click add a Device
     button. The following window appears.
-    ![](../../assets/img/48276420/48206313.png)
+    ![](../assets/img/48276420/48206313.png)
 6.  Download Inwebo app in your mobile or any other devices. Add the
     above secure site ID or scan the QR code to activate the account
 
@@ -79,7 +79,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider).
 4.  Give a suitable name as the **Identity Provider Name** and fill out
     the form to configure Inwebo by expanding **Inwebo Configuration**
     under **Federated Authenticators**.  
-    ![](../../assets/img/48276420/48214226.png) 
+    ![](../assets/img/48276420/48214226.png) 
 	
 	Fill in the following.  
     <table>
@@ -138,7 +138,7 @@ The next step is to configure the service provider.
 
 4.  In the Inbound Authentication Configuration section, click Configure
     under the SAML2 Web SSO Configuration section.
-    ![](../../assets/img/48276420/49222042.png) 
+    ![](../assets/img/48276420/49222042.png) 
 
 5.  Now set the configuration as follows:
 
@@ -167,7 +167,7 @@ The next step is to configure the service provider.
 
 10. Add the basic authentication as first step and Inwebo authentication
     as the second step  
-    ![](../../assets/img/48276420/48211344.png) 
+    ![](../assets/img/48276420/48211344.png) 
 
 You have now added and configured the service provider.
 
@@ -177,46 +177,46 @@ You have now added and configured the service provider.
 2.  Select Add New Claim
 3.  Add new claim UserId (Change Claim Uri as (
     <http://wso2.org/claims/authentication/inwebo/userId> )  
-    ![](../../assets/img/48276420/49221143.png) 
+    ![](../assets/img/48276420/49221143.png) 
 4.  Go to Service provider, select travalocity.com→Edit → Claim
     configuration
 5.  Update the claim UserId  
       
-    ![](../../assets/img/48276420/48214228.png) 
+    ![](../assets/img/48276420/48214228.png) 
 
 6.  Now go to Users and Roles
 
 7.  Add the details and update the profile.  
       
-    ![](../../assets/img/48276420/48211847.png) 
+    ![](../assets/img/48276420/48211847.png) 
 
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
     [http://localhost:8080/travelocity.com
-    ![](../../assets/img/48276420/48206317.png)](http://localhost:8080/travelocity.com)
+    ![](../assets/img/48276420/48206317.png)](http://localhost:8080/travelocity.com)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.
 
-    ![](../../assets/img/48276420/48214229.png) 
+    ![](../assets/img/48276420/48214229.png) 
 
 4.  Hit Click! Button to authenticate Inwebo .  
-    ![](../../assets/img/48276420/49221869.png) 
+    ![](../assets/img/48276420/49221869.png) 
 5.  You will get a notification in your external device(mobile).
 
-    ![](../../assets/img/48276420/49222015.jpg) 
+    ![](../assets/img/48276420/49222015.jpg) 
 
 6.  Enter your Inwebo PIN
 
-    ![](../../assets/img/48276420/49222016.jpg) 
+    ![](../assets/img/48276420/49222016.jpg) 
 
 7.  Click accept  
-    ![](../../assets/img/48276420/49222017.jpg) 
+    ![](../assets/img/48276420/49222017.jpg) 
 8.  Click ok and taken to the home page of the travelocity.com app
 
-    ![](../../assets/img/48276420/48211848.png)   
+    ![](../assets/img/48276420/48211848.png)   
 
   

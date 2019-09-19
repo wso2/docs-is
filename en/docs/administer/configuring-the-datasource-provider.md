@@ -11,7 +11,7 @@ To use the default datasource provider, select **default**, and then
 enter the Driver, URL, User Name, and Password connection properties  as
 follows:
 
-![](../../assets/img/53125519/53287617.png) 
+![](../assets/img/53125519/53287617.png) 
 
 ### External datasource provider
 
@@ -23,4 +23,4 @@ enter the name and value of each connection property you need to
 configure. Following is an example datasource for an external datasource
 provider:
 
-![](../../assets/img/53125519/53287616.png) 
+![](../assets/img/53125519/53287616.png) 

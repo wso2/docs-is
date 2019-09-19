@@ -7,7 +7,7 @@ MailChimp features and integrations allow you to send marketing emails,
 automated messages, and targeted campaigns. Their detailed reports help
 you keep improving over time.
 
-![](../../assets/img/49092742/76746257.png) 
+![](../assets/img/49092742/76746257.png) 
 
 This page provides instructions on how to configure the MailChimp
 authenticator and Identity Server using a sample app. You can find more
@@ -71,7 +71,7 @@ information in the following sections.
 5.  Use  `          https://localhost:9443/commonauth         `
     as redirect URL when you register the client. Here you can use
     127.0.0.1 instead of localhost.  
-    ![](../../assets/img/49092781/49226960.png) 
+    ![](../assets/img/49092781/49226960.png) 
 6.  From the app dashboard you can get clientId and clientSecret for
     your created app.  
 
@@ -106,7 +106,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider).
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name**.  
-    ![](../../assets/img/49092781/56994052.png) 
+    ![](../assets/img/49092781/56994052.png) 
 6.  Navigate to **MailChimp Configuration** under **Federated
     Authenticators**.
 
@@ -203,7 +203,7 @@ The next step is to configure the service provider.
     3.  **Enable Attribute Profile**.
 
     4.  **Include Attributes in the Response Always**.  
-        ![](../../assets/img/49092781/103332418.png)
+        ![](../assets/img/49092781/103332418.png)
 
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -227,12 +227,12 @@ You have now added and configured the service provider.
 
 2.  Click “Login with SAML” to log in with SAML from the WSO2 Identity
     Server.
-    ![](../../assets/img/49092781/51251955.png) 
+    ![](../assets/img/49092781/51251955.png) 
 
 3.  Enter your MailChimp credentials in the prompted login page of
     MailChimp.  
-    ![](../../assets/img/49092781/49226963.png)   
+    ![](../assets/img/49092781/49226963.png)   
 
 4.  Once you login successfully you will be taken to the home page of
     the travelocity.com app.  
-    ![](../../assets/img/49092781/51251954.png)   
+    ![](../assets/img/49092781/51251954.png)   

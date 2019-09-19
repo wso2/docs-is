@@ -353,7 +353,7 @@ between the `         Users        ` object and `         Roles        `
 object. Therefore, the directory structure should be similar to what is
 depicted in the following diagram:
 
-![](../../assets/img/97561749/103326406.png) 
+![](../assets/img/97561749/103326406.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, and you want to establish a relationship between the objects, you
@@ -410,7 +410,7 @@ ownership relationship between the `         Users        ` object and
 `         Roles        ` object. Therefore, the directory structure
 should be similar to what is depicted in the following diagram:
 
-![](../../assets/img/97561749/103326407.png) 
+![](../assets/img/97561749/103326407.png) 
 
 For example, if you assign multiple roles such as Role1 and Role2 to
 User1, then the relationship between the objects should be kept as an

@@ -67,14 +67,14 @@ parameters in a request object via WSO2 IS:
         when setting up the playground sample.
     7.  Paste the certificate content that you copied as the
         **Application Certificate** of the service provider.  
-        ![app-certificate](../../assets/img/tutorials/app-certificate.png)
+        ![app-certificate](../assets/img/tutorials/app-certificate.png)
         
         !!! note
 			Instead of uploading the service provider certificate as shown
 			above, you can choose to use the JWKS enpoint as shown below and
 			add the relevant JWKS URI.
 
-			![jwks-uri.png](../../assets/img/tutorials/jwks-uri.png)
+			![jwks-uri.png](../assets/img/tutorials/jwks-uri.png)
 
     8.  Click **Update**.
 
@@ -83,8 +83,8 @@ parameters in a request object via WSO2 IS:
         `             http://wso2.org/oidc/claim            ` dialect.
         For detailed instructions on how to add a new claim mapping to a
         claim dialect, see [Adding Claim Mapping](../../learn/adding-claim-mapping).  
-        ![external-claim-1](../../assets/img/tutorials/external-claim-1.png)
-        ![external-claim-2](../../assets/img/tutorials/external-claim-2.png)
+        ![external-claim-1](../assets/img/tutorials/external-claim-1.png)
+        ![external-claim-2](../assets/img/tutorials/external-claim-2.png)
 
         !!! note
 			Here, `             customClaim1            ` and

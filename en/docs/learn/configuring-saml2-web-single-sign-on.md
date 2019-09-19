@@ -37,7 +37,7 @@ To configure SAML2 Web SSO:
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![manual-config](../../assets/img/tutorials/manual-config.png)
+    giveb below. ![manual-config](../assets/img/tutorials/manual-config.png)
     <table>
     <thead>
     <tr class="header">
@@ -235,7 +235,7 @@ data and allows the user to use the same metadata XML file for multiple
 instances of entity configuration.
 
 1.  Select **Metadata File Configuration.**  
-    ![new-sp-metadata-config](../../assets/img/tutorials/new-sp-metadata-config.png)  
+    ![new-sp-metadata-config](../assets/img/tutorials/new-sp-metadata-config.png)  
 
 2.  Click **Choose File**, and select the `          .xml         `
     file containing the metadata for the service provider SAML
@@ -298,7 +298,7 @@ of entity configuration.
 
 1.  Select **URL Configuration** and enter the URL containing the
     service provider metadata.  
-    ![sp-url-config](../../assets/img/tutorials/sp-url-config.png)
+    ![sp-url-config](../assets/img/tutorials/sp-url-config.png)
 2.  Click **Upload** .
 
 !!! note "Additional configurations"

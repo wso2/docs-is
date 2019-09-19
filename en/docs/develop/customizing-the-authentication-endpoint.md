@@ -321,35 +321,35 @@ below steps:
 
 2.  Click on **Main Menu**, under **Registry**, click **Browse** to
     see the registry browser.  
-    ![Registry Browse menu item](../../assets/img/using-wso2-identity-server/registry-browse-menu-item.png)
+    ![Registry Browse menu item](../assets/img/using-wso2-identity-server/registry-browse-menu-item.png)
 
 3.  Browse the registry and go to
     `          /_system/config/identity/config.         `  
-    ![Registry browser](../../assets/img/using-wso2-identity-server/registry-browser.png)  
+    ![Registry browser](../assets/img/using-wso2-identity-server/registry-browser.png)  
     Once you navigate to
     `          /_system/config/identity/config         `, follow the
     steps below to add a registry resource.
 4.  Click **Add Resource**.  
-    ![Add resource option](../../assets/img/using-wso2-identity-server/add-resource-option.png) 
+    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png) 
 5.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
-    ![Add resource form](../../assets/img/using-wso2-identity-server/add-resource-form.png) 
+    ![Add resource form](../assets/img/using-wso2-identity-server/add-resource-form.png) 
 6.  Click in **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
-    ![Registry resource](../../assets/img/using-wso2-identity-server/registry-resource.png) 
+    ![Registry resource](../assets/img/using-wso2-identity-server/registry-resource.png) 
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
-    ![Resource properties](../../assets/img/using-wso2-identity-server/resource-properties.png) 
+    ![Resource properties](../assets/img/using-wso2-identity-server/resource-properties.png) 
 8.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
 9.  Click **Add New Property**.  
-    ![Add New Property option](../../assets/img/using-wso2-identity-server/add-new-property-option.png)
+    ![Add New Property option](../assets/img/using-wso2-identity-server/add-new-property-option.png)
 10. Enter the relying party name for name and the redirect URL for
     value.  
-    ![Add New Property form](../../assets/img/using-wso2-identity-server/add-new-property-form.png)
+    ![Add New Property form](../assets/img/using-wso2-identity-server/add-new-property-form.png)
 
     !!! note
     

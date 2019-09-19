@@ -25,7 +25,7 @@ There are five main roles in a UMA workflow:
 
 The Protection API consists of three endpoints:
 
-![uma-protection-api-endpoints-diagram]( ../../assets/img/using-wso2-identity-server/uma-protection-api-endpoints-diagram.png) 
+![uma-protection-api-endpoints-diagram]( ../assets/img/using-wso2-identity-server/uma-protection-api-endpoints-diagram.png) 
 
 <table>
 <colgroup>

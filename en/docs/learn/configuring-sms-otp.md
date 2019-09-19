@@ -207,7 +207,7 @@ provider.
 			are displayed. Copy and save them as you need them for the next
 			step.  
 			Example:  
-			![nexmo-config](../../assets/img/tutorials/nexmo-config.png)
+			![nexmo-config](../assets/img/tutorials/nexmo-config.png)
 		3.  The Nexmo API requires the parameters to be encoded in the URL,
 			so the SMS URL would be as follows.
 			<html><table>
@@ -304,7 +304,7 @@ provider.
 		1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
 		2.  While registering the account, verify your mobile number and
 			click **Claim** to get free credit.  
-			![mobile-number-claim](../../assets/img/tutorials/mobile-number-claim.png)
+			![mobile-number-claim](../assets/img/tutorials/mobile-number-claim.png)
 
 			Bulksms API authentication is performed by providing the
 			username and password request parameters.
@@ -396,7 +396,7 @@ The next step is to configure the service provider.
         4.  **Include Attributes in the Response Always**  
             
 
-    **![edit-service-provider](../../assets/img/tutorials/edit-service-provider.png)**
+    **![edit-service-provider](../assets/img/tutorials/edit-service-provider.png)**
 
 5.  Click **Update** to save the changes.  
     Now you are sent back to the Service Providers page.
@@ -405,7 +405,7 @@ The next step is to configure the service provider.
     **`            http://wso2.org/claims/mobile           `** claim for
     the **Subject Claim URI**.
 
-    ![subject-claim-uri](../../assets/img/tutorials/subject-claim-uri.png)
+    ![subject-claim-uri](../assets/img/tutorials/subject-claim-uri.png)
 
 7.  Go to **Local and Outbound Authentication Configuration** section.
 
@@ -433,7 +433,7 @@ The next step is to configure the service provider.
             SMSOTP is a second step that adds another layer of
             authentication and security.
 
-        ![creating-the-second-authentication](../../assets/img/tutorials/creating-the-second-authentication.jpeg)
+        ![creating-the-second-authentication](../assets/img/tutorials/creating-the-second-authentication.jpeg)
 
 8.  Click **Update** to save the changes.
 
@@ -481,7 +481,7 @@ console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
     7.  Select **Supported by Default**.
     8.  Click **Add**.
 
-    ![configuring-claims](../../assets/img/tutorials/configuring-claims.png)
+    ![configuring-claims](../assets/img/tutorials/configuring-claims.png)
     
 2.  Optionally , you can add a claim to allow users to use back up codes
     when SMS OTP is disabled.  
@@ -504,7 +504,7 @@ console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
     
     7.  Click **Add**.
 
-    ![allow-to-use-back-up-codes](../../assets/img/tutorials/allow-to-use-back-up-codes.png)
+    ![allow-to-use-back-up-codes](../assets/img/tutorials/allow-to-use-back-up-codes.png)
     
 3.  Now, click **List** under Users and Roles and click **Users.**
 
@@ -516,20 +516,20 @@ console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
 		A backup code can have any number of digits, and you can define many
 		backup codes as comma separated values.
 
-    ![define-backup-codes](../../assets/img/tutorials/define-backup-codes.png)
+    ![define-backup-codes](../assets/img/tutorials/define-backup-codes.png)
 
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
     <http://wso2is.local:8080/travelocity.com>  
 
-    ![testing-travelocity](../../assets/img/tutorials/testing-travelocity.jpeg)
+    ![testing-travelocity](../assets/img/tutorials/testing-travelocity.jpeg)
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page will be visible. Use your WSO2
     Identity Server credentials to sign in.  
-    ![basic-authentication-page](../../assets/img/tutorials/basic-authentication-page.jpeg)
+    ![basic-authentication-page](../assets/img/tutorials/basic-authentication-page.jpeg)
 
 4.  You will get a token to your mobile phone.Type the code to
     authenticate, You will be taken to the home page of the
@@ -543,5 +543,5 @@ console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
         are taken to the home page of the travelocity.com application
     
 
-    ![authenticating-with-sms-otp](../../assets/img/tutorials/authenticating-with-sms-otp.jpeg)
-    ![travelocity-home-page](../../assets/img/tutorials/travelocity-home-page.jpeg)
+    ![authenticating-with-sms-otp](../assets/img/tutorials/authenticating-with-sms-otp.jpeg)
+    ![travelocity-home-page](../assets/img/tutorials/travelocity-home-page.jpeg)

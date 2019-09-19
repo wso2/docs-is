@@ -37,17 +37,17 @@ without PKCE.
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
 
       
-    ![running-app-without-pkce](../../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
+    ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
 
 3.  Log in with the user credentials.  
-    ![log-into-app](../../assets/img/using-wso2-identity-server/log-into-app.png) 
+    ![log-into-app](../assets/img/using-wso2-identity-server/log-into-app.png) 
 
       
 
 4.  Select **Approve Once** or **Approve Always** in Access to profile
     information section. Also, select the attributes you agree to share.
     Click **Continue**.  
-    ![select-attributes-and-consent](../../assets/img/using-wso2-identity-server/select-attributes-and-consent.png) 
+    ![select-attributes-and-consent](../assets/img/using-wso2-identity-server/select-attributes-and-consent.png) 
 
       
 
@@ -69,7 +69,7 @@ without PKCE.
         Access Token Endpoint:
         <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![access-token-endpoint](../../assets/img/using-wso2-identity-server/access-token-endpoint.png)   
+    ![access-token-endpoint](../assets/img/using-wso2-identity-server/access-token-endpoint.png)   
       
 
     At this point, the application receives the Access Token. Enter the
@@ -92,11 +92,11 @@ without PKCE.
         or not it is carried in the token itself, allowing this method to be
         used along with or independently of structured token values.
 
-    ![get-access-token](../../assets/img/using-wso2-identity-server/get-access-token.png)
+    ![get-access-token](../assets/img/using-wso2-identity-server/get-access-token.png)
 
 6.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![access-token-info](../../assets/img/using-wso2-identity-server/access-token-info.png)
+    ![access-token-info](../assets/img/using-wso2-identity-server/access-token-info.png)
 
 #### **Running the application (with PKCE)**
 
@@ -113,16 +113,16 @@ without PKCE.
     Use PKCE: Yes  
     PKCE Challenge Method:
 
-    ![enter-details-to-authorize](../../assets/img/using-wso2-identity-server/enter-details-to-authorize.png)
+    ![enter-details-to-authorize](../assets/img/using-wso2-identity-server/enter-details-to-authorize.png)
 
       
 
 3.  Log in with the user credentials.  
-    ![sign-in-with-pkce](../../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
+    ![sign-in-with-pkce](../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
 
 4.  Click **Approve** to consent to this action.
 
-    ![approve-consent-with-pkce.png](../../assets/img/using-wso2-identity-server/approve-consent-with-pkce.png)
+    ![approve-consent-with-pkce.png](../assets/img/using-wso2-identity-server/approve-consent-with-pkce.png)
 
 5.  Provide the following details and click on **Get Access Token**.
 
@@ -144,7 +144,7 @@ without PKCE.
         Access Token Endpoint:
         <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![access-token-end-point](../../assets/img/using-wso2-identity-server/access-token-end-point.png)  
+    ![access-token-end-point](../assets/img/using-wso2-identity-server/access-token-end-point.png)  
       
 
 6.  At this point, the application receives the Access Token. Enter the
@@ -167,11 +167,11 @@ without PKCE.
         used along with or independently of structured token values.
 
       
-    ![introspection-endpoint](../../assets/img/using-wso2-identity-server/introspection-endpoint.png)
+    ![introspection-endpoint](../assets/img/using-wso2-identity-server/introspection-endpoint.png)
 
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![token-info-with-pkce](../../assets/img/using-wso2-identity-server/token-info-with-pkce.png) 
+    ![token-info-with-pkce](../assets/img/using-wso2-identity-server/token-info-with-pkce.png) 
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection

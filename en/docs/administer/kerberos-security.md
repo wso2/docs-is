@@ -82,6 +82,6 @@ In order to configure a service principal, you must first [register a service pr
     -   **Description** – Brief description of the service principal.
         This field is not mandatory.
 
-    ![Add service principal](../../assets/img/using-wso2-identity-server/add-service-principal.png) 
+    ![Add service principal](../assets/img/using-wso2-identity-server/add-service-principal.png) 
 
   

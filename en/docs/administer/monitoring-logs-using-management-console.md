@@ -13,7 +13,7 @@ This feature enables the log viewer on the management console. You can
 click **System Logs** or **Application Logs** on the **Monitor** tab to
 access the log viewer as shown below.
 
-![Log Viewer UI](../../assets/img/53125396/53287283.png "Log Viewer UI")
+![Log Viewer UI](../assets/img/53125396/53287283.png "Log Viewer UI")
 
 To use this feature in your Carbon server, see the following topics:  
 

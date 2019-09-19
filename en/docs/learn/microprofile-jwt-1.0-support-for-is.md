@@ -109,18 +109,18 @@ Let's see how this can be done.
 2.  Configure a service provider.
 
     1.  Give a name and a description and click **Register**.
-        ![add-new-sp-1]( ../../assets/img/using-wso2-identity-server/add-new-sp-1.png)
+        ![add-new-sp-1]( ../assets/img/using-wso2-identity-server/add-new-sp-1.png)
 
     2.  Navigate to the claim configuration section and add the
         following requested claims:  
 
         <http://wso2.org/claims/userprincipal>  
         <http://wso2.org/claims/role>
-        ![mandatory-claims]( ../../assets/img/using-wso2-identity-server/mandatory-claims.png)
+        ![mandatory-claims]( ../assets/img/using-wso2-identity-server/mandatory-claims.png)
 
     3.  Configure OAuth/OpenID Connect Configuration in Inbound
         Authentication Configuration section.  
-        ![configure-oauth]( ../../assets/img/using-wso2-identity-server/configure-oauth.png)
+        ![configure-oauth]( ../assets/img/using-wso2-identity-server/configure-oauth.png)
         Now the generated ID token using this client is compatible with
         the MP-JWT specification.
 
