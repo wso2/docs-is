@@ -56,7 +56,7 @@ following information:
 <td><strong>Actions</strong></td>
 <td><div class="content-wrapper">
 <p>Allows you to <strong>rename, move, copy or delete</strong> a resource/child collection.<br />
-<img src="../assets/img/33128918/33325827.png" width="700" /></p>
+<img src="../../assets/img/33128918/33325827.png" width="700" /></p>
 <div>
 <p>You cannot move/copy resources and collections across registry mounts if they have dependencies or associations. You can only move/copy within a mount. For more information on mounts, read WSO2 Governance Registry documentation: <a href="http://docs.wso2.org/display/Governance460/Remote+Instance+and+Mount+Configuration+Details">Remote Instance and Mount Configuration Details</a> .</p>
 </div>
