@@ -26,9 +26,9 @@ The following types of request path authenticators can be used to
 achieve this.
 
 -   [Basic Auth Request Path
-    Authentication](../../learn/request-path-authentication)
+    Authentication](../../learn/basic-auth-request-path-authentication)
 -   [OAuth Request Path
-    Authenticator](../../learn/oauth-request-path-authenticator)
+    Authentication](../../learn/oauth-request-path-authentication)
 
 For more information on how request path authentication works, see [Try
-Request Path Authentication](../../learn/request-path-authentication).
+Request Path Authentication](../../learn/try-request-path-authentication).

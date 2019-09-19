@@ -16,7 +16,7 @@ or federated authentication in WSO2 Identity Server (IS).
     on NTLM. If you still want to use the previous IWA authenticator that
     was based on NTLM, it is [available as an extension](https://github.com/wso2-extensions/identity-local-auth-iwa-ntlm)
     . For more information on how to setup the NTLM-based IWA authenticator,
-    see [Configuring IWA Single-Sign-On](../../tutorials/configuring-iwa-single-sign-on).
+    see [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on).
     
     The benefits of using the authenticator based on Kerberos vs the
     authenticator based on NTLM are as follows:
@@ -29,7 +29,8 @@ or federated authentication in WSO2 Identity Server (IS).
 !!! info "Related Links"
 
 	-   For more information about IWA, see [Integrated Windows
-		Authentication](../../tutorials/integrated-windows-authentication)
+		Authentication](../../learn/integrated-windows-authentication-overview)
+    
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory User
 		Store](../../learn/configuring-a-read-write-active-directory-user-store).
@@ -60,11 +61,11 @@ or federated authentication in WSO2 Identity Server (IS).
 		Kerberos does not work with IP addresses, it relies on
 		domain names and correct DNS entries only.
 
-2.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
+2.  Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
 
     ``` xml
-   		[server]
-		hostname="idp.wso2.com"
+    [server]
+    hostname="idp.wso2.com"
     ```
 
 3.  Open the `           jaas.conf          ` file found in the
@@ -74,18 +75,18 @@ or federated authentication in WSO2 Identity Server (IS).
     for more information on JAAS)
 
     ``` java
-        Server {
-        com.sun.security.auth.module.Krb5LoginModule required
-        useKeyTab=false
-        storeKey=true
-        useTicketCache=false
-        isInitiator=false;
-        };
+    Server {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useKeyTab=false
+    storeKey=true
+    useTicketCache=false
+    isInitiator=false;
+    };
     
-        Client {
-        com.sun.security.auth.module.Krb5LoginModule required
-        useTicketCache=false;
-        };
+    Client {
+    com.sun.security.auth.module.Krb5LoginModule required
+    useTicketCache=false;
+    };
     ```
 
 4.  Register WSO2 IS using the same hostname (
@@ -97,7 +98,7 @@ or federated authentication in WSO2 Identity Server (IS).
 
 5.  Create a service account in the Active Directory for WSO2 IS or use
     an existing account. (For this tutorial, the sample username of the
-    service account is **is\_linux** ).
+    service account is **is_linux** ).
 
     !!! note
         The account used for WSO2 IS needs to be different from
@@ -224,7 +225,7 @@ authenticator.
     by following the steps above.
 2.  Download and set up the Travelocity sample application. To do this,
     follow the instructions on the [Configuring Single
-    Sign-On](../../tutorials/configuring-single-sign-on) page.
+    Sign-On](../../learn/configuring-single-sign-on) page.
 
 3.  Edit the service provider you created for the Travelocity sample,
     and expand the **Local and Outbound Authentication** section.

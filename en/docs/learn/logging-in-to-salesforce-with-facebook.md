@@ -389,7 +389,7 @@ Let's get started!
     <tr class="even">
     <td>Request Signing Certificate</td>
     <td><div class="content-wrapper">
-    <p>From the dropdown, you must select the public certificatLoggingie of Salesforce you created in <a href="../../tutorials/logging-in-to-salesforce-with-facebook#salesforce-step8">step 8</a> .<br />
+    <p>From the dropdown, you must select the public certificatLoggingie of Salesforce you created in <a href="../../learn/logging-in-to-salesforce-with-facebook#salesforce-step8">step 8</a> .<br />
     <br />
     If you have not created this already, follow the steps given in <a href="#salesforce-step8">step 8</a> above. After creating the certificate, you need start filling the SAML Single Sign-On Setting form from beginning again.</p>
     </div></td>
@@ -479,7 +479,7 @@ Let's get started!
     !!! info
 		SSO is the SAML user authentication method you created in
 		salesforce.com, in [step 9
-		above](../../tutorials/logging-in-to-salesforce-with-facebook#samlsinglesignon). It is
+		above](../../learn/logging-in-to-salesforce-with-facebook#samlsinglesignon). It is
 		configured to direct users to WSO2 Identity server, which in turn
 		direct the request to Facebook as Facebook acts as the IdP.
 
