@@ -10,15 +10,7 @@ catastrophic situation such as major service outage.
 Following are the high level steps you need to follow to renew an
 expired certificate in a keystore.
 
--   [Step 1: Check the validity period of the
-    certificate](#RenewingaCA-SignedCertificateinaKeystore-Step1:Checkthevalidityperiodofthecertificate)
--   [Step 2: Generate a certificate signing
-    request](#RenewingaCA-SignedCertificateinaKeystore-Step2:Generateacertificatesigningrequest)
--   [Step 3: Import the new certificate to a
-    keystore](#RenewingaCA-SignedCertificateinaKeystore-Step3:Importthenewcertificatetoakeystore)
-
 !!! tip
-    
     Following are a few important points to keep in mind when you are
     renewing an expired certificate:
     
@@ -33,7 +25,7 @@ expired certificate in a keystore.
     
         ``` java
             keytool error: java.lang.Exception: Failed to establish chain from reply
-    ```
+        ```
 
     To overcome the above error, be sure to first import the CA-signed
     certificate as well as the intermediate certificates to the keystore
@@ -102,9 +94,6 @@ below to generate a CSR:
     ```
 
     !!! note
-    
-        Note
-    
         If you want generate a CSR with a subject alternative name (SAN), be
         sure to use the -ext attribute in the keytool command to specify
         required SAN.
@@ -142,11 +131,10 @@ certificate to a keystore if you are using a java keystore.
     ```
 
     !!! tip
-    
         If you want to view information related to the renewed certificate,
         execute the following keytool command:
     
         ``` java
             keytool -list -keystore <keystore_name.jks> -alias <cert_alias> -v
-    ```
+        ```
 
