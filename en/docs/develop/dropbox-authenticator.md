@@ -4,7 +4,7 @@ The Dropbox authenticator is configured as a federated authenticator in
 WSO2 Identity Server to authenticate Dropbox users to log in to your
 organization’s applications.
 
-![](../../assets/img/49091438/76746194.png)   
+![](../assets/img/49091438/76746194.png)   
 
 !!! info 
     To download the authenticator, go to
@@ -38,7 +38,7 @@ You can find more information in the following sections.
 2.  Navigate to <https://www.dropbox.com/developers/apps> and create a
     new app. You must create or have a Dropbox account for this.
 
-    ![](../../assets/img/49091441/75106368.png) 
+    ![](../assets/img/49091441/75106368.png) 
 
 3.  Enter the name of your new app and click **Create App**.
 4.  Specify the redirect URI as <https://localhost:9443/commonauth> in
@@ -69,7 +69,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 3.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 4.  Give a suitable name for **Identity Provider Name**.  
-    ![](../../assets/img/49091441/75106398.png) 
+    ![](../assets/img/49091441/75106398.png) 
 5.  Go to **Dropbox Configuration** under **Federated Authenticators**.
 6.  Enter the values as given in the above figure.
 
@@ -97,7 +97,7 @@ The next step is to configure the service provider.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
     
-    ![](../../assets/img/49091441/49224550.png)
+    ![](../assets/img/49091441/49224550.png)
 
 5.  Now set the configuration as follows:  
     1.  Issuer: travelocity.com
@@ -115,7 +115,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
       
-    ![](../../assets/img/49091441/49224551.png) 
+    ![](../assets/img/49091441/49224551.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -127,14 +127,14 @@ You have now added and configured the service provider.
 1.  To test the sample, navigate to the following URL:
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `. E.g., <http://localhost:8080/travelocity.com>  
 
-    ![](../../assets/img/49091441/49224552.png)
+    ![](../assets/img/49091441/49224552.png)
 
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Dropbox login page. Enter your Dropbox
     credentials.  
       
-    ![](../../assets/img/49091441/49224553.png) 
+    ![](../assets/img/49091441/49224553.png) 
     
 4.  You are then taken to the home page of the travelocity.com app.  
-    ![](../../assets/img/49091441/49224554.png) 
+    ![](../assets/img/49091441/49224554.png) 
 

@@ -48,7 +48,7 @@ authority.
     the management console and click **List**.
 3.  Click **Import Cert** to import a certificate to the
     **wso2carbon.jks** keystore.  
-    ![import-cert-keystore](../../assets/img/tutorials/import-cert-keystore.png)
+    ![import-cert-keystore](../assets/img/tutorials/import-cert-keystore.png)
 4.  Upload the certificate found in
     `          <CLIENT_HOME>/src/test/resources/soa.cert         ` and
     click **Import**.
@@ -128,7 +128,7 @@ AssertionID for the travelocity sample application.
         `            soa.cert           ` as the **Certificate Alias**
         and tick the **Enable Assertion Query Request Profile**
         checkbox.  
-        ![enable-assertion-query-request](../../assets/img/tutorials/enable-assertion-query-request.png)
+        ![enable-assertion-query-request](../assets/img/tutorials/enable-assertion-query-request.png)
 3.  Click **Update**.
 4.  You have to use a custom assertion builder with the capability to
     persist assertions to the database for this profile.  
@@ -191,7 +191,7 @@ AssertionID for the travelocity sample application.
     database. Check the database for the new assertion.
 9.  Copy the SAMLID of the created assertion. You can use this ID to
     query the assertion using a AssertionIDRequest.  
-    ![assertion-samlid](../../assets/img/tutorials/assertion-samlid.png)
+    ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
 10. Open the repository source code you cloned from GitHub using an IDE
     and navigate to
     `          <CLIENT_HOME>          \src\test\java\org\wso2\carbon\identity\query\saml\test         `
@@ -199,7 +199,7 @@ AssertionID for the travelocity sample application.
 11. Open the `          SAMLAssertionIDRequestClient.java         `
     class and assign AssertionID value you copied from the database to
     the `          ASSERTION_ID         ` variable.  
-    ![assign-assertionid-value](../../assets/img/tutorials/assign-assertionid-value.png)
+    ![assign-assertionid-value](../assets/img/tutorials/assign-assertionid-value.png)
 12. Run the main() method of the class. You will see a generated request
     and a response similiar to the following:
 

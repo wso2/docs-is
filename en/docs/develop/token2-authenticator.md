@@ -43,7 +43,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
         \*\* \*\*\* )
     2.  Select **SMS Based** as the **User type**.
     3.  Click **Register**.  
-        ![](../../assets/img/53120841/53284895.png)
+        ![](../assets/img/53120841/53284895.png)
 2.  Once you have registered with Token2, log in using your email,
     password and the OTP that is sent to the registered mobile number
     through Token2.
@@ -90,7 +90,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     Authenticators**.
 7.  Select both check boxes to **Enable** the Token2 authenticator and
     make it the **Default**.  
-    ![](../../assets/img/53120841/53284908.png) 
+    ![](../assets/img/53120841/53284908.png) 
 
 8.  Enter the following values:
 
@@ -144,7 +144,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
     For example, if you specify the <code>                   cn                  </code> attribute, this is mapped to the <code>                   cn                  </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
-    <img src="../../assets/img/60494083/85362998.png" width="700" /></p>
+    <img src="../assets/img/60494083/85362998.png" width="700" /></p>
     </div></td>
     <td><code>                 stateOrProvinceName                </code></td>
     </tr>
@@ -187,12 +187,12 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     </tbody>
     </table>
 
-    ![](../../assets/img/53120841/76748580.png)   
+    ![](../assets/img/53120841/76748580.png)   
 
 4.  Next click **List** under **Main \> Identity \> Users and Roles**.
 5.  Click **User Profile** under **Admin** and update the
     `           User Id          ` .  
-    ![](../../assets/img/53120841/76748586.png) 
+    ![](../assets/img/53120841/76748586.png) 
 
 Now you have configured the claim.  
 
@@ -210,7 +210,7 @@ The next step is to configure the service provider.
 
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.  
-    ![](../../assets/img/53120841/53284577.png)
+    ![](../assets/img/53120841/53284577.png)
 
 	??? note "Click here to view the field definitions"
 		<table>
@@ -367,7 +367,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the userId claim as Subject
     Claim URI.  
-    ![](../../assets/img/53120841/53284903.png) 
+    ![](../assets/img/53120841/53284903.png) 
 
 9.  Go to **Local and Outbound Authentication Configuration** section .
 
@@ -380,7 +380,7 @@ The next step is to configure the service provider.
     with the Identity Server and then get authenticated using Token2 as
     the second step. This is an added security measure and a common use
     of the Token2 authenticator.  
-    ![](../../assets/img/53120841/53284914.png) 
+    ![](../assets/img/53120841/53284914.png) 
 
     ??? note "Click here to view the field definitions"
 		<table>
@@ -450,18 +450,18 @@ You have now added and configured the service provider.
 1.  To test the sample, go to the following URL:
     <http://localhost:8080/travelocity.com>  
     
-	![](../../assets/img/53120841/76748573.png) 
+	![](../assets/img/53120841/76748573.png) 
 
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  Basic authentication page will be visible, use your IS username and
     password.  
-    ![](../../assets/img/53120841/76748574.png) 
+    ![](../assets/img/53120841/76748574.png) 
 
 4.  Enter the code that is generated with token2 hardware device to
     authenticate. You are directed to the home page of the
     [travelocity.com](http://travelocity.com) app.
 
-    ![](../../assets/img/53120841/53284612.png) 
+    ![](../assets/img/53120841/53284612.png) 
 
-    ![](../../assets/img/53120841/53284615.png) 
+    ![](../assets/img/53120841/53284615.png) 

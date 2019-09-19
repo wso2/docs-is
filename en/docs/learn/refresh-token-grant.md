@@ -28,7 +28,7 @@ steps.
 
 The diagram below illustrates the refresh token grant flow.
 
-![oauth-refresh-token-diagram](../../assets/img/using-wso2-identity-server/oauth-refresh-token-diagram.png)
+![oauth-refresh-token-diagram](../assets/img/using-wso2-identity-server/oauth-refresh-token-diagram.png)
 
 ### Configurations
 

@@ -40,7 +40,7 @@ authorization server and the resource server. Thus, the user’s browser
 never makes a request directly to the Authorization server, everything
 goes through the client first.
 
-![oauth2-auth-code-diagram](../../assets/img/using-wso2-identity-server/oauth2-auth-code-diagram.png)
+![oauth2-auth-code-diagram](../assets/img/using-wso2-identity-server/oauth2-auth-code-diagram.png)
 
 Typically, the [authorization code grant type](../../learn/authorization-code-grant) is
 used with these clients.
@@ -61,7 +61,7 @@ The diagram below illustrates a user agent based application. After
 first downloading the Javascript and HTML source code from the client,
 the browser then makes direct requests to the Authorization server.
 
-![oauth2-implicit-diagram](../../assets/img/using-wso2-identity-server/oauth2-implicit-diagram.png)
+![oauth2-implicit-diagram](../assets/img/using-wso2-identity-server/oauth2-implicit-diagram.png)
 
 Typically, the [implicit grant type](../../learn/implicit-grant) is used with these
 clients.

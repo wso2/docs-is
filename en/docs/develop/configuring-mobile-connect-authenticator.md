@@ -92,10 +92,10 @@ Mobile Connect and use it to integrate with the WSO2 Identity Server.
     Now that this is configured, you can log in using your mobile phone.
 3.  Once you log in, click **My Apps** from the left menu and click
     **Add Application**.  
-    ![](../../assets/img/72423834/72426246.png)
+    ![](../assets/img/72423834/72426246.png)
 4.  Fill in the required information to create an application and click
     **Create**.  
-    ![](../../assets/img/72423834/72426475.png) 
+    ![](../assets/img/72423834/72426475.png) 
     Fill in the following details.
     -   **Name** : Travelocity (any name you prefer)
 
@@ -109,11 +109,11 @@ Mobile Connect and use it to integrate with the WSO2 Identity Server.
 
 5.  Click **My Operators** and click **Accept Terms and Conditions for
     all operators**.  
-    ![](../../assets/img/72423834/72427944.png) 
+    ![](../assets/img/72423834/72427944.png) 
 
 6.  Go to **My Account** and click **My Test Numbers**. Add the test
     numbers and sandbox operators and click **Update**.  
-    ![](../../assets/img/72423834/72427946.png) 
+    ![](../assets/img/72423834/72427946.png) 
 
 ### Deploying the sample application
 
@@ -176,7 +176,7 @@ available in the Identity Server.
     form and click and expand the **Mobile Connect Configurations**
     section. This section is available to you after configuring the
     Mobile Connect authenticator parameters.  
-    ![](../../assets/img/72423834/72428054.png)  
+    ![](../assets/img/72423834/72428054.png)  
     In this section, configure the following.  
 
     | Field                              | Configuration | Description |                                                                          | Enable                            | Selected      | Ensure that this checkbox is selected to enable the authenticator.                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -221,11 +221,11 @@ service provider to the Identity Server.
 
     See the following screen for a sample of how this configuration
     looks like.  
-    ![](../../assets/img/72423834/72436884.png)
+    ![](../assets/img/72423834/72436884.png)
 5.  Navigate to the **Local and Outbound Authentication Configuration**
     section. Select the **Federated Authentication** radio button and
     select **Mobile Connect** from the dropdown list.  
-    ![](../../assets/img/72423834/72436900.png) 
+    ![](../assets/img/72423834/72436900.png) 
 6.  Click **Update** to save your changes.
 
 ### Testing the federated authentication flow
@@ -239,20 +239,20 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                   `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](../../assets/img/72423834/80723064.png) 
+    ![](../assets/img/72423834/80723064.png) 
 2.  If you are on the web application you are redirected to the
     <https://discover.mobileconnect.io/gsma/v2/discovery/> endpoint
     application and you must provide the mobile number there. If you are
     in the mobile application, you will not see this page and you will
     be redirected to the page in step 3.  
-    ![](../../assets/img/72423834/80723069.png)
+    ![](../assets/img/72423834/80723069.png)
 3.  Once you click **Next** you are redirected to the Mobile Connect
     Authorization Page, which is one of the network operators page you
     are registered with.  
-    ![](../../assets/img/72423834/80723070.png)  
+    ![](../assets/img/72423834/80723070.png)  
 4.  When the authorization page appears, you are asked to confirm your
     identity via your mobile phone.  
-    ![](../../assets/img/72423834/80723071.png)  
+    ![](../assets/img/72423834/80723071.png)  
 5.  Once you confirm your identity via the mobile device, you are taken
     to the home page of the travelocity sample application.  
 
@@ -262,10 +262,10 @@ configured an on-net or off-net flow.
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp         `
     and click the link to log in with SAML using the WSO2 Identity
     Server.  
-    ![](../../assets/img/72423834/80723064.png) 
+    ![](../assets/img/72423834/80723064.png) 
 2.  You are redirected to the Mobile Connect authentication endpoint web
     application. Here you need to provide the mobile number.  
-    ![](../../assets/img/72423834/80723065.png)
+    ![](../assets/img/72423834/80723065.png)
 3.  Once you provide the mobile number and click on **Mobile Connect Log-in**, you are redirected to the Authorization Page as in the
     on-net scenario and there is a popup to confirm your identity. Once
     you confirm your identity via the mobile device, you are taken to
@@ -288,19 +288,19 @@ authenticator.
     section of this document and expand the **Local & Outbound
     Authentication** **Configuration** section as described in step 5.
     Select the **Advanced Configuration** option.  
-    ![](../../assets/img/72423834/80723084.png)
+    ![](../assets/img/72423834/80723084.png)
 2.  Here you can use the basic authentication and mobile authentication
     as authentication steps (this can vary depending on your scenario
     and these are used for as a demonstration). You can add two steps by
     clicking **Add Authentication Step**.  
-    ![](../../assets/img/72423834/80723096.png)  
+    ![](../assets/img/72423834/80723096.png)  
 3.  In step 1, add a basic authenticator to demonstrate this scenario.
     Select this from the drop-down under **Local Authenticators**.
     Click **Add Authenticator** to add the basic authenticator.
     Similarly, for step 2, add Mobile Connect as the federated
     authenticator by selecting it from the dropdown and clicking **Add
     Authenticator**.  
-    ![](../../assets/img/72423834/80723120.png)  
+    ![](../assets/img/72423834/80723120.png)  
     
     !!! tip
         You can add multiple steps and multiple authenticators.

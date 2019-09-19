@@ -19,7 +19,7 @@ configuration parameters section that appears in the product management
 console when creating a datasource. Click and expand the option as shown
 below:
 
-![](../../assets/img/53125522/53287619.png)
+![](../assets/img/53125522/53287619.png)
 
 Following are descriptions of the parameters you can configure. For more
 details on datasource configuration parameters, see [ApacheTomcat JDBC

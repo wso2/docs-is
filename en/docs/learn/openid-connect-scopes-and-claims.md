@@ -36,7 +36,7 @@ under **Manage**. Click **Add** to add a new scope mapping or click
     from the dropdown that appears once you click the **Add OIDC Claim**
     button as indicated below. Click **Finish** to add the new scope
     claim mapping.  
-    ![oidc-claims]( ../../assets/img/using-wso2-identity-server/oidc-claims.png)
+    ![oidc-claims]( ../assets/img/using-wso2-identity-server/oidc-claims.png)
 -   Listing the scopes can be done clicking on the **List** button. You
     can add and remove claims from the scope by using the **Add claims**
     and **Update** buttons respectively. You can also delete a scope

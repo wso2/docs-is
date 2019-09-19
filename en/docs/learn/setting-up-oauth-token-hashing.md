@@ -87,12 +87,12 @@ Follow the instructions below to set up OAuth token hashing:
 
     4.  Specify appropriate values for the required fields.
 
-        ![new-oauth-application]( ../../assets/img/using-wso2-identity-server/new-oauth-application.png)
+        ![new-oauth-application]( ../assets/img/using-wso2-identity-server/new-oauth-application.png)
 
     5.  Click **Add**. This displays values of the **Consumer Key** and
         the **Consumer Secret** for your service provider.
 
-        ![oauth-app-credentials]( ../../assets/img/using-wso2-identity-server/oauth-app-credentials.png) 
+        ![oauth-app-credentials]( ../assets/img/using-wso2-identity-server/oauth-app-credentials.png) 
 
         !!! tip
             **Consumer Key** : The client key of the service provider. This

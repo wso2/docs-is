@@ -54,10 +54,10 @@ authenticate users using their Twitter login credentials:
     2.  Sign in as an admin user.
     3.  On the **Main** tab, click **Identity \> Identity Providers \>
         Resident** .  
-        ![main-tab-resident](../../assets/img/tutorials/main-tab-resident.png) 
+        ![main-tab-resident](../assets/img/tutorials/main-tab-resident.png) 
         
         The Resident Identity Provider page appears.  
-        ![resident-identity-provider](../../assets/img/tutorials/resident-identity-provider.png)
+        ![resident-identity-provider](../assets/img/tutorials/resident-identity-provider.png)
 
     4.  Enter the required values as given below.
 
@@ -95,9 +95,9 @@ authenticate users using their Twitter login credentials:
         **Inbound Authentication Configuration** section.  
         1.  To configure SAML2 configurations:
             -  Click **SAML2 Web SSO Configuration** .  
-                ![saml2-web-sso-config](../../assets/img/tutorials/saml2-web-sso-config.png)  
+                ![saml2-web-sso-config](../assets/img/tutorials/saml2-web-sso-config.png)  
                 The SAML2 Web SSO Configuration form appears.  
-                ![saml2-web-sso-config](../../assets/img/tutorials/saml2-web-sso-config.png)
+                ![saml2-web-sso-config](../assets/img/tutorials/saml2-web-sso-config.png)
             -  Enter the required values and learn the fixed values as
                 given below.
 
@@ -113,7 +113,7 @@ authenticate users using their Twitter login credentials:
 
         2.  To configure OAuth2 or OIDC, click **OAuth2/OpenID Connect
             Configuration** .  
-            ![oauth2-openid-connect-config](../../assets/img/tutorials/oauth2-openid-connect-config.png)
+            ![oauth2-openid-connect-config](../assets/img/tutorials/oauth2-openid-connect-config.png)
 
             | Field                                        | Description                                                                                                                                                                                         | Sample/Fixed Value                                                                                                                         |
             |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -132,14 +132,14 @@ authenticate users using their Twitter login credentials:
 
         3.  To secure the WS-Trust endpoint with a security policy,
             click **Security Token Service Configuration** section.  
-            ![security-token-service-config](../../assets/img/tutorials/security-token-service-config.png)  
+            ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)  
             For more information on security token service (STS), see
             [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
             .
 
     6.  You may view the inbound provisioning configurations by clicking
         **Inbound Provisioning Configuration** section.
-        ![inbound-provisioning-config](../../assets/img/tutorials/inbound-provisioning-config.png)
+        ![inbound-provisioning-config](../assets/img/tutorials/inbound-provisioning-config.png)
 
         | Field                   | Description                                                                                                                                                    | Sample Value                                                                                                  |
         |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -196,10 +196,10 @@ authenticate users using their Twitter login credentials:
         relevant service provider to configure WSO2 Identity Server as a
         trusted identity provider for your application.
 
-        ![import-metadata-file](../../assets/img/tutorials/import-metadata-file.png)
+        ![import-metadata-file](../assets/img/tutorials/import-metadata-file.png)
 
 4.  Expand **Twitter Configuration** under **Federated Authenticators**
-    . ![twitter-config-federated-auth.png](../../assets/img/tutorials/twitter-config-federated-auth.png) 
+    . ![twitter-config-federated-auth.png](../assets/img/tutorials/twitter-config-federated-auth.png) 
     Fill in the following fields details:
 
     <table>

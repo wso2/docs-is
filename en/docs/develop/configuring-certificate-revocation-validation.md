@@ -362,13 +362,13 @@ other validator configurations.
     ```
 
 2.  On the **Main** tab, click **Registry \> Browse**.  
-    ![](../../assets/img/103328122/103328123.png) 
+    ![](../assets/img/103328122/103328123.png) 
     
 3.  Enter the registry path
     `              /_system/governance/repository/security/certificate/validator             `
     to the **Location** text box and click **Go**.  
-    ![](../../assets/img/103328122/103328124.png) 
+    ![](../assets/img/103328122/103328124.png) 
 
 4.  To update the properties, expand **Properties**.
 
-    ![](../../assets/img/103328122/103328125.png) 
+    ![](../assets/img/103328122/103328125.png) 

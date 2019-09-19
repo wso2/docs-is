@@ -16,12 +16,12 @@ IS as well. To test the workflow, follow the steps below.
         disabled or greyed out functions.
     
 
-    ![workflow-pending-status](../../assets/img/using-wso2-identity-server/workflow-pending-status.png)  
+    ![workflow-pending-status](../assets/img/using-wso2-identity-server/workflow-pending-status.png)  
 
     1.  [Login to the IS User
         Portal](../../learn/using-the-end-user-dashboard#accessing-the-dashboard-and-its-components)
         as a manager at this link: <https://localhost:9443/dashboard>  
-        ![pending-approvals](../../assets/img/using-wso2-identity-server/pending-approvals.png)   
+        ![pending-approvals](../assets/img/using-wso2-identity-server/pending-approvals.png)   
           
     2.  Click **View details** under **Pending Approvals**.
     3.  In the resulting screen, select the **Workflow Profile engine**
@@ -32,14 +32,14 @@ IS as well. To test the workflow, follow the steps below.
          “DEFAULT” task status category captures the aggregate task
         statuses of “READY” and “RESERVED”.
 
-        ![workflow-task-status](../../assets/img/using-wso2-identity-server/workflow-task-status.png) 
+        ![workflow-task-status](../assets/img/using-wso2-identity-server/workflow-task-status.png) 
 
 3.  Click on the relevant **Task Id** to access the details of the
     selected task and click on the button corresponding to a state to
     move the state of the selected task to a new state  and to complete
     the workflow approval process (e.g. clicking **Approve** will approve the pending task and complete the workflow
     process).  
-    ![approving-pending-task](../../assets/img/using-wso2-identity-server/approving-pending-task.png)   
+    ![approving-pending-task](../assets/img/using-wso2-identity-server/approving-pending-task.png)   
 
     | Operation  | Description                                                                                                                                                               |
     |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

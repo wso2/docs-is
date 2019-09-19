@@ -40,14 +40,14 @@ Grant](../../learn/resource-owner-password-credentials-grant)
         Access Token Endpoint:
         <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
-    ![tenant-domain-token-endpoint](../../assets/img/using-wso2-identity-server/tenant-domain-token-endpoint.png) 
+    ![tenant-domain-token-endpoint](../assets/img/using-wso2-identity-server/tenant-domain-token-endpoint.png) 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.  
 
-    ![password-grant-introspection-point](../../assets/img/using-wso2-identity-server/password-grant-introspection-point.png)
+    ![password-grant-introspection-point](../assets/img/using-wso2-identity-server/password-grant-introspection-point.png)
 
     ??? note "Click here for more information on OAuth 2.0 Token Introspection"
         OAuth 2.0 Token Introspection defines a protocol that allows
@@ -65,7 +65,7 @@ Grant](../../learn/resource-owner-password-credentials-grant)
 
 4.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![password-grant-access-token](../../assets/img/using-wso2-identity-server/password-grant-access-token.png) 
+    ![password-grant-access-token](../assets/img/using-wso2-identity-server/password-grant-access-token.png) 
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection

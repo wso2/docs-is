@@ -19,7 +19,7 @@ as an XACML engine.
     Click **Policy Administration** under **PAP**. For more information
     on policy administration, see [Configuring the Policy Administration
     Point](../../learn/configuring-the-policy-administration-point).  
-    ![entitlement-policy-administration](../../assets/img/tutorials/entitlement-policy-administration.png) 
+    ![entitlement-policy-administration](../assets/img/tutorials/entitlement-policy-administration.png) 
     \|
 3.  Add a new policy or import external policy files to the system. Once
     you click **Add**, a  policy will be added. You can [edit a

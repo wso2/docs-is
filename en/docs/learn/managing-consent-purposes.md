@@ -66,10 +66,10 @@ management console.
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
 2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
-    ![add-consent-purposes](../../assets/img/using-wso2-identity-server/add-consent-purposes.png)   
+    ![add-consent-purposes](../assets/img/using-wso2-identity-server/add-consent-purposes.png)   
     The following window will be displayed.
 
-    ![add-new-purpose](../../assets/img/using-wso2-identity-server/add-new-purpose.png) 
+    ![add-new-purpose](../assets/img/using-wso2-identity-server/add-new-purpose.png) 
 
 3.  Add a **Purpose Name** and a **Description**.
 
@@ -101,7 +101,7 @@ management console.
 4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
-    ![consent-purpose-list](../../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
+    ![consent-purpose-list](../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
 
 ### List consent purposes
 
@@ -119,7 +119,7 @@ management console.
 1.  Log into the [Management
     Console](../../setup/getting-started-with-the-management-console).
 2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
-    ![manage-consent-purposes](../../assets/img/using-wso2-identity-server/manage-consent-purposes.png) 
+    ![manage-consent-purposes](../assets/img/using-wso2-identity-server/manage-consent-purposes.png) 
 
 3.  The following window will be displayed.
 
@@ -132,14 +132,14 @@ management console.
         the PII categories. For more information about consent management
         with single sign on, see [Consent Management with single sign on](../../learn/consent-management-with-single-sign-on)
 
-    ![consent-purpose-list](../../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
+    ![consent-purpose-list](../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
 
 4.  You can delete a purpose by clicking **Delete**. You can also view
     the PII categories associated with the **Purpose** by clicking
     **View PII Categories** in the **Action** column. The following
     window will be displayed when you click **View PII Categories.**
 
-    ![manage-purpose](../../assets/img/using-wso2-identity-server/manage-purpose.png)
+    ![manage-purpose](../assets/img/using-wso2-identity-server/manage-purpose.png)
 
     !!! tip
     

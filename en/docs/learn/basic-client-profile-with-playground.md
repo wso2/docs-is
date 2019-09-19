@@ -151,7 +151,7 @@ scenario.
         playground application.  
         You are directed to the landing page of the sample application.
         Click on **Import Photos** and the following page appears.  
-        ![click-on-import-photos](../../assets/img/using-wso2-identity-server/click-on-import-photos.png) 
+        ![click-on-import-photos](../assets/img/using-wso2-identity-server/click-on-import-photos.png) 
 
     !!! note "Are you getting the error that is given below?"        
         
@@ -214,7 +214,7 @@ scenario.
             OAuth 2.0 Grant
             Type](../../learn/writing-a-custom-oauth-2.0-grant-type).
         
-        ![select-allowed-grant-types](../../assets/img/using-wso2-identity-server/select-allowed-grant-types.png) 
+        ![select-allowed-grant-types](../assets/img/using-wso2-identity-server/select-allowed-grant-types.png) 
 
         When filling out the **New Application** form, the following details should be taken into consideration.                   
     <table>
@@ -376,7 +376,7 @@ scenario.
 
     3.  Click **Add**. Note that `             client key            ` and
         `             client secret            ` get generated.  
-        ![generated-key-secret](../../assets/img/using-wso2-identity-server/generated-key-secret.png) 
+        ![generated-key-secret](../assets/img/using-wso2-identity-server/generated-key-secret.png) 
 
         -   **OAuth Client Key** - This is the client key of the service
             provider, which will be checked for authentication by the
@@ -474,13 +474,13 @@ scenario.
         see step 7.
     
 
-    ![different-consent-values](../../assets/img/using-wso2-identity-server/different-consent-values.png) 
+    ![different-consent-values](../assets/img/using-wso2-identity-server/different-consent-values.png) 
 
       
 
 3.  Provide user credentials and sign in with the previously created
     user.  
-    ![sign-in-with-pkce](../../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)   
+    ![sign-in-with-pkce](../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)   
     
 4.  Click **Approve** to provide consent to this action. The screen
     mentions the service provider by name and requests for user consent
@@ -494,7 +494,7 @@ scenario.
         information with the service provider even in the future without
         prompting for consent again.
 
-    ![approve-consent](../../assets/img/using-wso2-identity-server/approve-consent.png) 
+    ![approve-consent](../assets/img/using-wso2-identity-server/approve-consent.png) 
 
     !!! tip
         After approval is provided, the application receives an
@@ -520,7 +520,7 @@ scenario.
     -   **Client Secret:** (client secret received at the application
         registration)
 
-    ![access-token-details](../../assets/img/using-wso2-identity-server/access-token-details.png) 
+    ![access-token-details](../assets/img/using-wso2-identity-server/access-token-details.png) 
 
 6.  At this point, the application receives the **Access Token** with
     the id token, which follows the format shown in step 7. Enter the
@@ -528,7 +528,7 @@ scenario.
     `                         https://localhost:9443/oauth2/userinfo?schema=openid                       `
     ), in the form as seen below, to get user information.
 
-    ![logged-in-user-info](../../assets/img/using-wso2-identity-server/logged-in-user-info.png) 
+    ![logged-in-user-info](../assets/img/using-wso2-identity-server/logged-in-user-info.png) 
 
     Since the received access token has the scope
     `            openid           `, the

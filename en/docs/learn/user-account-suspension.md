@@ -128,7 +128,7 @@ task that checks for idle accounts is common to all tenants.
     **Main** tab. Expand the **Login Policies** tab.
 3.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![account-lock-enabled](../../assets/img/using-wso2-identity-server/account-lock-enabled.png)
+    ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png)
     
 4.  Expand the **Account Management Policies** tab.
 
@@ -140,7 +140,7 @@ task that checks for idle accounts is common to all tenants.
     | Lock Account After | This specifies the total number of days after which the account will be locked. In this case, if the account is idle for 90 days, it will be locked.                                                                                                                                                                                                                                          | 90           |
     | Alert User in      | This specifies the number of days (in a comma separated list) after which the user is sent a warning notification informing him/her that the account is about to be locked. In this case, the user will receive multiple notifications, one notification after 30 days, the next after 45 days etc. Finally if it reaches 90 days with no activity from the user, the account will be locked. | 30,45,60,75  |
 
-    ![account-management-policies](../../assets/img/using-wso2-identity-server/account-management-policies.png)
+    ![account-management-policies](../assets/img/using-wso2-identity-server/account-management-policies.png)
 
 !!! tip "Troubleshooting Tips"
     

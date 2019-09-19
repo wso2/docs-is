@@ -17,7 +17,7 @@ along with the client’s own credentials.
 The diagram below illustrates the resource owner password credentials
 grant flow.
 
-![oauth-resource-owner-diagram](../../assets/img/using-wso2-identity-server/oauth-resource-owner-diagram.png)
+![oauth-resource-owner-diagram](../assets/img/using-wso2-identity-server/oauth-resource-owner-diagram.png)
 
 The cURL commands below can be used to try this grant type.
 

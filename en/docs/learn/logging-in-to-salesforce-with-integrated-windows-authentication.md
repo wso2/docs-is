@@ -198,7 +198,7 @@ Authentication.
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
 			<p>After this configuration, the user having the username <strong><code>                      admin@wso2.com                     </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-			<img src="../../assets/img/tutorials/super-admin-config.png" /></p></div>
+			<img src="../assets/img/tutorials/super-admin-config.png" /></p></div>
 			<div class="admonition title">
 			<p class="admonition-title">Tip</p>
 			<p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
@@ -270,11 +270,11 @@ this.
     
 			1.  Click your username to expand the drop down.
 			2.  Click **Switch to Lightning Experience**.  
-				![switch-to-lightening-experience](../../assets/img/tutorials/switch-to-lightening-experience.png)
+				![switch-to-lightening-experience](../assets/img/tutorials/switch-to-lightening-experience.png)
 				
 			3.  Click the settings icon on the top-right-hand corner, and click
 				**Set Up**.  
-				![switch-from-classic](../../assets/img/tutorials/switch-from-classic.png)
+				![switch-from-classic](../assets/img/tutorials/switch-from-classic.png)
     
         	Now you are navigated to the lightening theme of Salesforce.
     
@@ -294,7 +294,7 @@ this.
 
     1.  Search for My Domain in the search bar that is on the left
         navigation panel.  
-        ![my-domain](../../assets/img/tutorials/my-domain.png)
+        ![my-domain](../assets/img/tutorials/my-domain.png)
         
     2.  Click **My Domain**.
     
@@ -305,7 +305,7 @@ this.
         For the page given below to load on your browser, make sure that
         the Salesforce cookies are not blocked.
 
-        ![sales-force-cookies](../../assets/img/tutorials/sales-force-cookies.png)
+        ![sales-force-cookies](../assets/img/tutorials/sales-force-cookies.png)
 
     4.  If the domain is available, select **I agree to Terms and
         Conditions** and click **Register Domain** to register your new
@@ -319,13 +319,13 @@ this.
     
 6.  In the page that appears, click **Edit** and then select the **SAML
     Enabled** checkbox to enable federated single sign-on using SAML.  
-    ![saml-enabled](../../assets/img/tutorials/saml-enabled.png)
+    ![saml-enabled](../assets/img/tutorials/saml-enabled.png)
     
 7.  Click **Save** to save this configuration change.
 
 8.  Click **New** under **SAML Single Sign-On Settings**. The following
     screen appears.  
-    ![saml-sso-setting](../../assets/img/tutorials/saml-sso-setting.png) Ensure that
+    ![saml-sso-setting](../assets/img/tutorials/saml-sso-setting.png) Ensure that
     you configure the following properties.
     <table>
     <thead>
@@ -443,7 +443,7 @@ this.
     
 13. Under **Authentication Service**, select **SSO** instead of **Login
     Page**.  
-    ![authentication-service-sso](../../assets/img/tutorials/authentication-service-sso.png)
+    ![authentication-service-sso](../assets/img/tutorials/authentication-service-sso.png)
     
 14. Click **Save**.
 
@@ -482,7 +482,7 @@ this.
     **Description** of the service provider. Only **Service Provider
     Name** is a required field and we use Salesforce as the name for
     this example.  
-    ![service-provider-name](../../assets/img/tutorials/service-provider-name.png)
+    ![service-provider-name](../assets/img/tutorials/service-provider-name.png)
     
 4.  Click **Register**.
 
@@ -491,7 +491,7 @@ this.
     
 6.  In the form that appears, fill out the following configuration
     details required for single sign-on.  
-    ![single-sign-on-setting](../../assets/img/tutorials/single-sign-on-setting.png)  
+    ![single-sign-on-setting](../assets/img/tutorials/single-sign-on-setting.png)  
     See the following table for details.
 
     | Field                                      | Value                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
