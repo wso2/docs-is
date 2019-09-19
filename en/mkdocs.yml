@@ -545,7 +545,7 @@ nav:
         - 'MailChimp Authenticator': develop/mailchimp-authenticator.md
         - 'MePIN Authenticator': develop/mepin-authenticator.md
         - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
-        - 'Configuring Mobile Connect Authenticator': develop/configuring-mobile-connect-authenticator.md
+        - 'Configuring Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
         - 'Microsoft Azure AD Authenticator':
           - 'Microsoft Azure AD Authenticator': develop/microsoft-azure-ad-authenticator.md
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
@@ -557,7 +557,7 @@ nav:
         - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
         - 'Token2 Authenticator': develop/token2-authenticator.md
         - 'TOTP Authenticator':
-          - 'Configuring TOTP Authenticator': develop/configuring-totp-authenticator.md
+          - 'Configuring TOTP Authenticator': develop/totp-authenticator.md
           - 'Using the TOTP API': develop/using-the-totp-api.md
         - 'Twitter Authenticator': develop/twitter-authenticator.md
         - 'Wordpress Authenticator': develop/wordpress-authenticator.md
@@ -592,10 +592,10 @@ nav:
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-Production.md
+      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
-      - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-an-sp-and-idp-using-configuration-files.md
+      - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Token Persistence': setup/token-persistence.md
     - 'Migration Guide':
       - 'Migration Guide': setup/migration-guide.md
