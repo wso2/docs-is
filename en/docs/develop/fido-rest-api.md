@@ -8,7 +8,8 @@ template: templates/swagger.html
     2.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     3. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 IS. 
-    
+
+
 <div id="swagger-ui"></div>
 <script src="../../assets/lib/swagger/swagger-ui-bundle.js"> </script>
 <script src="../../assets/lib/swagger/swagger-ui-standalone-preset.js"> </script>
@@ -16,7 +17,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../references/restapis/session.yaml",
+    url: "../../develop/restapis/fido.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

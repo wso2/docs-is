@@ -16,7 +16,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../references/restapis/association.yaml",
+    url: "../../develop/restapis/challenge.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
