@@ -134,7 +134,7 @@ for the request.
 
 -   For more information on how to obtain an access token, see [Allowed
     grant types for OAuth2-OpenID
-    Connect](../../tutorials/configuring-oauth2-openid-connect-single-sign-on#configuring-oauth2-openidconnect-single-sign-on-grants)
+    Connect](../../learn/configuring-oauth2-openid-connect-single-sign-on#configuring-oauth2-openidconnect-single-sign-on-grants)
     .
 -   For more information on securing the REST API or customizing
     authentication/authorization for the REST API, see [Authenticating

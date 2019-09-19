@@ -8,7 +8,7 @@ authorization codes.
     -   Token hashing is only required if there are long lived tokens.
     -   If you want to enable this feature, WSO2 recommends using a fresh
         WSO2 Identity Server distribution.  
-        To use this feature with an existing database, you may need to
+    -   To use this feature with an existing database, you may need to
         perform data migration before you enable the feature. If you have to
         perform data migration before you enable this feature [Contact
         us](https://wso2.com/contact/).
@@ -20,13 +20,13 @@ Follow the instructions below to set up OAuth token hashing:
     -   Add the following token persistence processor to  enable token hashing:
         ``` toml
         [oauth.extensions]
-        token_persistance_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
+        token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor"
         ```
 
     -   Add the following property and set it to true to enable hashing. 
         ``` toml
         [oauth]
-        hash_tokens_and_secrets= true
+        hash_tokens_and_secrets = true
         ```
 
     -   Add the following configuration to specify the algorithm to use
@@ -34,7 +34,7 @@ Follow the instructions below to set up OAuth token hashing:
 
         ``` toml
         [oauth]
-        hash_token_algorithm= "SHA-256"
+        hash_token_algorithm = "SHA-256"
         ```
 
         !!! tip
@@ -74,9 +74,9 @@ Follow the instructions below to set up OAuth token hashing:
 3.  Follow the steps below to configure OAuth/OpenID Connect support for
     your client application:
 
-    1.  Start WSO2 IS and log on to the Management Console with
-        your user name and password. For detailed instructions on how to
-        start WSO2 IS, see [Running the Product](../../setup/running-the-product)
+    1.  Start the Identity Server and log on to the Management Console with
+        your user name and password. For detailed instructions on starting the server, 
+        see [Running the Product](../../setup/running-the-product)
         .
     2.  Navigate to **Service Providers** \> **Add**, enter a name for
         the new service provider, and then click **Register**.
@@ -111,3 +111,5 @@ Follow the instructions below to set up OAuth token hashing:
         The **Consumer Secret** value is displayed in plain text only once.
         Therefore, be sure to copy and save it for later use.
     
+Done. Now all of the OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes
+will be hashed in the database.

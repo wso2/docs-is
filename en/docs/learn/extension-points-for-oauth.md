@@ -11,8 +11,7 @@ point.
 When the implementation is done, package your classes as a .jar file and
 place it in the *\<IS\_HOME\>/repository/component/lib* directory.  
 Then configure your extension in
-*\<IS\_HOME\>/repository/conf/identity/identity.xml* file under the
-*\<OAuth\>* element referring to the ' *Configuration* ' section of the
+*<IS\_HOME\>/repository/conf/deployment.toml* file referring to the ' *Configuration* ' section of the
 respective extension point below.  
 Restart the server to effect changes.
 
@@ -37,13 +36,10 @@ Restart the server to effect changes.
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;SupportedGrantTypes&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;SupportedGrantType&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;GrantTypeName&gt;</span>grant type identifier <span class="kw">&lt;/GrantTypeName&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;GrantTypeHandlerImplClass&gt;</span>full qualified class name of grant handler<span class="kw">&lt;/GrantTypeHandlerImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">&lt;/SupportedGrantType&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">&lt;/SupportedGrantTypes&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
+<a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
+<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -62,7 +58,10 @@ Restart the server to effect changes.
 <tr class="odd">
 <td>Usage</td>
 <td><p>This extension point can be used to implement a grant validator that validates the grant request sent to the ' <em>/oauth2/token</em> ' endpoint. Request parameters and headers can be validated by implementing this extension point.<br />
-If a new grant type is being implemented and defined with a new grant type identifier with the <a href="#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also implement a grant validator and register that against the same grant type identifier from the <em>identity.xml</em> .<br />
+If a new grant type is being implemented and defined with a new grant type identifier with the <a 
+href="../../learn/extension-points-for-oauth#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also 
+implement a grant validator and register
+ that against the same grant type identifier from the <em>deployment.toml</em> .<br />
 If a supported grant type is to be modified you may implement a grant validator if needed, otherwise supported grant type validators can be reused.</p></td>
 </tr>
 <tr class="even">
@@ -74,14 +73,11 @@ If a supported grant type is to be modified you may implement a grant validator 
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;SupportedGrantTypes&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;SupportedGrantType&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;GrantTypeName&gt;</span>grant type identifier <span class="kw">&lt;/GrantTypeName&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;GrantTypeHandlerImplClass&gt;</span>full qualified class name of grant handler<span class="kw">&lt;/GrantTypeHandlerImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">        <span class="kw">&lt;GrantTypeValidatorImplClass&gt;</span>full qualified class name of grant validator<span class="kw">&lt;/GrantTypeValidatorImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">&lt;/SupportedGrantType&gt;</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw">&lt;/SupportedGrantTypes&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_grant_type]] </a>
+<a class="sourceLine" id="cb1-3" title="3">name = "name of the grant type" </a>
+<a class="sourceLine" id="cb1-3" title="4">handler_class = "full qualified class name of grant handler" </a>
+<a class="sourceLine" id="cb1-4" title="5">grant_validator = "full qualified class name of grant validator" </a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -153,7 +149,9 @@ If a supported grant type is to be modified you may implement a grant validator 
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;IdentityOAuthTokenGenerator&gt;</span>full qualified class name of oauth token generator<span class="kw">&lt;/IdentityOAuthTokenGenerator&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">token_generator = "full qualified class name of oauth token generator"</a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -167,7 +165,7 @@ If a supported grant type is to be modified you may implement a grant validator 
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td>This extension point is provided to verify whether the authenticated user is the rightful owner of the resource. There can be multiple active OAuthCallbackHandler implementations at a given time. These are registered through the <em>identity.xml</em> file. In run-time, each and every authorization callback handler is invoked to see whether it can handle the given callback. Then the callback with the highest priority is chosen. After handling the callback, the Identity Server can set whether the given callback is authorized or not.</td>
+<td>This extension point is provided to verify whether the authenticated user is the rightful owner of the resource. There can be multiple active OAuthCallbackHandler implementations at a given time. In run-time, each and every authorization callback handler is invoked to see whether it can handle the given callback. Then the callback with the highest priority is chosen. After handling the callback, the Identity Server can set whether the given callback is authorized or not.</td>
 </tr>
 <tr class="even">
 <td>Interface</td>
@@ -234,13 +232,17 @@ If a supported grant type is to be modified you may implement a grant validator 
 <ul>
 <li><p><code>                 org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor                                 </code> Use this if you want to store access tokens, refresh tokens, authorization codes, and client secrets in an encrypted format using the OEAP (RSA/ECB/OAEPwithSHA1andMGF1Padding) algorithm. With this implementation you can use a valid token until it is either revoked or becomes invalid.</p>
 <p>!!! tip</p>
-    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>                 TokenPersistenceProcessor                </code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                </code> file:</p>
+    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>                 TokenPersistenceProcessor          </code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml        </code> file:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;TokenPersistenceProcessor&gt;org.<span class="fu">wso2</span>.<span class="fu">carbon</span>.<span class="fu">identity</span>.<span class="fu">oauth</span>.<span class="fu">tokenprocessor</span>.<span class="fu">EncryptionDecryptionPersistenceProcessor</span>&lt;/TokenPersistenceProcessor&gt;</a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+    <a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
+    <a class="sourceLine" id="cb1-3" title="3">token_persistance_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"</a></code></pre></div>
     </div>
     </div>
-    <p>Once you configure the <code>                 TokenPersistenceProcessor                </code> in the <code>                 identity.xml                </code> file, and restart WSO2 Identity Server, RSA encryption with <strong>RSA/ECB/OAEPwithSHA1andMGF1Padding</strong> cipher transformation will be enabled by default.</p>
+    <p>Once you configure the <code>                 TokenPersistenceProcessor                </code> in the <code>  
+                   deployment.toml               </code> file, and restart WSO2 Identity Server, RSA encryption with 
+                   <strong>RSA/ECB/OAEPwithSHA1andMGF1Padding</strong> cipher transformation will be enabled by default.</p>
 <li><p><code>                 org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor                </code><br />
 Use this if you want to store access tokens, refresh tokens, authorization codes and client secrets as hashed values based on a define hashing algorithm. This implementation provides extra protection to vulnerabilities because a new access token is issued for every access token request. If necessary you can also use a valid token until it is either revoked or becomes invalid.<br />
 </p>
@@ -256,7 +258,9 @@ Use this if you want to store access tokens, refresh tokens, authorization codes
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;TokenPersistenceProcessor&gt;</span>full qualified class name of the token persistence processor<span class="kw">&lt;/TokenPersistenceProcessor&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">token_persistance_processor = "full qualified class name of the token persistence processor"</a></code></pre></div>   
 </div>
 </div>
 </div></td>
@@ -288,9 +292,10 @@ A default implementation that supports for 'bearer' token type is available.</p>
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;TokenValidators&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;TokenValidator</span><span class="ot"> type=</span><span class="st">&quot;token type&quot;</span><span class="ot"> class=</span><span class="st">&quot;full qualified class name of the oauth2 token validator&quot;</span><span class="kw">/&gt;</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">&lt;/TokenValidators&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_token_validator]]</a>
+<a class="sourceLine" id="cb1-3" title="3">type = "token type"</a>
+<a class="sourceLine" id="cb1-3" title="3">class = "full qualified class name of the oauth2 token validator"</a></code></pre></div>   
 </div>
 </div>
 </div></td>
@@ -328,11 +333,9 @@ By default, a <a href="../../learn/jwt-token-generation">JWT token generation</a
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;AuthorizationContextTokenGeneration&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;TokenGeneratorImplClass&gt;</span>full qualified class name of the authorization context token generator<span class="kw">&lt;/TokenGeneratorImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">    ...</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw">&lt;/AuthorizationContextTokenGeneration&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">token_context_generator = "full qualified class name of the authorization context token generator"</a>/code></pre></div>
 </div>
 </div>
 <div>
@@ -367,11 +370,9 @@ The default implementation reads user claim values from the default Carbon user 
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;AuthorizationContextTokenGeneration&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;ClaimsRetrieverImplClass&gt;</span>full qualified class name of the claims retriever<span class="kw">&lt;/ClaimsRetrieverImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">    ...</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw">&lt;/AuthorizationContextTokenGeneration&gt;</span> </a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">token_context_claim_retriever = "full qualified class name of the claims retriever"</a></code></pre></div>
 </div>
 </div>
 <div>
@@ -409,13 +410,10 @@ org.wso2.carbon.identity.oauth2.authz.handlers.TokenResponseTypeHandler</p></td>
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;SupportedResponseTypes&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;SupportedResponseType&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">        <span class="kw">&lt;ResponseTypeName&gt;</span>token<span class="kw">&lt;/ResponseTypeName&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ResponseTypeHandlerImplClass&gt;</span>full qualified class name of the response type handler<span class="kw">&lt;/ResponseTypeHandlerImplClass&gt;</span></a>
-<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">&lt;/SupportedResponseType&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">&lt;/SupportedResponseTypes&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[[oauth.custom_response_type]]</a>
+<a class="sourceLine" id="cb1-3" title="3">name = "token"</a>
+<a class="sourceLine" id="cb1-3" title="4">class = "full qualified class name of the response type handler"</a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -445,7 +443,9 @@ By default, the access token issued is validated against the token validation se
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;UserInfoEndpointAccessTokenValidator&gt;</span>full qualified class name of the userinfo access token validator<span class="kw">&lt;/UserInfoEndpointAccessTokenValidator&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.oidc.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">user_info_access_token_validator = "user_info_access_token_validator"</a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -474,7 +474,9 @@ By default, the access token issued is validated against the token validation se
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;UserInfoEndpointClaimRetriever&gt;</span>full qualified class name of the userinfo claim retriever<span class="kw">&lt;/UserInfoEndpointClaimRetriever&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.oidc.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">user_info_claim_retriever = "full qualified class name of the userinfo claim retriever"</a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -505,7 +507,9 @@ By default, the access token issued is validated against the token validation se
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;UserInfoEndpointRequestValidator&gt;</span>full qualified class name of the userinfo endpoint request validator<span class="kw">&lt;/UserInfoEndpointRequestValidator&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.oidc.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">user_info_request_validator = "full qualified class name of the userinfo endpoint request validator"</a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -520,7 +524,7 @@ By default, the access token issued is validated against the token validation se
 <tr class="odd">
 <td>Usage</td>
 <td><p>This extension point can be used if the user info response returned when accessing ' <em>/oauth2/userinfo</em> ' resource needs to be changed.<br />
-Implementations supporting both JSON and JWT response formats are available. By default JSON format supported implementation is configured in the <em>identity.xml</em></p></td>
+Implementations supporting both JSON and JWT response formats are available. By default JSON format supported implementation is configured.</td>
 </tr>
 <tr class="even">
 <td>Interface</td>
@@ -539,7 +543,9 @@ Implementations supporting both JSON and JWT response formats are available. By 
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;UserInfoEndpointResponseBuilder&gt;</span>full qualified class name of the userinfo response builder<span class="kw">&lt;/UserInfoEndpointResponseBuilder&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
+<a class="sourceLine" id="cb1-2" title="2">[oauth.oidc.extensions]</a>
+<a class="sourceLine" id="cb1-3" title="3">user_info_response_builder = "full qualified class name of the userinfo response builder"</a></code></pre></div>
 </div>
 </div>
 </div></td>

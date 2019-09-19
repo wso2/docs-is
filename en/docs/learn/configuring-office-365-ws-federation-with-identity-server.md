@@ -10,7 +10,7 @@ you through this process.
 -   Configure Azure Active Directory (AD) to trust WSO2 Identity Server.
     For more information on how to do this, see [Configuring Azure
     Active Directory toTrust WSO2 Identity
-    Server](../../tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     .
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
@@ -71,7 +71,7 @@ message.
 3.  Replace the value of the **Identity Provider Entity Id** with the
     value given for the parameter **$issueruri** when configuring Azure
     AD (configured in step 3 of [this
-    topic](../../tutorials/configuring-azure-active-directory-to-trust-wso2-identity-server)
+    topic](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
     ) , and click **Update** to save changes.
 
     ![issuer-uri](../../assets/img/tutorials/issuer-uri.png)
@@ -102,7 +102,7 @@ message.
 
     -   Organization - http://wso2.org/claims/organization
     
-    -   IM - <http://wso2.org/claims/im>
+    -   IM - http://wso2.org/claims/im
 
 2.  Navigate to **Service Providers \> Add** in the **Main** menu and
     add a new Service Provider named ' Office365'.
@@ -110,7 +110,7 @@ message.
 3.  Expand the **Inbound Authentication Configuration** section, then
     the **WS-Federation(Passive) Configuration** and enter the following
     details. See [Configuring WS-Federation Single
-    Sign-On](../../tutorials/configuring-ws-federation-single-sign-on)
+    Sign-On](../../learn/configuring-ws-federation-single-sign-on)
     for more information about these fields.
 
     -   **Passive STS Realm** -

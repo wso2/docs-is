@@ -22,7 +22,7 @@ To configure a carbon remote user store manager, you can follow the
 following steps.
 
 1.  Log in to the management console of the the local server (IS1) and
-    click **User Stores\>Add** in the **Main** menu.
+    click **User Stores \-> Add** in the **Main** menu.
 
 2.  Fill in the following values in the form as seen below. The image
     below shows a sample configuration.
