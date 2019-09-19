@@ -7,11 +7,6 @@ encoding of the displaying values. However, if additional protection is
 required, an input validation valve can be configured as explained
 below.
 
--   [How can XSS attacks be
-    harmful?](#MitigatingCrossSiteScriptingAttacks-HowcanXSSattacksbeharmful?)
--   [Mitigating XSS
-    attacks](#MitigatingCrossSiteScriptingAttacks-MitigatingXSSattacks)
-
 ### How can XSS attacks be harmful?
 
 Cross Site Scripting (XSS) attacks use web applications to inject
@@ -32,10 +27,10 @@ The XSS Valve acts as a filter to differentiate between the malicious
 scripts from the legitimate scripts by carrying out a specific
 validation on the URL patterns.
 
-##### **Configuring the XSS Valve**
+##### Configuring the XSS Valve
 
 1.  Open the
-    `           <PRODUCT_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/carbon.xml          `
     file and add the following code snippet under the
     `           <Security>          ` tag.
 
@@ -51,7 +46,7 @@ validation on the URL patterns.
 
 2.  Add the following configuration within the
     `           <Hosts>          ` element of the
-    `           <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml          `
+    `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
     file.
 
     ``` xml
