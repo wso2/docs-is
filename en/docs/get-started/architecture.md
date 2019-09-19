@@ -243,6 +243,7 @@ above figure and video.
 </thead>
 <tbody>
 <tr class="odd">
+<a name="service-provider-section"></a>
 <td>Service providers</td>
 <td><div class="content-wrapper">
 <p><img src="../../assets/img/getting-started/service-provider.png" title = "service providers" alt="service providers"></p>
@@ -336,7 +337,7 @@ above figure and video.
 <p>
 <ul>
 <li>For more information on how to configure local authenticators in the Identity Server, See <a href="../../learn/configuring-local-and-outbound-authentication-for-a-service-provider">Configuring Local and Outbound Authentication for a Service Provider</a> .</li>
-<li>For more information about windows-based authentication, see <a href="../../learn/integrated-windows-authentication">Integrated Windows Authentication</a> .</li>
+<li>For more information about windows-based authentication, see <a href="../../learn/integrated-windows-authentication-overview">Integrated Windows Authentication</a> .</li>
 </ul>
 </div>
 </div>
@@ -344,7 +345,7 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the local authenticators component.</p>
 <p><img src="../../assets/img/getting-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
-<p>The local authenticator does the authentication by checking the user name and password or by using <a href="../../learn/integrated-windows-authentication">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
+<p>The local authenticator does the authentication by checking the user name and password or by using <a href="../../learn/integrated-windows-authentication-overview">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
 <p><img src="../../assets/img/getting-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p><br/>
 </p>
@@ -433,7 +434,7 @@ above figure and video.
 <p>Simple Object Access Protocol (SOAP) is a protocol for exchanging XML-based messages over a network, normally using HTTP. SOAP forms the foundation layer of the Web services stack, providing a basic messaging framework that more abstract layers can build on. SOAP services are defined using Web Services Definition Language (WSDL) and are accessible using a URL that is known as a SOAP endpoint. Here, a SOAP API is used to provision users to the Identity Server.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For more information on configuring inbound provisioning, see <a href="../../using-ws02-identity-server/configuring-inbound-provisioning-for-a-service-provider">Configuring Inbound Provisioning for a Service Provider</a> .</p>
+<p>For more information on configuring inbound provisioning, see <a href="../../learn/configuring-inbound-provisioning-for-a-service-provider">Configuring Inbound Provisioning for a Service Provider</a> .</p>
 </div>
 </div></td>
 <td><div class="content-wrapper">

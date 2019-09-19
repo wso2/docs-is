@@ -35,7 +35,7 @@ of authentication.
 1.  Login to the mangement console.
 
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com/)
+    `              saml2-web-app-dispatch.com             `
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
