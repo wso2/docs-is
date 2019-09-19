@@ -3,7 +3,7 @@
 This topic provides instructions on how to enable or disable a XACML
 policy that has been published to the PDP.
 
-See [Publishing a XACML Policy](../../tutorials/publishing-a-xacml-policy) for
+See [Publishing a XACML Policy](../../learn/publishing-a-xacml-policy) for
 information on how to enable or disable a policy before it is published
 to the PDP.
 

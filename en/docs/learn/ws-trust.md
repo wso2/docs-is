@@ -58,5 +58,5 @@ The following are the three methods of confirmation.
 **Related Topics**
 
 -   See [Configuring WS-Trust Security Token
-    Service](../../tutorials/configuring-ws-trust-security-token-service) to configure
+    Service](../../learn/configuring-ws-trust-security-token-service) to configure
     WS-Trust in WSO2 Identity Server.

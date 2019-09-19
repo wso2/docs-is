@@ -18,7 +18,7 @@ using a sample OpenID Connect application.
     format: \[server-url\]/callback.aspx. Click **Add**.  
     For more information on configuring OAuth/OpenID Connect, see
     [Configuring OAuth2-OpenID Connect
-    Single-Sign-On](../../tutorials/configuring-oauth2-openid-connect-single-sign-on)
+    Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     .
 6.  Take note of the client key and client secret that you receive.  
     ![key-and-secret](../../assets/img/tutorials/key-and-secret.png)

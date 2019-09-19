@@ -26,7 +26,7 @@ Let's get started to configure the service provider you created!
     
         The grant type highlighted below is a **custom** grant type. This
         will only appear on the UI if you have [configured the JWT grant
-        type](../../develop/configuring-jwt-grant-type). The value specified as the `           name        `
+        type](../../develop/jwt-grant-type-for-oauth2). The value specified as the `name`
         of the `oauth.custom_grant_type` in the `deployment.toml` file when
         creating the custom grant type is the value that will appear on the
         UI. For more information on writing a custom grant type, see
@@ -144,12 +144,12 @@ Let's get started to configure the service provider you created!
       <tr class="odd">
          <td><strong>Enable Request Object Signature Validation</strong></td>
          <td>
-            <p>This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see <a href="../../tutorials/enforcing-signature-validation-for-request-objects">Enforcing Signature Validation for Request Objects</a>.</p>
+            <p>This is to define whether to only accept signed request objects in an authorization rqeuest or not. For more information, see <a href="../../learn/enforcing-signature-validation-for-request-objects">Enforcing Signature Validation for Request Objects</a>.</p>
          </td>
       </tr>
       <tr class="even">
          <td><strong>Enable ID Token Encryption</strong></td>
-         <td>This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see <a href="../../tutorials/testing-oidc-encrypted-id-token-with-is">Testing OIDC Encrypted ID Token with IS</a>.</td>
+         <td>This is to define whether to ID token encryption should be enabled or not. For a tutorial on this, see <a href="../../learn/testing-oidc-encrypted-id-token-with-is">Testing OIDC Encrypted ID Token with IS</a>.</td>
       </tr>
       <tr class="odd">
          <td><strong>Enable OIDC Back Channel Logout</strong></td>
@@ -157,7 +157,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="even">
          <td><strong>Scope Validators</strong></td>
-         <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../tutorials/validating-the-scope-of-oauth-access-tokens-using-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a>.</td>
+         <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a>.</td>
       </tr>
       <tr class="odd">
          <td><strong>Token Issuer</strong></td>
@@ -226,7 +226,7 @@ Let's get started to configure the service provider you created!
 **Related Topics**
 
 See [Configuring OpenID Connect Single
-Logout](../../tutorials/configuring-openid-connect-single-logout) to configure single
+Logout](../../learn/configuring-openid-connect-single-logout) to configure single
 logout or session management with OpenID Connect.
 
 See [Delegated Access Control](../../learn/delegated-access-control) for more

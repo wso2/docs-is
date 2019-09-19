@@ -38,24 +38,24 @@ The following topics provide information and instructions on how to use
 XACML to perform various access control related functions.
 
 -   [Configuring WSO2 EI Entitlement Mediator with Identity
-    Server](../../tutorials/configuring-wso2-ei-entitlement-mediator-with-identity-server)
+    Server](../../learn/configuring-wso2-ei-entitlement-mediator-with-identity-server)
 -   [Enabling REST Notifications For XACML Policy
-    Updates](../../tutorials/enabling-rest-notifications-for-xacml-policy-updates)
+    Updates](../../learn/enabling-rest-notifications-for-xacml-policy-updates)
 -   [Identity Server as an XACML
-    Engine](../../tutorials/identity-server-as-an-xacml-engine)
+    Engine](../../learn/identity-server-as-an-xacml-engine)
 -   [Working with XACML Multiple Decision Profile
-    Requests](../../tutorials/working-with-xacml-multiple-decision-profile-requests)
+    Requests](../../learn/working-with-xacml-multiple-decision-profile-requests)
 -   [Fine-grained Authorization using XACML Requests in JSON
-    Format](../../tutorials/fine-grained-authorization-using-xacml-requests-in-json-format)
+    Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format)
 -   [Improving XACML PDP Performance with Caching
-    Techniques](../../tutorials/improving-xacml-pdp-performance-with-caching-techniques)
+    Techniques](../../learn/improving-xacml-pdp-performance-with-caching-techniques)
 -   [Integrating WSO2 Identity Server with
-    Liferay](../../tutorials/integrating-wso2-identity-server-with-liferay)
+    Liferay](../../learn/integrating-wso2-identity-server-with-liferay)
 -   [Writing XACML2.0 Policies in WSO2 Identity
-    Server](../../tutorials/writing-xacml2.0-policies-in-wso2-identity-server)
+    Server](../../learn/writing-xacml2.0-policies-in-wso2-identity-server)
 -   [Writing XACML3 Policies in WSO2 Identity
-    Server](../../tutorials/writing-xacml3-policies-in-wso2-identity-server)
+    Server](../../learn/writing-xacml3-policies-in-wso2-identity-server)
 -   [Sending Notifications to External PEP
-    Endpoints](../../tutorials/sending-notifications-to-external-pep-endpoints)
+    Endpoints](../../learn/sending-notifications-to-external-pep-endpoints)
 -   [Writing an XACML 3.0 Policy Using
-    XPath](../../tutorials/writing-a-xacml-3.0-policy-using-xpath)
+    XPath](../../learn/writing-a-xacml-3.0-policy-using-xpath)

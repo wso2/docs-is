@@ -93,7 +93,7 @@ Follow the below steps to configure JWKS based JWT Validator.
     You can use customized values for the above HTTP connection
     configurations. If not customized, the default values will be used
     for establishing HTTP connections on IDP's jwks\_uri. Also make sure
-    that the \<Enable\> property is set to `           true          ` .
+    that the `enable` property is set to `           true          ` .
 
 2.  Restart the server.  
       

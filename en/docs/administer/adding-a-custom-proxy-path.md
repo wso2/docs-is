@@ -1,19 +1,21 @@
 # Adding a Custom Proxy Path
 
 Adding a custom proxy path is useful when you have a proxy server
-fronting your Carbon server. In this scenario, the "custom proxy path"
-is used for mapping a proxy url with the actual url of your Carbon
+fronting your Identity server. In this scenario, the "custom proxy path"
+is used for mapping a proxy url with the actual url of your Identity
 server, which allows clients to access the Carbon server with the proxy
 url.
 
-This feature is particularly useful when multiple WSO2 products are
+This does not describe how to have indepedent front-end URL for each tenant, 
+However this feature is particularly useful when multiple WSO2 products are
 hosted under the same domain name. For example, consider that you have
-three WSO2 products; Application Server, API Manager and ESB, deployed
+three WSO2 products; API Manager, ESB/EI, deployed
 in your production environment and you want all of them to be hosted
 with the "wso2test.com" domain. By using a reverse proxy and by
 configuring your servers with 'custom proxy paths', you can host all
 products under a single domain and assign proxy paths for each product
-separately as shown below:  
+separately as shown below: 
+ 
 ![Custom Proxy
 Paths](../../assets/img/53125476/53287365.png "Custom Proxy Paths")  
 
@@ -26,19 +28,18 @@ Paths](../../assets/img/53125476/53287365.png "Custom Proxy Paths")
 -   [https://10.100.1.1:\<ListeningPort-appserver\>/carbon](https://10.100.1.1:9443/carbon)
     mapped to <https://wso2test.com/appserver> .
 
-!!! note
+
     
-    Note the following:
+    !!! note    "Note the following:"
+        -   This functionality is usually not required by newer deployments as
+            there are better ways to deploy multiple products with different
+            proxy path, having same URL. Using containers are one such better
+            approach.
     
-    -   This functionality is only available for WSO2 products that are
-        based on Carbon 4.3.0 or a later Carbon version. See the [WSO2
-        product release
-        matrix](http://wso2.com/products/carbon/release-matrix/) for more
-        information about WSO2 Carbon platform releases.
-    -   Once you have configured your products with a proxy server, it will
-        no longer be possible to access the product behind the proxy. See
-        the section given below on [configuring products to use the proxy
-        server](#AddingaCustomProxyPath-Step2) for more information.
+        -   Once you have configured your products with a proxy server, it will
+            no longer be possible to access the product behind the proxy. See
+            the section given below on [configuring products to use the proxy
+            server](#adding-a-custom-proxy-path-step2) for more information.
     
 
 In the above example, "apimanager", "esb" and "appserver" are the "proxy
@@ -67,6 +68,12 @@ WSO2 product servers as examples; WSO2 Application Server and WSO2 ESB
 as the back-end servers, and [nginx](http://nginx.org/) as the reverse
 proxy.
 
+    !!! note "Note the following:"
+        -   The nginx configurations are given below are only for illustrative 
+            purposes. You would require consulting the nginx documentation to
+            get the correct way to do the configurations for the version of nginx
+            you are using.
+    
 Follow the steps given below.  
 
 -   [Step 1: Install and configure a reverse
@@ -91,8 +98,8 @@ Follow the steps given below.
     commands:  
 
     ``` java
-        sudo mkdir /etc/nginx/ssl
-        cd /etc/nginx/ssl
+    sudo mkdir /etc/nginx/ssl
+    cd /etc/nginx/ssl
     ```
 
 4.  The next step is to create the server key and certificates. First
@@ -100,13 +107,13 @@ Follow the steps given below.
     prompted when creating the private key.  
 
     ``` java
-        sudo openssl genrsa -des3 -out server.key 1024
+    sudo openssl genrsa -des3 -out server.key 1024
     ```
 
 5.  Next, create the certificate signing request as shown below.
 
     ``` java
-        sudo openssl req -new -key server.key -out server.csr
+    sudo openssl req -new -key server.key -out server.csr
     ```
 
     Fill in the required details. Most important entry is the Common
@@ -117,7 +124,7 @@ Follow the steps given below.
     command:  
 
     ``` java
-        sudo openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+    sudo openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
     ```
 
     The certificate is now created.
@@ -127,14 +134,14 @@ Follow the steps given below.
     configuration using the following command:  
 
     ``` java
-        sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/wso2
+    sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/wso2
     ```
 
 8.  Now, create a symbolic between the " sites-enabled" directory and
     the "sites-available" directory using the following command:  
 
     ``` java
-        sudo ln -s /etc/nginx/sites-available/wso2 /etc/nginx/sites-enabled/wso2
+    sudo ln -s /etc/nginx/sites-available/wso2 /etc/nginx/sites-enabled/wso2
     ```
 
     The host is now activated.
@@ -143,61 +150,69 @@ Follow the steps given below.
     and enter the following configurations.  
 
     ``` java
-        #Configurations for listener 8243.
-        server {
-            listen 8243;
-            server_name wso2test.com;
-            client_max_body_size 100M;
-         
-            root /usr/share/nginx/www;
-            index index.html index.htm;
-         
-            ssl on;
-            ssl_certificate /etc/nginx/ssl/server.crt;
-            ssl_certificate_key /etc/nginx/ssl/server.key;
-         
-            #with portOffset 0 running AS
-            location /appserver/ {
-                proxy_pass https://wso2test.com:9443/;
-                proxy_redirect https://wso2test.com:8243/ https://wso2test.com:8243/appserver/;
-                proxy_cookie_path / /appserver;
-            }
-         
-            #with portOffset 10 running ESB
-            location /esb/ {
-                proxy_pass https://wso2test.com:9453/;
-                proxy_redirect https://wso2test.com:8243/ https://wso2test.com:8243/esb/;
-                proxy_cookie_path / /esb;
-            }
+    #Configurations for listener 8243.
+    server {
+        listen 8243;
+        server_name wso2test.com;
+        client_max_body_size 100M;
+     
+        root /usr/share/nginx/www;
+        index index.html index.htm;
+     
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/server.crt;
+        ssl_certificate_key /etc/nginx/ssl/server.key;
+     
+        #with portOffset 0 running IS
+        location /identityserver/ {
+            proxy_pass https://wso2test.com:9448/;
+            proxy_redirect https://wso2test.com:8243/ https://wso2test.com:8243/identityserver/;
+            proxy_cookie_path / /identityserver;
         }
-    
-        #Configurations for listener 8280.
-        server {
-            listen 8280;
-            server_name wso2test.com;
-            client_max_body_size 100M;
-         
-            root /usr/share/nginx/www;
-            index index.html index.htm;
-         
-            #with portOffset 0 running AS
-            location /appserver/ {
-                proxy_pass http://wso2test.com:9763/;
-                proxy_redirect http://wso2test.com:8280/ http://wso2test.com:8280/appserver/;
-                proxy_cookie_path / /appserver;
-            }
-         
-            #with portOffset 10 running ESB
-            location /esb/ {
-                proxy_pass http://wso2test.com:9773/;
-                proxy_redirect http://wso2test.com:8280/ http://wso2test.com:8280/esb/;
-                proxy_cookie_path / /esb;
-            }
+              
+        #with portOffset 5 running AS
+        location /appserver/ {
+            proxy_pass https://wso2test.com:9448/;
+            proxy_redirect https://wso2test.com:8243/ https://wso2test.com:8245/appserver/;
+            proxy_cookie_path / /appserver;
         }
+     
+        #with portOffset 10 running ESB
+        location /esb/ {
+            proxy_pass https://wso2test.com:9453/;
+            proxy_redirect https://wso2test.com:8243/ https://wso2test.com:8243/esb/;
+            proxy_cookie_path / /esb;
+        }
+    }
+
+    #Configurations for listener 8280.
+    server {
+        listen 8280;
+        server_name wso2test.com;
+        client_max_body_size 100M;
+     
+        root /usr/share/nginx/www;
+        index index.html index.htm;
+     
+        #Not recommended to run IS in HTTP mode, so it is not added here
+        
+        #with portOffset 5 running AS
+        location /appserver/ {
+            proxy_pass http://wso2test.com:9768/;
+            proxy_redirect http://wso2test.com:8280/ http://wso2test.com:8285/appserver/;
+            proxy_cookie_path / /appserver;
+        }
+     
+        #with portOffset 10 running ESB
+        location /esb/ {
+            proxy_pass http://wso2test.com:9773/;
+            proxy_redirect http://wso2test.com:8280/ http://wso2test.com:8280/esb/;
+            proxy_cookie_path / /esb;
+        }
+    }
     ```
 
     !!! note
-    
         According to the nginx configuration, https requests with the
         /appserver/\* pattern are directed to the /\* pattern and then when
         the service is served to the client, it resolves the url pattern to
@@ -219,12 +234,36 @@ Follow the steps given below.
     `           /etc/hosts          ` file as shown below.  
 
     ``` java
-        127.0.0.1  wso2test.com 
-        127.0.0.1  as.wso2test.com
-        127.0.0.1  esb.wso2test.com
+    127.0.0.1  wso2test.com 
+    127.0.0.1  as.wso2test.com
+    127.0.0.1  esb.wso2test.com
     ```
 
-#### Step 2: Configure products with proxy context path
+#### Step 2: Configure Identity Server with proxy context path
+1. Open the `                       deployment.toml                     `
+        file stored in the
+        `           <PRODUCT_HOME>/repository/conf/          ` directory and
+2. set the "[server] hostname" to what you defined in the nginx configuration 
+3. set the "[server] proxy_context_path" to what you defined in the nginx configuration
+    e.g. deployment.toml
+
+    ``` java    
+    [server]
+    hostname = "wso2test.com"
+    proxy_context_path = "identityserver" 
+    ```   
+4. Start the Identity Server   
+    
+   
+       
+<a name="#adding-a-custom-proxy-path-step2" />
+
+#### Step 3: Configure products with proxy context path
+
+    
+    !!! note
+        -   The following products are old and discontinued products which uses
+            old configuration model.
 
 1.  Download WSO2 Application Server and WSO2 ESB.
 2.  Open the `                       carbon.xml                     `
@@ -234,7 +273,7 @@ Follow the steps given below.
     shown below (for both products):
 
     ``` java
-        <HostName>wso2test.com</HostName>
+    <HostName>wso2test.com</HostName>
     ```
 
 3.  Now, set the MgtHostName as shown below.
@@ -242,13 +281,13 @@ Follow the steps given below.
     -   For Application Server:  
 
         ``` java
-                <MgtHostName>as.wso2test.com</MgtHostName>
+        <MgtHostName>as.wso2test.com</MgtHostName>
         ```
 
     -   For ESB:  
 
         ``` java
-                <MgtHostName>esb.wso2test.com</MgtHostName> 
+        <MgtHostName>esb.wso2test.com</MgtHostName> 
         ```
 
 4.  Set the "ProxyContextPath" as shown below. This is the proxy path
@@ -264,16 +303,16 @@ Follow the steps given below.
     -   For ESB:  
 
         ``` java
-                <ProxyContextPath>esb</ProxyContextPath> 
+        <ProxyContextPath>esb</ProxyContextPath> 
         ```
 
 5.  Since you need to run both products (AS and ESB) simultaneously, set
     port offsets as shown below.
 
     -   For Application Server:
-        `             <Offset>0</Offset>            `
+`             <Offset>0</Offset>            `
 
-    -   For ESB: `             <Offset>10</Offset>            `
+-   For ESB: `             <Offset>10</Offset>            `
 
 6.  According to the nginx configuration, the https, http requests are
     listening on 8243 and 8280 ports. However, by default WSO2 products
@@ -316,19 +355,19 @@ Follow the steps given below.
                     compressableMimeType="text/html,text/javascript,application/xjavascript,application/javascript,application/xml,text/css,
                                           application/xslt+xml,text/xsl,image/gif,image/jpg,image/jpeg" 
                     URIEncoding="UTF-8"/>
-        <!--
-        optional attributes:
-        proxyPort="443"
-        -->
-        <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
-                    port="9443"
-                    proxyPort="8243"
-                    bindOnInit="false"
-                    sslProtocol="TLS"
-                    maxHttpHeaderSize="8192"
+    <!--
+    optional attributes:
+    proxyPort="443"
+    -->
+    <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
+                port="9443"
+                proxyPort="8243"
+                bindOnInit="false"
+                sslProtocol="TLS"
+                maxHttpHeaderSize="8192"
     ```
 
-#### Step 3: Start the Product
+#### Step 4: Start the Products
 
 1.  Start the server and enter the following url in a browser:
     -   For Application Server:

@@ -29,13 +29,10 @@ file if you need customized error messages.
 </AuthenticatorConfig>
 ```
 
-We send the following query parameters to the authentication endpoint
-web application.
+The following query parameters are sent to the web application from authentication endpoint.
 
 -   errorCode
 -   failedUsername
 -   remainingAttempts
 
-So you can customize the error messages which you show in the pages
-like " `         authenticationendpoint/login.jsp        ` " according
-to the above query parameters.
+The error messages can be customized based on these query parameters in the jsp files as in  `         authenticationendpoint/login.jsp        ` 

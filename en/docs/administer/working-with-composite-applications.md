@@ -1,11 +1,3 @@
 # Working with Composite Applications
 
-The topics below explain Composite Applications (C-Apps) and about how
-to deploy them:  
-
--   [Introduction to Composite
-    Applications](../../administer/introduction-to-composite-applications)
--   [Packaging Artifacts into Composite
-    Applications](../../administer/packaging-artifacts-into-composite-applications)
--   [Deploying Composite Applications in the
-    Server](../../administer/default-ports-of-wso2-products)
+Composite Application(C-App) is a deployment artifact used WSO2 ESB and WSO2 EI. However WSO2 Identity Server does not provide support for C-Apps.

@@ -135,4 +135,4 @@ first part of the process of configuring WS-Federation with Office 365.
         our on-premises IdP (WSO2 Identity Server). For the next part of the
         process of configuring WS-Federation with Office 365, see [Configuring
         Office 365 WS-Federation with Identity
-        Server](../../tutorials/configuring-office-365-ws-federation-with-identity-server).
+        Server](../../learn/configuring-office-365-ws-federation-with-identity-server).
