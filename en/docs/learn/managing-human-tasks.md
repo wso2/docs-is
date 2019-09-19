@@ -37,8 +37,7 @@ IS as well. To test the workflow, follow the steps below.
 3.  Click on the relevant **Task Id** to access the details of the
     selected task and click on the button corresponding to a state to
     move the state of the selected task to a new state  and to complete
-    the workflow approval process (e.g. clicking **Start** and then
-    **Approve** will approve the pending task and complete the workflow
+    the workflow approval process (e.g. clicking **Approve** will approve the pending task and complete the workflow
     process).  
     ![approving-pending-task](../../assets/img/using-wso2-identity-server/approving-pending-task.png)   
 

@@ -2,20 +2,19 @@
 
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
-`         user-mgt.xml        ` file found in the
+`         deployment.toml       ` file found in the
 `         <PRODUCT_HOME>/repository/conf/        ` directory. This
 documentation explains the process of setting up a primary user store
 for your system.
 
-The default User Store
-
-The primary user store that is configured by default in every WSO2
-product is a JDBC user store, which reads/writes into the internal
-database of the product server. By default, the internal database is H2
-(except for WSO2 IS, which uses an LDAP as the default user store). This
-database is used by the Authorization Manager (for user authentication
-information) as well as the User Store Manager (for defining users and
-roles).
+!!! info "The default User Store"
+    The primary user store that is configured by default in every WSO2
+    product is a JDBC user store, which reads/writes into the internal
+    database of the product server. By default, the internal database is H2
+    (except for WSO2 IS, which uses an LDAP as the default user store). This
+    database is used by the Authorization Manager (for user authentication
+    information) as well as the User Store Manager (for defining users and
+    roles).
 
 Instead of using the embedded database, you can set up a separate
 repository and configure it as your primary user store. Since the user
@@ -43,7 +42,7 @@ enable you to authenticate users from different types of user stores.
 </tr>
 <tr class="even">
 <td><code>             org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager            </code></td>
-<td><p>Use <code>              ReadWriteLDAPUserStoreManager             </code> for external LDAP user stores to do both read and write operations. This is the user store configuration which is uncommented in the code in the <code>              user-mgt.xml             </code> file for WSO2 Identity Server.</p></td>
+<td><p>Use <code>              ReadWriteLDAPUserStoreManager             </code> for external LDAP user stores to do both read and write operations. This is the user store configuration which is uncommented in the code in the <code>              deployment.toml             </code> file for WSO2 Identity Server.</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager</code></pre></td>
@@ -56,9 +55,7 @@ enable you to authenticate users from different types of user stores.
 </tbody>
 </table>
 
-The `         user-mgt.xml        ` file already has sample
-configurations for all of the above user stores. To enable the required
-user store configuration, you must uncomment them in the code and
+To enable the required user store configuration, add them to the `  deployment.toml` file and
 comment out the ones that you do not need as explained in the following
 topics.
 

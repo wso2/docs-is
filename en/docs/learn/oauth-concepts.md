@@ -85,7 +85,7 @@ them for requests where the consumer identity is being verified.
 #### OAuth 1.0
 
 [This
-specification](http://oauth.googlecode.com/svn/spec/ext/consumer_request/1.0/drafts/2/spec.html)
+specification](https://oauth.net/core/1.0/)
 defines how 2-legged OAuth works with OAuth 1.0. However it never became
 an IETF RFC.
 
@@ -229,10 +229,11 @@ GET /resource HTTP/1.1
 Also - the issued access token from the Authorization Server to the
 client, has an 'scope' attribute.
 
-2-legged OAuth with OAuth 1.0 does not have this scope attribute as well
-as access token concept - so the resource server has to perform
-authorization separately based on the resource the client is going to
-access.
+!!! info
+      2-legged OAuth with OAuth 1.0 does not have this scope attribute as well
+      as access token concept - so the resource server has to perform
+      authorization separately based on the resource the client is going to
+      access.
 
 The client should request access tokens with the minimal scope and
 lifetime necessary. The authorization server takes the client identity
