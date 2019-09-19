@@ -470,17 +470,23 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
-            - 'Using the Account Recovery REST APIs': develop/using-the-account-recovery-rest-apis.md
-            - 'Using the Self Sign-Up REST APIs': develop/using-the-self-sign-up-rest-apis.md
-            - 'Using the Authentication REST APIs': develop/using-the-authentication-rest-apis.md
-            - 'Using the Consent Management REST APIs': develop/using-the-consent-management-rest-apis.md
-            - 'Using the Personal Information Export REST APIs': develop/using-the-personal-information-export-rest-apis.md
-            - 'Using the Configuration Management REST APIs': 
+            - 'Challenge Question REST APIs': develop/challenge-rest-api.md
+            - 'Approvals REST APIs': develop/approvals-rest-api.md
+            - 'Associations REST APIs': develop/association-rest-api.md
+            - 'Authorized Apps REST APIs': develop/authorized-apps-rest-api.md
+            - 'Fido REST APIs': develop/fido-rest-api.md
+            - 'Session Management REST APIs': develop/session-mgt-rest-api.md
+            - 'Account Recovery REST APIs': develop/using-the-account-recovery-rest-apis.md
+            - 'Self Sign-Up REST APIs': develop/using-the-self-sign-up-rest-apis.md
+            - 'Authentication REST APIs': develop/using-the-authentication-rest-apis.md
+            - 'Consent Management REST APIs': develop/using-the-consent-management-rest-apis.md
+            - 'Personal Information Export REST APIs': develop/using-the-personal-information-export-rest-apis.md
+            - 'Configuration Management REST APIs': 
               - 'Using the Configuration Management REST APIs': develop/using-the-configuration-management-rest-apis.md
               - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
-            - 'Using the SCIM 2.0 REST APIs': develop/using-the-scim-2.0-rest-apis.md
-            - 'Using the OpenID Connect Dynamic Client Registration REST APIs': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
-            - 'Using OAuth2 Scopes REST APIs': develop/using-oauth2-scopes-rest-apis.md
+            - 'SCIM 2.0 REST APIs': develop/using-the-scim-2.0-rest-apis.md
+            - 'OpenID Connect Dynamic Client Registration REST APIs': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+            - 'OAuth2 Scopes REST APIs': develop/using-oauth2-scopes-rest-apis.md
             - 'Authenticating and Authorizing REST APIs': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication Data API': develop/authentication-data-api.md
           - 'SOAP APIs':
@@ -855,13 +861,6 @@ nav:
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
-    - 'REST APIs': 
-      - 'Challenge Question REST APIs': references/challenge-rest-api.md
-      - 'Approvals REST APIs': references/approvals-rest-api.md
-      - 'Associations REST APIs': references/association-rest-api.md
-      - 'Authorized Apps REST APIs': references/authorized-apps-rest-api.md
-      - 'Fido REST APIs': references/fido-rest-api.md
-      - 'Session Management REST APIs': references/session-mgt-rest-api.md
     - 'Error Catalog': references/error-catalog.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md

@@ -409,7 +409,7 @@
   font-size: 12px;
   margin: 10px 0 5px;
   font-family: Open Sans, sans-serif;
-  color: #3b4151
+  color: #3b4151;
 }
 
 .swagger-ui .response-col_status {
@@ -442,6 +442,10 @@
   margin: 0
 }
 
+.swagger-ui table.live-responses-table {
+  display: none;
+}
+
 .swagger-ui .opblock-body pre {
   font-size: 12px;
   margin: 0;
@@ -462,7 +466,8 @@
   margin: 0 0 20px;
   padding: 30px 0;
   background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15)
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+  display: none
 }
 
 .swagger-ui .scheme-container .schemes {
@@ -757,6 +762,10 @@
   animation: shake .4s 1;
   border-color: #f93e3e;
   background: #feebeb
+}
+
+.swagger-ui input[disabled], .swagger-ui select[disabled], .swagger-ui textarea[disabled] {
+  display:none;
 }
 
 @-webkit-keyframes shake {
@@ -1212,7 +1221,7 @@
 
 .swagger-ui .parameters-col_description input[type=text] {
   width: 100%;
-  max-width: 340px
+  max-width: 340px; 
 }
 
 .swagger-ui .parameter__name {
