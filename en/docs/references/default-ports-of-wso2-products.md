@@ -10,7 +10,7 @@ For example, if you are running two WSO2 products on the same server,
 and you set the port offset to 1 in one product and 2 in the second
 product, the management console port will be changed from the default of
 9443 to 9444 in the first product and to 9445 in the second product. See
-[here](#DefaultPortsofWSO2Products-offset) for more information on
+[here](#changing-the-offset-for-default-ports) for more information on
 changing the offset.
 
 ### Common ports
@@ -18,8 +18,6 @@ changing the offset.
 The following ports are common to all WSO2 products that provide the
 given feature. Some features are bundled in the WSO2 Carbon platform
 itself and therefore are available in all WSO2 products by default.
-
-
 
 #### Management console ports
 
@@ -92,7 +90,7 @@ Some products open additional ports.
     If you change the default API Manager ports with a port offset, most of
     its ports will be changed automatically according to the offset except a
     few exceptions described in the [APIM Manager
-    documentation](https://docs.wso2.org/api-manager/Changing+the+Default+Ports+with+Offset)
+    documentation](https://https://docs.wso2.com/display/AM200/Changing+the+Default+Ports+with+Offset)
     .
     
 
@@ -117,8 +115,6 @@ Some products open additional ports.
 -   For a list of Apache Spark related ports, see [WSO2 Data Analytics
     Server Documentation  - Spark
     Configurations](http://docs.wso2.com/data-analytics-server/Spark%20Configurations)
-    [s](http://docs.wso2.com/data-analytics-server#Spark%20Configurations)
-    .
 
 ##### Complex Event Processor
 
