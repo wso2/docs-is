@@ -5,20 +5,7 @@ for storing user management and registry data. Given below are the steps
 you need to follow in order to use an Oracle RAC database for this
 purpose.
 
--   [Setting
-    up datasource configurations](#ChangingtoOracleRAC-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
-    -   [Changing the
-        default WSO2\_CARBON\_DB datasource](#ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2-CARBON-DBdatasource)
-    -   [Configuring new datasources to manage registry or user
-        management
-        data](#ChangingtoOracleRAC-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
--   [Creating the database
-    tables](#ChangingtoOracleRAC-Creatingthedatabasetables)
-
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"
     You need to set up Oracle RAC before following the steps to configure
     your product with Oracle RAC. For more information, see [Setting up
     Oracle RAC](../../administer/setting-up-oracle-rac).
@@ -30,21 +17,15 @@ A datasource is used to establish the connection to a database. By
 default, `         WSO2_CARBON_DB        ` datasource is used to connect
 to the default  H2 database, which stores registry and user management
 data. After setting up the Oracle RAC database to replace the default H2
-database, either [change the default configurations of the
-`          WSO2_CARBON_DB         `
-datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase), or
-[configure a
-new datasource](#ChangingtoOracleRAC-Configuringnewdatasourcestomanageregistryorusermanagementdata)
-to point it to the new database as explained below.
+database, either change the default configurations of the
+`          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
-Follow the steps below to change the type of the default
-WSO2\_CARBON\_DB datasource.
+Follow the steps below to change the type of the default WSO2\_CARBON\_DB datasource.
 
-1.  Edit the default datasource configuration in the \<
-    `           PRODUCT_HOME>/repository/conf/datasources/m          `
-    `           aster-datasources.xml          ` file as shown below.
+1.  Edit the default datasource configuration in the
+    `           <IS_HOME>/repository/conf/datasources/master-datasources.xml          ` file as shown below.
 
     ``` xml
     <datasource>
@@ -132,13 +113,11 @@ WSO2\_CARBON\_DB datasource.
     </tbody>
     </table>
 
-    For more information on other parameters that can be defined in
-    the \<
-    `            PRODUCT_HOME>/repository/conf/datasources/           `
-    `            master-datasources.xml           ` file, see [Tomcat
-    JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
-    .
+    !!! info 
+        For more information on other parameters that can be defined in
+        the \<
+        `            IS_HOME>/repository/conf/datasources/           `
+        `            master-datasources.xml           ` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
 #### Configuring new datasources to manage registry or user management data
 
@@ -148,15 +127,13 @@ separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) above
-    to the \<
-    `          PRODUCT_HOME>/repository/conf/datasources/         `
-    `          master-datasources.xml         ` file. Change its
-    elements with your custom values. For instructions, see [Setting
-    up datasource configurations.](#ChangingtoOracleRAC-Settingupdatasourceconfigurations)
+    datasource](#changing-the-default-wso2-carbon-db-datasource) above
+    to the 
+    `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         ` file. Change its
+    elements with your custom values. For instructions, see [Setting up datasource configurations.](#setting-up-datasource-configurations)
 2.  If you are setting up a separate database to store registry-related
     data, update the following configurations in the \<
-    `           PRODUCT_HOME>/repository/conf/          `
+    `           IS_HOME>/repository/conf/          `
     `           registry.xml          ` file.
 
     ``` xml
@@ -167,7 +144,7 @@ separately.
 
 3.  If you are setting up a separate database to store user management
     data, update the following configurations in the \<
-    `           PRODUCT_HOME>/repository/conf/          `
+    `           IS_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file.
 
     ``` xml
@@ -185,33 +162,31 @@ earlier and run the following scripts in SQL\*Plus:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` powershell
-        SQL> @$<PRODUCT_HOME>/dbscripts/oracle.sql
+        SQL> @$<IS_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.
 
-    You can create database tables automatically **when starting the
-    product for the first time** by using the
-    `            -Dsetup           ` parameter as follows:
+    !!! info 
+        You can create database tables automatically **when starting the
+        product for the first time** by using the
+        `            -Dsetup           ` parameter as follows:
 
-    -   For Windows:
-        `              <PRODUCT_HOME>/bin/wso2server.bat -Dsetup             `
+        -   For Windows:
+            `              <IS_HOME>/bin/wso2server.bat -Dsetup             `
 
-    -   For Linux:
-        `              <PRODUCT_HOME>/bin/wso2server.sh -Dsetup             `
+        -   For Linux:
+            `              <IS_HOME>/bin/wso2server.sh -Dsetup             `
 
-    !!! warning
-        Deprecation of -DSetup
-    
-        When proper Database Administrative (DBA) practices are followed,
-        the systems (except analytics products) are not granted DDL (Data
-        Definition) rights on the schema. Therefore, maintaining the
-        `             -DSetup            ` option is redundant and typically
-        unusable. **As a result, from [January 2018
-        onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-        deprecated the** **`              -DSetup             `** **option**
-        . Note that the proper practice is for the DBA to run the DDL
-        statements manually so that the DBA can examine and optimize any DDL
-        statement (if necessary) based on the DBA best practices that are in
-        place within the organization.
+        !!! warning "Deprecation of -DSetup"
+            When proper Database Administrative (DBA) practices are followed,
+            the systems (except analytics products) are not granted DDL (Data
+            Definition) rights on the schema. Therefore, maintaining the
+            `             -DSetup            ` option is redundant and typically
+            unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
+            deprecated the** **`              -DSetup             `** **option**
+           . Note that the proper practice is for the DBA to run the DDL
+            statements manually so that the DBA can examine and optimize any DDL
+            statement (if necessary) based on the DBA best practices that are in
+            place within the organization.
     

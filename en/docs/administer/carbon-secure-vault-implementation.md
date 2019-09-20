@@ -40,7 +40,7 @@ follows:
     `          SecretRepositoryProvider         ` classes. See the topic
     on [customizing the Secure Vault
     configuration](#customizing-the-secure-vault-configuration)
-    .
+   .
 -   **Secret Manager:** The Secret Manager initializes the Secret
     Repository and the keystore configured for the Carbon server. The
     secrets stored in the Secret Repository are accessed using the
@@ -57,7 +57,7 @@ follows:
     be written by implementing the SecretCallbackHandler class. See the
     topic on [customizing the Secure Vault
     configuration](#customizing-the-secure-vault-configuration)
-    .
+   .
 -   **Secret Resolver:** Any configuration builder that uses secret
     information within its own configuration file needs to initialize
     the Secret Resolver when building its own configuration. The Secret
@@ -112,7 +112,7 @@ encrypted values.
     `          <IS_HOME>/repository/component/lib/         `
     directory or the OSGI bundle to the
     `          <IS_HOME>/repository/component/dropins/ directory         `
-    .
+   .
 
 4.  Configure the `           master-datasources.xml          ` file
     with an alias name and your Secret Callback handler class name. For
@@ -145,7 +145,7 @@ encrypted values.
     `           <IS_HOME>/repository/conf/security/secret-conf.properties          `
     file with your Secret Callback handler class name.
 
-5.  Go to ` <IS_HOME>/bin  ` and execute ` ./ciphertool.sh -Dconfigure `.
+5.  Go to ` <IS_HOME>/bin  ` and execute `./ciphertool.sh -Dconfigure `.
 
 6.  Replace the values of two the properties `  keystore.identity.store.secretProvider and keystore.identity.key.secretProvider ` in `  <IS_HOME>/   repository/conf/security/secret-conf.properties   ` file with your Secret Callback handler class name.
 
@@ -197,7 +197,7 @@ To create a custom secret repository, you need to implement the
 3.  Create a JAR or an OSGI bundle.
 
 4.  Then, copy the JAR file to the `               <IS_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the
-    `               <IS_HOME>/repository/component/              ` dropins `               /              ` directory .
+    `               <IS_HOME>/repository/component/              ` dropins `               /              ` directory.
 
 
 5.  Replace the `                   secretRepositories.file.provider                  `

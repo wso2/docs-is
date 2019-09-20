@@ -3,14 +3,7 @@
 The following sections describe how to set up a remote H2 database to
 replace the default H2 database in your WSO2 product:
 
--   [Setting up the remote H2
-    database](#SettingupRemoteH2-SettinguptheremoteH2database)
--   [Setting up the drivers](#SettingupRemoteH2-Settingupthedrivers)
-
-!!! warning
-    
-    When to use the embedded H2 database?
-    
+!!! warning "When to use the embedded H2 database?"
     The embedded H2 database is NOT recommended in enterprise testing and
     production environments. It has lower performance, clustering
     limitations, and can cause file corruption failures. Please use an
@@ -18,7 +11,7 @@ replace the default H2 database in your WSO2 product:
     instead.
     
     However, you can use the embedded H2 database as the local registry in a
-    registry mount even in enterprise testing and production environments .
+    registry mount even in enterprise testing and production environments.
     
 
 ### Setting up the remote H2 database
@@ -28,29 +21,28 @@ Follow the steps below to set up a Remote H2 database.
 1.  Download and install the H2 database engine on your computer as
     follows:
 
-    For instructions on installing, see the [H2 installation
-    guide](http://www.h2database.com/html/quickstart.html).
+    !!! info 
+        For instructions on installing, see the [H2 installation guide](http://www.h2database.com/html/quickstart.html).
 
-    ![](../assets/img/53125507/53287411.png)
+    ![](../../assets/img/53125507/53287411.png)
 
 2.  Go to the \< `          H2_HOME>/bin         ` directory and run the
     H2 network server starting script as follows, where \<
     `          H2_HOME>         ` is the H2 installation directory:  
 
-    ![](../assets/img/53125507/53287410.png)
+    ![](../../assets/img/53125507/53287410.png)
 
 3.  Run the H2 database server with the following commands:
     -   For Linux:  
 
-            $ ./h2.sh
-
-    <!-- -->
+            $./h2.sh
 
     -   For Windows:  
 
             $ h2.bat
 
-    The script starts the database engine and opens a pop-up window.
+    !!! info 
+        The script starts the database engine and opens a pop-up window.
 
 4.  Click **Start Browser** to open a web browser containing a client
     application, which you use to connect to a database. If a database
@@ -65,12 +57,12 @@ driver, take the following steps:
 
 1.  Delete the following H2 database-related JAR file, which is shipped
     with WSO2 products:  
-    `          <PRODUCT_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar         `
+    `          <IS_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar         `
 2.  Find the JAR file of the new H2 database driver (
     `           <H2_HOME>/bin/h2-*.jar          `, where
     `           <H2_HOME>          ` is the H2 installation directory)
     and copy it to your WSO2 product's
-    `           <PRODUCT_HOME>/repository/components/lib          `
+    `           <IS_HOME>/repository/components/lib          `
     directory.
 
 ## What's next

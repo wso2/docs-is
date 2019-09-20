@@ -3,12 +3,6 @@
 The following sections describe how to set up a MySQL database to
 replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and
-    users](#SettingupMySQL-Settingupthedatabaseandusers)
--   [Setting up the drivers](#SettingupMySQL-Settingupthedrivers)
--   [Executing db scripts on MySQL
-    database](#SettingupMySQL-ExecutingdbscriptsonMySQLdatabase)
-
 ### Setting up the database and users
 
 Follow the steps below to set up a MySQL database:
@@ -16,10 +10,9 @@ Follow the steps below to set up a MySQL database:
 1.  Download and install MySQL on your computer using the following
     command:
 
-    For instructions on installing MySQL on MAC OS, go to
-    [Homebrew](http://brew.sh/).
-
-      
+    !!! info 
+        For instructions on installing MySQL on MAC OS, go to
+        [Homebrew](http://brew.sh/).
 
     ``` java
     sudo apt-get install mysql-server mysql-client
@@ -40,9 +33,10 @@ Follow the steps below to set up a MySQL database:
 
 4.  Enter the password when prompted.
 
-    In most systems, there is no default root password. Press the
-    **Enter** key without typing anything if you have not changed the
-    default root password.
+    !!! info 
+        In most systems, there is no default root password. Press the
+        **Enter** key without typing anything if you have not changed the
+        default root password.
 
 5.  In the MySQL command prompt, create the database using the following
     command:
@@ -52,25 +46,25 @@ Follow the steps below to set up a MySQL database:
     ```
 
       
-
-    For users of Microsoft Windows, when creating the database in MySQL,
-    it is important to specify the character set as latin1. Failure to
-    do this may result in an error (error code: 1709) when starting your
-    cluster. This error occurs in certain versions of MySQL (5.6.x), and
-    is related to the UTF-8 encoding. MySQL originally used the latin1
-    character set by default, which stored characters in a 2-byte
-    sequence. However, in recent versions, MySQL defaults to UTF-8 to be
-    friendlier to international users. Hence, you must use latin1 as the
-    character set as indicated below in the database creation commands
-    to avoid this problem. Note that this may result in issues with
-    non-latin characters (like Hebrew, Japanese, etc.). The database
-    creation command should be as follows:
+    !!! info 
+        For users of Microsoft Windows, when creating the database in MySQL,
+        it is important to specify the character set as latin1. Failure to
+        do this may result in an error (error code: 1709) when starting your
+        cluster. This error occurs in certain versions of MySQL (5.6.x), and
+        is related to the UTF-8 encoding. MySQL originally used the latin1
+        character set by default, which stored characters in a 2-byte
+        sequence. However, in recent versions, MySQL defaults to UTF-8 to be
+        friendlier to international users. Hence, you must use latin1 as the
+        character set as indicated below in the database creation commands
+        to avoid this problem. Note that this may result in issues with
+        non-latin characters (like Hebrew, Japanese, etc.). The database
+        creation command should be as follows:
 
         mysql> create database <DATABASE_NAME> character set latin1;
 
-    For users of other operating systems, the standard database creation
-    commands will suffice. For these operating systems, the database
-    creation command should be as follows:.
+        For users of other operating systems, the standard database creation
+        commands will suffice. For these operating systems, the database
+        creation command should be as follows:.
 
         mysql> create database <DATABASE_NAME>;
 
@@ -97,26 +91,25 @@ Follow the steps below to set up a MySQL database:
 
 Download the MySQL Java connector [JAR
 file](http://dev.mysql.com/downloads/connector/j/5.1.html), and copy it
-to the \< `         PRODUCT_HOME>/repository/components/lib/        `
+to the `<IS_HOME>/repository/components/lib/        `
 directory.
 
 !!! tip
-    
     Be sure to use the connector version that is supported by the MySQL
     version you use. If you come across any issues due to version
     incompatibility, follow the steps below:
     
     1.  Shut down the server and remove all existing connectors from
-        `          <PRODUCT_HOME>/repository/components/lib         ` and
-        `          <PRODUCT_HOME>/repository/components/dropins         ` .
+        `          <IS_HOME>/repository/components/lib         ` and
+        `          <IS_HOME>/repository/components/dropins         `.
     2.  Download the connector JAR that is compatible with your current
         MySQL version.
     3.  Copy the JAR file **only to**
-        `          <PRODUCT_HOME>/repository/components/lib         ` .
+        `          <IS_HOME>/repository/components/lib         `.
         Files will be copied automatically to the dropins folder during
         server startup.
     4.  Start the server with the - `          Dsetup         ` parameter as
-        `          sh wso2server.sh -Dsetup         ` .
+        `          sh wso2server.sh -Dsetup         `.
     
 
 ### Executing db scripts on MySQL database
@@ -136,7 +129,6 @@ mysql> source <path to the script>\mysql.sql;
 ```
 
 !!! note
-    
     If you are using MySQL 5.7 or later version, use mysql5.7.sql script and
     execute the above command modified as following.
     
