@@ -276,7 +276,7 @@ Follow the steps below to run the script in Web console:
 2.  Copy the script text from the SQL file.
 3.  Paste it into the console.
 4.  Click **Run**.  
-    ![](../../assets/img/53125507/53287421.png) 
+    ![](../assets/img/53125507/53287421.png) 
 5.  Restart the server.
 
     !!! info 

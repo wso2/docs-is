@@ -35,7 +35,7 @@ Create the database using either DB2 command processor DB2 control center as des
 
     For example:
 
-    ![](../../assets/img/53125504/53287380.png) 
+    ![](../assets/img/53125504/53287380.png) 
 
     !!! info 
         For more information on DB2 commands, see the [DB2 Express-C Guide](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C).
@@ -45,18 +45,18 @@ Create the database using either DB2 command processor DB2 control center as des
 1.  Open the DB2 control center using the `          db2cc         `
     command as follows:  
 
-    ![](../../assets/img/53125504/53287383.png)
+    ![](../assets/img/53125504/53287383.png)
 
 2.  Right-click **All Databases** in the control center tree (inside the
     object browser), click **Create Database**, and then click
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
-    ![](../../assets/img/53125504/53287398.png) 
+    ![](../assets/img/53125504/53287398.png) 
 3.  Click **User and Group Objects** in the control center tree to
     create users for the newly created database.  
-    ![](../../assets/img/53125504/53287381.png) 
+    ![](../assets/img/53125504/53287381.png) 
 4.  Give the required permissions to the newly created users.  
-    ![](../../assets/img/53125504/53287382.png) 
+    ![](../assets/img/53125504/53287382.png) 
 
 ### Setting up DB2 JDBC drivers
 
@@ -65,7 +65,7 @@ Copy the DB2 JDBC drivers ( `         db2jcc.jar        ` and
 `         <DB2_HOME>/SQLLIB/java/        ` directory to the
 `         <IS_HOME>/repository/components/lib/        ` directory.
 
-![](../../assets/img/53125504/53287393.png)
+![](../assets/img/53125504/53287393.png)
 
 !!! info
     `          <DB2_HOME>         ` refers to the installation directory of
