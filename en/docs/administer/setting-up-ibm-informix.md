@@ -3,11 +3,6 @@
 The following sections describe how to set up IBM Informix to replace
 the default H2 database in your WSO2 product:
 
--   [Prerequisites](#SettingupIBMInformix-Prerequisites)
--   [Creating the database](#SettingupIBMInformix-Creatingthedatabase)
--   [Setting up Informix JDBC
-    drivers](#SettingupIBMInformix-SettingupInformixJDBCdrivers)
-
 ### Prerequisites
 
 Download the latest version of [IBM
@@ -17,12 +12,9 @@ and install it on your computer.
 ### Creating the database
 
 Create the database and users in Informix. For instructions on creating
-the database and users, see [Informix product
-documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425)
-[.](http://www-01.ibm.com/software/data/informix/)
+the database and users, see [Informix product documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425)
 
 !!! tip
-    
     Do the following changes to the default database when creating the
     Informix database.
     
@@ -32,41 +24,42 @@ documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_lin
     
         ``` java
             onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
-    ```
+        ```
 
--   Add the following system environment variables.
+    -   Add the following system environment variables.
 
-    ``` text
-        export DB_LOCALE=en_US.UTF-8
-        export CLIENT_LOCALE=en_US.UTF-8
-    ```
+        ``` text
+            export DB_LOCALE=en_US.UTF-8
+            export CLIENT_LOCALE=en_US.UTF-8
+        ```
 
--   Create an sbspace other than the dbspace by executing the following
-    command:
+    -   Create an sbspace other than the dbspace by executing the following
+        command:
 
-    ``` java
-        onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
-    ```
+        ``` java
+            onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+        ```
 
--   Add the following entry to the
-    `           <INFORMIX_HOME>/etc/onconfig          ` file, and
-    replace the given example sbspace name (i.e.
-    `           testspace4          ` ) with your sbspace name:
+    -   Add the following entry to the
+        `           <INFORMIX_HOME>/etc/onconfig          ` file, and
+        replace the given example sbspace name (i.e.
+        `           testspace4          ` ) with your sbspace name:
 
-    ``` java
-        SBSPACENAME testspace4
-    ```
+        ``` java
+            SBSPACENAME testspace4
+        ```
 
 
 ### Setting up Informix JDBC drivers
 
 Download the Informix JDBC drivers and copy them to your WSO2 product's
-`         <PRODUCT_HOME>/repository/components/lib/        ` directory.
+`         <IS_HOME>/repository/components/lib/        ` directory.
 
-Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
+!!! info 
+    Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
 
 ## What's next
 
 By default, all WSO2 products are configured to use the embedded H2
 database. To configure your product with IBM Informix, see [Changing to
-IBM Informix](changing-to-ibm-informix).
+IBM Informix](../../administer/changing-to-ibm-informix).

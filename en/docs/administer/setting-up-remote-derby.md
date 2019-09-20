@@ -3,10 +3,6 @@
 The following sections describe how to set up a remote Derby database to
 replace the default H2 database in your WSO2 product:
 
--   [Setting up the
-    database](#SettingupRemoteDerby-Settingupthedatabase)
--   [Setting up the drivers](#SettingupRemoteDerby-Settingupthedrivers)
-
 ### Setting up the database
 
 Follow the steps below to set up a remote Derby database.
@@ -15,12 +11,13 @@ Follow the steps below to set up a remote Derby database.
     Derby](http://apache.mesi.com.ar/db/derby/db-derby-10.8.2.2/).
 2.  Install Apache Derby on your computer.
 
-    For instructions on installing Apache Derby, see the [Apache Derby
-    documentation](http://db.apache.org/derby/manuals/).
+    !!! info 
+        For instructions on installing Apache Derby, see the [Apache Derby
+        documentation](http://db.apache.org/derby/manuals/).
 
 3.  Go to the `          <DERBY_HOME>/bin         ` / directory and run
     the Derby network server start script. Usually, it is named
-    `          startNetworkServer         ` .
+    `          startNetworkServer         `.
 
 ### Setting up the drivers
 
@@ -28,5 +25,5 @@ Copy the `         derby.jar        `,
 `         derbyclient.jar        ` JAR and the
 `         derbynet.jar        ` JAR from the \<
 `         DERBY_HOME>/lib/        ` directory to the \<
-`         PRODUCT_HOME>/repository/components/extensions/        `
+`         IS_HOME>/repository/components/extensions/        `
 directory (the classpath of the Carbon web application).

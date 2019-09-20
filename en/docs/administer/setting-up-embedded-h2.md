@@ -3,13 +3,7 @@
 The following sections describe how to set up an embedded H2 database to
 replace the default H2 database in your WSO2 product:
 
--   [Setting up the database](#SettingupEmbeddedH2-Settingupthedatabase)
--   [Setting up the drivers](#SettingupEmbeddedH2-Settingupthedrivers)
-
-!!! warning
-    
-    H2 is not recommended in production
-    
+!!! warning "H2 is not recommended in production"
     The embedded H2 database is NOT recommended in enterprise testing and
     production environments. It has lower performance, clustering
     limitations, and can cause file corruption failures. Please use an
@@ -24,8 +18,8 @@ replace the default H2 database in your WSO2 product:
 
 Download and install the H2 database engine on your computer.
 
-For instructions on installing DB2 Express-C, see [H2 installation
-guide.](http://www.h2database.com/html/quickstart.html)
+!!! info 
+    For instructions on installing DB2 Express-C, see [H2 installation guide.](http://www.h2database.com/html/quickstart.html)
 
 ### Setting up the drivers
 
@@ -35,12 +29,12 @@ driver, take the following steps:
 
 1.  Delete the following H2 database-related JAR file, which is shipped
     with WSO2 products:  
-    `          <PRODUCT_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar         `
+    `          <IS_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar         `
 2.  Find the JAR file of the new H2 database driver (
     `           <H2_HOME>/bin/h2-*.jar          `, where
     `           <H2_HOME>          ` is the H2 installation directory)
     and copy it to your WSO2 product's
-    `           <PRODUCT_HOME>/repository/components/lib/          `
+    `           <IS_HOME>/repository/components/lib/          `
     directory.
 
 ## What's next

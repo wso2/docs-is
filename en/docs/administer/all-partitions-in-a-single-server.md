@@ -1,6 +1,6 @@
 # All Partitions in a Single Server
 
-#### Strategy 1: Local Registry
+### Strategy 1: Local Registry
 
 ![](../assets/img/21037149/21331970.png) 
 
