@@ -7,13 +7,13 @@ server.
 
 1.  Sign in. Enter your user name and password to log on to the
     [Management
-    Console](https://docs.wso2.com/display/IS540/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** menu to access the **Manage** menu. Click
     **Shutdown/Restart**.
 3.  Click on the shutdown or restart option as applicable. The available
     options are:  
-    ![](attachments/103328970/103328971.png)  
+    ![Shut-Down and Restart screen](../../assets/img/setup/shutdown-restart.png)  
     -   **Graceful shutdown** - Stops accepting new requests, continues
         to process already received requests, and then shuts down the
         server.
