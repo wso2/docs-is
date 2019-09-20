@@ -198,8 +198,7 @@ The section below describes each concept in more detail.
     
     For information on the REST APIs, supported operations and sample
     requests/responses, see [Configuration Management APIs
-    Documentation](https://docs.wso2.com/display/IS580/apidocs/Configuration-management-apis)
-    .
+    Documentation](https://docs.wso2.com/display/IS590/apidocs/Configuration-management-apis/).
     
     For information on how to use the /search endpoint of the Configuration
     Management APIs, see [Retrieving Tenant Resources Based on Search
