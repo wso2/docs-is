@@ -45,11 +45,10 @@ screen and depend on the menu item you select from the left menu. The
 Management Console of the Identity Server provides a list of tools and
 features that you can use. These are divided among the following.
 
--   [Main menu](#GettingStartedwiththeManagementConsole-Mainmenu)
--   [Monitor menu](#GettingStartedwiththeManagementConsole-Monitormenu)
--   [Configure
-    menu](#GettingStartedwiththeManagementConsole-Configuremenu)
--   [Tools menu](#GettingStartedwiththeManagementConsole-Toolsmenu)
+-   Main menu
+-   Monitor menu
+-   Configure menu
+-   Tools menu
 
 While these menu items are usually divided into **Main**, **Monitor**,
 **Configure** and **Tools**, additional menus may appear depending on
@@ -70,7 +69,7 @@ divided into different sections.
 
 **Related links**
 
-    -   See [Configuring Users, Roles and
+    -   See [Configuring Users, Roles and 
         Permissions](../../learn/configuring-users-roles-and-permissions) for
         configuring users and roles. 
     -   See [Configuring the Realm](../../learn/configuring-the-realm) for configuring
@@ -97,7 +96,7 @@ menu items.
     Point](../../learn/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
-    Point](Configuring_the_Policy_Decision_Point) for configuring the
+    Point](../../configuring-the-policy-decision-point) for configuring the
     policy decision point.
 
 #### Manage section

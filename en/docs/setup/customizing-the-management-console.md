@@ -15,7 +15,7 @@ The Management Console user interface (
 2.  **UI unique to each product** contains all the styles and images
     that override the ones in core Carbon platform. This file is in
     `                       <PRODUCT_HOME>/repository/components/plugins/           `
-    org.wso2.\<product-name\>.styles\_\<version-number\>.jar where
+    org.wso2.\<product-name\>.styles_\<version-number\>.jar where
     `           <version-number>          ` is the version of the
     product.
 
@@ -123,11 +123,11 @@ steps.
     file as follows:
 
     ``` java
-        /* ---------------- header styles ------------------ */
-        div#header-div {
-            background-image: url( ../images/newproduct-header-bg.png);
-            height:70px;
-        }
+    /* ---------------- header styles ------------------ */
+    div#header-div {
+        background-image: url( ../images/newproduct-header-bg.png);
+        height:70px;
+    }
     ```
 
 !!! note
