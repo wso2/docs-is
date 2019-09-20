@@ -274,6 +274,7 @@ nav:
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
+          - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
         - 'Password Policies':
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
