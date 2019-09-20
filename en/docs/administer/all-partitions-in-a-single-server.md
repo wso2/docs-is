@@ -1,8 +1,8 @@
 # All Partitions in a Single Server
 
-#### Strategy 1: Local Registry
+### Strategy 1: Local Registry
 
-![](../assets/img/21037149/21331970.png) 
+![](../../assets/img/21037149/21331970.png) 
 
 Figure 1: All registry partitions in a single server instance.  
 
