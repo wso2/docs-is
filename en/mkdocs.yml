@@ -108,7 +108,7 @@ nav:
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
-        - 'Function Library for Adaptive Authentication': tutorials/function-library-for-adaptive-authentication.md
+        - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On': 
