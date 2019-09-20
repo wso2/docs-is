@@ -3,27 +3,19 @@
 The following sections describe how to set up an IBM DB2 database to
 replace the default H2 database in your WSO2 product:
 
--   [Prerequisites](#SettingupIBMDB2-Prerequisites)
--   [Setting up the database and
-    users](#SettingupIBMDB2-Settingupthedatabaseandusers)
--   [Setting up DB2 JDBC
-    drivers](#SettingupIBMDB2-SettingupDB2JDBCdrivers)
-
 ### Prerequisites
 
 Download the latest version of [DB2
 Express-C](http://www-01.ibm.com/software/data/db2/express/download.html)
 and install it on your computer.
 
-For instructions on installing DB2 Express-C, see this
-[ebook](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C)
-.
+!!! info 
+    For instructions on installing DB2 Express-C, see this
+    [ebook](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C).
 
 ### Setting up the database and users
 
-Create the database using either [DB2 command
-processor](#SettingupIBMDB2-UsingtheDB2commandprocessor) or [DB2 control
-center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
+Create the database using either DB2 command processor DB2 control center as described below.
 
 #### Using the DB2 command processor
 
@@ -43,43 +35,43 @@ center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
 
     For example:
 
-    ![](../assets/img/53125504/53287380.png) 
+    ![](../../assets/img/53125504/53287380.png) 
 
-    For more information on DB2 commands, see the [DB2 Express-C
-    Guide](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C)
-    .
+    !!! info 
+        For more information on DB2 commands, see the [DB2 Express-C Guide](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C).
 
 #### Using the DB2 control center
 
 1.  Open the DB2 control center using the `          db2cc         `
     command as follows:  
 
-    ![](../assets/img/53125504/53287383.png)
+    ![](../../assets/img/53125504/53287383.png)
 
 2.  Right-click **All Databases** in the control center tree (inside the
     object browser), click **Create Database**, and then click
     **Standard** and follow the steps in the **Create New Database**
     wizard.  
-    ![](../assets/img/53125504/53287398.png) 
+    ![](../../assets/img/53125504/53287398.png) 
 3.  Click **User and Group Objects** in the control center tree to
     create users for the newly created database.  
-    ![](../assets/img/53125504/53287381.png) 
+    ![](../../assets/img/53125504/53287381.png) 
 4.  Give the required permissions to the newly created users.  
-    ![](../assets/img/53125504/53287382.png) 
+    ![](../../assets/img/53125504/53287382.png) 
 
 ### Setting up DB2 JDBC drivers
 
 Copy the DB2 JDBC drivers ( `         db2jcc.jar        ` and
 `         db2jcc_license_c0u.jar        ` ) from
 `         <DB2_HOME>/SQLLIB/java/        ` directory to the
-`         <PRODUCT_HOME>/repository/components/lib/        ` directory.
+`         <IS_HOME>/repository/components/lib/        ` directory.
 
-![](../assets/img/53125504/53287393.png)
+![](../../assets/img/53125504/53287393.png)
 
-`          <DB2_HOME>         ` refers to the installation directory of
-DB2 Express-C, and \< `          PRODUCT         `
-`          _HOME>         ` refers to the directory where you run the
-WSO2 product instance.
+!!! info
+    `          <DB2_HOME>         ` refers to the installation directory of
+    DB2 Express-C, and \< `          PRODUCT         `
+    `          _HOME>         ` refers to the directory where you run the
+    WSO2 product instance.
 
 ## What's next
 

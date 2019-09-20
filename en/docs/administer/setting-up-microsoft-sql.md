@@ -3,11 +3,6 @@
 The following sections describe how to set up Microsoft SQL to replace
 the default H2 database in your WSO2 product:
 
--   [Setting up the database and
-    users](#SettingupMicrosoftSQL-Settingupthedatabaseandusers)
--   [Setting up the JDBC
-    driver](#SettingupMicrosoftSQL-SettinguptheJDBCdriver)
-
 ### Setting up the database and users
 
 Follow the steps below to set up the Microsoft SQL database and users.
@@ -26,8 +21,9 @@ Follow the steps below to set up the Microsoft SQL database and users.
     it blank and give a valid TCP port, so that Microsoft SQL server
     will listen on that port.
 
-    The best practice is to use port 1433, because you can use it in
-    order processing services.
+    !!! info 
+        The best practice is to use port 1433, because you can use it in
+        order processing services.
 
 6.  Similarly, enable TCP/IP from **SQL Native Client Configuration**
     and disable **Named Pipes**. Also, check whether the port is set
@@ -54,15 +50,15 @@ server permissions.
 
 [Download](https://msdn.microsoft.com/en-us/data/aa937724.aspx) and copy
 the sqljdbc4 Microsoft SQL JDBC driver file to the WSO2 product's
-`         <PRODUCT_HOME>/repository/components/lib/        `
+`         <IS_HOME>/repository/components/lib/        `
 directory. Use
 `         com.microsoft.sqlserver.jdbc.SQLServerDriver        ` asthe
 `         <driverClassName>        ` in your datasource configuration in
-`         <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml        `
+`         <IS_HOME>/repository/conf/datasources/master-datasources.xml        `
 file as explained in the next section.
 
-In WSO2 IoT Server copy the driver file to the
-`          <IOTS_HOME>/lib         ` directory
+!!! info 
+    In WSO2 IoT Server copy the driver file to the `          <IOTS_HOME>/lib         ` directory
 
 ## What's next
 

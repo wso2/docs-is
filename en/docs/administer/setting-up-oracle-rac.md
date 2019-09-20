@@ -3,11 +3,6 @@
 The following sections describe how to set up Oracle RAC to replace the
 default H2 database in your WSO2 product:
 
--   [Setting up the database and
-    users](#SettingupOracleRAC-Settingupthedatabaseandusers)
--   [Setting up the JDBC
-    driver](#SettingupOracleRAC-SettinguptheJDBCdriver)
-
 Oracle Real Application Clusters (RAC) is an option that facilitates
 clustering and high availability in Oracle database environments. In the
 Oracle RAC environment, some of the commands used in
@@ -15,11 +10,12 @@ Oracle RAC environment, some of the commands used in
 product has a separate SQL script ( `         oracle_rac.sql        ` )
 for Oracle RAC. The Oracle RAC-friendly script is located in the
 `         dbscripts        ` folder together with other
-`         .sql        ` scripts.
+`        .sql        ` scripts.
 
-To test products on Oracle RAC, rename
-`          oracle_rac.sql         ` to `          oracle.sql         `
-before running `          -Dsetup         ` .
+!!! info 
+    To test products on Oracle RAC, rename
+    `          oracle_rac.sql         ` to `          oracle.sql         `
+    before running `          -Dsetup         `.
 
 ### Setting up the database and users
 
@@ -31,9 +27,9 @@ Follow the steps below to set up an Oracle RAC database.
     `          /oracle/app/oracle/product/11.2.0/dbhome_1         `,
     `          $PATH:<ORACLE_HOME>/bin         `, and
     `          orcl1         ` ) as follows:  
-    ![](../assets/img/53125514/53287565.png) 
+    ![](../../assets/img/53125514/53287565.png) 
 2.  Connect to Oracle using SQL\*Plus as SYSDBA.  
-    ![](../assets/img/53125514/53287577.png) 
+    ![](../../assets/img/53125514/53287577.png) 
 3.  Create a database user and grant privileges to the user as shown
     below:
 
@@ -52,14 +48,14 @@ Follow the steps below to set up an Oracle RAC database.
 
 Copy the Oracle JDBC libraries (for example, the
 `         <ORACLE_HOME>/jdbc/lib/ojdbc14.jar        ` file) to the
-`         <PRODUCT_HOME>/repository/components/lib/        ` directory.
+`         <IS_HOME>/repository/components/lib/        ` directory.
 
-Remove the old database driver from the
-`          <PRODUCT_HOME>/repository/components/dropins         `
-directory when you upgrade the database driver.
+!!! info 
+    Remove the old database driver from the
+    `          <IS_HOME>/repository/components/dropins         `
+    directory when you upgrade the database driver.
 
 ## What's next
 
 By default, all WSO2 products are configured to use the embedded H2
-database. To configure your product with Oracle RAC, see [Changing to
-Oracle RAC](../../administer/setting-up-oracle-rac).
+database. To configure your product with Oracle RAC, see [Changing to Oracle RAC](../../administer/setting-up-oracle-rac).
