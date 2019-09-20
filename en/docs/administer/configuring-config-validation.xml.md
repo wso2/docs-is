@@ -1,7 +1,7 @@
 # Configuring config-validation.xml
 
 The
-`         <PRODUCT_HOME>/repository/conf/etc/config-validation.xml        `
+`         <IS_HOME>/repository/conf/etc/config-validation.xml        `
 file contains the recommended system configurations for a server. When
 you start the server, the system configurations will be validated
 against these recommendations, and warnings will be published if
@@ -55,7 +55,7 @@ running a WSO2 product server.
 <td>ulimit</td>
 <td><div class="content-wrapper">
 <p>The limit of resources per user. This value indicates the limit on the number of file descriptors a process may have.</p>
-<p>This property is specified in the product startup script as shown below. For example, see the product startup script for Linux: <code>               &lt;PRODUCT_HOME&gt;/bin/wso2server.sh:              </code></p>
+<p>This property is specified in the product startup script as shown below. For example, see the product startup script for Linux: <code>               &lt;IS_HOME&gt;/bin/wso2server.sh:              </code></p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">#ulimit -n <span class="dv">100000</span></a></code></pre></div>
@@ -102,7 +102,7 @@ below, where, " `         -Xms"        `, " `         -Xmx"        `
 and " `         -XX"        ` correspond to "initHeapSize",
 "maxHeapSize" and "maxPermGenSize" respectively. For example, see the
 product startup script for Linux:
-`         <PRODUCT_HOME>/bin/wso2server.sh        ` .
+`         <IS_HOME>/bin/wso2server.sh        `.
 
 ``` java
 $JAVACMD \
@@ -138,7 +138,7 @@ The `         carbon.home        ` and
 `         carbon.config.dir.patch        ` properties are given in the
 product startup script as shown below. For example, see the product
 startup script for Linux:
-`         <PRODUCT_HOME>/bin/wso2server.sh        ` .
+`         <IS_HOME>/bin/wso2server.sh        `.
 
 ``` java
 $JAVA_OPTS 
@@ -148,7 +148,7 @@ $JAVA_OPTS
 
 The axis2.home property is given in the product startup script as shown
 below. For example, see the product startup script for Linux:
-`         <PRODUCT_HOME>/bin/wso2server.sh        ` .
+`         <IS_HOME>/bin/wso2server.sh        `.
 
 ``` java
 # Set AXIS2_HOME. Needed for One Click JAR Download
