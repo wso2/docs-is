@@ -8,19 +8,12 @@ registry that is shared across each node of the cluster. A separate
 instance of the WSO2 Governance Registry is used to provide the space
 used in common.
 
-![](../assets/img/21037149/21331972.png) 
+![](../../assets/img/21037149/21331972.png) 
 
 Figure 2: Config and governance partitions in the remote Governance
-Registry instance .  
+Registry instance.  
 
 Configuration steps are given in the following sections.
-
--   [Creating the
-    Database](#ConfigandGovernancePartitionsinaRemoteRegistry-Database)
--   [Configuring Governance Registry as the Remote Registry
-    Instance](#ConfigandGovernancePartitionsinaRemoteRegistry-RemoteRegistry)
--   [Configuring Carbon Server
-    Nodes](#ConfigandGovernancePartitionsinaRemoteRegistry-CarbonServerNodes)
 
 ### Creating the database 
 
@@ -34,7 +27,7 @@ database named ‘registrydb’. Instructions are as follows:
 mysql -u root -p
 ```
 
-2\. E nter the password when prompted.
+2\. Enter the password when prompted.
 
 3\. Create 'registrydb' database.  
 
@@ -91,11 +84,11 @@ environment.
 
 -   \<url\> : URL of the MySQL database.
 -   \<username\> and \<password\> : username and password of the mySQL
-    database .
+    database.
 -   \<validationQuery\> : Validate and test the health of the DB
-    connection .
+    connection.
 -   \<validationInterval\> : specified time intervals at which the DB
-    connection validations should run .
+    connection validations should run.
 
 3\. Navigate to $G-REG\_HOME /repository/conf/axis2/axis2.xml file in all
 Carbon-based product instances to be connected with the remote registry,
@@ -121,17 +114,13 @@ required tables are created in the database. For example, in Linux
 sh wso2server.sh -Dsetup
 ```
 
-!!! warning
-    
-    Deprecation of -DSetup
-    
+!!! warning "Deprecation of -DSetup" 
     When proper Database Administrative (DBA) practices are followed, the
     systems (except analytics products) are not granted DDL (Data
     Definition) rights on the schema. Therefore, maintaining the
     `          -DSetup         ` option is redundant and typically unusable.
-    **As a result, from [January 2018
-    onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`           -DSetup          `** **option**. Note
+    **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the** 
+    **`           -DSetup          `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
     necessary) based on the DBA best practices that are in place within the
@@ -187,8 +176,7 @@ registry space.
 </datasource>
 ```
 
-Change the values of the relevant elements accordingly. ***  
-***
+Change the values of the relevant elements accordingly. 
 
 ***Configuring registry.xml file***
 
@@ -277,26 +265,25 @@ copying the following configuration to all Carbon server instances:
 <clustering class="org.apache.axis2.clustering.tribes.TribesClusteringAgent" enable="true"/>
 ```
 
-Note
-
-The above configuration is needed only when caching is enabled in the
-server instances and \<enableCache\> parameter set to true. Clustering
-enables cache invalidation in configured nodes at the event of any
-changes to the registry resources by any of the Carbon server nodes in
-the deployment setup.
+!!! info 
+    The above configuration is needed only when caching is enabled in the
+    server instances and \<enableCache\> parameter set to true. Clustering
+    enables cache invalidation in configured nodes at the event of any
+    changes to the registry resources by any of the Carbon server nodes in
+    the deployment setup.
 
 2\. Copy 'MySQL JDBC connector jar' (
-[http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html)
+[http://dev.mysql.com/downloads/connector/j/5.1.html](http://dev.mysql.com/downloads/connector/j/5.1.html)
 to $ G-REG\_HOME/repository/components/lib in both Carbon server
 instances.
 
 3\. Start both servers and note the log entries that indicate successful
 mounting to the remote Governance Registry instance. For example,
 
-![](../assets/img/21037149/21332021.png)   
+![](../../assets/img/21037149/21332021.png)   
 
 4\. Navigate to the registry browser in the Carbon server's management
 console and note the config and governance partitions indicating
 successful mounting to the remote registry instance. For example,
 
-![](../assets/img/21037149/21332022.png) 
+![](../../assets/img/21037149/21332022.png) 

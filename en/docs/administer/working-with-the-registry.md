@@ -30,21 +30,14 @@ partitions:
     configurations. This partition can be shared across multiple
     instances of the same product (e.g., sharing ESB configurations
     across an ESB cluster). Mount point is
-    `          /_system/config         ` .
+    `          /_system/config         `.
 -   **Governance Repository** : Used to store configuration and data
     that are shared across the whole platform. This typically includes
     services, service descriptions, endpoints or datasources. Mount
     point of theis registry is `          /_system/governance         `
-    .
+   .
 
 You can browse the contents of the registry using the product's
 management console.
-
-This section provides the following information:
-
--   [Managing the Registry](../../administer/managing-the-registry)
--   [Searching the Registry](../../administer/searching-the-registry)
--   [Using Remote Registry Instances for the Registry
-    Partitions](../../administer/using-remote-registry-instances-for-the-registry-partitions)
 
   
