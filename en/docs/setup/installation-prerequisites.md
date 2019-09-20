@@ -39,13 +39,13 @@ development platforms before starting the installation.
 <td><div class="content-wrapper">
 <ul>
 <li>WSO2 Identity Server requires an Oracle JDK 8 compliant JDK. This will run on most common platforms that <strong>support Java 8</strong> .</li>
-<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../admin-guide/working-with-databases">Working with Databases</a> .</li>
+<li>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development and testing. For enterprise production environments we recommend an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../administer/working-with-databases">Working with Databases</a> .</li>
 <li>WSO2 Identity Server supports using any of the following as a user store :
 <ul>
 <li>RDBMS</li>
 <li>An LDAP such as OpenLDAP</li>
 <li>Active Directory</li>
-<li><a href="../../using-wso2-identity-server/configuring-user-stores">Custom user stores</a></li>
+<li><a href="../../learn/configuring-user-stores">Custom user stores</a></li>
 </ul></li>
 </ul>
 <div class="admonition note">
@@ -58,7 +58,7 @@ development platforms before starting the installation.
 </p>
 </div>
 <ul> 
-<li>For environments that WSO2 products are tested with, see <a href="../../admin-guide/environments-tested-with-wso2-products">Environments Tested with WSO2 Products</a> .</li>
+<li>For environments that WSO2 products are tested with, see <a href="../../administer/environments-tested-with-wso2-products">Environments Tested with WSO2 Products</a> .</li>
 <li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
 </ul>
 </div></td>

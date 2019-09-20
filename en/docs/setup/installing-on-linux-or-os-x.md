@@ -1,7 +1,7 @@
 # Installing on Linux or OS X
 
 !!! tip "Before you begin"
-    See the [compatibility matrix](../../admin-guide/tested-operating-systems)
+    See the [compatibility matrix](../../administer/tested-operating-systems)
     to find out if this version of the product is fully tested on your
     operating system.
     
