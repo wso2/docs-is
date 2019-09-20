@@ -1,7 +1,7 @@
 # Installing on Windows
 
 !!! tip "Before you begin"
-    See the [compatibility matrix](../../administer/tested-operating-systems)
+    See the [compatibility matrix](../../setup/environment-compatibility)
     to find out if this version of the product is fully tested on your
     operating system.     
 

@@ -1,7 +1,7 @@
 # Installing on Solaris
 
 !!! tip "Before you begin"
-    See the [compatibility matrix](../../administer/tested-operating-systems)
+    See [environment compatibility](../../setup/environment-compatibility)
     to find out if this version of the product is fully tested on your
     operating system.  
 
@@ -33,7 +33,7 @@ on the computer.
 
 1.  In your home directory, open the BASHRC file in your favorite text
     editor, such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 1.8.0\_141 in your system, add the following
+2.  Assuming you have JDK 1.8.0_141 in your system, add the following
     two lines at the bottom of the file, replacing
     `           /usr/java/jdk1.8.0_141          ` with the actual
     directory where the JDK is installed.

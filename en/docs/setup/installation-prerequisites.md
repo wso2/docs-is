@@ -58,7 +58,7 @@ development platforms before starting the installation.
 </p>
 </div>
 <ul> 
-<li>For environments that WSO2 products are tested with, see <a href="../../administer/environments-tested-with-wso2-products">Environments Tested with WSO2 Products</a> .</li>
+<li>For environments that WSO2 products are tested with, see <a href="../../setup/environment-compatibility">Environment Compatibility</a> .</li>
 <li>If you have difficulty setting up any WSO2 product in a specific platform or database, <a href="https://wso2.com/contact/">contact WSO2</a>.</li>
 </ul>
 </div></td>
