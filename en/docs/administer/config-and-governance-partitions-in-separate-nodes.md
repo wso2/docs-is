@@ -7,19 +7,12 @@ shares a configuration registry space by the name G-Reg 2 and the
 product Bar cluster shares a configuration registry space by the name
 G-Reg 3.  
 
-![](../assets/img/53125543/53287693.png)   
+![](../../assets/img/53125543/53287693.png)   
 
 Figure 4: Config and governance partitions in separate registry
-instances .  
+instances.  
 
 Configuration steps are given in the following sections.
-
--   [Creating the
-    Database](#ConfigandGovernancePartitionsinSeparateNodes-Database)
--   [Configuring the Remote Registry
-    Instances](#ConfigandGovernancePartitionsinSeparateNodes-RemoteRegistry)
--   Configuring Foo Product Cluster
--   Configuring Bar Product Cluster
 
 ### Creating the database 
 
@@ -94,11 +87,11 @@ environment.
 
 -   \<url\> : URL of the MySQL database.
 -   \<username\> and \<password\> : username and password of the mySQL
-    database .
+    database.
 -   \<validationQuery\> : Validate and test the health of the DB
-    connection .
+    connection.
 -   \<validationInterval\> : specified time intervals at which the DB
-    connection validations should run .
+    connection validations should run.
 
 3\. Similarly, replace the existing WSO2\_CARBON\_DB datasource in G-Reg
 2 with the following :
@@ -176,16 +169,12 @@ Linux
 sh wso2server.sh -Dsetup
 ```
 
-!!! warning
-    
-    Deprecation of -DSetup
-    
+!!! warning "Deprecation of -DSetup"
     When proper Database Administrative (DBA) practices are followed, the
     systems (except analytics products) are not granted DDL (Data
     Definition) rights on the schema. Therefore, maintaining the
     `          -DSetup         ` option is redundant and typically unusable.
-    **As a result, from [January 2018
-    onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
+    **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
     deprecated the** **`           -DSetup          `** **option**. Note
     that the proper practice is for the DBA to run the DDL statements
     manually so that the DBA can examine and optimize any DDL statement (if
@@ -259,7 +248,7 @@ add the following datasource for the registry space.
 ```
 
 Change the values of the relevant elements according to your
-environment. **
+environment.
 
 ***Configuring registry.xml file***
 
@@ -312,11 +301,11 @@ environment.
 -   \<enableCache\> : Whether caching is enabled on the Carbon server
     instance.
 
-Note
 
-When adding the corresponding configuration to the registry.xml file of
-a slave node, set \<readOnly\>true\</readOnly\>. This is the only
-configuration change.
+!!! info 
+    When adding the corresponding configuration to the registry.xml file of
+    a slave node, set \<readOnly\>true\</readOnly\>. This is the only
+    configuration change.
 
 Define the registry partitions using the remote Governance Registry
 instance.  
@@ -358,16 +347,14 @@ Carbon server instances:
 <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
 ```
 
-Note
+!!! info 
+    The above configuration is needed only when caching is enabled in the
+    server instances and \<enableCache\> parameter set to true. Clustering
+    enables cache invalidation in configured nodes at the event of any
+    changes to the registry resources by any of the Carbon server nodes in
+    the deployment setup.
 
-The above configuration is needed only when caching is enabled in the
-server instances and \<enableCache\> parameter set to true. Clustering
-enables cache invalidation in configured nodes at the event of any
-changes to the registry resources by any of the Carbon server nodes in
-the deployment setup.
-
-4\. Copy 'MySQL JDBC connector jar' (
-[http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html)
+4\. Copy 'MySQL JDBC connector jar' [http://dev.mysql.com/downloads/connector/j/5.1.html](http://dev.mysql.com/downloads/connector/j/5.1.html)
 to $ G-REG\_HOME/repository/components/lib in Carbon server instances of
 Foo product cluster.
 
@@ -486,11 +473,10 @@ environment.
 -   \<enableCache\> : Whether caching is enabled on the Carbon server
     instance.
 
-Note
-
-When adding the corresponding configuration to the registry.xml file of
-a slave node, set \<readOnly\>true\</readOnly\>. This is the only
-configuration change.
+!!! info 
+    When adding the corresponding configuration to the registry.xml file of
+    a slave node, set \<readOnly\>true\</readOnly\>. This is the only
+    configuration change.
 
 Define the registry partitions using the remote Governance Registry
 instance.  
@@ -535,13 +521,12 @@ Carbon server instances:
 <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
 ```
 
-Note
-
-The above configuration is needed only when caching is enabled in the
-server instances and \<enableCache\> parameter set to true. Clustering
-enables cache invalidation in configured nodes at the event of any
-changes to the registry resources by any of the Carbon server nodes in
-the deployment setup.
+!!! info 
+    The above configuration is needed only when caching is enabled in the
+    server instances and \<enableCache\> parameter set to true. Clustering
+    enables cache invalidation in configured nodes at the event of any
+    changes to the registry resources by any of the Carbon server nodes in
+    the deployment setup.
 
 4\. Copy 'MySQL JDBC connector jar' (
 [http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html)

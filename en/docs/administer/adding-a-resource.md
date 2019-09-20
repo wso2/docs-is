@@ -7,18 +7,13 @@ Follow the instructions below to add a new child entry to a collection.
 
 1\. To add a new resource, click on the *Add Resource* link.
 
-![](../assets/img/53125534/53287664.png)
+![](../../assets/img/53125534/53287664.png)
 
 2\. In the *Add Resource* panel, select *Method* from the drop-down menu.
 
 The following methods are available:
 
--   **[Upload content from file](#AddingaResource-1)**
--   **[Import content from URL](#AddingaResource-2)**
--   **[Create Text content](#AddingaResource-3)**
--   **[Create custom content](#AddingaResource-4)**
-
-![](../assets/img/53125534/53287663.png)
+![](../../assets/img/53125534/53287663.png)
 
 ### Uploading Content from File
 
@@ -27,14 +22,14 @@ The following methods are available:
 -   File - The path of a file to fetch content (XML, WSDL, JAR etc.) Use
     the *Browse* button to upload a file.
 -   Name - The unique name of a resource.
--   Media type **-** Can add a configured media type or leave this
+-   Media type - Can add a configured media type or leave this
     unspecified to enforce the default media type.
 -   Description - The description of a resource.
 
 2\. Click *Add* once the information is added as shown in the example
 below.
 
-![](../assets/img/53125534/53287661.png)
+![](../../assets/img/53125534/53287661.png)
 
 ### Importing Content from URL
 
@@ -48,29 +43,29 @@ below.
 
 2\. Click *Add* once the information is added.
 
-![](../assets/img/53125534/53287659.png)
+![](../../assets/img/53125534/53287659.png)
 
 ### Text Content Creation
 
 1\. If this method was selected, specify the following options:
 
 -   Name - The unique name of a resource.
--   Media type **-** Can add a configured media type or leave this
+-   Media type - Can add a configured media type or leave this
     unspecified to enforce the default media type.
 -   Description - The description of a resource.
--   Content **-** The resource content. You can use either *Rich Text
+-   Content -The resource content. You can use either *Rich Text
     Editor* or *Plain Text Editor* to enter.
 
 2\. Click *Add* once the information is added.
 
-![](../assets/img/53125534/53287658.png)
+![](../../assets/img/53125534/53287658.png)
 
 ### Custom Content Creation
 
 1\. If this method was selected, choose the *Media Type* from the
-drop-down menu and click *Create Content* .
+drop-down menu and click *Create Content*.
 
-![](../assets/img/53125534/53287662.png)
+![](../../assets/img/53125534/53287662.png)
 
 **Media Types**
 
