@@ -547,7 +547,7 @@ nav:
         - 'MailChimp Authenticator': develop/mailchimp-authenticator.md
         - 'MePIN Authenticator': develop/mepin-authenticator.md
         - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
-        - 'Configuring Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
+        - 'Configuring Mobile Connect Authenticator': develop/configuring-mobile-connect-authenticator.md
         - 'Microsoft Azure AD Authenticator':
           - 'Microsoft Azure AD Authenticator': develop/microsoft-azure-ad-authenticator.md
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
