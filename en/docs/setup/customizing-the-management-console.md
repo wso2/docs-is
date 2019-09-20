@@ -15,19 +15,12 @@ The Management Console user interface (
 2.  **UI unique to each product** contains all the styles and images
     that override the ones in core Carbon platform. This file is in
     `                       <PRODUCT_HOME>/repository/components/plugins/           `
-    org.wso2.\<product-name\>.styles\_\<version-number\>.jar where
+    org.wso2.\<product-name\>.styles_\<version-number\>.jar where
     `           <version-number>          ` is the version of the
     product.
 
 The following topics explain how to download a Carbon product and
 customize its user interface.
-
--   [Setting up the development
-    environment](#CustomizingtheManagementConsole-Settingupthedevelopmentenvironment)
--   [Customizing the user
-    interface](#CustomizingtheManagementConsole-Customizingtheuserinterface)
--   [Starting the
-    server](#CustomizingtheManagementConsole-Startingtheserver)
 
 ### Setting up the development environment
 
@@ -53,13 +46,6 @@ Customizing the product interface involves changing the layout/design of
 the Carbon framework as well as changing the styles and images specific
 to the product. The following topics explain how some of the main
 changes to the product interface can be done.
-
--   [Changing the
-    layout](#CustomizingtheManagementConsole-Changingthelayout)
--   [Changing the styles on the Carbon
-    framework](#CustomizingtheManagementConsole-ChangingthestylesontheCarbonframework)
--   [Changing the product specific styles and
-    images](#CustomizingtheManagementConsole-Changingtheproductspecificstylesandimages)
 
 #### Changing the layout
 
@@ -137,11 +123,11 @@ steps.
     file as follows:
 
     ``` java
-        /* ---------------- header styles ------------------ */
-        div#header-div {
-            background-image: url( ../images/newproduct-header-bg.png);
-            height:70px;
-        }
+    /* ---------------- header styles ------------------ */
+    div#header-div {
+        background-image: url( ../images/newproduct-header-bg.png);
+        height:70px;
+    }
     ```
 
 !!! note

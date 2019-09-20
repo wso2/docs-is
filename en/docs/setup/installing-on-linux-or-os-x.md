@@ -1,9 +1,7 @@
 # Installing on Linux or OS X
 
-!!! tip
-    
-    **Before you begin**, [please see our compatibility
-    matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems)
+!!! tip "Before you begin"
+    See the [environment compatibility](../../setup/environment-compatibility)
     to find out if this version of the product is fully tested on your
     operating system.
     
@@ -14,8 +12,8 @@ or Mac OS X.
 ### Installing the required applications
 
 1.  Log in to the command line (Terminal on Mac).
-2.  Ensure that your system meets the [Installation
-    Prerequisites](Installation_Prerequisites).  Java Development Kit
+
+2.  Ensure that your system meets the [Installation Prerequisites](../../setup/installation-prerequisites).  Java Development Kit
     (JDK) is essential to run the product.
 
 ### Installing the Identity Server
@@ -36,21 +34,26 @@ or Mac OS X.
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
         ```
     
-        To avoid this issue, open the `           <IS_HOME>/          `
-        `           repository/conf/tomcat/catalina-server.xml          `
-        file and change the `           compression="on"          ` to
-        `           compression="off"          ` in the HTTPS connector
-        configuration, and restart WSO2 IS.
+        To avoid this issue, 
+        1. Open the 'deployment.toml' file in the `<IS_HOME>/repository/conf/` directory.
+        2. Set the `compression` element under the HTTPS connector configuration to `off`.
+           ```
+           [transport.https]
+           ...
+           compression="off"
+           ...           
+           ```
+        3. Restart WSO2 Identity Server.
     
 
-### Setting up JAVA\_HOME
+### Setting up JAVA_HOME
 
 You must set your `         JAVA_HOME        ` environment variable to
 point to the directory where the Java Development Kit (JDK) is installed
 on the computer.
 
-Environment variables are global system variables accessible by all the
-processes running under the operating system.
+!!! info
+    Environment variables are global system variables accessible by all the processes running under the operating system.
 
 1.  In your home directory, open the BASHRC file (.bash\_profile file 
     on Mac) using editors such as vi, emacs, pico, or mcedit.
@@ -70,23 +73,21 @@ processes running under the operating system.
 
 3.  Save the file.
 
-    If you do not know how to work with text editors in a Linux SSH
-    session, run the following command:
-    `            cat >> .bashrc.           ` Paste the string from the
-    clipboard and press "Ctrl+D."
+    !!! info
+        If you do not know how to work with text editors in a Linux SSH session, run the following command: `            cat >> .bashrc.           ` Paste the string from the clipboard and press "Ctrl+D."
 
 4.  To verify that the `           JAVA_HOME          ` variable is set
     correctly, execute the following command:
 
     ``` java
-        On Linux:
-        echo $JAVA_HOME
+    On Linux:
+    echo $JAVA_HOME
          
-        On OS X:
-        which java
-    
-        If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
-        ls -l `which java`
+    On OS X:
+    which java
+
+    If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
+    ls -l `which java`
     ```
 
 5.  The system returns the JDK installation path.
@@ -109,15 +110,6 @@ you can take the following approaches:
     sure to store sensitive data such as username and password to
     connect to the registry in a properties file instead of in the Java
     code and secure the properties file with the [secure
-    vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation)
-    .
-
-When using SUSE Linux, it ignores `          /etc/resolv.conf         `
-and only looks at the `          /etc/hosts         ` file. This means
-that the server will throw an exception on startup if you have not
-specified anything besides localhost. To avoid this error, add the
-following line above `          127.0.0.1 localhost         ` in the
-`          /etc/hosts         ` file: `          <ip_address>         `
-`          <machine_name> localhost         `
+    vault](../../administer/carbon-secure-vault-implementation).
 
 You are now ready to [run the product](../../setup/running-the-product).
