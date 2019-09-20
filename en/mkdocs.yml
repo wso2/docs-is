@@ -744,6 +744,7 @@ nav:
         - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
         - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
         - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
+        - 'Set Passwords using Environment Variables/System Properties': administer/set_passwords-using_environment_variables_or_system_properties.md
       - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
       - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
       - 'Using Asymmetric Encryption':
