@@ -10,7 +10,7 @@ resource or a collection.
 1.  In the **New Role Permissions** section, select a role from the
     drop-down list. This list is populated by all user roles configured
     in the system.  
-    ![](../../assets/img/53125537/53287669.png)
+    ![](../assets/img/53125537/53287669.png)
 
     !!! info 
         The `                         wso2.anonymous.role                       `
@@ -40,7 +40,7 @@ resource or a collection.
 
 3.  Select whether to allow the action or deny and click **Add
     Permission**. For example  
-    ![](../../assets/img/53125537/53287670.png)
+    ![](../assets/img/53125537/53287670.png)
 
     !!! info 
         `                         Deny                       ` permissions
@@ -61,7 +61,7 @@ resource or a collection.
 
 4.  The new permission appears in the list.  
     
-	![](../../assets/img/53125537/53287671.png)
+	![](../assets/img/53125537/53287671.png)
 
     From here, you can edit the
     permissions by selecting and clearing the check boxes. After editing

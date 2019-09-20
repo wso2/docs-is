@@ -31,13 +31,13 @@ or the collection:
 
 For example,  
 
-![](../../assets/img/22185146/22514191.png) 
+![](../assets/img/22185146/22514191.png) 
 
 #### Creating a checkpoint
 
 To create a checkpoint, click on the **Create Checkpoint** link:
 
-![](../../assets/img/53125531/53287635.png)
+![](../assets/img/53125531/53287635.png)
 
 !!! info 
     When checkpoints are created, properties, comments, ratings and tags will also be taken into consideration. If you do not want them to be versioned along with resource content, you can disable it by making changes to the [Static Configuration](https://docs.wso2.com/display/Governance460/Configuration+for+Static+%28One-time%29+and+Auto+Versioning+Resources). However, these changes need to be done before the server starts for the first time.
@@ -46,11 +46,11 @@ To create a checkpoint, click on the **Create Checkpoint** link:
 
 To view the resource versions, click on the **View versions** link:
 
-![](../../assets/img/53125531/53287640.png)  
+![](../assets/img/53125531/53287640.png)  
 
 It opens the versions. For example,
 
-![](../../assets/img/22185146/22514195.png) 
+![](../assets/img/22185146/22514195.png) 
 
 This page gives the following information:  
 

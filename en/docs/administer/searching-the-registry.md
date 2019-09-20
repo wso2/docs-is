@@ -6,10 +6,10 @@ registry.
 1.  Log in to the product's management console a nd select **Search -\>
     Metadata** under the **Registry** menu. 
 
-    ![](../../assets/img/53125538/53287682.png)
+    ![](../assets/img/53125538/53287682.png)
 
 2.  The **Search** page opens.  
-    ![](../../assets/img/53125538/53287681.png) 
+    ![](../assets/img/53125538/53287681.png) 
     
     You can define a search criteria using the following parameters:
 
@@ -21,7 +21,7 @@ registry.
             Created/updated dates must be in MM/DD/YYYY format.
             Alternatively, you can pick it from the calendar interface
             provided.  
-            ![](../../assets/img/53125538/53287680.png)
+            ![](../assets/img/53125538/53287680.png)
 
     -   **Created/updated author** - The person who created/updated the
         resource
