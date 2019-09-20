@@ -45,11 +45,10 @@ screen and depend on the menu item you select from the left menu. The
 Management Console of the Identity Server provides a list of tools and
 features that you can use. These are divided among the following.
 
--   [Main menu](#GettingStartedwiththeManagementConsole-Mainmenu)
--   [Monitor menu](#GettingStartedwiththeManagementConsole-Monitormenu)
--   [Configure
-    menu](#GettingStartedwiththeManagementConsole-Configuremenu)
--   [Tools menu](#GettingStartedwiththeManagementConsole-Toolsmenu)
+-   Main menu
+-   Monitor menu
+-   Configure menu
+-   Tools menu
 
 While these menu items are usually divided into **Main**, **Monitor**,
 **Configure** and **Tools**, additional menus may appear depending on
@@ -70,21 +69,19 @@ divided into different sections.
 
 **Related links**
 
-See the following topics for instructions on how to use each of these
-menu items.
+    -   See [Configuring Users, Roles and 
+        Permissions](../../learn/configuring-users-roles-and-permissions) for
+        configuring users and roles. 
+    -   See [Configuring the Realm](../../learn/configuring-the-realm) for configuring
+        user stores.
+    -   See [Claim Management](../../learn/claim-management) for configuring claims.
+    -   See [Adding and Configuring a Service
+        Provider](../../learn/adding-and-configuring-a-service-provider) for
+        configuring service providers.
+    -   See [Adding and Configuring an Identity
+        Provider](../../learn/adding-and-configuring-an-identity-provider) for
+        configuring identity providers.
 
--   See [Configuring Users, Roles and
-    Permissions](Configuring_Users_Roles_and_Permissions) for
-    configuring users and roles.
--   See [Configuring the Realm](../../learn/configuring-the-realm) for configuring
-    user stores.
--   See [Claim Management](../../learn/claim-management) for configuring claims.
--   See [Adding and Configuring a Service
-    Provider](../../learn/adding-and-configuring-a-service-provider) for
-    configuring service providers.
--   See [Adding and Configuring an Identity
-    Provider](../../learn/adding-and-configuring-an-identity-provider) for
-    configuring identity providers.
 
 #### Entitlement section
 
@@ -99,31 +96,30 @@ menu items.
     Point](../../learn/configuring-the-policy-administration-point) for
     configuring the policy administration point.
 -   See [Configuring the Policy Decision
-    Point](Configuring_the_Policy_Decision_Point) for configuring the
+    Point](../../configuring-the-policy-decision-point) for configuring the
     policy decision point.
 
 #### Manage section
 
-![](attachments/103328985/103328986.png)
+![Manage menu](../../assets/img/setup/manage-menu-png)
 
-**Related links**
+!!! info "Related links"  
+    See the following topics for instructions on how to use each of these
+    menu items.
 
-See the following topics for instructions on how to use each of these
-menu items.
-
--   See [Workflow Management](../../learn/workflow-management) for information on
-    working with workflows.
--   See [Managing Challenge Questions](Managing_Challenge_Questions)
-    for information on configuring challenge questions. Also see [Using
-    the End User Dashboard](../../learn/using-the-end-user-dashboard) for
-    information on challenge questions.
--   See [Email Templates](Email_Templates) for configuring email
-    templates. Also see [Customizing Automated
-    Emails](https://docs.wso2.com/display/IS530/Customizing+Automated+Emails)
-    for information on how to customize these templates.
--   See [Creating New Keystores in the WSO2 Administration
-    Guide](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores)
-    for configuring keystores.
+    -   See [Workflow Management](../../learn/workflow-management) for information on
+        working with workflows.
+    -   See [Managing Challenge Questions](../../learn/managing-challenge-questions)
+        for information on configuring challenge questions. Also see [Using
+        the End User Dashboard](../../learn/using-the-end-user-dashboard) for
+        information on challenge questions.
+    -   See [Email Templates](../../learn/email-templates) for configuring email
+        templates. Also see [Customizing Automated
+        Emails](../../learn/customizing-automated-emails)
+        for information on how to customize these templates.
+    -   See [Creating New Keystores in the WSO2 Administration
+        Guide](../../administer/creating-new-keystores)
+        for configuring keystores.
 
 ### Monitor menu
 
@@ -132,7 +128,10 @@ and statistics related to monitoring the Identity Server. For more
 information on these features and their usage, see the topics on
 [monitoring the Identity Server](Monitoring_the_Identity_Server).
 
-![](attachments/103328985/103328987.png)
+[monitoring the Identity Server](../../learn/monitoring-the-identity-server).
+
+![Monitor menu](../../assets/img/setup/monitor-menu.png)
+
 
 ### Configure menu
 
@@ -147,21 +146,17 @@ specific requirements.
 See the following topics for instructions on how to use each of these
 menu items.
 
--   See [Features](#){.unresolved} in the WSO2 Product Administration
-    Guide for instructions on how to use features.
--   See [Logging](#){.unresolved} in the WSO2 Product Administration
-    Guide for information on logging.
--   See [Server Roles](Server_Roles) for information on server roles.
--   See [Using Workflows with User
-    Management](Using_Workflows_with_User_Management) for information
-    on Workflow Engine Profiles.
--   See [Creating and Managing Tenants](Creating_and_Managing_Tenants)
-    for information on multitenancy.
+    -   See [Server Roles](../../learn/server-roles) for information on server roles.
+    -   See [Using Workflows with User
+        Management](../../learn/using-workflows-with-user-management) for information
+        on Workflow Engine Profiles.
+    -   See [Creating and Managing Tenants](../../learn/creating-and-managing-tenants)
+        for information on multitenancy.
 
 ### Tools menu
 
 The tools menu includes SAML and XACML tools. For more details on each
-of these tools and their usage, see the topics on [working with
-tools](Using_Tools).
+of these tools and their usage, see the topics on [working with tools](../../learn/using-tools).
+
 
 ![](attachments/103328985/103328989.png)
