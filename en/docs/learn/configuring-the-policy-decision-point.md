@@ -7,7 +7,7 @@ archtecture, [Read
 this](../../get-started/access-control-and-entitlement-management)
 .
 
-![policy-decision-point](../../assets/img/tutorials/policy-decision-point.png)
+![policy-decision-point](../assets/img/tutorials/policy-decision-point.png)
 
 All PDP configurations have been exposed via this API as a Web service.
 The following topics provide instructions on how to configure the PDP,

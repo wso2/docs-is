@@ -22,20 +22,20 @@ Grant](../../learn/implicit-grant).
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
 
-    ![running-implicit-grant-type](../../assets/img/using-wso2-identity-server/running-implicit-grant-type.png) 
+    ![running-implicit-grant-type](../assets/img/using-wso2-identity-server/running-implicit-grant-type.png) 
 
 3.  Log in with the user.  
-    ![sign-in-with-pkce](../../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
+    ![sign-in-with-pkce](../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
 
 4.  Click Approve to consent to this action.  
-    ![approve-consent-with-pkce](../../assets/img/using-wso2-identity-server/approve-consent-with-pkce.png)
+    ![approve-consent-with-pkce](../assets/img/using-wso2-identity-server/approve-consent-with-pkce.png)
 
 5.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.
 
-    ![implicit-grant-token-info](../../assets/img/using-wso2-identity-server/implicit-grant-token-info.png)
+    ![implicit-grant-token-info](../assets/img/using-wso2-identity-server/implicit-grant-token-info.png)
 
     ??? note "Click here for more information on OAuth 2.0 Token Introspection"
         OAuth 2.0 Token Introspection defines a protocol that allows
@@ -53,7 +53,7 @@ Grant](../../learn/implicit-grant).
 
 6.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![implicit-token-info](../../assets/img/using-wso2-identity-server/implicit-token-info.png) 
+    ![implicit-token-info](../assets/img/using-wso2-identity-server/implicit-token-info.png) 
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection

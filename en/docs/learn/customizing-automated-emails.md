@@ -36,7 +36,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![select-email-template-type](../../assets/img/using-wso2-identity-server/select-email-template-type.png)
+        ![select-email-template-type](../assets/img/using-wso2-identity-server/select-email-template-type.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -52,7 +52,7 @@ template.
             supported.
         
 
-    ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
+    ![edit-email-template](../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
       
     !!! tip "Placeholders and Custom Claim Dialects"
@@ -113,7 +113,7 @@ template.
 
     -   **Select Email Template Type** : You can select the type of
         email template you wish to customize using this dropdown.  
-        ![select-email-template-type](../../assets/img/using-wso2-identity-server/select-email-template-type.png)
+        ![select-email-template-type](../assets/img/using-wso2-identity-server/select-email-template-type.png)
     -   **Subject** : This is the subject of the email that is sent to
         the user.
     -   **Email Body** : This is the body of the email that is sent to
@@ -129,7 +129,7 @@ template.
             supported.
         
 
-    ![edit-email-template](../../assets/img/using-wso2-identity-server/edit-email-template.png) 
+    ![edit-email-template](../assets/img/using-wso2-identity-server/edit-email-template.png) 
 
     !!! tip "Placeholders and Custom Claim Dialects"
         You can set different placeholders in order to populate
@@ -190,7 +190,7 @@ configure this.
     **Users**.
 5.  Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![updating-user-locale](../../assets/img/using-wso2-identity-server/updating-user-locale.png) 
+    ![updating-user-locale](../assets/img/using-wso2-identity-server/updating-user-locale.png) 
 6.  Enter the locale code for the **Locality** field and click
     **Update**.
 

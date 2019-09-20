@@ -30,10 +30,10 @@ sections for more information.
     register.
 2.  Log in to Duo Security. Click **Applications** from the left panel
     and click the **Protect an Application** button.  
-    ![](../../assets/img/51486739/51451210.png) 
+    ![](../assets/img/51486739/51451210.png) 
 3.  In the **Protect an Application** page, select **Admin API** from
     the list.  
-    ![](../../assets/img/51486739/51451211.png) 
+    ![](../assets/img/51486739/51451211.png) 
 
     !!! warning "Important"
         If you can not see the type “Admin API” in the
@@ -44,7 +44,7 @@ sections for more information.
 4.  Once the Integration is created, you are given a **Secret key** and
     an **Integration key** for your integration. You can use these along
     with your Duo host when accessing duo security APIs.  
-    ![](../../assets/img/51486739/51451212.png) 
+    ![](../assets/img/51486739/51451212.png) 
 5.  Make sure to enable " **Grant Write Resource** " permission to
     provisioning the users. Check the **Admin API** application settings
     in the Duo Admin Panel ( **Applications \> Admin API,** scroll down
@@ -62,9 +62,9 @@ sections for more information.
     required information.
 5.  Add the following user claims under ' http://wso2.org/claims' .
 
-![](../../assets/img/51486808/51451229.png) 
+![](../assets/img/51486808/51451229.png) 
 
-![](../../assets/img/51486808/51451230.png) 
+![](../assets/img/51486808/51451230.png) 
 
 ### Deploying Duo artifacts
 
@@ -100,11 +100,11 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 3.  Expand the **Claim Configuration** section and select **Define
     Custom Claim Dialect** under **Basic Claim Configuration** section.
 4.  Click **Add Claim Mapping** and add the following claims.  
-    ![](../../assets/img/51486808/51451231.png) 
+    ![](../assets/img/51486808/51451231.png) 
 5.  Go to **Duo Provisioning Configuration** under **Outbound
     Provisioning Connectors**. Give a suitable name as the **Identity
     Provider Name** and fill out the fields.  
-    ![](../../assets/img/51486808/53284965.png) 
+    ![](../assets/img/51486808/53284965.png) 
 6.  Enter the values for the required fields. You should use Integration
     key, Secret key and Host values of the Duo app that you created.
 
@@ -123,7 +123,7 @@ The next step is to configure the service provider.
     and add the created Duo identity provider in the **Outbound
     Provisioning Configuration** as indicated in the figure below.  
     
-    ![](../../assets/img/51486808/51451232.png) 
+    ![](../assets/img/51486808/51451232.png) 
 
 4.  Click **Update** to save the changes.
 
@@ -136,8 +136,8 @@ You have now added and configured the service provider.
 
 2.  Enter the **User Name** and **Password** for the new user and click
     **Finish**.  
-    ![](../../assets/img/51486808/51451233.png) 
+    ![](../assets/img/51486808/51451233.png) 
 
 3.  Go to <https://admin-xxxxxxxx.duosecurity.com/users> and check the
     newly created user.  
-    ![](../../assets/img/51486808/57008458.png) 
+    ![](../assets/img/51486808/57008458.png) 

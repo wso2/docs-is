@@ -94,7 +94,7 @@ primary user store.
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
     that the user stores are being added.  
-    ![configure-userstores](../../assets/img/using-wso2-identity-server/configure-userstores.png)
+    ![configure-userstores](../assets/img/using-wso2-identity-server/configure-userstores.png)
 
     !!! note
     

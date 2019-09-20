@@ -24,7 +24,7 @@ this flow will change depending on the implementation (for instance in
 the carbon authorization flow, there is only one listener method that is
 being called).
 
-![User store operations](../../assets/img/using-wso2-identity-server/user-store-operations.png)
+![User store operations](../assets/img/using-wso2-identity-server/user-store-operations.png)
 
 ### How listeners work
 

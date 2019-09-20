@@ -8,7 +8,7 @@ communities and is made up of thousands of active communities (known as
 are created and maintained by regular users. The diagram below
 illustrates the flow of the Reddit federated authenticator.
 
-![](../../assets/img/50520527/76746184(../../learn/adding-claim-mapping)=border-simple,blur-border)
+![](../assets/img/50520527/76746184(../../learn/adding-claim-mapping)=border-simple,blur-border)
 
 This page provides instructions on how to configure the Reddit
 authenticator and Identity Server using a sample app. You can find more
@@ -47,9 +47,9 @@ information in the following sections.
     `                     https://localhost:9443/commonauth                   `
     as the **about url** and **redirect uri** when creating the web
     app.  
-    ![](../../assets/img/50520620/51252148.png) 
+    ![](../assets/img/50520620/51252148.png) 
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](../../assets/img/50520620/51252150.png)   
+    ![](../assets/img/50520620/51252150.png)   
 
 ### Deploying travelocity.com sample app
 
@@ -75,7 +75,7 @@ Provider](../../learn/adding-and-configuring-an-identity-provider).
     Issuer to download the certificate.  
     Example: On Chrome
 
-    ![](../../assets/img/50520620/75109985.png) 
+    ![](../assets/img/50520620/75109985.png) 
 
     !!! note
         This is supported on Firefox and Safari browsers by default but it
@@ -84,7 +84,7 @@ Provider](../../learn/adding-and-configuring-an-identity-provider).
         ??? note "Click here to know how to enable certificate downloading on Chrome."
             1.  Navigate to <chrome://flags/#show-cert-link> .
             2.  Click Enable to view the certificates.  
-                ![](../../assets/img/50520620/75109981.png) 
+                ![](../assets/img/50520620/75109981.png) 
             3.  Relaunch Chrome.
     
 
@@ -102,7 +102,7 @@ Provider](../../learn/adding-and-configuring-an-identity-provider).
 5.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 6.  Give a suitable name for **Identity Provider Name**.  
-    ![](../../assets/img/50520620/51252182.png) 
+    ![](../assets/img/50520620/51252182.png) 
 7.  Navigate to **RedditAuthenticator Configuration** under **Federated
     Authenticators**.
 8.  Enter the values as given in the above figure.
@@ -157,7 +157,7 @@ The next step is to configure the service provider.
 
 9.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
-    ![](../../assets/img/50520620/51252181.png) 
+    ![](../assets/img/50520620/51252181.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.

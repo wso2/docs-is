@@ -65,7 +65,7 @@ interoperability as well.
 The following diagram illustrates the progressive development that has
 taken place in the history of identity provisioning.
 
-![history-of-idp](../../assets/img/using-wso2-identity-server/history-of-idp.png) 
+![history-of-idp](../assets/img/using-wso2-identity-server/history-of-idp.png) 
 
 The OASIS Technical Committee for Service Provisioning was formed in
 2001 to define an XML-based framework for exchanging user, resource, and

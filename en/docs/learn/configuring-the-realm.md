@@ -16,7 +16,7 @@ relevant configuration files.
 
 The following diagram illustrates the required configurations and
 repositories:  
-![configuring-the-realm.png](../../assets/img/using-wso2-identity-server/configuring-the-realm.png)
+![configuring-the-realm.png](../assets/img/using-wso2-identity-server/configuring-the-realm.png)
 
 For more information on Configuring master-datasources.xml, click
 [here](../../administer/configuring-master-datasources.xml).

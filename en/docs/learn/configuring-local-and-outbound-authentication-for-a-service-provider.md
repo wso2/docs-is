@@ -21,7 +21,7 @@ corresponding response builder of the inbound authenticator. See
 You can configure the following for local and outbound authentication.
 
 1.  Expand **Local & Outbound Authentication Configuration**.  
-    ![local-outbound-config](../../assets/img/using-wso2-identity-server/local-outbound-config.png)  
+    ![local-outbound-config](../assets/img/using-wso2-identity-server/local-outbound-config.png)  
     -   **Assert identity using mapped local subject identifier** :
         Select this to use the local subject identifier when asserting
         the identity.
@@ -62,7 +62,7 @@ You can configure the following for local and outbound authentication.
     -   If you choose **Advanced Configurations**, you can configure
         additional authentication steps and additional authentication
         options.  
-        ![auth-type](../../assets/img/using-wso2-identity-server/auth-type.png)
+        ![auth-type](../assets/img/using-wso2-identity-server/auth-type.png)
         1.  There are two types of multi-factor authentication that can
             be configured here.
             1.  **Multi-step authentication** : Click **Add

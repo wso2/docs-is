@@ -32,10 +32,10 @@ Do the following to configure outbound provisioning.
     (Google, Salesforce, SCIM, SPML, etc.).
 2.  Choose the identity provider you require from the drop-down
     and click  
-    ![outbound-provisioning-icon](../../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png).
+    ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png).
 
 3.  Click **Update** to save your changes.  
-    ![save-idp-config](../../assets/img/using-wso2-identity-server/save-idp-config.png)
+    ![save-idp-config](../assets/img/using-wso2-identity-server/save-idp-config.png)
 
     !!! info 
         -   If you select **Blocking**, the authentication flow is blocked

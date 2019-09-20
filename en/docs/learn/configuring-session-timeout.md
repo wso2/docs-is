@@ -18,7 +18,7 @@ wise, follow the steps below:
 2.  Click **Resident** under **Identity Providers** on the **Main** tab.
 3.  Fill in the fields as seen below to configure the session timeout
     and RememberMe period.  
-    ![session-time-out](../../assets/img/using-wso2-identity-server/session-time-out.png) 
+    ![session-time-out](../assets/img/using-wso2-identity-server/session-time-out.png) 
 4.  Restart the server to save the changes
 
 Now the SSO session is timed out according to the newly configured value

@@ -35,7 +35,7 @@ authenticate users using their Yahoo user accounts.
     Yahoo. See [Getting
     Started](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html)
     section in Yahoo document.  
-    ![yahoo-configuration](../../assets/img/tutorials/yahoo-configuration.png)
+    ![yahoo-configuration](../assets/img/tutorials/yahoo-configuration.png)
     
 3.  Fill in the following fields where relevant.
 

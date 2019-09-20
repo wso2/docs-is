@@ -186,4 +186,4 @@ This table is not used in the latest version of Identity Server.
 -   `IS\_REQUESTED`  
       
       
-    ![Identity provider related tables]( ../../assets/img/using-wso2-identity-server/identity-provider-related-tables.png) 
+    ![Identity provider related tables]( ../assets/img/using-wso2-identity-server/identity-provider-related-tables.png) 

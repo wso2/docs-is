@@ -19,7 +19,7 @@ authenticate a request for an access token.
 The diagram below illustrates the client credentials grant flow.
   
 
-![oauth-client-credentials-diagram]( ../../assets/img/103329605/oauth-client-credentials-diagram.png)
+![oauth-client-credentials-diagram]( ../assets/img/103329605/oauth-client-credentials-diagram.png)
 
 
 The cURL commands below can be used to try this grant type.

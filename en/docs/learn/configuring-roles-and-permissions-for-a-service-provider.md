@@ -35,7 +35,7 @@ Next, follow the steps below to configure roles and define custom permission for
 1.  In the service provider that you created, expand the
     **Role/Permission Configuration** section, and then expand the
     **Permissions** as well as the **Role Mapping** sections.  
-    ![role-mapping](../../assets/img/using-wso2-identity-server/role-mapping.png)
+    ![role-mapping](../assets/img/using-wso2-identity-server/role-mapping.png)
 
 2.  Click **Add Permission** and specify the service provider specific
     permission that you want to add.

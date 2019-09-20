@@ -28,7 +28,7 @@ attributes of a user in the Identity Server.
     4.  From the list of users that appear in the resulting page,
         identify the user whose attributes you want to modify and click
         **User Profile**.  
-        ![update-profile](../../assets/img/using-wso2-identity-server/update-profile.png)
+        ![update-profile](../assets/img/using-wso2-identity-server/update-profile.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the REST Web service according to the SCIM provisioning
     specification. For more information on this, see [Using the SCIM 2.0
@@ -59,7 +59,7 @@ correctly by [adding a claim
 mapping](../../learn/adding-claim-mapping).
 Under “Mapped Attribute(s)” you need to follow the pattern.
 
-![mapped-attributes](../../assets/img/using-wso2-identity-server/mapped-attributes.png)
+![mapped-attributes](../assets/img/using-wso2-identity-server/mapped-attributes.png)
 
 However, for the default user store, you do not need to provide the
 domain name. As an example, if you have two user stores, one is the
@@ -89,7 +89,7 @@ you can do this.
 
     See the following screen for how this will look in the user
     interface of the Identity Server Management Console.  
-    ![is-user-interface](../../assets/img/using-wso2-identity-server/is-user-interface.png)
+    ![is-user-interface](../assets/img/using-wso2-identity-server/is-user-interface.png)
 
 2.  When using the `           RemoteUserStoreManagerService          `
     API, call it as follows.
@@ -106,7 +106,7 @@ you can do this.
     ```
 
     The following screen shows how this looks in the LDAP.  
-    ![ldap-interface](../../assets/img/using-wso2-identity-server/ldap-interface.png) 
+    ![ldap-interface](../assets/img/using-wso2-identity-server/ldap-interface.png) 
 
 ### Writing custom attributes
 

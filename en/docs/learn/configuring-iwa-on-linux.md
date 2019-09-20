@@ -37,9 +37,9 @@ or federated authentication in WSO2 Identity Server (IS).
 
 ### How IWA with Kerberos works
 
-![iwa-wso2](../../assets/img/tutorials/iwa-wso2.png)
+![iwa-wso2](../assets/img/tutorials/iwa-wso2.png)
 
-![iwa-with-kerberos](../../assets/img/tutorials/iwa-with-kerberos.png)  
+![iwa-with-kerberos](../assets/img/tutorials/iwa-with-kerberos.png)  
 
 ### Setting up IWA
 
@@ -180,10 +180,10 @@ authenticator.
     </table>
 
     -   IWA as a Local Authenticator
-    ![iwa-as-a-local-authenticator](../../assets/img/tutorials/iwa-as-a-local-authenticator.png)
+    ![iwa-as-a-local-authenticator](../assets/img/tutorials/iwa-as-a-local-authenticator.png)
     
     -   IWA as a Federated Authenticator
-    ![iwa-as-a-federated-authenticator](../../assets/img/tutorials/iwa-as-a-federated-authenticator.png)
+    ![iwa-as-a-federated-authenticator](../assets/img/tutorials/iwa-as-a-federated-authenticator.png)
 
 6.  Configure your browser to support Kerberos and NTLM. The points below
     explain how to configure each browser.
@@ -197,11 +197,11 @@ authenticator.
 	2\. In the search bar, search for the key "
 	`                network.negotiate-auth.trusted-uris.               `
 
-	![configuring-firefox-for-kerberos](../../assets/img/tutorials/configuring-firefox-for-kerberos.png)
+	![configuring-firefox-for-kerberos](../assets/img/tutorials/configuring-firefox-for-kerberos.png)
 
 	3\. Add the WSO2 Identity Server URL and click OK.
 
-	![adding-wso2-is-url](../../assets/img/tutorials/adding-wso2-is-url.png)
+	![adding-wso2-is-url](../assets/img/tutorials/adding-wso2-is-url.png)
 
 	**Configuring Internet Explorer/Chrome**
 
@@ -209,12 +209,12 @@ authenticator.
 
 	2\. In the “security” tab select local intranet.
 
-	![configuring-internet-explorer-chrome](../../assets/img/tutorials/configuring-internet-explorer-chrome.png)
+	![configuring-internet-explorer-chrome](../assets/img/tutorials/configuring-internet-explorer-chrome.png)
 
 	3\. Click the **Sites** button. Then add the URL of WSO2 Identity Server
 	there.
 
-	![adding-wso2-is-url-ie-chrome](../../assets/img/tutorials/adding-wso2-is-url-ie-chrome.png)
+	![adding-wso2-is-url-ie-chrome](../assets/img/tutorials/adding-wso2-is-url-ie-chrome.png)
 
 	Chrome simply inherits the settings from Internet Explorer. So you
 	don’t have to configure anything additionally.  
@@ -232,7 +232,7 @@ authenticator.
 
 4.  Select **Federated Authentication** as the **Authentication Type**
     and select the identity provider you created above.  
-    ![](../../assets/img/tutorials/federated-authentication.png)
+    ![](../assets/img/tutorials/federated-authentication.png)
     
 5.  Restart the Apache Tomcat server and run the Travelocity sample
     application from a Windows machine.  

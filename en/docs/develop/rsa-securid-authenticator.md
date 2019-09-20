@@ -43,7 +43,7 @@ follow the steps below.
     .
 3.  Set up your regional NTP server as shown in the following screen,
     but do this for your region.  
-    ![](../../assets/img/52528427/56987871.png) 
+    ![](../assets/img/52528427/56987871.png) 
 
   
 
@@ -171,7 +171,7 @@ The artifacts can be obtained from the store for this authenticator .
     console](../../setup/getting-started-with-the-management-console)
     and click **Add** under the http://wso2.org/claims claims dialect.
 2.  Add a new claim for RSA user id.  
-    ![](../../assets/img/52528427/52757012.png) 
+    ![](../assets/img/52528427/52757012.png) 
 
 
 ### Deploying travelocity.com sample app
@@ -191,7 +191,7 @@ The next step is to configure the service provider.
 2.  Since you are using travelocity as the sample, enter travelocity.com
     in the **Service Provider Name** text box and click **Register**.
 3.  Now set the configuration as follows:  
-    ![](../../assets/img/52528427/57004462.png)  
+    ![](../assets/img/52528427/57004462.png)  
     Do the following configurations.  
     -   **Issuer** : travelocity.com  
     -   **Assertion Consumer URL** :
@@ -221,17 +221,17 @@ Server claim.
 1.  Go to the following URL:
     `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                              `
     E.g. <http://localhost:8080/travelocity.com>  
-    ![](../../assets/img/49092381/49226489.png) 
+    ![](../assets/img/49092381/49226489.png) 
 2.  Click the link to log in with SAML from WSO2 Identity Server. The
     basic authentication page appears. Use your WSO2 Identity Server
     credentials to log in.  
-    ![](../../assets/img/52528427/57004469.png)
+    ![](../assets/img/52528427/57004469.png)
 3.  If the basic authentication succeeds, you are directed to RSA
     SecurID authentication page.  
-    ![](../../assets/img/52528427/57004467.png)
+    ![](../assets/img/52528427/57004467.png)
 4.  Enter the PIN and TOKEN, where TOKEN is shown in the keyfobs or in
     your mobile device RSA applications.  
-    ![](../../assets/img/52528427/52757625.png) 
+    ![](../assets/img/52528427/52757625.png) 
 5.  If the authentication is successful, you are redirected to the home
     page of travelocity.com app  
-    ![](../../assets/img/52528427/52757626.png) 
+    ![](../assets/img/52528427/52757626.png) 

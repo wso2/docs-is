@@ -80,7 +80,7 @@ file.
 	enable=true
 	```
 	
-    ![saml2sso-config](../../assets/img/tutorials/saml2sso-config.png)
+    ![saml2sso-config](../assets/img/tutorials/saml2sso-config.png)
 
     !!! info "Additional Configuration"
 
@@ -144,7 +144,7 @@ authenticator of the WSO2 Enterprise Service Bus.
 2.  Change the `             ServiceProviderID            ` . This ID is
     used by the Identity Server to identify the ESB's requests. Change
     this value to `             carbonServer2            ` .  
-    ![change-the-sp-id](../../assets/img/tutorials/change-the-sp-id.png)
+    ![change-the-sp-id](../assets/img/tutorials/change-the-sp-id.png)
 
     !!! info "Additional Configuration"
 
@@ -215,7 +215,7 @@ authenticator of the WSO2 Enterprise Service Bus.
     .
 7.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.  
-    ![add-service-providers](../../assets/img/tutorials/add-service-providers.png)
+    ![add-service-providers](../assets/img/tutorials/add-service-providers.png)
     
 8.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider in the resulting screen. If
@@ -242,10 +242,10 @@ authenticator of the WSO2 Enterprise Service Bus.
 
 9.  Expand the **SAML2 Web SSO Configuration** under **Inbound
     Authentication Configuration**.  
-    ![saml2-web-sso-inbound-authentication](../../assets/img/tutorials/saml2-web-sso-inbound-authentication.png)
+    ![saml2-web-sso-inbound-authentication](../assets/img/tutorials/saml2-web-sso-inbound-authentication.png)
     
 10. Click **Configure** . Fill in the form that appears.  
-    ![inbound-authentication-config-sso](../../assets/img/tutorials/inbound-authentication-config-sso.png)
+    ![inbound-authentication-config-sso](../assets/img/tutorials/inbound-authentication-config-sso.png)
     
 11. Fill up this page with the following configurations. You must
     register different service providers for WSO2 Application Server,
@@ -353,7 +353,7 @@ authenticator of the WSO2 Enterprise Service Bus.
     configure different authentication mechanisms you like to enforce.
     For example you can configure a authentication chain and enable
     Multi-factor authentication for WSO2 Products.  
-    ![local-and-outbound-authentication-config](../../assets/img/tutorials/local-and-outbound-authentication-config.png)
+    ![local-and-outbound-authentication-config](../assets/img/tutorials/local-and-outbound-authentication-config.png)
 
 13. Click **Register** to save the values and register each service
     provider created.

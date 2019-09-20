@@ -16,5 +16,5 @@ Follow the instructions below to enable/disable a XACML policy.
 3.  Locate the policy you want to enable/disable in the list of policies
     published to PDP. Click on **Enable** to activate the policy and
     click on **Disable** to deactivate the policy.  
-    ![enable-or-disable-policy](../../assets/img/tutorials/enable-or-disable-policy.png)  
+    ![enable-or-disable-policy](../assets/img/tutorials/enable-or-disable-policy.png)  
       

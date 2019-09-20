@@ -67,12 +67,12 @@ the following:
     Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \> Add**.
 
-    ![add-sp](../../assets/img/using-wso2-identity-server/add-sp.png)
+    ![add-sp](../assets/img/using-wso2-identity-server/add-sp.png)
 
 3.  Fill in the **Service Provider Name** and provide a brief
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.  
-    ![sp-name](../../assets/img/using-wso2-identity-server/sp-name.png)
+    ![sp-name](../assets/img/using-wso2-identity-server/sp-name.png)
 
 4.  Click **Register** to add the new service provider.
 
@@ -156,7 +156,7 @@ the following:
         application.
     
 
-    ![application-certificate-in-pem-format](../../assets/img/using-wso2-identity-server/application-certificate-in-pem-format.png)
+    ![application-certificate-in-pem-format](../assets/img/using-wso2-identity-server/application-certificate-in-pem-format.png)
 
 6.  Select if the service provider is a **SaaS Application** or not
     using the **Saas Application** checkbox. The **SaaS Application**
@@ -188,7 +188,7 @@ the following:
     
 In the resulting screen, click the arrow buttons to expand the forms available to update.
 
-![click-to-expand](../../assets/img/using-wso2-identity-server/click-to-expand.png)
+![click-to-expand](../assets/img/using-wso2-identity-server/click-to-expand.png)
 
 
 -   See [here](../../learn/configuring-claims-for-a-service-provider) for details on how to configure claims.   
@@ -238,9 +238,9 @@ in the WSO2 Identity Server.
     .
 2.  Click **Resident** under the **Service Providers** on the **Main**
     tab.  
-    ![resident-sp](../../assets/img/using-wso2-identity-server/resident-sp.png)
+    ![resident-sp](../assets/img/using-wso2-identity-server/resident-sp.png)
 3.  The **Resident Service Provider** page appears.  
-    ![resident-sp-config](../../assets/img/using-wso2-identity-server/resident-sp-config.png)
+    ![resident-sp-config](../assets/img/using-wso2-identity-server/resident-sp-config.png)
     1.  Select the user store domain to provision users and groups for
         inbound authentication for SCIM or SOAP requests.
     2.  For outbound provisioning configurations, select the identity
@@ -274,7 +274,7 @@ added in the WSO2 Identity Server.
     under **Service Providers**. The list of service providers you
     added appears.
 
-![sp-view](../../assets/img/using-wso2-identity-server/sp-view.png)
+![sp-view](../assets/img/using-wso2-identity-server/sp-view.png)
 
 !!! note
     
@@ -295,7 +295,7 @@ Follow the instructions below to edit a service provider's details.
     added appears.
 3.  Locate the service provider you want to edit and click on the
     corresponding **Edit** link.  
-    ![edit-sp](../../assets/img/using-wso2-identity-server/edit-sp.png)
+    ![edit-sp](../assets/img/using-wso2-identity-server/edit-sp.png)
 4.  You are directed to the edit screen.
 
 #### Deleting service providers
@@ -309,7 +309,7 @@ Follow the instructions below to delete a service provider.
     added appears.
 3.  Locate the service provider you want to delete and click on the
     corresponding **Delete** link.  
-    ![delete-sp](../../assets/img/using-wso2-identity-server/delete-sp.png)
+    ![delete-sp](../assets/img/using-wso2-identity-server/delete-sp.png)
 4.  Confirm your request in the WSO2 Carbon window. Click the **Yes**
     button.  
 

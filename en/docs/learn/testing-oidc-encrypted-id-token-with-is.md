@@ -150,7 +150,7 @@ Follow the below steps to enable ID Token Encryption:
 			see the extracted private key.
 
 		4.  Copy only the key string as shown in the below sample.
-			![sample-key-string](../../assets/img/tutorials/sample-key-string.png)
+			![sample-key-string](../assets/img/tutorials/sample-key-string.png)
 
 8.  Paste the copied private key in Client Private Key text area.
 
@@ -198,7 +198,7 @@ Follow the below steps to enable ID Token Encryption:
 			```
 		3.  Open the created key.pem file using a text editor and you will see the extracted private key.
 		4.  Copy only the key string as shown in the below sample.
-			![sp-private-key](../../assets/img/tutorials/sp-private-key.png)
+			![sp-private-key](../assets/img/tutorials/sp-private-key.png)
 
 8.  Paste the copied private key in Client Private Key text area.
 
@@ -251,7 +251,7 @@ Follow the below steps to enable ID Token Encryption:
 			see the extracted private key.
 
 		4.  Copy only the key string as shown in the below sample.
-			![sp-private-key](../../assets/img/tutorials/sp-private-key.png)
+			![sp-private-key](../assets/img/tutorials/sp-private-key.png)
 
 6.  Paste the copied private key in Client Private Key text area.
 

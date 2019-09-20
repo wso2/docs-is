@@ -28,7 +28,7 @@ the users with an authorization server-based authentication.
 
 4.  Expand the **Federated Authenticators** section and then the
     **OAuth2/OpenID Connect Configuration** form.  
-    ![oauth2-openid-connect-configuration](../../assets/img/tutorials/oauth2-openid-connect-configuration.png)
+    ![oauth2-openid-connect-configuration](../assets/img/tutorials/oauth2-openid-connect-configuration.png)
     
 5.  Fill in the following fields where relevant.
 

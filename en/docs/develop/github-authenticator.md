@@ -12,7 +12,7 @@ software development projects that facilitates powerful collaboration,
 code review, and code management for open source and private software
 development projects.
 
-![](../../assets/img/49774662/76746205.png) 
+![](../assets/img/49774662/76746205.png) 
 
 This page provides instructions on how to configure the Github
 authenticator and Identity Server using a sample app. You can find more
@@ -47,13 +47,13 @@ information in the following sections.
 1.  Go to <https://www.github.com/>, and create a github account.
 2.  Register your app at <https://github.com/settings/applications/new>
     .  
-    ![](../../assets/img/49774670/49971235.png) 
+    ![](../assets/img/49774670/49971235.png) 
 
 3.  Use `          https://localhost:9443/commonauth         ` as the
     authorization callback URL when you register the client.
 
 4.  Now you can get the clientId and clientSecret of your created app.  
-    ![](../../assets/img/49774670/49971238.png) 
+    ![](../assets/img/49774670/49971238.png) 
 
 ### Deploying travelocity.com sample app
 
@@ -84,7 +84,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 4.  In the **Identity Providers** section under the **Main** tab of the
     management console, click **Add**.
 5.  Give a suitable name for **Identity Provider Name**.  
-    ![](../../assets/img/49774670/49971239.png) 
+    ![](../assets/img/49774670/49971239.png) 
 6.  Navigate to **Github Configuration** under **Federated
     Authenticators**.
 
@@ -189,7 +189,7 @@ The next step is to configure the service provider.
 
     4.  **Include Attributes in the Response Always**.
 
-    ![](../../assets/img/49774670/85361222.png) 
+    ![](../assets/img/49774670/85361222.png) 
     
 7.  Click **Update** to save the changes. Now you will be sent back to
     the **Service Providers** page.
@@ -200,7 +200,7 @@ The next step is to configure the service provider.
 9.  Select the identity provider you created from the drop-down list
     under **Federated Authentication**.
 
-    ![](../../assets/img/49774670/49971240.png) 
+    ![](../assets/img/49774670/49971240.png) 
 
 10. Ensure that the **Federated Authentication** radio button is
     selected and click **Update** to save the changes.
@@ -215,7 +215,7 @@ You have now added and configured the service provider.
 
 2.  Login with SAML from the WSO2 Identity Server.
 
-    ![](../../assets/img/49774670/85361224.jpeg) 
+    ![](../assets/img/49774670/85361224.jpeg) 
 
 3.  Enter your Github credentials in the prompted login page of Github.
     Once you log in successfully you will be taken to the home page of
