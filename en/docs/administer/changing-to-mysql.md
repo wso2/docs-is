@@ -4,16 +4,7 @@ By default, WSO2 products use the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use a MySQL database for this purpose.
 
--   [Creating the datasource connection to
-    MySQL](#ChangingtoMySQL-CreatingthedatasourceconnectiontoMySQL)
--   [Updating other configuration
-    files](#ChangingtoMySQL-Updatingotherconfigurationfiles)
--   [Creating database tables](#ChangingtoMySQL-Creatingdatabasetables)
-
-!!! tip
-    
-    Before you begin
-    
+!!! tip "Before you begin"
     You need to set up MySQL before following the steps to configure your
     product with MySQL. For more information, see [Setting up
     MySQL](../../administer/setting-up-mysql).
@@ -36,7 +27,7 @@ Follow the steps below to change the type of the default
 `         WSO2_CARBON_DB        ` datasource.
 
 1.  Open the \<
-    `           PRODUCT_HOME>/repository/conf/datasources/m          `
+    `           IS_HOME>/repository/conf/datasources/m          `
     `           aster-datasources.xml          ` file and locate the
     `           <datasource>          ` configuration element.
 
@@ -118,20 +109,20 @@ Follow the steps below to change the type of the default
     </tbody>
     </table>
 
-    For more information on other parameters that can be defined in the
-    `            <PRODUCT_HOME>/repository/conf/           `
-    datasources/ `            master-datasources.xml           ` file,
-    see [Tomcat JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
-    .
+    !!! info 
+        For more information on other parameters that can be defined in the
+        `            <IS_HOME>/repository/conf/           `
+        datasources/ `            master-datasources.xml           ` file,
+        see [Tomcat JDBC Connection
+        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
+       .
 
     !!! warning
-    
         The following elements are available only as a **WUM** update and is
         effective from 14th September 2018 (2018-09-14).  For more
         information, see [Updating WSO2
         Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
-        .  
+       .  
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
@@ -143,10 +134,10 @@ Follow the steps below to change the type of the default
     | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
     | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
-    **Configuring the connection pool behavior on return  
-    ** When a database connection is returned to the pool, by default 
+    **Configuring the connection pool behavior on return**
+    When a database connection is returned to the pool, by default 
     the product rolls back the pending transactions if defaultAutoCommit
-    =true . However, if required you can disable the latter mentioned
+    =true. However, if required you can disable the latter mentioned
     default behavior by disabling the
     `            ConnectionRollbackOnReturnInterceptor           `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
@@ -154,24 +145,21 @@ Follow the steps below to change the type of the default
     the following options.
 
     !!! warning
-    
         Disabling the
         `            ConnectionRollbackOnReturnInterceptor           ` is
         only possible with the **WUM** update and is effective from 14th
         September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
-        . This WUM update is only applicable to Carbon 4.4.11.
+        API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+       . This WUM update is only applicable to Carbon 4.4.11.
     
 
-    -   **Configure the connection pool to commit pending transactions
-        on connection return**  
+    -   **Configure the connection pool to commit pending transactions on connection return**  
         1.  Navigate to either one of the following locations based on
             your OS.
             -   On Linux/Mac OS:
-                `                 <PRODUCT_HOME>/bin/wso2server.sh/                `
+                `                 <IS_HOME>/bin/wso2server.sh/                `
             -   On Windows:
-                `                 <PRODUCT_HOME>\bin\wso2server.bat                `
+                `                 <IS_HOME>\bin\wso2server.bat                `
         2.  Add the following JVM option:
 
             ``` java
@@ -179,7 +167,7 @@ Follow the steps below to change the type of the default
             ```
 
         3.  Navigate to the
-            `               <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
             file.
         4.  Disable the `               defaultAutoCommit              `
             by defining it as false.
@@ -189,23 +177,22 @@ Follow the steps below to change the type of the default
 
             ``` html/xml
                         <datasource>
-                             ...
+                            ...
                              <definition type="RDBMS">
                                  <configuration>
-                                       ...
+                                      ...
                                        <defaultAutoCommit>false</defaultAutoCommit>
                                        <commitOnReturn>true</commitOnReturn>    
-                                       ...
+                                      ...
                                  </configuration>
                              </definition>
                         </datasource>
             ```
 
-    -   **Configure the connection pool to rollback pending transactions
-        on connection return**
+    -   **Configure the connection pool to rollback pending transactions on connection return**
 
         1.  Navigate to the
-            `               <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
             file.
         2.  Disable the
             `                defaultAutoCommit               ` by
@@ -216,13 +203,13 @@ Follow the steps below to change the type of the default
 
             ``` html/xml
                         <datasource>
-                             ...
+                            ...
                              <definition type="RDBMS">
                                  <configuration>
-                                       ...
+                                      ...
                                        <defaultAutoCommit>false</defaultAutoCommit> 
                                        <rollbackOnReturn>true</rollbackOnReturn>
-                                       ...
+                                      ...
                                  </configuration>
                              </definition>
                         </datasource>
@@ -231,7 +218,7 @@ Follow the steps below to change the type of the default
 ### Updating other configuration files
 
 -   The `           registry.xml          ` file (stored in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory)
+    `           <IS_HOME>/repository/conf          ` directory)
     specifies the datasource information corresponding to the database
     that stores registry information. Therefore, if you have changed the
     datasource name, you need to update the following accordingly:
@@ -243,7 +230,7 @@ Follow the steps below to change the type of the default
     ```
 
 -   The `           user-mgt.xml          ` file (stored in the
-    `           <PRODUCT_HOME>/repository/conf          ` directory)
+    `           <IS_HOME>/repository/conf          ` directory)
     specifies the datasource information corresponding to the database
     that stores user management information. Therefore, if you have
     changed the datasource name, you need to update the following
@@ -260,31 +247,29 @@ Follow the steps below to change the type of the default
 To create the database tables, connect to the database that you created
 earlier and run the relevant scripts.
 
-Alternatively, you can create database tables automatically **when
-starting the product for the first time** by using the
-`          -Dsetup         ` parameter as follows:
+!!! info 
+    Alternatively, you can create database tables automatically **when
+    starting the product for the first time** by using the
+    `          -Dsetup         ` parameter as follows:
 
--   For Windows:
-    `            <PRODUCT_HOME>/bin/wso2server.bat -Dsetup           `
+    -   For Windows:
+        `            <IS_HOME>/bin/wso2server.bat -Dsetup           `
 
--   For Linux:
-    `            <PRODUCT_HOME>/bin/wso2server.sh -Dsetup           `
+    -   For Linux:
+        `            <IS_HOME>/bin/wso2server.sh -Dsetup           `
 
-!!! warning
-    
-    Deprecation of -DSetup
-    
-    When proper Database Administrative (DBA) practices are followed, the
-    systems (except analytics products) are not granted DDL (Data
-    Definition) rights on the schema. Therefore, maintaining the
-    `           -DSetup          ` option is redundant and typically
-    unusable. **As a result, from [January 2018
-    onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-    deprecated the** **`            -DSetup           `** **option**. Note
-    that the proper practice is for the DBA to run the DDL statements
-    manually so that the DBA can examine and optimize any DDL statement (if
-    necessary) based on the DBA best practices that are in place within the
-    organization.
+    !!! warning "Deprecation of -DSetup"
+        When proper Database Administrative (DBA) practices are followed, the
+        systems (except analytics products) are not granted DDL (Data
+        Definition) rights on the schema. Therefore, maintaining the
+        `           -DSetup          ` option is redundant and typically
+        unusable. **As a result, from [January 2018
+        onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
+        deprecated the** **`            -DSetup           `** **option**. Note
+        that the proper practice is for the DBA to run the DDL statements
+        manually so that the DBA can examine and optimize any DDL statement (if
+        necessary) based on the DBA best practices that are in place within the
+        organization.
     
 
 1.  To create tables in the registry and user manager database (
@@ -292,13 +277,10 @@ starting the product for the first time** by using the
     as shown below.
 
     ``` powershell
-    mysql -u regadmin -p -Dregdb < '<PRODUCT_HOME>/dbscripts/mysql.sql';
+    mysql -u regadmin -p -Dregdb < '<IS_HOME>/dbscripts/mysql.sql';
     ```
 
-    !!! note
-    
-        For MySQL 5.7:
-    
+    !!! note "For MySQL 5.7:"
         From Carbon kernel 4.4.6 onwards your product will be shipped with
         two scripts for MySQL as follows (click
         [here](http://wso2.com/products/carbon/release-matrix/) to see if
@@ -322,10 +304,10 @@ starting the product for the first time** by using the
             filename.
     
         2.  Change the
-            `             <PRODUCT_HOME>/dbscripts/mysql5.7.sql            `
+            `             <IS_HOME>/dbscripts/mysql5.7.sql            `
             script to **`              mysql.sql             `**.
         3.  Change the
-            `             <PRODUCT_HOME>/dbscripts/identity/mysql5.7.sql            `
+            `             <IS_HOME>/dbscripts/identity/mysql5.7.sql            `
             script to **`              mysql.sql             `**.
     
         MySQL 5.7 is only recommended for products that are based on Carbon
