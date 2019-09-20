@@ -11,7 +11,7 @@ There are two types of user stores - Primary User store (Mandatory) and
 Secondary user stores (Optional). All the supported user stores can be
 configured under these two types.
 
-![user-store-types](../../assets/img/using-wso2-identity-server/user-store-types.png) 
+![user-store-types](../assets/img/using-wso2-identity-server/user-store-types.png) 
 
 #### Primary User Store (Mandatory)
 

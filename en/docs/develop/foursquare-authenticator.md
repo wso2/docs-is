@@ -4,7 +4,7 @@ The Foursquare authenticator is configured as a federated authenticator
 in WSO2 Identity Server to authenticate Foursquare users to log in to
 your organization’s applications.
 
-![](../../assets/img/49088036/76746198.png) 
+![](../assets/img/49088036/76746198.png) 
 
 This page provides instructions on how to configure Foursquare
 authenticator and Identity Server for using a sample app. You can find
@@ -46,7 +46,7 @@ more information in following sections.
 3.  Go to <https://developer.foursquare.com/> and click **Log-in**. You
     can create a new app in the **My Apps** section by clicking **Create
     a New App**.  
-    ![](../../assets/img/49088044/76747590.png) 
+    ![](../assets/img/49088044/76747590.png) 
 
 4.  Enter the following in the window that appears:
 
@@ -55,16 +55,16 @@ more information in following sections.
     -   **Application Url** - http://localhost:8080/travelocity.com
 
     -   **Redirect URL** as  https://localhost:9443/commonauth  
-        ![](../../assets/img/49088044/76744023.png) 
+        ![](../assets/img/49088044/76744023.png) 
 
 5.  You can select **Create App without Verifying** link at the end in
     order to try out the authenticator.  
-    ![](../../assets/img/49088044/76744027.png) 
+    ![](../assets/img/49088044/76744027.png) 
 
 6.  Save your changes.  
     This takes you to the app Dashboard where you can find the Client Id
     and Client Secret as shown in the image below.  
-    ![](../../assets/img/49088044/76744028.png) 
+    ![](../assets/img/49088044/76744028.png) 
 
 Now you have finished configuring Foursquare as an identity provider.
 
@@ -101,7 +101,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     for more information related to the identity provider configuration.
 5.  Go to **Foursquare Configuration** under **Federated
     Authenticators**.  
-    ![](../../assets/img/49088044/49221977.png) 
+    ![](../assets/img/49088044/49221977.png) 
 
 6.  Enter the IdP related details.
 
@@ -154,7 +154,7 @@ Identity Server version that you are working on.
         **SAML2 Web SSO Configuration**, and then click
         ****Configure****.
 
-        ![](../../assets/img/49088044/76747573.png) 
+        ![](../assets/img/49088044/76747573.png) 
 
     2.  Now set the configuration as follows:
 
@@ -191,7 +191,7 @@ Identity Server version that you are working on.
 
     2.  Select the identity provider you created from the dropdown list
         under **Federated Authentication**.  
-        ![](../../assets/img/49088044/76747587.png) 
+        ![](../assets/img/49088044/76747587.png) 
 
     3.  Ensure that the **Federated Authentication** radio button is
         selected.
@@ -211,7 +211,7 @@ Identity Server version that you are working on.
 4.  In the **Inbound Authentication Configuration** section, click
     **SAML2 Web SSO Configuration**, and then click ****Configure****.
 
-    ![](../../assets/img/49088044/49221980.png) 
+    ![](../assets/img/49088044/49221980.png) 
 
 5.  Now set the configuration as follows:
 
@@ -347,7 +347,7 @@ Server version that you are working on.
         created.
     3.  Under **Claim Configuration**, go to **Basic Claim
         Configuration**.  
-        ![](../../assets/img/49088044/76747747.png) 
+        ![](../assets/img/49088044/76747747.png) 
     4.  Select the **Define Custom Claim Dialect** option under **Select
         Claim mapping Dialect**.
     5.  Click **Add Claim Mapping** to add custom claim mappings as
@@ -376,7 +376,7 @@ Server version that you are working on.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add New Claim Dialect** to create the Foursquare
     authenticator specific claim dialect.
-    ![](../../assets/img/49088044/57749020.png)  
+    ![](../assets/img/49088044/57749020.png)  
     Specify the Dialect Uri as <http://wso2.org/foursquare/claims> and
     create claims. It is required to create at least one claim under
     this new dialect. Therefore, create the claim for the Foursquare
@@ -465,7 +465,7 @@ Server version that you are working on.
     | Claim URL            | http://wso2.org/foursquare/claims/canonicalUrl |
     | Supported by Default | selected                                       |
 
-    ![](../../assets/img/49088044/57749023.png)
+    ![](../assets/img/49088044/57749023.png)
 
 6.  The next step is to configure claims in the Identity Server and map
     them with Foursquare.
@@ -484,7 +484,7 @@ Server version that you are working on.
         <http://wso2.org/foursquare/claims/id>
 
     7.  Click **Update**.  
-        ![](../../assets/img/49088044/61669807.png)
+        ![](../assets/img/49088044/61669807.png)
 
 #### Local claim mapping
 
@@ -496,10 +496,10 @@ shows you that by default, the local claim
 attribute **mail.**
 
 -   **IS 5.3.0**
-    ![](../../assets/img/49088044/76747781.png)
+    ![](../assets/img/49088044/76747781.png)
 
 -   **IS 5.1.0/IS 5.2.0**
-    ![](../../assets/img/49088044/57749027.png)
+    ![](../assets/img/49088044/57749027.png)
 
 In the configuration, **http://wso2.org/foursquare/claims/email** is
 mapped to the **mail** attribute in the Foursquare claim, and
@@ -524,7 +524,7 @@ map attribute **uid** as follows:
         -   **Description** - Identifier
         -   **Mapped Attribute (s)** - uid
         -   **Supported by Default** - Select this option.  
-            ![](../../assets/img/49088044/76747798.png) 
+            ![](../assets/img/49088044/76747798.png) 
 
     4.  Click **Add**.
 
@@ -534,7 +534,7 @@ map attribute **uid** as follows:
     2.  Click **Add New Claim Dialect** to create the wso2.org specific
         claim dialect.
 
-        ![](../../assets/img/49088044/57749026.png)
+        ![](../assets/img/49088044/57749026.png)
 
     3.  Click **Add**.
 
@@ -553,11 +553,11 @@ map attribute **uid** as follows:
     
     -   [**IS 5.3.0**](#60f10e1b28fc4aa6b1c6003302c0c34b)
 
-        ![](../../assets/img/49088044/112364021.png) 
+        ![](../assets/img/49088044/112364021.png) 
     
     -   [**IS 5.1.0/IS 5.2.0**](#a0cfc3dd8fae4fc3ad1c3c46a1b710a3)
 
-        ![](../../assets/img/49088044/57749029.png) 
+        ![](../assets/img/49088044/57749029.png) 
 
 5.  Select the Subject Claim URI as http://wso2.org/claims/emailaddress
     to define the authenticated user identifier that will return with
@@ -573,8 +573,8 @@ map attribute **uid** as follows:
 
 2.  Click the link to log in with SAML from WSO2 Identity Server. You
     can use either the redirect binding or the post binding option.  
-    ![](../../assets/img/49088044/76748625.png) 
+    ![](../assets/img/49088044/76748625.png) 
 3.  You are redirected to the Foursquare Login page. Enter your
     Foursquare credentials and you will be taken to the home page of the
     travelocity.com app.  
-    ![](../../assets/img/49088044/76747861.png) 
+    ![](../assets/img/49088044/76747861.png) 

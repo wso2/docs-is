@@ -47,7 +47,7 @@ to perform different operations.
     or remote-user-mgt-client `           .bat          ` in
     Windows. You can see that the issues performed is being printed by
     the client.  
-    ![issues-printed](../../assets/img/using-wso2-identity-server/issues-printed.png)   
+    ![issues-printed](../assets/img/using-wso2-identity-server/issues-printed.png)   
       
 
 !!! note

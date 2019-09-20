@@ -150,7 +150,7 @@ which is `         carbon.super        ` .
     </tbody>
     </table>
 
-    ![user-self-registration](../../assets/img/using-wso2-identity-server/user-self-registration.png) 
+    ![user-self-registration](../assets/img/using-wso2-identity-server/user-self-registration.png) 
 
 5.  Expand the **Login Policies** tab, then the **Account Locking** tab
     and select **Account Lock Enabled**.  
@@ -160,7 +160,7 @@ which is `         carbon.super        ` .
     account locking, see [Account
     Locking](../../learn/account-locking-by-failed-login-attempts).
 
-    ![account-locking](../../assets/img/using-wso2-identity-server/account-locking.png) 
+    ![account-locking](../assets/img/using-wso2-identity-server/account-locking.png) 
 
 Now you have set up self registration. Next let's see how you can
 configure self-registration consent purposes via the management console
@@ -191,7 +191,7 @@ purposes and appropriate user attributes:
 
 3.  Click to configure self-registration consent purposes and user
     attributes.  
-    ![self-registration](../../assets/img/using-wso2-identity-server/self-registration.png)   
+    ![self-registration](../assets/img/using-wso2-identity-server/self-registration.png)   
     This displays the **Consent Purposes** screen that allows you to add
     consent purposes.
 
@@ -207,7 +207,7 @@ purposes and appropriate user attributes:
         particular purpose.
     
 
-    ![user-attributes-for-consent](../../assets/img/using-wso2-identity-server/user-attributes-for-consent.png) 
+    ![user-attributes-for-consent](../assets/img/using-wso2-identity-server/user-attributes-for-consent.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
@@ -254,7 +254,7 @@ Next, you can try out self-registration.
         `           foo.com          `, the username needs to be
         `           kim@foo.com          `
 
-    ![register-users-for-tenant](../../assets/img/using-wso2-identity-server/register-users-for-tenant.png) 
+    ![register-users-for-tenant](../assets/img/using-wso2-identity-server/register-users-for-tenant.png) 
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
@@ -279,7 +279,7 @@ Next, you can try out self-registration.
         you should not have confirmed the account.
 
     2.  Click on the **Re-send** link to resend the email.  
-        ![resend-link](../../assets/img/using-wso2-identity-server/resend-link.png) 
+        ![resend-link](../assets/img/using-wso2-identity-server/resend-link.png) 
 
     !!! tip
         

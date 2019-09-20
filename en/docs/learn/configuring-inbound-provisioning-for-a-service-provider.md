@@ -15,7 +15,7 @@ Do the following to configure inbound provisioning.
 
 1.  Expand the **Inbound Provisioning Configuration** section and expand
     the **SCIM/SOAP Configuration** form.  
-    ![scim-soap-config](../../assets/img/using-wso2-identity-server/scim-soap-config.png)
+    ![scim-soap-config](../assets/img/using-wso2-identity-server/scim-soap-config.png)
 2.  Select the user store domain name from the drop down list to
     provision users and groups.
 

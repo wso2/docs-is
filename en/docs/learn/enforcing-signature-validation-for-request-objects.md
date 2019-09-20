@@ -36,4 +36,4 @@ request.
 If signature validation is successfully enforced, the request should get
 rejected and you should see an error page as follows:
 
-![signature-validation-successful](../../assets/img/tutorials/signature-validation-successful.png)
+![signature-validation-successful](../assets/img/tutorials/signature-validation-successful.png)

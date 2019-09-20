@@ -406,7 +406,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
     2.  While registering the account, verify your mobile number and
         click **Claim** to get free credits.  
-        ![](../../assets/img/48276901/51449676.png) 
+        ![](../assets/img/48276901/51449676.png) 
 
     3.  Bulksms API authentication is performed by providing username
         and password request parameters.
@@ -459,7 +459,7 @@ The next step is to configure the service provider.
 4.  In the **Inbound Authentication Configuration** section, click
     **Configure** under the **SAML2 Web SSO Configuration** section.
 
-    ![](../../assets/img/48276901/48211841.png) 
+    ![](../assets/img/48276901/48211841.png) 
 
 5.  Now set the configuration as follows:
 
@@ -482,7 +482,7 @@ The next step is to configure the service provider.
 
 8.  Go to **Claim configuration** and select the mobile claim.
 
-    ![](../../assets/img/48276901/48211842.png)
+    ![](../assets/img/48276901/48211842.png)
 
 9.  Go to **Local and Outbound Authentication Configuration** section.
 
@@ -494,7 +494,7 @@ The next step is to configure the service provider.
     done using the user's credentials that are configured with the WSO2
     Identity Server. SMSOTP is a second step that adds another layer of
     authentication and security.  
-    ![](../../assets/img/48276901/49222039.png) 
+    ![](../assets/img/48276901/49222039.png) 
 
 12. Alternatively, federated authentication as the first step and SMSOTP
     authentication as the second step and click **Update** to save the
@@ -508,7 +508,7 @@ You have now added and configured the service provider.
     Management Console.
 2.  Go to the **User Profile** and update the mobile number (this number
     must be registered with Nexmo in order to send SMS).  
-    ![](../../assets/img/48276901/49222049.png)   
+    ![](../assets/img/48276901/49222049.png)   
     **Note:** If you wish to use the backup codes to authenticate, you
     can add the following claim, otherwise you can leave it.
 3.  In the **Main** menu, click **Add** under **Claims**.
@@ -527,19 +527,19 @@ You have now added and configured the service provider.
     update the Backup codes and user can disable SMS OTP by clicking
     "Disable SMS OTP".
 
-    ![](../../assets/img/48276901/57749623.png) 
+    ![](../assets/img/48276901/57749623.png) 
 
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
     [http://localhost:8080/travelocity.com](http://localhost:8080/travelocity.com)
 
-    ![](../../assets/img/48276901/48211814.png)
+    ![](../assets/img/48276901/48211814.png)
 2.  Click the link to log in with SAML from WSO2 Identity Server.
 
 3.  The basic authentication page will be visible. Use your WSO2
     Identity Server credentials to sign in.  
-    ![](../../assets/img/48276901/48211843.png)
+    ![](../assets/img/48276901/48211843.png)
 
 4.  You will get a token to your mobile phone.Type the code to
     authenticate, You will be taken to the home page of the
@@ -551,6 +551,6 @@ You have now added and configured the service provider.
         you will be taken to the home page of the
         [travelocity.com](http://travelocity.com) application.
     
-    ![](../../assets/img/48276901/49221144.png) 
+    ![](../assets/img/48276901/49221144.png) 
 
-    ![](../../assets/img/48276901/49222070.png)
+    ![](../assets/img/48276901/49222070.png)

@@ -37,7 +37,7 @@ The following terminology is used extensively in this topic:
 
 ### How STS works
 
-![sts-flow](../../assets/img/tutorials/sts-flow.png)
+![sts-flow](../assets/img/tutorials/sts-flow.png)
 
 The following communication paths are illustrated in the above figure
 using arrows.
@@ -80,7 +80,7 @@ Do the following to configure this.
     menu, by clicking **Resident** under **Identity Providers.**
 3.  Expand the **Security Token Service Configuration** section under
     **Inbound Authentication Configuration**.  
-    ![sts-configuration](../../assets/img/tutorials/sts-configuration.png)
+    ![sts-configuration](../assets/img/tutorials/sts-configuration.png)
 4.  Set inbound authentication properties by providing the username
     token to authenticate requesters before issuing tokens. This is done
     to secure the STS from issuing tokens to every individual who sends

@@ -4,7 +4,7 @@ This section provides you with detailed information on how to configure
 the WSO2 Identity Server from the start. The following diagram depicts
 the normal flow of events you would follow.
 
-![WSO2 Identity Server configuration flow of events]( ../../assets/img/using-wso2-identity-server/identity-server-configuration-flow-of-events.png)
+![WSO2 Identity Server configuration flow of events]( ../assets/img/using-wso2-identity-server/identity-server-configuration-flow-of-events.png)
 
 As per the above diagram, when setting up WSO2 Identity Server, you would
 configure the following in the order mentioned.

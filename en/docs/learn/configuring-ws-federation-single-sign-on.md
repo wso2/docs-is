@@ -46,7 +46,7 @@ To configure WS-Federation SSO:
         Here, the expiration time should be specified in milliseconds.
 
 
-    ![ws-federation-passive.png](../../assets/img/tutorials/ws-federation-passive.png)
+    ![ws-federation-passive.png](../assets/img/tutorials/ws-federation-passive.png)
 
 2.  Expand the **Claim Configuration** section and map the relevant
     claims. See [Configuring Claims for a Service

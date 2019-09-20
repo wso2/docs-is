@@ -693,7 +693,7 @@ release.
 
 Following diagram depicts managing your artifacts using a configuration management system. 
 
-![Artifact management](../../assets/img/setup/artifact-management.png) 
+![Artifact management](../assets/img/setup/artifact-management.png) 
 
 **Diagram** : 
 

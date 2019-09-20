@@ -202,31 +202,31 @@ Follow the steps below to test the configurations.
     1.  Access the WSO2 Identity Server Management Console.
     2.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
-        ![add-sp]( ../../assets/img/using-wso2-identity-server/add-sp.png) 
+        ![add-sp]( ../assets/img/using-wso2-identity-server/add-sp.png) 
     3.  Enter `            playground2           ` as the **Service
         Provider Name** and click **Register**.  
-        ![add-new-sp]( ../../assets/img/using-wso2-identity-server/add-new-sp-1.png) 
+        ![add-new-sp]( ../assets/img/using-wso2-identity-server/add-new-sp-1.png) 
     4.  Copy the content in your client application's certificate in PEM
         format into the **Application Certificate** text field.  
-        ![add-sp-cert]( ../../assets/img/using-wso2-identity-server/add-sp-cert.png)   
+        ![add-sp-cert]( ../assets/img/using-wso2-identity-server/add-sp-cert.png)   
         !!! note
             Instead of uploading the service provider certificate as shown
             above, you can choose to use the JWKS enpoint as shown below and
             add the relevant JWKS URI.
     
-            ![configure-jwks-endpoint]( ../../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
+            ![configure-jwks-endpoint]( ../assets/img/using-wso2-identity-server/configure-jwks-endpoint.png) 
 
     5.  Expand **Inbound Authentication Configuration \> OAuth/OpenID
         Connect Configuration** and click **Configure**.  
-        ![oauth-oidc-configure]( ../../assets/img/using-wso2-identity-server/oauth-oidc-configure.png) 
+        ![oauth-oidc-configure]( ../assets/img/using-wso2-identity-server/oauth-oidc-configure.png) 
     6.  Enter
         `                         http://localhost:8080/playground2/oauth2client                       `
         as the **Callback URL**.  
-        ![callback-url]( ../../assets/img/using-wso2-identity-server/callback-url.png) 
+        ![callback-url]( ../assets/img/using-wso2-identity-server/callback-url.png) 
     7.  Click **Add**.  
         Note that the OAuth `            client key           ` and
         `            client secret           ` get generated.  
-        ![oauth-clientid-secret]( ../../assets/img/using-wso2-identity-server/oauth-clientid-secret.png)
+        ![oauth-clientid-secret]( ../assets/img/using-wso2-identity-server/oauth-clientid-secret.png)
 
 2.  To obtain an access token by invoking the OAuth token endpoint of
     WSO2 Identity Server, execute the following cRUL in a command
@@ -252,4 +252,4 @@ Follow the steps below to test the configurations.
     token to access the APIs or any other secured resources of the
     client application.  
     Sample response:  
-    ![oauth-access-token]( ../../assets/img/using-wso2-identity-server/oauth-access-token.png) 
+    ![oauth-access-token]( ../assets/img/using-wso2-identity-server/oauth-access-token.png) 

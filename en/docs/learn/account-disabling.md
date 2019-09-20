@@ -18,7 +18,7 @@ locking and disabling. Follow the below steps to do this configuration.
 3.  Expand the **Login Policies** tab.
 4.  Expand the **Account Disabling** tab and select the **Enable Account
     Disabling** checkbox. Click **Update** to save changes.  
-    ![account-disabling](../../assets/img/using-wso2-identity-server/account-disabling.png) 
+    ![account-disabling](../assets/img/using-wso2-identity-server/account-disabling.png) 
     
     !!! tip
     
@@ -39,7 +39,7 @@ locking and disabling. Follow the below steps to do this configuration.
 5.  Next, enable account locking. Expand the **Login Policies** tab.
 6.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
-    ![enable-locking](../../assets/img/using-wso2-identity-server/enable-locking.png) 
+    ![enable-locking](../assets/img/using-wso2-identity-server/enable-locking.png) 
 
     !!! tip
     
@@ -77,7 +77,7 @@ management console.
     this.
 
 3.  Tick the checkbox **Supported by Default** and click **Update.**  
-    ![click-supported-by-default](../../assets/img/using-wso2-identity-server/click-supported-by-default.png) 
+    ![click-supported-by-default](../assets/img/using-wso2-identity-server/click-supported-by-default.png) 
 4.  Navigate to **Main\>Users and Roles\>List\>Users** and click on
     **User Profile** of the user account that you want to disable.
 5.  Tick the **Account Disabled** checkbox and click **Update**.

@@ -60,7 +60,7 @@ application runs continuously.
 This mode is rarely used. The preferred mode is having two management
 nodes in Active/Passive mode as in deployment pattern 2.
 
-![](../../assets/img/56984503/56984506.png) 
+![](../assets/img/56984503/56984506.png) 
 
 #### Worker/Manager clustering deployment pattern 2
 
@@ -75,7 +75,7 @@ deployment/modification might be frequent and therefore, need a cluster
 of manager nodes. However, if the load is less, you can share a single
 load balancer with the worker cluster.
 
-![](../../assets/img/56984503/56984505.png) 
+![](../assets/img/56984503/56984505.png) 
 
   
 
@@ -93,4 +93,4 @@ application/modification load (or any other administrative load) might
 be high, so there is a dedicated load balancer for the manager cluster
 to prevent this load from affecting the load of the worker cluster.
 
-![](../../assets/img/56984503/56984504.png) 
+![](../assets/img/56984503/56984504.png) 

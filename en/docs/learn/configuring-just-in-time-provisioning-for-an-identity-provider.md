@@ -48,7 +48,7 @@ below:
 
 5.  Expand the **Just-In-Time Provisioning** section and select the JIT
     provisioning options based on your requirement.  
-    ![just-in-time-provisioning](../../assets/img/using-wso2-identity-server/just-in-time-provisioning.png)   
+    ![just-in-time-provisioning](../assets/img/using-wso2-identity-server/just-in-time-provisioning.png)   
     -   If you want to disable JIT provisioning, select **No
         Provisioning**. This is selected by default.
     -   If you want to always provision users to a selected user store

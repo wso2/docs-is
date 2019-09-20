@@ -41,7 +41,7 @@ account locking, expand the section below for instructions.
       4.  Expand the **Login Policies** tab.
     5.  Expand the **Account Locking** tab and select the **Account Lock
         Enabled** checkbox. Click **Update** to save changes.  
-        ![login-policies](../../assets/img/using-wso2-identity-server/login-policies.png) 
+        ![login-policies](../assets/img/using-wso2-identity-server/login-policies.png) 
 
         !!! tip
             If a user is assigned the **Internal/system** role, the user can
@@ -79,12 +79,12 @@ account locking, expand the section below for instructions.
     the `http://wso2.org/claims` claim dialect.  
     For more information about claims, see [Claim Management](../../learn/claim-management).
 2.  Select the Account Locked claim and click **Edit**.  
-    ![account-locked-claim](../../assets/img/using-wso2-identity-server/account-locked-claim.png) 
+    ![account-locked-claim](../assets/img/using-wso2-identity-server/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
     .  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
-    ![locked-status](../../assets/img/using-wso2-identity-server/locked-status.png) 
+    ![locked-status](../assets/img/using-wso2-identity-server/locked-status.png) 
 
 ### Lock a specific user account
 
@@ -103,7 +103,7 @@ profile in the management console.
     seen below.  
     To lock the account, type true in the text box and click **Update**
     .  
-    ![admin-lock-account](../../assets/img/using-wso2-identity-server/admin-lock-account.png)
+    ![admin-lock-account](../assets/img/using-wso2-identity-server/admin-lock-account.png)
 
 !!! note
     If it is not the first time you are locking this user account, there

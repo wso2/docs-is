@@ -39,7 +39,7 @@ Any user management system has the following basic components:
 The following diagram illustrates how the user management functionality
 is structured to work in WSO2 products:
 
-![](../../assets/img/53125483/53287367.png)
+![](../assets/img/53125483/53287367.png)
 
 -   **User stores:** A **user store** is the database where information
     about the users and user roles is stored, including login name,

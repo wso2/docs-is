@@ -69,7 +69,7 @@ and permissions for those users to access resources. Thus, a tenant is
 restricted by the users and permissions of the domain assigned to it.
 The artifact repositories of the tenants are separated from each other.
 
-![](../../assets/img/45960071/46211144.png)
+![](../assets/img/45960071/46211144.png)
 
 An individual tenant can carry out the following activities within the
 boundaries of its own configuration and context module:

@@ -5,7 +5,7 @@ to override in Liferay using an extension. This topic indicates how to
 delegate Liferay's authentication and authorization functionality to
 WSO2 Identity Server.
 
-![wso2-is-and-liferay-flow](../../assets/img/tutorials/wso2-is-and-liferay-flow.png)
+![wso2-is-and-liferay-flow](../assets/img/tutorials/wso2-is-and-liferay-flow.png)
 
 One of the challenges you may face in this integration is the LDAP
 Users/Groups import. You can connect an LDAP to Liferay, however, to

@@ -40,17 +40,17 @@ in WSO2 Identity Server:
 2.  To register a web application as a service provider:  
     1.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
-        ![]( ../../assets/img/112390325/112391328.png) 
+        ![]( ../assets/img/112390325/112391328.png) 
     2.  Enter `            playground2           ` in the **Service
         Provider Name** text box.  
-        ![]( ../../assets/img/112390325/112391336.png) 
+        ![]( ../assets/img/112390325/112391336.png) 
     3.  Click **Register**. Note that you will be redirected to the
         **Service Providers** screen.
     4.  Under **Inbound Authentication Configuration**, click
         **OAuth/OpenID Connect Configuration \> Configure**.  
-        ![]( ../../assets/img/112390325/112391332.png) 
+        ![]( ../assets/img/112390325/112391332.png) 
     5.  Enter the configurations as follows:  
-        ![]( ../../assets/img/112390325/112392325.png) 
+        ![]( ../assets/img/112390325/112392325.png) 
 
         | Field                              | Description                                                                                                                                                                                        | Sample Value                                                                                                             |
         |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ in WSO2 Identity Server:
     6.  Click **Add**. Note that a `             client ID            `
         and `             client secret            ` have been
         created.  
-        ![]( ../../assets/img/112390325/112391339.png) 
+        ![]( ../assets/img/112390325/112391339.png) 
 
         You have successfully added the playground2 service provider.
         Similarly, register another service provider with the following
@@ -79,13 +79,13 @@ in WSO2 Identity Server:
 
     1.  On the **Main** menu, click **Identity \> Identity Providers \>
         Resident**.  
-        ![]( ../../assets/img/112390325/112391342.png) 
+        ![]( ../assets/img/112390325/112391342.png) 
     2.  Under **Inbound Authentication Configuration**, click
         **OAuth2/OpenID Connect Configuration**.  
-        ![]( ../../assets/img/112390325/112391343.png)   
+        ![]( ../assets/img/112390325/112391343.png)   
         Note that the identity provider's logout endpoint URL is listed
         out.  
-        ![]( ../../assets/img/112390325/112391344.png) 
+        ![]( ../assets/img/112390325/112391344.png) 
 
 ### Downloading the sample applications
 
@@ -200,11 +200,11 @@ the newly registered service provider:
         
 
         The following screen appears.  
-        ![]( ../../assets/img/112390325/112391361.png) 
+        ![]( ../assets/img/112390325/112391361.png) 
 
     2.  Click **Import Photos**.
     3.  Enter the required details as follows:  
-        ![]( ../../assets/img/112390325/112391363.png) 
+        ![]( ../assets/img/112390325/112391363.png) 
 
           
 
@@ -276,22 +276,22 @@ the newly registered service provider:
 
     4.  Click **Authorize**. The login page of the identity provider
         appears.  
-        ![]( ../../assets/img/112390325/112391364.png) 
+        ![]( ../assets/img/112390325/112391364.png) 
     5.  Sign in as an admin user. The user consent screen appears.  
-        ![]( ../../assets/img/112390325/112391365.png) 
+        ![]( ../assets/img/112390325/112391365.png) 
     6.  Select the necessary attributes and click **Continue**. The
         playground2 home screen appears with the **Logged in user** set
         to `             admin.            `  
-        ![]( ../../assets/img/112390325/112391430.png) 
+        ![]( ../assets/img/112390325/112391430.png) 
 
 2.  Similarly, sign in to the playground3 application by navigating to
     `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3          `
     in a separated browser window/tab.
 3.  Click **Logout**. A confirmation message appears.  
-    ![]( ../../assets/img/112390325/112391427.png) 
+    ![]( ../assets/img/112390325/112391427.png) 
 4.  Click **Yes**. A success message appears
 5.  Go back to the playground2 application and refresh. Note that the
     **Logged in user** had changed from `           admin          ` to
     `           null          ` indicating that you are also logged out
     from the playground2 application.  
-    ![]( ../../assets/img/112390325/112391429.png) 
+    ![]( ../assets/img/112390325/112391429.png) 

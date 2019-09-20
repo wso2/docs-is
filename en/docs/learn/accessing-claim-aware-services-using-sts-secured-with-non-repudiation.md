@@ -79,23 +79,23 @@ or
 1.  Add a custom policy to the registry.
     1.  Create a new collection (which is essentially a folder) to
         maintain custom policies.  
-        ![browse-custom-policies](../../assets/img/tutorials//browse-custom-policies.png)
+        ![browse-custom-policies](../assets/img/tutorials//browse-custom-policies.png)
     2.  Add the **service-policy.xml** located at '
         `            sts-sample/src/main/resources/           ` ' to
         this collection.  
-        ![add-resource](../../assets/img/tutorials//add-resource.png)
+        ![add-resource](../assets/img/tutorials//add-resource.png)
 2.  Secure the echo service with the custom policy.  
     1.  Go to the **Services** list and click the **Unsecured** link of
         the echo service.  
-        ![list-deployed-services](../../assets/img/tutorials//list-deployed-services.png)
+        ![list-deployed-services](../assets/img/tutorials//list-deployed-services.png)
     2.  Select **Yes** in the " **Enable Security?** " option.
     3.  Give the path of the policy file we uploaded to registry, in the
         **Policy From Registry** section at the end of the page.  
-        ![policy-files](../../assets/img/tutorials//policy-files.png)
+        ![policy-files](../assets/img/tutorials//policy-files.png)
     4.  Click **Next**.
     5.  In the following page, select **wso2carbon.jks** as the
         **Trusted Key Store**.  
-        ![trusted-key-stores](../../assets/img/tutorials//trusted-key-stores.png)
+        ![trusted-key-stores](../assets/img/tutorials//trusted-key-stores.png)
 
 The end service is successfully configured now.
 
@@ -108,7 +108,7 @@ The end service is successfully configured now.
     the **Main** menu under **Service Providers**.
 4.  Add a **Service Provider Name** and **Description** and click
     **Register**.  
-    ![add-new-service-provider](../../assets/img/tutorials//add-new-service-provider.png)
+    ![add-new-service-provider](../assets/img/tutorials//add-new-service-provider.png)
 5.  In the resulting page, expand the **Inbound Authentication
     Configuration** and the **WS-Trust Security Token Service
     Configuration** sections. Click **Configure**.
@@ -150,7 +150,7 @@ The end service is successfully configured now.
     claims (refer **service-policy.xml** ).
 2.  Check the user profile of the particular user ("admin" in default
     case) to make sure the values for those claims are available.  
-    ![update-admin-user-profile](../../assets/img/tutorials//update-admin-user-profile.png)
+    ![update-admin-user-profile](../assets/img/tutorials//update-admin-user-profile.png)
 
 Both ESB and IS are now configured.
 

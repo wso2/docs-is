@@ -8,7 +8,7 @@ which is shared across each node of the cluster. A separate instance of
 the WSO2 Governance Registry (G-Reg) is used to provide the space used
 in common.
 
-![](../../assets/img/53125542/53287692.png) 
+![](../assets/img/53125542/53287692.png) 
 
 Figure 3: Governance partition in the remote Governance Registry
 instance .

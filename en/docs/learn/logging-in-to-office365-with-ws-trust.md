@@ -81,15 +81,15 @@ you through the entire process.
     In this sample scenario, the value for the Identity Provider Entity
     Id is https://wso2test.com.
 
-    ![idp-entity-id](../../assets/img/tutorials/idp-entity-id.png)
+    ![idp-entity-id](../assets/img/tutorials/idp-entity-id.png)
 
 4.  Navigate to **Claims\>Add** in the **Main** menu and click **Add New
     Claim**. Set 'User Principle' and 'ImmutableID' as claims as seen
     below. See [Adding Claim Mapping](../../learn/adding-claim-mapping) for more
     information.
 
-    ![claim-user-principle](../../assets/img/tutorials/claim-user-principle.png)
-    ![claim-immutable-id](../../assets/img/tutorials/claim-immutable-id.png)
+    ![claim-user-principle](../assets/img/tutorials/claim-user-principle.png)
+    ![claim-immutable-id](../assets/img/tutorials/claim-immutable-id.png)
 
 5.  Navigate to **Claims\>List** and click on the
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
@@ -127,7 +127,7 @@ you through the entire process.
 
     -   **Certificate Alias:** wso2carbon
 
-    ![sts-configuration](../../assets/img/tutorials/sts-configuration.png)
+    ![sts-configuration](../assets/img/tutorials/sts-configuration.png)
 
 5.  Expand the **Claim Configuration** section and configure the
     following attributes required by Azure AD as seen below.
@@ -164,7 +164,7 @@ you through the entire process.
     </tbody>
     </table>
 
-    ![claim-configuration-azure-id](../../assets/img/tutorials/claim-configuration-azure-id.png)
+    ![claim-configuration-azure-id](../assets/img/tutorials/claim-configuration-azure-id.png)
 
 6.  Set the **Subject Claim URI** to the Immutable ID claim and the
     **Role Claim URI** to the role claim. Click **Update** to save
@@ -180,7 +180,7 @@ you through the entire process.
 9.  Select **UsernameToken** under **Basic Scenarios** and click
     **Next**.
 
-    ![user-name-token](../../assets/img/tutorials/user-name-token.png)  
+    ![user-name-token](../assets/img/tutorials/user-name-token.png)  
 
 10. Select the **Admin** role checkbox from the User Groups and click
     **Finish**.
@@ -190,7 +190,7 @@ you through the entire process.
         authentication of the UserNameToken. Any role having ‘login’
         permissions would be sufficient.
     
-    ![usernametoken-authentication](../../assets/img/tutorials/usernametoken-authentication.png)
+    ![usernametoken-authentication](../assets/img/tutorials/usernametoken-authentication.png)
 
 11. Click **Update** to save all changes.
 
@@ -233,7 +233,7 @@ identity provider (i.e., the WSO2 Identity Server).
 	in to the Skype for Business client. This usually happens due to a DNS
 	resolving issue.
 
-	![login-error](../../assets/img/tutorials/login-error.png)
+	![login-error](../assets/img/tutorials/login-error.png)
 
 	This issue can be resolved by manually configuring DNS settings of the
 	Skype for Business client itself.
@@ -246,7 +246,7 @@ identity provider (i.e., the WSO2 Identity Server).
 		|-----------------------------|
 		| sipdir.online.lync. com:443 |
 
-		![skype-server-value](../../assets/img/tutorials/skype-server-value.png)
+		![skype-server-value](../assets/img/tutorials/skype-server-value.png)
 
 	3.  Save and try logging in again. Now you should be able to login
 		successfully.

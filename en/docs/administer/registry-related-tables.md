@@ -235,4 +235,4 @@ columns of the table.
 -   `REG\_RESOURCE\_VIDS`
 -   `REG\_TENANT\_ID`
 
-![Registry related tables]( ../../assets/img/using-wso2-identity-server/registry-related-tables.png) 
+![Registry related tables]( ../assets/img/using-wso2-identity-server/registry-related-tables.png) 

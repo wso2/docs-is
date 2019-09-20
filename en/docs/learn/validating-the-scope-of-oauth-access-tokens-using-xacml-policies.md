@@ -37,7 +37,7 @@ architecture, see [Architecture](../../get-started/architecture).
 5.  Specify required values for the fields. When you specify values, be
     sure to select **XACML Scope Validator** as the scope validator.  
     
-    ![xacml-scope-validator](../../assets/img/tutorials/xacml-scope-validator.png)
+    ![xacml-scope-validator](../assets/img/tutorials/xacml-scope-validator.png)
     
 6.  Click **Add**. This registers the new application.
 
@@ -112,7 +112,7 @@ Follow the steps below to try out the policy using the XACML TryIt tool:
     **TryIt** under the **XACML** section.
     
 2.  Click **Create Request Using Editor**.  
-    ![create-request-using-editor](../../assets/img/tutorials/create-request-using-editor.png)
+    ![create-request-using-editor](../assets/img/tutorials/create-request-using-editor.png)
     
 3.  Specify the following as the sample request:
 

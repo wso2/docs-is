@@ -14,7 +14,7 @@ add a new user and this user is provisioned to various applications that
 are configured with the Identity Server. This process is illustrated in
 the following diagram.
 
-![User and identity provisioning using WSO2 Identity Server](../../assets/img/getting-started/identity-provisioning.png)
+![User and identity provisioning using WSO2 Identity Server](../assets/img/getting-started/identity-provisioning.png)
 
 ### Inbound and outbound provisioning
 
@@ -23,12 +23,12 @@ user identities to the Identity Server. This can be done using the REST
 API available for SCIM. The following figure is an example of this
 process.
 
-![Inbound provisioning using WSO2 Identity Server](../../assets/img/getting-started/inbound-provisioning.png)
+![Inbound provisioning using WSO2 Identity Server](../assets/img/getting-started/inbound-provisioning.png)
 
 Outbound provisioning involves provisioning users, user groups, and user
 identities to external systems or SaaS applications.
 
-![Outbound provisioning using WSO2 Identity Server](../../assets/img/getting-started/outbound-provisioning.png)
+![Outbound provisioning using WSO2 Identity Server](../assets/img/getting-started/outbound-provisioning.png)
 
 
 ### Introducing SPML
@@ -90,7 +90,7 @@ specific emphasis on simplicity and interoperability.
 	   The following diagram illustrates the progressive development that has
 	   taken place in the history of identity provisioning.
 
-	   ![Provisioning evolution and history](../../assets/img/getting-started/provisioning-evolution.png)
+	   ![Provisioning evolution and history](../assets/img/getting-started/provisioning-evolution.png)
 
 	   The OASIS Technical Committee for Service Provisioning was formed in
 	   2001 to define an XML-based framework for exchanging user, resource, and

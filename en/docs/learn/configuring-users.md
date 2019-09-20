@@ -21,7 +21,7 @@ its role.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.
 3.  Click **Add New User**. The following screen appears.  
-    ![new-user-in-management-console](../../assets/img/using-wso2-identity-server/new-user-in-management-console.png) 
+    ![new-user-in-management-console](../assets/img/using-wso2-identity-server/new-user-in-management-console.png) 
 
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
@@ -53,7 +53,7 @@ the **Users** page.
     role.
 3.  Click the **Assign Roles** link that corresponds to the user you
     want to assign to a role.  
-    ![assign-roles-to-user](../../assets/img/using-wso2-identity-server/assign-roles-to-user.png) 
+    ![assign-roles-to-user](../assets/img/using-wso2-identity-server/assign-roles-to-user.png) 
 4.  Select the role(s) you want to assign and click **Update**.
 5.  Click **Finish**.
 
@@ -188,9 +188,9 @@ Follow the below instruction to update a user using management console.
 3.  You will see the list of users that are available and you can click
     **Update Profile** if you want to update the profile of a particular
     user.  
-    ![update-profile-in-console](../../assets/img/using-wso2-identity-server/update-profile-in-console.png) 
+    ![update-profile-in-console](../assets/img/using-wso2-identity-server/update-profile-in-console.png) 
 4.  There you can update the details of the user and click **Update**.  
-    ![update-userdetails](../../assets/img/using-wso2-identity-server/update-userdetails.png) 
+    ![update-userdetails](../assets/img/using-wso2-identity-server/update-userdetails.png) 
 
 Other than updating user profile details, you can also change the
 password of the user and assign more roles to the user.
@@ -406,7 +406,7 @@ the user by doing the following.
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![search-users-in-console](../../assets/img/using-wso2-identity-server/search-users-in-console.png) You can search for users by
+    ![search-users-in-console](../assets/img/using-wso2-identity-server/search-users-in-console.png) You can search for users by
     doing one of the following.  
     -   **Search by Domain**  
         1.  Select the user store that the user resides in using the

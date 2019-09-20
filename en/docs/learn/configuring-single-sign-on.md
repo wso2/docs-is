@@ -180,7 +180,7 @@ provider. The following steps instruct you on how to do this.
 
 7.  Select **Manual Configuration** and register the new service
     provider by providing the following values.  
-    ![register-new-service-provider-manual-config](../../assets/img/tutorials/register-new-service-provider-manual-config.png)
+    ![register-new-service-provider-manual-config](../assets/img/tutorials/register-new-service-provider-manual-config.png)
 
     ??? Info "Click here for more information on each attribute"
 		 <table>
@@ -439,7 +439,7 @@ key_encryption_alg=
 		-   Select **Use user store domain in local subject identifier**
 		    to append the user store domain that the user resides in the
 		    local subject identifier.  
-		    ![local-and-outbound-config](../../assets/img/tutorials/local-and-outbound-config.png)
+		    ![local-and-outbound-config](../assets/img/tutorials/local-and-outbound-config.png)
 
 		    For **super tenant mode**, this step is not required and the two
 		    options mentioned above should remain disabled by default.
@@ -472,7 +472,7 @@ key_encryption_alg=
         For more information, see
         [Configuring Claims for a Service
         Provider](../../learn/configuring-claims-for-a-service-provider).  
-        ![configure-sso-claims](../../assets/img/tutorials/configure-sso-claims.png)
+        ![configure-sso-claims](../assets/img/tutorials/configure-sso-claims.png)
 
 2.  Configure outbound authentication as **Default** authentication
     type. This specifies that the identity provider authenticates the
@@ -488,7 +488,7 @@ management console. The next step is to run the sample.
 
 1.  Visit `          http://wso2is.local:8080/travelocity.com         `
     . You are directed to the following page:  
-    ![travelocity-login](../../assets/img/tutorials/travelocity-login.png)
+    ![travelocity-login](../assets/img/tutorials/travelocity-login.png)
 2.  Since you need to use SAML2 for this sample, click the first link,
     i.e., **Click here to login with SAML from Identity Server**. You
     are redirected to the Identity Server for authentication.
@@ -509,7 +509,7 @@ management console. The next step is to run the sample.
         Single-Sign-On](../../learn/consent-management-with-single-sign-on).
 
 
-    ![travelocity-user-consent](../../assets/img/tutorials/travelocity-user-consent.png)
+    ![travelocity-user-consent](../assets/img/tutorials/travelocity-user-consent.png)
 
 5.  Select the claims that you consent to share with the Travelocity
     application and click **Approve**. You have to provide consent for

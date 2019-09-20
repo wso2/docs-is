@@ -36,11 +36,11 @@ binding and trying it out with a sample application.
         
         The format of a SAML artifact is shown below:
         
-        ![saml-artifact-format](../../assets/img/tutorials/saml-artifact-format.png)
+        ![saml-artifact-format](../assets/img/tutorials/saml-artifact-format.png)
     
 The diagram below shows the process of SAML Artifact Binding.
 
-![saml-artifact-binding](../../assets/img/tutorials/saml-artifact-binding.png) 
+![saml-artifact-binding](../assets/img/tutorials/saml-artifact-binding.png) 
 
 ### Configuring SAML artifact binding
 
@@ -65,7 +65,7 @@ The diagram below shows the process of SAML Artifact Binding.
     binding. Once this is enabled, WSO2 Identity Server responds to each
     SAML SSO authentication request with an artifact.
 
-    ![enable-artifact-binding](../../assets/img/tutorials/enable-artifact-binding.png)
+    ![enable-artifact-binding](../assets/img/tutorials/enable-artifact-binding.png)
 
 6.  You can also enable signature validation by selecting **Enable
     Signature Validation in Artifact Resolve Request**. Once this is

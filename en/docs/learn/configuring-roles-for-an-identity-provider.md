@@ -16,7 +16,7 @@ following.
 2.  To configure **Identity Provider Roles**, click **Add Role
     Mapping**. The following screen appears.  
     ![Role
-    Mapping](../../assets/img/using-wso2-identity-server/idp-role-mapping.png) 
+    Mapping](../assets/img/using-wso2-identity-server/idp-role-mapping.png) 
 3.  Enter the **Identity Provider Role** and map it to the **Local
     Role** available in the Identity Server. See
     [here](../../learn/configuring-roles-and-permissions#adding-a-user-role)
@@ -28,7 +28,7 @@ following.
     be provisioned from the Identity Server to the identity provider.
     You can provision users that have multiple roles by specifying the
     roles in a comma-separated list.  
-    ![idp-provisioning-role](../../assets/img/using-wso2-identity-server/idp-provisioning-role.png) 
+    ![idp-provisioning-role](../assets/img/using-wso2-identity-server/idp-provisioning-role.png) 
 
 !!! note
     

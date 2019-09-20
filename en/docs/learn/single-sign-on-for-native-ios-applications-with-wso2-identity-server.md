@@ -128,7 +128,7 @@ sample iOS application.
 
 Following is the directory structure of the sample application project:
 
-![sample-app-directory-structure](../../assets/img/tutorials/sample-app-directory-structure.png)
+![sample-app-directory-structure](../assets/img/tutorials/sample-app-directory-structure.png)
 
 Following are descriptions of the key components of the sample
 application project:
@@ -342,26 +342,26 @@ application:
 2.  Click **Run** on the Xcode toolbar to build the sample application and
     run it via the simulator. This will launch the sample application in
     the simulator.  
-    ![pickup-login](../../assets/img/tutorials/pickup-login.png)
+    ![pickup-login](../assets/img/tutorials/pickup-login.png)
 
 3.  Click **LOGIN**. You will see the following message on the
     screen:  
-    ![confirm-pickup-login](../../assets/img/tutorials/confirm-pickup-login.png)
+    ![confirm-pickup-login](../assets/img/tutorials/confirm-pickup-login.png)
 
 4.  Click **Continue**. You will be redirected to the sign-in screen so
     that you can sign-in via WSO2 Identity Server.  
-    ![sign-in](../../assets/img/tutorials/sign-in-via-identity-server.png)
+    ![sign-in](../assets/img/tutorials/sign-in-via-identity-server.png)
 
 5.  Enter your credentials and click **SIGN IN**. This will take you to
     the consent screen.  
-    ![oidc-claims-approval](../../assets/img/tutorials/oidc-claims-approval.png)
+    ![oidc-claims-approval](../assets/img/tutorials/oidc-claims-approval.png)
 
 6.  Select a required approval mechanism, then select the attributes you
     want to share with the service provider, and then click **Continue**
     to allow the sample application access your information. This will
     redirect you to the sample application profile screen that displays
     your user name and a **Sign out** button.  
-    ![pickup-welcome-screen](../../assets/img/tutorials/pickup-welcome-screen.png)
+    ![pickup-welcome-screen](../assets/img/tutorials/pickup-welcome-screen.png)
 
 Now you have successfully signed in to the sample application using WSO2
 Identity Server as an identity provider.
@@ -375,12 +375,12 @@ Follow the steps below to sign out of the sample application:
 1.  On the sample application profile screen, click **Sign out**. You
     will see the following message on the screen:  
       
-    ![confirm-pickup-signout](../../assets/img/tutorials/confirm-pickup-signout.png)
+    ![confirm-pickup-signout](../assets/img/tutorials/confirm-pickup-signout.png)
 
 2.  Click **Yes**. This will sign you out from the sample application.
     You will also see a message as follows notifying that you are going
     to be redirected to a page to log out of WSO2 Identity Server.  
-    ![pickup-logout-redirection-notice](../../assets/img/tutorials/pickup-logout-redirection-notice.png)
+    ![pickup-logout-redirection-notice](../assets/img/tutorials/pickup-logout-redirection-notice.png)
 
 3.  Click **Ok**. You will see a message as follows:
 
@@ -398,14 +398,14 @@ Follow the steps below to sign out of the sample application:
             However, you can continue to log out of the application.
     
 
-    ![pickup-logout-signin-error](../../assets/img/tutorials/pickup-logout-signin-error.png)
+    ![pickup-logout-signin-error](../assets/img/tutorials/pickup-logout-signin-error.png)
 
 4.  Click **Continue**. This will redirect you to the OpenID Connect
     logout page of WSO2 Identity Server. Once you click ‘Yes’ you will
     be logged out from the server and will be redirected to the login
     page of the application.
 
-    ![oidc-logout](../../assets/img/tutorials/oidc-logout.png)
+    ![oidc-logout](../assets/img/tutorials/oidc-logout.png)
 
 5.  Click **Yes**. This will log you out from the server and will
     redirect you to the sign-in page of the sample application.

@@ -30,7 +30,7 @@ To add a new workflow, do the following.
     **Workflow Definitions** in the **Manage** section.  
 2.  Enter the name and description of the workflow and click **Next**
     .  
-    ![add-workflow-definitions](../../assets/img/using-wso2-identity-server/add-workflow-definitions.png)
+    ![add-workflow-definitions](../assets/img/using-wso2-identity-server/add-workflow-definitions.png)
 3.  Set the levels of approval that are required. For instance, you may
     require that users with a Manager role must first approve user
     accounts followed by approval from users with a SeniorManager role.
@@ -53,7 +53,7 @@ To add a new workflow, do the following.
         that you require and click **Add Selected Roles** or **Add
         Selected Users**.
     6.  Click **Next** to move to the next step.  
-        ![workflow-fields](../../assets/img/using-wso2-identity-server/workflow-fields.png)
+        ![workflow-fields](../assets/img/using-wso2-identity-server/workflow-fields.png)
 
           
     !!! info 
@@ -75,7 +75,7 @@ To add a new workflow, do the following.
     | Task Subject | Subject of the workflow request for  approval                                                                                                                                                                                                                                                                          |
     | Task Detail  | Body of the Workflow request for approval                                                                                                                                                                                                                                                                              |
 
-    ![deployment-information](../../assets/img/using-wso2-identity-server/deployment-information.png) 
+    ![deployment-information](../assets/img/using-wso2-identity-server/deployment-information.png) 
 
     !!! note
     

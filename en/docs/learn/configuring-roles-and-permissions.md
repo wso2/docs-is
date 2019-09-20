@@ -100,12 +100,12 @@ Follow the instructions below to add a user role.
         create this role.
     2.  Enter a unique name for this role.
     3.  Click **Next**.  
-        ![unique-rolename](../../assets/img/using-wso2-identity-server/unique-rolename.png)
+        ![unique-rolename](../assets/img/using-wso2-identity-server/unique-rolename.png)
 5.  Select the permissions you want users with this role to have. You
     can also not assign permissions to a role. Note that when you assign
     this role to a user, you can override the role's permissions and
     customize them for the user.  
-    ![role-permissions](../../assets/img/using-wso2-identity-server/role-permissions.png) 
+    ![role-permissions](../assets/img/using-wso2-identity-server/role-permissions.png) 
 6.  Select the existing users you want to have this role. You can also
     assign this role to users later, but if you are creating this role
     in an external user store that does not allow empty roles, you must
@@ -278,7 +278,7 @@ the role by doing the following.
     **Users and Roles**.  
 2.  Click **Roles**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![admin-role](../../assets/img/using-wso2-identity-server/admin-role.png)  
+    ![admin-role](../assets/img/using-wso2-identity-server/admin-role.png)  
     You can search for users by doing the following.
     1.  Select the user store that the role resides in using the
         **Select Domain** dropdown.
@@ -297,7 +297,7 @@ the role by doing the following.
 If you need to make modifications to a role, use the links in the
 **Actions** column on the **Roles** screen as follows:
 
-![actions-on-roles](../../assets/img/using-wso2-identity-server/actions-on-roles.png)
+![actions-on-roles](../assets/img/using-wso2-identity-server/actions-on-roles.png)
 
 -   Rename the role
 -   Change the default permissions associated with this role

@@ -24,7 +24,7 @@ architecture, see [Architecture](../../get-started/architecture).
 The diagram given below gives you a high level idea of the provisioning
 framework.
 
-![provisioning-framework]( ../../assets/img/using-wso2-identity-server/provisioning-framework.jpg) 
+![provisioning-framework]( ../assets/img/using-wso2-identity-server/provisioning-framework.jpg) 
 
 ### Inbound provisioning
 
