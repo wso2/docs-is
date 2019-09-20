@@ -11,16 +11,10 @@ in common.
 ![](../assets/img/53125542/53287692.png) 
 
 Figure 3: Governance partition in the remote Governance Registry
-instance .
+instance.
 
 Configuration steps are given in the following sections.
 
--   [Creating the
-    Database](#GovernancePartitioninaRemoteRegistry-Database)
--   [Configuring Governance Registry
-    Instance](#GovernancePartitioninaRemoteRegistry-RemoteRegistry)
--   [Configuring Carbon Server
-    Nodes](#GovernancePartitioninaRemoteRegistry-CarbonServerNodes)
 
 ### Creating the database 
 
@@ -91,11 +85,11 @@ environment.
 
 -   \<url\> : URL of the MySQL database.
 -   \<username\> and \<password\> : username and password of the mySQL
-    database .
+    database.
 -   \<validationQuery\> : Validate and test the health of the DB
-    connection .
+    connection.
 -   \<validationInterval\> : specified time intervals at which the DB
-    connection validations should run .
+    connection validations should run.
 
 3\. Navigate to $G-REG\_HOME /repository/conf/axis2/axis2.xml file in all
 Carbon-based product instances to be connected with the remote registry,
@@ -121,10 +115,7 @@ required tables are created in the database. For example, in Linux
 sh wso2server.sh -Dsetup
 ```
 
-!!! warning
-    
-    Deprecation of -DSetup
-    
+!!! warning "Deprecation of -DSetup"
     When proper Database Administrative (DBA) practices are followed, the
     systems (except analytics products) are not granted DDL (Data
     Definition) rights on the schema. Therefore, maintaining the
@@ -189,8 +180,7 @@ registry space.
 </datasource>
 ```
 
-Change the values of the relevant elements accordingly. ***  
-***
+Change the values of the relevant elements accordingly. 
 
 ***Configuring registry.xml file***
 
@@ -272,13 +262,12 @@ copying the following configuration to all Carbon server instances:
 <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="false"/>
 ```
 
-Note
-
-The above configuration is needed only when caching is enabled in the
-server instances and \<enableCache\> parameter set to true. Clustering
-enables cache invalidation in configured nodes at the event of any
-changes to the registry resources by any of the Carbon server nodes in
-the deployment setup.
+!!! info 
+    The above configuration is needed only when caching is enabled in the
+    server instances and \<enableCache\> parameter set to true. Clustering
+    enables cache invalidation in configured nodes at the event of any
+    changes to the registry resources by any of the Carbon server nodes in
+    the deployment setup.
 
 6\. Copy 'MySQL JDBC connector jar' (
 [http://dev.mysql.com/downloads/connector/j/5.1.html)](http://dev.mysql.com/downloads/connector/j/5.1.html)

@@ -7,10 +7,7 @@ works, to troubleshoot, or to try out the scenario.
 Follow the instructions given below to connect to the H2 database and
 browse through it.
 
-!!! warning
-    
-    H2 is not recommended in production
-    
+!!! warning "H2 is not recommended in production"
     The embedded H2 database is NOT recommended in enterprise testing and
     production environments. It has lower performance, clustering
     limitations, and can cause file corruption failures. Please use an
@@ -22,11 +19,10 @@ browse through it.
     
 
 1.  Open the
-    `           <PRODUCT_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/carbon.xml          `
     file and paste the following configuration.
 
     !!! tip
-    
         Do not uncomment the existing
         `           <H2DatabaseConfiguration>          ` element. Just paste
         the following configuration below it.
@@ -44,8 +40,7 @@ browse through it.
     browser: [http://localhost:8082](http://localhost:8082/)
 
     !!! tip
-    
-        Tip: If you are logged in to the management console, logout before
+        If you are logged in to the management console, logout before
         connecting to the database.
     
 

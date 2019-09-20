@@ -3,10 +3,6 @@
 The following sections describe how to set up PostgreSQL to replace the
 default H2 database in your WSO2 product:
 
--   [Setting up the database and login
-    role](#SettingupPostgreSQL-Settingupthedatabaseandloginrole)
--   [Setting up the drivers](#SettingupPostgreSQL-Settingupthedrivers)
-
 ### Setting up the database and login role
 
 Follow the steps below to set up a PostgreSQL database.
@@ -30,10 +26,11 @@ Follow the steps below to set up a PostgreSQL database.
     the object browser), and click **New Login Role**. Enter the role
     name and a password.
 
-    These values will be used in the product configurations as described
-    in the following sections. In the sample configuration,
-    `            gregadmin           ` will be used as both the role
-    name and the password.
+    !!! info 
+        These values will be used in the product configurations as described
+        in the following sections. In the sample configuration,
+        `            gregadmin           ` will be used as both the role
+        name and the password.
 
 8.  Optionally, enter other policies, such as the expiration time for
     the login and the connection limit.
@@ -41,14 +38,12 @@ Follow the steps below to set up a PostgreSQL database.
 
 ### Setting up the drivers
 
-1.  Download the [PostgreSQL JDBC4
-    driver](http://jdbc.postgresql.org/download.html).
+1.  Download the [PostgreSQL JDBC4 driver](http://jdbc.postgresql.org/download.html).
 2.  Copy the driver to your WSO2 product's \<
-    `           PRODUCT_HOME>/repository/components/lib          `
+    `           IS_HOME>/repository/components/lib          `
     directory.
 
     !!! note
-    
         For **WSO2 IoT Server** you need to copy the driver to the
         `           <IOTS_HOME>/lib          ` directory.
     

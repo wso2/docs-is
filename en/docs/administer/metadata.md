@@ -35,17 +35,12 @@ For example,
 
 #### Creating a checkpoint
 
-T o create a checkpoint, click on the **Create Checkpoint** link:
+To create a checkpoint, click on the **Create Checkpoint** link:
 
 ![](../assets/img/53125531/53287635.png)
 
-**NOTE** : When checkpoints are created, properties, comments, ratings
-and tags will also be taken into consideration. If you do not want them
-to be versioned along with resource content, you can disable it by
-making changes to the [Static
-Configuration](https://docs.wso2.com/display/Governance460/Configuration+for+Static+%28One-time%29+and+Auto+Versioning+Resources)
-. However, these changes need to be done before the server starts for
-the first time.
+!!! info 
+    When checkpoints are created, properties, comments, ratings and tags will also be taken into consideration. If you do not want them to be versioned along with resource content, you can disable it by making changes to the [Static Configuration](https://docs.wso2.com/display/Governance460/Configuration+for+Static+%28One-time%29+and+Auto+Versioning+Resources). However, these changes need to be done before the server starts for the first time.
 
 #### Viewing Versions
 
@@ -68,12 +63,10 @@ This page gives the following information:
     -   **Restore** - Restores a selected version
     -   **Delete Version History** - Delete the version history
 
-To learn more about restoring to a previous version, see  read
-[here](https://docs.wso2.com/display/Governance460/Managing+Versions+of+a+Resource)
-.
+!!! info 
+    To learn more about restoring to a previous version, see  read
+    [here](https://docs.wso2.com/display/Governance460/Managing+Versions+of+a+Resource).
 
-**NOTE** : Versions and checkpoints are not available for [Symbolic
-Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ASymbolicLink)
-and [Remote
-Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ARemoteLink)
-.
+!!! info 
+    Versions and checkpoints are not available for [Symbolic Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ASymbolicLink)
+    and [Remote Links](https://docs.wso2.com/display/Governance460/Link+Creation#LinkCreation-ARemoteLink).

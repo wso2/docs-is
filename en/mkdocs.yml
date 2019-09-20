@@ -399,6 +399,7 @@ nav:
           - 'Analyzing the Local Login Attempts': learn/analyzing-the-local-login-attempts.md
           - 'Analyzing the Federated Login Attempts': learn/analyzing-the-federated-login-attempts.md
           - 'Analyzing Session Statistics': learn/analyzing-session-statistics.md
+          - 'Purging Analytics Data': learn/purging-analytics-data.md
         - 'Monitoring the Authentication Operations with Alerts':
           - 'Monitoring the Authentication Operations with Alerts': learn/monitoring-the-authentication-operations-with-alerts.md
           - 'Alert Types': learn/alert-types.md
@@ -669,15 +670,12 @@ nav:
         - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
-      - 'Data Stores': administer/data-stores.md
       - 'Working with Databases':
         - 'Working with Databases': administer/working-with-databases.md
         - 'Setting up the Physical Database':
-          - 'Setting up the Physical Database': administer/setting-up-the-physical-database.md
           - 'Setting up IBM DB2': administer/setting-up-ibm-db2.md
           - 'Setting up IBM Informix': administer/setting-up-ibm-informix.md
           - 'Setting up H2': 
-            - 'Setting up H2': administer/setting-up-h2.md
             - 'Setting up Embedded H2': administer/setting-up-embedded-h2.md
             - 'Setting up Remote H2': administer/setting-up-remote-h2.md
           - 'Setting up MariaDB': administer/setting-up-mariadb.md
@@ -688,11 +686,9 @@ nav:
           - 'Setting up Oracle RAC': administer/setting-up-oracle-rac.md
           - 'Setting up PostgreSQL': administer/setting-up-postgresql.md
           - 'Setting up Derby':
-            - 'Setting up Derby': administer/setting-up-derby.md
             - 'Setting up Embedded Derby': administer/setting-up-embedded-derby.md
             - 'Setting up Remote Derby': administer/setting-up-remote-derby.md
         - 'Changing the Carbon Database':
-          - 'Changing the Carbon Database': administer/changing-the-carbon-database.md
           - 'Changing to Embedded Derby': administer/changing-to-embedded-derby.md
           - 'Changing to Embedded H2': administer/changing-to-embedded-h2.md
           - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md

@@ -3,15 +3,7 @@
 The following sections describe how to replace the default H2 databases
 with Remote H2:
 
--   [Setting
-    up datasource configurations](#ChangingtoRemoteH2-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database
-    tables](#ChangingtoRemoteH2-Creatingdatabasetables)
-
-!!! warning
-    
-    H2 is not recommended in production
-    
+!!! warning "H2 is not recommended in production"
     The embedded H2 database is NOT recommended in enterprise testing and
     production environments. It has lower performance, clustering
     limitations, and can cause file corruption failures. Please use an
@@ -22,15 +14,12 @@ with Remote H2:
     the local registry in a registry mount.
     
     
-    Before you begin
-    
+!!! tip "Before you begin"
     -   Set up the database as explained in [Setting up Remote
         H2](../../administer/setting-up-remote-h2).
     -   Download the H2 database driver and copy it to WSO2 IoT Server by
         following the steps under [Setting up
-        drivers](../../administer/setting-up-remote-h2-53125507.html#SettingupRemoteH2-Settingupdrivers)
-        .
-    
+        drivers](../../administer/setting-up-remote-h2).
 
 ### Setting up datasource configurations
 
@@ -38,12 +27,8 @@ A datasource is used to establish the connection to a database. By
 default, `         WSO2_CARBON_DB        ` datasource is used to connect
 to the default  H2 database, which stores registry and user management
 data. After setting up the Remote H2 database to replace the default H2
-database, either [change the default configurations of the
-`          WSO2_CARBON_DB         `
-datasource](#ChangingtoRemoteH2-Changingthedefaultdatabase), or
-[configure a
-new datasource](#ChangingtoRemoteH2-Configuringnewdatasourcestomanageregistryorusermanagementdata)
-to point it to the new database as explained below.
+database, either change the default configurations of the
+`          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -51,7 +36,7 @@ Follow the steps below to change the type of the default
 `         WSO2_CARBON_DB        ` datasource.
 
 1.  Edit the default datasource configuration in the \<
-    `           PRODUCT_HOME>/repository/conf/datasources/m          `
+    `           IS_HOME>/repository/conf/datasources/m          `
     `           aster-datasources.xml          ` file as shown below.
 
     ``` html/xml
@@ -80,7 +65,6 @@ Follow the steps below to change the type of the default
     ```
 
     The elements in the above configuration are described below:
-
     <table>
     <thead>
     <tr class="header">
@@ -133,21 +117,19 @@ Follow the steps below to change the type of the default
     </tbody>
     </table>
 
-    For more information on other parameters that can be defined in
-    the \<
-    `            PRODUCT_HOME>/repository/conf/datasources/           `
-    `            master-datasources.xml           ` file, see [Tomcat
-    JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
-    .
+    !!! info 
+        For more information on other parameters that can be defined in
+        the \<
+        `            IS_HOME>/repository/conf/datasources/           `
+        `            master-datasources.xml           ` file, see [Tomcat
+        JDBC Connection
+        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
     !!! warning
-    
         The following elements are available only as a **WUM** update and is
         effective from 14th September 2018 (2018-09-14).  For more
         information, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
-        .  
+        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA).  
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
@@ -159,10 +141,10 @@ Follow the steps below to change the type of the default
     | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
     | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
-    **Configuring the connection pool behavior on return  
-    ** When a database connection is returned to the pool, by default 
+    **Configuring the connection pool behavior on return** 
+    When a database connection is returned to the pool, by default 
     the product rolls back the pending transactions if defaultAutoCommit
-    =true . However, if required you can disable the latter mentioned
+    =true. However, if required you can disable the latter mentioned
     default behavior by disabling the
     `            ConnectionRollbackOnReturnInterceptor           `,
     which is a JDBC-Pool JDBC interceptor, and setting the connection
@@ -170,24 +152,20 @@ Follow the steps below to change the type of the default
     the following options.
 
     !!! warning
-    
         Disabling the
         `            ConnectionRollbackOnReturnInterceptor           ` is
         only possible with the **WUM** update and is effective from 14th
         September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
-        . This WUM update is only applicable to Carbon 4.4.11.
+        API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA). This WUM update is only applicable to Carbon 4.4.11.
     
 
-    -   **Configure the connection pool to commit pending transactions
-        on connection return**  
+    -   **Configure the connection pool to commit pending transactions on connection return**  
         1.  Navigate to either one of the following locations based on
             your OS.
             -   On Linux/Mac OS:
-                `                 <PRODUCT_HOME>/bin/wso2server.sh/                `
+                `                 <IS_HOME>/bin/wso2server.sh/                `
             -   On Windows:
-                `                 <PRODUCT_HOME>\bin\wso2server.bat                `
+                `                 <IS_HOME>\bin\wso2server.bat                `
         2.  Add the following JVM option:
 
             ``` java
@@ -195,7 +173,7 @@ Follow the steps below to change the type of the default
             ```
 
         3.  Navigate to the
-            `               <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
             file.
         4.  Disable the `               defaultAutoCommit              `
             by defining it as false.
@@ -205,23 +183,22 @@ Follow the steps below to change the type of the default
 
             ``` html/xml
                         <datasource>
-                             ...
+                            ...
                              <definition type="RDBMS">
                                  <configuration>
-                                       ...
+                                      ...
                                        <defaultAutoCommit>false</defaultAutoCommit>
                                        <commitOnReturn>true</commitOnReturn>    
-                                       ...
+                                      ...
                                  </configuration>
                              </definition>
                         </datasource>
             ```
 
-    -   **Configure the connection pool to rollback pending transactions
-        on connection return**
+    -   **Configure the connection pool to rollback pending transactions on connection return**
 
         1.  Navigate to the
-            `               <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
             file.
         2.  Disable the
             `                defaultAutoCommit               ` by
@@ -232,13 +209,13 @@ Follow the steps below to change the type of the default
 
             ``` html/xml
                         <datasource>
-                             ...
+                            ...
                              <definition type="RDBMS">
                                  <configuration>
-                                       ...
+                                      ...
                                        <defaultAutoCommit>false</defaultAutoCommit> 
                                        <rollbackOnReturn>true</rollbackOnReturn>
-                                       ...
+                                      ...
                                  </configuration>
                              </definition>
                         </datasource>
@@ -252,15 +229,15 @@ data separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#ChangingtoRemoteH2-Changingthedefaultdatabase) above to
+    datasource](#changing-the-default-wso2-carbon-db-datasource) above to
     the \<
-    `          PRODUCT_HOME>/repository/conf/datasources/         `
+    `          IS_HOME>/repository/conf/datasources/         `
     `          master-datasources.xml         ` file. Change its
     elements with your custom values. For instructions, see [Setting
-    up datasource configurations.](#ChangingtoRemoteH2-Settingupdatasourceconfigurations)
+    up datasource configurations.](#setting-up-datasource-configurations)
 2.  If you are setting up a separate database to store registry-related
     data, update the following configurations in the \<
-    `           PRODUCT_HOME>/repository/conf/          `
+    `           IS_HOME>/repository/conf/          `
     `           registry.xml          ` file.
 
     ``` xml
@@ -271,7 +248,7 @@ data separately.
 
 3.  If you are setting up a separate database to store user management
     data, update the following configurations in the \<
-    `           PRODUCT_HOME>/repository/conf/          `
+    `           IS_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file.
 
     ``` xml
@@ -289,12 +266,12 @@ earlier and run the following scripts in H2 shell or web console:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` java
-        <PRODUCT_HOME>/dbscripts/h2.sql
+        <IS_HOME>/dbscripts/h2.sql
     ```
 
 Follow the steps below to run the script in Web console:
 
-1.  Run the `          ./h2.sh         ` command to start the Web
+1.  Run the `         ./h2.sh         ` command to start the Web
     console.
 2.  Copy the script text from the SQL file.
 3.  Paste it into the console.
@@ -302,28 +279,27 @@ Follow the steps below to run the script in Web console:
     ![](../assets/img/53125507/53287421.png) 
 5.  Restart the server.
 
-    You can create database tables automatically **when starting the
-    product for the first time** by using the
-    `            -Dsetup           ` parameter as follows:
+    !!! info 
+        You can create database tables automatically **when starting the
+        product for the first time** by using the
+        `            -Dsetup           ` parameter as follows:
 
-    -   For Windows:
-        `              <PRODUCT_HOME>/bin/wso2server.bat -Dsetup             `
+        -   For Windows:
+            `              <IS_HOME>/bin/wso2server.bat -Dsetup             `
 
-    -   For Linux:
-        `              <PRODUCT_HOME>/bin/wso2server.sh -Dsetup             `
+        -   For Linux:
+            `              <IS_HOME>/bin/wso2server.sh -Dsetup             `
 
-    !!! warning
-        Deprecation of -DSetup
-    
-        When proper Database Administrative (DBA) practices are followed,
-        the systems (except analytics products) are not granted DDL (Data
-        Definition) rights on the schema. Therefore, maintaining the
-        `             -DSetup            ` option is redundant and typically
-        unusable. **As a result, from [January 2018
-        onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-        deprecated the** **`              -DSetup             `** **option**
-        . Note that the proper practice is for the DBA to run the DDL
-        statements manually so that the DBA can examine and optimize any DDL
-        statement (if necessary) based on the DBA best practices that are in
-        place within the organization.
+        !!! warning "Deprecation of -DSetup"
+            When proper Database Administrative (DBA) practices are followed,
+            the systems (except analytics products) are not granted DDL (Data
+            Definition) rights on the schema. Therefore, maintaining the
+            `             -DSetup            ` option is redundant and typically
+            unusable. **As a result, from [January 2018
+            onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
+            deprecated the** **`              -DSetup             `** **option**
+           . Note that the proper practice is for the DBA to run the DDL
+            statements manually so that the DBA can examine and optimize any DDL
+            statement (if necessary) based on the DBA best practices that are in
+            place within the organization.
     
