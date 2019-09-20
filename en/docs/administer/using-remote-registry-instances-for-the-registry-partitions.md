@@ -13,13 +13,15 @@ the remote registry instance.
 
 The registry space contains three major partitions as local,
 configuration and governance repositories. For more information on these
-partitions, see Working with the Registry . You can share t wo of these
+partitions, see [Working with the Registry](../../administer/working-with-the-registry). You can share two of these
 three partitions across multiple product instances in a typical
 production environment. Therefore, we identify four main deployment
-strategies for the three partitions as follows: All Partitions in a
-Single Server Config and Governance Partitions in a Remote Registry
-Governance Partition in a Remote Registry Config and Governance
-Partitions in Separate Nodes
+strategies for the three partitions as follows: 
+
+-   All Partitions in a Single Server 
+-   Config and Governance Partitions in a Remote Registry
+-   Governance Partition in a Remote Registry 
+-   Config and Governance Partitions in Separate Nodes
 
 In any of the above four sections, you can mount any WSO2 product to a
 remote WSO2 Governance Registry instance. Examples discussed here use

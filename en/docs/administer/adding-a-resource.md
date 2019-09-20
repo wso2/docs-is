@@ -13,11 +13,6 @@ Follow the instructions below to add a new child entry to a collection.
 
 The following methods are available:
 
--   **[Upload content from file](#AddingaResource-1)**
--   **[Import content from URL](#AddingaResource-2)**
--   **[Create Text content](#AddingaResource-3)**
--   **[Create custom content](#AddingaResource-4)**
-
 ![](../assets/img/53125534/53287663.png)
 
 ### Uploading Content from File
@@ -27,7 +22,7 @@ The following methods are available:
 -   File - The path of a file to fetch content (XML, WSDL, JAR etc.) Use
     the *Browse* button to upload a file.
 -   Name - The unique name of a resource.
--   Media type **-** Can add a configured media type or leave this
+-   Media type - Can add a configured media type or leave this
     unspecified to enforce the default media type.
 -   Description - The description of a resource.
 
@@ -55,10 +50,10 @@ below.
 1\. If this method was selected, specify the following options:
 
 -   Name - The unique name of a resource.
--   Media type **-** Can add a configured media type or leave this
+-   Media type - Can add a configured media type or leave this
     unspecified to enforce the default media type.
 -   Description - The description of a resource.
--   Content **-** The resource content. You can use either *Rich Text
+-   Content -The resource content. You can use either *Rich Text
     Editor* or *Plain Text Editor* to enter.
 
 2\. Click *Add* once the information is added.
@@ -68,7 +63,7 @@ below.
 ### Custom Content Creation
 
 1\. If this method was selected, choose the *Media Type* from the
-drop-down menu and click *Create Content* .
+drop-down menu and click *Create Content*.
 
 ![](../assets/img/53125534/53287662.png)
 
