@@ -7,13 +7,13 @@ Follow the instructions below to add a new child entry to a collection.
 
 1\. To add a new resource, click on the *Add Resource* link.
 
-![](../../assets/img/53125534/53287664.png)
+![](../assets/img/53125534/53287664.png)
 
 2\. In the *Add Resource* panel, select *Method* from the drop-down menu.
 
 The following methods are available:
 
-![](../../assets/img/53125534/53287663.png)
+![](../assets/img/53125534/53287663.png)
 
 ### Uploading Content from File
 
@@ -29,7 +29,7 @@ The following methods are available:
 2\. Click *Add* once the information is added as shown in the example
 below.
 
-![](../../assets/img/53125534/53287661.png)
+![](../assets/img/53125534/53287661.png)
 
 ### Importing Content from URL
 
@@ -43,7 +43,7 @@ below.
 
 2\. Click *Add* once the information is added.
 
-![](../../assets/img/53125534/53287659.png)
+![](../assets/img/53125534/53287659.png)
 
 ### Text Content Creation
 
@@ -58,14 +58,14 @@ below.
 
 2\. Click *Add* once the information is added.
 
-![](../../assets/img/53125534/53287658.png)
+![](../assets/img/53125534/53287658.png)
 
 ### Custom Content Creation
 
 1\. If this method was selected, choose the *Media Type* from the
 drop-down menu and click *Create Content*.
 
-![](../../assets/img/53125534/53287662.png)
+![](../assets/img/53125534/53287662.png)
 
 **Media Types**
 
