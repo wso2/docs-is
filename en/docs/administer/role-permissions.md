@@ -12,23 +12,23 @@ resource or a collection.
     in the system.  
     ![](../assets/img/53125537/53287669.png)
 
-    The
-    `                         wso2.anonymous.role                       `
-    is a special role that represents a user who is not logged in to the
-    management console. Granting `            Read           ` access to
-    this role means that you do not require authentication to access
-    resources using the respective Permalinks.
+    !!! info 
+        The `                         wso2.anonymous.role                       `
+        is a special role that represents a user who is not logged in to the
+        management console. Granting `            Read           ` access to
+        this role means that you do not require authentication to access
+        resources using the respective Permalinks.
 
-    The **`             everyone            `** role is a special role
-    that represents a user who is logged into the management console.
-    Granting `            Read           ` access to this role means
-    that any user who has logged into the management console with
-    sufficient permissions to access the Resource Browser can read the
-    respective resource. Granting `            Write           ` or
-    `            Delete           ` access means that any user who is
-    logged in to the management console with sufficient permissions to
-    access the Resource Browser can make changes to the respective
-    resource.
+        The **`             everyone            `** role is a special role
+        that represents a user who is logged into the management console.
+        Granting `            Read           ` access to this role means
+        that any user who has logged into the management console with
+        sufficient permissions to access the Resource Browser can read the
+        respective resource. Granting `            Write           ` or
+        `            Delete           ` access means that any user who is
+        logged in to the management console with sufficient permissions to
+        access the Resource Browser can make changes to the respective
+        resource.
 
 2.  Select one of the following actions:
 
@@ -42,24 +42,28 @@ resource or a collection.
     Permission**. For example  
     ![](../assets/img/53125537/53287670.png)
 
-    `                         Deny                       ` permissions
-    have higher priority over
-    `                         Allow                        .           `
-    That is, a `            Deny           ` permission always overrides
-    an `            Allow           ` permission assigned to a role.
-    `                       `
+    !!! info 
+        `                         Deny                       ` permissions
+        have higher priority over
+        `                         Allow                       .           `
+        That is, a `            Deny           ` permission always overrides
+        an `            Allow           ` permission assigned to a role.
+        `                       `
 
-    `            Deny           ` permission must be given at the
-    collection level. For example, to deny the write/delete action on a
-    given policy file, set Write/Delete actions for the role to
-    `            Deny           ` in
-    `            /trunk/policies           ` . If you set the
-    `            Deny           ` permission beyond the collection level
-    (e.g., / or /\_system etc.) it will not be applied for the user's
-    role.
+        `            Deny           ` permission must be given at the
+        collection level. For example, to deny the write/delete action on a
+        given policy file, set Write/Delete actions for the role to
+        `            Deny           ` in
+        `            /trunk/policies           `. If you set the
+        `            Deny           ` permission beyond the collection level
+        (e.g., / or /\_system etc.) it will not be applied for the user's
+        role.
 
 4.  The new permission appears in the list.  
-    ![](../assets/img/53125537/53287671.png) From here, you can edit the
+    
+	![](../assets/img/53125537/53287671.png)
+
+    From here, you can edit the
     permissions by selecting and clearing the check boxes. After editing
     the permissions, click **Apply All Permissions** to save the
     alterations.

@@ -3,10 +3,6 @@
 The following sections describe how to set up MariaDB to replace the
 default H2 database in your WSO2 product
 
--   [Setting up the database and
-    users](#SettingupMariaDB-Settingupthedatabaseandusers)
--   [Setting up the drivers](#SettingupMariaDB-Settingupthedrivers)
-
 ### Setting up the database and users
 
 Follow the steps given below to set up MariaDB. See [Tested
@@ -14,14 +10,15 @@ DBMSs](https://docs.wso2.com/display/compatibility/Tested+DBMSs) for
 information on the MariaDB versions that are tested with WSO2 products.
 
 1.  Download, install and start MariaDB on your computer. See
-    <https://downloads.mariadb.org/> .
+    <https://downloads.mariadb.org/>.
 
-    You can install MariaDB standalone or as a [galera
-    cluster](../assets/img/53125509/53287445.png) for high availability.
-    Database clustering is independent of WSO2 product clustering.
+    !!! info 
+        You can install MariaDB standalone or as a [galera
+        cluster](../assets/img/53125509/53287445.png) for high availability.
+        Database clustering is independent of WSO2 product clustering.
 
-    For instructions on installing MariaDB on MAC OS, go to
-    [Homebrew](http://brew.sh/).
+        For instructions on installing MariaDB on MAC OS, go to
+        [Homebrew](http://brew.sh/).
 
 2.  Log in to MariaDB as the root user (or any other user with database
     creation privileges).
@@ -32,9 +29,10 @@ information on the MariaDB versions that are tested with WSO2 products.
 
 3.  Enter the password when prompted.
 
-    In most systems, there is no default root password. Press the
-    **Enter** key without typing anything if you have not changed the
-    default root password.
+    !!! info 
+        In most systems, there is no default root password. Press the
+        **Enter** key without typing anything if you have not changed the
+        default root password.
 
 4.  In the MySQL command prompt, create the database using the following
     command:
@@ -66,11 +64,10 @@ information on the MariaDB versions that are tested with WSO2 products.
 
 Download the MySQL Java connector [JAR
 file](http://dev.mysql.com/downloads/connector/j/5.1.html), and copy it
-to the \< `         PRODUCT_HOME>/repository/components/lib/        `
+to the \< `         IS_HOME>/repository/components/lib/        `
 directory.
 
 !!! warning
-    
     **Note** that you must  use the MySQL connector that is compatible with
     your MariaDB version. For example,
     `         mysql-connector-java-5.1.36-bi        `

@@ -2,7 +2,7 @@
 
 All WSO2 products are shipped with embedded H2 databases for storing
 data. These default databases are located in the
-`         <PRODUCT_HOME>/repository/database        ` directory of the
+`         <IS_HOME>/repository/database        ` directory of the
 product pack.
 
 ### Default databases
@@ -38,12 +38,12 @@ i.e., identity-related and storage-related data.
 WSO2 products are shipped with scripts for creating the required tables
 in all the required databases: The scripts for creating tables for user
 management and registry data are stored in the
-`         <PRODUCT_HOME>/dbscripts        ` folder. If product-specific
+`         <IS_HOME>/dbscripts        ` folder. If product-specific
 databases are required, and if features of [WSO2 Identity
 Server](http://wso2.com/products/identity-server/) or [WSO2 Enterprise
 Store (ES)](http://wso2.com/products/enterprise-store/) are used in the
 product, there will be subfolders in the
-`         <PRODUCT_HOME>/dbscripts        ` directory with separate
+`         <IS_HOME>/dbscripts        ` directory with separate
 scripts.
 
 **Changing the default Carbon database:** You simply have to set up new
@@ -52,13 +52,8 @@ updating the relevant configuration files, and create the required
 tables using the scripts provided in the product pack. See the following
 topics for instructions:
 
--   [Setting up the Physical
-    Database](../../administer/setting-up-the-physical-database)
--   [Changing the Carbon Database](../../administer/changing-the-carbon-database)
--   [Browsing the H2 Database](../../administer/browsing-the-h2-database)
-
 **Changing the default product-specific databases:** The process of
 setting up and configuring product-specific databases is similar to
-changing the default Carbon database . However, depending on the
+changing the default Carbon database. However, depending on the
 product, there may be additional configuration files to update. See the
 documentation for the respective product for instructions.

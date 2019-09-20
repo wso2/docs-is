@@ -3,11 +3,6 @@
 The following sections describe how to set up an Oracle database to
 replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and
-    users](#SettingupOracle-Settingupthedatabaseandusers)
--   [Setting up the JDBC
-    driver](#SettingupOracle-SettinguptheJDBCdriver)
-
 ### Setting up the database and users
 
 Follow the steps below to set up an Oracle database.
@@ -21,19 +16,19 @@ Follow the steps below to set up an Oracle database.
     addresses of the databases for establishing connections to the newly
     created database.
 
-3.  After configuring the `           .ora          ` files, start the
+3.  After configuring the `          .ora          ` files, start the
     Oracle instance using the following command:
 
         $ sudo /etc/init.d/oracle-xe restart
 
 4.  Connect to Oracle using SQL\*Plus as SYSDBA as follows:
 
-    `           $ ./$<ORACLE_HOME>/config/scripts/sqlplus.sh sysadm/password as SYSDBA          `
+    `           $./$<ORACLE_HOME>/config/scripts/sqlplus.sh sysadm/password as SYSDBA          `
 
 5.  Connect to the instance with the username and password using the
     following command:
 
-        $ connect
+     `   $ connect`
 
 6.  As SYSDBA, create a database user and grant privileges to the user
     as shown below:
@@ -53,22 +48,22 @@ Follow the steps below to set up an Oracle database.
 
 1.  Copy the Oracle JDBC libraries (for example, \<
     `          ORACLE_HOME/jdbc/lib/ojdbc14.jar)         ` to the \<
-    `          PRODUCT_HOME>/repository/components/lib/         `
+    `          IS_HOME>/repository/components/lib/         `
     directory.
 2.  Remove the old database driver from the
-    `          <PRODUCT_HOME>/repository/components/dropins/         `
-    directory.
+    `          <IS_HOME>/repository/components/dropins/         ` directory.
 
-If you get a "
-`                     timezone region not found"                   `
-error when using the `          ojdbc6.jar         ` file with WSO2
-servers, set the Java property as follows:
-`          export JAVA_OPTS="-Duser.timezone='+05:30'"         `
+!!! info 
+        If you get a "
+        `                     timezone region not found"                   `
+        error when using the `          ojdbc6.jar         ` file with WSO2
+        servers, set the Java property as follows:
+        `          export JAVA_OPTS="-Duser.timezone='+05:30'"         `
 
-The value of this property should be the GMT difference of the country.
-If it is necessary to set this property permanently, define it inside
-the `          wso2server.sh         ` as a new
-`          JAVA_OPT         ` property.
+        The value of this property should be the GMT difference of the country.
+        If it is necessary to set this property permanently, define it inside
+        the `          wso2server.sh         ` as a new
+        `          JAVA_OPT         ` property.
 
 ## What's next
 
