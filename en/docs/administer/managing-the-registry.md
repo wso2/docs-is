@@ -9,7 +9,7 @@
     navigated to its detail view. For example,  
     ![](../assets/img/53125530/53287632.png)   
     It gives the following four main components:
-    -   [Metadata](Metadata)
-    -   [Properties](Properties)
-    -   [Entries and Content](../../administer/entries-and-content)
-    -   [Role Permissions](../../administer/role-permissions)
+    -   Metadata
+    -   Properties
+    -   Entries and Content
+    -   Role Permissions

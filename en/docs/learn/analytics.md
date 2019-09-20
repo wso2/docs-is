@@ -21,3 +21,11 @@ the following:
 
     A session is the time duration between a successful log on and the
     subsequent log off by a specific user.
+    
+    For more information on how to work with WSO2 Identity Server Analytics,	
+    explore the following topics:	
+    
+    -   [Prerequisites to Publish Statistics](../../learn/prerequisites-to-publish-statistics)	
+    -   [Analyzing the Authentication Operations](../../learn/analyzing-the-authentication-operations)	
+    -   [Monitoring the Authentication Operations with Alerts](../../learn/monitoring-the-authentication-operations-with-alerts)	
+    -   [Purging Analytics Data](../../learn/purging-analytics-data)

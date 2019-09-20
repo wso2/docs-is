@@ -9,7 +9,6 @@ example,
 
 The **Info** and **Actions** links in the **Entries** panel provide the
 following information:
-
 <table>
 <thead>
 <tr class="header">
@@ -20,15 +19,15 @@ following information:
 <tbody>
 <tr class="odd">
 <td><strong>Add Collection</strong></td>
-<td>See <a href="#EntriesandContent-Addingchildcollections">Adding child collections</a> .</td>
+<td>See <a href="#adding-child-collections">Adding child collections</a>.</td>
 </tr>
 <tr class="even">
 <td><strong>Add Resource</strong></td>
-<td>See <a href="#EntriesandContent-Addingresourcestoacollection">Adding</a> and <a href="#EntriesandContent-Editingresources">Editing</a> resources.</td>
+<td>See <a href="#adding-resources-to-a-collection">Adding</a> and <a href="#editing-resources">Editing</a> resources.</td>
 </tr>
 <tr class="odd">
 <td><strong>Create Link</strong></td>
-<td>See <a href="https://docs.wso2.com/display/DSS311/Entries+and+Content#EntriesandContent-Addinglinks">Entries and Content#Adding links</a> .</td>
+<td>See <a href="#adding-links">Entries and Content#Adding links</a>.</td>
 </tr>
 <tr class="even">
 <td><strong>Info</strong><br />
@@ -46,9 +45,9 @@ following information:
 <p>Initially, the system contains media types defined in <code>                 mime.types                </code> file. They are available for resources and a set of default media types is available for collections.<br />
 </p>
 <div>
-<p>Human-readable media types have shorter names in place of MIME names (for example, <code>                  WSDL                 </code> is used instead of application/wsdl+xml). This is achieved by introducing a new file as <code>                                     &lt;PRODUCT_HOME&gt;/repository/conf/mime.mappings                                   </code> . For more information, see <a href="https://docs.wso2.com/display/Governance460/Configuring+Registry+Files">Configuring Registry Files</a> section in WSO2 Governance Registry documentation.</p>
+<p>Human-readable media types have shorter names in place of MIME names (for example, <code>                  WSDL                 </code> is used instead of application/wsdl+xml). This is achieved by introducing a new file as <code>                                     &lt;IS_HOME&gt;/repository/conf/mime.mappings                                   </code>. For more information, see <a href="https://docs.wso2.com/display/Governance460/Configuring+Registry+Files">Configuring Registry Files</a> section in WSO2 Governance Registry documentation.</p>
 </div>
-<p>You can manage media types for resources by editing the properties of <code>                 /system/mime.types/index                </code> collection. This collection contains two resources: collection and <code>                 custom.ui                </code> . To manage media types of collections and custom user interfaces, edit the properties of these two resources.</p></li>
+<p>You can manage media types for resources by editing the properties of <code>                 /system/mime.types/index                </code> collection. This collection contains two resources: collection and <code>                 custom.ui                </code>. To manage media types of collections and custom user interfaces, edit the properties of these two resources.</p></li>
 </ul>
 </div></td>
 </tr>
@@ -56,9 +55,9 @@ following information:
 <td><strong>Actions</strong></td>
 <td><div class="content-wrapper">
 <p>Allows you to <strong>rename, move, copy or delete</strong> a resource/child collection.<br />
-<img src="../../assets/img/33128918/33325827.png" width="700" /></p>
+<img src="../assets/img/33128918/33325827.png"></p>
 <div>
-<p>You cannot move/copy resources and collections across registry mounts if they have dependencies or associations. You can only move/copy within a mount. For more information on mounts, read WSO2 Governance Registry documentation: <a href="http://docs.wso2.org/display/Governance460/Remote+Instance+and+Mount+Configuration+Details">Remote Instance and Mount Configuration Details</a> .</p>
+<p>You cannot move/copy resources and collections across registry mounts if they have dependencies or associations. You can only move/copy within a mount. For more information on mounts, read WSO2 Governance Registry documentation: <a href="http://docs.wso2.org/display/Governance460/Remote+Instance+and+Mount+Configuration+Details">Remote Instance and Mount Configuration Details</a>.</p>
 </div>
 <div>
 <p>These options are not available for all resources/collections.</p>
@@ -68,12 +67,6 @@ following information:
 </tbody>
 </table>
 
--   [Adding child
-    collections](#EntriesandContent-Addingchildcollections)
--   [Adding resources to a
-    collection](#EntriesandContent-Addingresourcestoacollection)
--   [Editing resources](#EntriesandContent-Editingresources)
--   [Adding links](#EntriesandContent-Addinglinks)
 
 ### Adding child collections
 
@@ -82,7 +75,10 @@ as shown below:
 
 1.  Select a collection. You can see the Entries panel with details of
     child collections and resources it has.
-2.  Click **Add Collection**. ![](../assets/img/22185138/22514113.png)
+2.  Click **Add Collection**. 
+
+![](../assets/img/22185138/22514113.png)
+
 3.  Specify the following options:  
     -   A unique name for the collection and a description
     -   Select a media type from the drop-down menu
@@ -98,17 +94,7 @@ resources as follows:
 2.  In the Entries panel, click **Add Resource**.
     ![](../assets/img/22185139/22514115.png)
 3.  In the Add Resource page that opens, select one of the following
-    methods **:**
-
-    -   [Uploading content from
-        file](#EntriesandContent-Uploadingcontentfromfile)
-    -   [Importing content from
-        URL](#EntriesandContent-ImportingcontentfromURL)
-    -   [Creating text content](#EntriesandContent-Creatingtextcontent)
-    -   [Creating custom
-        content](#EntriesandContent-Creatingcustomcontent)
-
-      
+    methods.
 
     #### Uploading content from file
 
@@ -131,10 +117,11 @@ resources as follows:
 
     ![](../assets/img/22185139/22514118.png) 
 
-    You can add external links (hyperlinks) as resources in the
-    registry. To add such a link, create a text resource with the media
-    type `            application/vnd.wso2-hyperlink           ` and
-    specify the URL as the resource's content.
+    !!! info 
+        You can add external links (hyperlinks) as resources in the
+        registry. To add such a link, create a text resource with the media
+        type `            application/vnd.wso2-hyperlink           ` and
+        specify the URL as the resource's content.
 
     #### Creating custom content
 
@@ -169,18 +156,19 @@ follows:
 -   **Upload** : Allows to upload a file to the resource. The existing
     content of the resource will be replaced by the you upload.
 
-    !!! note **NOTE** : Be sure to upload a file of the same type as the
+    !!! note
+        Be sure to upload a file of the same type as the
         existing resource, in order to avoid corrupting the resource. For
         resources such as WSDLs or Schemas, **do not** upload modifications
 
 -   **Download** : Allows to download a resource from its host to a file
-    in a specified location. **  
-    **
+    in a specified location. 
 
-    If a Security Warning appears when you try to download a resource,
-    click **Save** to start downloading.
+    !!! info 
+        If a Security Warning appears when you try to download a resource,
+        click **Save** to start downloading.
 
-    ![](../assets/img/22185137/22514091.png)
+        ![](../assets/img/22185137/22514091.png)
 
 ### Adding links
 
@@ -207,7 +195,9 @@ in the collection.
 1.  Symbolic links and Remote links can be created in a similar way to
     adding a normal resource. To add a link, click "Create Link" in the
     "Entries" panel.  
+
     ![](../assets/img/22185140/22514132.png)
+
 2.  From the drop-down menu, select a symbolic or a remote link to
     add:  
 
