@@ -7,7 +7,7 @@ as described in the following sections:
 
 Install JDK and set up the `         JAVA_HOME        ` environment
 variable. For more information, see
-[Installation Prerequisites](Installation_Prerequisites).
+[Installation Prerequisites](../../setup/installation-prerequisites).
 
 #### Setting up CARBON_HOME
 
