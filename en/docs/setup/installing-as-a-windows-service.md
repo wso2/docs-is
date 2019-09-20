@@ -46,7 +46,7 @@ configuration for running a WSO2 product as a Windows Service.
         If you wish to set additional properties from an external registry
         at runtime, store sensitive information like usernames and passwords
         for connecting to the registry in a properties file, and secure it
-        with [secure vault](../../admin-guide/carbon-secure-vault-implementation).
+        with [secure vault](../../administer/carbon-secure-vault-implementation).
 
     ```bash tab="Minimal wrapper.conf configuration"
     #********************************************************************

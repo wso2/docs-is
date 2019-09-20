@@ -9,8 +9,8 @@ This page contains the following information:
 -   [Getting Started with the Management
     Console](../../setup/getting-started-with-the-management-console)
 -   [Customizing the Management
-    Console](Customizing_the_Management_Console)
+    Console](../../setup/customizing-the-management-console)
 -   [Shutting Down and Restarting the
-    Server](Shutting_Down_and_Restarting_the_Server)
+    Server](../../setup/shutting-down-and-restarting-the-server)
 
   

@@ -3,19 +3,13 @@
 WSO2 Carbon and any Carbon-based product can be run as a Linux service
 as described in the following sections:
 
--   [Prerequisites](#InstallingasaLinuxService-Prerequisites)
--   [Setting up
-    CARBON\_HOME](#InstallingasaLinuxService-SettingupCARBON_HOME)
--   [Running the product as a Linux
-    service](#InstallingasaLinuxService-RunningtheproductasaLinuxservice)
-
 #### Prerequisites
 
 Install JDK and set up the `         JAVA_HOME        ` environment
 variable. For more information, see
 [Installation Prerequisites](Installation_Prerequisites).
 
-#### Setting up CARBON\_HOME
+#### Setting up CARBON_HOME
 
 Extract the WSO2 product that you want to run as a Linux service and set
 the environment variable `         CARBON_HOME        ` to the extracted
@@ -50,38 +44,38 @@ product directory location.
     Identity Server 5.4.0:
 
     ``` java
-        #! /bin/sh
-        ### BEGIN INIT INFO
-        # Provides:          wso2is
-        # Required-Start:    $all
-        # Required-Stop:
-        # Default-Start:     2 3 4 5
-        # Default-Stop:
-        # Short-Description: starts the wso2 identity server
-        ### END INIT INFO
-        export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_141"
-    
-        startcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh start > /dev/null &'
-        restartcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh restart > /dev/null &'
-        stopcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh stop > /dev/null &'
-    
-        case "$1" in
-        start)
-           echo "Starting WSO2 Identity Server ..."
-           su -c "${startcmd}" user1
-        ;;
-        restart)
-           echo "Re-starting WSO2 Identity Server ..."
-           su -c "${restartcmd}" user1
-        ;;
-        stop)
-           echo "Stopping WSO2 Identity Server ..."
-           su -c "${stopcmd}" user1
-        ;;
-        *)
-           echo "Usage: $0 {start|stop|restart}"
-        exit 1
-        esac
+    #! /bin/sh
+    ### BEGIN INIT INFO
+    # Provides:          wso2is
+    # Required-Start:    $all
+    # Required-Stop:
+    # Default-Start:     2 3 4 5
+    # Default-Stop:
+    # Short-Description: starts the wso2 identity server
+    ### END INIT INFO
+    export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_141"
+
+    startcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh start > /dev/null &'
+    restartcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh restart > /dev/null &'
+    stopcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh stop > /dev/null &'
+
+    case "$1" in
+    start)
+       echo "Starting WSO2 Identity Server ..."
+       su -c "${startcmd}" user1
+    ;;
+    restart)
+       echo "Re-starting WSO2 Identity Server ..."
+       su -c "${restartcmd}" user1
+    ;;
+    stop)
+       echo "Stopping WSO2 Identity Server ..."
+       su -c "${stopcmd}" user1
+    ;;
+    *)
+       echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    esac
     ```
 
     In the above script, the server is started as a user by the name
@@ -109,7 +103,7 @@ product directory location.
     command for the sample script shown in step1:
 
     ``` java
-        sudo update-rc.d identityserver  defaults 
+    sudo update-rc.d identityserver  defaults 
     ```
 
       
