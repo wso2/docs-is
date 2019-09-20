@@ -43,7 +43,7 @@ reCaptcha for a specific tenant.
 6.  Select the **Enable reCaptcha for Username Recovery** checkbox to
     enable reCaptcha for the username recovery flow.
 
-    ![enable-recaptcha](../../assets/img/using-wso2-identity-server/enable-recaptcha.png)
+    ![enable-recaptcha](../assets/img/using-wso2-identity-server/enable-recaptcha.png)
 
 7.  You have now successfully configured reCaptcha for the username
     recovery flow. Start the WSO2 Identity Server and log into the end
@@ -57,13 +57,13 @@ reCaptcha for a specific tenant.
 
 8.  Click on **Forgot Username**.
 
-![forgot-username](../../assets/img/using-wso2-identity-server/forgot-username.png)
+![forgot-username](../assets/img/using-wso2-identity-server/forgot-username.png)
 
   
 
 Enter the domain name in the page that appears next.
 
-![tenant-domain-name](../../assets/img/using-wso2-identity-server/tenant-domain-name.png)
+![tenant-domain-name](../assets/img/using-wso2-identity-server/tenant-domain-name.png)
 
   
 
@@ -72,7 +72,7 @@ following page where you can select the recaptcha option for username
 recovery.
 
 
-![proceed-to-username-recovery](../../assets/img/using-wso2-identity-server/proceed-to-username-recovery.png)
+![proceed-to-username-recovery](../assets/img/using-wso2-identity-server/proceed-to-username-recovery.png)
 
 ### Configuring username recovery with reCaptcha globally
 
@@ -124,14 +124,14 @@ reCaptcha globally.
 
 4.  Click the Forgot Username link.
 
-![forgot-username-link](../../assets/img/using-wso2-identity-server/forgot-username-link.png)
+![forgot-username-link](../assets/img/using-wso2-identity-server/forgot-username-link.png)
 
   
 
 Clicking on **Forgot Username** redirects you to the following page
 where you can select the recaptcha option for username recovery.
 
-![recaptcha-for-username-recovery](../../assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)
+![recaptcha-for-username-recovery](../assets/img/using-wso2-identity-server/recaptcha-for-username-recovery.png)
 
   
   

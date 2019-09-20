@@ -434,4 +434,4 @@ description of the values it contains.
 | SESSION\_OBJECT | The session object               |
 | TIME\_CREATED   | The time of the session creation |
 
-![Identity related tables]( ../../assets/img/using-wso2-identity-server/identity-related-tables.png)
+![Identity related tables]( ../assets/img/using-wso2-identity-server/identity-related-tables.png)

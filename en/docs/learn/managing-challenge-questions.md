@@ -29,11 +29,11 @@ instructions to set up.
     | Challenge Question Locale | This dropdown field enables you to select the language the challenge question will appear in.                                            | Spanish         |
     | Add Challenge Question    | Add the first challenge question of the set.                                                                                             | Place of birth? |
 
-    ![new-challenge-question-set](../../assets/img/using-wso2-identity-server/new-challenge-question-set.png)
+    ![new-challenge-question-set](../assets/img/using-wso2-identity-server/new-challenge-question-set.png)
 
 4.  Click **Add** and you will be redirected to the following screen,
     which displays the newly added question set.  
-    ![add-new-questions](../../assets/img/using-wso2-identity-server/add-new-questions.png)
+    ![add-new-questions](../assets/img/using-wso2-identity-server/add-new-questions.png)
 
 #### Claim mapping for the challenge question set
 
@@ -63,7 +63,7 @@ below.
     -   **Mapped Attribute-User Store Domain Name:** PRIMARY
     -   **Mapped Attribute-Mapped Attribute:** location
 
-    ![adding-local-claim](../../assets/img/using-wso2-identity-server/adding-local-claim.png)
+    ![adding-local-claim](../assets/img/using-wso2-identity-server/adding-local-claim.png)
 
 ### Adding a challenge question
 
@@ -79,7 +79,7 @@ below.
     | Challenge Question Locale        | Select the language that the challenge question is in using the dropdown.                                                                    | English                     |
     | Add Challenge Question           | The challenge question.                                                                                                                      | Favourite food?             |
 
-    ![challenge-question-details](../../assets/img/using-wso2-identity-server/challenge-question-details.png)
+    ![challenge-question-details](../assets/img/using-wso2-identity-server/challenge-question-details.png)
 
 3.  Click **Add** to add the challenge questions
 
@@ -100,11 +100,11 @@ follow the steps below.
     **Challenge Question Locale** as **French**.
 5.  Enter the Q1 challenge question in French, click **Add**, and click
     **Finish**.  
-    ![q1-challenge-question](../../assets/img/using-wso2-identity-server/q1-challenge-question.png)
+    ![q1-challenge-question](../assets/img/using-wso2-identity-server/q1-challenge-question.png)
 6.  Click on the **Edit** button corresponding to the relevant set (
     http://wso2.org/claims/Set1). You will see Q1 listed twice in the
     two different languages as seen below.  
-    ![q1-in-different-languages](../../assets/img/using-wso2-identity-server/q1-in-different-languages.png)
+    ![q1-in-different-languages](../assets/img/using-wso2-identity-server/q1-in-different-languages.png)
 7.  Click **Finish**.
 8.  Click on **List** under **Claims** and select
     <http://wso2.org/claims.>
@@ -116,7 +116,7 @@ follow the steps below.
     **Users**.
 12. Click on the **User Profile** button corresponding to the logged in
     user.  
-    ![click-on-user-profile](../../assets/img/using-wso2-identity-server/click-on-user-profile.png)
+    ![click-on-user-profile](../assets/img/using-wso2-identity-server/click-on-user-profile.png)
 13. Enter the language code as **fr\_fr** to set language as French for
     the **Locality** field and click **Update**.
 
@@ -128,7 +128,7 @@ follow the steps below.
     in the user profile appears (in this example, only the French question
     will appear).  
     Example:  
-    ![verify-locale-question](../../assets/img/using-wso2-identity-server/verify-locale-question.png) 
+    ![verify-locale-question](../assets/img/using-wso2-identity-server/verify-locale-question.png) 
 
 ### Editing/updating a challenge question
 
@@ -141,7 +141,7 @@ follow the steps below.
 4.  The field will turn yellow. Edit the question and click **Update**
     to save changes.
 5.  Click **Finish**.  
-    ![update-question](../../assets/img/using-wso2-identity-server/update-question.png) 
+    ![update-question](../assets/img/using-wso2-identity-server/update-question.png) 
 
 ### Making challenge questions mandatory
 

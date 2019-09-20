@@ -30,9 +30,9 @@ Follow the steps provided below to configure this.
     -   Select the reCAPTCHA V2 or Invisible reCAPTCHA option.
     -   **Domains:** is.wso2.com  
 
-    ![configuring-recaptcha-api-keys](../../assets/img/using-wso2-identity-server/configuring-recaptcha-api-keys.png) 
+    ![configuring-recaptcha-api-keys](../assets/img/using-wso2-identity-server/configuring-recaptcha-api-keys.png) 
 3.  Take note of the site key and secret that you receive.
-    ![note-site-key-secret](../../assets/img/using-wso2-identity-server/note-site-key-secret.png) 
+    ![note-site-key-secret](../assets/img/using-wso2-identity-server/note-site-key-secret.png) 
 4.  Open the `deployment.toml           ` file located in the `            <IS_HOME>/repository/conf/         `
     directory and add the following configurations.
 

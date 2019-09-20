@@ -142,7 +142,7 @@ met.
 The configuration manager exposed with the configuration management REST
 APIs manages configurations as **Resources**.
 
-![]( ../../assets/img/119111748/119111749.png)
+![]( ../assets/img/119111748/119111749.png)
 
   
 

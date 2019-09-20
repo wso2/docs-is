@@ -19,7 +19,7 @@ logs:
 
 3.  You can see a drop-down list from which a deployed web services or a
     web applications can be selected to view its log files.  
-    ![Application logs](../../assets/img/using-wso2-identity-server/application-logs.png)
+    ![Application logs](../assets/img/using-wso2-identity-server/application-logs.png)
 4.  In the **View** list, select the category of logs you want to view.
     The available categories are:  
 
@@ -33,10 +33,10 @@ logs:
 
     For Example,
 
-    ![Log category](../../assets/img/using-wso2-identity-server/log-category.png)
+    ![Log category](../assets/img/using-wso2-identity-server/log-category.png)
 
 5.  You can also find a certain log using the search function. Enter a
     keyword (or part of a keyword) and click **Search**. When a search
     criterion is given, the value in the **View** field is displayed as
     **Custom**. For example,  
-    ![Search application logs](../../assets/img/using-wso2-identity-server/search-application-logs.png) 
+    ![Search application logs](../assets/img/using-wso2-identity-server/search-application-logs.png) 

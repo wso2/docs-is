@@ -60,12 +60,12 @@ To navigate to the outbound provisioning section, do the following.
           </tbody>
     </table>
 
-    ![basic-information](../../assets/img/using-wso2-identity-server/basic-information.png)
+    ![basic-information](../assets/img/using-wso2-identity-server/basic-information.png)
 
 You can configure outbound provisioning connectors by expanding the
 relevant section.
 
-![outbound-provisioning-connectors](../../assets/img/using-wso2-identity-server/outbound-provisioning-connectors.png)
+![outbound-provisioning-connectors](../assets/img/using-wso2-identity-server/outbound-provisioning-connectors.png)
 
 In addition to this, you can also create [custom
 connectors](../../develop/writing-an-outbound-provisioning-connector) that are added
@@ -150,7 +150,7 @@ If there are multiple identity providers configured for same Google domain.</p><
 </tbody>
 </table>
 
-![google-provisioning](../../assets/img/using-wso2-identity-server/google-provisioning.png) 
+![google-provisioning](../assets/img/using-wso2-identity-server/google-provisioning.png) 
 
 ####  Configuring Salesforce provisioning
 
@@ -160,7 +160,7 @@ Salesforce](../../learn/outbound-provisioning-with-salesforce) for more
 information on how this is configured from end to end.
 
 1.  Expand the **Salesforce Provisioning Configuration** form.  
-    ![salesforce-provisioning](../../assets/img/using-wso2-identity-server/salesforce-provisioning.png) 
+    ![salesforce-provisioning](../assets/img/using-wso2-identity-server/salesforce-provisioning.png) 
 2.  Fill in the following fields where relevant.
 
     <table>
@@ -274,7 +274,7 @@ provisioning requests to an external application that supports SCIM. See
 more information on how this works in a typical scenario.
 
 1.  Expand the **SCIM Provisioning Configuration** form.  
-    ![scim-provisioning](../../assets/img/using-wso2-identity-server/scim-provisioning.png)   
+    ![scim-provisioning](../assets/img/using-wso2-identity-server/scim-provisioning.png)   
     Fill in the following fields where relevant.
 
     | Field                        | Description                                                                                                                                                                                                                                                                                               | Sample value                            |
@@ -303,7 +303,7 @@ provisioning requests to an external application that supports SPML. See
 more information on how this works in a typical scenario.
 
 1.  Expand the **SPML Provisioning Configuration** form.  
-    ![spml-provisioning](../../assets/img/using-wso2-identity-server/spml-provisioning.png) 
+    ![spml-provisioning](../assets/img/using-wso2-identity-server/spml-provisioning.png) 
 2.  Fill in the following fields where relevant.
 
     | Field            | Description                                                                                                                                 | Sample value                        |

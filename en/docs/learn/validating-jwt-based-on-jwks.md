@@ -23,7 +23,7 @@ allows smooth key rollover and integration.
 Following sequence diagram illustrates the scenario where a JWT obtained
 from a third party IDP is validated using the JWKS Based JWT Validator.
 
-![jwks-validation-flow]( ../../assets/img/using-wso2-identity-server/jwks-validation-flow.png) 
+![jwks-validation-flow]( ../assets/img/using-wso2-identity-server/jwks-validation-flow.png) 
 
 The steps of the above diagram are explained below:
 
@@ -123,7 +123,7 @@ Now we need to configure JWKS IdP with as an Identity Provider in IS.
                 the jwks\_uri of the Identity Provider. e.g.,
                 [https://exampleidp.com/oauth2/default/v1/keys](https://dev-838836.oktapreview.com/oauth2/default/v1/keys)
 
-    ![add-jwt-idp]( ../../assets/img/using-wso2-identity-server/add-jwt-idp.png) 
+    ![add-jwt-idp]( ../assets/img/using-wso2-identity-server/add-jwt-idp.png) 
 
 3.  Click **Register** to save the details.
 

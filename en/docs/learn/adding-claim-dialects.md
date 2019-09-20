@@ -21,12 +21,12 @@ dialect.
         `                                                      http://schema.openid.net/2007/05/claims                                                  `
         ).
 
-    ![unique-uri](../../assets/img/using-wso2-identity-server/unique-uri.png)
+    ![unique-uri](../assets/img/using-wso2-identity-server/unique-uri.png)
 
 4.  Click on the **Add** button. The claim dialect you added will appear
     on the list as follows.
 
-    ![claim-dialect](../../assets/img/using-wso2-identity-server/claim-dialect.png)
+    ![claim-dialect](../assets/img/using-wso2-identity-server/claim-dialect.png)
 
 ### Using the configuration file
 

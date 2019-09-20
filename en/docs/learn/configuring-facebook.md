@@ -39,7 +39,7 @@ Identity Server.
     Console, click **Add** under **Identity Providers**.
     
 3.  Give a suitable name as the **Identity Provider Name**.  
-    ![identity-provider-name](../../assets/img/tutorials/identity-provider-name.png)
+    ![identity-provider-name](../assets/img/tutorials/identity-provider-name.png)
     
 4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -97,7 +97,7 @@ Identity Server.
     </tbody>
     </table>
 
-    ![facebook-configuration](../../assets/img/tutorials/facebook-configuration.png)
+    ![facebook-configuration](../assets/img/tutorials/facebook-configuration.png)
 
 6.  Select both checkboxes to **Enable Facebook Authenticator** and make
     it the **Default**.

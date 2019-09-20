@@ -101,7 +101,7 @@ with email notification.
     API](https://docs.wso2.com/display/IS580/apidocs/account-recovery/#configuring-rest-api)
     .
 
-    ![notification-based-password-recovery](../../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
+    ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
     
     !!! info 
         To enable password recovery with reCaptcha verification, select the
@@ -141,10 +141,10 @@ with email notification.
         1.  Navigate to <https://myaccount.google.com/security>.
         2.  Click **Signing in to Google** on the left menu and make sure that
                 the **2-step Verification** is disabled or off.  
-                ![disable-two-step-verification](../../assets/img/using-wso2-identity-server/disable-two-step-verification.png) 
+                ![disable-two-step-verification](../assets/img/using-wso2-identity-server/disable-two-step-verification.png) 
         3.  Click **Connected apps and sites** on the left menu and enable
                 **Allow less secure apps**.  
-                ![allow-less-secure-apps](../../assets/img/using-wso2-identity-server/allow-less-secure-apps.png) 
+                ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png) 
         
 
 ### Try out recovery using notification
@@ -160,7 +160,7 @@ with email notification.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Emai** l. Click
     **Submit**.  
-    ![recover-with-email](../../assets/img/using-wso2-identity-server/recover-with-email.png) 
+    ![recover-with-email](../assets/img/using-wso2-identity-server/recover-with-email.png) 
 
     !!! note
     
@@ -168,14 +168,14 @@ with email notification.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![recaptcha-verification](../../assets/img/using-wso2-identity-server/recaptcha-verification.png) 
+        ![recaptcha-verification](../assets/img/using-wso2-identity-server/recaptcha-verification.png) 
     
 
 6.  An email notification is sent to the user's email address. Click on
     the **Reset Password** button given on the email.  
-    ![notification-to-reset-password](../../assets/img/using-wso2-identity-server/notification-to-reset-password.png) 
+    ![notification-to-reset-password](../assets/img/using-wso2-identity-server/notification-to-reset-password.png) 
 7.  Enter a new password and click **Submit**.  
-    ![submit-with-new-password](../../assets/img/using-wso2-identity-server/submit-with-new-password.png) 
+    ![submit-with-new-password](../assets/img/using-wso2-identity-server/submit-with-new-password.png) 
 
 !!! tip
     
@@ -215,7 +215,7 @@ feature. To do this, do the following.
         For more information, see Configuring reCaptcha for Password
         Recovery.
     
-        ![enable-recaptch-for-password-recovery](../../assets/img/using-wso2-identity-server/enable-recaptch-for-password-recovery.png) 
+        ![enable-recaptch-for-password-recovery](../assets/img/using-wso2-identity-server/enable-recaptch-for-password-recovery.png) 
     
 
 You can set up challenge questions for users in one of the following
@@ -236,7 +236,7 @@ To try this out, first create a user in the Identity Server.
 2.  Click **Users**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New User**.  
-    ![add-new-user](../../assets/img/using-wso2-identity-server/add-new-user.png) 
+    ![add-new-user](../assets/img/using-wso2-identity-server/add-new-user.png) 
 
 4.  Log out of the Identity Server.
 5.  The URL for accessing dashboard is the following if the hostname is
@@ -244,18 +244,18 @@ To try this out, first create a user in the Identity Server.
     <https://localhost:9443/dashboard/> . Click this link to access the
     dashboard and log in using the credentials of the user you just
     created.  
-    ![enter-using-credentials](../../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
+    ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
 6.  Click the **View Details** button under the **Account Recovery**
     section in the end user dashboard.  
-    ![view-details-account-recovery](../../assets/img/using-wso2-identity-server/view-details-account-recovery.png) 
+    ![view-details-account-recovery](../assets/img/using-wso2-identity-server/view-details-account-recovery.png) 
 7.  Set challenge questions for the user account. There are two sets of
     challenge questions by default. You can pick one question for each
     set and give an answer for the question.  
-    ![answer-challenge-questions](../../assets/img/using-wso2-identity-server/answer-challenge-questions.png)   
+    ![answer-challenge-questions](../assets/img/using-wso2-identity-server/answer-challenge-questions.png)   
 8.  Click **Update**.
 9.  Sign out of the dashboard and click **Forgot Password** on the login
     screen.  
-    ![choose-forgot-password](../../assets/img/using-wso2-identity-server/choose-forgot-password.png) 
+    ![choose-forgot-password](../assets/img/using-wso2-identity-server/choose-forgot-password.png) 
 10. Enter the username and select **Recover with Security Questions**.
     Click **Submit**.
 
@@ -270,7 +270,7 @@ To try this out, first create a user in the Identity Server.
         [foo.com](http://foo.com) @ [bar.com](http://bar.com) ".
     
 
-    ![recover-with-security-questions](../../assets/img/using-wso2-identity-server/recover-with-security-questions.png) 
+    ![recover-with-security-questions](../assets/img/using-wso2-identity-server/recover-with-security-questions.png) 
 
     !!! note
     
@@ -278,21 +278,21 @@ To try this out, first create a user in the Identity Server.
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
     
-        ![password-recovery-recaptcha-verification](../../assets/img/using-wso2-identity-server/password-recovery-recaptcha-verification.png)   
+        ![password-recovery-recaptcha-verification](../assets/img/using-wso2-identity-server/password-recovery-recaptcha-verification.png)   
     
 
       
 
 11. Enter the answers to the challenge questions and click **Submit**
     .  
-    ![submit-answers](../../assets/img/using-wso2-identity-server/submit-answers.png) 
+    ![submit-answers](../assets/img/using-wso2-identity-server/submit-answers.png) 
 
 12. Enter a new password and click **Submit**. You will receive a
     notification of successful password reset.  
 
-![enter-new-password](../../assets/img/using-wso2-identity-server/enter-new-password.png) 
+![enter-new-password](../assets/img/using-wso2-identity-server/enter-new-password.png) 
 
-![successful-password-reset](../../assets/img/using-wso2-identity-server/successful-password-reset.png) 
+![successful-password-reset](../assets/img/using-wso2-identity-server/successful-password-reset.png) 
 
 !!! tip
     

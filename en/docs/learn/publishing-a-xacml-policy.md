@@ -30,7 +30,7 @@ instructions in this topic.
     Click **Policy Administration** under **PAP**.
 3.  The policies that you created are listed in the **Available
     Entitlement Policies** table.  
-    ![available-entitlement-policies](../../assets/img/tutorials/available-entitlement-policies.png)
+    ![available-entitlement-policies](../assets/img/tutorials/available-entitlement-policies.png)
 4.  You can publish policies using one of the following options.  
     1.  Click **Publish to My PDP** next to the policy you wish to
         publish - *This will publish the specific policy to PDP.*
@@ -42,7 +42,7 @@ instructions in this topic.
         Entitlement Policy" to the PDP*.
     4.  The **Publish Policy** page appears.
 
-    ![publish-policy](../../assets/img/tutorials/publish-policy.png)
+    ![publish-policy](../assets/img/tutorials/publish-policy.png)
 
 5.  Here you can do the following by selecting an option from each
     section.
@@ -112,7 +112,7 @@ instructions in this topic.
 8.  By clicking "Edit Order"(2), you can edit the order of the policy
     and the order will be displayed in the policy view(1).
 
-![edit-the-order-of-the-policy](../../assets/img/tutorials/edit-the-order-of-the-policy.png)
+![edit-the-order-of-the-policy](../assets/img/tutorials/edit-the-order-of-the-policy.png)
 
 When you have multiple policies published, you can select a policy
 combining algorithm from(3) and click **Update**.

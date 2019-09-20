@@ -40,7 +40,7 @@ Google domain yet? Follow the steps given here.
 1.  Open the [Google developers
     console](https://console.developers.google.com/cloud-resource-manager)
     and click the Menu icon in the top left corner.  
-    ![google-developers-console](../../assets/img/using-wso2-identity-server/google-developers-console.png) 
+    ![google-developers-console](../assets/img/using-wso2-identity-server/google-developers-console.png) 
 
 2.  Create a new project:
 
@@ -48,7 +48,7 @@ Google domain yet? Follow the steps given here.
 
     2.  Provide a name for your project and click **Create**.
 
-    ![create-a-new-project](../../assets/img/using-wso2-identity-server/create-a-new-project.png) 
+    ![create-a-new-project](../assets/img/using-wso2-identity-server/create-a-new-project.png) 
 
 3.  Search for the project you created and click it.
 
@@ -60,7 +60,7 @@ Google domain yet? Follow the steps given here.
         panel.
 
     3.  Click **Create service account**.  
-        ![create-service-account](../../assets/img/using-wso2-identity-server/create-service-account.png) 
+        ![create-service-account](../assets/img/using-wso2-identity-server/create-service-account.png) 
 
     4.  Fill in the form to create the service account:
 
@@ -70,7 +70,7 @@ Google domain yet? Follow the steps given here.
         -   Select **Furnish a new private key** and make sure that
             **P12** is selected for the Key type. aef
 
-        ![furnish-a-new-private-key](../../assets/img/using-wso2-identity-server/furnish-a-new-private-key.png)
+        ![furnish-a-new-private-key](../assets/img/using-wso2-identity-server/furnish-a-new-private-key.png)
 
     5.  <a name="create"></a>Click CREATE.  
         The Service account and key created message is displayed and
@@ -84,13 +84,13 @@ Google domain yet? Follow the steps given here.
     1.  Click **IAM and admin \> Service accounts,** click the menu icon
         at the end the service account you created, and click **Edit**
         .  
-        ![edit-service-account](../../assets/img/using-wso2-identity-server/edit-service-account.png) 
+        ![edit-service-account](../assets/img/using-wso2-identity-server/edit-service-account.png) 
     2.  Select **Enable G Suite Domain-wide Delegation** and click
         **SAVE**.  
-        ![enable-g-suite-domain-wide-delegation](../../assets/img/using-wso2-identity-server/enable-g-suite-domain-wide-delegation.png)
+        ![enable-g-suite-domain-wide-delegation](../assets/img/using-wso2-identity-server/enable-g-suite-domain-wide-delegation.png)
 
     3.  <a name="copy"></a>Click View Client ID and copy the value for the Client ID.  
-        ![copy-client-id](../../assets/img/using-wso2-identity-server/copy-client-id.png)
+        ![copy-client-id](../assets/img/using-wso2-identity-server/copy-client-id.png)
 
 6.  Manage the API client access:
     1.  Go to your domains admin console via
@@ -101,7 +101,7 @@ Google domain yet? Follow the steps given here.
         Can't see the Security section? Click the **MORE CONTROLS** bar
         at the bottom and you can see the Security section.
 
-        ![more-controls](../../assets/img/using-wso2-identity-server/more-controls.png) 
+        ![more-controls](../assets/img/using-wso2-identity-server/more-controls.png) 
 
     3.  Click **Advanced settings \> Manage API client access**.
     4.  Fill the following values:
@@ -113,14 +113,14 @@ Google domain yet? Follow the steps given here.
             as the value for scopes.
         3.  Click **Authorize**.
 
-        ![manage-api-client-access](../../assets/img/using-wso2-identity-server/manage-api-client-access.png) 
+        ![manage-api-client-access](../assets/img/using-wso2-identity-server/manage-api-client-access.png) 
 
 7.  Enable Amin SDK.
     1.  On the Open the [Google developers
         console](https://console.developers.google.com/cloud-resource-manager)
        , click the menu icon, and click **APIs & Services**.
     2.  Click **Dashboards \> + ENABLE API AND SERVICES**.  
-        ![enable-api-and-services](../../assets/img/using-wso2-identity-server/enable-api-and-services.png) 
+        ![enable-api-and-services](../assets/img/using-wso2-identity-server/enable-api-and-services.png) 
     3.  Search for Admin SDK and click **Enable**.
 
 ### Configuring the Identity Server to use email address as the username
@@ -219,7 +219,7 @@ Provider.
     11. Enter **\_** (the underscore character) as the value for the
         Google Provisioning Separator .
 
-    ![google-prrovisioning-config](../../assets/img/using-wso2-identity-server/google-prrovisioning-config.png) 
+    ![google-prrovisioning-config](../assets/img/using-wso2-identity-server/google-prrovisioning-config.png) 
 
 6.  Click **Register**.
 
@@ -240,7 +240,7 @@ provider](../../learn/adding-and-configuring-a-service-provider#configuring-a-re
     that appears.
 3.  Select the Google identity provider you configured from the drop
     down and click the
-    ![outbound-provisioning-icon](../../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png) button.
+    ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png) button.
 
     !!! info
         If you enable **Blocking**, Identity Server will wait for the

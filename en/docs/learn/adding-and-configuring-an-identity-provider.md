@@ -55,10 +55,10 @@ Follow the instructions below to add a new identity provider.
     as an admin user.
 2.  On the **Main** tab, click **Identity \> Identity Providers \> Add**
     .  
-    ![add-idp]( ../../assets/img/using-wso2-identity-server/add-idp.png) 
+    ![add-idp]( ../assets/img/using-wso2-identity-server/add-idp.png) 
 
 3.  Fill in the details in the **Basic Information** section.  
-    ![basic-info]( ../../assets/img/using-wso2-identity-server/basic-info.png)   
+    ![basic-info]( ../assets/img/using-wso2-identity-server/basic-info.png)   
     Note the following when filling the above form.
     <table>
     <thead>
@@ -181,14 +181,14 @@ Follow the instructions below to add a new identity provider.
                 simply has to specify Facebook as the domain in the login screen
                 of first Identity Server.
 
-            ![fed-hub-home-realm-identifier]( ../../assets/img/using-wso2-identity-server/fed-hub-home-realm-identifier.png) 
+            ![fed-hub-home-realm-identifier]( ../assets/img/using-wso2-identity-server/fed-hub-home-realm-identifier.png) 
 
             When the Home Realm Identifier is not specified, you can either
             select the domain name from a dropdown in the login page, or you
             have to enter the domain value in a separate page prior to logging
             in (as shown below).
             
-            ![home-realm-identifier]( ../../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
+            ![home-realm-identifier]( ../assets/img/using-wso2-identity-server/home-realm-identifier.png) 
                      
             The `proxy_mode` configuration allows the framework to operate in either
             `smart` mode or `dumb` mode. 
@@ -214,7 +214,7 @@ Follow the instructions below to add a new identity provider.
 
             The **Alias** is used in the following authentication scenario.
 
-            ![alias-authentication]( ../../assets/img/using-wso2-identity-server/alias-authentication.png)
+            ![alias-authentication]( ../assets/img/using-wso2-identity-server/alias-authentication.png)
 
             Here a SAML identity provider sends a SAML token to a web
             application for authentication. The SAML token has an audience
@@ -243,7 +243,7 @@ Follow the instructions below to add a new identity provider.
 5.  Fill in the remaining details where applicable. Click the arrow
     buttons to expand the forms available to update.  
     ![Adding Configurations for the Identity
-    Provider](../../assets/img/using-wso2-identity-server/adding-configs-for-the-idp.png)
+    Provider](../assets/img/using-wso2-identity-server/adding-configs-for-the-idp.png)
 
     -   See [here](../../learn/configuring-claims-for-an-identity-provider) for details on how to configure claims.
 
@@ -285,9 +285,9 @@ Follow the instructions below to configure a resident identity provider:
 2.  Sign in as an admin user.
 3.  On the **Main** tab, click **Identity \> Identity Providers \>
     Resident**.  
-    ![idp-resident-main](../../assets/img/using-wso2-identity-server/idp-resident-main.png)   
+    ![idp-resident-main](../assets/img/using-wso2-identity-server/idp-resident-main.png)   
     The Resident Identity Provider page appears.  
-    ![resident-identity-provider](../../assets/img/using-wso2-identity-server/resident-identity-provider.png) 
+    ![resident-identity-provider](../assets/img/using-wso2-identity-server/resident-identity-provider.png) 
 
 4.  Enter the required values as given below.
 
@@ -325,9 +325,9 @@ Follow the instructions below to configure a resident identity provider:
     Authentication Configuration** section.  
     1.  To configure SAML2 configurations:
         1.  Click **SAML2 Web SSO Configuration**.  
-            ![saml2-sso-config](../../assets/img/using-wso2-identity-server/saml2-sso-config.png)   
+            ![saml2-sso-config](../assets/img/using-wso2-identity-server/saml2-sso-config.png)   
             The SAML2 Web SSO Configuration form appears.  
-            ![saml2-sso-form]( ../../assets/img/using-wso2-identity-server/saml2-sso-form.png) 
+            ![saml2-sso-form]( ../assets/img/using-wso2-identity-server/saml2-sso-form.png) 
         2.  Enter the required values and learn the fixed values as
             given below.
 
@@ -343,7 +343,7 @@ Follow the instructions below to configure a resident identity provider:
 
     2.  To configure OAuth2 or OIDC, click **OAuth2/OpenID Connect
         Configuration**.  
-        ![oauth2-oidc-config](../../assets/img/using-wso2-identity-server/oauth2-oidc-config.png) 
+        ![oauth2-oidc-config](../assets/img/using-wso2-identity-server/oauth2-oidc-config.png) 
 
         | Field                                        | Description                                                                                                                                                                                         | Sample/Fixed Value                                                                                                                     |
         |----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -362,14 +362,14 @@ Follow the instructions below to configure a resident identity provider:
 
     3.  To secure the WS-Trust endpoint with a security policy, click
         **Security Token Service Configuration** section.  
-        ![ws-trust-endpoint-security]( ../../assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)   
+        ![ws-trust-endpoint-security]( ../assets/img/using-wso2-identity-server/ws-trust-endpoint-security.png)   
         For more information on security token service (STS), see
         [Configuring WS-Trust Security Token
         Service](../../learn/configuring-ws-trust-security-token-service).
 
 6.  You may view the inbound provisioning configurations by clicking
     **Inbound Provisioning Configuration** section.
-    ![inbound-porvisioning-configuration](../../assets/img/using-wso2-identity-server/inbound-porvisioning-configuration.png) 
+    ![inbound-porvisioning-configuration](../assets/img/using-wso2-identity-server/inbound-porvisioning-configuration.png) 
 
     | Field                   | Description                                                                                                                                                    | Sample Value                                                                                              |
     |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -431,7 +431,7 @@ service provider.
     relevant service provider to configure WSO2 Identity Server as a
     trusted identity provider for your application.
 
-    ![import-sp]( ../../assets/img/using-wso2-identity-server/import-sp.png) 
+    ![import-sp]( ../assets/img/using-wso2-identity-server/import-sp.png) 
 
 ### Managing identity providers
 
@@ -448,7 +448,7 @@ added in the WSO2 Identity Server.
 2.  In the **Main** menu under the **Identity** section, click **List**
     under **Identity Providers**. The list of identity providers you
     added appears.  
-    ![identity-provider-list](../../assets/img/using-wso2-identity-server/identity-provider-list.png) 
+    ![identity-provider-list](../assets/img/using-wso2-identity-server/identity-provider-list.png) 
 
 #### Editing identity providers
 
@@ -461,7 +461,7 @@ Follow the instructions below to edit an identity provider's details.
     added appears.
 3.  Locate the identity provider you want to edit and click on the
     corresponding **Edit** link.  
-    ![idp-edit](../../assets/img/using-wso2-identity-server/idp-edit.png) 
+    ![idp-edit](../assets/img/using-wso2-identity-server/idp-edit.png) 
 4.  You are directed to the edit screen where you can modify the details
     you configured for the identity provider.
 
@@ -476,7 +476,7 @@ Follow the instructions below to delete an identity provider.
     added appears.
 3.  Locate the identity provider you want to delete and click on the
     corresponding **Delete** link.  
-    ![delete-idp](../../assets/img/using-wso2-identity-server/delete-idp.png) 
+    ![delete-idp](../assets/img/using-wso2-identity-server/delete-idp.png) 
 4.  Confirm your request in the WSO2 Carbon window. Click the **Yes**
     button.
 
@@ -493,7 +493,7 @@ Follow the instructions below to disable or enable an identity provider.
     corresponding **Disable** link to disable the identity provider.
     Clicking this link will change the link to **Enable**. To enable
     the identity provider again, click the **Enable** link.
-    ![enable-disable-idp](../../assets/img/using-wso2-identity-server/enable-disable-idp.png) 
+    ![enable-disable-idp](../assets/img/using-wso2-identity-server/enable-disable-idp.png) 
 4.  Click **Ok** on the confirmation form that appears when clicking
     **Disable** / **Enable**.  
 

@@ -41,7 +41,7 @@ demonstrates the steps used to do this.
         condition is complex where multiple conditions are evaluated with
         connectors (and/or) use the Advance section.)
 
-        ![apply-if](../../assets/img/using-wso2-identity-server/apply-if.png) 
+        ![apply-if](../assets/img/using-wso2-identity-server/apply-if.png) 
 
         **Advanced**  
         If this option is selected, you can define an XPath expression to
@@ -53,9 +53,9 @@ demonstrates the steps used to do this.
         boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
         ```
 
-        ![advanced-workflow](../../assets/img/using-wso2-identity-server/advanced-workflow.png) 
+        ![advanced-workflow](../assets/img/using-wso2-identity-server/advanced-workflow.png) 
 
-    ![new-workflow-engagement](../../assets/img/using-wso2-identity-server/new-workflow-engagement.png) 
+    ![new-workflow-engagement](../assets/img/using-wso2-identity-server/new-workflow-engagement.png) 
 
 3.  Click **Add** to finish adding the engagement. You can view, disable
     or delete the association by navigating to **WorkFlows

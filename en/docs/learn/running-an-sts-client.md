@@ -56,8 +56,8 @@ the instructions found
 
 **Request**
 
-![request-to-sts](../../assets/img/using-wso2-identity-server/request-to-sts.png) 
+![request-to-sts](../assets/img/using-wso2-identity-server/request-to-sts.png) 
 
 **Response**
 
-![response-from-sts](../../assets/img/using-wso2-identity-server/response-from-sts.png) 
+![response-from-sts](../assets/img/using-wso2-identity-server/response-from-sts.png) 

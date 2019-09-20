@@ -24,13 +24,13 @@ Grant](../../learn/client-credentials-grant).
     registration)  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>
 
-    ![client-credentials-grant](../../assets/img/using-wso2-identity-server/client-credentials-grant.png) 
+    ![client-credentials-grant](../assets/img/using-wso2-identity-server/client-credentials-grant.png) 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
     <https://localhost:9443/oauth2/introspect> ) and click **Get
     TokenInfo** to get the token information.  
-    ![gettokeninfo](../../assets/img/using-wso2-identity-server/gettokeninfo.png)
+    ![gettokeninfo](../assets/img/using-wso2-identity-server/gettokeninfo.png)
 
     ??? note "Click here for more information on OAuth 2.0 Token Introspection"
         OAuth 2.0 Token Introspection defines a protocol that allows
@@ -48,7 +48,7 @@ Grant](../../learn/client-credentials-grant).
 
 4.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.
-    ![client-credentials-token-info](../../assets/img/using-wso2-identity-server/client-credentials-token-info.png) 
+    ![client-credentials-token-info](../assets/img/using-wso2-identity-server/client-credentials-token-info.png) 
 
 !!! info "Related Topics"
     -   See [Invoke the OAuth Introspection

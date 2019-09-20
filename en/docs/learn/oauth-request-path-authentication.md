@@ -30,11 +30,11 @@ For more information on Request Path Authentication in general, see
 
 4.  Click **Add** and take note of the **Client Key** that is generated
     as you will need this later on.  
-    ![auth-header-client-key](../../assets/img/using-wso2-identity-server/auth-header-client-key.png)
+    ![auth-header-client-key](../assets/img/using-wso2-identity-server/auth-header-client-key.png)
 5.  Expand the **Local & Outbound Authentication Configuration** section
     and then the **Request Path Authentication Configuration** section.
 6.  Select **oauth-bearer** from the dropdown and click **Add.**  
-    ![oauth-bearer](../../assets/img/using-wso2-identity-server/oauth-bearer.png)
+    ![oauth-bearer](../assets/img/using-wso2-identity-server/oauth-bearer.png)
 7.  Click **Update** to save changes to the service provider.
 
 8.  Use the following cURL command to get a valid token using password

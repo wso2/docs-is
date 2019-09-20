@@ -55,7 +55,7 @@ following.
 6.  Click **Export** against the respective service provider. You are
     prompted to confirm the export.  
 
-    ![export-sp](../../assets/img/using-wso2-identity-server/export-sp.png)
+    ![export-sp](../assets/img/using-wso2-identity-server/export-sp.png)
 
 7.  Select **Include Secrets** if you wish to include secrets when
     exporting. An xml file similar to the sample given below is
@@ -67,7 +67,7 @@ following.
         password. Any hashed or encrypted secrets are also excluded.
     
 
-    ![kerberos-kdc-config](../../assets/img/using-wso2-identity-server/kerberos-kdc-config.png)
+    ![kerberos-kdc-config](../assets/img/using-wso2-identity-server/kerberos-kdc-config.png)
 
     ??? note "Click to see a sample service-provider.xml"
 
@@ -163,14 +163,14 @@ required.
 4.  Select **File Configuration** and click **Choose File** to upload
     the xml configuration file of the service provider you wish to
     import.  
-    ![file-config](../../assets/img/using-wso2-identity-server/file-config.png)
+    ![file-config](../assets/img/using-wso2-identity-server/file-config.png)
 5.  Upload the xml file and click **Import**.  
-    ![import-xml](../../assets/img/using-wso2-identity-server/import-xml.png)
+    ![import-xml](../assets/img/using-wso2-identity-server/import-xml.png)
 6.  You can make changes to the service provider configurations if
     required and click **Update** to save.  
     You will see the service provider listed under **Service Providers**
     . You have successfully imported the service provider.  
-    ![sp-list](../../assets/img/using-wso2-identity-server/sp-list.png)
+    ![sp-list](../assets/img/using-wso2-identity-server/sp-list.png)
 
 !!! tip "Troubleshooting tip"
     
@@ -178,7 +178,7 @@ required.
     the existing service providers within that tenant, you may receive the
     following error. This is because the service provider already exists.
     
-    ![sp-error](../../assets/img/using-wso2-identity-server/sp-error.png)
+    ![sp-error](../assets/img/using-wso2-identity-server/sp-error.png)
     
     To resolve this error you can:
     

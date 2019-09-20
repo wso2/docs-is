@@ -32,7 +32,7 @@ To register a service provider, do the following.
         2.  Choose your **Local Claim** from the drop-down. Select
             whether this claim is a **Mandatory Claim** for the Service
             Provider using the checkbox.  
-            ![mandatory-claim](../../assets/img/using-wso2-identity-server/mandatory-claim.png)
+            ![mandatory-claim](../assets/img/using-wso2-identity-server/mandatory-claim.png)
 
     2.  If you choose to **Define Custom Claim Dialect**, you need to
         do the following.
@@ -47,7 +47,7 @@ To register a service provider, do the following.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![mandatory-claim](../../assets/img/using-wso2-identity-server/mandatory-claim.png)
+            ![mandatory-claim](../assets/img/using-wso2-identity-server/mandatory-claim.png)
             
             
             ??? note "Click to view vital information when configuring claims for an OpenID Connect Service Provider"
@@ -77,7 +77,7 @@ To register a service provider, do the following.
                     new scope for the custom claims by clicking on **Add New
                     Property** and send it when getting the OIDC token along
                     with the mandatory **openid** scope when getting the OIDC token.
-                    ![oidc-scope-list.png](../../assets/img/using-wso2-identity-server/oidc-scope-list.png)
+                    ![oidc-scope-list.png](../assets/img/using-wso2-identity-server/oidc-scope-list.png)
 
                 !!! note
                     OIDC considers address as a JSON object. Therefore, if you
@@ -109,7 +109,7 @@ To register a service provider, do the following.
             ??? note "Click to view vital information when configuring claims for an SAML2 Service Provider"
                 When mapping custom claims for a service provider configured with SAML2, ensure to **select both** " Enable Attribute Profile " and " Include Attributes in the Response Always" from the SAML2 service provider configuration as follows.
             
-                ![enable-attribute-profile](../../assets/img/using-wso2-identity-server/enable-attribute-profile.png)
+                ![enable-attribute-profile](../assets/img/using-wso2-identity-server/enable-attribute-profile.png)
             
                 !!! info "Why?"
             

@@ -121,7 +121,7 @@ distribution is deployed. To increase the deployment time interval:
     -   If your configuration management tool (such as Puppet, Chef, or
         Ansible) is managing your customizations, you need to clone the
         deployment directory from the configuration management tool.
-4.  Download the [merge script](../../assets/img/72429776/76750720.sh) (
+4.  Download the [merge script](../assets/img/72429776/76750720.sh) (
     `           merge_v1.s          ` h) and run it as explained below.
 
     !!! note
@@ -183,7 +183,7 @@ distribution is deployed. To increase the deployment time interval:
     the customizations. Select **Yes** and provide the location of your
     **deployment script**. If you are using SVN-based deployment
     synchronization, you can use the [deployment script for
-    SVN](../../assets/img/72429776/76750721.sh) (
+    SVN](../assets/img/72429776/76750721.sh) (
     `           deploy_v1.sh          ` ).
 
     -   If any errors are indicated when the merge script is run, you

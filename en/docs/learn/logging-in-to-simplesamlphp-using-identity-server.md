@@ -7,7 +7,7 @@ Ubuntu.
 
 ### **Scenario**
 
-![configuring-simple-saml-php](../../assets/img/tutorials/configuring-simple-saml-php.png)
+![configuring-simple-saml-php](../assets/img/tutorials/configuring-simple-saml-php.png)
 
 1.  A user tries to access a protected resource
 2.  SimpleSAMLphp checks the authorization for the resource

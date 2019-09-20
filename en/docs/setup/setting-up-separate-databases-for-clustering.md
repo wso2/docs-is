@@ -102,7 +102,7 @@ you wish and simply have a single database to handle all these concerns.
 
 To understand this concept further, see the following diagram.
 
-![Data types](../../assets/img/setup/data-types.png)
+![Data types](../assets/img/setup/data-types.png)
 
 For more information on the concept of sharing governance and config
 registry databases across the cluster, see the topic on [Sharing
