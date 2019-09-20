@@ -19,12 +19,12 @@ Follow the steps below to add a function library using the Management Console,
 1. Sign in to in to the Management Console.
 2. On the Main menu, click Manage > Function Libraries >  Add.
    
-    ![](/assets/img/tutorials/functional-lib-menu-manage.png)
+    ![](../assets/img/tutorials/functional-lib-menu-manage.png)
    
 3. Fill in the Function Library Name, provide a brief Description and write the
 Function Library Script for the function library.
 
-    ![](/assets/img/tutorials/functional-lib-add-menu.png)
+    ![](../assets/img/tutorials/functional-lib-add-menu.png)
 
 4. Click Register to add the new function library.
 
@@ -131,7 +131,7 @@ Follow the instructions below to view the list of function libraries added in th
 
     Note that the list of function libraries you added appears.
 
-    ![](/assets/img/tutorials/functional-lib-list-menu.png)
+    ![](../assets/img/tutorials/functional-lib-list-menu.png)
 
 
 #### Editing function libraries
@@ -146,11 +146,11 @@ Follow the instructions below to edit a function library's details.
 
 3.  Locate the function library you want to edit and click on the corresponding Edit link.
 
-    ![](/assets/img/tutorials/functional-lib-edit-menu.png)
+    ![](../assets/img/tutorials/functional-lib-edit-menu.png)
 
 4. The edit screen appears. Function library’s name, description and script could be edited.
 
-    ![](/assets/img/tutorials/functional-lib-edit.png)
+    ![](../assets/img/tutorials/functional-lib-edit.png)
 
 
 5. Click Update.
@@ -170,7 +170,7 @@ Follow the instructions below to delete a function library.
 
     Locate the function library you want to delete and click on the corresponding Delete link.
 
-    ![](/assets/img/tutorials/functional-lib-delete-menu.png)
+    ![](../assets/img/tutorials/functional-lib-delete-menu.png)
 
 4. To confirm your request, click the Yes.
 
@@ -182,7 +182,7 @@ Follow the instructions below to delete a function library.
 
 2. Configure a service provider for adaptive authentication. 
 
-    For instructions, see [Configuring a Service Provider for Adaptive Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
+    For instructions, see [Configuring a Service Provider for Adaptive Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
 
 3. Under the Main menu of the Management Console, click Service Providers > List > 
 Edit on the configured service provider.
@@ -225,7 +225,7 @@ and click Advanced Configuration.
 2. To try out adaptive authentication with WSO2 Identity Server, you have to set up 
 a sample application to test adaptive authentication scenarios, and configure a service provider 
 for adaptive authentication in WSO2 Identity Server. 
-For instructions on how to do this, see [Configuring a Service Provider for Adaptive Authentication](../../tutorials/configuring-a-service-provider-for-adaptive-authentication).
+For instructions on how to do this, see [Configuring a Service Provider for Adaptive Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
 
 3. Sign in to the Management Console.
 
@@ -234,7 +234,7 @@ For instructions on how to do this, see [Configuring a Service Provider for Adap
 5. Click Edit that corresponds to the BirthDate claim and select the 
 Supported By Default checkbox to enable the birth date claim. 
 
-       ![](/assets/img/tutorials/functional-lib-add-dob-claim.png)
+       ![](../assets/img/tutorials/functional-lib-add-dob-claim.png)
 
 6. Create a user called "Alex" and edit the user profile. 
 
@@ -312,9 +312,9 @@ click Advanced Configuration.
 2. Click Login and enter Kim's credentials. 
 3. You are successfully logged in to the application.
 
-    ![](/assets/img/tutorials/functional-lib-login.png)
+    ![](../assets/img/tutorials/functional-lib-login.png)
 
 
 4. Log out and login as Alex. Note that you are now restricted from logging in because Alex is underage.  
 
-    ![](/assets/img/tutorials/functional-lib-login-error-msg.png)
+    ![](../assets/img/tutorials/functional-lib-login-error-msg.png)
