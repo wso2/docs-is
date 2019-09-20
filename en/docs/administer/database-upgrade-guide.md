@@ -14,19 +14,17 @@ upgrade:
     that has not been upgraded.
 
 -   Make a backup of the database and the
-    `           <PRODUCT_HOME>          ` directory prior to upgrading.
-    The `           <PRODUCT_HOME>          ` directory can simply be
+    `           <IS_HOME>          ` directory prior to upgrading.
+    The `           <IS_HOME>          ` directory can simply be
     copied to the new directory.
 
 -   Stop all the Carbon servers connected to the database before running
     the migration scripts.
 
     !!! note
-    
         Note that the upgrade should be done during a period when there is
         low traffic on the system.
     
-
 #### Limitations
 
 -   This upgrade can only be done if the database type is the same. For
@@ -57,14 +55,13 @@ updated for the new environment as explained below.
     database.
 
     1.  To migrate the super tenant settings, copy the
-        `            <PRODUCT_HOME>/repository/           `
+        `            <IS_HOME>/repository/           `
         `            deployment/server           ` directory.
     2.  If multitenancy is used, copy the
-        `            <PRODUCT_HOME>/repository/tenants           `
+        `            <IS_HOME>/repository/tenants           `
         directory.
 
     !!! note
-    
         Note that configurations should not be copied directly between
         servers.
     

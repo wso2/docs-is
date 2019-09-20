@@ -1,7 +1,7 @@
 # Configuring catalina-server.xml
 
 Users can change the default configurations by editing the
-`         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        `
+`         <IS_HOME>/repository/conf/tomcat/catalina-server.xml        `
 file using the information given below.
 
 Click on the table and use the left and right arrow keys to scroll

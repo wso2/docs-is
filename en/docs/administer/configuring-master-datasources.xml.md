@@ -1,14 +1,14 @@
 # Configuring master-datasources.xml
 
 Users can change the default configurations by editing the
-`         <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml        `
+`         <IS_HOME>/repository/conf/datasources/master-datasources.xml        `
 file using the information in the following table.  
 
 ### XML Elements
 
 Click on the table and use the left and right arrow keys to scroll
 horizontally. For sample values, see the
-[Example](#Configuringmaster-datasources.xml-exa) below the table.  
+[Example](#example) below the table.  
 
 <table style="width:100%;">
 <colgroup>
@@ -49,7 +49,7 @@ horizontally. For sample values, see the
 <tr class="odd">
 <td><p><code>               &lt;provider&gt;              </code></p></td>
 <td></td>
-<td>The datasource provider, which should implement <code>              org.wso2.carbon.ndatasource.common                            .spi.DataSourceReader             </code> . The datasources follow a pluggable model in providing datasource type implementations using this approach.</td>
+<td>The datasource provider, which should implement <code>              org.wso2.carbon.ndatasource.common                           .spi.DataSourceReader             </code>. The datasources follow a pluggable model in providing datasource type implementations using this approach.</td>
 <td>Fully qualified Java class</td>
 <td></td>
 <td>Optional</td>

@@ -1,9 +1,7 @@
 # WSO2 Patch Application Process
 
 !!! note
-    
-    WSO2 has introduced the [WSO2 Update Manger
-    (WUM)](https://wso2.com/updates/wum), which is a command-line tool that
+    WSO2 has introduced the [WSO2 Update Manger (WUM)](https://wso2.com/updates/wum), which is a command-line tool that
     allows you to update your product with the latest available patches and
     enhancements. All WSO2 products based on Carbon 4.4.x will soon be
     supported by WUM. Go to the [WUM website](https://wso2.com/updates/wum)
@@ -13,21 +11,11 @@
     patches that you apply. Therefore, if you want to apply a selected patch
     to your product, you must use the following patch application process.
     
-
 The patch application process described below guides you on how to
 manually apply patches, such as [security
 patches](http://wso2.com/security-patch-releases/), to Carbon
 4.4.x-based products (if your product version is currently not supported
 by WUM).
-
--   [What is a patch?](#WSO2PatchApplicationProcess-Whatisapatch?)
--   [Applying patches to the
-    product](#WSO2PatchApplicationProcess-Applyingpatchestotheproduct)
--   [Verifying the patch
-    application](#WSO2PatchApplicationProcess-Verifyingthepatchapplication)
--   [Removing patches](#WSO2PatchApplicationProcess-Removingpatches)
-
-  
 
 ### What is a patch?
 
@@ -64,23 +52,23 @@ library files, configurations, scripts and more.
 
 ### Applying patches to the product
 
-Note the following **before you begin** :
+!!! info "Note the following **before you begin** :"
 
--   It is mandatory to follow the steps specified in the README.txt of
-    the patch before applying the patch.
--   If the README.txt provides instructions to replace existing
-    resources in the WSO2 server with any artifact in the resources
-    directory of the patch archive, it is highly recommended to backup
-    the existing resources. The original files might be required if you
-    are [reverting the
-    patch](#WSO2PatchApplicationProcess-Removingpatches) later.  
--   As a precaution, make a backup of the server.
+        -   It is mandatory to follow the steps specified in the README.txt of
+        the patch before applying the patch.
+        -   If the README.txt provides instructions to replace existing
+        resources in the WSO2 server with any artifact in the resources
+        directory of the patch archive, it is highly recommended to backup
+        the existing resources. The original files might be required if you
+        are [reverting the
+        patch](#removing-patches) later.  
+        -   As a precaution, make a backup of the server.
 
 Follow the steps given below to apply patches to your server.
 
 1.  Shut down the server.
 2.  Copy the patches (patchxxx directory in the patch archive) to the
-    `           <PRODUCT_HOME>/repository/components/patches          `
+    `           <IS_HOME>/repository/components/patches          `
     directory. **Note** that you may sometimes need to apply the patches
     one by one in order to avoid conflicts. Check the README.txt files
     carefully for these instructions.  
@@ -91,39 +79,38 @@ Follow the steps given below to apply patches to your server.
     existing artifacts.
 4.  Start the WSO2 server. The patches will then be incrementally
     applied to the
-    `           <PRODUCT_HOME>/repository/components/plugins/          `
+    `           <IS_HOME>/repository/components/plugins/          `
     directory.  
 
     !!! note
-    
         When you start the server, the process first creates a backup folder
         named `           patch0000          ` inside the
-        `           <PRODUCT_HOME>/repository/components/patches/          `
+        `           <IS_HOME>/repository/components/patches/          `
         directory, which will contain the original content of the
-        `           <PRODUCT_HOME>/repository/components/plugins/          `
+        `           <IS_HOME>/repository/components/plugins/          `
         directory. This step enables you to [revert back to the previous
-        state](#WSO2PatchApplicationProcess-Removingpatches) if something
+        state](#removing-patches) if something
         goes wrong during operations.
     
-
-Prior to Carbon 4.2.0, users were expected to apply patches by starting
-the server with `          wso2server.sh -DapplyPatches.         ` Now,
-y ou do not have to issue a special command to trigger the patch
-application process. It starts automatically if there are changes in the
-`          <PRODUCT_HOME>/repository/components/patches         `
-directory. It verifies all the latest JARs in the
-`          patches         ` directory against the JARs in the
-`          plugins         ` directory by comparing the MD5s of JARs.
+!!! info 
+        Prior to Carbon 4.2.0, users were expected to apply patches by starting
+        the server with `          wso2server.sh -DapplyPatches.         ` Now,
+        y ou do not have to issue a special command to trigger the patch
+        application process. It starts automatically if there are changes in the
+        `          <IS_HOME>/repository/components/patches         `
+        directory. It verifies all the latest JARs in the
+        `          patches         ` directory against the JARs in the
+        `          plugins         ` directory by comparing the MD5s of JARs.
 
 ### Verifying the patch application
 
 After the patch application process is completed, the patch verification
 process ensures that the latest patches are correctly applied to the
-`         <PRODUCT_HOME>/repository/components/plugins/        ` folder.
+`         <IS_HOME>/repository/components/plugins/        ` folder.
 
 1.  Compare the md5sum of each component in the patchXXXX directory
     against the same component in the
-    `           <           PRODUCT_HOME>/repository/components/plugins          `
+    `           <           IS_HOME>/repository/components/plugins          `
     directory.
 
 2.  The artifacts (from the resources directory) of the latest patch
@@ -132,20 +119,19 @@ process ensures that the latest patches are correctly applied to the
     of the patch.
 3.  You can use the following resources to track the patches:  
     -   All patch-related logs are recorded in the
-        `            <PRODUCT_HOME>/repository/logs/                         patches.log            `
+        `            <IS_HOME>/repository/logs/                         patches.log            `
         file.
     -   The
-        `            <PRODUCT_HOME>/repository/components/patches/.metadata/prePatchedJARs.txt           `
+        `            <IS_HOME>/repository/components/patches/.metadata/prePatchedJARs.txt           `
         meta file contains the list of patched JARs and the md5 values.
     -   The patch directory information of all the applied patched will
         be in the
-        `             <PRODUCT_HOME>/repository/components/default/configuration/prePatchedDir.txt            `
+        `             <IS_HOME>/repository/components/default/configuration/prePatchedDir.txt            `
         file.  
 
         !!! warning
-        
                 Do not change the data in the
-                `             <PRODUCT_HOME>/repository/components/default/configuration/prePatchedDir.txt            `
+                `             <IS_HOME>/repository/components/default/configuration/prePatchedDir.txt            `
                 file. The patch application process gets the pre-patched list
                 from this file and compares the list with the patches available
                 in the `             patch            ` directory. If you change
@@ -159,30 +145,30 @@ Patches installed in your WSO2 product using the above steps can also be
 removed when required. However, this needs to be done with caution as
 explained below.
 
-**Before you begin** removing an installed patch:
-
--   Shut down the server.
--   Make a backup as a precaution.
--   Read the `           README.txt          ` file that is included in
-    the patch ZIP. This file will specify if there are other patches
-    that depend on the patch you are going to remove. You must also
-    identify if there are manual steps to roll back.
+!!! info "**Before you begin** removing an installed patch:"
+        -   Shut down the server.
+        -   Make a backup as a precaution.
+        -   Read the `           README.txt          ` file that is included in
+        the patch ZIP. This file will specify if there are other patches
+        that depend on the patch you are going to remove. You must also
+        identify if there are manual steps to roll back.
 
 To remove a patch:
 
 1.  Remove the patch from the `          <         `
-    `          PRODUCT_HOME>/repository/components/patches         `
+    `          IS_HOME>/repository/components/patches         `
     directory.
 2.  If there were artifacts copied from the resources directory of the
     patch archive, you need to replace them with the original artifacts
-    (from the [backup](#WSO2PatchApplicationProcess-note) that was
+    (from the [backup](#applying-patches-to-the-product) that was
     created before applying the patch). Also if there were exploded
     artifacts (such as \*.war files in the
-    `          <PRODUCT_HOME>/repository/deployment/server/webaps         `
+    `          <IS_HOME>/repository/deployment/server/webaps         `
     directory), be sure to remove them as well.  
 3.  Restart the server. The remaining patches will now be reinstalled.  
 
-    The `            patches.log           ` file in the
-    `            <PRODUCT           `
-    `            _HOME>/repository/logs           ` directory indicates
-    the patches that are applied to the server.
+    !!! info     
+		The `            patches.log           ` file in the
+		`            <PRODUCT           `
+		`            _HOME>/repository/logs           ` directory indicates
+		the patches that are applied to the server.
