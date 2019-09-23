@@ -44,7 +44,7 @@ To configure WS-Federation SSO:
                 time_to_live = "8000"
         		```
 
-
+     Here, the expiration time should be specified in milliseconds.
 
     ![ws-federation-passive.png](../assets/img/tutorials/ws-federation-passive.png)
 
