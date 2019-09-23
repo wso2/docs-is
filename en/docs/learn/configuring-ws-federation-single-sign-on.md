@@ -36,14 +36,14 @@ To configure WS-Federation SSO:
         
                 If you want to configure an expiration time for the security
                 token, you need to add the following configuration in the
-                `             <IS_HOME>/repository/conf/carbon.xml            `
+                `             <IS_HOME>/repository/conf/deployment.toml             `
                 file, under the `             <Server>            ` element:
         
                 ``` java
-                <STSTimeToLive>1800000</STSTimeToLive>
+                [sts]
+                time_to_live = "8000"
         		```
 
-        Here, the expiration time should be specified in milliseconds.
 
 
     ![ws-federation-passive.png](../assets/img/tutorials/ws-federation-passive.png)
