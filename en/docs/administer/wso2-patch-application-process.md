@@ -169,6 +169,5 @@ To remove a patch:
 
     !!! info     
 		The `            patches.log           ` file in the
-		`            <PRODUCT           `
-		`            _HOME>/repository/logs           ` directory indicates
+		`            <IS_HOME>/repository/logs           ` directory indicates
 		the patches that are applied to the server.
