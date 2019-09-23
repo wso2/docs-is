@@ -1,7 +1,7 @@
 # Configuring registry.xml
 
 Users can change the default configurations by editing the
-`         <PRODUCT_HOME>/repository/conf/registry.xml        ` file
+`         <IS_HOME>/repository/conf/registry.xml        ` file
 using the information given below. Click on the table and use the left
 and right arrow keys to scroll horizontally.
 
@@ -64,7 +64,7 @@ Optional</th>
 <td>&lt;lastModifiedExpirationMillis&gt;</td>
 <td><br />
 </td>
-<td>Specifies the time period for which a resource in the registry will be cached after it is <strong>created or modified</strong> .</td>
+<td>Specifies the time period for which a resource in the registry will be cached after it is <strong>created or modified</strong>.</td>
 <td><br />
 </td>
 <td>15</td>
@@ -140,7 +140,7 @@ Optional</th>
 <tr class="odd">
 <td><code>             &lt;validationQuery&gt;            </code></td>
 <td>N/A</td>
-<td><p>You can configure this parameter under the <code>              &lt;dbConfig&gt;             </code> element of the <code>              &lt;PRODUCT_HOME&gt;/repository/conf/registry.xml             </code> file.</p>
+<td><p>You can configure this parameter under the <code>              &lt;dbConfig&gt;             </code> element of the <code>              &lt;IS_HOME&gt;/repository/conf/registry.xml             </code> file.</p>
 <p>When you are maintaining DB connections, it is always recommended to use a validation query to check the health of the TCP connection of the connections that stay in the DB connection pool.</p>
 <p>Since opening connections is an expensive and time consuming operation, after a connection is created, it will be kept open for a specific time in the pool. When re-using these connections from the pool, there can be situations that the TCP connection to the DB is interrupted and the connection consumer gets errors such as communication link failures etc.</p>
 <p>To avoid that you can use a validation query always as a best practice. It is an SQL statement specific to the DBMS type, which runs before using the connection.</p></td>
@@ -152,7 +152,7 @@ Optional</th>
 <tr class="even">
 <td><code>             &lt;testOnBorrow&gt;            </code></td>
 <td>N/A</td>
-<td>This validates the connection objects before borrowign them from the pool. If the object fails to validate, it will be dropped from the pool, and another will be attempted to borrow. This property can be added to the <code>             &lt;dbConfig&gt;            </code> element in the <code>             &lt;PRODUCT_HOME&gt;/repository/conf/registry.xml            </code> file.</td>
+<td>This validates the connection objects before borrowign them from the pool. If the object fails to validate, it will be dropped from the pool, and another will be attempted to borrow. This property can be added to the <code>             &lt;dbConfig&gt;            </code> element in the <code>             &lt;IS_HOME&gt;/repository/conf/registry.xml            </code> file.</td>
 <td>Boolean</td>
 <td>true</td>
 <td>Optional</td>
@@ -394,9 +394,9 @@ Handler implementations can provide alternative behaviors for basic resource rel
 </td>
 <td><div class="content-wrapper">
 <p>While most configuration options can be changed after the first run of the WSO2 Governance Registry, changing the Static Configuration (configuration details under the staticConfiguration parameter), will not be fully effective. If you need to change any Static Configuration and expect it to take effect, you will have to erase the contents of the database, and restart the server passing the -Dsetup system property which will re-generate the database.</p>
-<p>!!! warning</p>
-    <p>Deprecation of -DSetup</p>
-    <p>When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the <code>                -DSetup               </code> option is redundant and typically unusable. <strong>As a result, from <a href="https://wso2.com/products/carbon/release-matrix/">January 2018 onwards</a> WSO2 has deprecated the</strong> <strong><code>                 -DSetup                </code></strong> <strong>option</strong> . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.</p>
+<div class="admonition warning">
+<p class="admonition-title">Deprecation of -DSetup</p>
+<p>When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the <code>                -DSetup               </code> option is redundant and typically unusable. <strong>As a result, from <a href="https://wso2.com/products/carbon/release-matrix/">January 2018 onwards</a> WSO2 has deprecated the</strong> <strong><code>                 -DSetup                </code></strong> <strong>option</strong>. Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.</p></div>
 <p>You are supposed to change the static configuration section only before loading any data to the registry (That is before the first start-up).</p>
 </div></td>
 <td><br />
