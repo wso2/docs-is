@@ -7,15 +7,7 @@ Security](../../administer/configuring-transport-level-security) for instruction
 how to enable the required ciphers and to disable the weak ciphers for
 your WSO2 server.
 
-See the following topics:
-
--   [Cipher suites supported by Tomcat 7.0.59 and Oracle JDK
-    1.8](#SupportedCipherSuites-CiphersuitessupportedbyTomcat7.0.59andOracleJDK1.8)
--   [Cipher suites supported by Tomcat 7.0.59 and Oracle JDK
-    1.7](#SupportedCipherSuites-CiphersuitessupportedbyTomcat7.0.59andOracleJDK1.7)
--   [Weak ciphers](#SupportedCipherSuites-Weakciphers)
-
-  
+See the following topics:  
 
 ### Cipher suites supported by Tomcat 7.0.59 and Oracle JDK 1.8
 
@@ -72,7 +64,6 @@ Unlimited Strength Jurisdiction Policy is used with Tomcat version
 ### Weak ciphers
 
 !!! note
-    
     Listed below are the relatively weaker cipher suites (which use
     DES/3DES, RC4 and MD5). It is not recommended to use these cipher suites
     for the following reasons:
