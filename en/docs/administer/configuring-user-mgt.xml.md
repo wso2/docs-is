@@ -2,7 +2,7 @@
 
 Users can change the default user management functionality related
 configurations by editing the
-`         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file
+`         <IS_HOME>/repository/conf/user-mgt.xml        ` file
 using the information given below.
 
 Click on the table and use the left and right arrow keys to scroll
@@ -87,7 +87,7 @@ role sees the registry root --&gt;</code></pre>
 <td>______ &lt;AddAdmin&gt;</td>
 <td><br />
 </td>
-<td>Specifies whether the admin user and admin role will be created in the primary user store. This element enables the user to create additional admin users in the user store. If the <code>              &lt;AdminUser&gt;             </code> element does not exist in the external user store, it will be automatically created only if this property is set to <code>              true             </code> . If the value is set to <code>              false             </code>, the given admin user and role should already exist in the external user store.</td>
+<td>Specifies whether the admin user and admin role will be created in the primary user store. This element enables the user to create additional admin users in the user store. If the <code>              &lt;AdminUser&gt;             </code> element does not exist in the external user store, it will be automatically created only if this property is set to <code>              true             </code>. If the value is set to <code>              false             </code>, the given admin user and role should already exist in the external user store.</td>
 <td>Boolean</td>
 <td>true</td>
 <td>Mandatory</td>
@@ -201,7 +201,7 @@ user.core.jdbc.JDBCUserStoreManager"&gt;</td>
 <td>______ &lt;Property&gt;</td>
 <td><br />
 </td>
-<td>User store configuration specific property values. See <a href="http://docs.wso2.org/display/IS460/Working+with+Properties+of+Primary+User+Stores">working with primary user store properties</a> for more information.</td>
+<td>User store configuration specific property values. See <a href="../../learn/configuring-the-primary-user-store">working with primary user store properties</a> for more information.</td>
 <td>String</td>
 <td>N/A</td>
 <td>Optional</td>
