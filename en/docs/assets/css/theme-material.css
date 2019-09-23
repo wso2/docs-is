@@ -442,7 +442,8 @@
   margin: 0
 }
 
-.swagger-ui table.live-responses-table {
+.swagger-ui table.live-responses-table,
+.swagger-ui .responses-inner > div > div > h4 {
   display: none;
 }
 

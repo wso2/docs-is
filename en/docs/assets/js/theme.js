@@ -70,13 +70,13 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-/*
+/* 
  * Reading versions
  */
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
-(window.location.pathname.split('/')[1] !== docSetLang) ?
+(window.location.pathname.split('/')[1] !== docSetLang) ? 
     docSetLang = '' :
     docSetLang = docSetLang + '/';
 
@@ -92,14 +92,14 @@ request.onload = function() {
       var data = JSON.parse(request.responseText);
       var dropdown =  document.getElementById('version-select-dropdown');
       var checkVersionsPage = document.getElementById('current-version-stable');
-
-      /*
-       * Appending versions to the version selector dropdown
+      
+      /* 
+       * Appending versions to the version selector dropdown 
        */
       if (dropdown){
           data.list.sort().forEach(function(key, index){
               var versionData = data.all[key];
-
+              
               if(versionData) {
                   var liElem = document.createElement('li');
                   var docLinkType = data.all[key].doc.split(':')[0];
@@ -114,7 +114,7 @@ request.onload = function() {
                   }
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a href="' + url + '" target="' +
+                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
                       target + '">' + key + '</a>';
 
                   dropdown.insertBefore(liElem, dropdown.firstChild);
@@ -124,8 +124,8 @@ request.onload = function() {
           document.getElementById('show-all-versions-link')
               .setAttribute('href', docSetUrl + 'versions');
       }
-
-      /*
+      
+      /* 
        * Appending versions to the version tables in versions page
        */
       if (checkVersionsPage){
@@ -143,11 +143,11 @@ request.onload = function() {
                   previousVersions.push('<tr>' +
                     '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' +
+                            '<a href="' + data.all[key].doc + '" target="' + 
                                 target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' +
+                            '<a href="' + data.all[key].notes + '" target="' + 
                                 target + '">Release Notes</a>' +
                         '</td>' +
                     '</tr>');
@@ -155,22 +155,22 @@ request.onload = function() {
           });
 
           // Past releases update
-          document.getElementById('previous-versions').innerHTML =
+          document.getElementById('previous-versions').innerHTML = 
                   previousVersions.join(' ');
 
           // Current released version update
-          document.getElementById('current-version-number').innerHTML =
+          document.getElementById('current-version-number').innerHTML = 
                   data.current;
           document.getElementById('current-version-documentation-link')
                   .setAttribute('href', docSetUrl + data.all[data.current].doc);
           document.getElementById('current-version-release-notes-link')
                   .setAttribute('href', docSetUrl + data.all[data.current].notes);
-
+        
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
               .setAttribute('href', docSetUrl + 'next/');
       }
-
+      
   } else {
       console.error("We reached our target server, but it returned an error");
   }
@@ -182,8 +182,8 @@ request.onerror = function() {
 
 request.send();
 
-/*
- * Initialize highlightjs
+/* 
+ * Initialize highlightjs 
  */
 hljs.initHighlightingOnLoad();
 
@@ -193,11 +193,17 @@ hljs.initHighlightingOnLoad();
 var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
 var tocClass = document.getElementsByTagName('main')[0];
 
-tocBtn.onclick = function () {
-    event.preventDefault();
-    tocClass.classList.toggle('hide-toc');
-};
-
+if (tocBtn) {
+    tocBtn.onclick = function () {
+        event.preventDefault();
+        tocClass.classList.toggle('hide-toc');
+        if (tocBtn.innerHTML === "keyboard_arrow_right") {
+            tocBtn.innerHTML = "keyboard_arrow_left";
+        } else {
+            tocBtn.innerHTML = "keyboard_arrow_right";
+        }
+    };
+}
 
 /*
  * TOC position highlight on scroll
@@ -218,7 +224,9 @@ var callback = function(mutationsList, observer) {
 
 var observer = new MutationObserver(callback);
 
-listElems[0].classList.add('active');
+if (listElems.length > 0) {
+    listElems[0].classList.add('active');
+}
 
 for (var i = 0; i < observeeList.length; i++) {
     var el = observeeList[i];
@@ -234,7 +242,7 @@ for (var i = 0; i < observeeList.length; i++) {
 
         e.target.parentNode.classList.add('active');
     }
-};
+}
 
 function scrollerPosition(mutation) {
     var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > .md-nav__link[data-md-state='blur']");
@@ -260,7 +268,7 @@ function scrollerPosition(mutation) {
             listElems[0].classList.add('active');
         }
     }
-};
+}
 
 function setActive(parentNode, i) {
     i = i || 0;
@@ -288,4 +296,3 @@ window.addEventListener('scroll', function() {
         editIcon.classList.remove('active');
     }
 });
-
