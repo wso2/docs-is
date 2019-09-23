@@ -2,7 +2,7 @@
 
 Given below are the options that are available when starting a WSO2
 product. The product startup scripts are stored in the
-`         <PRODUCT_HOME>/bin/        ` directory. When you execute the
+`         <IS_HOME>/bin/        ` directory. When you execute the
 startup script, you can pass a system property by appending it next to
 the start-up script as shown below.
 
@@ -52,7 +52,7 @@ the server.
 </tr>
 <tr class="even">
 <td>-DosgiDebugOptions=[options-file]</td>
-<td>Starts the Carbon server with OSGi debugging enabled. Debug options are loaded from the <code>             &lt;PRODUCT_HOME&gt;/repository/conf/etc/osgi-debug.options            </code> .</td>
+<td>Starts the Carbon server with OSGi debugging enabled. Debug options are loaded from the <code>             &lt;IS_HOME&gt;/repository/conf/etc/osgi-debug.options            </code>.</td>
 </tr>
 <tr class="odd">
 <td>-Dsetup</td>
@@ -61,7 +61,8 @@ the server.
 <tr class="even">
 <td>-DworkerNode</td>
 <td><p>Starts the product as a worker node, which means the front-end features of your product will not be enabled.</p>
-!!! note
+<div class="admonition note">
+<p class="admonition-title">Note</p>
     <p>Note that from Carbon 4.4.1 onwards, you can also start the worker profile by setting the following system property to 'true' in the product startup script before the script is executed.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
