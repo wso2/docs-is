@@ -625,7 +625,7 @@ nav:
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
       - 'Implementing Security in the Identity Server': 
         - 'Implementing Security in the Identity Server': administer/implementing-security-in-the-identity-server.md
-        - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
+        - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
         - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
