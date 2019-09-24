@@ -274,6 +274,7 @@ nav:
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
+          - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
         - 'Password Policies':
           - 'Password History Validation': learn/password-history-validation.md
           - 'Password Patterns': learn/password-patterns.md
@@ -547,7 +548,7 @@ nav:
         - 'MailChimp Authenticator': develop/mailchimp-authenticator.md
         - 'MePIN Authenticator': develop/mepin-authenticator.md
         - 'Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
-        - 'Configuring Mobile Connect Authenticator': develop/mobile-connect-authenticator.md
+        - 'Configuring Mobile Connect Authenticator': develop/configuring-mobile-connect-authenticator.md
         - 'Microsoft Azure AD Authenticator':
           - 'Microsoft Azure AD Authenticator': develop/microsoft-azure-ad-authenticator.md
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
@@ -624,7 +625,7 @@ nav:
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
       - 'Implementing Security in the Identity Server': 
         - 'Implementing Security in the Identity Server': administer/implementing-security-in-the-identity-server.md
-        - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
+        - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
         - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
