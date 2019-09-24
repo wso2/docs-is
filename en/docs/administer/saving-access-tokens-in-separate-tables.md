@@ -1,14 +1,5 @@
 # Saving Access Tokens in Separate Tables
 
-??? warning "This feature is deprecated in WSO2 Identity Server 5.9.0"
-    This feature is deprecated due to following reasons:
-    <ul>
-    	<li>All commercial databases support table partitioning as a first class feature.</li>
-    	<li>Table partitioning should not be limited to `IDN_ACCESS_TOKEN` table, it should rather be supported for any table that requires partitioning.</li>
-    	<li>Partitioning criteria can be different based on the use case and should not be limited to the user domain. Maintaing all such requirements in a product is redundant as all these requirements can be achieved from the database server itself.</li>
-    	<li>Even if the product supports these features, it requires product domain knowledge to use those. On the other hand, DB admins are quite familiar with functionalities of the database that is used in their enterprise. If partitioning features are provided from the database server, an additional learning effort is not needed for DB admins to achieve this.</li>
-    </ul>
-
 You can configure the Identity Server instances to store access tokens
 in different tables according to their user store domain. This is
 referred to as **user token partitioning** and it ensures better
