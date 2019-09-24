@@ -56,7 +56,7 @@ There are two possible solutions to apply the CORS header.
     filter is already used in the OAuth web application of the WSO2
     Identity Server and you can do the following configuration changes
     to the web.xml file located in the
-    `           <PRODUCT_HOME>/repository/deployment/server/webapps/oauth2/WEB-INF          `
+    `           <IS_HOME>/repository/deployment/server/webapps/oauth2/WEB-INF          `
     directory in order to add above mentioned header. Enable the CORS
     filter for the OAuth web application by adding the filter
     configuration to the web.xml file as indicated below.

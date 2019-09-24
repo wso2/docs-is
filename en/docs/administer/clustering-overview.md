@@ -1,15 +1,7 @@
 # Clustering Overview
 
-The following topics explain clustering basics:
+The following topics explain the basics of clustering. 
 
--   [Introduction to
-    clustering](#ClusteringOverview-Introductiontoclustering)
--   [About membership
-    schemes](#ClusteringOverview-Aboutmembershipschemes)
--   [Clustering compatibility with WSO2
-    products](#ClusteringOverview-ClusteringcompatibilitywithWSO2products)
--   [Deciding how to set up your
-    cluster](#ClusteringOverview-Decidinghowtosetupyourcluster)
 
 ### Introduction to clustering
 
@@ -65,7 +57,7 @@ clustering engine. For clustering on a secure channel (i.e., secure
 Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
 Enterprise, there are provisions to provide license key under clustering
 configurations. Advanced users can fine-tune Hazelcast by creating a
-`         <PRODUCT_HOME>/repository/conf/hazelcast.properties        `
+`         <IS_HOME>/repository/conf/hazelcast.properties        `
 file and adding the relevant Hazelcast properties as described in the
 [Hazelcast Advanced Configuration Properties
 documentation](http://www.hazelcast.com/docs/2.0/manual/multi_html/ch13s10.html)
@@ -112,20 +104,17 @@ Note that some production environments do not support multicast.
 However, if your environment supports multicast, there are no issues in
 using this as your membership scheme.
 
-About Well-Known Addresses (WKA)
+!!! info "About Well-Known Addresses (WKA)"
+    The Well-Known Addresses (WKA) feature is a mechanism that allows
+    cluster members to discover and join a cluster using unicast instead of
+    multicast. WKA is enabled by specifying a small subset of cluster
+    members (referred to as WKA members) that are able to start a
+    cluster. The WKA member starts the cluster and the other members join
+    the cluster through this WKA member. When the WKA member is down, the
+    cluster breaks, and the members cannot communicate with each other.
 
-The Well-Known Addresses (WKA) feature is a mechanism that allows
-cluster members to discover and join a cluster using unicast instead of
-multicast. WKA is enabled by specifying a small subset of cluster
-members (referred to as WKA members) that are able to start a
-cluster. The WKA member starts the cluster and the other members join
-the cluster through this WKA member. When the WKA member is down, the
-cluster breaks, and the members cannot communicate with each other.
-
-The system should have at least two well-known address (WKA) members in
-order to work correctly and to recover if a single WKA member fails.
-
-  
+    The system should have at least two well-known address (WKA) members in
+    order to work correctly and to recover if a single WKA member fails.
 
 ------------------------------------------------------------------------
 
@@ -136,20 +125,17 @@ same WSO2 Carbon version. See the [release
 matrix](http://wso2.com/products/carbon/release-matrix/) for
 compatibility information.
 
-About performance of WSO2 products in a cluster
-
-If you are setting up multiple WSO2 products in a cluster, it is
-recommended to set up each product on a separate server. For example,
-WSO2 ESB is used for message mediation, so a considerable amount of
-processing happens in the ESB. The DSS does data service hosting and has
-a different architecture layer from the ESB. If you deploy both the ESB
-and DSS in the same instance/runtime, it can negatively impact the
-performance of both, and it also makes scaling difficult. However, you
-can set up hybrid servers (installing selected DSS features on top of
-the ESB and vice versa) using WSO2 products without the above
-performance concerns.
-
-  
+!!! info "About performance of WSO2 products in a cluster"
+    If you are setting up multiple WSO2 products in a cluster, it is
+    recommended to set up each product on a separate server. For example,
+    WSO2 ESB is used for message mediation, so a considerable amount of
+    processing happens in the ESB. The DSS does data service hosting and has
+    a different architecture layer from the ESB. If you deploy both the ESB
+    and DSS in the same instance/runtime, it can negatively impact the
+    performance of both, and it also makes scaling difficult. However, you
+    can set up hybrid servers (installing selected DSS features on top of
+    the ESB and vice versa) using WSO2 products without the above
+    performance concerns.
 
 ------------------------------------------------------------------------
 

@@ -610,7 +610,6 @@ nav:
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Product Administration': 
-      - 'Product Administration': administer/product-administration.md
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
         - 'Role-based Permissions': administer/role-based-permissions.md
@@ -624,11 +623,10 @@ nav:
           - 'Service Provider Related Tables': administer/service-provider-related-tables.md
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
       - 'Implementing Security in the Identity Server': 
-        - 'Implementing Security in the Identity Server': administer/implementing-security-in-the-identity-server.md
         - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
+        - 'Enabling Java Security Manager': administer/java-security-manager.md
         - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
@@ -658,9 +656,7 @@ nav:
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
       - 'Working with Product Observability': administer/working-with-product-observability.md    
     - 'Deployment and Clustering':
-      - 'Deployment and Clustering': administer/deployment-and-clustering.md
       - 'Key Concepts':
-        - 'Key Concepts': administer/key-concepts.md
         - 'Clustering Overview': administer/clustering-overview.md
         - 'Load Balancing': administer/load-balancing.md    
         - 'Separating the Worker and Manager Nodes': administer/separating-the-worker-and-manager-nodes.md
