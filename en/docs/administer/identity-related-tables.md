@@ -216,7 +216,6 @@ out the columns and a description of the values it contains.
 | ROLES       | List of roles given        |
 
 !!! note
-    
     In a standalone WSO2 Identity Server instance, this table will not get
     populated with data.
     
@@ -236,7 +235,6 @@ the values it contains.
 | SCOPE\_ID      | The ID of the scope that points to the SCOPE\_ID column of the IDN\_OAUTH2\_SCOPE table |
 
 !!! note
-    
     In a standalone WSO2 Identity Server instance, this table will not get
     populated with data.
     
@@ -340,7 +338,6 @@ user profile, these claims and their mapped attribute values will be
 inserted to this table.  
 
 !!! note
-    
     -   If you specify
         `           org.wso2.carbon.identity.mgt.store.UserStoreBasedIdentityDataStore          `
         for the `           Identity.Mgt.User.Data.Store          ` property
@@ -434,4 +431,4 @@ description of the values it contains.
 | SESSION\_OBJECT | The session object               |
 | TIME\_CREATED   | The time of the session creation |
 
-![Identity related tables]( ../assets/img/using-wso2-identity-server/identity-related-tables.png)
+![Identity related tables](../assets/img/using-wso2-identity-server/identity-related-tables.png)

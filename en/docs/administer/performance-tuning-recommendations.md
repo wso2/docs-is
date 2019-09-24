@@ -97,7 +97,7 @@ Carbon detects such threads, interrupts and stops them. Note that Carbon
 prints the current stack trace before interrupting the thread. This
 mechanism is implemented as an Apache Tomcat valve. Therefore, it should
 be configured in the
-`         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        `
+`         <IS_HOME>/repository/conf/tomcat/catalina-server.xml        `
 file as shown below.
 
 ``` java
@@ -138,9 +138,9 @@ file as shown below.
     substitutions that the XML parser allows in the system. You do this
     by adding the `           entity expansion limit          `
     attribute to the
-    `           <PRODUCT_HOME>/bin/wso2server.bat          ` file (for
+    `           <IS_HOME>/bin/wso2server.bat          ` file (for
     Windows) or the
-    `           <PRODUCT_HOME>/bin/wso2server.sh          ` file (for
+    `           <IS_HOME>/bin/wso2server.sh          ` file (for
     Linux/Solaris). The default entity expansion limit is 64000.
 
     ``` java
