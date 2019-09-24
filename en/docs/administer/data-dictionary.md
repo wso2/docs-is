@@ -102,14 +102,3 @@ dbscripts
 ├── oracle.sql  
 └── postgresql.sql
 
-  
-
-The data tables in Identity Server can be categorized in to several
-groups. They are listed below with diagrams illustrating the
-relationships among the tables:
-
--   [Registry Related Tables](../../learn/registry-related-tables)
--   [User Management Related Tables](../../learn/user-management-related-tables)
--   [Identity Related Tables](../../learn/identity-related-tables)
--   [Service Provider Related Tables](../../learn/service-provider-related-tables)
--   [Identity Provider Related Tables](../../learn/identity-provider-related-tables)

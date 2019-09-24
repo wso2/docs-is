@@ -9,13 +9,13 @@ disabled from appearing in the logs by setting each token to
 `         false        ` .
 
 ``` c#
-UserClaims=true
-UserIdToken=true
-XACML_Request=true
-XACML_Response=true
-NTLM_Token=true
-SAML_Assertion=true
-SAML_Request=true
+    UserClaims=true
+    UserIdToken=true
+    XACML_Request=true
+    XACML_Response=true
+    NTLM_Token=true
+    SAML_Assertion=true
+    SAML_Request=true
 ```
 
 In addition to this, you need to ensure that the logs in the

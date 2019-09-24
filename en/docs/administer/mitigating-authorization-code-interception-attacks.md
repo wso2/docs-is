@@ -63,7 +63,7 @@ following diagram.
     and select the legitimate application. However, some operating systems
     (such as iOS) do not have any such scheme.
 
-![Authorization code grant type flow]( ../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
+![Authorization code grant type flow](../assets/img/using-wso2-identity-server/authorization-code-grant-type-flow.png) 
 
 ### Mitigating code interception attacks using PKCE
 
@@ -106,13 +106,13 @@ In order to mitigate these attacks using PKCE with WSO2 Identity Server,
 you need to enable PKCE when creating the OAuth application. Follow the
 steps below to do this.
 
-1.  [Add a new service provider.](../../learn/adding-and-configuring-a-service-provider.md)
+1.  [Add a new service provider.](../../learn/adding-and-configuring-a-service-provider)
 2.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** section. Click
     **Configure**.
 3.  Select the **PKCE Mandatory** checkbox and the **Support PKCE
     'Plain' Transform Algorithm** checkbox to enable PKCE.  
-    ![]( ../assets/img/using-wso2-identity-server/register-a-new-application.png)
+    ![](../assets/img/using-wso2-identity-server/register-a-new-application.png)
 
 
 !!! info "Related Topics" 
