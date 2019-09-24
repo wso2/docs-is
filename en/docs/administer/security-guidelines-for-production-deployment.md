@@ -8,13 +8,6 @@ guidelines](../../administer/production-deployment-guidelines) and any other
 product-specific guidelines that might come in the respective product's
 documentation.
 
--   [WSO2 product-level
-    security](#SecurityGuidelinesforProductionDeployment-WSO2product-levelsecurity)
--   [OS-level
-    security](#SecurityGuidelinesforProductionDeployment-OS-levelsecurity)
--   [Network-level
-    security](#SecurityGuidelinesforProductionDeployment-Network-levelsecurity)
-
 ### WSO2 product-level security
 
 <table>
@@ -30,14 +23,14 @@ documentation.
 <td><p>Apply all the security patches relevant to your product version. If your WSO2 product version is supported by WSO2 Update Manager (WUM), you need to use WUM to get the latest fixes.</p>
 <ul>
 <li>If your WSO2 product is listed as a WUM-supported product <a href="http://wso2.com/update/">here</a>, follow the instructions in <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> .</li>
-<li><p>If you are using an older WSO2 product version, which is not WUM-supported, you need to download the security patches relevant to your product from the <a href="http://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and apply them to your system manually. The instructions are given in <a href="_WSO2_Patch_Application_Process_">WSO2 Patch Application Process</a> .</p></li>
+<li><p>If you are using an older WSO2 product version, which is not WUM-supported, you need to download the security patches relevant to your product from the <a href="http://wso2.com/security-patch-releases/">WSO2 Security Patch Release</a> page and apply them to your system manually. The instructions are given in <a href="../../administer/wso2-patch-application-process">WSO2 Patch Application Process</a> .</p></li>
 </ul>
-!!! note
-    <p><strong>Note the following:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note the following:</p>
     <ul>
     <li>WSO2 releases security patch notifications monthly via the Support Portal and the above mentioned <a href="http://wso2.com/security-patch-releases">WSO2 Security Patch Releases</a> page. However, for highly critical issues, patches are issued immediately to customers.</li>
     <li>The <a href="http://wso2.com/security-patch-releases">WSO2 Security Patch Release</a> page has all the security patches for the latest product versions. WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the latest product version to receive all the security fixes.</li>
-    </ul>
+    </ul></p></div>
 </tr>
 <tr class="even">
 <td><p>Change default keystores</p></td>
@@ -47,25 +40,25 @@ documentation.
 <li><p>Use an SHA256 certificate.</p></li>
 <li><p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p></li>
 </ul>
-<p>See the <a href="../../administer/using-asymmetric-encryption_53125461.html#UsingAsymmetricEncryption-recommendations">recommendations for using keystores in WSO2 products</a> for information.<br />
-See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for information on how to create and configure your own keys.</p></td>
+<p>See the <a href="../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products">recommendations for using keystores in WSO2 products</a> for information.<br />
+See <a href="../../administer/creating-new-keystores">Creating New Keystores</a> for information on how to create and configure your own keys.</p></td>
 </tr>
 <tr class="odd">
 <td>Encrypt passwords in configuration files</td>
 <td><p>WSO2 products use a tool called <strong>Secure Vault</strong> to encrypt the plain-text passwords in configuration files.</p>
-<p>See <a href="_Securing_Passwords_in_Configuration_Files_">Securing Passwords in Configuration Files</a> for instructions.</p></td>
+<p>See <a href="../../administer/encrypting-passwords-with-cipher-tool">Securing Passwords in Configuration Files</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Change default ports</p>
 <p><br />
 </p></td>
-<td><p>All the default ports used by WSO2 products are listed in <a href="_Default_Ports_of_WSO2_Products_">Default Ports of WSO2 Products</a> . For example, the default HTTPS port is 9443 and the HTTP port is 9763. Also, Axis2 services are exposed over the following ports: 8243 and 8280.</p>
-<p>To change a default port, update the <code>              &lt;Offset&gt;             </code> element in the <code>              carbon.             </code> xml file as explained in <a href="_Changing_the_Default_Ports_">Changing the Default Ports</a> .</p></td>
+<td><p>All the default ports used by WSO2 products are listed in <a href="../../administer/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> . For example, the default HTTPS port is 9443 and the HTTP port is 9763. Also, Axis2 services are exposed over the following ports: 8243 and 8280.</p>
+<p>To change a default port, update the <code>              &lt;Offset&gt;             </code> element in the <code>              carbon.             </code> xml file as explained in <a href="../../administer/changing-the-default-ports">Changing the Default Ports</a> .</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable <strong>read-only access</strong> to external user stores (LDAPs etc.)</p></td>
 <td><p>If your WSO2 product is connecting to an external user store, such as Microsoft Active Directory, for the purpose of reading and retrieving user information, be sure to enable read-only access to that user store.</p>
-<p>For example, see <a href="_Configuring_a_Read-Only_LDAP_User_Store_">Configuring a Read-Only LDAP User Store</a> under <a href="_Configuring_User_Stores_">Configuring User Stores</a> for instructions.</p></td>
+<p>For example, see <a href="../../administer/configuring-a-read-only-ldap-user-store">Configuring a Read-Only LDAP User Store</a> under <a href="../../administer/configuring-user-stores">Configuring User Stores</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Always communicate (with external user stores) over TLS</p></td>
@@ -79,11 +72,12 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <td><p>Configure strong HTTP(S) security</p></td>
 <td><p>To have strong transport-level security, use TLS 1.2 and disable SSL, TLS 1.0 and 1.1. The TLS protocol and strong ciphers are configured for an HTTP connector in the catalina <code>              -server.             </code> xml file (using the <code>              sslEnabledProtocols             </code> and <code>              ciphers             </code> attributes). See the following links for instructions:</p>
 <ul>
-<li><a href="_Configuring_Transport_Level_Security_">Configuring Transport-Level Security</a></li>
-<li><a href="_Supported_Cipher_Suites_">Supported Cipher Suites</a></li>
+<li><a href="../../administer/configuring-transport-level-security">Configuring Transport-Level Security</a></li>
+<li><a href="../../administer/supported-cipher-suites">Supported Cipher Suites</a></li>
 </ul>
-!!! note
-    <p>Note the following:</p>
+<div class="admonition note">
+<p class="admonition-title">Note the following:</p>
+<p>
     <ul>
     <li>When deciding on the TLS protocol and the ciphers, consider the compatibility with existing client applications. Imposing maximum security might cause functional problems with client applications.</li>
     <li>Apply ciphers with 256 bits key length if you have applied the Unlimited strength policy. Note that Unlimited strength policy is recommended.</li>
@@ -96,31 +90,33 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
     <li>Cipher-suites that do not provide Perfect Forward Secrecy/ Forward Secrecy (PFS/FS).</li>
     <li>GCM based ciphers are recommended over CBC ciphers.</li>
     </ul></li>
-    </ul>
+    </ul></p></div>
 </tr>
 <tr class="odd">
 <td><p>Remove weak ciphers for PassThrough transport</p></td>
-<td>!!! note
-    <p>Applicable only to products that use the PassThrough transport, such as WSO2 API Manager and WSO2 Enterprise Integrator (ESB profile).</p>
+<td>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+    <p>Applicable only to products that use the PassThrough transport, such as WSO2 API Manager and WSO2 Enterprise Integrator (ESB profile).</p></p></div>
 <p>Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the <code>              axis2.             </code> xml file (stored in the <code>              &lt;PRODUCT_HOME&gt;/repository/conf/axis2/             </code> directory. You need to add the <code>              PreferredCiphers             </code> parameter under the "Transport Ins (Listeners)" section along with the list of relevant cipher suites.</p>
-<p>See <a href="_Configuring_Transport_Level_Security_">Configuring the PassThrough Transport</a> for instructions.</p></td>
+<p>See <a href="../../administer/configuring-transport-level-security">Configuring the PassThrough Transport</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Update the HTTP Response header "Server" value</p></td>
 <td><p>By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 product stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the <code>              catalina             </code> <code>              -server.             </code> xml file.</p>
-<p>See <a href="_Configuring_Transport_Level_Security_">Configuring Transport Level Security</a> for instructions.</p></td>
+<p>See <a href="../../administer/configuring-transport-level-security">Configuring Transport Level Security</a> for instructions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enabling HTTP Strict Transport Security Headers (HSTS)</p></td>
 <td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your WSO2 server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
 <p>Note that (for products based on Carbon 4.4.11 or later versions) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
-<p>See the topic on <a href="../../administer/securing-carbon-applications_68711839.html#SecuringCarbonApplications-EnablingHTTPStrictTransportSecurity(HSTS)Headers">Enabling HTTP Strict Transport Security Headers</a> for instructions.</p></td>
+<p>See the topic on <a href="../../administer/securing-carbon-applications#enabling-http-strict-transport-security-hsts-headers">Enabling HTTP Strict Transport Security Headers</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Preventing browser caching</p></td>
 <td><p>If there are dynamic pages in your application with sensitive information, you need to prevent browser caching. This can be done by making sure that the applications deployed in your server will return the relevant HTTP response headers.</p>
 <p>Note that cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server.</p>
-<p>See the topic on <a href="../../administer/securing-carbon-applications_68711839.html#SecuringCarbonApplications-Preventingbrowsercaching">Preventing browser caching</a> for instructions.</p></td>
+<p>See the topic on <a href="../../administer/securing-carbon-applications#preventing-browser-caching">Preventing browser caching</a> for instructions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Increase Ephemeral Diffie-Hellman Key size</p></td>
@@ -158,12 +154,12 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">-Dorg.<span class="fu">wso2</span>.<span class="fu">ignoreHostnameVerification</span>=<span class="kw">false</span> \</a></code></pre></div>
 </div>
 </div>
-<p>See <a href="_Enabling_HostName_Verification_">Enabling HostName Verification</a> for instructions.</p></td>
+<p>See <a href="../../administer/enabling-hostname-verification">Enabling HostName Verification</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Enable additional XSS Protection</p></td>
 <td><p>XSS attacks are prevented on the latest WSO2 products by default. This is due to output encoding of the displaying values. However, if additional protection is required, an input validation valve can be configured.</p>
-<p>See <a href="_Mitigating_Cross_Site_Scripting_Attacks_">Mitigating Cross Site Scripting Attacks</a> for instructions.</p></td>
+<p>See <a href="../../administer/mitigating-cross-site-scripting-attacks">Mitigating Cross Site Scripting Attacks</a> for instructions.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Increase JSESSIONID length</p></td>
@@ -181,7 +177,7 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <p><br />
 </p></td>
 <td><p>All WSO2 products have the Administrator account configured by default. The default user nameand password of the administrator account is "admin". To change the administrator credentials, you need to first sign in tothe management console of the product as "admin", and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
-<p>See <a href="_Changing_a_Password_">Changing a Password</a> for more information on how to change the password of the administrator.</p></td>
+<p>See <a href="../../administer/changing-a-password">Changing a Password</a> for more information on how to change the password of the administrator.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Restrict access to the management console</p>
@@ -189,7 +185,7 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 </p></td>
 <td><p>Make sure that the permission for signing into the management console is granted only to the users that need to use the management console. For example, in products such as WSO2 Identity Server and WSO2 API Manager, the majority of users only need to login to the connected service providers via the WSO2 product. Therefore, such users should not have permission to log into the management console.</p>
 <p>You can make sure that only administrative users have access to the product's management console. Further, instead of granting all permission to one administrator, you can distribute the responsibilities among administrators by assigning different permissions for conducting various tasks.</p>
-<p>See <a href="_Managing_Users_Roles_and_Permissions_">Managing Users, Roles and Permissions</a> for instructions.</p></td>
+<p>See <a href="../../administer/managing-users-roles-and-permissions">Managing Users, Roles and Permissions</a> for instructions.</p></td>
 </tr>
 <tr class="even">
 <td><p>Enable log rotation and monitoring</p>
@@ -215,7 +211,7 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <td><p>Set appropriate JVM parameters</p>
 <p><br />
 </p></td>
-<td><p>The recommended JDK version is JDK 1.7 or 1.8. See the <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">installation pre-requisites</a> for more information.</p>
+<td><p>The recommended JDK version is JDK 1.7 or 1.8. See the <a href="../../administer/production-deployment-guidelines#installation-prerequisites">installation pre-requisites</a> for more information.</p>
 <p>For JDK 1.7, set the appropriate Heap and Permgen values for the JVM based on your deployment scenario. These can be set in the <code>              &lt;PRODUCT_HOME&gt;/bin/wso2server.sh             </code> file. You do not need to set this in JDK 1.8 as the MaxPermSize value has been removed from Hotspot JVM.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
@@ -225,8 +221,9 @@ See <a href="_Creating_New_Keystores_">Creating New Keystores</a> for informatio
 <div class="sourceCode" id="cb7" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1">-Xms512m -Xmx2048m -XX:MaxPermSize=1024m</a></code></pre></div>
 </div>
 </div>
-!!! tip
-    <p><strong>Tip</strong> : To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+    <p><strong>Tip</strong> : To run the JVM with 2 GB (-Xmx2048m), you should ideally have about 4GB of memory on the physical machine.</p></div>
 </tr>
 </tbody>
 </table>
@@ -251,7 +248,7 @@ production environment.
 <tr class="even">
 <td><p>Minimize software to avoid vulnerability</p></td>
 <td><p>Make sure that you only install the software/packages that are relevant to your WSO2 product's deployment. Also, continuously monitor the software that you install.</p>
-<p>See the <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-installation_prerequisites">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p></td>
+<p>See the <a href="../../administer/production-deployment-guidelines#installation-prerequisites">Installation Prerequisites</a> to identify the minimum software your WSO2 product will need.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Enable the Firewall</p></td>
@@ -283,8 +280,10 @@ production environment.
 </tr>
 <tr class="even">
 <td>Session Data Cleanup</td>
-<td>!!! note
-    <p><strong>Note:</strong> This security guideline is specific only to WSO2 Identity Server.</p>
+<td>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+ <p> <p><strong>Note:</strong> This security guideline is specific only to WSO2 Identity Server.</p></p></div>
 <p>In a production environment, there is a possibility for a deadlock/database lock to occur when running a session data cleanup task in high load scenarios. To mitigate this, configure the following property to clean data in chunks. Configure this property in the <code>              &lt;IS_HOME&gt;/repository/conf/identity/identity.xml             </code> file under <code>              &lt;SessionDataCleanUp&gt;             </code> with the required chunk size. This value is in the number of records and depends on the database type and server capacity. It also depends on the amount of load generated by single sign-on (SSO). A higher value increases the chances of deadlocks and a lower value increases the time it takes for a cleanup.</p>
 <p><br />
 </p>
@@ -293,12 +292,12 @@ production environment.
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;DeleteChunkSize&gt;<span class="dv">50000</span>&lt;/DeleteChunkSize&gt;</a></code></pre></div>
 </div>
 </div>
-<p>For more information on configuring sessions in production, see <a href="https://docs.wso2.com/display/identity-server/Authentication+Session+Persistence">Authentication Session Persistence</a> in the WSO2 Identity Server documentation.</p></td>
+<p>For more information on configuring sessions in production, see <a href="../../learn/authentication-session-persistence">Authentication Session Persistence</a> in the WSO2 Identity Server documentation.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Make regular backups</p></td>
 <td><p>Make sure to backup important files and archive them continuously.</p>
-<p>See <a href="../../administer/production-deployment-guidelines_56984556.html#ProductionDeploymentGuidelines-backup_recovery">Backup and Recovery Recommendations</a> for more information.</p></td>
+<p>See <a href="../../administer/production-deployment-guidelines#backup-recovery">Backup and Recovery Recommendations</a> for more information.</p></td>
 </tr>
 </tbody>
 </table>
@@ -333,7 +332,7 @@ the network.
 <tr class="odd">
 <td><p>Check open ports and services</p></td>
 <td><p>Periodically check for open ports using port scanning tools and make sure that only the necessary ports are open to both internal and external networks. Be sure that only the ports relevant to your WSO2 products are open for communication. If there are other ports started, be sure to monitor them.</p>
-<p>See <a href="_Default_Ports_of_WSO2_Products_">Default Ports of WSO2 Products</a> for the full list of ports in all WSO2 products.</p></td>
+<p>See <a href="../../administer/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> for the full list of ports in all WSO2 products.</p></td>
 </tr>
 <tr class="even">
 <td><p>Configure device-level security</p></td>
@@ -354,8 +353,9 @@ the network.
 </ul>
 <p><br />
 </p>
-!!! note
-    <p>It is recommended to use a whitelisting approach when allowing access to resources in your product from the DMZ level.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+    <p>It is recommended to use a whitelisting approach when allowing access to resources in your product from the DMZ level.</p></div>
 </tr>
 </tbody>
 </table>

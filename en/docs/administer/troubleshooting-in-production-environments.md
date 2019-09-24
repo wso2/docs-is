@@ -4,15 +4,6 @@ The following sections provide information on how to troubleshoot
 various problems that may arise for deployment in production
 environments.
 
--   [Analyzing a stack
-    trace](#TroubleshootinginProductionEnvironments-Analyzingastacktrace)
--   [Capturing the state of the
-    system](#TroubleshootinginProductionEnvironments-Capturingthestateofthesystem)
--   [Viewing process threads in
-    Solaris](#TroubleshootinginProductionEnvironments-ViewingprocessthreadsinSolaris)
--   [Checking the health of a
-    cluster](#TroubleshootinginProductionEnvironments-Checkingthehealthofacluster)
-
 ### Analyzing a stack trace
 
 When your Java process starts to spin your CPU, you must immediately
@@ -24,8 +15,7 @@ on the process ID (pid).
 2.  `           ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
 
     !!! tip
-    
-        **Tip** : OS X users can alternatively use the command
+    OS X users can alternatively use the command
         `           ps M <PID>          ` instead.
     
 
@@ -38,14 +28,14 @@ following.
     **thread-usage.txt** file.
 
     ``` java
-    %CPU CPU  NI S     TIME   PID   TID
-    .......... 
-      0.0   -   0 S 00:00:00  1519  1602
-      0.0   -   0 S 00:00:00  1519  1603
-     24.8   -   0 R 00:06:19  1519  1604
-      2.4   -   0 S 00:00:37  1519  1605
-      0.0   -   0 S 00:00:00  1519  1606
-    ..........
+        %CPU CPU  NI S     TIME   PID   TID
+        .......... 
+        0.0   -   0 S 00:00:00  1519  1602
+        0.0   -   0 S 00:00:00  1519  1603
+        24.8   -   0 R 00:06:19  1519  1604
+        2.4   -   0 S 00:00:37  1519  1605
+        0.0   -   0 S 00:00:00  1519  1606
+        ..........
     ```
 
     In this example, the thread ID that takes up the highest CPU usage
@@ -91,20 +81,20 @@ error. Therefore, it is recommended that you run this tool as soon as an
 error occurs in the WSO2 product instance.
 
 When using the tool, you have to provide the process ID (pid) of the
-product instance and the `         <PRODUCT_HOME>        ` location,
+product instance and the `         <IS_HOME>        ` location,
 which is where your unzipped Carbon distribution files reside. The
 command takes the following format:
 
 ``` java
-sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
+    sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
 ```
 
 For example,
 
 ``` java
-In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
+    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
 
-In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.0.0\ -pid 5151
+    In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.0.0\ -pid 5151
 ```
 
 The tool captures the following information about the system:
@@ -191,8 +181,7 @@ However, you must verify this in your system and adjust as necessary
 depending on your scenario.
 
 !!! warning
-    
-    **Warning** : Reducing the value of this property to a lower value can
+    Reducing the value of this property to a lower value can
     result in nodes being considered as dead even if they are not. This
     results in multiple messages indicating that a node is leaving and
     rejoining the cluster.
@@ -204,7 +193,7 @@ Do the following steps to configure the maximum time between heartbeats.
     following property to it.  
     `          hazelcast.max.no.heartbeat.seconds=300         `
 2.  Place this file in the
-    `          <PRODUCT_HOME>/repository/conf/         ` directory in
+    `          <IS_HOME>/repository/conf/         ` directory in
     all the nodes in your cluster.
 3.  Restart the servers.
 

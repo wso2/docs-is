@@ -44,14 +44,14 @@ comprised of the same WSO2 product; the configuration registry is not
 shared for different products). This means, each node in the cluster is
 configured to point to this database. These configurations involve
 changes to the
-`         <PRODUCT_HOME>/repository/conf/registry.xml        ` file for
+`         <IS_HOME>/repository/conf/registry.xml        ` file for
 each WSO2 product in the cluster.
 
 The user management database is also shared among all nodes in the
 cluster, although the way it is shared differs slightly from the
 governance and configuration registry. The user management database is
 basically a user store and is configured using the
-`         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file for
+`         <IS_HOME>/repository/conf/user-mgt.xml        ` file for
 each WSO2 product in the cluster.
 
 Furthermore, each WSO2 product has its own local data repository for
@@ -59,7 +59,7 @@ runtime data.
 
 Each of the WSO2 products in the cluster must have datasources defined
 for each of the databases that they point to. This is configured in the
-`         <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml        `
+`         <IS_HOME>/repository/conf/datasources/master-datasources.xml        `
 file for each WSO2 product.
 
 ### Mounting the registry

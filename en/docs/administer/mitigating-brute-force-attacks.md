@@ -27,8 +27,8 @@ use the following approaches:
 1.  Lock the user account after a certain number of failed attempts, for
     a period of time. For instructions on setting this up, see [User
     Account Locking and Account
-    Disabling](../../learn/user-account-locking-and-account-disabling.md).
+    Disabling](../../learn/user-account-locking-and-account-disabling).
 2.  Present a reCaptcha after a certain number of failed attempts before
     trying again. A reCaptcha can determine if the system is dealing
     with a human or an automation. For instructions on setting this up,
-    see [Setting Up ReCaptcha](../../learn/setting-up-recaptcha.md).
+    see [Setting Up ReCaptcha](../../learn/setting-up-recaptcha).

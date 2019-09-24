@@ -1,7 +1,7 @@
 # Server Roles
 
 A server role is a parameter that is mentioned in
-`         <PRODUCT_HOME>/repository/conf/carbon.xml        ` file of all
+`         <IS_HOME>/repository/conf/carbon.xml        ` file of all
 WSO2 products. Each product has a different default ServerRoles property
 as follows:
 
@@ -24,13 +24,6 @@ production setup. You can set the ServerRole as
 
 The following methods can be used to set the ServerRole property:
 
--   [Using the management console to set the ServerRole
-    property](#using-the-management-console-to-set-the-serverrole-property)
--   [Using carbon.xml file to set the ServerRole
-    property](#using-carbonxml-file-to-set-the-serverrole-property)
--   [Using a system property to set the ServerRole
-    property](#using-a-system-property-to-set-the-serverrole-property)
-
 #### Using the management console to set the ServerRole property
 
 This is the recommended way to configure server roles because the
@@ -44,9 +37,9 @@ always given priority over others.
 2.  Click **Add New Server Role**, e nter the Role Name and click
     **Add.** You can add any textual name as a server role without
     special characters except underscore.  
-    ![Add custom server role form]( ../assets/img/using-wso2-identity-server/add-custom-server-role-form.png)
+    ![Add custom server role form](../assets/img/using-wso2-identity-server/add-custom-server-role-form.png)
 3.  The newly added server role is displayed in the server roles list.  
-    ![Server roles list]( ../assets/img/using-wso2-identity-server/server-roles-list.png)  
+    ![Server roles list](../assets/img/using-wso2-identity-server/server-roles-list.png)  
     You can delete the server role using the **Delete** icon associated
     with it.
 
@@ -56,7 +49,7 @@ always given priority over others.
 #### Using carbon.xml file to set the ServerRole property
 
 Change the ServerRoles element in
-`         <PRODUCT_HOME>/repository/conf/carbon.xml        ` file as
+`         <IS_HOME>/repository/conf/carbon.xml        ` file as
 follows:  
 
 ``` java
