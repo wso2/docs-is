@@ -288,11 +288,12 @@ Cluster](https://docs.wso2.com/display/ADMIN44x/Sharing+Databases+in+a+Cluster)
     `          <versionResourcesOnChange>         ` property in the
     `          registry.xml         ` file to **false**. This is because
     automatic versioning of resources can be an extremely expensive
-    operation.
+    operation.(In default this property is false)
     
     ``` java
-    <versionResourcesOnChange>false</versionResourcesOnChange>
-```
+    [version_resources]
+    on_change = "false"
+    ```
 
 
 In the registry browser, verify that the governance collection is shown
