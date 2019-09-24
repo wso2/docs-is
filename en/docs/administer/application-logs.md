@@ -12,8 +12,7 @@ application.
 Follow the instructions given below to access statistics on application
 logs:
 
-1.  Log on to the product's management console and select **Monitor -\>
-    Application Logs**.  
+1.  Log on to the product's management console and select **Monitor -\> Application Logs**.  
 2.  The "Application Logs" page appears. This page displays logs of a
     selected application in a bottom-up manner.
 

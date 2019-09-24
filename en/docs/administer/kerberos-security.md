@@ -31,7 +31,7 @@ To use KDC in Identity Server, you need to use the embedded LDAP which
 ships with WSO2 Identity Server. Thus, by default, the KDC server is
 disabled. To enable the KDC server, go to the Identity Server home
 directory and navigate to the
-`         <PRODUCT_HOME>/repository/conf/identity        ` folder. There
+`         <IS_HOME>/repository/conf/identity        ` folder. There
 you will find a file named `         embedded-ldap.xml        ` . Open
 `         embedded-ldap.xml        ` and find the
 `         <KDCServer/>        ` XML tag. You will configure the XML
