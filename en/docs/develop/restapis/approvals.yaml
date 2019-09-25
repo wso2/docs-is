@@ -17,7 +17,7 @@ schemes:
 
 # Tags are used for organizing operations.
 tags:
-- name: default
+- name: me
   description: Operations for the authenticated user.
 
 # Applicable authentication mechanisms.
@@ -28,6 +28,8 @@ security:
 paths:
   /me/approval-tasks:
     get:
+      tags:
+        - me
       summary: Retrieves available approvals for the authenticated user
       operationId: listApprovalTasksForLoggedInUser
       description: >
@@ -95,6 +97,8 @@ paths:
           $ref: '#/responses/ServerError'
   /me/approval-tasks/{task-id}:
     get:
+      tags:
+        - me
       summary: "Retrieves an approval task by the task-id"
       operationId: getApprovalTaskInfo
       description: >
@@ -162,6 +166,8 @@ paths:
           $ref: '#/responses/ServerError'
   /me/approval-tasks/{task-id}/state:
     put:
+      tags:
+        - me
       summary: "Changes the state of an approval task"
       operationId: updateStateOfTask
       description: |
