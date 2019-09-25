@@ -9,20 +9,19 @@
 
 -	**Cross protocol single logout**: This feature enables single logout applications that communicate using different SSO protocols such as OIDC and SAML. For more information, see [Single Logout](../../get-started/cross-protocol-single-logout).
 
--	**Adaptive authentication using function library**: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see [Adaptive Authentication with Function Libraries](../../adaptive-authentication-with-function-librabry). 
+-	**Adaptive authentication using function library**: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see [Adaptive Authentication with Function Libraries](../../learn/adaptive-authentication-with-function-librabry). 
 
--	**New REST APIs**: This release includes new REST APIs for end users as well as for administrative users. 
-
+-	**New REST APIs**: This release includes new REST APIs for end users as well as for administrative users.
 	<table>
 		<tr>
 			<th>For end users</th>
 			<td>
 				<ul>
-					<li>[Manage challenge question answers]()</li>
-					<li>[View Authorized OAuth applications and revoke authorization from applications]()</li>
-					<li>[Manage associated accounts]()</li>
-					<li>[View and revoke login sessions]()</li>
-					<li>[Manage pending approvals]() </li>
+					<li>[Manage challenge question answers](../../develop/challenge-rest-api)</li>
+					<li>[View Authorized OAuth applications and revoke authorization from applications](../../develop/authorized-apps-rest-api)</li>
+					<li>[Manage associated accounts](../../develop/association-rest-api)</li>
+					<li>[View and revoke login sessions](../../develop/session-mgt-rest-api)</li>
+					<li>[Manage pending approvals](../../develop/approvals-rest-api) </li>
 				</ul>
 			</td>				
 		</tr>
@@ -30,29 +29,25 @@
 			<th>For administrative users</th>
 			<td>
 				<ul>
-					<li>[Manage claims]() </li>
-					<li>[Manage challenge questions]()</li>
+					<li>[Manage challenge questions](../../develop/challenge-rest-api)</li>
 				</ul>
 			</td>				
 		</tr>
 	</table> 
 
--	**New Configuration model**: Previous WSO2 Identity Server versions supported multiple configuration files such as `carbon.xml`, `identity.xml`, and `axis2.xml`. With the new configuration model in WSO2 Identity Server 5.9.0, configurations are handled by the a sinfle file named`deployment.toml`  in the `<IS_HOME>/repository/conf/` directory. 
+-	**New Configuration model**: Previous WSO2 Identity Server versions supported multiple configuration files such as `carbon.xml`, `identity.xml`, and `axis2.xml`. With the new configuration model in WSO2 Identity Server 5.9.0, configurations are handled by the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory. 
 
 
 ### What has changed in this release
 
 #### Removed features and functionalities
 
--	**Logging Monitor UI**
+-	Logging Monitor UI
  
 
 #### Deprecated features and functionalities
 
--	**Writing Password Policiy validators**
-
-
-Moreover, as a part of the ongoing major revamp of the Identity Server user portal, there are changes made to the basic login and the user profile pages.
+-	Writing Password Policiy validators 
 
 
 ### Compatible versions
