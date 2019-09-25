@@ -479,6 +479,7 @@ nav:
             - 'Authorized Apps REST APIs': develop/authorized-apps-rest-api.md
             - 'Fido REST APIs': develop/fido-rest-api.md
             - 'Session Management REST APIs': develop/session-mgt-rest-api.md
+            - 'TOTP REST APIs': develop/totp-rest-api.md
             - 'Account Recovery REST APIs': develop/using-the-account-recovery-rest-apis.md
             - 'Self Sign-Up REST APIs': develop/using-the-self-sign-up-rest-apis.md
             - 'Authentication REST APIs': develop/using-the-authentication-rest-apis.md
