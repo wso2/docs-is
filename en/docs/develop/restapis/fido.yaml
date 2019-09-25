@@ -3,7 +3,7 @@ swagger: '2.0'
 # Prolog
 ######################################################
 info:
-  version: "1.0.0"
+  version: "v1"
   title: "WSO2 Identity Server FIDO 2 Rest API "
   description: |
     This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
@@ -17,6 +17,11 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+# Tags are used for organizing operations
+tags:
+- name: me
+  description: Operations for the authenticated user.
 
 ######################################################
 # The fixed parts of the URLs of the API
@@ -93,7 +98,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       tags:
-        - FIDO
+        - me
   /me/webauthn/finish-registration:
     post:
       description: |
@@ -135,7 +140,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       tags:
-        - FIDO
+        - me
   /me/webauthn/{credentialId}:
     delete:
       description: |
@@ -169,7 +174,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       tags:
-        - FIDO
+        - me
   # Endpoint used to get device metadata by username
   /me/webauthn:
     get:
@@ -212,7 +217,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       tags:
-        - FIDO
+        - me
 
 definitions:
   #-----------------------------------------------------
