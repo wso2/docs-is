@@ -18,6 +18,10 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 
+security:
+  - OAuth2: []
+  - BasicAuth: []
+
 # Tags are used for organizing operations
 tags:
 - name: me
@@ -233,3 +237,19 @@ definitions:
       description:
         type: string
 #-----------------------------------------------------
+
+#-----------------------------------------------------
+# Security Definitions
+#-----------------------------------------------------
+securityDefinitions:
+  BasicAuth:
+    type: basic
+  OAuth2:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://localhost:9443/oauth/authorize
+    tokenUrl: https://localhost:9443/oauth/token
+    scopes:
+      read: Grants read access
+      write: Grants write access
+      admin: Grants read and write access to administrative information
