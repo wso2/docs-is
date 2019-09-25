@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: This is the RESTful API for managing Sessions in WSO2 Identity Server
-  version: '1.0.0'
+  version: 'v1'
   title: WSO2 Identity Server - Session Management API
   contact:
     name: 'WSO2 Identity Server'
@@ -16,67 +16,19 @@ schemes:
 host: localhost:9443
 basePath: /t/carbon.super/api/users/v1
 
-# tags are used for organizing operations
 tags:
-- name: management
-  description: Secured Admin-only calls
-- name: developers
-  description: Operations available to regular developers
+- name: me
+  description: Operations for the authenticated user.
+
 security:
   - OAuth2: []
   - BasicAuth: []
 
 paths:
-  /{user-id}/sessions:
-    get:
-      tags:
-        - management
-      description: Retrieve information related to the active sessions of the user.
-      summary: get active sessions
-      operationId: getSessionsByUserId
-      parameters:
-        - $ref: '#/parameters/userIdPathParam'
-        - $ref: '#/parameters/limitQueryParam'
-        - $ref: '#/parameters/offsetQueryParam'
-        - $ref: '#/parameters/filterQueryParam'
-        - $ref: '#/parameters/sortQueryParam'
-      produces:
-        - application/json
-      responses:
-        200:
-          description: Successfully retrieved session information
-          schema:
-            $ref: '#/definitions/Sessions'
-        400:
-            $ref: '#/responses/InvalidInput'
-        401:
-            $ref: '#/responses/Unauthorized'
-        404:
-            $ref: '#/responses/NotFound'
-        500:
-            $ref: '#/responses/ServerError'
-    delete:
-      tags:
-        - management
-      description: Delete all the sessions of the given in user
-      summary: Terminate all sessions
-      operationId: terminateSessionsByUserId
-      parameters:
-        - $ref: '#/parameters/userIdPathParam'
-      responses:
-        204:
-          $ref: '#/responses/NoContent'
-        400:
-          $ref: '#/responses/InvalidInput'
-        401:
-          $ref: '#/responses/Unauthorized'
-        500:
-          $ref: '#/responses/ServerError'
-
   /me/sessions:
     get:
       tags:
-        - developers
+        - me
       description: Retrieve information related to the active sessions of the logged in user.
       summary: get active sessions
       operationId: getSessionsOfLoggedInUser
@@ -101,7 +53,7 @@ paths:
 
     delete:
       tags:
-        - developers
+        - me
       description: Delete all the sessions of the logged in user
       summary: Terminate all sessions
       operationId: terminateSessionsByLoggedInUser
@@ -115,30 +67,10 @@ paths:
         500:
           $ref: '#/responses/ServerError'
 
-  /{user-id}/sessions/{session-id}:
-    delete:
-      tags:
-        - management
-      description: Terminate a given session of a given user
-      summary: Terminate a session
-      operationId: terminateSessionBySessionId
-      parameters:
-        - $ref: '#/parameters/userIdPathParam'
-        - $ref: '#/parameters/sessionIdPathParam'
-      responses:
-        204:
-          $ref: '#/responses/NoContent'
-        400:
-          $ref: '#/responses/InvalidInput'
-        401:
-          $ref: '#/responses/Unauthorized'
-        500:
-          $ref: '#/responses/ServerError'
-
   /me/sessions/{session-id}:
     delete:
       tags:
-        - developers
+        - me
       description: Terminate a given session of the logged in user
       summary: Terminate a session
       operationId: terminateSessionByLoggedInUser
