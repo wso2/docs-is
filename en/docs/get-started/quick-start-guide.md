@@ -44,7 +44,7 @@ using WSO2 IS.
 
     For the rest of this guide, the installation location of WSO2 IS is referred to as `<IS_HOME>`.
 
-4. [Download](https://curl.haxx.se/download.html) and install curl.Make sure you install the binary type file of the version you choose.
+4. [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version you choose.
 
 6. Open the `/etc/hosts` file and add the following entry.        
     
