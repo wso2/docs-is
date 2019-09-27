@@ -48,15 +48,15 @@ You can add the encrypted password to the relevant sections in the `deployment.t
 ```toml
 [super_admin]
 username="admin"
-password="$ref{admin_password}"
+password="$secret{admin_password}"
 
 [keystore.tls]
-password = "$ref{keystore_password}" 
-alias = "$ref{keystore_password}" 
-key_password = "$ref{key_password }"  
+password = "$secret{keystore_password}" 
+alias = "$secret{keystore_password}" 
+key_password = "$secret{key_password }"  
 
 [truststore]                  
-password = "$ref{keystore_password}" 
+password = "$secret{keystore_password}" 
 ```
 
 ### Passwords in LOG4j properties
