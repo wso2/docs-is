@@ -1,6 +1,10 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing OAuth2 Authorized Apps
+  description: |
+    This is the RESTful API for managing OAuth2 Authorized Apps.
+
+    Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+
   version: "v1"
   title: WSO2 Identity Server - OAuth2 Authorized Apps API
   contact:
@@ -166,8 +170,8 @@ securityDefinitions:
   OAuth2:
     type: oauth2
     flow: accessCode
-    authorizationUrl: https://localhost:9443/oauth/authorize
-    tokenUrl: https://localhost:9443/oauth/token
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
     scopes:
       read: Grants read access
       write: Grants write access
