@@ -1000,9 +1000,6 @@ html .md-footer-meta.md-typeset a,
 .card:hover .icon {
     background-position: -120px;
     transition: height 100s ease;
-}
-
-.card:hover .icon i {
     background: linear-gradient(90deg, #FF7E7E, #FF4848);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
