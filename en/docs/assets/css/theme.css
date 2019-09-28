@@ -994,7 +994,6 @@ html .md-footer-meta.md-typeset a,
     height: 115px;
     transition: height 100s ease;
     opacity: 1;
-    max-height:40px;
 }
 
 .card:hover .icon {
