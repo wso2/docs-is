@@ -9,29 +9,14 @@
     <li><b>Passwordless authentication</b>: This feature is supported using the FIDO2 protocol. For more information, see <a href="../../learn/configuring-passwordless-authentication">Configuring Passwordless Authentication</a>.</li>
     <li><b>Cross protocol single logout</b>: This feature enables single logout applications that communicate using different SSO protocols such as OIDC and SAML. For more information, see <a href="../../get-started/cross-protocol-single-logout">Single Logout</a>.</li>
     <li><b>Adaptive authentication using function library</b>: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see <a href="../../learn/adaptive-authentication-with-function-librabry">Adaptive Authentication with Function Libraries</a>.</li>
-    <li><b>New REST APIs</b>: This release includes new REST APIs for end users as well as for administrative users.        	
-		<table>
-			<tr>
-				<th>For end users</th>
-				<td>
-					<ul>
+    <li><b>New REST APIs</b>: This release includes new REST APIs for end users who can be authenticated to the system to manage their user account related activities.        	
+		<ul>
 						<li><a href="../../develop/challenge-rest-api">Manage challenge question answers</a></li>
 						<li><a href="../../develop/authorized-apps-rest-api">View Authorized OAuth applications and revoke authorization from applications</a></li>
 						<li><a href="../../develop/association-rest-api">Manage associated accounts</a></li>
 						<li><a href="../../develop/session-mgt-rest-api">View and revoke login sessions</a></li>
 						<li><a href="../../develop/approvals-rest-api">Manage pending approvals</a></li>
 					</ul>
-				</td>				
-			</tr>
-			<tr>
-				<th>For administrative users</th>
-				<td>
-					<ul>
-						<li><a href="../../develop/challenge-rest-api">Manage challenge questions</a></li>
-					</ul>
-				</td>				
-			</tr>
-		</table>
 	</li>
 	<li><b>New Configuration model</b>: Previous WSO2 Identity Server versions supported multiple configuration files such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the <a href="../../references/new-configuration-model">new configuration model</a> in WSO2 Identity Server 5.9.0, configurations are handled by the <code>deployment.toml</code> file in the <code><IS_HOME>/repository/conf/</code> directory.</li> 
 </ul>
