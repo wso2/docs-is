@@ -91,7 +91,8 @@ Note the following before you use this feature:
     element as shown below. This value is in MB.
 
     ``` java
-        <TotalFileSizeLimit>100</TotalFileSizeLimit>
+        [server.file_upload]
+        file_size_limit = "100"
     ```
 
 #### Creating a file with users
