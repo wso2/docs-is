@@ -657,6 +657,7 @@ nav:
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
       - 'Working with Product Observability': administer/working-with-product-observability.md    
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
