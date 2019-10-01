@@ -110,17 +110,15 @@ directly used as well.
     directory. You can also modify the project and build it using Apache
     Maven 3.
 3.  Configure the following in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file under the `           <OAuth><SupportedGrantTypes>          `
-    element.  
-
+    `           deployment.toml          `
+    
     ``` xml
-        <SupportedGrantType>
-            <GrantTypeName>mobile</GrantTypeName>
-            <GrantTypeHandlerImplClass>org.wso2.sample.identity.oauth2.grant.mobile.MobileGrant</GrantTypeHandlerImplClass>
-            <GrantTypeValidatorImplClass>org.wso2.sample.identity.oauth2.grant.mobile.MobileGrantValidator</GrantTypeValidatorImplClass>
-            <IdTokenAllowed>true</IdTokenAllowed>
-        </SupportedGrantType>
+        [[oauth.custom_grant_type]]
+        name = "name"
+        grant_handler = "full qualified class name of grant handler"
+        grant_validator = "validator"
+        [oauth.custom_grant_type.properties]
+        IdTokenAllowed = true
     ```
 
 4.  Restart the server.
