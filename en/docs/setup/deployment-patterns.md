@@ -254,7 +254,7 @@ To make sure the configurations were applied correctly:
 
    
 
-### Clustering related configurations
+### Clustering-related configurations
 
 Following configurations need to be done to both WSO2 Identity Server nodes in order to enable clustering between them.
 
@@ -288,21 +288,133 @@ Following configurations need to be done to both WSO2 Identity Server nodes in o
         You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster the time it takes to discover members since each node has to scan a lesser number of potential members. 
     
         
-2. All caches are considered to be local caches in WSO2 Identity Server by default. However, for clustered nodes enable cache invalidation by setting the `force_local_cache` property in the `<IS_HOME>/repository/conf/deployment.toml` to `true`.  
-    ```
-    [server]
-    force_local_cache="true"
-    ```
+2. Configure caching.
+
+    !!! note
+        From WSO2 Identity Server 5.2.0 onwards, distributed caching is disabled and it is not recommended to use this due to many practical issues that are related to configuring and running distributed caching properly. WSO2 Identity Server employs **Hazelcast** as the primary method of implementing cluster messages while using distributed caching in a simple setup.
+
+    ??? info "About Caching"
+        <ul>
+            <li><b>Why caching</b></br>Caching is an additional layer on top of databases. It enables to keep the recently used data that are fetched from the database in local memory, so that for subsequent data requests instead of fetching from the database the data can be served from the local memory. Caching has certain advantages and disadvantages that you need to evaluate when deciding on your caching strategy.</li>
+            <li><b>Advantages</b>
+                <ul>
+                    <li>The load on the underlying database or LDAP is reduced as data is served from already fetched data in memory.</li>
+                    <li>Improved performance due to the reduced number of database calls for repetitive data fetching.</li>
+                </ul>
+            </li>
+            <li><b>Disadvantages</b>
+                <ul>
+                    <li>Coherency problems may occur when the data change is not immediately reflected on cached data if one node or an external system updates the database.</li>
+                    <li>Data in memory can become stale yet be served, e.g., serving data from memory while its corresponding record in the database is deleted.</li>
+                </ul>
+            </li>
+        </ul>
+
+    ??? tip "Caching in WSO2 Identity Server"
+        Historically WSO2 Identity Server used distributed caching to utilize the above-mentioned advantages as well as to minimize the coherence problem. However, in newer deployment patterns where the network is not tightly controlled, distributed caching fail in unexpected ways. Hence, we **no longer recommend using distributed caching**. Instead, it is **recommended to have local caches** (if required) and **cache invalidation messages** (if required) by considering the information given below.
+        <ul>
+            <li><b>The ForceLocalCache property</b></br>
+            When Hazelcast clustering is enabled certain caches act as distributed caches. The `force_local_cache` property in the `<IS_HOME>/repository/conf/deployment.toml` directory is there to mark that all the caches should act like local caches even in a clustered setup. (This is by default set to `true`).
+            ```
+            [server]
+            force_local_cache = true
+            ```
+            Cache invalidation uses Hazelcast messaging to distribute the invalidation message over the cluster and invalidate the caches properly.  This is used to minimize the coherence problem in a multi-node setup.
+            </li>
+            <li><b>Typical clustered deployment cache scenarios</b></br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Local Caching</th>
+                        <th>Distributed Caching</th>
+                        <th>Hazelcast Clustering</th>
+                        <th>Distributed Invalidation</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. All caches are local with distributed cache invalidation</td>
+                        <td>Enabled</td>
+                        <td>Not Applicable</td>
+                        <td>Enabled</td>
+                        <td>Enabled</td>
+                        <td>
+                            <ul>
+                                <li>This is the <b>recommended approach</b>.</li>
+                                <li>Hazelcast messaging invalidates the caches.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2. All caches are local without distributed cache invalidation</td>
+                        <td>Enabled</td>
+                        <td>Not Applicable</td>
+                        <td>Disabled</td>
+                        <td>Disabled</td>
+                        <td>
+                            <ul>
+                                <li>Invalidation clears only the caches in specific nodes. Other caches are cleared at cache expiration.</li>
+                                <li>Hazelcast communication is not used.</li>
+                                <li>As the decisions take time to propagate over nodes (default cache timeout is 15 minutes), there is a security risk in this method. To reduce the risk, reduce the default cache timeout period. To learn how to reduce the default cache timeout period, see [Configuring Cache Layers - timeout](../../administer/configuring-cache-layers#timeout).</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3. No caching</td>
+                        <td>Disabled</td>
+                        <td>Disabled</td>
+                        <td>Disabled</td>
+                        <td>Disabled</td>
+                        <td>
+                            <ul>
+                                <li>The data are directly acquired from the database.</li>
+                                <li>Eliminates the security risks caused due to not having cache invalidation.</li>
+                                <li>This method will create a performance degradation due to the lack of caching.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4. Certain caches are disabled while the remaining are local</td>
+                        <td>Enabled for the available local caches</td>
+                        <td>Not Applicable</td>
+                        <td>Enabled</td>
+                        <td>Enabled</td>
+                        <td>
+                            <ul>
+                                <li>To reduce the security risk created in the second scenario and to improve performance in comparison with the third scenario, disable the security-related caches and sustain the performance-related caches as local caches.</li>
+                                <li>This requires identification of these caches depending on the use case.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5. Distributed caching enabled</td>
+                        <td>Disabled—the `force_local_cache` is set to `false`.</td>
+                        <td>Enabled</td>
+                        <td>Enabled</td>
+                        <td>Not Applicable</td>
+                        <td>
+                            <ul>
+                                <li>This scenario is only recommended if the network has tight tolerance where the network infrastructure is capable of handling high bandwidth with very low latency.</li>
+                                <li>Typically this applies only when you deploy <b>all the nodes in a single server rack having fiber-optic cables</b>. In any other environments, this implementation will cause cache losses. Thus, this implementation is <b>not recommended for general use</b>.
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </li>
+        </ul>
 
 3. Go to the `<IS_HOME>/repository/conf/deployment.toml` file and add the proxy port as `443`. The port 443 is the Load Balancer frontend port.
 
     !!! example
         ```
         [transport.http]
-        ...
-        port = "9443"
+        port = "80"
+
+        [transport.https]
         proxyPort = "443" 
-        ...
         ```
 
 4. You may change the `<IS_HOME>/repository/conf/deployment.toml` file to access the servers using a hostname instead of the raw IP. This hostname is the one the external applications try to look up WSO2 Identity Server endpoints. The `HostName` should be resolved to the Load Balancer front-end IP address.
