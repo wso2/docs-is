@@ -10,13 +10,9 @@ The configuration differs based on the type of notifications you want to
 send to the external endpoint. The following instructions provide
 information on how to send an email when a user operation takes place.
 
-1.  Enable axis2 email transport sender by uncommenting the relevant
-    section in the
-    `           <PRODUCT_HOME>/repository/conf/axis2/axis2.xml          `
-    file and add your SMTP provider values to it. The following is an
-    example of the uncommented
-    `           MailTransportSender          ` .
-
+1.  Enable axis2 email transport sender by addig your SMTP provider values to `deployment.toml` as the following
+    example.
+    
     -   **mail.smtp.from** - The mail address from where you want to
         send the notification. It can be any working mail address.
 
@@ -47,15 +43,14 @@ information on how to send an email when a user operation takes place.
     .
 
     ``` xml
-    <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
-        <parameter name="mail.smtp.from">wso2demomail@gmail.com</parameter>
-        <parameter name="mail.smtp.user">wso2demomail</parameter>
-        <parameter name="mail.smtp.password">mailpassword</parameter>
-        <parameter name="mail.smtp.host">smtp.gmail.com</parameter>
-        <parameter name="mail.smtp.port">587</parameter>
-        <parameter name="mail.smtp.starttls.enable">true</parameter>
-        <parameter name="mail.smtp.auth">true</parameter>
-    </transportSender>
+    [output_adapter.email]
+    from_address = "wso2demomail@gmail.com"
+    username = "wso2demomail"
+    password = "mailpassword"
+    hostname = "smtp.gmail.com"
+    port = "587"
+    enable_start_tls = true
+    enable_authentication = true
     ```
 
     !!! note
