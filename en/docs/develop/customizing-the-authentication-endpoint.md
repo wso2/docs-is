@@ -119,12 +119,10 @@ Do the following configurations to enable this feature.
     file under the `           ApplicationAuthentication          ` tag.
 
     ``` xml
-        <TenantDomainDropDownEnabled>true</TenantDomainDropDownEnabled>
-        <TenantDataListenerURLs>
-            <TenantDataListenerURL>
-                /authenticationendpoint/tenantlistrefresher.do
-            </TenantDataListenerURL>
-        </TenantDataListenerURLs>
+    [tenant]
+    data_listener_urls = ["url1","url2"]
+    [tenant.domain_drop_down]
+    enable = true
     ```
 
     !!! note
