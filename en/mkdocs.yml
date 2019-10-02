@@ -603,12 +603,16 @@ nav:
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Token Persistence': setup/token-persistence.md
     - 'Migration Guide':
-      - 'Migration Guide': setup/migration-guide.md
-      - 'Upgrading from the Previous Release':
-        - 'Upgrading from the Previous Release': setup/upgrading-from-the-previous-release.md
-        - 'Migrating Data Publishers': setup/migrating-data-publishers.md
-        - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
-      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
+      - 'Migration Process': setup/migration-process.md
+      - 'What Has Changed': setup/migrating-what-has-changed.md
+      - 'Migrating to 5.9.0': setup/migration-guide.md
+      - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
+      - 'OLD':
+        - 'Upgrading from the Previous Release':
+          - 'Upgrading from the Previous Release': setup/upgrading-from-the-previous-release.md
+          - 'Migrating Data Publishers': setup/migrating-data-publishers.md
+          - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
+        - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Product Administration': 
