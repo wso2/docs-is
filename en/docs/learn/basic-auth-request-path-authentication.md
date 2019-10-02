@@ -29,7 +29,7 @@ For more information on Request Path Authentication in general, see
     with value `none` in the authorization request
     * You can skip the consent for a service provider by enabling the 'Skip Consent'
      in service provider
-    ![](/assets/img/learn/skip-consent-per-sp.png)
+    ![](../assets/img/tutorials/skip-consent-per-sp.png)
 
     * You can provide "approve always" consent for the an application
     and user before sending the request.
