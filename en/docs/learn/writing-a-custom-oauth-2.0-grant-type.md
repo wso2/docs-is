@@ -42,21 +42,17 @@ implement a new grant type.
     place it in the
     `          <IS_HOME>/repository/component/lib         ` directory.
 3.  To register the custom grant type, configure the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file by adding a new entry, in a manner similar to the following
-    example, under the
-    `           <OAuth><SupportedGrantTypes>          ` element. Add a
-    unique identifier between the \<
-    `           GrantTypeName>          ` tags as seen in the code block
-    below.
+    example;
 
-    ``` xml
-    <SupportedGrantType>
-        <GrantTypeName>grant type identifier </GrantTypeName>
-        <GrantTypeHandlerImplClass>full qualified class name of grant handler</GrantTypeHandlerImplClass>
-        <GrantTypeValidatorImplClass>full qualified class name of grant validator</GrantTypeValidatorImplClass>
-        <IdTokenAllowed>true</IdTokenAllowed>
-    </SupportedGrantType>
+    ```toml
+    [[oauth.custom_grant_type]]
+    name="grant type identifier"
+    grant_handler="full qualified class name of grant handler"
+    grant_validator="full qualified class name of grant validator"
+    [oauth.custom_grant_type.properties]
+    IdTokenAllowed=true
     ```
 
     !!! info 
@@ -110,17 +106,16 @@ directly used as well.
     directory. You can also modify the project and build it using Apache
     Maven 3.
 3.  Configure the following in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file under the `           <OAuth><SupportedGrantTypes>          `
-    element.  
+    `           <IS_HOME>/repository/conf/deployment.xml          `
+    file.
 
-    ``` xml
-        <SupportedGrantType>
-            <GrantTypeName>mobile</GrantTypeName>
-            <GrantTypeHandlerImplClass>org.wso2.sample.identity.oauth2.grant.mobile.MobileGrant</GrantTypeHandlerImplClass>
-            <GrantTypeValidatorImplClass>org.wso2.sample.identity.oauth2.grant.mobile.MobileGrantValidator</GrantTypeValidatorImplClass>
-            <IdTokenAllowed>true</IdTokenAllowed>
-        </SupportedGrantType>
+    ```toml
+    [[oauth.custom_grant_type]]
+    name="mobile"
+    grant_handler="org.wso2.sample.identity.oauth2.grant.mobile.MobileGrant"
+    grant_validator="org.wso2.sample.identity.oauth2.grant.mobile.MobileGrantValidator"
+    [oauth.custom_grant_type.properties]
+    IdTokenAllowed=true
     ```
 
 4.  Restart the server.
@@ -190,15 +185,12 @@ This section provides instructions on how to
     directory. You can also modify the project and build it using Apache
     Maven 3.
 2.  Configure the following in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file under the `           <OAuth><SupportedGrantTypes>          `
-    element.
+    `           <IS_HOME>/repository/conf/deployment.toml          `
+    file.
 
-    ``` xml
-        <SupportedGrantType>
-            <GrantTypeName>password</GrantTypeName>
-            <GrantTypeHandlerImplClass>org.wso2.sample.identity.oauth2.grant.password.ModifiedAccessTokenPasswordGrant</GrantTypeHandlerImplClass>
-        </SupportedGrantType>
+    ```toml
+    [oauth.grant_type.password]
+    grant_handler="org.wso2.sample.identity.oauth2.grant.password.ModifiedAccessTokenPasswordGrant"
     ```
 
 3.  Restart the server.
