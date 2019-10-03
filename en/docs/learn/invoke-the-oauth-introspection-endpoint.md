@@ -70,8 +70,8 @@ invoke the OAuth introspection endpoint for the super tenant users.
         file.
     
         ``` toml
-            [resource_access_control.introspect]
-            permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
+        [resource_access_control.introspect]
+        permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
     
 
