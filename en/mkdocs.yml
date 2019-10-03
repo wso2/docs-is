@@ -769,7 +769,6 @@ nav:
       - 'Changing the Default Ports': 
         - 'Changing the Default Ports': administer/changing-the-default-ports.md
         - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
-      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': administer/configuring-saml2-single-sign-on-across-different-wso2-products.md
       - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
       - 'Customizing Error Pages': administer/customizing-error-pages.md
       - 'Managing Datasources':
