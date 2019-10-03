@@ -278,12 +278,6 @@ manage the product.
     are validated against your system when the server starts. See
     [Configuring config-validation.xml](Configuring-config-validation.xml) for
     details on modifying these parameters before starting the server.
--   The Management Console uses the default [HTTP-NIO
-    transport](../../administer/http-nio-transport), which is configured in the
-    `          catalina-server.xml         ` file in the
-    `          <IS_HOME>/repository/conf/tomcat         `
-    directory. This transport must be properly configured in this file
-    for the management console to be accessible.
 -   As explained in the [installation
     prerequisites](#installation-prerequisites)
    , the default product installation uses OpenJDK. Therefore, you
