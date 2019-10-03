@@ -31,7 +31,7 @@ and Eager loading work:
     from memory if the tenant remains idle for a specified amount of
     time. You can configure the allowed tenant idle time. See
     [Configuring Lazy
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringLazyLoading)
+    Loading](#configuring-lazy-loading)
     for instructions.  
       
 -   **Eager Loading:** Unlike lazy loading, eager loading ensures that
@@ -54,20 +54,20 @@ and Eager loading work:
     system if the tenants are idle for more than 30 minutes. You can
     overcome this condition by applying a system property to change the
     allowed tenant idle time. See [Configuring Eager
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringEagerLoading)
+    Loading](#configuring-eager-loading)
     for instructions.  
 
 Now, see the instructions given below to configure the required tenant
 loading policy for your system.
 
 -   [Configuring Lazy
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringLazyLoading)
+    Loading](#configuring-lazy-loading)
     -   [Enabling lazy loading of artifacts (web applications and axis2
-        services)](#ConfiguringtheTenantLoadingPolicy-Enablinglazyloadingofartifacts(webapplicationsandaxis2services))
+        services)](#enabling-lazy-loading-of-artifacts-(web-applications-and-axis2-services))
     -   [Configuring the tenant unloading time (for Lazy
-        Loading)](#ConfiguringtheTenantLoadingPolicy-Configuringthetenantunloadingtime(forLazyLoading))
+        Loading)](#configuring-the-tenant-unloading-time-(for-lazy-loading))
 -   [Configuring Eager
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringEagerLoading)
+    Loading](#configuring-eager-loading)
 
 ### Configuring Lazy Loading
 
