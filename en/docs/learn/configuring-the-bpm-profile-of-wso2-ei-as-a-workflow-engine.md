@@ -10,43 +10,35 @@ WSO2 Identity Server to define work flows.
     packaged inside WSO2 EI.
     
 !!! info 
-    The `          <EI_HOME>/wso2/business-process         ` is referred to
-    as `          <BPM_HOME         ` \> throughout this document.
+    The `<EI_HOME>/wso2/business-process` is referred to as `<BPM_HOME>` throughout this document.
 
-1.  Configure the
-    `           <BPM_HOME>/repository/conf/user-mgt.xml          ` file.
+1.  Configure the `<BPM_HOME>/repository/conf/deployment.toml` file.
 
-    1.  Comment the
-        `             <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">            `
-        tag upto its closing tag
-        `             <UserStoreManager>            ` to remove the
-        existing user store configuration from the file.
+    1. Add following configuration to point it to the Identity Server user store.
+       ``` toml
+       [user_store]
+       type = "read_write_ldap"
+       connection_url = "ldap://<IS_HOST>:10389"
+       connection_name = "uid=admin,ou=wso2is"
+       connection_password = "$secret{ldap_password}"
+       base_dn = "dc=example,dc=com"
+       ```
 
-    2.  Uncomment the
-        `             <!--ISUserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">            `
-        `             t            ` ag.  
-        Make sure to uncomment the
-        `             </ISUserStoreManager-->            ` closing tag
-        too.
-
-    3.  Rename `             ISUserStoreManager            ` to
-        `             UserStoreManager            ` .
-
-    4.  Configure the BPS to use the same primary user store as IS. By
+    2.  Configure the BPS to use the same primary user store as IS. By
         default WSO2 IS uses an embedded LDAP user store as the primary
         user store. You can update the following property to point it to
         the LDAP server in IS.
 
-        ``` xml
-        <Property name="ConnectionURL">ldap://localhost:10389</Property>
+        ``` toml
+        connection_url = ldap://localhost:10389
         ```
 
 2.  Start WSO2 IS if you have not started it already and start the WSO2
     EI business-process profile.
 
     ``` java
-        cd <EI_HOME>/bin
-        ./business-process.sh
+    cd <EI_HOME>/bin
+    ./business-process.sh
     ```
 
 ### What's Next?
