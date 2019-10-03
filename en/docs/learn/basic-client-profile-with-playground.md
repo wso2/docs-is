@@ -205,7 +205,7 @@ scenario.
         !!! note
             The grant type highlighted below is a **custom** grant type. This
             will only appear on the UI if you have [configured the JWT grant
-            type](../../develop/configuring-jwt-grant-type)
+            type](../../develop/jwt-grant-type-for-oauth2)
             . The value specified in the
             `              <GrantTypeName>             ` property of the
             `              identity.xml             ` file when creating the
@@ -299,7 +299,7 @@ scenario.
         </tr>
         <tr class="even">
             <td><strong>PKCE Mandatory</strong></td>
-            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="(../../learn/mitigating-authorization-code-interception-attack)">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../learn/mitigating-authorization-code-interception-attack">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
         </tr>
         <tr class="odd">
             <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
@@ -352,7 +352,7 @@ scenario.
         </tr>
         <tr class="even">
             <td><strong>Scope Validators</strong></td>
-            <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../learn/validating-the-scope-of-oauth-access-tokens-usinng-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a> .</td>
+            <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a> .</td>
         </tr>
         <tr class="odd">
             <td><strong>Token Issuer</strong></td>
