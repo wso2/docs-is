@@ -767,6 +767,7 @@ nav:
         - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
       - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
       - 'Customizing Error Pages': administer/customizing-error-pages.md
+      - 'Installing WSO2 Products as a Service':  setup/installing-wso2-products-as-a-service.md
       - 'Managing Datasources':
         - 'Managing Datasources': administer/managing-datasources.md
         - 'Adding Datasources': administer/adding-datasources.md
