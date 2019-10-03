@@ -486,7 +486,6 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the migration period need to be valid after migration.                                                                         |
         | IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes                                        | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced.                                                                                            |
         | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes                           | Need to sync if the authorization codes created during the migration period need to be valid after migration. Not generally required since the validity period is small. |
-        | IDN_SAML2_ASSERTION_STORE     | Used for SAML 2.0 Assertion query profile.              | Need to sync if the SAML assertions created during the migration period need to be valid after migration. Sync if SAML 2 Assertion query profile is used.                |
     
     
     !!! tip
