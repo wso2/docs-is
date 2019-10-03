@@ -400,8 +400,8 @@ scenario.
             directory and change the following configuraiton
         
             ``` toml
-                [oauth]
-                token_storage_method="encrypted"
+            [oauth]
+            token_storage_method="encrypted"
             ```
 
         After updating the configuration, make sure to restart the server
