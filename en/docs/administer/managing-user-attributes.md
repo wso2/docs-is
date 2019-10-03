@@ -8,21 +8,6 @@ product and properly map your LDAP/AD/JDBC user store attributes with
 the claim URIs defined by the product. You can also add different claim
 URIs and manage them using claim management.
 
-The following topics provide instructions on how to manage user
-attributes in WSO2 products.
-
--   [Managing the attributes of a
-    user](#ManagingUserAttributes-Managingtheattributesofauser)
--   [Claim mapping when using multiple user
-    stores](#ManagingUserAttributes-Claimmappingwhenusingmultipleuserstores)
--   [Attributes with multiple
-    values](#ManagingUserAttributes-Attributeswithmultiplevalues)
--   [Writing custom
-    attributes](#ManagingUserAttributes-Writingcustomattributes)
--   [Authentication using multiple
-    attributes](#ManagingUserAttributes-Authenticationusingmultipleattributes)
--   [Customizing the claim for the user
-    attribute](#ManagingUserAttributes-Customizingtheclaimfortheuserattribute)
 
 ### Managing the attributes of a user
 
@@ -204,13 +189,16 @@ If you are using multiple attribute authentication and want to customize
 the claim to be used for user name attribute, do the following.
 
 Edit the following element in the
-`         <PRODUCT_HOME>/repository/conf/security/application-authentication.xml        `
+`         <PRODUCT_HOME>/repository/conf/deployment.toml        `
 file.
 
-``` xml
-<AuthenticatorConfig name="BasicAuthenticator" enabled="true">
-    <Parameter name="UserNameAttributeClaimUri">http://wso2.org/claims/emailaddress</Parameter>
-</AuthenticatorConfig>
+``` toml
+[authentication.authenticator.basic] 
+name = "BasicAuthenticator"
+enable = true
+[authentication.authenticator.basic.parameters]
+auth_mechanism = "basic"
+UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 ```
 
 This will return the email address of the authenticated user. It can be
