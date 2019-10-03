@@ -833,7 +833,6 @@ nav:
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
-      - 'Configuration Files': administer/configuration-files.md
       - 'Database Upgrade Guide': administer/database-upgrade-guide.md
       - 'Product Startup Options': administer/product-startup-options.md
       - 'Supported Cipher Suites': administer/supported-cipher-suites.md
