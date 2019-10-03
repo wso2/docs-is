@@ -66,15 +66,12 @@ invoke the OAuth introspection endpoint for the super tenant users.
         by default you can use credentials of any user with
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
         To allow users with other permissions to send validation requests,
-        edit the following property found under the
-        `           <ResourceAccessControl>          ` tag of the
-        `           <IS_HOME>/repository/conf/identity/identity.xml          `
+        the permissions can be added to the `<IS_HOME>/repository/conf/deployment.toml`         `
         file.
     
         ``` toml
-            <Resource context="(.*)/oauth2/introspect(.*)" secured="true" http-method="all">
-                <Permissions>/permission/admin/manage/identity/applicationmgt/view</Permissions>
-            </Resource>
+            [resource_access_control.introspect]
+            permissions = ["/permission/admin/manage/identity/applicationmgt/view","/permission/admin/login"]
         ```
     
 
