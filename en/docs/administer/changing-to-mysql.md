@@ -23,13 +23,11 @@ either change the default configurations of the
 `         WSO2_CARBON_DB        ` datasource, or configure a
 new datasource to point it to the new database as explained below.
 
-Follow the steps below to change the type of the default
-`         WSO2_CARBON_DB        ` datasource.
+Follow the steps below to change the type of the default datasource.
 
 1.  Open the \<
-    `           IS_HOME>/repository/conf/datasources/m          `
-    `           aster-datasources.xml          ` file and locate the
-    `           <datasource>          ` configuration element.
+    `           IS_HOME>/repository/conf/deployment.toml`
+
 
 2.  You simply have to update the URL pointing to your MySQL database,
     the username, and password required to access the database and the
@@ -41,29 +39,34 @@ Follow the steps below to change the type of the default
     | **username** and **password** | The name and password of the database user                  |
     | **driverClassName**           | The class name of the database driver                       |
 
-    ``` html/xml
-    <datasource>
-           <name>WSO2_CARBON_DB</name>
-           <description>The datasource used for registry and user manager</description>
-           <jndiConfig>
-               <name>jdbc/WSO2CarbonDB</name>
-           </jndiConfig>
-           <definition type="RDBMS">
-               <configuration>
-                   <url>jdbc:mysql://localhost:3306/regdb</url>
-                   <username>regadmin</username>
-                   <password>regadmin</password>
-                   <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                   <maxActive>80</maxActive>
-                   <maxWait>60000</maxWait>
-                   <minIdle>5</minIdle>
-                   <testOnBorrow>true</testOnBorrow>
-                   <validationQuery>SELECT 1</validationQuery>
-                   <validationInterval>30000</validationInterval>
-                   <defaultAutoCommit>false</defaultAutoCommit>
-               </configuration>
-           </definition>
-    </datasource>
+    ``` toml
+    [database.identity_db]
+    url = "jdbc:mysql://localhost:3306/regdb"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.mysql.jdbc.Driver"
+    [database.identity_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
+
+    [database.shared_db]
+    url = "jdbc:mysql://localhost:3306/regdb"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.mysql.jdbc.Driver"
+    [database.shared_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
     ```
 
 3.  You can update the configuration elements given below for your
