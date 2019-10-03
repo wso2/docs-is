@@ -43,10 +43,10 @@ Follow the steps below to configure suspicious alerts.
     output first every 1 min
     insert into LoginAlertStreamSameUsername;
     ```
-    
+
 ### Long Sessions
 
-Follow the steps below to configure suspicious alerts.
+Follow the steps below to configure long session alerts.
 
 1.  Open the
     `            <IS_ANALTICS_HOME>/wso2/worker/deployment/siddhi-files/IS_ANALYTICS_LONG_SESSION.siddhi           `
