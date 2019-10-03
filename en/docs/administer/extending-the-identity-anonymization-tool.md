@@ -12,9 +12,6 @@ required relational databases and log files. It is also possible to
 extend the tool to remove references to deleted user identities from
 additional modules other than relational databases or log files.
 
-The following topics provide detailed instructions on how you can extend
-the tool depending on your requirement:
-
 !!! tip
     
     Before you begin,
@@ -30,14 +27,6 @@ the tool depending on your requirement:
         directory. The path to this directory will be referred to as
         `           <TOOL_HOME>          ` throughout this section.
     
-
--   [Extending the tool to remove references from additional relational
-    databases](#ExtendingtheIdentityAnonymizationTool-Extendingthetooltoremovereferencesfromadditionalrelationaldatabases)
--   [Extending the tool to remove references from additional log
-    files](#ExtendingtheIdentityAnonymizationTool-Extendingthetooltoremovereferencesfromadditionallogfiles)
--   [Extending the tool to remove references from additional modules
-    other than relational databases or log
-    files](#ExtendingtheIdentityAnonymizationTool-Extendingthetooltoremovereferencesfromadditionalmodulesotherthanrelationaldatabasesorlogfiles)
 
 ### Extending the tool to remove references from additional relational databases
 
