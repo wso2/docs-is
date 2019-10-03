@@ -86,12 +86,13 @@ Note the following before you use this feature:
     batches of 500,000 each.
 -   You can also specify the size of the file that you can upload to the
     product in the
-    `            <PRODUCT_HOME>/repository/conf/carbon.xml           `
-    file using the `            TotalFileSizeLimit           `
+    `            deployment.toml          `
+    file using the `            file_size_limit           `
     element as shown below. This value is in MB.
 
     ``` java
-        <TotalFileSizeLimit>100</TotalFileSizeLimit>
+    [server.file_upload]
+    file_size_limit = "100"
     ```
 
 #### Creating a file with users
