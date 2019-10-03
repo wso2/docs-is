@@ -25,8 +25,14 @@ its role.
 
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
-         special character ("&", "$", "%") as specified in the
-         `             deployment.toml            ` file.
+         special character ("&", "$", "%"), in 
+         `             <IS_HOME>/repository/conf/deployment.toml           ` file you can set a simple configuration according to your requirements.
+         
+         For example,
+         ``` 
+         [user_store.properties]
+         username_java_regex = "^[\\S]{3,30}$"
+         ```
 
 4.  Do the following:  
     1.  In the **Domain** list, specify the user store where you want to
@@ -89,7 +95,7 @@ be done using a SCIM request as seen below.
       password.
 
 !!! info 
-      Before running the cURL commands, make sure you change the SCIMEnabled
+      Before running the SCIM APIs, make sure you change the SCIMEnabled
       property to "true" for the primary userstore in the
       `           <IS_HOME>/repository/conf/deployment.toml        ` file.
 
@@ -116,16 +122,15 @@ The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
 admin services, see [Calling Admin Services](../../develop/calling-admin-services).
 
-1.  Disable the hidden admin service property in the
+1.  Enable the hidden admin service property 
+    By default, admin services WSDLs are not exposed in a product. Therefore need to do the following to access the WSDLs.
+    Open 
     `            <IS_HOME>/repository/conf/deployment.toml           `
-    file.  
-    Bydefault the admin services are disabled as it is not recommended
-    to expose these URLs to users. However, it can be enabled if it
-    needs to be accessed by the administrators.
-
+    file and set
+     
     ``` java
     [admin_service.wsdl]
-    enable = false
+    enable = true
     ```
 
 2.  Open the following Admin Service from SOAP UI:
@@ -133,7 +138,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
     !!! info 
-         If you have ocnfiguredWSO2 IS to use an IP or hostname, replace
+         If you have configured WSO2 IS to use an IP or hostname, replace
          `             localhost            ` with your IP or hostname.
 
 3.  Call the `            addUser()           ` method to create the
@@ -223,8 +228,8 @@ The users also can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
 admin services, see [Calling Admin Services](../../develop/calling-admin-services).
 
-1.  Disable the hidden admin service property in the
-    `            <IS_HOME>/repository/conf/carbon.xml           `
+1.  Enable the hidden admin service property in the
+    `            <IS_HOME>/repository/conf/deployment.toml          `
     file.  
     By default, the admin services are disabled as it is not recommended
     to expose these URLs to users. However, it can be enabled if it
@@ -232,7 +237,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
 
     ``` java
     [admin_service.wsdl]
-     enable = false
+     enable = true
     ```
 
 2.  Open the following Admin Service from SOAP UI:
@@ -306,7 +311,7 @@ file or Microsoft Excel (.xls) file.
          information.
 
          ``` xml
-            [user_store]
+            [user_store.properties]
             is_bulk_import_supported  =  true
          ```
 
@@ -315,12 +320,12 @@ file or Microsoft Excel (.xls) file.
          batches of 500,000 each.
       -   You can also specify the size of the file that you can upload to the
          product in the
-         `            <PRODUCT_HOME>/repository/conf/carbon.xml           `
-         file using the `            TotalFileSizeLimit           `
-         element as shown below. This value is in MB.
+         `            <PRODUCT_HOME>/repository/conf/ deployment.toml           `
+         file as shown below. This value is in MB.
 
          ``` java
-            <TotalFileSizeLimit>100</TotalFileSizeLimit>
+            [server.file_upload]
+            file_size_limit = "100"
          ```
 
 #### Creating a file with users
@@ -406,10 +411,15 @@ the user by doing the following.
     **Users and Roles**.  
 2.  Click **Users**. This link is only visible to users with the Admin
     role. The following screen appears.  
-    ![search-users-in-console](../assets/img/using-wso2-identity-server/search-users-in-console.png) You can search for users by
-    doing one of the following.  
-    -   **Search by Domain**  
-        1.  Select the user store that the user resides in using the
+    ![search-users-in-console](../assets/img/using-wso2-identity-server/search-users-in-console.png) 
+    
+    You can search for users by doing one of the following. 
+    
+    
+     <!-- -->
+     -   **Search by Domain**  
+    
+        1.  Select the user store that the user store in using the
             **Select Domain** dropdown.
         2.  Enter the user name of the user and click **Search Users**.
             For users to be listed, you must use the exact name of the
@@ -644,10 +654,10 @@ related to user deletion each time you delete a user:
     ``` java
     [event.default_listener.user_deletion]
       priority= "98"
-      enable = false 
+      enable = true 
     ```
 
-2.  Edit the
+2.  Add the 
     `           <IS_HOME>/repository/conf/identity/identity.xml          `
     file, and set `           enable          ` to
     `           true          ` in the following event recorder:
