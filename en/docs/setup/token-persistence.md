@@ -34,24 +34,6 @@ The flow of synchronous token persistence is as follows:
     using the same thread. Once it is persisted, the new token is
     returned to the client.
 
-!!! tip
-    
-    Enabling synchronous token persistence
-    
-    To enable synchronous token persistence, open the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-    and do the following changes under
-    `         <!-- Configs related to OAuth2 token persistence -->        `
-    :
-    
-    ``` xml
-    <TokenPersistence>   
-       <Enable>true</Enable>
-       <PoolSize>0</PoolSize>
-       <RetryCount>5</RetryCount>
-    </TokenPersistence>
-```
-
 
 ### Asynchronous token persistence
 
@@ -73,24 +55,6 @@ The flow of asynchronous token persistence is as follows:
     client.
 6.  There are background threads that consume the queue, and persist the
     tokens in the queue to the database.
-
-!!! tip
-    
-    Enabling asynchronous token persistence
-    
-    To enable asynchronous token persistence, open the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-    and do the following changes under
-    `         <!-- Configs related to OAuth2 token persistence -->        `
-    :
-    
-    ``` xml
-    <TokenPersistence>   
-        <Enable>true</Enable>
-        <PoolSize>100</PoolSize>
-        <RetryCount>5</RetryCount>
-    </TokenPersistence>
-```
 
 
 The following table describes what each of the above attributes means:
@@ -210,16 +174,6 @@ token persistence that does the following:
 -   The access token received from the second node is now saved as an
     ACTIVE access token in the database. Therefore, one of the access
     tokens returned to the client is an INACTIVE token.
-
-!!! tip
-    
-    **Tip:** If the client application is not designed to handle the
-    `         CONN_APP_KEY        ` constraint violation using scopes, you
-    can avoid the situation described above and avoid any invalid tokens by
-    using synchronous token persistence. To do this, set the
-    `         <PoolSize>        ` property in the
-    `         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-    to 0.
     
 
 #### Synchronous token persistence
