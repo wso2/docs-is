@@ -597,7 +597,6 @@ nav:
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
