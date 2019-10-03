@@ -39,15 +39,15 @@ Email OTP is enabled.
 1.  Shut down the server if it is running.
 2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
-    ```
-           [output_adapter.email]
-           from_address= "wso2iamtest@gmail.com"
-           username= "wso2iamtest"
-           password= "Wso2@iam70"
-           hostname= smtp.gmail.com
-           port= 587
-           enable_start_tls= true
-           enable_authentication= true
+    ```toml
+    [output_adapter.email]
+    from_address= "wso2iamtest@gmail.com"
+    username= "wso2iamtest"
+    password= "Wso2@iam70"
+    hostname= smtp.gmail.com
+    port= 587
+    enable_start_tls= true
+    enable_authentication= true
     ```
     
     |                                                   |                                                |
@@ -221,22 +221,22 @@ mechanism to send the OTP.
     `           <IS_HOME>/repository/conf/identity/deployment.toml          ` file.
 
     !!! Note "Sample configuration when using Identity Server as Email OTP Provider"
-		``` java
-            [authentication.authenticator.email_otp]
-            name ="EmailOTP"
-            enable=true
-            [authentication.authenticator.email_otp.parameters]
-            EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
-            EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
-            EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
-            usecase = "association"
-            secondaryUserstore = "primary"
-            EMAILOTPMandatory = false
-            sendOTPToFederatedEmailAttribute = false
-            federatedEmailAttributeKey = "email"
-            EmailOTPEnableByUserClaim = true
-            CaptureAndUpdateEmailAddress = true
-            showEmailAddressInUI = true
+		``` toml
+        [authentication.authenticator.email_otp]
+        name = "EmailOTP"
+        enable= true
+        [authentication.authenticator.email_otp.parameters]
+        EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
+        EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
+        EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+        usecase = "association"
+        secondaryUserstore = "primary"
+        EMAILOTPMandatory = false
+        sendOTPToFederatedEmailAttribute = false
+        federatedEmailAttributeKey = "email"
+        EmailOTPEnableByUserClaim = true
+        CaptureAndUpdateEmailAddress = true
+        showEmailAddressInUI = true
 		```
 		
     ??? Tip

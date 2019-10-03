@@ -537,7 +537,7 @@ nav:
         - 'Duo Security Authenticator and Provisioning Connector':
           - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
           - 'Duo Security Authenticator': develop/duo-security-authenticator.md
-        - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
+        - 'EmailOTP Authenticator': learn/configuring-email-otp.md
         - 'Facebook Authenticator': develop/facebook-authenticator.md
         - 'Foursquare Authenticator': develop/foursquare-authenticator.md
         - 'Github Authenticator': develop/github-authenticator.md
