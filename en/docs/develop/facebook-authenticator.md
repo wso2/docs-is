@@ -318,10 +318,11 @@ with Facebook.
         To use email address as the **Subject Claim URI**, you
         have to allow the usage of email addresses as usernames in the
         `            <IS_HOME>/repository/conf/deployment.toml           ` file.
-        To allow using email address as usernames, uncomment the following
-        in the **carbon.xml** file.
-        `            [tenant_mgt]
-                     enable_email_domain = true           `
+        
+        ``` xml
+        [tenant_mgt]
+        enable_email_domain = true           
+        ```
     
 
 Now you have configured the Identity Server.
