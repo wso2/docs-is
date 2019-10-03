@@ -95,7 +95,7 @@ follows:
     <strong>- Logging</strong> permission enables the possibility to configure server logging from the management console. That is, the <strong>Logging</strong> option will be enabled under the <strong>Configure</strong> menu.</td>
     </tr>
     <tr class="even">
-    <td><strong>Management</strong> permissions: <img src="../../assets/img/44826804/45088796.png" /></td>
+    <td><strong>Management</strong> permissions:<br /> <img src="../../assets/img/44826804/45088796.png" /></td>
     <td><p>The <strong>Super Admin/Manage</strong> permissions are used for adding new tenants and monitoring them.</p>
     <p><strong>- Modify/Tenants</strong> permission enables the <strong>Add New Tenant</strong> option in the <strong>Configure</strong> menu of the management console, which allows users to add new tenants.<br />
     <strong>- Monitor/Tenants</strong> permission enables the <strong>View Tenants</strong> option in the <strong>Configure</strong> menu of the management console.</p></td>
