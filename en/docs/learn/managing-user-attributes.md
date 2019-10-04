@@ -163,13 +163,12 @@ user attribute in the LDAP.
     application uses one of the unique attributes in LDAP to
     authenticate the user.
 -   This is done by specifying the attribute in the following property
-    in the `           user-mgt.xml          ` file found in the
-    `           <IS_HOME>/repository/conf          ` directory. For
-    example, you can specify either the `           uid          ` or
-    `           mail          ` attribute to authenticate the user.
+    in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory. For
+    example, you can specify either the `uid` or `mail` attribute to authenticate the user.
 
-    ``` xml
-    <Property name="UserNameAttribute">uid</Property>
+    ``` toml
+    [user_store]
+    user_name_attribute  =  "uid"
     ```
 
     In this case, the `           uid          ` value is used as the
@@ -184,38 +183,36 @@ this example, assume that users are given the flexibility to
 authenticate using either their **uid** and **mail** attributes in the
 LDAP.
 
-1.  Configure the LDAP user store related configurations using the
-    `          user-mgt.xml         ` file found in the
-    `          <IS_HOME>/repository/conf         ` directory. For more
-    information on configuring user stores, see [Configuring the
-    Realm](../../learn/configuring-the-realm).
-    1.  Configure the `             UserNameSearchFilter            `
+1.  Configure the LDAP user store related configurations using the `deployment.toml` file found in the 
+    `<IS_HOME>/repository/conf` directory. For more information on configuring user stores, see 
+    [Configuring the Realm](../../learn/configuring-the-realm).
+    
+    1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
         LDAP using both **mail** and **uid** attributes.
 
-        ``` xml
-                <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(|(mail=?)(uid=?)))</Property> 
+        ``` toml
+        [user_store]
+        user_name_search_filter = "(&amp;(objectClass=person)(uid=?))"
         ```
 
-    2.  Disable the `             UserDNPattern            ` property if
+    2.  Disable the `user_dn_pattern` property if
         it is currently enabled.
 
-        ``` xml
-                <!--Property name="UserDNPattern">uid={0},ou=Users,dc=wso2,dc=org</Property-->
+        ``` toml
+        [user_store]
+        user_dn_pattern = "uid={0},ou=Users,dc=wso2,dc=org"
         ```
 
-    3.  The `             mail            ` attribute has unique
-        requirements. If you are using the
-        `             mail            ` attribute, open the
-        `             carbon.xml            ` file found in the
-        `             <IS_HOME>/repository/conf            ` directory
-        and uncomment the following. For more information on email
+    3.  The `mail` attribute has unique requirements. If you are using the
+        `mail` attribute, add the following. For more information on email
         authentication, see [Using Email Address as the
         Username](../../learn/using-email-address-as-the-username)
         .
 
-        ``` xml
-                <EnableEmailUserName>true</EnableEmailUserName>
+        ``` toml
+        [tenant_mgt]
+        enable_email_domain = true
         ```
 
 2.  If you want to work with multiple attributes (basically to retrieve
@@ -223,16 +220,11 @@ LDAP.
     depending on which user store you want to configure this for:
 
     -   **Configuration for primary user store:** Add the following
-        property in the
-        `             <IS_HOME>/repository/conf/user-mgt.xml            `
-        file under the relevant UserStoreManager tag of the user store
-        definition you are using.
+        property in the `<IS_HOME>/repository/conf/deployment.toml`
 
-    -   **Configuration for secondary user store:** Add the following
-        property in the secondary user store configuration XML file.
-
-        ``` xml
-                <Property name="MultipleAttributeEnable">true</Property>
+        ``` toml
+        [user_store]
+        multiple_attribute_enable = true
         ```
 
 3.  To test this, restart WSO2 IS and attempt to log in to the
