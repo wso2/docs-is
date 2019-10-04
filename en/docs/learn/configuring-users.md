@@ -128,7 +128,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     `            <IS_HOME>/repository/conf/deployment.toml           `
     file and set
      
-    ``` java
+    ```toml
     [admin_service.wsdl]
     enable = true
     ```
@@ -235,9 +235,9 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     to expose these URLs to users. However, it can be enabled if it
     needs to be accessed by the administrators.
 
-    ``` java
+    ``` toml
     [admin_service.wsdl]
-     enable = true
+    enable = true
     ```
 
 2.  Open the following Admin Service from SOAP UI:
@@ -310,9 +310,9 @@ file or Microsoft Excel (.xls) file.
          management](../../learn/configuring-the-primary-user-store) section for more
          information.
 
-         ``` xml
-            [user_store.properties]
-            is_bulk_import_supported  =  true
+     ``` toml
+     [user_store.properties]
+     is_bulk_import_supported  =  true
          ```
 
       -   It is recommended to upload a maximum of 500,000 users at a time. If
@@ -323,9 +323,9 @@ file or Microsoft Excel (.xls) file.
          `            <PRODUCT_HOME>/repository/conf/ deployment.toml           `
          file as shown below. This value is in MB.
 
-         ``` java
-            [server.file_upload]
-            file_size_limit = "100"
+      ``` toml
+       [server.file_upload]
+       file_size_limit = "100"
          ```
 
 #### Creating a file with users
@@ -651,10 +651,10 @@ related to user deletion each time you delete a user:
     file, and set it to
     `           true          `
 
-    ``` java
+    ``` toml
     [event.default_listener.user_deletion]
-      priority= "98"
-      enable = true 
+    priority= "98"
+    enable = true 
     ```
 
 2.  Add the 
