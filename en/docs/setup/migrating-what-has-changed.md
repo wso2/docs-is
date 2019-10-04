@@ -14,7 +14,7 @@ user authentication,  has to be explicitly mentioned in the
 To revert back to the previous behaviour, add the following configuration to 
 the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
 
-```
+```toml
 [resource_access_control]
 default_access = ”allow”
 ```
@@ -27,7 +27,7 @@ default_access = ”allow”
     resources/permissions. A new resource can be added to the resource access control using the following config.
     You can add the config to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.
     
-    ```
+    ```toml
     [[resource.access_control]]
     context="<resource>"
     secure="<true/false>"
@@ -64,7 +64,7 @@ Server 5.9.0 by default supports case-insensitive usernames. If you are using a 
 username configuration, add the following configuration to the `deployment.toml` in file in the 
 `<IS_HOME>/repository/conf/` directory.
 
-```
+```toml
 [user_store]
 use_case_sensitive_username_for_cache_keys = true
 ```
@@ -91,15 +91,31 @@ When an error occurs while using the OAuth 2.0 flow in WSO2 Identity Server, the
 error page at the`authenticationendpoint/oauth2_error.do` URL. According to the specification, unless the 
 provided `redirect URI` and `client Id` are invalid, the user should be redirected to the provided redirect URI.  
 For WSO2 Identity Server 5.9.0 to be specification-compliant, unless the provided `redirect URI` or `client Id` are 
-invalid the user will be redirected to the given redirect URI with the error code, error message, and state 
+invalid the user will be redirected to the given redirect URI with the `error`, `error_description`, and `state` 
 parameters to the query component of the redirection URI.
 
 To revert back to the previous behaviour, add the following configuration to the `deployment.toml` file, in 
 the `<IS_HOME>/repository/conf/` directory.
 
-```
+```toml
 [oauth]
 redirect_to_idp_error_page_on_error=true
+```
+
+### Redirecting to PostLogoutUri in user consent denial for OIDC logout
+When a user rejects the OIDC logout consent, in earlier versions of the WSO2 Identity Server the user is redirected to 
+the `oauth2_error.do` page with error message “access_denied - End User denied the logout request”. Custom parameters 
+such as “oauthErrorCode”  and “oauthErrorMsg” were used to explain the issue to the user.
+
+In WSO2 Identity Server 5.9.0, the user will be redirected to `postLogoutUri` with the parameters `error`  and 
+`error_description` which are defined in the OIDC specification. 
+
+To revert back to the previous behaviour, add the following configuration to the `deployment.toml` file, in 
+the `<IS_HOME>/repository/conf/` directory.
+
+```toml
+[oauth.oidc]
+redirect_to_post_logout_uri_on_consent_denial = false
 ```
 
 ### Scope validation for token issuing
@@ -113,7 +129,7 @@ these by default when using a scope validator.
 To revert back to the previous behaviour, add the following configuration to 
 the `deployment.toml` file, in the `<IS_HOME>/repository/conf/` directory.
 
-```
+```toml
 [oauth.scope_validator.authz_implicit]
 enable = false
 ```
