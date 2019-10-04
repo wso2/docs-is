@@ -7,11 +7,8 @@ identity management.
 
 ### Prerequisites
 
--   WSO2 Identity Server 5.1.0 or a later version installed - This can
-    be downloaded from the [WSO2 Identity Server product
-    page](http://wso2.com/products/identity-server/) and installed by
-    following the instructions in the [Installing the
-    Product](../../setup/installing-the-product) topic.
+-   Download [WSO2 Identity Server Product](http://wso2.com/products/identity-server/). For instructions, see [Installing the
+    Product](../../setup/installing-the-product).
 -   Apache Tomcat 6 - To deploy the sample web application.
 -   InfoRecoverySample (located in
     `          /is-samples/modules/samples/identity-mgt/info-recovery-sample         `
