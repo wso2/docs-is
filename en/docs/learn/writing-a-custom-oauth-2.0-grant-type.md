@@ -105,10 +105,9 @@ directly used as well.
     `          <IS_HOME>/repository/component/lib         `
     directory. You can also modify the project and build it using Apache
     Maven 3.
-3.  Configure the following in the
-    `           <IS_HOME>/repository/conf/deployment.xml          `
-    file.
-
+3.  Configure the following in the 
+`           <IS_HOME>/repository/conf/deployment.xml          `
+    file. 
     ```toml
     [[oauth.custom_grant_type]]
     name="mobile"
