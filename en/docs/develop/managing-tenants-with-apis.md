@@ -5,9 +5,9 @@ This section guides you through invoking and working with the **Tenant**
 service.
 
 -   [Invoking the admin
-    service](#ManagingTenantswithAPIs-Invokingtheadminservice)
+    service](#invoking-the-admin-service)
 -   [Operations included in the
-    API](#ManagingTenantswithAPIs-OperationsincludedintheAPI)
+    API](#operations-included-in-the-api)
 
 ### Invoking the admin service
 
@@ -16,12 +16,12 @@ Carbon platform. As admin services are secured to prevent anonymous
 invocations, you cannot view the WSDL of the admin service by default.
 Follow the steps below to view and invoke it:
 
-1.  Set the `           <HideAdminServiceWSDLs>          ` element to
-    `           false          ` in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` file.
+1.  Set the  bellow configuration in
+        `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
-    ``` xml
-    <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+    ``` 
+    [admin_service.wsdl]
+    enable = true
     ```
 
 2.  Restart the Identity Server.
@@ -32,7 +32,7 @@ Follow the steps below to view and invoke it:
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
 Admin Services from
-Apps](https://docs.wso2.org/display/Carbon420/Calling+Admin+Services+from+Apps)
+Apps](../../develop/calling-admin-services)
 section in WSO2 Carbon documentation.
 
 ### Operations included in the API
