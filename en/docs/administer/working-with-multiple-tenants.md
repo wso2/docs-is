@@ -5,5 +5,5 @@ WSO2 products.
 
 -   [Introduction to Multitenancy](../../administer/introduction-to-multitenancy)
 -   [Configuring the Tenant Loading
-    Policy](Configuring-the-Tenant-Loading-Policy)
+    Policy](../../administer/configuring-the-tenant-loading-policy)
 -   [Adding New Tenants](../../administer/adding-new-tenants)

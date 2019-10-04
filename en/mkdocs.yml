@@ -537,7 +537,7 @@ nav:
         - 'Duo Security Authenticator and Provisioning Connector':
           - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
           - 'Duo Security Authenticator': develop/duo-security-authenticator.md
-        - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
+        - 'EmailOTP Authenticator': learn/configuring-email-otp.md
         - 'Facebook Authenticator': develop/facebook-authenticator.md
         - 'Foursquare Authenticator': develop/foursquare-authenticator.md
         - 'Github Authenticator': develop/github-authenticator.md
@@ -597,18 +597,23 @@ nav:
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Token Persistence': setup/token-persistence.md
     - 'Migration Guide':
-      - 'Migration Guide': setup/migration-guide.md
-      - 'Upgrading from the Previous Release':
-        - 'Upgrading from the Previous Release': setup/upgrading-from-the-previous-release.md
-        - 'Migrating Data Publishers': setup/migrating-data-publishers.md
-        - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
-      - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
+      - 'Migration Process': setup/migration-process.md
+      - 'What Has Changed': setup/migrating-what-has-changed.md
+      - 'Migrating to 5.9.0': setup/migration-guide.md
+      - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
+      - 'Migrating Data Publishers': setup/migrating-data-publishers.md
+      - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+      - 'OLD':
+        - 'Upgrading from the Previous Release':
+          - 'Upgrading from the Previous Release': setup/upgrading-from-the-previous-release.md
+          - 'Migrating Data Publishers': setup/migrating-data-publishers.md
+          - 'Understanding What Has Changed': setup/understanding-what-has-changed.md
+        - 'Upgrading From an Older Version of WSO2 IS': setup/upgrading-from-an-older-version-of-wso2-is.md
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Product Administration': 
@@ -657,6 +662,7 @@ nav:
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
       - 'Working with Product Observability': administer/working-with-product-observability.md    
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
@@ -714,12 +720,6 @@ nav:
             - 'Editing collections using the Entries panel': administer/editing-collections-using-the-entries-panel.md
           - 'Role Permissions': administer/role-permissions.md
         - 'Searching the Registry': administer/searching-the-registry.md
-        - 'Using Remote Registry Instances for the Registry Partitions':
-          - 'Using Remote Registry Instances for the Registry Partitions': administer/using-remote-registry-instances-for-the-registry-partitions.md
-          - 'All Partitions in a Single Server': administer/all-partitions-in-a-single-server.md
-          - 'Config and Governance Partitions in a Remote Registry': administer/config-and-governance-partitions-in-a-remote-registry.md
-          - 'Governance Partition in a Remote Registry': administer/governance-partition-in-a-remote-registry.md
-          - 'Config and Governance Partitions in Separate Nodes': administer/config-and-governance-partitions-in-a-remote-registry.md
       - 'Working with Users, Roles and Permissions':
         - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
@@ -764,9 +764,9 @@ nav:
       - 'Changing the Default Ports': 
         - 'Changing the Default Ports': administer/changing-the-default-ports.md
         - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
-      - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': administer/configuring-saml2-single-sign-on-across-different-wso2-products.md
       - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
       - 'Customizing Error Pages': administer/customizing-error-pages.md
+      - 'Installing WSO2 Products as a Service':  setup/installing-wso2-products-as-a-service.md
       - 'Managing Datasources':
         - 'Managing Datasources': administer/managing-datasources.md
         - 'Adding Datasources': administer/adding-datasources.md
@@ -798,21 +798,6 @@ nav:
         - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
         - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
         - 'Adding New Tenants': administer/adding-new-tenants.md
-      - 'Working with Transports':
-        - 'Working with Transports': administer/working-with-transports.md
-        - 'Introduction to Transports': administer/introduction-to-transports.md
-        - 'Carbon Transports':
-          - 'Carbon Transports': administer/carbon-transports.md
-          - 'HTTP Servlet Transport': administer/http-servlet-transport.md
-          - 'HTTPS Servlet Transport': administer/https-servlet-transport.md
-          - 'HTTP-NIO Transport': administer/http-nio-transport.md
-          - 'HTTPS-NIO Transport': administer/https-nio-transport.md
-          - 'JMS Transport': administer/jms-transport.md
-          - 'MailTo Transport': administer/mailto-transport.md
-          - 'TCP Transport': administer/tcp-transport.md
-          - 'Local Transport': administer/local-transport.md
-          - 'UDP Transport': administer/udp-transport.md
-          - 'FIX Transport': administer/fix-transport.md
     - 'Performance Tuning': administer/performance-tuning.md
     - 'Monitoring':
       - 'Monitoring': administer/monitoring.md
@@ -847,7 +832,6 @@ nav:
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
-      - 'Configuration Files': administer/configuration-files.md
       - 'Database Upgrade Guide': administer/database-upgrade-guide.md
       - 'Product Startup Options': administer/product-startup-options.md
       - 'Supported Cipher Suites': administer/supported-cipher-suites.md

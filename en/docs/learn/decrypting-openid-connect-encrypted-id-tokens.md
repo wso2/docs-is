@@ -99,7 +99,7 @@ You can read more about these concepts from
 
 You can configure the default values of above-mentioned Encryption
 Method and Encryption Algorithm by making changes in the
-`         <IS_HOME>/repository/conf/identity/identity.        ` xml
+`        <IS_HOME>/repository/conf/deployment.toml        ` 
 file.
 
 ```xml

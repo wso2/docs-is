@@ -25,12 +25,12 @@ it.
 
     You can use the following SCIM User Endpoint to specifically return
     data of the currently logged-in user:
-    `                                       https://localhost:9443/wso2/scim/Users                                     /me           `  
+    `https://localhost:9443/wso2/scim/Users/me`  
     (You can use this endpoint for commands that refer to a single user,
     such as GetUser, UpdateUser etc.)
 
 -   Navigate to the *SCIM Group Endpoint* at the following URL:
-    `                     https://localhost:9443/wso2/scim/Groups                   `
+    `https://localhost:9443/wso2/scim/Groups`
 
 These endpoints are exposed over HTTPS since sensitive information is
 exchanged and also protected with Basic Auth Authentication.
@@ -46,11 +46,11 @@ exchanged and also protected with Basic Auth Authentication.
     
 
 Before you begin working with SCIM APIs, make sure that the following
-UserStoreManager configuration is set in the
-`         <IS_HOME>/repository/conf/user-mgt.xml        ` file.
+UserStoreManager configuration is set in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-``` xml
-<Property name="SCIMEnabled">true</Property>
+``` toml
+[user_store]
+scim_enabled = true
 ```
 
 -   **Create User** : The following command can be used to create a
@@ -58,14 +58,14 @@ UserStoreManager configuration is set in the
 
     **Request**
 
-    ``` java
-        curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"familyName":"{FAMILY_NAME}","givenName":"{FIRST_NAME}"},"userName":"{USERNAME}","password":"{PASSWORD}","emails":[{"primary":true,"value":"{HOME_EMAIL}","type":"home"},{"value":"{WORK_EMAIL}","type":"work"}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users
+    ``` curl
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"familyName":"{FAMILY_NAME}","givenName":"{FIRST_NAME}"},"userName":"{USERNAME}","password":"{PASSWORD}","emails":[{"primary":true,"value":"{HOME_EMAIL}","type":"home"},{"value":"{WORK_EMAIL}","type":"work"}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","password":"hasinitg","emails":[{"primary":true,"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+    ``` curl
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","password":"hasinitg","emails":[{"primary":true,"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
 
     In this request, authentication is done using Basic Auth and the
@@ -75,16 +75,12 @@ UserStoreManager configuration is set in the
 
     **Response**
 
-    ``` java
-        {"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}],"meta":{"lastModified":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02","created":"2016-01-26T16:46:53"}}
+    ``` json
+    {"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}],"meta":{"lastModified":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02","created":"2016-01-26T16:46:53"}}
     ```
 
-    Some additional attributes such as,
-    `            unique_id,           `
-    `            created,           `
-    `            lastModified           ` and
-    `            location           ` are READ ONLY attributes and are
-    set by the service provider.
+    Some additional attributes such as, `unique_id`, `created`, `lastModified` and
+    `location` are READ ONLY attributes and are set by the service provider.
 
     Do the following to test this.
 
@@ -106,30 +102,30 @@ UserStoreManager configuration is set in the
 
 -   **GET User** : You can retrieve a particular user resource using its
     unique id (You can get this id in the response to the
-    `           create user          ` request):
+    `create user` request):
 
     **Request**
 
-    ``` java
-        curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID}
+    ``` curl
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID}
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02
+    ``` curl
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02
     ```
 
     The response consists of all attributes that were sent.
 
     Alternatively, you can log in as a user and use the
-    `            Users/me           ` SCIM endpoint to retrieve data of
+    `Users/me` SCIM endpoint to retrieve data of
     the currently logged-in user:
 
       
 
-    ``` java
-        curl -v -k --user hasinitg:hasinitg https://localhost:9443/wso2/scim/Users/me
+    ``` curl
+    curl -v -k --user hasinitg:hasinitg https://localhost:9443/wso2/scim/Users/me
     ```
 
     For this command, the user credentials of the user created above
@@ -145,16 +141,16 @@ UserStoreManager configuration is set in the
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users
+    ``` curl
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users
     ```
 
     The following is the response you would receive.
 
     **Response**
 
-    ``` java
-        {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":2,"Resources":[{"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","userName":"hasinitg","meta":{"lastModified":"2016-01-26T16:46:53","created":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02"}},{"id":"b228b59d-db19-4064-b637-d33c31209fae","userName":"pulasthim","meta":{"lastModified":"2016-01-26T17:00:33","created":"2016-01-26T17:00:33","location":"https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae"}}]}
+    ``` json
+    {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":2,"Resources":[{"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","userName":"hasinitg","meta":{"lastModified":"2016-01-26T16:46:53","created":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02"}},{"id":"b228b59d-db19-4064-b637-d33c31209fae","userName":"pulasthim","meta":{"lastModified":"2016-01-26T17:00:33","created":"2016-01-26T17:00:33","location":"https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae"}}]}
     ```
 
     You can see the representation of the three users with attributes in
@@ -173,14 +169,14 @@ UserStoreManager configuration is set in the
 
     **Request**
 
-    ``` java
+    ``` curl
     curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  -X PUT -d '{"schemas":[],"name":{"familyName":"{LAST_NAME}","givenName":"{FIRST_NAME"},"userName":"{USERNAME","emails": "{EMAIL"}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID}
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02
+    ``` curl
+    curl -v -k --user admin:admin -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02
     ```
 
     You receive a 200 OK response and a payload containing the updated
@@ -192,8 +188,8 @@ UserStoreManager configuration is set in the
 
       
 
-    ``` java
-        curl -v -k --user hasinitg:hasinitg -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/me
+    ``` curl
+    curl -v -k --user hasinitg:hasinitg -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/me
     ```
 
     For this command, the user credentials of the user created above
@@ -210,14 +206,14 @@ UserStoreManager configuration is set in the
     
         **Request: Sample**
     
-        ``` java
-            curl -v -k --user admin:admin -X PATCH -d '{"schemas": ["urn:scim:schemas:core:1.0"],"name":
-            {"familyName": "Tester"},"userName": "hasinitg","meta": {"attributes": []}}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/15722a71-3bd1-4864-8460-1e63a2dace65
+        ``` curl
+        curl -v -k --user admin:admin -X PATCH -d '{"schemas": ["urn:scim:schemas:core:1.0"],"name":
+        {"familyName": "Tester"},"userName": "hasinitg","meta": {"attributes": []}}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/15722a71-3bd1-4864-8460-1e63a2dace65
         ```
     
         **Response**
     
-        ``` java
+        ``` json
             200 OK
             {"emails":[
             {"type":"home","value":"hasini_home.com"},
@@ -235,14 +231,14 @@ UserStoreManager configuration is set in the
 
     **Request**
 
-    ``` java
+    ``` curl
     curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID} -H "Accept: application/json"
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
+    ``` curl
+    curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
     ```
 
     You receive a response with status 200 OK and the user will be
@@ -261,20 +257,20 @@ UserStoreManager configuration is set in the
 
     **Request**
 
-    ``` java
-        curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users?filter={VALUE_TO_BE_CHECKED}+Eq+%22{VALUE_TO_BE_EQUAL}%22
+    ``` curl
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users?filter={VALUE_TO_BE_CHECKED}+Eq+%22{VALUE_TO_BE_EQUAL}%22
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users?filter=userName+Eq+%22hasinitg%22
+    ``` curl
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users?filter=userName+Eq+%22hasinitg%22
     ```
 
     **Response**
 
-    ``` java
-        {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":1,"Resources":[{"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","userName":"hasinitg","meta":{"lastModified":"2016-01-26T18:26:04","created":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02"}}]}
+    ``` json
+    {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":1,"Resources":[{"id":"0032fd29-55a9-4fb9-be82-b1c97c073f02","userName":"hasinitg","meta":{"lastModified":"2016-01-26T18:26:04","created":"2016-01-26T16:46:53","location":"https://localhost:9443/wso2/scim/Users/0032fd29-55a9-4fb9-be82-b1c97c073f02"}}]}
     ```
 
 -   **Create Group** : You can create groups either with or without
@@ -291,14 +287,14 @@ UserStoreManager configuration is set in the
 
     **Request**
 
-    ``` java
+    ``` curl
     curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAME},"members": {MEMBERS_OF_THE_GROUP}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups
     ```
 
     **Request: Sample**
 
-    ``` java
-        curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","display": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
+    ``` curl
+    curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","display": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
     ```
 
     You receive a response with the payload as indicated below and a
@@ -306,8 +302,8 @@ UserStoreManager configuration is set in the
 
     **Response**
 
-    ``` java
-        {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
+    ``` json
+    {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
     ```
 
     You can observe in the management console of IS, that the new group
