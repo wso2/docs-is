@@ -26,10 +26,10 @@ products come with the following roles:
 If a user has several assigned roles, their permissions are added
 together.
 
--   [Adding a user role](#ConfiguringRoles-Addingauserrole)
+-   [Adding a user role](#adding-a-user-role)
 -   [Editing or deleting a
-    role](#ConfiguringRoles-Editingordeletingarole)
--   [Updating role names](#ConfiguringRoles-Updatingrolenames)
+    role](#editing-or-deleting-a-role)
+-   [Updating role names](#updating-role-names)
 
 #### Adding a user role
 
@@ -40,7 +40,7 @@ Follow the instructions below to add a user role.
 2.  Click **Roles**. This link is only visible to users with
     **Security** level permissions role. By default, the admin user has
     this permission enabled. For more information on permissions, see
-    [Role-based Permissions](Role-based_Permissions).
+    [Role-based Permissions](../../administer/role-based-permissions).
 3.  Click **Add New Role**. The following screen appears:  
     ![](../assets/img/53125497/53287369.png)
 4.  Do the following:  
@@ -55,7 +55,7 @@ Follow the instructions below to add a user role.
     3.  Click **Next**.
 5.  Select the permissions that you want users with this role to
     have. For more information on permissions, see [Role-based
-    Permissions](Role-based_Permissions).  
+    Permissions](../../administer/role-based-permissions).  
     Note that when you assign this role to a user, you can override the
     role's permissions and customize them for the user.
 6.  Select the existing users to whom this role should be assigned. You
@@ -91,9 +91,9 @@ If you need to do modifications to the role names, you need to do one of
 the following:
 
 -   [Update before the first startup
-    (recommended)](#ConfiguringRoles-UpdateRole1Updatebeforethefirststartup(recommended))
+    (recommended)](#update-before-the-first-startup-(recommended))
 -   [Update after the product is used for some
-    time](#ConfiguringRoles-Updateaftertheproductisusedforsometime)
+    time](#update-after-the-product-is-used-for-some-time)
 
 ##### Update before the first startup (recommended)
 
@@ -135,7 +135,7 @@ You do not have to do this when updating before the first startup. The
 following steps guide you through updating the role names:
 
 1.  Do the configuration changes indicated in [the above
-    section](#ConfiguringRoles-UpdateRole1).
+    section](#update-before-the-first-startup-(recommended)).
 2.  You need to do the following user store level changes for existing
     users if you have changed the role names as mentioned earlier.  
     -   If you are connected to

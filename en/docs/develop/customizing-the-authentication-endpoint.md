@@ -88,11 +88,10 @@ Do the following configurations to enable this feature.
         directory.
 
 2.  Open the
-    `           <IS_HOME>/repository/conf/security/authenticators.properties          `
+    `           <IS-HOME>/repository/conf/deployment.toml          `
     file and add the
     `                       enable="true"                     `
-    attribute within the `           <Authenticator>          ` tag for
-    the `           MutualSSLAuthenticator          ` to enable the
+    for enable the
     Mutual SSL Authenticator.
 
     ``` xml
@@ -115,16 +114,14 @@ Do the following configurations to enable this feature.
     ```
 
 4.  Add the following configuration into the
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
-    file under the `           ApplicationAuthentication          ` tag.
+                        `
+    `<IS-HOME>/repository/conf/deployment.toml`.
 
     ``` xml
-        <TenantDomainDropDownEnabled>true</TenantDomainDropDownEnabled>
-        <TenantDataListenerURLs>
-            <TenantDataListenerURL>
-                /authenticationendpoint/tenantlistrefresher.do
-            </TenantDataListenerURL>
-        </TenantDataListenerURLs>
+    [tenant]
+    data_listener_urls = ["url1","url2"]
+    [tenant.domain_drop_down]
+    enable = true
     ```
 
     !!! note

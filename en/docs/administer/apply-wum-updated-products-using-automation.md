@@ -45,9 +45,8 @@ you do not have one already.
 ### Step 2: Sign the WUM-updated distribution
 
 Do you have **Java Security Manager** in your environment? If so, follow
-the instructions in [Enabling Java Security
-Manager](../../administer/enabling-java-security-manager) to sign your latest
-WUM-updated product distribution.
+the instructions in [Enabling Java Security Manager](../../administer/enabling-java-security-manager) to sign your 
+latest WUM-updated product distribution.
 
 ### Step 3: Apply the customized artifacts
 

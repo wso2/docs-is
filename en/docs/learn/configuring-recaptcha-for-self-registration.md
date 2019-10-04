@@ -58,7 +58,7 @@ The instructions for both these approaches are as follows.
 **To configure self-registration with reCaptcha globally:**
 
 1.  Navigate to the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file and uncomment the following configuration block.
 
     !!! tip
@@ -67,17 +67,17 @@ The instructions for both these approaches are as follows.
         up the WSO2 Identity Server product instance.
     
 
-    ``` xml
-    <SelfRegistration>
-          <Enable>true</Enable>
-          <LockOnCreation>true</LockOnCreation>
-          <Notification>
-              <InternallyManage>true</InternallyManage>
-          </Notification>
-          <ReCaptcha>true</ReCaptcha>
-    </SelfRegistration>
+    ```toml
+    [identity_mgt.user_self_registration]
+    allow_self_registration=true
+    lock_on_creation=true
+    enable_recaptcha=true
+    verification_email_validity=1440
+    callback_url="${carbon.protocol}://${carbon.host}:${carbon.management.port}/authenticationendpoint/login.do"
+    [identity_mgt.user_self_registration.notification]
+    manage_internally=true    
     ```
-
+    
     The following table lists out more information pertaining to these
     configurations.
 
@@ -94,27 +94,34 @@ The instructions for both these approaches are as follows.
     </thead>
     <tbody>
     <tr class="odd">
-    <td><pre><code>Enable</code></pre></td>
+    <td><pre><code>allow_self_registration</code></pre></td>
     <td>Set this to <code>               true              </code> to enable this configuration at a global level.</td>
     </tr>
     <tr class="even">
-    <td><pre><code>LockOnCreation</code></pre></td>
+    <td><pre><code>lock_on_creation</code></pre></td>
     <td>Setting this to true ensures that the user's account is locked on creation.</td>
     </tr>
     <tr class="odd">
-    <td><pre><code>InternallyManage</code></pre></td>
+    <td><pre><code>manage_internally</code></pre></td>
     <td>Setting this value to <code>               true              </code> ensures the internal email sending module is enabled. However, setting this to <code>               false              </code> ensures that the email sending data is available to the application via a Web service. The application can send the email using its own email sender.</td>
     </tr>
     <tr class="even">
-    <td><pre><code>ReCaptcha</code></pre></td>
+    <td><pre><code>enable_recaptcha</code></pre></td>
     <td>Set this to <code>               true              </code> to enable reCaptcha for self-registration globally.</td>
+    </tr>
+    <tr class="odd">
+    <td><pre><code>verification_email_validity</code></pre></td>
+    <td>The validity period of the email in minutes.
+    </tr>
+    <tr class="even">
+    <td><pre><code>callback_url</code></pre></td>
+    <td>RegEx pattern to validate the callback URL sent in the email.</td>
     </tr>
     </tbody>
     </table>
 
 2.  Some listeners must be enabled in order for this to work when the
-    operations are invoked. In the same identity.xml file make sure the
-    following configs are enabled/disabled.
+    operations are invoked.
 
     !!! tip
     
@@ -122,7 +129,7 @@ The instructions for both these approaches are as follows.
         have made any changes.
     
 
-    ``` xml
+    ```toml
     [event.default_listener.identity_mgt]
     priority= "50"
     enable = false
@@ -136,33 +143,19 @@ The instructions for both these approaches are as follows.
 
 3.  Configure the email settings for the self-registration
     process. Configure email setting in the
-    `           <IS_HOME>/repository/conf/output-event-adapters.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file.
-
-    !!! tip
     
-        **Tip** : Search for the word ' `           email          ` ' in
-        the file and you can find the required configuration block. Provide
-        the email provider information and save the file.
     
-
-    ``` xml
-    <adapterConfig type="email">
-            <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-            based authentication rather username/password authentication -->
-            <property key="mail.smtp.from">abcd@gmail.com</property>
-            <property key="mail.smtp.user">abcd</property>
-            <property key="mail.smtp.password">xxxx</property>
-            <property key="mail.smtp.host">smtp.gmail.com</property>
-            <property key="mail.smtp.port">587</property>
-            <property key="mail.smtp.starttls.enable">true</property>
-            <property key="mail.smtp.auth">true</property>
-            <!-- Thread Pool Related Properties -->
-            <property key="minThread">8</property>
-            <property key="maxThread">100</property>
-            <property key="keepAliveTimeInMillis">20000</property>
-            <property key="jobQueueSize">10000</property>
-    </adapterConfig>
+    ``` toml
+    [output_adapter.email]
+    from_address=abcd@gmail.com
+    username=abcd
+    password=xxxxx
+    hostname=smtp.gmail.com
+    port=587
+    enable_start_tls=true
+    enable_authentication=true
     ```
 
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on

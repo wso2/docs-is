@@ -205,10 +205,10 @@ scenario.
         !!! note
             The grant type highlighted below is a **custom** grant type. This
             will only appear on the UI if you have [configured the JWT grant
-            type](../../develop/configuring-jwt-grant-type)
+            type](../../develop/jwt-grant-type-for-oauth2)
             . The value specified in the
-            `              <GrantTypeName>             ` property of the
-            `              identity.xml             ` file when creating the
+            `              [grant_type] name` property of the
+            `              deployment.toml             ` file when creating the
             custom grant type is the value that will appear on the UI. For more
             information on writing a custom grant type, see [Writing a Custom
             OAuth 2.0 Grant
@@ -299,7 +299,7 @@ scenario.
         </tr>
         <tr class="even">
             <td><strong>PKCE Mandatory</strong></td>
-            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="(../../learn/mitigating-authorization-code-interception-attack)">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+            <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../learn/mitigating-authorization-code-interception-attack">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
         </tr>
         <tr class="odd">
             <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
@@ -323,16 +323,6 @@ scenario.
             <td>
                 <div class="content-wrapper">
                 <p>Select this to enable audience restrictions for OAuth applications. If necessary, you can add multiple audiences. To add an audience, specify a required <strong>Audience</strong> value and click <strong>Add</strong> . All audience values that you add would be available in the ID token generated for the corresponding application.</p>
-                <div class="admonition tip">
-                    <p class="admonition-title">Tip</p>
-                <p>Before you add an audience, ensure that the following property is set to true in the <code>                    &lt;IS_HOME&gt;/repository/conf/identity/identity.xml                   </code> file.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                            <pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;EnableAudiences&gt;<span class="kw">true</span>&lt;/EnableAudience&gt;</a></code></pre></div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </td>
         </tr>
@@ -352,7 +342,7 @@ scenario.
         </tr>
         <tr class="even">
             <td><strong>Scope Validators</strong></td>
-            <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../learn/validating-the-scope-of-oauth-access-tokens-usinng-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a> .</td>
+            <td>This is to define the scope validation mechanisms. For more information on XACML scope validation, see <a href="../../learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies">Validating the Scope of OAuth Access Tokens using XACML Policies</a> .</td>
         </tr>
         <tr class="odd">
             <td><strong>Token Issuer</strong></td>
@@ -405,14 +395,13 @@ scenario.
             encrypt the client secret, access token and refresh token, do the
             following:
         
-            Open the `              identity.xml             ` file found in the
-            `              <IS_HOME>/repository/conf/identity             `
-            directory and change the
-            `              <TokenPersistenceProcessor>             ` property as
-            follows:
+            Open the `              deployment.toml             ` file found in the
+            `              <IS_HOME>/repository/conf             `
+            directory and change the following configuraiton
         
-            ``` xml
-                <TokenPersistenceProcessor>org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor</TokenPersistenceProcessor>
+            ``` toml
+            [oauth]
+            token_storage_method="encrypted"
             ```
 
         After updating the configuration, make sure to restart the server
