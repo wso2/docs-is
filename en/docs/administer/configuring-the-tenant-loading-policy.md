@@ -31,7 +31,7 @@ and Eager loading work:
     from memory if the tenant remains idle for a specified amount of
     time. You can configure the allowed tenant idle time. See
     [Configuring Lazy
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringLazyLoading)
+    Loading](#configuring-lazy-loading)
     for instructions.  
       
 -   **Eager Loading:** Unlike lazy loading, eager loading ensures that
@@ -54,20 +54,11 @@ and Eager loading work:
     system if the tenants are idle for more than 30 minutes. You can
     overcome this condition by applying a system property to change the
     allowed tenant idle time. See [Configuring Eager
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringEagerLoading)
+    Loading](#configuring-eager-loading)
     for instructions.  
 
 Now, see the instructions given below to configure the required tenant
-loading policy for your system.
-
--   [Configuring Lazy
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringLazyLoading)
-    -   [Enabling lazy loading of artifacts (web applications and axis2
-        services)](#ConfiguringtheTenantLoadingPolicy-Enablinglazyloadingofartifacts(webapplicationsandaxis2services))
-    -   [Configuring the tenant unloading time (for Lazy
-        Loading)](#ConfiguringtheTenantLoadingPolicy-Configuringthetenantunloadingtime(forLazyLoading))
--   [Configuring Eager
-    Loading](#ConfiguringtheTenantLoadingPolicy-ConfiguringEagerLoading)
+loading policy for your system. 
 
 ### Configuring Lazy Loading
 
@@ -151,16 +142,16 @@ your system. You can configure this value using two methods.
         `             <IdleTime>            ` element as shown below.  
 
         ``` java
-                <Tenant>
-                         <LoadingPolicy>
-                             <LazyLoading>
-                                    <IdleTime>30</IdleTime>
-                             </LazyLoading>-->
-                         <!--<EagerLoading>
-                                    <Include>*,!foo.com,!bar.com</Include>
-                             </EagerLoading>-->
-                        </LoadingPolicy>
-                </Tenant>
+        <Tenant>
+                 <LoadingPolicy>
+                     <LazyLoading>
+                            <IdleTime>30</IdleTime>
+                     </LazyLoading>-->
+                 <!--<EagerLoading>
+                            <Include>*,!foo.com,!bar.com</Include>
+                     </EagerLoading>-->
+                </LoadingPolicy>
+        </Tenant>
         ```
 
 -   Alternatively, you can specify the tenant idle time when you start
@@ -174,8 +165,8 @@ your system. You can configure this value using two methods.
     2.  Add the following system property.
 
         ``` java
-                $JAVA_OPTS \ 
-                     -Dtenant.idle.time=<value_in_minutes>. \
+        $JAVA_OPTS \ 
+             -Dtenant.idle.time=<value_in_minutes>. \
         ```
 
     3.  Restart the server.
@@ -246,8 +237,8 @@ by default) using a system property:
 2.  Add the following system property.
 
     ``` java
-        $JAVA_OPTS \ 
-             -Dtenant.idle.time=<value_in_minutes> \
+    $JAVA_OPTS \ 
+         -Dtenant.idle.time=<value_in_minutes> \
     ```
 
 3.  Restart the server.

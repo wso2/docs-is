@@ -233,7 +233,8 @@ Deleting a user cannot be undone.
     tool](https://github.com/wso2/identity-anonymization-tool). For
     information on building and running the tool, see [Removing References
     to Deleted User Identities in WSO2
-    Products](Removing_References_to_Deleted_User_Identities_in_WSO2_Products)
+    Products](../../administer/removing-references-to-deleted-user-identities-in-wso2-products)
+    
     .
     
 

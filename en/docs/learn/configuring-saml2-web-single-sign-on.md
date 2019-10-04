@@ -105,22 +105,22 @@ To configure SAML2 Web SSO:
     <p class="admonition-title">About NameID formats</p>
     <p>For SSO interactions, you can use the following types of NameID formats.</p>
     <ul>
-    <li><code>                   urn:oasis:names:tc:SAML:2.0:nameid-format:persistent                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:2.0:nameid-format:transient                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos                                     </code></li>
-    <li><code>                   urn:oasis:names:tc:SAML:2.0:nameid-format:entity                                     </code></li>
+    <li>`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`</li>
+    <li>`urn:oasis:names:tc:SAML:2.0:nameid-format:transient`</li>
+    <li>`urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`</li>
+    <li>`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`</li>
+    <li>`urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName`</li>
+    <li>`urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName`</li>
+    <li>`urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos`</li>
+    <li>`urn:oasis:names:tc:SAML:2.0:nameid-format:entity`</li>
     </ul>
     <p>This specifies the name identifier format that the Identity Server wants to receive in the subject of an assertion from a particular identity provider. The following is the default format used by the identity provider.</p>
     <ul>
-    <li><code>                   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                                     </code></li>
+    <li>`urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`</li>
     </ul>
     </div>
     </div></td>
-    <td><p><code>                urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress               </code></p></td>
+    <td><p>`urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`</p></td>
     </div>
     </tr>
     <tr class="even">
@@ -136,22 +136,42 @@ To configure SAML2 Web SSO:
     </tr>
     <tr class="odd">
     <td><strong>Response Signing Algorithm</strong></td>
-    <td><p>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the <code>                &lt;IS_HOME&gt;/repository/conf/identity.xml               </code> file, in the <code>                SSOService               </code> element with <code>                SAMLDefaultSigningAlgorithmURI               </code> tag. If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­sha1 ' .</p></td>
+    <td><p>Specifies the ‘SignatureMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured through the <code>                &lt;IS_HOME&gt;/repository/deployment.toml</code> file by adding the following config.
+    ```toml
+    [saml]
+    signing_alg="signing algorithm"
+    ```
+    If it is not provided the default algorithm is RSA­SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#rsa­sha1 ' .</p></td>
     <td>http://www.w3.org/2000/09/xmldsig#rsa­sha1</td>
     </tr>
     <tr class="even">
     <td><strong>Response Digest Algorithm</strong></td>
-    <td><p>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the <code>                &lt;IS_HOME&gt;/repository/conf/identity.xml               </code> file, in the <code>                SSOService               </code> element with <code>                SAMLDefaultDigestAlgorithmURI               </code> tag. If it is not provided the default algorithm is SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#sha1 ’ .</p></td>
+    <td><p>Specifies the ‘DigestMethod’ algorithm to be used in the ‘Signature’ element in POST binding. The default value can be configured in the <code>                &lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file by adding the following config.
+     ```toml
+     [saml]
+     digest_alg="digest algorithm"
+     ```             
+                   If it is not provided the default algorithm is SHA 1, at URI ‘ http://www.w3.org/2000/09/xmldsig#sha1 ’ .</p></td>
     <td><code>                                                http://www.w3.org/2000/09/xmldsig#sha1                                             </code></td>
     </tr>
     <tr class="odd">
     <td><strong>Assertion Encryption Algorithm</strong></td>
-    <td>The algorithm that the SAML2 assertion is encrypted. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/conf/identity.xml              </code> file, in the <code>               SSOService              </code> element with <code>               SAMLDefaultAssertionEncryptionAlgorithm URI              </code> tag. The default is <code>                                                http://www.w3.org/2001/04/xmlenc#aes256-cbc                                             </code> .</td>
+    <td>The algorithm that the SAML2 assertion is encrypted. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file by adding the following config. 
+    ```toml
+    [saml]
+    assertion_encryption_alg="assertion encryption algorithm"
+    ```
+    The default is <code>                                                http://www.w3.org/2001/04/xmlenc#aes256-cbc                                             </code> .</td>
     <td><code>               www.w3.org/2001/04/xmlenc#aes256-cbc              </code></td>
     </tr>
     <tr class="even">
     <td><strong>Key Encryption Algorithm</strong></td>
-    <td>The algorithm that the SAML2 key is encrypted. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/conf/identity.xml              </code> file, in the <code>               SSOService              </code> element with <code>               SAMLDefaultKeyEncryptionAlgorithm              </code> URI tag. The default algorithm is <code>                                                http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                                             </code></td>
+    <td>The algorithm that the SAML2 key is encrypted. The default value can be configured in the <code>               &lt;IS_HOME&gt;/repository/deployment.toml</code> file by adding the following config.
+    ```toml
+    [saml]
+    key_encryption_alg="key encryption algorithm"
+    ```   
+    The default algorithm is <code>                                                http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p                                             </code></td>
     <td><code>               www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p              </code></td>
     </tr>
     <tr class="odd">

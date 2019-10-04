@@ -29,14 +29,14 @@ JAVA_OPTS \
     -Dtenant.idle.time=30 \
 ```
 
--   [Architecture](#IntroductiontoMultitenancy-Architecture)
--   [Resource sharing](#IntroductiontoMultitenancy-Resourcesharing)
+-   [Architecture](#architecture)
+-   [Resource sharing](#resource-sharing)
 -   [Tenant loading
-    policy](#IntroductiontoMultitenancy-Tenantloadingpolicy)
--   [Restrictions](#IntroductiontoMultitenancy-Restrictions)
+    policy](#tenant-loading-policy)
+-   [Restrictions](#restrictions)
 -   [Request
-    dispatching](#IntroductiontoMultitenancy-Requestdispatching)
--   [Scaling](#IntroductiontoMultitenancy-Scaling)
+    dispatching](#Request dispatching)
+-   [Scaling](#scaling)
 
 ### Architecture
 
@@ -121,7 +121,7 @@ the loading policy for web applications and axis2 services deployed in
 your tenants using the **GhostDeployment** setting.
 
 See [Configuring the Tenant Loading
-Policy](Configuring-the-Tenant-Loading-Policy) for more information.
+Policy](../../administer/configuring-the-tenant-loading-policy) for more information.
 
 ### Restrictions
 
