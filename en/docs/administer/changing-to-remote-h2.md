@@ -30,38 +30,41 @@ data. After setting up the Remote H2 database to replace the default H2
 database, either change the default configurations of the
 `          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
 
-#### Changing the default WSO2\_CARBON\_DB datasource
+#### Changing the default datasource
 
-Follow the steps below to change the type of the default
-`         WSO2_CARBON_DB        ` datasource.
+Follow the steps below to change the type of the default datasource.
 
 1.  Edit the default datasource configuration in the \<
-    `           IS_HOME>/repository/conf/datasources/m          `
-    `           aster-datasources.xml          ` file as shown below.
+    `           IS_HOME>/repository/conf/deployment.toml ` file as shown below.
 
-    ``` html/xml
-    <datasource>
-          <name>WSO2_CARBON_DB</name>
-          <description>The datasource used for registry and user manager</description>
-          <jndiConfig>
-               <name>jdbc/WSO2CarbonDB</name>
-          </jndiConfig>
-          <definition type="RDBMS">
-               <configuration>
-                   <url>jdbc:h2:tcp://localhost/~/registryDB;create=true</url>
-                   <username>regadmin</username>
-                   <password>regadmin</password>
-                   <driverClassName>org.h2.Driver</driverClassName>
-                   <maxActive>80</maxActive>
-                   <maxWait>60000</maxWait>
-                   <minIdle>5</minIdle>
-                   <testOnBorrow>true</testOnBorrow>
-                   <validationQuery>SELECT 1</validationQuery>
-                   <validationInterval>30000</validationInterval>
-                   <defaultAutoCommit>false</defaultAutoCommit>
-               </configuration>
-          </definition>
-    </datasource>
+    ``` toml
+    [database.identity_db]
+    url = "jdbc:h2:tcp://localhost/~/registryDB;create=true"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "org.h2.Driver"
+    [database.identity_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
+
+    [database.shared_db]
+    url = "jdbc:h2:tcp://localhost/~/registryDB;create=true"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "org.h2.Driver"
+    [database.shared_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
     ```
 
     The elements in the above configuration are described below:

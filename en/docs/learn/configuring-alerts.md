@@ -2,6 +2,8 @@
 
 Let's configure alerts in WSO2 Identity Server.
 
+### Suspicious Login Alerts
+
 Follow the steps below to configure suspicious alerts.
 
 1.  Open the
@@ -42,7 +44,9 @@ Follow the steps below to configure suspicious alerts.
     insert into LoginAlertStreamSameUsername;
     ```
 
-Follow the steps below to configure suspicious alerts.
+### Long Sessions
+
+Follow the steps below to configure long session alerts.
 
 1.  Open the
     `            <IS_ANALTICS_HOME>/wso2/worker/deployment/siddhi-files/IS_ANALYTICS_LONG_SESSION.siddhi           `

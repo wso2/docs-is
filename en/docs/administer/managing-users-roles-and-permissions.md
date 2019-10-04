@@ -72,7 +72,7 @@ Before you begin your configurations, note the following:
 See the following topics for instructions:
 
 -   [Changing a Password](../../administer/changing-a-password)
--   [Configuring Roles](Configuring-Roles)
+-   [Configuring Roles](../../administer/configuring-roles)
 -   [Configuring Users](../../learn/configuring-users)
 -   [Role-based Permissions](../../administer/role-based-permissions)
 -   [Managing User Attributes](../../administer/managing-user-attributes)
