@@ -7,8 +7,7 @@ Follow the instructions below to download a sample from GitHub.
 
 1.  Create a folder in your local machine and navigate to it using your
     command line.
-2.  Run the following commands.
-
+2.  Execute the following commands.
     ``` bash
     mkdir is-samples
     cd is-samples/
