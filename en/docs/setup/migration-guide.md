@@ -300,7 +300,17 @@ highly not recommended and these configurations should only be changed once.
     Server startup. If changes are done after the initial startup the registry resource created
     previously will not be available.
    
-    
+#### Migrating the Secondary Userstore Password to the Internal Keystore
+Ideally, the internal keystore should be used for encrypting internal critical data. However, in previous versions of WSO2 
+Identity Server, the secondary userstore passwords are encrypted using the primary keystore, 
+which is also used to sign and encrypt tokens
+
+In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality from the 
+primary keystore to the internal keystore.
+
+Check this [link](https://docs.wso2.com/display/IS570/Migrating+the+Secondary+Userstore+Password+to+the+Internal+Keystore) 
+to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
+
 ### Preparing for migration
 
 Follow this guide before you begin migration.
