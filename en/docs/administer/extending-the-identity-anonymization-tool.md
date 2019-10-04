@@ -12,9 +12,9 @@ required relational databases and log files. It is also possible to
 extend the tool to remove references to deleted user identities from
 additional modules other than relational databases or log files.
 
-!!! tip
+!!! tip "Before you begin"
     
-    Before you begin,
+    
     
     -   Check out the source of the Identity Anonymization tool from
         [here](https://github.com/wso2/identity-anonymization-tool), and
