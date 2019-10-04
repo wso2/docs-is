@@ -2,10 +2,11 @@
 
 After you have [created a new keystore and updated the
 `          client-truststore.jks         `
-file](../../administer/configuring-new-keystores), you must update a few configuration
+file](../../administer/creating-new-keystores), you must update a few configuration
 files in order to make the keystores work. Note that keystores are used
 for multiple functions in WSO2 products, which includes authenticating
-communication over SSL/TLS, encrypting passwords and other confidential
+communication over SSL/TLS, encrypting pass
+words and other confidential
 information in configuration files etc. Therefore, you must update the
 specific configuration files with the updated keystore information. For
 example, you may have separate keystores for the purpose of encrypting
@@ -16,35 +17,7 @@ The `         wso2carbon.jks        ` keystore file, which is shipped
 with all WSO2 products, is used as the default keystore for all
 functions. However, in a production environment, it is recommended
 to create new keystores with new keys and certificates.
-
-!!! note
-    Please note that in WSO2 IoT Server and WSO2 Enterprise Integrator the
-    `         <IS_HOME>/repository/conf        ` directory is in the
-    following location: `         <IS_HOME>/conf        `
     
-!!! tip   
-    If you want an easy way to locate all the configuration files that have
-    references to keystores, you can use the `         grep        ` command
-    as follows:
-    
-    1.  Open a command prompt and navigate to the
-        `          <IS_HOME>/repository/conf/         ` directory where
-        your product stores all configuration files.
-    2.  Execute the following command: `          grep -nr ".jks"         `
-        .
-    
-    The configuration files and the keystore files referred to in each file
-    are listed out. See an example of this below.
-    
-    ``` java
-    ./axis2/axis2.xml:260:                <Location>repository/resources/security/wso2carbon.jks</Location>
-    ./axis2/axis2.xml:431:                <Location>repository/resources/security/wso2carbon.jks</Location>
-    ./carbon.xml:316:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-    ./carbon.xml:332:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-    ./identity.xml:180:             <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-    ./security/secret-conf.properties:21:#keystore.identity.location=repository/resources/security/wso2carbon.jks
-    ```
-
 ### Before you begin
 
 -   Be sure to go through the [recommendations for setting
@@ -57,10 +30,10 @@ to create new keystores with new keys and certificates.
 
 ### Configuring the primary keystore
 
-The primary keystore of WSO2 products are configured by the
-`         Keystore        ` element in the `         carbon.xml        `
-file (stored in the \<
-`         PRODUCT         _HOME>/repository/conf/        ` directory).
+The primary keystore of WSO2 products are located at `[HOME]/resources/security/wso2carbon.jks`, 
+while the default trust-store is at `[HOME]/repository/resources/security/client-truststore.jks`.
+This can be configured by specifying it in the `         deployment.toml        ` file (stored in the
+`         <PRODUCT         _HOME>/repository/conf/        ` directory).
 This keystore is used for the following functions in WSO2 products by
 default.
 
@@ -73,45 +46,14 @@ default.
 -   **S** **igning messages** when the WSO2 product communicates with
     external parties (such SAML, OIDC id\_token signing).
 
-The default configuration is shown below.
-
-``` java
-<KeyStore>
-    <Location>${carbon.home}/resources/security/wso2carbon.jks</Location>
-    <Type>JKS</Type>
-    <Password>wso2carbon</Password>
-    <KeyAlias>wso2carbon</KeyAlias>
-    <KeyPassword>wso2carbon</KeyPassword>
-</KeyStore>
- 
-<TrustStore>
-    <!-- trust-store file location -->
-    <Location>${carbon.home}/repository/resources/security/client-truststore.jks</Location>
-    <!-- trust-store type (JKS/PKCS12 etc.) -->
-    <Type>JKS</Type> 
-    <!-- trust-store password -->
-    <Password>wso2carbon</Password>
-</TrustStore>
-```
-
 ### Configuring a separate keystore for encrypting data in internal data stores
 
 !!! info 
-    This feature is available via the WUM update 2792 released on the 8th of
-    July 2018 for the following product versions:
-
-    -   WSO2 Identity Server 5.5.0
-    -   WSO2 API Manager 2.2.0
-    -   WSO2 Data Analytics Server 3.2.0
-    -   WSO2 Enterprise Integrator 6.2.0
-
     This is available as part of the newly introduced Crypto Service. It is
     an extensible framework that facilitates the cryptography needs of WSO2
     products.
 
-Currently, the primary keystore configured by the
-`         <Security>/<KeyStore>        ` element in the
-`         <IS_HOME>/repository/conf/carbon.xml        ` file is
+Currently, the primary keystore configured in deployment.toml is
 used for internal data encryption (encrypting data in internal data
 stores and configuration files) as well as for signing messages that are
 communicated with external parties. However, it is sometimes a common
@@ -133,91 +75,49 @@ data in internal data stores. Follow the instructions given below.
     such cases, an appropriate data migration effort is needed.
     
 
-1.  Enable the Crypto Service by adding the following configuration
-    block to the
-    `           <IS_HOME>/repository/conf/carbon.xml          `
-    file.
-
-    ``` xml
-    <CryptoService>
-      <Enabled>true</Enabled>
-      <InternalCryptoProviderClassName>org.wso2.carbon.crypto.provider.KeyStoreBasedInternalCryptoProvider</InternalCryptoProviderClassName>
-      <ExternalCryptoProviderClassName>org.wso2.carbon.core.encryption.KeyStoreBasedExternalCryptoProvider</ExternalCryptoProviderClassName>
-      <KeyResolvers>
-        <KeyResolver className="org.wso2.carbon.crypto.defaultProvider.resolver.ContextIndependentKeyResolver" priority="-1"/>
-      </KeyResolvers>
-    </CryptoService>
-    ```
-
-2.  Configure the new keystore by adding the following configuration
-    block inside the `           <Security>          ` tag in the
-    `           <IS_HOME>/repository/conf/carbon.xml          `
+1.  Configure the new keystore by adding the following configuration
+    block inside the `           keystore.internal         ` tag in the
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file.
 
     !!! note
         The values of the properties such as passwords must be
         changed based on the keystore.
     
-    ``` xml
-    <InternalKeyStore>
-      <Location>${carbon.home}/repository/resources/security/internal.jks</Location>
-      <Type>JKS</Type>
-      <Password>wso2carbon</Password>
-      <KeyAlias>wso2carbon</KeyAlias>
-      <KeyPassword>wso2carbon</KeyPassword>
-    </InternalKeyStore>
+    ``` toml
+    [keystore.internal]
+    file_name = "internal.jks"
+    type = "JKS"
+    password = "wso2carbon"
+    alias = "wso2carbon"
+    key_password = "wso2carbon"
     ```
 
 ### Configuring a secondary keystore (for SSL connections)
 
-The `         catalina-server.xml        ` file stored in the
-`         <IS_HOME>/repository/conf/tomcat/        ` directory
-should be updated with the keystore used for certifying SSL connections
-to Carbon servers. Given below is the default configuration in the
-`         catalina-server.xml        ` file, which points to the default
-keystore in your product.
+The default keystore configurations should be updated with the keystore used for certifying SSL connections
+to Carbon servers. Given below is the default configuration used internally, which points to the default
+keystore in your product. 
+If you need to configure a different keystore for SSL, you may change the values accordingly.
+    ```toml 
+    [transport.https.sslHostConfig.certificate.properties]
+    certificateKeystoreFile = "${carbon.home}/repository/resources/security/$ref{keystore.tls.file_name}",
+    certificateKeystorePassword = "$ref{keystore.tls.password}"",
+    certificateKeystoreType = "$ref{keystore.tls.type}",
+    certificateKeyAlias = "$ref{keystore.tls.alias}",
+    certificateKeyPassword = "$ref{keystore.tls.key_password}"
+    ```
+  
+The internally used following trust-store configurations can be changed to define a custom trus-store for SSL 
+validations.
+    ```toml
+    [transport.https.sslHostConfig.properties]
+    truststoreFile="${carbon.home}/repository/resources/security/$ref{truststore.file_name}"
+    truststorePassword = "$ref{truststore.password}"
+    truststoreType = "$ref{truststore.type}"
+    ```
 
-``` java
-keystoreFile="${carbon.home}/repository/resources/security/wso2carbon.jks"
-keystorePass="wso2carbon"
-```
-
-If you are using WSO2 API Manager (WSO2 APIM) or the ESB of WSO2
-Enterprise Integrator (WSO2 EI), you need to update the keystore
-information in the `         axis2.xml        ` file (in addition to the
-`         catalina-server.xml        ` file explained above). **Note**
-that the `         axis2.xml        ` file is stored in the
-`         <APIM_HOME>/repository/conf/axis2/        ` directory for
-APIM, and the `         <EI_HOME>/conf/axis2/        ` directory for the
-ESB of WSO2 EI.
-
--   **Transport Listener**
-``` java
-<transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">
-        <parameter name="keystore" locked="false">
-            <KeyStore>
-                <Location>repository/resources/security/wso2carbon.jks</Location>
-                <Type>JKS</Type>
-                <Password>wso2carbon</Password>
-                <KeyPassword>wso2carbon</KeyPassword>
-            </KeyStore>
-        </parameter>       
-</transportReceiver>
-```
-
--   **Transport Sender**
-``` java
-<transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">
-        <parameter name="keystore" locked="false">
-            <KeyStore>
-                <Location>repository/resources/security/newkeystore.jks</Location>
-                <Type>JKS</Type>
-                <Password>mypassword</Password>
-                <KeyPassword>mypassword</KeyPassword>
-            </KeyStore>
-        </parameter>
-</transportSender>
-```
+In the [5.9.0 and later doc space](https://is.docs.wso2.com/en/5.9.0/administer/configuring-keystores-in-wso2-products/) need to add following with improvements
 
 ### Configuring a keystore for Java permissions
 
@@ -249,15 +149,6 @@ grant signedBy "wso2carbon" {
   permission java.security.AllPermission;
 };
 ```
-
-### Configuring keystores for WS-Security
-
-If there are WS-Security scenarios implemented in your WSO2 product, you
-can use separate keystores for these scenarios. WS-Security is used for
-proxy services and data services in the ESB. See the documentation of
-[WSO2 Enterprise Integrator (WSO2 EI)](https://wso2.com/integration) for
-instructions on applying security policies for proxy services, and data
-services.
 
 ### What's next?
 

@@ -17,7 +17,7 @@ without PKCE.
     The Proof Key for Code Exchange (PKCE) is a specification supported by
     WSO2 Identity Server to mitigate code interception attacks. See
     [Mitigating Authorization Code Interception
-    Attacks](../../learn/mitigating-authorization-code-interception-attacks)
+    Attacks](../../administer/mitigating-authorization-code-interception-attacks)
     to configure PKCE for an OAuth application.
 
 #### **Running the application (without PKCE)**
@@ -178,5 +178,5 @@ without PKCE.
         Endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
         to invoke the OAuth introspection endpoint using cURL commands.
     -   See [Mitigating Authorization Code Interception
-        Attacks](../../learn/mitigating-authorization-code-interception-attacks)
+        Attacks](../../administer/mitigating-authorization-code-interception-attacks)
         for more information about using PKCE with an OAuth application.

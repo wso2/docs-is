@@ -20,39 +20,46 @@ data. After setting up the Oracle RAC database to replace the default H2
 database, either change the default configurations of the
 `          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
 
-#### Changing the default WSO2\_CARBON\_DB datasource
+#### Changing the default datasource
 
-Follow the steps below to change the type of the default WSO2\_CARBON\_DB datasource.
-
+Follow the steps below to change the type of the default datasource.
 1.  Edit the default datasource configuration in the
-    `           <IS_HOME>/repository/conf/datasources/master-datasources.xml          ` file as shown below.
+    `           <IS_HOME>/repository/conf/deployment.toml          ` file as shown below.
 
-    ``` xml
-    <datasource>
-         <name>WSO2_CARBON_DB</name>
-         <description>The datasource used for registry and user manager</description>
-         <jndiConfig>
-              <name>jdbc/WSO2CarbonDB</name>
-         </jndiConfig>
-         <definition type="RDBMS">
-              <configuration>
-                <url>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)
+    ``` toml
+    [database.identity_db]
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)
                        (ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))
                        (ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))
-                       (CONNECT_DATA=(SERVICE_NAME=rac)))</url>
-                <username>regadmin</username>
-                <password>regadmin</password>
-                <driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
-                <maxActive>80</maxActive>
-                <maxWait>60000</maxWait>
-                <minIdle>5</minIdle>
-                <testOnBorrow>true</testOnBorrow>
-                <validationQuery>SELECT 1 FROM DUAL</validationQuery>
-                <validationInterval>30000</validationInterval>
-                <defaultAutoCommit>false</defaultAutoCommit>
-              </configuration>
-         </definition>
-    </datasource>
+                       (CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "oracle.jdbc.OracleDriver"
+    [database.identity_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1 FROM DUAL"
+    validationInterval="30000"
+    defaultAutoCommit=false
+
+    [database.shared_db]
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)
+                       (ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))
+                       (ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))
+                       (CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "oracle.jdbc.OracleDriver"
+    [database.shared_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1 FROM DUAL"
+    validationInterval="30000"
+    defaultAutoCommit=false
     ```
 
     The elements in the above configuration are described below:
