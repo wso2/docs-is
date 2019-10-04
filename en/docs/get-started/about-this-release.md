@@ -5,9 +5,7 @@
 **WSO2 Identity Server 5.9.0** is the **latest WSO2 Identity Server release** and is the successor of WSO2 Identity Server 5.8.0. It contains the following new features and enhancements:
 
 
-<ul>
-    <li><b>Passwordless authentication</b>: This feature is supported using the FIDO2 protocol. For more information, see <a href="../../learn/configuring-passwordless-authentication">Configuring Passwordless Authentication</a>.</li>
-    <li><b>Cross protocol single logout</b>: This feature enables single logout applications that communicate using different SSO protocols such as OIDC and SAML. For more information, see <a href="../../get-started/cross-protocol-single-logout">Single Logout</a>.</li>
+<ul>    
     <li><b>Reusable script library for adaptive authentication</b>: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see <a href="../../learn/adaptive-authentication-with-function-librabry">Adaptive Authentication with Function Libraries</a>.</li>
     <li><b>New REST APIs</b>: This release includes new REST APIs for end users who can be authenticated to the system to manage their user account related activities.        	
 		<ul>
