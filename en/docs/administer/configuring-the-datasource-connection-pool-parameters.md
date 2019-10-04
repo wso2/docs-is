@@ -60,11 +60,11 @@ guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 </tr>
 <tr class="even">
 <td>Max. Idle (int)</td>
-<td><p>Maximum number of connections that should be kept in the pool at all times. Default value is 8. Idle connections are checked periodically (if enabled), and connections that have been idle for longer than <code>              minEvictableIdleTimeMillis             </code> will be released. (also see <a href="#ConfiguringtheDatasourceConnectionPoolParameters-TestWhileIdle">testWhileIdle</a> )</p></td>
+<td><p>Maximum number of connections that should be kept in the pool at all times. Default value is 8. Idle connections are checked periodically (if enabled), and connections that have been idle for longer than <code>              minEvictableIdleTimeMillis             </code> will be released. (also see <a href="#configuring-the-datasource-connection-pool-parameters-test-while-idle">testWhileIdle</a> )</p></td>
 </tr>
 <tr class="odd">
 <td>Min. Idle (int)</td>
-<td><p>Minimum number of established connections that should be kept in the pool at all times. The connection pool can shrink below this number, if validation queries fail. Default value is zero. For more information, see <a href="#ConfiguringtheDatasourceConnectionPoolParameters-TestWhileIdle">testWhileIdle</a> .</p></td>
+<td><p>Minimum number of established connections that should be kept in the pool at all times. The connection pool can shrink below this number, if validation queries fail. Default value is zero. For more information, see <a href="#configuring-the-datasource-connection-pool-parameters-test-while-idle">testWhileIdle</a> .</p></td>
 </tr>
 <tr class="even">
 <td>Max. Wait (int)</td>
@@ -85,14 +85,14 @@ guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 <td>Test On Borrow (boolean)</td>
 <td><p>Used to indicate if objects will be validated before borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and we will attempt to borrow another. Default value is false.</p>
 <div>
-<p>For a true value to have any effect, the <code>               validationQuery              </code> parameter must be set to a non-null string. In order to have a more efficient validation, see <a href="#ConfiguringtheDatasourceConnectionPoolParameters-ValidationInterval">validationInterval</a> .</p>
+<p>For a true value to have any effect, the <code>               validationQuery              </code> parameter must be set to a non-null string. In order to have a more efficient validation, see <a href="#configuring-the-datasource-connection-pool-parameters-validation-interval">validationInterval</a> .</p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Test While Idle (boolean)</td>
-<td><p>The indication of whether objects will be validated by the idle object evictor (if any). If an object fails to validate, it will be dropped from the pool. The default value is false and this property has to be set in order for the pool cleaner/test thread to run. For more information, see <a href="#ConfiguringtheDatasourceConnectionPoolParameters-timeBetweenEvictionRunsMillis">timeBetweenEvictionRunsMillis</a> .</p>
+<td><p>The indication of whether objects will be validated by the idle object evictor (if any). If an object fails to validate, it will be dropped from the pool. The default value is false and this property has to be set in order for the pool cleaner/test thread to run. For more information, see <a href="#configuring-the-datasource-connection-pool-parameters-time-between-eviction-runs-millis">timeBetweenEvictionRunsMillis</a> .</p>
 <div>
-<p>For a true value to have any effect, the <a href="#ConfiguringtheDatasourceConnectionPoolParameters-ValidationQuery">validationQuery</a> parameter must be set to a non-null string.</p>
+<p>For a true value to have any effect, the <a href="#configuring-the-datasource-connection-pool-parameters-validation-query">validationQuery</a> parameter must be set to a non-null string.</p>
 </div></td>
 </tr>
 <tr class="odd">
@@ -105,7 +105,7 @@ guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
 </tr>
 <tr class="odd">
 <td>Remove Abandoned (boolean)</td>
-<td><p>Flag to remove abandoned connections if they exceed the <a href="#ConfiguringtheDatasourceConnectionPoolParameters-removeAbandonedTimout">removeAbandonedTimout</a> . If set to true, a connection is considered abandoned and eligible for removal, if it has been in use longer than the <code>              removeAbandonedTimeout.             </code> Setting this to true can recover database connections from applications that fail to close a connection. For more information, see <a href="#ConfiguringtheDatasourceConnectionPoolParameters-LogAbandoned">logAbandoned</a> . The default value is false.</p></td>
+<td><p>Flag to remove abandoned connections if they exceed the <a href="#configuring-the-datasource-connection-pool-parameters-remove-abandoned-timeout">removeAbandonedTimout</a> . If set to true, a connection is considered abandoned and eligible for removal, if it has been in use longer than the <code>              removeAbandonedTimeout.             </code> Setting this to true can recover database connections from applications that fail to close a connection. For more information, see <a href="#configuring-the-datasource-connection-pool-parameters-log-abandoned">logAbandoned</a> . The default value is false.</p></td>
 </tr>
 <tr class="even">
 <td>Remove Abandoned Timeout (int)</td>

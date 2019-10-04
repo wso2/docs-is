@@ -51,7 +51,7 @@ The deployment.toml file allows you to configure the administrator user in your 
 the RDBMS that will be used for storing information related to user
 authentication (i.e. role-based permissions).
 
-```xml
+``` toml
     [super_admin]
     create_admin_account= true
     admin_role = "admin"

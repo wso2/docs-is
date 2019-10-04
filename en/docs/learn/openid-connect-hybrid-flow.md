@@ -11,25 +11,21 @@ in an authorization request selects the hybrid flow for authentication:
 -   [code id\_token token](#code-id_token-token)
 
 To configure WSO2 Identity Server to support the OpenID Connect hybrid
-flow for authentication, you need to edit the
-`         <IS_HOME>/repository/conf/identity/identity.xml        ` file
-and add the following entries under
-`         <!-- Supported Response Types -->        ` :
+flow for authentication, you need to add following to the
+`         <IS_HOME>/repository/conf/deployment.toml        ` file.
 
-``` java
-<!-- Supported Response Types for Hybrid flow -->
-    <SupportedResponseType>
-        <ResponseTypeName>code token</ResponseTypeName>
-        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-    </SupportedResponseType>
-    <SupportedResponseType>
-        <ResponseTypeName>code id_token</ResponseTypeName>
-        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-    </SupportedResponseType>
-    <SupportedResponseType>
-        <ResponseTypeName>code id_token token</ResponseTypeName>
-        <ResponseTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler</ResponseTypeHandlerImplClass>
-    </SupportedResponseType>
+```toml
+[[oauth.custom_response_type]]
+name="code token"
+class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandle"
+
+[[oauth.custom_response_type]]
+name="code id_token"
+class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler"
+
+[[oauth.custom_response_type]]
+name="code id_token token"
+class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler"
 ```
 
 To understand how the `         response_type        ` value specified
