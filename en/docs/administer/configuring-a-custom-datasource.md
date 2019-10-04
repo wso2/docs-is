@@ -9,8 +9,7 @@ Following are descriptions of the custom datasource fields:
 
 -   **Data Source Type** : Custom
 -   **Custom Data Source Type** : Specify whether the data is in a table
-    or accessed through a query as described
-    [below](#ConfiguringaCustomDatasource-CusDSType).
+    or accessed through a query as described<a href="#configuring-a-custom-datasource-cusdstype">below</a>.
 -   **Name** : Enter a unique name for this datasource
 -   **Description** : Description of the datasource
 -   **Configuration** : XML configuration of the datasource

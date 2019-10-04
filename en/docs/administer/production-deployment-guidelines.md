@@ -278,12 +278,6 @@ manage the product.
     are validated against your system when the server starts. See
     [Configuring config-validation.xml](Configuring-config-validation.xml) for
     details on modifying these parameters before starting the server.
--   The Management Console uses the default [HTTP-NIO
-    transport](../../administer/http-nio-transport), which is configured in the
-    `          catalina-server.xml         ` file in the
-    `          <IS_HOME>/repository/conf/tomcat         `
-    directory. This transport must be properly configured in this file
-    for the management console to be accessible.
 -   As explained in the [installation
     prerequisites](#installation-prerequisites)
    , the default product installation uses OpenJDK. Therefore, you
@@ -450,18 +444,12 @@ for making an installed WSO2 product ready for production.
 <tr class="even">
 <td>Hostname</td>
 <td><div class="content-wrapper">
-<p>By default, WSO2 products identify the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname by setting the <code>               HostName              </code> parameter in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/carbon.xml              </code> file.</p>
+<p>By default, WSO2 products identify the hostname of the current machine through the Java API. However, this value 
+sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname 
+by setting the relavent parameter in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/deployment.toml     
+    
+     </code> file.</p>
 <div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;HostName&gt;</span>your.host.name<span class="kw">&lt;/HostName&gt;</span></a></code></pre></div>
-</div>
-</div>
-<p>To configure hostnames for WSDLs and endpoints, users are recommended to add the following parameter in the &lt;transportReceiver&gt; section in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/axis2/axis2.xml              </code> file as shown below.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;parameter</span><span class="ot"> name=</span><span class="st">&quot;WSDLEPRPrefix&quot;</span><span class="ot"> locked=</span><span class="st">&quot;false&quot;</span><span class="kw">&gt;</span>[http]://your.host.name:[port]<span class="kw">&lt;/parameter&gt;</span></a></code></pre></div>
-</div>
-</div>
 <div class="panel" style="border-width: 1px;">
 <div class="panelHeader" style="border-bottom-width: 1px;">
 <strong>Related links</strong>
@@ -473,8 +461,6 @@ for making an installed WSO2 product ready for production.
 <li><a href="https://docs.wso2.com/display/ESB490/Setting+Up+Host+Names+and+Ports">Setting up hostnames and ports</a></li>
 <li><a href="../../administer/changing-the-hostname">Changing the hostname</a></li>
 </ul></li>
-<li>See <a href="../../administer/introduction-to-transports">Working with Transports</a> for information on transports in WSO2 products.</li>
-</ul>
 </div>
 </div>
 </div></td>
@@ -517,27 +503,6 @@ for making an installed WSO2 product ready for production.
 </div></td>
 </tr>
 <tr class="odd">
-<td>Monitoring with JMX</td>
-<td><div class="content-wrapper">
-<p>WSO2 Products supportJMXformonitoring. By default, JMX uses port 9999. You can configure this to the desired port by setting the JMX port parameter in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/carbon.xml              </code> file.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;Ports&gt;</span></a>
-<a class="sourceLine" id="cb3-2" title="2">    <span class="kw">&lt;JMX&gt;</span>9999<span class="kw">&lt;/JMX&gt;</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="kw">&lt;/Ports&gt;</span></a></code></pre></div>
-</div>
-</div>
-<div class="panel" style="border-width: 1px;">
-<div class="panelHeader" style="border-bottom-width: 1px;">
-<strong>Related links</strong>
-</div>
-<div class="panelContent">
-<p>See <a href="../../administer/jmx-based-monitoring">JMX-Based Monitoring</a> for information on monitoring WSO2 products using JMX.</p>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
 <td>Tuning WSO2 products</td>
 <td><div class="content-wrapper">
 <p>Most of the performance tuning recommendations are common to all WSO2 products. However, each WSO2 product may have additional guidelines for optimizing the performance of product-specific features.</p>
@@ -590,11 +555,8 @@ Listed below are the main WSO2 products:</li>
 <td><div class="content-wrapper">
 <p>The following ports must be accessed when operating within a firewall.</p>
 <ul>
-<li>9443 - Used by the management console and services that use the servlet transport, and is defined in the <code>                &lt;PRODUCT_HOME&gt;/repository/conf/tomcat/catalina-server.xml               </code> file.</li>
-<li>9763 - Used by the services that use servlet transport, and is defined in the <code>                &lt;PRODUCT_HOME&gt;/repository/conf/tomcat/catalina-server.xml               </code> file.</li>
-<li>9999 - Used for JMX monitoring, defined in the <code>                &lt;PRODUCT_HOME&gt;/repository/conf/carbon.xml               </code> file.</li>
-<li>8280 - Default HTTP port used by ESB for proxy services, and is defined in the <code>                &lt;PRODUCT_HOME&gt;/repository/conf/axis2/axis2.xml               </code> file.</li>
-<li>8243 - Default HTTPS port used by ESB for proxy services, and is defined in the <code>                &lt;PRODUCT_HOME&gt;/repository/conf/axis2/axis2.xml               </code> file.</li>
+<li>9443 - Used by the management console and services that use the servlet transport, and is defined in the <code>  
+              &lt;PRODUCT_HOME&gt;/repository/conf/deployment.toml               </code> file.</li>
 </ul>
 <div class="panel" style="border-width: 1px;">
 <div class="panelHeader" style="border-bottom-width: 1px;">
@@ -616,15 +578,16 @@ Listed below are the main WSO2 products:</li>
 <a class="sourceLine" id="cb4-2" title="2">-Dhttp.<span class="fu">proxyPort</span>=xxxx</a></code></pre></div>
 </div>
 </div>
-<p>Alternatively, this can be done by adding the following configurations in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/axis2/axis2.xml              </code> file.</p>
+<p>Alternatively, this can be done by adding the following configurations in the <code>               &lt;
+PRODUCT_HOME&gt;/repository/conf/deployment.toml              </code> file.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;parameter</span><span class="ot"> name=</span><span class="st">&quot;Proxy&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb5-2" title="2">    <span class="kw">&lt;Configuration&gt;</span></a>
-<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">&lt;proxyhost&gt;</span>you.proxy.host<span class="kw">&lt;/proxyhost&gt;</span></a>
-<a class="sourceLine" id="cb5-4" title="4">    <span class="kw">&lt;proxyport&gt;</span>your.proxy.port<span class="kw">&lt;/proxyport&gt;</span></a>
-<a class="sourceLine" id="cb5-5" title="5">    <span class="kw">&lt;/configuration&gt;</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="kw">&lt;/parameter&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">[transport.https.properties]<span 
+class="kw"></span></a><br/>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">proxyhost : </span>"you.proxy.host"<span 
+class="kw"></span></a><br/>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">proxyPort : </span>"your.proxy.port"<span 
+class="kw"></span></a><br/>
 </div>
 </div>
 </div></td>
@@ -667,12 +630,10 @@ system and data and artifacts in the databases and the repository.
 
 1.  **Database backups** :  
     -   Back up of all the databases defined in
-        `            <IS_HOME>/repository/conf/datasources/master-datasources.xml           `
+        `            <IS_HOME>/repository/conf/deployment.toml           `
         .
-    -   Back up any other databases configured in any files in the
-        `            <IS_HOME>/repository/conf/datasources           `
-        directory.
-2.  **A** **rtifact backups** :  
+
+2.  **Artifact backups** :  
     T his includes hot-deployment artifacts, web applications, synapse
     files, tenant directories, etc. Back up of the
     `          <IS_HOME>/repository         ` directory

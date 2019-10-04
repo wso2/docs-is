@@ -18,37 +18,39 @@ data. After setting up the IBM Informix database to replace the default
 H2 database, either change the default configurations of the
 `          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
 
-#### Changing the default WSO2\_CARBON\_DB datasource
+#### Changing the default datasource
 
-Follow the steps below to change the type of the default
-`         WSO2_CARBON_DB        ` datasource.
+Follow the steps below to change the type of the default datasource.
 
 1.  Edit the default datasourceconfigurationin the \<
-    `           IS_HOME>/repository/conf/datasources/master-datasources.xml          ` file as shown below.
+    `           IS_HOME>/repository/conf/deployment.toml          ` file as shown below.
 
-    ``` xml
-    <datasource>
-                <name>WSO2AM_DB</name>
-                <description>The datasource used for API Manager database</description>
-                <jndiConfig>
-                    <name>jdbc/WSO2AM_DB</name>
-                </jndiConfig>
-                <definition type="RDBMS">
-                    <configuration>
-                        <!-- IP ADDRESS AND PORT OF DB SERVER -->
-                        <url>jdbc:informix-sqli://localhost:1533/AM_DB;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;</url>
-                        <username>wso2carbon</username>
-                        <password>wso2carbon</password>
-                        <driverClassName>com.informix.jdbc.IfxDriver</driverClassName>
-                        <maxActive>50</maxActive>
-                        <maxWait>60000</maxWait>
-                        <testOnBorrow>true</testOnBorrow>
-                        <validationQuery>SELECT 1</validationQuery>
-                        <validationInterval>30000</validationInterval>
-                        <defaultAutoCommit>false</defaultAutoCommit>
-                    </configuration>
-                </definition>
-            </datasource>
+    ``` toml
+    [database.identity_db]
+    url = "jdbc:informix-sqli://localhost:1533/AM_DB;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "wso2carbon"
+    password = "wso2carbon"
+    driver = "com.informix.jdbc.IfxDriver"
+    [database.identity_db.pool_options]
+    maxActive = "50"
+    maxWait = "60000"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
+
+    [database.shared_db]
+    url = "jdbc:informix-sqli://localhost:1533/AM_DB;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "wso2carbon"
+    password = "wso2carbon"
+    driver = "com.informix.jdbc.IfxDriver"
+    [database.shared_db.pool_options]
+    maxActive = "50"
+    maxWait = "60000"
+    testOnBorrow = true
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    defaultAutoCommit=false
     ```
 
     The elements in the above configuration are described below:

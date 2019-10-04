@@ -41,17 +41,15 @@ task that checks for idle accounts is common to all tenants.
     ```
 
 1.  Enable notifications for account suspension by setting the following
-    property to true in the
-    `           <IS_HOME>/repository/conf/identity/                       identity-event.properties           `
-    file.
+    property to true in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    ``` java
-    suspension.notification.enable=true
+    ``` toml
+    [identity_mgt]
+    inactive_account_suspention.enable_account_suspension = true
     ```
 
 2.  To define the start time of the scheduled task, configure the
-    following property in the
-    `           <IS_HOME>/repository/conf/identity/                       identity-event.properties           `
+    following property in the `<IS_HOME>/repository/conf/deployment.toml`
     file. The task runs daily at the trigger time that you configure
     here.
 
@@ -60,8 +58,9 @@ task that checks for idle accounts is common to all tenants.
         wrong format or do not set a value, the default value, which is
         20:00:00, applies.
 
-    ``` xml
-    suspension.notification.trigger.time=20:00:00
+    ``` toml
+    [identity_mgt]
+    inactive_account_suspension.trigger_notifications_at = "20:00:00"
     ```
 
 3.  Add the following property under all the relevant userstores that
@@ -69,40 +68,30 @@ task that checks for idle accounts is common to all tenants.
 
     **LDAP Userstore**
 
-    ``` java
-        <Property name="NotificationReceiversRetrievalClass">org.wso2.carbon.identity.account.suspension.notification.task.ldap.LDAPNotificationReceiversRetrieval</Property>
+    ``` toml
+    [user_store]
+    notification_receivers_retrieval_class = "org.wso2.carbon.identity.account.suspension.notification.task.ldap.LDAPNotificationReceiversRetrieval"
     ```
 
     **JDBC Userstore**
 
-    ``` java
-        <Property name="NotificationReceiversRetrievalClass">org.wso2.carbon.identity.account.suspension.notification.task.jdbc.JDBCNotificationReceiversRetrieval</Property>
+    ``` toml
+    [user_store]
+    notification_receivers_retrieval_class = "org.wso2.carbon.identity.account.suspension.notification.task.jdbc.JDBCNotificationReceiversRetrieval"
     ```
 
 4.  Optionally, you can configure the following email properties to
-    receive email notifications.  
-    Open the `           output-event-adapters.xml          ` file found
-    in the `           <IS_HOME>/repository/conf          ` directory
-    and configure the relevant property values for the email server
-    under the `           <adapterConfig type="email">          ` tag.
+    receive email notifications in `<IS_HOME>/repository/conf/deployment.toml`
 
-    ``` xml
-        <adapterConfig type="email">
-            <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-            based authentication rather username/password authentication -->
-            <property key="mail.smtp.from">abcd@gmail.com</property>
-            <property key="mail.smtp.user">abcd</property>
-            <property key="mail.smtp.password">xxxx</property>
-            <property key="mail.smtp.host">smtp.gmail.com</property>
-            <property key="mail.smtp.port">587</property>
-            <property key="mail.smtp.starttls.enable">true</property>
-            <property key="mail.smtp.auth">true</property>
-            <!-- Thread Pool Related Properties -->
-            <property key="minThread">8</property>
-            <property key="maxThread">100</property>
-            <property key="keepAliveTimeInMillis">20000</property>
-            <property key="jobQueueSize">10000</property>
-        </adapterConfig>
+    ``` toml
+    [output_adapter]
+    email.from_address = "abcd@gmail.com"
+    email.username = "abcd"
+    email.password = "xxxx"
+    email.hostname = "smtp.gmail.com"
+    email.port = 587
+    email.enable_start_tls = true
+    email.enable_authentication = true
     ```
 
     !!! tip
@@ -145,12 +134,12 @@ task that checks for idle accounts is common to all tenants.
 !!! tip "Troubleshooting Tips"
     
     If you want to troubleshoot this feature, add the following property to
-    the `         log4j.properties        ` file found in the
-    `         <IS_HOME>/repository/conf/        ` folder to receive DEBUG
+    the `log4j2.properties` file found in the `<IS_HOME>/repository/conf/` folder to receive DEBUG
     logs.
     
-    ``` java
-    log4j.logger.org.wso2.carbon.identity.account.suspension.notification.task=DEBUG
+    ``` properties
+    logger.account-suspension-notification-task.name = org.wso2.carbon.identity.account.suspension.notification.task
+    logger.account-suspension-notification-task.level = DEBUG
     ```
 
 

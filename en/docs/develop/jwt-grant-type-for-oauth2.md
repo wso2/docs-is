@@ -35,18 +35,13 @@ See the following sections for more information.
     
 
 2.  To register the JWT grant type, configure the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    file by adding a new entry under the
-    `           <OAuth><SupportedGrantTypes>          ` element. Add a
-    unique identifier between the `           <GrantTypeName>          `
-    tags as seen in the code block below.
+    `           <IS_HOME>/repository/conf/deployment.toml          `
+    as below.
 
     ``` xml
-    <SupportedGrantType>
-        <GrantTypeName>urn:ietf:params:oauth:grant-type:jwt-bearer</GrantTypeName>
-        <GrantTypeHandlerImplClass>org.wso2.carbon.identity.oauth2.grant.jwt.JWTBearerGrantHandler</GrantTypeHandlerImplClass>
-        <GrantTypeValidatorImplClass>org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator</GrantTypeValidatorImplClass>
-    </SupportedGrantType>
+    [oauth.grant_type.uma_ticket]
+    grant_handler = "org.wso2.carbon.identity.oauth2.grant.jwt.JWTBearerGrantHandler"
+    grant_validator = "org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator"
     ```
 
 3.  To store `           AUTHZ_USER          ` and
@@ -58,13 +53,12 @@ See the following sections for more information.
     `           <SplitAuthzUser3Way>true</SplitAuthzUser3Way>          `
 
 4.  Add the audience values to the JWT token (ID token) in the
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file as follows
 
     ``` xml
-        <Audiences>
-            <Audience>https://localhost:9443/oauth2/token</Audience>
-        </Audiences>
+        [oauth.oidc.id_token]
+        audiences=[] 
     ```
 
 5.  Restart the server.

@@ -77,7 +77,7 @@ There are two steps involved in setting up the primary user store:
     -   [Configuring a Read-Write LDAP User
         Store](../../learn/configuring-a-read-write-ldap-user-store)
 
-    In `           deployment.toml          ` file, you can configure user store managers by adding the relevant properties.
+    In `deployment.toml` file, you can configure user store managers by adding the relevant properties.
     But it is important to read each user store configuration
     document to find specific information that you need to follow when
     configuring particular user store.
@@ -109,7 +109,7 @@ There are two steps involved in setting up the primary user store:
     !!! warning
     
         Server system administrator who is capable of all the actions in the
-        system is configured within the user-mgt.xml. If you have not
+        system is configured within the `deployment.toml`. If you have not
         configured the system administrator yet, see [Configuring the System
         Administrator](../../learn/configuring-the-system-administrator).
     
