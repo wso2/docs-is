@@ -60,14 +60,7 @@ and Eager loading work:
 Now, see the instructions given below to configure the required tenant
 loading policy for your system.
 
--   [Configuring Lazy
-    Loading](#configuring-lazy-loading)
-    -   [Enabling lazy loading of artifacts (web applications and axis2
-        services)](#enabling-lazy-loading-of-artifacts-(web-applications-and-axis2-services))
-    -   [Configuring the tenant unloading time (for Lazy
-        Loading)](#configuring-the-tenant-unloading-time-(for-lazy-loading))
--   [Configuring Eager
-    Loading](#configuring-eager-loading)
+-  
 
 ### Configuring Lazy Loading
 
