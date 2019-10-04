@@ -31,52 +31,40 @@ configure Gmail or SendGrid as the email OTP provider using Gmail or
 SendGrid APIs. Follow the instructions in **one** of these sections to
 set up the email OTP provider.
 
-#### Configure WSO2 IS as the email OTP provider
+#### Option1: Configure WSO2 IS as the email OTP provider
 
 Follow the steps below to configure WSO2 IS to send emails once the
 Email OTP is enabled.
 
 1.  Shut down the server if it is running.
-2.  Open the
-    `           <IS_HOME>/repository/conf/axis2/axis2.xml          `
-    file, uncomment the
-    `                       transportSender                                  name                                  =                     `
-    "mailto" configurations, and update the following properties:
+2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
 
+    ```toml
+    [output_adapter.email]
+    from_address= "wso2iamtest@gmail.com"
+    username= "wso2iamtest"
+    password= "Wso2@iam70"
+    hostname= smtp.gmail.com
+    port= 587
+    enable_start_tls= true
+    enable_authentication= true
+    ```
+    
     |                                                   |                                                |
     |---------------------------------------------------|------------------------------------------------|
-    | `               mail.smtp.from              `     | Provide the email address of the SMTP account. |
-    | `               mail.smtp.user              `     | Provide the username of the SMTP account.      |
-    | `               mail.smtp.password              ` | Provide the password of the SMTP account.      |
+    | `               from_address                `     | Provide the email address of the SMTP account. |
+    | `               username                    `     | Provide the username of the SMTP account.      |
+    | `               password                        ` | Provide the password of the SMTP account.      |
 
-    ``` java
-    <transportSender  name="mailto"
-    class="org.apache.axis2.transport.mail.MailTransportSender">
-	<parameter  name="mail.smtp.from">{SENDER'S_EMAIL_ID}</parameter>
-	<parameter  name="mail.smtp.user">{USERNAME}</parameter>
-	<parameter  name="mail.smtp.password">{PASSWORD}</parameter>
-	<parameter  name="mail.smtp.host">smtp.gmail.com</parameter>
-	<parameter  name="mail.smtp.port">587</parameter>
-	<parameter  name="mail.smtp.starttls.enable">true</parameter>
-	<parameter  name="mail.smtp.auth">true</parameter>
-    </transportSender>
-    ```
+    !!! Note
+        If you are using Gmail account you have to on "Allow less secure
+        apps" in your account respective to the above email sending configurations.
 
-    If you are using Gmail account you have to on "Allow less secure
-    apps" in your account.
-
-3.  Comment out the `           <module ref="addressing"/>          `
-    property to avoid syntax errors.
-
-    ``` java
-    <!-- <module ref="addressing"/> -->
-    ```
-
-4.  Add the following email template to the
+3.  Add the following email template to the
     `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
 
     ``` xml
-	<configuration type="EmailOTP" display="idleAccountReminder" locale="en_US" emailContentType="text/html">
+	<configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
 	   <targetEpr></targetEpr>
 	   <subject>WSO2 IS Email OTP</subject>
 	   <body>
@@ -91,20 +79,14 @@ Email OTP is enabled.
 	   <redirectPath></redirectPath>
 	</configuration>
     ```
+    
+    !!! Tip
+        You can add email template from the management console also as described in [this document](
+        ../../administer/email-templates) 
 
-5.  Configure the following properties in the
-    `           <PRODUCT_HOME>/repository/conf/identity/identity-mgt.properties          `
-    file to `           true          ` .
+4.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
-    ``` xml
-	Authentication.Policy.Enable=true
-	Authentication.Policy.Check.OneTime.Password=true
-    ```
-
-6.  [Start WSO2
-    IS](../../setup/running-the-product#starting-the-server).
-
-#### Configure Gmail as the email OTP provider
+#### Option2: Configure Gmail as the email OTP provider
 
 You can send the One Time Password (OTP) using Gmail APIs or using
 SendGrid. Follow the steps given below to configure Gmail APIs as the
@@ -235,12 +217,29 @@ mechanism to send the OTP.
     OAuth2 access token, token validity period, and the refresh token.  
     ![oauth2-access-refresh](../assets/img/tutorials/oauth2-access-refresh.png)
 
-14. Update the following configurations under the
-    `           <AuthenticatorConfigs>          ` section in the
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
-    file.
+14. Update the following configurations  in the
+    `           <IS_HOME>/repository/conf/identity/deployment.toml          ` file.
 
-    !!! note
+    !!! Note "Sample configuration when using Identity Server as Email OTP Provider"
+		``` toml
+        [authentication.authenticator.email_otp]
+        name = "EmailOTP"
+        enable= true
+        [authentication.authenticator.email_otp.parameters]
+        EMAILOTPAuthenticationEndpointURL = "https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp"
+        EmailOTPAuthenticationEndpointErrorPage = "https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp"
+        EmailAddressRequestPage = "https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp"
+        usecase = "association"
+        secondaryUserstore = "primary"
+        EMAILOTPMandatory = false
+        sendOTPToFederatedEmailAttribute = false
+        federatedEmailAttributeKey = "email"
+        EmailOTPEnableByUserClaim = true
+        CaptureAndUpdateEmailAddress = true
+        showEmailAddressInUI = true
+		```
+		
+    ??? Tip
     
         -   If you need to send the content in a payload, you can introduce
             a property in a format \<API\> Payload and define the value.
@@ -320,25 +319,6 @@ mechanism to send the OTP.
     </tbody>
     </table>
 
-    ??? Note "Click here to see a sample configuration"
-		``` java
-		<AuthenticatorConfig name="EmailOTP" enabled="true">
-			<Parameter name="GmailClientId">501390351749-ftjrp3ld9da4ohd1rulogejscpln646s.apps.googleusercontent.com </Parameter>
-			<Parameter name="GmailClientSecret">dj4st7_m3AclenZR1weFNo1V</Parameter>
-			<Parameter name="SendgridAPIKey">sendgridAPIKeyValue</Parameter>
-			<Parameter name="GmailRefreshToken">1/YgNiepY107SyzJdgpynmf-eMYP4qYTPNG_L73MXfcbv</Parameter>
-			<Parameter name="GmailEmailEndpoint">https://www.googleapis.com/gmail/v1/users/alex@gmail.com/messages/send</Parameter>
-			<Parameter name="SendgridEmailEndpoint">https://api.sendgrid.com/api/mail.send.json</Parameter>
-			<Parameter name="accessTokenRequiredAPIs">Gmail</Parameter>
-			<Parameter name="apiKeyHeaderRequiredAPIs">Sendgrid</Parameter>
-			<Parameter name="SendgridFormData">sendgridFormDataValue</Parameter>
-			<Parameter name="SendgridURLParams">sendgridURLParamsValue</Parameter>
-			<Parameter name="GmailAuthTokenType">Bearer</Parameter>
-			<Parameter name="GmailTokenEndpoint">https://www.googleapis.com/oauth2/v3/token</Parameter>
-			<Parameter name="SendgridAuthTokenType">Bearer</Parameter>
-			<Parameter name="redirectToMultiOptionPageOnFailure">false</Parameter>
-		</AuthenticatorConfig>
-		```
     	
 ------------------------------------------------------------------------
 

@@ -6,12 +6,11 @@ product and configure this feature. Follow the below steps to do this:
 
 1.  Download the product from the [WSO2 product
     page](https://wso2.com/platform).
-2.  Add the below property inside
-    `           <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">          `
-    configuration in \<IS\_HOME\>/repository/conf/user-mgt.xml.
+2.  Add the below property in `<IS_HOME>/repository/conf/deployment.toml`
 
-    ``` xml
-    <Property name="CountRetrieverClass">org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetriever</Property>
+    ``` toml
+    [user_store]
+    count_retriever_class = "org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetriever"
     ```
 
 3.  Start the server.  
@@ -45,12 +44,12 @@ the steps below to do this:
 If you are using the Admin Services to count the users and roles, follow
 the below steps:
 
-1.  Change the `           HideAdminServiceWSDLs          ` property in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` to
-    **false** to get access to the WSDL's of the admin services.
-
-    ``` xml
-        <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+1.  Add the property in `<IS_HOME>/repository/conf/deployment.toml` to
+    **true** to get access to the WSDL's of the admin services.
+    
+    ``` toml  
+    [admin_service.wsdl]
+    enable = true
     ```
 
 2.  Access the WSDL of UserStoreCountService service by browsing
