@@ -537,7 +537,7 @@ nav:
         - 'Duo Security Authenticator and Provisioning Connector':
           - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
           - 'Duo Security Authenticator': develop/duo-security-authenticator.md
-        - 'EmailOTP Authenticator': develop/emailotp-authenticator.md
+        - 'EmailOTP Authenticator': learn/configuring-email-otp.md
         - 'Facebook Authenticator': develop/facebook-authenticator.md
         - 'Foursquare Authenticator': develop/foursquare-authenticator.md
         - 'Github Authenticator': develop/github-authenticator.md
@@ -597,7 +597,6 @@ nav:
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
-      - 'Deployment Guidelines in Production': setup/deployment-guidelines-in-production.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
@@ -833,7 +832,6 @@ nav:
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
-      - 'Configuration Files': administer/configuration-files.md
       - 'Database Upgrade Guide': administer/database-upgrade-guide.md
       - 'Product Startup Options': administer/product-startup-options.md
       - 'Supported Cipher Suites': administer/supported-cipher-suites.md
