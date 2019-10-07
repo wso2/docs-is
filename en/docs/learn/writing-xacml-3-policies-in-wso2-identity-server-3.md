@@ -2,12 +2,12 @@
 
 This page addresses the following authorization requirements:
 
-1.  The operation getCustomers in the service "
-    <http://localhost:8280/services/Customers> " should only be accessed
-    by users belonging to the admin\_customers group.
-2.  The operation getEmployees in the service "
-    <http://localhost:8280/services/Customers> " should only be accessed
-    by users belonging to the admin\_emps group.
+1.  The operation `getCustomers` in the service "http://localhost:8280/services/Customers" should only be accessed
+    by users belonging to the `admin\_customers` group.
+
+2.  The operation getEmployees in the service "http://localhost:8280/services/Customers" should only be accessed
+    by users belonging to the `admin\_emps` group.
+
 3.  Requests to any other service or operation should fail.
 
 ``` xml
@@ -66,8 +66,8 @@ This page addresses the following authorization requirements:
 </Policy>
 ```
 
-The following are a few valid requests which will result in "Permit/Not
-Applicable/Deny" once evaluated against the above policy.
+The following are a few valid requests which will result in `Permit/Not
+Applicable/Deny` once evaluated against the above policy.
 
 ### The First XACML Request
 
@@ -106,10 +106,11 @@ Applicable/Deny" once evaluated against the above policy.
 -   **User** - "admin" belongs only to the "admin\_emps" group
 -   **Result** - Deny
 
-AnyOf - SHALL contain a disjunctive sequence of \<AllOf\> elements.
--OR  
-\<AllOf\> element SHALL contain a conjunctive sequence of \<Match\>
-elements. – AND
+!!! info
+    AnyOf - SHALL contain a disjunctive sequence of `\<AllOf\>` elements.
+    -OR  
+    `\<AllOf\>` element SHALL contain a conjunctive sequence of `\<Match\>`
+    elements. – AND
 
 ``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" CombinedDecision="false" ReturnPolicyIdList="false">
