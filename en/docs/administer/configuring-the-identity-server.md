@@ -4,7 +4,7 @@ This section provides you with detailed information on how to configure
 the WSO2 Identity Server from the start. The following diagram depicts
 the normal flow of events you would follow.
 
-![WSO2 Identity Server configuration flow of events]( ../assets/img/using-wso2-identity-server/identity-server-configuration-flow-of-events.png)
+![WSO2 Identity Server configuration flow of events](../assets/img/using-wso2-identity-server/identity-server-configuration-flow-of-events.png)
 
 As per the above diagram, when setting up WSO2 Identity Server, you would
 configure the following in the order mentioned.
@@ -97,11 +97,10 @@ configure the following in the order mentioned.
     See the [architecture](../../get-started/architecture) of the Identity Server to see
     how the identity provider configurations are used in the bigger
     picture.  
--   **[Service
-    providers](../../learn/adding-and-configuring-a-service-provider)**  
+-   **[Service providers](../../learn/adding-and-configuring-a-service-provider)**  
     Finally, configure the service provider to integrate with the
     identity provider and the Identity Server. You can link this to the
     user store you configured and also specify which protocols you wish
-    to use to configure your SP. See the [architecture](../../gettin-started/architecture)
+    to use to configure your SP. See the [architecture](../../get-started/architecture)
     of the Identity Server to see how the service provider
     configurations are used in the bigger picture.  

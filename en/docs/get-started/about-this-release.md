@@ -2,57 +2,36 @@
 
 ### What is new in this release
 
-**WSO2 Identity Server 5.9.0** is the **latest WSO2 Identity Server release** and is the successor of **WSO2 Identity Server 5.8.0**. It contains the following new features and enhancements:
+**WSO2 Identity Server 5.9.0** is the **latest WSO2 Identity Server release** and is the successor of WSO2 Identity Server 5.8.0. It contains the following new features and enhancements:
 
 
-- 	**Passwordless authentication**: This feature is supported using the FIDO2 protocol. For more information, see [Configuring Passwordless Authentication](../../learn/configuring-passwordless-authentication). 
-
--	**Cross protocol single logout**: This feature enables single logout applications that communicate using different SSO protocols such as OIDC and SAML. For more information, see [Single Logout](../../get-started/cross-protocol-single-logout).
-
--	**Adaptive authentication using function library**: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see [Adaptive Authentication with Function Libraries](../../adaptive-authentication-with-function-librabry). 
-
--	**New REST APIs**: This release includes new REST APIs for end users as well as for administrative users. 
-
-	<table>
-		<tr>
-			<th>For end users</th>
-			<td>
-				<ul>
-					<li>[Manage challenge question answers]()</li>
-					<li>[View Authorized OAuth applications and revoke authorization from applications]()</li>
-					<li>[Manage associated accounts]()</li>
-					<li>[View and revoke login sessions]()</li>
-					<li>[Manage pending approvals]() </li>
-				</ul>
-			</td>				
-		</tr>
-		<tr>
-			<th>For administrative users</th>
-			<td>
-				<ul>
-					<li>[Manage claims]() </li>
-					<li>[Manage challenge questions]()</li>
-				</ul>
-			</td>				
-		</tr>
-	</table> 
-
--	**New Configuration model**: Previous WSO2 Identity Server versions supported multiple configuration files such as `carbon.xml`, `identity.xml`, and `axis2.xml`. With the new configuration model in WSO2 Identity Server 5.9.0, configurations are handled by the a sinfle file named`deployment.toml`  in the `<IS_HOME>/repository/conf/` directory. 
+<ul>    
+    <li><b>Reusable script library for adaptive authentication</b>: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see <a href="../../learn/adaptive-authentication-with-function-librabry">Adaptive Authentication with Function Libraries</a>.</li>
+    <li><b>New REST APIs</b>: This release includes new REST APIs for end users who can be authenticated to the system to manage their user account related activities.        	
+		<ul>
+						<li><a href="../../develop/challenge-rest-api">Manage challenge question answers</a></li>
+						<li><a href="../../develop/authorized-apps-rest-api">View Authorized OAuth applications and revoke authorization from applications</a></li>
+						<li><a href="../../develop/association-rest-api">Manage associated accounts</a></li>
+						<li><a href="../../develop/session-mgt-rest-api">View and revoke login sessions</a></li>
+						<li><a href="../../develop/approvals-rest-api">Manage pending approvals</a></li>
+						<li><a href="../../develop/fido-rest-api/">Manage devices with FIDO2</a></li>
+						<li><a href="../../develop/totp-rest-api/">Manage TOTP URLs and secrets</a></li>
+					</ul>
+	</li>
+	<li><b>New Configuration model</b>: Configuring WSO2 Identity Server is made easier with a simplified, centralized <a href="../../references/new-configuration-model">configuration model</a> that supports injecting configurations with numerous methods such as environment variables, to improve compatibility with various configuration automation tools and cloud native environments.</li>
+</ul>
 
 
 ### What has changed in this release
 
 #### Removed features and functionalities
 
--	**Logging Monitor UI**
+-	Logging Monitor UI
  
 
 #### Deprecated features and functionalities
 
--	**Writing Password Policiy validators**
-
-
-Moreover, as a part of the ongoing major revamp of the Identity Server user portal, there are changes made to the basic login and the user profile pages.
+-	Writing Password Policiy validators 
 
 
 ### Compatible versions
