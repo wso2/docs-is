@@ -5,7 +5,7 @@ sequences based on runtime parameters such as the user’s IP address,
 user role, etc. in the WSO2 Identity Server. This feature allows you to
 define a dynamic authentication sequence using authentication scripts
 written in JavaScript. For more information, see [Adaptive
-Authentication](Adaptive_Authentication).  
+Authentication](../../learn/adaptive-authentication).  
 
 Custom functions that expose any useful WSO2 Identity Server core
 functions and any utility functions can be added as OSGi services. A
@@ -25,7 +25,7 @@ functions for adaptive authentication.
     for any object classes (except number, string and boolean). You may
     skip this if you can use an existing object. For more information on
     objects, see [object reference
-    documentation](Adaptive-Authentication-JS-API-Reference_103330624.html#AdaptiveAuthenticationJSAPIReference-ObjectReference)
+    documentation](../../references/adaptive-authentication-js-api-reference#object-reference)
     .  
       
     The JavaScript function is as follows.
