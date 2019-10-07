@@ -1,10 +1,7 @@
 # Configuring the Task Scheduling Component
 
-The **Task Scheduling** component in a WSO2 product allows you to define
-specific tasks and to invoke them periodiclly. This functionality is
-used by WSO2 products such as WSO2 Enterprise Integrator (WSO2 EI), WSO2
-Enterprise Service Bus (WSO2 ESB), and WSO2 Data Services Server (WSO2
-DSS).
+The **Task Scheduling** component in WSO2 Identity Server allows you to define
+specific tasks and to invoke them periodiclly. 
 
 Follow the instructions given on this page to configure and set up
 this component **.** Then, see the respective product's documentation
@@ -30,34 +27,36 @@ Given below are the settings that you can configure in the
 
 ### Step 1: Setting the task server mode
 
-Select one of the following values for the
-`         <taskServerMode>        ` element in the
-`         tasks-config.xml        ` file:
+Select one of the following values for the `tasks` element in the `deployment.toml` file:
 
--   **AUTO** : This is the default task handling mode. This setting
-    detects if [clustering is enabled in the
-    server](https://docs.wso2.com/display/CLUSTER44x/Clustering+WSO2+Products)
-    and automatically switches to CLUSTERED mode.
--   **STANDALONE** : This setting is used when a single instance of the
+-   `AUTO`: This is the default task handling mode. This setting
+    detects if clustering is enabled in the
+    server and automatically switches to CLUSTERED mode.
+
+    !!! info    
+        For more information on clustering, see [Clustering Overview](../../administer/clustering-overview). 
+
+-   `STANDALONE`: This setting is used when a single instance of the
     product server is installed. That is, tasks will be managed locally
     within the server.
--   **CLUSTERED** : This setting is used when a cluster of product
+
+-   `CLUSTERED`: This setting is used when a cluster of product
     servers are put together. This requires Axis2 clustering to
     work. With this setting, if one of the servers in the cluster fail,
     the tasks will be rescheduled in one of the remaining server
     nodes.  
 
-    !!! note
+    ``` tab="Example"
+    [tasks]
+    mode = "AUTO"
+    ```
     
-        Find out more about [clustering WSO2
-        products](https://docs.wso2.com/display/CLUSTER44x/Clustering+WSO2+Products)
-        .
     
 
 ### Step 2: Configuring a cluster of task servers
 
-If you have enabled the CLUSTERED task server mode in [step
-1](#ConfiguringtheTaskSchedulingComponent-Step1), the following
+If you have enabled the `CLUSTERED` task server mode in [step
+1](#step-1-setting-the-task-server-mode), the following
 configuration elements in the `         tasks-config.xml        ` file
 will be effective:
 
@@ -68,8 +67,9 @@ cluster) that can handle tasks. The task server count is set to "1" by
 default, which indicates that at least one node in the cluster is
 required for task handling.
 
-``` java
-<taskServerCount>1</taskServerCount>
+``` toml
+[tasks.server]
+count = "1"
 ```
 
 Note that a product cluster begins the process of scheduling tasks only
@@ -99,50 +99,47 @@ parameter determines how nodes are selected for task failover.
 
 One of the following options can be used for the **location resolver**.
 
--   `                       RoundRobinTaskLocationResolver                     `
-    : Cluster nodes are selected on a round-robin basis and the tasks
+-   `RoundRobinTaskLocationResolver`: Cluster nodes are selected on a round-robin basis and the tasks
     are allocated. This location resolver is enabled in the
-    `           tasks-config.xml          ` file **by default** as shown
-    below.
+    `deployment.toml` file **by default** as shown below.
 
-    ``` java
-        <defaultLocationResolver>
-                <locationResolverClass>org.wso2.carbon.ntask.core.impl.RoundRobinTaskLocationResolver</locationResolverClass>
-        </defaultLocationResolver>
+    ``` toml
+    [tasks.resolver]
+    class = "org.wso2.carbon.ntask.core.impl.RoundRobinTaskLocationResolver"
     ```
 
--   `                       RandomTaskLocationResolver                     `
-    : Cluster nodes are randomly selected and the tasks are allocated.
+-   `RandomTaskLocationResolver`: Cluster nodes are randomly selected and the tasks are allocated.
     If you want to enable this location resolver, you need to change the
     default configuration (shown above) in the
-    `           tasks-config.xml          ` file as shown below.
+    `deployment.toml` file as shown below.
 
-    ``` java
-        <defaultLocationResolver>
-                <locationResolverClass>org.wso2.carbon.ntask.core.impl.RandomTaskLocationResolver</locationResolverClass>
-        </defaultLocationResolver>
+    ``` toml
+    [tasks.resolver]
+    class = "org.wso2.carbon.ntask.core.impl.RandomTaskLocationResolver"
     ```
 
--   `                       RuleBasedLocationResolver                     `
-    : This allows you to set the criteria for selecting the cluster
+-   `RuleBasedLocationResolver`: This allows you to set the criteria for selecting the cluster
     nodes to which the tasks should be allocated. The
-    \[task-type-pattern\],\[task-name-pattern\], and \[address-pattern
-    of the server node\] can be used as criteria. For example, with this
-    setting, a scheduled task that matches a particular
-    \[task-type-pattern\], and \[task-name-pattern\] will be allocated
-    to the server node with a particular \[address-pattern\]. If
-    multiple server nodes in the cluster match the \[address-pattern\],
-    the nodes are selected on a round robin basis. This criteria is
-    specified in the configuration using the
-    `           <property>          ` element. Therefore, you can define
-    multiple properties containing different criteria.  
+    `[task-type-pattern]`, `[task-name-pattern]`, and `[address-pattern
+    of the server node]` can be used as criteria. 
+
+    !!! example 
+        With this setting, a scheduled task that matches a particular `[task-type-pattern`] and `[task-name-pattern]` will be allocated to the server node with a particular `[address-pattern]`. If multiple server nodes in the cluster match the `[address-pattern]`, the nodes are selected on a round robin basis. This criteria is specified in the configuration using the `<property>` element. Therefore, you can define multiple properties containing different criteria.  
+
     Before you enable this location resolver, you need to first comment
     out the default location resolver that is already enabled in the
     `           task-config.xml          ` file. You can then uncomment
     the following code block, and update the property values as
     required.
 
-    ``` java
+    ``` toml
+    [task.resolver]
+    class = "org.wso2.carbon.ntask.core.impl.RuleBasedLocationResolver"
+
+    [loop]
+    index = ""
+
+    
         <defaultLocationResolver>
                 <locationResolverClass>org.wso2.carbon.ntask.core.impl.RuleBasedLocationResolver</locationResolverClass>
                 <properties>

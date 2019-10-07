@@ -124,9 +124,10 @@ You can add more optional configurations using the
 
 To enable the authorization manager, configure the following properties in the <PRODUCT_HOME>/repository/conf/deployment.toml file.
 
-```xml
+```toml
 [authorization_manager]
 class = "org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager"
+
 [authorization_manager.properties]
 AdminRoleManagementPermissions = "permission"
 AuthorizationCacheEnabled = true
@@ -144,9 +145,9 @@ GetAllRolesOfUserEnabled = true
     `            GetAllRolesOfUserEnabled           ` property in the
     `            AuthorizationManager           ` as follows:  
 
-    ``` java
-        [authorization_manager]
-        GetAllRolesOfUserEnabled = true
+    ``` toml
+    [authorization_manager]
+    GetAllRolesOfUserEnabled = true
     ```
 
     Although using the user store manager does not depend on this
@@ -159,8 +160,9 @@ GetAllRolesOfUserEnabled = true
     resource) are not case sensitive. If you want to make them case
     sensitive, enable the following property:
 
-    ``` java
-        <Property name="CaseSensitiveAuthorizationRules">true</Property>
+    ``` toml
+    [user_store]
+    case_sensitive_authorization_rules = true
     ```
 
 <a name="related-topics></a>

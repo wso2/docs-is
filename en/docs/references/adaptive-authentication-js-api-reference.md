@@ -428,7 +428,7 @@ parameters.
 | eventHandlers | The callback event handlers.                          |
 
 ``` java
-function onLoginRequest(context) {
+var onLoginRequest = function(context) {
    executeStep(1, {
        onSuccess: function (context) {
            var username = context.steps[1].subject.username;

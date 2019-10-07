@@ -148,5 +148,4 @@ encrypted data is not affected.
     data encryption, signing, etc.
     
 
-Once this is done, you need to change all localhost references such as
-email templates, identity.xml.  
+Once this is done, you need to change all localhost references.  
