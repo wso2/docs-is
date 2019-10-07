@@ -47,10 +47,10 @@ permissions or attributes are updated.
 3.  To send notifications to external endpoints when
     there is a policy change, add the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
-        ``` toml
-        [identity.entitlement.policy_point.pap]
-        status_data_handlers = ["org.wso2.carbon.identity.entitlement.SimplePAPStatusDataHandler"] 
-        ```
+    ``` toml
+    [identity.entitlement.policy_point.pap]
+    status_data_handlers = ["org.wso2.carbon.identity.entitlement.SimplePAPStatusDataHandler"] 
+    ```
 
 4.  Additionally, add the following to the
     `           deployment.toml         ` file and change
@@ -139,10 +139,10 @@ permissions or attributes are updated.
 
 6.  It is recommended to use https to communicate with external
     endpoints. In that case, import your certificates to
-    `           client-truststore          ` `           .jks          `
+    `           client-truststore.jks          `
     in the Identity Server. You can use the Java keytool command to do
     it. The following is a sample command. Note that the default
-    password for client-truststore.jks is "wso2carbon".
+    password for `client-truststore.jks` is "wso2carbon".
 
     ``` java
     keytool -import -alias wso2 -file <path_to_your_certificate_file>/yourCertificate.crt -keystore <CARBON_SERVER>/repository/resources/security/client-truststore.jks

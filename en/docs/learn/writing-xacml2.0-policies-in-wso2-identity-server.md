@@ -38,5 +38,5 @@ For detailed information, please visit the following pages:
   
 !!! info
     Now you can easily write an XACML policy using the policy editors
-    available in WSO2 Identity Server. You can try these sample policies in
-    our editors, for that Please follow [Creating a XACML Policy](../../learn/creating-a-xacml-policy).
+    available in WSO2 Identity Server. To try these sample policies in
+    our editors, see [Creating a XACML Policy](../../learn/creating-a-xacml-policy).

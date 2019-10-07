@@ -37,35 +37,35 @@ a deny decision should have priority over a permit decision. This
 algorithm has the following behavior.
 
 -   The behavior of ordered algorithm is identical to that of the
-    “Deny-overrides” rule-combining algorithm with one exception. The
+    `Deny-overrides` rule-combining algorithm with one exception. The
     order in which the collection of rules is evaluated matchs the order
     as listed in the policy.
 -   The permit overrides combining algorithm is intended for those cases
     where a permit decision should have priority over a deny decision.
 -   The behavior of ordered algorithm is identical to that of the
-    “Permit-overrides” rule-combining algorithm with one exception. The
+    `Permit-overrides` rule-combining algorithm with one exception. The
     order in which the collection of rules is evaluated shall match the
     order as listed in the policy
--   The “Deny-unless-permit” combining algorithm is intended for those
+-   The `Deny-unless-permit` combining algorithm is intended for those
     cases where a permit decision should have priority over a deny
-    decision, and an “Indeterminate” or “NotApplicable” must never be
+    decision, and an `Indeterminate` or `NotApplicable` must never be
     the result.
--   The “Permit-unless-deny” combining algorithm is intended for those
+-   The `Permit-unless-deny` combining algorithm is intended for those
     cases where a deny decision should have priority over a permit
-    decision, and an “Indeterminate” or “NotApplicable” must never be
+    decision, and an `Indeterminate` or `NotApplicable` must never be
     the result.
 
 Each rule shall be evaluated in the order in which it is listed in the
 policy. For a particular rule, if the target matches and the condition
 evaluates to "True", then the evaluation of the policy halts and the
 corresponding effect of the rule is the result of the evaluation of the
-policy (i.e., "Permit" or "Deny").
+policy (i.e., `Permit` or `Deny`).
 
 In the entire set of policies in the policy set, if no policy is
 considered applicable by virtue of its target, then the result of the
-policy-combination algorithm is "NotApplicable". If more than one policy
+policy-combination algorithm is `NotApplicable`. If more than one policy
 is considered applicable by virtue of its target, then the result of the
-policy- combination algorithm is "Indeterminate".
+policy-combination algorithm is `Indeterminate`.
 
 ``` xml
 <Policy PolicyId="urn:oasis:names:tc:xacml:3.0:example:SimplePolicy"
