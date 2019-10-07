@@ -37,8 +37,8 @@ should fail.
 </Policy> >
 ```
 
-The following are a few valid requests which will result in "Permit/Not
-Applicable/Deny" once evaluated against the above policy.
+The following are a few valid requests which will result in `Permit/Not
+Applicable/Deny` once evaluated against the above policy.
 
 ### The First XACML Request
 
