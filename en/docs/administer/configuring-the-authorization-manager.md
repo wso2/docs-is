@@ -145,5 +145,6 @@ deployment.toml file.
     sensitive, enable the following property:
 
     ``` java
-        <Property name="CaseSensitiveAuthorizationRules">true</Property>
+    [user_store]
+    case_sensitive_authorization_rules = true
     ```

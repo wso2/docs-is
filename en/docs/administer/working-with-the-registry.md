@@ -41,3 +41,7 @@ You can browse the contents of the registry using the product's
 management console.
 
   
+!!! Note
+
+    In the WSO2 Identity Server, registry is used to govern internally used 
+    artifacts by the product components.
