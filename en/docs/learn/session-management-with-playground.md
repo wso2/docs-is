@@ -213,14 +213,14 @@ implementing OpenID Connect
     !!! note
     
         **Alternatively,** to sign the ID token with the service provider's
-        tenant domain, open the `           identity.xml          ` file
+        tenant domain, open the `           deployment.toml          ` file
         found in the
-        `           <IS_HOME>/conf/repository/identity          ` folder and
+        `           <IS_HOME>/repository/conf          ` folder and
         set the following property to true.
     
-        ``` java
-        <!-- Sign the ID Token with Service Provider Tenant Private Key-->
-        <SignJWTWithSPKey>true</SignJWTWithSPKey>
+        ```toml
+        [oauth.oidc.id_token]
+        sign_with_sp_key=true
         ```
     
 

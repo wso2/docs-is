@@ -68,13 +68,6 @@ and configuring the appropriate files and directories so that you can
 run the tool in standalone mode to successfully remove references to a
 deleted user's identity from one or more WSO2 products.
 
--   [Building the Identity Anonymization
-    tool](#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-BuildToolBuildingtheIdentityAnonymizationtool)
--   [Configuring the master
-    configuration file](#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-MasterConfigConfiguringthemasterconfigurationfile)
--   [Running the
-    tool](#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-Runningthetool)
-
 !!! tip
     
     Prerequisites
@@ -122,7 +115,10 @@ Follow the steps below to build the tool:
     <tr class="odd">
     <td><code>               config.json              </code></td>
     <td>This is the master configuration file.<br />
-    You can configure this file depending on the metadata database tables, access logs, audit logs, or any other log files on which you want the Identity Anonymization tool to run. For information on how to configure this file, see <a href="#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-MasterConfig">Configuring the master configuration file</a> .</td>
+    You can configure this file depending on the metadata database tables, access logs, audit logs, or any other log
+     files on which you want the Identity Anonymization tool to run. For information on how to configure this file
+     , see <a href="#configuring-the-master-configuration-file">
+     Configuring the master configuration file</a> .</td>
     </tr>
     <tr class="even">
     <td><code>               datasources              </code></td>
@@ -245,7 +241,12 @@ If you do not specify a value for this option, the default configuration directo
 <tr class="odd">
 <td>T</td>
 <td><div class="content-wrapper">
-<p>The tenant domain of the user whose identity references you want to remove . The default value is <code>                carbon.super               </code> . <code>                               </code> For information on working with tenants in WSO2 products, see <a href="_Working_with_Multiple_Tenants_">Working with Multiple Tenants</a> .</p>
+<p>The tenant domain of the user whose identity references you want to remove . The default value is <code
+>                carbon.super               </code> . <code>                               </code> For information on
+ working with tenants in WSO2 products, see <a href="../../administer/working-with-multiple-tenants">Working with
+  Multiple
+  Tenants</a
+ > .</p>
 !!! note
     <p>Note</p>
     <p>If you specify the tenant domain as a command line option, it is mandatory to specify the tenant ID of the particular user.</p>

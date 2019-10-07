@@ -44,8 +44,7 @@ using WSO2 IS.
 
     For the rest of this guide, the installation location of WSO2 IS is referred to as `<IS_HOME>`.
 
-3. [Download](https://tomcat.apache.org/download-80.cgi) and [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat version 8.*.* or above.
-4. [Download](https://curl.haxx.se/download.html) and install curl.
+4. [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version you choose.
 
 6. Open the `/etc/hosts` file and add the following entry.        
     

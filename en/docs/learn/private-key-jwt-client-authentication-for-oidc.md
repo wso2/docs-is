@@ -71,15 +71,14 @@ artifacts.
     | TokenEndPointAlias    | An audience that can be added from the above configuration.                                                                                                                                             |
 
 4.  Do the cache configuration in
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
-    as shown below:
+    `           <IS_HOME>/repository/conf/deploymet.toml          `
+    file as shown below:
 
-    ``` java
-    <CacheConfig>
-        <CacheManager name="IdentityApplicationManagementCacheManager">
-        <Cache name="PrivateKeyJWT" enable="true" timeout="10" capacity="5000" isDistributed="false"/>
-        </CacheManager>
-    </CacheConfig>
+    ```toml
+    [[cache.manager]]
+    name="IdentityApplicationManagementCacheManager"
+    timeout="10"
+    capacity="5000"
     ```
 
     The above cache configuration is needed because when too many calls

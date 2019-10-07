@@ -13,7 +13,7 @@ levels:
     applicable to individual tenant spaces.
 
 The permissions navigator that you use to enable permissions for a role
-is divided into these two categories ( **Super Admin** permissions and
+is divided into these two categories (**Super Admin** permissions and
 **Admin** permissions) as shown below. However, note that there may be
 other categories of permissions enabled for a WSO2 product, depending on
 the type of features that are installed in the product.
@@ -22,6 +22,7 @@ the type of features that are installed in the product.
 
 You can access the permissions navigator for a particular role by
 clicking **Permissions** as shown below.  
+
 ![](../assets/img/53125499/53287373.png)
 
 By default, every WSO2 product comes with the following User, Role and
@@ -29,7 +30,7 @@ Permissions configured:
 
 -   The **Admin** user and **Admin** role is defined and linked to each
     other in the `           user-mgt.xml          ` file, stored in the
-    `           <PRODUCT_HOME>/repository/conf/          ` directory as
+    `           <IS_HOME>/repository/conf/          ` directory as
     shown below.
 
     ``` java
@@ -51,15 +52,12 @@ You can then create new users and roles and configure permissions for
 the roles using the management console. However, note that you cannot
 modify the permissions of the **Admin** role. The possibility of
 managing users, roles and permissions is granted by the **User
-Management** permission. F or more information, s ee [Configuring the
-User
-Realm](https://docs.wso2.com/display/Carbon443/Configuring+the+User+Realm)
-.
+Management** permission. 
+
 
 ### Description of role-based permissions
 
 !!! note
-    
     Note that the descriptions given in this document only explains how
     permissions control access to operations available on the management
     console.
@@ -72,9 +70,7 @@ follows:
     users to log in to the management console of the product. Therefore,
     this is the primary permission required for using the management
     console.
-
-<!-- -->
-
+    
 -   The following table describes the permissions at **Super Tenant**
     level. These are also referred to as **Super Admin** permissions.
 
@@ -99,7 +95,7 @@ follows:
     <strong>- Logging</strong> permission enables the possibility to configure server logging from the management console. That is, the <strong>Logging</strong> option will be enabled under the <strong>Configure</strong> menu.</td>
     </tr>
     <tr class="even">
-    <td><strong>Management</strong> permissions: <img src="../../assets/img/44826804/45088796.png" /></td>
+    <td><strong>Management</strong> permissions:<br /> <img src="../../assets/img/44826804/45088796.png" /></td>
     <td><p>The <strong>Super Admin/Manage</strong> permissions are used for adding new tenants and monitoring them.</p>
     <p><strong>- Modify/Tenants</strong> permission enables the <strong>Add New Tenant</strong> option in the <strong>Configure</strong> menu of the management console, which allows users to add new tenants.<br />
     <strong>- Monitor/Tenants</strong> permission enables the <strong>View Tenants</strong> option in the <strong>Configure</strong> menu of the management console.</p></td>
@@ -112,14 +108,16 @@ follows:
     </tbody>
     </table>
 
-<!-- -->
-
 -   The following table describes the permissions at **Tenant** level.
     These are also referred to as **Admin** permissions.
 
-    Note that when you select a node in the **Permissions** navigator,
-    all the subordinate permissions that are listed under the selected
-    node are also automatically enabled.
+    !!! info  
+        Note that when you select a node in the **Permissions** navigator,
+        all the subordinate permissions that are listed under the selected
+        node are also automatically enabled.
+
+    !!! note
+        Also, not all the permissions available in the permission tree are listed here. You can get the information related to them throughout the documentation wherever applicable.
 
     <table>
     <colgroup>
@@ -136,19 +134,19 @@ follows:
     <tr class="odd">
     <td>Admin</td>
     <td><p>When the <strong>Admin</strong> permission node is selected, the following menus are enabled in the management console:</p>
-    <p><strong>- User Store Management:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+User+Stores">user store management</a> for more details.<br />
-    <strong>- Identity Providers:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+the+Identity+Provider">working with identity providers</a> for details on how to use this option.</p>
+    <p><strong>- User Store Management:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../../learn/configuring-user-stores">user store management</a> for more details.<br />
+    <strong>- Identity Providers:</strong> See the topic on <a href="../../learn/adding-and-configuring-an-identity-provider">working with identity providers</a> for details on how to use this option.</p>
     <p>- Additionally, all permissions listed under <strong>Admin</strong> in the permissions navigator are selected automatically.</p></td>
     </tr>
     <tr class="even">
     <td>Admin/Configure</td>
     <td>When the <strong>Admin/Configure</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <strong><br />
-    - Main</strong> menu <strong>/PAP:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+Entitlement">working with entitlement</a> for details on how to use this option. <strong><br />
-    - Main</strong> menu <strong>/PDP:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+Entitlement">working with entitlement</a> for details on how to use this option.<br />
+    - Main</strong> menu <strong>/PAP:</strong> See the topic on <a href="../../learn/working-with-entitlement">working with entitlement</a> for details on how to use this option. <strong><br />
+    - Main</strong> menu <strong>/PDP:</strong> See the topic on <a href="../../learn/working-with-entitlement">working with entitlement</a> for details on how to use this option.<br />
     <strong><br />
-    - Configure</strong> menu <strong>/Server Roles:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Server+Roles">server roles</a> for more details. <strong><br />
-    - Tools</strong> menu <strong>/Tryit (XACML):</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+the+TryIt+Tool">working with the TryIt tool</a> for details on how to use this option. <strong></strong><br />
+    - Configure</strong> menu <strong>/Server Roles:</strong> See the topic on <a href="../../administer/server-roles">server roles</a> for more details. <strong><br />
+    - Tools</strong> menu <strong>/Tryit (XACML):</strong> See the topic on <a href="../../administer/using-the-xacml-tryit-tool">working with the TryIt tool</a> for details on how to use this option. <strong></strong><br />
     <br />
     - Additionally, all permissions listed under <strong>Configure</strong> in the permissions navigator are selected automatically.</td>
     </tr>
@@ -156,12 +154,12 @@ follows:
     <td>Admin/Configure/Security</td>
     <td>When the <strong>Admin/Configure/Security</strong> permission node is selected, the following menus are enabled in the <strong>Configure</strong> menu of the management console:<br />
     <br />
-    <strong>- Claim Management:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Claim+Management">claim management</a> for details on how to use this option.<br />
-    <strong>- Keystores:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Keystores">keystores</a> for details on how to use this option. <strong><br />
-    </strong> <strong>- Service Principle (Kerberos KDC):</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Kerberos+Security">kerberos security</a> for details on how to use this option. <strong><br />
-    </strong> <strong>- Email Templates:</strong> See the topics on <a href="https://docs.wso2.com/display/IS500/Email+Templates">email templates</a> for details on how to use this option.<br />
+    <strong>- Claim Management:</strong> See the topic on <a href="../../learn/claim-management">claim management</a> for details on how to use this option.<br />
+    <strong>- Keystores:</strong> See the topic on <a href="../../administer/creating-new-keystores">keystores</a> for details on how to use this option. <strong><br />
+    </strong> <strong>- Service Principle (Kerberos KDC):</strong> See the topic on <a href="../../administer/kerberos-security">kerberos security</a> for details on how to use this option. <strong><br />
+    </strong> <strong>- Email Templates:</strong> See the topics on <a href="../../administer/email-templates">email templates</a> for details on how to use this option.<br />
     <br />
-    - This permission will also enable the <strong>Roles</strong> option under <strong>Configure/Users and Roles</strong> . See the topic on <a href="https://docs.wso2.com/display/IS500/Configuring+Users%2C+Roles+and+Permissions">configuring users, roles and permissions</a> for more information.<br />
+    - This permission will also enable the <strong>Roles</strong> option under <strong>Configure/Users and Roles</strong> . See the topic on <a href="../../learn/configuring-users-roles-and-permissions">configuring users, roles and permissions</a> for more information.<br />
     <br />
     - Additionally, all permissions listed under <strong>Security</strong> in the permissions navigator are selected automatically.</td>
     </tr>
@@ -181,8 +179,8 @@ follows:
     <td>Admin/Manage</td>
     <td>When the <strong>Admin/Manage</strong> permission is selected, the following menus will be enabled in the management console:<br />
     <br />
-    <strong>- Main</strong> menu <strong>/Service Providers:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+the+Service+Provider">working with service providers</a> for details on how to use this option.<br />
-    <strong>- Tools</strong> menu <strong>/SAML:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/Working+with+the+SAML2+Toolkit">working with the SAML tool kit</a> for more details. <strong><br />
+    <strong>- Main</strong> menu <strong>/Service Providers:</strong> See the topic on <a href="../../learn/adding-and-configuring-a-service-provider">working with service providers</a> for details on how to use this option.<br />
+    <strong>- Tools</strong> menu <strong>/SAML:</strong> See the topic on <a href="../../administer/using-the-saml2-toolkit">working with the SAML tool kit</a> for more details. <strong><br />
     <br />
     </strong> - Additionally, all permissions listed under <strong>Admin/Manage</strong> in the permissions navigator will be enabled automatically. <strong></strong></td>
     </tr>
@@ -200,8 +198,8 @@ follows:
     <td>Admin/Monitor</td>
     <td>When the <strong>Admin/Monitor</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <br />
-    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="https://docs.wso2.com/display/IS500/System+Statistics">system statistics</a> for information on how to use this option.<br />
-    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="https://docs.wso2.com/display/IS500/SOAP+Tracer">SOAP tracer</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="../../administer/system-statistics">system statistics</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="../../administer/soap-tracer">SOAP tracer</a> for information on how to use this option.<br />
     <br />
     - Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</td>
     </tr>
@@ -212,7 +210,7 @@ follows:
     <strong>- Monitor</strong> menu <strong>/Application Logs</strong><br />
     <strong>- Monitor</strong> menu <strong>/System Logs</strong><br />
     <br />
-    See the topic on <a href="https://docs.wso2.com/display/IS500/System+Logs">system logs</a> for information on how to use these options.</td>
+    See the topic on <a href="../../administer/system-logs">system logs</a> for information on how to use these options.</td>
     </tr>
     </tbody>
     </table>

@@ -13,7 +13,7 @@ various components in WSO2 products:
 -   [Customizing the Management
     Console](../../administer/customizing-the-management-console)
 -   [Installing WSO2 Products as a
-    Service](../../administer/installing-wso2-products-as-a-service)
+    Service](../../setup/installing-wso2-products-as-a-service)
 -   [Managing Datasources](../../administer/managing-datasources)
 -   [Managing Users, Roles and
     Permissions](../../administer/managing-users-roles-and-permissions)
