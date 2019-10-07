@@ -9,11 +9,6 @@ For example, if the default HTTP port is 9763 and the port offset is 1,
 the effective HTTP port will change to 9764. For each additional WSO2
 product instance, you set the port offset to a unique value.
 
--   [Default ports of WSO2
-    products](#ChangingtheDefaultPorts-DefaultportsofWSO2products)
--   [Setting a port offset for the
-    server](#ChangingtheDefaultPorts-Settingaportoffsetfortheserver)
-
 ### Default ports of WSO2 products
 
 See [this link](../../administer/default-ports-of-wso2-products) for the list of ports
@@ -25,15 +20,16 @@ The default port offset value is 0. There are two ways to set an offset
 to a port:
 
 -   Pass the port offset to the server during startup. The following
-    command starts the server with the default port incremented by 3
-    `          :./wso2server.sh -DportOffset=3         `
--   Set the Ports section of
-    `          <PRODUCT_HOME>/repository/conf/carbon.xml         ` as
-    follows: `          <Offset>3</Offset>         `
+    command starts the server with the default port incremented by 3.
+    ```
+    ./wso2server.sh -DportOffset=3
+    ```
+-   Set the port in the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory as follows.
+    ```
+    [server]
+	offset = "3"
+    ```
 
-When you set the server-level port offset in WSO2 AS as shown above,
+When you set the server-level port offset as shown above,
 [all the ports](../../administer/default-ports-of-wso2-products) used by the server
-will change automatically. However, this may not be the case with some
-WSO2 products such as WSO2 APIM and WSO2 AM. See the [product
-documentation](https://docs.wso2.com/dashboard.action) for instructions
-that are specific to your product.
+will change automatically. 
