@@ -2,13 +2,14 @@
 
 This article addresses the following authorization requirements.
 
-1.  The operation `          getEmployees         ` in the service "
-    http://localhost:8280/services/Customers " should only be accessed
+1.  The operation `          getEmployees         ` in the service "http://localhost:8280/services/Customers" should only be accessed
     by users belonging to both the `          admin_emps         ` and
     `          admin         ` groups.
+
 2.  If the user belongs to a group other than
     `          admin_emps         ` or `          admin         `, the
     request should fail.
+    
 3.  Requests to any other service or operation should fail.
 
 ``` xml
