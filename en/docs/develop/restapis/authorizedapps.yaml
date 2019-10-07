@@ -1,7 +1,11 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing OAuth2 Authorized Apps
-  version: "1.0.0"
+  description: |
+    This is the RESTful API for managing OAuth2 Authorized Apps.
+
+    Through this API, authenticated users can view and revoke the OAuth2/OIDC applications which they have permanently provided consent (by clicking on 'Approve Always' during OAuth2 user consent collection) to act on behalf of the user without continuously requesting consent.
+
+  version: "v1"
   title: WSO2 Identity Server - OAuth2 Authorized Apps API
   contact:
     name: "WSO2 Identity Server"
@@ -18,103 +22,18 @@ schemes:
 
 # tags are used for organizing operations
 tags:
-- name: developers
-  description: Operations available to regular developers
+- name: me
+  description: Operations for the authenticated user.
+
 security:
   - OAuth2: []
   - BasicAuth: []
 
 paths:
-  /{user-id}/authorized-apps:
-    get:
-      tags:
-        - developers
-      summary: list authorized applications of a user
-      operationId: listUserAuthorizedApps
-      description: |
-        List approved OAuth applications for a given user
-      parameters:
-        - $ref: '#/parameters/usernamePathParams'
-      responses:
-        200:
-          description: search results matching criteria
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthorizedApp'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        500:
-          $ref: '#/responses/ServerError'
-    delete:
-      tags:
-        - developers
-      summary: "remove all authorized applications of a user"
-      operationId:  deleteUserAuthorizedApps
-      description: |
-        Removes authorization from all OAuth apps of a given user
-      parameters:
-        - $ref: '#/parameters/usernamePathParams'
-      responses:
-        204:
-          $ref: '#/responses/Deleted'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        500:
-          $ref: '#/responses/ServerError'
-  /{user-id}/authorized-apps/{application-id}:
-    get:
-      tags:
-        - developers
-      summary: "retrieve autherized app by app ID for a user"
-      operationId: listUserAuthorizedAppsByAppId
-      description: |
-        Retrived autherized OAuth apps by an app ID for a given user
-      parameters:
-        - $ref: '#/parameters/usernamePathParams'
-        - $ref: '#/parameters/applicationNamePathParam'
-      responses:
-        200:
-          description: search results matching criteria
-          schema:
-            $ref: '#/definitions/AuthorizedApp'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        404:
-          $ref: '#/responses/NotFound'
-        500:
-          $ref: '#/responses/ServerError'
-    delete:
-      tags:
-        - developers
-      summary: "removes challenge question answers"
-      operationId: deleteUserAuthorizedAppsByAppId
-      description: |
-        Removes autherized OAuth apps by an app ID for a given user
-      parameters:
-        - $ref: '#/parameters/usernamePathParams'
-        - $ref: '#/parameters/applicationNamePathParam'
-      responses:
-        204:
-          $ref: '#/responses/Deleted'
-        401:
-          $ref: '#/responses/Unauthorized'
-        403:
-          $ref: '#/responses/Forbidden'
-        404:
-          $ref: '#/responses/NotFound'
-        500:
-          $ref: '#/responses/ServerError'
   /me/authorized-apps:
     get:
       tags:
-        - developers
+        - me
       summary: "list authorized applications for the authenticated user"
       operationId: listLoggedInUserAuthorizedApps
       description: |
@@ -134,7 +53,7 @@ paths:
           $ref: '#/responses/ServerError'
     delete:
       tags:
-        - developers
+        - me
       summary: "removes authorized applications for the authenticated user"
       operationId: deleteLoggedInUserAuthorizedApps
       description: |
@@ -151,7 +70,7 @@ paths:
   /me/authorized-apps/{application-id}:
     get:
       tags:
-        - developers
+        - me
       summary: "retrieve authorized app by app ID for the authenticated user"
       operationId: getLoggedInUserAuthorizedAppByAppId
       description: |
@@ -173,7 +92,7 @@ paths:
           $ref: '#/responses/ServerError'
     delete:
       tags:
-        - developers
+        - me
       summary: "removes authorized app by app ID for the authenticated user"
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       description: |
@@ -251,8 +170,8 @@ securityDefinitions:
   OAuth2:
     type: oauth2
     flow: accessCode
-    authorizationUrl: https://localhost:9443/oauth/authorize
-    tokenUrl: https://localhost:9443/oauth/token
+    authorizationUrl: https://localhost:9443/oauth2/authorize
+    tokenUrl: https://localhost:9443/oauth2/token
     scopes:
       read: Grants read access
       write: Grants write access

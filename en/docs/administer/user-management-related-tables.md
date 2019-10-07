@@ -278,4 +278,4 @@ value which is created upon login.
 -   `UM\_CREATED\_TIME`
 -   `UM\_TENANT\_ID`
 
-![User management related tables]( ../assets/img/using-wso2-identity-server/user-management-related-tables.png) 
+![User management related tables](../assets/img/using-wso2-identity-server/user-management-related-tables.png) 

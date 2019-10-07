@@ -3,9 +3,9 @@
 See the topics given below for instructions.
 
 -   [Adding tenants using the management
-    console](#AddingNewTenants-Addingtenantsusingthemanagementconsole)
+    console](#adding-tenants-using-the-management-console)
 -   [Managing tenants using Admin
-    Services](#AddingNewTenants-ManagingtenantsusingAdminServices)
+    Services](#managing-tenants-using-admin-services)
 
 ### Adding tenants using the management console
 

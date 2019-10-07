@@ -7,43 +7,6 @@ product is also an application that is deployed in the Carbon server.
 Before you expose the applications to the external network, be sure to
 configure the security settings for all your applications.
 
-See the following topics for instructions:
-
--   [Enabling HTTPS access to the management
-    console](#SecuringCarbonApplications-https-accessEnablingHTTPSaccesstothemanagementconsole)
--   [Enabling HTTP access to the management
-    console](#SecuringCarbonApplications-EnablingHTTPaccesstothemanagementconsole)
--   [Starting the server without the management
-    console](#SecuringCarbonApplications-without-uiStartingtheserverwithoutthemanagementconsole)
--   [Enabling role-based permissions for the management
-    console](#SecuringCarbonApplications-Enablingrole-basedpermissionsforthemanagementconsole)
--   [Restricting access to Carbon
-    applications](#SecuringCarbonApplications-restrict-accessRestrictingaccesstoCarbonapplications)
-    -   [For the management console
-        only](#SecuringCarbonApplications-Forthemanagementconsoleonly)
-    -   [For jaggery Apps
-        only](#SecuringCarbonApplications-ForjaggeryAppsonly)
-    -   [For all web
-        applications](#SecuringCarbonApplications-Forallwebapplications)
-    -   [For web application
-        servlets](#SecuringCarbonApplications-Forwebapplicationservlets)
--   [Enabling HTTP Strict Transport Security (HSTS)
-    Headers](#SecuringCarbonApplications-EnablingHTTPStrictTransportSecurity(HSTS)Headers)
-    -   [For the management
-        console](#SecuringCarbonApplications-Forthemanagementconsole)
-    -   [For web
-        applications](#SecuringCarbonApplications-Forwebapplications)
-    -   [For Jaggery
-        applications](#SecuringCarbonApplications-ForJaggeryapplications)
--   [Preventing browser
-    caching](#SecuringCarbonApplications-Preventingbrowsercaching)
-    -   [For the management
-        console](#SecuringCarbonApplications-Forthemanagementconsole.1)
-    -   [For web
-        applications](#SecuringCarbonApplications-Forwebapplications.1)
-    -   [For Jaggery
-        applications](#SecuringCarbonApplications-ForJaggeryapplications.1)
-
 ### Enabling HTTPS access to the management console
 
 All WSO2 products expose the management console through the

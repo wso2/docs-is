@@ -64,7 +64,7 @@ configuration.
 Following is a sample authentication script.
 
 ``` java
-function onLoginRequest(context) {
+var onLoginRequest = function(context) {
     // Some possible initializations...
     executeStep(1, {
         onSuccess: function (context) {

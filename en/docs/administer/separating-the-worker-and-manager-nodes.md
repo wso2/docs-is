@@ -1,5 +1,8 @@
 # Separating the Worker and Manager Nodes
 
+!!! note
+    The worker manager separation is not required for WSO2 Identity Server as WSO2 IS does not support the 'worker' profile.
+    
 WSO2 Carbon version 4.0.0 onwards supports deployment models that
 consist of 'worker' nodes and 'manager' nodes. A worker node serves
 requests received by clients, whereas a manager node deploys and
@@ -40,7 +43,6 @@ process of separating the worker and manager nodes. You can select one
 of the following patterns based on your load and the target expenditure.
 
 !!! note
-    
     Configurations change depending on the clustering deployment pattern
     that you use.
     
