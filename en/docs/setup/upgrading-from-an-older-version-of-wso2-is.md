@@ -4693,5 +4693,6 @@ Download the latest version of WSO2 Identity Server and unzip it in the <NEW_IS_
             <li><code>migration-resources directory</code></li>
         </ol>
     </li>
-    <li>Revert back <code>defaultAutoCommit </code> as <code>'<defaultAutoCommit>true</defaultAutoCommit>'</code> in the <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml directory after migration is successful.</li>
+    <li>Revert <code>defaultAutoCommit</code> to <code>'true'</code> in the 
+    <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml file after the migration is successful.</li>
 
