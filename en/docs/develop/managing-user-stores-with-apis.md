@@ -6,11 +6,6 @@ guides you through invoking and working with the
 **UserStoreConfigAdminService** and the operations you can work within
 this service.
 
--   [Invoking the admin
-    service](#ManagingUserStoreswithAPIs-Invokingtheadminservice)
--   [Operations included in the API and sample
-    requests](#ManagingUserStoreswithAPIs-OperationsincludedintheAPIandsamplerequests)
-
 ### Invoking the admin service
 
 `         UserStoreConfigAdminService        ` is an admin service of
@@ -18,12 +13,13 @@ the WSO2 Carbon platform. As admin services are secured to prevent
 anonymous invocations, you cannot view the WSDL of the admin service by
 default. Follow the steps below to view and invoke it:
 
-1.  Set the `           <HideAdminServiceWSDLs>          ` element to
+1.  Set the `admin_service.wsdl` element to
     `           false          ` in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` file.
+    `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
-    ``` xml
-    <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+    ```toml
+    [admin_service.wsdl]
+    enable = "false"
     ```
 
 2.  Restart the Identity Server.
@@ -34,24 +30,13 @@ default. Follow the steps below to view and invoke it:
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
 Admin Services from
-Apps](https://docs.wso2.org/display/Carbon420/Calling+Admin+Services+from+Apps)
+Apps](../../develop/calling-admin-services)
 section in WSO2 Carbon documentation.
 
 ### Operations included in the API and sample requests
 
 The following operations are available in the
-**UserStoreConfigAdminService** :
-
--   [addUserStore()](#ManagingUserStoreswithAPIs-addUserStore())
--   [changeUserStoreState()](#ManagingUserStoreswithAPIs-changeUserStoreState())
--   [deleteUserStore()](#ManagingUserStoreswithAPIs-deleteUserStore())
--   [deleteUserStoresSet()](#ManagingUserStoreswithAPIs-deleteUserStoresSet())
--   [editUserStore()](#ManagingUserStoreswithAPIs-editUserStore())
--   [editUserStoreWithDomainName()](#ManagingUserStoreswithAPIs-editUserStoreWithDomainName())
--   [getAvailableUserStoreClasses()](#ManagingUserStoreswithAPIs-getAvailableUserStoreClasses())
--   [getSecondaryRealmConfigurations()](#ManagingUserStoreswithAPIs-getSecondaryRealmConfigurations())
--   [getUserStoreManagerProperties()](#ManagingUserStoreswithAPIs-getUserStoreManagerProperties())
--   [testRDBMSConnection()](#ManagingUserStoreswithAPIs-testRDBMSConnection())
+**UserStoreConfigAdminService**.
 
 ##### addUserStore()
 
@@ -128,31 +113,22 @@ This is a unique name that identifies the user store.</td>
 </tbody>
 </table>
 </div>
-!!! tip
-    <p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
-    <ul>
-    <li><ul>
-    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+JDBC+User+Store#ConfiguringaJDBCUserStore-PropertiesusedinJDBCuserstoremanager">Properties used in JDBC user store manager</a></li>
-    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+Active+Directory+User+Store#ConfiguringaRead-writeActiveDirectoryUserStore-PropertiesusedinRead-writeActiveDirectoryuserstoremanager">Properties used in Read-write Active Directory user store manager</a></li>
-    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-only+LDAP+User+Store#ConfiguringaRead-onlyLDAPUserStore-PropertiesusedinRead-onlyLDAPuserstoremanager">Properties used in Read-only LDAP user store manager</a></li>
-    <li><a href="https://docs.wso2.com/display/IS540/Configuring+a+Read-write+LDAP+User+Store#ConfiguringaRead-writeLDAPUserStore-PropertiesusedinRead-writeLDAPuserstoremanager">Properties used in Read-write LDAP user store manager</a></li>
-    <li><a href="../../develop/carbon-remote-user-store-manager_103330074.html#CarbonRemoteUserStoreManager-Configuringacarbonremoteuserstoremanager">Properties used in Carbon Remote user store manager</a></li>
-    </ul></li>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
+    <ul>    
+        <li><a href="../../learn/configuring-a-jdbc-user-store">Properties used in JDBC user store manager</a></li>
+        <li><a href="../../learn/configuring-a-read-write-active-directory-user-store">Properties used in Read-write Active Directory user store manager</a></li>
+        <li><a href="../../learn/configuring-a-read-only-ldap-user-store">Properties used in Read-only LDAP user store manager</a></li>
+        <li><a href="../../learn/configuring-a-read-write-ldap-user-store">Properties used in Read-write LDAP user store manager</a></li>
+        <li><a href="../../develop/carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
     </ul>
     <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>
+</div>    
 </div></td>
 </tr>
 </tbody>
 </table>
-
-  
-  
-
--   [**JDBC Userstore**](#a5596ce39f6a4d0e8d69276a904b4b55)
--   [**Active Directory Userstore**](#ed48dc5bf13e42c58e0ecc506ad5d1ba)
--   [**Read Only LDAP Userstore**](#538940c9b8ee47069f797ba9704a1d53)
--   [**Read Write LDAP Userstore**](#9053379f73b24b5b9bce83248e6e9339)
--   [**Carbon Remote Userstore**](#cd5c3d697938408f901a4ba193c1215f)
 
 **Request**
 
