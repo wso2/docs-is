@@ -99,49 +99,18 @@ password feature:
     ask_password_from_user= true
     ```
 
-3.  Configure the email settings in the
-    `           <IS_HOME>/repository/conf/output-event-adapters.xml          `
-    file.
+3.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
 
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td><code>               mail.smtp.from              </code></td>
-    <td>Provide the email address of the SMTP account.<br />
-    Example: <code>               abcd@gmail.com              </code></td>
-    </tr>
-    <tr class="even">
-    <td><code>               mail.smtp.user              </code></td>
-    <td>Provide the username of the SMTP account.<br />
-    Example: <code>               abcd              </code></td>
-    </tr>
-    <tr class="odd">
-    <td><code>               mail.smtp.password              </code></td>
-    <td>Provide the password of the SMTP account.</td>
-    </tr>
-    </tbody>
-    </table>
-
-      
-
-    ``` xml
-        <adapterConfig type="email">
-            <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-                based authentication rather username/password authentication -->
-            <property key="mail.smtp.from">{EMAIL_ID}</property>
-            <property key="mail.smtp.user">{USERNAME}</property>
-            <property key="mail.smtp.password">{PASSWORD}</property>
-            <property key="mail.smtp.host">smtp.gmail.com</property>
-            <property key="mail.smtp.port">587</property>
-            <property key="mail.smtp.starttls.enable">true</property>
-            <property key="mail.smtp.auth">true</property>
-            <!-- Thread Pool Related Properties -->
-            <property key="minThread">8</property>
-            <property key="maxThread">100</property>
-            <property key="keepAliveTimeInMillis">20000</property>
-            <property key="jobQueueSize">10000</property>
-        </adapterConfig>
-    ```
+     ``` toml
+     [output_adapter.email]
+     from_address= "wso2iamtest@gmail.com"
+     username= "wso2iamtest"
+     password= "Wso2@iam70"
+     hostname= smtp.gmail.com
+     port= 587
+     enable_start_tls= true
+     enable_authentication= true
+     ```
 
       
     !!! note
