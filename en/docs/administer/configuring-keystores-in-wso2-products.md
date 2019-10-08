@@ -5,31 +5,11 @@ passwords in configuration files, and for authenticating communication over SSL/
 
 The `wso2carbon.jks` keystore file, which is shipped with WSO2 Identity Server, is used as the default keystore for all functions. However, in a production environment, it is recommended to create new keystores with new keys and certificates.
     
-!!! tip "Before you begin"
-    1.  If you want an easy way to locate all the configuration files that have references to keystores, you can use the grep command as follows:
+!!! tip "Before you begin" 
 
-        1.  Navigate to the `<IS_HOME>/repository/conf/` directory on a command prompt.
+    1.  Make sure to go through the [recommendations for setting up keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
 
-        2.  Execute the following command.
-            ```
-            grep -nr ".jks"
-            ``` 
-
-            Note that the configuration files and the keystore files referred to in each file are listed out. Following is an example: 
-
-
-            ```text
-            ./axis2/axis2.xml:260:                <Location>repository/resources/security/wso2carbon.jks</Location>
-            ./axis2/axis2.xml:431:                <Location>repository/resources/security/wso2carbon.jks</Location>
-            ./carbon.xml:316:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-            ./carbon.xml:332:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-            ./identity.xml:180:             <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-            ./security/secret-conf.properties:21:#keystore.identity.location=repository/resources/security/wso2carbon.jks
-            ```
-
-    2.  Make sure to go through the [recommendations for setting up keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores) to understand the various keystores you will need.
-
-    3.  If you haven't already created the keystores required for your system, see [creating new keystores](../../administer/creating-new-keystores).
+    2.  If you have not already created the keystores required for your system, see [creating new keystores](../../administer/creating-new-keystores).
 
 ## Configuring the primary keystore
 
