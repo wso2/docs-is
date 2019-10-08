@@ -1,7 +1,7 @@
 # Masking Sensitive Information in Logs
 
-There can be business sensitive information that are added to logs in
-the WSO2 product console and/or WSO2 Carbon log files. When these logs
+There can be business sensitive information that are added to logs in 
+the product console and/or Carbon log files. When these logs
 are analyzed, the information is exposed to those who check this.
 
 To avoid this potential security pitfall, users can mask sensitive
@@ -15,7 +15,7 @@ To configure this feature, follow the instructions below.
 ### Enabling log masking
 
 1.  Open the
-    `           <PRODUCT_HOME>/repository/conf/log4j.properties          `
+    `           <IS_HOME>/repository/conf/log4j2.properties          `
     file in a text editor.
 
 2.  Uncomment or add the following property under
@@ -60,13 +60,11 @@ masking.pattern.sample.CREDIT_CARD_AMEX=[34|37][0-9]{14}$
 ```
 
 With this configuration, each log line is checked for all the configured
-patterns. If any match is found, it is masked with ‘\*\*\*\*\*’.
+patterns. If any match is found, it is masked with `*****`.
 
-!!! note
+!!! note 
     
-    **Note** :
-    
-    -   If the pattern file that is configured in the log4j.properties file
+    -   If the pattern file that is configured in the log4j2.properties file
         is not found, a default property file will be used (
         `           wso2-log-masking.properties          ` ).
     

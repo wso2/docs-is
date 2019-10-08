@@ -16,14 +16,6 @@ for other products).
 Given below are the settings that you can configure in the
 `         tasks-config.xml        ` file.
 
--   [Step 1: Setting the task server
-    mode](#ConfiguringtheTaskSchedulingComponent-Step1Step1:Settingthetaskservermode)
--   [Step 2: Configuring a cluster of task
-    servers](#ConfiguringtheTaskSchedulingComponent-Step2:Configuringaclusteroftaskservers)
-    -   [Setting the task server
-        count](#ConfiguringtheTaskSchedulingComponent-tastk_server_countSettingthetaskservercount)
-    -   [Setting the default location
-        resolver](#ConfiguringtheTaskSchedulingComponent-Settingthedefaultlocationresolver)
 
 ### Step 1: Setting the task server mode
 
