@@ -88,23 +88,9 @@ reCaptcha globally.
         To avoid any configuration issues, perofrm **step-1** before
         starting the WSO2 Identity Server product instance.
     
-
-    ``` java
-    <Recovery>
-         <ReCaptcha>
-                    <Password>
-                    <Enable>true</Enable>
-                     </Password>
-                     <Username>
-                    <Enable>false</Enable>
-                     </Username>
-         </ReCaptcha>
-
-         <Notification>
-               ………………
-               ……………….
-
-    </Recovery>
+    ``` toml    
+    [identity_mgt.password_reset_email] 
+    enable_recaptcha= true
     ```
 
 2.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
