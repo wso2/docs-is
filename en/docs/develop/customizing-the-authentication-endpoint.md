@@ -13,7 +13,7 @@ Follow the steps below to customize the authentication endpoint URL:
 
 1.  Edit the `<IS_HOME>/repository/conf/identity/application-authentication.properties`  file, and change the value of the following parameter depending on the URL that the web application should run. 
 
-    ```
+    ```toml
     [authentication.endpoints] 
     login_url="/sso/login"
     ```
@@ -34,7 +34,7 @@ uncomment the following configurations in the
 `         <IS_HOME>/repository/conf/identity/application-authentication.properties        `
 file, under the `         [authentication.endpoint.query_params]        ` element.
 
-``` xml
+```toml
 [authentication.endpoint.query_params] 
 filter_policy = exclude 
 filter_parameters = [username]
@@ -54,7 +54,7 @@ This section is useful in scenarios where there are multiple tenants
 used, where users can login to web applications with their credentials
 for their specified tenants. For instance, for a user in the test.com
 tenant with the username test1, the user would have to enter the full
-username as <test1@test.com> in order to login. Enabling this feature
+username as "test1@test.com" in order to login. Enabling this feature
 will load all the available active tenants onto a dropdown list on the
 login page of the web application that the authentication endpoint
 points to. This means that the test1 user mentioned above can simply
@@ -69,7 +69,7 @@ Do the following configurations to enable this feature.
     `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
     file and ensure that the `           clientAuth          ` attribute
     in the `           Connector          ` tag is set to “
-    `           want          ` ” as shown below. This is done to
+               want           ” as shown below. This is done to
     disable the certificate authentication on certain occasions (like
     when working on mobile apps). This makes two-way SSL authentication
     optional.
@@ -94,7 +94,7 @@ Do the following configurations to enable this feature.
     for enable the
     Mutual SSL Authenticator.
 
-    ``` xml
+    ```toml
     [admin_console.authenticator.mutual_ssl_authenticator]
     enable = true
     priority = 5 
@@ -107,7 +107,7 @@ Do the following configurations to enable this feature.
     `           <IS_HOME>/repository/conf/security/authenticators.properties          `
     file, set its priority to 0. Otherwise ignore this step.
 
-    ``` xml
+    ```toml
     "[admin_console.authenticator.saml_sso_authenticator]
     enable = true
     priority = 0
@@ -117,7 +117,7 @@ Do the following configurations to enable this feature.
                         `
     `<IS-HOME>/repository/conf/deployment.toml`.
 
-    ``` xml
+    ```toml
     [tenant]
     data_listener_urls = ["url1","url2"]
     [tenant.domain_drop_down]
@@ -153,7 +153,7 @@ Do the following configurations to enable this feature.
     following are the default values for the properties to be used in
     this file.
 
-    ``` java
+    ``` xml
     tenantListEnabled=false
     hostname.verification.enabled=true
     mutual.ssl.username=admin
@@ -292,7 +292,7 @@ page, follow the steps below.
     `           <IS_HOME>/repository/conf/security/authenticators.xml          `
     file.
 
-    ``` xml
+    ``` toml
     [admin_console.authenticator.mutual_ssl_authenticator]
     enable = true
     ```
@@ -326,24 +326,31 @@ below steps:
     Once you navigate to
     `          /_system/config/identity/config         `, follow the
     steps below to add a registry resource.
+
 4.  Click **Add Resource**.  
-    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png) 
+    ![Add resource option](../assets/img/using-wso2-identity-server/add-resource-option.png)
+
 5.  Fill the form with following information.
     -   Method : Select **Create text content** from the dropdown.
 
     -   Name : Enter **relyingPartyRedirectUrls** as Name.
 
     ![Add resource form](../assets/img/using-wso2-identity-server/add-resource-form.png) 
-6.  Click in **Add** button. The created registry resource can be seen
+
+6.  Click the **Add** button. The created registry resource can be seen
     once you click on **Add** button.  
     ![Registry resource](../assets/img/using-wso2-identity-server/registry-resource.png) 
+
 7.  Click on the added resource (relyingPartyRedirectUrls). You can see
     the **Properties** section.  
     ![Resource properties](../assets/img/using-wso2-identity-server/resource-properties.png) 
+
 8.  Click the “+” sign at the right hand corner of **Properties**
     section. This allows you to add a property to the resource.
+
 9.  Click **Add New Property**.  
     ![Add New Property option](../assets/img/using-wso2-identity-server/add-new-property-option.png)
+
 10. Enter the relying party name for name and the redirect URL for
     value.  
     ![Add New Property form](../assets/img/using-wso2-identity-server/add-new-property-form.png)

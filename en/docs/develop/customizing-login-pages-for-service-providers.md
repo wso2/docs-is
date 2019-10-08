@@ -103,7 +103,7 @@ customized one.
 #### Registering the two service providers in WSO2 Identity Server
 
 1.  Sign in to the WSO2 Identity Server [Management
-    Console](../../learn/getting-started-with-the-management-console).
+    Console](../../setup/getting-started-with-the-management-console).
 2.  On the **Main** menu, click **Identity \> Service Providers \>**
     **Add**.
 3.  Enter `          travelocity.com         ` as the **Service Provider
@@ -225,8 +225,7 @@ focus is on the following two parameters:
     !!! note
         The 'sessionDataKey' query parameter is used to coordinate the request state across components participating in the request flow. It does not correlate with the user session. Furthermore, the request state maintained against the 'sessionDataKey' parameter value is cleared by each participating component at the end of request flow. This means that even if an external party grabs the 'sessionDataKey' they will not be able to get into the authentication sequence, as the user session is not associated with that key.
  -   **relyingParty** : This is the value we gave for the "Issuer" field
-    when we registered the SAML2 SSO service provider (e.g.,
-    [travelocity.com](http://travelocity.com) ). This value is used to
+    when we registered the SAML2 SSO service provider (e.g.,travelocity.com). This value is used to
     display different login pages to different service providers.
 
 When customizing the pages, ensure that the following is applied.
@@ -277,8 +276,8 @@ When customizing the pages, ensure that the following is applied.
     contents of the 'css' and 'images' folders from that same link and
     put them inside the respective folders in the
     authenticationendpoint.
-4.  Log in to the [Travelocity.com](http://Travelocity.com) web app
+4.  Log in to the travelocity.com web app
     again. You are presented with a different page.  
     ![Travelocity login screen](../assets/img/using-wso2-identity-server/travelocity-login-screen.png)   
-    If you access [Avis.com](http://Avis.com), it still displays the
+    If you access avis.com, it still displays the
     default login page.

@@ -14,9 +14,9 @@ directory). The following steps describe how you can configure this:
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/         `
 2.  Take a copy of the Resources.properties file, rename it with the
     required locale suffix as follows:  
-    Ex: For British English:
+    - For British English:
     `           Resources_en_GB.properties          `  
-    For French (Standard):
+    - For French (Standard):
     `           Resources_fr.properties          `
 
     Refer [Web browser language identification
@@ -24,21 +24,22 @@ directory). The following steps describe how you can configure this:
     information on required locale suffixes.
 
 3.  Update values while keeping the keys as follows,  
-    Ex: `          login=<Value in the required locale>         `
+     ```
+     login=<Value in the required locale> 
+     ``` 
+
 4.  Save the file.
+
 5.  Go to the browser setting and add the language you configured above.
+
 6.  Restart the server.  
-      
     To try out, do the following:
-
-<!-- -->
-
-1.  Open up a browser.
-2.  Type the dashboard URL. (If you are running the server in your
-    localhost, the URL is:
-    `                     https://localhost:9443/dashboard/                   `
-    ). You will see the login screen having the contents in the
-    configured language.
+    1.  Open up a browser.
+    2.  Type the dashboard URL. (If you are running the server in your
+        localhost, the URL is:
+        `                     https://localhost:9443/dashboard/                   `
+        ). You will see the login screen having the contents in the
+        configured language.
 
 If you want to have internationalization of error messages coming from
 `         authentication-framework/        ` oauth
