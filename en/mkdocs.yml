@@ -152,6 +152,7 @@ nav:
           - 'Configuring Twitter': learn/configuring-twitter.md
           - 'Configuring SMS OTP': learn/configuring-sms-otp.md
           - 'Configuring Email OTP': learn/configuring-email-otp.md
+          - 'Configuring Apple': learn/configuring-apple.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
           - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
