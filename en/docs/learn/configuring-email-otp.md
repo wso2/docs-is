@@ -9,9 +9,7 @@ second step of MFA.
 Follow the instructions in the sections below to configure MFA using
 Email OTP:
 
-!!! tip
-    
-    Before you begin!
+!!! tip "Before you begin"
     
     -   To ensure you get the full understanding of configuring Email OTP
         with WSO2 IS, the sample travelocity application is used in this use
@@ -84,7 +82,208 @@ Email OTP is enabled.
         You can add email template from the management console also as described in [this document](
         ../../administer/email-templates) 
 
-4.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
+4.  Configure the following properties in the `<IS_HOME>/repository/conf/identity/identity-mgt.properties` file to `true`.
+
+    ```toml
+    Authentication.Policy.Enable=true
+    Authentication.Policy.Check.OneTime.Password=true
+    ```
+
+5.  Add the following configuration to the `application-authentication.xml` file in the `<IS_HOME>/repository/conf/identity` directory. 
+    
+    ```xml
+    <AuthenticatorConfig name="EmailOTP" enabled="true">
+        <Parameter name="EMAILOTPAuthenticationEndpointURL">https://localhost:9443/emailotpauthenticationendpoint/emailotp.jsp</Parameter>
+        <Parameter name="EmailOTPAuthenticationEndpointErrorPage">https://localhost:9443/emailotpauthenticationendpoint/emailotpError.jsp</Parameter>
+        <Parameter name="EmailAddressRequestPage">https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp</Parameter>
+        <Parameter name="usecase">association</Parameter>
+        <Parameter name="useEventHandlerBasedEmailSender">true</Parameter>
+        <Parameter name="secondaryUserstore">primary</Parameter>
+        <Parameter name="EMAILOTPMandatory">false</Parameter>
+        <Parameter name="sendOTPToFederatedEmailAttribute">false</Parameter>
+        <Parameter name="federatedEmailAttributeKey">email</Parameter>
+        <Parameter name="EmailOTPEnableByUserClaim">true</Parameter>
+        <Parameter name="useEventHandlerBasedEmailSender">true</Parameter>
+        <Parameter name="CaptureAndUpdateEmailAddress">true</Parameter>
+        <Parameter name="showEmailAddressInUI">true</Parameter>
+    </AuthenticatorConfig>
+    ``` 
+
+
+    ??? info "Click to view the parameter definitions"    
+        <table>
+            <thead>
+                <tr>
+                    <th width="10%">Parameter</th>
+                    <th width="55%">Description</th>
+                    <th width="35%">Sample Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>usecase</code></td>
+                    <td>This parameter defines how the email ID will be retrieved.
+                        <ul>
+                            <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
+                            <li><code>assocication</code>: The federated username must be associated with the local account in advance in the end user dashboard. The local username is retrieved from the association. To associate the user, log into the  [end user dashboard](../../learn/using-the-end-user-dashboard)  and go to  **Associated Account**  by clicking  **View details**.</li>
+                            <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
+                            <li>
+                                <p><code>userAttribute </code>: The name of the  federatedauthenticator'suserattribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  <code><AuthenticatorConfig name="EmailOTP" enabled="true"></code>  section in the <code><IS_HOME>/repository/conf/identity/application-authentication.xml</code> file and put the value, e.g., email and screen_name, id.</p>
+                                ```
+                                <Parameter name="userAttribute">email</Parameter>
+                                ```
+                                <p>If you use OpenID Connect supported authenticators such as LinkedIn and Foursquare or in the case of multiple social login options as the first step and EmailOTP assecondstep, you need to add similar configuration for the specific authenticator in the <code><IS_HOME>/repository/conf/identity/application-authentication.xml</code> file under the <code><AuthenticatorConfigs></code> section.</p>
+                                <details class="example">
+                                    <summary>Click here to view examples</summary>
+                                            <p><b>Foursquare</b></p>
+                                            ```xml
+                                            <AuthenticatorConfig name="Foursquare" enabled="true">
+                                                <Parameter name="EmailOTP-userAttribute">http://wso2.org/foursquare/claims/email</Parameter>
+                                                <Parameter name="federatedEmailAttributeKey">http://wso2.org/foursquare/claims/email</Parameter>
+                                            </AuthenticatorConfig>
+                                            ```
+                                            <p><b>LinkedIn</b></p>
+                                            ```xml
+                                            <AuthenticatorConfig name="LinkedIn" enabled="true">
+                                                <Parameter name="EmailOTP-userAttribute">http://wso2.org/linkedin/claims/emailAddress</Parameter>
+                                                <Parameter name="federatedEmailAttributeKey">http://wso2.org/linkedin/claims/emailAddress</Parameter>
+                                            </AuthenticatorConfig>
+                                            ```
+                                            <p><b>Facebook</b></p>
+                                            ```xml
+                                            <AuthenticatorConfig name="FacebookAuthenticator" enabled="true">
+                                                <Parameter name="EmailOTP-userAttribute">email</Parameter>
+                                                <Parameter name="federatedEmailAttributeKey">email</Parameter>
+                                            </AuthenticatorConfig>
+                                            ```
+                                        Likewise, you can add the Authenticator Config for Amazon, Google, Twitter, and Instagram with the relevant values.
+                                    </p>
+                                </details>
+                            </li>
+                        </ul>    
+                    </td>
+                    <td>
+                        <ul>
+                            <li><code>local</code></li>
+                            <li><code>association</code></li>
+                            <li><code>userAttribute</code></li>
+                            <li><code>subjectUri</code></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>secondaryUserstore</code></td>
+                    <td>
+                        <p>You can define multiple user stores per tenant as comma separated values.</p>
+                        <p>Example:</p>
+                        ```
+                        <Parameter name="secondaryUserstore">jdbc, abc, xyz</Parameter>
+                        ```
+                        <p>The user store configurations are maintained per tenant:</p>
+                        <ul>
+                            <li>If you use a <b>super tenant</b>, set all the parameter values into the <code><IS_HOME>/repository/conf/identity/application-authentication.xml</code> file under the <code>AuthenticatorConfigs</code> section.</li>
+                            <li>If you use a tenant,
+                                <ul>
+                                    <li>Upload the same XML file (<code>application-authentication.xml</code>) into a specific registry location (<code>/_system/governance/EmailOTP</code>).</li>
+                                    <li>Create the collection named <code>EmailOTP</code>, add the resource and upload the <code>application-authentication.xml</code> file into the registry.</li>
+                                    <li>While doing the authentication,thesysetmfirstcheckswhetherthereisanXML file uploaded to the registry. If that is so, it reads it from the registry but does not take the local file. If there is no file in the registry, then it only takes the property values from the local file.</li>
+                                    <li>You can use the registry or local file to get the property values.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>EMAILOTPMandatory</code></td>
+                    <td>
+                        <p>Thisparmeterdefineswhtherthe EmailOTP is enforced as the second step of the 2FA/MFA or not.</p>
+                        <ul>
+                            <li>If the user is not found in the active directory where the parameter is set to <code>true</code>, the OTP is directly sent to the email address defined in the claims set.</li>
+                            <li>If the user is not found in the active directory where the parameter is set to <code>false</code>, the authentication flow terminates at the first step of the 2FA/MFA.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><code>true</code></li>
+                            <li><code>false</code></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>sendOTPToFederatedEmailAttribute</code></td>
+                    <td>
+                        <p>When the <code>EMAILOTPMandatory</code> and this parameter are set to true and the user is not found in the active directory, the OTPissetn to the mail defined in the federated authenticator claim.</p>
+                        <p>When the <code>EMAILOTPMandatory</code> is set to <code>false</code>, an error page gets displayed.</p>
+                        <p>When the <code>EMAILOTPMandatory</code> is set to false and the user is not found in the active directory, the authentication mechanism terminates at the first step of the 2FA/MFA. This parameter is not required in such a scenario.</p>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><code>true</code></li>
+                            <li><code>false</code></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>federatedEmailAttributeKey</code></td>
+                    <td>This parameter identifies the email attribute of the federated authenticator, e.g. Foursquare. Set this parameter if the <code>sendOTPToFederatedEmailAttribute</code> is set to <code>true</code>. Example: <code>http://wso2.org/foursquare/claims/email</code></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>EmailOTPEnableByUserClaim</code></td>
+                    <td>
+                        <p>This parameter enables the user to overide the functionality defined at the <code>EMAILOTPMandatory</code> parameter.</p>
+                        <ul>
+                            <li>If this parameter and the <code>EMAILOTPMandatory</code> parameters are set to <code>true</code>, the user can either enable or disable the EmailOTP functionality.</li>
+                            <li>If this parameter is set to <code>false</code> where the <code>EMAILOTPMandatory</code> parameter is set to <code>true</code>, the user gets redirected to an error page.</li>
+                            <li>If this parameter and the <code>EMAILOTPMandatory</code> parameters are set to <code>false</code>, the authentication flow terminates at the first step of the 2FA/MFA.</li>
+                            <li>If the user is not available in the active directory</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><code>true</code></li>
+                            <li><code>false</code></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>CaptureAndUpdateEmailAddress</code></td>
+                    <td>This parameter enables the user to update the email address that is used to send the OTP, at the first login where the email address is not previously set.</td>
+                    <td>
+                        <ul>
+                            <li><code>true</code></li>
+                            <li><code>false</code></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>EmailAddressRequestPage</code></td>
+                    <td>
+                        <p>This parameter enables to display a page that requests for an email address where</p>
+                        <ul>
+                            <li>The user has not registered an email address.</li>
+                            <li>Sending OTP is defined as the second step of 2FA/MFA.</li>
+                            <li>The <code>CaptureAndUpdateEmailAddress</code> parameter is set to <code>true</code>.</li>
+                        </ul>
+                        <p>Example: <code>https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp</code></p>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>showEmailAddressInUI</code></td>
+                    <td>This parameter enables to display the email address to which the OTP is sent to on the UI.</td>
+                    <td>
+                        <ul>
+                            <li><code>true</code></li>
+                            <li><code>false</code></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+6.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
 #### Option2: Configure Gmail as the email OTP provider
 
@@ -237,6 +436,7 @@ mechanism to send the OTP.
         EmailOTPEnableByUserClaim = true
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
+        useEventHandlerBasedEmailSender = true
 		```
 		
     ??? Tip
