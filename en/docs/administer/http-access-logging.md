@@ -3,57 +3,20 @@
 HTTP access logs help you monitor your application's usage with
 information such as the persons who access it, how many hits
 it received, what the errors are, etc. This information is useful for
-troubleshooting errors. All WSO2 products can enable access logs for the
-HTTP servlet transport. This servlet transport works on 9443/9763 ports,
+troubleshooting errors. WSO2 Identity Server can enable access logs for the
+HTTP servlet transport. This servlet transport works on `9443`/`9763` ports,
 and it recieves admin/operation requests. Therefore, access logs for the
 servert transpot is useful for analysing operational/admin-level access
 details.
 
-!!! note
-    
-    Using WSO2 ESB, WSO2 EI, or WSO2 APIM?
-    
-    In products such as **WSO2 Enterprise Service Bus** (WSO2 ESB), **WSO2
-    Enterprise Integrator** (WSO2 EI), and **WSO2 API Manager** (WSO2 APIM),
-    access logs can be generated for the passthrough transport in addition
-    to the HTTP servlet transport. The passthrough transport works on
-    8280/8243 ports, and is used for API/Service invocations. By default,
-    the access logs from both the servlet transport and the passthrough
-    transport are written to a common access log file located in the
-    `         <PRODUCT_HOME>/repository/logs/        ` directory.
-    
-    See the documentation for these specific products for instructions on
-    how to use access logs.
-    
-    **Note** that access logs for the HTTP servlet transport logs details of
-    the request as well as the response. However, the access logs for the
-    passthrough transport only logs the request details.
-    
-
-See the topics given below to configure the default behaviour of HTTP
-access logs in WSO2 products.
-
--   [Configuring access logs for the HTTP servlet
-    transport](#HTTPAccessLogging-ConfiguringaccesslogsfortheHTTPservlettransport)
--   [Customizing access logs by
-    pattern](#HTTPAccessLogging-Customizingaccesslogsbypattern)
-    -   [Example 1: Logging request
-        headers](#HTTPAccessLogging-Example1:Loggingrequestheaders)
-    -   [Example 2: Logging response
-        headers](#HTTPAccessLogging-Example2:Loggingresponseheaders)
-    -   [Example 3: Logging other variable
-        values](#HTTPAccessLogging-Example3:Loggingothervariablevalues)
-    -   [Example 4: Logging URL encoded
-        parameters](#HTTPAccessLogging-Example4:LoggingURLencodedparameters)
 
 ### Configuring access logs for the HTTP servlet transport
 
-As the runtime of WSO2 products is based on Apache Tomcat, you can use
+As the runtime of WSO2 Identity Server is based on Apache Tomcat, you can use
 the `         Access_Log_Valve        ` variable in Tomcat as explained
 below to configure access logs to the HTTP servlet transport:
 
-1.  Open the \<
-    `           PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml          `
+1.  Open the `<IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
     file (which is the server descriptor file for the embedded Tomcat
     integration)
 
@@ -123,23 +86,13 @@ below to configure access logs to the HTTP servlet transport:
 3.  Restart the server. According to the default configurations, a log
     file named
     `           localhost_access_log_sample.{DATE}.log          ` is
-    created inside the \<
-    `           PRODUCT_HOME>/repository/logs          ` directory. The
+    created inside the `<IS_HOME>/repository/logs          ` directory. The
     log is rotated on a daily basis.
 
 ### Customizing access logs by pattern
 
 Given below are a few sample configurations for customizing the
 `         pattern        ` attribute:
-
--   [Example 1: Logging request
-    headers](#HTTPAccessLogging-Example1:Loggingrequestheaders)
--   [Example 2: Logging response
-    headers](#HTTPAccessLogging-Example2:Loggingresponseheaders)
--   [Example 3: Logging other variable
-    values](#HTTPAccessLogging-Example3:Loggingothervariablevalues)
--   [Example 4: Logging URL encoded
-    parameters](#HTTPAccessLogging-Example4:LoggingURLencodedparameters)
 
 #### Example 1: Logging request headers
 

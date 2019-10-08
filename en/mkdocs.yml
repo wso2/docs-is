@@ -763,8 +763,7 @@ nav:
       - 'Changing the Default Ports': 
         - 'Changing the Default Ports': administer/changing-the-default-ports.md
         - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
-      - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md
-      - 'Customizing Error Pages': administer/customizing-error-pages.md
+      - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md      
       - 'Installing WSO2 Products as a Service':  setup/installing-wso2-products-as-a-service.md
       - 'Managing Datasources':
         - 'Managing Datasources': administer/managing-datasources.md
@@ -796,18 +795,12 @@ nav:
         - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
         - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
         - 'Adding New Tenants': administer/adding-new-tenants.md
-    - 'Performance Tuning': administer/performance-tuning.md
     - 'Monitoring':
       - 'Monitoring': administer/monitoring.md
       - 'Capturing System Data in Error Situations': administer/capturing-system-data-in-error-situations.md
       - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
       - 'Monitoring Logs':
-        - 'Monitoring Logs': administer/monitoring-logs.md
-        - 'Monitoring Logs using Management Console':
-          - 'Monitoring Logs using Management Console': administer/monitoring-logs-using-management-console.md
-          - 'Configuring Log4j Properties': administer/configuring-log4j-properties.md
-          - 'Configuring the Log Provider': administer/configuring-the-log-provider.md
-          - 'View and Download Logs': administer/view-and-download-logs.md
+        - 'Monitoring Logs': administer/monitoring-logs.md        
         - 'HTTP Access Logging': administer/http-access-logging.md
         - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
       - 'Monitoring Message Flows': administer/monitoring-message-flows.md
