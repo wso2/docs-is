@@ -57,33 +57,17 @@ self-registration.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        ` .
 
-1.  Configure the following email settings in the \<
-    `           IS_HOME>/repository/conf/output-event-adapters.xml          `
-    file.
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
 
-    |                                                   |                                                |
-    |---------------------------------------------------|------------------------------------------------|
-    | `               mail.smtp.from              `     | Provide the email address of the SMTP account. |
-    | `               mail.smtp.user              `     | Provide the username of the SMTP account.      |
-    | `               mail.smtp.password              ` | Provide the password of the SMTP account.      |
-
-    ``` java
-    <adapterConfig type="email">
-        <!-- Comment mail.smtp.user and mail.smtp.password properties to support connecting SMTP servers which use trust
-            based authentication rather username/password authentication -->
-        <property key="mail.smtp.from">abcd@gmail.com</property>
-        <property key="mail.smtp.user">abcd</property>
-        <property key="mail.smtp.password">xxxx</property>
-        <property key="mail.smtp.host">smtp.gmail.com</property>
-        <property key="mail.smtp.port">587</property>
-        <property key="mail.smtp.starttls.enable">true</property>
-        <property key="mail.smtp.auth">true</property>
-        <!-- Thread Pool Related Properties -->
-        <property key="minThread">8</property>
-        <property key="maxThread">100</property>
-        <property key="keepAliveTimeInMillis">20000</property>
-        <property key="jobQueueSize">10000</property>
-    </adapterConfig>
+    ``` toml
+    [output_adapter.email]
+    from_address= "wso2iamtest@gmail.com"
+    username= "wso2iamtest"
+    password= "Wso2@iam70"
+    hostname= smtp.gmail.com
+    port= 587
+    enable_start_tls= true
+    enable_authentication= true
     ```
 
     !!! tip
