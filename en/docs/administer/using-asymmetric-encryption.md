@@ -1,7 +1,8 @@
 # Using Asymmetric Encryption
 
-WSO2 Identity Server uses asymmetric encryption by default for the authentication and protection of data. In asymmetric encryption, keystores (with private keys and public key certificates) and
-truststores (with only public key certificates) are created and stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. The following topics explain more details on keystores and truststores, and how they are used in WSO2 Identity Server.
+Asymmetric encryption uses public and private keys to encrypt and decrypt data. While the **public key** of the key pair is shared with external parties, the **private key** is kept secret. When one of the key pair is used to encrypt a message, the othe key can be used to decrypt it. In a **keystore**, you can store both private and public keys and in a **truststore** you can store only public keys. 
+
+WSO2 Identity Server uses asymmetric encryption by default for the authentication and protection of data. The following topics explain more details on keystores and truststores and how they are used in WSO2 Identity Server.
 
 ## About keystores and truststores
 
@@ -25,7 +26,9 @@ In summary, each trust chain entry in a keystore contains the following:
 ### Truststores
 
 The usage of a truststore in WSO2 Identity Server aligns with this concept of trust explained above. A truststore is just another repository that is protected by a password (similar to a keystore), which stores digital certificates. These certificates can be either of the following: 
+
 -   Certificates of trusted third parties with which a software system intends to communicate directly.
+
 -   Certificates of reputed certificate signing authorities (CA) that can be used to validate the identity of untrusted third parties that are being contacted. For example, consider a scenario where the
     exact certificate of the third party that the WSO2 Identity Server is attempting to contact is not in the truststore. In this scenario, if the third party has a CA-signed certificate and one of the
     certificates of its trust chain is already included in the WSO2 Identity Server's truststore, the trust is automatically granted and a successful SSL connection is established between the WSO2 server and the third party.
@@ -90,6 +93,9 @@ Follow the recommendations given below when you set up your keystores.
     replacing the certificates in the keystore. See [Adding CA-signed certificates](../../administer/creating-new-keystores#adding-ca-signed-certificates-to-keystores) to keystores for instructions.
 
 !!! info
+    
     -   For information on creating new keystores with the required certificates, see [Creating New Keystores](../../administer/creating-new-keystores).
-    -   For information on how to update configuration files in WSO2 Identity Server with keystore information, see [Configuring Keystores in WSO2 Products](../../administer/configuring-keystores-in-wso2-products).
+    
+    -   For information on how to update configuration files in WSO2 Identity Server with keystore information, see [Configuring Keystores](../../administer/configuring-keystores-in-wso2-products).
+
     

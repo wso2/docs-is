@@ -2,7 +2,7 @@
 
 WSO2 Identity Server by default has one keystore. To mitigate security incidents it is advisable to maintain multiple keystores. For example, if one keystores gets compromised, you can continue with the other keystores that are intact. Mainly, you may maintain three keystores:
 
--	A keystore to store tokens, which is mentioned in the carbon.xml file.
+-	A keystore to store tokens, which is mentioned in the `deployment.toml` file.
 -	An internal keystore to store internal critical data such as encrypted passwords. 
 -	A keystore for Tomcat SSL connection, which is the secondary keystore of the WSO2 Identity Server.
 
