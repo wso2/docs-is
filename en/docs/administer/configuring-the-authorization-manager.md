@@ -36,7 +36,7 @@ You can change this as follows:
 
 For information on how you can set up a new RDBMS and configure it for
 your system, see [Setting Up the Physical
-Database](../../administer/setting-up-the-physical-database), and for information on
+Database](../../administer/working-with-databases), and for information on
 the purpose of defining datasources and how they are configured for a
 product, see [Managing Datasources](../../administer/managing-datasources).
 
