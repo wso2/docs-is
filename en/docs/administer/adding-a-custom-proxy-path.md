@@ -21,45 +21,42 @@ Paths](../assets/img/53125476/53287365.png "Custom Proxy Paths")
 
 **Proxy URLs mapped to Carbon server URLs:**
 
--   [https://10.100.1.1:\<ListeningPort-apimanager\>/carbon](https://10.100.1.1:9443/carbon)
-    mapped to <https://wso2test.com/apimanager> .
--   [https://10.100.1.1:\<ListeningPort-esb\>/carbon](https://10.100.1.1:9443/carbon)
-    mapped to <https://wso2test.com/esb> .
--   [https://10.100.1.1:\<ListeningPort-appserver\>/carbon](https://10.100.1.1:9443/carbon)
-    mapped to <https://wso2test.com/appserver> .
+<ul>
+    <li><a href=">https://10.100.1.1:<ListeningPort-apimanager>/carbon">https://10.100.1.1:9443/carbon</a> mapped to <code>https://wso2test.com/apimanager</code></li>
+    <li><a href="https://10.100.1.1:9443/carbon">https://10.100.1.1:<ListeningPort-esb>/carbon</a> mapped to <code>https://wso2test.com/esb</code></li>
+    <li><a href="https://10.100.1.1:9443/carbon">https://10.100.1.1:<ListeningPort-appserver>/carbon]</a> mapped to <code>https://wso2test.com/appserver</code></li>
+</ul>     
+!!! note 
+    -   This functionality is usually not required by newer deployments as
+        there are better ways to deploy multiple products with different
+        proxy path, having same URL. Using containers are one such better
+        approach.
 
-
-    
-    !!! note    "Note the following:"
-        -   This functionality is usually not required by newer deployments as
-            there are better ways to deploy multiple products with different
-            proxy path, having same URL. Using containers are one such better
-            approach.
-    
-        -   Once you have configured your products with a proxy server, it will
-            no longer be possible to access the product behind the proxy. See
-            the section given below on [configuring products to use the proxy
-            server](#adding-a-custom-proxy-path-step2) for more information.
+    -   Once you have configured your products with a proxy server, it will
+        no longer be possible to access the product behind the proxy. See
+        the section given below on [configuring products to use the proxy
+        server](#step-2-configure-identity-server-with-proxy-context-path) for more information.
     
 
-In the above example, "apimanager", "esb" and "appserver" are the "proxy
-context paths" of the respective products, which are configured in the
-`         carbon.xml        ` file (stored in
-`         <PRODUCT_HOME>/repository/conf/        ` directory) for each
-product. When a client sends a request to the proxy entry url path, e.g.
-<https://wso2test.com/apimanager>, the request is directed to the
-back-end service url (
-[https://10.100.1.1:\<PortNumber\>/carbon](https://10.100.1.1:9443/carbon)
-) where the original service lies. Eventually, the client has to be
+In the above example, `apimanager`, `esb`, and `appserver` are the `proxy
+context paths` of the respective products, which are configured in the
+`         deployment.toml        ` file in the
+`         <PRODUCT_HOME>/repository/conf/        ` directory for each
+product. 
+
+When a client sends a request to the proxy entry url path, e.g.,
+`https://wso2test.com/apimanager`, the request is directed to the
+back-end service url (<a href="https://10.100.1.1:9443/carbon">https://10.100.1.1:<PortNumber>/carbon]</a>) where the original service lies. Eventually, the client has to be
 served via the requested proxy entry url path. The mapping between the
 proxy url path and the back-end service url path is resolved by the
 reverse proxy server fronting the back-end service.
 
 Prior to this solution, it was necessary to host these products as sub
 domains of the "wso2.com" domain as:
-[https://apim.wso2.com](https://apim.wso2test.com),
-[https://esb.wso2.com](https://esb.wso2test.com),
-[https://as.wso2.com](https://as.wso2test.com).
+
+-   [https://apim.wso2.com](https://apim.wso2test.com)
+-   [https://esb.wso2.com](https://esb.wso2test.com)
+-   [https://as.wso2.com](https://as.wso2test.com)
 
 ### Access WSO2 products through a custom proxy path
 
@@ -68,20 +65,13 @@ WSO2 product servers as examples; WSO2 Application Server and WSO2 ESB
 as the back-end servers, and [nginx](http://nginx.org/) as the reverse
 proxy.
 
-    !!! note "Note the following:"
-        -   The nginx configurations are given below are only for illustrative 
-            purposes. You would require consulting the nginx documentation to
-            get the correct way to do the configurations for the version of nginx
-            you are using.
+!!! note 
+    The nginx configurations are given below are only for illustrative 
+        purposes. You would require consulting the nginx documentation to
+        get the correct way to do the configurations for the version of nginx
+        you are using.
     
 Follow the steps given below.  
-
--   [Step 1: Install and configure a reverse
-    proxy](#AddingaCustomProxyPath-Step1:Installandconfigureareverseproxy)
--   [Step 2: Configure products with proxy context
-    path](#AddingaCustomProxyPath-Step2Step2:Configureproductswithproxycontextpath)
--   [Step 3: Start the
-    Product](#AddingaCustomProxyPath-Step3:StarttheProduct)
 
 #### Step 1: Install and configure a reverse proxy
 
@@ -252,11 +242,8 @@ Follow the steps given below.
     hostname = "wso2test.com"
     proxy_context_path = "identityserver" 
     ```   
-4. Start the Identity Server   
-    
-   
-       
-<a name="#adding-a-custom-proxy-path-step2" />
+4. Start the Identity Server        
+
 
 #### Step 3: Configure products with proxy context path
 
