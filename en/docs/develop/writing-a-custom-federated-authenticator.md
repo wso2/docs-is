@@ -1,8 +1,7 @@
 # Writing a Custom Federated Authenticator
 
 It is possible to use the extension points available in the WSO2
-Identity Server to create custom federated authenticators. See the
-following sections to create different custom authenticators.
+Identity Server to create custom federated authenticators.
 
 ### Authenticator API
 

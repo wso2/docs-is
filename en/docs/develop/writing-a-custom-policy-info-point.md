@@ -10,17 +10,17 @@ This topic provides instructions on how to write a simple PIP attribute
 finder module to plug in to the WSO2 Identity Server. There are two ways
 that you can write a PIP attribute finder module.
 
-1.  By implementing the “PIPAttributeFinder” interface. You can find the
+1.  By implementing the `PIPAttributeFinder` interface. You can find the
     latest interface
     [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/PIPAttributeFinder.java)
     .
-2.  By extending the “AbstractPIPAttributeFinder” abstract class You can
+2.  By extending the `AbstractPIPAttributeFinder` abstract class You can
     find the latest abstract class
     [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/AbstractPIPAttributeFinder.java)
     .
 
 Of the above methods, it would be easier to extend the
-“AbstractPIPAttributeFinder” abstract class and write a PIP attribute
+`AbstractPIPAttributeFinder` abstract class and write a PIP attribute
 finder module.
 
 ### Sample scenario
@@ -38,9 +38,9 @@ Identity Server. This sample project can be downloaded
     [here](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/resources/dbScript/testUserStore.sql)
     for a sample script that is used to create the tables.
 
-2.  Write a PIP module by extending “
-    `          AbstractPIPAttributeFinder         ` ”. Download the “
-    `          KMarketJDBCAttributeFinder         ` ” class
+2.  Write a PIP module by extending 
+    `          AbstractPIPAttributeFinder         `. Download the 
+    `          KMarketJDBCAttributeFinder         `  class
     [here](https://svn.wso2.org/repos/wso2/people/asela/xacml/pip/jdbc/src/main/org/xacmlinfo/xacml/pip/jdbc/KMarketJDBCAttributeFinder.java)
     . The following are the methods you need to implement in order to
     write this module.
