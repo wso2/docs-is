@@ -287,7 +287,7 @@ configuration.
         tail -f ../repository/logs/correlation.log
     ```
 
-    ![Correlatino log screenshot](../assets/img/using-wso2-identity-server/correleation-log-screenshot.png)
+    ![Correlatino log screenshot](../assets/img/using-wso2-identity-server/correlation-log-screenshot.png)
 
 #### Multiple header configs
 
