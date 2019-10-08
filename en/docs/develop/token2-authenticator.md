@@ -59,7 +59,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
 
 You have now enabled the token2 hardware device.
 
-### Deploying [travelocity.com](http://travelocity.com) sample
+### Deploying travelocity.com sample
 
 The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
 in order to use it in this scenario.
@@ -96,7 +96,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
 
     | Field        | Description                                                                                                                              | Sample Value                                                                                                                           |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](_Configuring_Multi-factor_Authentication_using_Token2_). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
+    | ApiKey       | This is the API key you obtained when [configuring the Token2 hardware device](#configuring-the-token2-hardware-device). | `                7cf6eof73be1c38952ca81dd68a               `                                                                           |
     | Callback URL | This is the service provider's URL to which the code is sent.                                                                            | `                                                   https://localhost:9443/commonauth                                                ` |
 
 9.  Click **Register**.  
@@ -205,7 +205,7 @@ The next step is to configure the service provider.
 2.  In the **Identity** section under the **Main** tab, click **Add**
     under **Service Providers**.
 
-3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
+3.  Enter **travelocity.com** in the **Service
     Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
@@ -261,22 +261,22 @@ The next step is to configure the service provider.
 		<p class="admonition-title">About NameID formats</p>
 		<p>For SSO interactions, you can use the following types of NameID formats.</p>
 		<ul>
-		<li><code>                       urn:oasis:names:tc:SAML:2.0:nameid-format:persistent                      </code></li>
-		<li><code>                       urn:oasis:names:                      </code> tc <code>                       :SAML:2.0:                      </code> nameid <code>                       -format:transient                      </code></li>
-		<li><code>                       urn:oasis:names:                      </code> tc <code>                       :SAML:1.1:                      </code> nameid <code>                       -format:                      </code></li>
-		<li><code>                       emailAddressurn:oasis:names:tc:SAML:1.1:nameid-format:unspecified                      </code></li>
-		<li><code>                       urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName                      </code></li>
-		<li><code>                       urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName                      </code></li>
-		<li><code>                       urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos                      </code></li>
-		<li><code>                       urn:oasis:names:tc:SAML:2.0:nameid-format:entity                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:2.0:nameid-format:persistent                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:2.0:nameid-format:transient                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:                      </code></li>
+		<li><code>                       emailAddressurn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:unspecified                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:X509SubjectName                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:2.0:nameid-format:kerberos                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:2.0:nameid-format:entity                      </code></li>
 		</ul>
 		<p>This specifies the name identifier format that the Identity Server wants to receive in the subject of an assertion from a particular identity provider. The following is the default format used by the identity provider.</p>
 		<ul>
-		<li><code>                       urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress                      </code></li>
+		<li><code>                       urn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:emailAddress                      </code></li>
 		</ul>
 		</div>
 		</div></div></td>
-		<td><p>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</p></td>
+		<td><p>urn:oasis:names:<zero-width-space>tc:SAML:1.1:nameid-format:emailAddress</p></td>
 		</tr>
 		<tr class="odd">
 		<td>Certificate Alias</td>
@@ -340,7 +340,7 @@ The next step is to configure the service provider.
 		</tr>
 		<tr class="odd">
 		<td>Enable Assertion Query Request Profile</td>
-		<td>Select the Enable Assertion Query Request Profile checkboxto query assertions that are persisted to the database when you loginto the service provider application. For more information, see <a href="https://docs.wso2.com/display/IS530/Querying+SAML+Assertions">Querying SAML Assertions</a> .</td>
+		<td>Select the Enable Assertion Query Request Profile checkboxto query assertions that are persisted to the database when you loginto the service provider application. For more information, see <a href="../../learn/querying-saml-assertions">Querying SAML Assertions</a> .</td>
 		<td>Unselected</td>
 		</tr>
 		</tbody>
@@ -374,7 +374,7 @@ The next step is to configure the service provider.
 10. Select the **Advanced configuration** radio button option .
 
 11. Add the **basic** authentication as a first step and **token2**
-    authentication as a second step . This is done to configure
+    authentication as a second step. This is done to configure
     multi-step authentication. What this means is that a user who logs
     in would first have to enter their credentials that are configured
     with the Identity Server and then get authenticated using Token2 as

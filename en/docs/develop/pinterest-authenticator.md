@@ -26,8 +26,7 @@ following sections.
     directory. You can download the .jar file (
     `           org.wso2.carbon.extension.identity.authenticator.Pinterest.connector          `
     ) from [the WSO2
-    Store](https://store.wso2.com/store/assets/isconnector/list?q=%2522_default%2522%253A%2522Pinterest%2522)
-    .  
+    Store](https://store.wso2.com/store/assets/isconnector/details/5cc54dd5-8a4b-4da2-8522-4d7d582b6610).  
 
     !!! note
         If you want to upgrade the Pinterest Authenticator (.jar) in your
@@ -36,16 +35,18 @@ following sections.
 
 2.  Navigate to <https://developers.pinterest.com/apps/> and create a
     new app as described in the [Pinterest Getting Started
-    documentation](https://developers.pinterest.com/docs/api/overview/)
-    .
+    documentation](https://developers.pinterest.com/docs/api/overview/).
+
 3.  Enter the **Name** and **Description** of your new app and then
     click the **Create** button.  
     ![](../assets/img/60096589/60096627.png)
+
 4.  Enter the redirect URL as <https://localhost:9443/commonauth> in the
     page that appears.  
     This is the WSO2 IS endpoint to which Pintrest, who is the federated
     authenticator, needs to send the authentication response.  
     ![](../assets/img/60096589/60096629.png) 
+    
 5.  You have now finished configuring Pinterest. Copy the **App ID** and
     **App secret** from the resulting page.  
     ![](../assets/img/60096589/60096630.png) 
@@ -88,13 +89,12 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     | Client Secret | This is the password from the Pinterest application. Click the **Show** button to view the value you enter.                                                                                            | 7514127b86f6a5b6a5f4625cb9ba967f10ba0cdb3fef5bf20a91b0cc7b261818 |
     | Callback URL  | This is the URL to which the browser should be redirected after the authentication is successful. It should have this format: https://(host-name):(port)/acs.                                          | https://localhost:9443/commonauth                                |
 
-5.  Go to **Pinterest Authenticator Configuration** under **Federated
-    Authenticators**.
+5.  Go to **Pinterest Authenticator Configuration** under **Federated Authenticators**.
 6.  Enter the values as given in the above figure.  
     -   **Client Id** : App ID for your app.
     -   **Client Secret** : App secret for your app.
     -   **Callback URL** : Service Provider's URL where code needs to be
-        sent .
+        sent.
 
 You have now added the identity provider.
 
@@ -142,8 +142,7 @@ The next step is to configure the service provider.
     ![](../assets/img/60096589/60489892.png) 
 
 5.  Click [Add external
-    claim](../../learn/adding-claim-mapping#add-external-claim)
-    . Use the Dialect Uri as http://wso2.org/pinterest/claims. You can
+    claim](../../learn/adding-claim-mapping#add-external-claim). Use the Dialect Uri as http://wso2.org/pinterest/claims. You can
     create the external claims here.  
     ![](../assets/img/60096589/60490348.png)
     Create the claim for Pinterest user id while creating the claim
@@ -190,8 +189,7 @@ The next step is to configure the service provider.
     !!! note
         For more details on configuring claims for a service provider,
         Please refer
-        [this](../../learn/configuring-claims-for-a-service-provider)
-        .
+        [this](../../learn/configuring-claims-for-a-service-provider).
 
     1.  In the **Identity** section under the **Main** tab, click
         **List** under **Identity Providers**.
@@ -229,8 +227,7 @@ the service provider for different purposes.
 ### Testing the sample
 
 1.  To test the sample, go to the following URL:
-    `            http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp           `
-    . E.g., <http://localhost:8080/travelocity.com>  
+    `            http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp           `. E.g., <http://localhost:8080/travelocity.com>  
     ![](../assets/img/60096589/60096639.png)
 2.  Click the link to log in with SAML from the WSO2 Identity Server.
 3.  You are redirected to the Pinterest sign in page. Enter your

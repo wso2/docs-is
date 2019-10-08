@@ -8,7 +8,7 @@ communities and is made up of thousands of active communities (known as
 are created and maintained by regular users. The diagram below
 illustrates the flow of the Reddit federated authenticator.
 
-![](../assets/img/50520527/76746184(../../learn/adding-claim-mapping)=border-simple,blur-border)
+![](../assets/img/50520527/76746184.png)
 
 This page provides instructions on how to configure the Reddit
 authenticator and Identity Server using a sample app. You can find more
