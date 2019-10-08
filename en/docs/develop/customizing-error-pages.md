@@ -13,11 +13,10 @@ messages in Apache Tomcat.
 The pages that should be displayed on a
 certain throwable exception, error or an HTTP status code are specified
 in the
-`          <IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.         `
-xml file. You can customize those error pages as preferred. For example,
+`          <IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.xml ` file. You can customize those error pages as preferred. For example,
 if you try to access a resource that is not available in the Carbon
-server (e.g., `https://10.100.5.72:9443/abc`), you will view the error
-page as follows: " `          Error 404 - Not Found         ` ".
+server (e.g., https://10.100.5.72:9443/abc), you will see the "Error 404 - Not Found"
+page.
 
 You can customize the above error message by following the instructions
 given below.
@@ -28,9 +27,9 @@ given below.
 2.  [Create a Maven project using your
     IDE.](https://maven.apache.org/guides/getting-started/index.html#How_do_I_make_my_first_Maven_project)
 
-3.  Create a directory named `            resources           ` inside
+3.  Create a directory named "resources" inside
     the `            <PROJECT_HOME>/src/main/           ` directory, and
-    then create another directory named `            web           `
+    then create another directory named "web"
     inside it.
 
     !!! tip    
@@ -58,12 +57,14 @@ given below.
     `           <PROJECT_HOME>/src/main/web          ` directory.
 6.  Add the following property below the
     `            <version>           ` element in the
-    `            <PROJECT_HOME>/pom.           ` xml file:
-    `            <packaging>bundle</packaging>           `
+    `            <PROJECT_HOME>/pom.xml` file:
+    ```xml
+    <packaging>bundle</packaging> 
+    ```
 
 7.  Add the following configurations inside the
     `            <plugins>           ` element in the
-    `            <PROJECT_HOME>/pom.           ` xml file.
+    `            <PROJECT_HOME>/pom.xml` file.
 
     ``` xml
     <plugin>
@@ -90,7 +91,7 @@ given below.
 
 8.  Add the following configurations inside the
     `            <dependencies>           ` element in the
-    `            <PROJECT_HOME>/pom.           ` xml file:
+    `            <PROJECT_HOME>/pom.xml` file:
 
     ``` xml
     <dependency>
@@ -100,13 +101,17 @@ given below.
     </dependency>
     ```
 
-9.  Build the Maven project by executing the following command: mvn
-    `            clean install           `
+9.  Build the Maven project by executing the following command: 
+
+    ```bash 
+    mvn clean install           
+    ```
 
 10. Once the project is built, copy the JAR file (from the
     `           <PROJECT_HOME>/target/          ` directory) to the
     `           <IS_HOME>/repository/components/dropins/          `
     directory.
+
 11. Change the following configurations in the
     `            <IS_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml           `
     file.
@@ -126,7 +131,9 @@ given below.
     
 
 12. Restart the WSO2 Identity Server.
+
 13. Access the following URL again, to test the error page you
-    customized: `https://10.100.5.72:9443/abc`.  
+    customized: https://10.100.5.72:9443/abc.  
+    
     You will view the new error page with the following content: "
-    `            Sorry, this resource is not found.           ` "
+               Sorry, this resource is not found.           "
