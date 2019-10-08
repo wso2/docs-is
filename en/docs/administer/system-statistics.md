@@ -6,14 +6,36 @@ server name, server start time, system up time, active services, total
 memory, average response time, minimum response time, and maximum
 response time.
 
-Follow the instructions below to access the system statistics.
+!!! tip "Before you begin"
 
-1.  Sign in. Enter your user name and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console).
-    
-2.  Navigate to the **Monitor** menu and click on **System Statistics**. The **System Statistics** page appears with statistics related to
-    the Identity Server usage.  
-    ![System statistics](../assets/img/using-wso2-identity-server/system-statistics.png) 
+    Follow the instructions below to access the system statistics.
+
+    1.  Sign in. Enter your user name and password to log on to the
+        [Management Console](../../setup/getting-started-with-the-management-console).        
+        
+    2.  Navigate to the **Monitor** menu and click on **System Statistics**. The **System Statistics** page appears with statistics related to
+        the Identity Server usage.  
+        ![System statistics](../assets/img/using-wso2-identity-server/system-statistics.png) 
+
+### Service Summary
+
+![](../assets/img/53125409/53287308.png)
+
+This panel provides the following information:
+
+-   **Average Response Time** - The average amount of time taken by the
+    mediation channel to mediate a message (in milliseconds).
+-   **Minimum Response Time** - The least amount of time taken by the
+    mediation channel to mediate a message (in milliseconds).
+-   **Maximum Response Time** - The most amount of time taken by the
+    mediation channel to mediate a message (in milliseconds).
+-   **Total Request Count -** The total number of messages received and
+    mediated through the mediation channel.
+-   **Total Response Count -** The total number of messages sent and
+    mediated through the mediation channel.
+-   **Total Fault Count -** The number of messages that triggered faults
+    while being mediated through the channel.
+-   **Active Services** - The number of currently active services.
 
 ### Server information
 
@@ -27,6 +49,12 @@ This panel provides the following information:
 -   **Memory Usage** - Shows the memory capacity used by the server.
 
 ![Server information](../assets/img/using-wso2-identity-server/server-information.png) 
+
+### Response Time Graph
+
+![](../assets/img/53125409/53287309.png)
+
+This graph shows the temporal variation of the Average Response time.
 
 ### Memory graph
 

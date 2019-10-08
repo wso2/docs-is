@@ -7,7 +7,7 @@ dashboard in a WSO2 product.
 
 For detailed instructions on enabling/disabling JVM metrics and
 configuring the metric gauges, see [Setting up Carbon
-Metrics](../../administer/setting-up-carbon-metrics.md).
+Metrics](../../administer/setting-up-carbon-metrics).
 
 1.  Log in to the management console of your WSO2 product. Click
     **Monitor -\> Metrics -\> JVM Metrics** to open the **View Metrics**
@@ -24,8 +24,8 @@ Metrics](../../administer/setting-up-carbon-metrics.md).
     and refresh the web page.  
     ![](../assets/img/53125402/53287285.png)  
     Statistics corresponding to each button can be viewed as follows:
-    -   **CPU  
-        ** Click this button to view statistics relating to the CPU as
+    -   **CPU** 
+        Click this button to view statistics relating to the CPU as
         shown below.  
         ![](../assets/img/53125402/53287284.png)
         ![](../assets/img/53125402/53287293.png)
