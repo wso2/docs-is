@@ -4,35 +4,12 @@ With the SAML2 relying party capabilities of Carbon, it is possible to
 set up Single Sign-On between different WSO2 Product instances where
 WSO2 Identity Server acts as the identity provider while other WSO2
 products act as the relying party. This topic provides instructions on
-how to set up Single Sign-On between different WSO2 products.
+how to set up Single Sign-On between different WSO2 products. 
 
-#### Step 1 - Installing the SAML2 relying party (SAML2 SSO Authenticator) feature in a Carbon Server
+## Configuring the Carbon Server to use the SAML2-based authentication
 
-!!! note
-    
-    You only need to do this step if "SAML2 based Single Sign-On
-    authenticator" is not installed in your WSO2 product.
-    
-
-SAML2 relying party components are not shipped with the default Carbon
-distribution. However, these bundles are packages that can be installed
-as a feature, which is available in the online-hosted P2 repository.
-Therefore, it is possible to install this feature with minimal effort
-through the Carbon Feature Manager.
-
-1.  Add the WSO2 online P2 repository as a new repository. Usually, the
-    hosted P2 repository is available at this URL:
-    http://dist.wso2.org/p2/carbon/releases/ (Carbon-Release-Version
-    ). Learn how to add a repository to the Identity Server here .
-2.  Search for the word "authenticator". Select "SAML2 based Single
-    Sign-On authenticator" from the result and click "Install." See
-    Installing Features .
-
-#### Step 2 - Configuring the Carbon Server to use the SAML2-based authentication instead of default username/password-based authentication
-
-After installing the SAML2 relying party components (SAML2 SSO
-authenticator), it is necessary to configure the SAML2 SSO
-authentication component to communicate with the Identity Server for
+This step is to configure Carbon Server Server to use the SAML2-based authentication instead of default username/password-based authentication.  It is necessary to configure the SAML2 SSO
+authentication component to communicate with WSO2 Identity Server for
 user authentication. This can be configured in the
 `         IS_HOME/repository/conf/deployment.toml        `
 file.
@@ -75,7 +52,7 @@ idp_cert_alias = wso2carbon
     This is specifically used whenever a Carbon server uses IS as the
     identity provider.
 
-#### Step 3 - Configuring the Identity Server as the Single Sign-On provider
+## Configuring WSO2 Identity Server as the SSO provider
 
 Finally, you need to configure the Identity Server to act as the Single
 Sign-on provider. Each relying party should be registered as a service
@@ -84,7 +61,7 @@ configuration for registering a Carbon server as a service provider.
 
 1.  Sign in. Enter your username and password to log on to the
     [Management
-    Console](https://docs.wso2.com/display/IS510/Getting+Started+with+the+Management+Console)
+    Console](../../setup/getting-started-with-the-management-console)
     .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
@@ -97,8 +74,8 @@ configuration for registering a Carbon server as a service provider.
     **Configure**.
 6.  Fill in the form that appears.
     -   Specify the **Issuer**. This should be equal to the
-        `            ServiceProviderID           ` value mentioned in
-        the `            authenticators.xml           ` of the relying
+        `            service_provider_id           ` value mentioned in
+        the `            deployment.toml           ` of the relying
         party Carbon server.
     -   Specify the **Assertion Consumer URL**. This is the URL to
         which the browser should be redirected after the authentication

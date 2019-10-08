@@ -65,6 +65,7 @@ nav:
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
     - 'Tutorials':
+      - 'Tutorials': learn/tutorials.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -612,6 +613,7 @@ nav:
       - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
+    - 'Administer': administer/wso2-administration-guide.md
     - 'Product Administration': 
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
