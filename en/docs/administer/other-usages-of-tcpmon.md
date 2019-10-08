@@ -3,13 +3,8 @@
 TCPMon is primarily used for message monitoring. Additionally, TCPMon
 can also be used for sending requests to web services and as a proxy
 service. Refer [Starting
-TCPMon](https://docs.wso2.com/display/Carbon440/Starting+TCPMon) for
+TCPMon](../../administer/starting-tcpmon) for
 details on how to start the tool.
-
--   [Sending Requests for Web
-    Services](#OtherUsagesofTCPMon-SendingRequestsforWebServices)
--   [As a Proxy](#OtherUsagesofTCPMon-AsaProxy)
--   [Advanced Settings](#OtherUsagesofTCPMon-AdvancedSettings)
 
 #### Sending Requests for Web Services
 

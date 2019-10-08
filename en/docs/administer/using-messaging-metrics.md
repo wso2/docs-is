@@ -7,7 +7,7 @@ monitoring broker-specific statistics.
 !!! note
     
     The metrics feature is enabled in the broker by default. See the topic
-    on [setting up WSO2 Carbon metrics](../../administer/setting-up-carbon-metrics.md) for
+    on [setting up WSO2 Carbon metrics](../../administer/setting-up-carbon-metrics) for
     details on how metrics are enabled.
     
 
@@ -66,8 +66,6 @@ Metrics** dashboard.
 
           
 
-        **  
-        **
     -   **Database**  
         ![](../assets/img/87694058/87694051.png)
         ![](../assets/img/87694058/87694052.png)
