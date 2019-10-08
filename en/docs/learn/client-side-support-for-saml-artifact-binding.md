@@ -24,7 +24,7 @@ HTTP Redirect response.
     
     The format of a SAML artifact is shown below:
     
-    ![artifact-format](../assets/img/tutorials/artifact-format.png)
+   ![artifact-format](../assets/img/tutorials/artifact-format.png)
     
 artifact resolution service using the synchronous SOAP binding to obtain
 the SAML message that corresponds to the artifact.
