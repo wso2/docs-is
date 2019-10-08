@@ -39,34 +39,31 @@ Let's learn how to authenticate and authorize REST APIs:
 
 2.  To specify the resources that you want to secure:
 
-    1.  Open the `             identity.xml            ` file found in
+    1.  Open the `             deployment.toml            ` file found in
         the
         `             <IS_HOME>/repository/conf/identity            `
         directory.
 
-    2.  Specify the resource that you want to secure under the
-        `             <ResourceAccssControl>            ` as given
-        below.
+    2.  Specify the resource that you want to secure as given below.
 
         | Parameter            | Description                                                                                                                                                 | Sample Value                                               |
         |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-        | **Resource context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
+        | **context** | This defines the resource context relative to the root context, which needs to be secured.                                                                  | `                 /api/identity/*                `         |
         | **secured**          | This specifies whether to enable or disable security in the given resource context.                                                                         | `                 true                `                    |
-        | **http-method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
-        | **Permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
+        | **http_method**      | This defines the method as `                 all                `, `                 post                `, `                 get                `, etc. | `                 all                `                     |
+        | **permissions**      | This defines the user role permission that is required to authorize the resource. You can enter multiple permission strings in a comma-separated list.      | `                 /permission/admin/login                ` |
 
-        Example:
-
-        ``` xml
-        <ResourceAccessControl>
-            <Resource context="/api/identity/*" secured="true" http-method="all">
-                <Permissions>/permission/admin/login</Permissions>
-            </Resource>
-        </ResourceAccessControl>
-        ```
+        !!! example
+            ```toml
+            [[resource.access_control]]
+            context = "/api/identity/*"
+            secured = true
+            http_method = "all"
+            permissions = ["p1","p2"]
+            ```
 
 3.  To configure intermediate certificate validation, configure the
-    following in the `           identity.xml          ` file as given
+    following in the `           deployment.toml          ` file as given
     below.
 
     <table>
@@ -77,19 +74,14 @@ Let's learn how to authenticate and authorize REST APIs:
     <th>Sample Value</th>
     </tr>
     </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>IntermediateCertificateValidation</strong></td>
-    <td>This defines whether intermediate certificate validation is enabled or not.</td>
-    <td><code>               true              </code></td>
-    </tr>
+    <tbody>    
     <tr class="even">
-    <td><strong>IntermediateCerts</strong></td>
+    <td><strong>cert_cns</strong></td>
     <td>This specifies the context paths of the intermediate certificates.</td>
     <td><code>               localhost              </code></td>
     </tr>
     <tr class="odd">
-    <td><strong>ExemptContext</strong></td>
+    <td><strong>exempt</strong></td>
     <td>This specifies the context paths that needs to be excempted from intermediate certificate validation.</td>
     <td><br />
     </td>
@@ -97,19 +89,13 @@ Let's learn how to authenticate and authorize REST APIs:
     </tbody>
     </table>
 
-    Example:
+    !!! example
+        ```toml
+        [intermediate_cert_validation]
+        cert_cns=[wso2isintcert]
+        exempt_contexts=[scim2]         
+        ```
 
-    ``` xml
-    <IntermediateCertValidation enable="true">
-            <IntermediateCerts>
-                <CertCN>wso2isintcert</CertCN>
-                <CertCN>localhost</CertCN>
-            </IntermediateCerts>
-            <ExemptContext>
-                <Context>scim2</Context>
-            </ExemptContext>
-        </IntermediateCertValidation>
-    ```
 
     !!! info
         When using intermediate certificate validation,
