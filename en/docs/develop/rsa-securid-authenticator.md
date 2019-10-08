@@ -9,8 +9,7 @@ using a built-in clock and the card’s factory-encoded random key.
 
 This page provides instructions on how to configure the RSA SecurID
 authenticator and the WSO2 Identity Server using a sample app to
-demonstrate authentication. You can find more information in the
-following sections.
+demonstrate authentication. 
 
 ### Configuring the RSA Authentication Manager
 
@@ -18,7 +17,7 @@ RSA Authentication Manager 8.1 supports a VMware virtual appliance,
 Hyper-V virtual appliance, and the hardware appliance. The same
 functionality is provided by each type of appliance. See [the setup and
 configuration guide for RSA Authentication Manager
-8.1](https://www.emc.com/collateral/15-min-guide/h12284-am8-setup-config-guide.pdf)
+8.1](https://community.rsa.com/docs/DOC-36981)
 for more information on setting this up.
 
 Once you complete all the required configurations you can access the
@@ -142,14 +141,13 @@ File](https://youtu.be/O09jpBCMwKE?list=PL69kuTXA1IasAousLJVVK1qItFJVALlJc&t=54)
 
 The artifacts can be obtained from the store for this authenticator .
 
-1.  P lace the `          securidauthenticationendpoint.war         `
+1.  Place the `          securidauthenticationendpoint.war         `
     file into the
     `          <IS_HOME>/repository/deployment/server/webapps         `
     directory.
 2.  Place the
-    [`            org.wso2.carbon.extension.identity.authenticator.securid.connector-1.0.1.jar           `]
-    (https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22rsa%22)
-    file into the
+    `org.wso2.carbon.extension.identity.authenticator.securid.connector-1.0.1.jar`
+    file in the
     `           <IS_HOME>/repository/components/          `
     `           dropins          ` directory.  
 
@@ -219,7 +217,7 @@ To test the sample you need to add the RSA user ID in the WSO2 Identity
 Server claim.
 
 1.  Go to the following URL:
-    `          http://<TOMCAT_HOST>:<TOMCAT_PORT>/                     travelocity.com/index.jsp                              `
+    `http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp`
     E.g. <http://localhost:8080/travelocity.com>  
     ![](../assets/img/49092381/49226489.png) 
 2.  Click the link to log in with SAML from WSO2 Identity Server. The
