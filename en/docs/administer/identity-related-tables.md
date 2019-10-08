@@ -3,13 +3,13 @@
 This section lists out all the identity related tables and their
 attributes in the WSO2 Identity Server database.
 
-#### IDN\_BASE\_TABLE
+#### IDN_BASE_TABLE
 
 This table is used to provide information related to the server setup.
-It has only one column `(PRODUCT\_NAME)`, which contains a row with the
+It has only one column `(PRODUCT_NAME)`, which contains a row with the
 value “WSO2 Identity Server”.  
 
-#### IDN\_OAUTH\_CONSUMER\_APPS
+#### IDN_OAUTH_CONSUMER_APPS
 
 This table is used when adding OAuth/OpenID Connect Configuration as
 Inbound Authentication Configuration for a Service Provider. The
@@ -17,16 +17,16 @@ following table lists out the columns and the values they contain.
 
 | Column           | Description                                                |
 |------------------|------------------------------------------------------------|
-| CONSUMER\_KEY    | The OAuth client key                                       |
-| CONSUMER\_SECRET | The OAuth client secret                                    |
+| CONSUMER_KEY    | The OAuth client key                                       |
+| CONSUMER_SECRET | The OAuth client secret                                    |
 | USERNAME         | The username of the user who created the application       |
-| TENANT\_ID       | The tenant ID                                              |
-| APP\_NAME        | The name of the service provider                           |
-| OAUTH\_VERSION   | The supported OAuth version of the application             |
+| TENANT_ID       | The tenant ID                                              |
+| APP_NAME        | The name of the service provider                           |
+| OAUTH_VERSION   | The supported OAuth version of the application             |
 | CALLBACK URL     | The URL to be redirected to when authorization is complete |
-| GRANT\_TYPES     | All the grant types for the application                    |
+| GRANT_TYPES     | All the grant types for the application                    |
 
-#### IDN\_OAUTH1A\_REQUEST\_TOKEN
+#### IDN_OAUTH1A_REQUEST_TOKEN
 
 When using OAuth 1.0a, OAuth clients need to send the consumer key,
 consumer secret and scope to the OAuth service and obtain a request
@@ -35,7 +35,7 @@ client, it adds a record to this table. The client will then receive the
 request token and the OAuth verifier. The client can send these values
 back to the service and obtain the OAuth access token. Then the record
 in this table will be deleted and a new row will be added to the
-`IDN\_OAUTH1A\_ACCESS\_TOKEN` table. The following table lists out the
+`IDN_OAUTH1A_ACCESS_TOKEN` table. The following table lists out the
 columns and a description of the values it contains.
 
 <table>
@@ -85,7 +85,7 @@ columns and a description of the values it contains.
 </tbody>
 </table>
 
-#### IDN\_OAUTH1A\_ACCESS\_TOKEN
+#### IDN_OAUTH1A_ACCESS_TOKEN
 
 When using OAuth 1.0a and receiving a OAuth 1.0a request token, the
 client application can obtain the access token by authorizing the
@@ -127,7 +127,7 @@ description of the values it contains.
 </tbody>
 </table>
 
-#### IDN\_OAUTH2\_AUTHORIZATION\_CODE
+#### IDN_OAUTH2_AUTHORIZATION_CODE
 
 When a client application is used with OAuth 2 authorization code grant
 type, after the authentication, the Identity Server returns the
@@ -181,7 +181,7 @@ contains.
 </tbody>
 </table>
 
-#### IDN\_OAUTH2\_ACCESS\_TOKEN
+#### IDN_OAUTH2_ACCESS_TOKEN
 
 When an OAuth2 access token is returned to a client, a record will be
 added to this table. The following table lists out the columns and a
@@ -189,18 +189,18 @@ description of the values it contains.
 
 | Column           | Description                                                                                      |
 |------------------|--------------------------------------------------------------------------------------------------|
-| ACCESS\_TOKEN    | The access token                                                                                 |
-| REFRESH\_TOKEN   | The refresh token                                                                                |
-| CONSUMER\_KEY    | The consumer key of the OAuth application                                                        |
-| AUTHZ\_USER      | The fully qualified username (with the tenant domain) of the user who authorized the application |
-| USER\_TYPE       | The type of user                                                                                 |
-| TIME\_CREATED    | The date time value when the access token was generated                                          |
-| VALIDITY\_PERIOD | The validity period of the token (default is 3600000 ms)                                         |
-| TOKEN\_SCOPE     | The scope of the access token                                                                    |
-| TOKEN\_STATE     | The state of the access token (ACTIVE)                                                           |
-| TOKEN\_STATE\_ID |                                                                                                  |
+| ACCESS_TOKEN    | The access token                                                                                 |
+| REFRESH_TOKEN   | The refresh token                                                                                |
+| CONSUMER_KEY    | The consumer key of the OAuth application                                                        |
+| AUTHZ_USER      | The fully qualified username (with the tenant domain) of the user who authorized the application |
+| USER_TYPE       | The type of user                                                                                 |
+| TIME_CREATED    | The date time value when the access token was generated                                          |
+| VALIDITY_PERIOD | The validity period of the token (default is 3600000 ms)                                         |
+| TOKEN_SCOPE     | The scope of the access token                                                                    |
+| TOKEN_STATE     | The state of the access token (ACTIVE)                                                           |
+| TOKEN_STATE_ID |                                                                                                  |
 
-#### IDN\_OAUTH2\_SCOPE
+#### IDN_OAUTH2_SCOPE
 
 When the Identity Server is used with a product such as the WSO2 API
 Manager, custom OAuth scopes can be defined. The following table lists
@@ -208,11 +208,11 @@ out the columns and a description of the values it contains.
 
 | Column      | Description                |
 |-------------|----------------------------|
-| SCOPE\_ID   | The unique ID of the scope |
-| SCOPE\_KEY  | A scope key                |
+| SCOPE_ID   | The unique ID of the scope |
+| SCOPE_KEY  | A scope key                |
 | NAME        | Name for the scope         |
 | DESCRIPTION | Description of the scope   |
-| TENANT\_ID  | Tenant ID                  |
+| TENANT_ID  | Tenant ID                  |
 | ROLES       | List of roles given        |
 
 !!! note
@@ -220,26 +220,26 @@ out the columns and a description of the values it contains.
     populated with data.
     
 
-#### IDN\_OAUTH2\_RESOURCE\_SCOPE
+#### IDN_OAUTH2_RESOURCE_SCOPE
 
 When the Identity Server is used with a product such as WSO2 API
 Manager, the custom scopes defined for the APIs will be stored in the
-`IDN\_OAUTH2\_SCOPE` table. These scopes can be mapped with the resources
+`IDN_OAUTH2_SCOPE` table. These scopes can be mapped with the resources
 in the API and these resources and scopes mapping are stored in this
 table. The following table lists out the columns and a description of
 the values it contains.
 
 | Column         | Description                                                                             |
 |----------------|-----------------------------------------------------------------------------------------|
-| RESOURCE\_PATH | The path to the resource                                                                |
-| SCOPE\_ID      | The ID of the scope that points to the SCOPE\_ID column of the IDN\_OAUTH2\_SCOPE table |
+| RESOURCE_PATH | The path to the resource                                                                |
+| SCOPE_ID      | The ID of the scope that points to the SCOPE_ID column of the IDN_OAUTH2_SCOPE table |
 
 !!! note
     In a standalone WSO2 Identity Server instance, this table will not get
     populated with data.
     
 
-####  IDN\_SCIM\_GROUP
+####  IDN_SCIM_GROUP
 
 When creating a new role in the user store,  if the
 `         SCIMEnabled        ` property in the user store configuration
@@ -252,35 +252,35 @@ the values it contains.
 | Column      | Description                     |
 |-------------|---------------------------------|
 | ID          |                                 |
-| TENANT\_ID  | Tenant ID                       |
-| ROLE\_NAME  | The name of the role            |
-| ATTR\_NAME  | The name of the SCIM attribute  |
-| ATTR\_VALUE | The value of the SCIM attribute |
+| TENANT_ID  | Tenant ID                       |
+| ROLE_NAME  | The name of the role            |
+| ATTR_NAME  | The name of the SCIM attribute  |
+| ATTR_VALUE | The value of the SCIM attribute |
 
-#### IDN\_SCIM\_PROVIDER
+#### IDN_SCIM_PROVIDER
 
 This table is not used in the latest version of WSO2 Identity Server.
 
--   `CONSUMER\_ID`
--   `PROVIDER\_ID`
--   `USER\_NAME`
--   `USER\_PASSWORD`
--   `USER\_URL`
--   `GROUP\_URL`
--   `BULK\_URL`
+-   `CONSUMER_ID`
+-   `PROVIDER_ID`
+-   `USER_NAME`
+-   `USER_PASSWORD`
+-   `USER_URL`
+-   `GROUP_URL`
+-   `BULK_URL`
 
-#### IDN\_OPENID\_REMEMBER\_ME
+#### IDN_OPENID_REMEMBER_ME
 
 This table is not being used in the latest version of Identity Server
 because the 'Remember Me' feature is handled from the authentication
 framework.
 
--   `USER\_NAME`
--   `TENANT\_ID`
--   `COOKIE\_VALUE`
--   `CREATED\_TIME`
+-   `USER_NAME`
+-   `TENANT_ID`
+-   `COOKIE_VALUE`
+-   `CREATED_TIME`
 
-#### IDN\_OPENID\_USER\_RPS
+#### IDN_OPENID_USER_RPS
 
 When users login to OpenID relying party applications where the OpenID
 authentication is provided by the Identity Server, the login details are
@@ -289,15 +289,15 @@ description of the values it contains.
 
 | Column                 | Description                                                                                                                        |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| USER\_\_NAME           | The username of the logged in user                                                                                                 |
-| TENANT\_ID             | Tenant ID of the tenant that the user belongs to                                                                                   |
-| RP\_URL                | The URL of the relying party to which it should be redirected upon successful login                                                |
-| TRUSTED\_ALWAYS        | True/False (indicates whether the user has given the  “Approve Always” or “Approve” options of the application for authentication) |
-| LAST\_VISIT            | Date of the last login of the user                                                                                                 |
-| VISIT\_COUNT           | The number of successful login attempts for the user                                                                               |
-| DEFAULT\_PROFILE\_NAME | The default profile name                                                                                                           |
+| USER__NAME           | The username of the logged in user                                                                                                 |
+| TENANT_ID             | Tenant ID of the tenant that the user belongs to                                                                                   |
+| RP_URL                | The URL of the relying party to which it should be redirected upon successful login                                                |
+| TRUSTED_ALWAYS        | True/False (indicates whether the user has given the  “Approve Always” or “Approve” options of the application for authentication) |
+| LAST_VISIT            | Date of the last login of the user                                                                                                 |
+| VISIT_COUNT           | The number of successful login attempts for the user                                                                               |
+| DEFAULT_PROFILE_NAME | The default profile name                                                                                                           |
 
-#### IDN\_OPENID\_ASSOCIATIONS
+#### IDN_OPENID_ASSOCIATIONS
 
 The OpenID associations are stored in this table. The following table
 lists out the columns and a description of the values it contains.
@@ -305,28 +305,28 @@ lists out the columns and a description of the values it contains.
 | Column       | Description                                         |
 |--------------|-----------------------------------------------------|
 | HANDLE       | The association handle                              |
-| ASSOC\_TYPE  | The OpenID association type                         |
-| EXPIRE\_IN   | The datetime value of the expiry of the association |
-| MAC\_KEY     | The Message Authentication Code of the association  |
-| ASSOC\_STORE |                                                     |
+| ASSOC_TYPE  | The OpenID association type                         |
+| EXPIRE_IN   | The datetime value of the expiry of the association |
+| MAC_KEY     | The Message Authentication Code of the association  |
+| ASSOC_STORE |                                                     |
 
-#### IDN\_STS\_STORE
+#### IDN_STS_STORE
 
 When the Identity Server is used as a Security Token Service which
 issues access tokens, such records are stored in following table.
 Following are the columns of the table.
 
 -   `ID`
--   `TOKEN\_ID`
--   `TOKEN\_CONTENT`
--   `CREATE\_DATE`
--   `EXPIRE\_DATE`
+-   `TOKEN_ID`
+-   `TOKEN_CONTENT`
+-   `CREATE_DATE`
+-   `EXPIRE_DATE`
 -   `STATE`
 
-#### IDN\_IDENTITY\_USER\_DATA
+#### IDN_IDENTITY_USER_DATA
 
 When using a JDBC user store, the user attributes of a user are stored
-in the `UM\_USER\_ATTRIBUTE` table for the supported claims. There are
+in the `UM_USER_ATTRIBUTE` table for the supported claims. There are
 some claims used for Identity Management features that should be handled
 specifically. Claims used for Identity Management feature will be stored
 in the userstore which is specified in the
@@ -371,20 +371,20 @@ values it contains.
 
 | Column      | Description                                       |
 |-------------|---------------------------------------------------|
-| TENANT\_ID  | The ID of the tenant to which the user belongs to |
-| USER\_NAME  | The username of the user                          |
-| DATA\_KEY   | The Claim URI of the supported claim              |
-| DATA\_VALUE | The user attribute value of the particular claim  |
+| TENANT_ID  | The ID of the tenant to which the user belongs to |
+| USER_NAME  | The username of the user                          |
+| DATA_KEY   | The Claim URI of the supported claim              |
+| DATA_VALUE | The user attribute value of the particular claim  |
 
-#### IDN\_IDENTITY\_META\_DATA
+#### IDN_IDENTITY_META_DATA
 
--   `USER\_NAME`
--   `TENANT\_ID`
--   `METADATA\_TYPE`
+-   `USER_NAME`
+-   `TENANT_ID`
+-   `METADATA_TYPE`
 -   `METADATA`
 -   `VALID`
 
-#### IDN\_THRIFT\_SESSION
+#### IDN_THRIFT_SESSION
 
 This table is used to store the authenticated Thrift session. Once the
 user is authenticated to the thrift authenticator, it creates a thrift
@@ -396,12 +396,12 @@ description of the values it contains.
 
 | Column               | Description                                 |
 |----------------------|---------------------------------------------|
-| SESSION\_ID          | The unique idea of the created session      |
-| USER\_NAME           | The username of the user                    |
-| CREATED\_TIME        | The time that the session was created       |
-| LAST\_MODIFIED\_TIME | The time that the session was last modified |
+| SESSION_ID          | The unique idea of the created session      |
+| USER_NAME           | The username of the user                    |
+| CREATED_TIME        | The time that the session was created       |
+| LAST_MODIFIED_TIME | The time that the session was last modified |
 
-#### IDN\_ASSOCIATED\_ID
+#### IDN_ASSOCIATED_ID
 
 In the Identity Server Dashboard, users can associate their social
 identity (i.e. Facebook, Yahoo, Google, Microsoft ) with the user
@@ -411,12 +411,12 @@ the columns and a description of the values it contains.
 | Column        | Description                                                                              |
 |---------------|------------------------------------------------------------------------------------------|
 | ID            |                                                                                          |
-| IDP\_USER\_ID | The user's username in the social account (i.e., Facebook username)                      |
-| TENANT\_ID    | The ID of the tenant in which the user is created                                        |
-| IDP\_ID       | The ID of the identity provider which contains the federated authenticator               |
-| USER\_NAME    | The username of the user in Identity Server that this social identity is associated with |
+| IDP_USER_ID | The user's username in the social account (i.e., Facebook username)                      |
+| TENANT_ID    | The ID of the tenant in which the user is created                                        |
+| IDP_ID       | The ID of the identity provider which contains the federated authenticator               |
+| USER_NAME    | The username of the user in Identity Server that this social identity is associated with |
 
-#### IDN\_AUTH\_SESSION\_STORE
+#### IDN_AUTH_SESSION_STORE
 
 When the remember me option is selected when logging into the either a
 service provider or the Identity Server, session data is persisted
@@ -426,9 +426,9 @@ description of the values it contains.
 
 | Column          | Description                      |
 |-----------------|----------------------------------|
-| SESSION\_ID     | The unique ID of the session     |
-| SESSION\_TYPE   | The type of session created      |
-| SESSION\_OBJECT | The session object               |
-| TIME\_CREATED   | The time of the session creation |
+| SESSION_ID     | The unique ID of the session     |
+| SESSION_TYPE   | The type of session created      |
+| SESSION_OBJECT | The session object               |
+| TIME_CREATED   | The time of the session creation |
 
 ![Identity related tables](../assets/img/using-wso2-identity-server/identity-related-tables.png)
