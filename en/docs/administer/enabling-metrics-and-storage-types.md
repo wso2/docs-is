@@ -6,12 +6,6 @@ your server and then enable the required storage types (reporters) that
 will be used for storing the metrics data. See the following topics for
 instructions:
 
--   [Enabling metrics](#EnablingMetricsandStorageTypes-Enablingmetrics)
--   [Configuring the storage of
-    metrics](#EnablingMetricsandStorageTypes-Configuringthestorageofmetrics)
--   [Sample
-    configuration](#EnablingMetricsandStorageTypes-Sampleconfiguration)
-
 ### Enabling metrics
 
 To enable metrics for your product, set the `         Enabled        `

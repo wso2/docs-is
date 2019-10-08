@@ -803,8 +803,6 @@ nav:
         - 'HTTP Access Logging': administer/http-access-logging.md
         - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
       - 'Monitoring Message Flows': administer/monitoring-message-flows.md
-      - 'Monitoring Performance Statistics': administer/monitoring-performance-statistics.md
-      - 'Monitoring SOAP Messages': administer/monitoring-soap-messages.md
       - 'Monitoring TCP-Based Messages':
         - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
         - 'Starting TCPMon': administer/starting-tcpmon.md
