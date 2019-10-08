@@ -1,7 +1,7 @@
 # Capturing System Data in Error Situations
 
-Carbon Dump is a tool for collecting all the necessary data(i.e., heap
-and thread dumps) from a running Carbon instance at the time of an error
+Carbon Dump is a tool for collecting all the necessary data, i.e., heap
+and thread dumps from a running Carbon instance at the time of an error
 for a head dump and thread stack analysis. The Carbon Dump generates a
 ZIP archive with the collected data, which helps the WSO2 support team
 to analyze your system and determine the problem which caused the error.
@@ -40,36 +40,39 @@ inconsistencies.
     
 
 When using the tool, you have to provide the process ID (pid) of the
-Carbon instance and the \<PRODUCT\_HOME\> which is where your unzipped
+Carbon instance and the `<IS_HOME>` that is where your unzipped
 Carbon distribution files reside. The command takes the following
 format:
 
-``` java
+```shell
 sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
 ```
 
-For example,
 
-``` java
-In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
+!!! example
+    ```shell tab="Linux"
+    sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
+    ```
 
-In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.0.0\ -pid 5151
-```
+    ```shell tab="Windows"
+    carbondump.bat -carbonHome c:\wso2carbon-3.0.0\ -pid 5151
+    ```
+
 
 The tool captures the following information about the system:
 
--   Operating system information \*\* OS (kernel) version
+-   Operating system information: OS (kernel) version
     -   Installed modules lists and their information
     -   List of running tasks in the system
--   Memory information of the Java process \*\* Java heap memory dump
+-   Memory information of the Java process: Java heap memory dump
     -   Histogram of the heap
     -   Objects waiting for finalization
     -   Java heap summary. GC algo used, etc.
     -   Statistics on permgen space of Java heap
--   Information about the running Carbon instance \*\* Product name and
+-   Information about the running Carbon instance: Product name and
     version
     -   Carbon framework version (This includes the patched version)
-    -   \<PRODUCT\_HOME\>, \<JAVA\_HOME\>
+    -   \<PRODUCT_HOME>, \<JAVA_HOME>
     -   configuration files
     -   log files
     -   H2 database files

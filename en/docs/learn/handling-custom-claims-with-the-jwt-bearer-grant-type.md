@@ -306,7 +306,8 @@ with the JWT bearer grant type when the
         dialect. ![custom-claim-country](../assets/img/using-wso2-identity-server/custom-claim-country.png) 
     2.  Add the `            customclaim           ` to the openid
         scope.  
-        ![oidc-custom-claim-scope]( ../assets/img/using-wso2-identity-server/oidc-custom-claim-scope.png) 
+        ![customclaim-to-the-openid-scope-1]( ../assets/img/using-wso2-identity-server/customclaim-to-the-openid-scope-1.png)
+        ![customclaim-to-the-openid-scope-2]( ../assets/img/using-wso2-identity-server/customclaim-to-the-openid-scope-2.png)
     3.  Add the following identity provider mapping.  
         ![claim-config-custom-claims]( ../assets/img/using-wso2-identity-server/claim-config-custom-claims.png) 
     4.  Add following service provider requested claim.  

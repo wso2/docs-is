@@ -178,7 +178,7 @@ steps below to run the tool:
     <tr class="odd">
     <td>T</td>
     <td><div class="content-wrapper">
-    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../learn/working-with-multiple-tenants">Working with Multiple Tenants</a> .</p>
+    <p>The tenant domain of the user whose identity references you want to remove. The default value is <code>                   carbon.super                  </code> . For information on working with tenants in WSO2 products, see <a href="../../administer/introduction-to-multitenancy">Working with Multiple Tenants</a> .</p>
     <p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>

@@ -25,12 +25,17 @@ This is provided by default in the WSO2 Identity Server.
 
 WSO2 Identity Server uses TCP ports to monitor a running Carbon instance
 using a JMX client such as JConsole. By default, JMX is enabled in all
-products. You can disable it using
-`         <PRODUCT_HOME>/repository/conf/etc/jmx.xml        ` file.
+products. You can disable it using `<IS_HOME>/repository/conf/deployment.toml` file.
 
 -   `11111` - RMIRegistry port. Used to monitor Carbon remotely
 -   `9999` - RMIServer port. Used along with the RMIRegistry port when
     Carbon is monitored from a JMX client that is behind a firewall
+
+```
+[monitoring.jmx.rmi]
+hostname = ""
+```
+
 
 ### Clustering ports
 

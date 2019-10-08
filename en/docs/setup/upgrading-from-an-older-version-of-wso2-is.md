@@ -4655,6 +4655,7 @@ Download the latest version of WSO2 Identity Server and unzip it in the <NEW_IS_
     </li>
     <li>Copy any custom OSGI bundles that were added manually from the <code><OLD_IS_HOME>/repository/components/dropins</code> folder and paste it in the <code><NEW_IS_HOME>/repository/components/dropins</code> folder. </li>
     <li>Copy any added JAR files from the <code><OLD_IS_HOME>/repository/components/lib</code> folder and paste it in the <code><NEW_IS_HOME>/repository/components/lib</code> folder.</li>
+    <li>Set <code>defaultAutoCommit </code> as <code>'<defaultAutoCommit>false</defaultAutoCommit>'</code> in the <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml directory.
     <li>Copy the <code>.jks</code> files from the <code><OLD_IS_HOME>/repository/resources/security</code> folder and paste them in <code><NEW_IS_HOME>/repository/resources/security</code> folder.</li>
     <li>If you have created tenants in the previous WSO2 Identity Server version and if there are any resources in the `<OLD_IS_HOME>/repository/tenants` directory, copy the content to the <code><NEW_IS_HOME>/repository/tenants</code> directory.</li>
     <li>If you have created secondary user stores in the previous WSO2 IS version, copy the content in the <code><OLD_IS_HOME>/repository/deployment/server/userstores</code> directory to the <code><NEW_IS_HOME>/repository/deployment/server/userstores</code> directory.
@@ -4692,4 +4693,6 @@ Download the latest version of WSO2 Identity Server and unzip it in the <NEW_IS_
             <li><code>migration-resources directory</code></li>
         </ol>
     </li>
+    <li>Revert <code>defaultAutoCommit</code> to <code>'true'</code> in the 
+    <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml file after the migration is successful.</li>
 
