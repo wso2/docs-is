@@ -7,7 +7,7 @@ authentication sequence using authentication scripts written in
 JavaScript.
 
 For more information on adaptive authentication, see [Adaptive
-Authentication](../../learn/adaptive-authentication-overview.md)
+Authentication](../../learn/adaptive-authentication)
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
