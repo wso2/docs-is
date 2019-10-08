@@ -13,13 +13,12 @@ Follow the instructions below to access the statistics features.
 Components of the **Monitor** menu are described in the following
 topics:
 
--   [System Statistics](../../learn/system-statistics)
--   [System Logs](../../learn/system-logs)
--   [SOAP Tracer](../../learn/soap-tracer)
--   [Application Logs](../../learn/application-logs)
+-   System Statistics
+-   System Logs
+-   SOAP Tracer
+-   Application Logs
 
 !!! info "Recommended reading"
-
     -   For a detailed list of monitoring options, see the [Monitoring
         section in the WSO2 Administration
         Guide](../../administer/capturing-system-data-in-error-situations).
