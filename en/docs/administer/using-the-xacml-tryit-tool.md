@@ -22,4 +22,4 @@ figure.
 The following topics provide information on how to use the XACML TryIt
 tool.
 
--   [Evaluating a XACML Policy](../../learn/evaluating-a-xacml-policy)
+-   [Evaluating a XACML Policy](../../administer/evaluating-a-xacml-policy)

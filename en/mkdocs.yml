@@ -473,7 +473,7 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
-            - 'User Challenge Question REST APIs': develop/challenge-rest-api.md
+            - 'Challenge Question REST APIs': develop/challenge-rest-api.md
             - 'Approvals REST APIs': develop/approvals-rest-api.md
             - 'Associations REST APIs': develop/association-rest-api.md
             - 'Authorized Apps REST APIs': develop/authorized-apps-rest-api.md
@@ -780,7 +780,6 @@ nav:
         - 'Changing a Password': administer/changing-a-password.md
         - 'Configuring Roles': administer/configuring-roles.md
         - 'Configuring Users': administer/configuring-users.md
-        - 'Role-based Permissions': administer/role-based-permissions.md
         - 'Managing User Attributes': administer/managing-user-attributes.md
         - 'Removing References to Deleted User Identities in WSO2 Products':
           - 'Removing References to Deleted User Identities in WSO2 Products': administer/removing-references-to-deleted-user-identities-in-wso2-products.md
