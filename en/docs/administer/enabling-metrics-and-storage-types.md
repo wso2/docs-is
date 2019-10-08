@@ -116,7 +116,7 @@ be used to configure a CSV storage for metrics data.
     cause file corruption failures. Please use an industry-standard RDBMS
     such as Oracle, PostgreSQL, MySQL, or MS SQL instead. See the
     instructions on [setting up an
-    RDBMS](../../administer/setting-up-the-physical-database).
+    RDBMS](../../administer/working-with-databases).
     
 
 The following parameters in the `         metrics.xml        ` file can

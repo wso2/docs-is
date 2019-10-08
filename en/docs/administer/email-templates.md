@@ -27,4 +27,4 @@ You can also [customize these automated emails](../../learn/customizing-automate
 4.  Click **Save** to save your changes.
 
 !!! info "Recommended reading" 
-    For an example of how email templates are used, see [Creating Users Using the Ask Password Option](../../learn/creating-users-using-the-ask-passwordOption).
+    For an example of how email templates are used, see [Creating Users Using the Ask Password Option](../../learn/creating-users-using-the-ask-password-option).
