@@ -6,7 +6,7 @@
 
 
 <ul>    
-    <li><b>Reusable script library for adaptive authentication</b>: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see <a href="../../learn/adaptive-authentication-with-function-librabry">Adaptive Authentication with Function Libraries</a>.</li>
+    <li><b>Reusable script library for adaptive authentication</b>: WSO2 Identity Server already supports script-based adaptive authentication. This feature supports easily manageable function libraries that can be imported to the authentication scripts. For more information, see <a href="../../learn/adaptive-authentication-with-function-library">Adaptive Authentication with Function Libraries</a>.</li>
     <li><b>New REST APIs</b>: This release includes new REST APIs for end users who can be authenticated to the system to manage their user account related activities.        	
 		<ul>
 						<li><a href="../../develop/challenge-rest-api">Manage challenge question answers</a></li>
