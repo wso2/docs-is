@@ -19,39 +19,38 @@ instances.
 2.  Token refresh
 3.  Token revocation
 
-Enable token cleanup by configuring the following properties in the
-`         identity.xml        ` file found in the
-`         <IS_HOME>/repository/conf/identity        ` folder.
+Enable token cleanup by configuring the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
 
-``` java
-<!-- token cleanup feature config-->
-<TokenCleanup>
-    <!-- old access token cleaning feature  -->
-    <EnableTokenCleanup>true</EnableTokenCleanup>
-    <!-- old access token will be retain in audit table  -->
-    <RetainOldAccessToken>true</RetainOldAccessToken>
-</TokenCleanup>
+```toml
+[oauth.token_cleanup]
+enable = true
+retain_access_tokens_for_auditing = true
+
 ```
 
 <table>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>             &lt;EnableTokenCleanup&gt;            </code></td>
-<td><p>Set this property to <strong>true</strong> to enable token cleanup.</p>
-<p>Set it to <strong>false</strong> to disable token cleanup.</p></td>
-</tr>
-<tr class="even">
-<td><code>             &lt;RetainOldAccessToken&gt;            </code></td>
-<td><p>Set this property to true to move the old, invalid tokens to the Audit table when token cleaning is enabled.</p>
-<p>Set it to false if you do not wish to store old tokens in the Audit table.</p></td>
-</tr>
-</tbody>
+    <thead>
+        <tr class="header">
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td><code>enable</code></td>
+            <td>
+                <p>Set this property to <code>true</code> to enable token cleanup.</p>
+                <p>Set it to <code>false</code> to disable token cleanup.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>retain_access_tokens_for_auditing</code></td>
+            <td>
+                <p>Set this property to <code>true</code> to move the old, invalid tokens to the Audit table when token cleaning is enabled.</p>
+                <p>Set it to <code>false</code> if you do not wish to store old tokens in the Audit table.</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ### Using stored procedures for token cleanup
