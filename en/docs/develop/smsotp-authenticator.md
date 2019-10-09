@@ -11,7 +11,7 @@ information.
 
 To know more about the WSO2 Identity Server versions supported by this
 connector, see the [WSO2
-store](https://store.wso2.com/store/assets/isconnector/details/462ce8e9-8274-496c-a1c3-8aa40168bb1b).
+store](https://store.wso2.com/store/assets/isconnector/details/ec6a18ae-4763-4958-bc61-8e12f5b441ac).
 
 This connector is supported by default from WSO2 Identity Server 5.4.0
 onwards. 
@@ -32,7 +32,7 @@ onwards.
 ### Deploying SMS OTP artifacts
 
 The artifacts can be obtained from [the store for this
-authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22smsotp%22)
+authenticator](https://store.wso2.com/store/assets/isconnector/details/ec6a18ae-4763-4958-bc61-8e12f5b441ac)
 .
 
 1.  Place the `            smsotpauthenticationendpoint.war           `
@@ -114,7 +114,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     This update functionality happen when logging in for the first time only. Once the user updates the mobile number, the next time the user logs in the mobile number is taken from specific user's profile.</td>
     </tr>
     <tr class="even">
-    <td><code>                 usecase                </code></td>
+    <td><pre><code>usecase</code></pre></td>
     <td>This field can take one of the following values: <code>                                   local                                 </code>, <code>                                   association                                 </code>, <code>                                   userAttribute                                 </code>, <code>                                   subjectUri                                 </code> . If you do not specify any <code>                 usecase                </code>, the default value is <code>                 local                </code> .</td>
     </tr>
     <tr class="odd">
@@ -123,15 +123,15 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </p></td>
     </tr>
     <tr class="even">
-    <td><code>                 screenUserAttribute                </code></td>
+    <td><pre><code>screenUserAttribute</code></pre></td>
     <td>If you need to show n digits of mobile number or any other user attribute value in the User Interface (UI), This parameter is used to pick the claim URI.</td>
     </tr>
     <tr class="odd">
-    <td><code>                 order                </code></td>
+    <td><pre><code>order</code></pre></td>
     <td>Define the order of the n numbers you provide, such as the from the first or last or vice versa. The possible values for this property is backward or forward.</td>
     </tr>
     <tr class="even">
-    <td><code>                 noOfDigits                </code></td>
+    <td><pre><code>noOfDigits</code></pre></td>
     <td>The number of digits of claim value to show in UI. If the mobile claim selected for the property <code>                 screenUserAttribute                </code> and if the <code>                 noOfDigitsproperty                </code> has the value 4 then we can show the mobile number according to the property order. If the order is backward, then we can show the last 4 digits of mobile claim in the UI.</td>
     </tr>
     </tbody>
@@ -161,9 +161,9 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     authenticator support in first step, the following parameters are
     used according to the scenario.
 
-    ``` java
-             <Parameter name="usecase">association</Parameter>
-             <Parameter name="secondaryUserstore">jdbc</Parameter>
+    ``` xml
+    <Parameter name="usecase">association</Parameter>
+    <Parameter name="secondaryUserstore">jdbc</Parameter>
     ```
 
     The usecase value can be local, association,
@@ -173,15 +173,15 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     <table>
     <tbody>
     <tr class="odd">
-    <td><code>                 local                </code></td>
+    <td><pre><code>local</code></pre></td>
     <td><p>This is based on the federated username. This is the default value. You must set the federated username in the localuserstore. Basically, the federated username must be the same as the local username.</p></td>
     </tr>
     <tr class="even">
-    <td><code>                 association                </code></td>
+    <td><pre><code>association</code></pre></td>
     <td><p>The federated username must be associated with the local account in advance in the Dashboard. So the local username is retrieved from the association. To associate the user, log into the <a href="../../learn/using-the-end-user-dashboard">end user dashboard</a> and go to <strong>Associated Account</strong> by clicking <strong>View details</strong> .</p></td>
     </tr>
     <tr class="odd">
-    <td><code>                 userAttribute                </code></td>
+    <td><pre><code>userAttribute</code></pre></td>
     <td><div class="content-wrapper">
     <p>The name of the  federatedauthenticator's user attribute. That is,the local user namewhich is contained in a federated user's attribute. When using this, add the following parameter under the <code>                   &lt;AuthenticatorConfig name="SMSOTP" enabled="true"&gt;                  </code> section in the <code>                   &lt;IS_HOME&gt;/repository/conf/identity/application-authentication.xml                  </code> file and put the value (e.g., email, screen_name, id, etc.).</p>
     <div class="code panel pdl" style="border-width: 1px;">
@@ -216,7 +216,7 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>                 subjectUri                </code></td>
+    <td><pre><code>subjectUri</code></pre></td>
     <td><p>When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the SMSOTP authenticator.</p></td>
     </tr>
     </tbody>
@@ -258,9 +258,9 @@ authenticator](https://store.wso2.com/store/assets/isconnector/list?q=%22_defaul
     parameters to get last 4 digits from mobile number.
 
     ``` xml
-         <Parameter name="screenUserAttribute">http://wso2.org/claims/mobile</Parameter>
-         <Parameter name="noOfDigits">4</Parameter>
-         <Parameter name="order">backward</Parameter>
+    <Parameter name="screenUserAttribute">http://wso2.org/claims/mobile</Parameter>
+    <Parameter name="noOfDigits">4</Parameter>
+    <Parameter name="order">backward</Parameter>
     ```
 
 The SMS provider is the entity that is used to send the SMS. The SMSOTP
@@ -272,7 +272,7 @@ number in the payload (e.g., Clickatell). Note that this could change
 significantly between different SMS providers. The configuration of the
 connector in the identity provider would also change based on this.
 
-### Deploying [travelocity.com](http://travelocity.com) sample
+### Deploying travelocity.com sample
 
 The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
 in order to use it in this scenario.
@@ -296,8 +296,9 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     and then click the HTTPS trust icon on the address bar (e.g., the
     padlock next to the URL in Chrome)
 3.  Import that certificate into the IS client keystore.  
-    `             keytool -importcert -file <certificate file> -keystore <IS>/repository/resources/security/client-truststore.jks -alias "Nexmo"            `
-
+    ```java
+    keytool -importcert -file <certificate file> -keystore <IS>/repository/resources/security/client-truststore.jks -alias "Nexmo"            
+    ```
     Default client-truststore.jks password is "wso2carbon"
 
 4.  Log into the [management
@@ -326,120 +327,106 @@ provider](../../learn/adding-and-configuring-an-identity-provider)
     is unknown, leave it blank and the connector checks if the response
     is 200, 201 or 202.
 
-    **Note** : If Nexmo is used as the SMS provider,
+    !!! note "If Nexmo is used as the SMS provider:"
+        1.  Go to <https://dashboard.nexmo.com/sign-up> and click free
+            signup and register.
+        2.  Under **API Settings** in **Settings**, copy and save the API
+            key and Secret.
+        3.  The Nexmo API requires the parameters to be encoded in the URL,
+            so the SMS URL would be as follows.
+            |             |                                                                                                                                    |
+            |-------------|------------------------------------------------------------------------------------------------------------------------------------|
+            | SMS URL     | *https://rest.nexmo.com/sms/json?api\_key=\*\*\*\*\*\*\*\*\*&api\_secret=\*\*\*\*\*\*\*\*&from=NEXMO&to= $ctx.num &text= $ctx.msg* |
+            | HTTP Method | GET                                                                                                                                |
 
-    1.  Go to <https://dashboard.nexmo.com/sign-up> and click free
-        signup and register.
-    2.  Under **API Settings** in **Settings**, copy and save the API
-        key and Secret.
-    3.  The Nexmo API requires the parameters to be encoded in the URL,
-        so the SMS URL would be as follows.
+    !!! note "If Clickatell is used as the SMS provider:"
+        1.  Go to <https://secure.clickatell.com/#/login> and create
+            an account.
+        2.  The auth token is provided when you register with Clickatell.
 
-        |             |                                                                                                                                    |
-        |-------------|------------------------------------------------------------------------------------------------------------------------------------|
-        | SMS URL     | *https://rest.nexmo.com/sms/json?api\_key=\*\*\*\*\*\*\*\*\*&api\_secret=\*\*\*\*\*\*\*\*&from=NEXMO&to= $ctx.num &text= $ctx.msg* |
-        | HTTP Method | GET                                                                                                                                |
+        3.  Clickatell uses a POST method with headers and the text message
+            and phone number are sent as the payload. So the fields would be
+            as follows.
+            |              |                                                                                                             |
+            |--------------|-------------------------------------------------------------------------------------------------------------|
+            | SMS URL      | https://api.clickatell.com/rest/message                                                                     |
+            | HTTP Method  | POST                                                                                                        |
+            | HTTP Headers | X-Version: 1,Authorization: bearer \*\*\*\*\*\*\*\*,Accept: application/json,Content-Type: application/json |
+            | HTTP Payload | {"text":" $ctx.msg ","to":\[" $ctx.num "\]}                                                                 |
 
-    **Note** : If Clickatell is used as the SMS provider,
+    !!! note "If Plivo is used as the SMS provider:"
+        1.  Sign up for a free [Plivo trial
+            account](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal).
+        2.  Phone numbers must be verified at the [Sandbox
+            Numbers](https://manage.plivo.com/sandbox-numbers/) page (add at
+            least two numbers and verify them).
 
-    1.  Go to <https://secure.clickatell.com/#/login> and create
-        an account.
-    2.  The auth token is provided when you register with Clickatell.
+        3.  The Plivo API is authenticated with Basic Auth using your
+            `              AUTH ID             ` and
+            `              AUTH TOKEN             `, Your Plivo
+            `              AUTH ID             ` and
+            `              AUTH TOKEN             ` can be found when you
+            log in to your [dashboard.](https://manage.plivo.com/dashboard/)
+        4.  Plivo uses a POST method with headers, and the text message and
+            phone number are sent as the payload. So the fields would be as
+            follows.
 
-    3.  Clickatell uses a POST method with headers and the text message
-        and phone number are sent as the payload. So the fields would be
-        as follows.
+            <table>
+            <colgroup>
+            <col style="width: 50%" />
+            <col style="width: 50%" />
+            </colgroup>
+            <tbody>
+            <tr class="odd">
+            <td>SMS URL</td>
+            <td><p><a href="https://api.plivo.com/v1/Account/%7Bauth_id%7D/Message/">https://api.plivo.com/v1/Account/{auth_id}/Message/</a></p></td>
+            </tr>
+            <tr class="even">
+            <td>HTTP Method</td>
+            <td>POST</td>
+            </tr>
+            <tr class="odd">
+            <td>HTTP Headers</td>
+            <td>Authorization: Basic ********,Content-Type: application/json</td>
+            </tr>
+            <tr class="even">
+            <td>HTTP Payload</td>
+            <td>{"src":"+94*********","dst":"$ctx.num","text":"$ctx.msg"}</td>
+            </tr>
+            </tbody>
+            </table>
 
-        |              |                                                                                                             |
-        |--------------|-------------------------------------------------------------------------------------------------------------|
-        | SMS URL      | https://api.clickatell.com/rest/message                                                                     |
-        | HTTP Method  | POST                                                                                                        |
-        | HTTP Headers | X-Version: 1,Authorization: bearer \*\*\*\*\*\*\*\*,Accept: application/json,Content-Type: application/json |
-        | HTTP Payload | {"text":" $ctx.msg ","to":\[" $ctx.num "\]}                                                                 |
+    !!! note "If Bulksms is used as the SMS provider:"
+        1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
+        2.  While registering the account, verify your mobile number and
+            click **Claim** to get free credits.  
+            ![](../assets/img/48276901/51449676.png) 
 
-    **Note** : If Plivo is used as the SMS provider,
+        3.  Bulksms API authentication is performed by providing username
+            and password request parameters.
+        4.  Bulksms uses a POST method and the required parameters are to be
+            encoded in the URL. So the fields would be as follows.
+            |              |                                                                                                                                         |
+            |--------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+            | SMS URL      | https://bulksms.vsms.net/eapi/submission/send\_sms/2/2.0?username=\*\*\*\*\*\*\*&password=\*\*\*\*\*\*&message=$ctx.msg&msisdn=$ctx.num |
+            | HTTP Method  | POST                                                                                                                                    |
+            | HTTP Headers | Content-Type: application/x-www-form-urlencoded                                                                                         |
 
-    1.  Sign up for a free [Plivo trial
-        account](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal)
-        .
-    2.  Phone numbers must be verified at the [Sandbox
-        Numbers](https://manage.plivo.com/sandbox-numbers/) page (add at
-        least two numbers and verify them).
+    !!! note "If Twilio is used as the SMS provider:"
+        1.  Go to <https://www.twilio.com/try-twilio> and create an account.
+        2.  While registering the account, verify your mobile number and
+            click on console home <https://www.twilio.com/console> to get
+            free credits (Account SID and Auth Token).
 
-    3.  The Plivo API is authenticated with Basic Auth using your
-        `              AUTH ID             ` and
-        `              AUTH TOKEN             `, Your Plivo
-        `              AUTH ID             ` and
-        `              AUTH TOKEN             ` can be found when you
-        log in to your [dashboard.](https://manage.plivo.com/dashboard/)
-    4.  Plivo uses a POST method with headers, and the text message and
-        phone number are sent as the payload. So the fields would be as
-        follows.
-
-        <table>
-        <colgroup>
-        <col style="width: 50%" />
-        <col style="width: 50%" />
-        </colgroup>
-        <tbody>
-        <tr class="odd">
-        <td>SMS URL</td>
-        <td><p><a href="https://api.plivo.com/v1/Account/%7Bauth_id%7D/Message/">https://api.plivo.com/v1/Account/{auth_id}/Message/</a></p></td>
-        </tr>
-        <tr class="even">
-        <td>HTTP Method</td>
-        <td>POST</td>
-        </tr>
-        <tr class="odd">
-        <td>HTTP Headers</td>
-        <td>Authorization: Basic ********,Content-Type: application/json</td>
-        </tr>
-        <tr class="even">
-        <td>HTTP Payload</td>
-        <td>{"src":"+94*********","dst":"$ctx.num","text":"$ctx.msg"}</td>
-        </tr>
-        </tbody>
-        </table>
-
-    **Note** : If Bulksms is used as the SMS provider,
-
-    1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
-    2.  While registering the account, verify your mobile number and
-        click **Claim** to get free credits.  
-        ![](../assets/img/48276901/51449676.png) 
-
-    3.  Bulksms API authentication is performed by providing username
-        and password request parameters.
-    4.  Bulksms uses a POST method and the required parameters are to be
-        encoded in the URL. So the fields would be as follows.
-
-        |              |                                                                                                                                         |
-        |--------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-        | SMS URL      | https://bulksms.vsms.net/eapi/submission/send\_sms/2/2.0?username=\*\*\*\*\*\*\*&password=\*\*\*\*\*\*&message=$ctx.msg&msisdn=$ctx.num |
-        | HTTP Method  | POST                                                                                                                                    |
-        | HTTP Headers | Content-Type: application/x-www-form-urlencoded                                                                                         |
-
-          
-
-    **Note** : If Twilio is used as the SMS provider,
-
-    1.  Go to <https://www.twilio.com/try-twilio> and create an account.
-    2.  While registering the account, verify your mobile number and
-        click on console home <https://www.twilio.com/console> to get
-        free credits (Account SID and Auth Token).
-
-    3.  Twilio uses a POST method with headers and the text message and
-        phone number are sent as the payload. So the fields would be as
-        follows.  
-
-        |              |                                                                           |
-        |--------------|---------------------------------------------------------------------------|
-        | SMS URL      | https://api.twilio.com/2010-04-01/Accounts/{AccountSID}/SMS/Messages.json |
-        | HTTP Method  | POST                                                                      |
-        | HTTP Headers | Authorization: Basic base64{AccountSID:AuthToken}                         |
-        | HTTP Payload | Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM\_NUM}                       |
-
-          
+        3.  Twilio uses a POST method with headers and the text message and
+            phone number are sent as the payload. So the fields would be as
+            follows.  
+            |              |                                                                           |
+            |--------------|---------------------------------------------------------------------------|
+            | SMS URL      | https://api.twilio.com/2010-04-01/Accounts/{AccountSID}/SMS/Messages.json |
+            | HTTP Method  | POST                                                                      |
+            | HTTP Headers | Authorization: Basic base64{AccountSID:AuthToken}                         |
+            | HTTP Payload | Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM\_NUM}                       |   
 
 10. Click **Update** and you have now added and configured the
     Identity provider.  
@@ -453,7 +440,7 @@ The next step is to configure the service provider.
 2.  In the **Identity** section under the **Main** tab, click **Add**
     under **Service Providers**.
 
-3.  Enter **[travelocity.com](http://travelocity.com)** in the **Service
+3.  Enter **travelocity.com** in the **Service
     Provider Name** text box and click **Register**.
 
 4.  In the **Inbound Authentication Configuration** section, click
@@ -513,13 +500,12 @@ You have now added and configured the service provider.
     can add the following claim, otherwise you can leave it.
 3.  In the **Main** menu, click **Add** under **Claims**.
 4.  Click [Add New
-    Claim](../../learn/adding-claim-mapping)
-    .
+    Claim](../../learn/adding-claim-mapping).
 5.  Select the **Dialect** from the dropdown provided and enter the
     required information.
-6.  Add the following user claims under ' http://wso2.org/claims' .  
+6.  Add the following user claims under ' http://wso2.org/claims'.  
     1.  Add the claim Uri -
-        http://wso2.org/claims/identity/smsotp\_disabled . This is an
+        http://wso2.org/claims/identity/smsotp\_disabled. This is an
         optional claim for SMSOTP.
     2.  Add the claim Uri - http://wso2.org/claims/otpbackupcodes  
         The backup code claim is an optional.
@@ -543,13 +529,13 @@ You have now added and configured the service provider.
 
 4.  You will get a token to your mobile phone.Type the code to
     authenticate, You will be taken to the home page of the
-    [travelocity.com](http://travelocity.com) app.
+    **travelocity.com** app.
 
     !!! note
         In case, If you forget the mobile phone number or do not
         have access to it, you can use the backup codes to authenticate and
         you will be taken to the home page of the
-        [travelocity.com](http://travelocity.com) application.
+        **travelocity.com** application.
     
     ![](../assets/img/48276901/49221144.png) 
 
