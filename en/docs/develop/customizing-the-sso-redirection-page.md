@@ -25,7 +25,7 @@ failure.
     assertion consumer URL (redirecting URL). Depending on the value of
     this, you can customize this **samlsso\_response.html** page to display
     different content, with the help of some JavaScript if/else logic. See
-    [here](../../assets/attachments/sample-sso-redirect-page-template.html) for a sample sso\_redirect
+    [here](../../assets/attachments/sample-sso-redirect-page-template.html.zip) for a sample sso\_redirect
     page template that can display different content for two different
     $acUrls. However, this may become complex when you have a large number
     of service providers.
