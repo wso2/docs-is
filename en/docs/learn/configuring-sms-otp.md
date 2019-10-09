@@ -445,7 +445,7 @@ Follow the steps given below to update the mobile number of the users in
 WSO2 IS as this field is empty by default if you are [creating the user
 using the WSO2 IS management
 console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
-..
+.
 
 1.  Select **List** that is under **Users** **and** **Roles**, and
     click **Users** in the IS Management Console.
