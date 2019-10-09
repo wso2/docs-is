@@ -34,23 +34,18 @@ After installing the SAML2 relying party components (SAML2 SSO
 authenticator), it is necessary to configure the SAML2 SSO
 authentication component to communicate with the Identity Server for
 user authentication. This can be configured in the
-`         <PRODUCT_HOME>/repository/conf/security/authenticators.xml        `
-file. This file will contain configurations for different
-authenticators. By default, it is shipped with a sample configuration
-for SAML2 SSO authenticator and requires minor modifications to prior to
-setup.
+`         IS_HOME/repository/conf/deployment.toml        `
+file.
 
-``` java
-<Authenticator name="SAML2SSOAuthenticator" disabled="false">
-        <Priority>10</Priority>
-        <Config>
-            <Parameter name="LoginPage">/carbon/admin/login.jsp</Parameter>
-            <Parameter name="ServiceProviderID">carbonServer</Parameter>
-            <Parameter name="IdentityProviderSSOServiceURL">https://localhost:9443/samlsso</Parameter>
-            <Parameter name="NameIDPolicyFormat">urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</Parameter>
-            <Parameter name="IdPCertAlias">wso2carbon</Parameter>
-        </Config>
-</Authenticator>
+``` toml
+[admin_console.authenticator.saml_sso_authenticator]
+enable = false
+priority = 10
+login_page = /carbon/admin/login.jsp
+service_provider_id = carbonServer
+identity_provider_sso_service_url = https://localhost:9443/samlsso
+name_id_policy_format = urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified 
+idp_cert_alias = wso2carbon
 ```
 
 -   `          Authenticator disabled         ` - This should be set to
@@ -76,13 +71,9 @@ setup.
 -   `          Parameter NameIDPolicyFormat         ` - This specifies
     the name identifier format that the Carbon server wants to receive
     in the subject of an assertion from a particular identity provider.
--   `          Parameter IdPCertAlias         ` - This is uncommented by
-    default. This is the alias of the identity provider certificate.
+-   `          Parameter IdPCertAlias         ` -  This is the alias of the identity provider certificate.
     This is specifically used whenever a Carbon server uses IS as the
-    identity provider. The configuration needs to be done at the relying
-    party server's
-    `          <PRODUCT_HOME>/repository/conf/security/authenticators.xml         `
-    file.
+    identity provider.
 
 #### Step 3 - Configuring the Identity Server as the Single Sign-On provider
 
