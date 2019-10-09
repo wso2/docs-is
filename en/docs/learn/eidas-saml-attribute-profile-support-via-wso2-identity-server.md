@@ -103,22 +103,24 @@ keystore.
         ```
 
     2.  Configure parameters as follows in the
-        `             <IS_HOME>/repository/conf/carbon.xml            `
-        file under the `             <Security>            ` element:
-
-        ``` java
-                <KeyStore>
-                            <!-- Keystore file location-->
-                             <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-                            <!-- Keystore type (JKS/PKCS12 etc.)-->
-                            <Type>JKS</Type>
-                            <!-- Keystore password-->
-                            <Password>wso2carbon</Password>
-                            <!-- Private Key alias-->
-                            <KeyAlias>ec</KeyAlias>
-                            <!-- Private Key password-->
-                            <KeyPassword>wso2carbon</KeyPassword>
-                </KeyStore>
+        `             IS_HOME/repository/conf/deployment.toml             ` file:
+        
+        ``` toml
+        # Keystore file location
+        [keystore.tls]
+        file_name= "${carbon.home}/repository/resources/security/{{keystore.tls.file_name}}"
+        # Keystore type (JKS/PKCS12 etc.)
+        [keystore.tls]
+        type= "JKS"
+        # Keystore password
+        [keystore.tls]
+        password= "wso2carbon"
+        # Private Key alias
+        [keystore.tls]
+        alias= "ec"
+        # Private Key password
+        [keystore.tls]
+        key_password= "wso2carbon"
         ```
 
         Here, the certificate CN should be the hostname of WSO2 IS
@@ -127,22 +129,24 @@ keystore.
     3.  To use the default wso2carbon certificate for internal
         encryption purposes, configure the following internal keystore
         in the
-        `             <IS_HOME>/repository/conf/carbon.xml            `
-        file under the `             <Security>            ` element:
-
-        ``` java
-                <InternalKeyStore>
-                            <!-- Keystore file location-->
-                            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
-                            <!-- Keystore type (JKS/PKCS12 etc.)-->
-                            <Type>JKS</Type>
-                            <!-- Keystore password-->
-                            <Password>wso2carbon</Password>
-                            <!-- Private Key alias-->
-                            <KeyAlias>wso2carbon</KeyAlias>
-                            <!-- Private Key password-->
-                            <KeyPassword>wso2carbon</KeyPassword>
-                </InternalKeyStore>
+        `             IS_HOME/repository/conf/deployment.toml            ` file.
+               
+        ``` toml
+        # Keystore file location
+        [keystore.internal]
+        file_name= "${carbon.home}/repository/resources/security/{{tkeystore.internal.file_name}}"
+        # Keystore type (JKS/PKCS12 etc.)
+        [keystore.internal]
+        type= "JKS"
+        # Keystore password
+        [keystore.internal]
+        password= "wso2carbon"
+        # Private Key alias
+        [keystore.internal]
+        alias= "ec"
+        # Private Key password
+        [keystore.internal]
+        key_password= "wso2carbon"
         ```
 
 -   If the service provider is configured in a tenant, create a new
