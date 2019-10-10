@@ -48,7 +48,7 @@ prior to autenticating the user using the password.
     
 
 7.  Click **Add** **Authentication** **step** and add the **basic**
-    authenticator from ****Local Authenticators**** section.  This will
+    authenticator from **Local Authenticators** section.  This will
     enable the password as the 2nd step authenticator.  
     ![second-step-authenticator](../assets/img/using-wso2-identity-server/second-step-authenticator.png)
 8.  Click the **Update** button. This navigates you to the previous

@@ -79,10 +79,8 @@ recovery.
 Follow the instructions given below to configure username recovery with
 reCaptcha globally.  
 
-1.  Navigate to the **identity.xml** file in
-    \<IS\_HOME\>/repository/conf/identity and uncomment the following
-    configuration block.
-
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable 
+username recovery with reCaptcha.
     !!! tip
     
         To avoid any configuration issues, perform **Step-1** before

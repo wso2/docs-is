@@ -6,8 +6,8 @@
     **make sure to configure it before you begin working with WSO2 IS**.
     
 
-1.  Open the \<
-    `          PRODUCT_HOME>/repository/conf/deployment.toml         ` file.
+1.  Open the 
+    `          <PRODUCT_HOME>/repository/conf/deployment.toml         ` file.
 2.  Add the followign configuration.
 
     ``` xml
@@ -15,8 +15,8 @@
         enable_email_domain= true
     ```
 
-3.  Open the \<
-    `           IS_HOME>/repository/conf/claim-config.xml          `
+3.  Open the 
+    `           <IS_HOME>/repository/conf/claim-config.xml          `
     file and configure the `           AttributeID          ` property
     of the
     `                       http://wso2.org/claims/username                     `
