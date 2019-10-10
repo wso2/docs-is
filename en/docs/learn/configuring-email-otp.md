@@ -117,7 +117,7 @@ mechanism to send the OTP.
 9.  Enter the Product name that needs to be shown to users, enter values
     to any other fields you prefer to update, and click **Save**.
     
-10. Select the **Web application** option.  
+10. <a name="ConfiguringEmailOTP-client-ID">Select the **Web application** option.  
     Enter
     `                       https://localhost:9443/commonauth                     `
     as the **Authorize redirect URIs** text-box, and click **Create**.
@@ -145,7 +145,7 @@ mechanism to send the OTP.
     https://accounts.google.com/o/oauth2/auth?redirect_uri=https%3A%2F%2Flocalhost%3A9443%2Fcommonauth&response_type=code&client_id=854665841399-l13g81ri4q98elpen1i1uhsdjulhp7ha.apps.googleusercontent.com&scope=http%3A%2F%2Fmail.google.com&approval_prompt=force&access_type=offline
     ```
 
-12. Paste the updated URL into your browser.
+12. <a name="ConfiguringEmailOTP-Auth-code"> Paste the updated URL into your browser.
 
     1.  Select the preferred Gmail account with which you wish to
         proceed.
@@ -278,7 +278,7 @@ mechanism to send the OTP.
     </tr>
     <tr class="even">
     <td><code>               GmailRefreshToken              </code></td>
-    <td>Enter the refresh token that you got as the response in <a href="#ConfiguringEmailOTP-Refresh-token">step 12</a> . Example: <code>               1/YgNiepY107SyzJdgpynmf-eMYP4qYTPNG_L73MXfcbv              </code></td>
+    <td>Enter the refresh token that you got as the response in <a href="#configuring-emailotp-copy-url">step 13</a> . Example: <code>               1/YgNiepY107SyzJdgpynmf-eMYP4qYTPNG_L73MXfcbv              </code></td>
     </tr>
     <tr class="odd">
     <td><code>               GmailEmailEndpoint              </code></td>
