@@ -1,0 +1,2 @@
+# Set the SSL socket factory provider
+ssl.SocketFactory.provider=org.wso2.carbon.javax.net.ssl.SSLSocketFactoryImpl
