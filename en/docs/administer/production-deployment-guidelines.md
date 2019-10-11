@@ -276,7 +276,7 @@ manage the product.
     `          <IS_HOME>/repository/conf/etc         `
     directory contains a list of recommended system parameters, which
     are validated against your system when the server starts. See
-    [Configuring config-validation.xml](Configuring-config-validation.xml) for
+    [Configuring config-validation.xml](../../administer/configuring-config-validation.xml) for
     details on modifying these parameters before starting the server.
 -   As explained in the [installation
     prerequisites](#installation-prerequisites)
@@ -459,7 +459,7 @@ by setting the relavent parameter in the <code>               &lt;PRODUCT_HOME&g
 <li>See the topics on changing hostnames shown below:
 <ul>
 <li><a href="https://docs.wso2.com/display/ESB490/Setting+Up+Host+Names+and+Ports">Setting up hostnames and ports</a></li>
-<li><a href="../../administer/changing-the-hostname">Changing the hostname</a></li>
+<li><a href="../../setup/changing-the-hostname">Changing the hostname</a></li>
 </ul></li>
 </div>
 </div>
@@ -595,7 +595,7 @@ class="kw"></span></a><br/>
 <tr class="odd">
 <td>High availability</td>
 <td><div class="content-wrapper">
-<p>For high availability, WSO2 products must run on a <a href="_Clustering_Overview_">cluster</a> . This enables the WSO2 products to still work in the case of failover. Databases used for the repository, user management, and business activity monitoring can also be configured in a cluster or can use replication management provided by the RDBMS.</p>
+<p>For high availability, WSO2 products must run on a <a href=../../administer/clustering-overview>cluster</a> . This enables the WSO2 products to still work in the case of failover. Databases used for the repository, user management, and business activity monitoring can also be configured in a cluster or can use replication management provided by the RDBMS.</p>
 <div class="panel" style="border-width: 1px;">
 <div class="panelHeader" style="border-bottom-width: 1px;">
 <strong>Related links</strong>
@@ -651,7 +651,7 @@ system and data and artifacts in the databases and the repository.
 
 We recommend that you use a proper artifact management system such as
 **[Puppet](https://puppet.com/)** to back up and manage your artifacts
-before deploying them in the WSO2 Carbon runtime. Also, use the [WSO2 Update Manager(WUM)](../../administer/updating-wso2+products)
+before deploying them in the WSO2 Carbon runtime. Also, use the [WSO2 Update Manager(WUM)](https://docs.wso2.com/display/updates/Introduction)
 tool, which is a command-line utility that allows you to get the latest
 updates ( bug fixes and security fixes ) of a particular product
 release.
