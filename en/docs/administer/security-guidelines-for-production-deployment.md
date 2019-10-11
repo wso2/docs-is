@@ -321,8 +321,8 @@ the network.
 </p></td>
 <td><p>When your WSO2 products are clustered, you need to regularly monitor the health of your server instances. For example, you need to monitor resource-level factors such as the server's resource utilization, response time anomalies, and the number of incoming network connections. Server monitoring will help you identify when additional server instances (failover instances) are required. You can also make decisions about network routing changes that you need to do in order to avoid server downtime.</p>
 <ul>
-<li>See <a href="_Key_Concepts_">Deployment and Clustering/Key Concepts</a> for information on configuring failover.</li>
-<li>See <a href="_Monitoring_">Monitoring WSO2 products</a> for information on the monitoring options for WSO2 products.</li>
+<li>See <a href="../../administer/clustering-overview">Deployment and Clustering/Key Concepts</a> for information on configuring failover.</li>
+<li>See <a href="../../administer/">Monitoring WSO2 products</a> for information on the monitoring options for WSO2 products.</li>
 </ul></td>
 </tr>
 <tr class="even">
