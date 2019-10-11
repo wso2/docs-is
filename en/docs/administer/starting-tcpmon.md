@@ -1,13 +1,8 @@
 # Starting TCPMon
 
-TCPMon is available in the `         <PRODUCT_HOME>/bin        `
+TCPMon is available in the `         <IS_HOME>/bin        `
 directory of any WSO2 Carbon based product distribution. Alternatively,
 you can download TCPMon from Apache and run the tool.
-
--   [Running TCPMon (from Carbon product
-    pack)](#StartingTCPMon-RunningTCPMon(fromCarbonproductpack))
--   [Running TCPMon (downloaded from
-    Apache)](#StartingTCPMon-RunningTCPMon(downloadedfromApache))
 
 ### Running TCPMon (from Carbon product pack)
 
@@ -21,26 +16,22 @@ TCPMon.
 
     For information on how to set the `            JAVA_HOME           `
     variable, go to [Installing the
-    Product](https://docs.wso2.com/display/Carbon440/Installing+the+Product)
+    Product](../../setup/installing-the-product)
    , select the instructions relevant to your operating system and
     refer the 'Setting JAVA\_HOME' section.
 
 To run the TCPMon available with your WSO2 Carbon product pack:
 
-1.  Go to `          <PRODUCT_HOME>/bin         ` directory of your
+1.  Go to `          <IS_HOME>/bin         ` directory of your
     product pack.
-2.  Execute the following command to run the tool.  
-      
-    For Windows
+2.  Execute the following command to run the tool.
 
-    ``` java
+    ``` shell tab="Linux"
+    ./tcpmon.sh
+    ```        
+
+    ``` shell tab="Windows"
     tcpmon.bat
-    ```
-
-    For Linux
-
-    ``` java
-        ./tcpmon.sh
     ```
 
 ### Running TCPMon (downloaded from Apache)
@@ -54,14 +45,10 @@ To download TCPMon from Apache and run the tool:
     script.
 4.  Execute the following command to run the tool.  
 
-    For Windows
-
-    ``` java
-        tcpmon.bat
+    ```shell tab="Linux"
+    ./tcpmon.sh
     ```
 
-    For Linux
-
-    ``` java
-        ./tcpmon.sh
+    ```shell tab="Windows"
+    tcpmon.bat
     ```

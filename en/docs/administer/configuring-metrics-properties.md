@@ -1,14 +1,14 @@
 # Configuring Metrics Properties
 
 When the [monitoring capability with metrics is
-enabled](Enabling_Metrics_and_Storage_Types) in your product, the
+enabled](../../administer/enabling-metrics-and-storage-types) in your product, the
 metrics dashboard will be available when you log into the management
 console. The metrics dashboard will provide a page for viewing the
 statistics that use JVM metrics. Further, depending on the WSO2 product
 that you are using, there will be a separate page for viewing
 product-specific statistics using metrics.
 
-The `         <PRODUCT_HOME>/repository/conf/metrics.properties        `
+The `         <IS_HOME>/repository/conf/metrics.properties        `
 file specifies the properties that correspond to the gauges for JVM
 metrics in the metrics dashboard. The level defined for a property in
 this file determines the extent to which the relevant gauge in the
@@ -54,15 +54,6 @@ file, all metrics under `         jvm.memory        ` will have
 is a child property of `         jvm.memory.        `
 
 The properties that are included in this file by default are as follows:
-
--   [JVM's direct and mapped buffer
-    pools](#ConfiguringMetricsProperties-JVM'sdirectandmappedbufferpools)
--   [Class loading](#ConfiguringMetricsProperties-Classloading)
--   [GC](#ConfiguringMetricsProperties-GC)
--   [Memory](#ConfiguringMetricsProperties-Memory)
--   [Operating system
-    load](#ConfiguringMetricsProperties-Operatingsystemload)
--   [Threads](#ConfiguringMetricsProperties-Threads)
 
 ### JVM's direct and mapped buffer pools
 
