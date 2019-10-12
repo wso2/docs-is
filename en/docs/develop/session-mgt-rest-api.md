@@ -2,6 +2,7 @@
 template: templates/swagger.html
 ---
 ??? Note "Note: Click to view"
+    Before invoking the session management REST APIs, create some sessions for the user.
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
        1.  Click on **Authorize** button and provide desired values for authentication. 
@@ -33,3 +34,5 @@ window.onload = function() {
   window.ui = ui
 }
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/66cce47010103c720d0f)
