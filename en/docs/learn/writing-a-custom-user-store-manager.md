@@ -510,12 +510,12 @@ in your WSO2 product.
 
 1.  Copy the artifact of your project (custom-userstore.jar, in this
     case) to the
-    `           <PRODUCT_HOME>/repository/components/dropins          `
+    `           <IS_HOME>/repository/components/dropins          `
     directory. Also copy all OSGI bundles to this location. If you have
     any dependency .jar files, copy them to the
-    `           <PRODUCT_HOME>/repository/components/lib          `
+    `           <IS_HOME>/repository/components/lib          `
     directory.
-2.  Add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file to use our custom
+2.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom
     implementation for user store management.
     ``` xml
         [user_store]

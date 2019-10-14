@@ -343,7 +343,7 @@ Let's begin.
             */
             public class BasicCustomAuthenticatorServiceComponent {
         
-            private static Log log = LogFactory.getLog(BasicCustomAuthenticatorServiceComponent.class);
+            private static final Log log = LogFactory.getLog(BasicCustomAuthenticatorServiceComponent.class);
         
             private static RealmService realmService;
         

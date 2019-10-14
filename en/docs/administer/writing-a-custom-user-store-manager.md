@@ -68,7 +68,8 @@ options.
 <td><p><code>               Properties getDefaultUserStoreProperties()              </code></p></td>
 <td><div class="content-wrapper">
 <p>The default properties of the user store are returned using this method. These properties are used in user store related operations.</p>
-!!! note
+<div class="admonition note">
+<p class="admonition-title">Note</p>
     <p>Be sure to manually add the following property when you implement the class:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
@@ -76,7 +77,7 @@ options.
     </div>
     </div>
     <p>This property is what controls whether the user store is enabled or disabled.</p>
-</div></td>
+</div></div></td>
 <td><p>By overriding this method, you can programmatically change the configuration of the user store manager implementation.</p></td>
 </tr>
 <tr class="even">
@@ -410,7 +411,7 @@ Do the following steps to write the custom user store manager.
         import java.util.Map;
     
         public class CustomUserStoreManager extends JDBCUserStoreManager {
-           private static Log log = LogFactory.getLog(StarkUserStoreManager.class);
+           private static final Log log = LogFactory.getLog(StarkUserStoreManager.class);
            // This instance is used to generate the hash values
            private static StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
     
@@ -508,14 +509,14 @@ in your WSO2 product.
 
 1.  Copy the artifact of your project (custom-userstore.jar, in this
     case) to the
-    `          <PRODUCT_HOME>/repository/components/dropins         `
+    `          <IS_HOME>/repository/components/dropins         `
     directory. Also copy all OSGI bundles to this location. If you have
     any dependency .jar files, copy them to the
-    `          <PRODUCT_HOME>/repository/components/lib         `
+    `          <IS_HOME>/repository/components/lib         `
     directory.
 2.  Change the configuration of the WSO2 product to use our custom
     implementation for user store management. To do this, open the
-    `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          `
+    `           <IS_HOME>/repository/conf/user-mgt.xml          `
     file and change the `           UserStoreManager          ` class.
 
     ``` xml
