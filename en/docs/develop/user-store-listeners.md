@@ -80,7 +80,7 @@ import org.wso2.carbon.user.core.common.AbstractUserOperationEventListener;
 */
 public class MyUserMgtCustomExtension extends AbstractUserOperationEventListener {
  
-private static Log log = LogFactory.getLog(MyUserMgtCustomExtension.class);
+private static final Log log = LogFactory.getLog(MyUserMgtCustomExtension.class);
  
 @Override
 public int getExecutionOrderId() {
