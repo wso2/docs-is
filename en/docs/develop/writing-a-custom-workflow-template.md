@@ -31,7 +31,7 @@ AbstractTemplate class. The following methods should be overridden:
 
 -   `getDescription()`: Returns a description about this template
 
-??? exampe "Click to view a sample class written for a multi-step approval template"
+??? example "Click to view a sample class written for a multi-step approval template"
     ```
     public class SampleTemplate extends AbstractTemplate {
     
