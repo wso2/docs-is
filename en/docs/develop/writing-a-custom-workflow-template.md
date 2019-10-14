@@ -8,6 +8,7 @@ Multi-step approval is a very simple example of flows that can be used
 with IS workflow feature, but users are allowed define different types
 of configurable flows by adding a new workflow template.
 
+  
 
 ### Adding a New Workflow Template
 
@@ -30,7 +31,7 @@ AbstractTemplate class. The following methods should be overridden:
 
 -   `getDescription()`: Returns a description about this template
 
-??? example "Click to view a sample class written for a multi-step approval template"
+??? exampe "Click to view a sample class written for a multi-step approval template"
     ```
     public class SampleTemplate extends AbstractTemplate {
     
@@ -104,7 +105,7 @@ class. The following methods should be overridden:
         ``` java
         public class SampleTemplateImplementation extends AbstractWorkflow {
 
-            private static Log log = LogFactory.getLog(SampleTemplateImplementation.class);
+            private final static Log log = LogFactory.getLog(SampleTemplateImplementation.class);
 
             public SampleTemplateImplementation(Class<? extends TemplateInitializer> templateInitializerClass,
                                                 Class<? extends WorkFlowExecutor> workFlowExecutorClass, String metaDataXML) {
