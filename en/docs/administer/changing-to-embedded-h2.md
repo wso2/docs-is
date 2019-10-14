@@ -27,7 +27,7 @@ default, `         WSO2_CARBON_DB        ` datasource is used to connect
 to the default  H2 database, which stores registry and user management
 data. After setting up the Embedded H2 database to replace the default
 H2 database, either [change the default configurations of the
-datasource](#changing-the-default-wso2-carbon-db-datasource), or
+datasource](#changing-the-default-datasource), or
 [configure a new datasource](#configuring-new-datasources-to-manage-registry-or-user-management-data)
 to point it to the new database as explained below.
 
@@ -124,17 +124,13 @@ The elements in the above configuration are described below:
 
 For more information on other parameters that can be defined in the \<
 `          IS_HOME>/repository/conf/datasources/         `
-`          master-datasources.xml         ` file, see [Tomcat JDBC
-Connection
-Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
+`          master-datasources.xml         ` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes)
 .
 
 !!! warning
-    
     The following elements are available only as a **WUM** update and is
     effective from 14th September 2018 (2018-09-14).  For more information,
-    see [Updating WSO2
-    Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+    see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction)
    .  
     This WUM update is only applicable to Carbon 4.4.11 and will be shipped
     out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more
@@ -159,8 +155,7 @@ return via the datasource configurations by using the following options.
     Disabling the `          ConnectionRollbackOnReturnInterceptor         `
     is only possible with the **WUM** update and is effective from 14th
     September 2018 (2018-09-14). For more information on updating WSO2 API
-    Manager, see [Updating WSO2
-    Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+    Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction)
    . This WUM update is only applicable to Carbon 4.4.11.
     
 
@@ -233,7 +228,7 @@ data separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-wso2-carbon-db-datasource) above
+    datasource](#changing-the-default-datasource) above
     to the \<
     `          IS_HOME>/repository/conf/datasources/         `
     `          master-datasources.xml         ` file. Change its
@@ -300,8 +295,7 @@ Follow the steps below to run the script in Web console:
             Definition) rights on the schema. Therefore, maintaining the
             `             -DSetup            ` option is redundant and typically
             unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-            deprecated the** **`              -DSetup             `** **option**
-           . Note that the proper practice is for the DBA to run the DDL
+            deprecated the `              -DSetup             ` option**. Note that the proper practice is for the DBA to run the DDL
             statements manually so that the DBA can examine and optimize any DDL
             statement (if necessary) based on the DBA best practices that are in
             place within the organization.

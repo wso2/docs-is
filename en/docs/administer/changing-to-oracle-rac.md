@@ -134,7 +134,7 @@ separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-wso2-carbon-db-datasource) above
+    datasource](#changing-the-default-datasource) above
     to the 
     `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         ` file. Change its
     elements with your custom values. For instructions, see [Setting up datasource configurations.](#setting-up-datasource-configurations)

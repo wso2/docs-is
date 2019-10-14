@@ -113,14 +113,12 @@ Follow the steps below to change the type of the default datasource.
         For more information on other parameters that can be defined in the
         `            <IS_HOME>/repository/conf/           `
         datasources/ `            master-datasources.xml           ` file,
-        see [Tomcat JDBC Connection
-        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+        see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
     !!! warning
         The following elements are available only as a **WUM** update and is
         effective from 14th September 2018 (2018-09-14).  For more
-        information, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA).  
+        information, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction).  
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
         4.4.35. For more information on Carbon compatibility, see [Release
@@ -148,7 +146,7 @@ Follow the steps below to change the type of the default datasource.
         `            ConnectionRollbackOnReturnInterceptor           ` is
         only possible with the **WUM** update and is effective from 14th
         September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA). This WUM update is only applicable to Carbon 4.4.11.
+        API Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction). This WUM update is only applicable to Carbon 4.4.11.
     
 
     -   **Configure the connection pool to commit pending transactions on connection return**  
@@ -221,7 +219,7 @@ separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-wso2-carbon-db-datasource) above to
+    datasource](#changing-the-default-datasource) above to
     the \<
     `          IS_HOME>/repository/conf/datasources/         `
     `          master-datasources.xml         ` file. Change its

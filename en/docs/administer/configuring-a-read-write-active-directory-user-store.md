@@ -22,13 +22,13 @@ primary user store:
 !!! info "Before you begin"
     -   If you create the `           user-mgt.xml          ` file yourself,
         be sure to save it in the
-        `           <PRODUCT_HOME>/repository/conf          ` directory.
+        `           <IS_HOME>/repository/conf          ` directory.
     -   The `           class          ` attribute for an external AD is
         `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">.          `
 
 1.  Enable the `           ActiveDirectoryUserStoreManager          `
     class in the
-    `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          `
+    `           <IS_HOME>/repository/conf/user-mgt.xml          `
     file by uncommenting the code. When it is enabled, the user manager
     reads/writes into the Active Directory user store.
 
@@ -47,7 +47,7 @@ primary user store:
     for configuring the primary user store, see [Properties of User
     Stores](../../administer/working-with-properties-of-user-stores).
 
-    ``` html/xml
+    ``` xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
                 <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
                 <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property> 
@@ -103,7 +103,7 @@ primary user store:
             `             GetAllRolesOfUserEnabled            ` property in
             the `             AuthorizationManager            ` as follows.
             See the documentation on [configuring the Authorization
-            Manager](#ConfiguringaRead-WriteActiveDirectoryUserStore-RelatedTopics)
+            Manager](../../administer/configuring-the-authorization-manager)
             for more information.
     
             ``` xml
@@ -127,7 +127,7 @@ primary user store:
             product. For information on how to add certificates to the
             truststore and how keystores are configured and used in a
             system, see [Using Asymmetric
-            Encryption](Using_Asymmetric_Encryption).  
+            Encryption](../../administer/using-asymmetric-encryption).  
     
             ``` xml
                     <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
@@ -158,7 +158,7 @@ primary user store:
     attribute is available in your user store, check with your
     LDAP/Active Directory administrator.
 
-    ``` html/xml
+    ``` xml
     <Property name="UserNameAttribute">sAMAccountName</Property>
     ```
 
@@ -186,8 +186,8 @@ primary user store:
 
     -   Enable the `             ReadGroups            ` property.
 
-        ``` html/xml
-                <Property name="ReadGroups">true</Property>
+        ``` xml
+            <Property name="ReadGroups">true</Property>
         ```
 
     -   Set the `             GroupSearchBase            ` property to
@@ -197,28 +197,28 @@ primary user store:
         searches for users, it will start from this location of the
         directory. For example:
 
-        ``` html/xml
-                <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
+        ``` xml
+            <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
         ```
 
     -   Set the GroupSearchFilter and GroupNameAttributes. For example:
 
-        ``` html/xml
-                <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-                <Property name="GroupNameAttribute">cn</Property>
+        ``` xml
+            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+            <Property name="GroupNameAttribute">cn</Property>
         ```
 
     -   Set the `             MembershipAttribute            ` property
         as shown below:
 
-        ``` html/xml
-                <Property name="MembershipAttribute">member</Property> 
+        ``` xml
+            <Property name="MembershipAttribute">member</Property> 
         ```
 
     To read roles based on a backlink attribute, use the following code
     snipet instead of the above:
 
-    ``` html/xml
+    ``` xml
         <Property name="ReadGroups">false</Property>
         <Property name="GroupSearchBase">ou=system</Property>
         <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
@@ -251,7 +251,7 @@ Realm](../../administer/configuring-the-user-realm).
     shown below. You do not have to update the password element as it is
     already set in the user store.
 
-    ``` html/xml
+    ``` xml
         <AddAdmin>False</AddAdmin> 
         <AdminRole>admin</AdminRole> 
         <AdminUser>
@@ -264,7 +264,7 @@ Realm](../../administer/configuring-the-user-realm).
     user to the user store. Therefore, `           <AddAdmin>          `
     should be set to `           true          ` as shown below.
 
-    ``` html/xml
+    ``` xml
         <AddAdmin>true</AddAdmin> 
         <AdminRole>admin</AdminRole> 
         <AdminUser> 

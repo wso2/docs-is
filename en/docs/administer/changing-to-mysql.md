@@ -124,7 +124,7 @@ Follow the steps below to change the type of the default datasource.
         The following elements are available only as a **WUM** update and is
         effective from 14th September 2018 (2018-09-14).  For more
         information, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+        Products](https://docs.wso2.com/display/updates/Introduction)
        .  
         This WUM update is only applicable to Carbon 4.4.11 and will be
         shipped out-out-the-box with Carbon versions newer than Carbon
@@ -152,7 +152,7 @@ Follow the steps below to change the type of the default datasource.
         `            ConnectionRollbackOnReturnInterceptor           ` is
         only possible with the **WUM** update and is effective from 14th
         September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
+        API Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction)
        . This WUM update is only applicable to Carbon 4.4.11.
     
 
