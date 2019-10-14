@@ -1,8 +1,7 @@
 # Metadata
 
 **The Metadata panel** allows you to manage resource metadata and
-revisions using the [Create Checkpoint](#Metadata-Checkpoint) and [View
-Versions](#Metadata-Versions) options. Each time you create a check
+revisions using the Create Checkpoint and View Versions options. Each time you create a check
 point, it is added as a new reversion of the resource. Revisions is a
 useful way to facilitate Disaster Recovery and Fault Tolerance in the
 registry. By creating a revision, a user essentially saves a snapshot of
@@ -64,7 +63,7 @@ This page gives the following information:
     -   **Delete Version History** - Delete the version history
 
 !!! info 
-    To learn more about restoring to a previous version, see  read
+    To learn more about restoring to a previous version, see read
     [here](https://docs.wso2.com/display/Governance460/Managing+Versions+of+a+Resource).
 
 !!! info 

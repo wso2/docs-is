@@ -55,9 +55,9 @@ following information:
 <td><strong>Actions</strong></td>
 <td><div class="content-wrapper">
 <p>Allows you to <strong>rename, move, copy or delete</strong> a resource/child collection.<br />
-<img src="../assets/img/33128918/33325827.png"></p>
+<img src="../../assets/img/33128918/33325827.png"></p>
 <div>
-<p>You cannot move/copy resources and collections across registry mounts if they have dependencies or associations. You can only move/copy within a mount. For more information on mounts, read WSO2 Governance Registry documentation: <a href="http://docs.wso2.org/display/Governance460/Remote+Instance+and+Mount+Configuration+Details">Remote Instance and Mount Configuration Details</a>.</p>
+<p>You cannot move/copy resources and collections across registry mounts if they have dependencies or associations. You can only move/copy within a mount. For more information on mounts, read WSO2 Governance Registry documentation: <a href="https://docs.wso2.com/display/Governance460/Remote+Instance+and+Mount+Configuration+Details">Remote Instance and Mount Configuration Details</a>.</p>
 </div>
 <div>
 <p>These options are not available for all resources/collections.</p>
@@ -142,14 +142,12 @@ follows:
 ![](../assets/img/22185137/22514094.png)
 
 -   **Display as text** : Allows only to view the configuration of a
-    resource. For example, ****  
-    ****
+    resource. For example, 
 
     ![](../assets/img/22185137/22514098.png)
 
 -   **Edit as text** : Allows to edit a resource either in plain text
-    editor or rich text editor. **  
-    **
+    editor or rich text editor. 
 
     ![](../assets/img/22185137/22514096.png)
 

@@ -10,7 +10,7 @@ as follows:
 -   Add Resource
 -   Add Collection
 -   Create Link
--   Child r esource/collection information such as name, created date
+-   Child resource/collection information such as name, created date
     and author
 -   The Info link specifying m edia type, feed, rating.
 -   The Actions link to rename, move, copy or delete a

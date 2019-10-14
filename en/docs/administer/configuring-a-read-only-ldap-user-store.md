@@ -3,7 +3,7 @@
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
 `         user-mgt.xml        ` file found in the
-`         <PRODUCT_HOME>/repository/conf/        ` directory. This file
+`         <IS_HOME>/repository/conf/        ` directory. This file
 is shipped with user store manager configurations for all possible user
 store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and
 read-write Active directory). The instructions given below explains how
@@ -32,13 +32,13 @@ user store:
 !!! info "Before you begin"
     -   If you create the `           user-mgt.xml          ` file yourself,
         be sure to save it in the
-        `           <PRODUCT_HOME>/repository/conf          ` directory.
+        `           <IS_HOME>/repository/conf          ` directory.
     -   The `           class          ` attribute for a read-only
         LDAP/Active Directory is
         `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">.          `
 
 1.  Uncomment the following user store in the
-    `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          `
+    `           <IS_HOME>/repository/conf/user-mgt.xml          `
     file:  
     `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">          `
     . Also, ensure that you comment out the configurations for any other
@@ -47,12 +47,12 @@ user store:
 2.  Given below is a sample for the L DAP/AD user store configuration in
     read-only mode. You can change the values to match your LDAP/AD. For
     descriptions on each of the properties used in the
-    `           <PRODUCT_HOME>/repository/conf/          `
+    `           <IS_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file which are used for
     configuring the primary user store, see [Properties of User
     Stores](../../administer/working-with-properties-of-user-stores).
 
-    ``` html/xml
+    ``` xml
         <UserManager>
         <Realm>
         ...
@@ -96,19 +96,18 @@ user store:
     1.  Update the connection details to match your user store. For
         example:
 
-        ``` html/xml
-                <Property name="ConnectionURL">ldap://localhost:10389</Property>
+        ``` xml
+            <Property name="ConnectionURL">ldap://localhost:10389</Property>
         ```
 
         For Active Directory, theconnectionURLshouldhavethe following
         format:
 
         ``` java
-                <Property name="ConnectionURL">ldap://<AD host-ip>:<AD_listen_port></Property>
+            <Property name="ConnectionURL">ldap://<AD host-ip>:<AD_listen_port></Property>
         ```
 
         !!! note
-        
             If you are using `             ldaps            ` (secured LDAP)
             to connect to the LDAP/Active Directory:
     
@@ -117,7 +116,7 @@ user store:
                 below.  
     
                 ``` xml
-                            <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
+                    <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
                 ```
     
             -   For Active Directory, you need to import the certificate of
@@ -126,10 +125,10 @@ user store:
                 WSO2 product. For information on how to add certificates to
                 the truststore and how keystores are configured and used in
                 a system, see [Using Asymmetric
-                Encryption](Using_Asymmetric_Encryption).
+                Encryption](../../administer/using-asymmetric-encryption).
     
             -   You also need to [enable connection
-                pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+                pooling](../../administer/performance-tuning#pooling-ldaps-connections)
                 for LDAPS connections at the time of starting your server,
                 which will enhance server performance.
         
@@ -144,7 +143,7 @@ user store:
         [here](#updating-the-system-administrator)
         .
 
-        ``` html/xml
+        ``` xml
         <Property name="ConnectionName">uid=AdminLDAP,ou=system</Property>
         <Property name="ConnectionPassword">2010#Avrudu</Property>
         ```
@@ -155,8 +154,8 @@ user store:
         searches for users, it will start from this location of the
         directory.
 
-        ``` html/xml
-                <Property name="UserSearchBase">ou=system</Property> 
+        ``` xml
+            <Property name="UserSearchBase">ou=system</Property> 
         ```
 
     4.  Set the attribute to use as the username, typically either
@@ -171,8 +170,8 @@ user store:
 
         For example:
 
-        ``` html/xml
-                <Property name="UserNameAttribute">uid</Property>
+        ``` xml
+            <Property name="UserNameAttribute">uid</Property>
         ```
 
     5.  Set the `             ReadGroups            ` property to
@@ -194,8 +193,8 @@ user store:
         -   Enable the `               ReadGroups              `
             property.
 
-            ``` html/xml
-                        <Property name="ReadGroups">true</Property>
+            ``` xml
+                <Property name="ReadGroups">true</Property>
             ```
 
         -   Set the `               GroupSearchBase              `
@@ -205,37 +204,37 @@ user store:
             Also, when LDAP searches for users, it will start from this
             location of the directory. For example:  
 
-            ``` html/xml
-                        <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
+            ``` xml
+                <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
             ```
 
         -   Set the GroupSearchFilter and GroupNameAttributes. For
             example:  
 
-            ``` html/xml
-                        <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-                        <Property name="GroupNameAttribute">cn</Property>
+            ``` xml
+                <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+                <Property name="GroupNameAttribute">cn</Property>
             ```
 
         -   Set the `               MembershipAttribute              `
             property as shown below:  
 
-            ``` html/xml
-                        <Property name="MembershipAttribute">member</Property> 
+            ``` xml
+                <Property name="MembershipAttribute">member</Property> 
             ```
 
         To read roles based on a backlink attribute, use
         thefollowingcodesnipetinsteadofthe above:
 
-        ``` html/xml
-                <Property name="ReadGroups">false</Property>
-                <Property name="GroupSearchBase">ou=system</Property>
-                <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-                <Property name="GroupNameAttribute">cn</Property>
-                <Property name="MembershipAttribute">member</Property>
-        
-                <Property name="BackLinksEnabled">true</Property>
-                <Property name="MembershipOfAttribute">memberOf</Property> 
+        ``` xml
+            <Property name="ReadGroups">false</Property>
+            <Property name="GroupSearchBase">ou=system</Property>
+            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+            <Property name="GroupNameAttribute">cn</Property>
+            <Property name="MembershipAttribute">member</Property>
+    
+            <Property name="BackLinksEnabled">true</Property>
+            <Property name="MembershipOfAttribute">memberOf</Property> 
         ```
 
     6.  For Active Directory, you can use
