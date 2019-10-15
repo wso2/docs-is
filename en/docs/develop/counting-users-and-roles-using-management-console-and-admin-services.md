@@ -5,7 +5,7 @@ Management Console and Admin Services. First, you should download the
 product and configure this feature. Follow the below steps to do this:
 
 1.  Download the product from the [WSO2 product
-    page](https://wso2.com/platform).
+    page](https://wso2.com/identity-and-access-management/).
 2.  Add the below property in `<IS_HOME>/repository/conf/deployment.toml`
 
     ``` toml
@@ -17,12 +17,7 @@ product and configure this feature. Follow the below steps to do this:
       
 
 Once you are done with the configurations, you can count the users and
-roles using one of the following ways:
-
--   [Using the Management
-    Console](#CountingusersandrolesusingManagementConsoleandAdminServices-UsingtheManagementConsole)
--   [Using the Admin
-    Services](#CountingusersandrolesusingManagementConsoleandAdminServices-UsingtheAdminServices)
+roles using one of the following ways.
 
 #### Using the Management Console
 

@@ -1,22 +1,7 @@
 # User Information Recovery Service
 
 This section lists out and describes the service methods available in
-the user information recovery API:
-
--   [confirmUserSelfRegistration](#UserInformationRecoveryService-confirmUserSelfRegistration)
--   [getAllChallengeQuestions](#UserInformationRecoveryService-getAllChallengeQuestions)
--   [getCaptcha](#UserInformationRecoveryService-getCaptcha)
--   [getUserChallengeQuestion](#UserInformationRecoveryService-getUserChallengeQuestion)
--   [getUserChallengeQuestionIds](#UserInformationRecoveryService-getUserChallengeQuestionIds)
--   [getUserIdentitySupportedClaims](#UserInformationRecoveryService-getUserIdentitySupportedClaims)
--   [registerUser](#UserInformationRecoveryService-registerUser)
--   [resendSignUpConfirmationCode](#UserInformationRecoveryService-resendSignUpConfirmationCode)
--   [sendRecoveryNotification](#UserInformationRecoveryService-sendRecoveryNotification)
--   [updatePassword](#UserInformationRecoveryService-updatePassword)
--   [verifyAccount](#UserInformationRecoveryService-verifyAccount)
--   [verifyConfirmationCode](#UserInformationRecoveryService-verifyConfirmationCode)
--   [verifyUser](#UserInformationRecoveryService-verifyUser)
--   [verifyUserChallengeAnswer](#UserInformationRecoveryService-verifyUserChallengeAnswer)
+the user information recovery API.
 
 ### confirmUserSelfRegistration
 
