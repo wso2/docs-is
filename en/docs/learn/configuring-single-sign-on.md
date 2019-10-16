@@ -154,11 +154,14 @@ provider. The following steps instruct you on how to do this.
     **Service Provider Name** field and click **Register**.
 4.  The **Service Providers** screen appears. Copy the content in the
     .pem file of your service provider application certificate and paste
-    it as the value for **Application Certificate**. In WSO2 IS
-    versions prior to WSO2 IS 5.5.0, the certificates were stored in the
-    keystore file. From 5.5.0 onwards, the certificate is stored in the
-    database and can be directly added via the management console using
-    the **Application Certificate** field.
+    it as the value for **Application Certificate**. 
+
+    !!! tip
+        In WSO2 Identity Server
+        versions prior to WSO2 Identity Server 5.5.0, the certificates were stored in the
+        keystore file. From 5.5.0 onwards, the certificate is stored in the
+        database and can be directly added via the management console using
+        the **Application Certificate** field.
 
     !!! info
 
@@ -253,7 +256,7 @@ provider. The following steps instruct you on how to do this.
 	            <div class="content-wrapper">
 	               <p>This is used to validate the signature of SAML2 requests and is used to generate encryption.</p>
 	               !!! tip
-	               <p>From WSO2 IS 5.5.0 onwards, the .pem certificate can be updated via the Service Provider screen in the management console UI using the <strong>Application Certificate</strong> field. If the certificate has been entered in the Application Certifiate field, the system will use the certificate given there and override the certificate alias field.</p>
+	               <p>From WSO2 Identity Server 5.5.0 onwards, the .pem certificate can be updated via the Service Provider screen in the management console UI using the <strong>Application Certificate</strong> field. If the certificate has been entered in the Application Certifiate field, the system will use the certificate given there and override the certificate alias field.</p>
 	               <p>However, if the Application Certificate field has been left blank, the certificate specified in <strong>Certificate Alias</strong> will be used.</p>
 	            </div>
 	         </td>
@@ -542,9 +545,9 @@ management console. The next step is to run the sample.
 
 	   * [WS-Federation](../../learn/ws-federation)
 
-           * [Integrated Windows Authentication](../../learn/integrated-windows-authentication)
+     * [Integrated Windows Authentication](../../learn/integrated-windows-authentication-overview)
 
-           * [OAuth2-OpenID Connect](../../learn/oauth2-openid-connect)
+     * [OAuth2-OpenID Connect](../../learn/oauth2-openid-connect-overview)
 	  
 	   To set up reCaptcha for single sign on, see the following page:
 
