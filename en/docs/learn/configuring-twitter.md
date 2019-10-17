@@ -4,9 +4,7 @@ Twitter can be used as a federated authenticator in WSO2 Identity
 Server. Follow the steps below to configure WSO2 Identity Server to
 authenticate users using their Twitter login credentials:
 
-!!! tip
-    
-    Before you begin
+!!! tip "Before you begin"
     
     1.  Go to <https://twitter.com/> , create an account, and [register an
         application on
@@ -20,7 +18,7 @@ authenticate users using their Twitter login credentials:
 
 1.  Navigate to the **Identity Provider** section under **Main \>
     Identity** menu-item.
-2.  Click **Add** .
+2.  Click **Add**.
 3.  Provide values for the following fields under the **Basic
     Information** section:
 
@@ -135,7 +133,6 @@ authenticate users using their Twitter login credentials:
             ![security-token-service-config](../assets/img/tutorials/security-token-service-config.png)  
             For more information on security token service (STS), see
             [Configuring WS-Trust Security Token Service](../../learn/configuring-ws-trust-security-token-service).
-            .
 
     6.  You may view the inbound provisioning configurations by clicking
         **Inbound Provisioning Configuration** section.
@@ -153,14 +150,13 @@ authenticate users using their Twitter login credentials:
         To modify the host name of the above-above mentioned URLs,
     
         1.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.  
-            ```xml  
+            ``` toml
             [server]
             HostName= "localhost"	
             ```
     
-        2.  Open the `	<IS_HOME>/repository/conf/deployment.toml	` file and add the value of the URL as follows:
-            
-            ```xml
+        2.  Open the `	<IS_HOME>/repository/conf/deployment.toml	` file and add the value of the URL as follows:            
+            ```toml
             [saml.endpoints] 
 			idp_url= "https://localhost:9443/samlsso"
             ```
@@ -243,4 +239,4 @@ authenticate users using their Twitter login credentials:
     </tbody>
     </table>
 
-5.  Click **Register** .
+5.  Click **Register**.

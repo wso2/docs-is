@@ -6,17 +6,12 @@
     WSO2 Identity Server and is recommended for user store management. For
     more information on using the SCIM 2.0 REST APIs instead of the SOAP
     service given below, see [Using the SCIM 2.0 REST
-    APIs](../../references/using-the-scim-2.0-rest-apis).
+    APIs](../../develop/using-the-scim-2.0-rest-apis).
     
 
 This section guides you through invoking and working with the
 **RemoteUserStoreManagerService** and the operations you can work with
 in this service.
-
--   [Invoking the admin
-    service](#invoking-the-admin-service)
--   [Operations included in the API and sample
-    requests](#operations-included-in-the-api-and-sample-requests)
 
 ### Invoking the admin service
 
@@ -50,37 +45,7 @@ section in WSO2 Carbon documentation.
 ### Operations included in the API and sample requests
 
 The following operations are available in the
-**RemoteUserStoreManagerService** :
-
--   [authenticate()](#ManagingUsersandRoleswithAPIs-authenticate())
--   [isReadOnly()](#ManagingUsersandRoleswithAPIs-isReadOnly())
--   [getUserClaimValue()](#ManagingUsersandRoleswithAPIs-getUserClaimValue())
--   [getUserList()](#ManagingUsersandRoleswithAPIs-getUserList())
--   [getUserListOfRole()](#ManagingUsersandRoleswithAPIs-getUserListOfRole())
--   [updateCredential()](#ManagingUsersandRoleswithAPIs-updateCredential())
--   [getUserClaimValuesForClaims()](#ManagingUsersandRoleswithAPIs-getUserClaimValuesForClaims())
--   [setUserClaimValue()](#ManagingUsersandRoleswithAPIs-setUserClaimValue())
--   [deleteUserClaimValue()](#ManagingUsersandRoleswithAPIs-deleteUserClaimValue())
--   [isExistingUser()](#ManagingUsersandRoleswithAPIs-isExistingUser())
--   [deleteUserClaimValues()](#ManagingUsersandRoleswithAPIs-deleteUserClaimValues())
--   [updateCredentialByAdmin()](#ManagingUsersandRoleswithAPIs-updateCredentialByAdmin())
--   [getRoleNames()](#ManagingUsersandRoleswithAPIs-getRoleNames())
--   [getAllProfileNames()](#ManagingUsersandRoleswithAPIs-getAllProfileNames())
--   [listUsers()](#ManagingUsersandRoleswithAPIs-listUsers())
--   [deleteRole()](#ManagingUsersandRoleswithAPIs-deleteRole())
--   [deleteUser()](#ManagingUsersandRoleswithAPIs-deleteUser())
--   [getRoleListOfUser()](#ManagingUsersandRoleswithAPIs-getRoleListOfUser())
--   [updateRoleName()](#ManagingUsersandRoleswithAPIs-updateRoleName())
--   [isExistingRole()](#ManagingUsersandRoleswithAPIs-isExistingRole())
--   [updateRoleListOfUser()](#ManagingUsersandRoleswithAPIs-updateRoleListOfUser())
--   [getHybridRoles()](#ManagingUsersandRoleswithAPIs-getHybridRoles())
--   [getUserClaimValues()](#ManagingUsersandRoleswithAPIs-getUserClaimValues())
--   [addUser()](#ManagingUsersandRoleswithAPIs-addUser())
--   [addRole()](#ManagingUsersandRoleswithAPIs-addRole())
--   [updateUserListOfRole()](#ManagingUsersandRoleswithAPIs-updateUserListOfRole())
--   [setUserClaimValues()](#ManagingUsersandRoleswithAPIs-setUserClaimValues())
--   [getTenantIdOfUser()](#ManagingUsersandRoleswithAPIs-getTenantIdOfUser())
--   [getProfileNames()](#ManagingUsersandRoleswithAPIs-getProfileNames())
+**RemoteUserStoreManagerService**.
 
 !!! note
     

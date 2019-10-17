@@ -20,7 +20,7 @@ managing users and roles in the **Remote User Management API:**
     :  This service exposes functionality of handling authorization of
     users to different resources.  
       
--   [UserStoreConfigAdminService:](https://docs.wso2.com/display/IS530/Managing+User+Stores+with+APIs)
+-   [UserStoreConfigAdminService:](../../develop/managing-user-stores-with-apis)
     This service exposes user store configuration functionalities such
     as add, edit, and delete user stores.  
       
