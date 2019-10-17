@@ -144,9 +144,9 @@ separately.
     `           registry.xml          ` file.
 
     ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    <dbConfig name="wso2registry">
+        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+    </dbConfig>
     ```
 
 3.  If you are setting up a separate database to store user management
@@ -155,9 +155,9 @@ separately.
     `           user-mgt.xml          ` file.
 
     ``` xml
-        <Configuration>
-            <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-        </Configuration>
+    <Configuration>
+        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
+    </Configuration>
     ```
 
 ### Creating the database tables
@@ -169,7 +169,7 @@ earlier and run the following scripts in SQL\*Plus:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` powershell
-        SQL> @$<IS_HOME>/dbscripts/oracle.sql
+    SQL> @$<IS_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.
