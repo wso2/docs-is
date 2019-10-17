@@ -19,16 +19,16 @@ To make these parameters available via the Authentication Data API, we
 need to configure the Identity Server as follows.
 
 1.  Configure the following parameters in the
-    `                       application-authentication.xml                      `
+    `                       deployment.toml                      `
     file in
-    `                       <IS_HOME>/repository/conf/identity                      `
+    `                       <IS_HOME>/repository/conf                    `
     as per the descriptions provided below.
 
-    ``` xml
-    <AuthenticationEndpointRedirectParams action="include" 
-    removeOnConsumeFromAPI="true">
-    <AuthenticationEndpointRedirectParam name="sessionDataKey"/> 
-    </AuthenticationEndpointRedirectParams>
+    ```toml
+    [authentication.endpoint.redirect_params] 
+    filter_policy = "include"    
+    remove_on_consume_from_api = "true"
+    parameters = [sessionDataKey]
     ```
 
     <table>
@@ -40,15 +40,15 @@ need to configure the Identity Server as follows.
         </thead>
         <tbody>
             <tr>
-                <td>action</td>
+                <td>filter_policy</td>
                 <td>Value is either <b>include</b> or <b>exclude</b>. An include indicates a whitelist, whereas an <b>exclude</b> indicates a blacklist.</td>
             </tr>
             <tr>
-                <td>removeOnConsumeFromAPI</td>
+                <td>remove_on_consume_from_api</td>
                 <td>The decides whether to remove the parameters on a read. If set to true, parameters are deleted upon read and won’t be available for subsequent API requests, unless they are repopulated at the backend.</td>
             </tr>
             <tr>
-                <td>AuthenticationEndpointRedirectParam</td>
+                <td>parameters</td>
                 <td>The list of parameters to be whitelisted/blacklisted. The name attribute is used to specify the parameter name.</td>
             </tr>
             <tr>
@@ -112,3 +112,4 @@ curl -k -X GET "https://localhost:9443/api/identity/auth/v1.1/data/OauthConsentK
 
 ``` java
 {"paramKey1":"paramValue1","paramKey2":"paramValue2"}  
+```

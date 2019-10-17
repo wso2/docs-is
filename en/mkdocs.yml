@@ -46,7 +46,7 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Getting Started':
+  - 'Get Started':
     - 'Introduction': get-started/overview.md
     - 'Architecture':
       - 'Architecture': get-started/architecture.md
@@ -59,6 +59,7 @@ nav:
       - 'Identity Provisioning and its Standards': get-started/identity-provisioning-and-its-standards.md
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
+      - 'Cross Protocl Single Logout': get-started/cross-protocol-single-logout.md
   - 'Compliance':
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
@@ -108,6 +109,8 @@ nav:
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
+          - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
+        - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
         - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
@@ -149,6 +152,7 @@ nav:
           - 'Configuring Twitter': learn/configuring-twitter.md
           - 'Configuring SMS OTP': learn/configuring-sms-otp.md
           - 'Configuring Email OTP': learn/configuring-email-otp.md
+          - 'Configuring Apple': learn/configuring-apple.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
           - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
