@@ -15,7 +15,7 @@ or using the management console:
     If you are setting up a database other than the default H2 that comes
     with the product to store user information, select the script relevant
     to your database type from the
-    `         <PRODUCT_HOME>/dbscripts        ` folder and run it on your
+    `         <IS_HOME>/dbscripts        ` folder and run it on your
     database. It creates the necessary tables.
     
 
