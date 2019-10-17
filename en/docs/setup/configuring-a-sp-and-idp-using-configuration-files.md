@@ -692,7 +692,7 @@ scenario.
 The following links provide additional information that may be relevant
 when attempting the instructions in this topic.
 
--   See [Configuring SAML SSO](_Configuring_Single_Sign-On_) for
+-   See [Configuring SAML SSO](../../learn/configuring-single-sign-on) for
     information on using the travelocity.com application for single
     sign-on. This provides insight on some parameters used.
 -   See [Adding and Configuring a Service
@@ -704,6 +704,6 @@ when attempting the instructions in this topic.
     information on creating an identity provider using the WSO2 Identity
     Server management console.
 -   See [Configuring a SP and IdP Using Service
-    Calls](_Configuring_a_SP_and_IdP_Using_Service_Calls_) for
+    Calls](../../learn/configuring-a-sp-and-idp-using-service-calls) for
     information on creating a service provider or identity provider
     using admin services.
