@@ -97,14 +97,14 @@ user store:
         example:
 
         ``` xml
-            <Property name="ConnectionURL">ldap://localhost:10389</Property>
+        <Property name="ConnectionURL">ldap://localhost:10389</Property>
         ```
 
         For Active Directory, theconnectionURLshouldhavethe following
         format:
 
         ``` java
-            <Property name="ConnectionURL">ldap://<AD host-ip>:<AD_listen_port></Property>
+        <Property name="ConnectionURL">ldap://<AD host-ip>:<AD_listen_port></Property>
         ```
 
         !!! note
@@ -116,7 +116,7 @@ user store:
                 below.  
     
                 ``` xml
-                    <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
+                <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
                 ```
     
             -   For Active Directory, you need to import the certificate of
@@ -155,7 +155,7 @@ user store:
         directory.
 
         ``` xml
-            <Property name="UserSearchBase">ou=system</Property> 
+        <Property name="UserSearchBase">ou=system</Property> 
         ```
 
     4.  Set the attribute to use as the username, typically either
@@ -171,7 +171,7 @@ user store:
         For example:
 
         ``` xml
-            <Property name="UserNameAttribute">uid</Property>
+        <Property name="UserNameAttribute">uid</Property>
         ```
 
     5.  Set the `             ReadGroups            ` property to
@@ -194,7 +194,7 @@ user store:
             property.
 
             ``` xml
-                <Property name="ReadGroups">true</Property>
+            <Property name="ReadGroups">true</Property>
             ```
 
         -   Set the `               GroupSearchBase              `
@@ -205,36 +205,36 @@ user store:
             location of the directory. For example:  
 
             ``` xml
-                <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
+            <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
             ```
 
         -   Set the GroupSearchFilter and GroupNameAttributes. For
             example:  
 
             ``` xml
-                <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-                <Property name="GroupNameAttribute">cn</Property>
+            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+            <Property name="GroupNameAttribute">cn</Property>
             ```
 
         -   Set the `               MembershipAttribute              `
             property as shown below:  
 
             ``` xml
-                <Property name="MembershipAttribute">member</Property> 
+            <Property name="MembershipAttribute">member</Property> 
             ```
 
         To read roles based on a backlink attribute, use
         thefollowingcodesnipetinsteadofthe above:
 
         ``` xml
-            <Property name="ReadGroups">false</Property>
-            <Property name="GroupSearchBase">ou=system</Property>
-            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-            <Property name="GroupNameAttribute">cn</Property>
-            <Property name="MembershipAttribute">member</Property>
-    
-            <Property name="BackLinksEnabled">true</Property>
-            <Property name="MembershipOfAttribute">memberOf</Property> 
+        <Property name="ReadGroups">false</Property>
+        <Property name="GroupSearchBase">ou=system</Property>
+        <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+        <Property name="GroupNameAttribute">cn</Property>
+        <Property name="MembershipAttribute">member</Property>
+
+        <Property name="BackLinksEnabled">true</Property>
+        <Property name="MembershipOfAttribute">memberOf</Property> 
         ```
 
     6.  For Active Directory, you can use
@@ -267,15 +267,15 @@ information. Update this configuration for the read-only LDAP/AD as
 explained below.
 
 ``` java
-    <Configuration>
-            <AddAdmin>False</AddAdmin>
-            <AdminRole>admin</AdminRole>
-            <AdminUser>
-                <UserName>AdminSOA</UserName>
-                <Password>XXXXXX</Password>
-            </AdminUser>
-            ............
-    </Configuration> 
+<Configuration>
+        <AddAdmin>False</AddAdmin>
+        <AdminRole>admin</AdminRole>
+        <AdminUser>
+            <UserName>AdminSOA</UserName>
+            <Password>XXXXXX</Password>
+        </AdminUser>
+        ............
+</Configuration> 
 ```
 
 -   **\<AddAdmin\>:** This should be set to 'False' as it will not be

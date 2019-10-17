@@ -116,16 +116,6 @@ file as shown below.
         the `            <IS_HOME>/repository/conf/datasources/master-datasources.xml           ` file, see 
         [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-    !!! warning
-        The following elements are available only as a **WUM** update and is
-        effective from 14th September 2018 (2018-09-14).  For more
-        information, see [Updating WSO2
-        Products](https://docs.wso2.com/display/updates/Introduction).  
-        This WUM update is only applicable to Carbon 4.4.11 and will be
-        shipped out-out-the-box with Carbon versions newer than Carbon
-        4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/).
-    
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
     |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -141,13 +131,6 @@ file as shown below.
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.
-
-    !!! warning
-        Disabling the
-        `            ConnectionRollbackOnReturnInterceptor           ` is
-        only possible with the **WUM** update and is effective from 14th
-        September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Introduction). This WUM update is only applicable to Carbon 4.4.11.
     
 
     -   **Configure the connection pool to commit pending transactions on connection return**  
@@ -230,9 +213,9 @@ data separately.
     `           registry.xml          ` file.
 
     ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    <dbConfig name="wso2registry">
+        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+    </dbConfig>
     ```
 
 3.  If you are setting up a separate database to store user management
@@ -241,9 +224,9 @@ data separately.
     `           user-mgt.xml          ` file.
 
     ``` xml
-        <Configuration>
-            <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-        </Configuration>
+    <Configuration>
+        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
+    </Configuration>
     ```
 
 ### Creating the database tables
@@ -255,7 +238,7 @@ earlier and run the following scripts in SQL\*Plus:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` powershell
-        SQL> @$<IS_HOME>/dbscripts/oracle.sql
+    SQL> @$<IS_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.
