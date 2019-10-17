@@ -55,7 +55,7 @@ is structured to work in WSO2 products:
 -   **Realm configuration:** The user realm consists of the
     configurations required to initialise the user realm. The
     `           deployment.toml          ` file stored in the
-    `           <PRODUCT_HOME>/repository/conf/          ` directory is
+    `           <IS_HOME>/repository/conf/          ` directory is
     used as the realm configuration TOML. This includes setting up the
     **User Store Manager**, the **Authorization Manager** and the
     **System Administrator**. These configurations are explained

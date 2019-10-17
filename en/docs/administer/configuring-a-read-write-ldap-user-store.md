@@ -3,7 +3,7 @@
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
 `         user-mgt.xml        ` file found in the
-`         <PRODUCT_HOME>/repository/conf/        ` directory. This file
+`         <IS_HOME>/repository/conf/        ` directory. This file
 is shipped with user store manager configurations for all possible user
 store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and
 read-write Active directory). The instructions given below explains how
@@ -32,7 +32,7 @@ user store:
 !!! info "Before you begin"
     -   If you create the `           user-mgt.xml          ` file yourself,
         be sure to save it in the
-        `           <PRODUCT_HOME>/repository/conf          ` directory.
+        `           <IS_HOME>/repository/conf          ` directory.
     -   The `           class          ` attribute for a read-write LDAP is
         `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">          `
 
@@ -61,7 +61,7 @@ configuring your external read-write LDAP as the primary user store.
     user store, see [Properties of User
     Stores](../../administer/working-with-properties-of-user-stores).
 
-    ``` html/xml
+    ``` xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
        <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
        <Property name="ConnectionURL">ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}</Property>
@@ -102,7 +102,7 @@ configuring your external read-write LDAP as the primary user store.
     1.  To read and write to an LDAPuserstore, it is important to ensure
         that the `             ReadGroups            ` and
         `             WriteGroups            ` properties in the
-        `             <PRODUCT_HOME>/repository/conf/user-mgt.xml            `
+        `             <IS_HOME>/repository/conf/user-mgt.xml            `
         file are set to `             true            ` .
 
         ``` xml
@@ -120,7 +120,7 @@ configuring your external read-write LDAP as the primary user store.
         attribute is available in your user store, check with your LDAP
         administrator.
 
-        ``` html/xml
+        ``` xml
                 <Property name="UserNameAttribute">uid</Property>
         ```
 
@@ -145,7 +145,7 @@ configuring your external read-write LDAP as the primary user store.
                 ```
     
             -   You also need to [enable connection
-                pooling](../../administer/performance-tuning_53125477.html#PerformanceTuning-ldaps_pooling)
+                pooling](../../administer/performance-tuning#pooling-ldaps-connections)
                 for LDAPS connections at the time of starting your server,
                 which will enhance server performance.
         
@@ -175,7 +175,7 @@ configuring your external read-write LDAP as the primary user store.
         -   Enable the `               ReadGroups              `
             property.
 
-            ``` html/xml
+            ``` xml
             <Property name="ReadGroups">true</Property>
             ```
 
@@ -186,14 +186,14 @@ configuring your external read-write LDAP as the primary user store.
             Also, when LDAP searches for groups, it will start from this
             location of the directory. For example:
 
-            ``` html/xml
+            ``` xml
                         <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
             ```
 
         -   Set the GroupSearchFilter andGroupNameAttributes. For
             example:
 
-            ``` html/xml
+            ``` xml
                         <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
                         <Property name="GroupNameAttribute">cn</Property>
             ```
@@ -201,22 +201,23 @@ configuring your external read-write LDAP as the primary user store.
         -   Set the `               MembershipAttribute              `
             property as shown below:
 
-            ``` html/xml
+            ``` xml
                         <Property name="MembershipAttribute">member</Property> 
             ```
 
         To read roles based on a backlink attribute, use
         thefollowingcodesnipetinsteadofthe above:
 
-        ``` html/xml
-                <Property name="ReadGroups">false</Property>
-                <Property name="GroupSearchBase">ou=system</Property>
-                <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-                <Property name="GroupNameAttribute">cn</Property>
-                <Property name="MembershipAttribute">member</Property>
-        
-                <Property name="BackLinksEnabled">true</Property>
-                <Property name="MembershipOfAttribute">memberOf</Property> 
+
+        ``` xml
+            <Property name="ReadGroups">false</Property>
+            <Property name="GroupSearchBase">ou=system</Property>
+            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+            <Property name="GroupNameAttribute">cn</Property>
+            <Property name="MembershipAttribute">member</Property>
+
+            <Property name="BackLinksEnabled">true</Property>
+            <Property name="MembershipOfAttribute">memberOf</Property> 
         ```
 
 ### Step 2: Updating the system administrator
@@ -240,7 +241,7 @@ These two alternative configurations can be done as explained below.
     your configuration as shown below. You do not have to update the
     password element as it is already set in the user store.
 
-    ``` html/xml
+    ``` xml
         <AddAdmin>False</AddAdmin> 
         <AdminRole>admin</AdminRole> 
         <AdminUser> 
@@ -253,7 +254,7 @@ These two alternative configurations can be done as explained below.
     user to the user store. Therefore, `           <AddAdmin>          `
     should be set to true as shown below.
 
-    ``` html/xml
+    ``` xml
         <AddAdmin>true</AddAdmin> 
         <AdminRole>admin</AdminRole> 
         <AdminUser> 

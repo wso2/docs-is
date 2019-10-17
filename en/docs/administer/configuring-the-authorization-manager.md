@@ -12,7 +12,7 @@ Stores](../../learn/configuring-user-stores).
 
 The repository that stores Permissions should always be an RDBMS. The
 Authorization Manager configuration in the user-mgt.xml file (stored in
-the `         <PRODUCT_HOME>/repository/conf/        ` directory)
+the `         <IS_HOME>/repository/conf/        ` directory)
 connects the system to this RDBMS.
 
 Follow the instructions given below to set up and configure the
@@ -31,7 +31,7 @@ You can change this as follows:
     -   If you are replacing the default H2 database with a new RDBMS,
         update the `            deployment.toml           ` file
         (stored in the
-        `            <PRODUCT_HOME>/repository/conf/          `
+        `            <IS_HOME>/repository/conf/          `
         directory) with the relevant information.
 
 For information on how you can set up a new RDBMS and configure it for

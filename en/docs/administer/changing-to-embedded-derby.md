@@ -113,14 +113,6 @@ The elements in the above configuration are described below.
     `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         `
     file, see [Tomcat JDBC Connection
     Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
-
-!!! warning
-    The following elements are available only as a **WUM** update and is
-    effective from 14th September 2018 (2018-09-14).  For more information,
-    see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA).  
-    This WUM update is only applicable to Carbon 4.4.11 and will be shipped
-    out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more
-    information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/).
     
 
 | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                |
@@ -137,14 +129,6 @@ behavior by disabling the
 `          ConnectionRollbackOnReturnInterceptor         `, which is a
 JDBC-Pool JDBC interceptor, and setting the connection pool behavior on
 return via the datasource configurations by using the following options.
-
-!!! warning
-    Disabling the `          ConnectionRollbackOnReturnInterceptor         `
-    is only possible with the **WUM** update and is effective from 14th
-    September 2018 (2018-09-14). For more information on updating WSO2 API
-    Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA)
-   . This WUM update is only applicable to Carbon 4.4.11.
-    
 
 -   **Configure the connection pool to commit pending transactions on connection return** 
 
@@ -170,17 +154,17 @@ return via the datasource configurations by using the following options.
         datasources.
 
         ``` html/xml
-                <datasource>
-                    ...
-                     <definition type="RDBMS">
-                         <configuration>
-                              ...
-                               <defaultAutoCommit>false</defaultAutoCommit>
-                               <commitOnReturn>true</commitOnReturn>    
-                              ...
-                         </configuration>
-                     </definition>
-                </datasource>
+        <datasource>
+            ...
+                <definition type="RDBMS">
+                    <configuration>
+                        ...
+                        <defaultAutoCommit>false</defaultAutoCommit>
+                        <commitOnReturn>true</commitOnReturn>    
+                        ...
+                    </configuration>
+                </definition>
+        </datasource>
         ```
 
 -   **Configure the connection pool to rollback pending transactions on connection return**
@@ -195,17 +179,17 @@ return via the datasource configurations by using the following options.
         to the datasources.
 
         ``` html/xml
-                <datasource>
-                    ...
-                     <definition type="RDBMS">
-                         <configuration>
-                              ...
-                               <defaultAutoCommit>false</defaultAutoCommit> 
-                               <rollbackOnReturn>true</rollbackOnReturn>
-                              ...
-                         </configuration>
-                     </definition>
-                </datasource>
+        <datasource>
+            ...
+                <definition type="RDBMS">
+                    <configuration>
+                        ...
+                        <defaultAutoCommit>false</defaultAutoCommit> 
+                        <rollbackOnReturn>true</rollbackOnReturn>
+                        ...
+                    </configuration>
+                </definition>
+        </datasource>
         ```
 
   
@@ -217,7 +201,7 @@ the new database(s) you create to manage registry and/or user management
 data separately.
 
 1.  Add a new datasource with similar configurations as the
-    [`           WSO2_CARBON_DB          ` datasource](#changing-the-default-wso2-carbon-db-datasource)
+    [`           WSO2_CARBON_DB          ` datasource](#changing-the-default-datasource)
     above to the 
     `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         `
     file. Change its elements with your custom values. For instructions,
@@ -228,9 +212,9 @@ data separately.
     `           registry.xml          ` file.
 
     ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    <dbConfig name="wso2registry">
+        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+    </dbConfig>
     ```
 
 3.  If you are setting up a separate database to store user management
@@ -239,9 +223,9 @@ data separately.
     file.
 
     ``` xml
-        <Configuration>
-            <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-        </Configuration>
+    <Configuration>
+        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
+    </Configuration>
     ```
 
 ### Creating database tables
@@ -303,8 +287,8 @@ follows:
         systems (except analytics products) are not granted DDL (Data
         Definition) rights on the schema. Therefore, maintaining the
         `            -DSetup           ` option is redundant and typically
-        unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-        deprecated the** ** `             -DSetup            ` option**.
+        unusable. 
+        **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `             -DSetup` option**.
         Note that the proper practice is for the DBA to run the DDL statements
         manually so that the DBA can examine and optimize any DDL statement (if
         necessary) based on the DBA best practices that are in place within the

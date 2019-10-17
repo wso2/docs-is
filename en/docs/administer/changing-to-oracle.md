@@ -6,8 +6,7 @@ you need to follow in order to use an Oracle database for this purpose.
 
 !!! tip "Before you begin"
     You need to set up Oracle before following the steps to configure your
-    product with Oracle. For more information, see [Setting up
-    Oracle](../../administer/setting-up-oracle).
+    product with Oracle. For more information, see [Setting up Oracle](../../administer/setting-up-oracle).
     
 
 ### Setting up datasource configurations
@@ -114,20 +113,9 @@ file as shown below.
 
     !!! info 
         For more information on other parameters that can be defined in
-        the `            <IS_HOME>/repository/conf/datasources/master-datasources.xml           ` file, see [Tomcat
-        JDBC Connection
-        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+        the `            <IS_HOME>/repository/conf/datasources/master-datasources.xml           ` file, see 
+        [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-    !!! warning
-        The following elements are available only as a **WUM** update and is
-        effective from 14th September 2018 (2018-09-14).  For more
-        information, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA).  
-        This WUM update is only applicable to Carbon 4.4.11 and will be
-        shipped out-out-the-box with Carbon versions newer than Carbon
-        4.4.35. For more information on Carbon compatibility, see [Release
-        Matrix](https://wso2.com/products/carbon/release-matrix/).
-    
 
     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
     |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -143,14 +131,6 @@ file as shown below.
     which is a JDBC-Pool JDBC interceptor, and setting the connection
     pool behavior on return via the datasource configurations by using
     the following options.
-
-    !!! warning
-        Disabling the
-        `            ConnectionRollbackOnReturnInterceptor           ` is
-        only possible with the **WUM** update and is effective from 14th
-        September 2018 (2018-09-14). For more information on updating WSO2
-        API Manager, see [Updating WSO2
-        Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA). This WUM update is only applicable to Carbon 4.4.11.
     
 
     -   **Configure the connection pool to commit pending transactions on connection return**  
@@ -223,20 +203,19 @@ data separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-wso2-carbon-db-datasource) above to
+    datasource](#changing-the-default-datasource) above to
     the `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         ` file. Change its
-    elements with your custom values. For instructions, see [Setting up
-    datasource
-    configurations.](#setting-up-datasource-configurations)
+    elements with your custom values. For instructions, see [Setting up datasource configurations.](#setting-up-datasource-configurations)
+    
 2.  If you are setting up a separate database to store registry-related
     data, update the following configurations in the \<
     `           IS_HOME>/repository/conf/          `
     `           registry.xml          ` file.
 
     ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    <dbConfig name="wso2registry">
+        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+    </dbConfig>
     ```
 
 3.  If you are setting up a separate database to store user management
@@ -245,9 +224,9 @@ data separately.
     `           user-mgt.xml          ` file.
 
     ``` xml
-        <Configuration>
-            <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-        </Configuration>
+    <Configuration>
+        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
+    </Configuration>
     ```
 
 ### Creating the database tables
@@ -259,14 +238,13 @@ earlier and run the following scripts in SQL\*Plus:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` powershell
-        SQL> @$<IS_HOME>/dbscripts/oracle.sql
+    SQL> @$<IS_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.
 
     !!! info 
-        You can create database tables automatically **when starting the
-        product for the first time** by using the
+        You can create database tables automatically **when starting the product for the first time** by using the
         `            -Dsetup           ` parameter as follows:
 
         -   For Windows:
