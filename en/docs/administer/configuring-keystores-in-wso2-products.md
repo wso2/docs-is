@@ -18,6 +18,27 @@ with all WSO2 products, is used as the default keystore for all
 functions. However, in a production environment, it is recommended
 to create new keystores with new keys and certificates.
     
+!!! note 
+    Please note that in WSO2 IoT Server and WSO2 Enterprise Integrator the `    <IS_HOME>/repository/conf   ` directory is in the following location: `  <IS_HOME>/conf  `
+
+!!! tip
+    If you want an easy way to locate all the configuration files that have references to keystores, you can use the grep command as follows:
+
+    1.  Open a command prompt and navigate to the <IS_HOME>/repository/conf/ directory where your product stores all configuration files.
+
+    2.  Execute the following command: grep -nr ".jks" .
+
+    The configuration files and the keystore files referred to in each file are listed out. See an example of this below.
+
+    ``` text
+    ./axis2/axis2.xml:260:                <Location>repository/resources/security/wso2carbon.jks</Location>
+    ./axis2/axis2.xml:431:                <Location>repository/resources/security/wso2carbon.jks</Location>
+    ./carbon.xml:316:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
+    ./carbon.xml:332:            <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
+    ./identity.xml:180:             <Location>${carbon.home}/repository/resources/security/wso2carbon.jks</Location>
+    ./security/secret-conf.properties:21:#keystore.identity.location=repository/resources/security/wso2carbon.jks
+    ```
+
 ### Before you begin
 
 -   Be sure to go through the [recommendations for setting
@@ -33,7 +54,7 @@ to create new keystores with new keys and certificates.
 The primary keystore of WSO2 products are located at `[HOME]/resources/security/wso2carbon.jks`, 
 while the default trust-store is at `[HOME]/repository/resources/security/client-truststore.jks`.
 This can be configured by specifying it in the `         deployment.toml        ` file (stored in the
-`         <PRODUCT         _HOME>/repository/conf/        ` directory).
+`         <IS_HOME>/repository/conf/        ` directory).
 This keystore is used for the following functions in WSO2 products by
 default.
 
@@ -43,7 +64,7 @@ default.
     [separating the keystore for encrypting information in internal data
     stores](#configuring-a-separate-keystore-for-encrypting-data-in-internal-data-stores)
     .
--   **S** **igning messages** when the WSO2 product communicates with
+-   **Signing messages** when the WSO2 product communicates with
     external parties (such SAML, OIDC id\_token signing).
 
 ### Configuring a separate keystore for encrypting data in internal data stores

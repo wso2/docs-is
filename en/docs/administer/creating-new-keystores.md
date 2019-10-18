@@ -155,7 +155,7 @@ certificates. These certificates certify the ownership of a public key.
 
 2.  You must provide this CSR file to the CA. For testing purposes, try
     the [90 days trial SSL certificate from
-    Comodo](https://www.instantssl.com/free-ssl-certificate.html).
+    Comodo](https://www.ssldragon.com/product/comodo-trial-ssl/).
 
     !!! note
         It is preferable to have a wildcard certificate or multiple domain
@@ -172,14 +172,16 @@ certificates. These certificates certify the ownership of a public key.
     (depending on the CA) as a bundle (.zip file).
 
     **Sample certificates provided by the CA (Comodo)**
-
-    The Root certificate of the CA:
-    `              AddTrustExternalCARoot.crt             `  
-    Intermediate certificates:
-    `              COMODORSAAddTrustCA.crt,             `
-    `              COMODORSADomainValidationSecureServerCA.crt             `  
-    SSL Certificate signed by CA:
-    `              test_sampleapp_org.crt             `
+    
+    ``` text
+        The Root certificate of the CA:
+        `              AddTrustExternalCARoot.crt             `  
+        Intermediate certificates:
+        `              COMODORSAAddTrustCA.crt,             `
+        `              COMODORSADomainValidationSecureServerCA.crt             `  
+        SSL Certificate signed by CA:
+        `              test_sampleapp_org.crt             `
+    ```
 
 #### Step 2: Importing certificates to the keystore
 
