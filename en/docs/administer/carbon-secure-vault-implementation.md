@@ -197,7 +197,7 @@ To create a custom secret repository, you need to implement the
 3.  Create a JAR or an OSGI bundle.
 
 4.  Then, copy the JAR file to the `               <IS_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the
-    `               <IS_HOME>/repository/component/              ` dropins `               /              ` directory.
+    `               <IS_HOME>/repository/component/dropins/              ` directory.
 
 
 5.  Replace the `                   secretRepositories.file.provider                  `
