@@ -18,9 +18,6 @@ with all WSO2 products, is used as the default keystore for all
 functions. However, in a production environment, it is recommended
 to create new keystores with new keys and certificates.
     
-!!! note 
-    Please note that in WSO2 IoT Server and WSO2 Enterprise Integrator the `    <IS_HOME>/repository/conf   ` directory is in the following location: `  <IS_HOME>/conf  `
-
 !!! tip
     If you want an easy way to locate all the configuration files that have references to keystores, you can use the grep command as follows:
 
