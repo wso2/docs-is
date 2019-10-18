@@ -55,40 +55,40 @@ layer.
 
     ``` java
     <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                    port="9443"
-                    bindOnInit="false"
-                    sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" 
+    port="9443"
+    bindOnInit="false"
+    sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" 
     ```
 
 4.  Start the server.
 
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../assets/img/53125465/53287360.jar).
+    and run the [TestSSLServer.jar](../assets/attachments/TestSSLServer.jar)
 
     ``` java
-        java -jar TestSSLServer.jar localhost 9443
+    java -jar TestSSLServer.jar localhost 9443
     ```
 
     The output of the command after disabling SSL is shown below.
 
     ``` java
-        Supported versions: TLSv1.0
-        Deflate compression: no
-        Supported cipher suites (ORDER IS NOT SIGNIFICANT):
-          TLSv1.0
-             RSA_EXPORT_WITH_RC4_40_MD5
-             RSA_WITH_RC4_128_MD5
-             RSA_WITH_RC4_128_SHA
-             RSA_EXPORT_WITH_DES40_CBC_SHA
-             RSA_WITH_DES_CBC_SHA
-             RSA_WITH_3DES_EDE_CBC_SHA
-             DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
-             DHE_RSA_WITH_DES_CBC_SHA
-             DHE_RSA_WITH_3DES_EDE_CBC_SHA
-             RSA_WITH_AES_128_CBC_SHA
-             DHE_RSA_WITH_AES_128_CBC_SHA
-             RSA_WITH_AES_256_CBC_SHA
-             DHE_RSA_WITH_AES_256_CBC_SHA
+    Supported versions: TLSv1.0
+    Deflate compression: no
+    Supported cipher suites (ORDER IS NOT SIGNIFICANT):
+      TLSv1.0
+         RSA_EXPORT_WITH_RC4_40_MD5
+         RSA_WITH_RC4_128_MD5
+         RSA_WITH_RC4_128_SHA
+         RSA_EXPORT_WITH_DES40_CBC_SHA
+         RSA_WITH_DES_CBC_SHA
+         RSA_WITH_3DES_EDE_CBC_SHA
+         DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+         DHE_RSA_WITH_DES_CBC_SHA
+         DHE_RSA_WITH_3DES_EDE_CBC_SHA
+         RSA_WITH_AES_128_CBC_SHA
+         DHE_RSA_WITH_AES_128_CBC_SHA
+         RSA_WITH_AES_256_CBC_SHA
+         DHE_RSA_WITH_AES_256_CBC_SHA
     ```
 
 If you have enabled the PassThrough transport, do the following:
@@ -114,25 +114,24 @@ If you have enabled the PassThrough transport, do the following:
     <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
     ```
 
-    -   If you are using JDK 1.6, add the following parameter:
+    !!! info 
+        -   If you are using JDK 1.6, add the following parameter:
 
-        ``` java
-                <parameter name="HttpsProtocols">TLSv1</parameter> 
-        ```
+            ``` java
+            <parameter name="HttpsProtocols">TLSv1</parameter> 
+            ```
 
-    <!-- -->
+        -   If you are using JDK 1.7, add the following parameter:
 
-    -   If you are using JDK 1.7, add the following parameter:
+            ``` java
+            <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
+            ```
 
-        ``` java
-                <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
-        ```
+        -   If you are using JDK 1.8, add the following parameter:
 
-    -   If you are using JDK 1.8, add the following parameter:
-
-        ``` java
-                <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
-        ```
+            ``` java
+            <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
+            ```
 
 3.  Start the server.
 
@@ -140,7 +139,7 @@ If you have enabled the PassThrough transport, do the following:
     corresponding port:
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 8243
+    $ java -jar TestSSLServer.jar localhost 8243
     ```
 
 ### Enabling SSL protocols and ciphers in ThriftAuthenticationService
@@ -154,19 +153,17 @@ Do the following to enable SSL protocols and ciphers in the
     element.
 
     ``` java
-        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
-        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols                                      <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
     ```
 
     !!! tip
-    
-        **Tip:** You can also add the following additional cipher suites to
+        You can also add the following additional cipher suites to
         the `           <Ciphers>          ` property if JCE Unlimited
         Strength Jurisdiction Policy is enabled in Java.
     
         ``` java
-            TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
-    ```
+        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
+        ```
 
     If you wish to remove `           TLSv1          ` or
     `           TLSv1.1          `, you can do so by removing them as
@@ -186,8 +183,8 @@ running on JDK 1.7. You cannot configure this using the
 setting a system property.
 
 1.  Download the following artifacts:
-    -   [wso2-ssl-socket-factory-provider-1.0.0.jar](../assets/img/53125465/72434246.jar)
-    -   [wso2-ssl-security](../assets/img/53125465/72434248)
+    -   [wso2-ssl-socket-factory-provider-1.0.0.jar](../assets/attachments/wso2-ssl-socket-factory-provider-1.0.0.jar)
+    -   [wso2-ssl-security](../assets/attachments/wso2-ssl-security)
 2.  Copy the `          wso2-         ` ssl
     `          -socket-factory-provider-1.0.0.jar         ` file to the
     `          <                     PRODUCT_HOME>                    /lib/endorsed         `
@@ -243,34 +240,32 @@ ciphers by JSSE. This will enable the weak ciphers.
     the example given below.
 
     ``` java
-        For Tomcat version 7.0.59 and JDK version 1.7:
-        ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA"  
-    
-        For Tomcat version 7.0.59 and JDK version 1.8:
-        ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+    For Tomcat version 7.0.59 and JDK version 1.7:
+    ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA"  
+
+    For Tomcat version 7.0.59 and JDK version 1.8:
+    ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
     ```
 
-    See the list of [supported cipher suites](Supported_Cipher_Suites)
+    See the list of [supported cipher suites](../../administer/supported-cipher-suites)
     .
 
 4.  Start the server.
 5.  To verify that the configurations are all set correctly, download
-    and run the [TestSSLServer.jar](../assets/img/53125465/53287360.jar).
+    and run the [TestSSLServer.jar](../assets/attachments/TestSSLServer.jar).
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 9443
+    $ java -jar TestSSLServer.jar localhost 9443
     ```
 
     !!! note
-    
         Note the following when you run
         `           TestSSLServer.jar          ` :
     
         -   The "Supported cipher suites" section in the output does not
             contain any EXPORT ciphers.
     
-        -   When you use the supported cipher suites listed
-            [here](Supported_Cipher_Suites), the BEAST attack status will
+        -   When you use the supported cipher suites listed [here](../../administer/supported-cipher-suites), the BEAST attack status will
             be shown as vulnerable. Note that this is a client-side
             vulnerability caused by the TLSv1 protocol. You can make the
             BEAST status protected by removing TLSv1, which will make
@@ -303,35 +298,32 @@ the `         <IS_HOME>/repository/conf/axis2/        ` directory).
     corresponding port:
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 8243
+    $ java -jar TestSSLServer.jar localhost 8243
     ```
 
-  
 
-From **Firefox** 39.0 onwards, the browser does not allow to access Web
-sites that support DHE with keys less than 1023 bits (not just
-DHE\_EXPORT). 768/1024 bits are considered to be too small and
-vulnerable to attacks if the hacker has enough computing resources.
+!!! info 
 
-!!! tip
-    
-    To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy
-    files need to be installed. Download them from
-    [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index)
-    .
-    
-    
-    From Java 7, you must set the
-    `           jdk.certpath.disabledAlgorithms          ` property in the
-    `           <JAVA_HOME>/jre/lib/security/java.security          ` file
-    to
-    `           jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048          `
-    . It rejects all algorithms that have key sizes less than 2048 for MD2,
-    DSA and RSA.
-    
-    **Note** : This tip is not applicable when you are disabling weak
-    ciphers in [WSO2 Identity
-    Server](https://docs.wso2.com/display/IS510/WSO2+Identity+Server+Documentation)
+    From **Firefox** 39.0 onwards, the browser does not allow to access Web
+    sites that support DHE with keys less than 1023 bits (not just
+    DHE\_EXPORT). 768/1024 bits are considered to be too small and
+    vulnerable to attacks if the hacker has enough computing resources.
+
+    !!! tip
+        To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy
+        files need to be installed. Download them from
+        [http://www.oracle.com/technetwork/java/javase/downloads/index.html](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+        
+        From Java 7, you must set the
+        `           jdk.certpath.disabledAlgorithms          ` property in the
+        `           <JAVA_HOME>/jre/lib/security/java.security          ` file
+        to
+        `           jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048          `
+        . It rejects all algorithms that have key sizes less than 2048 for MD2,
+        DSA and RSA.
+        
+        **Note** : This tip is not applicable when you are disabling weak
+        ciphers in [WSO2 Identity Server](https://docs.wso2.com/display/IS510/WSO2+Identity+Server+Documentation)
 
   
 
@@ -353,6 +345,7 @@ name in the catalina `         -server.        ` xml file.
     server="WSO2 Carbon Server"
     ```
 
-See the [Security Guidelines for Production
-Deployment](Security_Guidelines_for_Production_Deployment) for the
-full list of security-related recommendations for WSO2 products.
+!!! info 
+    See the [Security Guidelines for Production
+    Deployment](../../administer/security-guidelines-for-production-deployment) for the
+    full list of security-related recommendations for WSO2 products.
