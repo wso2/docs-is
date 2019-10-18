@@ -55,9 +55,9 @@ layer.
 
     ``` java
     <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
-                    port="9443"
-                    bindOnInit="false"
-                    sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" 
+    port="9443"
+    bindOnInit="false"
+    sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" 
     ```
 
 4.  Start the server.
@@ -66,29 +66,29 @@ layer.
     and run the [TestSSLServer.jar](../assets/attachments/TestSSLServer.jar)
 
     ``` java
-        java -jar TestSSLServer.jar localhost 9443
+    java -jar TestSSLServer.jar localhost 9443
     ```
 
     The output of the command after disabling SSL is shown below.
 
     ``` java
-        Supported versions: TLSv1.0
-        Deflate compression: no
-        Supported cipher suites (ORDER IS NOT SIGNIFICANT):
-          TLSv1.0
-             RSA_EXPORT_WITH_RC4_40_MD5
-             RSA_WITH_RC4_128_MD5
-             RSA_WITH_RC4_128_SHA
-             RSA_EXPORT_WITH_DES40_CBC_SHA
-             RSA_WITH_DES_CBC_SHA
-             RSA_WITH_3DES_EDE_CBC_SHA
-             DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
-             DHE_RSA_WITH_DES_CBC_SHA
-             DHE_RSA_WITH_3DES_EDE_CBC_SHA
-             RSA_WITH_AES_128_CBC_SHA
-             DHE_RSA_WITH_AES_128_CBC_SHA
-             RSA_WITH_AES_256_CBC_SHA
-             DHE_RSA_WITH_AES_256_CBC_SHA
+    Supported versions: TLSv1.0
+    Deflate compression: no
+    Supported cipher suites (ORDER IS NOT SIGNIFICANT):
+      TLSv1.0
+         RSA_EXPORT_WITH_RC4_40_MD5
+         RSA_WITH_RC4_128_MD5
+         RSA_WITH_RC4_128_SHA
+         RSA_EXPORT_WITH_DES40_CBC_SHA
+         RSA_WITH_DES_CBC_SHA
+         RSA_WITH_3DES_EDE_CBC_SHA
+         DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+         DHE_RSA_WITH_DES_CBC_SHA
+         DHE_RSA_WITH_3DES_EDE_CBC_SHA
+         RSA_WITH_AES_128_CBC_SHA
+         DHE_RSA_WITH_AES_128_CBC_SHA
+         RSA_WITH_AES_256_CBC_SHA
+         DHE_RSA_WITH_AES_256_CBC_SHA
     ```
 
 If you have enabled the PassThrough transport, do the following:
@@ -118,19 +118,19 @@ If you have enabled the PassThrough transport, do the following:
         -   If you are using JDK 1.6, add the following parameter:
 
             ``` java
-                <parameter name="HttpsProtocols">TLSv1</parameter> 
+            <parameter name="HttpsProtocols">TLSv1</parameter> 
             ```
 
         -   If you are using JDK 1.7, add the following parameter:
 
             ``` java
-                <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
+            <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
             ```
 
         -   If you are using JDK 1.8, add the following parameter:
 
             ``` java
-                <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
+            <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
             ```
 
 3.  Start the server.
@@ -139,7 +139,7 @@ If you have enabled the PassThrough transport, do the following:
     corresponding port:
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 8243
+    $ java -jar TestSSLServer.jar localhost 8243
     ```
 
 ### Enabling SSL protocols and ciphers in ThriftAuthenticationService
@@ -153,8 +153,7 @@ Do the following to enable SSL protocols and ciphers in the
     element.
 
     ``` java
-        <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
-        <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols                                      <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
     ```
 
     !!! tip
@@ -163,7 +162,7 @@ Do the following to enable SSL protocols and ciphers in the
         Strength Jurisdiction Policy is enabled in Java.
     
         ``` java
-            TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
+        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
         ```
 
     If you wish to remove `           TLSv1          ` or
