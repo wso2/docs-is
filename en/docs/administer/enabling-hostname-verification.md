@@ -35,7 +35,7 @@ for the following product versions:
 See [Getting Started with WUM](https://docs.wso2.com/display/updates/Getting+Continuous+Updates)
 for more instructions on how to get updates. If you have already got the
 WUM updates, see the topic below on [Configuring hostname verification
-(Carbon 4.4.17 onwards)](#configuring-hostname-verification-carbon-4.4.6-to-carbon-4.4.16) for
+(Carbon 4.4.17 onwards)](#carbon) for
 instructions on how to apply this configuration.
 
 For all other product versions (that are not listed above), this
@@ -44,6 +44,8 @@ the [Carbon version of your WSO2 product](https://wso2.com/products/carbon/relea
 following the instructions given below.
 
 ### Configuring hostname verification (Carbon 4.4.6 to Carbon 4.4.16)
+
+<a name = "carbon"></a>
 
 !!! info 
     Before you begin, be sure to check the [prerequisites](#prerequisites).
@@ -63,11 +65,11 @@ product startup script ( `         wso2server.sh        ` for Linux, or
 ### Configuring hostname verification (Carbon 4.4.17 onwards)
 
 !!! info 
-    Before you begin, be sure to check the [prerequisites](#EnablingHostNameVerification-Prerequisites).
+    Before you begin, be sure to check the [prerequisites](#prerequisites).
 
 If you are using a WSO2 product that is based on Carbon 4.4.17 or a
 later version, hostname verification is **enabled** by default. This is
-done using the `         httpclien        ` t
+done using the `         httpclient `
 `         .hostnameVerifier        ` property in the product's startup
 script ( `         wso2server.sh        ` for Linux and
 `         wso2server.bat        ` for Windows) as shown below. The
@@ -120,23 +122,23 @@ options.
         **2.1.0**, you need to use both system properties listed below.
     
         ``` java
-            -Dorg.wso2.ignoreHostnameVerification=true \
-            -Dhttpclient.hostnameVerifier=AllowAll \
+        -Dorg.wso2.ignoreHostnameVerification=true \
+        -Dhttpclient.hostnameVerifier=AllowAll \
         ```
     
         If you are disabling hostname verification for **WSO2 EI 6.1.1**,
         you need to use both system properties listed below.
     
         ``` java
-            -Dhttpclient.hostnameVerifier=AllowAll \
-            -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
+        -Dhttpclient.hostnameVerifier=AllowAll \
+        -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
         ```
     
         If you are disabling hostname verification for **WSO2 IS**, use the
         following system properties.
     
         ``` java
-            -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
-            -Dhttpclient.hostnameVerifier="AllowAll" \
+        -Dorg.opensaml.httpclient.https.disableHostnameVerification=true \
+        -Dhttpclient.hostnameVerifier="AllowAll" \
         ```
     

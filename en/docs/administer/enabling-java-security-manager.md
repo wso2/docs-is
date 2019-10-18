@@ -7,16 +7,15 @@ that are in the
 `         <IS_HOME>/repository/conf/sec.policy        ` file. You
 modify this file to change the Java security permissions as required.
 
-**Before you begin**
-
--   Ensure that you have Java 1.8 installed.
--   Note that you need to use a keystore for signing JARs using the Java
-    security manager. In this example, you will be using the default
-    keystore in your WSO2 product (
-    `           wso2carbon.jks          ` ). You can read about the
-    recommendations for using keystores from
-    [here](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products)
-    .
+!!! info "Before you begin"
+    -   Ensure that you have Java 1.8 installed.
+    -   Note that you need to use a keystore for signing JARs using the Java
+        security manager. In this example, you will be using the default
+        keystore in your WSO2 product (
+        `           wso2carbon.jks          ` ). You can read about the
+        recommendations for using keystores from
+        [here](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores-in-wso2-products)
+        .
 
 The steps below show how to enable the Java Security Manager for WSO2
 products.
@@ -55,7 +54,7 @@ products.
     keystore by executing the following command:
 
     ``` java
-        $ keytool -export -keystore signkeystore.jks -alias signFiles -file sign-cert.cer 
+    $ keytool -export -keystore signkeystore.jks -alias signFiles -file sign-cert.cer 
     ```
 
     Then, import the same signFiles certificate to the
@@ -64,19 +63,19 @@ products.
     to the `           wso2carbon.jks          ` file of your product.
 
     ``` java
-        $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_PRODUCT_HOME>/repository/resources/security/wso2carbon.jks
-            Enter keystore password:  
-            Owner: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-            Issuer: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
-            Serial number: 5486f3b0
-            Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
-            Certificate fingerprints:
-            MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
-            SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
-            Signature algorithm name: SHA1withRSA
-            Version: 3
-            Trust this certificate? [no]:  yes
-            Certificate was added to keystore
+    $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_PRODUCT_HOME>/repository/resources/security/wso2carbon.jks
+        Enter keystore password:  
+        Owner: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Issuer: CN=Sanjeewa, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
+        Serial number: 5486f3b0
+        Valid from: Tue Dec 09 18:35:52 IST 2014 until: Fri Dec 06 18:35:52 IST 2024
+        Certificate fingerprints:
+        MD5:  54:13:FD:06:6F:C9:A6:BC:EE:DF:73:A9:88:CC:02:EC
+        SHA1: AE:37:2A:9E:66:86:12:68:28:88:12:A0:85:50:B1:D1:21:BD:49:52
+        Signature algorithm name: SHA1withRSA
+        Version: 3
+        Trust this certificate? [no]:  yes
+        Certificate was added to keystore
     ```
 
     !!! note
@@ -106,44 +105,44 @@ products.
     **signJar.sh script**
 
     ``` java
-         #!/bin/bash
-            set -e
-            jarfile=$1
-            keystore_file="signkeystore.jks"
-            keystore_keyalias='signFiles'
-            keystore_storepass='wso2123'
-            keystore_keypass='wso2123'
-            signjar="$JAVA_HOME/bin/jarsigner -keystore $keystore_file -storepass $keystore_storepass -keypass $keystore_keypass"
-            verifyjar="$JAVA_HOME/bin/jarsigner -keystore $keystore_file -verify"
-            echo "Signing $jarfile"
-            $signjar $jarfile $keystore_keyalias
-            echo "Verifying $jarfile"
-            $verifyjar $jarfile
-            # Check whether the verification is successful.
-            if [ $? -eq 1 ]
-            then
-               echo "Verification failed for $jarfile"
-            fi
+     #!/bin/bash
+        set -e
+        jarfile=$1
+        keystore_file="signkeystore.jks"
+        keystore_keyalias='signFiles'
+        keystore_storepass='wso2123'
+        keystore_keypass='wso2123'
+        signjar="$JAVA_HOME/bin/jarsigner -keystore $keystore_file -storepass $keystore_storepass -keypass $keystore_keypass"
+        verifyjar="$JAVA_HOME/bin/jarsigner -keystore $keystore_file -verify"
+        echo "Signing $jarfile"
+        $signjar $jarfile $keystore_keyalias
+        echo "Verifying $jarfile"
+        $verifyjar $jarfile
+        # Check whether the verification is successful.
+        if [ $? -eq 1 ]
+        then
+            echo "Verification failed for $jarfile"
+        fi
     ```
 
     **signJars.sh script**
 
     ``` java
-        #!/bin/bash
-            if [[ ! -d $1 ]]; then
-               echo "Please specify a target directory"
-               exit 1
-            fi
-            for jarfile in `find . -type f -iname \*.jar`
-            do
-              ./signJar.sh $jarfile
-            done 
+    #!/bin/bash
+        if [[ ! -d $1 ]]; then
+            echo "Please specify a target directory"
+            exit 1
+        fi
+        for jarfile in `find . -type f -iname \*.jar`
+        do
+            ./signJar.sh $jarfile
+        done 
     ```
 
 6.  Execute the following commands to sign the JARs in your product:
 
     ``` java
-        ./signJars.sh /HOME/user/<product-pack>
+    ./signJars.sh /HOME/user/<product-pack>
     ```
 
     !!! tip
@@ -177,22 +176,22 @@ products.
     below. It includes mostly WSO2 Carbon-level permissions.
 
     ``` text
-        grant {
-            // Allow socket connections for any host
-            permission java.net.SocketPermission "*:1-65535", "connect,resolve";
-           
-            // Allow to read all properties. Use -Ddenied.system.properties in wso2server.sh to restrict properties
-            permission java.util.PropertyPermission "*", "read";
-               
-            permission java.lang.RuntimePermission "getClassLoader";
-               
-            // CarbonContext APIs require this permission
-            permission java.lang.management.ManagementPermission "control";
-           
-            // Required by any component reading XMLs. For example: org.wso2.carbon.databridge.agent.thrift:4.2.1.
-            permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind.v2.runtime.reflect";
-           
-            // Required by org.wso2.carbon.ndatasource.core:4.2.0. This is only necessary after adding above permission. 
-            permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind";
-        };
+    grant {
+        // Allow socket connections for any host
+        permission java.net.SocketPermission "*:1-65535", "connect,resolve";
+        
+        // Allow to read all properties. Use -Ddenied.system.properties in wso2server.sh to restrict properties
+        permission java.util.PropertyPermission "*", "read";
+            
+        permission java.lang.RuntimePermission "getClassLoader";
+            
+        // CarbonContext APIs require this permission
+        permission java.lang.management.ManagementPermission "control";
+        
+        // Required by any component reading XMLs. For example: org.wso2.carbon.databridge.agent.thrift:4.2.1.
+        permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind.v2.runtime.reflect";
+        
+        // Required by org.wso2.carbon.ndatasource.core:4.2.0. This is only necessary after adding above permission. 
+        permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind";
+    };
     ```
