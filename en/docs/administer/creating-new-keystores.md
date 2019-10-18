@@ -174,13 +174,13 @@ certificates. These certificates certify the ownership of a public key.
     **Sample certificates provided by the CA (Comodo)**
     
     ``` text
-        The Root certificate of the CA:
-        `              AddTrustExternalCARoot.crt             `  
-        Intermediate certificates:
-        `              COMODORSAAddTrustCA.crt,             `
-        `              COMODORSADomainValidationSecureServerCA.crt             `  
-        SSL Certificate signed by CA:
-        `              test_sampleapp_org.crt             `
+    The Root certificate of the CA:
+    `              AddTrustExternalCARoot.crt             `  
+    Intermediate certificates:
+    `              COMODORSAAddTrustCA.crt,             `
+    `              COMODORSADomainValidationSecureServerCA.crt             `  
+    SSL Certificate signed by CA:
+    `              test_sampleapp_org.crt             `
     ```
 
 #### Step 2: Importing certificates to the keystore
@@ -257,7 +257,7 @@ product's default truststore (
     following command.
 
     ``` powershell
-        keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
+    keytool -import -alias certalias -file <public key name>.pem -keystore client-truststore.jks -storepass wso2carbon
     ```
 
     !!! note
