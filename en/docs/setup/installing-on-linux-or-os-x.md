@@ -34,16 +34,16 @@ or Mac OS X.
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
         ```
     
-        To avoid this issue, 
-        1. Open the 'deployment.toml' file in the `<IS_HOME>/repository/conf/` directory.
-        2. Set the `compression` element under the HTTPS connector configuration to `off`.
+        To avoid this issue,    
+        1. Open the 'deployment.toml' file in the `<IS_HOME>/repository/conf/` directory.   
+        2. Set the `compression` element under the HTTPS connector configuration to `off`.   
            ```
            [transport.https]
            ...
            compression="off"
            ...           
            ```
-        3. Restart WSO2 Identity Server.
+        3. Restart WSO2 Identity Server.   
     
 
 ### Setting up JAVA_HOME
