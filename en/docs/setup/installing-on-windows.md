@@ -2,8 +2,7 @@
 
 !!! tip "Before you begin"
     See the [compatibility matrix](../../setup/environment-compatibility)
-    to find out if this version of the product is fully tested on your
-    operating system.     
+    to determine whether the current product version is compatible with your operating system.     
 
 Follow the instructions below to install the WSO2 Identity Server on
 Windows.

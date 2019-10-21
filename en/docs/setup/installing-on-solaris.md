@@ -2,8 +2,7 @@
 
 !!! tip "Before you begin"
     See [environment compatibility](../../setup/environment-compatibility)
-    to find out if this version of the product is fully tested on your
-    operating system.  
+    to determine whether the current product version is compatible with your operating system.  
 
 
 Follow the instructions below to install Identity Server on Solaris.
