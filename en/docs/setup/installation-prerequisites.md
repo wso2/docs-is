@@ -79,8 +79,7 @@ samples or for building from the source code.
 
 These applications are mandatory and are required to run the binary
 distribution of the WSO2 product. The binary distribution contains the
-binary files for both MS Windows, and Linux-based operating systems. It
-is recommended for most users.
+binary files for both MS Windows, and Linux-based operating systems.
 
 <table>
 <colgroup>
