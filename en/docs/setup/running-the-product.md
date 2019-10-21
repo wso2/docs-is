@@ -1,9 +1,8 @@
 # Running the Product
 
-To run WSO2 products, you start the product server at the command line.
-You can then access the Management Console application to configure and
-manage the product. This page describes how to run the product in the
-following sections:
+This page covers the way to start and stop WSO2 products using the command line and 
+configuring the product via the Management Console. Following 
+sections will guide you through the way to run the product.
 
 -   [Starting the server](#RunningtheProduct-Startingtheserverstart)
 -   [Accessing the management
