@@ -39,9 +39,8 @@ product directory location.
     exit 1
     esac
     ```
-
-    For example, given below is a startup script written for WSO2
-    Identity Server 5.4.0:
+    Following is an example startup script written for WSO2
+    Identity Server 5.4.0
 
     ``` java
     #! /bin/sh
