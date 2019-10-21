@@ -148,4 +148,20 @@ WSO2 Identity Server 5.9.0 switched from log4j to log4j2. You will notice that t
     no longer work. Refer [Migrating to log4j2](../../setup/migrating-to-log4j2) to see how to add a log appender or a 
     logger to the `log4j2.properties` file.
     
-
+!!! note "If migrating to JDK 11"
+    If you have migrating to JDK 11, you need to change the adaptive authentication script method signature
+    because of the improvements done for the Nashorn engine to support ES6 in JDK 9 made the following method signature
+    unsupported.
+    
+    **Unsupported method signature**
+    ```javascript
+    function getAge(birthDate) {
+        ..
+    }
+    ```
+    **Supported method signature**
+    ```javascript
+    var getAge = function (birthDate) {
+        ..
+    };
+    ``` 
