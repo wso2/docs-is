@@ -111,11 +111,12 @@ product directory location.
     makes the service to start in runlevels 2,3,4 and 5 and to stop in
     runlevels 0,1 and 6.
 
-    A **runlevel** is a mode of operation in Linux (or any Unix-style
-    operating system). There are several runlevels in a Linux server and
-    each of these runlevels is represented by a single digit integer.
-    Each runlevel designates a different system configuration and allows
-    access to a different combination of processes.
+    !!! info 
+        A **runlevel** is a mode of operation in Linux (or any Unix-style
+        operating system). There are several runlevels in a Linux server and
+        each of these runlevels is represented by a single digit integer.
+        Each runlevel designates a different system configuration and allows
+        access to a different combination of processes.
 
 4.  You can now start, stop and restart the server using
     `           service <service name>          `
