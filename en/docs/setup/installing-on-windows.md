@@ -64,7 +64,7 @@ prompt](#setting-java_home-temporarily-using-the-windows-command-prompt-(cmd)).
 
     ![Advanced tab](../../assets/img/setup/advanced-tab.png) 
 
-3.  Click the New button under **System variables** (for all users) or
+3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
