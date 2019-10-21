@@ -603,7 +603,6 @@ class="kw"></span></a><br/>
 <div class="panelContent">
 <ul>
 <li>See <a href="../../administer/clustering-overview">Overview</a> for more details on clustering, what it is, how it helps and other related information.</li>
-<li>See <a href="../../administer/separating-the-worker-and-manager-nodes">Separating the Worker and Manager Nodes</a> for information on clustering WSO2 products by separating worker and manager concerns between the nodes.</li>
 </ul>
 </div>
 </div>
