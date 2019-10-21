@@ -220,7 +220,7 @@ nav:
           - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
           - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
           - 'Configuring User Stores': 
-            - 'Configuring User Stores': learn/configuring-user-stores.md
+            - 'Overview': learn/configuring-user-stores.md
             - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
             - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
             - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
@@ -317,8 +317,8 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'Multi-factor Authentication for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
-            - 'Multi-factor Authentication using FIDO': learn/multi-factor-authentication-using-fido.md
+            - 'MFA for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
+            - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
             - 'Request Path Authentication': learn/request-path-authentication.md
             - 'Writing a Post-Authentication Handler': learn/writing-post-authentication-handler.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
@@ -558,7 +558,6 @@ nav:
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
         - 'Password Policy Authenticator': develop/password-policy-authenticator.md
         - 'Pinterest Authenticator': develop/pinterest-authenticator.md
-        - 'Reddit Authenticator': develop/reddit-authenticator.md
         - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
         - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
         - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
@@ -674,7 +673,7 @@ nav:
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
       - 'Working with Databases':
-        - 'Working with Databases': administer/working-with-databases.md
+        - 'Overview': administer/working-with-databases.md
         - 'Setting up the Physical Database':
           - 'Setting up IBM DB2': administer/setting-up-ibm-db2.md
           - 'Setting up IBM Informix': administer/setting-up-ibm-informix.md
