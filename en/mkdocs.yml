@@ -220,7 +220,7 @@ nav:
           - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
           - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
           - 'Configuring User Stores': 
-            - 'Configuring User Stores': learn/configuring-user-stores.md
+            - 'Overview': learn/configuring-user-stores.md
             - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
             - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
             - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
@@ -673,7 +673,7 @@ nav:
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
       - 'Working with Databases':
-        - 'Working with Databases': administer/working-with-databases.md
+        - 'Overview': administer/working-with-databases.md
         - 'Setting up the Physical Database':
           - 'Setting up IBM DB2': administer/setting-up-ibm-db2.md
           - 'Setting up IBM Informix': administer/setting-up-ibm-informix.md
