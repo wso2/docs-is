@@ -558,7 +558,6 @@ nav:
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
         - 'Password Policy Authenticator': develop/password-policy-authenticator.md
         - 'Pinterest Authenticator': develop/pinterest-authenticator.md
-        - 'Reddit Authenticator': develop/reddit-authenticator.md
         - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
         - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
         - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
