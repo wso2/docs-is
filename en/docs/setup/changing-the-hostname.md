@@ -3,14 +3,13 @@
 This section guides you through changing the hostname of WSO2 Identity
 Server.
 
-1.  Change the port and the hostname ('
+1.  Change the hostname ('
     `           is.dev.wso2.com          ` ' is taken as an example) in
-    `           <IS_HOME>/repository/conf/carbon.xml          ` . (Make
-    sure the management hostname is also the same)
+    `           <IS_HOME>/repository/conf/deployment.toml         ` .
 
-    ``` xml
-    <HostName>is.dev.wso2.com</HostName>
-    <MgtHostName>is.dev.wso2.com</MgtHostName>
+    ``` toml
+    [server]
+    hostname = "is.dev.wso2.com"
     ```
 
 2.  All keystores in WSO2 IS are stored in the
