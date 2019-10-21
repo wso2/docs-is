@@ -35,7 +35,7 @@ or Mac OS X.
         ```
     
         To avoid this issue,    
-        1. Open the 'deployment.toml' file in the `<IS_HOME>/repository/conf/` directory.   
+        1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory.   
         2. Set the `compression` element under the HTTPS connector configuration to `off`.   
            ```
            [transport.https]
@@ -43,6 +43,8 @@ or Mac OS X.
            compression="off"
            ...           
            ```
+           (NOTE: If the above configuration is not listed in `deployment.toml`, add the above configuration 
+           manually)   
         3. Restart WSO2 Identity Server.   
     
 
