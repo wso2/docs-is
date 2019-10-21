@@ -14,8 +14,8 @@ Before you begin
 -   The Management Console uses the default HTTP-NIO transport, which
     is configured in the `           catalina-server.xml          ` file
     in the `           <IS_HOME>/repository/conf/tomcat          `
-    directory. This transport must be properly configured in this file
-    for the Management Console to be accessible.
+    directory. This transport must be properly configured to access the 
+    Management Console.
 -   The `           config-validation.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/etc          ` directory
     contains a list of recommended system parameters, which are
