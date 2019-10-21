@@ -7,8 +7,8 @@ capability of configuring custom user stores. There are different user
 store adapters called *User store managers*, which are used to connect
 with these users store types.
 
-There are two types of user stores - Primary User store (Mandatory) and
-Secondary user stores (Optional). All the supported user stores can be
+There are two types of user stores - Primary user store (mandatory) and
+secondary user stores (optional). All the supported user stores can be
 configured under these two types.
 
 ![user-store-types](../assets/img/using-wso2-identity-server/user-store-types.png) 
