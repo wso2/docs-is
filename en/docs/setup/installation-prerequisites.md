@@ -151,7 +151,6 @@ and compiling and running product samples.
 
     If you are installing by downloading and extracting the binary distribution (as recommended for most users) instead of building from the source code, you do not need to install Maven.
 
-
 <table style="width:100%;">
 <colgroup>
 <col style="width: 12%" />
@@ -173,7 +172,7 @@ and compiling and running product samples.
 <tr class="odd">
 <td><p><strong>Apache Maven</strong></p></td>
 <td><ul>
-<li>To <a href="https://wso2.github.io/using-maven.html">build the product from the source distribution</a> (both JDK and Apache Maven are required).<br />
+<li>To build the product from the source distribution (NOTE: both JDK and Apache Maven are required).<br />
 <br />
 </ul></td>
 <td><p>3.0.x or later</p></td>
