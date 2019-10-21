@@ -147,6 +147,9 @@ These applications are required for [building the product from the
 source distribution](https://wso2.github.io/using-maven.html),
 and compiling and running product samples.
 
+!!! warning
+    If you are installing by downloading and extracting the binary distribution (as recommended for most users) instead of building from the source code, you do not need to install Maven. 
+
 <table style="width:100%;">
 <colgroup>
 <col style="width: 12%" />
