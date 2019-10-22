@@ -2,15 +2,15 @@
 
 Any Java-based application, including WSO2 Carbon and Carbon-based
 products, can be run as a Windows service by using a bridging tool such
-as Yet Another Java Service Wrapper (YAJSW).
+as _Yet Another Java Service Wrapper (YAJSW)_.
 
 !!! info
     As YAJSW is distributed under the LGPL license and WSO2 is
-    distributed under the Apache2 license, these two can not be packed
+    distributed under the Apache2 license, these two cannot be packed
     together in a distribution. However, any end-user or customer can freely
     combine components under these two licenses as long as the combined work
-    is not distributed. The instructions below guide you through using YAJSW
-    to install a WSO2 product as a Windows Service.
+    is not distributed. The following instructions will guide you via the process 
+    of using YAJSW to install a WSO2 product as a Windows Service.
 
 Follow the instructions in the sections below to set it up.
 
@@ -19,27 +19,26 @@ Follow the instructions in the sections below to set it up.
 -   Install JDK and set up the `          JAVA_HOME         `
     environment variable. For more information, see
     [Installation Prerequisites](../../setup/installation-prerequisites).
--   Download and install a service wrapper library to use for running
-    your WSO2 product as a Windows service. WSO2 recommends Yet Another
-    Java Service Wrapper (
+-   Download and install a service wrapper library for running
+    your WSO2 product as a Windows service. WSO2 recommends _Yet Another
+    Java Service Wrapper_ (
     [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 11.03, and
     several WSO2 products provide a default
     `          wrapper.conf         ` file in their
     `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The
-    instructions below describe how to set up this file.
+    following instructions describe how to set up this file.
 
 ### Setting up the YAJSW wrapper configuration file
 
-The configuration file used for wrapping Java Applications by YAJSW is
-the `         wrapper.conf        ` file. The
-`         wrapper.conf        ` file found in the
+`         wrapper.conf        ` file is used for wrapping Java Applications by YAJSW.
+ The `         wrapper.conf        ` file found in the
 `         <PRODUCT_HOME>/bin/yajsw/        ` directory holds the minimal
 configuration for running a WSO2 product as a Windows Service.
 
 1.  Copy the `           wrapper.conf          ` file found in the
     `           <PRODUCT_HOME>/bin/yajsw/          ` directory and paste
     it in the `           <YAJSW_HOME>/conf/          ` directory.  
-    A sample of the `           wrapper.conf          ` file that is
+    A sample `           wrapper.conf          ` file that is
     packed with the WSO2 product is given below.
 
     !!! info
@@ -190,7 +189,7 @@ Carbon-based product as a Windows service.
     ```
 
     If the configurations are set properly for YAJSW, you will see console
-    output similar to the following and can now access the WSO2 management
+    output similar to the following. Now you can access the WSO2 management
     console from your web browser via <https://localhost:9443/carbon>.
 
     ![Console output](../../assets/img/setup/console-output.png)
@@ -205,7 +204,7 @@ installService.bat
 ```
 
 The console will display a message confirming that
-the WSO2CARBON service was installed.
+the WSO2CARBON service has been installed.
 
 ![Service installation confirmation](../../assets/img/setup/service-installation-confirmation.png)
 
@@ -217,7 +216,7 @@ startService.bat
 ```
 
 The console will display a message confirming that
-the WSO2CARBON service was started.
+the WSO2CARBON service has been started.
 
 ![Service startup message](../../assets/img/setup/service-startup-message.png)
 
@@ -229,7 +228,7 @@ stopService.bat
 ```
 
 The console will display a message confirming that
-the WSO2CARBON service has stopped.
+the WSO2CARBON service has been stopped.
 
 ![Service stop message](../../assets/img/setup/service-stop-message.png)
 
@@ -241,6 +240,6 @@ uninstallService.bat
 ```
 
 The console will display a message confirming that
-the WSO2CARBON service was removed.
+the WSO2CARBON service has been removed.
 
 ![Service removal message](../../assets/img/setup/service-removal-message.png)
