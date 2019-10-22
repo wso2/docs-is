@@ -616,7 +616,6 @@ nav:
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
         - 'Role-based Permissions': administer/role-based-permissions.md
-        - 'Email Templates': administer/email-templates.md
         - 'Data Dictionary':
           - 'Data Dictionary': administer/data-dictionary.md
           - 'Registry Related Tables': administer/registry-related-tables.md
@@ -633,10 +632,20 @@ nav:
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Monitoring the Identity Server': 
-        - 'Monitoring the Identity Server': administer/monitoring-the-identity-server.md 
+        - 'Monitoring the Identity Server': administer/monitoring-the-identity-server.md
+        - 'Monitoring Mechanisms': administer/monitoring.md
+        - 'Monitoring Logs':
+          - 'Monitoring Logs': administer/monitoring-logs.md
+          - 'HTTP Access Logging': administer/http-access-logging.md
+          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
         - 'System Statistics': administer/system-statistics.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
-      - 'Using Tools': 
+        - 'Monitoring TCP-Based Messages':
+          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
+        - 'Monitoring Server Health': administer/monitoring-server-health.md
+        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+      - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
@@ -647,6 +656,7 @@ nav:
       - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
       - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
       - 'Data Purging': administer/data-purging.md
+      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
@@ -699,6 +709,7 @@ nav:
         - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
       - 'Working with the Registry': 
         - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Working with Users, Roles and Permissions':
         - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
@@ -737,20 +748,6 @@ nav:
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
-    - 'Monitoring':
-      - 'Monitoring': administer/monitoring.md
-      - 'Capturing System Data in Error Situations': administer/capturing-system-data-in-error-situations.md
-      - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-      - 'Monitoring Logs':
-        - 'Monitoring Logs': administer/monitoring-logs.md        
-        - 'HTTP Access Logging': administer/http-access-logging.md
-        - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-      - 'Monitoring Message Flows': administer/monitoring-message-flows.md
-      - 'Monitoring TCP-Based Messages':
-        - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-        - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-        - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-      - 'Monitoring Server Health': administer/monitoring-server-health.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
