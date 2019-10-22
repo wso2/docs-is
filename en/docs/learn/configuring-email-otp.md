@@ -78,9 +78,9 @@ Email OTP is enabled.
 	</configuration>
     ```
     
-    !!! Tip You can add email template from the management console also
-    as described in
-    [this document](../../learn/customizing-automated-emails)
+    !!! Tip 
+        You can add email template from the management console also
+    as described in [this document](../../learn/customizing-automated-emails)
 
 4.  Configure the following properties in the
     `<IS_HOME>/repository/conf/identity/identity-mgt.properties` file to
