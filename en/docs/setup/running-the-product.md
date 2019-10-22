@@ -28,7 +28,7 @@ Before you begin
 !!! note
     
     For information on installation prerequisites, click
-    [here](https://docs.wso2.com/display/IS540/Installation+Prerequisites).
+    [here](../../setup/installation-prerequisites).
     
 
 ### Starting the server
@@ -48,7 +48,7 @@ To start the server, you run the script
 `         wso2server.bat        ` (on Windows) or
 `         wso2server.sh        ` (on Linux/Mac OS) from the
 `         bin        ` folder. Alternatively, you can install and run
-the server [as a Windows service](Installing_as_a_Windows_Service).
+the server [as a Windows service](../../setup/installing-as-a-windows-service/).
 
 To start and stop the server in the background mode of Linux, run
 **`           wso2server.sh start          `** and
