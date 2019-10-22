@@ -40,7 +40,7 @@ product directory location.
     esac
     ```
     Following is an example startup script written for WSO2
-    Identity Server 5.4.0
+    Identity Server 5.9.0
 
     ``` java
     #! /bin/sh
@@ -54,9 +54,9 @@ product directory location.
     ### END INIT INFO
     export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_141"
 
-    startcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh start > /dev/null &'
-    restartcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh restart > /dev/null &'
-    stopcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh stop > /dev/null &'
+    startcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh start > /dev/null &'
+    restartcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh restart > /dev/null &'
+    stopcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh stop > /dev/null &'
 
     case "$1" in
     start)
