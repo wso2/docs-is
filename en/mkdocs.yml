@@ -616,7 +616,6 @@ nav:
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
         - 'Role-based Permissions': administer/role-based-permissions.md
-        - 'Email Templates': administer/email-templates.md
         - 'Data Dictionary':
           - 'Data Dictionary': administer/data-dictionary.md
           - 'Registry Related Tables': administer/registry-related-tables.md
@@ -739,7 +738,6 @@ nav:
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Monitoring':
       - 'Monitoring': administer/monitoring.md
-      - 'Capturing System Data in Error Situations': administer/capturing-system-data-in-error-situations.md
       - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
       - 'Monitoring Logs':
         - 'Monitoring Logs': administer/monitoring-logs.md        
