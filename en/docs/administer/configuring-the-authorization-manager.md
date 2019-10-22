@@ -11,9 +11,10 @@ information about users and roles are configured, see [Configuring User
 Stores](../../learn/configuring-user-stores).
 
 The repository that stores Permissions should always be an RDBMS. The
-Authorization Manager configuration in the user-mgt.xml file (stored in
-the `         <IS_HOME>/repository/conf/        ` directory)
-connects the system to this RDBMS.
+Authorization Manager configuration in the `user-mgt.xml` file (stored
+in the ` <IS_HOME>/repository/conf/ ` directory and you may change the
+configuration using `deployment.toml` in the same location) connects the
+system to this RDBMS.
 
 Follow the instructions given below to set up and configure the
 Authorization Manager.

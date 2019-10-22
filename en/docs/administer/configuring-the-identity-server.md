@@ -40,15 +40,6 @@ configure the following in the order mentioned.
     work with claim dialects and provide mapping instructions.  
       
 
--   **[Features](../../admin-guideworking-with-features)**  
-    Install any additional features you need for WSO2 Identity Server. A
-    common feature that can be installed is the key manager feature when
-    [configuring IS as the key
-    manager](../../setup/configuring-wso2-identity-server-as-the-key-manager-in-wso2-api-manager)
-    in a distributed WSO2 API Manager set up. See
-    [Features](../../administer/working-with-features)
-    for more information.  
-
 -   **[Setting up Keystores](../../administer/using-asymmetric-encryption)**  
     Create and add a keystore to manage keys that are stored in the
     database. This is very useful in WS-Security scenarios. See [Using
@@ -70,23 +61,6 @@ configure the following in the order mentioned.
     console](../../setup/getting-started-with-the-management-console). See [Using
     WSO2 Identity Server](../../learn/using-wso2-identity-server) for information
     on working with the features in the **Main** menu.
-
-    !!! abstract "Management console features" 
-        You can do the following using the tools available in the **Configure** menu.
-        -   [Set up logging](../../administer/monitoring-logs-using-management-console)
-        -   [Working with Server Roles](../../administer/server-roles)
-
-        On the **[Tools](../../administer/using-tools)** menu, you can do the following.
-
-        -   [Work with the SAML2 toolkit](../../administer/using-the-saml2-toolkit)
-        -   [Work with the TryIt tool](../../administer/using-the-xacml-tryit-tool)
-
-        On the **[Monitor](../../administer/monitoring-the-identity-server)** menu, you can
-        do the following.
-
-        -   [View system statistics](../../administer/system-statistics)
-        -   [View system logs](../../administer/system-logs)
-        -   [Work with SOAP tracer](../../administer/soap-tracer)
 
 -   **[Identity providers](../../learn/adding-and-configuring-an-identity-provider)**  
     Once everything else is configured, you can add an identity
