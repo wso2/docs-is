@@ -1,9 +1,9 @@
 # Running the Product
 
-To run WSO2 products, you start the product server at the command line.
-You can then access the Management Console application to configure and
-manage the product. This page describes how to run the product in the
-following sections:
+This page covers the way to start and stop WSO2 products using the command line and 
+configuring the product via the Management Console. Following 
+sections will guide you through the way to run the product.
+
 
 !!! tip "Before you begin"
     -   The Management Console uses the default HTTP-NIO transport, which
@@ -18,11 +18,16 @@ following sections:
         [Configuring config-validation.xml](https://docs.wso2.com/display/Carbon443/Configuring+config-validation.xml)
         for details on modifying these parameters before starting the
         server.
-
+        
 !!! note
     For information on installation prerequisites, click [here](../../setup/installation-prerequisites).
     
+
 ## Starting the server
+
+    For information on installation prerequisites, click
+    [here](../../setup/installation-prerequisites).
+
 
 Follow the relevant instructions based on the operating system you use.
 
@@ -37,6 +42,7 @@ To start the server, you run the script
 `         wso2server.bat        ` (on Windows) or
 `         wso2server.sh        ` (on Linux/Mac OS) from the
 `         bin        ` folder. Alternatively, you can install and run
+
 the server [as a Windows service](../../setup/installing-as-a-windows-service).
 
 To start and stop the server in the background mode of Linux, run
