@@ -17,12 +17,7 @@ topics:
 -   SOAP Tracer
 -   Workflow Requests
 
-!!! info "Recommended reading"
-    -   For a detailed list of monitoring options, see the [Monitoring
-        section in the WSO2 Administration
-        Guide](../../administer/capturing-system-data-in-error-situations).
-    -   For information on the Carbon Health Check API to monitor server
-        health, see [Monitoring Server Health in the WSO2 Administration
-        Guide](../../administer/monitoring-server-health).
-    -   For information on monitoring workflows, see [Monitoring Workflow
-        Requests](../../learn/monitoring-workflow-requests).
+!!! info "Recommended reading" 
+    -   For a detailed list of monitoring options, see the [Monitoring section in the WSO2 Administration Guide](../../administer/monitoring).       
+    -   For information on the Carbon Health Check API to monitor server health, see [Monitoring Server Health in the WSO2 Administration Guide](../../administer/monitoring-server-health). 
+    -   For information on monitoring workflows, see [Monitoring Workflow Requests](../../learn/monitoring-workflow-requests).
