@@ -28,39 +28,54 @@ The **Carbon Health Check API** can be used to check the health of WSO2 Identity
 
 ### Configuring the API
 
-This feature is disabled by default. To enable the API, set the
-`         <Enable>        ` property in the
-`         health-check-config.xml        ` file to **true**.  
+This feature is disabled by default. To enable the API, add following
+configuration to `deployment.toml` file in the [IS_HOME]/repository/conf
+location.
+
+```toml
+[carbon_health_check]
+enable= true
+```
 
 !!! tip
     
     If the feature has not been enabled successfully, a request to the API
     will only return a 200 OK response.
     
+There are two health-checkers that will get enabled when you enable
+health checkers using above global configuration. 
+    - DataSource Health Checker 
+    - User Store Health Checker
 
-**Sample health-check-config.xml file**
+**DataSource Health Checker**
 
-``` java
-<CarbonHealthCheckConfigs>
-    <Enable>true</Enable>
-    <HealthCheckers>
-        <HealthChecker name="DataSourceHealthChecker" orderId="97" enable="true">
-            <!--<Property name="monitored.datasources">jdbc/WSO2CarbonDB,jdbc/WSO2MetricsDB,jdbc/WSO2UMDB</Property>-->
-            <Property name="pool.usage.limit.percentage">80</Property>
-        </HealthChecker>
-        <HealthChecker name="SuperTenantUSHealthChecker" orderId="98" enable="true">
-            <!--<Property name="monitored.user.stores">primary,sec</Property>-->
-        </HealthChecker>
-    </HealthCheckers>
-</CarbonHealthCheckConfigs>
+Gives you the status about the datasources available in the system. You
+can configure the datasources to be monitored as below in
+`deployment.toml` file.
+
+```toml
+[carbon_health_check.health_checker.data_source_health_checker.properties]
+'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2UM_DB,jdbc/SHARED_DB"
 ```
 
--   A health checker can be enabled or disabled using the
-    **`           enable          `** attribute.
--   The execution order in which the health checkers are executes can be
-    configured using the **`           orderId          `** attribute.
--   The properties configured under each health checker will be
-    available for each heath checker at runtime.
+To provide a indicate about datasource connection pool usage, use
+following configuration in `deployment.toml` file.
+
+```toml
+ [carbon_health_check.health_checker.data_source_health_checker]
+pool_usage_limit_percentage = "20"
+```
+
+**User Store Health Checker**
+
+Gives you the status about the userstores available in the system. You
+can configure the userstores to be monitored as below in
+`deployment.toml` file.
+
+```toml
+[carbon_health_check.health_checker.super_tenant_health_checker.properties]
+'monitored.user.stores' = "primary" 
+```
 
 ### Invoking the API
 
@@ -145,6 +160,30 @@ array of errors.
 | HC\_00004  | Server status is not running.                                                                                     |
 | HC\_00005  | Error listing user stores.                                                                                        |
 
+
+-   A health checker can be enabled or disabled using the **` enable `**
+    attribute of each health checker.
+    ```toml
+    [carbon_health_check.health_checker.data_source_health_checker]
+    enable =false
+    
+    [carbon_health_check.health_checker.super_tenant_health_checker]
+    enable =false
+    ```
+    
+-   The execution order in which the health checkers are executes can be
+    configured using the **` order `** attribute.
+    ```toml
+    [carbon_health_check.health_checker.data_source_health_checker]
+    order = "97"
+    
+    [carbon_health_check.health_checker.super_tenant_health_checker]
+    order = "98"
+    ```  
+-   The properties configured under each health checker will be
+    available for each heath checker at runtime.
+    
+    
 ### Adding new health checkers
 
 To add a new health checker, you can implement the HealthChecker API and
@@ -154,3 +193,47 @@ To deploy it, copy the `         .jar        ` file to the
 the OSGI bundle and paste it in the
 `         <IS_HOME>/repository/component/dropins/        `
 directory.
+
+Then register the new health checker as below in the 'deployment.toml'
+file if needed.
+
+```toml
+[[health_checker]]
+name = "customChecker" 
+order="87" 
+[health_checker.properties] 
+property1 = "property-1-value"
+property2 = "property-2-value" 
+```
+
+
+??? Tip 
+    A sample configuration section of `deployment.toml` related to
+    health checkers can be as below. 
+            ```toml 
+            [carbon_health_check] enable=
+            true
+            
+            [carbon_health_check.health_checker.data_source_health_checker]
+            pool_usage_limit_percentage = "20"
+            enable = true
+            order = "99"
+            
+            [carbon_health_check.health_checker.super_tenant_health_checker]
+            enable = true
+            order = "88"
+            
+            [carbon_health_check.health_checker.data_source_health_checker.properties]
+            'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2UM_DB,jdbc/SHARED_DB"
+            
+            [carbon_health_check.health_checker.super_tenant_health_checker.properties]
+            'monitored.user.stores' = "primary"
+            
+            [[health_checker]] 
+            name = "customChecker" 
+            order = "87"
+            [health_checker.properties] 
+            property1 = "property-1-value" 
+            property2 = "property-2-value" 
+            ```
+
