@@ -24,5 +24,5 @@ their session is terminated.
 
 !!! info "Related Topics"
 	See [Adding and Configuring an Identity
-    Provider](using-wso2-identity-server/adding-and-configuring-an-identity-provider) for
+    Provider](../../learn/adding-and-configuring-an-identity-provider) for
     instructions on how to configure an identity provider so that identity federation is possible.
