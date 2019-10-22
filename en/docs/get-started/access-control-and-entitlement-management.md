@@ -842,7 +842,7 @@ XACML 3.0 JSON requests and responses via WSO2 Identity Server:
     | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:codebase             | Codebase            |
     | urn:oasis:names:<zero-width space>tc:xacml:3.0:attribute-category:requesting-machine   | RequestingMachine   |
 
--   ### <a name="shortnames"></a>The JSON format supports the fully qualified XACML data-type URI, and also supports the short name of the data-type.
+-  <a name="shortnames"></a>The JSON format supports the fully qualified XACML data-type URI, and also supports the short name of the data-type.
 
     | XACML data type identifier                                                                                                               | JSON shorthand type code | Mapping/inference rule                                                                                                 |
     |------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|------------------------------------------------------------------------------------------------------------------------|
