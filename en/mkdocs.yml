@@ -698,6 +698,7 @@ nav:
         - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
       - 'Working with the Registry': 
         - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Working with Users, Roles and Permissions':
         - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
