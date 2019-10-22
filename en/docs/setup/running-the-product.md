@@ -1,9 +1,8 @@
 # Running the Product
 
-To run WSO2 products, you start the product server at the command line.
-You can then access the Management Console application to configure and
-manage the product. This page describes how to run the product in the
-following sections:
+This page covers the way to start and stop WSO2 products using the command line and 
+configuring the product via the Management Console. Following 
+sections will guide you through the way to run the product.
 
 -   [Starting the server](#RunningtheProduct-Startingtheserverstart)
 -   [Accessing the management
@@ -15,8 +14,8 @@ Before you begin
 -   The Management Console uses the default HTTP-NIO transport, which
     is configured in the `           catalina-server.xml          ` file
     in the `           <IS_HOME>/repository/conf/tomcat          `
-    directory. This transport must be properly configured in this file
-    for the Management Console to be accessible.
+    directory. This transport must be properly configured to access the 
+    Management Console.
 -   The `           config-validation.xml          ` file in the
     `           <PRODUCT_HOME>/repository/conf/etc          ` directory
     contains a list of recommended system parameters, which are
