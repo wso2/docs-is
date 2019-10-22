@@ -59,7 +59,7 @@ nav:
       - 'Identity Provisioning and its Standards': get-started/identity-provisioning-and-its-standards.md
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
-      - 'Cross Protocl Single Logout': get-started/cross-protocol-single-logout.md
+      - 'Cross Protocol Single Logout': get-started/cross-protocol-single-logout.md
   - 'Compliance':
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
