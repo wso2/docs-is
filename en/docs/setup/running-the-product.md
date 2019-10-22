@@ -18,7 +18,7 @@ Before you begin
     directory. This transport must be properly configured in this file
     for the Management Console to be accessible.
 -   The `           config-validation.xml          ` file in the
-    `           <PRODUCT_HOME>/repository/conf/etc          ` directory
+    `           <IS_HOME>/repository/conf/etc          ` directory
     contains a list of recommended system parameters, which are
     validated against your system when the server starts. See
     [Configuring
@@ -45,19 +45,19 @@ Follow the relevant instructions based on the operating system you use.
 
 #### On Windows/Linux/Mac OS
 
-To start the server, you run the script
+To start the server, you have to run either 
 `         wso2server.bat        ` (on Windows) or
-`         wso2server.sh        ` (on Linux/Mac OS) from the
-`         bin        ` folder. Alternatively, you can install and run
-the server [as a Windows service](Installing_as_a_Windows_Service).
+`         wso2server.sh        ` (on Linux/Mac OS) script which are located inside
+`         <IS_HOME>/bin        ` folder. Alternatively, you can install and run
+the server [as a Windows service](../../setup/installing-as-a-windows-service/).
 
 To start and stop the server in the background mode of Linux, run
 **`           wso2server.sh start          `** and
-**`           wso2server.sh stop          `** commands
+**`           wso2server.sh stop          `** commands respectively.
 
 !!! note
     
-    If the path to the \<IS\_HOME\> directory is a long one Windows will
+    If the path to the <IS\_HOME\> directory is a long, Windows will
     shorten it using " `         ~        ` ". In that case, you must set
     the actual path to the "CARBON\_HOME" variable in the
     `         <IS_HOME>/bin/wso2server.bat        ` file. Please add
@@ -100,14 +100,14 @@ The operation log appears. When the product server is running, the log
 displays the message "WSO2 Carbon started in 'n' seconds."
 
 #### On Solaris
+To start the server, navigate to `         <IS_HOME>/bin        `
+and run `        wso2server.sh        `  from
+the Command Prompt. The required steps are as follows.
 
-To start the server, run
-`         <PRODUCT_HOME>/bin/wso2server.sh        ` (on Solaris) from
-the Command Prompt as described below.
 
 !!! note
     
-    Following instructions are tested for an Oracle Solaris 10 8/11 x86
+    The following instructions are tested for an Oracle Solaris 10 8/11 x86
     environment.
     
 
@@ -115,13 +115,13 @@ the Command Prompt as described below.
     `          dtterm         ` at the Prompt, and then press **Enter**
    , to open a Command Prompt.
 2.  Execute the following command:
-    `          <PRODUCT_HOME>/bin/          bash          wso2server.sh.         `
+    `          <IS_HOME>/bin/          bash          wso2server.sh.         `
 3.  The operation log appears in the command window. When the product
     server has successfully started, the log displays the message "WSO2
     Carbon started in 'n' seconds".
 
 You need to do the following modification to the
-`          <PRODUCT_HOME>/bin/wso2server.sh         ` file, to start the
+`          <IS_HOME>/bin/wso2server.sh         ` file, to start the
 product as a service/nohup mode in Solaris.
 
 1.  Open the `            <PRODUCT_HOME>/bin/wso2server.sh           `
@@ -138,15 +138,13 @@ product as a service/nohup mode in Solaris.
         `             bash            ` . This is required only for Solaris.
     
 
-4.  Start the product by following the [above
-    instructions](#RunningtheProduct-instructions).
+4.  Start the product.
 
 ### Accessing the management console
 
-Once the server has started, you can access the Management Console by
-opening a Web browser and typing in the management console's URL. The
-URL is displayed towards the end of the server start script's console
-and log. For example:
+Once the server has started, you can access the Management Console by navigating 
+to the URL of the management console . The URL is displayed towards the end of the 
+server start script's console and log. For example:
 
 ![](attachments/34611935/44179743.png) 
 
@@ -156,7 +154,7 @@ The URL should be in the following format:
 You can use this URL to access the Management Console on this computer
 from any other computer connected to the Internet or LAN. When accessing
 the Management Console from the same server where it is installed, you
-can type "localhost" instead of the IP address:
+can type "localhost" instead of the IP address: 
 `                   https://localhost:9443/carbon                 ` .
 
 !!! tip
@@ -167,17 +165,17 @@ can type "localhost" instead of the IP address:
     
     ``` xml
     <MgtHostName>localhost</MgtHostName>
-```
+    ```
 
 
 At the sign-in screen, sign in to the Management Console using **admin**
 as both the username and password. You can then use the Management
 Console to manage the product. The tabs and menu items in the navigation
-pane on the left may vary depending on the features you have installed.
+pane may vary depending on the features you have installed.
 
 To view information about a particular page, click the **Help** link in
 the top right corner of that page, or click the **Docs** link to open
-this documentation for full information on managing the product.
+the documentation for full information on managing the product.
 
 When the Management Console Sign-in page appears, the web browser will
 typically display an "insecure connection" message, which requires your
@@ -216,13 +214,15 @@ file as follows:
 </session-config>
 ```
 
-Restricting Access to the Management Console and Web Applications:
+**Restricting Access to the Management Console and Web Applications:**
 
-You can restrict access to the management console of your product by
-binding the management console with selected IP addresses. Note that you
-can either restrict access to the management console only, or you can
-restrict access to all web applications in your server as explained
-below.
+You can restrict the access to the management console of your product by
+binding the management console with a set of selected IP addresses. 
+
+!!! note 
+    You can either restrict access only to the management console, or you can
+    restrict access to all the web applications in your server as explained
+    below.
 
 -   To control access only to the management console, add the IP
     addresses to the
