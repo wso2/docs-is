@@ -1,84 +1,30 @@
 # Monitoring Server Health
 
-!!! warning
-    
-    This document is work in progress!
-    
-
-The Carbon Health Check API can be used to check the health of a Carbon
-server. The sections below guide you through using this API.
-
--   [Deploying the API](#MonitoringServerHealth-DeployingtheAPI)
--   [Configuring the API](#MonitoringServerHealth-ConfiguringtheAPI)
--   [Invoking the API](#MonitoringServerHealth-InvokingtheAPI)
--   [Error responses](#MonitoringServerHealth-Errorresponses)
--   [Adding new health
-    checkers](#MonitoringServerHealth-Addingnewhealthcheckers)
+The **Carbon Health Check API** can be used to check the health of WSO2 Identity Server. The sections below guide you through using this API.
 
 !!! note
     
-    **Note:** This API is only supported for WSO2 Carbon products that are
-    running on Java 8 or a later version.
+    This API is only supported for WSO2 Identity Server that 
+    runs on Java 8 or a later version.
     
 
-There are three health checkers available by default:
+!!! info "Health Checkers" 
+    There are three health checkers available by default:
 
-1.  **Data sources health checker** - This checker goes through the data
-    sources that are configured in the
-    `          master-datasources.xml         ` file and checks if the
-    active connection count surpasses a healthy percentage limit (e.g.,
-    80%) of the maximum allowed connections count. This checker also
-    tests the connection from each data source to see whether the
-    connection is successful.
-2.  **Server startup health checker** - This checker uses the
-    ServerAdmin service to check if the server status is RUNNING.
-3.  **Super tenant user store health checker** - This checker iterates
-    through configured user stores of the super tenant domain and
-    attempts to invoke the `           isExistingUser          ` method
-    to check whether a failure occurs.
+    1.  **Data sources health checker** - This checker goes through the data
+        sources that are configured in the
+        `          deployment.toml         ` file and checks if the
+        active connection count surpasses a healthy percentage limit (e.g.,
+        80%) of the maximum allowed connections count. This checker also
+        tests the connection from each data source to see whether the
+        connection is successful.
+    2.  **Server startup health checker** - This checker uses the
+        ServerAdmin service to check if the server status is RUNNING.
+    3.  **Super tenant user store health checker** - This checker iterates
+        through configured user stores of the super tenant domain and
+        attempts to invoke the `           isExistingUser          ` method
+        to check whether a failure occurs.
 
-### Deploying the API
-
-!!! warning
-    
-    This API is supported by default from WSO2 Identity Server 5.7.0
-    onwards. It is available by default for WSO2 IS versions 5.5.0 and 5.6.0
-    only as a WUM update. For more information on how to update using WUM,
-    see [Getting WSO2 Updates](../../administer/getting-wso2-updates) documentation.
-    
-    ****If you are using a WSO2 product version that supports this feature
-    by default (either in a fresh pack or via a WUM update), s** **kip the
-    instructions in this section and proceed **to the [configuring the
-    API](#MonitoringServerHealth-ConfiguringtheAPI) section.****  
-    **
-    
-
-This section guides you through deploying the Carbon Health Check
-components in a WSO2 Carbon product that does not support this feature
-by default.
-
-1.  Download the
-    [org.wso2.carbon.healthcheck.server.feature-\<version-number\>.zip](../assets/img/97566182/97566189.zip)
-    and extract it. This folder is reffered to as
-    `          <API_HOME>         ` in this document.
-2.  Copy the
-    `          org.wso2.carbon.healthcheck.api.core-<version-number>.jar         `
-    found in the `          <API_HOME>/plugins         ` directory and
-    paste it in the
-    `          <PRODUCT_HOME>/repository/components/dropins         `
-    directory.
-3.  Copy the webapp `          api#health-check#v1.0.war         ` found
-    in the
-    `          <API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0         `
-    directory and paste it in the the
-    `          <PRODUCT_HOME>/repository/deployment/server/webapps         `
-    directory.
-4.  **(Optional step)** Copy the
-    `          health-check.config.xml         ` configuration file
-    found in the `          <API_HOME>          /features/         `
-    `          org.wso2.carbon.healthcheck.server_1.0.0         `
-    directory to your
-    `          <PRODUCT_HOME>/repository/conf/         ` directory.  
 
 ### Configuring the API
 
@@ -164,8 +110,7 @@ If the request is successful, you will recieve a 200 OK response
     reflects the number of connections that are active.
 
 -   `           ConnectivityTime          ` refers to the the duration
-    of the connection. **  
-    **
+    of the connection. 
 
 ### **Error responses**
 
@@ -205,7 +150,7 @@ array of errors.
 To add a new health checker, you can implement the HealthChecker API and
 register the health checker as an OSGI service.  
 To deploy it, copy the `         .jar        ` file to the
-`         <PRODUCT_HOME>/repository/component/lib/        ` directory or
+`         <IS_HOME>/repository/component/lib/        ` directory or
 the OSGI bundle and paste it in the
-`         <PRODUCT_HOME>/repository/component/dropins/        `
+`         <IS_HOME>/repository/component/dropins/        `
 directory.

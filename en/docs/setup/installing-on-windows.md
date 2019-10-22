@@ -2,8 +2,7 @@
 
 !!! tip "Before you begin"
     See the [compatibility matrix](../../setup/environment-compatibility)
-    to find out if this version of the product is fully tested on your
-    operating system.     
+    to determine whether the current product version is compatible with your operating system.     
 
 Follow the instructions below to install the WSO2 Identity Server on
 Windows.
@@ -65,7 +64,7 @@ prompt](#setting-java_home-temporarily-using-the-windows-command-prompt-(cmd)).
 
     ![Advanced tab](../../assets/img/setup/advanced-tab.png) 
 
-3.  Click the New button under **System variables** (for all users) or
+3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 

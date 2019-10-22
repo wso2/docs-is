@@ -122,7 +122,7 @@ Follow the steps below:
         ``` java
         public class CustomClaimHandler implements ClaimHandler {
 
-            private static Log log = LogFactory.getLog(CustomClaimHandler.class);
+            private static final Log log = LogFactory.getLog(CustomClaimHandler.class);
             private static volatile CustomClaimHandler instance;
             private String connectionURL = null;
             private String userName = null;

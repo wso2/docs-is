@@ -18,11 +18,8 @@ and table creation for each type of database:
 
 -   Microsoft SQL Server
 
--   Informix
-
 -   PostgreSQL
 
--   OpenEdge
 
 The folder structure of the `         <IS_HOME>/dbscripts        `
 directory is outlined below. The generic database table creation scripts
@@ -38,67 +35,94 @@ and the identity specific table creation scripts are located inside the
     is valid for all database versions.
     
 
-dbscripts
+### dbscripts
 
-├── bps  
-│   └── bpel  
-│   ├── create  
-│   │   ├── db2.sql  
-│   │   ├── derby.sql  
-│   │   ├── h2.sql  
-│   │   ├── mssql.sql  
-│   │   ├── mysql.sql  
-│   │   ├── oracle.sql  
-│   │   └── postgresql.sql  
-│   ├── drop  
-│   │   ├── h2-drop.sql  
-│   │   ├── mssql -drop.sql  
-│   │   ├── mysql -drop.sql  
-│   │   ├── oracle-drop.sql  
-│   │   └── postgresql -drop.sql  
-│   └── truncate  
-│   ├── db2-truncate.sql  
-│   ├── h2-truncate.sql  
-│   ├── mssql -truncate.sql  
-│   ├── mysql -truncate.sql  
-│   ├── oracle-truncate.sql  
-│   └── postgresql -truncate.sql
+```
 
-├── consent  
-
-│   ├── db2.sql  
-│   ├── h2.sql  
-│   ├── informix.sql  
-│   ├── mssql.sql  
-│   ├── mysql -5.7.sql  
-│   ├── mysql.sql  
-│   ├── oracle\_rac.sql  
-│   ├── oracle.sql  
-│   └── postgresql.sql  
-├── db2.sql  
-├── h2.sql  
-├── identity  
-│   ├── db2.sql  
-│   ├── h2.sql  
-│   ├── informix.sql  
-│   ├── mssql.sql  
-│   ├── mysql -5.7.sql  
-│   ├── mysql.sql  
-│   ├── oracle\_rac.sql  
-│   ├── oracle.sql  
-│   └── postgresql.sql  
-├── informix.sql  
-├── metrics  
-│   ├── h2.sql  
-│   ├── mssql.sql  
-│   ├── mysql.sql  
-│   ├── oracle.sql  
-│   └── postgresql.sql  
-├── mssql.sql  
-├── mysql5.7.sql  
-├── mysql\_cluster.sql  
-├── mysql.sql  
-├── oracle\_rac.sql  
-├── oracle.sql  
+├── bps
+│   └── bpel
+│   ├── create
+│   │   ├── db2.sql
+│   │   ├── derby.sql
+│   │   ├── h2.sql
+│   │   ├── mssql.sql
+│   │   ├── mysql.sql
+│   │   ├── oracle.sql
+│   │   └── postgresql.sql
+│   ├── drop
+│   │   ├── h2-drop.sql
+│   │   ├── mssql-drop.sql
+│   │   ├── mysql-drop.sql
+│   │   ├── oracle-drop.sql
+│   │   └── postgresql-drop.sql
+│   └── truncate
+│   ├── db2-truncate.sql
+│   ├── h2-truncate.sql
+│   ├── mssql-truncate.sql
+│   ├── mysql-truncate.sql
+│   ├── oracle-truncate.sql
+│   └── postgresql-truncate.sql
+├── consent
+│   ├── db2.sql
+│   ├── h2.sql
+│   ├── mssql.sql
+│   ├── mysql-cluster.sql
+│   ├── mysql.sql
+│   ├── oracle.sql
+│   ├── oracle_rac.sql
+│   └── postgresql.sql
+├── identity
+│   ├── stored-procedures
+│   │   ├── db2
+│   │   │   └── oauth2-token-cleanup.sql
+│   │   ├── mssql-2012.x
+│   │   │   ├── mssql-tokencleanup-restore.sql
+│   │   │   └── mssql-tokencleanup.sql
+│   │   ├── mysql-5.4.x
+│   │   │   ├── confirmation-code-cleanup.sql
+│   │   │   ├── mysql-tokencleanup-restore.sql
+│   │   │   ├── mysql-tokencleanup.sql
+│   │   │   └── session-data-cleanup.sql
+│   │   ├── oracle-11.x
+│   │   │   ├── oracle-sessiondata-cleanup.sql
+│   │   │   ├── oracle-tokencleanup-restore.sql
+│   │   │   └── oracle-tokencleanup.sql
+│   │   ├── postgre-11.x
+│   │   │   ├── postgresql-tokencleanup-restore.sql
+│   │   │   └── postgresql_11-tokencleanup.sql
+│   │   └── postgre-9.x
+│   │   ├── postgresql-tokencleanup-restore.sql
+│   │   └── postgresql-tokencleanup.sql
+│   ├── uma
+│   │   ├── db2.sql
+│   │   ├── h2.sql
+│   │   ├── mssql.sql
+│   │   ├── mysql-cluster.sql
+│   │   ├── mysql.sql
+│   │   ├── oracle.sql
+│   │   ├── oracle_rac.sql
+│   │   └── postgresql.sql
+│   ├── db2.sql
+│   ├── h2.sql
+│   ├── mssql.sql
+│   ├── mysql-cluster.sql
+│   ├── mysql.sql
+│   ├── oracle.sql
+│   ├── oracle_rac.sql
+│   └── postgresql.sql
+├── metrics
+│   ├── h2.sql
+│   ├── mssql.sql
+│   ├── mysql.sql
+│   ├── oracle.sql
+│   └── postgresql.sql
+├── db2.sql
+├── h2.sql
+├── mssql.sql
+├── mysql.sql
+├── mysql_cluster.sql
+├── oracle.sql
+├── oracle_rac.sql
 └── postgresql.sql
 
+```

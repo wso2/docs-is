@@ -54,8 +54,17 @@ To configure WS-Federation SSO:
     information.
 3.  Click **Update** to save changes.
 
-**Related Topics**
+!!! tip
+    Currently the signing algorithm used for passive STS by default is `rsa-sha1` and the digest algorithm used is `sha1`. To change the default algorithms, add the following configuration in the `deployment.toml` file found in the <IS_HOME>/repository/conf directory. The example given below sets the signing algorithm to `rsa-sha256` and the digest algorithm to `sha256`.
 
--   To test out WSO2 Identity Server's passive security token service
+    ```toml
+    [sts]
+    signature_algorithm = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+    digest_algorithm = "http://www.w3.org/2001/04/xmlenc#sha256"
+    ```
+
+
+!!! info "Related Topics" 
+    -   To test out WSO2 Identity Server's passive security token service
     using a sample, see [Testing Identity Server's Passive
     STS](../../learn/testing-passive-sts).

@@ -11,7 +11,7 @@ stores:
 -   Read-Write LDAP user stores
 
 The **Primary User Store** in every WSO2 product is configured in the
-`         <PRODUCT_HOME>/repository/conf/deployment.toml        `
+`         <IS_HOME>/repository/conf/deployment.toml        `
 file. By default, the embedded H2 database (JDBC) that is shipped with
 WSO2 products is configured as the primary user store, except for WSO2
 Identity Server, which has an embedded LDAP as its primary user
@@ -35,18 +35,9 @@ an RDBMS. According to the default configuration in WSO2 products, the
 embedded H2 database is used for storing permissions as well as users
 and roles. The instructions in this section explain how you can change
 the default user store. F or information on how to set up an RDBMS
-repository for storing permission, s ee [Configuring the Authorization
+repository for storing permission, see [Configuring the Authorization
 Manager](../../learn/configuring-the-authorization-manager).
 
-The following topics include instructions on setting up user stores:
-
--   [Configuring the Primary User
-    Store](../../learn/configuring-the-primary-user-store)
--   [Configuring Secondary User
-    Stores](../../learn/configuring-secondary-user-stores)
--   [Working with Properties of User
-    Stores](../../administer/working-with-properties-of-user-stores)
--   [Writing a Custom User Store
-    Manager](../../learn/writing-a-custom-user-store-manager)
+The following topics include instructions on setting up user stores.
 
   

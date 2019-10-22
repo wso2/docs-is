@@ -134,7 +134,7 @@ separately.
 
 1.  Add a new datasource with similar configurations as the
     [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-wso2-carbon-db-datasource) above
+    datasource](#changing-the-default-datasource) above
     to the 
     `          <IS_HOME>/repository/conf/datasources/master-datasources.xml         ` file. Change its
     elements with your custom values. For instructions, see [Setting up datasource configurations.](#setting-up-datasource-configurations)
@@ -144,9 +144,9 @@ separately.
     `           registry.xml          ` file.
 
     ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    <dbConfig name="wso2registry">
+        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
+    </dbConfig>
     ```
 
 3.  If you are setting up a separate database to store user management
@@ -155,9 +155,9 @@ separately.
     `           user-mgt.xml          ` file.
 
     ``` xml
-        <Configuration>
-            <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-        </Configuration>
+    <Configuration>
+        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
+    </Configuration>
     ```
 
 ### Creating the database tables
@@ -169,7 +169,7 @@ earlier and run the following scripts in SQL\*Plus:
     `           WSO2CARBON_DB          ` ), use the below script:
 
     ``` powershell
-        SQL> @$<IS_HOME>/dbscripts/oracle.sql
+    SQL> @$<IS_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.

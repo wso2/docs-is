@@ -22,7 +22,7 @@ focuses on the steps necessary for its configuration.
 
 !!! info 
 	It is not necessary to introduce third party .jars into the server
-	environment since WSO2 products pack all the necessary .jars that deal
+	environment as WSO2 Identity Server has all the necessary .jars that deal
 	with SAML token parsing.
 
 ### Setting up the Environment
@@ -77,18 +77,18 @@ configure OpenSSO:
         -   The `            EntityID           ` element of the **sp.xml**
             should match the corresponding value of
             `       service_provider_id        ` in the
-            deployment.toml file.
+            `deployment.toml` file.
         -   The same values are used in single logout related parameters.
             However this is not tested in the single logout feature with
             OpenSSO at the time of writing.
     
 
-2.  Go to **Common Tasks** \> **Register Remote Service Provider** and
+2.  Go to **Common Tasks > Register Remote Service Provider** and
     upload the file.  
     1.  Select **sp.xml** as the file to upload.
     2.  Select a **Circle of Trust** configuration in the remote service
         provider.
-3.  Go to **Federation** \> **Entity Providers** in the OpenSSO
+3.  Go to **Federation > Entity Providers** in the OpenSSO
     management console and select the newly registered service provider.
 4.  Select the response signing attribute.  
     ![response-signing-attribute](../assets/img/tutorials/response-signing-attribute.png)
@@ -99,7 +99,7 @@ configure OpenSSO:
 
 #### Setting up the WSO2 product
 
--   Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
+-   Open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following configuration.
 
     ``` xml
     [admin_console.authenticator.saml_sso_authenticator]
@@ -125,7 +125,7 @@ configure OpenSSO:
 
 Add the public key of the selected circle of trust in to the Carbon
 keystore ( **wso2carbon.jks** ) found under
-`         <PRODUCT_HOME>/resources/security/wso2carbon.jks        `.
+`         <IS_HOME>/resources/security/wso2carbon.jks        `.
 You can use Java keytool to do that.
 
 #### Exporting a public key
@@ -150,7 +150,7 @@ keytool -printcert -file test.cer
 #### Importing a public key
 
 Now import the ‘ **test.cer** ’ into Carbon key stores found under
-`         <PRODUCT_HOME>/repository/resources/security/wso2carbon.jks        `
+`         <IS_HOME>/repository/resources/security/wso2carbon.jks        `
 . The following command does this:
 
 ``` java

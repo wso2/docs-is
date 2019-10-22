@@ -99,15 +99,15 @@ For example,
 
 The tool captures the following information about the system:
 
--   Operating system information \*\* OS (kernel) version
+-   **Operating system information** OS (kernel) version
     -   Installed modules lists and their information
     -   List of running tasks in the system
--   Memory information of the Java process \*\* Java heap memory dump
+-   **Memory information of the Java process** Java heap memory dump
     -   Histogram of the heap
     -   Objects waiting for finalization
     -   Java heap summary. GC algo used, etc.
     -   Statistics on permgen space of Java heap
--   Information about the running Carbon instance \*\* Product name and
+-   **Information about the running Carbon instance** Product name and
     version
     -   Carbon framework version (This includes the patched version)
     -   \<PRODUCT\_HOME\>, \<JAVA\_HOME\>

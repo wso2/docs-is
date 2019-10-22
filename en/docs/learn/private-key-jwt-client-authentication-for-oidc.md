@@ -29,8 +29,7 @@ authentication, click
 [here](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
 .
 
-The authentication token **must** be sent as the value of the
-client\_assertion parameter. The value of the `client_assertion_type` parameter MUST be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
+The authentication token **must** be sent as the value of the client\_assertion parameter. The value of the `client_assertion_type` parameter MUST be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`.
 
 Deploying and configuring JWT client-handler artifacts
 

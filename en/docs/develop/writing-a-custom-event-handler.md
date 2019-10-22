@@ -18,8 +18,8 @@ Following is the hierarchy where we need to structure this new handler.
 
 We need to add a separate handler for each operation we need to add
 workflow support. In this example to implement workflow support for SP
-create functionality, we need to add 
-`         SPCreateHandler        ` by extending
+create functionality, we need to add ‘
+`         SPCreateHandler        ` ’ by extending
 `         AbstractWorkflowRequestHandler        ` . The following
 methods should be overridden:
 
@@ -62,7 +62,7 @@ which contains the types of each parameters used for the operation.
     public class SPCreateHandler extends AbstractWorkflowRequestHandler {
 
       private static final Map<String, String> PARAM_DEFINITION;
-      private static Log log = LogFactory.getLog(SPCreateHandler.class);
+      private static final Log log = LogFactory.getLog(SPCreateHandler.class);
 
       static {
           PARAM_DEFINITION = new LinkedHashMap<>();
