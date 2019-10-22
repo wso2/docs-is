@@ -257,7 +257,7 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>A user of the service provider (SP) attempts to log into the SPs application. The service provider sends an authentication request to the Identity Server. This request is met by the Inbound Authentication component of the Identity Server and comes in one of the following forms.</p>
 <ul>
-<li><a href="../../learn/saml-2.0-web-SSO">SAML</a> SSO</li>
+<li><a href="../../learn/saml-2.0-web-sso">SAML</a> SSO</li>
 <li><a href="../../learn/oauth2-openid-connect-overview">OAuth/OpenID Connect</a></li>
 <li>Passive STS</li>
 </ul>
@@ -401,7 +401,7 @@ above figure and video.
 <p>WSO2 Identity Server provides a friendly user interface for policy editing. It also supports multiple Policy Information Point (PIP) and policy distribution to various Policy Decision Points (PDPs). It provides a high-performance network protocol (over Thrift) for PEP/PDP interaction, and policy decision and attribute caching. Notifications are provided for policy updates. Moreover, the WSO2 Carbon TryIt tool that comes bundled with the Identity Server lets the user explore the policy impact.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
-<p>For more information on how to use and manage entitlement within the Identity Server, see <a href="../../learn/working-with-entitlement">Working with Entitlement</a> .</p>
+<p>For more information on how to use and manage entitlement within the Identity Server, see <a href="../../learn/access-control">Working with Entitlement</a> .</p>
 </div>
 </div></td>
 <td>Authorization does not play a direct role in the process flow but as a component, it integrates with various other components in the Identity Server. This is primarily a functionality that can be managed using APIs that are written to perform authorization tasks.</td>
