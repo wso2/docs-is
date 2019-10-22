@@ -77,7 +77,7 @@ To start and stop the server in the background mode of Linux, run
             -   On Windows:
                 `               <IS_HOME>\bin\wso2server.bat --run -DworkerNode              `
             -   On Linux/Mac OS:
-                `               sh <PRODUCT_HOME>/bin/wso2server.sh -DworkerNode              `
+                `               sh <IS_HOME>/bin/wso2server.sh -DworkerNode              `
 
             For additional options you can use with these startup commands,
             type `              -help             ` after the command, such
@@ -123,7 +123,7 @@ the Command Prompt as described below.
         !!! tip
             The only change is replacing `             sh            ` with
             `             bash            ` . This is required only for Solaris.
-    4.  Start the product by following the [above instructions](#running-the-product).
+    4.  Start the product by following the above instructions.
 
 ### Accessing the management console
 
