@@ -39,9 +39,8 @@ product directory location.
     exit 1
     esac
     ```
-
-    For example, given below is a startup script written for WSO2
-    Identity Server 5.4.0:
+    Following is an example startup script written for WSO2
+    Identity Server 5.9.0
 
     ``` java
     #! /bin/sh
@@ -55,9 +54,9 @@ product directory location.
     ### END INIT INFO
     export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_141"
 
-    startcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh start > /dev/null &'
-    restartcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh restart > /dev/null &'
-    stopcmd='/opt/WSO2/wso2is-5.4.0/bin/wso2server.sh stop > /dev/null &'
+    startcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh start > /dev/null &'
+    restartcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh restart > /dev/null &'
+    stopcmd='/opt/WSO2/wso2is-5.9.0/bin/wso2server.sh stop > /dev/null &'
 
     case "$1" in
     start)
@@ -111,11 +110,12 @@ product directory location.
     makes the service to start in runlevels 2,3,4 and 5 and to stop in
     runlevels 0,1 and 6.
 
-    A **runlevel** is a mode of operation in Linux (or any Unix-style
-    operating system). There are several runlevels in a Linux server and
-    each of these runlevels is represented by a single digit integer.
-    Each runlevel designates a different system configuration and allows
-    access to a different combination of processes.
+    !!! info 
+        A **runlevel** is a mode of operation in Linux (or any Unix-style
+        operating system). There are several runlevels in a Linux server and
+        each of these runlevels is represented by a single digit integer.
+        Each runlevel designates a different system configuration and allows
+        access to a different combination of processes.
 
 4.  You can now start, stop and restart the server using
     `           service <service name>          `

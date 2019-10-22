@@ -7,35 +7,14 @@ This section covers the following topics:
 To change the default admin password, log in to the management console
 with admin/admin credentials and use the **Change my password** option.
 After changing the credentials, change the same in the
-`         <IS_HOME>/repository/conf/user-mgt.xml        ` file:
+`         <IS_HOME>/repository/conf/deployment.toml        ` file:
 
 ``` xml
-<UserManager>
-   <Realm>
-      <Configuration>
-          ...
-          <AdminUser>
-             <UserName>admin</UserName>                  
-             <Password>admin</Password>
-          </AdminUser>
-      ...
-   </Realm>
-</UserManager>
+[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true
 ```
-
-!!! tip "Do you have any special characters in passwords?"
-      For usernames and passwords inside XML files, take care when giving
-      special characters. According to XML specification (<http://www.w3.org/TR/xml/>), some special characters can disrupt the
-      configuration. For example, the ampersand character (&) must not appear
-      in the literal form in XML files. It can cause a Java Null Pointer
-      exception. You must wrap it with CDATA as shown below or remove
-      the character:
-      
-      ``` xml
-      <Password>
-         <![CDATA[xnvYh?@VHAkc?qZ%Jv855&A4a,%M8B@h]]>
-      </Password>
-      ```
 
 ### Unlocking the admin user
 
@@ -61,14 +40,15 @@ the WSO2 product to differentiate between the '@' symbol in the user's
 emails and usernames as follows:
 
 1.  Open
-    `           <IS_HOME>/repository/conf/carbon.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
 
-2.  Uncomment the commented out configuration
-    `           EnableEmailUserName          ` . This enables email
+2.  Add the configuration
+    `           enable_email_domain         ` . This enables email
     authentication.
 
     ``` html/xml
-    <EnableEmailUserName>true</EnableEmailUserName>
+    [tenant_mgt]
+    enable_email_domain= true
     ```
 
     !!! tip
@@ -76,9 +56,8 @@ emails and usernames as follows:
         admin username and you cannot configure your email address as an
         attribute in your user profile.
     
-
-3.  Next, edit \<
-    `           PRODUCT_HOME>/repository/conf/user-mgt.xml          ` .
+3.  Next, edit \
+    `           <IS_HOME>/repository/conf/deployment.toml          ` .
     You might be connected to an LDAP, Active Directory, or a JDBC-based
     user store. Regardless of the user store manager, change the
     following:
@@ -95,59 +74,38 @@ emails and usernames as follows:
     </thead>
     <tbody>
     <tr class="odd">
-    <td><code>               UserNameAttribute              </code></td>
+    <td><code>               user_name_attribute              </code></td>
     <td><p>Set the mail attribute of the user.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameAttribute&quot;&gt;mail&lt;/Property&gt;</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_attribute="mail"</code></pre>
     </div>
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UserNameSearchFilter              </code></td>
+    <td><code>               user_name_search_filter              </code></td>
     <td><p>Use the mail attribute of the user instead of cn or uid.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameSearchFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=?))&lt;/Property&gt;</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_search_filter="(&amp;(objectClass=identityPerson)(mail=?))"</code></pre>
     </div>
     </div></td>
     </tr>
     <tr class="odd">
-    <td><code>               UserNameListFilter              </code></td>
+    <td><code>               user_name_list_filter              </code></td>
     <td><p>Use the mail attribute of the user in the user name filter list as well.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameListFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=*))&lt;/Property&gt;</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_list_filter="(&amp;(objectClass=identityPerson)(mail=*))"</code></pre>
     </div>
     </div></td>
     </tr>
     <tr class="even">
-    <td><code>               UsernameJavaRegEx              </code></td>
+    <td><code>               username_java_regex              </code></td>
     <td><p>Use the following email regex.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UsernameJavaRegEx&quot;&gt;^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$&lt;/Property&gt;</code></pre>
-    </div>
-    </div></td>
-    </tr>
-    <tr class="odd">
-    <td><code>               UserDNPattern              </code></td>
-    <td><p>This parameter is used to speed up the LDAP search operations. You can comment out this config.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;!--Property name=&quot;UserDNPattern&quot;&gt;cn={0},ou=Users,dc=wso2,dc=com&lt;/Property--&gt;</code></pre>
-    </div>
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td>Realm configurations</td>
-    <td><p>The <code>                AdminUser               </code> username should use the email attribute of the admin user.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;AdminUser&gt;
-             &lt;UserName&gt;admin@wso2.com&lt;/UserName&gt;
-             &lt;Password&gt;admin&lt;/Password&gt;
-    &lt;/AdminUser&gt;</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_regex = "^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"</code></pre>
     </div>
     </div></td>
     </tr>

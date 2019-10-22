@@ -3,7 +3,7 @@
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
 `         deployment.toml       ` file found in the
-`         <PRODUCT_HOME>/repository/conf/        ` directory. This
+`         <IS_HOME>/repository/conf/        ` directory. This
 documentation explains the process of setting up a primary user store
 for your system.
 
@@ -58,11 +58,3 @@ enable you to authenticate users from different types of user stores.
 To enable the required user store configuration, add them to the `  deployment.toml` file and
 comment out the ones that you do not need as explained in the following
 topics.
-
--   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
--   [Configuring a Read-Only LDAP User
-    Store](../../learn/configuring-a-read-only-ldap-user-store)
--   [Configuring a Read-Write Active Directory User
-    Store](../../learn/configuring-a-read-write-active-directory-user-store)
--   [Configuring a Read-Write LDAP User
-    Store](../../learn/configuring-a-read-write-ldap-user-store)
