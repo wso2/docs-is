@@ -361,9 +361,8 @@ of entity configuration.
         default, the response is signed using the certificate that belongs
         to the tenant where the service provider is registered). This
         property must be added if the SAML authenticator version in the WSO2
-        Carbon products that you are using is 4.2.2 or higher (
-        `           org.wso2.carbon.identity.authenticator.saml2.sso_4.2.2.jar          `
-        ).  
+        Carbon products that you are using is 4.2.2 or higher 
+        `(org.wso2.carbon.identity.authenticator.saml2.sso_4.2.2.jar)`.  
           
         Add the following property to the
         `           <IS_HOME>/repository/conf/deployment.toml          ` file

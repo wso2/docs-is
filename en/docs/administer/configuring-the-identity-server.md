@@ -49,11 +49,12 @@ configure the following in the order mentioned.
 
 -   **[Tenants](../../learn/creating-and-managing-tenants)**  
     Add and view tenants. This feature enables users to have a
-    customized experience. See [Creating and Managing
-    Tenants](../../learn/creating-and-managing-tenants) for more information. Also
-    see [Email Templates](../../administer/email-templates) for more information on
-    customizing automated emails for users configured under specific
-    tenants.  
+    customized experience. See
+    [Creating and Managing Tenants](../../learn/creating-and-managing-tenants)
+    for more information. Also see
+    [Email Templates](../../learn/customizing-automated-emails) for more
+    information on customizing automated emails for users configured
+    under specific tenants.
 
 -   **[Management console](../../setup/getting-started-with-the-management-console)**  
     Once you have configured the user stores, you can configure

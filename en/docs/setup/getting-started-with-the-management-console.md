@@ -113,7 +113,7 @@ menu items.
         for information on configuring challenge questions. Also see [Using
         the End User Dashboard](../../learn/using-the-end-user-dashboard) for
         information on challenge questions.
-    -   See [Email Templates](../../learn/email-templates) for configuring email
+    -   See [Email Templates](../../learn/customizing-automated-emails) for configuring email
         templates. Also see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
         for information on how to customize these templates.
