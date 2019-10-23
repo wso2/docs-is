@@ -8,15 +8,12 @@ SAML2 federated identity provider (IdP) and a sample application called
 sections below to set this up.
 
 !!! tip " Before you begin"  
-    1.  [Create a Google
-        domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
-        .
+    1.  [Create a Google domain](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/).
     2.  [Download](https://tomcat.apache.org/download-80.cgi) and
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
         version 8.\*.\* or higher.
     3.  Install WSO2 IS version 5.7.0. by downloading the
-        [installer](https://wso2.com/identity-and-access-management/install/)
-        .
+        [installer](https://wso2.com/identity-and-access-management/install/).
     4.  Open the `           /etc/hosts          ` file, add the following
         entry, and restart your computer.  
         To avoid any IP address conflicts, ensure that this is the only
@@ -33,7 +30,7 @@ sections below to set this up.
 		```
 
 
-### Set up Google as a SAML IdP
+## Set up Google as a SAML IdP
 
 1.  Access the Google Admin console by navigating to this URL:
     <https://admin.google.com/>.
@@ -84,7 +81,7 @@ sections below to set this up.
     change the **Service Status** to **ON**. You can turn on the
     service for everyone or for some users only.
 
-### Configure Google as a SAML IdP in WSO2 IS
+## Configure Google as a SAML IdP in WSO2 IS
 
 1.  Start WSO2 Identity Server by navigating to
     `           <IS_HOME>/bin/          ` folder and running the
@@ -111,7 +108,7 @@ sections below to set this up.
 		value you entered as the Entity ID when configuring Google.
 
 6.  Select **Metadata File Configuration** as the **Mode** and upload
-    the `          GoogleIDPMetadata         ` .xml file you downloaded
+    the `          GoogleIDPMetadata         `.xml file you downloaded
     earlier.  
     ![metadata-file-config](../assets/img/tutorials/metadata-file-config.png)
     
@@ -127,7 +124,7 @@ sections below to set this up.
     
 10. Click **Update** to save the changes.
 
-### Set up the sample application
+## Set up the sample application
 
 !!! warning
     The instructions in this section are only required if you are using the
@@ -138,7 +135,7 @@ sections below to set this up.
 1.  Download the
     [saml2-web-app-pickup-dispatch.com.war](../../assets/attachments/saml2-web-app-pickup-dispatch.com.war)
     file.
-2.  Copy the .war file and paste it inside the
+2.  Copy the.war file and paste it inside the
     `          <TOMCAT_HOME>/webapps         ` directory.
 3.  Log in to the WSO2 IS management console.
 
@@ -169,7 +166,7 @@ sections below to set this up.
     
 10. Click **Update** to save.
 
-### Trying it out
+## Trying it out
 
 1.  Access the Pickup sample application URL:
     <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
