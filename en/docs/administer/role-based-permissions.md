@@ -25,44 +25,25 @@ clicking **Permissions** as shown below.
 
 ![](../assets/img/53125499/53287373.png)
 
-By default, every WSO2 product comes with the following User, Role and
-Permissions configured:
-
--   The **Admin** user and **Admin** role is defined and linked to each
-    other in the `           user-mgt.xml          ` file, stored in the
-    `           <IS_HOME>/repository/conf/          ` directory as
-    shown below.
-
-    ``` java
-    <AddAdmin>true</AddAdmin>
-    <AdminRole>admin</AdminRole>
-    <AdminUser>
-         <UserName>admin</UserName>
-         <Password>admin</Password>
-    </AdminUser>
-    ```
+By default, every WSO2 Identity Server comes with the default user and
+role explained in
+[this document](../learn/configuring-roles-and-permissions)
 
 -   The **Admin** role has all the permissions in the system enabled by
     default. Therefore, this is a super tenant, with all permissions
     enabled.
-
-You will be able to log in to the management console of the product with
-the **Admin** user defined in the `         user-mgt.xml        ` file.
-You can then create new users and roles and configure permissions for
-the roles using the management console. However, note that you cannot
-modify the permissions of the **Admin** role. The possibility of
-managing users, roles and permissions is granted by the **User
-Management** permission. 
-
-
-### Description of role-based permissions
-
-!!! note
-    Note that the descriptions given in this document only explains how
-    permissions control access to operations available on the management
-    console.
     
+    !!! Tip 
+        You can change the default role name '**admin**' of the Administrative role as described in [here](../learn/configuring-roles-and-permissions/#updating-role-names)
 
+You can create new users and roles and configure permissions for the
+roles using the management console. However, note that you cannot modify
+the permissions of the **Admin** role. The possibility of managing
+users, roles and permissions is granted by the **User Management**
+permission.
+
+### How permissions control access to operations available on the management console
+    
 The descriptions of permissions in the **Permissions** navigator are as
 follows:
 
