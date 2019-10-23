@@ -4,8 +4,8 @@ The WSO2 Identity Server Management Console is a Web-based User
 Interface. It allows users to interact with a running Identity Server
 instance, without having to intervene with any underlying
 configuration files. The controls in the Management Console are usually
-self-explanatory. **This page provides some additional insight on
-what can be configured via the management console** **EDIT THIS**. 
+self-explanatory. This page provides an overview of the User Interface of the 
+management console. 
 
 The following screen depicts the home screen of the management console.
 
@@ -61,7 +61,7 @@ divided into different sections.
     
     -   See [Configuring the Policy Administration Point](../../learn/configuring-the-policy-administration-point) 
         for configuring the policy administration point.
-    -   See [Configuring the Policy Decision Point](../../configuring-the-policy-decision-point) 
+    -   See [Configuring the Policy Decision Point](../../learn/configuring-the-policy-decision-point) 
         for configuring the policy decision point.
 
 #### Manage section
@@ -90,7 +90,7 @@ divided into different sections.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](../../learn/monitoring-the-identity-server).
+[monitoring the Identity Server](../../administer/monitoring-the-identity-server).
 
 
 ![monitor-section-mgt-console](../../assets/img/setup/management-console/monitor-section-mgt-console.png)
@@ -107,7 +107,6 @@ specific requirements.
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
 
-    -   See [Server Roles](../../learn/server-roles) for information on server roles.
     -   See [Using Workflows with User
         Management](../../learn/using-workflows-with-user-management) for information
         on Workflow Engine Profiles.
@@ -117,7 +116,7 @@ specific requirements.
 ### **Tools menu**
 
 The tools menu includes SAML and XACML tools. For more details on each
-of these tools and their usage, see the topics on [working with tools](../../learn/using-tools).
+of these tools and their usage, see the topics on [working with tools](../../administer/using-tools).
 
 
 ![tools-section-mgt-console](../../assets/img/setup/management-console/tools-section-mgt-console.png)
