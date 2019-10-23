@@ -1,12 +1,12 @@
-# Logging in to a .NET application using the Identity Server
+# Logging in to a.NET application using the Identity Server
 
-This topic provides instructions on how to configure a .NET application
+This topic provides instructions on how to configure a.NET application
 using the WSO2 Identity Server for authentication. It is demonstrated
 using a sample OpenID Connect application.
 
 1.  Download the sample from the following [SVN
     location](https://svn.wso2.org/repos/wso2/people/lahiruc/oidc_sample/)
-    .
+   .
 2.  Start the Identity Server and log in to the management console.
 3.  Navigate to the **Main** tab and click on **Add** under **Service
     Providers**.
@@ -19,12 +19,12 @@ using a sample OpenID Connect application.
     For more information on configuring OAuth/OpenID Connect, see
     [Configuring OAuth2-OpenID Connect
     Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
-    .
+   .
 6.  Take note of the client key and client secret that you receive.  
     ![key-and-secret](../assets/img/tutorials/key-and-secret.png)
 7.  Open the `          oidc.sln         ` file found in the
     `          <SAMPLE_HOME>         ` directory using [Visual
-    Studio](https://www.visualstudio.com/downloads/) and run the .NET
+    Studio](https://www.visualstudio.com/downloads/) and run the.NET
     application.
 8.  Fill in the following fields and click **Submit**.
     -   **Client Id:** \<client key of service provider\>
