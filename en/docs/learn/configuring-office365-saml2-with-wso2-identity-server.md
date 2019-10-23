@@ -18,12 +18,10 @@ a user.
     Portal](https://portal.office.com/adminportal/home).
 
     !!! tip
-    
         If you do not already have an account, you can use a 30-day
         [trial version](https://products.office.com/en/compare-all-microsoft-office-products?tab=2)
         to try out this feature.
     
-
 -   Add a new domain to Office 365 using the [Office 365 Admin
     Portal](https://portal.office.com/adminportal/home) . For
     instructions on how to do this, see [Add A Domain to Office
@@ -31,8 +29,7 @@ a user.
     in the Microsoft documentation.
 
     !!! tip
-    
-        **Note:** Office 365 SSO requires an internet-resolvable domain name
+        Office 365 SSO requires an internet-resolvable domain name
         to use as the suffix in each user’s username. You cannot federate
         the default domain that is provided by Microsoft that ends with
         "onmicrosoft.com".
@@ -64,13 +61,13 @@ a user.
     -   **Windows**
 
     ``` java
-        .\wso2server.bat
+	.\wso2server.bat
     ```
     
     -   **Linux/Unix**
 
     ``` java
-        sh wso2server.sh
+    sh wso2server.sh
     ```
 
 2.  Access the following URL and log in to the management console:
@@ -238,7 +235,7 @@ To disable the claims, do the following.
     credentials.
 
     ``` java
-        $cred=Get-Credential
+    $cred=Get-Credential
     ```
 
     ![azure-ad-admin-credentials](../assets/img/tutorials/azure-ad-admin-credentials.jpg)
@@ -247,7 +244,7 @@ To disable the claims, do the following.
     connect to the service with the stored credentials.
 
     ``` java
-        Connect-MsolService –Credential $cred
+    Connect-MsolService –Credential $cred
     ```
 
 4.  Run the following command to verify the availability of the
@@ -256,7 +253,7 @@ To disable the claims, do the following.
     ‘Authentication’ should be ‘Managed’.
 
     ``` java
-        Get-MsolDomain
+    Get-MsolDomain
     ```
 
     ![verify-domain-availability](../assets/img/tutorials/verify-domain-availability.jpg)
@@ -268,7 +265,7 @@ To disable the claims, do the following.
     1.  Store your domain.
 
         ``` java
-                $dom = "wso2.cf"
+        $dom = "wso2.cf"
         ```
 
     2.  Set the IdP Logon URL for the POST SAML Authentication Request.
@@ -276,7 +273,7 @@ To disable the claims, do the following.
         IS.
 
         ``` java
-                $logonurl = "https://localhost:9443/samlsso"
+        $logonurl = "https://localhost:9443/samlsso"
         ```
 
     3.  Set the issuer ID of the IdP. This value should be the
@@ -285,14 +282,14 @@ To disable the claims, do the following.
         IS.
 
         ``` java
-                $issueruri = "wso2is.microsoft"
+        $issueruri = "wso2is.microsoft"
         ```
 
     4.  Set the IdP Logout URL for the POST SAML Logout Request. For
         this tutorial, you can use the SAML SSO endpoint URL of WSO2 IS.
 
         ``` java
-                $logouturl = "https://localhost:9443/samlsso"
+        $logouturl = "https://localhost:9443/samlsso"
         ```
 
     5.  Store the IdP certificate. Enter the Base64 encoded signing
@@ -301,12 +298,10 @@ To disable the claims, do the following.
         is as given below.
 
         !!! tip
-        
             Note that the certificate value should be given in a single line without a break.
 
 
         !!! info "How to obtain the PEM encoded certificate"
-
                 The PEM content of a certificate in a JKS file, can be obtained
                 by following the steps below:
 
@@ -323,9 +318,9 @@ To disable the claims, do the following.
                 certificate.
 
                 ``` java
-                        openssl x509 -inform der -in <path-of-binary-certificate> -out <path-of-expected-pem-content>
-                
-                        e.g. openssl x509 -inform der -in wso2carbon.crt -out wso2carbon.pem
+				openssl x509 -inform der -in <path-of-binary-certificate> -out <path-of-expected-pem-content>
+		
+				e.g. openssl x509 -inform der -in wso2carbon.crt -out wso2carbon.pem
                 ```
 
                 3\. Open the obtained PEM encoded certificate using a text editor and
@@ -333,7 +328,7 @@ To disable the claims, do the following.
                 CERTIFICATE placeholders.
 
         ``` java
-                $cert = "{certificate}"
+        $cert = "{certificate}"
         ```
 
         The certificate for the default key store configured in WSO2 IS
@@ -342,19 +337,19 @@ To disable the claims, do the following.
         **Sample certificate**
 
         ``` java
-                $cert = "MIIDSTCCAjGgAwIBAgIEAoLQ/TANBgkqhkiG9w0BAQsFADBVMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxDTALBgNVBAoTBFdTTzIxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNzA3MTkwNjUyNTFaFw0yNzA3MTcwNjUyNTFaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzENMAsGA1UEChMEV1NPMjESMBAGA1UEAxMJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluZFdW1ynitztkWLC6xKegbRWxky+5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9+PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0+s6kMl2EhB+rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z/73OOVhkh/mvTmWZLM7GM6sApmyLX6OXUp8z0pkY+vT/9+zRxxQs7GurC4/C1nK3rI/0ySUgGEafO1atNjYmlFN+M3tZX6nEcA6g94IavyQIDAQABoyEwHzAdBgNVHQ4EFgQUtS8kIYxQ8UVvVrZSdgyide9OHxUwDQYJKoZIhvcNAQELBQADggEBABfk5mqsVUrpFCYTZZhOxTRRpGXqoW1G05bOxHxs42Paxw8rAJ06Pty9jqM1CgRPpqvZa2lPQBQqZrHkdDE06q4NG0DqMH8NT+tNkXBe9YTre3EJCSfsvswtLVDZ7GDvTHKojJjQvdVCzRj6XH5Truwefb4BJz9APtnlyJIvjHk1hdozqyOniVZd0QOxLAbcdt946chNdQvCm6aUOputp8Xogr0KBnEy3U8es2cAfNZaEkPU8Va5bU6Xjny8zGQnXCXxPKp7sMpgO93nPBt/liX1qfyXM7xEotWoxmm6HZx8oWQ8U5aiXjZ5RKDWCCq4ZuXl6wVsUz1iE61suO5yWi8="
+		$cert = "MIIDSTCCAjGgAwIBAgIEAoLQ/TANBgkqhkiG9w0BAQsFADBVMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxDTALBgNVBAoTBFdTTzIxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0xNzA3MTkwNjUyNTFaFw0yNzA3MTcwNjUyNTFaMFUxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzENMAsGA1UEChMEV1NPMjESMBAGA1UEAxMJbG9jYWxob3N0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluZFdW1ynitztkWLC6xKegbRWxky+5P0p4ShYEOkHs30QI2VCuR6Qo4Bz5rTgLBrky03W1GAVrZxuvKRGj9V9+PmjdGtau4CTXu9pLLcqnruaczoSdvBYA3lS9a7zgFU0+s6kMl2EhB+rk7gXluEep7lIOenzfl2f6IoTKa2fVgVd3YKiSGsyL4tztS70vmmX121qm0sTJdKWP4HxXyqK9neolXI9fYyHOYILVNZ69z/73OOVhkh/mvTmWZLM7GM6sApmyLX6OXUp8z0pkY+vT/9+zRxxQs7GurC4/C1nK3rI/0ySUgGEafO1atNjYmlFN+M3tZX6nEcA6g94IavyQIDAQABoyEwHzAdBgNVHQ4EFgQUtS8kIYxQ8UVvVrZSdgyide9OHxUwDQYJKoZIhvcNAQELBQADggEBABfk5mqsVUrpFCYTZZhOxTRRpGXqoW1G05bOxHxs42Paxw8rAJ06Pty9jqM1CgRPpqvZa2lPQBQqZrHkdDE06q4NG0DqMH8NT+tNkXBe9YTre3EJCSfsvswtLVDZ7GDvTHKojJjQvdVCzRj6XH5Truwefb4BJz9APtnlyJIvjHk1hdozqyOniVZd0QOxLAbcdt946chNdQvCm6aUOputp8Xogr0KBnEy3U8es2cAfNZaEkPU8Va5bU6Xjny8zGQnXCXxPKp7sMpgO93nPBt/liX1qfyXM7xEotWoxmm6HZx8oWQ8U5aiXjZ5RKDWCCq4ZuXl6wVsUz1iE61suO5yWi8="
         ```
 
 6.  Run the following command to establish trust.
 
     ``` java
-        Set-MsolDomainAuthentication –DomainName $dom -Authentication Federated -PassiveLogOnUri $logonurl -SigningCertificate $cert -IssuerUri $issueruri -LogOffUri $logouturl -PreferredAuthenticationProtocol SAMLP
+	Set-MsolDomainAuthentication –DomainName $dom -Authentication Federated -PassiveLogOnUri $logonurl -SigningCertificate $cert -IssuerUri $issueruri -LogOffUri $logouturl -PreferredAuthenticationProtocol SAMLP
     ```
 
 7.  Run the following command to verify the federation settings.
 
     ``` java
-        Get-MsolDomainFederationSettings -Domain $dom
+    Get-MsolDomainFederationSettings -Domain $dom
     ```
 
     ![verify-federation-settings](../assets/img/tutorials/verify-federation-settings.jpg)
@@ -363,14 +358,13 @@ You have now successfully set up trust between the on-premise identity
 provider of WSO2 IS and the Azure Active Directory.
 
 !!! tip
-    
     If you wish to redo the configurations, do the following:
     
     1.  Run the following command to first move your domain back to the
         'Managed' authentication mode.
     
         ``` java
-            Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
+        Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
         ```
 
     2.  Re-set the parameters as listed in step 5 and then set the authentication method again as shown in step 6.

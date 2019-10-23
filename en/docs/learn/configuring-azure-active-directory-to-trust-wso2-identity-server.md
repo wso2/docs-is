@@ -1,8 +1,5 @@
 # Configuring Azure Active Directory to Trust WSO2 Identity Server
 
-This topic provides instructions on how to configure and federate the Office365 Passive STS client for single sign-on, 
-based on the WS-Federation protocol, through the WSO2 Identity server. 
-
 This section provides instructions on how to configure the Azure Active
 Directory to trust the on-premise IdP (the WSO2 Identity Server) as the
 first part of the process of configuring WS-Federation with Office 365.
@@ -35,15 +32,15 @@ first part of the process of configuring WS-Federation with Office 365.
         ```
         
         !!! tip 
-                This will prompt for Windows Azure AD Admin credentials for the
-                Office365 domain. The admin user’s domain credentials are
-                usually in the following format: <user@domain.onmicrosoft.com>.
+			This will prompt for Windows Azure AD Admin credentials for the
+			Office365 domain. The admin user’s domain credentials are
+			usually in the following format: <user@domain.onmicrosoft.com>.
 
     2.  This command connects with the stored credentials. Provided that
         the credentials are accurate, the connection will be successful.
 
         ``` powershell
-                Connect-MsolService -Credential $cred
+        Connect-MsolService -Credential $cred
         ```
 
     3.  This command verifies the availability of the validated domain.
@@ -52,7 +49,7 @@ first part of the process of configuring WS-Federation with Office 365.
         ‘Authentication’ should be ‘Managed’.
 
         ``` powershell
-                Get-MsolDomain
+        Get-MsolDomain
         ```
 
 3.  Configure the domain as a federated domain, providing respective
@@ -62,8 +59,8 @@ first part of the process of configuring WS-Federation with Office 365.
     -   Store your domain
 
         ``` powershell
-                $dom = "wso2test.com"
-                $brandname = "wso2"
+		$dom = "wso2test.com"
+		$brandname = "wso2"
         ```
 
     -   Set the Issuer Id of the IdP. This value should be the same as
@@ -71,31 +68,30 @@ first part of the process of configuring WS-Federation with Office 365.
         Identity server.
 
         ``` powershell
-                $issuerUri = "https://wso2test.com"
+        $issuerUri = "https://wso2test.com"
         ```
 
     -   Set the Passive STS Endpoint URL of the IdP. This should be the
         Passive STS endpoint of the WSO2 Identity server.
 
         ``` powershell
-                $passiveLogonUri = "https://wso2test.com/passivests"
+        $passiveLogonUri = "https://wso2test.com/passivests"
         ```
 
         !!! note
-        
-                If you will be configuring Office365 Active STS clients
-                (complying with the WS-Trust protocol) through WSO2 Identity
-                Server as well, you can do the following configuration along
-                with these configurations.  
-        
-                Set the Active STS Endpoint URL of the IdP. This should be the
-                Security Token Service endpoint of the WSO2 Identity
-                server. Note that this endpoint is specific to WS-Trust and will
-                not be used for the Passive STS use case.
-        
-                ``` powershell
-                        $activeLogonUri="https://wso2test.com/services/wso2carbon-sts.wso2carbon-stsHttpsSoap12Endpoint"
-                ```
+			If you will be configuring Office365 Active STS clients
+			(complying with the WS-Trust protocol) through WSO2 Identity
+			Server as well, you can do the following configuration along
+			with these configurations.  
+
+			Set the Active STS Endpoint URL of the IdP. This should be the
+			Security Token Service endpoint of the WSO2 Identity
+			server. Note that this endpoint is specific to WS-Trust and will
+			not be used for the Passive STS use case.
+
+			``` powershell
+			$activeLogonUri="https://wso2test.com/services/wso2carbon-sts.wso2carbon-stsHttpsSoap12Endpoint"
+			```
         
 
     -   Set the MetaData Exchange endpoint URL of the IdP.
@@ -109,9 +105,8 @@ first part of the process of configuring WS-Federation with Office 365.
         WSO2 IS certificate is as below.
 
         !!! note
-        
-                The certificate should be given in a single line
-                without a break.
+			The certificate should be given in a single line
+			without a break.
         
 
         ``` powershell
@@ -121,18 +116,18 @@ first part of the process of configuring WS-Federation with Office 365.
 4.  Run the following command to establish the trust.
 
     ``` powershell
-        Set-MsolDomainAuthentication -DomainName $dom -Authentication Federated -ActiveLogOnUri $activeLogonUri -IssuerUri $issuerUri -SigningCertificate $cert -LogOffUri $passiveLogonUri -FederationBrandName $brandname -MetadataExchangeUri $mex -PassiveLogOnUri $passiveLogonUri -PreferredAuthenticationProtocol WsFed
+	Set-MsolDomainAuthentication -DomainName $dom -Authentication Federated -ActiveLogOnUri $activeLogonUri -IssuerUri $issuerUri -SigningCertificate $cert -LogOffUri $passiveLogonUri -FederationBrandName $brandname -MetadataExchangeUri $mex -PassiveLogOnUri $passiveLogonUri -PreferredAuthenticationProtocol WsFed
     ```
 
 5.  Run the following command to verify the federation settings
 
     ``` java
-        Get-MsolDomainFederationSettings -Domain $domain
+    Get-MsolDomainFederationSettings -Domain $domain
     ``` 
 
 !!! info 
-        You have now successfully configured the Azure Active Directory to trust
-        our on-premises IdP (WSO2 Identity Server). For the next part of the
-        process of configuring WS-Federation with Office 365, see [Configuring
-        Office 365 WS-Federation with Identity
-        Server](../../learn/configuring-office-365-ws-federation-with-identity-server).
+	You have now successfully configured the Azure Active Directory to trust
+	our on-premises IdP (WSO2 Identity Server). For the next part of the
+	process of configuring WS-Federation with Office 365, see [Configuring
+	Office 365 WS-Federation with Identity
+	Server](../../learn/configuring-office-365-ws-federation-with-identity-server).
