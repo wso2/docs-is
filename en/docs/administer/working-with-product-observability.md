@@ -11,57 +11,55 @@ sent in the request call.
 
 !!! note    
     By default, product observability is not enabled as it impacts on the
-    product's performance.
+    product's performance. 
     
 
 Let's explore the following topics to learn more.
 
 ### Configuring product observability
 
-The configurations are two-fold:
-
--   log4j configs
--   Tomcat valve
-
 #### log4j configs
 
 Follow the steps below to set up the correlation logs related to the
 database calls.
 
-1.  Open the `          log4j.properties         ` file in the
+1.  Open the `          log4j2.properties         ` file in the
     `          <IS_HOME>/repository/conf         ` directory.
-2.  Add the following code to it.
+2.  Append the appender `CORRELATION` to the list of all appenders as follows.
 
-    ``` java
-    # Appender config to put correlation Log.
-    log4j.logger.correlation=INFO, CORRELATION
-    log4j.additivity.correlation=false
-    log4j.appender.CORRELATION=org.apache.log4j.RollingFileAppender
-    log4j.appender.CORRELATION.File=${carbon.home}/repository/logs/${instance.log}/correlation.log
-    log4j.appender.CORRELATION.MaxFileSize=10MB
-    log4j.appender.CORRELATION.layout=org.apache.log4j.PatternLayout
-    log4j.appender.CORRELATION.Threshold=INFO
-    log4j.appender.CORRELATION.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%m%n
+      ``` toml
+      appenders = CARBON_CONSOLE, CARBON_LOGFILE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, 
+      DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE, osgi, CORRELATION
+      ```
+3.  Append the loggger `correlation` for list of all loggers as follows.       
+
+      ``` toml
+      loggers = AUDIT_LOG, trace-messages, org-apache-coyote, com-hazelcast, Owasp-CsrfGuard, 
+      org-apache-axis2-wsdl-codegen-writer-PrettyPrinter, org-apache-axis2-clustering, org-apache-catalina, 
+      org-apache-tomcat, org-wso2-carbon-apacheds, org-apache-directory-server-ldap, org-apache-directory-server-core-event, com-atomikos, org-quartz, org-apache-jackrabbit-webdav, org-apache-juddi, org-apache-commons-digester-Digester, org-apache-jasper-compiler-TldLocationsCache, org-apache-qpid, org-apache-qpid-server-Main, qpid-message, qpid-message-broker-listening, org-apache-tiles, org-apache-commons-httpclient, org-apache-solr, me-prettyprint-cassandra-hector-TimingLogger, org-apache-axis-enterprise, org-apache-directory-shared-ldap, org-apache-directory-server-ldap-handlers, org-apache-directory-shared-ldap-entry-DefaultServerAttribute, org-apache-directory-server-core-DefaultDirectoryService, org-apache-directory-shared-ldap-ldif-LdifReader, org-apache-directory-server-ldap-LdapProtocolHandler, org-apache-directory-server-core, org-apache-directory-server-ldap-LdapSession, DataNucleus, Datastore, Datastore-Schema, JPOX-Datastore, JPOX-Plugin, JPOX-MetaData, JPOX-Query, JPOX-General, JPOX-Enhancer, org-apache-hadoop-hive, hive, ExecMapper, ExecReducer, net-sf-ehcache, axis2Deployment, equinox, tomcat2, StAXDialectDetector, org-apache-directory-api, org-apache-directory-api-ldap-model-entry, TRANSACTION_LOGGER, DELETE_EVENT_LOGGER, org-springframework, org-opensaml-xml-security-credential-criteria, org-wso2-carbon-user-core, org-wso2-carbon-identity, org-wso2-carbon-identity-sso-saml, correlation
+       ```
+4.  Following are the default correlation appender configuration. You can change any of these values using the log4j2
+.properties. 
+
+    ``` toml
+    appender.CORRELATION.type = RollingFile
+    appender.CORRELATION.name = CORRELATION
+    appender.CORRELATION.fileName =${sys:carbon.home}/repository/logs/correlation.log
+    appender.CORRELATION.filePattern =${sys:carbon.home}/repository/logs/correlation-%d{MM-dd-yyyy}.log
+    appender.CORRELATION.layout.type = PatternLayout
+    appender.CORRELATION.layout.pattern = %d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%t|%mm%n
+    appender.CORRELATION.policies.type = Policies
+    appender.CORRELATION.policies.time.type = TimeBasedTriggeringPolicy
+    appender.CORRELATION.policies.time.interval = 1
+    appender.CORRELATION.policies.time.modulate = true
+    appender.CORRELATION.policies.size.type = SizeBasedTriggeringPolicy
+    appender.CORRELATION.policies.size.size=10MB
+    appender.CORRELATION.strategy.type = DefaultRolloverStrategy
+    appender.CORRELATION.strategy.max = 20
+    appender.CORRELATION.filter.threshold.type = ThresholdFilter
+    appender.CORRELATION.filter.threshold.level = INFO
     ```
 
-#### Tomcat valve configs
-
-Follow the steps below to set up the correlation ID mapping between the
-request database call and the response database call.
-
-1.  Open the `          catalina-server.xml         ` file in the
-    `          <IS_HOME>/repository/conf/tomcat         ` directory.
-2.  Add the following value under the `           <Host>          ` tag.
-
-    ``` java
-        <Valve className="org.wso2.carbon.tomcat.ext.valves.RequestCorrelationIdValve"
-        headerToCorrelationIdMapping="{'activityid':'Correlation-ID'}" queryToCorrelationIdMapping="{'RelayState':'Correlation-ID'}"/>
-    ```
-
-    !!! note    
-        This should be the first valve under the
-        `           <Host>          ` tag.
-    
 
 ### Enabling observability
 
@@ -236,93 +234,6 @@ Follow the steps below to configure thread blacklisting.
         sh wso2server.sh -DenableCorrelationLogs=true start
     ```
 
-#### Single header configs
-
-By default, `         RequestCorrelationIdValve        ` in the
-`         catalina-server.xml        ` file in the
-`         <IS_HOME>/repository/conf/tomcat        ` directory is
-configured to map to the value sent by the `         activityid        `
-header as the `         Correlation ID        ` . You can change this by
-editing the `         RequestCorrelationIdValve        ` by replacing
-the `         activityid        ` with any other
-`         headerName        ` that you will be sending.
-
-Let's consider an authentication request that is sent with a new header
-configuration.
-
-1.  Change the `           RequestCorrelationIdValve          ` in the
-    `           cataline-server.xml          ` file to the value given
-    below.
-
-    ``` java
-        <Valve className="org.wso2.carbon.tomcat.ext.valves.RequestCorrelationIdValve"
-        headerToCorrelationIdMapping="{'customHeader':'Correlation-ID'}" queryToCorrelationIdMapping="{'RelayState':'Correlation-ID'}"/>
-    ```
-
-2.  Restart the WSO2 IS Server.
-
-    ``` java
-        sh wso2server.sh -DenableCorrelationLogs=true stop
-        sh wso2server.sh -DenableCorrelationLogs=true start
-    ```
-
-3.  To send the authentication request, execute the following cURL
-    command.
-
-    ``` java
-        curl -v -k -X POST --basic -u <CLIENT_KEY>:<CLIENT_SECRET> -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -H "customHeader:correlationvalue" -d "grant_type=client_credentials" https://localhost:9443/oauth2/token
-    ```
-
-    !!! tip
-    
-        Use the `           client key          ` and
-        `           client secret          ` of the service provider you
-        created after enabling product observability
-    
-
-4.  Open the `           correlation.log          ` on a command prompt
-    and notice the related logs.
-
-    ``` java
-        tail -f ../repository/logs/correlation.log
-    ```
-
-    ![Correlatino log screenshot](../assets/img/using-wso2-identity-server/correlation-log-screenshot.png)
-
-#### Multiple header configs
-
-Even though the default configuration maps a single header to a single
-Correlation ID, it is possible to add multiple headers and map them to
-multiple Correlation IDs.
-
-Let's consider an authentication request that is sent with multiple
-headers.
-
-1.  Change the `           RequestCorrelationIdValve          ` in the
-    `           cataline-server.xml          ` file to the value given
-    below.
-
-    ``` java
-        <Valve className="org.wso2.carbon.tomcat.ext.valves.RequestCorrelationIdValve"
-                                headerToCorrelationIdMapping="{'customHeader1':'Correlation-ID', 'customHeader2':'Second-Correlation-ID'}" queryToCorrelationIdMapping="{'RelayState':'Correlation-ID'}"/>
-    ```
-
-2.  Change the
-    `           log4j.appender.CORRELATION.layout.ConversionPattern          `
-    appender in the `           log4j.properties          ` file in the
-    `           <IS_HOME>/repository/conf/          ` directory as
-    follows.
-
-    ``` java
-        log4j.appender.CORRELATION.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS}|%X{Correlation-ID}|%X{Second-Correlation-ID}|%t|%m%n
-    ```
-
-3.  Restart the WSO2 IS server.
-
-    ``` java
-        sh wso2server.sh -DenableCorrelationLogs=true stop
-        sh wso2server.sh -DenableCorrelationLogs=true start
-    ```
 
 4.  To send the authentication request, execute the following cURL
     command.
