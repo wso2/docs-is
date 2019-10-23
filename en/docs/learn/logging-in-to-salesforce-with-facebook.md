@@ -25,7 +25,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 			file.
 		2.  Add  `               enable_email_domain              ` as shown below.
 
-			``` html/xml
+			```xml
 			[tenant_mgt]
 			enable_email_domain= true
 			```
