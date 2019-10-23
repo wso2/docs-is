@@ -11,7 +11,7 @@ Server credentials.
     
     ??? note "Click here to get the steps on how configure the email address as the username."
     
-    	!!! note
+    	!!! warning
 			Configuring the email address as the username in an **already running
 			Identity Server** is not the production recommended way. Therefore,
 			**make sure to configure it before you begin working with WSO2 IS**.
@@ -19,19 +19,22 @@ Server credentials.
 			
 		1.  Open the <IS_HOME>/repository/conf/deployment.toml file and add the following configuration.
 
-			``` html/xml
+			```xml
 			[tenant_mgt]
 			enable_email_domain=true
 			```
 
-		2.  Open the \<
-			`               IS_HOME>/repository/conf/claim-config.xml              `
+		2.  Open the ` <IS_HOME>/repository/conf/claim-config.xml `
 			file and configure the `               AttributeID              `
-			property of the
+			property as mail for the
 			`                               http://wso2.org/claims/username                             `
-			claim ID that is under
-			`               <Dialect dialectURI="                               http://wso2.org/claims                              ">              `
-			to `               mail              ` .
+			claim URI as shown below. 
+
+			!!! warning
+				This file is checked only when WSO2 IS is starting for the first
+				time. Therefore, if you haven't configured this property at the time
+				of starting up the server for the first time, you will get errors at
+				the start up.
 
 			``` java
 			<Claim>
@@ -42,26 +45,17 @@ Server credentials.
 			</Claim>
 			```
 
-			!!! note
-	
-				This file is checked only when WSO2 IS is starting for the first
-				time. Therefore, if you haven't configured this property at the time
-				of starting up the server for the first time, you will get errors at
-				the start up.
-	
-
-		3.  Open the `               <IS_HOME>/repository/conf/              `
-			`               identity/                               identity-mgt.properties               `
+		3.  Open the ` <IS_HOME>/repository/conf/identity/identity-mgt.properties `
 			file and set the following property to
-			`               true              ` .
+			`               true              `.
 
 			!!! info 
 				This step is required due to a known issue that prevents the
 				confirmation codes from being removed after they are used when email
-				usernames are enabled. This occurs because the '@' character (and
-				some special characters) are not allowed in the registry. To
+				usernames are enabled. This occurs because the '@' character and
+				some special characters are not allowed in the registry. To
 				overcome this issue, enable hashed usernames when saving the
-				confirmation codes by configuring the properties below.
+				confirmation codes by configuring the propert	ies below.
 
 			``` xml
 			UserInfoRecovery.UseHashedUserNames=true
@@ -86,7 +80,7 @@ Server credentials.
 			</thead>
 			<tbody>
 			<tr class="odd">
-			<td><p><code> UserNameAttribute </code></p>
+			<td><p><code> user_name_attribute </code></p>
 			<p><br />
 			</p></td>
 			<td><div class="content-wrapper">
@@ -94,70 +88,56 @@ Server credentials.
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;Property name=&quot;UserNameAttribute&quot;&gt;mail&lt;/Property&gt;</code></pre>
+			<code>[user_store]<br>user_name_attribute  =  "mail"</code></pre>
 			</div>
 			</div>
 			</div></td>
 			</tr>
 			<tr class="even">
-			<td><code>                   UserNameSearchFilter                  </code></td>
+			<td><code>                   user_name_search_filter                  </code></td>
 			<td><div class="content-wrapper">
-			<p>Use the mail attribute of the user instead of <code>                     cn                    </code> or <code>                     uid                    </code> . <strong>LDAP/Active Directory only</strong></p>
+			<p>Use the mail attribute of the user instead of <code>                     cn                    </code> or <code>                     uid                    </code>. <strong>LDAP/Active Directory only</strong></p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;Property name=&quot;UserNameSearchFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=?))&lt;/Property&gt;</code></pre>
+			<code>[user_store]<br>user_name_search_filter  =  "(&amp;(objectClass=person)(uid=?))"</code></pre>
 			</div>
 			</div>
 			</div></td>
 			</tr>
 			<tr class="odd">
-			<td><code>                   UserNameListFilter                  </code></td>
+			<td><code>                   user_name_list_filter                  </code></td>
 			<td><div class="content-wrapper">
 			<p>Use the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;Property name=&quot;UserNameListFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=*))&lt;/Property&gt;</code></pre>
-			</div>
-			</div>
-			</div></td>
-			</tr>
-			<tr class="even">
-			<td><code>                   UserDNPattern                  </code></td>
-			<td><div class="content-wrapper">
-			<p>This parameter is used to speed up the LDAP search operations. You can comment out this config. <strong>LDAP/Active Directory only</strong></p>
-			<div class="code panel pdl" style="border-width: 1px;">
-			<div class="codeContent panelContent pdl">
-			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;!--Property name=&quot;UserDNPattern&quot;&gt;cn={0},ou=Users,dc=wso2,dc=com&lt;/Property--&gt;</code></pre>
+			<code>[user_store]<br>user_name_list_filter  =  "(&amp;(objectClass=identityPerson)(mail=*)))"</code></pre>
 			</div>
 			</div>
 			</div></td>
 			</tr>
 			<tr class="odd">
-			<td><code>					UsernameJavaScriptRegEx			</code></td>
+			<td><code>					username_javascript_regex			</code></td>
 			<td><div class="content-wrapper">
 			<p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			
-			<code>&lt;Propertyname=&quot;UsernameJavaScriptRegEx&quot;&gt;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$&lt;/Property&gt;</code></pre>
-			
+
+			<code>[user_store]<br>username_javascript_regex = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"</code></pre>
 			</div>
 			</div>
 			</div></td>
 			</tr>
-			
 			<tr class="even">
-			<td><code>					UsernameJavaRegEx				</code></td>
+			<td><code>					username_java_regex				</code></td>
 			<td><div class="content-wrapper">
 			<p>This is a regular expression to validate usernames. By default, strings have a length of 5 to 30. Only non-empty characters are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.</p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;Propertyname=&quot;UsernameJavaRegEx&quot;&gt;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$&lt;/Property&gt</code></pre>
+			<code>[user_store]<br>username_java_regex = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"</code></pre>
 			</div>
 			</div>
 			</div></td>
@@ -166,14 +146,11 @@ Server credentials.
 			<tr class="odd">
 			<td>						Realm configurations			</td>
 			<td><div class="content-wrapper">
-			<p>The <code>                     AdminUser                    </code> username must use the email attribute of the admin user.</p>
+			<p>The <code>                     [super_admin]                    </code> username must use the email attribute of the admin user.</p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>&lt;AdminUser&gt;
-					 &lt;UserName&gt;admin@wso2.com&lt;/UserName&gt;
-					 &lt;Password&gt;admin&lt;/Password&gt;
-			&lt;/AdminUser&gt;</code></pre>
+			<code>[admin_user]<br>username="admin@wso2.com"<br>password="admin"</code></pre>
 			<div class="admonition note">
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username admin and password admin was considered the super administrator. The super administrator user cannot be deleted.</p>
@@ -200,7 +177,6 @@ Server credentials.
 				[wso2.com](http://wso2.com) )
 
 			!!! note
-	
 				You can configure email user name without enabling
 				**`                EnableEmailUserName               `** property,
 				then users can login to both super tenant and tenant using email and
@@ -219,7 +195,7 @@ Server credentials.
 
 Let's get started!
 
-### Configuring Salesforce
+## Configuring Salesforce
 
 1.  Sign up as a Salesforce developer if you don't have an account. If
     you already have an account, move on to step 2 and log in to
@@ -230,12 +206,11 @@ Let's get started!
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email successfully, you will
         be able to reset it by following the steps given
-        [here](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm&language=en_US)
-        .
+        [here](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm&language=en_US).
+		
 2.  Log in with your new credentials as a Salesforce developer. Do this
     by clicking the **Login** link in the top right hand side of
-    [https://login.salesforce.com/](https://login.salesforce.com/?lt=de)
-    .
+    [https://login.salesforce.com/](https://login.salesforce.com/?lt=de).
 
     !!! note
         This document is explained using the Salesforce lightning theme. If
@@ -314,6 +289,7 @@ Let's get started!
     <td><code>               localhost              </code></td>
     </tr>
     <tr class="even">
+	<a name = "entity-id"></a>
     <td>Entity Id</td>
     <td><code>                               https://saml.salesforce.com                             </code></td>
     </tr>
@@ -395,7 +371,7 @@ Let's get started!
     
 13. Click **Save**.
 
-### Configuring the service provider
+## Configuring the service provider
 
 Follow the steps given below to configure salesforce as a service
 provider in WSO2 IS.
@@ -424,7 +400,7 @@ provider in WSO2 IS.
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
     Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
-    .
+.
 
     <table>
     <thead>
@@ -438,7 +414,7 @@ provider in WSO2 IS.
     <tr class="odd">
     <td>Issuer</td>
     <td><code>                                 https://saml.salesforce.com                               </code></td>
-    <td>This is the <code>                &lt;saml:Issuer&gt;               </code> element that contains the unique identifier of the service provider. <a href="#LoggingintoSalesforceusingtheIdentityServer-Entity-ID">This is the same value you entered as the Entity-ID when creating the salesforce application</a> . This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the service_provider_id value mentioned in the <code> deployment.toml </code> file of the relying party Carbon server.</td>
+    <td>This is the <code>                &lt;saml:Issuer&gt;               </code> element that contains the unique identifier of the service provider. This is <a href="#entity-id">the same value</a> you entered as the Entity-ID when creating the salesforce application. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the service_provider_id value mentioned in the <code> deployment.toml </code> file of the relying party Carbon server.</td>
     </tr>
     <tr class="even">
     <td>Assertion Consumer URL</td>
@@ -447,16 +423,16 @@ provider in WSO2 IS.
     <summary>Click here and follow the steps to get the Assertion Consumer URL.</summary>
     <p>Follow the steps given below to get the Salesforce URL:</p>
     <ol>
-    <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a> .</li>
+    <li>Login to the Salesforce developer account: <a href="https://login.salesforce.com/?lt=de">https://login.salesforce.com/</a>.</li>
     <li>Search for My Domain in the search bar that is on the left navigation panel.</li>
-    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a> .</p></li>
+    <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a>.</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
     <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
     <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
     </ol>
     </td>
-    <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong> . In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>
+    <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong>. In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>
     </tr>
     <tr class="odd">
     <td>NameID Format</td>
@@ -478,7 +454,7 @@ provider in WSO2 IS.
 
 7.  Click **Update** to save your configurations.
 
-### Testing the configurations
+## Testing the configurations
 
 Do the following steps to test out the configurations for a new user in
 Salesforce and the Identity Server.
@@ -497,8 +473,7 @@ Salesforce and the Identity Server.
 2.  Create a user in Salesforce. This user should have the same
     email address as the user in WSO2 IS  
     1.  Log in to the Salesforce developer account:
-        [https://login.salesforce.com/](https://login.salesforce.com/?lt=de)
-        .
+        [https://login.salesforce.com/](https://login.salesforce.com/?lt=de).
     2.  On the left navigation pane, under **ADMINISTRATION**, click
         **Users** under **Users**.
     3.  On the page that appears, click the **New User** button to
