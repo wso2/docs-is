@@ -123,10 +123,7 @@ number(priority). When the priority is high, the order number is low.
 
   
 
-!!! note
-    
-    Note
-    
+??? note "Click to view information about policy combining algorithms"
     There are **Policy Combining Algorithms** which are used by *Policy
     Sets* and **Rule Combining Algorithms** which are used by *Policies*.
     Each of the algorithms mentioned below has its Policy Combining
@@ -176,16 +173,16 @@ number(priority). When the priority is high, the order number is low.
     response would be denied with all the applicable reasons for access
     being denied:
     
-    -  Policy Set (deny overrides): role==manager AND action==view AND
+    -  **Policy Set (deny overrides)**: role==manager AND action==view AND
             resourceType==resource
-       -   Policy 1 (permit overrides)
-          -   Rule 1: deny if resourceOwner != userId + Advice(“you
+    -   **Policy 1 (permit overrides)**
+        -   **Rule 1**: deny if resourceOwner != userId + Advice(“you
                     are not the owner of the resource”)
-          -   Rule 2: deny if rsourceDepartment != userDepartment+
+        -   **Rule 2**: deny if rsourceDepartment != userDepartment+
                     Advice(“you are not in the same department as the
                     resource)
-       -   Policy 2
-          -   Rule 1: permit
+    -   **Policy 2**
+        -   **Rule 1**: permit
     
     
     -   **First Applicable:**  
