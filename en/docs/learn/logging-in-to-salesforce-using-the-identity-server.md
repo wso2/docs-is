@@ -55,7 +55,7 @@ Server credentials.
 				usernames are enabled. This occurs because the '@' character and
 				some special characters are not allowed in the registry. To
 				overcome this issue, enable hashed usernames when saving the
-				confirmation codes by configuring the propert	ies below.
+				confirmation codes by configuring the properties below.
 
 			``` xml
 			UserInfoRecovery.UseHashedUserNames=true
