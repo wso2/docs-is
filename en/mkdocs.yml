@@ -591,7 +591,6 @@ nav:
       - 'Running the Product': setup/running-the-product.md
       - 'Getting Started with the Management Console': setup/getting-started-with-the-management-console.md
       - 'Customizing the Management Console': setup/customizing-the-management-console.md
-      - 'Shutting Down and Restarting the Server': setup/shutting-down-and-restarting-the-server.md
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 

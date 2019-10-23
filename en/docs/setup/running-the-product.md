@@ -169,11 +169,57 @@ Example: `                   https://localhost:9443/carbon                 ` .
     
     
 
-## **Stopping the server**
-To stop the server, press **Ctrl+C** in the command window, or click the
-**Shutdown/Restart** link in the navigation pane in the Management
-Console.
+## **Shutting down and Restarting the server**
+
+You can shutdown the server via the management or using the command terminal. Following steps 
+will guide you through the procedure.
+
+### **Shut down and Restart via the management console**
+
+You can use the "Shutdown/Restart" feature to shut down and restart the
+server from the [management console UI](../../setup/getting-started-with-the-management-console/). The server can be 
+shut down and restarted 
+"gracefully" or "forcefully." Follow the instructions below to shut down and restart the
+server.
+
+
+1.  Navigate to the **Main** -> **Manage** -> Click **Shutdown/Restart**.
+2.  Click on the shutdown or restart option as applicable. The available
+    options are:  
+    
+    ![Shut-Down and Restart screen](../../assets/img/setup/shutdown-restart.png)  
+    
+    -   **Graceful shutdown** - Stops accepting new requests, continues
+        to process already received requests, and then shuts down the
+        server.
+    -   **Forced shutdown** - Discards any requests currently being
+        processed and immediately shuts down the server.
+    -   **Graceful Restart** - Stops accepting new requests, continues
+        to process already received requests, and then restarts the
+        server.
+    -   **Immediate Restart** - Discards any requests currently being
+        processed and immediately restarts the server.
+
+### **Shut down and Restart via the command window**
+
+To stop the server, press **Ctrl+C** in the command window.
 
 !!! note
     To stop the server in the background mode of Linux, run
     `           wso2server.sh stop          `command.
+!!! note "Restart via the command window"
+    If you have stated the server with `wso2server.sh` command, you want be able to restart the 
+    server from the command window.
+    
+    If you wish to restart the server from the command window, flow the proceeding steps.
+    
+    1. Navigate to `<IS_HOME>/bin` and start the server with `sh wso2server.sh -DenableCorrelationLogs=true start` 
+    command. **NOTE:** This will run the server without displaying the debug logs. 
+    
+        If you wish to see the logs, use `tail -f ../repository/logs/wso2carbon.log` command. **NOTE** 
+        the given path in the command, `../repository/logs/` is relative to the `bin` folder.
+    
+    2. To restart the server use `sh wso2server.sh -DenableCorrelationLogs=true restart` command. Then the 
+    server will restart.
+    
+    2. To stop the server use `sh wso2server.sh -DenableCorrelationLogs=true stop` command. 
