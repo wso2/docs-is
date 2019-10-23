@@ -49,17 +49,16 @@ health checkers using above global configuration.
 
 **DataSource Health Checker**
 
-Gives you the status about the datasources available in the system. You
-can configure the datasources to be monitored as below in
-`deployment.toml` file.
+This health checker returns the status of the datasources available in the system. 
+You can configure the datasources to be monitored by adding the following configuration to the deployment.toml file found in the <IS_HOME>/repository/conf folder.
 
 ```toml
 [carbon_health_check.health_checker.data_source_health_checker.properties]
 'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2UM_DB,jdbc/SHARED_DB"
 ```
 
-To provide a indicate about datasource connection pool usage, use
-following configuration in `deployment.toml` file.
+To provide an indication about the datasource connection pool usage, 
+use the following configuration `deployment.toml` file.
 
 ```toml
  [carbon_health_check.health_checker.data_source_health_checker]
@@ -68,9 +67,8 @@ pool_usage_limit_percentage = "20"
 
 **User Store Health Checker**
 
-Gives you the status about the userstores available in the system. You
-can configure the userstores to be monitored as below in
-`deployment.toml` file.
+This health checker returns the status of the userstores available in the system. 
+You can configure the userstores to be monitored by adding the following configuration to the deployment.toml file found in the <IS_HOME>/repository/conf folder.
 
 ```toml
 [carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -171,7 +169,7 @@ array of errors.
     enable =false
     ```
     
--   The execution order in which the health checkers are executes can be
+-   The execution order in which the health checkers are executed can be
     configured using the **` order `** attribute.
     ```toml
     [carbon_health_check.health_checker.data_source_health_checker]
@@ -194,8 +192,8 @@ the OSGI bundle and paste it in the
 `         <IS_HOME>/repository/component/dropins/        `
 directory.
 
-Then register the new health checker as below in the 'deployment.toml'
-file if needed.
+Then register the new health checker as shown below in the
+'deployment.toml' file if needed.
 
 ```toml
 [[health_checker]]
@@ -209,7 +207,7 @@ property2 = "property-2-value"
 
 ??? Tip 
     A sample configuration section of `deployment.toml` related to
-    health checkers can be as below. 
+    health checkers is shown below. 
             ```toml 
             [carbon_health_check] enable=
             true
