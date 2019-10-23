@@ -206,5 +206,19 @@ To stop the server, press **Ctrl+C** in the command window.
 !!! note
     To stop the server in the background mode of Linux, run
     `           wso2server.sh stop          `command.
-!!! note
-    If you have stated the server with wso2server.sh.
+!!! note "Restart via the command window"
+    If you have stated the server with `wso2server.sh` command, you want be able to restart the 
+    server from the command window.
+    
+    If you wish to restart the server from the command window, flow the proceeding steps.
+    
+    1. Navigate to `<IS_HOME>/bin` and start the server with `sh wso2server.sh -DenableCorrelationLogs=true start` 
+    command. **NOTE:** This will run the server without displaying the debug logs. 
+    
+        If you wish to see the logs, use `tail -f ../repository/logs/wso2carbon.log` command. **NOTE** 
+        the given path in the command, `../repository/logs/` is relative to the `bin` folder.
+    
+    2. To restart the server use `sh wso2server.sh -DenableCorrelationLogs=true restart` command. Then the 
+    server will restart.
+    
+    2. To stop the server use `sh wso2server.sh -DenableCorrelationLogs=true stop` command. 
