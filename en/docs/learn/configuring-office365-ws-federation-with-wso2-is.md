@@ -4,13 +4,12 @@ This tutorial guides you through configuring WS-Federation
 authentication for Office365 with WSO2 Identity Server (WSO2 IS). Follow
 the instructions in the sections below to set this up.
 
-### Prerequisites
+## Prerequisites
 
 -   Office 365 Business Account with access to the [Office 365 Admin
-    Portal](https://portal.office.com/adminportal/home) .
+    Portal](https://portal.office.com/adminportal/home).
 
     !!! tip
-    
         If you do not already have an account, you can use a 30-day
         [trial
         version](https://products.office.com/en/compare-all-microsoft-office-products?tab=2)
@@ -18,13 +17,12 @@ the instructions in the sections below to set this up.
     
 
 -   Add a new domain to Office 365 using the [Office 365 Admin
-    Portal](https://portal.office.com/adminportal/home) . For
+    Portal](https://portal.office.com/adminportal/home). For
     instructions on how to do this, see [Add A Domain to Office
     365](https://support.office.com/en-us/article/add-a-domain-to-office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611)
     in the Microsoft documentation.
 
     !!! tip
-    
         Office 365 SSO requires an internet-resolvable domain name
         to use as the suffix in each user’s username. You cannot federate
         the default domain that is provided by Microsoft that ends with "
@@ -48,7 +46,7 @@ the instructions in the sections below to set this up.
     install-module MSOnline
     ```
 
-### Configuring the WSO2 IS issuer
+## Configuring the WSO2 IS issuer
 
 1.  Navigate to `           <IS_HOME>/bin/          ` and run the
     following command to start WSO2 Identity Server.
@@ -56,13 +54,13 @@ the instructions in the sections below to set this up.
     -   **Windows**
     
     ``` java
-        .\wso2server.bat
+    .\wso2server.bat
     ```
     
     -   **Linux/Unix**
 
     ``` java
-        sh wso2server.sh
+    sh wso2server.sh
     ```
 
 2.  Access the following URL and log in to the management console:
@@ -77,10 +75,9 @@ the instructions in the sections below to set this up.
      
     ![configure-wso2-is-issuer](../assets/img/tutorials/configure-wso2-is-issuer.png)
 
-### Configuring the claims
+## Configuring the claims
 
-1.  Click **Add** under **Claims** and then click **Add Local Claim**
-    .  
+1.  Click **Add** under **Claims** and then click **Add Local Claim**.  
     Add the following local claims.
     <table>
     <colgroup>
@@ -183,7 +180,7 @@ To disable the claims, do the following.
     -   Organization
     -   IM
 
-### Configuring the service provider
+## Configuring the service provider
 
 1.  Click **Add** under **Service Providers** and create a new service
     provider called 'Office365'.
@@ -219,7 +216,7 @@ To disable the claims, do the following.
 
 6.  Click **Update** to save changes.
 
-### Configure Azure AD to trust WSO2 IS
+## Configure Azure AD to trust WSO2 IS
 
 1.  Log in to a Windows machine and start Windows Azure Active Directory
     Powershell.
@@ -227,7 +224,7 @@ To disable the claims, do the following.
     credentials.
 
     ``` java
-        $cred=Get-Credential
+    $cred=Get-Credential
     ```
 
     ![azure-ad-admin-credentials](../assets/img/tutorials/azure-ad-admin-credentials.jpg)
@@ -236,7 +233,7 @@ To disable the claims, do the following.
     connect to the service with the stored credentials.
 
     ``` java
-        Connect-MsolService –Credential $cred
+    Connect-MsolService –Credential $cred
     ```
 
 4.  Run the following command to verify the availability of the
@@ -245,7 +242,7 @@ To disable the claims, do the following.
     ‘Authentication’ should be ‘Managed’.
 
     ``` java
-        Get-MsolDomain
+    Get-MsolDomain
     ```
 
     ![domain-availability](../assets/img/tutorials/domain-availability.jpeg)
@@ -257,21 +254,21 @@ To disable the claims, do the following.
     1.  Store your domain.
 
         ``` java
-                $dom = "wso2.cf"
-                $brandname = "wso2"
+		$dom = "wso2.cf"
+		$brandname = "wso2"
         ```
 
     2.  Set the Passive STS endpoint URL of the IdP (i.e., the Passive
         STS endpoint URL of WSO2 IS).
 
         ``` java
-                $passiveLogonUri = "https://wso2office.is.com:9443/passivests"
+        $passiveLogonUri = "https://wso2office.is.com:9443/passivests"
         ```
 
     3.  Set the MetaData Exchange endpoint URL of the IdP.
 
         ``` java
-                $mex = "https://wso2office.is.com:9443/services/mex-ut"
+        $mex = "https://wso2office.is.com:9443/services/mex-ut"
         ```
 
     4.  Set the issuer ID of the IdP. This value should be the
@@ -280,11 +277,10 @@ To disable the claims, do the following.
         IdP of WSO2 IS.
 
         ``` java
-                $issueruri = "wso2is.microsoft"
+        $issueruri = "wso2is.microsoft"
         ```
 
         !!! tip
-        
                 If you will be configuring Office365 Active STS clients
                 (complying with the WS-Trust protocol) through WSO2 Identity
                 Server as well, do the following configuration along with these
@@ -296,7 +292,7 @@ To disable the claims, do the following.
                 used for the Passive STS use case.
         
                 ``` java
-                        $activeLogonUri="https://aysh.is.com:9443/services/wso2carbon-sts.wso2carbon-stsHttpsSoap12Endpoint"
+                $activeLogonUri="https://aysh.is.com:9443/services/wso2carbon-sts.wso2carbon-stsHttpsSoap12Endpoint"
                 ```
 
 
@@ -318,13 +314,13 @@ To disable the claims, do the following.
 6.  Run the following command to establish trust.
 
     ``` java
-        Set-MsolDomainAuthentication -DomainName $dom -Authentication Federated -ActiveLogOnUri $activeLogonUri -IssuerUri $issuerUri -SigningCertificate $cert -LogOffUri $passiveLogonUri -FederationBrandName $brandname -MetadataExchangeUri $mex -PassiveLogOnUri $passiveLogonUri -PreferredAuthenticationProtocol WsFed
+	Set-MsolDomainAuthentication -DomainName $dom -Authentication Federated -ActiveLogOnUri $activeLogonUri -IssuerUri $issuerUri -SigningCertificate $cert -LogOffUri $passiveLogonUri -FederationBrandName $brandname -MetadataExchangeUri $mex -PassiveLogOnUri $passiveLogonUri -PreferredAuthenticationProtocol WsFed
     ```
 
 7.  Run the following command to verify the federation settings.
 
     ``` java
-        Get-MsolDomainFederationSettings -Domain $dom
+    Get-MsolDomainFederationSettings -Domain $dom
     ```
 
     ![federation-settings](../assets/img/tutorials/federation-settings.jpg)
@@ -335,14 +331,13 @@ provider of WSO2 IS and the Azure Active Directory.
   
 
 !!! tip
-    
     If you wish to redo the configurations, do the following:
     
     1.  Run the following command to first move your domain back to the
         'Managed' authentication mode.
     
         ``` java
-            Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
+        Set-MsolDomainAuthentication -DomainName $dom -Authentication Managed
         ```
 
     2.  Re-set the parameters as listed in step 5 and then set the authentication method again as shown in step 6.

@@ -12,10 +12,10 @@ Let's get started!
     for more information on creating the domain.
     
 
-### Configuring Google
+## Configuring Google
 
 1.  Go to your domain's admin console via
-    `                     https://admin.google.com                   ` .
+    `                     https://admin.google.com                   `.
 2.  Click **Security**.
 
     !!! info 
@@ -46,7 +46,7 @@ Let's get started!
         `            <IS_HOME>/repository/resources/security           `
         directory via the terminal.
     2.  Run the command given below to import the public certificate
-        from the keystore to a `             .pem            ` file.
+        from the keystore to a `            .pem            ` file.
 
         ``` java
         keytool -export -alias wso2carbon  -keystore wso2carbon.jks -storepass wso2carbon -file mycert.pem
@@ -60,9 +60,9 @@ Let's get started!
 			`              mycert             ` in the above command.
 
     3.  Click **Replace certificate** and upload the
-        `            .pem           ` file you just generated.
+        `           .pem           ` file you just generated.
 
-### Configuring WSO2 IS to use the email as the username
+## Configuring WSO2 IS to use the email as the username
 
 When you log into Google, you use an email address. Therefore, to
 integrate this with the Identity Server, you need to configure WSO2 IS
@@ -87,7 +87,7 @@ that, follow the steps given below.
 Now that you are done with configuring WSO2 Identity Server to use the
 email address, configure the service provider.
 
-### Configuring the Service Provider
+## Configuring the Service Provider
 
 1.  Sign in to the WSO2 Identity Server [Management
     Console](../../setup/getting-started-with-the-management-console).
@@ -104,7 +104,7 @@ email address, configure the service provider.
     details required for single sign-on. For more details about
     attributes in the following configuration refer [SAML2 Web SSO
     Configuration](../../learn/configuring-inbound-authentication-for-a-service-provider#configuring-inbound-authentication-with-saml2-web-sso)
-    .  
+   .  
     See the following table for details.
 
     <table>
@@ -159,7 +159,7 @@ email address, configure the service provider.
 
 7.  Click **Register** to save your configurations.
 
-### Try it out
+## Try it out
 
 Now, you have successfully configured Google and WSO2 Identity Server.
 Let's look at how you can try it out:

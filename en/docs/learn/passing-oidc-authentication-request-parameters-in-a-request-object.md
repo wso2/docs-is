@@ -70,9 +70,9 @@ parameters in a request object via WSO2 IS:
         ![app-certificate](../assets/img/tutorials/app-certificate.png)
         
         !!! note
-			Instead of uploading the service provider certificate as shown
-			above, you can choose to use the JWKS enpoint as shown below and
-			add the relevant JWKS URI.
+            Instead of uploading the service provider certificate as shown
+            above, you can choose to use the JWKS enpoint as shown below and
+            add the relevant JWKS URI.
 
 			![jwks-uri.png](../assets/img/tutorials/jwks-uri.png)
 
@@ -86,14 +86,14 @@ parameters in a request object via WSO2 IS:
         ![external-claim-1](../assets/img/tutorials/external-claim-1.png)
         ![external-claim-2](../assets/img/tutorials/external-claim-2.png)
 
-        !!! note
-			Here, `             customClaim1            ` and
-			`             customClaim2            ` are selected as claim
-			URIs because those are not configured as requested claims in the
-			OIDC scope. For the purpose of testing, these claims are mapped
-			to existing <http://wso2.org/claims/challengeQuestion1> and
-			<http://wso2.org/claims/challengeQuestion2> local claims. If
-			necessary you can create two new local claims for this purpose.
+    !!! note
+        Here, `             customClaim1            ` and
+        `             customClaim2            ` are selected as claim
+        URIs because those are not configured as requested claims in the
+        OIDC scope. For the purpose of testing, these claims are mapped
+        to existing <http://wso2.org/claims/challengeQuestion1> and
+        <http://wso2.org/claims/challengeQuestion2> local claims. If
+        necessary you can create two new local claims for this purpose.
 
     2.  When you add the claims, be sure to select **Support by
         default** if you want the the claims to prompt during user
@@ -120,13 +120,12 @@ parameters in a request object via WSO2 IS:
         -   `              http://wso2.org/claims/country             `
         -   `                             http://wso2.org/claims/emailaddress                                         `
 
+        
         !!! tip
-                
         	If a user has already consented once to the requested
         	claims that are configured on the service provider, any further
         	changes/additions to the requested claims will not apply. If you
         	are facing this issue, do one of the following.
-
         	-   Mark the claims given above as **Mandatory Claims**. This
         		will ensure that the user will be prompted once again to
         		provide consent for the newly added/changed claims.
