@@ -12,7 +12,7 @@ sections will guide you through the way to run the product.
     For information on installation prerequisites, click [here](../../setup/installation-prerequisites).
     
 
-## Starting the server
+## **Starting the server**
 
 Follow the relevant instructions based on the operating system you use.
 
@@ -21,7 +21,7 @@ Follow the relevant instructions based on the operating system you use.
     [Default Ports of WSO2 Products](../../references/default-ports-of-wso2-products) for
     instructions on setting a port offset.
     
-### Starting on Windows/Linux/Mac OS
+### **Starting on Windows/Linux/Mac OS**
 
 To start the server, you have to run either 
 
@@ -80,7 +80,7 @@ Once the server has started, the operation log will display `WSO2 Carbon started
 in 'n' seconds`
 
 
-### Starting on Solaris
+### **Starting on Solaris**
 To start the server, navigate to `         <IS_HOME>/bin        `
 and run `        wso2server.sh        `  from
 the Command Prompt. The required steps are as follows.
@@ -119,7 +119,7 @@ the Command Prompt. The required steps are as follows.
             Replace `sh` with `bash` in above occurences.
     4.  Start the product.
 
-## Accessing the management console
+## **Accessing the management console**
 
 Once the server has started, you can access the Management Console by navigating 
 to the URL of the management console . The URL is displayed towards the end of the 
@@ -136,11 +136,7 @@ Example: `                   https://localhost:9443/carbon                 ` .
 
 !!! tip
 
-    The Management Console URL can be changed by modifying the
-        value of the `hostname`in the `deployment.toml` file located in  
-        `<IS_HOME>/repository/conf` folder.
-                
-        hostname = "localhost"
+    If you wish to change the url of the management console, click [here.](../../setup/changing-the-hostname/)
 
 !!! info 
     When the Management Console Sign-in page appears, the web browser will
@@ -173,7 +169,7 @@ Example: `                   https://localhost:9443/carbon                 ` .
     
     
 
-## Stopping the server
+## **Stopping the server**
 To stop the server, press **Ctrl+C** in the command window, or click the
 **Shutdown/Restart** link in the navigation pane in the Management
 Console.
