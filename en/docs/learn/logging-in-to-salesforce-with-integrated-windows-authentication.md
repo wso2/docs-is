@@ -1,16 +1,10 @@
 # Logging in to Salesforce with Integrated Windows Authentication
 
-WSO2 Identity Server supports a wide array of authentication and
-authorization mechanisms. The application authentication framework of
-the Identity Server is capable of translating between heterogeneous
-authentication protocols and transforming and mediating any identity
-assertion.
-
 Integrated Windows Authentication (IWA) is an authentication mechanism
 introduced by Microsoft to authenticate users in Microsoft Windows
 NT-based operating systems. IWA authentication provides an easier way
 for users to log in to applications that use Windows Active Directory as
-an userstore. It is a popular choice of authentication among Windows
+a userstore. It is a popular choice of authentication among Windows
 server users and administrators, since it eliminates the need of
 remembering extra credentials of the users, and reduces the
 authentication overhead for the server administrators.
@@ -20,9 +14,7 @@ Server to authenticate Salesforce users using Integrated Windows
 Authentication.
 
 !!! info "Related links"
-
-	See [Integrated Windows
-    Authentication](../../learn/integrated-windows-authentication-overview) and
+	See [Integrated Windows Authentication](../../learn/integrated-windows-authentication-overview) and
     [Configuring IWA Single-Sign-On](../../learn/configuring-iwa-single-sign-on)
     for more information on Integrated Windows Authentication and
     details on how to enable it in the Identity Server.
@@ -35,7 +27,7 @@ Authentication.
 
 Follow the steps below to configure the email address as the user name.          
 
-1.  Open the `<IS_HOME>/repository/conf/carbon.xml             `
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml             `
 	file.
 	
 2.  Set the `enable_email_domain` configuration under `[tenant_mgt]` to `true`.
@@ -45,8 +37,7 @@ Follow the steps below to configure the email address as the user name.
 	enable_email_domain= "true"
 	``` 
 
-3.  Open the \<
-	`               IS_HOME>/repository/conf/claim-config.xml              `
+3.  Open the `               <IS_HOME>/repository/conf/claim-config.xml              `
 	file and configure the `               AttributeID              `
 	property of the
 	`                               http://wso2.org/claims/username                             `
@@ -64,7 +55,6 @@ Follow the steps below to configure the email address as the user name.
 	```
 
 	!!! note
-
 		This file is checked only when WSO2 IS is starting for the first
 		time. Therefore, if you haven't configured this property at the time
 		of starting up the server for the first time, you will get errors at
@@ -97,6 +87,9 @@ Follow the steps below to configure the email address as the user name.
 	configuration, depending on the type of user store you are connected
 	to (LDAP/Active Directory/ JDBC).
 
+	!!! note 
+		If you are connected to the active directory user store these properties should be added within [user_store.properties] instead of [user_store].
+
 	<table>
 	<thead>
 	<tr class="header">
@@ -106,70 +99,59 @@ Follow the steps below to configure the email address as the user name.
 	</thead>
 	<tbody>
 	<tr class="odd">
-	<td><p><code>                    UserNameAttribute                   </code></p>
+	<td><p><code>                    user_name_attribute                   </code></p>
 	<p><br />
 	</p></td>
 	<td><div class="content-wrapper">
 	<p>Set the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameAttribute&quot;&gt;mail&lt;/Property&gt;</code></pre>
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_attribute = "mail"</code></pre>
 	</div>
 	</div>
 	</div></td>
 	</tr>
 	<tr class="even">
-	<td><code>                   UserNameSearchFilter                  </code></td>
+	<td><code>                   user_name_search_filter                  </code></td>
 	<td><div class="content-wrapper">
 	<p>Use the mail attribute of the user instead of <code>                     cn                    </code> or <code>                     uid                    </code> . <strong>LDAP/Active Directory only</strong></p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameSearchFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=?))&lt;/Property&gt;</code></pre>
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_search_filter = "(&amp;(objectClass=identityPerson)(mail=?))"</code></pre>
 	</div>
 	</div>
 	</div></td>
 	</tr>
 	<tr class="odd">
-	<td><code>                   UserNameListFilter                  </code></td>
+	<td><code>                   user_name_list_filter                  </code></td>
 	<td><div class="content-wrapper">
 	<p>Use the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;Property name=&quot;UserNameListFilter&quot;&gt;(&amp;amp;(objectClass=identityPerson)(mail=*))&lt;/Property&gt;</code></pre>
-	</div>
-	</div>
-	</div></td>
-	</tr>
-	<tr class="even">
-	<td><code>                   UserDNPattern                  </code></td>
-	<td><div class="content-wrapper">
-	<p>This parameter is used to speed up the LDAP search operations. You can comment out this config. <strong>LDAP/Active Directory only</strong></p>
-	<div class="code panel pdl" style="border-width: 1px;">
-	<div class="codeContent panelContent pdl">
-	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;!--Property name=&quot;UserDNPattern&quot;&gt;cn={0},ou=Users,dc=wso2,dc=com&lt;/Property--&gt;</code></pre>
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_list_filter = "(&amp;(objectClass=identityPerson)(mail=*))"</code></pre>
 	</div>
 	</div>
 	</div></td>
 	</tr>
 	<tr class="odd">
-	<td><pre><code>UsernameJavaScriptRegEx</code></pre>
+	<td><pre><code>username_javascript_regex</code></pre>
 	<p><code>                                       </code></p></td>
 	<td><div class="content-wrapper">
 	<p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">&lt;Property</span><span class="ot"> name=</span><span class="st">&quot;UsernameJavaScriptRegEx&quot;</span><span class="kw">&gt;</span>^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$<span class="kw">&lt;/Property&gt;</span></a></code></pre></div>
+	<div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">[user_store]<br>user_name_javascript_regex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"</a></code></pre></div>
 	</div>
 	</div>
 	</div></td>
 	</tr>
 	<tr class="even">
-	<td><pre><code>UsernameJavaRegEx</code></pre></td>
+	<td><pre><code>username_java_regex</code></pre></td>
 	<td><div class="content-wrapper">
 	<p>This is a regular expression to validate usernames. By default, strings have a length of 5 to 30. Only non-empty characters are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.</p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<div class="sourceCode" id="cb8" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">&lt;Property</span><span class="ot"> name=</span><span class="st">&quot;UsernameJavaRegEx&quot;</span><span class="kw">&gt;</span>^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$<span class="kw">&lt;/Property&gt;</span></a></code></pre></div>
+	<div class="sourceCode" id="cb8" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">[user_store]<br>username_java_regex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"</a></code></pre></div>
 	</div>
 	</div>
 	</div></td>
@@ -177,13 +159,10 @@ Follow the steps below to configure the email address as the user name.
 	<tr class="odd">
 	<td>Realm configurations</td>
 	<td><div class="content-wrapper">
-	<p>The <code>                     AdminUser                    </code> username must use the email attribute of the admin user.</p>
+	<p>The <code>                     [super_admin]                    </code> username must use the email attribute of the admin user.</p>
 	<div class="code panel pdl" style="border-width: 1px;">
 	<div class="codeContent panelContent pdl">
-	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>&lt;AdminUser&gt;
-			 &lt;UserName&gt;admin@wso2.com&lt;/UserName&gt;
-			 &lt;Password&gt;admin&lt;/Password&gt;
-	&lt;/AdminUser&gt;</code></pre>
+	<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[super_admin]<br>username = "admin@wso2.com"<br>password = "admin"</code></pre>
 	<div class="admonition note">
 	<p class="admonition-title">Note</p>
 	<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>

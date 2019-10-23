@@ -73,9 +73,7 @@ following sections for more information.
         that use the Facebook web login dialog to return tokens to your
         own website.
     3.  **Valid OAuth redirect URIs** should be set to
-        `                                             https://localhost:9443/commonauth                                          `
-        .  
-        Enter the ACS URL (Assertion Consumer URL) which is the endpoint
+        ` https://localhost:9443/commonauth.  ` Enter the ACS URL (Assertion Consumer URL) which is the endpoint
         in WSO2 Identity Server which accepts the response sent by
         facebook.
 
@@ -142,9 +140,8 @@ app in order to use it in this scenario.
     ```
 
     !!!info "Why is this step needed?"
-
 		Some browsers do not allow you to create cookies for a naked
-		hostname, such as `            localhost           ` . Cookies are
+		hostname, such as `            localhost           `. Cookies are
 		required when working with SSO . Therefore, to ensure that the SSO
 		capabilities work as expected in this tutorial, you need to
 		configure the `            etc/host           ` file as explained in
@@ -226,8 +223,7 @@ in WSO2 Identity Server.
 3.  Give a suitable name as the **Identity Provider Name**.  
     ![identity-provider-name](../assets/img/tutorials/identity-provider-name.png)
     
-4.  Go to **Facebook Configuration** under **Federated Authenticators**
-    .
+4.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
 5.  Enter the following values in the form that appears:
     <table style="fixed width">
