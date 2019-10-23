@@ -102,4 +102,4 @@ For information on how you can set up and configure the user management
 realm, see [Configuring the User Realm](../../administer/configuring-the-user-realm),
 and for information on how you can manage the users, roles and
 permissions using the Management Console, see [Managing Users, Roles and
-Permissions](../../administer/managing-users-roles-and-permissions).
+Permissions](../../learn/configuring-roles-and-permissions).
