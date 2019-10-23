@@ -30,7 +30,7 @@ clients.
 	Identity Server to cater to the authentication requirements of the
 	Office365 active clients. For more information on understanding
 	WS-MetaData Exchange, see the following
-	[article](http://wso2.com/library/2794/) .
+	[article](http://wso2.com/library/2794/).
 
 	#### Secure Token Service (STS)
 
@@ -53,17 +53,17 @@ you through the entire process.
     For more information on how to do this, see [Configuring Azure
     Active Directory toTrust WSO2 Identity
     Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
-    .
+   .
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
     [Configuring an Active Directory User
     Store](../../learn/configuring-a-read-write-active-directory-user-store)
-    .  
+   .  
 -   Configure WSO2 Identity Server to authenticate users using the email
     address as the username. For more information on how to do this, see
     [Using Email Address as the
     Username](../../learn/using-email-address-as-the-username)
-    .
+   .
 
 ### Configuring Office 365 WS-Trust
 
@@ -118,7 +118,7 @@ you through the entire process.
     **Configure**.
 
 4.  Enter the following details in the form that appears and click
-    **Apply** . See [Configuring WS-Trust Security Token
+    **Apply**. See [Configuring WS-Trust Security Token
     Service](../../learn/configuring-ws-trust-security-token-service) for more
     information about these fields.
 

@@ -34,7 +34,7 @@ REST API works via XACML.
 
 1.  Log in as an admin to access the [management
     console](../../setup/getting-started-with-the-management-console)
-    .
+.
 2.  Go to **Entitlement** dropdown menu in the **Main** tab. Click
     **Policy Administration** under PAP. You are directed to a page
     with sample policies.
@@ -51,19 +51,19 @@ REST API works via XACML.
     
     ??? note "Click to see a sample policy XML"	
 		``` java
-			<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="samplePolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides" Version="1.0">
-				<Target>
-					<AnyOf>
-						<AllOf>
-							<Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-								<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
-								<AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
-							</Match>
-						</AllOf>
-					</AnyOf>
-				</Target>
-				<Rule Effect="Permit" RuleId="permit"/>
-			</Policy>
+        <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" PolicyId="samplePolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides" Version="1.0">
+            <Target>
+                <AnyOf>
+                    <AllOf>
+                        <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                            <AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"/>
+                        </Match>
+                    </AllOf>
+                </AnyOf>
+            </Target>
+            <Rule Effect="Permit" RuleId="permit"/>
+        </Policy>
 		```
 
 6.  The uploaded policy is listed in Policy Administration page. Select
@@ -140,26 +140,26 @@ to accomplish this. First you need to install the Postman plugin.
     **In JSON**
 
     ``` java
-        {
-            "Request": {
-                "Action": {
-                    "Attribute": [
-                        {
-                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
-                            "Value": "read"
-                        }
-                    ]
-                },
-                "Resource": {
-                    "Attribute": [
-                        {
-                            "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
-                            "Value": "http://127.0.0.1/service/very_secure/"
-                        }
-                    ]
-                }
+    {
+        "Request": {
+            "Action": {
+                "Attribute": [
+                    {
+                        "AttributeId": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+                        "Value": "read"
+                    }
+                ]
+            },
+            "Resource": {
+                "Attribute": [
+                    {
+                        "AttributeId": "urn:oasis:names:tc:xacml:1.0:resource:resource-id",
+                        "Value": "http://127.0.0.1/service/very_secure/"
+                    }
+                ]
             }
         }
+    }
     ```
 
     The JSON response you get is similar to the following:
@@ -169,29 +169,27 @@ to accomplish this. First you need to install the Postman plugin.
     If you are using XML, copy the following XML code, paste it in the body, and click **Send**.
 
     ``` java
-        <Request CombinedDecision="false" ReturnPolicyIdList="false" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17">
-            <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
-                <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
-                </Attribute>
-            </Attributes>
-            <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource">
-                <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" IncludeInResult="false">
-                    <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://127.0.0.1/service/very_secure/ </AttributeValue>
-                </Attribute>
-            </Attributes>
-        </Request>
+    <Request CombinedDecision="false" ReturnPolicyIdList="false" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17">
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+            </Attribute>
+        </Attributes>
+        <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource">
+            <Attribute AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id" IncludeInResult="false">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://127.0.0.1/service/very_secure/ </AttributeValue>
+            </Attribute>
+        </Attributes>
+    </Request>
     ```
 
     The XML response is similar to the following:  
     ![xml-response-header-tab](../assets/img/tutorials/xml-response-header-tab.png)
 
 !!! note "For Tenant Users"
-    
     The above resource path is only for Carbon super users. If the user is a
     tenant user the resource path should be:
-    https://localhost:9443/t/{tenant\_domain}/api/identity/entitlement/decision/pdp
-    .
+    https://localhost:9443/t/{tenant\_domain}/api/identity/entitlement/decision/pdp.
     
     So if the tenant domain is [abc.com](http://abc.com) , the resource path
     should be:

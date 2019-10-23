@@ -49,7 +49,7 @@ Within the service provider, in the inbound authentication section, a
 Passive STS realm must be defined under the WS-Federation (Passive)
 Configuration area. This value should match the CRM server URL.
 Typically, it will be in the format
-`                              https://servername                            .domain.com/        `
+`                              https://servername                           .domain.com/        `
 (for non-IFD) or `         https://orgname.domain.com/        ` (for
 IFD). For IFD servers, one server provider must be created for
 each organization, with each one having the specific organization's URL
@@ -61,7 +61,7 @@ match exactly.
 1.  Sign in. Enter your username and password to log on to the
     [Management
     Console](../../setup/getting-started-with-the-management-console)
-    .
+   .
 2.  Navigate to the **Main** menu to access the **Identity** menu. Click
     **Add** under **Service Providers**.
 3.  Fill in the **Service Provider Name** and provide a brief
@@ -82,7 +82,7 @@ match exactly.
 
     In order to retrieve these values from WSO2, map the local claim
     value to the CRM value. In the **Subject Claim URI**, select the
-    `                                    http://schemas.xm                                  lsoap.org/ws/2005/05/identity/claims/name          `
+    `                                    http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name          `
     claim. This example assumes that the
     `                                    http://wso2.org/claims/logonname                                 `
     contains the username field and the
