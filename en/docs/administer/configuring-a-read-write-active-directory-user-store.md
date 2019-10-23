@@ -103,7 +103,7 @@ primary user store:
             `             GetAllRolesOfUserEnabled            ` property in
             the `             AuthorizationManager            ` as follows.
             See the documentation on [configuring the Authorization
-            Manager](../../administer/configuring-the-authorization-manager)
+            Manager](../../learn/configuring-the-authorization-manager)
             for more information.
     
             ``` xml
