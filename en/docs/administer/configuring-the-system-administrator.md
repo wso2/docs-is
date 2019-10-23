@@ -45,7 +45,7 @@ repositories.
     Manager](../../learn/configuring-the-authorization-manager) : This topic
     explains how the repository (RDBMS) for storing authorization
     information (role-based permissions) is configured for your product.
--   [Changing a Password](../../administer/changing-a-password) : This topic explains
+-   [Changing a Password](../../learn/changing-a-password) : This topic explains
     how you can change the admin password using the management console
     of the product.
 
