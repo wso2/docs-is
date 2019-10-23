@@ -228,10 +228,11 @@ nav:
             - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
             - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
             - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
-        - 'Configuring Users, Roles and Permissions':
+        - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
           - 'Configuring Users': learn/configuring-users.md
           - 'Configuring Roles and Permissions': learn/configuring-roles-and-permissions.md
+          - 'Role-based Permissions': administer/role-based-permissions.md
           - 'Using Workflows with User Management': learn/using-workflows-with-user-management.md
         - 'Claim Management':
           - 'Claim Management': learn/claim-management.md
@@ -589,7 +590,6 @@ nav:
       - 'Running the Product': setup/running-the-product.md
       - 'Getting Started with the Management Console': setup/getting-started-with-the-management-console.md
       - 'Customizing the Management Console': setup/customizing-the-management-console.md
-      - 'Shutting Down and Restarting the Server': setup/shutting-down-and-restarting-the-server.md
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 
@@ -614,7 +614,6 @@ nav:
     - 'Product Administration': 
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
-        - 'Role-based Permissions': administer/role-based-permissions.md
         - 'Data Dictionary':
           - 'Data Dictionary': administer/data-dictionary.md
           - 'Registry Related Tables': administer/registry-related-tables.md
@@ -710,7 +709,7 @@ nav:
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
+        - 'Working with Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
         - 'Configuring the User Realm': 
           - 'Configuring the User Realm': administer/configuring-user-realm.md
