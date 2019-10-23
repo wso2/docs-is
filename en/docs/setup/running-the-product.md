@@ -38,9 +38,9 @@ the server [as a Windows service](../../setup/installing-as-a-windows-service/).
 
 !!! warning
     
-    If the path to the <IS\_HOME\> directory is a long, Windows will
+    If the path to the <IS_HOME> directory is a long, Windows will
     shorten it using " `         ~        ` ". In that case, you **MUST** set
-    the actual path to the "CARBON\_HOME" variable in the
+    the actual path to the `CARBON_HOME` variable in the
     `         <IS_HOME>/bin/wso2server.bat        ` file. Please add
     following entry at the top of
     `         <IS_HOME>/bin/wso2server.bat        ` file.
@@ -122,7 +122,7 @@ the Command Prompt. The required steps are as follows.
 ## **Accessing the management console**
 
 Once the server has started, you can access the Management Console by navigating 
-to the URL of the management console . The URL is displayed towards the end of the 
+to the URL of the management console. The URL is displayed towards the end of the 
 server start script's console and log. The URL should be in the following format.
 
 `         https://<Server Host>:9443/carbon        `
