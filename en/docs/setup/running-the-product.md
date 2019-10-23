@@ -177,7 +177,8 @@ will guide you through the procedure.
 ### **Shut down and Restart via the management console**
 
 You can use the "Shutdown/Restart" feature to shut down and restart the
-server from the management console UI. The server can be shut down and restarted 
+server from the [management console UI](../../setup/getting-started-with-the-management-console/). The server can be 
+shut down and restarted 
 "gracefully" or "forcefully." Follow the instructions below to shut down and restart the
 server.
 
