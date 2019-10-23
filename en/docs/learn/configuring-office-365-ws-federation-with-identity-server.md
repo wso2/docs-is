@@ -10,23 +10,18 @@ you through this process.
 -   Configure Azure Active Directory (AD) to trust WSO2 Identity Server.
     For more information on how to do this, see [Configuring Azure
     Active Directory toTrust WSO2 Identity
-    Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server)
-    .
+    Server](../../learn/configuring-azure-active-directory-to-trust-wso2-identity-server).
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
     [Configuring a Read-write Active Directory User
-    Store](../../learn/configuring-a-read-write-active-directory-user-store)
-    .  
+    Store](../../learn/configuring-a-read-write-active-directory-user-store).  
 -   Configure WSO2 Identity Server to authenticate users using the email
     address as the username. For more information on how to do this, see
     [Using Email Address as the
-    Username](../../learn/using-email-address-as-the-username)
-    .
+    Username](../../learn/using-email-address-as-the-username).
 
 Azure AD expects to receive the following attributes with a SAML 2.0
 message.
-
-  
 
 <table>
 <thead>
@@ -43,7 +38,7 @@ message.
 <td><div class="content-wrapper">
 <p>This must be the email address of the Office365 user. Usually this is the userPrincipalName attribute in AD. Basically this is the login username that a user tries out to login for Office365. It should match with the domain name. (ex: <a href="mailto:wso2@wso2test.com">wso2@wso2test.com</a> ).<br />
 </p>
-!!! note
+<div class="admonition note">
     <p>Since this attribute requires an email address as the username, make sure you have configured the IS to authenticate users using the email address. See <a href="../../learn/using-email-address-as-the-username">Using Email Address as the Username</a> for more information.</p>
 </div></td>
 </tr>
@@ -88,7 +83,7 @@ message.
 5.  Navigate to **Claims\>List** and click on the
     [http://wso2.org/claims](https://localhost:9443/carbon/claim-mgt/claim-view.jsp?store=Internal&dialect=http%3A%2F%2Fwso2.org%2Fclaims)
     claim dialect. Click on **Edit** for each of the claims below and
-    deselect the **Supported by Default** check box .
+    deselect the **Supported by Default** check box.
 
     !!! info "Why do these claims need to be edited?"
 
@@ -116,8 +111,7 @@ message.
     -   **Passive STS Realm** -
         [urn:federation:MicrosoftOnline](http://urnfederationmicrosoftonline/)
     -   **Passive STS WReply URL** -
-        [https://login.microsoftonline.com/login.srf  
-        ](https://login.microsoftonline.com/login.srf)
+        [https://login.microsoftonline.com/login.srf](https://login.microsoftonline.com/login.srf)
 
     ![passive-sts-config](../assets/img/tutorials/passive-sts-config.png)
 
@@ -167,7 +161,6 @@ message.
     Name as seen below.
 
     !!! note
-    
         -   If you are configuring the secondary user store, select **Return
             objectGUID in UUID Canonical Format** that is under the
             **Advanced** configuration when creating a new user store using
@@ -180,8 +173,9 @@ message.
             property to the
             `              <IS_HOME>/repository/conf/deployment.toml            `
             file.
+
             ``` java
-                <Property name="transformObjectGUIDToUUID">false</Property>
+            <Property name="transformObjectGUIDToUUID">false</Property>
             ```
     
 
@@ -195,8 +189,7 @@ process.
 -   **Manually** - Add Office 365 users that match each Active Directory
     user account
 -   **Automate** - Automate the process with the [Microsoft Directory
-    Synchronization Tool](https://docs.microsoft.com/en-us/office365/enterprise/deploy-office-365-directory-synchronization-dirsync-in-microsoft-azure)
-    .
+    Synchronization Tool](https://docs.microsoft.com/en-us/office365/enterprise/deploy-office-365-directory-synchronization-dirsync-in-microsoft-azure).
 
 The following steps describe how to **manually** to synchronize a user
 with Azure AD.
@@ -218,7 +211,7 @@ with Azure AD.
         the credentials are accurate, the connection will be successful.
 
         ``` powershell
-                Connect-MsolService -Credential $cred
+        Connect-MsolService -Credential $cred
         ```
 
     3.  This command verifies the availability of the validated domain.
@@ -227,13 +220,12 @@ with Azure AD.
         ‘Authentication’ should be ‘Managed’.
 
         ``` powershell
-                Get-MsolDomain
+        Get-MsolDomain
         ```
 
 2.  Run the following command to create a new user.
 
     !!! note
-    
         Use the value specified under objectGUID as -ImmutableId and the
         value specified under userPrincipalName, as the UserPrincipalName.
     
@@ -259,7 +251,7 @@ by the on premises identity provider (i.e., the WSO2 Identity server).
 
 3.  You will be redirected to the login page of the WSO2 Identity
     Server’s authentication end point. Enter the correct user
-    credentials and login .
+    credentials and login.
 
 4.  You will be successfully logged on to the Office365 portal.  
 
@@ -267,5 +259,4 @@ by the on premises identity provider (i.e., the WSO2 Identity server).
         If you sign out of Office 365, the WSO2 IS will receive a Passive
         STS Logout Request and the user will be logged out of the IdP as
         well.
-
     ![office365-logon](../assets/img/tutorials/office365-logon.png)

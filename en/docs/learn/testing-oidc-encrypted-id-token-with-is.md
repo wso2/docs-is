@@ -1,19 +1,19 @@
 # Testing OIDC Encrypted ID Token with IS
 
 This page describes how you can configure and test OIDC Encrypted ID
-Token with Identity Server 5.5.0
+Token with Identity Server 5.9.0.
 
-### Setup Playground Sample
+## Setup Playground Sample
 
 First, you should [setup the Playground sample
 app](../../learn/basic-client-profile-with-playground#setting-up-the-playground-sample).
 
-### Configuring the service provider
+## Configuring the service provider
 
 The next step is to [configure the service
 provider.](../../learn/adding-and-configuring-a-service-provider)
 
-### Configuring Service Provider Public Certificate
+## Configuring Service Provider Public Certificate
 
 The following steps describe how to configure a service provider public
 certificate:
@@ -92,7 +92,7 @@ Follow the below steps to enable ID Token Encryption:
     Leave these values as they are since you do not have special
     requirements.
 
-### Testing the flow - Authorization Code Grant Type
+## Testing the flow - Authorization Code Grant Type
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
@@ -157,7 +157,7 @@ Follow the below steps to enable ID Token Encryption:
 9.  Click **Decrypt** and the decrypted ID Token details will be
     displayed.
 
-### Testing the flow - Implicit Grant Type
+## Testing the flow - Implicit Grant Type
 
 1.  Before you begin, you must first [set up the sample
     webapp.](../../learn/setting-up-the-sample-webapp)
@@ -206,7 +206,7 @@ Follow the below steps to enable ID Token Encryption:
     displayed.
 
       
-### Testing the flow - Password Grant Type
+## Testing the flow - Password Grant Type
 
 1.  Before you begin, you must first [set up the sample
     webapp.](../../learn/setting-up-the-sample-webapp)
