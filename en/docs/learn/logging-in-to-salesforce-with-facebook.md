@@ -26,12 +26,11 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 		2.  Add  `               enable_email_domain              ` as shown below.
 
 			``` html/xml
-            [tenant_mgt]
-            enable_email_domain= true
+			[tenant_mgt]
+			enable_email_domain= true
 			```
 
-		3.  Open the \<
-			`               IS_HOME>/repository/conf/claim-config.xml              `
+		3.  Open the `<IS_HOME>/repository/conf/claim-config.xml              `
 			file and configure the `               AttributeID              `
 			property of the
 			`                               http://wso2.org/claims/username                             `
