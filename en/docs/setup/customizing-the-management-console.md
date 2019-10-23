@@ -58,11 +58,9 @@ layout into small JSP snippets that perform a specific function.
     header and footer in the layout. 
 
 The `template.jsp ` file controls the main layout page of the Carbon framework, 
-which holds all the tiles together. That is, the header part in the
-`template.jsp` file is replaced with the `<tiles:insertAttribute name="header"/>` 
-tag, which refers to the `header.jsp` file. The `template.jsp` file as well as 
+which holds all the tiles together. The `template.jsp` file as well as 
 the JSP files corresponding to the tiles are located in the
-`rg.wso2.<product-name>.styles_<version-name>.jar/web/admin/layout/         `
+`org.wso2.carbon.ui_<version-name>..jar/web/admin/layout/         `
 directory.
 
 Therefore, changing the layout of your product primarily involves
