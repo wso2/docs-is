@@ -474,6 +474,7 @@ nav:
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
             - 'Challenge Question REST APIs': develop/challenge-rest-api.md
+            - 'Identity Governance API': develop/identity-governance-rest-api.md
             - 'Approvals REST APIs': develop/approvals-rest-api.md
             - 'Associations REST APIs': develop/association-rest-api.md
             - 'Authorized Apps REST APIs': develop/authorized-apps-rest-api.md
