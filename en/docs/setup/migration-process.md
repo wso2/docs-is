@@ -65,11 +65,11 @@ production update and you can allocate time slots as per the above analysis. WSO
 migration while the system is under minimum traffic. 
     
 
-Once you are satisfied with the above steps, proceed with production migration. After the migration is 
-completed do the following verification steps.
+Once you are satisfied with the above steps, proceed with production migration. After the migration is complete, 
+verify it using the following steps.
     
 +  Monitor the system health (CPU, memory usage etc).
-+  Monitor the WSO2 logs to for errors.
++  Monitor the WSO2 logs for errors.
 
 **NOTE:** If you see any problems in the migrated system, revert the traffic back to the previous setup and 
 investigate the problem.
