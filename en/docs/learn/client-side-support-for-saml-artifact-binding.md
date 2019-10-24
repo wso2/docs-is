@@ -13,7 +13,7 @@ both are transmitted by reference using a small stand-in called an
 *artifact.* A separate, synchronous binding, such as the SAML SOAP
 binding, is used to exchange the artifact for the actual protocol
 message using the artifact resolution protocol. When using the HTTP
-artifact binding for the SAML \<Response\> message, SAML permits the
+artifact binding for the SAML <Response\> message, SAML permits the
 artifact to be delivered via the browser using either an HTTP POST or
 HTTP Redirect response.
 
