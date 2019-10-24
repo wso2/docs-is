@@ -1,6 +1,6 @@
 # Working with Databases
 
-All WSO2 products are shipped with embedded H2 databases for storing
+WSO2 Identity Server is shipped with a embedded H2 database for storing
 data. These default databases are located in the
 `         <IS_HOME>/repository/database        ` directory of the
 product pack.
@@ -10,7 +10,7 @@ product pack.
 Explained below are the default databases that you will find in the
 `         database        ` directory.
 
--   **Carbon database:** `          WSO2CARBON_DB.h2.db         ` is the
+-   **Carbon database:** `          WSO2CARBON_DB.mv.db         ` is the
     main Carbon database in a WSO2 product. This stores registry and
     user management data by default. In addition, if the product uses
     features of [WSO2 Identity
@@ -19,9 +19,10 @@ Explained below are the default databases that you will find in the
     embedded Carbon database. However, for production environments, we
     recommend separate RDBMSs to store identity-related and
     storage-related data.
--   **Product-specific databases** : In addition to the main Carbon
-    database, your product may have other databases for storing
-    product-specific data.
+-   **Product-specific database** :`WSO2IDENTITY_DB.mv.db` in addition to the main Carbon
+    database, WSO2 Identity Server has its this database its specific identity related data.
+-   **Shared database** :`WSO2SHARED_DB.mv.db` this database contains the registry and
+    user management data.
 
 ### Changing the default databases
 
