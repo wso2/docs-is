@@ -1,6 +1,6 @@
 # Changing to PostgreSQL
 
-By default, WSO2 products use the embedded H2 database as the database
+By default, WSO2 Identity Server use the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use PostgreSQL for this purpose.
     
@@ -17,6 +17,41 @@ identity related data. After setting up the PostgreSQL database. You can point t
 #### Changing the default datasource
 
 1.  Minimum Configurations for changing default datasource to PostgreSQL.
+ 
+ Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Following are the basic configurations and their descriptions. 
+      <table>
+      <thead>
+      <tr class="header">
+      <th>Element</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="even">
+      <td><strong>username</strong> and <strong>password</strong></td>
+      <td>The name and password of the database user.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>type</strong></td>
+      <td>The type of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>hostname</strong></td>
+      <td>The hostname of the host where database is hosted.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>port</strong></td>
+      <td>The port of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>name</strong></td>
+      <td>The name of the database.</td>
+      </tr>
+      </table>   
+ 
+ Sample configuration is given below.
+  
 
     1. `WSO2_IDENTITY_DB` 
     
@@ -33,7 +68,7 @@ identity related data. After setting up the PostgreSQL database. You can point t
            ```
         2. Executing database scripts.
         
-           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files.
+           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
            - `<IS-HOME>/dbscripts/identity/postgresql.sql`
            - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
@@ -54,56 +89,25 @@ identity related data. After setting up the PostgreSQL database. You can point t
            ```
         2. Executing database scripts.
         
-           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files.
+           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
            - `<IS-HOME>/dbscripts/postgresql.sql`
            
     3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasouce-bpsds)
+       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
        
     4.  Download the Postgres JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
-        In earlier versions WSO2 IS had the option to create databases automatically using the 
-        -DSetup option  **from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-        deprecated the** **`              -DSetup             `** **option**
-        Note that the proper practice is for the DBA to run the DDL
-        statements manually so that the DBA can examine and optimize any DDL
-        statement (if necessary) based on the DBA best practices that are in
+        In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
+        -DSetup option  **from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) 
+        WSO2 Identity Server has deprecated the** **`              -DSetup             `** **option**
+        Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA
+        can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in
         place within the organization.  
         
-    The elements in the above configuration are described below:
-
-     <table>
-     <thead>
-     <tr class="header">
-     <th>Element</th>
-     <th>Description</th>
-     </tr>
-     </thead>
-     <tbody>
-     <tr class="even">
-     <td><strong>username</strong> and <strong>password</strong></td>
-     <td>The name and password of the database user.</td>
-     </tr>
-     <tr class="even">
-     <td><strong>type</strong></td>
-     <td>The type of the database.</td>
-     </tr>
-     <tr class="even">
-     <td><strong>hostname</strong></td>
-     <td>The hostname of the host where database is hosted.</td>
-     </tr>
-     <tr class="even">
-     <td><strong>port</strong></td>
-     <td>The port of the database.</td>
-     </tr>
-     <tr class="even">
-     <td><strong>name</strong></td>
-     <td>The name of the database.</td>
-     </tr>
-     </table>        
+    The elements in the above configuration are described below:     
             
 
 2. Advanced Database Configurations.
@@ -208,7 +212,7 @@ Apart from above basic configurations wso2 supports advanced database configurat
             `               <IS_HOME>/repository/conf/deployment.toml              `
             file.
         4.  Disable the `               defaultAutoCommit              `
-            by defining it as false.
+            by defining it as `false`.
         5.  Add the `                commitOnReturn               `
             property and set it to true.
                              
@@ -216,15 +220,15 @@ Apart from above basic configurations wso2 supports advanced database configurat
             
            ``` toml
                [database.identity_db.pool_options]
-                defaultAutoCommit=false
-                commitOnReturn=true
+                defaultAutoCommit="false"
+                commitOnReturn="true"
            ```
         - `WSO2_SHARED_DB` `deployment.toml` Configurations.
                 
            ``` toml
               [database.shared_db.pool_options]
-               defaultAutoCommit=false
-               commitOnReturn=true
+               defaultAutoCommit="false"
+               commitOnReturn="true"
            ```    
             
     -   **Configure the connection pool to rollback pending transactions on connection return**
@@ -234,7 +238,7 @@ Apart from above basic configurations wso2 supports advanced database configurat
             file.
         2.  Disable the
             `                defaultAutoCommit               ` by
-            defining it as false.
+            defining it as `false`.
 
         3.  Set the `                rollbackOnReturn               `
             property to the datasources as true.
@@ -244,15 +248,15 @@ Apart from above basic configurations wso2 supports advanced database configurat
             
            ``` toml
                [database.identity_db.pool_options]
-                defaultAutoCommit=false
-                rollbackOnReturn=true
+                defaultAutoCommit="false"
+                rollbackOnReturn="true"
            ```
         - `WSO2_SHARED_DB` `deployment.toml` Configurations.
                 
            ``` toml
               [database.shared_db.pool_options]
-               defaultAutoCommit=false
-               rollbackOnReturn=true
+               defaultAutoCommit="false"
+               rollbackOnReturn="true"
            ```
     
     The elements in the above configuration are described below:
