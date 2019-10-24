@@ -4,11 +4,11 @@ The user management functionality allows you to configure the users that
 can access your product and the permissions that determine how each user
 can work with your system.
 
-The default user management configuration in a WSO2 product is as
+The default user management configuration in WSO2 Identity Server is as
 follows:
 
--   The default H2 database in the WSO2 product is configured as the
-    User Store that stores all the information on users, roles and
+-   The default H2 database in the WSO2 Identity Server is configured as
+    the User Store that stores all the information on users, roles and
     permissions.
 -   An **Admin** user and **Admin** password are configured by default.
 -   The default **Admin** role connected to the **Admin** user has all
