@@ -1,6 +1,6 @@
 # What Has Changed
 
-In WSO2 Identity Server 5.9.0 bring a range of new features and major improvements. In IS 5.9.0 following 
+In WSO2 Identity Server 5.9.0 brings a range of new features and major improvements. In IS 5.9.0 following 
 aspects has been changed compared to the previous IS versions.
 
 ### **Changes to Resource Access Control**
