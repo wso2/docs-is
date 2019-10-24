@@ -19,11 +19,14 @@ disabled from appearing in the logs by setting each token to
 ```
 
 In addition to this, you need to ensure that the logs in the
-`         <IS_HOME>/repository/conf/log4j.properties        ` file are
-enabled as well. To do this, uncomment the following entry in this file.
+`         <IS_HOME>/repository/conf/log4j2.properties        ` file are
+enabled as well. To do this, please follow the following instructions.
+
+Change log level from `INFO` to `DEBUG` in `org.wso2.carbon.identity` logger as follows.
 
 ``` c#
-log4j.logger.org.wso2.carbon.identity=DEBUG
+logger.org-wso2-carbon-identity.name=org.wso2.carbon.identity
+logger.org-wso2-carbon-identity.level=DEBUG
 ```
 
 In order to log the tokens defined in the

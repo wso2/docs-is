@@ -699,8 +699,7 @@ Follow the steps below to perform the upgrade.
 
     2.  Copy the
         `             org.wso2.carbon.is.migration-5.9.0.jar            `
-        and the `             snakeyaml-1.16.0.wso2v1.jar            `
-        found in the
+     found in the
         `             <IS5.9.0_MIGRATION_TOOL_HOME>/dropins            `
         directory, and paste it in the
         `             <NEW_IS_HOME>/repository/components/dropins            `
