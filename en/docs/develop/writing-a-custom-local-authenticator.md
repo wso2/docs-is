@@ -143,7 +143,7 @@ Let's begin.
         The `            BasicCustomAuthenticatorConsta           `
         `            nts.java           ` file that is referred in the below
         example is available
-        [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java.zip).
+        [here](../../assets/attachments/BasicCustomAuthenticatorConstants.java).
     
     ??? example "Click to view the sample custom authenticator class"
         ```

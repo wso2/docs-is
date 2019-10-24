@@ -9,41 +9,30 @@ writing a simple custom password policy and enforcing it.
 
 ### Configuring password policy extensions
 
-1.  Open the `           identity.xml          ` file found in the
-    `           <IS_HOME>/repository/conf/identity/          ` directory
-    and set the
-    `           org.wso2.carbon.identity.mgt.IdentityMgtEventListener          `
-    under the `           <EventListeners>          ` tag to
-    **enable="true"**.
+1.  Enable the `IdentityMgtEventListener` by adding the following configuration to the `deployment.toml` file found in the `<IS_HOME>/repository/conf/` folder. 
 
-    ``` xml
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener" 
-    name="org.wso2.carbon.identity.mgt.IdentityMgtEventListener" orderId="50" enable="true"/>
+    ``` toml
+    [event.default_listener.identity_mgt]
+    priority= 50
+    enable= true
     ```
 
-2.  Open the `           identity-mgt.properties          ` file found
-    in the `           <IS_HOME>/repository/conf/identity/          `
+2.  Open the `           deployment.toml          ` file found
+    in the `           <IS_HOME>/repository/conf/         `
     directory and define the following custom classes.
 
-    ``` java
-    Password.policy.extensions.1=org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordLengthPolicy
-    Password.policy.extensions.1.min.length=6
-    Password.policy.extensions.1.max.length=12
+    ``` toml
+    [identity_mgt.events.schemes.passwordPolicy.properties]
+    'class.PasswordLengthPolicy' = "customClassName"
+    'min.length' = "6"
+    'max.length' = "12"
     ```
 
     !!! info
         `            min.length           ` and
         `            max.length           ` are the parameters that are
         passed to the custom password policy class (i.e.,
-        `            DefaultPasswordLengthPolicy           ` ). If you have
-        more than one custom class, it can be defined by incrementing the
-        integer as follows (e.g., "
-        `            Password.policy.extensions.                         2                        "           `
-        )  and providing the parameters mentioned above if needed.
-
-        ``` java
-        Password.policy.extensions.2=org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordNamePolicy
-        ```
+        `            PasswordLengthPolicy           ` ).
 
 ### Writing the custom password policy
 

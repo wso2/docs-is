@@ -19,14 +19,11 @@ those errors. There are three types of custom errors handled here:
 
 Do the following to customize these error messages.
 
-Enable the following parameter in the
-`         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
-file if you need customized error messages.
+Add the following properties to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the authenticator to be able to customize error messages.
 
-``` xml
-<AuthenticatorConfig name="BasicAuthenticator" enabled="true"> 
-    <Parameter name="showAuthFailureReason">true</Parameter>
-</AuthenticatorConfig>
+``` toml
+[authentication.authenticator.basic.parameters]
+showAuthFailureReason = true
 ```
 
 The following query parameters are sent to the web application from authentication endpoint.
