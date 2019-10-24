@@ -13,22 +13,18 @@ have logged on.
     file.
     
     ``` toml
-        [user.association]
-        enable_for_federated_users = true
-    ```
-    
-    !!! tip
-        The recommended approach is to have the
-        `         EnableFederatedUserAssociation        ` parameter set to
-        `         false        ` so that manual federated user association is
-        not allowed by default via the dashboard.
+    [user.association]
+    enable_for_federated_users = true
+    ```    
+
+    The **recommended approach** is to have the `enable_for_federated_users` parameter set to `false` so that manual federated user association is not allowed by default via the dashboard.
         
 
   
 Follow one of the two approaches below to associate all your user
 accounts:
 
-### Using the AdminService
+## Using the AdminService
 
 The first approach is to use the `         AdminService        ` . You
 can access this admin service using the following URL: '
@@ -44,7 +40,7 @@ The following actions can be performed using above admin service.
 -   Switch between associated user accounts without re-authenticate with
     the system
 
-### Using the dashboard
+## Using the dashboard
 
 The WSO2 Identity Server [end user
 dashboard](../../learn/using-the-end-user-dashboard) can be used to associate the
@@ -52,7 +48,7 @@ accounts. You can associate a local user account or a federated user
 account:
 
 
-#### Managing local user IDs
+### Managing local user IDs
 
 1.  Go to the dashboard URL: <https://localhost:9443/dashboard/>
 2.  Log in using your username and password.
@@ -83,7 +79,7 @@ account:
     operation.  
     ![switch-user-accounts](../assets/img/using-wso2-identity-server/switch-user-accounts.png) 
 
-#### Managing federated user IDs
+### Managing federated user IDs
 
 You can connect your federated user IDs with your WSO2 Identity Server
 account from the end user dashboard. To set this up, do the following.
