@@ -12,9 +12,7 @@ details.
 
 ### Configuring access logs for the HTTP servlet transport
 
-As the runtime of WSO2 Identity Server is based on Apache Tomcat,`Access_Log_Valve` variable 
-configured in `<IS_HOME>/repository/conf/tomcat/catalina-server.xml` handles the access logs to the HTTP servlet 
-transport. In the Identity Server 5.9.0 only the log pattern is configurable.
+In the Identity Server 5.9.0 only the access log pattern is configurable.
 
 1.  Open the `<IS_HOME>/repository/conf/deployment.toml`
     file.
