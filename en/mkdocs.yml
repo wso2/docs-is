@@ -711,7 +711,7 @@ nav:
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
+        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
         - 'Configuring the User Realm': 
           - 'Configuring the User Realm': administer/configuring-user-realm.md
