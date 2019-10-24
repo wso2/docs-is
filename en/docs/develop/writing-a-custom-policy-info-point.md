@@ -12,12 +12,10 @@ that you can write a PIP attribute finder module.
 
 1.  By implementing the `PIPAttributeFinder` interface. You can find the
     latest interface
-    [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/PIPAttributeFinder.java)
-    .
+    [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/PIPAttributeFinder.java).
 2.  By extending the `AbstractPIPAttributeFinder` abstract class You can
     find the latest abstract class
-    [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/AbstractPIPAttributeFinder.java)
-    .
+    [here](https://github.com/wso2/carbon-identity/blob/master/components/entitlement/org.wso2.carbon.identity.entitlement/src/main/java/org/wso2/carbon/identity/entitlement/pip/AbstractPIPAttributeFinder.java).
 
 Of the above methods, it would be easier to extend the
 `AbstractPIPAttributeFinder` abstract class and write a PIP attribute
@@ -87,50 +85,34 @@ Identity Server. This sample project can be downloaded
     JDBC connection (e.g.,
     `          mysql-connector-java-5.1.10-bin.jar         ` ).
 
-6.  Additionally, you can configure new datasources using
-    **master-datasources.xml** file found in the
-    `           <IS_HOME>/repository/conf/datasources          `
+6.  Optionally, you can configure new datasources using
+    **deployment.toml** file found in the
+    `           <IS_HOME>/repository/conf/        `
     directory.
 
     !!! info
         This only applies if you are defining datasource configurations
-        using the `master-datasources.xml` file.
+        using the `deployment.toml` file.
 
     Following is a sample datasource configuration for this
     scenario.
 
-    ``` xml
-    <datasource>
-        <name>KMARKET_USER_DB</name>
-        <description>The datasource used for K-Market user store</description>
-        <jndiConfig>
-            <name>jdbc/KMARKETUSERDB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-            <configuration>
-                <url>jdbc:mysql://localhost:3306/kmarketdb</url>
-                <username>root</username>
-                <password>asela</password>
-                <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                <maxActive>50</maxActive>
-                <maxWait>60000</maxWait>
-                <testOnBorrow>true</testOnBorrow>
-                <validationQuery>SELECT 1</validationQuery>
-                <validationInterval>30000</validationInterval>
-            </configuration>
-        </definition>
-    </datasource>
+    ```toml
+    [[datasource]]
+    id = "KMARKET_USER_DB"
+    url = "jdbc:mysql://localhost:3306/kmarketdb"
+    username = "wso2istest"
+    password = "wso2istest"
     ```
 
-7.  Open the **entitlement.properties** file found in the
-    `           <IS_HOME>/repository/conf/identity          ` directory
-    and register your PIP module. The following is a sample
+7.  If you configure a new datasource, register your PIP module by adding the following properties to the     `deployment.toml`. The following is a sample
     configuration for this scenario.
 
-    ``` java
-    PIP.AttributeDesignators.Designator.2=org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder
-    #Define JNDI datasource name as property value
-    org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder.1=DataSourceName,jdbc/KMARKETUSERDB
+    ```toml
+    [[xacml.pip.attribute_designator]]
+    class = "org.xacmlinfo.xacml.pip.jdbc.KMarketJDBCAttributeFinder"
+    [xacml.pip.attribute_designator.properties]
+    DataSourceName = "jdbc/KMARKETUSERDB" 
     ```
 
 8.  Restart the server if it has been started already.
@@ -160,7 +142,7 @@ Use the following steps to check the PIP module.
     Identity Server, then publish it to PDP and enable it.
 
 6.  You can then [try out the policy with TryIt
-    PEP](../../learn/using-the-xacml-tryit-tool).
+    PEP](../../administer/using-the-xacml-tryit-tool).
 
     !!! info "About debugging the sample code"
         This sample code can be debugged by starting the WSO2 Identity
