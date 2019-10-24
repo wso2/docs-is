@@ -627,7 +627,6 @@ nav:
         - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Enabling Java Security Manager': administer/java-security-manager.md
         - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
@@ -734,14 +733,17 @@ nav:
         - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
         - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
       - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
-      - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
-      - 'Using Asymmetric Encryption':
-        - 'Using Asymmetric Encryption': administer/using-asymmetric-encryption.md
-        - 'Creating New Keystores': administer/creating-new-keystores.md
-        - 'Renewing a CA-Signed Certificate in a Keystore': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
-        - 'Configuring Keystores in WSO2 Products': administer/configuring-keystores-in-wso2-products.md
-        - 'Managing Keystores with the UI': administer/managing-keystores-with-the-ui.md
-      - 'Using Symmetric Encryption': administer/using-symmetric-encryption.md
+      - 'Java Security Manager': administer/enabling-java-security-manager.md
+      - 'Encryption':
+        - 'Asymmetric Encryption':
+          - 'Asymmetric Encryption': administer/using-asymmetric-encryption.md
+          - 'Creating New Keystores': administer/creating-new-keystores.md
+          - 'Configuring Keystores': administer/configuring-keystores-in-wso2-products.md
+          - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md           
+          - 'Managing Keystores with the UI': administer/managing-keystores-with-the-ui.md
+          - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
+          - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
+        - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
