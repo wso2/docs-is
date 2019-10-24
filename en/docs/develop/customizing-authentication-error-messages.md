@@ -22,12 +22,8 @@ Do the following to customize these error messages.
 Add the following properties to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and enable the authenticator to be able to customize error messages.
 
 ``` toml
-[authentication.authenticator.basic] 
-name ="BasicAuthenticator"
-enable=true
 [authentication.authenticator.basic.parameters]
-auth_mechanism= "basic"
-UserNameAttributeClaimUri = ""
+showAuthFailureReason = true
 ```
 
 The following query parameters are sent to the web application from authentication endpoint.
