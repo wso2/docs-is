@@ -12,29 +12,23 @@ details.
 
 ### Configuring access logs for the HTTP servlet transport
 
-As the runtime of WSO2 Identity Server is based on Apache Tomcat, you can use
-the `         Access_Log_Valve        ` variable in Tomcat as explained
-below to configure access logs to the HTTP servlet transport:
+As the runtime of WSO2 Identity Server is based on Apache Tomcat,`Access_Log_Valve` variable 
+configured in `<IS_HOME>/repository/conf/tomcat/catalina-server.xml` handles the access logs to the HTTP servlet 
+transport. In the Identity Server 5.9.0 only the log pattern is configurable.
 
-1.  Open the `<IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
-    file (which is the server descriptor file for the embedded Tomcat
-    integration)
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml`
+    file.
 
-2.  Customize the attributes for the
-    `           Access_Log_Valve          ` variable shown below.
+2.  Add the following configuration.
 
-    ``` java
-    <Valve className="org.apache.catalina.valves.AccessLogValve"
-    directory="${carbon.home}/repository/logs"
-    prefix="localhost_access_log_sample."
-    suffix=".log"
-    pattern="combined"
+    ``` toml
+    [http_access_log]
+    pattern = "%h %l %u %t %r %s %b %{Referer}i %{User-Agent}i %T"
     ```
 
     The attributes that are used by default are explained below. See the
     descriptions of the Tomcat-supported [Access Log
-    Valve attributes](http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Access_Log_Valve/Attributes)
-    and customize the required values.
+    Valve attributes](http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Access_Log_Valve/Attributes).
 
     <table style="width:100%;">
     <colgroup>
@@ -83,7 +77,7 @@ below to configure access logs to the HTTP servlet transport:
     </tbody>
     </table>
 
-3.  Restart the server. According to the default configurations, a log
+3.  Restart the server. According to the configurations, a log
     file named
     `           localhost_access_log_sample.{DATE}.log          ` is
     created inside the `<IS_HOME>/repository/logs          ` directory. The
@@ -98,14 +92,10 @@ Given below are a few sample configurations for customizing the
 
 The configuration is as follows:
 
-``` java
-<Valve className="org.apache.catalina.valves.AccessLogValve"
-directory="${carbon.home}/repository/logs"
-prefix="localhost_access_log_test."
-suffix=".log"
-pattern="%{Content-Type}i %{Accept}i %{Accept-Encoding}i"
-/>
-```
+   ``` toml
+   [http_access_log]
+   pattern = "%{Content-Type}i %{Accept}i %{Accept-Encoding}i"
+   ```
 
 This sample configuration logs the Content-type,
 Accept and Accept-encoding headers of every request coming to the
@@ -127,14 +117,10 @@ text/plain; charset=utf-8        */*        gzip,deflate,sdch
 
 The configuration is as follows:
 
-``` java
-<Valve className="org.apache.catalina.valves.AccessLogValve"
-directory="${carbon.home}/repository/logs"
-prefix="localhost_access_log_test."
-suffix=".log"
-pattern="%{Content-Type}o %{Content-Length}o %{Date}o %{Server}o"
-/>
-```
+   ``` toml
+   [http_access_log]
+   pattern = "%{Content-Type}o %{Content-Length}o %{Date}o %{Server}o"
+   ```
 
 The a bove configuration sample logs the `         Content-type        `
 , `         Content-Length        `, `         Date,        ` and
@@ -149,16 +135,12 @@ text/html;charset=ISO-8859-1       662       Tue, 09 Jul 2013 11:21:50 GMT      
 
 The configuration is as follows:
 
-``` java
-<Valve className="org.apache.catalina.valves.AccessLogValve"
-directory="${carbon.home}/repository/logs"
-prefix="localhost_access_log_test."
-suffix=".log"
-pattern="%r %q %h"
-/>
-```
+   ``` toml
+   [http_access_log]
+   pattern = "%r %q %h"
+   ```
 
-The above sample configuration logs the f irst line of the request
+The above sample configuration logs the first line of the request
 (method and request URI), query string (prepended with a '?' if it
 exists), and a remote hostname (or IP) of every request coming to the
 server as follows:
@@ -174,17 +156,17 @@ parameters. However, you can use the
 `         ExtendedAccessLogValve        ` attribute for this purpose. In
 this example only two values (namely, `         className        `, and
 `         pattern        ` ) are modified from the previous
-configuration.
+configuration. Hence this will be added as a new valve.
 
 The configuration is as follows:
 
-``` java
-<Valve className="org.apache.catalina.valves.ExtendedAccessLogValve" 
+```toml
+[catalina.valves.valve.properties]
+className = "org.apache.catalina.valves.ExtendedAccessLogValve"
 directory="${carbon.home}/repository/logs"
 prefix="localhost_access_log_extended."
 suffix=".log"
 pattern="x-P(param1) x-P(param2)"
-/>
 ```
 
 Send the POST request together with the URL encoded values such as
