@@ -1,12 +1,14 @@
 # Migrating to 5.9.0
 
 This section walks you through the steps you need to follow to upgrade
-WSO2 Identity Server to version 5.9.0. In this
-section, `         <OLD_IS_HOME>        ` is the directory that current Identity
-Server resides in, and `         <NEW_IS_HOME>        ` is the
-directory that WSO2 Identity Server 5.9.0 resides in. 
+WSO2 Identity Server to version 5.9.0. 
 
-### Should I migrate?
+!!! note "NOTE"
+    In this section, `<OLD_IS_HOME> ` is the directory that current Identity
+    Server resides in, and `<NEW_IS_HOME>` is the
+    directory that WSO2 Identity Server 5.9.0 resides in. 
+
+### **Should I migrate?**
 
 WSO2 recommends upgrading to the latest version in order to ensure that
 users receive the latest updates for the product.
@@ -15,20 +17,22 @@ users receive the latest updates for the product.
     deprecated in this release, see [About this
     release](../../get-started/about-this-release).
 -   For a detailed overview of behavioral changes in this release, see
-    [What Has Changed](../setup/migrating-what-has-changed).
+    [What Has Changed](../../setup/migrating-what-has-changed).
     
-### Prerequisites
+## **Prerequisites**
 
 #### Disabling versioning in the registry configuration
 If there are frequently updating registry properties, having the versioning enabled for 
 registry resources in the registry can lead to unnecessary growth in the registry related
-tables in the database. To avoid this, with WSO2 Identity Server 5.9.0 we have disabled 
-versioning by default.
+tables in the database. To avoid this, we have disabled versioning by default in Identity 
+Server 5.9.0.
 
 Therefore, when migrating to IS 5.9.0 it is **required** to turn off the registry versioning in your
-current WSO2 Identity Server and run the below scripts against the database that is used by the registry.
-Alternatively it is possible to turn on registry versioning in IS 5.9.0 and continue. But this is
-highly not recommended and these configurations should only be changed once.
+current Identity Server and run the below scripts against the database that is used by the registry.
+
+!!! note "NOTE"
+    Alternatively, it is possible to turn on registry versioning in IS 5.9.0 and continue. But this is
+    highly **NOTE RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Turning off registry versioning in your current IS and running the scripts"
     Open the `registry.xml` file in the `<OLD_IS_HOME>/repository/conf` directory.
@@ -45,9 +49,9 @@ highly not recommended and these configurations should only be changed once.
     ```
     
     !!! warning
-        If the above configurations are already set as false you should not run the below scripts.
+        If the above configurations are already set as `false` you should not run the below scripts.
     
-    When these configurations are turned off we need to remove the versioning detatils from the
+    When the above configurations are turned off, we need to remove the versioning detatils from the
     database in order for the registry resources to work properly. Choose the relevant DB type and run the
     script against the DB that the registry resides in.
     
@@ -296,49 +300,51 @@ highly not recommended and these configurations should only be changed once.
     enable=false
     ```
     
-    Note that changing these configuration should only be done before the initial Identity
-    Server startup. If changes are done after the initial startup the registry resource created
-    previously will not be available.
+    !!! note "NOTE"
+        Changing these configuration should only be done before the initial Identity
+        Server startup. If changes are done after the initial startup, the registry resource created
+        previously will not be available.
    
 #### Migrating the Secondary Userstore Password to the Internal Keystore
-Ideally, the internal keystore should be used for encrypting internal critical data. However, in previous versions of WSO2 
-Identity Server, the secondary userstore passwords are encrypted using the primary keystore, 
-which is also used to sign and encrypt tokens
+Ideally, the internal keystore should be used for encrypting internal critical data. However, in 
+previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
+which is also used to sign and encrypt tokens.
 
-In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality from the 
-primary keystore to the internal keystore.
+In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality 
+from the primary keystore to the internal keystore.
 
-Check this [link](https://docs.wso2.com/display/IS570/Migrating+the+Secondary+Userstore+Password+to+the+Internal+Keystore) 
+Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md) 
 to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
 
-### Preparing for migration
+### **Preparing for migration**
 
 Follow this guide before you begin migration.
 
 1.  Review what has been changed in this release. For a detailed list of
     changes from 5.8.0 to 5.9.0, see
-    [What Has Changed](../setup/migrating-what-has-changed) .
+    [What Has Changed](../../setup/migrating-what-has-changed) .
 
 2.  This release is a WUM-only release. This means that there are no
-    manual patches. You can use WSO2 Update Manager (WUM) to get any
+    manual patches. You can use [WSO2 Update Manager](https://wso2.com/updates/wum)(WUM) to get any
     fixes or latest updates for this release.
 
-    **If you are upgrading to use this version in your production
-    environment** , use WSO2 Update Manager to get the latest updates
-    available for WSO2 IS 5.9.0. For more information on how to use WSO2
-    Update Manager, see [Updating WSO2
-    Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
+    !!! note "Important"
+        If you are upgrading to use this version in your production
+        environment, use WSO2 Update Manager to get the latest updates
+        available for WSO2 IS 5.9.0. For more information on how to use WSO2
+        Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
 3.  Take a backup of the existing database used by the current WSO2 Identity Server. 
-    This backup is necessary in case the migration causes issues in the existing database.
+    This backup is necessary in case the migration causes any issues in the existing database.
 
 4.  Download WSO2 Identity Server 5.9.0 and unzip it in the `<NEW_IS_HOME>` directory.
 
-### Migrating custom components
+### **Migrating custom components**
 
 In WSO2 Identity Server 5.9.0 we have done a major upgrade to our kernel and our main components. 
-Any custom OSGI bundles which are added manually should be recompiled with new dependency versions that are relevant 
-to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_HOME>/repository/components/dropins` directory.
+Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
+that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
+`<OLD_IS_HOME>/repository/components/dropins` directory.
 
 1.  Get the source codes of the custom OSGI components located in the dropins directory. 
 
@@ -353,34 +359,36 @@ to the new WSO2 IS version.  All custom OSGI components reside in the `<OLD_IS_H
 
 5.  If there were any custom OSGI components in `<OLD_IS_HOME>/repository/components/lib` directory, 
     add newly compiled versions of those components to the `<NEW_IS_HOME>/repository/components/lib`  directory.
+
+!!! warning 
+    WSO2 Identity Server 5.9.0 switched from log4j to log4j2. If any custom components are already using 
+    `carbon.logging` jar for logging purposes, make sure to update the custom components for logging to 
+    work with log4j2. For instructions, see [Migrating to log4j2](../../setup/migrating-to-log4j2).
     
-!!! warning “log4j Version”
-WSO2 Identity Server 5.9.0 switched from log4j to log4j2. If any custom components are already using 
-`carbon.logging` jar for logging purposes, make sure to update the custom components for logging to work 
-with log4j2. For instructions, see [Migrating to log4j2](../../setup/migrating-to-log4j2).
 
-
-### Migrating the configurations
+### **Migrating the configurations**
 
 Previous WSO2 Identity Server versions supported multiple configuration files 
-such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the [new 
-configuration model](../references/new-configuration-model) in WSO2 Identity Server 5.9.0, configurations are handled by the a single file named 
+such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the 
+[new configuration model](../../references/new-configuration-model) in WSO2 Identity Server 5.9.0, 
+configurations are handled by the a single file named 
 `deployment.toml` in the `<IS_HOME>/repository/conf` directory.
 
 Refer to the relevant feature documents and [What Has Changed](../setup/migrating-what-has-changed.md)
 to add the necessary configurations according to the new configuration model.
 
 !!! info
-    If you have a WSO2 Subscription it is highly recommended to reach WSO2 Support
+    If you have a WSO2 Subscription, it is highly recommended to reach 
+    [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
     before attempting to proceed with the configuration migration.
 
 ### Zero down time migration
 
 !!! info
-    If you do not require a zero down time migration then you can directly proceed to the
+    If you do not require a zero down time migration, then you can directly proceed to the
     next section [Executing the migration client](#executing-the-migration-client).
     
-A typical WSO2 Identity Server deployment requires an update or upgrade from time to time; 
+A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
 or an upgrade to a newer version. To address this situation while avoiding downtime, system 
 admins and DevOps follow blue-green deployments to roll out updates.
@@ -415,17 +423,17 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
-1.  Create new databases for the new WSO2 Identity Server version (5.9.0) 
+1.  Create a new databases for the new WSO2 Identity Server version (5.9.0) 
     that you are migrating to.
 2.  Unzip a WSO2 Identity Server 5.9.0 distribution (use a WUM updated distribution 
     if possible). This will be used as the data sync tool between the Identity 
-    Server versions. We will refer to this WSO2 Identity Server distribution as 
-    “**data sync tool**” and location as `<SYNC-TOOL-HOME>`.
+    Server versions. We will refer to WSO2 Identity Server distribution as 
+    “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
 3.  Copy the [sync client jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.23/org.wso2.is.data.sync.client-1.0.23.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
-    with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). This will create a separate log 
-    file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory which will contain the sync 
-    tool related logs.
+    with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
+    This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
+    which will contain the sync tool related logs.
 5.  Add the data sources used in **source** and **target** WSO2 Identity Server deployments involved in the migration 
     to `deployment.toml` file located `<SYNC-TOOL-HOME>/repository/conf/deployment.toml`.
     
@@ -481,7 +489,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         | **Table**                     | **Purpose**                                             | **Recommendation**                                                                                                                                                       |
         |-------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
         | IDN_IDENTITY_USER_DATA        | Identity claims when the identity data store is enabled | Usually recommended to sync if identity management features are enabled in the system.                                                                                   |
-        | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the migration period need to be valid after migration.                                                                         |
+        | IDN_OAUTH2_ACCESS_TOKEN       | OAuth 2.0 tokens                                        | Need to sync if the tokens created during the migration period needs to be valid after migration.                                                                         |
         | IDN_OAUTH2_ACCESS_TOKEN_SCOPE | OAuth 2.0 scopes                                        | If the IDN_OAUTH2_ACCESS_TOKEN is synced, this table also needs to be synced.                                                                                            |
         | IDN_OAUTH2_AUTHORIZATION_CODE | OAuth 2.0 authorization codes                           | Need to sync if the authorization codes created during the migration period need to be valid after migration. Not generally required since the validity period is small. |
     
@@ -546,13 +554,13 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         |---------------------------------|--------------------------|
         | /api/identity/entitlement       | XACML REST Profile       |
 
-8.  Start the sync tool with below command.
-    +   If you want to create the required tables and triggers directly on the database.
+8.  Start the sync tool with the following command.
+    +   If you want to create the required tables and trigger directly on the database.
         ```bash
         sh wso2server.sh -DprepareSync -DconfigFile=<path to sync.properties file>/sync.properties
         ```
-    +   If you want to generate the DDL scripts for the required tables and triggers 
-        (after generating you need to manually execute them on the database).
+    +   If you want to generate the DDL scripts for the required tables and trigger 
+        (after generating you need to manually execute them) on the database.
         ```bash
         sh wso2server.sh -DprepareSync -DgenerateDDL -DconfigFile=<path to sync.properties file>/sync.properties
         ```
@@ -563,23 +571,23 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         +   IDN_OAUTH2_ACCESS_TOKEN_SCOPE
         +   IDN_OAUTH2_AUTHORIZATION_CODE
     
-9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) and restore 
-    in the new databases created.    
+9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
+and restore in the new databases created.    
 
 
-### Executing the migration client
+### **Executing the migration client**
 
 To upgrade to the latest version of WSO2 Identity Server, you need to
-upgrade the userstore database. Note that there are no registry schema
+upgrade the userstore database. **Note** that there are no registry schema
 changes between versions.
 
 Follow the steps below to perform the upgrade.
     
 ??? note "If you are using DB2"
     Move indexes to the the
-    TS32K Tablespace. The index tablespace in the '
-    `           IDN_OAUTH2_ACCESS_TOKEN          ` ' and '
-    `           IDN_OAUTH2_AUTHORIZATION_CODE          ` ' tables need
+    TS32K Tablespace. The index tablespace in the 
+    `           IDN_OAUTH2_ACCESS_TOKEN          `  and 
+    `           IDN_OAUTH2_AUTHORIZATION_CODE          ` tables need
     to be moved to the existing TS32K tablespace in order to support
     newly added table indexes.
 
@@ -626,7 +634,7 @@ Follow the steps below to perform the upgrade.
     If you recieve an error due to missing
     `               SYSTOOLSPACE              ` or
     `               SYSTOOLSTMPSPACE              ` tablespaces, create
-    these tablespaces manually using the following script prior to
+    those tablespaces manually using the following script prior to
     executing the stored procedure given above. For more information,
     see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
     spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
@@ -644,7 +652,7 @@ Follow the steps below to perform the upgrade.
 
 1.  If you manually added any custom OSGI bundles to the
     `          <OLD_IS_HOME>/repository/components/dropins         `
-    directory, copy those to the
+    directory, copy those OSGI bundles to the
     `          <NEW_IS_HOME>/repository/components/dropins         `
     directory.
     
@@ -654,7 +662,7 @@ Follow the steps below to perform the upgrade.
 
 2.  If you manually added any JAR files to the
     `           <OLD_IS_HOME>/repository/components/lib          `
-    directory, copy those and paste in the
+    directory, copy and paste those JARs in the
     `           <NEW_IS_HOME>/repository/components/lib          `
     directory.
 
@@ -677,7 +685,7 @@ Follow the steps below to perform the upgrade.
     directory.
     
     !!! warning
-        If you are using a version prior to WSO2 Identity Server 5.8.0, then do steps 6 to 9 
+        If you are using a version prior to WSO2 Identity Server 5.8.0, then proceed to the steps 6 to 9 
         otherwise directly proceed to step 9.
     
 6.  Do the following database updates:  
@@ -686,7 +694,7 @@ Follow the steps below to perform the upgrade.
         as `             <IS5.9.0_MIGRATION_TOOL_HOME>            ` .
 
     2.  Copy the
-        `             org.wso2.carbon.is.migration-1.0.23.jar            `
+        `             org.wso2.carbon.is.migration-xx.xx.xx.jar            `
      found in the
         `             <IS5.9.0_MIGRATION_TOOL_HOME>/dropins            `
         directory, and paste it in the
@@ -710,7 +718,7 @@ Follow the steps below to perform the upgrade.
         ```
         
         !!! note
-            Here the `currentVersion` is the current WSO2 Identity Server version your using.
+            Here the `currentVersion` is the current WSO2 Identity Server version that you are using.
 
 7.  Start the WSO2 Identity Server 5.9.0 with the following command to
     execute the migration client.
@@ -988,45 +996,47 @@ Follow the steps below to perform the upgrade.
 
     ```
     
-### Executing the sync tool
+### **Executing the sync tool**
 
 !!! warning
     Proceed with this step only if you have opt in for [Zero down time migration](#zero-down-time-migration).
-    Otherwise your migration task is completed now and you can omit the following steps.
+    If not your migration task is completed now and you can omit the following steps.
     
-1.  Start the data sync tool with below command pointing to the  sync.properties file. This will start syncing data 
-    created in the old WSO2 Identity Server database after taking the database dump to the new WSO2 Identity Server database.
+1.  Start the data sync tool with the following command pointing to the  sync.properties file. 
+This will start syncing data created in the old WSO2 Identity Server database after taking the database dump 
+to the new WSO2 Identity Server database.
     ```bash
     sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
     ```
 
-2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and the data sync process is 
-    completed. Below line will be printed in the logs for each table you have specified to sync if there are no 
-    data to be synced.
+2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and progress of the data sync 
+process. Following line will be printed in the logs for each table you have specified to sync if there are no 
+data to be synced.
 
     ```tab="Sample"
     [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
     ```
     
     !!! info
-        If you have some traffic to the old version of the WSO2 Identity Server, the number of entries to be synced might 
-        not become zero at any time. In that case, watch for the logs and decide on a point that the number of entries 
-        that are synced is a lower value.
+        If you have some traffic to the old version of the WSO2 Identity Server, the number of entries to 
+        be synced might not become zero at any time. In that case, watch for the logs and decide a point 
+        that the number of entries that are synced is a lower value.
 
 3.  When the data sync is completed, switch the traffic from the old setup to the new setup.
 
-4.  Allow the sync client to run for some time to sync the entries that were not synced before switching the deployments. 
-    When the number of entries synced by the sync tool, becomes zero, stop the sync client.
+4.  Allow the sync client to run for some time to sync the entries that were not synced before switching 
+the deployments. When the number of entries synced by the sync tool, becomes zero, stop the sync client.
     
-### Verifying the migration was successful
+### **Verifying the migration was successful**
 
-After the migration is completed do the following verification steps.
+After the migration is completed, proceed to the following verification steps.
 
 +   Monitor the system health (CPU, memory usage etc).
 +   Monitor the WSO2 logs to see if there are errors logged in the log files.
 +   Run functional tests against the migrated deployment to verify that all functionality is working as expected.
 
-If you see any problems in the migrated system, revert the traffic back to the previous setup and investigate the problem.
+If you see any problems in the migrated system, revert the traffic back to the previous setup and 
+investigate the problem.
     
     
     
