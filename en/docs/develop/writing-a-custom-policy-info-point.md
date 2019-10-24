@@ -85,7 +85,7 @@ Identity Server. This sample project can be downloaded
     JDBC connection (e.g.,
     `          mysql-connector-java-5.1.10-bin.jar         ` ).
 
-6.  Additionally, you can configure new datasources using
+6.  Optionally, you can configure new datasources using
     **deployment.toml** file found in the
     `           <IS_HOME>/repository/conf/        `
     directory.
@@ -97,19 +97,15 @@ Identity Server. This sample project can be downloaded
     Following is a sample datasource configuration for this
     scenario.
 
-    ``` toml
-    [database.identity_db.pool_options]
-    maxActive = ""
-    maxWait = ""
-    minIdle = ""
-    maxIdle = ""
-    testOnBorrow = ""
-    validationInterval  = ""
-    validationQuery = ""
-    MaxPermSize = ""
+    ```toml
+    [[datasource]]
+    id = "KMARKET_USER_DB"
+    url = "jdbc:mysql://localhost:3306/kmarketdb"
+    username = "wso2istest"
+    password = "wso2istest"
     ```
 
-7.  Register your PIP module by adding the following properties to the `deployment.toml`. The following is a sample
+7.  If you configure a new datasource, register your PIP module by adding the following properties to the     `deployment.toml`. The following is a sample
     configuration for this scenario.
 
     ```toml
