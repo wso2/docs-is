@@ -46,7 +46,7 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Get Started':
+  - 'Getting Started':
     - 'Introduction': get-started/overview.md
     - 'Architecture':
       - 'Architecture': get-started/architecture.md
@@ -59,13 +59,11 @@ nav:
       - 'Identity Provisioning and its Standards': get-started/identity-provisioning-and-its-standards.md
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
-      - 'Cross Protocol Single Logout': get-started/cross-protocol-single-logout.md
   - 'Compliance':
     - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
     - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
     - 'Tutorials':
-      - 'Tutorials': learn/tutorials.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -110,8 +108,6 @@ nav:
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
-          - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
-        - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
         - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
@@ -141,6 +137,7 @@ nav:
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
           - 'Configuring Federated Authentication': learn/configuring-federated-authentication.md
+          - 'Configuring SAML 2.0 Web SSO': learn/configuring-saml-2.0-web-sso.md
           - 'Configuring OAuth2-OpenID Connect': learn/configuring-oauth2-openid-connect.md
           - 'Configuring WS-Federation': learn/configuring-ws-federation.md
           - 'Configuring Facebook': learn/configuring-facebook.md
@@ -152,7 +149,6 @@ nav:
           - 'Configuring Twitter': learn/configuring-twitter.md
           - 'Configuring SMS OTP': learn/configuring-sms-otp.md
           - 'Configuring Email OTP': learn/configuring-email-otp.md
-          - 'Configuring Apple': learn/configuring-apple.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
           - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
@@ -179,7 +175,6 @@ nav:
             - 'Enabling and Disabling a XACML Policy': learn/enabling-and-disabling-a-xacml-policy.md
           - 'Configuring Access Control Policy for a Service Provider': learn/configuring-access-control-policy-for-a-service-provider.md
           - 'Validating the Scope of OAuth Access Tokens using XACML Policies': learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
-          - 'Validating OAuth Access Token Scope Using XACML Policies During Token Issuance': learn/validating-oauth-access-token-scope-using-xacml-policies-during-token-issuance.md
         - 'Working with XACML':
           - 'Working with XACML': learn/working-with-xacml.md
           - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': learn/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
@@ -221,7 +216,7 @@ nav:
           - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
           - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
           - 'Configuring User Stores': 
-            - 'Overview': learn/configuring-user-stores.md
+            - 'Configuring User Stores': learn/configuring-user-stores.md
             - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
             - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
             - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
@@ -229,12 +224,10 @@ nav:
             - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
             - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
             - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
-        - 'Users, Roles and Permissions':
-          - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
+        - 'Configuring Users, Roles and Permissions':
+          - 'Configuring Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
           - 'Configuring Users': learn/configuring-users.md
           - 'Configuring Roles and Permissions': learn/configuring-roles-and-permissions.md
-          - 'Role-based Permissions': learn/role-based-permissions.md
-          - 'Changing a Password': learn/changing-a-password.md
           - 'Using Workflows with User Management': learn/using-workflows-with-user-management.md
         - 'Claim Management':
           - 'Claim Management': learn/claim-management.md
@@ -292,8 +285,11 @@ nav:
             - 'Locking a Specific User Account': learn/locking-a-specific-user-account.md
             - 'Account Disabling': learn/account-disabling.md
           - 'Setting Up ReCaptcha': learn/setting-up-recaptcha.md
-        - 'Workflows': 
-          - 'Workflows': learn/workflow-management.md
+        - 'Workflow Management': 
+          - 'Workflow Management': learn/workflow-management.md
+          - 'Adding a Workflow Engine':
+            - 'Adding a Workflow Engine': learn/adding-a-workflow-engine.md
+            - 'Configuring the BPM Profile of WSO2 EI as a Workflow Engine': learn/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine.md
           - 'Adding a New Workflow Definition': learn/adding-a-new-workflow-definition.md
           - 'Engaging a Workflow in an Operation': learn/engaging-a-workflow-in-an-operation.md
           - 'Managing Human Tasks': learn/managing-human-tasks.md
@@ -317,8 +313,8 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'MFA for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
-            - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
+            - 'Multi-factor Authentication for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
+            - 'Multi-factor Authentication using FIDO': learn/multi-factor-authentication-using-fido.md
             - 'Request Path Authentication': learn/request-path-authentication.md
             - 'Writing a Post-Authentication Handler': learn/writing-post-authentication-handler.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
@@ -448,6 +444,7 @@ nav:
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
       - 'Extending the Identity Server':
+        - 'Extending the Identity Server': develop/extending-the-identity-server.md
         - 'User Management for Developers':
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
@@ -472,49 +469,48 @@ nav:
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
-          - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
-            - 'REST APIs': develop/rest-apis.md
-            - 'Challenge Question': develop/challenge-rest-api.md
-            - 'Approvals': develop/approvals-rest-api.md
-            - 'Associations': develop/association-rest-api.md
-            - 'Authorized Apps': develop/authorized-apps-rest-api.md
-            - 'Fido': develop/fido-rest-api.md
-            - 'Session Management': develop/session-mgt-rest-api.md
-            - 'TOTP': develop/totp-rest-api.md
-            - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
-            - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
-            - 'Authentication': develop/using-the-authentication-rest-apis.md
-            - 'Consent Management': develop/using-the-consent-management-rest-apis.md
-            - 'Personal Information Export': develop/using-the-personal-information-export-rest-apis.md
-            - 'Configuration Management':
-              - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
+            - 'Challenge Question REST APIs': develop/challenge-rest-api.md
+            - 'Identity Governance API': develop/identity-governance-rest-api.md
+            - 'Approvals REST APIs': develop/approvals-rest-api.md
+            - 'Associations REST APIs': develop/association-rest-api.md
+            - 'Authorized Apps REST APIs': develop/authorized-apps-rest-api.md
+            - 'Fido REST APIs': develop/fido-rest-api.md
+            - 'Session Management REST APIs': develop/session-mgt-rest-api.md
+            - 'TOTP REST APIs': develop/totp-rest-api.md
+            - 'Account Recovery REST APIs': develop/using-the-account-recovery-rest-apis.md
+            - 'Self Sign-Up REST APIs': develop/using-the-self-sign-up-rest-apis.md
+            - 'Authentication REST APIs': develop/using-the-authentication-rest-apis.md
+            - 'Consent Management REST APIs': develop/using-the-consent-management-rest-apis.md
+            - 'Personal Information Export REST APIs': develop/using-the-personal-information-export-rest-apis.md
+            - 'Configuration Management REST APIs': 
+              - 'Using the Configuration Management REST APIs': develop/using-the-configuration-management-rest-apis.md
               - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
-            - 'SCIM 2.0': develop/using-the-scim-2.0-rest-apis.md
-            - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
-            - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
-            - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
-            - 'Authentication': develop/authentication-data-api.md
+            - 'SCIM 2.0 REST APIs': develop/using-the-scim-2.0-rest-apis.md
+            - 'OpenID Connect Dynamic Client Registration REST APIs': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+            - 'OAuth2 Scopes REST APIs': develop/using-oauth2-scopes-rest-apis.md
+            - 'Authenticating and Authorizing REST APIs': develop/authenticating-and-authorizing-rest-apis.md
+            - 'Authentication Data API': develop/authentication-data-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
-            - 'User Management':
-              - 'User Management': develop/user-management-with-apis.md
-              - 'Managing Users and Roles': develop/managing-users-and-roles-with-apis.md
-              - 'Managing Claims': develop/managing-claims-with-apis.md
-              - 'Managing Permissions': develop/managing-permissions-with-apis.md
-              - 'Counting Users and User Roles': develop/counting-users-and-roles-using-management-console-and-admin-services.md
-              - 'Managing User Stores': develop/managing-user-stores-with-apis.md
-            - 'User Information Recovery': develop/user-information-recovery-service.md
-            - 'Identity Application Management':
-              - 'Identity Application Management': develop/identity-application-management-api.md
-              - 'Using the Service Provider': develop/using-the-service-provider-api.md
+            - 'User Management with APIs':
+              - 'User Management with APIs': develop/user-management-with-apis.md
+              - 'Managing Users and Roles with APIs': develop/managing-users-and-roles-with-apis.md
+              - 'Managing Claims with APIs': develop/managing-claims-with-apis.md
+              - 'Managing Permissions with APIs': develop/managing-permissions-with-apis.md
+              - 'Counting users and roles using Management Console and Admin Services': develop/counting-users-and-roles-using-management-console-and-admin-services.md
+              - 'Managing User Stores with APIs': develop/managing-user-stores-with-apis.md
+            - 'User Information Recovery Service': develop/user-information-recovery-service.md
+            - 'Identity Application Management API':
+              - 'Identity Application Management API': develop/identity-application-management-api.md
+              - 'Using the Service Provider API': develop/using-the-service-provider-api.md
               - 'Service Provider Configurations used with APIs': develop/service-provider-configurations-used-with-apis.md
-            - 'Identity Provider Management':
-              - 'Identity Provider Management': develop/identity-provider-management-api.md
-              - 'Using the Identity Provider': develop/using-the-identity-provider-api.md
+            - 'Identity Provider Management API':
+              - 'Identity Provider Management API': develop/identity-provider-management-api.md
+              - 'Using the Identity Provider API': develop/using-the-identity-provider-api.md
               - 'Identity Provider Configurations used with APIs': develop/identity-provider-configurations-used-with-apis.md
           - 'SCIM 1.1 APIs': develop/scim-1.1-apis.md
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
@@ -559,6 +555,7 @@ nav:
           - 'Microsoft Azure AD Outbound Provisioning Connector': develop/microsoft-azure-ad-outbound-provisioning-connector.md
         - 'Password Policy Authenticator': develop/password-policy-authenticator.md
         - 'Pinterest Authenticator': develop/pinterest-authenticator.md
+        - 'Reddit Authenticator': develop/reddit-authenticator.md
         - 'RSA SecurID Authenticator': develop/rsa-securid-authenticator.md
         - 'SCIM 2.0 Provisioning Connector': develop/scim-2.0-provisioning-connector.md
         - 'SMSOTP Authenticator': develop/smsotp-authenticator.md
@@ -589,13 +586,13 @@ nav:
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
         - 'Installing as a Windows Service': setup/installing-as-a-windows-service.md
       - 'Running the Product': setup/running-the-product.md
-      - 'Getting Started with the Management Console':
-        - 'Overview': setup/getting-started-with-the-management-console.md
-        - 'Customizing the Management Console': setup/customizing-the-management-console.md
+      - 'Getting Started with the Management Console': setup/getting-started-with-the-management-console.md
+      - 'Customizing the Management Console': setup/customizing-the-management-console.md
+      - 'Shutting Down and Restarting the Server': setup/shutting-down-and-restarting-the-server.md
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 
-        - 'Overview': setup/deployment-patterns.md
+        - 'Deployment Patterns': setup/deployment-patterns.md
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
@@ -612,10 +609,12 @@ nav:
       - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
-    - 'Administer': administer/wso2-administration-guide.md
     - 'Product Administration': 
       - 'Configuring the Identity Server':
         - 'Configuring the Identity Server': administer/configuring-the-identity-server.md 
+        - 'Role-based Permissions': administer/role-based-permissions.md
+        - 'Email Templates': administer/email-templates.md
+        - 'Server Roles': administer/server-roles.md
         - 'Data Dictionary':
           - 'Data Dictionary': administer/data-dictionary.md
           - 'Registry Related Tables': administer/registry-related-tables.md
@@ -627,35 +626,41 @@ nav:
         - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
+        - 'Enabling Java Security Manager': administer/java-security-manager.md
         - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
-      - 'Using Tools':
+      - 'Monitoring the Identity Server': 
+        - 'Monitoring the Identity Server': administer/monitoring-the-identity-server.md 
+        - 'System Statistics': administer/system-statistics.md
+        - 'System Logs': administer/system-logs.md
+        - 'SOAP Tracer': administer/soap-tracer.md
+        - 'Application Logs': administer/application-logs.md
+      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
+      - 'Using Tools': 
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
-      - 'Working with Multiple Tenants':
-          - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
-          - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
-          - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
-          - 'Adding New Tenants': administer/adding-new-tenants.md
+      - 'XACML Performance in the Identity Server': administer/xacml-performance-in-the-identity-server.md
+      - 'Performance Tuning Recommendations': administer/performance-tuning-recommendations.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
       - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
       - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
       - 'Data Purging': administer/data-purging.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
-      - 'Working with Product Observability': administer/working-with-product-observability.md
+      - 'Working with Product Observability': administer/working-with-product-observability.md    
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
         - 'Load Balancing': administer/load-balancing.md    
+        - 'Separating the Worker and Manager Nodes': administer/separating-the-worker-and-manager-nodes.md
         - 'Sharing Databases in a Cluster': administer/sharing-databases-in-a-cluster.md
         - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
       - 'Production Deployment Guidelines': 
@@ -665,9 +670,28 @@ nav:
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Data Stores':
       - 'Working with Databases':
-        - 'Overview': administer/working-with-databases.md
+        - 'Working with Databases': administer/working-with-databases.md
+        - 'Setting up the Physical Database':
+          - 'Setting up IBM DB2': administer/setting-up-ibm-db2.md
+          - 'Setting up IBM Informix': administer/setting-up-ibm-informix.md
+          - 'Setting up H2': 
+            - 'Setting up Embedded H2': administer/setting-up-embedded-h2.md
+            - 'Setting up Remote H2': administer/setting-up-remote-h2.md
+          - 'Setting up MariaDB': administer/setting-up-mariadb.md
+          - 'Setting up Microsoft SQL': administer/setting-up-microsoft-sql.md
+          - 'Setting up MySQL': administer/setting-up-mysql.md
+          - 'Setting up a MySQL Cluster': administer/setting-up-a-mysql-cluster.md
+          - 'Setting up Oracle': administer/setting-up-oracle.md
+          - 'Setting up Oracle RAC': administer/setting-up-oracle-rac.md
+          - 'Setting up PostgreSQL': administer/setting-up-postgresql.md
+          - 'Setting up Derby':
+            - 'Setting up Embedded Derby': administer/setting-up-embedded-derby.md
+            - 'Setting up Remote Derby': administer/setting-up-remote-derby.md
         - 'Changing the Carbon Database':
+          - 'Changing to Embedded Derby': administer/changing-to-embedded-derby.md
+          - 'Changing to Embedded H2': administer/changing-to-embedded-h2.md
           - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
+          - 'Changing to IBM Informix': administer/changing-to-ibm-informix.md
           - 'Changing to MariaDB': administer/changing-to-mariadb.md
           - 'Changing to MSSQL': administer/changing-to-mssql.md
           - 'Changing to MySQL': administer/changing-to-mysql.md
@@ -675,16 +699,27 @@ nav:
           - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
           - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
           - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
         - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
       - 'Working with the Registry': 
         - 'Working with the Registry': administer/working-with-the-registry.md
-        - 'Browsing the Registry': administer/browsing-the-registry.md
+        - 'Managing the Registry':
+          - 'Managing the Registry': administer/managing-the-registry.md
+          - 'Metadata': administer/metadata.md
+          - 'Properties': administer/properties.md
+          - 'Entries and Content':
+            - 'Entries and Content': administer/entries-and-content.md
+            - 'Adding a Resource': administer/adding-a-resource.md
+            - 'Link Creation': administer/link-creation.md
+            - 'Editing collections using the Entries panel': administer/editing-collections-using-the-entries-panel.md
+          - 'Role Permissions': administer/role-permissions.md
+        - 'Searching the Registry': administer/searching-the-registry.md
       - 'Working with Users, Roles and Permissions':
         - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
         - 'Configuring the User Realm': 
-          - 'Configuring the User Realm': administer/configuring-user-realm.md
+          - 'Configuring the User Realm': administer/configuring-the-user-realm.md
+          - 'Configuring the System Administrator': administer/configuring-the-system-administrator.md
+          - 'Configuring the Authorization Manager': administer/configuring-the-authorization-manager.md
           - 'Configuring User Stores':
             - 'Configuring User Stores': administer/configuring-user-stores.md
             - 'Configuring the Primary User Store':
@@ -704,40 +739,83 @@ nav:
         - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
         - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
       - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
-      - 'Java Security Manager': administer/enabling-java-security-manager.md
-      - 'Encryption':
-        - 'Asymmetric Encryption':
-          - 'Asymmetric Encryption': administer/using-asymmetric-encryption.md
-          - 'Creating New Keystores': administer/creating-new-keystores.md
-          - 'Configuring Keystores': administer/configuring-keystores-in-wso2-products.md
-          - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md           
-          - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
-          - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
-          - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
-        - 'Symmetric Encryption': administer/using-symmetric-encryption.md
+      - 'Enabling Java Security Manager': administer/enabling-java-security-manager.md
+      - 'Using Asymmetric Encryption':
+        - 'Using Asymmetric Encryption': administer/using-asymmetric-encryption.md
+        - 'Creating New Keystores': administer/creating-new-keystores.md
+        - 'Renewing a CA-Signed Certificate in a Keystore': administer/renewing-a-ca-signed-certificate-in-a-keystore.md
+        - 'Configuring Keystores in WSO2 Products': administer/configuring-keystores-in-wso2-products.md
+        - 'Managing Keystores with the UI': administer/managing-keystores-with-the-ui.md
+      - 'Using Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
+    - 'Carbon Applications':
+      - 'Carbon Applications': administer/carbon-applications.md
+      - 'Adding a Custom Proxy Path': administer/adding-a-custom-proxy-path.md
+      - 'Changing the Default Ports': 
+        - 'Changing the Default Ports': administer/changing-the-default-ports.md
+        - 'Default Ports of WSO2 Products': administer/default-ports-of-wso2-products.md
+      - 'Configuring the Task Scheduling Component': administer/configuring-the-task-scheduling-component.md      
+      - 'Installing WSO2 Products as a Service':  setup/installing-wso2-products-as-a-service.md
+      - 'Managing Datasources':
+        - 'Managing Datasources': administer/managing-datasources.md
+        - 'Adding Datasources': administer/adding-datasources.md
+        - 'Configuring an RDBMS Datasource':
+          - 'Configuring an RDBMS Datasource': administer/configuring-an-rdbms-datasource.md
+          - 'Configuring the Datasource Provider': administer/configuring-the-datasource-provider.md
+          - 'Configuring a JNDI Datasource': administer/configuring-a-jndi-datasource.md
+          - 'Configuring the Datasource Connection Pool Parameters': administer/configuring-the-datasource-connection-pool-parameters.md
+        - 'Configuring a Custom Datasource': administer/configuring-a-custom-datasource.md
+      - 'Managing Users, Roles and Permissions':
+        - 'Managing Users, Roles and Permissions': administer/managing-users-roles-and-permissions.md
+        - 'Changing a Password': administer/changing-a-password.md
+        - 'Configuring Roles': administer/configuring-roles.md
+        - 'Configuring Users': administer/configuring-users.md
+        - 'Managing User Attributes': administer/managing-user-attributes.md
+        - 'Removing References to Deleted User Identities in WSO2 Products':
+          - 'Removing References to Deleted User Identities in WSO2 Products': administer/removing-references-to-deleted-user-identities-in-wso2-products.md
+          - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
+      - 'Securing Carbon Applications': administer/securing-carbon-applications.md
+      - 'Working with Composite Applications':
+        - 'Working with Composite Applications': administer/working-with-composite-applications.md
+        - 'Introduction to Composite Applications': administer/introduction-to-composite-applications.md
+        - 'Packaging Artifacts into Composite Applications': administer/packaging-artifacts-into-composite-applications.md
+        - 'Deploying Composite Applications in the Server': administer/deploying-composite-applications-in-the-server.md
+      - 'Working with Features': administer/working-with-features.md
+      - 'Working with Multiple Tenants':
+        - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
+        - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
+        - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
+        - 'Adding New Tenants': administer/adding-new-tenants.md
     - 'Monitoring':
-        - 'Monitoring': administer/monitoring-the-identity-server.md
-        - 'Monitoring Logs':
-          - 'Monitoring Logs': administer/monitoring-logs.md
-          - 'HTTP Access Logging': administer/http-access-logging.md
-          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-        - 'System Statistics': administer/system-statistics.md
-        - 'Monitoring TCP-Based Messages':
-          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-        - 'Monitoring Server Health': administer/monitoring-server-health.md
-        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-    - 'Performance':
-      - 'Performance Tuning': administer/performance-tuning-recommendations.md
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
+      - 'Monitoring': administer/monitoring.md
+      - 'Capturing System Data in Error Situations': administer/capturing-system-data-in-error-situations.md
+      - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+      - 'Monitoring Logs':
+        - 'Monitoring Logs': administer/monitoring-logs.md        
+        - 'HTTP Access Logging': administer/http-access-logging.md
+        - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
+      - 'Monitoring Message Flows': administer/monitoring-message-flows.md
+      - 'Monitoring TCP-Based Messages':
+        - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+        - 'Starting TCPMon': administer/starting-tcpmon.md
+        - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+        - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
+      - 'Monitoring with WSO2 Carbon Metrics':
+        - 'Monitoring with WSO2 Carbon Metrics': administer/monitoring-with-wso2-carbon-metrics.md
+        - 'Setting Up Carbon Metrics': 
+          - 'Setting Up Carbon Metrics': administer/setting-up-carbon-metrics.md
+          - 'Enabling Metrics and Storage Types': administer/enabling-metrics-and-storage-types.md
+          - 'Configuring Metrics Properties': administer/configuring-metrics-properties.md
+        - 'Using JVM Metrics': administer/using-jvm-metrics.md
+        - 'Using Messaging Metrics': administer/using-messaging-metrics.md
+      - 'Monitoring Server Health': administer/monitoring-server-health.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
+      - 'Database Upgrade Guide': administer/database-upgrade-guide.md
       - 'Product Startup Options': administer/product-startup-options.md
       - 'Supported Cipher Suites': administer/supported-cipher-suites.md
       - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
