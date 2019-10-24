@@ -7,14 +7,11 @@ and perform operations depending on their roles/permissions. You can
 also configure your own customized user stores and connect them with the
 products as secondary stores.
 
-You can use either the management console to create secondary user
-stores or you can create it manually. These will be stored in the deployment.toml file and use the same format, used to configure
-primary user store.
+You can use either the management console to create secondary user stores or you can create it manually. These will be stored in the deployment.toml file and use the same format, used to configure primary user store.
 
-### Configuring using the Management Console
+## Configuring using the Management Console
 
-1.  Log in to the management console and click **Add** under the **User
-    Stores** sub menu in the **Main** menu. The **Add New User Store**
+1.  Log in to the management console and click **Add** under the **User Stores** sub menu in the **Main** menu. The **Add New User Store**
     page opens.
 
     !!! info 
@@ -112,12 +109,12 @@ primary user store.
     secondary user store and enable/disable it in a dynamic manner.  
     This will be saved to an XML file with the same name as the domain
     name, under
-    `          <PRODUCT_HOME>/repository/deployment/server/userstores         `
+    `          <IS_HOME>/repository/deployment/server/userstores         `
     directory for super tenant and
-    `          <PRODUCT_HOME>/repository/tenants/<tenantid>/userstores         `
+    `          <IS_HOME>/repository/tenants/<tenantid>/userstores         `
     directory fortenant.
 
-### Configuring manually
+## Configuring manually
 
 If you prefer to configure the user store manually. Follow the below
 steps to create and save the .xml file:
@@ -129,23 +126,21 @@ steps to create and save the .xml file:
 
 2.  If the configuration is done for the super tenant, save the
     secondary user store definitions in
-    `           <PRODUCT_HOME>/repository/deployment/server/          `
+    `           <IS_HOME>/repository/deployment/server/          `
     userstores directory.
 
 3.  If the configuration is done for the tenant, save the configuration
     in
-    `           <PRODUCT_HOME>/repository/tenants/<tenantid>/userstores          `
+    `           <IS_HOME>/repository/tenants/<tenantid>/userstores          `
     directory.
 
     !!! note
-    
         The secondary user store configuration file must have the same name
         as the domain with an underscore (\) in place of the period. For
         example, if the domain is 'wso2.com', name the file as
         `           wso2_com.xml          ` . One file contains the
         definition for one user store domain.
     
-
     In the following user store manager configuration sections, you can
     find sample configurations for each type of use store. Additionally,
     you need to set the DomainName property with the domain name of your
@@ -156,7 +151,6 @@ steps to create and save the .xml file:
     ```
 
     !!! note
-    
         If we create a secondary user store from the UI in a clustered
         environment, it will not sync between all the nodes by default, so
         you need to copy manually to other nodes and same happens in
