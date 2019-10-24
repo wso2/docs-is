@@ -939,6 +939,7 @@ This document describes all the REST API error codes that are used in WSO2 Ident
 </div>
 
 ## Identity Governance Errors
+
 <div class="errorcode">
 <table>
   <thead>
