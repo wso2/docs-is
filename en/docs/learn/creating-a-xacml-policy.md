@@ -116,7 +116,7 @@ rules are **evaluated from top to bottom**.
     
 
 ##### Sample Policy Example 
-A example of a policy is given below. This policy is defined for accessing the “foo” resource.
+An example of a policy is given below. This policy is defined for accessing the “foo” resource.
 
 *Following are the access control rules that policy needs to be
 satisfied*
