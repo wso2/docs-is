@@ -30,9 +30,7 @@ attributes of a user in the Identity Server.
         **User Profile**.  
         ![update-profile](../assets/img/using-wso2-identity-server/update-profile.png)
     5.  Click **Update** to save changes to the attributes.
-2.  You can use the REST Web service according to the SCIM provisioning
-    specification. For more information on this, see [Using the SCIM 2.0
-    REST APIs](../../references/using-the-scim-2.0-rest-apis).
+2.  You can use the REST Web service according to the SCIM provisioning specification. For more information on this, see [Using the SCIM 2.0 REST APIs](../../develop/using-the-scim-2.0-rest-apis/).
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
@@ -72,14 +70,14 @@ follows for “
 email;DEMO/mail
 ```
 
-Attributes with multiple values
+#### Attributes with multiple values
 
 If your user store supports having multiple values for attributes, the
 WSO2 Identity Server can view, add, update or delete them (normally
 LDAP/AD offer support for this). The following are the different ways
 you can do this.
 
-1.  In the Identity Server Management Console, multiple attribute values
+1.  In WSO2 Identity Server Management Console, multiple attribute values
     are separated by comma. If you want to update two email addresses
     using the user profile UI, you must provide it as follows.
 
