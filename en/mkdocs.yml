@@ -589,8 +589,9 @@ nav:
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
         - 'Installing as a Windows Service': setup/installing-as-a-windows-service.md
       - 'Running the Product': setup/running-the-product.md
-      - 'Getting Started with the Management Console': setup/getting-started-with-the-management-console.md
-      - 'Customizing the Management Console': setup/customizing-the-management-console.md
+      - 'Getting Started with the Management Console':
+        - 'Overview': setup/getting-started-with-the-management-console.md
+        - 'Customizing the Management Console': setup/customizing-the-management-console.md
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 
