@@ -94,12 +94,12 @@ Note the following regarding the configuration above.
     <p>Note that the password in the <code>               deployment.toml              </code> file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the <code>               deployment.toml             </code> file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the <code>               deployment.toml             </code> file. To change the admin password, you must use the <strong>Change Password</strong> option from the management console. See the <a href="#related-topics">related topics</a> for instructions.
     </p></div></td>
 </tr>
-<tr class="even">
-<td><code>              &lt;EveryOneRoleName&gt;             </code></td>
-<td>The name of the "everyone" role. All users in the system belong to this role.</td>
-</tr>
 </tbody>
 </table>
+
+
+!!! Tip 
+    There is an internal system role "**everyone**" available by default. All users in the system belong to this role.
 
 <a name="related-topics"></a>
 

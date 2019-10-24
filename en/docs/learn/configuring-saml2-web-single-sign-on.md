@@ -284,7 +284,8 @@ instances of entity configuration.
 
         ``` java
         <?xml version="1.0"?>
-        <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2018-07-25T04:49:17Z" cacheDuration="PT604800S" entityID="travelocity.com">
+        <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2030-07-25T04:49:17Z
+        " cacheDuration="PT604800S" entityID="travelocity.com">
           <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
             <md:KeyDescriptor use="signing">
               <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">

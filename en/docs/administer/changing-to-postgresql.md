@@ -1,52 +1,128 @@
 # Changing to PostgreSQL
 
-By default, WSO2 products use the embedded H2 database as the database
+By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use PostgreSQL for this purpose.
-
-!!! tip "Before you begin"
-    You need to set up PostgreSQL before following the steps to configure
-    your product with PostgreSQL. For more information, see [Setting up
-    PostgreSQL](../../administer/setting-up-postgresql).
     
 
 ### Setting up datasource configurations
 
 A datasource is used to establish the connection to a database. By
-default, `         WSO2_CARBON_DB        ` datasource is used to connect
-to the default  H2 database, which stores registry and user management
-data. After setting up the PostgreSQL database to replace the default H2
-database, either change the default configurations of the
-`          WSO2_CARBON_DB         `datasource, or configure a new datasource to point it to the new database as explained below.
+default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
+to the default  H2 database. 
+
+- `WSO2_SHARED_DB` - The database which stores registry and user management
+                     data.
+- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
+                       identity related data
+                       
+After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that PostgreSQL database by following below instructions.
 
 #### Changing the default datasource
 
-Follow the steps below to change the type of the default datasource.
+1.  Minimum Configurations for changing default datasource to PostgreSQL.
+ 
+ Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Following are the basic configurations and their descriptions. 
+      <table>
+      <thead>
+      <tr class="header">
+      <th>Element</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="even">
+      <td><strong>username</strong> and <strong>password</strong></td>
+      <td>The name and password of the database user.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>type</strong></td>
+      <td>The type of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>hostname</strong></td>
+      <td>The hostname of the host where database is hosted.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>port</strong></td>
+      <td>The port of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>name</strong></td>
+      <td>The name of the database.</td>
+      </tr>
+      </table>   
+ 
+ A Sample configuration is given below.
+  
 
-1.  Edit the default datasource configuration in the \<
-    `           IS_HOME>/repository/conf/deployment.toml          ` file as shown below.
-
-    !!! tip
-        Make sure to **set the following elements:**
+    1. `WSO2_IDENTITY_DB` 
     
-        -   `                         validationQuery                        - SELECT 1;           `
-            `            COMMIT           `
-        -   `                         defaultAutoCommit                        - false           `
-        -   `                         testOnBorrow                        - true           `
-    
-        
-            **Note:** If you are using WSO2 Identity Server 5.7.0 or a later
-            version, set the `           <defaultAutoCommit>          ` property
-            to **true**.
-        
+        1. `deployment.toml` Configurations
 
-    ``` toml
-    [database.identity_db]
-    url = "jdbc:postgresql://localhost:5432/gregdb"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "org.postgresql.Driver"
-    [database.identity_db.pool_options]
+           ``` toml
+           [database.identity_db]
+           type = "postgre"
+           hostname = "localhost"
+           name = "testdb"
+           username = "regadmin"
+           password = "regadmin"
+           port = "5432"
+           ```
+        2. Executing database scripts.
+        
+           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+           
+           - `<IS-HOME>/dbscripts/identity/postgresql.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
+           - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+         
+    2. `WSO2_SHARED_DB`
+        
+        1. `deployment.toml` Configurations
+
+           ``` toml
+           [database.shared_db]
+           type = "postgre"
+           hostname = "localhost"
+           name = "testdb"
+           username = "regadmin"
+           password = "regadmin"
+           port = "5432"
+           ```
+        2. Executing database scripts.
+        
+           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+                      
+           - `<IS-HOME>/dbscripts/postgresql.sql`
+           
+    3. If you have a requirement in using workflow feature follow, 
+       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       
+    4.  Download the Postgres JDBC driver for the version you are using and
+            copy it to the `<IS_HOME>/repository/components/lib` folder  
+    
+    !!! note     
+        In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
+        -DSetup option  **from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) 
+        WSO2 Identity Server has deprecated the** **`              -DSetup             `** **option**
+        Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA
+        can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in
+        place within the organization.  
+        
+    The elements in the above configuration are described below:     
+            
+
+2. Advanced Database Configurations.
+
+Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
+
+- `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+    
+   ``` toml
+   [database.identity_db.pool_options]
     maxActive = "80"
     maxWait = "60000"
     minIdle = "5"
@@ -54,13 +130,11 @@ Follow the steps below to change the type of the default datasource.
     validationQuery="SELECT 1; COMMIT"
     validationInterval="30000"
     defaultAutoCommit=false
-
-    [database.shared_db]
-    url = "jdbc:postgresql://localhost:5432/gregdb"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "org.postgresql.Driver"
-    [database.shared_db.pool_options]
+   ```
+- `WSO2_SHARED_DB` `deployment.toml` Configurations.
+        
+   ``` toml
+   [database.shared_db.pool_options]
     maxActive = "80"
     maxWait = "60000"
     minIdle = "5"
@@ -68,30 +142,11 @@ Follow the steps below to change the type of the default datasource.
     validationQuery="SELECT 1; COMMIT"
     validationInterval="30000"
     defaultAutoCommit=false
-    ```
+   ```
 
     The elements in the above configuration are described below:
-
+        
     <table>
-    <thead>
-    <tr class="header">
-    <th>Element</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>url</strong></td>
-    <td>The URL of the database. The default port for a PostgreSQL instance is 5432.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>username</strong> and <strong>password</strong></td>
-    <td>The name and password of the database user.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>driverClassName</strong></td>
-    <td>The class name of the database driver.</td>
-    </tr>
     <tr class="even">
     <td><strong>maxActive</strong></td>
     <td>The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
@@ -121,28 +176,19 @@ Follow the steps below to change the type of the default datasource.
     <td><div class="content-wrapper">
     <p>This property is <strong>not</strong> applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.</p>
     <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p>
-    <div class="admonition note">
-    <p class="admonition-title">Note</p>
-    <p>Set this property to true if you are using WSO2 Identity Server 5.7.0 or a later version.</p>
-    </div></td>
+    </td>
     </tr>
     </tbody>
     </table>
 
     !!! info 
         For more information on other parameters that can be defined in
-        the \<
-        `            IS_HOME>/repository/conf/datasources/master-datasources.xml           ` file, see [Tomcat
+        the 
+        `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
         JDBC Connection
         Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-    
-
-    | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
-    |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
-    | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
-
+  
     **Configuring the connection pool behavior on return** 
     When a database connection is returned to the pool, by default 
     the product rolls back the pending transactions if defaultAutoCommit
@@ -168,127 +214,62 @@ Follow the steps below to change the type of the default datasource.
             ```
 
         3.  Navigate to the
-            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `               <IS_HOME>/repository/conf/deployment.toml              `
             file.
         4.  Disable the `               defaultAutoCommit              `
-            by defining it as false.
+            by defining it as `false`.
         5.  Add the `                commitOnReturn               `
-            property and set it to true for all the datasources,
-            including the custom datasources.
-
-            ``` html/xml
-            <datasource>
-                ...
-                    <definition type="RDBMS">
-                        <configuration>
-                            ...
-                            <defaultAutoCommit>false</defaultAutoCommit>
-                            <commitOnReturn>true</commitOnReturn>    
-                            ...
-                        </configuration>
-                    </definition>
-            </datasource>
-            ```
-
+            property and set it to true.
+                             
+        - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+            
+           ``` toml
+           [database.identity_db.pool_options]
+            defaultAutoCommit="false"
+            commitOnReturn="true"
+           ```
+        - `WSO2_SHARED_DB` `deployment.toml` Configurations.
+                
+           ``` toml
+           [database.shared_db.pool_options]
+            defaultAutoCommit="false"
+            commitOnReturn="true"
+           ```    
+            
     -   **Configure the connection pool to rollback pending transactions on connection return**
 
         1.  Navigate to the
-            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
+            `<IS_HOME>/repository/conf/deployment.toml`            `
             file.
         2.  Disable the
             `                defaultAutoCommit               ` by
-            defining it as false.
+            defining it as `false`.
 
-        3.  Add the `                rollbackOnReturn               `
-            property to the datasources.
+        3.  Set the `                rollbackOnReturn               `
+            property to the datasources as true.
 
-            ``` html/xml
-            <datasource>
-                ...
-                    <definition type="RDBMS">
-                        <configuration>
-                            ...
-                            <defaultAutoCommit>false</defaultAutoCommit> 
-                            <rollbackOnReturn>true</rollbackOnReturn>
-                            ...
-                        </configuration>
-                    </definition>
-            </datasource>
-            ```
 
-2.  Download the Postgres JDBC driver for the version you are using and
-    copy it to the \<
-    `           IS_HOME>/repository/components/lib folder          `
+        - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+            
+           ``` toml
+           [database.identity_db.pool_options]
+            defaultAutoCommit="false"
+            rollbackOnReturn="true"
+           ```
+        - `WSO2_SHARED_DB` `deployment.toml` Configurations.
+                
+           ``` toml
+           [database.shared_db.pool_options]
+            defaultAutoCommit="false"
+            rollbackOnReturn="true"
+           ```
+    
+    The elements in the above configuration are described below:
+    
+     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
+     |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
+     | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
-#### Configuring new datasources to manage registry or user management data
 
-Follow the steps below to configure new datasources to point to
-the new  databases you create to manage registry and/or user management
-data separately.
-
-1.  Add a new datasource with similar configurations as the
-    [`            WSO2_CARBON_DB           `
-    datasource](#changing-the-default-datasource) above
-    to the `           <IS_HOME>/repository/conf/datasources/master-datasources.xml          ` file. Change its
-    elements with your custom values. For instructions, see [Setting
-    up datasource configurations](#setting-up-datasource-configurations)
-   .
-
-2.  If you are setting up a separate database to store registry-related
-    data, update the following configurations in the \<
-    `           IS_HOME>/repository/conf/registry.xml          ` file.
-
-    ``` xml
-    <dbConfig name="wso2registry">
-        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-    </dbConfig>
-    ```
-
-3.  If you are setting up a separate database to store user management
-    data, update the following configurations in the \<
-    `           IS_HOME>/repository/conf/user-mgt.xml          ` file.
-
-    ``` xml
-    <Configuration>
-        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-    </Configuration>
-    ```
-
-### Creating database tables
-
-To create the database tables, connect to the database that you created
-earlier and run the following scripts.
-
-1.  To create tables in the registry and user manager database (
-    `           WSO2CARBON_DB          ` ), use the below script:
-
-    ``` powershell
-    <IS_HOME>/dbscripts/postgresql.sql
-    ```
-
-2.  Restart the server.
-
-    !!! info
-        You can create database tables automatically **when starting the
-        product for the first time** by using the
-        `            -Dsetup           ` parameter as follows:
-
-        -   For Windows:
-            `              <IS_HOME>/bin/wso2server.bat -Dsetup run             `
-
-        -   For Linux:
-            `              <IS_HOME>/bin/wso2server.sh -Dsetup             `
-
-        !!! warning "Deprecation of -DSetup"
-            When proper Database Administrative (DBA) practices are followed,
-            the systems (except analytics products) are not granted DDL (Data
-            Definition) rights on the schema. Therefore, maintaining the
-            `             -DSetup            ` option is redundant and typically
-            unusable. **As a result, from [January 2018
-            onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-            deprecated the** **`              -DSetup             `** **option**
-           . Note that the proper practice is for the DBA to run the DDL
-            statements manually so that the DBA can examine and optimize any DDL
-            statement (if necessary) based on the DBA best practices that are in
-            place within the organization.
     

@@ -12,8 +12,8 @@ The responsibility of the service provider configuration is to represent
 external service providers. The service provider configurations cover
 the following:
 
--   **Define how the service provider talks to the Identity Server**
-    inbound authenticator  
+-   **Define how the service provider talks to the Identity Server
+    inbound authenticator**  
     This is via inbound authenticators. When you register a service
     provider, you need to associate one or more inbound authenticators
     with it.
@@ -26,9 +26,8 @@ the following:
 -   **Maintain claim mapping**.  
     This is to map the service provider's own set of claims to the
     Identity Server's claims. For example, WSO2 Identity Server (WSO2
-    IS) has a claim called work email (
-    `                     http://wso2.org/claims/emails.work                   `
-    ) but your service provider application expects to receive a value
+    IS) has a claim called work email (`http://wso2.org/claims/emails.work`) 
+    but your service provider application expects to receive a value
     named email. If the service provider application receives a value
     named work email, it does not recognize it as it does not recognize
     it. Therefore, to ensure that the values sent by WSO2 IS is

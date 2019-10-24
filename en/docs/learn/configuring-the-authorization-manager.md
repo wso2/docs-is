@@ -32,28 +32,8 @@ Authorization Manager.
 By default, the embedded H2 database is used for storing permissions.
 You can change this as follows:
 
-1.  Change the default H2 database or set up another RDBMS for storing
-    permissions.
-2.  When you set up an RDBMS for your system, it is necessary to create
-    a corresponding datasource, which allows the system to connect to
-    the database.
-    -   If you are replacing the default H2 database with a new RDBMS,
-        update the type and URL in the `             deployment.toml            ` file
-        (stored in the
-        `             <PRODUCT_HOME>/repository/conf/           `
-        directory) as shown below. The valid types are mysql,oracle,mssql,db2 and postgre.
-
-        ```toml 
-            [database.shared_db]
-            type = "h2"
-            url = "jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
-            username = "wso2carbon"
-            password = "wso2carbon"
-        ```
-
-Refer the [related
-topics](#related-topics) for detailed
-information on setting up databases and configuring datasources.  
+Refer the [related topics](#related-topics) for detailed information on
+setting up databases and configuring datasources.
 
 ### Step 2: Updating the user realm configurations
 
@@ -165,12 +145,10 @@ GetAllRolesOfUserEnabled = true
     case_sensitive_authorization_rules = true
     ```
 
-<a name="related-topics></a>
 
-!!! info "Related Topics"
-    -   [Configuring User Stores](../../learn/configuring-user-stores) : This topic
-        explains how the repositories for storing information about Users
-        and Roles are configured.
-    -   [Setting up the Physical Database](#setting-up) : This section
-        explains how you can set up a new RDBMS and configure it for your
-        system.
+#### Related Topics
+- [Configuring User Stores](../../learn/configuring-user-stores) : This
+  topic explains how the repositories for storing information about
+  Users and Roles are configured.
+- [Setting up the Physical Database](#setting-up) : This section explains
+how you can set up a new RDBMS and configure it for your system.
