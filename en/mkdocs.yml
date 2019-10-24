@@ -229,10 +229,11 @@ nav:
             - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
             - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
         - 'Users, Roles and Permissions':
-          - 'Configuring Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
+          - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
           - 'Configuring Users': learn/configuring-users.md
           - 'Configuring Roles and Permissions': learn/configuring-roles-and-permissions.md
-          - 'Role-based Permissions': administer/role-based-permissions.md
+          - 'Role-based Permissions': learn/role-based-permissions.md
+          - 'Changing a Password': learn/changing-a-password.md
           - 'Using Workflows with User Management': learn/using-workflows-with-user-management.md
         - 'Claim Management':
           - 'Claim Management': learn/claim-management.md
@@ -632,7 +633,7 @@ nav:
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Monitoring the Identity Server': 
         - 'Monitoring the Identity Server': administer/monitoring-the-identity-server.md
-        - 'Monitoring Mechanisms': administer/monitoring.md
+        - 'Monitoring Mechanisms': administer/monitoring-mechanisms.md
         - 'Monitoring Logs':
           - 'Monitoring Logs': administer/monitoring-logs.md
           - 'HTTP Access Logging': administer/http-access-logging.md
@@ -710,12 +711,10 @@ nav:
         - 'Working with the Registry': administer/working-with-the-registry.md
         - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': learn/configuring-users-roles-and-permissions.md
+        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
         - 'Introduction to User Management': administer/introduction-to-user-management.md
         - 'Configuring the User Realm': 
           - 'Configuring the User Realm': administer/configuring-user-realm.md
-          - 'Configuring the System Administrator': administer/configuring-the-system-administrator.md
-          - 'Configuring the Authorization Manager': administer/configuring-the-authorization-manager.md
           - 'Configuring User Stores':
             - 'Configuring User Stores': administer/configuring-user-stores.md
             - 'Configuring the Primary User Store':
