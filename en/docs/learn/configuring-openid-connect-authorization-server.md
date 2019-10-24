@@ -2,7 +2,7 @@
 
 This topic guides you through configuring the OpenID Connect
 Authorization Server by configuring the deployment.toml file found in the
-`         <PRODUCT_HOME>/repository/conf/      ` directory.
+`         <IS_HOME>/repository/conf/      ` directory.
 
 ``` toml
 [oauth.oidc.extensions]

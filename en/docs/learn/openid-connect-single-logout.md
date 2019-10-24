@@ -17,7 +17,8 @@ client application one by one.
     -   **Browser** and **user agent**
     
 
-Following are the three SLO mechanisms supported by OIDC
+Following are the three SLO mechanisms supported by OIDC:
+
 -   [OIDC Session
     Management](#oidc-session-management)
 -   [OIDC Back-Channel
@@ -202,7 +203,7 @@ follows.
     session state value. The RP handles this as an end user logout.
 5.  If the end user has not logged out, the RP will receive a successful
     authentication response along with a new session state value.
-
+<a name="manualconfigs"></a>
 #### Configurations
 
 You can configure an RP for OIDC session management in WSO2 Identity
@@ -211,7 +212,9 @@ Server with either of the following methods:
 -   [OpenID Connect Dynamic Client
     Registration](../../learn/openid-connect-dynamic-client-registration)
 
--   Manual configuration through WSO2 Identity Server Management Console
+-   [Manual configuration through WSO2 Identity Server Management Console](#manualconfigs)
+
+**Manual configuration through WSO2 Identity Server Management Console**
 
 Follow the steps below to configure an RP for OIDC session management in
 WSO2 Identity Server Management Console:
@@ -368,7 +371,7 @@ logout endpoint URL.
     ```
 
     ``` java tab="Example"
-        https://localhost:9443/oidc/logout
+    https://localhost:9443/oidc/logout
     ```
 
 -   The logout request sent by the RP to OP includes the following query
@@ -522,7 +525,7 @@ OIDC back-channel logout.
 7.  Upon receiving the logout token, the client application validates
     the logout token and invalidates the user session causing the
     session to logout.
-
+<a name="manualconfigs2"></a>
 #### Configurations
 
 You can configure an RP for OIDC back-channel logout in WSO2 Identity
@@ -553,7 +556,9 @@ Server with either of the following methods:
         }
         ```
 
--   Manual configuration through WSO2 Identity Server Management Console
+-   [Manual configuration through WSO2 Identity Server Management Console](#manualconfigs2)
+
+**Manual configuration through WSO2 Identity Server Management Console**
 
 Follow the steps below to configure an RP for OIDC back-channel logout
 in WSO2 Identity Server:

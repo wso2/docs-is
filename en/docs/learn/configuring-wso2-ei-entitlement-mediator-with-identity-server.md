@@ -3,7 +3,7 @@
 With the latest WSO2 Enterprise Integrator (EI), you can add
 fine-grained XACML authorization for proxy services, using the
 [entitlement
-mediator](http://docs.wso2.com/enterprise-integrator/Entitlement+Mediator)
+mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/entitlement-Mediator/)
 . XACML-based authorization allows you to have an extremely flexible way
 of defining the rules of accessing resources based on the user, the
 user's role, the environment, time and date, etc. Now, the WSO2 product
@@ -20,7 +20,7 @@ have a full blown authorization scheme in place with minimum effort.
 !!! info    
     For more information about the WSO2 EI, please visit the [WSO2
     Enterprise Integrator
-    Documentation](http://docs.wso2.com/enterprise-integrator).
+    Documentation](https://ei.docs.wso2.com/).
 
 ### Configure Identity Server as an XACML Engine
 
@@ -38,7 +38,7 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
     sequence to include the Entitlement, Header, and Send mediators. Add
     the Advanced/Entitlement Mediator to `          InSequence         `
     . For instructions, see [Adding a Proxy
-    Service in the WSO2 EI documentation](http://docs.wso2.com/enterprise-integrator/Adding+a+Proxy+Service). 
+    Service in the WSO2 EI documentation](https://ei.docs.wso2.com/en/latest/micro-integrator/develop/creating-artifacts/creating-a-proxy-service/). 
     
     The Entitlement Server should be the endpoint for the Identity
     Server where the entitlement engine is running
@@ -49,7 +49,7 @@ The next step is to configure the entitlement mediator in the WSO2 EI.
 2.  Add the Transform/Header mediator. See [Adding a Mediator to a
     Sequence](http://docs.wso2.com/enterprise-integrator/Adding+a+Mediation+Sequence)
     and
-    [Mediators](http://docs.wso2.com/enterprise-integrator/Mediators).
+    [Mediators](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/about-mediators/).
     Remove the "Security" header. Click on the "Namespaces" link to set
     the namespace as " `          wsse"         ` .  
     -   **Prefix** - wsse.
@@ -80,7 +80,7 @@ The client in the following example has tried to invoke the echo service
 deployed in WSO2 EI through the previously created Proxy Service.
 
 ``` java
-package org.apache.ws.axis2;
+    package org.apache.ws.axis2;
     import org.apache.axiom.om.OMAbstractFactory;
     import org.apache.axiom.om.OMElement;
     import org.apache.axiom.om.OMFactory;
