@@ -1,6 +1,6 @@
 # Changing to PostgreSQL
 
-By default, WSO2 Identity Server use the embedded H2 database as the database
+By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
 you need to follow in order to use PostgreSQL for this purpose.
     
@@ -9,9 +9,14 @@ you need to follow in order to use PostgreSQL for this purpose.
 
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
-to the default  H2 database. Here `WSO2_SHARED_DB` is the database which stores registry and user management
-data.`         WSO2_IDENTITY_DB        ` is a specific database for the identity server which stores
-identity related data. After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` or 
+to the default  H2 database. 
+
+- `WSO2_SHARED_DB` - The database which stores registry and user management
+                     data.
+- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
+                       identity related data
+                       
+After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that PostgreSQL database by following below instructions.
 
 #### Changing the default datasource
@@ -50,7 +55,7 @@ identity related data. After setting up the PostgreSQL database. You can point t
       </tr>
       </table>   
  
- Sample configuration is given below.
+ A Sample configuration is given below.
   
 
     1. `WSO2_IDENTITY_DB` 
@@ -112,31 +117,31 @@ identity related data. After setting up the PostgreSQL database. You can point t
 
 2. Advanced Database Configurations.
 
-Apart from above basic configurations wso2 supports advanced database configurations.
+Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
 
 - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
     
    ``` toml
-       [database.identity_db.pool_options]
-        maxActive = "80"
-        maxWait = "60000"
-        minIdle = "5"
-        testOnBorrow = true
-        validationQuery="SELECT 1; COMMIT"
-        validationInterval="30000"
-        defaultAutoCommit=false
+   [database.identity_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1; COMMIT"
+    validationInterval="30000"
+    defaultAutoCommit=false
    ```
 - `WSO2_SHARED_DB` `deployment.toml` Configurations.
         
    ``` toml
-      [database.shared_db.pool_options]
-       maxActive = "80"
-       maxWait = "60000"
-       minIdle = "5"
-       testOnBorrow = true
-       validationQuery="SELECT 1; COMMIT"
-       validationInterval="30000"
-       defaultAutoCommit=false
+   [database.shared_db.pool_options]
+    maxActive = "80"
+    maxWait = "60000"
+    minIdle = "5"
+    testOnBorrow = true
+    validationQuery="SELECT 1; COMMIT"
+    validationInterval="30000"
+    defaultAutoCommit=false
    ```
 
     The elements in the above configuration are described below:
@@ -219,16 +224,16 @@ Apart from above basic configurations wso2 supports advanced database configurat
         - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
             
            ``` toml
-               [database.identity_db.pool_options]
-                defaultAutoCommit="false"
-                commitOnReturn="true"
+           [database.identity_db.pool_options]
+            defaultAutoCommit="false"
+            commitOnReturn="true"
            ```
         - `WSO2_SHARED_DB` `deployment.toml` Configurations.
                 
            ``` toml
-              [database.shared_db.pool_options]
-               defaultAutoCommit="false"
-               commitOnReturn="true"
+           [database.shared_db.pool_options]
+            defaultAutoCommit="false"
+            commitOnReturn="true"
            ```    
             
     -   **Configure the connection pool to rollback pending transactions on connection return**
@@ -247,16 +252,16 @@ Apart from above basic configurations wso2 supports advanced database configurat
         - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
             
            ``` toml
-               [database.identity_db.pool_options]
-                defaultAutoCommit="false"
-                rollbackOnReturn="true"
+           [database.identity_db.pool_options]
+            defaultAutoCommit="false"
+            rollbackOnReturn="true"
            ```
         - `WSO2_SHARED_DB` `deployment.toml` Configurations.
                 
            ``` toml
-              [database.shared_db.pool_options]
-               defaultAutoCommit="false"
-               rollbackOnReturn="true"
+           [database.shared_db.pool_options]
+            defaultAutoCommit="false"
+            rollbackOnReturn="true"
            ```
     
     The elements in the above configuration are described below:
