@@ -472,10 +472,12 @@ nav:
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
+          - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
+            - 'REST APIs': develop/rest-apis.md
             - 'Challenge Question': develop/challenge-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
@@ -503,9 +505,9 @@ nav:
               - 'Managing Users and Roles': develop/managing-users-and-roles-with-apis.md
               - 'Managing Claims': develop/managing-claims-with-apis.md
               - 'Managing Permissions': develop/managing-permissions-with-apis.md
-              - 'Counting users and roles using Management Console and Admin Services': develop/counting-users-and-roles-using-management-console-and-admin-services.md
+              - 'Counting Users and User Roles': develop/counting-users-and-roles-using-management-console-and-admin-services.md
               - 'Managing User Stores': develop/managing-user-stores-with-apis.md
-            - 'User Information Recovery Service': develop/user-information-recovery-service.md
+            - 'User Information Recovery': develop/user-information-recovery-service.md
             - 'Identity Application Management':
               - 'Identity Application Management': develop/identity-application-management-api.md
               - 'Using the Service Provider': develop/using-the-service-provider-api.md
