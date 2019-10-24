@@ -54,8 +54,8 @@ logs,** **HTTP access logs**, and **Service/Event logs** for WSO2 Identity Serve
 
 #### Configuring Carbon logs 
 Carbon logs are enabled in WSO2 Identity Server by default. You can change
-the following default configuration by manually updating the the
-`           log4j2.properties          ` file. 
+the following default configuration by manually updating the
+`log4j2.properties` file. 
 
 ```toml
 
