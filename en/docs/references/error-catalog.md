@@ -937,3 +937,71 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Identity Governance Errors
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+    <tr>  
+      <td>IDG-50001</td>
+      <td>500</td>
+      <td>Unable to get the identity governance categories.</td>
+      <td>Server Encountered an error while retrieving identity governance categories.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50002</td>
+      <td>500</td>
+      <td>Unable to get the identity governance category.</td>
+      <td>Server Encountered an error while retrieving identity governance category.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50003</td>
+      <td>500</td>
+      <td>Unable to get the identity governance connector.</td>
+      <td>Server Encountered an error while retrieving identity governance connector.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50004</td>
+      <td>500</td>
+      <td>Unable to update the identity governance connector property.</td>
+      <td>Server Encountered an error while updating identity governance connector property.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50005</td>
+      <td>501</td>
+      <td>Pagination not supported.</td>
+      <td>Pagination capabilities are not supported in this version of the API.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50006</td>
+      <td>501</td>
+      <td>Filtering not supported.</td>
+      <td>Filtering capability is not supported in this version of the API.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50007</td>
+      <td>501</td>
+      <td>Sorting not supported.</td>
+      <td>Sorting capability is not supported in this version of the API.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50008</td>
+      <td>400</td>
+      <td>Resource not found.</td>
+      <td>Unable to find any category with the provided identifier {{category identifier}}.</td>
+    </tr>
+    <tr>  
+      <td>IDG-50009</td>
+      <td>400</td>
+      <td>Resource not found.</td>
+      <td>Unable to find any connector with the provided identifier {{connector identifier}}.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
