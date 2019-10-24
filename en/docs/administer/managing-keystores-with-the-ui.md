@@ -4,9 +4,7 @@ WSO2 Identity Server Management Console enables viewing keystore details such as
     
 !!! tip "Before you begin"
 
-    1.  Make sure to create and store all the required keystore files in the `<IS_HOME>/repository/resources/security` directory. 
-    2.  Sign in to the WSO2 Identity Server Management Console. 
-
+    Make sure to create and store all the required keystore files in the `<IS_HOME>/repository/resources/security` directory.      
 
 !!! info 
     -   For instructions on creating new keystore files, see [Creating New Keystores](../../administer/creating-new-keystores).
@@ -21,7 +19,7 @@ Follow the instructions below to upload a keystore file to via the Management Co
 
 <ol>
     <li>
-        <p>In the <b>Main</b> menu of the Management Console, click <b>Manage > Keystores > Add</b>.</p>
+        <p>In the <b>Main</b> menu of the <a href="../../setup/getting-started-with-the-management-console/">Management Console</a>, click <b>Manage > Keystores > Add</b>.</p>
         <p><img src="../../assets/img/administer/add-key-store-menu-item.png" width="200;"></p>
         <p>The <b>Add Key Store</b> page appears.</p>
         <p><img src="../../assets/img/administer/add-new-keystore-screen.png" width="600;"></p>

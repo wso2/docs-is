@@ -1,15 +1,10 @@
 # Adding Multiple Keys to the Primary Keystore
 
-WSO2 Identity Server enables adding multiple keys to the primary keystore. Let's explore the following topics to learn more.
+WSO2 Identity Server enables adding multiple keys to the primary keystore. Let's explore the following topics to learn more. 
 
-!!! tip "Before you begin"
+## Adding new keys
 
-	Sign in to the WSO2 Identity Server Management Console that will be hereafter called Management Console.
-
-
-## Adding new keys to the super tenant
-
-Follow the steps below to add new keys to the super tenant:
+Follow the steps below to add new keys to the **super tenant**: 
 
 1. 	Locate the `wso2carbon.jks` file in the `<IS_HOME>/repository/resources/security` directory in a command prompt. 
 
@@ -33,7 +28,7 @@ Follow the steps below to add new keys to the super tenant:
 		keytool -genkey -alias newkey -keyalg RSA -keysize 2048 -keystore wso2carbon.jks -dname "CN=localhost, OU=IT,O=ABC,L=SL,S=WS,C=LK" -storepass wso2carbon -keypass wso2carbon
 		```
 
-	!!! tip
+	!!! tip 	
 		If you are planning to delete the newly-added keys in the future, it is recommended to maintain separate keystores for internal and external encryption purposes.
 
 	!!! note
@@ -52,9 +47,9 @@ Follow the steps below to add new keys to the super tenant:
 
 4. Restart WSO2 Identity Server.
 
-## Viewing the private keys via Management Console
+## Viewing private keys via Management Console
 
-Following the steps below to view the private keys via Management Console:
+Follow the steps below to view the private keys via [Management Console](../../setup/getting-started-with-the-management-console/):
 
 <ol>
 	<li>
@@ -69,9 +64,10 @@ Following the steps below to view the private keys via Management Console:
 	</li>
 </ol>
 
-## Viewing public key sets via JWKS endpoint
 
-To view super tenant keys, visit `https://<IS_HOST>:<PORT>/oauth2/jwks`. 
+## Viewing public keys via JWKS
+
+To view super tenant public key sets via JWKS endpoint, visit `https://<IS_HOST>:<PORT>/oauth2/jwks`. 
 
 !!! Example 
 
@@ -116,24 +112,3 @@ To view super tenant keys, visit `https://<IS_HOST>:<PORT>/oauth2/jwks`.
 	  ]
 	}
 	```
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

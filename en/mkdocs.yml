@@ -628,28 +628,13 @@ nav:
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
         - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
-        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
-      - 'Monitoring the Identity Server': 
-        - 'Monitoring the Identity Server': administer/monitoring-the-identity-server.md
-        - 'Monitoring Mechanisms': administer/monitoring-mechanisms.md
-        - 'Monitoring Logs':
-          - 'Monitoring Logs': administer/monitoring-logs.md
-          - 'HTTP Access Logging': administer/http-access-logging.md
-          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-        - 'System Statistics': administer/system-statistics.md
-        - 'Monitoring TCP-Based Messages':
-          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-        - 'Monitoring Server Health': administer/monitoring-server-health.md
-        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md      
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
-          - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
-      - 'Performance Tuning Recommendations': administer/performance-tuning-recommendations.md
+          - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md      
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
       - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
       - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
@@ -660,8 +645,7 @@ nav:
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
-      - 'Working with Product Observability': administer/working-with-product-observability.md    
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
+      - 'Working with Product Observability': administer/working-with-product-observability.md          
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
@@ -739,7 +723,7 @@ nav:
           - 'Creating New Keystores': administer/creating-new-keystores.md
           - 'Configuring Keystores': administer/configuring-keystores-in-wso2-products.md
           - 'Renewing a CA-Signed Certificate': administer/renewing-a-ca-signed-certificate-in-a-keystore.md           
-          - 'Managing Keystores with the UI': administer/managing-keystores-with-the-ui.md
+          - 'Managing Keystores via UI': administer/managing-keystores-with-the-ui.md
           - 'Adding Multiple Keys to the Primary Keystore': administer/adding-multiple-keys-to-the-primary-keystore.md
           - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
@@ -747,6 +731,23 @@ nav:
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
+    - 'Monitoring': 
+        - 'Monitoring': administer/monitoring-the-identity-server.md
+        - 'Monitoring Mechanisms': administer/monitoring.md
+        - 'Monitoring Logs':
+          - 'Monitoring Logs': administer/monitoring-logs.md
+          - 'HTTP Access Logging': administer/http-access-logging.md
+          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
+        - 'System Statistics': administer/system-statistics.md
+        - 'Monitoring TCP-Based Messages':
+          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
+        - 'Monitoring Server Health': administer/monitoring-server-health.md
+        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+    - 'Performance':
+      - 'Performance Tuning': administer/performance-tuning-recommendations.md
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
