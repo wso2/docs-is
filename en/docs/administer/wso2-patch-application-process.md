@@ -52,12 +52,12 @@ library files, configurations, scripts and more.
 
 ### Applying patches to the product
 
-!!! info "Note the following **before you begin** :"
+!!! info "Before You Begin"
 
         -   It is mandatory to follow the steps specified in the README.txt of
         the patch before applying the patch.
         -   If the README.txt provides instructions to replace existing
-        resources in the WSO2 server with any artifact in the resources
+        resources in the WSO2 Identity Server with any artifact in the resources
         directory of the patch archive, it is highly recommended to backup
         the existing resources. The original files might be required if you
         are [reverting the
@@ -136,7 +136,7 @@ Patches installed in your WSO2 product using the above steps can also be
 removed when required. However, this needs to be done with caution as
 explained below.
 
-!!! info "**Before you begin** removing an installed patch:"
+!!! info "Before removing an installed patch"
         -   Shut down the server.
         -   Make a backup as a precaution.
         -   Read the `           README.txt          ` file that is included in
