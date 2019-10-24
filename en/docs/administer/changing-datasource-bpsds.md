@@ -85,7 +85,6 @@ can change this to any database type that is supported by WSO2 Identity Server.
     ```     
     
     ```tab="Oracle"
-    
     1. deployment.toml Configurations.
     
         [bps_database.config]
