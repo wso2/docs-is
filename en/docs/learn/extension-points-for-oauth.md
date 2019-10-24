@@ -8,12 +8,15 @@ points related to OAuth and OpenID Connect (OIDC).
 Any OAuth extension listed below can be implemented, by implementing an
 interface or extending an abstract class as defined under each extension
 point.  
-When the implementation is done, package your classes as a .jar file and
-place it in the *\<IS\_HOME\>/repository/component/lib* directory.  
-Then configure your extension in
-*<IS\_HOME\>/repository/conf/deployment.toml* file referring to the ' *Configuration* ' section of the
-respective extension point below.  
-Restart the server to effect changes.
+
+1. When the implementation is done, package your classes as a .jar file and
+place it in the `<IS_HOME>/repository/component/lib` directory.  
+
+2. Next, configure your extension in
+`<IS_HOME>/repository/conf/deployment.toml` file referring to the **Configuration** section of the
+respective extension point below. 
+
+3. Restart the server to effect changes.
 
 ### OAuth Grant Handler
 
@@ -57,12 +60,12 @@ Restart the server to effect changes.
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td><p>This extension point can be used to implement a grant validator that validates the grant request sent to the ' <em>/oauth2/token</em> ' endpoint. Request parameters and headers can be validated by implementing this extension point.<br />
-If a new grant type is being implemented and defined with a new grant type identifier with the <a 
+<td><p>This extension point can be used to implement a grant validator that validates the grant request sent to the ' <em>/oauth2/token</em> ' endpoint. Request parameters and headers can be validated by implementing this extension point.</p>
+<p>If a new grant type is being implemented and defined with a new grant type identifier with the <a 
 href="../../learn/extension-points-for-oauth#oauth-grant-handler">OAuth Grant Handler</a> extension, you must also 
 implement a grant validator and register
- that against the same grant type identifier from the <em>deployment.toml</em> .<br />
-If a supported grant type is to be modified you may implement a grant validator if needed, otherwise supported grant type validators can be reused.</p></td>
+ that against the same grant type identifier from the <em>deployment.toml</em> .</p>
+<p>If a supported grant type is to be modified you may implement a grant validator if needed, otherwise supported grant type validators can be reused.</p></td>
 </tr>
 <tr class="even">
 <td>Abstract Class</td>
@@ -229,10 +232,11 @@ If a supported grant type is to be modified you may implement a grant validator 
 <tr class="even">
 <td>Other Available Implementations</td>
 <td><div class="content-wrapper">
-<ul>
-<li><p><code>                 org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor                                 </code> Use this if you want to store access tokens, refresh tokens, authorization codes, and client secrets in an encrypted format using the OEAP (RSA/ECB/OAEPwithSHA1andMGF1Padding) algorithm. With this implementation you can use a valid token until it is either revoked or becomes invalid.</p>
-<p>!!! tip</p>
-    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>                 TokenPersistenceProcessor          </code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml        </code> file:</p>
+<pre><code>org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor</code></pre>
+<p>Use this if you want to store access tokens, refresh tokens, authorization codes, and client secrets in an encrypted format using the OEAP (RSA/ECB/OAEPwithSHA1andMGF1Padding) algorithm. With this implementation you can use a valid token until it is either revoked or becomes invalid.
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>                 TokenPersistenceProcessor          </code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml        </code> file:
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
@@ -240,17 +244,19 @@ If a supported grant type is to be modified you may implement a grant validator 
     <a class="sourceLine" id="cb1-3" title="3">token_persistance_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"</a></code></pre></div>
     </div>
     </div>
-    <p>Once you configure the <code>                 TokenPersistenceProcessor                </code> in the <code>  
-                   deployment.toml               </code> file, and restart WSO2 Identity Server, RSA encryption with 
-                   <strong>RSA/ECB/OAEPwithSHA1andMGF1Padding</strong> cipher transformation will be enabled by default.</p>
-<li><p><code>                 org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor                </code><br />
-Use this if you want to store access tokens, refresh tokens, authorization codes and client secrets as hashed values based on a define hashing algorithm. This implementation provides extra protection to vulnerabilities because a new access token is issued for every access token request. If necessary you can also use a valid token until it is either revoked or becomes invalid.<br />
+    </div>
+    </div>
+<p>Once you configure the <code> TokenPersistenceProcessor</code> in the <code>  
+deployment.toml</code> file, and restart WSO2 Identity Server, RSA encryption with 
+<strong>RSA/ECB/OAEPwithSHA1andMGF1Padding</strong> cipher transformation will be enabled by default.</p>
+<pre><code>org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor</code></pre>
+<p>Use this if you want to store access tokens, refresh tokens, authorization codes and client secrets as hashed values based on a define hashing algorithm. This implementation provides extra protection to vulnerabilities because a new access token is issued for every access token request. If necessary you can also use a valid token until it is either revoked or becomes invalid.</p>
 </p>
 <div>
-<p>Note</p>
-<p>For more information on OAuth token hashing, and for instructions on how to enable OAuth token hashing, see <a href="../../learn/setting-up-oauth-token-hashing">Setting Up OAuth Token Hashing</a> .</p>
-</div></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+    <p>For more information on OAuth token hashing, and for instructions on how to enable OAuth token hashing, see <a href="../../learn/setting-up-oauth-token-hashing">Setting Up OAuth Token Hashing</a>.</p>
+</div>
 </div></td>
 </tr>
 <tr class="odd">
@@ -335,7 +341,7 @@ By default, a <a href="../../learn/jwt-token-generation">JWT token generation</a
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
 <a class="sourceLine" id="cb1-2" title="2">[oauth.extensions]</a>
-<a class="sourceLine" id="cb1-3" title="3">token_context_generator = "full qualified class name of the authorization context token generator"</a>/code></pre></div>
+<a class="sourceLine" id="cb1-3" title="3">token_context_generator = "full qualified class name of the authorization context token generator"</a></code></pre></div>
 </div>
 </div>
 <div>

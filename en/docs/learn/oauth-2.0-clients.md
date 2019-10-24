@@ -86,6 +86,6 @@ might be protected from other applications residing on the same device.
 
 It is usually recommended to take the advantage of
 [PKCE](https://tools.ietf.org/html/rfc7636) extension with native
-clients to mitigate [code interception attacks](../../learn/mitigating-authorization-code-interception-attacks) when
+clients to mitigate [code interception attacks](../../administer/mitigating-authorization-code-interception-attacks) when
 using [authorization code grant type](../../learn/authorization-code-grant) to
 access secured services.
