@@ -68,12 +68,11 @@ copy the two .jar files from the extracted `         jce        `
 directory ( `         local_policy.jar        ` and
 `         US_export_policy.jar        ` ) to
 `         $JAVA_HOME/jre/lib/security        ` . For JDK 6, it is found
-[here](index).
+[here](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 -   Perform the above actions on both the client side as well as on the
     server side if you are running it on two machines.
--   While running the client code, make sure the
-    `                       bouncycastle                     ` .jar file
+-   While running the client code, make sure the [bouncycastle.jar](../../assets/attachments/bcprov-jdk15-132.jar) file
     is in the `           classpath          ` .
 
 A sample of the code can be seen below.
