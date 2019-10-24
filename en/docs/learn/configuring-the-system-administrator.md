@@ -1,8 +1,7 @@
 # Configuring the System Administrator
 
-User management functionality is provided by default in all WSO2
-Carbon-based products and is configured in the
-`         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file.
+User management functionality is provided by default in WSO2 Identity Server and is configured in the
+`         <IS_HOME>/repository/conf/user-mgt.xml        ` file.
 This documentation explains the main settings relevant to the system
 administrator.
 
@@ -10,14 +9,13 @@ The **admin** user is the super tenant that will be able to manage all
 other users, roles and permissions in the system by using the management
 console of the product. Therefore, the user that should have admin
 permissions is required to be stored in the primary user store when you
-start the system for the first time . The documentation on setting up
+start the system for the first time. The documentation on setting up
 primary user stores will explain how to configure the administrator
 while configuring the user store. The information under this topic will
 explain the main configurations that are relevant to setting up the
 system administrator.
 
 !!! note
-    
     If the primary user store is read-only, you will be using a user ID and
     role that already exists in the user store, for the administrator. If
     the user store is read/write, you have the option of creating the
@@ -37,7 +35,7 @@ system:
 -   The permissions assigned to the default **admin** role cannot be
     modified.
 
-### Before you begin **:**
+## Before you begin **:**
 
 Ensure that you have a primary user store (for storing users and roles)
 and an RDBMS (for storing information related to permissions). See the
@@ -45,19 +43,19 @@ and an RDBMS (for storing information related to permissions). See the
 documentation](#related-topics) for
 instructions on how to set up these repositories.
 
-### Updating the administrator
+## Updating the administrator
 
 The deployment.toml file allows you to configure the administrator user in your system as well as
 the RDBMS that will be used for storing information related to user
 authentication (i.e. role-based permissions).
 
 ``` toml
-    [super_admin]
-    create_admin_account= true
-    admin_role = "admin"
-    username = "admin"
-    password = "admin"
-    create_admin_account= true
+[super_admin]
+create_admin_account= true
+admin_role = "admin"
+username = "admin"
+password = "admin"
+create_admin_account= true
 ```
 
 Note the following regarding the configuration above.
@@ -96,10 +94,6 @@ Note the following regarding the configuration above.
 </tr>
 </tbody>
 </table>
-
-
-!!! Tip 
-    There is an internal system role "**everyone**" available by default. All users in the system belong to this role.
 
 <a name="related-topics"></a>
 
