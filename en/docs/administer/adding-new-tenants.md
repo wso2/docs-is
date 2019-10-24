@@ -51,51 +51,45 @@ done through one of the following admin services:
 You can invoke these operations using a SOAP client like SOAP UI as
 follows:
 
-1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/carbon.xml         ` file
-    and set the `          HideAdminServiceWSDLs         ` parameter to
-    false.
+1.  Add the property in `<IS_HOME>/repository/conf/deployment.toml` to
+    **true** to get access to the WSDL's of the admin services.
+    
+    ``` toml  
+    [admin_service.wsdl]
+    enable = true
+    ```
 2.  Start the product server by executing the product startup script
     from the `           <PRODUCT_HOME>/bin          ` directory:
 
     **In Linux**
-
-    ``` java
-    sh wso2server.sh
-    ```
+        ``` java
+            sh wso2server.sh
+        ```
 
     **In Windows**
-
-    ``` java
-        wso2server.bat
-    ```
-
-    !!! tip
-    
-        Get the list of available admin services
-    
-        If you want to discover the admin services that are exposed by your
-        product:
-    
-        1.  Execute the following command:
-    
-            **In Linux**
-    
-            ``` java
-                    sh wso2server.sh -DosgiConsole
-        ```
-
-        **In Windows**
-
         ``` java
-                wso2server.bat -DosgiConsole
+            wso2server.bat
         ```
 
-    2.  When the server is started, hit the enter/return key several
-        times to get the OSGI shell in the console.
-    3.  In the OSGI shell, enter the following:
-        `             listAdminServices            `
-
+!!! tip 
+    Get the list of available admin services. 
+    If you want to discover the admin services that are exposed by the
+    product: 
+        1. Execute the following command:
+            **In Linux**
+                ``` java
+                        sh wso2server.sh -DosgiConsole
+                ```
+           **In Windows**
+                ``` java
+                        wso2server.bat -DosgiConsole
+                ```
+        2.  When the server is started, hit the enter/return key several
+            times to get the OSGI shell in the console.In the OSGI shell, enter the following:
+                ```
+                        listAdminServices
+                ```
+    
     This will give the list of admin services for your product.
 
 
@@ -114,9 +108,7 @@ follows:
 
     ![](../assets/img/53125481/92516206.png) 
 
-    !!! warning
-    
-        Before invoking an operation:
+    !!! warning "Before invoking an operation"
     
         -   Be sure to set the admin user's credentials for authorization in
             the SOAP UI.
@@ -142,3 +134,7 @@ follows:
        </soapenv:Body>
     </soapenv:Envelope>
     ```
+
+!!! info 
+    See [Managing Tenants with APIs](../../develop/managing-tenants-with-apis)
+    for more information on using APIs to manage tenants.
