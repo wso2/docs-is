@@ -43,7 +43,7 @@ approach in versions prior to WSO2 IS 5.8.0 and the new design approach.
 This section guides you through migrating an existing data publisher to
 an event handler.
 
-### **Migrating data publisher to event handler**
+## Migrating data publisher to event handler
 
 For the purposes of demonstrating this using an example, the steps given
 in this tutorial demonstrate deprecating the
@@ -74,8 +74,8 @@ instead.
        "event.default_listener.abstract_identity_message_handler.priority": "11",
        "event.default_listener.abstract_identity_message_handler.enable": false,
        ```
-    !!! note "NOTE"
-        For more information on new configurations, refer to 
+    !!! note 
+        For more information on new configurations, see 
         [New Configuration Model](../../references/new-configuration-model).
 
 2.  In order to support backward compatibility, override the
@@ -114,8 +114,8 @@ instead.
     "identity_mgt.events.schemes.analyticsSessionDataPublisher.properties.enable": true,
     ```
     
-    !!! note "NOTE"
-        For more information on new configurations, refer to 
+    !!! note 
+        For more information on new configurations, see 
         [New Configuration Model](../../references/new-configuration-model).
 
 4.  Add the following method to the event handler in order to verify
