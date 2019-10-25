@@ -1,20 +1,7 @@
 # Prerequisites to Publish Statistics
 
-Following are the prerequisites that should be fulfilled, in order for
+The following prerequisites should be fulfilled in order to set up
 the Analytics Dashboard to publish the data processed by WSO2 IS.
-
--   [Step 01: Download WSO2 IS
-    Analytics](#step-01-download-wso2-is-analytics)   
--   [Step 02: Enable Analytics in WSO2
-    IS](#step-02-enable-analytics-in-wso2-is)
--   [Step 03: Configure Event
-    Publishers](#step-03-configure-event-publishers)
--   [Step 04: Change the Admin
-    Password](#step-04-change-the-admin-password)
--   [Step 05: Run the
-    Servers](#step-05-run-the-servers)
-
-------------------------------------------------------------------------
 
 ### Step 01: Download WSO2 IS Analytics
 
@@ -44,7 +31,7 @@ distribution.
         for WSO2 Stream Processor (WSO2 SP). Therefore, for detailed
         information about the supporting applications you need to install,
         see [WSO2 SP Installation
-        Guide](https://docs.wso2.com/display/SP420/Installation+Guide).
+        Guide](https://docs.wso2.com/stream-processor/Installation+Guide).
     
 
 ### Step 02: Enable Analytics in WSO2 IS
@@ -74,7 +61,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java">
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java">
     <a class="sourceLine" id="cb1-1" title="1">[[event_listener]]</a>
     <a class="sourceLine" id="cb1-2" title="2">id = "authn_data_publisher_proxy"</a>
     <a class="sourceLine" id="cb1-3" title="3">type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"</a>
@@ -109,7 +96,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsLoginDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsLoginDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
     </div>
     </div>
     </div></td>
@@ -132,7 +119,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsSessionDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsSessionDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
     </div>
     </div>
     </div></td>
@@ -172,7 +159,7 @@ Follow the steps below to configure the event publishers:
         the format in which the events are captured for the two
         analytics are different. For more information event streams, see
         [WSO2 SP Quick Start
-        Guide](https://docs.wso2.com/display/SP420/Quick+Start+Guide).
+        Guide](https://docs.wso2.com/stream-processor/Quick+Start+Guide).
 
         !!! warning
         
@@ -212,7 +199,7 @@ Follow the steps below to configure the event publishers:
         <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">{tcp:<span class="co">//&lt;HOSTNAME&gt;:&lt;PORT&gt;,tcp://&lt;hostname&gt;:&lt;PORT&gt;,...}</span></a></code></pre></div>
         </div>
         </div></li>
-        <li>As per the above configuration, events are published to all the defined receivers. For other ways of configuring the receiver URLs, see <a href="https://docs.wso2.com/display/SP430/Collecting+Events">Collecting Events</a> .</li>
+        <li>As per the above configuration, events are published to all the defined receivers. For other ways of configuring the receiver URLs, see <a href="https://docs.wso2.com/stream-processor/Collecting+Events">Collecting Events</a> .</li>
         </ul>
         </div></td>
         <td><code>                 receiverURL                </code></td>
@@ -376,15 +363,15 @@ Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
     
         -   If you are running WSO2 IS Analytics in a clustered setup, see
             [WSO2 Stream Processor Deployment
-            Guide](https://docs.wso2.com/display/SP420/Deployment+Guide).
+            Guide](https://docs.wso2.com/stream-processor/Deployment+Guide).
     
 
     1.  Run the Worker node of WSO2 IS Analytics. For detailed
         instructions, see [WSO2 SP - Starting Worker
-        Node](https://docs.wso2.com/display/SP420/Running+the+Product#RunningtheProduct-Startingaworkernode)
+        Node](https://docs.wso2.com/stream-processor/Running+the+Product#RunningtheProduct-Startingaworkernode)
         .
 
     2.  Run the Dashboard node of WSO2 IS Analytics. For detailed
         instructions, see [WSO2 SP - Starting a Dashboard
-        Node](https://docs.wso2.com/display/SP420/Running+the+Product#RunningtheProduct-Startingadashboardnode)
+        Node](https://docs.wso2.com/stream-processor/Running+the+Product#RunningtheProduct-Startingadashboardnode)
         .
