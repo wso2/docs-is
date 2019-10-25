@@ -11,7 +11,7 @@ The global configuration should be added in the `<IS_HOME>/repository/conf/deplo
   remember_me_session_timeout= "14d"
 ```
 
-To configure the **Session Timeout** and **Remember Me** period tenant
+To configure the **Session Timeout** and **Remember Me period** in tenant
 wise, follow the steps below:
 
 1.  Start the IS server and login to the management console.

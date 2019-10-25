@@ -113,6 +113,9 @@ specific requirements.
     -   See [Creating and Managing Tenants](../../learn/creating-and-managing-tenants)
         for information on multitenancy.
 
+!!! note
+    `Server Roles` are used with Carbon Apps. From Identity Server 5.9.0, this feature is not available.
+
 ### **Tools menu**
 
 The tools menu includes SAML and XACML tools. For more details on each
