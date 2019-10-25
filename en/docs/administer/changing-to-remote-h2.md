@@ -27,7 +27,7 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up the H2 database. You can point the `WSO2_IDENTITY_DB` or 
+After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or 
 `WSO2_SHARED_DB` or both to that H2 database by following below instructions.
 
 ### Changing the default datasource
@@ -173,12 +173,12 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
+    <td>Indicates whether objects will be validated before being borrowed from the pool. If the object fails to 
     validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Indicates Whether to commit database changes automatically or not.</td>
+    <td>Indicates whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -285,7 +285,7 @@ The elements in the above configuration are described below:
  | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
  |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
  | **commitOnReturn**   | If `defaultAutoCommit` =false, then you can set `commitOnReturn ` =true, so that the pool 
- |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If the  
+ |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However,If the  
  |                      | `  rollbackOnReturn` =true then this attribute is ignored. The default value is false. |
  |                      |
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
