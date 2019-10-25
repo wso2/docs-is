@@ -61,8 +61,8 @@ Now you can perform SCIM operations, See the samples cURL commands used
 to secondary user store as below. Here, **demo** is the secondary user
 store used in the examples.
 
-**User Creation -** This will create user in the mentioned user store
-domain.
+## User Creation 
+This will create user in the mentioned user store domain.
 
 **Request**
 
@@ -76,7 +76,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"fam
 curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"demo/hasinitg","password":"hasinitg","emails":[{"primary":true,"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
 ```
 
-**Update User** - This will update the user with a given SCIM user Id.
+## Update User
+This will update the user with a given SCIM user Id.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"schemas":[],"name":{"familyName":"{LAST_NAME","givenName":"{FIRST_NAME"},"userName":"{SECONDARY_USER_STORE}/{USERNAME}","password":"{PASSWORD}","emails":"{NEW_EMAILS}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID}
@@ -88,8 +89,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"schemas":[],"name":{"
 curl -v -k --user admin:admin -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"demo/hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/c5f05468-ce9e-445f-9dbc-4d719926bc30
 ```
 
-**Filter User -** This will filter out a list of users that equate to a
-specific parameter. Currently, we support only the equal operation.
+## Filter User
+This will filter out a list of users that equate to a specific parameter. Currently, we support only the equal operation.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users?filter={PARAMETER}+Eq+%22{PARAMETER_VALUE}%22
@@ -101,7 +102,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/sci
 curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users?filter=userName+Eq+%22demo/hasinitg%22
 ```
 
-**List Users -** List all the users available.
+## List Users
+List all the users available.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/scim/Users
@@ -113,8 +115,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} https://{IS_IP}:{IS_PORT}/wso2/sci
 curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Users
 ```
 
-**Create Group -** This will create a group under a given user store
-domain.
+## Create Group
+This will create a group under a given user store domain.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMEBERS_OF_THE_USERSTORE_DOMAIN}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups
@@ -126,8 +128,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": "{USERSTOR
 curl -v -k --user admin:admin --data '{"displayName": "demo/SoftwareEngineer","members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
 ```
 
-**Update Group -** This will update a given group of the specific
-user-store domain.
+## Update Group
+This will update a given group of the specific user-store domain.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMBERS}}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
@@ -139,8 +141,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PUT -d '{"displayName": "{USERS
 curl -v -k --user admin:admin -X PUT -d '{"displayName": "demo/SoftwareEngineer","members": [{"value":"c5f05468-ce9e-445f-9dbc-4d719926bc30","display": "demo/hasinitg"}, {"value":"p09okhyt-5e68-4594-8mkj-356ade12we34","display": "testUser"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
-**Filter Group -** This will filter the groups that are equal to a given
-display name.
+## Filter Group
+This will filter the groups that are equal to a given display name.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  https://{IS_IP}:{IS_PORT}/wso2/scim/Groups?filter={PARAMETER}Eq{VALUE_TO_BE_EQUAL}
@@ -152,7 +154,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  https://{IS_IP}:{IS_PORT}/wso2/sc
 curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayNameEqdemo/SoftwareEngineer
 ```
 
-**Delete  Group -** This will delete a group with a given SCIM group id.
+## Delete  Group
+This will delete a group with a given SCIM group id.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID} -H "Accept: application/json"
@@ -171,8 +174,8 @@ curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Groups/
     secondary domain.
     
 
-**Add a new member to a group -** This will add a new member to a group
-with a specific SCIM group id of a user-store domain.
+## Add a new member to a group
+This will add a new member to a group with a specific SCIM group id of a user-store domain.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  -X PATCH -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{NEW_MEMBER_TO_ADD}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
@@ -184,8 +187,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD}  -X PATCH -d '{"displayName": "{US
 curl -v -k --user admin:admin -X PATCH -d '{"displayName": "demo/secEngineer","members": [{"value":"4a0fcb2b-efff-4dc2-ad2d-a25f0a814bd3","display": "demo/secUser1"}]}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
-**Delete a member from a group -** This will delete a member from a
-given group of a user-store domain.
+## Delete a member from a group 
+This will delete a member from a given group of a user-store domain.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMBER_TO_DELETE}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/{SCIM_GROUP_ID}
@@ -197,9 +200,8 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": "{USE
 curl -v -k --user admin:admin -X PATCH -d '{"displayName": "demo/secEngineer","members": [{"value":"4a0fcb2b-efff-4dc2-ad2d-a25f0a814bd3","display": "demo/secuser1","operation":"delete"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/574dd322-adf5-4dee-8b03-27130fb5cece
 ```
 
-**Add a new member and delete a member at the same time -** This will
-add a new member and delete a member from the group at the same time in
-a specific user-store domain.
+## Add a new member and delete a member at the same time
+This will add a new member and delete a member from the group at the same time in a specific user-store domain.
 
 ``` java
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": "{USERSTORE_DOMAIN}/{GROUP_NAME}","members": [{MEMBER},{"value":"{SCIM_USER_ID","display": "{USER_DISPLAY_NAME","operation":"delete"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/{SCIM_GROUP_ID}

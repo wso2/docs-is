@@ -9,17 +9,15 @@ attacks.
 !!! info 
         -   For more information on setting up password recovery with secret
         questions, see [Password
-        Recovery](../../learn/password-recovery#recovery-using-challenge-questions)
-        .
+        Recovery](../../learn/password-recovery#recovery-using-challenge-questions).
         -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../learn/mitigating-brute-force-attacks).
+        Force Attacks](../../administer/mitigating-brute-force-attacks).
 
   
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+    ReCaptcha](../../learn/setting-up-recaptcha).
 2.  Start the WSO2 IS Server and login to the management console.
 3.  Click **Resident** under **Identity Providers** found in the
     **Main** tab.
@@ -33,9 +31,7 @@ attacks.
     ReCaptcha**.
 
     !!! note
-    
-        **Note:** This value should be less than the number of failed
-        attempts configured in the account locking connector.
+        This value should be less than the number of failed attempts configured in the account locking connector.
     
         ![max-failed-attempts-for-recaptcha](../assets/img/using-wso2-identity-server/max-failed-attempts-for-recaptcha.png)
     

@@ -27,7 +27,7 @@ clicking **Permissions** as shown below.
 
 By default, every WSO2 Identity Server comes with the default user and
 role explained in
-[this document](../learn/configuring-roles-and-permissions)
+[this document](../../learn/configuring-roles-and-permissions)
 
 -   The **Admin** role has all the permissions in the system enabled by
     default. Therefore, this is a super tenant, with all permissions

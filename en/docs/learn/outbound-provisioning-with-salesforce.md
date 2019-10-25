@@ -22,8 +22,7 @@ too.
     3.  You will receive a security token by email to confirm your new
         account. If you did not receive the email, you can reset it by
         following the steps given
-        [here](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm&language=en_US)
-        .
+        [here](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm&language=en_US).
 2.  Log in with your new credentials as a Salesforce developer:
     <https://login.salesforce.com/>
 
@@ -104,7 +103,7 @@ too.
         <tr class="even">
         <td>Selected OAuth Scopes</td>
         <td><div class="content-wrapper">
-        <p>Choose <strong>Full access (full)</strong> from the <strong>Available OAuth Scopes</strong> and click the button under <strong>Add</strong> . This gives the necessary permissions when accessing this App.</p>
+        <p>Choose <strong>Full access (full)</strong> from the <strong>Available OAuth Scopes</strong> and click the button under <strong>Add</strong>. This gives the necessary permissions when accessing this App.</p>
         <div>
         <div class="user-content-block">
         <p>These scopes refer to permissions the user gives to the connected app while it is running. The OAuth token name is in parentheses.<br />
@@ -235,7 +234,7 @@ Provider.
 4.  Upload the Salesforce public certificate that you generated and
     saved in [step 7 under Configuring
     Salesforce](../../learn/outbound-provisioning-with-salesforce#public)
-    .  
+.  
     Do this by clicking the **Choose File** button next to **Identity
     Provider Public Certificate**.
 
@@ -263,13 +262,13 @@ Provider.
         For more information on configuring advanced claims, see
         [Configuring Claims for an Identity
         Provider](../../learn/configuring-claims-for-an-identity-provider#configuring-advanced-claims)
-        .
+.
 
 6.  Click **Add Claim Mapping** and add the following claims.  
     Local claims in WSO2 IS are unique URIs. These are mapped to the
     [attributes required by salesforce to create a new
     profile](https://help.salesforce.com/articleView?id=000007571&language=en_US&type=1)
-    . Therefore, in this step you are mapping the attributes required by
+. Therefore, in this step you are mapping the attributes required by
     Salesforce to a unique URI. Now, when creating a new profile/user
     WSO2 IS sends these values to the correct attribute of Salesforce.
 
@@ -337,7 +336,7 @@ Provider.
     <tr class="odd">
     <td>ProfileId</td>
     <td><div class="content-wrapper">
-    <p><code>                 00e90000001aV2o                                 </code> The users that are added using WSO2 Identity Server are added to this profile in Salesforce. For more information on the context of profiles in Salesforce, see the <a href="http://www.salesforcetutorial.com/working-profiles-salesforce/">Salesforce tutorial</a> .</p>
+    <p><code>                 00e90000001aV2o                                 </code> The users that are added using WSO2 Identity Server are added to this profile in Salesforce. For more information on the context of profiles in Salesforce, see the <a href="http://www.salesforcetutorial.com/working-profiles-salesforce/">Salesforce tutorial</a>.</p>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
     <p>The <strong>ProfileId</strong> value refers to the ID of the profile you created in Salesforce (step 6 of Configuring Salesforce). If it is the Chatter Free User profile you created, navigate to the profile in Salesforce to find the profile ID. You can do this by clicking <strong>Profiles</strong> under <strong>Manage Users</strong> in Salesforce and clicking Chatter Free User.</p>
@@ -376,7 +375,7 @@ Provider.
 11. Do the following configurations for Salesforce provisioning. For
     more information on any of these fields, see [Configuring Salesforce
     provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-salesforce-provisioning)
-    .
+.
     1.  Select **Enable Connector** to enable the Salesforce connector.
     2.  Enter the **API version**. This is the version of the API you
         are using in Salesforce.  
@@ -391,8 +390,8 @@ Provider.
             ".  For example:
             `              Salesforce.com Enterprise Web Services API Version 41.0             `
         5.  Enter this value for the API version in the following
-            format: `              v<VERSION_NUMBER>             ` . For
-            example: `              v41.0             ` .
+            format: `              v<VERSION_NUMBER>             `. For
+            example: `              v41.0             `.
     3.  Enter the **Domain**. If you do not have a Salesforce domain,
         you need to create a domain by logging into
         [https://login.salesforce.com](https://login.salesforce.com/).
@@ -426,12 +425,12 @@ Provider.
             2.  Make sure you enter the domain with an HTTPS prefix so that
                 it resembles a URL:
                 `               https://<DOMAIN>-dev-ed.my.salesforce.com              `
-                .
+.
 
     4.  Enter the **Client ID**. This is the Consumer Key obtained in
         [step 5 when configuring
         Salesforce](../../learn/outbound-provisioning-with-salesforce#step5)
-        .
+.
 
         ??? note "Did not save the details? Click here for more information on getting the details."
 
@@ -447,7 +446,7 @@ Provider.
     5.  Enter the **Client Secret**. This is the Consumer Secret
         obtained in [step 5 when configuring
         Salesforce](../../learn/outbound-provisioning-with-salesforce#step5)
-        .
+.
     6.  Enter the **Username**. This is the Salesforce username.
     7.  Enter the **Password**. This is the Salesforce password and
         must be entered along with the security token. So you would
@@ -465,7 +464,7 @@ Provider.
                 navigated to the Personal Information page.  
                 ![salesforce-personal-info](../assets/img/using-wso2-identity-server/salesforce-personal-info.png) 
             3.  On the left navigation, click **Reset My Security Token**
-                .  
+.  
                 ![reset-security-token](../assets/img/using-wso2-identity-server/reset-security-token.png) 
             4.  Click **Reset Security Token**.  
                 An email is sent to you with the new security token. Check
@@ -522,7 +521,7 @@ management console, this user should also appear in Salesforce.
 4.  Assign a role to the user.  
     ![role-assigning](../assets/img/using-wso2-identity-server/role-assigning.png) 
 5.  Click **Finish**.
-6.  <a name="usershown"></a>In Salesforce, log into <https://login.salesforce.com/> .  
+6.  <a name="usershown"></a>In Salesforce, log into <https://login.salesforce.com/>.  
     On the left navigation pane, expand **Users** and click **Users**.
     You will see that the user you created in the Identity Server has
     been added to Salesforce as well.  

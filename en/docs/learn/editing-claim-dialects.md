@@ -10,7 +10,7 @@ dialect link. Follow the instructions below to edit a claim dialect.
 
 1.  Sign in. Enter your username and password to log on to the
     [Management Console](../../setup/getting-started-with-the-management-console)
-    .
+   .
 2.  Click **Main** to access the **Main** menu and click **List** under
     **Claims**.
 3.  Click on any available dialect links.  
@@ -84,10 +84,5 @@ dialect is given below.
 !!! note
     
     Edits to the claim dialects configured in
-    `                   <                  IS_HOME>/repository/conf/                   claim                  -config.xml        `
-    file get applied only when you start the product for the first time, or
-    for any newly created tenants. With the first startup, claim dialects
-    and claims will be loaded from the file and persisted in the database.
-    Any consecutive updates to the file will not be picked up and claim
-    dialects and claims will be loaded from the database.
+    `                   <IS_HOME>/repository/conf/claim-config.xml        ` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.
     

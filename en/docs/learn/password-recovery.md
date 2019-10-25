@@ -5,7 +5,6 @@ to recover a lost or forgotten password. There are two methods of
 password recovery:
 
 !!! warning
-    
     From 5.3.0 onwards there is a new implementation for identity management
     features. The steps given below in this document follows the new
     implemenation which is the **recommended approach** for password
@@ -71,16 +70,14 @@ with email notification.
     ```
 
     !!! tip
-    
         The email template used to send this email notification is
         the **PasswordReset** template.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-        .
+.
     
-
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **Resident** found under the **Identity Providers** section
     on the **Main** tab of the management console.
@@ -89,8 +86,8 @@ with email notification.
     Recovery** checkbox.  
     For more information on the fields seen on this screen, see [Account
     Recovery REST
-    API](https://docs.wso2.com/display/IS580/apidocs/account-recovery/#configuring-rest-api)
-    .
+    API](../../develop/using-the-account-recovery-rest-apis)
+.
 
     ![notification-based-password-recovery](../assets/img/using-wso2-identity-server/notification-based-password-recovery.png)
     
@@ -112,7 +109,7 @@ with email notification.
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-        .
+.
     
 
 !!! note
@@ -142,12 +139,12 @@ with email notification.
 
 1.  [Create a user using the management
     console](../../learn/configuring-users#creating-a-new-user-using-the-management-console)
-    . Ensure that the user has login permissions.
+. Ensure that the user has login permissions.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given.
 3.  Access the WSO2 Identity Server dashboard using the following link:
-    `          https://localhost:<port_number>/dashboard         ` .
+    `          https://localhost:<port_number>/dashboard         `.
 4.  Click the **Forgot Password** link.
 5.  Enter the user's username and select **Recover with Emai** l. Click
     **Submit**.  
@@ -169,10 +166,7 @@ with email notification.
     ![submit-with-new-password](../assets/img/using-wso2-identity-server/submit-with-new-password.png) 
 
 !!! tip
-    
-    For information on the REST APIs for password recovery, see [the swagger
-    docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS580/apidocs/account-recovery/).
+    For information on the REST APIs for password recovery, see [the swagger docs on Account Recovery REST APIs](../../develop/using-the-account-recovery-rest-apis).
     
 
 ### Recovery using challenge questions
@@ -187,7 +181,7 @@ feature. To do this, do the following.
 
 1.  Enter your username and password to log on to the [Management
     Console](../../setup/getting-started-with-the-management-console)
-    .
+.
 2.  Click on **Resident** found under the **Identity Providers** section
     on the **Main** tab of the Management Console.
 3.  Expand the **Account Management Policies** tab, then the **Account
@@ -232,7 +226,7 @@ To try this out, first create a user in the Identity Server.
 4.  Log out of the Identity Server.
 5.  The URL for accessing dashboard is the following if the hostname is
     localhost and the Identity Server is running on port 9443:
-    <https://localhost:9443/dashboard/> . Click this link to access the
+    <https://localhost:9443/dashboard/>. Click this link to access the
     dashboard and log in using the credentials of the user you just
     created.  
     ![enter-using-credentials](../assets/img/using-wso2-identity-server/enter-using-credentials.png)   
@@ -275,7 +269,7 @@ To try this out, first create a user in the Identity Server.
       
 
 11. Enter the answers to the challenge questions and click **Submit**
-    .  
+.  
     ![submit-answers](../assets/img/using-wso2-identity-server/submit-answers.png) 
 
 12. Enter a new password and click **Submit**. You will receive a
@@ -289,7 +283,7 @@ To try this out, first create a user in the Identity Server.
     
     For information on the REST APIs for password recovery using challenge
     questions, see [the swagger docs on Account Recovery REST
-    APIs](https://docs.wso2.com/display/IS580/apidocs/account-recovery/).
+    APIs](../../develop/using-the-account-recovery-rest-apis).
     
 
 !!! info "Related Links"
