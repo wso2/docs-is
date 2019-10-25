@@ -29,7 +29,7 @@ as follows:
         `           data_store          ` property value to
         `           UserStoreBasedIdentityDataStore          ` .
     
-        ``` xml
+        ``` toml
         [event.default_listener.governance_identity_mgt]
         priority= "95"
         enable = true
