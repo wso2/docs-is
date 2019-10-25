@@ -3,7 +3,7 @@
 From kernel 4.5.x onwards the carbon.logging jar is not packed and the pax-logging-api is used instead. With this
 upgrade the log4j version is also updated to log4j2.
 
-Below are the steps for the log4j2 migration
+Refer to the following steps for log4j2 migration.
 
 1.  Replace carbon logging or commons.logging dependencies with pax-logging dependency.
 
@@ -53,7 +53,7 @@ Below are the steps for the log4j2 migration
 
     ```
     
-4.  Change appenders in the log4j2.properties file and add the appender to the appenders list
+4.  Change appenders in the log4j2.properties file and add the appender to the appenders list.
     
     ```
     appender.CARBON_LOGFILE.type = RollingFile
@@ -77,7 +77,7 @@ Below are the steps for the log4j2 migration
     DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
     ```
 
-5.  Add logger in the log4j2.properties file and add the logger to the loggers list
+5.  Add logger in the log4j2.properties file and add the logger to the loggers list.
 
     ```
     logger.<Logger_Name>.name = <Component_name>
@@ -85,7 +85,7 @@ Below are the steps for the log4j2 migration
 
     ```
     
-    Then add the <Logger_Name> to the loggers list by comma-separate
+    Then add the <Logger_Name> to the loggers list by comma-separate.
     ```
     logger.org-wso2-carbon-identity-core.name = org.wso2.carbon.identity.core
     logger.org-wso2-carbon-identity-core.level = INFO
