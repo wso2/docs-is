@@ -45,7 +45,7 @@ Follow the steps below to send an OIDC logout request:
     Example
 
     ``` java
-        regexp=(http://localhost:8080/playground2/oauth2client|http://localhost:8080/playground2/logout)
+    regexp=(http://localhost:8080/playground2/oauth2client|http://localhost:8080/playground2/logout)
     ```
 
 5.  If the `           SignJWTWithSPKey          ` property is set to
@@ -63,13 +63,13 @@ Follow the steps below to send an OIDC logout request:
     and authorization code:
 
     ``` java
-        curl -k -v --user <client_id>:<client_secret> -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+    curl -k -v --user <client_id>:<client_secret> -d "grant_type=authorization_code&code=<authorization_code>&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
     ```
 
     Example
 
     ``` java
-        curl -k -v --user IaWVc3g4eemSnbWwekBg79xudZMa:PL9PxKPqGZxkpJ8X8u7g8pA_ruoa -d "grant_type=authorization_code&code=ac1b2e9e-d8d0-3f42-bdd4-dc7aab45b5dc&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
+    curl -k -v --user IaWVc3g4eemSnbWwekBg79xudZMa:PL9PxKPqGZxkpJ8X8u7g8pA_ruoa -d "grant_type=authorization_code&code=ac1b2e9e-d8d0-3f42-bdd4-dc7aab45b5dc&redirect_uri=http://localhost:8080/playground2/oauth2client" https://localhost:9443/oauth2/token
     ```
 
 7.  Use the retrieved `           id_token          ` in the following
@@ -77,7 +77,7 @@ Follow the steps below to send an OIDC logout request:
     the RP.
 
     ``` java
-        https://localhost:9443/oidc/logout?id_token_hint=<id_token>&post_logout_redirect_uri=<redirect URI>&state=<state>
+    https://localhost:9443/oidc/logout?id_token_hint=<id_token>&post_logout_redirect_uri=<redirect URI>&state=<state>
     ```
       
     Following are the parameters you need to specify in the URL:
@@ -157,9 +157,8 @@ when you send an OIDC logout request as a POST request:
 ```
 
 For descriptions of all the parameters that you need to specify in the
-POST request, see the <a href="<../../learn/openid-connect-logout-url-redirection#parameters
->parameter descriptions given above</a>
-Following is the sample HTML form with sample parameter values to render
+POST request, see the [parameter descriptions given above.](#parameters)
+The following code block shows a sample HTML form with sample parameter values to render
 the page in a browser:
 
 ``` java

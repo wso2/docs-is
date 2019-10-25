@@ -55,7 +55,7 @@ login and revoke application authorization.
 5.  Once you have logged in, click **View details** under **Authorized
     Apps**. The following page appears, listing out the available
     apps.  
-    ![oauth-authorized-apps]( ../../assets/using-wso2-identity-server/103329616/oauth-authorized-apps.png)
+    ![oauth-authorized-apps](../assets/img/using-wso2-identity-server/oauth-authorized-apps.png)
 
 The **Authorized Apps** page indicates the user has granted
 authorization to the application ‘ `         travelocity        ` ′

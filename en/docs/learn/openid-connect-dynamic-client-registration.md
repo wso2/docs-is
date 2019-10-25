@@ -30,6 +30,6 @@ To register a new client at the authorization server:
 !!! tip
     To view sample requests and responses, see the [REST API swagger docs on
     OAuth2 Dynamic Client
-    Registration](https://docs.wso2.com/display/IS580/apidocs/OAuth2-dynamic-client-registration/)
+    Registration](../../develop/using-the-openid-connect-dynamic-client-registration-rest-apis/)
     .
     
