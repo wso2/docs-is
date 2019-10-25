@@ -13,28 +13,11 @@ or an Active Directory instance, they might not have these mandatory
 SCIM attributes in their schema. So the option is to map the SCIM claims
 to the existing attributes of the Active Directory.
 
-Add a user with the username "john" and password "Wso2@123". Here we
-have to map the **userName** (
-`         urn:scim:schemas:core:1.0:userName        ` ) SCIM attribute
-to an existing claim in the Active Directory (e.g.:
-`         cn        ` ). Furthermore, when a user is being added in
-SCIM, there are four more SCIM attributes being added behind the scene.
-These are the SCIM attributes such as **location** (
-`         urn:scim:schemas:core:1.0:meta.location        ` ),
-**created** ( `         urn:scim:schemas:core:1.0:meta.created        `
-), **lastModified** (
-`         urn:scim:schemas:core:1.0:meta.lastModified        ` ) and
-finally the **id** ( `         urn:scim:schemas:core:1.0:id        ` ).
-So we need to map these to existing Active Directory user attributes.
+Add a user with the username "john" and password "Wso2@123". Here we have to map the **userName** (`         urn:scim:schemas:core:1.0:userName        ` ) SCIM attribute to an existing claim in the Active Directory (e.g.:`         cn        ` ). Furthermore, when a user is being added in SCIM, there are four more SCIM attributes being added behind the scene. These are the SCIM attributes such as **location** 
+(`         urn:scim:schemas:core:1.0:meta.location        ` ), **created** ( `         urn:scim:schemas:core:1.0:meta.created        `), **lastModified** (
+(`         urn:scim:schemas:core:1.0:meta.lastModified        ` ) and finally the **id** ( `         urn:scim:schemas:core:1.0:id        ` ). So we need to map these to existing Active Directory user attributes.
 
-When mapping claims to attributes, there are few things to be
-considered. The SCIM claim dialect (
-`         urn:scim:schemas:core:1.0:id        ` ) uses String type to
-hold their values. So, when mapping any SCIM claim to an attribute in
-the Active Directory, make sure to use the attributes which are having
-the String type. You can find all Active Directory attributes
-[here](http://www.kouti.com/tables/userattributes.htm). Given below is
-a plausible example for claim mapping,
+When mapping claims to attributes, there are few things to be considered. The SCIM claim dialect (`         urn:scim:schemas:core:1.0:id        ` ) uses String type to hold their values. So, when mapping any SCIM claim to an attribute in the Active Directory, make sure to use the attributes which are having the String type. You can find all Active Directory attributes [here](http://www.kouti.com/tables/userattributes.htm). Given below is a plausible example for claim mapping,
 
 | CLAIM URI                                                              | MAPPED ATTRIBUTE                             |
 |------------------------------------------------------------------------|----------------------------------------------|
@@ -69,7 +52,7 @@ Management Feature.
     -   Secondary Userstore Command
 
     ``` java
-        curl -v -k --user admin:admin --data "{"schemas":[],"userName":'wso2.com/uresh67',"password":"Wso2@123"}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+    curl -v -k --user admin:admin --data "{"schemas":[],"userName":'wso2.com/uresh67',"password":"Wso2@123"}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
 
     Note that the user name is preceded by the domain and is within

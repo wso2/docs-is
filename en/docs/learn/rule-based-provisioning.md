@@ -21,10 +21,8 @@ Follow the steps given below:
     and log in to the management console.
 2.  On the Main tab, click **Add** under **Identity Providers**
     to create a new Identity Provider (IdP).  
-    For more information on creating identity providers, see [Adding an
-    Identity
-    Provider](../../learn/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
-    .
+    For more information on creating identity providers, see [Adding an Identity Provider](../../learn/adding-and-configuring-an-identity-provider#adding-an-identity-provider)
+.
 3.  Provide a preferred name for your IdP.
 4.  Expand the **Outbound Provisioning Connectors** section and
     configure Google for outbound provisioning connector.
@@ -116,14 +114,13 @@ Follow the steps given below:
 6.  Navigate to **Add** under **Service Providers** on the **Main** tab
     and create a new service provider. For more information on creating
     service providers, see [Adding a Service
-    Provider](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider)
-    .
+    Provider](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider).
 7.  Expand the **Outbound Provisioning Configuration** section and
     select the provisioning connector you just configured above. Let's
     say we have configured an IDP named "wso2IDP" which used Google
     outbound provisioning connector.
 8.  Click on the **+** button and add **wso2IDP**,  then select the
-    ****Enable Rules**** in order to enable rules during provisioning.
+    **Enable Rules** in order to enable rules during provisioning.
     Click **Update** to save.  
     ![enable-rules](../assets/img/using-wso2-identity-server/enable-rules.png)  
     If you wish to configure outbound provisioning under Resident
@@ -174,7 +171,7 @@ the policy according to our requirement.
         a description relevant to your custom policy.
 
         ``` java
-         <Description>This template policy provides ability to authorize provisioning requests initiated from a given service provider(defined by SP_NAME) to a given identity provider(defined by IDP_NAME) in the outbound provisioning flow based on the roles of the user (ROLE_1, ROLE_2). Provisioning attempts to the users with given role(s) will be allowed and all others will be denied.</Description>
+        <Description>This template policy provides ability to authorize provisioning requests initiated from a given service provider(defined by SP_NAME) to a given identity provider(defined by IDP_NAME) in the outbound provisioning flow based on the roles of the user (ROLE_1, ROLE_2). Provisioning attempts to the users with given role(s) will be allowed and all others will be denied.</Description>
         ```
 
     3.  Locate the IDP `            _NAME           ` placeholder and
@@ -184,7 +181,7 @@ the policy according to our requirement.
     5.  In this example, this policy authenticates users to the
         specified service provider based on
         `            ROLE_1           ` or
-        `            ROLE_2           ` . However, you can authenticate
+        `            ROLE_2           `. However, you can authenticate
         using only one role as well. To do this, remove the other role
         by removing that entire section from the start of the
         `            <Apply>           ` tag to the ending
@@ -200,66 +197,66 @@ the policy according to our requirement.
 
     **Access control policy**
 
-    ``` xml
-      <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"  PolicyId="provisioning_role_based_policy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
-         <Description>This template policy provides ability to authorize provisioning requests initiated from a given  identity provider(defined by IDP_NAME) in the outbound provisioning flow based on the roles of the user (finace). Provisioning attempts to the users with given role will be allowed and all others will be denied.</Description>
+   ``` xml
+   <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"  PolicyId="provisioning_role_based_policy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">
+      <Description>This template policy provides ability to authorize provisioning requests initiated from a given  identity provider(defined by IDP_NAME) in the outbound provisioning flow based on the roles of the user (finace). Provisioning attempts to the users with given role will be allowed and all others will be denied.</Description>
+      <Target>
+         <AnyOf>
+            <AllOf>
+               <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">WSO2IDP</AttributeValue>
+                  <AttributeDesignator AttributeId="http://wso2.org/identity/idp/idp-name" Category="http://wso2.org/identity/idp" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"></AttributeDesignator>
+               </Match>
+               <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">provisioning</AttributeValue>
+                  <AttributeDesignator AttributeId="http://wso2.org/identity/identity-action/action-name" Category="http://wso2.org/identity/identity-action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"></AttributeDesignator>
+               </Match>
+            </AllOf>
+         </AnyOf>
+      </Target>
+      <Rule Effect="Permit" RuleId="permit_by_role_when_create">
          <Target>
             <AnyOf>
                <AllOf>
                   <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">WSO2IDP</AttributeValue>
-                     <AttributeDesignator AttributeId="http://wso2.org/identity/idp/idp-name" Category="http://wso2.org/identity/idp" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"></AttributeDesignator>
-                  </Match>
-                  <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">provisioning</AttributeValue>
-                     <AttributeDesignator AttributeId="http://wso2.org/identity/identity-action/action-name" Category="http://wso2.org/identity/identity-action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"></AttributeDesignator>
+                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">POST</AttributeValue>
+                     <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/provision-operation" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
                   </Match>
                </AllOf>
             </AnyOf>
          </Target>
-         <Rule Effect="Permit" RuleId="permit_by_role_when_create">
-            <Target>
-               <AnyOf>
-                  <AllOf>
-                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">POST</AttributeValue>
-                        <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/provision-operation" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
-                     </Match>
-                  </AllOf>
-               </AnyOf>
-            </Target>
-            <Condition>
-               <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:or">
-                  <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-is-in">
-                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">finance</AttributeValue>
-                     <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/claim-group" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
-                  </Apply>
+         <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:or">
+               <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-is-in">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">finance</AttributeValue>
+                  <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/claim-group" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
                </Apply>
-            </Condition>
-         </Rule>
-         <Rule Effect="Permit" RuleId="permit_by_role_when_update">
-            <Target>
-               <AnyOf>
-                  <AllOf>
-                     <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PUT</AttributeValue>
-                        <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/provision-operation" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
-                     </Match>
-                  </AllOf>
-               </AnyOf>
-            </Target>
-            <Condition>
-               <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:or">
-                  <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-is-in">
-                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">finance</AttributeValue>
-                     <AttributeDesignator AttributeId="http://wso2.org/claims/role" Category="http://wso2.org/identity/user" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
-                  </Apply>
+            </Apply>
+         </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="permit_by_role_when_update">
+         <Target>
+            <AnyOf>
+               <AllOf>
+                  <Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                     <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">PUT</AttributeValue>
+                     <AttributeDesignator AttributeId="http://wso2.org/identity/provisioning/provision-operation" Category="http://wso2.org/identity/provisioning" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
+                  </Match>
+               </AllOf>
+            </AnyOf>
+         </Target>
+         <Condition>
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:or">
+               <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-is-in">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">finance</AttributeValue>
+                  <AttributeDesignator AttributeId="http://wso2.org/claims/role" Category="http://wso2.org/identity/user" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true"></AttributeDesignator>
                </Apply>
-            </Condition>
-         </Rule>
-         <Rule Effect="Deny" RuleId="deny_others"></Rule>
-      </Policy>               
-    ```
+            </Apply>
+         </Condition>
+      </Rule>
+      <Rule Effect="Deny" RuleId="deny_others"></Rule>
+   </Policy>               
+   ```
 
 6.  Click **Save Policy** to save the changes. You can see the policy
     you just created on the policy list (the original template policy

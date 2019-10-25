@@ -13,8 +13,8 @@ By configuring reCaptcha, you can mitigate or block brute force attacks.
     Recovery](../../learn/username-recovery).
     
     For more information on brute force attacks, see [Mitigating Brute Force
-    Attacks](../../learn/mitigating-brute-force-attacks)
-    .
+    Attacks](../../administer/mitigating-brute-force-attacks)
+.
     
 
 There are two ways to configure this feature.
@@ -25,10 +25,8 @@ Follow the instructions given below to configure username recovery with
 reCaptcha for a specific tenant.
 
 1.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
-    to do this, and for more information about reCaptcha, see [Setting
-    Up
-    ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+    to do this, and for more information about reCaptcha, see [Setting Up ReCaptcha](../../learn/setting-up-recaptcha)
+.
 2.  Enable the **EnableMultiTenancy** context-parameter in the
     **accountreoceryendpoint web.xml** file.
 3.  Start WSO2 Identity Server and log into the [management
@@ -81,10 +79,9 @@ reCaptcha globally.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to enable 
 username recovery with reCaptcha.
-    !!! tip
     
-        To avoid any configuration issues, perform **Step-1** before
-        starting the WSO2 Identity Server product instance.
+    !!! tip
+        To avoid any configuration issues, perform **Step-1** before starting the WSO2 Identity Server product instance.
         
     ``` toml    
     [identity_mgt.username_recovery.email] 
@@ -94,7 +91,7 @@ username recovery with reCaptcha.
 2.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+.
 
 3.  You have now successfully configured reCaptcha for the username
     recovery flow. Start WSO2 Identity Server and log into the end user

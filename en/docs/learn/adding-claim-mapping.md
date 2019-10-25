@@ -47,7 +47,7 @@ external claim:
     </tr>
     <tr class="even">
     <td><strong>Display Name</strong></td>
-    <td>This is the name of the claim displayed on the UI. This can be viewed in the user's profile by navigating to the <strong>Main</strong> tab in the management console and clicking <strong>List</strong> in <strong>Users and Roles</strong> . In the resulting page, click <strong>Users</strong> and in the list of users that are displayed, click <strong>User Profile</strong> next to the one you wish to check.</td>
+    <td>This is the name of the claim displayed on the UI. This can be viewed in the user's profile by navigating to the <strong>Main</strong> tab in the management console and clicking <strong>List</strong> in <strong>Users and Roles</strong>. In the resulting page, click <strong>Users</strong> and in the list of users that are displayed, click <strong>User Profile</strong> next to the one you wish to check.</td>
     </tr>
     <tr class="odd">
     <td><strong>Description</strong></td>
@@ -62,7 +62,7 @@ external claim:
     <p>When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
     For example, if you specify the <code>                 cn                </code> attribute, this is mapped to the <code>                 cn                </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
-    <img src=" ../assets/img/103330409/103330410.png" width="700" /></p>
+    <img src="../../assets/img/103330409/103330410.png"/></p>
     </div></td>
     </tr>
     <tr class="odd">
@@ -94,7 +94,7 @@ external claim:
 
 5.  Click on the **Add** button.
 6.  A new claim mapping is displayed in the list.  
-    ![]( ../assets/img/103330409/103330417.png)
+    ![](../assets/img/103330409/103330417.png)
 
 ### Add external claim
 
@@ -103,7 +103,7 @@ external claim:
     your username and password.
 2.  In the **Main** menu, click **Add** under **Claims**.
 3.  Click **Add External Claim** to add a new claim to any existing
-    dialect other than the local dialect, i.e, https://wso2.org/claims .
+    dialect other than the local dialect, i.e, https://wso2.org/claims.
 4.  Select the **Dialect URI** of the dialect you want to add the claim
     to and enter the required information.  
     ![add-external-claim](../assets/img/using-wso2-identity-server/add-external-claim.png) 
@@ -142,11 +142,5 @@ external claim:
     
     2.  Save the file and restart the server.
     
-    The claims configured in
-    `                   <                  IS_HOME>/repository/conf/                   claim                  -config.xml        `
-    file get applied only when you start the product for the first time, or
-    for any newly created tenants. With the first startup, claim dialects
-    and claims will be loaded from the file and persisted in the database.
-    Any consecutive updates to the file will not be picked up and claim
-    dialects and claims will be loaded from the database.
-    
+    The claims configured in `                   <IS_HOME>/repository/conf/claim-config.xml        ` file get applied only when you start the product for the first time, or for any newly created tenants. With the first startup, claim dialects and claims will be loaded from the file and persisted in the database. Any consecutive updates to the file will not be picked up and claim dialects and claims will be loaded from the database.
+        

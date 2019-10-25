@@ -57,7 +57,7 @@ providers. The following steps illustrate how to do this.
     Roles and Permissions](../../learn/configuring-roles-and-permissions) for more
     information on this process.
 13. On the **Main** tab in the management console, click **Add** under
-    **Users and Roles** in the ****Identity**** menu .
+    **Users and Roles** in the **Identity** menu.
 14. Click **Add New User**. See [Configuring
     Users](../../learn/configuring-users) for more information on this process.
 15. Provide a username and a password(with confirmation) and Click
