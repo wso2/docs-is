@@ -1,7 +1,7 @@
 # Configuring the System Administrator
 
 User management functionality is provided by default in WSO2 Identity Server and is configured in the
-`         <IS_HOME>/repository/conf/user-mgt.xml        ` file.
+`         <IS_HOME>/repository/conf/deployment.toml        ` file.
 This documentation explains the main settings relevant to the system
 administrator.
 
