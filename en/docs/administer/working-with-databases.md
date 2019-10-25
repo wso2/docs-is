@@ -21,8 +21,8 @@ Explained below are the default databases that you will find in the
 
 ### Changing the default databases
 
-The embedded H2 databases shipped with your product are suitable for
-development, testing,evaluation.For production environments, we recommend industry-standard RDBMSs such as
+The embedded H2 databases shipped with your product are suitable for evaluation,
+development and testing.For production environments, we recommend industry-standard RDBMSs such as
 Oracle, PostgreSQL, MySQL, MS SQL, etc.
 
 WSO2 products are shipped with scripts for creating the required tables
