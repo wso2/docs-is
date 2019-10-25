@@ -15,10 +15,9 @@ of a user account such as the lastLoginTime, accountDisabled and
 accountLocked claims. Identity claims are identified by the claim URI.
 All identity claims have the term "identity" appended to the claim URI
 as follows:
-`                   http://wso2.org/claims/                            identity                  /accountDisabled.        `
+`http://wso2.org/claims/identity/accountDisabled. `
 
 !!! note
-    
     By default, identity claim values are stored in the JDBC datasource
     configured in the `         deployment.toml       ` file. If needed, you
     can configure WSO2 IS to store the claim values in the userstore as
@@ -31,13 +30,13 @@ as follows:
         `           UserStoreBasedIdentityDataStore          ` .
     
         ``` xml
-            [event.default_listener.governance_identity_mgt]
-            priority= "95"
-            enable = true
-            [event.default_listener.governance_identity_store]
-            priority= "97"
-            enable = true
-            data_store = "org.wso2.carbon.identity.governance.store.UserStoreBasedIdentityDataStore"
+        [event.default_listener.governance_identity_mgt]
+        priority= "95"
+        enable = true
+        [event.default_listener.governance_identity_store]
+        priority= "97"
+        enable = true
+        data_store = "org.wso2.carbon.identity.governance.store.UserStoreBasedIdentityDataStore"
         ```
     
     2.  The identity claims mentioned below should be mapped correctly to
