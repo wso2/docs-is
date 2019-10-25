@@ -6,12 +6,12 @@ information. "Consent" itself is granting permission or agreement for a
 specified action to take place.  This page guides you through consent
 management concepts and how they are supported in WSO2 Identity Server.
 
--   [Privacy by design](#ConsentManagement-Privacybydesign)
--   [Consent with EU GDPR](#ConsentManagement-ConsentwithEUGDPR)
+-   [Privacy by design](#privacy-by-design)
+-   [Consent with EU GDPR](#consent-with-eu-gdpr)
 -   [Consent management with WSO2 Identity
-    Server](#ConsentManagement-ConsentmanagementwithWSO2IdentityServer)
+    Server](#consent-management-with-wso2-identity-server)
 -   [Consent management
-    usecases](#ConsentManagement-Consentmanagementusecases)
+    usecases](#consent-management-usecases)
 
 ### Privacy by design
 
@@ -75,12 +75,12 @@ features.
     APIs](../../develop/using-the-consent-management-rest-apis).
 -   Consent portal for individuals to review, modify, and revoke already
     given consents. For more information, see [Configuring consent for
-    services](Using-the-End-User-Dashboard_103330474.html#UsingtheEndUserDashboard-Configuringconsentforservices)
+    services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
     .
 -   Admin portal support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. For more
     information, see [Managing Consent
-    Purposes](Managing_Consent_Purposes).
+    Purposes](../../learn/managing-consent-purposes).
 -   Consent collection during single sign-on (SSO) before sharing the
     user attributes with external applications. For more information,
     see [Consent Management with
@@ -95,13 +95,13 @@ features.
 The following consent management use cases are supported by WSO2 IS.
 
 -   [Handling consent when creating a new user
-    profile](#ConsentManagement-Handlingconsentwhencreatinganewuserprofile)
+    profile](#handling-consent-when-creating-a-new-user-profile)
 -   [Handling consent when sharing user
-    attributes](#ConsentManagement-Handlingconsentwhensharinguserattributes)
+    attributes](#handling-consent-when-sharing-user-attributes)
 -   [Manage consents that belong to third party
-    applications](#ConsentManagement-Manageconsentsthatbelongtothirdpartyapplications)
+    applications](#manage-consents-that-belong-to-third-party-applications)
 -   [Support for Kantara consent receipt (draft)
-    specification](#ConsentManagement-SupportforKantaraconsentreceipt(draft)specification)
+    specification](#support-for-kantara-consent-receipt-draft-specification)
 
 ##### **Handling consent when creating a new user profile**
 
@@ -135,8 +135,7 @@ WSO2 IS.
     
     For more information and instructions for setting up this use case, see
     [Configuring self-registration consent
-    purposes](../../learn/self-registration-and-account-confirmation)
-    .
+    purposes](../../learn/self-registration-and-account-confirmation).
     
 
 ##### **Handling consent when sharing user attributes**
