@@ -7,7 +7,7 @@ claims. This section guides you through invoking and working with the
 operations you can work within this service.
 
 
-### Invoking the admin service
+## Invoking the admin service
 
 The `         ClaimMetadataManagementService        ` is an admin
 service of the WSO2 Carbon platform. As admin services are secured to
@@ -40,12 +40,12 @@ service using either SoapUI or any other client program, see [Calling
 Admin Services from
 Apps](../../develop/calling-admin-services).
 
-### Operations included in the API
+## API operations
 
 The following operations are available in the
 ClaimMetadataManagementService.
 
-##### addClaimDialect ()
+### addClaimDialect ()
 
 <table>
 <tbody>
@@ -112,7 +112,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### getClaimDialects()
+### getClaimDialects()
 
 <table>
 <tbody>
@@ -183,7 +183,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### addExternalClaim()
+### addExternalClaim()
 
 <table>
 <tbody>
@@ -262,7 +262,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### addLocalClaim()
+### addLocalClaim()
 
 <table>
 <tbody>
@@ -359,7 +359,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### getExternalClaims()
+### getExternalClaims()
 
 <table>
 <tbody>
@@ -421,7 +421,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### getLocalClaims()
+### getLocalClaims()
 
 <table>
 <tbody>
@@ -489,7 +489,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### removeClaimDialect()
+### removeClaimDialect()
 
 <table>
 <tbody>
@@ -556,7 +556,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### removeExternalClaim()
+### removeExternalClaim()
 
 <table>
 <tbody>
@@ -623,7 +623,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### removeLocalClaim()
+### removeLocalClaim()
 
 <table>
 <tbody>
@@ -687,7 +687,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### renameClaimDialect()
+### renameClaimDialect()
 
 <table>
 <tbody>
@@ -759,7 +759,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### updateExternalClaim()
+### updateExternalClaim()
 
 <table>
 <tbody>
@@ -838,7 +838,7 @@ ClaimMetadataManagementService.
 </tbody>
 </table>
 
-##### updateLocalClaim()
+### updateLocalClaim()
 
 <table>
 <tbody>

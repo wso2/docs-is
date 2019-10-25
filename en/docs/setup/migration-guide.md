@@ -433,7 +433,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
     if possible). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to this WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`.
-3.  Copy the [sync client jar](../assets/attachments/migration/org.wso2.is.data.sync.client-1.0.0-SNAPSHOT.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3.  Copy the [sync client jar](../assets/attachments/migration/org.wso2.is.data.sync.client-1.0.20.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
     with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). This will create a separate log 
     file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory which will contain the sync 
@@ -693,7 +693,7 @@ Follow the steps below to perform the upgrade.
         otherwise directly proceed to step 9.
     
 6.  Do the following database updates:  
-    1.  Download the [migration resources](../../assets/attachments/wso2is-5.9.0-migration.zip)
+    1.  Download the [migration resources](../assets/attachments/migration/wso2is-5.9.0-migration.zip)
         and unzip it to a local directory. This directory is referred to
         as `             <IS5.9.0_MIGRATION_TOOL_HOME>            ` .
 

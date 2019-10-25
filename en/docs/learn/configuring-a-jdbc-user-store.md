@@ -408,6 +408,7 @@ a datasource to configure database connection configurations and point
 that datasource from user store manager configurations. This is a much
 cleaner way to configure primary user store with a JDBC user store.
 
+
 To define a datasource, you can use `         deployment.toml        ` file, which is stored in
 `         <IS_HOME>/repository/conf/       ` directory. For detailed information on setting up databases, see
 [Setting Up the Physical Database](../../administer/setting-up-the-physical-database), and for information on the purpose of defining datasources and how
