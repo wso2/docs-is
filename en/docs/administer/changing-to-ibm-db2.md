@@ -43,7 +43,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
       </tr>
       <tr class="even">
       <td><strong>hostname</strong></td>
-      <td>The hostname of the host where database is hosted.</td>
+      <td>The hostname of the hosted database</td>
       </tr>
       <tr class="even">
       <td><strong>port</strong></td>
@@ -102,7 +102,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
        
-   4.  Download the DB2 JDBC driver for the version you are using and
+   4.  Download the DB2 JDBC driver for the version, you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -117,7 +117,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
    2.**Advanced Database Configurations.**
 
-Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
 - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
     
@@ -161,11 +161,12 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
+    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
+    validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Whether to commit database changes automatically or not.</td>
+    <td>Indicates Whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -215,7 +216,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
   3.  Navigate to the
         `               <IS_HOME>/repository/conf/deployment.toml              `
         file.
-  4.  Disable the `               defaultAutoCommit              `
+  4.  Disable the `               defaultAutoCommit              ` property
         by defining it as `false`.
   5.  Add the `                commitOnReturn               `
         property and set it to true.
@@ -242,7 +243,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
         `<IS_HOME>/repository/conf/deployment.toml`            `
         file.
   2.  Disable the
-        `                defaultAutoCommit               ` by
+        `                defaultAutoCommit               ` property by
         defining it as `false`.
 
   3.  Set the `                rollbackOnReturn               `
@@ -269,7 +270,10 @@ The elements in the above configuration are described below:
 
  | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
  |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
+ | **commitOnReturn**   | If `defaultAutoCommit` =false, then you can set `commitOnReturn ` =true, so that the pool 
+ |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If the  
+ |                      | `  rollbackOnReturn` =true then this attribute is ignored. The default value is false. |
+ |                      |
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 
