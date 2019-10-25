@@ -12,7 +12,7 @@ point.
 1. When the implementation is done, package your classes as a .jar file and
 place it in the `<IS_HOME>/repository/component/lib` directory.  
 
-2. Next, configure your extension in
+2. Next, configure your extension in the
 `<IS_HOME>/repository/conf/deployment.toml` file referring to the **Configuration** section of the
 respective extension point below. 
 
@@ -236,7 +236,7 @@ implement a grant validator and register
 <p>Use this if you want to store access tokens, refresh tokens, authorization codes, and client secrets in an encrypted format using the OEAP (RSA/ECB/OAEPwithSHA1andMGF1Padding) algorithm. With this implementation you can use a valid token until it is either revoked or becomes invalid.
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>                 TokenPersistenceProcessor          </code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml        </code> file:
+    <p>OAuth2 token encryption protects OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes. To enable OAuth token encryption, configure the <code>token_persistance_processor</code> as shown below in the <code>                 &lt;IS_HOME&gt;/repository/conf/deployment.toml        </code> file:
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"></span></a>
@@ -246,7 +246,7 @@ implement a grant validator and register
     </div>
     </div>
     </div>
-<p>Once you configure the <code> TokenPersistenceProcessor</code> in the <code>  
+<p>Once you configure the <code>token_persistance_processor</code> in the <code>  
 deployment.toml</code> file, and restart WSO2 Identity Server, RSA encryption with 
 <strong>RSA/ECB/OAEPwithSHA1andMGF1Padding</strong> cipher transformation will be enabled by default.</p>
 <pre><code>org.wso2.carbon.identity.oauth.tokenprocessor.HashingPersistenceProcessor</code></pre>
