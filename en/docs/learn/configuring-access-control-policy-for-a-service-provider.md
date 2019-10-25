@@ -158,8 +158,14 @@ our requirement.
     2.  Edit the `             <Description>            ` tag and enter
         a description relevant to your custom policy.
 
-        ``` java
-        <Description>This policy authorizes employees of the finance team to the travelocity service provider in the authentication flow based on the roles of the user (defined by ROLE_1 and ROLE_2). Users who have at least one of the given roles, will be allowed and any others will be denied.</Description>
+        ``` xml
+        <Description>
+		This policy authorizes employees of the finance team to the travelocity 
+		service provider in the authentication flow based on the roles of 
+		the user (defined by ROLE_1 and ROLE_2). 
+		Users who have at least one of the given roles, 
+		will be allowed and any others will be denied.
+		</Description>
         ```
 
     3.  Locate the `            SP_NAME           ` placeholder and

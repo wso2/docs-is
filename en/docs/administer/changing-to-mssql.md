@@ -1,97 +1,155 @@
 # Changing to MSSQL
 
-By default, WSO2 products use the embedded H2 database as the database
+By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use a MSSQL database for this purpose.
-
-!!! tip "Before you begin"
-    You need to set up MSSQL before following the steps to configure your
-    product with MSSQL. For more information, see [Setting up Microsoft
-    SQL](../../administer/setting-up-microsoft-sql).
+you need to follow in order to use MS SQL for this purpose.
     
 
-### Setting up datasource configurations
+## Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By
-default, `         WSO2_CARBON_DB        ` datasource is used to connect
-to the default H2 database, which stores registry and user management
-data. After setting up the Microsoft SQL database to replace the default
-H2 database, either change the default configurations of the
-`          WSO2_CARBON_DB         ` datasource, or configure a new datasource to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By
+default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
+to the default  H2 database. 
 
-#### Changing the default datasource
+- `WSO2_SHARED_DB` - The database which stores registry and user management
+                     data.
+- `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
+                       identity related data
+                       
+After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that MS SQL database by following below instructions.
 
-Follow the steps below to change the type of the default datasource.
+### Changing the default datasource
 
-1.  Edit the default datasourceconfigurationin the \<
-    `           IS_HOME>/repository/conf/deployment.toml as shown below.
+1.  **Minimum Configurations for changing default datasource to MS SQL.**
+ 
+ Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
+ Following are the basic configurations and their descriptions. 
+      <table>
+      <thead>
+      <tr class="header">
+      <th>Element</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="even">
+      <td><strong>username</strong> and <strong>password</strong></td>
+      <td>The name and password of the database user.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>type</strong></td>
+      <td>The type of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>hostname</strong></td>
+      <td>The hostname of the host where database is hosted.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>port</strong></td>
+      <td>The port of the database.</td>
+      </tr>
+      <tr class="even">
+      <td><strong>name</strong></td>
+      <td>The name of the database.</td>
+      </tr>
+      </table>   
+ 
+ A Sample configuration is given below.
 
-    ``` toml
-    [database.identity_db]
-    url = "jdbc:sqlserver://<IP>:1433;databaseName=wso2greg;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    [database.identity_db.pool_options]
-    maxActive = "50"
+   1. `WSO2_IDENTITY_DB` 
+    
+       1. `deployment.toml` Configurations
+
+           ``` toml
+           [database.identity_db]
+           type = "mssql"
+           hostname = "localhost"
+           name = "regdb"
+           username = "regadmin"
+           password = "regadmin"
+           port = "1433"
+           ```
+       
+       1. Executing database scripts.
+        
+          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
+           
+           - `<IS-HOME>/dbscripts/identity/mssql.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
+           - `<IS-HOME>/dbscripts/consent/mssql.sql`
+         
+   2. `WSO2_SHARED_DB`
+        
+       1. `deployment.toml` Configurations
+
+           ``` toml
+           [database.shared_db]
+           type = "mssql"
+           hostname = "localhost"
+           name = "regdb"
+           username = "regadmin"
+           password = "regadmin"
+           port = "1433"
+           ```
+           
+       1. Executing database scripts.
+        
+          Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
+                      
+           - `<IS-HOME>/dbscripts/mssql.sql`
+           
+   3. If you have a requirement in using workflow feature follow, 
+       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       
+   4.  Download the MS SQL JDBC driver for the version you are using and
+            copy it to the `<IS_HOME>/repository/components/lib` folder  
+    
+    !!! note     
+        In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
+        -DSetup option  **from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) 
+        WSO2 Identity Server has deprecated the** **`              -DSetup             `** **option**
+        Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA
+        can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in
+        place within the organization.  
+           
+            
+
+   2.**Advanced Database Configurations.**
+
+Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
+
+- `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+    
+   ``` toml
+   [database.identity_db.pool_options]
+    maxActive = "80"
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
     defaultAutoCommit=false
-
-    [database.shared_db]
-    url = "jdbc:sqlserver://<IP>:1433;databaseName=wso2greg;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
-    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    [database.shared_db.pool_options]
-    maxActive = "50"
+   ```
+   
+- `WSO2_SHARED_DB` `deployment.toml` Configurations.
+        
+   ``` toml
+   [database.shared_db.pool_options]
+    maxActive = "80"
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
     defaultAutoCommit=false
-    ```
+   ```
 
-    The elements in the above configuration are described below:
-
+   The elements in the above configuration are described below:   
     <table>
-    <thead>
-    <tr class="header">
-    <th>Element</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>url</strong></td>
-    <td><div class="content-wrapper">
-    <p>Give the URL to connect to the Microsoft SQL database. Shown below is the most simple form of the database connection URL. It includes the URL and two parameters:</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">jdbc:sqlserver:<span class="co">//&lt;IP&gt;:&lt;PORT&gt;;databaseName=&lt;db_name_value&gt;;SendStringParametersAsUnicode=false</span></a></code></pre></div>
-    </div>
-    </div>
-    <p>Change &lt;IP&gt; to the IP of the server. The best practice is to use port 1433 because you can use it in order processing services.</p>
-    <div class="admonition warning">
-    <p class="admonition-title">Warning</p>
-    <p>Set <strong><code>                  SendStringParametersAsUnicode                 </code></strong> to ‘false’ in order to overcome a limitation in the Microsoft SQL client driver. Without this parameter, the database driver will erroneously convert <code>                 VARCHAR                </code> data into <code>                 NVARCHAR                </code> and lower the database's performance.</p>
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td><strong>username</strong> and <strong>password</strong></td>
-    <td>The name and password of the database user</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>driverClassName</strong></td>
-    <td>The class name of the database driver</td>
-    </tr>
     <tr class="even">
     <td><strong>maxActive</strong></td>
-    <td>The maximum number of active connections that can be allocated  at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
+    <td>The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
     </tr>
     <tr class="odd">
     <td><strong>maxWait</strong></td>
@@ -103,11 +161,11 @@ Follow the steps below to change the type of the default datasource.
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
+    <td>Whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
-    <td><strong>validationQuery</strong></td>
-    <td>The SQL query that will be used to validate connections from this pool before returning them to the caller.</td>
+    <td><p><strong>defaultAutoCommit</strong></p></td>
+    <td>Whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -115,167 +173,104 @@ Follow the steps below to change the type of the default datasource.
     </tr>
     <tr class="even">
     <td><strong>defaultAutoCommit</strong></td>
-    <td><p>This property is <strong>not</strong> applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.</p>
-    <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p></td>
+    <td><div class="content-wrapper">
+    <p>This property is <strong>not</strong> applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.</p>
+    <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p>
+    </td>
     </tr>
     </tbody>
     </table>
 
     !!! info 
-        For more information on other parameters that can be defined in the
-        `            <IS_HOME>/repository/conf/           `
-        datasources/ `            master-datasources.xml           ` file,
-        see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
-
-
-    | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
-    |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
-    | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
-
-    **Configuring the connection pool behavior on return** 
+        For more information on other parameters that can be defined in
+        the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
+        JDBC Connection
+        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+  
+   !!! info "Configuring the connection pool behavior on return" 
+        When a database connection is returned to the pool, by default 
+        the product rolls back the pending transactions if defaultAutoCommit
+        =true. However, if required you can disable the latter mentioned
+        default behavior by disabling the
+        `            ConnectionRollbackOnReturnInterceptor           `,
+        which is a JDBC-Pool JDBC interceptor, and setting the connection
+        pool behavior on return via the datasource configurations by using
+        the following options.
     
-    When a database connection is returned to the pool, by default 
-    the product rolls back the pending transactions if defaultAutoCommit
-    =true. However, if required you can disable the latter mentioned
-    default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           `,
-    which is a JDBC-Pool JDBC interceptor, and setting the connection
-    pool behavior on return via the datasource configurations by using
-    the following options.
+    
 
-    -   **Configure the connection pool to commit pending transactions on connection return**  
+### Configure the connection pool to commit pending transactions on connection return  
+        
+  1.  Navigate to either one of the following locations based on your OS.
+        -   On Linux/Mac OS:
+            `                 <IS_HOME>/bin/wso2server.sh/                `
+        -   On Windows:
+            `                 <IS_HOME>\bin\wso2server.bat                `
+  2.  Add the following JVM option:
 
-        1.  Navigate to either one of the following locations based on
-            your OS.
-            -   On Linux/Mac OS:
-                `                 <IS_HOME>/bin/wso2server.sh/                `
-            -   On Windows:
-                `                 <IS_HOME>\bin\wso2server.bat                `
-        2.  Add the following JVM option:
+       ``` java
+       -Dndatasource.disable.rollbackOnReturn=true \
+       ```
 
-            ``` java
-            -Dndatasource.disable.rollbackOnReturn=true \
-            ```
+  3.  Navigate to the
+        `               <IS_HOME>/repository/conf/deployment.toml              `
+        file.
+  4.  Disable the `               defaultAutoCommit              `
+        by defining it as `false`.
+  5.  Add the `                commitOnReturn               `
+        property and set it to true.
+                         
+    - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+        
+       ``` toml
+       [database.identity_db.pool_options]
+        defaultAutoCommit="false"
+        commitOnReturn="true"
+       ```
+       
+    - `WSO2_SHARED_DB` `deployment.toml` Configurations.
+            
+       ``` toml
+       [database.shared_db.pool_options]
+        defaultAutoCommit="false"
+        commitOnReturn="true"
+       ```    
+            
+### Configure the connection pool to rollback pending transactions on connection return
 
-        3.  Navigate to the
-            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
-            file.
-        4.  Disable the `               defaultAutoCommit              `
-            by defining it as false.
-        5.  Add the `                commitOnReturn               `
-            property and set it to true for all the datasources,
-            including the custom datasources.
+  1.  Navigate to the
+        `<IS_HOME>/repository/conf/deployment.toml`            `
+        file.
+  2.  Disable the
+        `                defaultAutoCommit               ` by
+        defining it as `false`.
 
-            ``` html/xml
-            <datasource>
-                ...
-                    <definition type="RDBMS">
-                        <configuration>
-                            ...
-                            <defaultAutoCommit>false</defaultAutoCommit>
-                            <commitOnReturn>true</commitOnReturn>    
-                            ...
-                        </configuration>
-                    </definition>
-            </datasource>
-            ```
+  3.  Set the `                rollbackOnReturn               `
+        property to the datasources as true.
 
-    -   **Configure the connection pool to rollback pending transactions on connection return**
 
-        1.  Navigate to the
-            `               <IS_HOME>/repository/conf/datasources/master-datasources.xml              `
-            file.
-        2.  Disable the
-            `                defaultAutoCommit               ` by
-            defining it as false.
+    - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+        
+       ``` toml
+       [database.identity_db.pool_options]
+        defaultAutoCommit="false"
+        rollbackOnReturn="true"
+       ```
+       
+    - `WSO2_SHARED_DB` `deployment.toml` Configurations.
+            
+       ``` toml
+       [database.shared_db.pool_options]
+        defaultAutoCommit="false"
+        rollbackOnReturn="true"
+       ```
 
-        3.  Add the `                rollbackOnReturn               `
-            property to the datasources.
+The elements in the above configuration are described below:
 
-            ``` html/xml
-            <datasource>
-                ...
-                    <definition type="RDBMS">
-                        <configuration>
-                            ...
-                            <defaultAutoCommit>false</defaultAutoCommit> 
-                            <rollbackOnReturn>true</rollbackOnReturn>
-                            ...
-                        </configuration>
-                    </definition>
-            </datasource>
-            ```
+ | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
+ |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
+ | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
-#### Configuring new  datasources to manage registry or user management data
 
-Follow the steps below to configure new datasources to point to
-the new  databases you create to manage registry and/or user management
-data separately.
-
-1.  Add a new datasource with similar configurations as the
-    [`           WSO2_CARBON_DB          `
-    datasource](#changing-the-default-datasource) above to
-    the \<
-    `          IS_HOME>/repository/conf/datasources/         `
-    `          master-datasources.xml         ` file. Change its
-    elements with your custom values. For instructions, see [Setting up datasource configurations.](#setting-up-datasource-configurations)
-2.  If you are setting up a separate database to store registry-related
-    data, update the following configurations in the \<
-    `           IS_HOME>/repository/conf/          `
-    `           registry.xml          ` file.
-
-    ``` xml
-    <dbConfig name="wso2registry">
-        <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-    </dbConfig>
-    ```
-
-3.  If you are setting up a separate database to store user management
-    data, update the following configurations in the \<
-    `           IS_HOME>/repository/conf/          `
-    `           user-mgt.xml          ` file.
-
-    ``` xml
-    <Configuration>
-        <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-    </Configuration>
-    ```
-
-### Creating the database tables
-
-To create the database tables, connect to the database that you created
-earlier and run the following scripts.
-
-1.  To create tables in the registry and user manager database (
-    `           WSO2CARBON_DB          ` ), use the below script:
-
-    ``` java
-    <IS_HOME>/dbscripts/mssql.sql
-    ```
-
-2.  Restart the server.
-
-    !!! info 
-        You can create database tables automatically **when starting the
-        product for the first time** by using the
-        `            -Dsetup           ` parameter as follows:
-
-        -   For Windows:
-            `              <IS_HOME>/bin/wso2server.bat -Dsetup             `
-
-        -   For Linux:
-            `              <IS_HOME>/bin/wso2server.sh -Dsetup             `
-
-        !!! warning "Deprecation of -DSetup"
-            When proper Database Administrative (DBA) practices are followed,
-            the systems (except analytics products) are not granted DDL (Data
-            Definition) rights on the schema. Therefore, maintaining the
-            `             -DSetup            ` option is redundant and typically
-            unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has
-            deprecated the** **`              -DSetup             `** **option**
-           . Note that the proper practice is for the DBA to run the DDL
-            statements manually so that the DBA can examine and optimize any DDL
-            statement (if necessary) based on the DBA best practices that are in
-            place within the organization.
     
