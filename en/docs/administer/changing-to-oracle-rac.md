@@ -112,7 +112,7 @@ After setting up the Oracle RAC database. You can point the `WSO2_IDENTITY_DB` o
    3. If you have a requirement in using workflow feature follow, 
        [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
        
-   4.  Download the Oracle RAC JDBC driver for the version you are using and
+   4.  Download the Oracle RAC JDBC driver for the version, you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -127,7 +127,7 @@ After setting up the Oracle RAC database. You can point the `WSO2_IDENTITY_DB` o
 
    2.**Advanced Database Configurations.**
 
-Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
 - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
     
@@ -137,7 +137,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1"
+    validationQuery="SELECT 1 FROM DUAL"
     validationInterval="30000"
     defaultAutoCommit=false
    ```
@@ -150,7 +150,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1"
+    validationQuery="SELECT 1 FROM DUAL"
     validationInterval="30000"
     defaultAutoCommit=false
    ```
@@ -171,11 +171,12 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
+    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
+    validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Whether to commit database changes automatically or not.</td>
+    <td>Indicates Whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
