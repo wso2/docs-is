@@ -13,7 +13,7 @@ the regions of the users authenticated though WSO2 Identity Server.
 
     1.  Sign in to the mysql client by executing the command.
 
-        ``` java
+        ``` mysql
         mysql -u <MYSQL_USERNAME> -p
         ```
 
@@ -22,17 +22,17 @@ the regions of the users authenticated though WSO2 Identity Server.
 
     2.  Create the database by executing the following command.
 
-        ``` java
-                CREATE DATABASE GEO_LOCATION_DATA;
-                USE GEO_LOCATION_DATA;
+        ``` mysql
+        CREATE DATABASE GEO_LOCATION_DATA;
+        USE GEO_LOCATION_DATA;
         ```
 
     3.  Run the
         `             Geolocation Data/dbscripts/mysql.sql            `
         script.
 
-        ``` java
-                source <PATH_OF_mysql.sql_SCRIPT>
+        ``` mysql
+        source <PATH_OF_mysql.sql_SCRIPT>
         ```
 
     !!! tip
@@ -65,7 +65,7 @@ the regions of the users authenticated though WSO2 Identity Server.
 
     1.  The command to populate data to the BLOCKS table:
 
-        ``` java
+        ``` mysql
         mysqlimport -u <mysql username> -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <PATH_OF_BLOCKS.csv_FILE>
         ```
 
@@ -73,8 +73,8 @@ the regions of the users authenticated though WSO2 Identity Server.
 
     2.  The command to populate data to the LOCATION table:
 
-        ``` java
-                mysqlimport -u <mysql username> -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <PATH_OF_LOCATION.csv_FILE>
+        ``` mysql
+        mysqlimport -u <mysql username> -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <PATH_OF_LOCATION.csv_FILE>
         ```
 
         Provide the mysql password when
@@ -89,22 +89,22 @@ the regions of the users authenticated though WSO2 Identity Server.
     `           <IS_ANALYTICS_HOME>/conf/worker/deployment.yaml          `
     file as given below.
 
-    ``` java
-        name: GEO_LOCATION_DATA
-              description: "The data source used for geo location database"
-              jndiConfig:
-                name: jdbc/GEO_LOCATION_DATA
-              definition:
-                type: RDBMS
-                configuration:
-                  jdbcUrl: '<GEO_LOCATION_DATBASE_URL>'
-                  username: <MYSQL_USERNAME>
-                  password: <MYSQL_PASSWORD>
-                  driverClassName: <MYSQL_DRIVER_CLASS_NAME>
-                  maxPoolSize: 50
-                  idleTimeout: 60000
-                  validationTimeout: 30000
-                  isAutoCommit: false
+    ```toml
+    name: GEO_LOCATION_DATA
+    description: "The data source used for geo location database"
+    jndiConfig:
+    name: jdbc/GEO_LOCATION_DATA
+    definition:
+    type: RDBMS
+    configuration:
+        jdbcUrl: '<GEO_LOCATION_DATBASE_URL>'
+        username: <MYSQL_USERNAME>
+        password: <MYSQL_PASSWORD>
+        driverClassName: <MYSQL_DRIVER_CLASS_NAME>
+        maxPoolSize: 50
+        idleTimeout: 60000
+        validationTimeout: 30000
+        isAutoCommit: false
     ```
 
     1.  `             jdbcUrl            ` : This is the URL of the geo
@@ -138,11 +138,11 @@ the regions of the users authenticated though WSO2 Identity Server.
         1.  Navigate to the
             `            <IS_ANALYTICS_HOME>/samples/sample-clients/is-analytics-client           `
             directory on a command prompt.
+
         2.  Run the following command.
-    
-            ``` java
-                    ant -Dport=7612 -Dhost=0.0.0.0
-        ```
+        
+            ant -Dport=7612 -Dhost=0.0.0.0
+            
 
 
 9.  Restart WSO2 IS Analytics worker node.
