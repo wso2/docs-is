@@ -48,6 +48,12 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
         3.  Change the
             `             <IS_HOME>/dbscripts/identity/mysql5.7.sql            `
             script to **`              mysql.sql             `**.
+        4.  Change the
+            `             <IS_HOME>/dbscripts/identity/uma/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
+        5.  Change the
+            `             <IS_HOME>/dbscripts/consent/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
     
         MySQL 5.7 is only recommended for products that are based on Carbon
         4.4.6 or a later version.
