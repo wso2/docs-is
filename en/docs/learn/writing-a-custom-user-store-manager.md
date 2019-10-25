@@ -14,7 +14,7 @@ integrate an existing JDBC user store with a WSO2 product.
 The following sections provide information that you need to be aware of
 when writing a custom user store manager.
 
-### AbstractUserStoreManager and implementations
+## AbstractUserStoreManager and implementations
 
 There are a set of methods available in the
 `           AbstractUserStoreManager          ` class. These methods are
@@ -44,7 +44,7 @@ methods provide a configuration option through properties. It is
 recommended to use these methods with the provided customization
 options.
 
-#### Important methods
+### Important methods
 
 <table>
 <thead>
@@ -94,7 +94,7 @@ options.
 </tbody>
 </table>
 
-#### Read-write methods
+### Read-write methods
 
 <table>
 <colgroup>
@@ -167,7 +167,7 @@ options.
 </tbody>
 </table>
 
-#### Read methods
+### Read methods
 
 | Available methods                                                                                                                       | Default behaviour                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -191,7 +191,7 @@ options.
 | `                boolean isMultipleProfilesAllowed()               `                                                                    | Returns whether this user store is allowed to have multiple profiles per user. The default value is `               false              ` .                                                 |
 | `                boolean isBulkImportSupported()               `                                                                        | This method returns whether this user store allows bulk transactions or not.                                                                                                               |
 
-#### Implementations
+### Implementations
 
 In WSO2 Carbon-based products, there are four user store manager classes
 that implement the `           AbstractUserStoreManager          `
@@ -229,7 +229,7 @@ that you have in your environment.
 </tbody>
 </table>
 
-### Implementing a custom JDBC user store manager
+## Implementing a custom JDBC user store manager
 
 The instructions in this section are focused on implementing a sample
 JDBC user store manager. For this sample, the following tools are used
@@ -239,7 +239,7 @@ to implement the custom user store manager.
 -   IDE (Eclipse, InteliJ IDEA, etc.)
 -   Apache Maven
 
-#### Setting up the implementation
+### Setting up the implementation
 
 To set up this implementation, do the following.
 
@@ -361,7 +361,7 @@ To set up this implementation, do the following.
 
     Now your basic implementation is ready.
 
-#### Writing a custom user store manager for a sample scenario
+### Writing a custom user store manager for a sample scenario
 
 As a sample of how this can be done, consider a scenario where you want
 to use a custom hashing method using a 3rd party library such as
@@ -378,11 +378,11 @@ Do the following steps to write the custom user store manager.
     file to include the Jasypt dependency.
 
     ``` xml
-        <dependency>
-            <groupId>org.jasypt</groupId>
-            <artifactId>jasypt</artifactId>
-            <version>1.9.2</version>
-        </dependency>
+    <dependency>
+        <groupId>org.jasypt</groupId>
+        <artifactId>jasypt</artifactId>
+        <version>1.9.2</version>
+    </dependency>
     ```
 
 2.  Create a new class by extending the existing
@@ -390,120 +390,119 @@ Do the following steps to write the custom user store manager.
     following code is an example of how this would look.
 
     ``` java
-        package com.wso2.custom.usermgt;
-    
-        import org.apache.commons.logging.Log;
-        import org.apache.commons.logging.LogFactory;
-        import org.jasypt.util.password.StrongPasswordEncryptor;
-        import org.wso2.carbon.user.api.RealmConfiguration;
-        import org.wso2.carbon.user.core.UserRealm;
-        import org.wso2.carbon.user.core.UserStoreException;
-        import org.wso2.carbon.user.core.claim.ClaimManager;
-        import org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager;
-        import org.wso2.carbon.user.core.profile.ProfileConfigurationManager;
-    
-        import java.sql.Connection;
-        import java.sql.PreparedStatement;
-        import java.sql.ResultSet;
-        import java.sql.SQLException;
-        import java.sql.Timestamp;
-        import java.util.Date;
-        import java.util.GregorianCalendar;
-        import java.util.Map;
-    
-        public class CustomUserStoreManager extends JDBCUserStoreManager {
-           private static Log log = LogFactory.getLog(StarkUserStoreManager.class);
-           // This instance is used to generate the hash values
-           private static StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
-    
-           // You must implement at least one constructor
-           public CustomUserStoreManager(RealmConfiguration realmConfig, Map<String, Object> properties, ClaimManager
-                   claimManager, ProfileConfigurationManager profileManager, UserRealm realm, Integer tenantId)
-                   throws UserStoreException {
-               super(realmConfig, properties, claimManager, profileManager, realm, tenantId);
-               log.info("CustomUserStoreManager initialized...");
-           }
-    
-           @Override
-           public boolean doAuthenticate(String userName, Object credential) throws UserStoreException {
-               boolean isAuthenticated = false;
-               if (userName != null && credential != null) {
-                   try {
-                       String candidatePassword = String.copyValueOf(((Secret) credential).getChars());
-    
-                       Connection dbConnection = null;
-                       ResultSet rs = null;
-                       PreparedStatement prepStmt = null;
-                       String sql = null;
-                       dbConnection = this.getDBConnection();
-                       dbConnection.setAutoCommit(false);
-                       // get the SQL statement used to select user details
-                       sql = this.realmConfig.getUserStoreProperty("SelectUserSQL");
-                       if (log.isDebugEnabled()) {
-                           log.debug(sql);
-                       }
-    
-                       prepStmt = dbConnection.prepareStatement(sql);
-                       prepStmt.setString(1, userName);
-                       // check whether tenant id is used
-                       if (sql.contains("UM_TENANT_ID")) {
-                           prepStmt.setInt(2, this.tenantId);
-                       }
-    
-                       rs = prepStmt.executeQuery();
-                       if (rs.next()) {
-                           String storedPassword = rs.getString(3);
-    
-                           // check whether password is expired or not
-                           boolean requireChange = rs.getBoolean(5);
-                           Timestamp changedTime = rs.getTimestamp(6);
-                           GregorianCalendar gc = new GregorianCalendar();
-                           gc.add(GregorianCalendar.HOUR, -24);
-                           Date date = gc.getTime();
-                           if (!(requireChange && changedTime.before(date))) {
-                               // compare the given password with stored password using jasypt
-                               isAuthenticated = passwordEncryptor.checkPassword(candidatePassword, storedPassword);
-                           }
-                       }
-                       dbConnection.commit();
-                       log.info(userName + " is authenticated? " + isAuthenticated);
-                   } catch (SQLException exp) {
-                       try {
-                           connection.rollback();
-                       } catch (SQLException e1) {
-                           throw new UserStoreException("Transaction rollback connection error occurred while" + 
-                               " retrieving user authentication info. Authentication Failure.", e1);
-                       }
-                       log.error("Error occurred while retrieving user authentication info.", exp);
-                       throw new UserStoreException("Authentication Failure");
-                   }
-               }
-               return isAuthenticated;
-           }
-    
-           @Override
-           protected String preparePassword(Object password, String saltValue) throws UserStoreException {
-               if (password != null) {
-                   String candidatePassword = String.copyValueOf(((Secret) password).getChars());
-                    // ignore saltValue for the time being
-                   log.info("Generating hash value using jasypt...");
-                   return passwordEncryptor.encryptPassword(password);
-               } else {
-                   log.error("Password cannot be null");
-                   throw new UserStoreException("Authentication Failure");
-               }
-           }
+    package com.wso2.custom.usermgt;
+
+    import org.apache.commons.logging.Log;
+    import org.apache.commons.logging.LogFactory;
+    import org.jasypt.util.password.StrongPasswordEncryptor;
+    import org.wso2.carbon.user.api.RealmConfiguration;
+    import org.wso2.carbon.user.core.UserRealm;
+    import org.wso2.carbon.user.core.UserStoreException;
+    import org.wso2.carbon.user.core.claim.ClaimManager;
+    import org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager;
+    import org.wso2.carbon.user.core.profile.ProfileConfigurationManager;
+
+    import java.sql.Connection;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+    import java.sql.Timestamp;
+    import java.util.Date;
+    import java.util.GregorianCalendar;
+    import java.util.Map;
+
+    public class CustomUserStoreManager extends JDBCUserStoreManager {
+        private static Log log = LogFactory.getLog(StarkUserStoreManager.class);
+        // This instance is used to generate the hash values
+        private static StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+
+        // You must implement at least one constructor
+        public CustomUserStoreManager(RealmConfiguration realmConfig, Map<String, Object> properties, ClaimManager
+                claimManager, ProfileConfigurationManager profileManager, UserRealm realm, Integer tenantId)
+                throws UserStoreException {
+            super(realmConfig, properties, claimManager, profileManager, realm, tenantId);
+            log.info("CustomUserStoreManager initialized...");
         }
+
+        @Override
+        public boolean doAuthenticate(String userName, Object credential) throws UserStoreException {
+            boolean isAuthenticated = false;
+            if (userName != null && credential != null) {
+                try {
+                    String candidatePassword = String.copyValueOf(((Secret) credential).getChars());
+
+                    Connection dbConnection = null;
+                    ResultSet rs = null;
+                    PreparedStatement prepStmt = null;
+                    String sql = null;
+                    dbConnection = this.getDBConnection();
+                    dbConnection.setAutoCommit(false);
+                    // get the SQL statement used to select user details
+                    sql = this.realmConfig.getUserStoreProperty("SelectUserSQL");
+                    if (log.isDebugEnabled()) {
+                        log.debug(sql);
+                    }
+
+                    prepStmt = dbConnection.prepareStatement(sql);
+                    prepStmt.setString(1, userName);
+                    // check whether tenant id is used
+                    if (sql.contains("UM_TENANT_ID")) {
+                        prepStmt.setInt(2, this.tenantId);
+                    }
+
+                    rs = prepStmt.executeQuery();
+                    if (rs.next()) {
+                        String storedPassword = rs.getString(3);
+
+                        // check whether password is expired or not
+                        boolean requireChange = rs.getBoolean(5);
+                        Timestamp changedTime = rs.getTimestamp(6);
+                        GregorianCalendar gc = new GregorianCalendar();
+                        gc.add(GregorianCalendar.HOUR, -24);
+                        Date date = gc.getTime();
+                        if (!(requireChange && changedTime.before(date))) {
+                            // compare the given password with stored password using jasypt
+                            isAuthenticated = passwordEncryptor.checkPassword(candidatePassword, storedPassword);
+                        }
+                    }
+                    dbConnection.commit();
+                    log.info(userName + " is authenticated? " + isAuthenticated);
+                } catch (SQLException exp) {
+                    try {
+                        connection.rollback();
+                    } catch (SQLException e1) {
+                        throw new UserStoreException("Transaction rollback connection error occurred while" + 
+                            " retrieving user authentication info. Authentication Failure.", e1);
+                    }
+                    log.error("Error occurred while retrieving user authentication info.", exp);
+                    throw new UserStoreException("Authentication Failure");
+                }
+            }
+            return isAuthenticated;
+        }
+
+        @Override
+        protected String preparePassword(Object password, String saltValue) throws UserStoreException {
+            if (password != null) {
+                String candidatePassword = String.copyValueOf(((Secret) password).getChars());
+                // ignore saltValue for the time being
+                log.info("Generating hash value using jasypt...");
+                return passwordEncryptor.encryptPassword(password);
+            } else {
+                log.error("Password cannot be null");
+                throw new UserStoreException("Authentication Failure");
+            }
+        }
+    }
     ```
 
     !!! note
-    
         The default constructor is not enough when you implement
         a custom user store manager, and you must implement a constructor
         with relevant arguments.
     
 
-#### Deploying and configuring the custom user store manager
+### Deploying and configuring the custom user store manager
 
 Do the following to deploy and configure the custom user store manager
 in your WSO2 product.
@@ -518,12 +517,11 @@ in your WSO2 product.
 2.  Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file to use our custom
     implementation for user store management.
     ``` xml
-        [user_store]
-        class="com.wso2.custom.usermgt.CustomUserStoreManager"
+    [user_store]
+    class="com.wso2.custom.usermgt.CustomUserStoreManager"
     ```
 
     !!! tip
-    
         This step provides instructions on configuring your custom user
         store manager as a primary user store. Alternatively, you can
         configure this as a secondary user store if you already have a
@@ -541,11 +539,7 @@ Once you have done this, start the product and see the log messages that
 you have placed inside overridden methods when you create a new user or
 login. This ensures that all your configurations work as intended.
 
-!!! note
-    
-    Do you want to create a custom user store that only has few enabled
-    methods? Follow the steps given below:
-    
+!!! note "Do you want to create a custom user store that only has few enabled methods? Follow the steps given below:"
     1.  Sign in to the WSO2 Identity Server management console.
     2.  Click **Add** under User Stores.
     3.  Select the custom user store you just created as the value from the
@@ -556,5 +550,4 @@ login. This ensures that all your configurations work as intended.
     
 !!! info "Related Links"
     -   [Setting up User Stores](../../learn/configuring-user-stores)
-    -   See [Writing a Custom Attribute](../../administer/managing-user-attributes#writing-custom-attributes)
-        for instructions on how to write custom attributes for users.
+    -   See [Writing a Custom Attribute](../../learn/managing-user-attributes#writing-custom-attributes) for instructions on how to write custom attributes for users.

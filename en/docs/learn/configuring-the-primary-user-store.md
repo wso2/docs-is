@@ -13,10 +13,10 @@ store. If you need more information on WSO2 Carbon user stores, see
     It is recommended to change this default configuration in the production
     system.
 
-#### Setting up the Primary User Store
+## Setting up the Primary User Store
 
 Configure the primary userstore in the
-`         <PRODUCT_HOME>/repository/conf/deployment.toml        ` file.
+`         <IS_HOME>/repository/conf/deployment.toml        ` file.
 
 There are two steps involved in setting up the primary user store:
 
@@ -70,12 +70,9 @@ There are two steps involved in setting up the primary user store:
     each user store manager.  
 
     -   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
-    -   [Configuring a Read-Only LDAP User
-        Store](../../learn/configuring-a-read-only-ldap-user-store)
-    -   [Configuring a Read-Write Active Directory User
-        Store](../../learn/configuring-a-read-write-active-directory-user-store)
-    -   [Configuring a Read-Write LDAP User
-        Store](../../learn/configuring-a-read-write-ldap-user-store)
+    -   [Configuring a Read-Only LDAP User Store](../../learn/configuring-a-read-only-ldap-user-store)
+    -   [Configuring a Read-Write Active Directory User Store](../../learn/configuring-a-read-write-active-directory-user-store)
+    -   [Configuring a Read-Write LDAP User Store](../../learn/configuring-a-read-write-ldap-user-store)
 
     In `deployment.toml` file, you can configure user store managers by adding the relevant properties.
     But it is important to read each user store configuration
@@ -107,11 +104,9 @@ There are two steps involved in setting up the primary user store:
         ```
 
     !!! warning
-    
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml`. If you have not
-        configured the system administrator yet, see [Configuring the System
-        Administrator](../../learn/configuring-the-system-administrator).
+        configured the system administrator yet, see [Configuring the System Administrator](../../learn/configuring-the-system-administrator).
     
 
 3.  Now, restart the server.
