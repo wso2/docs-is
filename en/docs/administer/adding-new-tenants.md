@@ -59,7 +59,7 @@ follows:
     enable = true
     ```
 2.  Start the product server by executing the product startup script
-    from the `           <PRODUCT_HOME>/bin          ` directory:
+    from the ` <IS_HOME>/bin ` directory:
 
     **In Linux**
         ``` java
@@ -80,7 +80,7 @@ follows:
                 ``` java
                         sh wso2server.sh -DosgiConsole
                 ```
-           **In Windows**
+            **In Windows**
                 ``` java
                         wso2server.bat -DosgiConsole
                 ```
