@@ -373,18 +373,6 @@ to add the necessary configurations according to the new configuration model.
 !!! info
     If you have a WSO2 Subscription it is highly recommended to reach WSO2 Support
     before attempting to proceed with the configuration migration.
-    
-### Migrating the embedded LDAP user store
-
-WSO2 does not recommend using the embedded LDAP userstore that is
-shipped with WSO2 Identity Server in a production environment. However,
-if migration of the embedded LDAP is required, follow the instructions
-below to migrate the existing WSO2 IS LDAP user store to the new version
-of WSO2 IS.
-
-1.  Copy the `          <OLD_IS_HOME>/repository/data         ` folder
-    to `          <NEW_IS_HOME>/repository/data         ` folder.
-2.  Restart the server to save the changes.
 
 ### Zero down time migration
 
