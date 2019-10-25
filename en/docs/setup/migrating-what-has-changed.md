@@ -3,7 +3,7 @@
 In WSO2 Identity Server 5.9.0 brings a range of new features and major improvements. In IS 5.9.0 following 
 aspects has been changed compared to the previous IS versions.
 
-### **Changes to Resource Access Control**
+## Changes to Resource Access Control
 WSO2 Identity Server maintains a set of resources that requires user authentication. 
 In previous versions, if a resource is not mentioned in the configuration, it was 
 allowed to be accessed without user authentication. In WSO2 Identity Server 5.9.0, 
@@ -37,7 +37,7 @@ user authentication,  has to be explicitly mentioned in the
     default_access = ”allow”
     ```
         
-### **Log printing**
+## Log printing
 WSO2 Identity Server has a log printing mechanism. With WSO2 Identity Server 5.9.0, a correlation Id is 
 added to all the places where the logs are printed. 
 
@@ -60,7 +60,7 @@ added to all the places where the logs are printed.
     | <code>appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] [%X{Correlation-ID}] %5p {%c} - %m%ex%n</code>              |<code> appender.AUDIT_LOGFILE.layout.pattern = TID: [%tenantId] [%d] %5p {%c} - %m%ex%n </code>             |
 
         
-### **Storing the username in consent management** 
+## Storing the username in consent management
 WSO2 Identity Server supports obtaining user consent at user authentication. Consent management 
 in previous Identity Server versions, enforced case-sensitive usernames. But, Identity 
 Server 5.9.0 supports case-insensitive usernames by default. 
@@ -75,7 +75,7 @@ Server 5.9.0 supports case-insensitive usernames by default.
     use_case_sensitive_username_for_cache_keys = true
     ```
 
-### **Changes to the OIDC discovery response**
+## Changes to the OIDC discovery response
 WSO2 Identity Server has an OpendID discovery service that can be called by using 
 the `https://{server-ip}/oauth2/oidcdiscovery/.well-known/openid-configuration` endpoint. 
 
@@ -92,7 +92,7 @@ In WSO2 Identity Server 5.9.0 the values for above properties have been changed 
 "claims_parameter_supported": true,
 ```
 
-### **Redirecting to callbackUrl in OAuth flow errors**
+## Redirecting to callbackUrl in OAuth flow errors
 In previous Identity Server versions, when an error occurs while using the OAuth 2.0 flow, the 
 user was redirected to an error page at the `authenticationendpoint/oauth2_error.do` URL. According to the 
 specification, unless the provided `redirect URI` and `client Id` are invalid, the user should be redirected 
@@ -111,7 +111,7 @@ For WSO2 Identity Server 5.9.0 to be specification-compliant, unless the provide
     redirect_to_idp_error_page_on_error=true
     ```
 
-### **Redirecting to PostLogoutUri in user consent denial for OIDC logout**
+## Redirecting to PostLogoutUri in user consent denial for OIDC logout
 When a user rejects the OIDC logout consent, in earlier versions of the WSO2 Identity Server the user was redirected to 
 the `oauth2_error.do` page with _“access_denied - End User denied the logout request”_ error message. Custom 
 parameters such as “oauthErrorCode” and “oauthErrorMsg” were used to explain the issue to the user.
@@ -128,9 +128,9 @@ In WSO2 Identity Server 5.9.0, the user will be redirected to `postLogoutUri` wi
     redirect_to_post_logout_uri_on_consent_denial = false
     ```
 
-### **Scope validation for token issuing**
+## Scope validation for token issuing
 WSO2 Identity Server supports scope validation when issuing tokens for 
-[OAuth Service Providers](). 
+[OAuth Service Providers](../../learn/validating-oauth-access-token-scope-using-xacml-policies-during-token-issuance/). 
 
 In previous Identity Server versions, this capability was not available when issuing tokens for 
 Authorization Code and Implicit grant types. Identity Server 5.9.0 supports 
@@ -145,12 +145,12 @@ these by default when using a scope validator.
     enable = false
     ```
 
-### **Authentication Endpoint and Account Recovery Endpoint**
+## Authentication Endpoint and Account Recovery Endpoint
 In earlier versions of the WSO2 Identity Server the `authenticationendpoint` and the 
 `accountrecoveryendpoint` was packed in as `war` files in the `<IS_HOME>/repository/ 
 deployment/server/webapps/` directory. In WSO2 Identity Server 5.9.0 the exploded war files are packed.
 
-### **Log4j upgrade**
+## Log4j upgrade
 WSO2 Identity Server 5.9.0 has switched from log4j to log4j2. You will notice that there is a 
 `log4j2.properties` file in the `<IS_HOME>/repository/conf/` directory instead of the 
 `log4j.properties` file.

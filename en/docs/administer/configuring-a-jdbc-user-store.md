@@ -253,10 +253,7 @@ shipped with WSO2 products by default, is configured in the
 `         master-datasources.xml        ` file, which is stored in the
 `         <IS_HOME>/repository/conf/datasources/        `
 directory. For detailed information on setting up databases, see
-[Setting Up the Physical Database](../../administer/working-with-databases)
-, and for information on the purpose of defining datasources and how
-they are configured for a product, see [Managing
-Datasources](../../administer/managing-datasources).
+[Setting Up the Physical Database](../../administer/working-with-databases).
 
 1.  There are two possible methods for updating datasources:
     -   Shown below is how the

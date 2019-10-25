@@ -12,15 +12,4 @@ Follow the steps given below to enable symmetric encryption.
     ``` toml
     [encryption]
     key = "value"
-    ```   
-3.  Create a file named `symmetric-key.properties` in the `<IS_HOME>/repository/resources/security` directory and enter the symmetric key using the `symmetric.key` property. In the following example, the plain text key is entered in the `symmetric-key.properties` file.
-
-    ``` java
-    symmetric.key=samplekeyvalue
-    ```
-
-    If Secure Vault has been used for encrypting the symmetric key, this value will be replaced by the secret alias as shown below. 
-
-    ``` java
-    symmetric.key=secretAlias:symmetric.key.value
     ```
