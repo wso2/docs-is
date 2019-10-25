@@ -55,7 +55,7 @@ your system. You can configure this value using two methods.
 
 -   Specify the tenant idle time when you configure the tenant loading
     policy:
-    1.  Open the ` carbon.xml ` file in `[IS_HOME]/repository/conf`
+    1.  Open the ` deployment.toml` file in `<IS_HOME>/repository/conf`
         location.
 
     2.  Set the tenant idle time using the configurations element as

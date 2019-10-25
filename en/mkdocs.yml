@@ -637,7 +637,6 @@ nav:
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
-          - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
       - 'Working with Multiple Tenants':
           - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
           - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
