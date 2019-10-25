@@ -101,7 +101,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "5432"
+           port = "3306"
            ```
        
        1. Executing database scripts.
@@ -123,7 +123,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "5432"
+           port = "3306"
            ```
            
        1. Executing database scripts.
