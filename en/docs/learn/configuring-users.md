@@ -98,7 +98,7 @@ be done using a SCIM request as seen below.
       property to "true" for the primary userstore in the
       `           <IS_HOME>/repository/conf/deployment.toml        ` file.
 
-      ``` xml
+      ``` toml
       [user_store]
       scim_enabled  =  true
       ```
@@ -304,7 +304,7 @@ file or Microsoft Excel (.xls) file.
          by default, you can enable it by adding the following property to
          the JDBC user store configured in the
          `            deployment.toml           ` file (stored in the
-         `            <PRODUCT_HOME>/repository/conf           ` directory).
+         `            <IS_HOME>/repository/conf           ` directory).
          Please see the [User Store management](../../learn/configuring-the-primary-user-store) section for more
          information.
 
@@ -318,7 +318,7 @@ file or Microsoft Excel (.xls) file.
          batches of 500,000 each.
       -   You can also specify the size of the file that you can upload to the
          product in the
-         `            <PRODUCT_HOME>/repository/conf/deployment.toml           `
+         `            <IS_HOME>/repository/conf/deployment.toml           `
          file as shown below. This value is in MB.
 
 		``` toml
@@ -654,7 +654,7 @@ related to user deletion each time you delete a user:
     file, and set `           enable          ` to
     `           true          ` in the following event recorder:
 
-    ``` java
+    ``` toml
 	[event.default_recorder.user_delete_event]
 	name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
 	enable = false
