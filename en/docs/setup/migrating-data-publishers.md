@@ -43,7 +43,7 @@ approach in versions prior to WSO2 IS 5.8.0 and the new design approach.
 This section guides you through migrating an existing data publisher to
 an event handler.
 
-### Migrating data publisher to event handler
+### **Migrating data publisher to event handler**
 
 For the purposes of demonstrating this using an example, the steps given
 in this tutorial demonstrate deprecating the
@@ -52,19 +52,28 @@ and migrating it to use the
 [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
 instead.
 
-1.  Open the `           identity.xml          ` file found in the
-    `           <IS_HOME>/repository/conf/identity          ` folder and
-    remove the listener configuration corresponding to the data
-    publisher that you wish to migrate. For example, the following
-    listener configuration corresponding to the
-    [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java)
-    has been removed in order to deprecate it.
+1.  Open the `identity.xml.j2` file found in the
+    `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity` folder 
+    and add the template for removing the listener configuration corresponding to the data
+    publisher that you wish to migrate. For example, refer the following
+    listener configuration template corresponding to the
+    [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java).
 
     ``` xml
-    <EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-    name="org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl"
-    orderId="11" enable="false"/>
+    <EventListener id="abstract_identity_message_handler"
+        type="org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+        name="org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl"
+        orderId="{{event.default_listener.abstract_identity_message_handler.priority}}"
+        enable="{{event.default_listener.abstract_identity_message_handler.enable}}"/>
     ```
+    
+    Navigate to `default.json` file found in the`<IS_HOME>/repository/resources/conf` folder and
+    add the values to the attributes specified in the `identity.xml.j2` file.
+  
+       ``` xml
+       "event.default_listener.abstract_identity_message_handler.priority": "11",
+       "event.default_listener.abstract_identity_message_handler.enable": false,
+       ```
 
 2.  In order to support backward compatibility, override the
     `           isEnabled          ` method in the event handler class
@@ -86,19 +95,20 @@ instead.
         }
     ```
 
-3.  To enable the new event handler, add the relevant property to the
-    `           identity.properties          ` file found in the
-    `           <IS_HOME>/repository/conf/identity          ` folder.
+3.  To enable the new event handler, add handler and relevant property to the
+    `default.json` file found in the`<IS_HOME>/repository/resources/conf` folder.
     For example, following properties were added to define the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
     .
 
     ``` xml
-        module.name.15=analyticsSessionDataPublisher
-        analyticsSessionDataPublisher.subscription.1=SESSION_CREATE
-        analyticsSessionDataPublisher.subscription.2=SESSION_UPDATE
-        analyticsSessionDataPublisher.subscription.3=SESSION_TERMINATE
-        analyticsSessionDataPublisher.enable=true
+    "identity_mgt.events.schemes.analyticsSessionDataPublisher.module_index": "15",
+    "identity_mgt.events.schemes.analyticsSessionDataPublisher.subscriptions": [
+        "SESSION_CREATE",
+        "SESSION_UPDATE",
+        "SESSION_TERMINATE"
+    ],
+    "identity_mgt.events.schemes.analyticsSessionDataPublisher.properties.enable": true,
     ```
 
 4.  Add the following method to the event handler in order to verify
