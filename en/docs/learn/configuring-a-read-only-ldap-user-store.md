@@ -16,9 +16,7 @@ Read-only LDAP user store manager is configured with
 user store manager class. This user store manager is only capable of
 reading values for user store and not allowed to update the entries.
 
-In this page, you can find information on:
-
-### Properties used in Read-only LDAP userstore manager
+## Properties used in Read-only LDAP userstore manager
 
 <table>
 <thead>
@@ -30,7 +28,7 @@ In this page, you can find information on:
 </thead>
 <tbody>
 <tr class="odd">
-<td>DomainName</td>
+<td>domain_name</td>
 <td>Domain Name</td>
 <td>Unique name to identify the user store. This should only be configured for secondary user store.</td>
 </tr>
@@ -68,7 +66,7 @@ Sample values: uid=admin,ou=system</p></td>
 Sample values: ou=Users,dc=wso2,dc=org</td>
 </tr>
 <tr class="even">
-<td>UserEntryObjectClass</td>
+<td>user_entry_object_class</td>
 <td>User Entry Object Class</td>
 <td>Object class used to construct user entries.<br />
 Default: wso2Person ( Is a custom object class defined in WSO2 products)</td>
@@ -96,7 +94,7 @@ Sample values: (objectClass=person)<br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
-<td>UserDNPattern</td>
+<td>user_dn_pattern</td>
 <td>User DN Pattern</td>
 <td><p>The pattern for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
 <p>Sample values: uid={0},ou=Users,dc=wso2,dc=org</p></td>
@@ -116,7 +114,7 @@ true: Read groups from user store<br />
 false: Don’t read groups from user store</td>
 </tr>
 <tr class="odd">
-<td>WriteGroups</td>
+<td>write_groups</td>
 <td>Write Groups</td>
 <td>Indicates whether groups should be write to the user store.<br />
 <br />
@@ -132,7 +130,7 @@ false: Do not write groups to user store, so only internal roles can be created.
 <p>Sample values: ou=Groups,dc=wso2,dc=org</p></td>
 </tr>
 <tr class="odd">
-<td>GroupEntryObjectClass</td>
+<td>group_entry_object_class</td>
 <td>Group Entry Object Class</td>
 <td>Object class used to construct group entries.<br />
 Sample values: groupOfNames</td>
@@ -155,7 +153,7 @@ Sample values: groupOfNames</td>
 <p>Sample values: ((objectClass=groupOfNames)) In this case, the search operation only provides the objects created from the groupOfName object class.</p></td>
 </tr>
 <tr class="odd">
-<td>RoleDNPattern</td>
+<td>role_dn_pattern</td>
 <td>Role DN Pattern</td>
 <td><p>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP user store, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to traverse through the entire tree to findgroup.</p>
 <p>Sample values: cn={0},ou=Groups,dc=wso2,dc=org</p></td>
@@ -167,7 +165,7 @@ Sample values: groupOfNames</td>
 <p>Possible values: member</p></td>
 </tr>
 <tr class="odd">
-<td>MemberOfAttribute</td>
+<td>member_of_attribute</td>
 <td>Member Of Attribute</td>
 <td>Define the attribute that contains the distinguished names (DN ) of group objects that user is assigned to.<br />
 Possible values: memberOf</td>
@@ -184,13 +182,13 @@ Possible values: memberOf</td>
 Default: [a-zA-Z0-9._-|//]{3,30}$</td>
 </tr>
 <tr class="even">
-<td>UsernameJavaScriptRegEx</td>
+<td>username_java_script_regex</td>
 <td>Username RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for username validation.<br />
 Default: ^[\S]{3,30}$</td>
 </tr>
 <tr class="odd">
-<td>UsernameJavaRegExViolationErrorMsg</td>
+<td>username_java_reg_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with UsernameJavaRegEx</td>
 </tr>
@@ -201,13 +199,13 @@ Default: ^[\S]{3,30}$</td>
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
-<td>PasswordJavaScriptRegEx</td>
+<td>password_java_script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="even">
-<td>PasswordJavaRegExViolationErrorMsg</td>
+<td>password_java_regex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx</td>
 </tr>
@@ -218,7 +216,7 @@ Default: ^[\S]{5,30}$</td>
 Default: [a-zA-Z0-9._-|//]{3,30}$</td>
 </tr>
 <tr class="even">
-<td>PasswordJavaScriptRegEx</td>
+<td>password_java_script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
@@ -233,12 +231,12 @@ True : User store support for SCIM provisioning.<br />
 False: User does not store support for SCIM provisioning.</td>
 </tr>
 <tr class="even">
-<td>BulkImportSupported</td>
+<td>bulk_import_supported</td>
 <td>Bulk Import Support</td>
 <td>Defines whether the user store support for bulk user import operation</td>
 </tr>
 <tr class="odd">
-<td>EmptyRolesAllowed</td>
+<td>empty_roles_allowed</td>
 <td>Allow Empty Roles</td>
 <td>Specifies whether the underlying user store allows empty groups to be created. In the case of LDAP in Carbon, the schema is modified such that empty groups are allowed to be created. Usually, LDAP servers do not allow you to create empty groups.</td>
 </tr>
@@ -281,7 +279,7 @@ In some user stores, there are policies to limit the number of records that can 
 <p>Eg: Active directory has the MaxPageSize property with the default value 1000.</p></td>
 </tr>
 <tr class="even">
-<td>kdcEnabled</td>
+<td>kdc_enabled</td>
 <td>Enable KDC</td>
 <td>If your user store is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
 Default: false</td>
@@ -322,7 +320,7 @@ Default: 5000</td>
 Default: 0</td>
 </tr>
 <tr class="even">
-<td>CountRetrieverClass</td>
+<td>count_retriever_class</td>
 <td>Count Implementation</td>
 <td>This define the user / role count retriever implementation class (Only supported for )<br />
 Possible values:<br />
@@ -335,7 +333,7 @@ JDBC : org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetrieve
 Sample values: objectGUID</td>
 </tr>
 <tr class="even">
-<td>MembershipAttributeRange</td>
+<td>membership_attribute_range</td>
 <td>Membership Attribute Range</td>
 <td><p>This is to define the maximum users of role returned by the LDAP/AD user store. This does not depend on the max page size of the user store.</p>
 <p>Default: 1500</p></td>
@@ -343,45 +341,45 @@ Sample values: objectGUID</td>
 </tbody>
 </table>
 
-###  Sample configuration for Read-only LDAP user store
+## Sample configuration for Read-only LDAP user store
 
 ??? note "Read only LDAP sample configuration"
     ``` xml
-        [user_store]
-        type = "read_only_ldap"
-        connection_url = "ldap://ldap.example.com:389"
-        connection_name = "uid=admin,ou=wso2is"
-        connection_password = "$secret{ldap_password}"
-        base_dn = "dc=example,dc=com"
-        class = "org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
-        tenant_manager  =  "org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
-        anonymous_bind  =  false
-        user_search_base  =  "ou=system"
-        user_name_attribute  =  "uid"
-        user_name_search_filter  =  "(&amp;(objectClass=person)(uid=?))"
-        user_name_list_filter  =  "(objectClass=person)"
-        display_name_attribute  =  ""
-        read_groups  =  true
-        group_search_base  =  "ou=system"
-        group_name_attribute  =  "cn"
-        group_name_search_filter  =  "(&amp;(objectClass=groupOfNames)(cn=?))"
-        group_name_list_filter  =  "(objectClass=groupOfNames)"
-        membership_attribute  =  "member"
-        back_links_enabled  =  false
-        scim_enabled  =  false
-        password_hash_method  =  "PLAIN_TEXT"
-        multi_attribute_separator  =  ","
-        max_user_name_list_length  = 100
-        max_role_name_list_length  =  100
-        user_roles_cache_enabled  =  true
-        connection_pooling_enabled  =  true
-        ldap_connection_timeout  =  5000
-        read_timeout  =  ""
-        retry_attempts  =  ""
-        replace_escape_characters_at_user_login  =  true
-        username_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
-        rolename_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
-        password_java_regex = "^[\S]{5,30}$"
+    [user_store]
+    type = "read_only_ldap"
+    connection_url = "ldap://ldap.example.com:389"
+    connection_name = "uid=admin,ou=wso2is"
+    connection_password = "$secret{ldap_password}"
+    base_dn = "dc=example,dc=com"
+    class = "org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
+    tenant_manager  =  "org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
+    anonymous_bind  =  false
+    user_search_base  =  "ou=system"
+    user_name_attribute  =  "uid"
+    user_name_search_filter  =  "(&amp;(objectClass=person)(uid=?))"
+    user_name_list_filter  =  "(objectClass=person)"
+    display_name_attribute  =  ""
+    read_groups  =  true
+    group_search_base  =  "ou=system"
+    group_name_attribute  =  "cn"
+    group_name_search_filter  =  "(&amp;(objectClass=groupOfNames)(cn=?))"
+    group_name_list_filter  =  "(objectClass=groupOfNames)"
+    membership_attribute  =  "member"
+    back_links_enabled  =  false
+    scim_enabled  =  false
+    password_hash_method  =  "PLAIN_TEXT"
+    multi_attribute_separator  =  ","
+    max_user_name_list_length  = 100
+    max_role_name_list_length  =  100
+    user_roles_cache_enabled  =  true
+    connection_pooling_enabled  =  true
+    ldap_connection_timeout  =  5000
+    read_timeout  =  ""
+    retry_attempts  =  ""
+    replace_escape_characters_at_user_login  =  true
+    username_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
+    rolename_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
+    password_java_regex = "^[\S]{5,30}$"
     ```
 
   
