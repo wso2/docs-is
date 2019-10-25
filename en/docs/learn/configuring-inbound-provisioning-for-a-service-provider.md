@@ -1,6 +1,6 @@
 # Configuring Inbound Provisioning for a Service Provider
 
-See [Inbound Provisioning](../../learn/inbound-provisioning) for more information
+Click [here](../../learn/inbound-provisioning) for more information
 on inbound provisioning. To configure inbound provisioning for the
 service provider, follow the steps below.
 
