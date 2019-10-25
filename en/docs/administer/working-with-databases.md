@@ -10,19 +10,12 @@ product pack.
 Explained below are the default databases that you will find in the
 `         database        ` directory.
 
--   **Carbon database:** `          WSO2CARBON_DB.mv.db         ` is the
-    main Carbon database in a WSO2 product. This stores registry and
-    user management data by default. In addition, if the product uses
-    features of [WSO2 Identity
-    Server](http://wso2.com/products/identity-server/),
-    data that are specific to those features will by default reside in the
-    embedded Carbon database. However, for production environments, we
-    recommend separate RDBMSs to store identity-related and
-    storage-related data.
--   **Product-specific database** :`WSO2IDENTITY_DB.mv.db` in addition to the main Carbon
-    database, WSO2 Identity Server has its this database its specific identity related data.
+-   **Identity database** :`WSO2IDENTITY_DB.mv.db` WSO2 Identity Server has its this database its specific identity 
+    related data.
 -   **Shared database** :`WSO2SHARED_DB.mv.db` this database contains the registry and
     user management data.
+-   **Carbon database:** `          WSO2CARBON_DB.mv.db         ` This database has the 
+    internal data related to the product. This data is stored in the embedded H2 database.
 
 ### Changing the default databases
 
@@ -49,3 +42,11 @@ physical databases, point the product server to the new databases by
 updating the relevant configuration files, and create the required
 tables using the scripts provided in the product pack. See the following
 topics for instructions:
+
+-   [Changing to MySQL](../../administer/changing-to-mysql)
+-   [Changing to Oracle](../../administer/changing-to-oracle)
+-   [Changing to MSSQL](../../administer/changing-to-mssql)
+-   [Changing to Oracle RAC](../../administer/changing-to-oracle-rac)
+-   [Changing to PostgreSQL](../../administer/changing-to-postgresql)
+-   [Changing to IBM DB2](../../administer/changing-to-ibm-db2)
+-   [Changing to MariaDB](../../administer/changing-to-mariadb)
