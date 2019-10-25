@@ -158,7 +158,7 @@ services, see [Calling Admin Services.](../../develop/calling-admin-services)
     to expose these URLs to users. However, this can be enabled by the
     administrators if it needs to be accessed.
 
-    ``` java
+    ``` toml
     [admin_service.wsdl]
     enable = true
     ```
@@ -206,7 +206,7 @@ Server. To do this, change the properties in the
 
 -   Change the value of `         admin_role         ` to ` New role name   `. 
 
-    ```xml
+    ```toml
     [super_admin]
     username = "admin"
     password = "admin"
@@ -312,7 +312,7 @@ Services.](../../develop/calling-admin-services)
     to expose these URLs to users. However, this can be enabled by the
     administrators if it needs to be accessed.
 
-    ``` java
+    ``` toml
     [admin_service.wsdl]
     enable = false
     ```
