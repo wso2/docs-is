@@ -14,18 +14,15 @@
     For Read-only Active Directory User Store manager configuration, use
     Read-only LDAP user store manager configuration properties.
     
-
 Read-Write Active Directory User Store manager is configured with
 `         org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager        `
 user store manager class.
 
-In this page, you can find information on:
-
-### Properties used in Read-write Active Directory userstore manager
+## Properties used in Read-write Active Directory userstore manager
 
 The following table lists the properties used in Read-write Active
 Directory and their descriptions:
-
+    
 <table>
 <thead>
 <tr class="header">
@@ -105,13 +102,6 @@ Sample values: uid={0},ou=Users,dc=wso2,dc=org</td>
 <td>Display Name Attribute</td>
 <td>This is an optional property. The Display Name Attribute is the name by which users will be listed when you list users in the management console.</td>
 </tr>
-<tr class="odd">
-<td><br />
-</td>
-<td>Disabled</td>
-<td><br />
-</td>
-</tr>
 <tr class="even">
 <td>read_groups</td>
 <td>Read Groups</td>
@@ -161,7 +151,7 @@ false : Don’t write groups to user store, so only internal roles can be create
 <p>Sample values: ((objectClass=groupOfNames)) In this case, the search operation only provides the objects created from the groupOfName object class.</p></td>
 </tr>
 <tr class="odd">
-<td>RoleDNPattern</td>
+<td>role_dn_pattern</td>
 <td>Role DN Pattern</td>
 <td>The pattern for the group's DN, which can be defined to improve the search. When there are many group entries in the LDAP user store, defining a RoleDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find group.<br />
 Sample values: cn={0},ou=Groups,dc=wso2,dc=org</td>
@@ -182,13 +172,6 @@ Sample values: cn={0},ou=Groups,dc=wso2,dc=org</td>
 <td>back_links_enabled </td>
 <td>Enable Back Links</td>
 <td>Define whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to true.</td>
-</tr>
-<tr class="odd">
-<td><br />
-</td>
-<td>referral</td>
-<td><br />
-</td>
 </tr>
 <tr class="even">
 <td>username_java_regex</td>
@@ -347,7 +330,7 @@ Default: 5000</td>
 Default: 0</td>
 </tr>
 <tr class="odd">
-<td>CountRetrieverClass</td>
+<td>count_retriever_class</td>
 <td>Count Implementation</td>
 <td>This define the user / role count retriever implementation class (Only supported for )<br />
 Possible values:<br />
@@ -370,59 +353,59 @@ Sample values: objectGUID</td>
 
   
 
-### Sample configuration for Read-write Active Directory user store
+## Sample configuration for Read-write Active Directory user store
 
 ??? note "Active Directory Read-write sample configuration"
 
     ```xml 
-        [user_store.properties]
-        class = "org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
-        connection_url = "ldap://ldap.example.com:389"
-        connection_name = "cn=Administrator,ou=Users, dc=EXAMPLE, dc=COM"
-        connection_password = "$secret{ldap_password}"
-        user_search_base = "CN=Users,DC=WSO2,DC=Com"
-        user_entry_object_class = "identityPerson"
-        user_name_attribute = "uid"
-        user_name_search_filter = "(&amp;(objectClass=user)(cn=?))"
-        user_name_list_filter = "(objectClass=person)"
-        display_name_attribute = ""
-        read_groups = true
-        write_groups = true
-        group_search_base = "CN=Users,DC=WSO2,DC=Com"
-        group_entry_object_class = "group"
-        group_name_attribute = "cn"
-        group_name_search_filter = "(&amp;(objectClass=group)(cn=?))"
-        group_name_list_filter = "(objectcategory=group)"
-        membership_attribute = "member"
-        member_of_attribute = "memeberOf"
-        back_links_enabled = false
-        referral = "follow"
-        username_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
-        username_javascript_regex = "^[\S]{3,30}$"
-        username_java_regex_violation_error_msg = "Username pattern policy violated"
-        password_java_regex = "^[\S]{5,30}$"
-        password_javascript_regex = "^[\S]{5,30}$"
-        password_java_regex_violation_error_msg = "Password length should be within 5 to 30 characters"
-        rolename_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
-        rolename_javascript_regex = "^[\S]{3,30}$"
-        scim_enabled = false
-        is_bulk_import_supported = true
-        empty_roles_allowed = true
-        password_hash_method = "PLAIN_TEXT"
-        multi_attribute_separator = ","
-        is_adlds_role = false
-        user_account_control = "512"
-        max_user_name_list_length = "100"
-        max_role_name_list_length = "100"
-        membership_attribute_range = 1500
-        kdc_enabled = false
-        default_realm_name = "WSO2.ORG"
-        user_roles_cache_enabled = true
-        connection_pooling_enabled = false
-        ldap_connection_timeout = 5000
-        read_timeout = ""
-        retry_attempts = ""
-        start_tls_enabled = false
+    [user_store.properties]
+    class = "org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
+    connection_url = "ldap://ldap.example.com:389"
+    connection_name = "cn=Administrator,ou=Users, dc=EXAMPLE, dc=COM"
+    connection_password = "$secret{ldap_password}"
+    user_search_base = "CN=Users,DC=WSO2,DC=Com"
+    user_entry_object_class = "identityPerson"
+    user_name_attribute = "uid"
+    user_name_search_filter = "(&amp;(objectClass=user)(cn=?))"
+    user_name_list_filter = "(objectClass=person)"
+    display_name_attribute = ""
+    read_groups = true
+    write_groups = true
+    group_search_base = "CN=Users,DC=WSO2,DC=Com"
+    group_entry_object_class = "group"
+    group_name_attribute = "cn"
+    group_name_search_filter = "(&amp;(objectClass=group)(cn=?))"
+    group_name_list_filter = "(objectcategory=group)"
+    membership_attribute = "member"
+    member_of_attribute = "memeberOf"
+    back_links_enabled = false
+    referral = "follow"
+    username_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
+    username_javascript_regex = "^[\S]{3,30}$"
+    username_java_regex_violation_error_msg = "Username pattern policy violated"
+    password_java_regex = "^[\S]{5,30}$"
+    password_javascript_regex = "^[\S]{5,30}$"
+    password_java_regex_violation_error_msg = "Password length should be within 5 to 30 characters"
+    rolename_java_regex = "[a-zA-Z0-9._\-|//]{3,30}$"
+    rolename_javascript_regex = "^[\S]{3,30}$"
+    scim_enabled = false
+    is_bulk_import_supported = true
+    empty_roles_allowed = true
+    password_hash_method = "PLAIN_TEXT"
+    multi_attribute_separator = ","
+    is_adlds_role = false
+    user_account_control = "512"
+    max_user_name_list_length = "100"
+    max_role_name_list_length = "100"
+    membership_attribute_range = 1500
+    kdc_enabled = false
+    default_realm_name = "WSO2.ORG"
+    user_roles_cache_enabled = true
+    connection_pooling_enabled = false
+    ldap_connection_timeout = 5000
+    read_timeout = ""
+    retry_attempts = ""
+    start_tls_enabled = false
     ```
 
   
