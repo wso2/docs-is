@@ -68,8 +68,11 @@ instead.
     ```
     
     !!! note 
-        For more information on new configurations, see 
-        [New Configuration Model](../../references/new-configuration-model).
+        The above example is for the new configuration model in WSO2 Identity Server 5.9.0, see 
+        [New Configuration Model](../../references/new-configuration-model) for more information.
+        
+        If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
+        your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa) for assiatance.
 
 2.  In order to support backward compatibility, override the
     `isEnabled` method in the event handler class
