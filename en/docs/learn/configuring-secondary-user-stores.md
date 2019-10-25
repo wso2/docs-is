@@ -7,7 +7,7 @@ and perform operations depending on their roles/permissions. You can
 also configure your own customized user stores and connect them with the
 products as secondary stores.
 
-You can use either the management console to create secondary user stores or you can create it manually. These will be stored in the deployment.toml file and use the same format, used to configure primary user store.
+You can use either the management console to create secondary user stores or you can create it manually. These will be stored in the deployment.toml file and will use the same format that is used to configure the primary user store.
 
 ## Configuring using the Management Console
 
