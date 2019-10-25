@@ -112,7 +112,7 @@ The following information is required to make a request.
 <td>Resource</td>
 <td>Identifier for the target end user that is the subject of the discovery request.</td>
 <td>acct:admin@localhost (for super tenant)<br />
-acct:admin@ <a href="http://wso2.com">wso2.com</a> @localhost (for tenant)</td>
+acct:admin@ wso2.com@localhost (for tenant)</td>
 </tr>
 <tr class="even">
 <td>HostServer</td>
@@ -122,7 +122,7 @@ acct:admin@ <a href="http://wso2.com">wso2.com</a> @localhost (for tenant)</td>
 <tr class="odd">
 <td>rel</td>
 <td>URI identifying the type of service whose location is being requested.</td>
-<td><a href="http://openid.net/specs/connect/1.0/issuer">http://openid.net/specs/connect/1.0/issuer</a></td>
+<td>http://openid.net/specs/connect/1.0/issuer</td>
 </tr>
 </tbody>
 </table>

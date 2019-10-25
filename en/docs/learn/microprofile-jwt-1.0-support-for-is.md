@@ -80,12 +80,12 @@ below:
 <tr class="odd">
 <td>upn</td>
 <td>Provides the user principal name in the java.security.Principal interface**</td>
-<td>MP-JWT 1.0 specification</td>
+<td><p><a href="https://www.eclipse.org/community/eclipse_newsletter/2017/september/article2.php">MP-JWT 1.0 specification</a></p></td>
 </tr>
 <tr class="even">
 <td>groups</td>
 <td>Provides the list of group names that have been assigned to the principal of the MP-JWT. This typically will require a mapping at the application container level to application deployment roles, but a one-to-one between group names and application role names is required to be performed in addition to any other mapping.</td>
-<td>MP-JWT 1.0 specification</td>
+<td><p><a href="https://www.eclipse.org/community/eclipse_newsletter/2017/september/article2.php">MP-JWT 1.0 specification</a></p></td>
 </tr>
 </tbody>
 </table>
