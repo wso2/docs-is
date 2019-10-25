@@ -114,7 +114,7 @@ specific requirements.
         for information on multitenancy.
 
 !!! note
-    `Server Roles` are used with C-Apps. From Identity Server 5.9.0, this feature is not available.
+    `Server Roles` are used with Carbon Apps. From Identity Server 5.9.0, this feature is not available.
 
 ### **Tools menu**
 
