@@ -52,28 +52,21 @@ and migrating it to use the
 [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
 instead.
 
-1.  Open the `identity.xml.j2` file found in the
-    `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity` folder 
-    and add the template for removing the listener configuration corresponding to the data
-    publisher that you wish to migrate. For example, refer the following
-    listener configuration template corresponding to the
+1.  Open the `deployment` file found in the
+    `<IS_HOME>/repository/conf` folder 
+    and add the lister attributes. For example, refer the following
+    listener configuration corresponding to the
     [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java).
 
-    ``` xml
-    <EventListener id="abstract_identity_message_handler"
-        type="org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-        name="org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl"
-        orderId="{{event.default_listener.abstract_identity_message_handler.priority}}"
-        enable="{{event.default_listener.abstract_identity_message_handler.enable}}"/>
+    ``` 
+    [[event_listener]]
+    id="abstract_identity_message_handler"
+    type="org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
+    name="org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl"
+    orderId=11
+    enable="false"
     ```
     
-    Navigate to `default.json` file found in the`<IS_HOME>/repository/resources/conf` folder and
-    add the values to the attributes specified in the `identity.xml.j2` file.
-  
-       ``` xml
-       "event.default_listener.abstract_identity_message_handler.priority": "11",
-       "event.default_listener.abstract_identity_message_handler.enable": false,
-       ```
     !!! note 
         For more information on new configurations, see 
         [New Configuration Model](../../references/new-configuration-model).
