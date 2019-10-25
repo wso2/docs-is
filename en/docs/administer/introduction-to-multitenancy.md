@@ -34,8 +34,7 @@ JAVA_OPTS \
 -   [Tenant loading
     policy](#tenant-loading-policy)
 -   [Restrictions](#restrictions)
--   [Request
-    dispatching](#Request dispatching)
+-   [Request dispatching](#request-dispatching)
 -   [Scaling](#scaling)
 
 ### Architecture
