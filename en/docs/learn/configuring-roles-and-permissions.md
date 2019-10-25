@@ -23,8 +23,6 @@ together.
 WSO2 products has two types of roles. **External Roles** and **Internal
 Roles**. Let say there are two user stores.
 
-  
-
 <table>
 <thead>
 <tr class="header">
@@ -48,8 +46,6 @@ Roles**. Let say there are two user stores.
 </tbody>
 </table>
 
-  
-
 **External Roles :**  
 Store in user store itself. Only users in that user store can assign to
 external roles in same user store.  
@@ -62,7 +58,6 @@ permission for that role. There is a one to one mapping between Groups
 and Roles and same Group name is used to represent the Role in the
 server.  
   
-
 **Internal Roles :**
 
 Store in Identity server database. User in all user stores can assign to
@@ -75,23 +70,21 @@ directly assign users to these roles (Do not support to assign Groups to
 these Roles)
 
 !!! info 
-        **Internal/everyone :** This is a conceptual role that is used to group
-        all the users (across the user stores) together. When you create a new
-        user, automatically the user belongs to the Internal/everyone role.
+    **Internal/everyone :** This is a conceptual role that is used to group
+    all the users (across the user stores) together. When you create a new
+    user, automatically the user belongs to the Internal/everyone role.
 
-        **Application Role** : is a special case of internal roles, these are
-        created for a single service provider ( SP ) application and only users
-        in this role canmange relevant SP application.
+    **Application Role** : is a special case of internal roles, these are
+    created for a single service provider ( SP ) application and only users
+    in this role canmange relevant SP application.
 
-### Adding a user role
+## Adding a user role
 
-#### Add role using management console
+### Add role using management console
 
 Follow the instructions below to add a user role.
 
-1.  On the **Main** tab in the [Management
-    Console](../../setup/getting-started-with-the-management-console)
-   , click **Add** under **Users and Roles**.  
+1.  On the **Main** tab in the [Management Console](../../setup/getting-started-with-the-management-console), click **Add** under **Users and Roles**.  
 2.  Click **Roles**. This link is only visible to users with the Admin
     role.  
 3.  Click **Add New Role**.
@@ -117,13 +110,12 @@ Follow the instructions below to add a user role.
 The role is created and is listed on the Roles page. You can now edit
 the role as needed.
 
-#### Add role using SCIM
+### Add role using SCIM
 
 -   In SCIM creating role means creating a **group.** Read more on
     [SCIM](../../develop/scim-1.1-apis).
 
     !!! note
-    
         When creating a group with users, you need to have that
         user already exists in the user store and provide its unique id.
         Create a new group named: 'engineer' with the user 'hasinitg' as a
@@ -139,7 +131,7 @@ the role as needed.
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","hasinitg": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
+    curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"316214c0-dd7e-4dc3-bed8-e91227d32597","hasinitg": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
     ```
 
     You receive a response with the payload as indicated below and a
@@ -148,28 +140,27 @@ the role as needed.
     **Response**
 
     ``` java
-        {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
+    {"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","schemas":["urn:scim:schemas:core:1.0"],"displayName":"PRIMARY/engineer","members":[{"value":"0032fd29-55a9-4fb9-be82-b1c97c073f02","display":"hasinitg"}],"meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}
     ```
 
     You can observe in the management console of IS, that the new group
     is listed under roles and user 'hasinitg' is listed under users of
     that group.
 
-#### Add role using SOAP
+### Add role using SOAP
 
 A role can be created by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
-services, see [Calling Admin
-Services.](../../develop/calling-admin-services)
+services, see [Calling Admin Services.](../../develop/calling-admin-services)
 
-1.  Disable the hidden admin service property in the file
-    `           <IS_HOME>/repository/conf/carbon.xml          ` .  
+1.  Disable the hidden admin service property in the `           <IS_HOME>/repository/conf/deployment.toml          ` file.  
     By default, the admin services are disabled as it is not recommended
     to expose these URLs to users. However, this can be enabled by the
     administrators if it needs to be accessed.
 
     ``` java
-        <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+    [admin_service.wsdl]
+    enable = true
     ```
 
 2.  Open the following Admin Service from SOAP UI:
@@ -203,28 +194,19 @@ Services.](../../develop/calling-admin-services)
     The role is created and is listed on the Roles page. You can now
     edit the role as needed.
 
-### Updating role names
+## Updating role names
 
 To make modifications to the role names, do one of the following:
 
-#### Update before the first startup (recommended)
+### Update before the first startup (recommended)
 
-You can change the default role names ( `         admin        ` and
-`         everyone        ` ) before starting up the WSO2 Identity
+You can change the default role name before starting up the WSO2 Identity
 Server. To do this, change the properties in the
-`         <PRODUCT_HOME>/repository/conf/deployment.toml       ` file as shown below.
+`         <IS_HOME>/repository/conf/deployment.toml       ` file as shown below.
 
--   Change `          <AdminRole>admin</AdminRole>         ` to
-            `   <AdminRole>                     New role name          </AdminRole\> `.
+-   Change the value of `         admin_role         ` to ` New role name   `. 
+
     ```xml
-        [super_admin]
-        admin_role = "New role name" 
-    ```
--   Change
-    `          <EveryOneRoleName>everyone</EveryOneRoleName>         `
-    to       `<EveryOneRoleName>                     New role name      </EveryOneRoleName> `.
-
-```xml
     [super_admin]
     username = "admin"
     password = "admin"
@@ -232,8 +214,8 @@ Server. To do this, change the properties in the
     admin_role = "admin"
     [realm_manager]
     data_source = "jdbc/WSO2CarbonDB"
-```
-#### Update after the product is used for sometime (advanced configuration)
+    ```
+### Update after the product is used for sometime (advanced configuration)
 
 If you have already updated the role names before the first startup of
 the product, these steps are not necessary. The following steps guide
@@ -267,9 +249,9 @@ some time.
     -   [Update before the first startup
         (recommended)](#update-before-the-first-startup-recommended)
     -   [Update after the product is used for sometime (advanced
-        configuration)](#update-after-the-product-is-used-for-sometime-advancedconfiguration)
+        configuration)](#update-after-the-product-is-used-for-sometime-advanced-configuration)
 
-### Searching for roles
+## Searching for roles
 
 Once you have added a role in the Identity Server, you can search for
 the role by doing the following.
@@ -290,9 +272,9 @@ the role by doing the following.
         list out all the role with names beginning with "Ma".
     3.  The role is displayed in the list.
 
-### Editing or deleting a role
+## Editing or deleting a role
 
-#### Using management console
+### Using management console
 
 If you need to make modifications to a role, use the links in the
 **Actions** column on the **Roles** screen as follows:
@@ -310,14 +292,14 @@ If you need to make modifications to a role, use the links in the
     read-only mode, you will be able to view the existing roles but not edit
     or delete them. However, you can still create new editable roles.
 
-#### Using SCIM
+### Using SCIM
 
 In SCIM roles are considered as **groups.** You can edit or delete a
 group using SCIM. Please read more about
 [SCIM](../../develop/scim-1.1-apis) for further
 details.
 
-#### Using SOAP
+### Using SOAP
 
 A role can be edited or deleted by calling the service
 `         RemoteUserStoreManager        ` . If you are new to admin
@@ -349,37 +331,35 @@ Services.](../../develop/calling-admin-services)
     **SOAP Request " Update Role name**
 
     ``` xml
-        <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-           <soap:Header/>
-           <soap:Body>
-              <ser:updateRoleName>
-                 <!--Optional:-->
-                 <ser:roleName>roleOld</ser:roleName>
-                 <!--Optional:-->
-                 <ser:newRoleName>roleNew</ser:newRoleName>
-              </ser:updateRoleName>
-           </soap:Body>
-        </soap:Envelope>
+    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
+        <soap:Header/>
+        <soap:Body>
+            <ser:updateRoleName>
+                <!--Optional:-->
+                <ser:roleName>roleOld</ser:roleName>
+                <!--Optional:-->
+                <ser:newRoleName>roleNew</ser:newRoleName>
+            </ser:updateRoleName>
+        </soap:Body>
+    </soap:Envelope>
     ```
 
     **SOAP Request: Delete role**
 
     ``` xml
-        <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
-           <soap:Header/>
-           <soap:Body>
-              <ser:deleteRole>
-                 <!--Optional:-->
-                 <ser:roleName>roleOld</ser:roleName>
-              </ser:deleteRole>
-           </soap:Body>
-        </soap:Envelope>
+    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://service.ws.um.carbon.wso2.org">
+        <soap:Header/>
+        <soap:Body>
+            <ser:deleteRole>
+                <!--Optional:-->
+                <ser:roleName>roleOld</ser:roleName>
+            </ser:deleteRole>
+        </soap:Body>
+    </soap:Envelope>
     ```
 
-  
-
 !!! info "Related Links"
-    -   See [Role-based Permissions](../../learn/role-based-permissions)
+    -   See [Role-based Permissions](../../administer/role-based-permissions)
         for more information.
     -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a
         complete list of permissions required to invoke admin services.

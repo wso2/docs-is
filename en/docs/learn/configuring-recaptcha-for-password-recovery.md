@@ -12,7 +12,7 @@ By configuring reCaptcha, you can mitigate or block brute force attacks.
     Recovery](../../learn/username-recovery).
 
     For more information on brute force attacks, see [Mitigating Brute Force
-    Attacks](../../learn/mitigating-brute-force-attacks).
+    Attacks](../../administer/mitigating-brute-force-attacks).
 
 There are two ways to configure this feature.
 
@@ -26,8 +26,7 @@ reCaptcha for a specific tenant.
 
 1.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this, and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+    ReCaptcha](../../learn/setting-up-recaptcha).
 
 2.  Enable the **EnableMultiTenancy** context-parameter in the
     **accountreoceryendpoint web.xml** file.
@@ -94,8 +93,7 @@ password recovery with reCaptcha.
 
 2.  Set up reCaptcha with WSO2 Identity Server. For instructions on how
     to do this, and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+    ReCaptcha](../../learn/setting-up-recaptcha).
 
 3.  You have now successfully configured reCaptcha for the password
     recovery flow. Start WSO2 Identity Server and log into the end user

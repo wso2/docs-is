@@ -59,8 +59,6 @@ The following steps provide instructions on how to configure this.
 
 5.  Click **Update** to save your configurations.
 
-  
-
 #### Testing the provisioning
 
 To confirm that the provisioning works, do the following.
@@ -155,17 +153,17 @@ configuring an OAuth service provider.
     ![encode-key-secret](../assets/img/using-wso2-identity-server/encode-key-secret.png)
 
 9.  Use the encoded value to generate the access token by inserting it
-    into the following cURL command after `           Basic          ` .
+    into the following cURL command after `           Basic          `.
 
     ``` java
-        curl -v -X POST -H "Authorization: Basic N2pHaXl5NnRmcl9RSXp2NGZRSUYzcG92aDJRYTpDd09fRWVBdndLaW1vT0pOc0VGdWNHYjIzNWNh" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=password&username=admin&password=admin" https://localhost:9443/oauth2/token
+	curl -v -X POST -H "Authorization: Basic N2pHaXl5NnRmcl9RSXp2NGZRSUYzcG92aDJRYTpDd09fRWVBdndLaW1vT0pOc0VGdWNHYjIzNWNh" -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=password&username=admin&password=admin" https://localhost:9443/oauth2/token
     ```
 
     The access token can be found in the output.  
     ![access-token](../assets/img/using-wso2-identity-server/access-token.png)
 
 10. The access token is then entered in the provisioning request after
-    `           Bearer          ` .
+    `           Bearer          `.
 
 #### Testing the provisioning
 
@@ -175,7 +173,7 @@ To confirm that the provisioning works, do the following.
     new user).
 
     ``` java
-        curl -v -k --header "Authorization: Bearer 955fded39fc6cb08525b5f2a35b3e2e"  --data '{"schemas":[],"name":{"familyName":"fernando","givenName":"yohanna"},"userName":"yohanna","password":"yohanna","emails":[{"primary":true,"value":"yohanna@wso2.com"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+	curl -v -k --header "Authorization: Bearer 955fded39fc6cb08525b5f2a35b3e2e"  --data '{"schemas":[],"name":{"familyName":"fernando","givenName":"yohanna"},"userName":"yohanna","password":"yohanna","emails":[{"primary":true,"value":"yohanna@wso2.com"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
 
     !!! info 
