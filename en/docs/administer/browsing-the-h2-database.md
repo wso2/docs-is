@@ -27,7 +27,7 @@ browse through it.
     enable_h2_console = "true"
     ```
 
-2.  Restart the WSO2 product and access the following URL via your
+2.  Restart the WSO2 Identity Server and access the following URL via your
     browser: [http://localhost:8082](http://localhost:8082/)
 
     !!! tip
@@ -54,11 +54,11 @@ browse through it.
       <tbody>
       <tr class="even">
       <td><strong>username</strong></td>
-      <td>username of the database. By default wso2carbon</td>
+      <td>username of the database. By default `wso2carbon`</td>
       </tr>
       <tr class="even">
       <td><strong>password</strong></td>
-      <td>password of the database. By default wso2carbon</td>
+      <td>password of the database. By default `wso2carbon`</td>
       </tr>
       <tr class="even">
       <td><strong>JDBC URL</strong></td>
@@ -71,14 +71,14 @@ browse through it.
     ??? example "WSO2_IDENTITY_DB"
         
         1.  JDBC URL : `jdbc:h2:[file path to <IS_HOME>/repository/database/WSO2IDENTITY_DB]`
-        2.  username : wso2carbon
-        3.  password  : wso2carbon
+        2.  username : `wso2carbon`
+        3.  password  : `wso2carbon`
     
     ??? example "WSO2_SHARED_DB"
     
         1.  JDBC URL : `jdbc:h2:[file path to <IS_HOME>/repository/database/WSO2SHARED_DB]`
-        2.  username : wso2carbon
-        3.  password  : wso2carbon
+        2.  username : `wso2carbon`
+        3.  password  : `wso2carbon`
 
 
 The database tables are listed on the left. You can now browse through
