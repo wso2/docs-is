@@ -3,7 +3,7 @@
 ### Running the sample
 
 1.  Start the Identity Server, using the startup script found in the
-    `          [IS_Home]/bin         ` directory.
+    `          <IS_HOME>/bin         ` directory.
     -   `              wso2server.sh             ` for Linux
     -   `              wso2server.bat             ` for Windows
 
@@ -15,17 +15,17 @@
     the default configuration to run the sample are different.
 4.  Copy the `          scim-provisioning         ` folder to the
     Identity Server's samples directory
-    `          [IS_Home/samples/].         `
+    `          <IS_HOME>/samples/.         `
 5.  Using the command line, navigate inside the
     `          scim-provisioning         ` directory
-    `          [IS_Home/samples/scim-provisioning]         ` and run the
-    `          ant         ` command.
+    `          <IS_HOME>/samples/scim-provisioning         ` and run the
+    ` ant` command.
 
 ### Users
 
 ##### Creating a user
 
-1.  Run the `          ant create-user         ` command at this
+1.  Run the `ant create-user` command at this
     directory level in the command line and observe the JSON message
     sent to the SCIM endpoint, the response status and the SCIM response
     printed in the command line output.
@@ -33,8 +33,7 @@
     Server](../../setup/running-the-product)and
     go to **Users and Roles\>List** in the **Main** menu in the
     [management
-    console](../../setup/getting-started-with-the-management-console)
-    .
+    console](../../setup/getting-started-with-the-management-console).
 3.  Click **Users** and you can now view a new user created in the list
     using the sample.
 
@@ -47,7 +46,7 @@
 
 ##### Updating a user
 
-1.  Run the `           ant update-user          ` command at this
+1.  Run the `ant update-user` command at this
     directory level in the command line and observe the JSON message
     sent to the SCIM endpoint, the response status and the SCIM response
     are printed in the command line output.
@@ -56,7 +55,7 @@
         You will notice that the user created above, is updated
         with new attribute values for:display name and work email. If you
         wish, you can modify the
-        `                     org.wso2.scim.sample.user.UpdateUser                   `
+        `org.wso2.scim.sample.user.UpdateUser`
         class to add more attributes to a user and observe the output in the
 
 2.  Go to **Users and Roles\>List** in the **Main** menu in the
@@ -67,7 +66,7 @@
 
     !!! note
         To add more attributes to the create user method, you can modify the
-        `           org.wso2.scim.sample.user.UpdateUser          ` class
+        `org.wso2.scim.sample.user.UpdateUser` class
         accordingly and observe the output in the command line.
     
 
@@ -75,7 +74,7 @@
 
 ##### Creating a group
 
-1.  Run the `          ant create-group         ` command at this
+1.  Run the `ant create-group` command at this
     directory level in the command line and observe the JSON message
     sent to the SCIM endpoint, the response status and the SCIM response
     printed in the command line output.

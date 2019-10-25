@@ -2,10 +2,10 @@
 
 This topic demonstrates how to use different web services API exposed by
 Identity Server, to write a client application(
-[remote-user-mgt](https://github.com/wso2/product-is/tree/release-5.3.0/modules/samples/user-mgt/remote-user-mgt)
+[remote-user-mgt](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/user-mgt)
 ) to handle user management functionality of WSO2 Identity Server
 remotely. The
-[remote-user-mgt](https://github.com/wso2/product-is/tree/release-5.3.0/modules/samples/user-mgt/remote-user-mgt)
+[remote-user-mgt](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples/user-mgt)
 sample uses
 `         AuthenticationAdmin, RemoteUserStoreManagerService        `
 and `         RemoteAuthorizationManagerService        ` admin services
