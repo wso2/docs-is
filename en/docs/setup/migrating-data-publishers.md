@@ -3,44 +3,44 @@
 In prior versions of WSO2 Identity Server, data publishers were
 implementations of the
 [AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java)
-that are invoked iteratively by the
+which were invoked iteratively by the
 [AuthnDataPublisherProxy](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AuthnDataPublisherProxy.java)
 when a session changes, such that the data publishers send events to
-their corresponding destinations. From WSO2 Identity Server 5.8.0
+their corresponding destinations. From WSO2 Identity Server 5.9.0
 onwards, all data publishers have been migrated to act as event handlers
 that subscribe to authentication events.
 
 One of the main reasons for this is because the current implementation
-causes the DASSessionDataPublisherImpl, AuthenticationAuditLogger and
-DASLoginDataPublisherImpl classes to unnecessarily implement all the
+causes the _DASSessionDataPublisherImpl, AuthenticationAuditLogger_ and
+_DASLoginDataPublisherImpl_ classes to unnecessarily implement all the
 methods of the
-[AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java)
-. This change provides the capability for the data publishers to
+[AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java). 
+This change provides the capability for the data publishers to
 subscribe only to the relevant events of interest and act upon them.
 
 The new design approach is as follows:
 
 -   When a session changes, the identity-framework publishes an event to
-    the `            AuthnDataPublisherProxy           ` .
+    the `AuthnDataPublisherProxy`.
 
--   `            AuthnDataPublisherProxy           ` uses the
-    `            IdentityEventService           ` in
-    the identity-framework to invoke corresponding handlers to handle
+-   `AuthnDataPublisherProxy` uses the `IdentityEventService` in
+    the identity framework to invoke corresponding handlers to handle
     the event.
 
 -   These event handlers extend the
     [AbstractEventHandler](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/handler/AbstractEventHandler.java)
-    and override its `            handleEvent           ` method.
+    and override its `handleEvent` method.
 
-The diagrams given below illustrate the difference between the design
-approach in versions prior to WSO2 IS 5.8.0 and the new design approach.
+The following diagrams illustrates the difference between the design
+approach in the versions prior to WSO2 IS 5.9.0 and the new design approach.
 
 -   **Old design approach**
     ![<Old design approach>](/assets/img/setup/old-design-approach.png)
 -   **New design approach**
     ![<New design approach>](/assets/img/setup/new-design-approach.png)
 
-This section guides you through migrating an existing data publisher to
+
+The following section will guide you through migrating an existing data publisher to
 an event handler.
 
 ## Migrating data publisher to event handler
