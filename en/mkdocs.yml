@@ -179,6 +179,7 @@ nav:
             - 'Enabling and Disabling a XACML Policy': learn/enabling-and-disabling-a-xacml-policy.md
           - 'Configuring Access Control Policy for a Service Provider': learn/configuring-access-control-policy-for-a-service-provider.md
           - 'Validating the Scope of OAuth Access Tokens using XACML Policies': learn/validating-the-scope-of-oauth-access-tokens-using-xacml-policies.md
+          - 'Validating OAuth Access Token Scope Using XACML Policies During Token Issuance': learn/validating-oauth-access-token-scope-using-xacml-policies-during-token-issuance.md
         - 'Working with XACML':
           - 'Working with XACML': learn/working-with-xacml.md
           - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': learn/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
@@ -733,7 +734,6 @@ nav:
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Monitoring': 
         - 'Monitoring': administer/monitoring-the-identity-server.md
-        - 'Monitoring Mechanisms': administer/monitoring.md
         - 'Monitoring Logs':
           - 'Monitoring Logs': administer/monitoring-logs.md
           - 'HTTP Access Logging': administer/http-access-logging.md
