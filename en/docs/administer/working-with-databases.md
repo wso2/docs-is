@@ -1,6 +1,6 @@
 # Working with Databases
 
-WSO2 Identity Server is shipped with a embedded H2 database for storing
+WSO2 Identity Server is shipped with an embedded H2 database for storing
 data. These default databases are located in the
 `         <IS_HOME>/repository/database        ` directory of the
 product pack.
