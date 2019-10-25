@@ -491,7 +491,7 @@ nav:
             - 'Authentication': develop/using-the-authentication-rest-apis.md
             - 'Consent Management': develop/using-the-consent-management-rest-apis.md
             - 'Personal Information Export': develop/using-the-personal-information-export-rest-apis.md
-            - 'Configuration Management': 
+            - 'Configuration Management':
               - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
               - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
             - 'SCIM 2.0': develop/using-the-scim-2.0-rest-apis.md
@@ -630,13 +630,18 @@ nav:
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
         - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
-        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md      
+        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
-          - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md      
+          - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
+      - 'Working with Multiple Tenants':
+          - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
+          - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
+          - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
+          - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
       - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
       - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
@@ -647,7 +652,7 @@ nav:
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
-      - 'Working with Product Observability': administer/working-with-product-observability.md          
+      - 'Working with Product Observability': administer/working-with-product-observability.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
@@ -733,7 +738,7 @@ nav:
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
-    - 'Monitoring': 
+    - 'Monitoring':
         - 'Monitoring': administer/monitoring-the-identity-server.md
         - 'Monitoring Logs':
           - 'Monitoring Logs': administer/monitoring-logs.md
