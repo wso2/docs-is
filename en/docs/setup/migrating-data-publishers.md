@@ -74,12 +74,15 @@ instead.
        "event.default_listener.abstract_identity_message_handler.priority": "11",
        "event.default_listener.abstract_identity_message_handler.enable": false,
        ```
+    !!! note "NOTE"
+        For more information on new configurations, refer to 
+        [New Configuration Model](../../references/new-configuration-model).
 
 2.  In order to support backward compatibility, override the
-    `           isEnabled          ` method in the event handler class
-    that extends the `           AbstractEventHandler          ` , such
+    `isEnabled` method in the event handler class
+    that extends the `AbstractEventHandler`, such
     that if the listener property is not defined in the
-    `           identity.xml,          ` it will return false.  
+    `identity.xml` it will return false.  
 
     ``` java
         @Override
@@ -110,6 +113,10 @@ instead.
     ],
     "identity_mgt.events.schemes.analyticsSessionDataPublisher.properties.enable": true,
     ```
+    
+    !!! note "NOTE"
+        For more information on new configurations, refer to 
+        [New Configuration Model](../../references/new-configuration-model).
 
 4.  Add the following method to the event handler in order to verify
     that the handler is enabled properly. Adjust the code according to
