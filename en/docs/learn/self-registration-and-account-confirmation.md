@@ -25,7 +25,7 @@ self-registration.
     Alternatively, to see the steps on how to enable this identity
     management feature using the **old implementation**, see [Self Sign Up
     and Account Confirmation documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS580/Self-Registration+and+Account+Confirmation). The old
+    5.2.0](https://docs.wso2.com/display/IS520/Self-Registration+and+Account+Confirmation). The old
     implementation has been retained within the WSO2 IS pack for backward
     compatibility and can still be used if required.
     
@@ -119,7 +119,7 @@ which is `         carbon.super        `.
     <p>Set the number of minutes for which the verification code should be valid. The verification code that is provided to the user to initiate the self sign-up flow will be invalid after the time specified here has elapsed.</p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
-    <p>Alternatively, you can configure the expiry time in the <code>                 identity.xml                </code> configuration file.</p>
+    <p>Alternatively, you can configure the expiry time in the <code>                 deployment.toml                </code>  file.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">[identity_mgt.user_self_registration]</a>
@@ -218,8 +218,7 @@ Next, you can try out self-registration.
 
 ## Try out self-registration
 
-1.  Access the [WSO2 Identity Server
-    dashboard](https://localhost:9443/dashboard/).
+1.  Access the [WSO2 Identity Server dashboard](https://localhost:9443/dashboard/).
 2.  Click the **Register Now?** link and then enter the new user's
     username.
 
