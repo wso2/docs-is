@@ -16,7 +16,7 @@ service by default. Follow the steps given below to view and invoke the
 admin service:
 
 1.  Set the element `           admin_service.wsdl         ` to
-    `           false          ` in
+    `           true          ` in
     `           <IS_HOME>/repository/conf/deployment.toml         ` file.
 
     ```toml
