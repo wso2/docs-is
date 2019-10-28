@@ -67,14 +67,14 @@ Follow the steps provided below to configure this.
         **captcha-config.properties** file in the following pattern. Here,
         url\_path is the URL without the host parameters.
     
-        ``` java
+        ``` toml
         recaptcha.failed.redirect.urls=url1_path,url2_path
         ```
     
         Below is an example of how to include the URL paths of additional
         authorization end points.
     
-        ``` java
+        ``` toml
         recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
         ```
     
