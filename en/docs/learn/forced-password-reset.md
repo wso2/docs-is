@@ -97,7 +97,7 @@ to see a sample of how this works.
 
         **Sample SOAP Request**
 
-        ``` java
+        ``` xml
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
             <soapenv:Header/>
             <soapenv:Body>
@@ -162,7 +162,7 @@ template for this option can be configured in the
 
         **Sample SOAP Request**
 
-        ``` java
+        ``` xml
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
             <soapenv:Header/>
             <soapenv:Body>
@@ -230,7 +230,7 @@ template for this option can be configured in the
 
         **Sample SOAP Request**
 
-        ``` java
+        ``` xml
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
             <soapenv:Header/>
             <soapenv:Body>
