@@ -32,7 +32,7 @@ locking and disabling. Follow the below steps to do this configuration.
         following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
         This will remove the account disabling option from all tenants.
 
-        ``` java
+        ``` toml 
         [identity_mgt.account_disabling]
         enable_account_disabling=false
         ```
@@ -99,7 +99,8 @@ address when the user account is disabled. To configure this, follow the
 steps below.  
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
-       ```
+       
+       ``` toml
        [output_adapter.email]
        from_address= "wso2iamtest@gmail.com"
        username= "wso2iamtest"
