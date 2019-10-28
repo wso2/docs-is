@@ -1,32 +1,14 @@
 # Creating and Managing Tenants
 
-The goal of multitenancy is to maximize resource sharing by allowing
-multiple users (tenants) to log in and use a single server/cluster at
-the same time, in a tenant-isolated manner. That is, each user is given
-the experience of using his/her own server, rather than a shared
-environment. Multitenancy ensures optimal performance of the system's
-resources such as memory and hardware and also secures each tenant's
-personal data.
+The goal of multitenancy is to maximize resource sharing by allowing multiple users (tenants) to log in and use a single server/cluster at the same time, in a tenant-isolated manner. That is, each user is given the experience of using his/her own server, rather than a shared environment. Multitenancy ensures optimal performance of the system's resources such as memory and hardware and also secures each tenant's personal data.
 
-You can register tenant domains using the [Management
-Console](../../setup/getting-started-with-the-management-console) of WSO2
-products.
+You can register tenant domains using WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console).
 
 ### About tenants in the Identity Server
 
--   Tenant admin details are saved by default into an internal H2
-    database. This is configurable to point to an external database if
-    preferred. This can then be scaled appropriately. The tenants can
-    have their own multiple directories set up and these configurations
-    can be dynamically configured via the Management Console.
--   The super admin or tenant admin can add user stores to their own
-    domain. Dynamic configurations are possible only for secondary user
-    stores and the 'primary' user store is not configurable at run time.
-    This is because primary user stores are available for all tenants
-    and allowing changes to the configuration at run time can lead to
-    instability of the system. So the primary user store is treated as a
-    static property in the implementation and must be configured prior
-    to run time.
+-   Tenant admin details are saved by default into an internal H2 database. This is configurable to point to an external database if preferred. This can then be scaled appropriately. The tenants can
+    have their own multiple directories set up and these configurations can be dynamically configured via the Management Console. 
+-   The super admin or tenant admin can add user stores to their own domain. Dynamic configurations are possible only for secondary user stores and the 'primary' user store is not configurable at run time. This is because primary user stores are available for all tenants and allowing changes to the configuration at run time can lead to instability of the system. So the primary user store is treated as a     static property in the implementation and must be configured prior to run time.
 
 !!! info 
     When multitenancy is enabled and a tenant becomes inactive for a long
@@ -47,7 +29,8 @@ products.
         -Dtenant.idle.time=30 \
     ```
 
-In order to manage tenants, you need to be logged in as a super tenant.
+!!! tip
+    In order to manage tenants, you need to be logged in as a super tenant.
 
 ### Creating a tenant
 
@@ -84,7 +67,7 @@ tenant URL.
 
 ### Viewing tenants
 
-To view existing tenants, on the **Configure** tab in the Identity
+To view existing tenants, on the **Configure** tab in WSO2 Identity
 Server Management Console, click **View Tenants**.
 
 !!! info "Related Links"

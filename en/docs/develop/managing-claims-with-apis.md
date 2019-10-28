@@ -15,922 +15,684 @@ prevent anonymous invocations, you cannot view the WSDL of the admin
 service by default. Follow the steps given below to view and invoke the
 admin service:
 
-1.  Set the element `           admin_service.wsdl         ` to
-    `           true          ` in
-    `           <IS_HOME>/repository/conf/deployment.toml         ` file.
+1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory and set the `admin_service.wsdl` element to `false`.
 
     ```toml
     [admin_service.wsdl]
-    enable = true
+    enable = false
     ```
 
 2.  Restart WSO2 Identity Server.
-3.  If you started the server using the default configurations, copy the
-    following URL to your browser to see the WSDL of the admin service:
-    `                       https://localhost:9443/services/ClaimMetadataManagementService?wsdl                     `
-    .
+3.  If you started WSO2 Identity Server using the default configurations, copy the following URL to your browser to see the WSDL of the admin service:
+    ```
+    https://localhost:9443/services/ClaimMetadataManagementService?wsdl
+    ```
+    
+    !!! tip
+        The default hostname of WSO2 Identity Server is `localhost`. If you are using a different hostname, make sure to replace `localhost` with the new hostname.
 
-    The default hostname of WSO2 IS is
-    `            localhost           ` . If you are using a different
-    hostname, make sure to replace `            localhost           `
-    with the new hostname.
+    !!! info
 
-For more information on WSO2 admin services and how to invoke an admin
-service using either SoapUI or any other client program, see [Calling
-Admin Services from
-Apps](../../develop/calling-admin-services).
+        For more information on WSO2 admin services and how to invoke an admin service using either SoapUI or any other client program, see [Calling Admin Services](../../develop/calling-admin-services).
 
 ## API operations
 
-The following operations are available in the
-ClaimMetadataManagementService.
+The following operations are available in `ClaimMetadataManagementService`.
 
 ### addClaimDialect ()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Adds a new claim dialect.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>claimDialectURI</code></pre></td>
-<td>The URI which defines the new claim dialect.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-    ```
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://api.user.carbon.wso2.org/xsd">
-    <soapenv:Header/>
-       <soapenv:Body>
-          <xsd:addClaimDialect>
-             <!--Optional:-->
-             <xsd:claimDialect>
-                <!--Optional:-->
-                <xsd1:claimDialectURI>new dialect</xsd1:claimDialectURI>
-             </xsd:claimDialect>
-          </xsd:addClaimDialect>
-       </soapenv:Body>
-    </soapenv:Envelope>    
-    ```
+  <tr>
+    <th>Description</th>
+    <td>This operation adds a new claim dialect.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>claimDialectURI</code>: This is the URI that defines the new claim dialect.</li>
+      </ul>
     </td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-    ```
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-       <soapenv:Body>
-          <ns:addClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd">
-             <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-          </ns:addClaimDialectResponse>
-       </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-</td>
-</tr>
-</tbody>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://api.user.carbon.wso2.org/xsd"&gt;
+&lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;xsd:addClaimDialect&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:claimDialect&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd1:claimDialectURI&gt;new dialect&lt;/xsd1:claimDialectURI&gt;
+         &lt;/xsd:claimDialect&gt;
+      &lt;/xsd:addClaimDialect&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+&lt;soapenv:Body&gt;
+  &lt;ns:addClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+     &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+  &lt;/ns:addClaimDialectResponse&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### getClaimDialects()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Lists out all the claim dialects which are used.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><p>None</p></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-    ```
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-       <soapenv:Header/>
-       <soapenv:Body>
-          <xsd:getClaimDialects/>
-       </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-    ```
-    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-       <soapenv:Body>
-          <ns:getClaimDialectsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://wso2.org/claims</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://schemas.xmlsoap.org/ws/2005/05/identity</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>urn:scim:schemas:core:1.0</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>urn:ietf:params:scim:schemas:core:2.0:User</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://wso2.org/oidc/claim</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>urn:ietf:params:scim:schemas:core:2.0</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://schema.openid.net/2007/05/claims</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://axschema.org</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>urn:ietf:params:scim:schemas:extension:enterprise:2.0:User</ax2336:claimDialectURI>
-             </ns:return>
-             <ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <ax2336:claimDialectURI>http://abc.org/claims</ax2336:claimDialectURI>
-             </ns:return>
-          </ns:getClaimDialectsResponse>
-       </soapenv:Body>
-    </soapenv:Envelope>
-    ```
-</td>
-</tr>
-</tbody>
-</table>
+  <tr>
+    <th>Description</th>
+    <td>This operation lists out all the claim dialects which are used.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>None</td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd"&gt;
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body&gt;
+      &lt;xsd:getClaimDialects/&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:getClaimDialectsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI>http://wso2.org/claims&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;http://schemas.xmlsoap.org/ws/2005/05/identity&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI>urn:scim:schemas:core:1.0&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;urn:ietf:params:scim:schemas:core:2.0:User&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return>
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;http://wso2.org/oidc/claim&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;urn:ietf:params:scim:schemas:core:2.0&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;http://schema.openid.net/2007/05/claims&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;http://axschema.org&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+       &lt;ns:return xsi:type="ax2336:ClaimDialectDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:claimDialectURI&gt;http://abc.org/claims&lt;/ax2336:claimDialectURI&gt;
+       &lt;/ns:return&gt;
+    &lt;/ns:getClaimDialectsResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
+</table> 
 
 ### addExternalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Adds a new claim claim</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>externalClaimDialectURI</code></pre></td>
-<td>The URI which defines the external claim dialect.</td>
-</tr>
-<tr class="even">
-<td><pre><code>externalClaimUR</code></pre></td>
-<td>The URI of the external claim</td>
-</tr>
-<tr class="odd">
-<td><pre><code>mappedLocalClaimURI</code></pre></td>
-<td>The URI of the mapped claim.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:addExternalClaim>
-         <!--Optional:-->
-         <xsd:externalClaim>
-            <!--Optional:-->
-            <xsd1:externalClaimDialectURI>external cliam dialect</xsd1:externalClaimDialectURI>
-            <!--Optional:-->
-            <xsd1:externalClaimURI>external claim uri</xsd1:externalClaimURI>
-            <!--Optional:-->
-            <xsd1:mappedLocalClaimURI>mapped local claim</xsd1:mappedLocalClaimURI>
-         </xsd:externalClaim>
-      </xsd:addExternalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>       
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:addExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:addExternalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation adds a new external claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>externalClaimDialectURI</code>: This is the URI that defines the external claim dialect.</li>
+        <li><code>externalClaimUR</code>: This is the URI of the external claim.</li>
+        <li><code>mappedLocalClaimURI</code>: This is the URI of the mapped claim.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:addExternalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:externalClaim&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:externalClaimDialectURI&gt;external cliam dialect&lt;/xsd1:externalClaimDialectURI&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:externalClaimURI&gt;external claim uri&lt;/xsd1:externalClaimURI&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:mappedLocalClaimURI&gt;mapped local claim&lt;/xsd1:mappedLocalClaimURI&gt;
+       &lt;/xsd:externalClaim&gt;
+    &lt;/xsd:addExternalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:addExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:addExternalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### addLocalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Adds a new local claim.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>attributeName</code></pre></td>
-<td>The attribute name</td>
-</tr>
-<tr class="even">
-<td><pre><code>userStoreDomain</code></pre></td>
-<td>The user-store domain of the attribute</td>
-</tr>
-<tr class="odd">
-<td><pre><code>propertyName</code></pre></td>
-<td>Name of the property</td>
-</tr>
-<tr class="even">
-<td><pre><code>propertyValue</code></pre></td>
-<td>Value of the property</td>
-</tr>
-<tr class="odd">
-<td><pre><code>localClaimURI</code></pre></td>
-<td>The URI of the local claim</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation adds a new local claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>attributeName</code>: This is the attribute name.</li>
+        <li><code>userStoreDomain</code>: This is the user-store domain of the attribute.</li>
+        <li><code>propertyName</code>: This is the name of the property.</li>
+        <li><code>propertyValue</code>: This is the value of the property.</li>
+        <li><code>localClaimURI</code>: This is the URI of the local claim.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:addLocalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:localClaim&gt;
+          &lt;!--Zero or more repetitions:--&gt;
+          &lt;xsd1:attributeMappings&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:attributeName&gt;email&lt;/xsd1:attributeName&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:userStoreDomain&gt;primary&lt;/xsd1:userStoreDomain&gt;
+          &lt;/xsd1:attributeMappings&gt;
+          &lt;!--Zero or more repetitions:--&gt;
+          &lt;xsd1:claimProperties&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:propertyName&gt;email&lt;/xsd1:propertyName&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:propertyValue&gt;www.sample@email.com&lt;/xsd1:propertyValue&gt;
+          &lt;/xsd1:claimProperties&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:localClaimURI&gt;http://abc.org/email&lt;/xsd1:localClaimURI&gt;
+       &lt;/xsd:localClaim&gt;
+    &lt;/xsd:addLocalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:addLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:addLocalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:addLocalClaim>
-         <!--Optional:-->
-         <xsd:localClaim>
-            <!--Zero or more repetitions:-->
-            <xsd1:attributeMappings>
-               <!--Optional:-->
-               <xsd1:attributeName>email</xsd1:attributeName>
-               <!--Optional:-->
-               <xsd1:userStoreDomain>primary</xsd1:userStoreDomain>
-            </xsd1:attributeMappings>
-            <!--Zero or more repetitions:-->
-            <xsd1:claimProperties>
-               <!--Optional:-->
-               <xsd1:propertyName>email</xsd1:propertyName>
-               <!--Optional:-->
-               <xsd1:propertyValue>www.sample@email.com</xsd1:propertyValue>
-            </xsd1:claimProperties>
-            <!--Optional:-->
-            <xsd1:localClaimURI>http://abc.org/email</xsd1:localClaimURI>
-         </xsd:localClaim>
-      </xsd:addLocalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>         
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:addLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:addLocalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
-</table>
+
 
 ### getExternalClaims()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Returns all the external claims.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>externalClaimDialectURI</code></pre></td>
-<td>The URI which defines the external claim dialect.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:getExternalClaims>
-         <!--Optional:-->
-         <xsd:externalClaimDialectURI>external claim dialect uri</xsd:externalClaimDialectURI>
-      </xsd:getExternalClaims>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:getExternalClaimsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd"/>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation returns all the external claims.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>externalClaimDialectURI</code>: This is the URI that defines the external claim dialect.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:getExternalClaims&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:externalClaimDialectURI&gt;external claim dialect uri&lt;/xsd:externalClaimDialectURI&gt;
+    &lt;/xsd:getExternalClaims&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:getExternalClaimsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd"/&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### getLocalClaims()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Returns all the local claims available.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><p>None</p></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:getLocalClaims/>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:getLocalClaimsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-         <ns:return xsi:type="ax2336:LocalClaimDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <ax2336:attributeMappings xsi:type="ax2336:AttributeMappingDTO">
-               <ax2336:attributeName>unlockTime</ax2336:attributeName>
-               <ax2336:userStoreDomain>PRIMARY</ax2336:userStoreDomain>
-            </ax2336:attributeMappings>
-            <ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO">
-               <ax2336:propertyName>Description</ax2336:propertyName>
-               <ax2336:propertyValue>Unlock Time</ax2336:propertyValue>
-            </ax2336:claimProperties>
-            <ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO">
-               <ax2336:propertyName>DisplayName</ax2336:propertyName>
-               <ax2336:propertyValue>Unlock Time</ax2336:propertyValue>
-            </ax2336:claimProperties>
-            <ax2336:localClaimURI>http://wso2.org/claims/identity/unlockTime</ax2336:localClaimURI>
-         </ns:return>
+  <tr>
+    <th>Description</th>
+    <td>This operation returns all the local claims available.
+ </td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>None
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:getLocalClaims/&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:getLocalClaimsResponse xmlns:ns="http://org.apache.axis2/xsd" xmlns:ax2333="http://base.identity.carbon.wso2.org/xsd" xmlns:ax2336="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd" xmlns:ax2332="http://exception.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+       &lt;ns:return xsi:type="ax2336:LocalClaimDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:attributeMappings xsi:type="ax2336:AttributeMappingDTO"&gt;
+             &lt;ax2336:attributeName&gt;unlockTime&lt;/ax2336:attributeName&gt;
+             &lt;ax2336:userStoreDomain&gt;PRIMARY&lt;/ax2336:userStoreDomain&gt;
+          &lt;/ax2336:attributeMappings&gt;
+          &lt;ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO"&gt;
+             &lt;ax2336:propertyName&gt;Description&lt;/ax2336:propertyName&gt;
+             &lt;ax2336:propertyValue&gt;Unlock Time&lt;/ax2336:propertyValue&gt;
+          &lt;/ax2336:claimProperties&gt;
+          &lt;ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO"&gt;
+             &lt;ax2336:propertyName&&gt;gt;DisplayName&lt;/ax2336:propertyName&gt;
+             &lt;ax2336:propertyValue&gt;Unlock Time&lt;/ax2336:propertyValue&gt;
+          &lt;/ax2336:claimProperties&gt;
+          &lt;ax2336:localClaimURI&gt;http://wso2.org/claims/identity/unlockTime&lt;/ax2336:localClaimURI&gt;
+       &lt;/ns:return&gt;
 ......
-         <ns:return xsi:type="ax2336:LocalClaimDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <ax2336:attributeMappings xsi:type="ax2336:AttributeMappingDTO">
-               <ax2336:attributeName>email</ax2336:attributeName>
-               <ax2336:userStoreDomain>PRIMARY</ax2336:userStoreDomain>
-            </ax2336:attributeMappings>
-            <ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO">
-               <ax2336:propertyName>email</ax2336:propertyName>
-               <ax2336:propertyValue>www.sample@email.com</ax2336:propertyValue>
-            </ax2336:claimProperties>
-            <ax2336:localClaimURI>http://abc.org/email</ax2336:localClaimURI>
-         </ns:return>
-      </ns:getLocalClaimsResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+       &lt;ns:return xsi:type="ax2336:LocalClaimDTO" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+          &lt;ax2336:attributeMappings xsi:type="ax2336:AttributeMappingDTO"&gt;
+             &lt;ax2336:attributeName&gt;email&lt;/ax2336:attributeName&gt;
+             &lt;ax2336:userStoreDomain&gt;PRIMARY&lt;/ax2336:userStoreDomain&gt;
+          &lt;/ax2336:attributeMappings&gt;
+          &lt;ax2336:claimProperties xsi:type="ax2336:ClaimPropertyDTO"&gt;
+             &lt;ax2336:propertyName&gt;email&lt;/ax2336:propertyName&gt;
+             &lt;ax2336:propertyValue&gt;www.sample@email.com&lt;/ax2336:propertyValue>
+          &lt;/ax2336:claimProperties&gt;
+          &lt;ax2336:localClaimURI>&gt;http://abc.org/email&lt;ax2336:localClaimURI&gt;
+       &lt;/ns:return&gt;
+    &lt;/ns:getLocalClaimsResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### removeClaimDialect()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Remove an existing claim dialect.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>claimDialectURI</code></pre></td>
-<td>The URI which defines the deleting claim dialect.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:removeClaimDialect>
-         <!--Optional:-->
-         <xsd:claimDialect>
-            <!--Optional:-->
-            <xsd1:claimDialectURI>claim dialect uri</xsd1:claimDialectURI>
-         </xsd:claimDialect>
-      </xsd:removeClaimDialect>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:removeClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:removeClaimDialectResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation removes an existing claim dialect.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>claimDialectURI</code>: This is the URI that defines the deleting claim dialect.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:removeClaimDialect&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:claimDialect&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:claimDialectURI&gt;claim dialect uri&lt;/xsd1:claimDialectURI>
+       &lt;/xsd:claimDialect&gt;
+    &lt;/xsd:removeClaimDialect&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:removeClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:removeClaimDialectResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### removeExternalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Remove an existing external claim</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>externalClaimDialectURI</code></pre></td>
-<td>The URI which defines the external claim which need to be deleted.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong></strong></p></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:removeExternalClaim>
-         <!--Optional:-->
-         <xsd:externalClaimDialectURI>http://abc.org/email</xsd:externalClaimDialectURI>
-         <!--Optional:-->
-         <xsd:externalClaimURI>sample@email.com</xsd:externalClaimURI>
-      </xsd:removeExternalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:removeExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:removeExternalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation removes an existing external claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>externalClaimDialectURI</code>: This is the URI that defines the external claim which need to be deleted.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:removeExternalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:externalClaimDialectURI&gt;http://abc.org/email&lt;/xsd:externalClaimDialectURI&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:externalClaimURI&gt;sample@email.com&lt;/xsd:externalClaimURI&gt;
+    &lt;/xsd:removeExternalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:removeExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:removeExternalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### removeLocalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Remove an existing local claim.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>localClaimURI</code></pre></td>
-<td>The URI which defines the local claim.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:removeLocalClaim>
-         <!--Optional:-->
-         <xsd:localClaimURI>local claim uri</xsd:localClaimURI>
-      </xsd:removeLocalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:removeLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:removeLocalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation removes an existing local claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>localClaimURI</code>: This is the URI that defines the local claim.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:removeLocalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:localClaimURI&gt;local claim uri&lt;/xsd:localClaimURI>
+    &lt;/xsd:removeLocalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:removeLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:removeLocalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### renameClaimDialect()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Renaming an existing claim dialect.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>claimDialectURI</code></pre></td>
-<td>The URI which defines the claim dialect.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:renameClaimDialect>
-         <!--Optional:-->
-         <xsd:oldClaimDialect>
-            <!--Optional:-->
-            <xsd1:claimDialectURI>old claim dialect uri</xsd1:claimDialectURI>
-         </xsd:oldClaimDialect>
-         <!--Optional:-->
-         <xsd:newClaimDialect>
-            <!--Optional:-->
-            <xsd1:claimDialectURI>new claim dialect uri</xsd1:claimDialectURI>
-         </xsd:newClaimDialect>
-      </xsd:renameClaimDialect>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:renameClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:renameClaimDialectResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation renames an existing claim dialect.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>claimDialectURI</code>: This is the URI that defines the claim dialect.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:renameClaimDialect&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:oldClaimDialect&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:claimDialectURI&gt;old claim dialect uri&lt;/xsd1:claimDialectURI&gt;
+       &lt;/xsd:oldClaimDialect&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:newClaimDialect&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:claimDialectURI&gt;new claim dialect uri&lt;/xsd1:claimDialectURI&gt;
+       &lt;/xsd:newClaimDialect&gt;
+    &lt;/xsd:renameClaimDialect&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:renameClaimDialectResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:renameClaimDialectResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### updateExternalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Update an external claim.</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>externalClaimDialectURI</code></pre></td>
-<td>The URI which defines the external claim dialect.</td>
-</tr>
-<tr class="even">
-<td><pre><code>externalClaimURI</code></pre></td>
-<td>The URI which defines the external claim.</td>
-</tr>
-<tr class="odd">
-<td><pre><code>mappedLocalClaimURI</code></pre></td>
-<td>The URI which defines the mapped local claim.</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:updateExternalClaim>
-         <!--Optional:-->
-         <xsd:externalClaim>
-            <!--Optional:-->
-            <xsd1:externalClaimDialectURI>external claim dialect</xsd1:externalClaimDialectURI>
-            <!--Optional:-->
-            <xsd1:externalClaimURI>external claim uri</xsd1:externalClaimURI>
-            <!--Optional:-->
-            <xsd1:mappedLocalClaimURI>mapped local claim value</xsd1:mappedLocalClaimURI>
-         </xsd:externalClaim>
-      </xsd:updateExternalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:updateExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:updateExternalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation updates an external claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>externalClaimDialectURI</code>: This is the URI that defines the external claim dialect.</li>
+        <li><code>externalClaimURI</code>: This is the URI that defines the external claim.</li>
+        <li><code>mappedLocalClaimURI</code>: This is the URI which defines the mapped local claim.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:updateExternalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:externalClaim&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:externalClaimDialectURI&gt;external claim dialect&lt;/xsd1:externalClaimDialectURI&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:externalClaimURI&gt;external claim uri&lt;/xsd1:externalClaimURI&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:mappedLocalClaimURI&gt;mapped local claim value&lt;/xsd1:mappedLocalClaimURI&gt;
+       &lt;/xsd:externalClaim&gt;
+    &lt;/xsd:updateExternalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:updateExternalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:updateExternalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>
 
 ### updateLocalClaim()
 
 <table>
-<tbody>
-<tr class="odd">
-<td>Description</td>
-<td>Update a local claim</td>
-</tr>
-<tr class="even">
-<td>Input Parameters</td>
-<td><div class="table-wrap">
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><pre><code>attributeName</code></pre></td>
-<td>The attribute name</td>
-</tr>
-<tr class="even">
-<td><pre><code>userStoreDomain</code></pre></td>
-<td>The user-store domain</td>
-</tr>
-<tr class="odd">
-<td><pre><code>propertyName</code></pre></td>
-<td>The property name</td>
-</tr>
-<tr class="even">
-<td><pre><code>propertyValue</code></pre></td>
-<td>The property value</td>
-</tr>
-<tr class="odd">
-<td><pre><code>localClaimURI</code></pre></td>
-<td>The URI which defines the local claim</td>
-</tr>
-</tbody>
-</table>
-</div></td>
-</tr>
-<tr class="odd">
-<td>Request</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <xsd:updateLocalClaim>
-         <!--Optional:-->
-         <xsd:localClaim>
-            <!--Zero or more repetitions:-->
-            <xsd1:attributeMappings>
-               <!--Optional:-->
-               <xsd1:attributeName>attribute name</xsd1:attributeName>
-               <!--Optional:-->
-               <xsd1:userStoreDomain>userstore domain</xsd1:userStoreDomain>
-            </xsd1:attributeMappings>
-            <!--Zero or more repetitions:-->
-            <xsd1:claimProperties>
-               <!--Optional:-->
-               <xsd1:propertyName>property name</xsd1:propertyName>
-               <!--Optional:-->
-               <xsd1:propertyValue>property value</xsd1:propertyValue>
-            </xsd1:claimProperties>
-            <!--Optional:-->
-            <xsd1:localClaimURI>local claim uri</xsd1:localClaimURI>
-         </xsd:localClaim>
-      </xsd:updateLocalClaim>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-<tr class="even">
-<td>Response</td>
-<td>
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-   <soapenv:Body>
-      <ns:updateLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd">
-         <ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-      </ns:rupdateLocalClaimResponse>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-</td>
-</tr>
-</tbody>
+  <tr>
+    <th>Description</th>
+    <td>This operation updates a local claim.</td>
+  </tr>
+  <tr>
+    <th>Input Parameters</th>
+    <td>
+      <ul>
+        <li><code>attributeName</code>: This is the attribute name.</li>
+        <li><code>userStoreDomain</code>: This is the user-store domain.</li>
+        <li><code>propertyName</code>: This is the property name.</li>
+        <li><code>propertyValue</code>: This is the property value.</li>
+        <li><code>localClaimURI</code>: This is The URI which defines the local claim.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>Request</th>
+    <td>
+      <div style="width: 100%; display: block; overflow: auto;">
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://org.apache.axis2/xsd" xmlns:xsd1="http://dto.mgt.metadata.claim.identity.carbon.wso2.org/xsd"&gt;
+ &lt;soapenv:Header/&gt;
+ &lt;soapenv:Body&gt;
+    &lt;xsd:updateLocalClaim&gt;
+       &lt;!--Optional:--&gt;
+       &lt;xsd:localClaim&gt;
+          &lt;!--Zero or more repetitions:--&gt;
+          &lt;xsd1:attributeMappings&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:attributeName&gt;attribute name&lt;/xsd1:attributeName&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:userStoreDomain&gt;userstore domain&lt;/xsd1:userStoreDomain&gt;
+          &lt;/xsd1:attributeMappings&gt;
+          &lt;!--Zero or more repetitions:--&gt;
+          &lt;xsd1:claimProperties&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:propertyName&gt;property name&lt;/xsd1:propertyName&gt;
+             &lt;!--Optional:--&gt;
+             &lt;xsd1:propertyValue&gt;property value&lt;/xsd1:propertyValue&gt;
+          &lt;/xsd1:claimProperties&gt;
+          &lt;!--Optional:--&gt;
+          &lt;xsd1:localClaimURI&gt;local claim uri&lt;/xsd1:localClaimURI&gt;
+       &lt;/xsd:localClaim&gt;
+    &lt;/xsd:updateLocalClaim&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <th>Response</th>
+    <td>
+      <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+ &lt;soapenv:Body&gt;
+    &lt;ns:updateLocalClaimResponse xmlns:ns="http://org.apache.axis2/xsd"&gt;
+       &lt;ns:return xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/ns:rupdateLocalClaimResponse&gt;
+ &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+    </td>
+  </tr>
 </table>

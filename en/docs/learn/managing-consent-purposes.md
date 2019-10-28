@@ -17,35 +17,12 @@ domain.
         self registration flow, see [Configuring self-registration consent
         purposes](../../learn/self-registration-and-account-confirmation)
         .
-    -   For definitions on the consent receipt, purposes, and PII
-        categories, expand the section below.
-    
-        ??? note "Click here to see definitions"
-    
-            -   **Personally Identifiable Information (PII)**  
-                Any information that can be used to identify the PII Principal
-                to whom the information relates to.
-        
-            <!-- -->
-        
-            -   **PII Principal** 
-                The natural person to whom the personally identifiable
-                information (PII) relates to.
-        
-            <!-- -->
-        
-            -   **Consent** 
-                A Personally identifiable information (PII) Principal’s
-                freely given, specific and informed agreement to the processing
-                of their PII.
-        
-            <!-- -->
-        
-            -   **Purpose**  
-                The business, operational or regulatory requirement for the
-                collection, use and/or disclosure of a PII Principal's data. In
-                other words, it is the reason personal information is collected
-                by the entity.
+    -   Following are the definitions on the consent receipt, purposes, and PII
+        categories.      
+        -   **Personally Identifiable Information (PII)**: Any information that can be used to identify the PII Principal to whom the information relates to.    
+        -   **PII Principal**: The natural person to whom the personally identifiable information (PII) relates to.   
+        -   **Consent**: A Personally identifiable information (PII) Principal’s freely given, specific and informed agreement to the processing of their PII.   
+        -   **Purpose**: The business, operational or regulatory requirement for the collection, use and/or disclosure of a PII Principal's data. In other words, it is the reason personal information is collected by the entity.
         
 
 ### Adding a consent purpose
@@ -61,11 +38,11 @@ management console.
 
     -   `            /permission/admin/manage/identity/claimmgt/metadata/view           `
 
-1.  Log into the [Management
+1.  Sign in to the [Management
     Console](../../setup/getting-started-with-the-management-console).  
     To add a consent purpose within a specific tenant domain, login
     using tenant credentials.
-2.  Navigate to Home\> Manage\> Consent Purposes and click **Add**.  
+2.  On the **Main** menu, click **Manage > Consent Purposes > Add**.  
     ![add-consent-purposes](../assets/img/using-wso2-identity-server/add-consent-purposes.png)   
     The following window will be displayed.
 
@@ -116,9 +93,9 @@ management console.
 
     -   `            /permission/admin/manage/identity/consentmgt/view                       `
 
-1.  Log into the [Management
+1.  Sign in to the [Management
     Console](../../setup/getting-started-with-the-management-console).
-2.  Navigate to Home\> Manage\> Consent Purposes and click **List**.  
+2.  On the **Main** menu, click **Manage > Consent Purposes > List**.  
     ![manage-consent-purposes](../assets/img/using-wso2-identity-server/manage-consent-purposes.png) 
 
 3.  The following window will be displayed.
@@ -141,13 +118,8 @@ management console.
 
     ![manage-purpose](../assets/img/using-wso2-identity-server/manage-purpose.png)
 
-    !!! tip
+    !!! tip "Deleting PII Category"
     
-        Delete PII Category
-    
-        To delete a specific PII cateogry, use the consent management
-        [Delete PII Category REST
-        API](../../references/pii-category)
-        . Note that you can not delete a PII category that is already
+        To delete a specific PII cateogry, use the consent management [Delete PII Category REST API](https://docs.wso2.com/display/IS590/apidocs/Consent-management-apis/index.html#!/operations#PIICategory#consentsPiiCategoriesPiiCategoryIdDelete). Note that you can not delete a PII category that is already
         associated with a consent receipt.
     

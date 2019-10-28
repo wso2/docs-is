@@ -7,12 +7,12 @@
     
 
 1.  Open the 
-    `          <PRODUCT_HOME>/repository/conf/deployment.toml         ` file.
+    `          <IS_HOME>/repository/conf/deployment.toml         ` file.
 2.  Add the followign configuration.
 
-    ``` xml
-        [tenant_mgt]
-        enable_email_domain= true
+    ``` toml
+    [tenant_mgt]
+    enable_email_domain= true
     ```
 
 3.  Open the 
@@ -41,8 +41,7 @@
         the start up.
     
 
-4.  Open the `           <IS_HOME>/repository/conf/          `
-    `           identity/                       identity-mgt.properties           `
+4.  Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties           `
     file and set the following property to `           true          ` .
 
     !!! info 
@@ -61,7 +60,7 @@
     determine which hash algorithm to use.
 
     ``` xml
-        UserInfoRecovery.UsernameHashAlg=SHA-1
+    UserInfoRecovery.UsernameHashAlg=SHA-1
     ```
 
 5.  Configure the following set of parameters in the user store
@@ -146,7 +145,7 @@
     <p class="admonition-title">Note</p>
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-    <img src=" ../assets/img/using-wso2-identity-server/super-admin.png" width="878" height="250" /></p></div>
+    <img src="../../assets/img/using-wso2-identity-server/super-admin.png" width="600" /></p></div>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
     <p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
