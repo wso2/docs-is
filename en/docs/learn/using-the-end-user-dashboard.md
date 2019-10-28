@@ -55,9 +55,7 @@ To edit your profile, do the following.
     !!! tip
     
         For information on managing U2F authentication for multi-factor
-        authentication, see [Universal Second Factor (U2F)
-        Authentication](../../learn/multi-factor-authentication-using-fido#universal-second-factor-(u2f)))
-        .
+        authentication, see [Universal Second Factor (U2F) Authentication](../../learn/multi-factor-authentication-using-fido#universal-second-factor-(u2f))).
     
 
 4.  Click **Update** to save your changes.
@@ -90,8 +88,7 @@ To export the user's personal information, do the following.
             WSO2 IS dashboard, log out, then log back in and approve consent
             again. A new consent receipt will be generated for the WSO2 IS
             dashboard consent).
-        2.  Use the [Consent Management REST
-            APIs](../../develop/using-the-consent-management-rest-apis) to revoke the
+        2.  Use the [Consent Management REST APIs](../../develop/using-the-consent-management-rest-apis) to revoke the
             existing consent and add a new consent.
     
 
@@ -99,10 +96,7 @@ To export the user's personal information, do the following.
 
     !!! tip
     
-        For information on the Personal Information Export REST APIs, see
-        the [Personal Information Export API Swagger
-        documentation](../../references/user-export-apis)
-        .
+        For information on the Personal Information Export REST APIs, see the [Personal Information Export API Swagger documentation](develop/using-the-personal-information-export-rest-apis/).
     
 
 ### Updating your account recovery details

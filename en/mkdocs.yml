@@ -292,11 +292,8 @@ nav:
             - 'Locking a Specific User Account': learn/locking-a-specific-user-account.md
             - 'Account Disabling': learn/account-disabling.md
           - 'Setting Up ReCaptcha': learn/setting-up-recaptcha.md
-        - 'Workflow Management': 
-          - 'Workflow Management': learn/workflow-management.md
-          - 'Adding a Workflow Engine':
-            - 'Adding a Workflow Engine': learn/adding-a-workflow-engine.md
-            - 'Configuring the BPM Profile of WSO2 EI as a Workflow Engine': learn/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine.md
+        - 'Workflows': 
+          - 'Workflows': learn/workflow-management.md
           - 'Adding a New Workflow Definition': learn/adding-a-new-workflow-definition.md
           - 'Engaging a Workflow in an Operation': learn/engaging-a-workflow-in-an-operation.md
           - 'Managing Human Tasks': learn/managing-human-tasks.md

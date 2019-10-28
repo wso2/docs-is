@@ -58,25 +58,23 @@ information on how to send an email when a user operation takes place.
         If you are using a Google mail account, note that Google has
         restricted third-party apps and less secure apps from sending emails
         by default. Therefore, you need to configure your account to disable
-        this restriction, as WSO2 IS acts as a third-party application when
+        this restriction, as WSO2 Identity Server acts as a third-party application when
         sending emails to confirm user registrations or notification for
-        password reset WSO2 IS.
+        password reset WSO2 Identity Server.     
+           
+        Follow the steps given below to enable your Google mail account to
+        provide access to third-party applications.
     
-        ??? note "Click here for instructions on how to set this up"
-    
-            Follow the steps given below to enable your Google mail account to
-            provide access to third-party applications.
-        
-            1.  Navigate to <https://myaccount.google.com/security>.
-            2.  Click **Signing in to Google** on the left menu and make sure
-                that the **2-step Verification** is disabled or off.  
-                ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-            3.  Click **Connected apps and sites** on the left menu and enable
-                **Allow less secure apps**.  
-                ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
+        1.  Navigate to <https://myaccount.google.com/security>.
+        2.  Click **Signing in to Google** on the left menu and make sure
+            that the **2-step Verification** is disabled or off.  
+            ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
+        3.  Click **Connected apps and sites** on the left menu and enable
+            **Allow less secure apps**.  
+            ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
 
 2.  Configure the
-    `           <PRODUCT_HOME>/repository/conf/identity/msg-mgt.properties          `
+    `           <IS_HOME>/repository/conf/identity/msg-mgt.properties          `
     file with the desired destination configurations and template
     configurations. The following is a sample configuration for sending
     an email to an email address on user operation event.
@@ -95,17 +93,6 @@ information on how to send an email when a user operation takes place.
     email.subscription.userOperation.endpoint.privateMail.salutation=Admin private mail
     email.subscription.userOperation.endpoint.privateMail.subject=User operation change information to private mail
     ```
-
-    Before going into a detailed description about each property, one of
-    the important facts that you must keep in your mind is that the
-    properties included in this file can be secured using secure vault.
-    You may refer [Carbon Secure Vault
-    Implementation](../../administer/carbon-secure-vault-implementation)
-    in the WSO2 Product Administration Guide for more information on how
-    to use secure vault to encrypt sensitive information in this
-    property file. The following table lists out the properties and
-    their description  (You can click on the column header to scroll
-    through the description).
 
     <table>
     <thead>
