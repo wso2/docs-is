@@ -33,8 +33,8 @@ locking and disabling. Follow the below steps to do this configuration.
         This will remove the account disabling option from all tenants.
 
         ``` java
-            [identity_mgt.account_disabling]
-            enable_account_disabling=false
+        [identity_mgt.account_disabling]
+        enable_account_disabling=false
         ```
 5.  Next, enable account locking. Expand the **Login Policies** tab.
 6.  Expand the **Account Locking** tab and select the **Account Lock
@@ -113,12 +113,11 @@ steps below.
 2.  Restart the Server.
 
     !!! tip
-    
         The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-        .
+.
     

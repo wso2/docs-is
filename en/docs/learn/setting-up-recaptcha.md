@@ -68,14 +68,14 @@ Follow the steps provided below to configure this.
         url\_path is the URL without the host parameters.
     
         ``` java
-            recaptcha.failed.redirect.urls=url1_path,url2_path
+        recaptcha.failed.redirect.urls=url1_path,url2_path
         ```
     
         Below is an example of how to include the URL paths of additional
         authorization end points.
     
         ``` java
-            recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
+        recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
         ```
     
 5.  Restart the WSO2 IS server.
@@ -88,4 +88,4 @@ configure reCaptcha with any of the following:
 -   [Configuring Google reCaptcha for self
     registration](../../learn/configuring-recaptcha-for-self-registration)
 -   [Configuring Google reCaptcha for security-question based password
-    recovery](../../learn/configuring-recaptcha-for-security-question-based-password-recovery)
+    recovery](../../learn/configuring-google-recaptcha-for-security-question-based-password-recovery)

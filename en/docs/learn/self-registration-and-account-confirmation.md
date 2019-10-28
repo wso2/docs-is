@@ -17,7 +17,6 @@ The following sections walk you through configuring and trying out
 self-registration.
 
 !!! warning
-    
     From WSO2 IS 5.3.0 onwards there is a new implementation for identity
     management features. The steps given below in this document follows the
     new implementation, which is the **recommended approach** for self
@@ -52,10 +51,10 @@ self-registration.
     ```
 
 
-###  Configuring self-registration
+## Configuring self-registration
 
 Follow the steps given below to register users for the super tenant,
-which is `         carbon.super        ` .
+which is `         carbon.super        `.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
 
@@ -71,8 +70,7 @@ which is `         carbon.super        ` .
     ```
 
     !!! tip
-    
-        **Tip:** The email template used to send this email notification is
+        The email template used to send this email notification is
         the **AccountConfirmation** template.
     
         You can edit and customize the email template. For more information
@@ -113,7 +111,7 @@ which is `         carbon.super        ` .
     </tr>
     <tr class="even">
     <td>Enable reCaptcha</td>
-    <td>Select to enable reCaptcha for self-registration. See <a href="_Configuring_Google_reCaptcha_for_Security-Question_Based_Password_Recovery_">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
+    <td>Select to enable reCaptcha for self-registration. See <a href="../../learn/configuring_google_recaptcha_for_security_question_based_password_recovery">Configuring Google reCaptcha for Security-Question Based Password Recovery</a> for more information.</td>
     </tr>
     <tr class="odd">
     <td>User self registration code expiry time</td>
@@ -123,12 +121,12 @@ which is `         carbon.super        ` .
     <p class="admonition-title">Note</p>
     <p>Alternatively, you can configure the expiry time in the <code>                 identity.xml                </code> configuration file.</p>
     <div class="code panel pdl" style="border-width: 1px;">
-        <div class="codeContent panelContent pdl">
-        <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">[identity_mgt.user_self_registration]</a>
-        <a class="sourceLine" id="cb1-2" title="2">allow_self_registration= true </a>
-        <a class="sourceLine" id="cb1-3" title="3">expiry_time="1440"</a></code></pre></div> 
-        </div>
-        </div></div> 
+    <div class="codeContent panelContent pdl">
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">[identity_mgt.user_self_registration]</a>
+    <a class="sourceLine" id="cb1-2" title="2">allow_self_registration= true </a>
+    <a class="sourceLine" id="cb1-3" title="3">expiry_time="1440"</a></code></pre></div> 
+    </div>
+    </div></div> 
     </div></td>
     </tr>
     </tbody>
@@ -151,20 +149,16 @@ configure self-registration consent purposes via the management console
 of WSO2 Identity Server.
 
 !!! tip
-    
-    For information on the REST APIs for self-registration, see
-    [Self-Registration Using REST APIs](https://docs.wso2.com/display/IS580/Using+the+Self+Sign-Up+REST+APIs)
-    .
+    For information on the REST APIs for self-registration, see [Self-Registration Using REST APIs](../../develop/using-the-self-sign-up-rest-apis).
     
 
-###  Configuring self-registration consent purposes
+## Configuring self-registration consent purposes
 
 Follow the instructions below to configure self-registration consent
 purposes and appropriate user attributes:
 
 1.  Start WSO2 Identity Server and access the management console via
-    `                       https://localhost:9443/carbon/                     `
-    .
+    `                       https://localhost:9443/carbon/                     `.
 
 2.  Click the **Main** tab, go to **Identity** -\> **Identity
     Providers** and then click **Resident**. This displays the
@@ -222,7 +216,7 @@ attributes for which you require user consent.
 
 Next, you can try out self-registration.
 
-### Try out self-registration
+## Try out self-registration
 
 1.  Access the [WSO2 Identity Server
     dashboard](https://localhost:9443/dashboard/).
@@ -266,7 +260,6 @@ Next, you can try out self-registration.
         ![resend-link](../assets/img/using-wso2-identity-server/resend-link.png) 
 
     !!! tip
-        
         The email template used to resend the confirmation email
         notification is the **ResendAccountConfirmation** template.
         
