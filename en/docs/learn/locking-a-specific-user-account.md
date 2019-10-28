@@ -56,7 +56,7 @@ account locking, expand the section below for instructions.
                   For more information on roles and permission, see [Configuring Roles
                   and
                   Permissions](../../learn/configuring-roles-and-permissions)
-                  .
+.
                
                   Although the **Internal/system** role is configured by default in
                   WSO2 Identity Server, you can delete the role if necessary. To allow
@@ -81,7 +81,7 @@ account locking, expand the section below for instructions.
 2.  Select the Account Locked claim and click **Edit**.  
     ![account-locked-claim](../assets/img/using-wso2-identity-server/account-locked-claim.png) 
 3.  Select the **Supported by Default** check box and click **Update**
-    .  
+.  
     This is done to make the "Account Locked" status appear in the
     user's profile.  
     ![locked-status](../assets/img/using-wso2-identity-server/locked-status.png) 
@@ -102,7 +102,7 @@ profile in the management console.
     text box will appear in front of the **Account Locked** field as
     seen below.  
     To lock the account, type true in the text box and click **Update**
-    .  
+.  
     ![admin-lock-account](../assets/img/using-wso2-identity-server/admin-lock-account.png)
 
 !!! note
@@ -116,7 +116,7 @@ profile in the management console.
 
 An administrative user (with the permission level
 /permission/admin/configure/security/usermgt/users ) can lock a user
-account using the `         RemoteUserStoreManagerService        ` . You
+account using the `         RemoteUserStoreManagerService        `. You
 can use the `         setUserClaimValues        ` operation to achieve
 this. The following request is a sample SOAP request that can be sent to
 the `         RemoteUserStoreManagerService        ` to lock a user
@@ -206,7 +206,7 @@ below.
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails)
-        .
+.
     
 
   

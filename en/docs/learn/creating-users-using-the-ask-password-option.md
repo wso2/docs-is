@@ -14,10 +14,7 @@ redirection URL. This directs the users to a screen where they can
 provide the password for the account that was newly created for them by
 the administrator.
 
-!!! warning
-    
-    Note the following before you begin:
-    
+!!! warning "Note the following before you begin:"
     From 5.3.0 onwards there is a new implementation for identity management
     features. The steps given below in this document follows the new
     implementation, which is the **recommended approach** for creating users
@@ -26,9 +23,7 @@ the administrator.
     Alternatively, to see steps on how to enable this identity management
     feature using the **old implementation**, see [Creating Users using the
     Ask Password Option documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Creating+Users+using+the+Ask+Password+Option)
-    . The old implementation has been retained within the WSO2 IS pack for
-    backward compatibility and can still be used if required.
+    5.2.0](https://docs.wso2.com/display/IS520/Creating+Users+using+the+Ask+Password+Option). The old implementation has been retained within the WSO2 IS pack for backward compatibility and can still be used if required.
     
 
 Follow the instructions given below to configure this feature.
@@ -41,7 +36,7 @@ Follow the instructions given below to configure this feature.
     `         <IS_HOME>/repository/conf/deployment.toml       ` file.
     
     
-    ``` java
+    ``` toml
     [event.default_listener.identity_mgt]
     priority= "50"
     enable = false
@@ -64,7 +59,7 @@ password feature:
     The redirection link that is provided to the user to set the
     password is invalid after the time specified here has elapsed.
 
-    ``` java
+    ``` toml
     [identity_mgt.user_onboarding]
     enable_email_verification = false
     verification_email_validity = "1440"
@@ -94,7 +89,7 @@ password feature:
     following property needs to be added to the
     `           <IS_HOME>/repository/conf/deployment-toml` file.
 
-    ``` java
+    ``` toml
     [identity_mgt.user_onboarding]
     ask_password_from_user= true
     ```
@@ -127,7 +122,7 @@ password feature:
             Follow the steps given below to enable your Google mail account to
             provide access to third-party applications.
         
-            1.  Navigate to <https://myaccount.google.com/security> .
+            1.  Navigate to <https://myaccount.google.com/security>.
             2.  Click **Signing in to Google** on the left menu and make sure
                 that the **2-step Verification** is disabled or off.  
                 ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
@@ -166,13 +161,12 @@ password feature:
         email_sender= "internal" 
         ```
 
-### Try it out
+## Try it out
 
 You can use one of the following methods to creating a user using the
 ask password option.
 
 !!! note
-    
     ??? note "Click here for more information If you want to enter any of the !\#$%&'\*+-=?^\_ special characters in the email address"
         1.  Go to management console click the **Main** tab **\> Claims \>
             List**.
@@ -181,9 +175,7 @@ ask password option.
         
         3.  Expand the **Email** claim and click **Edit**.
         
-        4.  Add the characters you need out of the
-            `             !#$%&'*+-=?^_            ` special characters to the
-            Regular Expression.  
+        4.  Add the characters you need out of the `             !#$%&'*+-=?^_            ` special characters to the Regular Expression.  
             **Example**
             <table>
             <colgroup>
@@ -204,13 +196,8 @@ ask password option.
             </table>
         
         Now, follow the steps given below to add a new user.
-    
 
--   [Management
-    console](../../learn/creating-users-using-the-ask-password-option#management-console)
--   [SCIM 2.0](../../learn/creating-users-using-the-ask-password-option#scim-2.0)
-
-#### Management console
+### Management console
 
 Do the following steps to test the account creation using the password
 option.
@@ -225,7 +212,6 @@ option.
     ![add-a-new-user](../assets/img/using-wso2-identity-server/add-a-new-user.png)
 
     !!! note
-    
         If you are using the $ character in the email address, make sure to
         use appropriate escape characters, such as /.  
         Example: `           abc\$def@gmail.com          `
@@ -252,18 +238,12 @@ option.
 #### SCIM 2.0
 
 !!! tip "Before you begin!" 
-    
-    Follow the steps given in the [Configuring SCIM 2.0 Provisioning
-    Connector
-    Documentation](../../develop/scim-2.0-provisioning-connector)
+    Follow the steps given in the [Configuring SCIM 2.0 Provisioning Connector Documentation](../../develop/scim-2.0-provisioning-connector)
     to configure WSO2 IS with SCIM 2.0.
-    
 
-1.  Add the following configuration to 
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file.
+1.  Add the following configuration to `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
-    ``` java
+    ``` toml
     [scim2] 
     enable_schema_extension="true"
     ```
@@ -271,14 +251,11 @@ option.
 2.  Now you can use the ask password features using SCIM 2.0. A sample
     curl commands is given below:
 
-    ``` java
-        curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"dewmi123455@gmail.com"}],"EnterpriseUser":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+    ``` toml
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"dewmi123455@gmail.com"}],"EnterpriseUser":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
 
 !!! info "Related Links"
-
-    -   For information on how to edit an existing email template, see
-        [Email Templates](../../learn/customizing-automated-emails).
-    -   See [Configuring
-        Claims](../../learn/configuring-claims) for more information on how to store
+    -   For information on how to edit an existing email template, see [Email Templates](../../learn/email-templates).
+    -   See [Configuring Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.
