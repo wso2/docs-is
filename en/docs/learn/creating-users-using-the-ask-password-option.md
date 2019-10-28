@@ -243,7 +243,7 @@ option.
 
 1.  Add the following configuration to `           <IS_HOME>/repository/conf/deployment.toml          ` file.
 
-    ``` java
+    ``` toml
     [scim2] 
     enable_schema_extension="true"
     ```
@@ -251,7 +251,7 @@ option.
 2.  Now you can use the ask password features using SCIM 2.0. A sample
     curl commands is given below:
 
-    ``` java
+    ``` toml
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"dewmi123455@gmail.com"}],"EnterpriseUser":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
 
