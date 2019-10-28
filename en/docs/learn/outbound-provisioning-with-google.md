@@ -19,8 +19,7 @@ in Google too.
         [here](https://www.bettercloud.com/monitor/the-academy/create-google-apps-domain-three-easy-steps/)
         for more information on creating the domain.
     -   Make sure you have a WUM updated WSO2 Identity Server 5.4.0 pack.
-        For more information on how to WUM update, see [Updating WSO2
-        Products](../../administer/updating-wso2-products)
+        For more information on how to WUM update, see [Updating WSO2 Products](../../administer/updating-wso2-products)
     
 
 ### Configuring Google
@@ -83,7 +82,7 @@ Google domain yet? Follow the steps given here.
 5.  Get the Client ID of the service account.
     1.  Click **IAM and admin \> Service accounts,** click the menu icon
         at the end the service account you created, and click **Edit**
-        .  
+.  
         ![edit-service-account](../assets/img/using-wso2-identity-server/edit-service-account.png) 
     2.  Select **Enable G Suite Domain-wide Delegation** and click
         **SAVE**.  
@@ -95,7 +94,7 @@ Google domain yet? Follow the steps given here.
 6.  Manage the API client access:
     1.  Go to your domains admin console via
         [`             https://admin.google.com            `
-        .](https://admin.google.com/.)
+.](https://admin.google.com/.)
     2.  Click Security.
 
         Can't see the Security section? Click the **MORE CONTROLS** bar
@@ -179,19 +178,19 @@ Provider.
     !!! info 
         For more information on any of these fields, see [Configuring Google
         provisioning](../../learn/configuring-outbound-provisioning-connectors-for-an-identity-provider#configuring-google-provisioning)
-        .
+.
 
     1.  Select **Enable Connector** to enable the Google connector.
     2.  Enter your Google domain name.  
         For example, in this guide, mydomain.com is used as the domain
         name.
     3.  Select the claim URI for the Primary Email.  
-        For example, use http://wso2.org/claims/emailaddress .
+        For example, use http://wso2.org/claims/emailaddress.
     4.  Select the claim URI for the Given name.  
-        For example, use http://wso2.org/claims/givenname .
+        For example, use http://wso2.org/claims/givenname.
     5.  Select the claim URI for the family name.  
         For example, use
-        `            http://wso2.org/claims/lastname           ` .
+        `            http://wso2.org/claims/lastname           `.
     6.  Enter your service account ID as the value for the Service
         Account Email.
 
@@ -217,7 +216,7 @@ Provider.
         Provisioning Pattern. This pattern is used to build the user id
         of Google domain.
     11. Enter **\_** (the underscore character) as the value for the
-        Google Provisioning Separator .
+        Google Provisioning Separator.
 
     ![google-prrovisioning-config](../assets/img/using-wso2-identity-server/google-prrovisioning-config.png) 
 
@@ -285,7 +284,7 @@ from WSO2 IS to Google.
     Server in this use case, see [Configuring Just-In-Time Provisioning
     for an Identity
     Provider](../../learn/configuring-just-in-time-provisioning-for-an-identity-provider)
-    .
+.
 -   You can configure WSO2 IS to outbound provision users only if a
     given XACML rule is met. For more information, see [Rule-Based
     Provisioning](../../learn/rule-based-provisioning).
