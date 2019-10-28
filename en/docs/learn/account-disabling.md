@@ -113,7 +113,7 @@ steps below.
            
 2.  Restart the Server.
 
-    !!! tip
+    !!! info
         The email template used to send the email notification for
         account locking is the **AccountLock** template and the template
         used for account disabling is the **AccountDisable** template. You
