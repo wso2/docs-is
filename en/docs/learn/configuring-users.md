@@ -67,7 +67,6 @@ The user is assigned to the specified roles. You can view a user's roles
 by clicking on the **View Roles** link on the user list.
 
 !!! note
-    
     **Internal/everyone:** This is a conceptual role that is used to group
     all the users (across the user stores) together. When you create a new
     user, automatically the user belongs to the Internal/everyone role. By
@@ -99,7 +98,7 @@ be done using a SCIM request as seen below.
       property to "true" for the primary userstore in the
       `           <IS_HOME>/repository/conf/deployment.toml        ` file.
 
-      ``` xml
+      ``` toml
       [user_store]
       scim_enabled  =  true
       ```
@@ -305,28 +304,27 @@ file or Microsoft Excel (.xls) file.
          by default, you can enable it by adding the following property to
          the JDBC user store configured in the
          `            deployment.toml           ` file (stored in the
-         `            <PRODUCT_HOME>/repository/conf           ` directory).
-         Please see the [User Store
-         management](../../learn/configuring-the-primary-user-store) section for more
+         `            <IS_HOME>/repository/conf           ` directory).
+         Please see the [User Store management](../../learn/configuring-the-primary-user-store) section for more
          information.
 
-     ``` toml
-     [user_store.properties]
-     is_bulk_import_supported  =  true
-         ```
+		```toml
+		[user_store.properties]
+		is_bulk_import_supported  =  true
+		```
 
       -   It is recommended to upload a maximum of 500,000 users at a time. If
          you need to upload more users, you can upload them in separate
          batches of 500,000 each.
       -   You can also specify the size of the file that you can upload to the
          product in the
-         `            <PRODUCT_HOME>/repository/conf/ deployment.toml           `
+         `            <IS_HOME>/repository/conf/deployment.toml           `
          file as shown below. This value is in MB.
 
-      ``` toml
-       [server.file_upload]
-       file_size_limit = "100"
-         ```
+		``` toml
+		[server.file_upload]
+		file_size_limit = "100"
+		```
 
 #### Creating a file with users
 
@@ -414,12 +412,9 @@ the user by doing the following.
     ![search-users-in-console](../assets/img/using-wso2-identity-server/search-users-in-console.png) 
     
     You can search for users by doing one of the following. 
-    
-    
-     <!-- -->
-     -   **Search by Domain**  
-    
-        1.  Select the user store that the user store in using the
+
+    -   **Search by Domain**  
+        1.	Select the user store that the user store in using the
             **Select Domain** dropdown.
         2.  Enter the user name of the user and click **Search Users**.
             For users to be listed, you must use the exact name of the
@@ -429,9 +424,6 @@ the user by doing the following.
             for "D\*" to list out all the users with names beginning
             with D.
         3.  The user is displayed in the list.  
-              
-
-    <!-- -->
 
     -   **Search by Claim**
         1.  Select the relevant claim URI from the **Select Claim Uri**
@@ -545,7 +537,7 @@ have administrative privileges) using the management console.
 3.  If you are an admin user and need to change another user's password
     (such as if they have forgotten their current password and need you
     to reset it), do the following:
-    1.  Click **U** **sers**.
+    1.  Click **Users**.
     2.  Find the user's account on the **Users** screen and click
         **Change Password** in the **Actions** column.
     3.  Enter a new temporary password and click **Change**. By
@@ -658,15 +650,14 @@ related to user deletion each time you delete a user:
     ```
 
 2.  Add the 
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file, and set `           enable          ` to
     `           true          ` in the following event recorder:
 
-    ``` java
-        <UserDeleteEventRecorders>
-               <UserDeleteEventRecorder name="org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder" enable="false">
-               </UserDeleteEventRecorder>
-        </UserDeleteEventRecorders>
+    ``` toml
+	[event.default_recorder.user_delete_event]
+	name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
+	enable = false
     ```
 
     This writes details related to user deletion in the CSV format to
@@ -687,7 +678,6 @@ related to user deletion each time you delete a user:
          ```
 
 !!! tip
-    
     By default all logs related to user deletion are written in CSV format
     to a specified log file. You can extend this functionality to log the
     details in any other format that you want, and you can also extend the

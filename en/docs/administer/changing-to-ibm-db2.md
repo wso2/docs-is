@@ -85,7 +85,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.shared_db]
-           type = "mssql"
+           type = "db2"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"

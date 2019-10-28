@@ -8,8 +8,7 @@ Follow the steps given below to remove the claim dialects using the
 admin console.
 
 1.  Sign in. Enter your username and password to log on to the
-    [Management Console](../../setup/getting-started-with-the-management-console)
-    .
+    [Management Console](../../setup/getting-started-with-the-management-console).
 2.  In **Main** tab click **List** under **Claims** menu.
 3.  Locate the claim dialect you want to delete and click on the
     **Delete** link next to the dialect.  
@@ -43,7 +42,7 @@ sample claim dialect is given below.
 !!! note
     
     Edits to the claim dialects configured in
-    `                   <                  IS_HOME>/repository/conf/                   claim                  -config.xml        `
+    `                   <IS_HOME>/repository/conf/claim-config.xml        `
     file get applied only when you start the product for the first time, or
     for any newly created tenants. With the first startup, claim dialects
     and claims will be loaded from the file and persisted in the database.

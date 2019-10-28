@@ -19,7 +19,6 @@ The instructions below guide you through setting up username recovery
 with the WSO2 IS.
 
 !!! warning
-    
     From 5.3.0 onwards there is a new implementation for identity management
     features. The steps given below in this document follows the new
     implemenation, which is the **recommended approach** for username
@@ -71,7 +70,6 @@ with the WSO2 IS.
     ```
 
     !!! tip
-    
         The email template used to send this email notification is
         the **AccountIdRecovery** template.
     
@@ -89,10 +87,8 @@ with the WSO2 IS.
 
 5.  Select the **Enable Username Recovery** checkbox and the **Enable
     Notification Internally Management** checkbox.  
-    For more information on the fields seen on this screen, see [Account
-    Recovery REST
-    API](https://docs.wso2.com/display/IS580/apidocs/account-recovery)
-    .  
+    For more information on the fields seen on this screen, see [Account Recovery REST API](../../develop/using-the-account-recovery-rest-apis).
+      
     ![account-recovery](../assets/img/using-wso2-identity-server/account-recovery.png) 
 
     !!! info   
@@ -105,7 +101,6 @@ with the WSO2 IS.
     Recovery Success** checkbox.
 
     !!! note
-    
         If you are using a Google mail account, note that Google has
         restricted third-party apps and less secure apps from sending emails
         by default. Therefore, you need to configure your account to disable
@@ -130,8 +125,7 @@ with the WSO2 IS.
 ### Try out username recovery
 
 1.  [Create a user using the management
-    console](../../learn/configuring-users#creating-a-new-user-using-the-management-console)
-    . Ensure that the user has login permissions.
+    console](../../learn/configuring-users#creating-a-new-user-using-the-management-console). Ensure that the user has login permissions.
 2.  Edit the user profile and enter an email address for the user. The
     email notification for password recovery is sent to the email
     address given here.
@@ -141,7 +135,6 @@ with the WSO2 IS.
     ![enter-fields-dashboard](../assets/img/using-wso2-identity-server/enter-fields-dashboard.png) 
 
     !!! note
-    
         In case you have enabled username recovery with reCaptcha
         verification, enter the required fields as specified above and
         select the recaptcha checkbox as well.
@@ -153,11 +146,7 @@ with the WSO2 IS.
     ![email-notification](../assets/img/using-wso2-identity-server/email-notification.png) 
 
 !!! tip "Related Links" 
-    
-    -   For information on the REST APIs for username recovery, see [the
-        swagger docs on Account Recovery REST
-        APIs](https://docs.wso2.com/display/IS580/apidocs/account-recovery).
-    -   See [Configuring
-        Claims](../../learn/configuring-claims) for more information on how to store
+    -   For information on the REST APIs for username recovery, see [the swagger docs on Account Recovery RESTAPIs](../../develop/using-the-account-recovery-rest-apis).
+    -   See [Configuring Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.
     
