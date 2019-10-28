@@ -66,7 +66,7 @@ for forced password reset:
 
     ![forced-password-reset](../assets/img/using-wso2-identity-server/forced-password-reset.png) 
 
-#### Password Reset via Recovery Email
+## Password Reset via Recovery Email
 
 Enabling this option will send an email to the user with the
 corresponding information. The email template for this option can be
@@ -84,14 +84,11 @@ to see a sample of how this works.
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
     claim to 'true' for the relevant users. To do this, follow the steps
     below:
-    1.  Discover the [UserProfileMgtService admin
-        service](https://localhost:9443/services/UserProfileMgtService?wsdl)
-        . For information on how to do this, see [Calling Admin
-        Services](../../develop/calling-admin-services)
-        .
+    1.  Discover the UserProfileMgtService admin service. For information on how to do this, see [Calling Admin
+        Services](../../develop/calling-admin-services).
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:
-        <https://localhost:9443/services/UserProfileMgtService?wsdl> .
+        <https://localhost:9443/services/UserProfileMgtService?wsdl>.
 
     3.  Use the `             setUserProfile            ` method to send
         a SOAP request to update the
@@ -100,7 +97,7 @@ to see a sample of how this works.
 
         **Sample SOAP Request**
 
-        ``` java
+        ``` xml
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
             <soapenv:Header/>
             <soapenv:Body>
@@ -134,7 +131,7 @@ to see a sample of how this works.
     now log in to the [dashboard](https://localhost:9443/dashboard)
     successfully as Tom using the new password.
 
-#### Password Reset via OTP
+## Password Reset via OTP
 
 Enabling this option will send an email to the user with a one time
 password that the user can use to log in once to the account after
@@ -153,14 +150,10 @@ template for this option can be configured in the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
     claim to **true** for the relevant users. To do this, follow the
     steps below:
-    1.  Discover the [UserProfileMgtService admin
-        service](https://localhost:9443/services/UserProfileMgtService?wsdl)
-        . For information on how to do this, see [Calling Admin
-        Services](../../develop/calling-admin-services)
-        .
+    1.  Discover the UserProfileMgtService admin service. For information on how to do this, see [Calling Admin Services](../../develop/calling-admin-services).
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:
-        <https://localhost:9443/services/UserProfileMgtService?wsdl> .
+        <https://localhost:9443/services/UserProfileMgtService?wsdl>.
 
     3.  Use the `             setUserProfile            ` method to send
         a soap request to update the
@@ -169,22 +162,22 @@ template for this option can be configured in the
 
         **Sample SOAP Request**
 
-        ``` java
-                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
-                    <soapenv:Header/>
-                    <soapenv:Body>
-                        <mgt:setUserProfile>
-                            <mgt:username>tom</mgt:username>
-                            <mgt:profile>
-                                <xsd:fieldValues>
-                                    <xsd:claimUri>http://wso2.org/claims/identity/adminForcedPasswordReset</xsd:claimUri>
-                                    <xsd:fieldValue>true</xsd:fieldValue>
-                                </xsd:fieldValues>
-                                <xsd:profileName>default</xsd:profileName>
-                            </mgt:profile>
-                        </mgt:setUserProfile>
-                    </soapenv:Body>
-                </soapenv:Envelope>
+        ``` xml
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
+            <soapenv:Header/>
+            <soapenv:Body>
+                <mgt:setUserProfile>
+                    <mgt:username>tom</mgt:username>
+                    <mgt:profile>
+                        <xsd:fieldValues>
+                            <xsd:claimUri>http://wso2.org/claims/identity/adminForcedPasswordReset</xsd:claimUri>
+                            <xsd:fieldValue>true</xsd:fieldValue>
+                        </xsd:fieldValues>
+                        <xsd:profileName>default</xsd:profileName>
+                    </mgt:profile>
+                </mgt:setUserProfile>
+            </soapenv:Body>
+        </soapenv:Envelope>
         ```
 
     4.  Add new a new basic authorization from the SOAP-UI request
@@ -207,14 +200,14 @@ template for this option can be configured in the
     [dashboard](https://localhost:9443/dashboard) successfully as Tom
     using the new password.
 
-#### Offline Password Reset
+## Offline Password Reset
 
 1.  Configure the properties mentioned above, start the identity server
     and navigate to the relevant interface.
 2.  Select **Enable Password Reset Offline** from the three options
     listed, and click **Update**.
 3.  Click on **List** under **Claims** found in the **Main** tab and
-    select http://wso2.org/claims .
+    select http://wso2.org/claims.
 4.  Select the **One Time Password** claim, click **Edit** and select
     the **Supported by Default** checkbox. Click **Update** to save
     changes.
@@ -225,14 +218,10 @@ template for this option can be configured in the
     `                     http://wso2.org/claims/identity/adminForcedPasswordReset                   `
     claim to **true** for the relevant users. To do this, follow the
     steps below:
-    1.  Discover the [UserProfileMgtService admin
-        service](https://localhost:9443/services/UserProfileMgtService?wsdl)
-        . For information on how to do this, see [Calling Admin
-        Services](../../develop/calling-admin-services)
-        .
+    1.  Discover the UserProfileMgtService admin service. For information on how to do this, see [Calling Admin Services](../../develop/calling-admin-services).
     2.  Create a new [SOAP-UI](https://www.soapui.org/) project by
         importing above the WSDL:
-        <https://localhost:9443/services/UserProfileMgtService?wsdl> .
+        <https://localhost:9443/services/UserProfileMgtService?wsdl>.
 
     3.  Use the `             setUserProfile            ` method to send
         a soap request to update the
@@ -241,22 +230,22 @@ template for this option can be configured in the
 
         **Sample SOAP Request**
 
-        ``` java
-                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
-                    <soapenv:Header/>
-                    <soapenv:Body>
-                        <mgt:setUserProfile>
-                            <mgt:username>tom</mgt:username>
-                            <mgt:profile>
-                                <xsd:fieldValues>
-                                    <xsd:claimUri>http://wso2.org/claims/identity/adminForcedPasswordReset</xsd:claimUri>
-                                    <xsd:fieldValue>true</xsd:fieldValue>
-                                </xsd:fieldValues>
-                                <xsd:profileName>default</xsd:profileName>
-                            </mgt:profile>
-                        </mgt:setUserProfile>
-                    </soapenv:Body>
-                </soapenv:Envelope>
+        ``` xml
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.profile.user.identity.carbon.wso2.org" xmlns:xsd="http://mgt.profile.user.identity.carbon.wso2.org/xsd">
+            <soapenv:Header/>
+            <soapenv:Body>
+                <mgt:setUserProfile>
+                    <mgt:username>tom</mgt:username>
+                    <mgt:profile>
+                        <xsd:fieldValues>
+                            <xsd:claimUri>http://wso2.org/claims/identity/adminForcedPasswordReset</xsd:claimUri>
+                            <xsd:fieldValue>true</xsd:fieldValue>
+                        </xsd:fieldValues>
+                        <xsd:profileName>default</xsd:profileName>
+                    </mgt:profile>
+                </mgt:setUserProfile>
+            </soapenv:Body>
+        </soapenv:Envelope>
         ```
 
     4.  Add new a new basic authorization from the SOAP-UI request

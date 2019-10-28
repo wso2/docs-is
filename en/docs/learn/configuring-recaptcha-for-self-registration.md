@@ -14,20 +14,19 @@ brute force attacks.
         [Self-Registration and Account
         Confirmation](../../learn/self-registration-and-account-confirmation).
     -   For more information on brute force attacks, see [Mitigating Brute
-        Force Attacks](../../learn/mitigating-brute-force-attacks).
+        Force Attacks](../../administer/mitigating-brute-force-attacks).
 
 There are two ways to configure this feature.
 
 The instructions for both these approaches are as follows.
 
-### Configuring self-registration with reCaptcha for a tenant
+## Configuring self-registration with reCaptcha for a tenant
 
 **To configure self-registration with reCaptcha for a specific tenant:**
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
-    ReCaptcha](../../learn/setting-up-recaptcha)
-    .
+    ReCaptcha](../../learn/setting-up-recaptcha).
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **List** under **Identity Providers** on the **Main** tab
     and then click **Resident Identity Provider**.
@@ -42,7 +41,6 @@ The instructions for both these approaches are as follows.
     <https://localhost:9443/dashboard>
 
     !!! tip
-    
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly.
     
@@ -62,8 +60,7 @@ The instructions for both these approaches are as follows.
     file and uncomment the following configuration block.
 
     !!! tip
-    
-        **Tip** : To avoid any configuration issues, do this before starting
+        To avoid any configuration issues, do this before starting
         up the WSO2 Identity Server product instance.
     
 
@@ -124,8 +121,7 @@ The instructions for both these approaches are as follows.
     operations are invoked.
 
     !!! tip
-    
-        **Tip** : These are usually set by default in the product unless you
+        These are usually set by default in the product unless you
         have made any changes.
     
 

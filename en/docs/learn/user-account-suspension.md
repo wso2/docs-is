@@ -11,12 +11,10 @@ within the next 7 days if there continues to be no activity, after
 which, the account will be suspended.
 
 !!! note
-    
     Once an account is suspended, only an administrative user can
     unlock the account.
     
-
-#### Setting up account suspension notifications
+## Setting up account suspension notifications
 
 The notification module is a scheduled task that runs daily. It fetches
 users from the user store that are idle and eligible to receive a
@@ -64,7 +62,7 @@ task that checks for idle accounts is common to all tenants.
     ```
 
 3.  Add the following property under all the relevant userstores that
-    you are using in the user-mgt.xml file.
+    you are using in the deployment.toml file.
 
     **LDAP Userstore**
 
@@ -109,7 +107,7 @@ task that checks for idle accounts is common to all tenants.
         Emails](../../learn/customizing-automated-emails).
     
 
-#### Configuring account suspension settings
+## Configuring account suspension settings
 
 1.  Start the WSO2 IS and log into the management console using your
     tenant credentials.
