@@ -13,7 +13,7 @@ The profile specification for Security Assertion Markup Language 2.0
 
 ### Scenario
 
-To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to a first application and the user will be automatically logged in to the second application.
+To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
 ![saml-sso-scenario](../assets/img/tutorials/saml-sso-scenario-diagram.png)
 
@@ -47,13 +47,13 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
     ??? info "For more information, click to expand"
 
     	  Some browsers do not allow creating cookies for a naked hostname,
-    	  such as `             localhost            ` . Cookies are required
+    	  such as `localhost` . Cookies are required
     	  when working with SSO. Therefore, to ensure that the SSO
     	  capabilities work as expected in this tutorial, you need to
     	  configure the `             etc/host            ` file as explained
     	  in this step.
 
-    	  The `             etc/host            ` file is a read-only file.
+    	  The `etc/host` file is a read-only file.
     	  Therefore, you won't be able to edit it by opening the file via a
     	  text editor. To avoid this, edit the file using the terminal
     	  commands.  
@@ -113,7 +113,7 @@ You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manage
 2. You will be redirected to the login page of WSO2 Identity Server. Login using your WSO2 Identity Server credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
 
-3. Now, if you navigate to <http://localhost.com:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without prompting for user credentials.
+3. Now, if you navigate to <http://localhost.com:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
 ### Configuring claims
 
