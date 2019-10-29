@@ -494,6 +494,7 @@ nav:
             - 'OAuth2 Scopes REST APIs': develop/using-oauth2-scopes-rest-apis.md
             - 'Authenticating and Authorizing REST APIs': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication Data API': develop/authentication-data-api.md
+            - 'Email Templates REST API': develop/email-templates-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management with APIs':
