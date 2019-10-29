@@ -1,27 +1,15 @@
-# Migrating to 5.9.0
+# Preparing for migration
 
-This section walks you through the steps you need to follow to upgrade
-WSO2 Identity Server to version 5.9.0. 
+!!! note
+    Before you follow this section, see [Before you begin](../../setup/migrating-before-you-begin) to read on 
+    prerequisites.
 
-!!! note "NOTE"
+!!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
     directory that WSO2 Identity Server 5.9.0 resides in. 
-
-### **Should I migrate?**
-
-WSO2 recommends upgrading to the latest version in order to ensure that
-users receive the latest updates for the product.
-
--   For a high level overview of what has been added, changed, or
-    deprecated in this release, see [About this
-    release](../../get-started/about-this-release).
--   For a detailed overview of behavioral changes in this release, see
-    [What Has Changed](../../setup/migrating-what-has-changed).
     
-## **Prerequisites**
-
-#### Disabling versioning in the registry configuration
+## Disabling versioning in the registry configuration
 If there are frequently updating registry properties, having the versioning enabled for 
 registry resources in the registry can lead to unnecessary growth in the registry related
 tables in the database. To avoid this, we have disabled versioning by default in Identity 
@@ -305,7 +293,8 @@ current Identity Server and run the below scripts against the database that is u
         Server startup. If changes are done after the initial startup, the registry resource created
         previously will not be available.
    
-#### Migrating the Secondary Userstore Password to the Internal Keystore
+## Migrating the Secondary Userstore Password to the Internal Keystore
+
 Ideally, the internal keystore should be used for encrypting internal critical data. However, in 
 previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
 which is also used to sign and encrypt tokens.
@@ -316,30 +305,8 @@ from the primary keystore to the internal keystore.
 Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md) 
 to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
 
-### **Preparing for migration**
 
-Follow this guide before you begin migration.
-
-1.  Review what has been changed in this release. For a detailed list of
-    changes from 5.8.0 to 5.9.0, see
-    [What Has Changed](../../setup/migrating-what-has-changed) .
-
-2.  This release is a WUM-only release. This means that there are no
-    manual patches. You can use [WSO2 Update Manager](https://wso2.com/updates/wum)(WUM) to get any
-    fixes or latest updates for this release.
-
-    !!! note "Important"
-        If you are upgrading to use this version in your production
-        environment, use WSO2 Update Manager to get the latest updates
-        available for WSO2 IS 5.9.0. For more information on how to use WSO2
-        Update Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
-
-3.  Take a backup of the existing database used by the current WSO2 Identity Server. 
-    This backup is necessary in case the migration causes any issues in the existing database.
-
-4.  Download WSO2 Identity Server 5.9.0 and unzip it in the `<NEW_IS_HOME>` directory.
-
-### **Migrating custom components**
+## Migrating custom components
 
 In WSO2 Identity Server 5.9.0 we have done a major upgrade to our kernel and our main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
@@ -350,7 +317,7 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
 
 2.  Change the dependency versions in the relevant POM files according to the WSO2 IS version that 
     you are upgrading to, and compile them. The compatible dependency versions can be found 
-    [here](https://github.com/wso2/product-is/blob/v5.9.0-rc1/pom.xml). 
+    [here](https://github.com/wso2/product-is/blob/v5.9.0/pom.xml). 
 
 3.  If you come across any compile time errors, refer to the WSO2 IS code base and make the 
     necessary changes related to that particular component version.
@@ -366,7 +333,7 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
     work with log4j2. For instructions, see [Migrating to log4j2](../../setup/migrating-to-log4j2).
     
 
-### **Migrating the configurations**
+## Migrating the configurations
 
 Previous WSO2 Identity Server versions supported multiple configuration files 
 such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the 
@@ -381,12 +348,12 @@ to add the necessary configurations according to the new configuration model.
     If you have a WSO2 Subscription, it is highly recommended to reach 
     [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
     before attempting to proceed with the configuration migration.
-
-### Zero down time migration
+    
+## Zero down time migration
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section [Executing the migration client](#executing-the-migration-client).
+    next section, [Migrating to 5.9.0](../../setup/migrating-to-590).
     
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
@@ -572,471 +539,6 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
         +   IDN_OAUTH2_AUTHORIZATION_CODE
     
 9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
-and restore in the new databases created.    
+and restore in the new databases created.
 
-
-### **Executing the migration client**
-
-To upgrade to the latest version of WSO2 Identity Server, you need to
-upgrade the userstore database. **Note** that there are no registry schema
-changes between versions.
-
-Follow the steps below to perform the upgrade.
-    
-??? note "If you are using DB2"
-    Move indexes to the the
-    TS32K Tablespace. The index tablespace in the 
-    `           IDN_OAUTH2_ACCESS_TOKEN          `  and 
-    `           IDN_OAUTH2_AUTHORIZATION_CODE          ` tables need
-    to be moved to the existing TS32K tablespace in order to support
-    newly added table indexes.
-
-    SQLADM or DBADM authority is required in order to invoke
-    the `           ADMIN_MOVE_TABLE          ` stored procedure. You
-    must also have the appropriate object creation authorities,
-    including authorities to issue the SELECT statement on the source
-    table and to issue the INSERT statement on the target table.
-    
-
-    ??? info "Click here to see the stored procedure" 
-        ``` java
-        CALL SYSPROC.ADMIN_MOVE_TABLE(
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
-        'IDN_OAUTH2_ACCESS_TOKEN',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-        'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
-        '',
-        '',
-        '',
-        '',
-        '',
-        'MOVE');
-
-        CALL SYSPROC.ADMIN_MOVE_TABLE(
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>,
-        'IDN_OAUTH2_AUTHORIZATION_CODE',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-        'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
-        '',
-        '',
-        '',
-        '',
-        '',
-        'MOVE');
-
-        Where,
-
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
-        ```
-
-    If you recieve an error due to missing
-    `               SYSTOOLSPACE              ` or
-    `               SYSTOOLSTMPSPACE              ` tablespaces, create
-    those tablespaces manually using the following script prior to
-    executing the stored procedure given above. For more information,
-    see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
-    spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
-    in the IBM documentation.           
-
-    ``` java
-        CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
-          MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
-          EXTENTSIZE 4;
-    
-        CREATE USER TEMPORARY TABLESPACE SYSTOOLSTMPSPACE IN IBMCATGROUP
-          MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
-          EXTENTSIZE 4;
-    ```
-
-1.  If you manually added any custom OSGI bundles to the
-    `          <OLD_IS_HOME>/repository/components/dropins         `
-    directory, copy those OSGI bundles to the
-    `          <NEW_IS_HOME>/repository/components/dropins         `
-    directory.
-    
-    !!! note
-        You may need to update the custom components to work with WSO2 Identity Server 5.9.0, 
-        refer [Migrating custom components](#migrating-custom-components).
-
-2.  If you manually added any JAR files to the
-    `           <OLD_IS_HOME>/repository/components/lib          `
-    directory, copy and paste those JARs in the
-    `           <NEW_IS_HOME>/repository/components/lib          `
-    directory.
-
-3.  Copy the `           .jks          ` files from the
-    `           <OLD_IS_HOME>/repository/resources/security          `
-    directory and paste in the
-    `           <NEW_IS_HOME>/repository/resources/security          `
-    directory.
-
-4.  If you have created tenants in the previous WSO2 Identity Server
-    version and if there are any resources in the
-    `          <OLD_IS_HOME>/repository/tenants         ` directory,
-    copy the content to the
-    `          <NEW_IS_HOME>/repository/tenants         ` directory.
-5.  If you have created secondary user stores in the previous WSO2 IS
-    version, copy the content in the
-    `           <OLD_IS_HOME>/repository/deployment/server/userstores          `
-    directory to the
-    `           <NEW_IS_HOME>/repository/deployment/server/userstores          `
-    directory.
-    
-    !!! warning
-        If you are using a version prior to WSO2 Identity Server 5.8.0, then proceed to the steps 6 to 9 
-        otherwise directly proceed to step 9.
-    
-6.  Do the following database updates:  
-    1.  Download the [migration resources](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.carbon.is.migration/1.0.23/org.wso2.carbon.is.migration-1.0.23.zip)
-        and unzip it to a local directory. This directory is referred to
-        as `             <IS5.9.0_MIGRATION_TOOL_HOME>            ` .
-
-    2.  Copy the
-        `             org.wso2.carbon.is.migration-xx.xx.xx.jar            `
-     found in the
-        `             <IS5.9.0_MIGRATION_TOOL_HOME>/dropins            `
-        directory, and paste it in the
-        `             <NEW_IS_HOME>/repository/components/dropins            `
-        directory.
-
-    3.  Copy migration-resources directory to the
-        `             <NEW_IS_HOME>            ` root directory.
-
-    4.  Ensure that the following property values are as follows in the
-        `             migration-config.yaml            ` file found in
-        the `             <NEW_IS_HOME>/migration-resources            `
-        directory.
-
-        ``` java
-        migrationEnable: "true"
-
-        currentVersion: "5.7.0"
-
-        migrateVersion: "5.9.0"
-        ```
-        
-        !!! note
-            Here the `currentVersion` is the current WSO2 Identity Server version that you are using.
-
-7.  Start the WSO2 Identity Server 5.9.0 with the following command to
-    execute the migration client.
-
-    1.  Linux/Unix:
-
-        ```bash 
-        sh wso2server.sh -Dmigrate -Dcomponent=identity
-        ```
-
-    2.  Windows:
-
-        ```bash
-        wso2server.bat -Dmigrate -Dcomponent=identity
-        ```
-
-8. Stop the server once the task of migration client is completed.
-
-9. Run the following DB script against the Identity DB.
-
-    ```tab="H2"
-    CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
-                TENANT_ID INTEGER,
-                DOMAIN_NAME VARCHAR(255) NOT NULL,
-                USER_NAME VARCHAR(45) NOT NULL,
-                TIME_REGISTERED TIMESTAMP,
-                USER_HANDLE VARCHAR(200) NOT NULL,
-                CREDENTIAL_ID VARCHAR(200) NOT NULL,
-                PUBLIC_KEY_COSE VARCHAR(2048) NOT NULL,
-                SIGNATURE_COUNT BIGINT,
-                USER_IDENTITY VARCHAR(200) NOT NULL,
-                PRIMARY KEY (TENANT_ID, DOMAIN_NAME, USER_NAME, USER_HANDLE));
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
-                SESSION_ID VARCHAR (100) NOT NULL,
-                SUBJECT VARCHAR (100) NOT NULL,
-                APP_ID INTEGER NOT NULL,
-                INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-                PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE));
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
-                SESSION_ID VARCHAR (100) NOT NULL,
-                PROPERTY_TYPE VARCHAR (100) NOT NULL,
-                VALUE VARCHAR (255) NOT NULL,
-                PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE));
-    
-    CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
-                NAME VARCHAR(255) NOT NULL,
-                DESCRIPTION VARCHAR(1023),
-                TYPE VARCHAR(255) NOT NULL,
-                TENANT_ID INTEGER NOT NULL,
-                DATA BLOB NOT NULL,
-                PRIMARY KEY (TENANT_ID,NAME));
-    
-    CREATE INDEX IF NOT EXISTS IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="DB2"
-    CREATE TABLE FIDO2_DEVICE_STORE (
-              TENANT_ID INTEGER NOT NULL,
-              DOMAIN_NAME VARCHAR(255) NOT NULL,
-              USER_NAME VARCHAR(45) NOT NULL,
-              TIME_REGISTERED TIMESTAMP,
-              USER_HANDLE VARCHAR(64) NOT NULL,
-              CREDENTIAL_ID VARCHAR(200) NOT NULL,
-              PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-              SIGNATURE_COUNT BIGINT,
-              USER_IDENTITY VARCHAR(512) NOT NULL,
-            PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-              SESSION_ID VARCHAR (100) NOT NULL,
-              SUBJECT VARCHAR (100) NOT NULL,
-              APP_ID INTEGER NOT NULL,
-              INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-            PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    )
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-              SESSION_ID VARCHAR (100) NOT NULL,
-              PROPERTY_TYPE VARCHAR (100) NOT NULL,
-              VALUE VARCHAR (255) NOT NULL,
-            PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    )
-    /
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-              NAME VARCHAR(255) NOT NULL,
-              DESCRIPTION VARCHAR(1023),
-              TYPE VARCHAR(255) NOT NULL,
-              TENANT_ID INTEGER NOT NULL,
-              DATA BLOB NOT NULL,
-            PRIMARY KEY (TENANT_ID,NAME)
-    )
-    /
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
-    /
-    
-    ```
-
-    ```tab="MSSQL"
-    IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[FIDO2_DEVICE_STORE]') AND TYPE IN (N'U'))
-    CREATE TABLE FIDO2_DEVICE_STORE (
-      TENANT_ID INTEGER,
-      DOMAIN_NAME VARCHAR(255) NOT NULL,
-      USER_NAME VARCHAR(45) NOT NULL,
-      TIME_REGISTERED DATETIME,
-      USER_HANDLE VARCHAR(64) NOT NULL,
-      CREDENTIAL_ID VARCHAR(200) NOT NULL,
-      PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-      SIGNATURE_COUNT BIGINT,
-      USER_IDENTITY VARCHAR(512) NOT NULL,
-      PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_APP_INFO]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      SUBJECT VARCHAR (100) NOT NULL,
-      APP_ID INTEGER NOT NULL,
-      INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_META_DATA]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      PROPERTY_TYPE VARCHAR (100) NOT NULL,
-      VALUE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_FUNCTION_LIBRARY]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-    	NAME VARCHAR(255) NOT NULL,
-    	DESCRIPTION VARCHAR(1023),
-    	TYPE VARCHAR(255) NOT NULL,
-    	TENANT_ID INTEGER NOT NULL,
-    	DATA VARBINARY(MAX) NOT NULL,
-    	PRIMARY KEY (TENANT_ID,NAME)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_FIDO2_STR' and object_id = OBJECT_ID('FIDO2_DEVICE_STORE'))
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE (USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="MySQL"
-    CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
-      TENANT_ID INTEGER,
-      DOMAIN_NAME VARCHAR(255) NOT NULL,
-      USER_NAME VARCHAR(45) NOT NULL,
-      TIME_REGISTERED TIMESTAMP,
-      USER_HANDLE VARCHAR(64) NOT NULL,
-      CREDENTIAL_ID VARCHAR(200) NOT NULL,
-      PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-      SIGNATURE_COUNT BIGINT,
-      USER_IDENTITY VARCHAR(512) NOT NULL,
-      PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      SUBJECT VARCHAR (100) NOT NULL,
-      APP_ID INTEGER NOT NULL,
-      INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      PROPERTY_TYPE VARCHAR (100) NOT NULL,
-      VALUE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
-    	NAME VARCHAR(255) NOT NULL,
-    	DESCRIPTION VARCHAR(1023),
-    	TYPE VARCHAR(255) NOT NULL,
-    	TENANT_ID INTEGER NOT NULL,
-    	DATA BLOB NOT NULL,
-    	PRIMARY KEY (TENANT_ID,NAME)
-    );
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="Oracle"
-    CREATE TABLE FIDO2_DEVICE_STORE (
-          TENANT_ID INTEGER,
-          DOMAIN_NAME VARCHAR(255) NOT NULL,
-          USER_NAME VARCHAR(45) NOT NULL,
-          TIME_REGISTERED TIMESTAMP,
-          USER_HANDLE VARCHAR(64) NOT NULL,
-          CREDENTIAL_ID VARCHAR(200) NOT NULL,
-          PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-          SIGNATURE_COUNT NUMBER(19),
-          USER_IDENTITY VARCHAR(512) NOT NULL,
-          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-          SESSION_ID VARCHAR (100) NOT NULL,
-          SUBJECT VARCHAR (100) NOT NULL,
-          APP_ID INTEGER NOT NULL,
-          INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-          SESSION_ID VARCHAR (100) NOT NULL,
-          PROPERTY_TYPE VARCHAR (100) NOT NULL,
-          VALUE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE))
-    /
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-          NAME VARCHAR(255) NOT NULL,
-          DESCRIPTION VARCHAR(1023),
-          TYPE VARCHAR(255) NOT NULL,
-          TENANT_ID INTEGER NOT NULL,
-          DATA BLOB NOT NULL,
-          PRIMARY KEY (TENANT_ID,NAME))
-    /
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
-    /
-    
-    ```
-    
-    ```tab="PostgreSQL"
-    CREATE TABLE FIDO2_DEVICE_STORE (
-            TENANT_ID INTEGER,
-            DOMAIN_NAME VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(45) NOT NULL,
-            TIME_REGISTERED TIMESTAMP,
-            USER_HANDLE VARCHAR(64) NOT NULL,
-            CREDENTIAL_ID VARCHAR(200) NOT NULL,
-            PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-            SIGNATURE_COUNT BIGINT,
-            USER_IDENTITY VARCHAR(512) NOT NULL,
-          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE));
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-            SESSION_ID VARCHAR (100) NOT NULL,
-            SUBJECT VARCHAR (100) NOT NULL,
-            APP_ID INTEGER NOT NULL,
-            INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-            SESSION_ID VARCHAR (100) NOT NULL,
-            PROPERTY_TYPE VARCHAR (100) NOT NULL,
-            VALUE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-            NAME VARCHAR(255) NOT NULL,
-            DESCRIPTION VARCHAR(1023),
-            TYPE VARCHAR(255) NOT NULL,
-            TENANT_ID INTEGER NOT NULL,
-            DATA BYTEA NOT NULL,
-          PRIMARY KEY (TENANT_ID,NAME)
-    );
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-
-    ```
-    
-### **Executing the sync tool**
-
-!!! warning
-    Proceed with this step only if you have opt in for [Zero down time migration](#zero-down-time-migration).
-    If not your migration task is completed now and you can omit the following steps.
-    
-1.  Start the data sync tool with the following command pointing to the  sync.properties file. 
-This will start syncing data created in the old WSO2 Identity Server database after taking the database dump 
-to the new WSO2 Identity Server database.
-    ```bash
-    sh wso2server.sh -DsyncData -DconfigFile=<path to sync.properties file>/sync.properties
-    ```
-
-2.  Monitor the logs in the sync tool to see how many entries are synced at a given time and progress of the data sync 
-process. Following line will be printed in the logs for each table you have specified to sync if there are no 
-data to be synced.
-
-    ```tab="Sample"
-    [2019-02-27 17:26:32,388]  INFO {org.wso2.is.data.sync.system.pipeline.process.BatchProcessor} -  No data to sync for: <TABLE_NAME>
-    ```
-    
-    !!! info
-        If you have some traffic to the old version of the WSO2 Identity Server, the number of entries to 
-        be synced might not become zero at any time. In that case, watch for the logs and decide a point 
-        that the number of entries that are synced is a lower value.
-
-3.  When the data sync is completed, switch the traffic from the old setup to the new setup.
-
-4.  Allow the sync client to run for some time to sync the entries that were not synced before switching 
-the deployments. When the number of entries synced by the sync tool, becomes zero, stop the sync client.
-    
-### **Verifying the migration was successful**
-
-After the migration is completed, proceed to the following verification steps.
-
-+   Monitor the system health (CPU, memory usage etc).
-+   Monitor the WSO2 logs to see if there are errors logged in the log files.
-+   Run functional tests against the migrated deployment to verify that all functionality is working as expected.
-
-If you see any problems in the migrated system, revert the traffic back to the previous setup and 
-investigate the problem.
-    
-    
-    
+10. Proceed to the next section [Migrating to 5.9.0](../../setup/migrating-to-590).
