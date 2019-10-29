@@ -13,7 +13,7 @@ The profile specification for Security Assertion Markup Language 2.0
 
 ### Scenario
 
-To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When both these applications are configured for SSO at WSO2 IS, a user is only required to provide his credentials to a first application and he will be automatically logged in to the second application.
+To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to a first application and the user will be automatically logged in to the second application.
 
 ![saml-sso-scenario](../assets/img/tutorials/saml-sso-scenario-diagram.png)
 
@@ -27,7 +27,7 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
 
 ### Setting up
 
-1. Download WSO2 Identity Server.
+1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
 
     ``` java tab="Linux"
@@ -139,7 +139,7 @@ Additionally, you can also configure claims for the service providers.
 8. Note that the user is now prompted for consent to share the **Email Address** claim value with the sample application.  
 
     ![dispatch-email-consent](../assets/img/tutorials/dispatch-email-consent.png)
-	
+
 This means that you have successfully configured additional claims for your service provider.
 
 
