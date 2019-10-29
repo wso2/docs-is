@@ -6,7 +6,7 @@ implementations of the
 which were invoked iteratively by the
 [AuthnDataPublisherProxy](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AuthnDataPublisherProxy.java)
 when a session changes, such that the data publishers send events to
-their corresponding destinations. From WSO2 Identity Server 5.9.0
+their corresponding destinations. From WSO2 Identity Server 5.8.0
 onwards, all data publishers have been migrated to act as event handlers
 that subscribe to authentication events.
 
@@ -31,7 +31,7 @@ The new design approach is as follows:
     [AbstractEventHandler](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/handler/AbstractEventHandler.java)
     and override its `handleEvent` method.
 
-The following diagrams illustrates the difference between the design
+The following diagrams illustrate the difference between the design
 approach in the versions prior to WSO2 IS 5.9.0 and the new design approach.
 
 -   **Old design approach**
