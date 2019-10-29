@@ -40,11 +40,12 @@ necessary system requirements and a compatible environment.
 <tbody>
 <tr class="odd">
 <th>Operating systems</th>
-<td><p>For information on tested operating systems, see <a href="https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs">Tested Operating Systems and JDKs</a> .</p></td>
+<td><p>For information on tested operating systems, see <a href="../../setup/environment-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a> 
+.</p></td>
 </tr>
 <tr class="even">
 <th>RDBMS</th>
-<td><p>For information on tested DBMSs, see <a href="https://docs.wso2.com/display/compatibility/tested-dbmss">Tested DBMSs</a> .</p></td>
+<td><p>For information on tested DBMSs, see <a href="../../setup/environment-compatibility/#tested-dbmss">Tested DBMSs</a> .</p></td>
 </tr>
 <tr class="odd">
 <th>Directory services</th>
@@ -53,7 +54,7 @@ necessary system requirements and a compatible environment.
 <li>LDAP v2</li>
 <li>LDAP v3</li>
 </ul>
-<p>For information on tested LDAPs, see <a href="https://docs.wso2.com/display/compatibility/Tested+LDAPs">Tested LDAPs</a> .</p></td>
+<p>For information on tested LDAPs, see <a href="../../setup/environment-compatibility/#tested-ldaps">Tested LDAPs</a> .</p></td>
 </tr>
 <tr class="even">
 <th>Java</th>
@@ -61,7 +62,7 @@ necessary system requirements and a compatible environment.
 </tr>
 <tr class="odd">
 <th>Web browsers</th>
-<td><p>For more information on tested web browsers, see <a href="https://docs.wso2.com/display/compatibility/Tested+Web+Browsers">Tested Web Browsers</a> .</p></td>
+<td><p>For more information on tested web browsers, see <a href="../../setup/environment-compatibility/#tested-web-browsers">Tested Web Browsers</a> .</p></td>
 </tr>
 <tr class="even">
 <th>Load balancers</th>
@@ -83,9 +84,9 @@ The following is a high-level component diagram showing how the system would loo
 ![Component diagram](../assets/img/setup/component-diagram.png)
 
 !!! note
-    For db scripts and more information related to databases, see [Setting up the Physical Database](../../administer/setting-up-the-physical-database).
+    For db scripts and more information related to databases, see [Working with databases](../../administer/working-with-databases/).
 
-WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_HOME>/repository/conf/datasources` directory, to configure all databases in a single location. We define data sources that can be referred to in other configuration files as necessary. The code block below shows a sample configuration for a MySQL database. For instructions on how to configure the data sources for other databases, please see, [Changing the Carbon Database](../../administer/changing-the-carbon-database).
+WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_HOME>/repository/conf/datasources` directory, to configure all databases in a single location. We define data sources that can be referred to in other configuration files as necessary. The code block below shows a sample configuration for a MySQL database. 
 
 
 ??? example Click here to view the sample code block
@@ -173,6 +174,10 @@ WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_H
     </jndiConfig>
     ```
     These data sources can be referred by this `jndiConfig` Name.
+
+!!! note
+    For instructions on how to configure the data sources for other databases, 
+    see [Working with Databases](../../administer/working-with-databases).
 
 #### Linking identity database
 
@@ -274,7 +279,7 @@ Following configurations need to be done to both WSO2 Identity Server nodes in o
         ```  
         <parameter name="membershipScheme">wka</parameter>
         ```
-        For more information, see [Clustering WSO2 Products - About Membership Schemes](../../administer/clustering-wso2-products).
+        For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
     
     ??? tip "Click to see the instructions for WKA scheme"            
         Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
