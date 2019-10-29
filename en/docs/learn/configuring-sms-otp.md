@@ -414,6 +414,8 @@ provider.
 			</table></html>
 			
     ??? Note "Click here to configure Twilio as the service provider."
+        
+        You will need a Twilio-enabled phone number (a phone number purchased through Twilio) to send SMS using Twilio.
 
 		Follow the steps given below if Twilio is used as the SMS provider:
 
@@ -445,6 +447,12 @@ provider.
 			</tr>
 			</tbody>
 			</table></html>
+
+        4. After signing up for your trial account, navigate to the **Phone Numbers** page in your console. You’ll see the phone number that has been selected for you. Note the phone number’s capabilities, such as "Voice", "SMS", and "MMS".
+        ![twilio-phone-number](../assets/img/tutorials/twilio-phone-number.png)
+        ![twilio-phone-number-2](../assets/img/tutorials/twilio-phone-number2.png)
+
+        Get your first Twilio phone number and use that as the `FROM_NUM` in your HTTP Payload. For more information, see [this tutorial](https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account) in the Twilio documentation.
 
 11. Click **Register** .
 

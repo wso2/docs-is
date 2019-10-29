@@ -97,11 +97,13 @@ Carbon detects such threads, interrupts and stops them. Note that Carbon
 prints the current stack trace before interrupting the thread. This
 mechanism is implemented as an Apache Tomcat valve. Therefore, it should
 be configured in the
-`         <IS_HOME>/repository/conf/tomcat/catalina-server.xml        `
+`         <IS_HOME>/repository/conf/deployment.toml        `
 file as shown below.
 
-``` java
-<Valve className="org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve" threshold="600"/>
+``` toml
+[catalina.valves.valve.properties]
+className = "org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve"
+threshold="600"
 ```
 
 -   The `          className         ` is the Java class name used for
@@ -170,7 +172,7 @@ Within WSO2 Identity Server, we use Tomcat JDBC pooling as the default pooling f
 `         <IS_HOME>/repository/conf/deployment.toml        `
 file.
 
-```toml
+```toml tab="Example"
 [database.identity_db.pool_options]
 maxActive = ""
 maxWait = ""
@@ -181,6 +183,8 @@ validationInterval  = ""
 validationQuery = ""
 MaxPermSize = ""
 ```
+!!! info
+    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../administer/working-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
