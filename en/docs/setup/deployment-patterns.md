@@ -84,100 +84,9 @@ The following is a high-level component diagram showing how the system would loo
 ![Component diagram](../assets/img/setup/component-diagram.png)
 
 !!! note
-    For db scripts and more information related to databases, see [Working with databases](../../administer/working-with-databases/).
-
-WSO2 Identity Server uses the `master-datasources.xml` file found in the  `<IS_HOME>/repository/conf/datasources` directory, to configure all databases in a single location. We define data sources that can be referred to in other configuration files as necessary. The code block below shows a sample configuration for a MySQL database. 
-
-
-??? example Click here to view the sample code block
-    ```xml
-    <datasources>
-        <datasource>
-            <name>WSO2_CARBON_DB</name>
-            <description>The datasource used for local registry</description>
-            <jndiConfig>
-                <name>jdbc/WSO2CarbonDB</name>
-            </jndiConfig>
-            <definition type="RDBMS">
-                <configuration>
-                    <url>jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000</url>
-                    <username>wso2carbon</username>
-                    <password>wso2carbon</password>
-                    <driverClassName>org.h2.Driver</driverClassName>
-                    <maxActive>50</maxActive>
-                    <maxWait>60000</maxWait>
-                    <testOnBorrow>true</testOnBorrow>
-                    <validationQuery>SELECT 1</validationQuery>
-                    <validationInterval>30000</validationInterval>
-                    <defaultAutoCommit>false</defaultAutoCommit>
-                </configuration>
-            </definition>
-        </datasource> 
-        <datasource>
-            <name>WSO2UserStore</name>
-            <description>The datasource used for User management</description>
-            <jndiConfig>
-                <name>jdbc/WSO2UserDS</name>
-            </jndiConfig>
-            <definition type="RDBMS">
-                <configuration>
-                    <url>jdbc:mysql://wso2is-pattern1-mysql-service:3306/UM_DB?autoReconnect=true&amp;useSSL=false</url>
-                    <username>wso2carbon</username>
-                    <password>wso2carbon</password>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                    <maxActive>80</maxActive>
-                    <maxWait>60000</maxWait>
-                    <minIdle>5</minIdle>
-                    <testOnBorrow>true</testOnBorrow>
-                    <validationQuery>SELECT 1</validationQuery>
-                    <validationInterval>30000</validationInterval>
-                    <defaultAutoCommit>false</defaultAutoCommit>
-                </configuration>
-            </definition>
-        </datasource>
-        <datasource>
-            <name>WSO2_IDENTITY_DB</name>
-            <description>The datasource used for identity management</description>
-            <jndiConfig>
-                <name>jdbc/WSO2IdentityDS</name>
-            </jndiConfig>
-            <definition type="RDBMS">
-                <configuration>
-                    <url>jdbc:mysql://wso2is-pattern1-mysql-service:3306/IDENTITY_DB?autoReconnect=true&amp;useSSL=false</url>
-                    <username>wso2carbon</username>
-                    <password>wso2carbon</password>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                    <maxActive>80</maxActive>
-                    <maxWait>60000</maxWait>
-                    <minIdle>5</minIdle>
-                    <testOnBorrow>true</testOnBorrow>
-                    <validationQuery>SELECT 1</validationQuery>
-                    <validationInterval>30000</validationInterval>
-                    <defaultAutoCommit>false</defaultAutoCommit>
-                </configuration>
-            </definition>
-        </datasource>
-    </datasources>
-    ```
-!!! note
-    Observe the jndiConfig element defined with each data source.    
-    ```xml
-    <jndiConfig>
-    <name>jdbc/WSO2CarbonDB</name>
-    </jndiConfig>
-    <jndiConfig>
-    <name>jdbc/WSO2UserDS</name>
-    </jndiConfig>
-    …
-    <jndiConfig>
-    <name>jdbc/WSO2IdentityDS</name>
-    </jndiConfig>
-    ```
-    These data sources can be referred by this `jndiConfig` Name.
-
-!!! note
-    For instructions on how to configure the data sources for other databases, 
-    see [Working with Databases](../../administer/working-with-databases).
+    For instructions on how to configure the data sources for other databases and 
+    more information related to databases, 
+    see [Working with Databases](../../administer/working-with-databases)
 
 #### Linking identity database
 
@@ -204,41 +113,32 @@ data_source = "jdbc/WSO2UserDS"
 
 WSO2 Identity Server comprises of three different registry repositories.
 
-1. **Local Repository**: Used to store configuration and runtime data that is local to the server.
+1. **Local Repository**: Use to store configuration and runtime data that is local to the server.
 
-2. **Configuration Repository**: Used to store product-specific configurations. 
+2. **Configuration Repository**: Use to store product-specific configurations. 
 
-3. **Governance Repository**: Used to store configuration and data that are shared across the whole platform. This typically includes services, service descriptions, endpoints or data sources.
+3. **Governance Repository**: Use to store configuration and data that are shared across the whole platform. This typically includes services, service descriptions, endpoints or data sources.
 
 !!! info
     For more information about the registry, see [Working with the Registry](../../administer/working-with-the-registry).
 
-In this cluster setup, we use the default h2 database as the local registry in each node individually and the governance and configuration registries should be mounted to share across all nodes. To do this add the following to the file `<IS_HOME>/repository/conf/registry.xml` in both nodes. 
+In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
+governance and configuration registries should be mounted to share across all nodes. To do this add the 
+following to the file `<IS_HOME>/repository/conf/deployment.toml` in both nodes. 
+
+```
+[governance_data]
+cache_id="jdbc:mysql://wso2is-pattern1-mysql-service:3306/WSO2_IDENTITY_DB"
+enable_cache=true
+path="/_system/governance"
+
+[config_data]
+path="/_system/config"
+```
 
 !!! note
-    We have used the `jndiConfig` name of the identity database to reference the data source.
-
-```
-<dbConfig name="sharedregistry">
-    <dataSource>jdbc/WSO2IdentityDS</dataSource>
-</dbConfig>
-<remoteInstance url="https://localhost:9443/registry">
-    <id>sharedregistry</id>
-    <dbConfig>sharedregistry</dbConfig>
-    <readOnly>false</readOnly>
-    <registryRoot>/</registryRoot>
-    <enableCache>true</enableCache>
-    <cacheId>jdbc:mysql://wso2is-pattern1-mysql-service:3306/WSO2_IDENTITY_DB</cacheId>
-</remoteInstance>
-<mount path="/_system/config" overwrite="true">
-    <instanceId>sharedregistry</instanceId>
-    <targetPath>/_system/config</targetPath>
-</mount>
-<mount path="/_system/governance" overwrite="true">
-    <instanceId>sharedregistry</instanceId>
-    <targetPath>/_system/governance</targetPath>
-</mount>
-```
+    For more infomation about new configurations, 
+    see [New Configuration Model](../../references/new-configuration-model/)
 
 The local registry information is kept within each node in the in-built h2 database. This is reffered as **WSO2CarbonDB** in the above data sources configuration. There is no harm losing the local registry information and there is no backup requirement on this database. For more information on mounting the registry, see [Sharing Databases in a Cluster](../../administer/sharing-databases-in-a-cluster).
 
