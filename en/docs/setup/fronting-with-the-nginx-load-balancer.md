@@ -75,8 +75,8 @@ collectively as "Nginx".)
                 listen 443;
                 server_name is.wso2.com;   
                 ssl on;
-                ssl_certificate /home/centos/STAR_wso2is_com.crt; 
-                ssl_certificate_key /home/centos/wso2is.key;
+                ssl_certificate /home/abc/STAR_wso2is_com.crt; 
+                ssl_certificate_key /home/abc/wso2is.key;
         
                 location /oauth2/token {
                     proxy_set_header X-Forwarded-Host $host;
