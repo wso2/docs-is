@@ -66,17 +66,17 @@ collectively as "Nginx".)
 
         ``` java tab="Nginx configuration that exposes /oauth2, /commonauth, and other endpoints"
             upstream ssl.nginx.com {
-                server 172.30.51.27:9443;  
-                server x.x.x.x:9yyy  
+                server xxx.xxx.xxx.xx3:9443;  
+                server xxx.xxx.xxx.xx4:9443  
             ip_hash; 
             }
         
             server {
                 listen 443;
-                server_name nginx.mybsf.org;   
+                server_name is.wso2.com;   
                 ssl on;
-                ssl_certificate /home/centos/STAR_mybsf_org.crt; 
-                ssl_certificate_key /home/centos/mybsforgdc.key;
+                ssl_certificate /home/centos/STAR_wso2is_com.crt; 
+                ssl_certificate_key /home/centos/wso2is.key;
         
                 location /oauth2/token {
                     proxy_set_header X-Forwarded-Host $host;
@@ -86,8 +86,8 @@ collectively as "Nginx".)
                     proxy_send_timeout 5m;
                     
                     proxy_pass  https://ssl.nginx.com/oauth2/token ;
-                    proxy_redirect https://172.30.51.27:9443/oauth2/token https://nginx.mybsf.org/oauth2/token ;
-                    proxy_redirect https://server x.x.x.x:9yyy/oauth2/token https://nginx.mybsf.org/oauth2/token ; 
+                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/token https://is.wso2.com/oauth2/token ;
+                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/token https://is.wso2.com/oauth2/token ; 
                 }
         
                 location /commonauth {
@@ -97,8 +97,8 @@ collectively as "Nginx".)
                     proxy_read_timeout 5m;
                     proxy_send_timeout 5m;
                     proxy_pass https://ssl.nginx.com/commonauth;
-                    proxy_redirect https://172.30.51.27:9443/commonauth https://nginx.mybsf.org/commonauth ;
-                    proxy_redirect https://server x.x.x.x:9yyy/commomnauth https://nginx.mybsf.org/commonauth;
+                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/commonauth https://is.wso2.com/commonauth ;
+                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/commomnauth https://is.wso2.com/commonauth;
                 }
         
                 location /oauth2/authorize {
@@ -108,8 +108,8 @@ collectively as "Nginx".)
                     proxy_read_timeout 5m;
                     proxy_send_timeout 5m;
                     proxy_pass https://ssl.nginx.com/oauth2/authorize;
-                    proxy_redirect https://172.30.51.27:9443/oauth2/authorize https://nginx.mybsf.org/oauth2/authorize ;
-                    proxy_redirect https://server x.x.x.x:9yyy/oauth2/authorize https://nginx.mybsf.org/oauth2/ authorize;
+                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/authorize https://is.wso2.com/oauth2/authorize ;
+                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/authorize https://is.wso2.com/oauth2/ authorize;
                 }
         
                 location /authenticationendpoint/ {
@@ -119,8 +119,8 @@ collectively as "Nginx".)
                     proxy_read_timeout 5m;
                     proxy_send_timeout 5m;
                     proxy_pass https://ssl.nginx.com/authenticationendpoint/;
-                    proxy_redirect https://172.30.51.27:9443/authenticationendpoint/ https://nginx.mybsf.org/authenticationendpoint/ ;
-                    proxy_redirect https://server x.x.x.x:9yyy/authenticationendpoint https://nginx.mybsf.org/ authenticationendpoint;
+                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/authenticationendpoint/ https://is.wso2.com/authenticationendpoint/ ;
+                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/authenticationendpoint https://is.wso2.com/ authenticationendpoint;
                 }
         
                 location /oauth2/userinfo {
@@ -130,8 +130,8 @@ collectively as "Nginx".)
                     proxy_read_timeout 5m;
                     proxy_send_timeout 5m;
                     proxy_pass https://ssl.nginx.com/oauth2/userinfo;
-                    proxy_redirect https://172.30.51.27:9443/oauth2/userinfo https://nginx.mybsf.org/oauth2/userinfo ;
-                    proxy_redirect https://server x.x.x.x:9yyy/oauth2/userinfo https://nginx.mybsf.org/oauth2/ userinfo;
+                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/userinfo https://is.wso2.com/oauth2/userinfo ;
+                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/userinfo https://is.wso2.com/oauth2/ userinfo;
                 }
             }
             ```
