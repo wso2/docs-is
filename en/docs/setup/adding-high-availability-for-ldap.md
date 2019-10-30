@@ -28,9 +28,13 @@ Server when you add high availability to your LDAP.
     ```
     
     !!! note
-    
         This can be done for either a primary or secondary LDAP user store
         with failover configuration. In this example, if you cannot connect
         to ldap://localhost:10500, you can automatically connect to
         ldap://localhost:10511.
+    
+    !!! note
+            To know more about new configurations, 
+            see [New Configuration Model](../../references/new-configuration-model).
+   
     
