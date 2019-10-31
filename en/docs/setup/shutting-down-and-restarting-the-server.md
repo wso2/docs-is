@@ -1,0 +1,26 @@
+# Shutting Down and Restarting the Server
+
+You can use the "Shutdown/Restart" feature to shut down and restart the
+server. The server can be shut down and restarted "gracefully" or
+"forcefully." Follow the instructions below to shut down and restart the
+server.
+
+1.  Sign in. Enter your user name and password to log on to the
+    [Management
+    Console](../../setup/getting-started-with-the-management-console)
+    .
+2.  Navigate to the **Main** menu to access the **Manage** menu. Click
+    **Shutdown/Restart**.
+3.  Click on the shutdown or restart option as applicable. The available
+    options are:  
+    ![Shut-Down and Restart screen](../../assets/img/setup/shutdown-restart.png)  
+    -   **Graceful shutdown** - Stops accepting new requests, continues
+        to process already received requests, and then shuts down the
+        server.
+    -   **Forced shutdown** - Discards any requests currently being
+        processed and immediately shuts down the server.
+    -   **Graceful Restart** - Stops accepting new requests, continues
+        to process already received requests, and then restarts the
+        server.
+    -   **Immediate Restart** - Discards any requests currently being
+        processed and immediately restarts the server.
