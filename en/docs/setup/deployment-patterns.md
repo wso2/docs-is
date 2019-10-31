@@ -1,7 +1,7 @@
 # Deployment Patterns
 
 The following sections provide high level information on
-the recommended deployment patterns. 
+the recommended deployment pattern. 
 
 
 ### Introduction
