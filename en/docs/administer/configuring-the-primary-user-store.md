@@ -9,7 +9,7 @@ for your system.
 
 !!! info "The default User Store"
     The primary user store that is configured by default in WSO2 Identity Server
-    is a LDAP user store, This database is used by the Authorization Manager (for user authentication
+    is an LDAP user store, This database is used by the Authorization Manager (for user authentication
     information) as well as the User Store Manager (for defining users and
     roles).
 
@@ -17,7 +17,7 @@ Instead of using the embedded LDAP, you can set up a separate
 repository and configure it as your primary user store. Since the user
 store you want to connect to might have different schemas from the ones
 available in the embedded user store, it needs to go through an
-adaptation process. WSO2 Identity Server provide the following adapters, for
+adaptation process. WSO2 Identity Server provides the following adapters, for
 connecting to LDAP, Active Directory and JDBC. Thereby, these adapters
 enable you to authenticate users from different types of user stores.
 
