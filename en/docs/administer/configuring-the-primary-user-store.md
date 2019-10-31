@@ -8,19 +8,16 @@ documentation explains the process of setting up a primary user store
 for your system.
 
 !!! info "The default User Store"
-    The primary user store that is configured by default in every WSO2
-    product is a JDBC user store, which reads/writes into the internal
-    database of the product server. By default, the internal database is H2
-    (except for WSO2 IS, which uses an LDAP as the default user store). This
-    database is used by the Authorization Manager (for user authentication
+    The primary user store that is configured by default in WSO2 Identity Server
+    is a LDAP user store, This database is used by the Authorization Manager (for user authentication
     information) as well as the User Store Manager (for defining users and
     roles).
 
-Instead of using the embedded database, you can set up a separate
+Instead of using the embedded LDAP, you can set up a separate
 repository and configure it as your primary user store. Since the user
 store you want to connect to might have different schemas from the ones
 available in the embedded user store, it needs to go through an
-adaptation process. WSO2 products provide the following adapters, for
+adaptation process. WSO2 Identity Server provide the following adapters, for
 connecting to LDAP, Active Directory and JDBC. Thereby, these adapters
 enable you to authenticate users from different types of user stores.
 
@@ -50,7 +47,7 @@ enable you to authenticate users from different types of user stores.
 </tr>
 <tr class="even">
 <td><pre><code>org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager</code></pre></td>
-<td><p>Use <code>              JDBCUserStoreManager             </code> for both internal and external JDBC user stores. This is the user store configuration which is uncommented in the code in the <code>              user-mgt.xml             </code> file for all WSO2 products, except WSO2 Identity Server (which uses the <code>              ReadWriteLDAPUserStoreManager             </code> ).</p></td>
+<td><p>Use <code>              JDBCUserStoreManager             </code> for both internal and external JDBC user stores.</p></td>
 </tr>
 </tbody>
 </table>
