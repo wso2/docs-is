@@ -1,79 +1,90 @@
 # Setting Up Separate Databases for Clustering
 
-This section guides you through the logical separation of data that you
-can do when clustering WSO2 Identity Server.
-
-!!! tip "Before you begin"
-    Creating separate databases as shown below **is not mandatory**. Instead, 
-    you can point all the following datasources to a single database. This will NOT make a difference 
-    in performance. To do this, see the [Configuring the datasources](../../setup/configuring-the-datasources). 
-
 WSO2 Identity Server uses a database to store information such as
-user management details and registry data. All nodes in the cluster must
-use one central database for config and governance registry mounts. By
+user management details and identity data. By
 default, each WSO2 product is shipped with an embedded H2 database that
 works for all types of data.
 
+This section guides you through the logical separation of data that you
+can do when clustering WSO2 Identity Server. 
+
 !!! warning "Embedded H2 is NOT RECOMMENDED in production"
-    The embedded H2 database is **NOT RECOMMENDED** for enterprise testing and for
+    The embedded H2 database is **NOT RECOMMENDED** for enterprise testing and 
     production environments. It has lower performance, clustering
     limitations, and can cause file corruption failures. Therefore, use an
     industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL
     instead.
     
-    !!! note
-        You can use the embedded H2 database in development environments and as
-        the local registry in a registry mount. However, in a production
-        environment it is recommended to change this. For more information on
-        databases, see [Working with Databases](../../administer/working-with-databases/).
-
-You can create the following databases and associated datasources. This
-is **NOT mandatory** and you can choose not to create these databases if
-you wish have default databases to handle all these concerns.
+    !!! tip "Before you begin"
+        Creating separate databases as shown below **is not mandatory**. Instead, 
+        you can point all the following datasources accoridng to the default data structure. 
+        This will NOT make a difference in performance. For more information on default 
+        database structure, see [Working with Databases](../../administer/working-with-databases).
 
 <table>
 <thead>
 <tr class="header">
-<th>Datasource Name</th>
+<th>Database Name</th>
 <th>Description</th>
-<th>For more information</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>             SHARED_DB            </code></td>
+<td><code>             USERSTORE_DB            </code></td>
 <td>
-<li>Contains user management data.</li>
-<li>Contains <code>REGISTRY_DB</code></li>
+<li>Mainly contains users and roles of the system.</li>
+<li>Contains authorization manager configurations, internal permissions and roles.</li>
+<li>In the default database configuration, user data and registry data are located inside <code>SHARED_DB</code>
+.</li>
+<li>For more information, see <a href="../../administer/working-with-databases">Changing the Default Datasource for 
+User Database</a>.</li>
 </td>
-<td><a href="../../administer/working-with-databases">Working with Databases</a></td>
 </tr>
 <tr class="even">
 <td><code>             IDENTITY_DB            </code></td>
 <td>
-<li>Contains identity related data. For example, OAuth 2.0, SAML 2.0, user managed access ( UMA), Consent etc.</li>
-<li>Contains <code>CONSENT_MGT_DB</code></li>
+<li>Contains identity related data. For example user sessions, OAuth 2.0, SAML 2.0, User Managed Access (UMA) etc.</li>
+<li>In the default database configuration, all the UMA, consent and identity data are located 
+in the <code>IDENTITY_DB</code>.
+ In a deplyment both identity and UMA can be seperated for a single database while consent data is configured to a seperate
+  database `CONSENT_MGT`</li>
+<li>For more information, see <a href="../../administer/working-with-databases">Working with Databases</a>.</li>
 </td>
-<td><a href="../../administer/working-with-databases">Working with Databases</a></td>
 </tr>
 <tr class="even">
 <td><code>             BPS_DB            </code></td>
-<td>This is used to create, drop, and truncate data pertaining to the workflow feature.</td>
-<td><a href="../../administer/changing-datasource-bpsds">Changing the Default Datasource for BPS</a></td>
+<td>
+<li>This is used to create, drop, and truncate data pertaining to the workflow feature.</li>
+<li>For more information, see <a href="../../administer/changing-datasource-bpsds">Changing the Default Datasource 
+for BPS</a>.</li>
+</td>
 </tr>
 <tr class="odd">
-<td><code>             REGISTRY_DB            </code></td>
-<td>Shared database for config and governance registry mounts in the product's nodes. This includes data on tenants and keystores.</td>
-<td><a href="../../administer/working-with-databases">Working with Databases</a></td>
+<td><code>             SHARED_DB            </code></td>
+<td>
+<li>Shared database for config and governance registry mounts in the product's nodes. This includes data on tenants and 
+keystores.</li>
+<li>In the default database configuration, user data and registry data is located inside <code>SHARED_DB</code>. 
+During a deployment, user data can be configured to a different database <code>USERSTORE_DB</code> while registry
+ data remains in the <code>SHARED_DB</code>
+.</li>
+<li>For more information, see <a href="../../administer/working-with-databases">Working with Databases</a>.</li>
+</td>
 </tr>
 <tr class="even">
-<td><code>             CONSENT_MGT_DB            </code></td>
-<td>This is used for data pertaining to user consents.</td>
-<td><a href="../../administer/working-with-databases">Working with Databases</a></td>
+<td><code>             CONSENT_MGT          </code></td>
+<td>
+<li>Used for data pertaining to user consents.</li>
+<li>In the default database configuration, UMA, consent and identity data are located <code>IDENTITY_DB</code>. 
+In a deplyment both identity and UMA can be seperated for a single database while consent data is configured to a seperate 
+database.</li>
+<li>For more information, see <a href="../../administer/working-with-databases">Changing the Default Datasource for 
+Consent Management Database</a>.</li>
+</td>
 </tr>
 </tbody>
 </table>
 
-For more information on the concept of sharing governance and config 
-registry databases across the cluster, see the topic on 
-[Sharing Databases in a Cluster](../../administer/sharing-databases-in-a-cluster).
+!!! note
+    For more information on `SHARED_DB` and `IDENTITY_DB`, 
+    see [Working with Databases](../../administer/working-with-databases/).
