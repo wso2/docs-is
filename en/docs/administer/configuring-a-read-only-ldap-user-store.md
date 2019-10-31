@@ -2,23 +2,21 @@
 
 User management functionality is provided by default in all WSO2
 Carbon-based products and is configured in the
-`         user-mgt.xml        ` file found in the
-`         <IS_HOME>/repository/conf/        ` directory. This file
-is shipped with user store manager configurations for all possible user
-store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and
-read-write Active directory). The instructions given below explains how
-to configure a read-only LDAP or Active Directory as the primary user
-store for the WSO2 server.
+`         deployment.toml       ` file found in the
+`         <IS_HOME>/repository/conf/        ` directory. This
+documentation explains the process of setting up a primary user store
+for your system.
 
 !!! info "The default User Store"
-    The primary user store that is configured by default in the user-mgt.xml
-    file is a JDBC user store, which reads/writes into the internal database
-    of the product server. By default, the internal database is H2 for all
-    WSO2 products excluding the Identity Server. This database is used by
-    the Authorization Manager (for user authentication information) as well
-    as the User Store Manager (for defining users and roles). In the case of
-    the WSO2 Identity Server, the default user store is an LDAP (Apache DS)
-    that is shipped with the product.
+    The primary user store that is configured by default in WSO2 Identity Server
+    is an LDAP user store, This database is used by the Authorization Manager (for user authentication
+    information) as well as the User Store Manager (for defining users and
+    roles).
+
+We can specify the type of user store that we are using in the `         deployment.toml       ` file. 
+If we specified it as a JDBC user store by default,  For detailed guide on configuring 
+RDBMS database as a datasource see  [Working With Databases](../../administer/working-with-databases).
+
 
 Note that the RDBMS used in the default configuration can remain as the
 database used for storing Authorization information.
@@ -28,28 +26,18 @@ user store:
 
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
+       `
 
-!!! info "Before you begin"
-    -   If you create the `           user-mgt.xml          ` file yourself,
-        be sure to save it in the
-        `           <IS_HOME>/repository/conf          ` directory.
-    -   The `           class          ` attribute for a read-only
-        LDAP/Active Directory is
-        `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">.          `
+1.  Replace the default `user_store` configuration in the `         <IS_HOME>/repository/conf/deployment.toml        
+` file, as follows.
 
-1.  Uncomment the following user store in the
-    `           <IS_HOME>/repository/conf/user-mgt.xml          `
-    file:  
-    `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">          `
-    . Also, ensure that you comment out the configurations for any other
-    user stores in the same file.
-
-2.  Given below is a sample for the L DAP/AD user store configuration in
+    ``` toml
+    [user_store]
+    type = "read_only_ldap"
+    ```
+2.  Given below is a default configuration for the LDAP/AD user store configuration in
     read-only mode. You can change the values to match your LDAP/AD. For
-    descriptions on each of the properties used in the
-    `           <IS_HOME>/repository/conf/          `
-    `           user-mgt.xml          ` file which are used for
-    configuring the primary user store, see [Properties of User
+    descriptions on each of the properties, see [Properties of User
     Stores](../../administer/working-with-properties-of-user-stores).
 
     ``` xml
@@ -93,18 +81,20 @@ user store:
         </UserManager> 
     ```
 
-    1.  Update the connection details to match your user store. For
-        example:
-
-        ``` xml
-        <Property name="ConnectionURL">ldap://localhost:10389</Property>
+    1.  Update the connection details by adding configuration to `deployment.toml` to match your user store. For
+        example: 
+        
+        ```toml
+        [user_store.properties]
+        "ConnectionURL" = "ldap://localhost:10389"
         ```
 
-        For Active Directory, theconnectionURLshouldhavethe following
+        For Active Directory, the connection URL should have the following
         format:
 
-        ``` java
-        <Property name="ConnectionURL">ldap://<AD host-ip>:<AD_listen_port></Property>
+        ```toml
+        [user_store.properties]
+        "ConnectionURL" = "ldap://<AD host-ip>:<AD_listen_port>"
         ```
 
         !!! note
@@ -117,6 +107,10 @@ user store:
     
                 ``` xml
                 <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
+                ```
+                ```toml
+                [user_store.properties]
+                "ConnectionURL" = "ldaps://10.100.1.100:636"
                 ```
     
             -   For Active Directory, you need to import the certificate of
@@ -147,9 +141,14 @@ user store:
         <Property name="ConnectionName">uid=AdminLDAP,ou=system</Property>
         <Property name="ConnectionPassword">2010#Avrudu</Property>
         ```
+        ```toml
+        [user_store.properties]
+        "ConnectionName" = "uid=AdminLDAP,ou=system"
+        "ConnectionPassword" = "2010#Avrudu"
+        ```
 
-    3.  Update
-        `             <Property name="UserSearchBase">            ` with
+    3.  Update property
+        `             UserSearchBase       ` with
         the directory name where the users are stored. When LDAP
         searches for users, it will start from this location of the
         directory.
@@ -157,21 +156,26 @@ user store:
         ``` xml
         <Property name="UserSearchBase">ou=system</Property> 
         ```
+        ```toml
+        [user_store.properties]
+        "UserSearchBase" = "ou=system"
+        ```
 
     4.  Set the attribute to use as the username, typically either
         `             cn            ` or `             uid            `
-        for LDAP. Ideally,
-        `             <Property name="UserNameAttribute">            `
-        and
-        `             <Property name="UserNameSearchFilter">            `
+        for LDAP. Ideally property,
+        `             UserNameAttribute           `
+        and property,
+        `             UserNameSearchFilter          `
         should refer to the same attribute. If you are not sure what
         attribute is available in your user store, check with your
         LDAP/Active Directory administrator.
 
         For example:
 
-        ``` xml
-        <Property name="UserNameAttribute">uid</Property>
+        ```toml
+        [user_store.properties]
+        "UserNameAttribute" = "uid"
         ```
 
     5.  Set the `             ReadGroups            ` property to
@@ -192,9 +196,10 @@ user store:
 
         -   Enable the `               ReadGroups              `
             property.
-
-            ``` xml
-            <Property name="ReadGroups">true</Property>
+            
+            ```toml
+            [user_store.properties]
+            "ReadGroups" = true
             ```
 
         -   Set the `               GroupSearchBase              `
@@ -207,53 +212,69 @@ user store:
             ``` xml
             <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
             ```
+            ```toml
+            [user_store.properties]
+            "GroupSearchBase" = "ou=system,CN=Users,DC=wso2,DC=test"
+            ```
 
         -   Set the GroupSearchFilter and GroupNameAttributes. For
             example:  
-
-            ``` xml
-            <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-            <Property name="GroupNameAttribute">cn</Property>
+            
+            ```toml
+            [user_store.properties]
+            "GroupSearchFilter" = "(objectClass=groupOfNames)"
+            "GroupNameAttribute" = "cn"
             ```
 
         -   Set the `               MembershipAttribute              `
             property as shown below:  
-
-            ``` xml
-            <Property name="MembershipAttribute">member</Property> 
+            
+            ```toml
+            [user_store.properties]
+            "MembershipAttribute" = "member"
             ```
 
         To read roles based on a backlink attribute, use
         thefollowingcodesnipetinsteadofthe above:
-
-        ``` xml
-        <Property name="ReadGroups">false</Property>
-        <Property name="GroupSearchBase">ou=system</Property>
-        <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-        <Property name="GroupNameAttribute">cn</Property>
-        <Property name="MembershipAttribute">member</Property>
-
-        <Property name="BackLinksEnabled">true</Property>
-        <Property name="MembershipOfAttribute">memberOf</Property> 
+        
+        ```toml
+        [user_store.properties]
+        "ReadGroups" = false
+        "GroupSearchBase" = "ou=system"
+        "GroupSearchFilter" = "(objectClass=groupOfNames)"
+        "GroupNameAttribute" = "cn"
+        "MembershipAttribute" = "member"
+        "BackLinksEnabled" = "true"
+        "MembershipOfAttribute" = "memberOf"
         ```
 
-    6.  For Active Directory, you can use
-        `             <Property name="Referral">follow</Property>            `
+    6.  For Active Directory, you can use property, 
+        `             Referral            `
         to enable referrals within the user store. The AD user store may
         be partitioned into multiple domains. However, according to the
         use store configurations in the
-        `             user-mgt.xml            ` file, we are only
+        `             deployment.toml            ` file, we are only
         connecting to one of the domains. Therefore, when a request for
-        an object is received to the user store, the
-        `             <Property name="Referral">follow</Property>            `
-        property ensures that all the domains in the directory will be
+        an object is received to the user store, when the property
+        `             Referral          ` set to `follow`
+        it ensures that all the domains in the directory will be
         searched to locate the requested object.
+        
+        ```toml
+        [user_store.properties]
+        "Referral" = "follow"
+        ```
 
-    7.  In WSO2 products based on Carbon 4.4.x, you can set the
+    7.  In WSO2 products based on Carbon 4.5.x, you can set the
         `             LDAPConnectionTimeout            ` property: If
         the connection to the LDAP is inactive for the length of time
         (in milliseconds) specified by this property, the connection
         will be terminated.
+        
+        ```toml
+        [user_store.properties]
+        "LDAPConnectionTimeout" = 20
+        ```
 
 <a name = "updating-the-system-administrator"></a>
 
@@ -261,34 +282,32 @@ user store:
 
 The admin user is the super tenant that will be able to manage all other
 users, roles and permissions in the system by using the management
-console of the product. The `         <Configuration>        ` section
-in the `         user-mgt.xml        ` file contains the super admin
-information. Update this configuration for the read-only LDAP/AD as
-explained below.
+console of the product.
 
-``` java
-<Configuration>
-        <AddAdmin>False</AddAdmin>
-        <AdminRole>admin</AdminRole>
-        <AdminUser>
-            <UserName>AdminSOA</UserName>
-            <Password>XXXXXX</Password>
-        </AdminUser>
-        ............
-</Configuration> 
+Therefore, the user that should have admin
+permissions is required to be stored in the user store when you start
+the system for the first time. By default system will create a admin
+user in the LDAP that has admin permissions.But this cannot be done it the
+LDAP user store is read only.Hence that capability should be disabled as follows.
+
+```toml
+[super_admin]
+username = "admin"
+admin_role = "admin"
+create_admin_account = false
 ```
 
--   **\<AddAdmin\>:** This should be set to 'False' as it will not be
+-   **create_admin_account:** This should be set to 'False' as it will not be
     allowed to create users and roles in a read-only user store.
--   **\<AdminRole\>:** The admin role you enter here should already
+-   **admin_role:** The admin role you enter here should already
     exist in the read-only user store. Otherwise, you must enter an
     internal role, which will be saved to the internal database of the
     system when the system starts the first time.
--   **\<AdminUser\>:** Since we are configuring a read-only LDAP as the
+-   **username:** Since we are configuring a read-only LDAP as the
     primary user store, the user that should have admin permissions is
     required to be stored in the user store when you start the system
     for the first time. For example, say a valid username is AdminSOA.
-    Update the `          <AdminUser>         ` section of your
+    Update the `         username       ` section of your
     configuration as shown above. You do not have to update the password
     element as it is already set in the user store.  
 
