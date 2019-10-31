@@ -510,12 +510,12 @@ nav:
             - 'User Information Recovery': develop/user-information-recovery-service.md
             - 'Identity Application Management':
               - 'Identity Application Management': develop/identity-application-management-api.md
-              - 'Using the Service Provider': develop/using-the-service-provider-api.md
-              - 'Service Provider Configurations used with APIs': develop/service-provider-configurations-used-with-apis.md
+              - 'Using the API': develop/using-the-service-provider-api.md
+              - 'Configurations used with APIs': develop/service-provider-configurations-used-with-apis.md
             - 'Identity Provider Management':
               - 'Identity Provider Management': develop/identity-provider-management-api.md
-              - 'Using the Identity Provider': develop/using-the-identity-provider-api.md
-              - 'Identity Provider Configurations used with APIs': develop/identity-provider-configurations-used-with-apis.md
+              - 'Using the API': develop/using-the-identity-provider-api.md
+              - 'Configurations used with APIs': develop/identity-provider-configurations-used-with-apis.md
           - 'SCIM 1.1 APIs': develop/scim-1.1-apis.md
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
@@ -595,7 +595,7 @@ nav:
     - 'Deployment Guide':
       - 'Deployment Guide': setup/deploying-the-identity-server.md
       - 'Deployment Patterns': 
-        - 'Deployment Patterns': setup/deployment-patterns.md
+        - 'Overview': setup/deployment-patterns.md
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md

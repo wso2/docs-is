@@ -1,36 +1,8 @@
 # Identity Provider Configurations used with APIs
 
-This section lists out some sample configurations that can be used when
-configuring an Identity Provider.
+This section lists out some sample configurations that can be used when configuring an Identity Provider. 
 
--   [Federated authenticator configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfigFederatedauthenticatorconfigurationsamples)
-    -   [SAML2 Web SSO
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SAML2WebSSOconfiguration)
-    -   [OAuth2/OpenID Connect
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-OAuth2/OpenIDConnectconfiguration)
-    -   [WS-Federation (Passive)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-WS-Federation(Passive)configuration)
-    -   [Facebook
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Facebookconfiguration)
-    -   [Yahoo
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Yahooconfiguration)
-    -   [Google
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleconfiguration)
-    -   [Microsoft (Hotmail,MSN,Live)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Microsoft(Hotmail,MSN,Live)configuration)
--   [Outbound provisioning connector configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfigOutboundprovisioningconnectorconfigurationsamples)
-    -   [SalesForce provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SalesForceprovisioningconfiguration)
-    -   [Google provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleprovisioningconfiguration)
-    -   [SCIM provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SCIMprovisioningconfiguration)
-    -   [SPML provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SPMLprovisioningconfiguration)
-
-### Federated authenticator configuration samples
+## About federated authenticators
 
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
@@ -50,7 +22,9 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
     .
     
 
-#### SAML2 Web SSO configuration
+## Configuration samples
+
+### SAML2 Web SSO configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -173,7 +147,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### OAuth2/OpenID Connect configuration
+### OAuth2/OpenID Connect configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -253,7 +227,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### WS-Federation (Passive) configuration
+### WS-Federation (Passive) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -288,8 +262,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Facebook configuration
-
+### Facebook configuration 
   
 
 ``` xml
@@ -331,7 +304,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Yahoo configuration
+### Yahoo configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -343,7 +316,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Google configuration
+### Google configuration
 
 ``` xml
 <federatedAuthenticatorConfigs
@@ -356,7 +329,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Microsoft (Hotmail,MSN,Live) configuration
+### Microsoft (Hotmail, MSN, Live) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -412,7 +385,7 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](Writing-an-Outbound-Provisioning-Connector).
+Connector](../../develop/writing-an-outbound-provisioning-connector).
 
 !!! warning
     
@@ -430,7 +403,7 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
     `              <provisioningConnectorConfigs>             ` .
     
 
-#### SalesForce provisioning configuration
+### SalesForce provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -506,7 +479,7 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### Google provisioning configuration
+### Google provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -588,7 +561,7 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### SCIM provisioning configuration
+### SCIM provisioning configuration
 
 ``` xml
    <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -617,10 +590,6 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
                </provisioningProperties>
    </provisioningConnectorConfigs>
 ```
-
-  
-
-  
 
 <table>
 <colgroup>
@@ -659,7 +628,7 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### SPML provisioning configuration
+### SPML provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
