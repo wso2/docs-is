@@ -9,12 +9,8 @@ database (synchronous and asynchronous token persistence).
 The following sections guide you through the difference between these
 two approaches and how to configure them.
 
--   [Synchronous token
-    persistence](#TokenPersistence-Synchronoustokenpersistence)
--   [Asynchronous token
-    persistence](#TokenPersistence-Asynchronoustokenpersistence)
--   [Recovery flow for token
-    persistence](#TokenPersistence-Recoveryflowfortokenpersistence)
+-   [Synchronous token persistence](#synchronous-token-persistence)
+-   [Asynchronous token persistence](#asynchronous-token-persistence)
 
 ### Synchronous token persistence
 
@@ -64,12 +60,10 @@ Server for exceptional cases that may occur in a production environment
 caused by the client application mishandling the
 `         CON_APP_KEY        ` constraint that is explained below.
 
--   [CONN\_APP\_KEY
-    constraint](#TokenPersistence-CONN_APP_KEYconstraint)
--   [Synchronous token
-    persistence](#TokenPersistence-Synchronoustokenpersistence.1)
-    -   [The flow](#TokenPersistence-Theflow.1)
-    -   [The recovery flow](#TokenPersistence-Therecoveryflow.1)
+-   [CONN\_APP\_KEY constraint](#conn_app_key-constraint)
+-   [Synchronous token persistence](#synchronous-token-persistence_1)
+        -   [The flow](#the-flow_1)
+        -   [The recovery flow](#the-recovery-flow_1)
 
 #### CONN\_APP\_KEY constraint
 
