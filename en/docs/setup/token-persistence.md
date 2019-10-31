@@ -15,7 +15,7 @@ two approaches and how to configure them.
 
 ## Synchronous token persistence
 
-![synchronous-token-persistence](../../assets/img/103329466/103329467.png) 
+![synchronous-token-persistence](../assets/img/103329466/103329467.png) 
 
 The flow of synchronous token persistence is as follows:
 
@@ -33,7 +33,7 @@ The flow of synchronous token persistence is as follows:
 
 ## Asynchronous token persistence
 
-![asynchronous-token-persistence](../../assets/img/103329466/103329468.png) 
+![asynchronous-token-persistence](../assets/img/103329466/103329468.png) 
 
 The flow of asynchronous token persistence is as follows:
 
