@@ -12,17 +12,16 @@ two approaches and how to configure them.
 -   [Synchronous token persistence](#synchronous-token-persistence)
 -   [Asynchronous token persistence](#asynchronous-token-persistence)
 
-### Synchronous token persistence
+## Synchronous token persistence
 
-![](attachments/103329466/103329467.png) 
+![synchronous-token-persistence](../assets/img/103329466/103329467.png) 
 
 The flow of synchronous token persistence is as follows:
 
 1.  The client sends an access token request.
 2.  The OAuth2 component in WSO2 IS checks for an existing active access
-    token for the given client/user/scope. It first checks the cache and
-    if an active token is not found, it then checks the database.
-
+    token for the given client/user/scope. First it checks the cache and
+    if an active token is not found, then checks the database.
 3.  If an active access token is found, the token is returned to the
     client.
 4.  Alternatively, if an existing access token is not found, the OAuth2
@@ -46,14 +45,14 @@ The flow of synchronous token persistence is as follows:
         To know more about new configurations, 
         see [New Configuration Model](../../references/new-configuration-model).
 
-### Asynchronous token persistence
+## Asynchronous token persistence
 
 !!! note
     Previously, WSO2 recommended asynchronous token persistence for certain scenarios. However, we have 
     empirically found out that synchronous token persistence has a better overall performance in general. 
     Hence, asynchronous token persistence is not supported from WSO2 Identity Server 5.9.0 onwards.
 
-### Recovery flow for token persistence
+## Recovery flow for token persistence
 
 This section explains the recovery flow triggered in WSO2 Identity
 Server for exceptional cases that may occur in a production environment
@@ -65,7 +64,7 @@ caused by the client application mishandling the
         -   [The flow](#the-flow_1)
         -   [The recovery flow](#the-recovery-flow_1)
 
-#### CONN\_APP\_KEY constraint
+### CONN\_APP\_KEY constraint
 
 For a given set of consumer key, user, and scope values, there can be
 only one ACTIVE access token. The `         CON_APP_KEY        `
@@ -73,18 +72,16 @@ constraint in the `         IDN_OAUTH2_ACCESS_TOKEN        ` table
 enforces this by allowing only one active access token for a given set
 of consumer key, user, and scope values. This constraint may be violated
 in a scenario where two or more identical token requests come from the
-same application. **  
-**
+same application.   
 
 The above scenario is unlikely because in practice, an application is
 usually designed to handle this situation using scopes, or in the case
 of a multithreaded client, there is usually a separate thread to acquire
 access tokens so that other threads can retrieve from it.
-    
 
-#### Synchronous token persistence
+### Synchronous token persistence
 
-##### The flow
+#### The flow
 
 The flow of the synchronous token persistence when receiving two
 identical access token requests is as follows:
@@ -94,7 +91,6 @@ identical access token requests is as follows:
     active access token for the given client/user/scope. Both nodes
     first check the cache and if an active token is not found, the
     database is checked.
-
 3.  Alternatively, if an existing access token is not found, the OAuth2
     component in **both nodes** creates a new access token and persists
     the access token to the database using the same thread.
@@ -102,7 +98,7 @@ identical access token requests is as follows:
     to the client but the other node will receive an error due to the
     violation of the `          CON_APP_KEY         ` constraint.
 
-##### The recovery flow
+#### The recovery flow
 
 The process flow now moves on to the recovery flow described above in
 order to handle the `         CON_APP_KEY        ` constraint violation
