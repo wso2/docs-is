@@ -124,24 +124,8 @@ includes services, service descriptions, endpoints or data sources.
     For more information about the registry, see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
-governance and configuration registries should be mounted to share across all nodes. To do this add the 
-following to the file `<IS_HOME>/repository/conf/deployment.toml` in both nodes. 
-
-```
-[governance_data]
-cache_id="jdbc:mysql://wso2is-pattern1-mysql-service:3306/WSO2_IDENTITY_DB"
-enable_cache=true
-path="/_system/governance"
-
-[config_data]
-path="/_system/config"
-```
-
-!!! note
-    For more infomation about new configurations, 
-    see [New Configuration Model](../../references/new-configuration-model/)
-
-The local registry information is kept within each node in the in-built h2 database. This is reffered as **WSO2CarbonDB** in the above data sources configuration. There is no harm losing the local registry information and there is no backup requirement on this database. For more information on mounting the registry, see [Sharing Databases in a Cluster](../../administer/sharing-databases-in-a-cluster).
+governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
+5.9.0, registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` file to false. This is because the automatic versioning of resources can be an extremely expensive operation. 
