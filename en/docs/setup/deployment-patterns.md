@@ -113,11 +113,12 @@ data_source = "jdbc/WSO2UserDS"
 
 WSO2 Identity Server comprises of three different registry repositories.
 
-1. **Local Repository**: Use to store configuration and runtime data that is local to the server.
+1. **Local Repository**: Store configuration and runtime data that is local to the server.
 
-2. **Configuration Repository**: Use to store product-specific configurations. 
+2. **Configuration Repository**: Store product-specific configurations. 
 
-3. **Governance Repository**: Use to store configuration and data that are shared across the whole platform. This typically includes services, service descriptions, endpoints or data sources.
+3. **Governance Repository**: Store configuration and data that are shared across the whole platform. This typically 
+includes services, service descriptions, endpoints or data sources.
 
 !!! info
     For more information about the registry, see [Working with the Registry](../../administer/working-with-the-registry).
