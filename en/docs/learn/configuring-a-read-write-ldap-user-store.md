@@ -43,7 +43,7 @@ If you are connecting over ldaps (secured LDAP), you need to import the certific
 <a href="../../administer/using-asymmetric-encryption">using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../administer/performance-tuning#performance-tuning-ldaps-pooling">performance tuning ldaps pooling</a></p></td>
+<a href="../../administer/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling</a></p></td>
 </tr>
 <tr class="odd">
 <td>connection_name </td>
