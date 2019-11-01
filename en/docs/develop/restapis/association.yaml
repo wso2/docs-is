@@ -67,7 +67,7 @@ paths:
   /me/associations:
     post:
       description: |
-         This API is used to associate a user to the authenticated user. For example if it is required associate  my user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.
+         This API is used to associate a user to the authenticated user. For example, if it is required to associate  my user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.
 
           <b>Permission required:</b>
           * /permission/admin/login
@@ -77,7 +77,7 @@ paths:
         -
           name: association
           in: body
-          description:  User details to be associated. userId should be the fully qalified username of the user.
+          description:  User details to be associated. userId should be the fully qualified username of the user.
           required: true
           schema:
             $ref: '#/definitions/AssociationUserRequest'

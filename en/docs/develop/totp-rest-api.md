@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-??? note "Note: Click to view"
+??? note "Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
      1.  Click on **Authorize** button and provide desired values for authentication. 

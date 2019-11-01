@@ -27,97 +27,94 @@ met.
     
 
     
-     ``` sql tab="H2"
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
-          ID          VARCHAR(255)  NOT NULL,
-          NAME        VARCHAR(255)  NOT NULL,
-          DESCRIPTION VARCHAR(1023) NULL,
-          PRIMARY KEY (ID),
-          CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
-        );
-    
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
-          ID            VARCHAR(255) NOT NULL,
-          TENANT_ID     INT          NOT NULL,
-          NAME          VARCHAR(255) NOT NULL,
-          CREATED_TIME  TIMESTAMP    NOT NULL,
-          LAST_MODIFIED TIMESTAMP    NOT NULL,
-          HAS_FILE      BOOLEAN(1)   NOT NULL,
-          HAS_ATTRIBUTE BOOLEAN(1)   NOT NULL,
-          TYPE_ID       VARCHAR(255) NOT NULL,
-          UNIQUE (NAME, ID, TYPE_ID),
-          PRIMARY KEY (ID)
-        );
-    
-        ALTER TABLE IDN_CONFIG_RESOURCE
-          ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-    
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
-          ID         VARCHAR(255)  NOT NULL,
-          RESOURCE_ID  VARCHAR(255)  NOT NULL,
-          ATTR_KEY   VARCHAR(1023) NOT NULL,
-          ATTR_VALUE VARCHAR(1023) NULL,
-          PRIMARY KEY (ID),
-          UNIQUE (RESOURCE_ID, ATTR_KEY, ATTR_VALUE)
-        );
-        ALTER TABLE IDN_CONFIG_ATTRIBUTE
-          ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-    
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
-          ID        VARCHAR(255) NOT NULL,
-          VALUE     BLOB         NULL,
-          RESOURCE_ID VARCHAR(255) NOT NULL,
-          PRIMARY KEY (ID)
-        );
-        ALTER TABLE IDN_CONFIG_FILE
-          ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-        ```
+    ``` sql tab="H2"
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
+    ID          VARCHAR(255)  NOT NULL,
+    NAME        VARCHAR(255)  NOT NULL,
+    DESCRIPTION VARCHAR(1023) NULL,
+    PRIMARY KEY (ID),
+    CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
+    );
 
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
+    ID            VARCHAR(255) NOT NULL,
+    TENANT_ID     INT          NOT NULL,
+    NAME          VARCHAR(255) NOT NULL,
+    CREATED_TIME  TIMESTAMP    NOT NULL,
+    LAST_MODIFIED TIMESTAMP    NOT NULL,
+    HAS_FILE      BOOLEAN(1)   NOT NULL,
+    HAS_ATTRIBUTE BOOLEAN(1)   NOT NULL,
+    TYPE_ID       VARCHAR(255) NOT NULL,
+    UNIQUE (NAME, ID, TYPE_ID),
+    PRIMARY KEY (ID)
+    );
+
+    ALTER TABLE IDN_CONFIG_RESOURCE
+    ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
+    ID         VARCHAR(255)  NOT NULL,
+    RESOURCE_ID  VARCHAR(255)  NOT NULL,
+    ATTR_KEY   VARCHAR(1023) NOT NULL,
+    ATTR_VALUE VARCHAR(1023) NULL,
+    PRIMARY KEY (ID),
+    UNIQUE (RESOURCE_ID, ATTR_KEY, ATTR_VALUE)
+    );
+    ALTER TABLE IDN_CONFIG_ATTRIBUTE
+    ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
+    ID        VARCHAR(255) NOT NULL,
+    VALUE     BLOB         NULL,
+    RESOURCE_ID VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID)
+    );
+    ALTER TABLE IDN_CONFIG_FILE
+    ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+    ```  
+
+    ``` sql tab="MYSQL 5.7"
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
+    ID          VARCHAR(255)  NOT NULL,
+    NAME        VARCHAR(255)  NOT NULL,
+    DESCRIPTION VARCHAR(1023) NULL,
+    PRIMARY KEY (ID),
+    CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
+    );
+      
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
+    ID            VARCHAR(255) NOT NULL,
+    TENANT_ID     INT          NOT NULL,
+    NAME          VARCHAR(255) NOT NULL,
+    CREATED_TIME  TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    LAST_MODIFIED TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    HAS_FILE      tinyint(1)   NOT NULL,
+    HAS_ATTRIBUTE tinyint(1)   NOT NULL,
+    TYPE_ID       VARCHAR(255) NOT NULL,
+    PRIMARY KEY (ID),
+    CONSTRAINT NAME_TENANT_TYPE_CONSTRAINT UNIQUE (NAME,TENANT_ID,TYPE_ID)
+    );
+      
+    ALTER TABLE IDN_CONFIG_RESOURCE ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
     
-   
-    ``` sql sql tab="MYSQL 5.7"
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_TYPE (
-          ID          VARCHAR(255)  NOT NULL,
-          NAME        VARCHAR(255)  NOT NULL,
-          DESCRIPTION VARCHAR(1023) NULL,
-          PRIMARY KEY (ID),
-          CONSTRAINT TYPE_NAME_CONSTRAINT UNIQUE (NAME)
-        );
-         
-         
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_RESOURCE (
-          ID            VARCHAR(255) NOT NULL,
-          TENANT_ID     INT          NOT NULL,
-          NAME          VARCHAR(255) NOT NULL,
-          CREATED_TIME  TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-          LAST_MODIFIED TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-          HAS_FILE      tinyint(1)   NOT NULL,
-          HAS_ATTRIBUTE tinyint(1)   NOT NULL,
-          TYPE_ID       VARCHAR(255) NOT NULL,
-          PRIMARY KEY (ID),
-          CONSTRAINT NAME_TENANT_TYPE_CONSTRAINT UNIQUE (NAME,TENANT_ID,TYPE_ID)
-        );
-         
-        ALTER TABLE IDN_CONFIG_RESOURCE ADD CONSTRAINT TYPE_ID_FOREIGN_CONSTRAINT FOREIGN KEY (TYPE_ID) REFERENCES IDN_CONFIG_TYPE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-         
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
-          ID         VARCHAR(255)  NOT NULL,
-          RESOURCE_ID  VARCHAR(255) NOT NULL,
-          ATTR_KEY   VARCHAR(1023) NOT NULL,
-          ATTR_VALUE VARCHAR(1023) NULL,
-          PRIMARY KEY (ID),
-          CONSTRAINT RESOURCE_KEY_VAL_CONSTRAINT UNIQUE (RESOURCE_ID(64), ATTR_KEY(703))
-        );
-        ALTER TABLE IDN_CONFIG_ATTRIBUTE ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
-         
-         
-        CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
-          ID        VARCHAR(255) NOT NULL,
-          VALUE     BLOB   NULL,
-          RESOURCE_ID VARCHAR(255) NOT NULL,
-          PRIMARY KEY (ID)
-        );
-        ALTER TABLE IDN_CONFIG_FILE ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_ATTRIBUTE (
+      ID         VARCHAR(255)  NOT NULL,
+      RESOURCE_ID  VARCHAR(255) NOT NULL,
+      ATTR_KEY   VARCHAR(1023) NOT NULL,
+      ATTR_VALUE VARCHAR(1023) NULL,
+      PRIMARY KEY (ID),
+      CONSTRAINT RESOURCE_KEY_VAL_CONSTRAINT UNIQUE (RESOURCE_ID(64), ATTR_KEY(703))
+    );
+    ALTER TABLE IDN_CONFIG_ATTRIBUTE ADD CONSTRAINT RESOURCE_ID_ATTRIBUTE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
+    
+    
+    CREATE TABLE IF NOT EXISTS IDN_CONFIG_FILE (
+      ID        VARCHAR(255) NOT NULL,
+      VALUE     BLOB   NULL,
+      RESOURCE_ID VARCHAR(255) NOT NULL,
+      PRIMARY KEY (ID)
+    );
+    ALTER TABLE IDN_CONFIG_FILE ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
     ```
 
 2.  The configuration management API sometimes uses dynamic query build
@@ -144,22 +141,6 @@ APIs manages configurations as **Resources**.
 
 ![]( ../assets/img/119111748/119111749.png)
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
 What is a resource?
 
 -   A **Resource** belongs to a **Resource Type** and a tenant domain.
@@ -183,7 +164,7 @@ The section below describes each concept in more detail.
 
     !!! tip
     
-        **Note:** Since the resource type is shared among tenants, deleting
+        Since the resource type is shared among tenants, deleting
         a resource type can affect resources in different tenant domains.
     
 
@@ -238,7 +219,7 @@ To store the SMTP email configuration, follow the steps given below:
         **Sample Response**
 
         ``` groovy
-                {"name":"e-mail","id":"0adbdfad-5f4f-4c11-af75-9ed3e93647b9","description":"This is the resource type for email resources."}
+        {"name":"e-mail","id":"0adbdfad-5f4f-4c11-af75-9ed3e93647b9","description":"This is the resource type for email resources."}
         ```
 
     2.  Create a resource named "smtp" in the super tenant domain under
@@ -252,13 +233,13 @@ To store the SMTP email configuration, follow the steps given below:
         **Sample Request**
 
         ``` groovy
-                curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "smtp","attributes": [{"key": "from","value": "admin@wso2.com"}]}'
+        curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"name": "smtp","attributes": [{"key": "from","value": "admin@wso2.com"}]}'
         ```
 
         **Sample Response**
 
         ``` groovy
-                {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:30:12.963Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"}],"files":[]}
+        {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:30:12.963Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"}],"files":[]}
         ```
 
 3.  Next, assume that you now need to add an additional attribute named
@@ -270,13 +251,13 @@ To store the SMTP email configuration, follow the steps given below:
     **Sample Request**
 
     ``` groovy
-        curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"key": "to", "value": "abc.com"}'
+    curl -k -X POST https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -d '{"key": "to", "value": "abc.com"}'
     ```
 
     **Sample Response**
 
     ``` groovy
-        {"key":"to","value":"abc.com"}
+    {"key":"to","value":"abc.com"}
     ```
 
 4.  Once these steps are completed, the WSO2 IS instance calls the
@@ -284,7 +265,7 @@ To store the SMTP email configuration, follow the steps given below:
     following path:
 
     ``` java
-        (Resource Type = ‘e-mail’) -> (Resource = ‘smtp’) ->  (Attribute key = ‘from’)
+    (Resource Type = ‘e-mail’) -> (Resource = ‘smtp’) ->  (Attribute key = ‘from’)
     ```
 
     Run the following curl command to retrieve the 'smtp' resource that
@@ -293,7 +274,7 @@ To store the SMTP email configuration, follow the steps given below:
     **Sample Request**
 
     ``` groovy
-        curl -k -X GET https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4='
+    curl -k -X GET https://localhost:9443/api/identity/config-mgt/v1.0/resource/e-mail/smtp -H "accept: application/json" -H 'Content-Type: application/json' -H 'Authorization: Basic YWRtaW46YWRtaW4='
     ```
 
       
@@ -301,5 +282,5 @@ To store the SMTP email configuration, follow the steps given below:
     **Sample Response**
 
     ``` groovy
-        {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:31:21.564Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"},{"key":"to","value":"abc.com"}],"files":[]}
+    {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:31:21.564Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"},{"key":"to","value":"abc.com"}],"files":[]}
     ```
