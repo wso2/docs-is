@@ -232,13 +232,13 @@ parameters:
       in: query
       name: filter
       required: false
-      description: Condition to filter the retrival of records.
+      description: Condition to filter the retrieval of records
       type: string
     sortQueryParam:
       in: query
       name: sort
       required: false
-      description: Define the order how the retrieved records should be sorted.
+      description: Define the order of how the retrieved records should be sorted
       type: string
     userIdPathParam:
       in: path
