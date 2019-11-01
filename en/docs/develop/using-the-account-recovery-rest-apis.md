@@ -6,4 +6,4 @@
     
 !!! info "Related Links" 
     For information on password and username recovery via the UI instead,
-    see [Account Recovery](../../learn/account-recovery).
+    see [Account Recovery](../../learn/username-recovery/).

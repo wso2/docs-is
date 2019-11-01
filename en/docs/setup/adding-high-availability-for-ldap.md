@@ -9,21 +9,32 @@ effectively handle failover.
 This topic provides instructions on how to configure the WSO2 Identity
 Server when you add high availability to your LDAP.
 
-1.  Open the
-    `          <PRODUCT_HOME>/repository/conf/user-mgt.xml         `
-    file and find the user store manager class relevant for your LDAP.  
-    `          <UserStoreManager class="org.wso2.carbon.user.core.ldap.LDAPUserStoreManager">         `
-2.  Failover for LDAP is configured by defining LDAP connection URLs
-    with a space between them. Under the
-    `           UserStoreManager          ` tag, modify the
-    `           ConnectionURL          ` property. See the example
-    below.  
-    `           <Property name="ConnectionURL">ldap://localhost:10500 ldap://localhost:10511</Property>                     `
-
-    !!! note
+1.  Open the `<IS_HOME>/repository/conf/deployment.toml`
+    file and find the user store manager config relevant for your LDAP.  
+    ```
+    [user_store]
+    type = "read_write_ldap"
+    ...
+    ```
     
+2.  Failover for LDAP is configured by defining LDAP connection URLs.
+    Add `connection_url` to the `deployment.toml`. Refer to the following example.
+    
+    ```
+    [user_store]
+    type = "read_write_ldap"
+    connection_url = "ldap://localhost:10500 ldap://localhost:10511"
+    ...
+    ```
+    
+    !!! note
         This can be done for either a primary or secondary LDAP user store
         with failover configuration. In this example, if you cannot connect
         to ldap://localhost:10500, you can automatically connect to
         ldap://localhost:10511.
+    
+    !!! note
+            To know more about new configurations, 
+            see [New Configuration Model](../../references/new-configuration-model).
+   
     
