@@ -607,7 +607,7 @@ nav:
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
       - 'Migration Guide':
-          - "Before you begin" : setup/migrating-before-you-begin.md
+          - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.9.0" : setup/migrating-to-590.md
       - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
