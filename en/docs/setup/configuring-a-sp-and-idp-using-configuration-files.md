@@ -6,8 +6,8 @@ which is typically used during the deployment stage. This is configured so
 that multiple tenants in the Identity Server can have the same identity
 provider.
 
-This topic does need not be specifically about federated
-authentication. This scenario also addresses a federated authentication
+Even though this topic is not specifically about federated authentication, this 
+scenario also addresses a federated authentication
 solution. This scenario requires two WSO2 Identity Server instances,
 where one acts as the external identity provider, and the other acts as
 the service provider. From this point onwards, the Identity Server
@@ -15,7 +15,7 @@ instance that acts as the external identity provider will be referred to
 as **`          identity provider IS         `** and the instance that
 acts as the service provider will be referred to as
 **`          service provider IS         `**. Once the configurations 
-are finished, the **`          service provider IS         `** will
+are done, the **`          service provider IS         `** will
 have the `travelocity` application configured as a service provider and an
 identity provider configured and shared across its tenant space. This is
 illustrated via the following diagram.
@@ -44,17 +44,11 @@ The following are the high level steps required for this scenario.
     
     Therefore, difference here is that the `identity
     provider` and `service provider` in **`service provider IS`** are created using
-    configuration files, is **available to all the tenants**
+    configuration files are **available to all the tenants**
     in **`service provider IS`**.
 
 The following sections provide instructions on how to carry out the
 above steps.
-
--   Adding the service provider in the identity provider IS
--   Adding the identity provider in the service provider IS
--   Adding the service provider in the service provider IS
--   Running the travelocity application
--   Testing with tenants
 
 ## Before you begin
 
