@@ -45,7 +45,7 @@ If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the <code>              client-truststore.jks             </code> of the WSO2 product.</p>
 <p>For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption doc in <a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a></p>
 <p>If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../administer/performance-tuning#performance-tuning-ldaps-pooling">performance tuning ldaps pooling</a></p></td>
+<a href="../../administer/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling</a></p></td>
 </tr>
 <tr class="even">
 <td>connection_name</td>
