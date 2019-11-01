@@ -21,6 +21,15 @@ can do when clustering WSO2 Identity Server.
         This will NOT make a difference in performance. For more information on default 
         database structure, see [Working with Databases](../../administer/working-with-databases).
 
+The following image shows the default database structure and a recommended 
+database structure for a logical separation of data.
+
+<div>
+    <img src="../../assets/img/setup/setting-up-separate-databases-for-clustering/separate-databases-for-clustering.png"
+     alt="separate-databases-for-clustering " align="middle">
+</div>
+
+
 <table>
 <thead>
 <tr class="header">
