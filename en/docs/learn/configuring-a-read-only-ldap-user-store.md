@@ -12,10 +12,7 @@ This document will guide to you to change that to a Read Only LDAP user store.
     -   If you want to configure a primary user store, you need to follow
         the steps given in [Configuring the Primary User
         Store](../../learn/configuring-the-primary-user-store).
-    -   If you want to configure a secondary user store, you need to follow
-        the steps given in [Configuring Secondary User
-        Stores](../../learn/configuring-secondary-user-stores).
-    
+        
 ## Configuring Read-only LDAP user store manager
 
 Following are the minimum configurations that are need to be provided to configure Read-only LDAP user store manager.
@@ -104,7 +101,8 @@ Please refer the following topic.
 
 ## Properties used in Read-only LDAP userstore manager
 
-Any of  the following properties can be configured by adding them as follows to `<IS-HOME>/repository/conf/deployment.toml`.
+Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
+`<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store.properties]
@@ -116,6 +114,8 @@ For example :
 [user_store.properties]
 "SCIMEnabled" = true
 ```
+
+!!! tip "Below properties can be configured for a secondary user store through the management console."
 
 <table>
 <thead>
@@ -410,5 +410,11 @@ Default: not configured</td>
 </tr>
 </tbody>
 </table>
+
+
+!!! tip "For configuring a secondary user store."
+    Please read following topic:
+    the steps given in [Configuring Secondary User
+    Stores](../../learn/configuring-secondary-user-stores).
 
   
