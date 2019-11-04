@@ -88,7 +88,31 @@ database (**UM_DB**).
     If you do wish to separate the data logically into separate databases, 
     see [Setting Up Separate Databases for Clustering](../../setup/setting-up-separate-databases-for-clustering).
 
-The following diagram is a high-level component diagram showing how the system would look like when three databases 
+!!! tip
+    If you have configured the shared database correctly, the `deployment.toml` in 
+    `<IS_HOME>/repository/conf` directory, should have the following configurations. 
+    
+    **NOTE** : Following is a sample configuration. Therefore parameter values might be different.
+    
+    ```toml
+    [database.identity_db]
+    type = "mysql"
+    hostname = "localhost"
+    name = "regdb"
+    username = "regadmin"
+    password = "regadmin"
+    port = "3306"
+    
+    [database.shared_db]
+    type = "mysql"
+    hostname = "localhost"
+    name = "regdb"
+    username = "regadmin"
+    password = "regadmin"
+    port = "3306"
+    ```
+
+The following diagram is a high-level component diagram showing how the system would look like when two databases 
 are used.
 
 ![Component diagram](../assets/img/setup/component-diagram.png)
@@ -97,29 +121,6 @@ are used.
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
     see [Working with Databases](../../administer/working-with-databases)
-
-### Linking identity database
-
-As we’ve separated out Identity database and user database, we need to configure them in relevant files. 
-Change the data source name to `jdbc/WSO2IdentityDS` in `<IS_HOME>/repository/conf/deployment.toml`
- file of both nodes, to configure the new identity database for identity management purposes.
-
-```
-[identity] 
-data_source="jdbc/WSO2IdentityDS"
-```
-
-### Linking user database
-
-Change the data source name to `jdbc/WSO2UserDS` in `<IS_HOME>/repository/conf/deployment.toml` file of both 
-nodes, to configure the new user database for user management purposes.
-
-```
-[realm_manager]
-data_source = "jdbc/WSO2UserDS"
-...
-```
-
 
 ## Mounting the shared registry
 
@@ -139,7 +140,7 @@ includes services, service descriptions, endpoints or data sources.
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
-5.9.0, registries are mounted by default.
+5.9.0, config and governance registries are mounted by default.
 
 !!! note
     The production recommendation is to set the `<versionResourcesOnChange>` property in the `registry.xml` 

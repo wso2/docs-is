@@ -19,6 +19,13 @@ Explained below are the default databases that you will find in the
 -   **Workflow database:** `          jpadb.mv.db         ` This database has the 
     workflow related data. 
 
+Following image shows the default databases and the data that are stored in each database.
+<div>
+    <center>
+        <img src="../../assets/img/administer/working-with-databases/default-database-structure.png">
+    </center>
+</div>
+
 ### Changing the default databases
 
 The embedded H2 databases shipped with your product are suitable for evaluation,
