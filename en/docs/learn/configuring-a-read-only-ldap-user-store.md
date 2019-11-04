@@ -3,15 +3,11 @@
 WSO2 identity server uses a embedded Read/Write LDAP as the primary user store.
 This document will guide to you to change that to a Read Only LDAP user store.
 
-!!! tip "Before you begin!"  
-    Please read following topics:
+!!! tip 
+    Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Identity Server (WSO2 IS).
+    
 
-    -   Read [Configuring User Stores](../../learn/configuring-user-stores) to get a
-        high-level understanding of the user stores available in WSO2
-        Identity Server (WSO2 IS).
-    -   If you want to configure a primary user store, you need to follow
-        the steps given in [Configuring the Primary User
-        Store](../../learn/configuring-the-primary-user-store).
         
 ## Configuring Read-only LDAP user store manager
 
@@ -412,9 +408,13 @@ Default: not configured</td>
 </table>
 
 
-!!! tip "For configuring a secondary user store."
-    Please read following topic:
-    the steps given in [Configuring Secondary User
-    Stores](../../learn/configuring-secondary-user-stores).
+!!! tip "For more information"
+
+    -   If you want to configure a primary user store for another user store type, you need to follow
+        the steps given in [Configuring the Primary User
+        Store](../../learn/configuring-the-primary-user-store).
+    -   For configuring a secondary user store please read the topic: 
+        [Configuring Secondary UserStores](../../learn/configuring-secondary-user-stores)
+
 
   
