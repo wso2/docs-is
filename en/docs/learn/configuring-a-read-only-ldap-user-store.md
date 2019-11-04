@@ -111,7 +111,7 @@ For example :
 "SCIMEnabled" = true
 ```
 
-!!! tip "Below properties can be configured for a secondary user store through the management console."
+_!!! tip "Below properties can be configured for a secondary user store through the management console."
 
 <table>
 <thead>
@@ -404,8 +404,58 @@ Default: not configured</td>
 <td>Retry the authentication request if a timeout happened
 <p>Default: not configured</p></td>
 </tr>
+<tr class="odd">
+<td>LDAPConnectionTimeout</td>
+<td>LDAP Connection Timeout</td>
+<td>If the connection to the LDAP is inactive for the length of time
+(in milliseconds) specified by this property, the connection
+will be terminated.
+<p>Default: not configured</p><br/>
+<p>Sample: 20</p>
+</td>
+</tr>
 </tbody>
-</table>
+</table>_
+
+## Updating the system administrator
+
+The admin user is the super tenant that will be able to manage all other
+users, roles and permissions in the system by using the management
+console of the product.
+
+Therefore, the user that should have admin
+permissions is required to be stored in the user store when you start
+the system for the first time. By default system will create a admin
+user in the LDAP that has admin permissions.But this cannot be done it the
+LDAP user store is read only.Hence that capability should be disabled as follows.
+
+```toml
+[super_admin]
+username = "admin"
+admin_role = "admin"
+create_admin_account = false
+```
+
+-   **create_admin_account:** This should be set to 'False' as it will not be
+    allowed to create users and roles in a read-only user store.
+-   **admin_role:** The admin role you enter here should already
+    exist in the read-only user store. Otherwise, you must enter an
+    internal role, which will be saved to the internal database of the
+    system when the system starts the first time.
+-   **username:** Since we are configuring a read-only LDAP as the
+    primary user store, the user that should have admin permissions is
+    required to be stored in the user store when you start the system
+    for the first time. For example, say a valid username is AdminSOA.
+    Update the `         username       ` section of your
+    configuration as shown above. You do not have to update the password
+    element as it is already set in the user store.  
+
+For information information about the system administrator user, see
+[Configuring the System
+Administrator](../../learn/configuring-the-system-administrator), and for
+information on how keystores are used in WSO2 products, see [Using
+Asymmetric Encryption](../../administer/using-asymmetric-encryption).  
+
 
 
 !!! tip "For more information"
