@@ -1,7 +1,7 @@
 # Configuring a Read-write Active Directory User Store
 
-WSO2 identity server uses a embedded Read/Write LDAP as the primary user store.
-This document will guide to you to change that to a Read Write Active Directory user store.
+WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
+This document will guide you to change that to a Read Write Active Directory user store.
 
 !!! tip 
     Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
@@ -13,7 +13,7 @@ This document will guide to you to change that to a Read Write Active Directory 
 
 ## Configuring Read-write Active Directory user store manager  
 
-Following are the minimum configurations that are need to be provided to configure Read-write Active Directory user store manager.
+Following are the minimum configurations that are needed to be provided to configure Read-write Active Directory user store manager.
 
 <table>
 <thead>
@@ -38,7 +38,7 @@ Sample values: ou=Users,dc=wso2,dc=org</td>
 </table>
 </thead>
 
-Following are the minimum user store properties that are need to be provided to configure Read-only LDAP user store 
+Following are the minimum user store properties that are needed to be provided to configure Read-only LDAP user store 
 manager.
 
 <table>
