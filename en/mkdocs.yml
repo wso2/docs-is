@@ -216,19 +216,6 @@ nav:
       - 'Setting Up An LDAP User Store': learn/setting-up-an-ldap-user-store.md
     - 'Using WSO2 Identity Server':     
       - 'Identity Administration and Provisioning':
-        - 'Configuring the Realm':
-          - 'Configuring the Realm': learn/configuring-the-realm.md
-          - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
-          - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
-          - 'Configuring User Stores': 
-            - 'Overview': learn/configuring-user-stores.md
-            - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
-            - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-            - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-            - 'Configuring a Read-write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-            - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-            - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
-            - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
           - 'Configuring Users': learn/configuring-users.md
@@ -602,6 +589,52 @@ nav:
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
       - 'Token Persistence': setup/token-persistence.md
+    - 'Data Stores':
+      - 'Working with Databases':
+        - 'Overview': administer/working-with-databases.md
+        - 'Changing the Carbon Database':
+          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
+          - 'Changing to MariaDB': administer/changing-to-mariadb.md
+          - 'Changing to MSSQL': administer/changing-to-mssql.md
+          - 'Changing to MySQL': administer/changing-to-mysql.md
+          - 'Changing to Oracle': administer/changing-to-oracle.md
+          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
+          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
+          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
+          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
+        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
+      - 'Working with the Registry':
+        - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
+      - 'Working with Users, Roles and Permissions':
+            - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
+            - 'Introduction to User Management': administer/introduction-to-user-management.md
+            - 'Configuring the User Realm':
+              - 'Configuring the User Realm': administer/configuring-user-realm.md
+              - 'Configuring User Stores':
+                - 'Configuring User Stores': administer/configuring-user-stores.md
+                - 'Configuring the Primary User Store':
+                  - 'Configuring the Primary User Store': administer/configuring-the-primary-user-store.md
+                  - 'Configuring a JDBC User Store': administer/configuring-a-jdbc-user-store.md
+                  - 'Configuring a Read-Only LDAP User Store': administer/configuring-a-read-only-ldap-user-store.md
+                  - 'Configuring a Read-Write Active Directory User Store': administer/configuring-a-read-write-active-directory-user-store.md
+                  - 'Configuring a Read-Write LDAP User Store': administer/configuring-a-read-write-ldap-user-store.md
+                - 'Configuring Secondary User Stores': administer/configuring-secondary-user-stores.md
+                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
+                - 'Writing a Custom User Store Manager': administer/writing-a-custom-user-store-manager.md
+            - 'Configuring the Realm':
+              - 'Configuring the Realm': learn/configuring-the-realm.md
+              - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
+              - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
+              - 'Configuring User Stores':
+                - 'Overview': learn/configuring-user-stores.md
+                - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
+                - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
+                - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
+                - 'Configuring a Read-write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
+                - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
+                - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
+                - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
     - 'Migration Guide':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
@@ -665,39 +698,6 @@ nav:
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
         - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
-    - 'Data Stores':
-      - 'Working with Databases':
-        - 'Overview': administer/working-with-databases.md
-        - 'Changing the Carbon Database':
-          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
-          - 'Changing to MariaDB': administer/changing-to-mariadb.md
-          - 'Changing to MSSQL': administer/changing-to-mssql.md
-          - 'Changing to MySQL': administer/changing-to-mysql.md
-          - 'Changing to Oracle': administer/changing-to-oracle.md
-          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
-          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
-          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
-        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
-      - 'Working with the Registry': 
-        - 'Working with the Registry': administer/working-with-the-registry.md
-        - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
-        - 'Introduction to User Management': administer/introduction-to-user-management.md
-        - 'Configuring the User Realm': 
-          - 'Configuring the User Realm': administer/configuring-user-realm.md
-          - 'Configuring User Stores':
-            - 'Configuring User Stores': administer/configuring-user-stores.md
-            - 'Configuring the Primary User Store':
-              - 'Configuring the Primary User Store': administer/configuring-the-primary-user-store.md
-              - 'Configuring a JDBC User Store': administer/configuring-a-jdbc-user-store.md
-              - 'Configuring a Read-Only LDAP User Store': administer/configuring-a-read-only-ldap-user-store.md
-              - 'Configuring a Read-Write Active Directory User Store': administer/configuring-a-read-write-active-directory-user-store.md
-              - 'Configuring a Read-Write LDAP User Store': administer/configuring-a-read-write-ldap-user-store.md
-            - 'Configuring Secondary User Stores': administer/configuring-secondary-user-stores.md 
-            - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-            - 'Writing a Custom User Store Manager': administer/writing-a-custom-user-store-manager.md
     - 'Security':
       - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
       - 'Securing Passwords in Configuration Files':
