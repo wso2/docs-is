@@ -14,10 +14,6 @@ browse through it.
     industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL
     instead.
     
-    You can use the embedded H2 database in development environments and as
-    the local registry in a registry mount.
-    
-
 1.  Open the
     `           <IS_HOME>/repository/conf/deployment.toml          `
     file and add the following configuration.
@@ -62,7 +58,7 @@ browse through it.
       </tr>
       <tr class="even">
       <td><strong>JDBC URL</strong></td>
-      <td>location of the H2 database</td>
+      <td>location of the H2 database. All the default databases are located at `<IS_HOME>/repository/database` location.</td>
       </tr>
       </table>  
     
