@@ -26,13 +26,11 @@ collectively as "Nginx".)
 
 1.  Install Nginx (NGINX Plus or nginx community) in a server configured
     in your cluster.
-2.  Configure Nginx to direct the HTTP requests to the two worker
-    nodes via the HTTP 80 port using the
-    `                         http://is.wso2.com/>           `
-    . To do this, create a VHost file (
-    `            is.http.conf           ` ) in the
-    `            /etc/nginx/conf.d           ` directory and add the
-    following configurations into it.
+2.  Configure Nginx to direct the HTTP requests to the two worker nodes
+    via the HTTP 80 port using the ` http://is.wso2.com/> ` . To do
+    this, create a VHost file ( ` is.http.conf ` ) in the `
+    /etc/nginx/conf.d ` directory and add the following configurations
+    into it. 
 
     ??? abstract "Click here to view a generic Nginx configuration"
 
@@ -61,8 +59,7 @@ collectively as "Nginx".)
         }
         ```
 
-    ??? example "Click here to view a specific configuration that exposes various
-    endpoints"
+    ??? example "Click here to view a specific configuration that exposes various endpoints"
 
         ``` java tab="Nginx configuration that exposes /oauth2, /commonauth, and other endpoints"
             upstream ssl.nginx.com {
@@ -137,13 +134,11 @@ collectively as "Nginx".)
             ```
 
 3.  Now that you've configured HTTP requests, you must also configure
-    HTTPS requests. Configure Nginx to direct the HTTPS requests to
-    the two worker nodes via the HTTPS 443 port using
-    `                         https://is.wso2.com/            >           `
-    . To do this, create a VHost file (
-    `            is.https.conf           ` ) in the
-    `            /etc/nginx/conf.d           ` directory and add the
-    following configurations into it.
+    HTTPS requests. Configure Nginx to direct the HTTPS requests to the
+    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/
+     ` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
+    /etc/nginx/conf.d ` directory and add the following configurations
+    into it.
 
     !!! note
     

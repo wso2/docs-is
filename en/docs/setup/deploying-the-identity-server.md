@@ -3,7 +3,7 @@
 The following topics provide information related to the deployment of
 the WSO2 Identity Server:
 
--   [Deployment Patterns](../../setup/deployment-patterns)
+-   [Deployment Guide](../../setup/deployment-guide)
 - 	[Changing the Hostname](../../setup/changing-the-hostname)
 -	[Adding High Availability for LDAP](../../setup/adding-high-availability-for-ldap)
 -	[Configuring an SP and IdP Using Configuration Files](../../setup/configuring-a-sp-and-idp-using-configuration-files)

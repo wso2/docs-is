@@ -29,28 +29,35 @@ The flow of synchronous token persistence is as follows:
     using the same thread. Once it is persisted, the new token is
     returned to the client.
     
-!!! note "Enable synchronous token persistence"
-    Navigate to file `<IS_HOME>/repository/conf/deployment.toml` and add the following configuration.
-    
+!!! note "Synchronous token persistence configurations" 
+    By default
+    synchronous token persistence is enabled in WSO2 Identity Server 5.9.0
+    onwards. To indicate how many times to retry in the event of a
+    `CONN_APP_KEY` violation when storing the access token, Navigate to file
+    `<IS_HOME>/repository/conf/deployment.toml` and add the following
+    configuration.
+        
     ```
     [oauth.token_generation]
     "retry_count_on_persistence_failures"=5
     ```
     
-    !!! info "retry_count_on_persistence_failures"
-        Indicates how many times to retry in the event of a `CONN_APP_KEY` violation when storing 
-        the access token.
-    
-    !!! note
+    !!! Tip
         To know more about new configurations, 
         see [New Configuration Model](../../references/new-configuration-model).
 
 ## Asynchronous token persistence
 
-!!! note
-    Previously, WSO2 recommended asynchronous token persistence for certain scenarios. However, we have 
-    empirically found out that synchronous token persistence has a better overall performance in general. 
-    Hence, asynchronous token persistence is not supported from WSO2 Identity Server 5.9.0 onwards.
+If an existing access token is not found, the OAuth2 component creates a
+new access token and adds it to a persisting queue. Once the token is
+added to the queue, the token is returned to the client.There are background threads that consume the queue, and persist the tokens in the queue to the database.
+
+!!! warning "Going Forward" 
+    Previously, WSO2 recommended asynchronous
+    token persistence for certain scenarios. However, we have empirically
+    found out that synchronous token persistence has a better overall
+    performance in general. Hence, asynchronous token persistence is not
+    supported from WSO2 Identity Server 5.9.0 onwards.
 
 ## Recovery flow for token persistence
 
