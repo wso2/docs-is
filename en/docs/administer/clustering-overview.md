@@ -1,20 +1,17 @@
 # Clustering Overview
 
-The following topics explain the basics of clustering. 
+## Introduction to clustering
 
-
-### Introduction to clustering
-
-You can install multiple instances of WSO2 products in a *cluster* . A
-cluster consists of multiple instances of a product that divide up the
-work and act as a single instance. This improves **performance** as
+A cluster consists of multiple instances of a product that divide up the
+work and act as a single instance. This improves **performance** as the
 requests are distributed among several servers instead of just one. It
-is also more **reliabile** as one instance is there to handle requests
-when another becomes unavailable. Clustering provides the following
-benefits:
+is also more **reliable** as there are other instances to handle requests
+when one instance becomes unavailable. Following are several benefits of 
+clustering.
+
 
 -   **High availability** : Some systems require high availability
-    percentages like two-nines (99%). A server may go down due to many
+    percentages such as two-nines (99%). A server may go down due to many
     reasons such as system failures, planned outage, or hardware or
     network problems. Clustering for high availability results in fewer
     service interruptions. Since downtime is costly to any business,
@@ -47,9 +44,8 @@ benefits:
     any unforeseen opportunities.
 
 These characteristics are essential for enterprise applications deployed
-in a production environment. You need a cluster when you go into
-production as that is when good performance and reliability are
-critical.
+in a production environment. Therefore, you need a cluster when you go into
+production when performance and reliability are critical.
 
 WSO2 provides [Hazelcast Community
 Edition](http://www.hazelcast.com/products-community.jsp) as its default
@@ -75,7 +71,7 @@ license key of Hazelcast Enterprise:
 
 ------------------------------------------------------------------------
 
-### About membership schemes
+## About membership schemes
 
 A cluster should contain two or more instances of a product that are
 configured to run within the same domain. To make an instance a member
@@ -87,22 +83,23 @@ schemes, which are as follows:
 -   AWS membership scheme
 
 All of these membership schemes are ready to be used in production. You
-can select based on your production environment. Here's a comparison of
+can select a scheme based on your production environment. Here's a comparison of
 the membership schemes:
 
-| Multicast                                                  | WKA                                                                                                                     | AWS                                                        |
-|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| All nodes should be in the same subnet                     | Nodes can be in different networks                                                                                      | Amazon EC2 nodes                                           |
-| All nodes should be in the same multicast domain           | No multicasting requirement                                                                                             | No multicasting requirement                                |
-| Multicasting should not be blocked                         | No multicasting requirement                                                                                             | No multicasting requirement                                |
-| No fixed IP addresses or hosts required                    | At least one well-known IP address or host required.                                                                    | No fixed IP addresses or hosts required                    |
-| Failure of any member does not affect membership discovery | New members can join with some WKA nodes down, but not if all WKA nodes are down.                                       | Failure of any member does not affect membership discovery |
-| Does not work on IaaSs such as Amazon EC2                  | IaaS-friendly                                                                                                           | Works on Amazon EC2                                        |
-| No WKA requirement                                         | Requires keepalive, elastic IPs, or some other mechanism for re-mapping IP addresses of WK members in cases of failure. | No WKA requirement                                         |
+| Multicast                                                  | WKA                                                                                                                    | AWS                                                        |
+|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| All nodes should be in the same subnet                     | Nodes can be in different networks                                                                                     | Amazon EC2 nodes                                           |
+| All nodes should be in the same multicast domain           | No multicasting requirement                                                                                            | No multicasting requirement                                |
+| Multicasting should not be blocked                         | No multicasting requirement                                                                                            | No multicasting requirement                                |
+| No fixed IP addresses or hosts required                    | At least one well-known IP address or host required                                                                    | No fixed IP addresses or hosts required                    |
+| Failure of any member does not affect membership discovery | New members can join with some WKA nodes down, but not if all WKA nodes are down                                       | Failure of any member does not affect membership discovery |
+| Does not work on IaaSs such as Amazon EC2                  | IaaS-friendly                                                                                                          | Works on Amazon EC2                                        |
+| No WKA requirement                                         | Requires keepalive, elastic IPs, or some other mechanism for re-mapping IP addresses of WK members in cases of failure | No WKA requirement                                         |
 
-Note that some production environments do not support multicast.
-However, if your environment supports multicast, there are no issues in
-using this as your membership scheme.
+!!! note
+    Some production environments do not support multicast.
+    However, if your environment supports multicast, there are no issues in
+    using multicast as your membership scheme.
 
 !!! info "About Well-Known Addresses (WKA)"
     The Well-Known Addresses (WKA) feature is a mechanism that allows
@@ -118,7 +115,7 @@ using this as your membership scheme.
 
 ------------------------------------------------------------------------
 
-### Clustering compatibility with WSO2 products
+## Clustering compatibility with WSO2 products
 
 WSO2 products are compatible with each other if they are based on the
 same WSO2 Carbon version. See the [release
@@ -127,19 +124,11 @@ compatibility information.
 
 !!! info "About performance of WSO2 products in a cluster"
     If you are setting up multiple WSO2 products in a cluster, it is
-    recommended to set up each product on a separate server. For example,
-    WSO2 ESB is used for message mediation, so a considerable amount of
-    processing happens in the ESB. The DSS does data service hosting and has
-    a different architecture layer from the ESB. If you deploy both the ESB
-    and DSS in the same instance/runtime, it can negatively impact the
-    performance of both, and it also makes scaling difficult. However, you
-    can set up hybrid servers (installing selected DSS features on top of
-    the ESB and vice versa) using WSO2 products without the above
-    performance concerns.
+    recommended to set up each product on a separate server. 
 
 ------------------------------------------------------------------------
 
-### Deciding how to set up your cluster
+## Deciding how to set up your cluster
 
 When setting up your cluster, you must decide how you want to set up and
 [share your databases](../../administer/sharing-databases-in-a-cluster), whether to
