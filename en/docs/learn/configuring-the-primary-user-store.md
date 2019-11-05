@@ -62,6 +62,7 @@ There are two steps involved in setting up the primary user store:
     </table>
 
     Or you can configure your own custom user store manager as well
+    [Writing a custom user store manager](../../learn/writing-a-custom-user-store-manager)
 
 2.  Configure user store manager properties.  
     In the following pages, you can find the information on the
@@ -78,16 +79,6 @@ There are two steps involved in setting up the primary user store:
     But it is important to read each user store configuration
     document to find specific information that you need to follow when
     configuring particular user store.
-
-    !!! info 
-        For primary user store you need to set **TenantManager** property
-        under user store manager properties:
-
-        JDBC :
-        `            org.wso2.carbon.user.core.tenant.JDBCTenantManager           `
-
-        LDAP/AD :
-        `            org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager           `
 
     !!! info 
         This is only applicable to the WSO2 Identity Server. Once you
