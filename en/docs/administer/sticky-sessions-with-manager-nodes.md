@@ -1,4 +1,4 @@
-# Sticky Sessions with Manager Nodes
+# Sticky Sessions with Multiple Nodes
 
 When a single WSO2 product is interacting with a web application, a
 session object is created. It remains in the memory of the WSO2 product.
