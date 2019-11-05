@@ -651,7 +651,7 @@ nav:
         - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
+        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Using Tools':
