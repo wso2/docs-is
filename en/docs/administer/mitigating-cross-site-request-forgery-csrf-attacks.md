@@ -5,7 +5,7 @@ request, by forcing you to execute unwanted actions on an already
 authenticated web browser.
 
 For information on how CSRF attacks can be harmful, and how you can
-mitigate CSRF attacks when you use WSO2 products, see [Mitigating Cross
+mitigate CSRF attacks when you use WSO2 Identity Server, see [Mitigating Cross
 Site Request Forgery
 Attacks](../../administer/mitigating-cross-site-request-forgery-attacks)
 in the WSO2 product administration guide.
