@@ -1,7 +1,7 @@
 # Configuring a Read-write LDAP User Store
 
-WSO2 identity server uses a embedded Read/Write LDAP as the primary user store.
-This document will guide to you to change that to a Read Only LDAP user store.
+WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
+This document will guide you to change that to a Read-Only LDAP user store.
 
 !!! tip 
     Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
@@ -9,7 +9,7 @@ This document will guide to you to change that to a Read Only LDAP user store.
     
 ## Configuring Read-write LDAP user store manager
 
-Following are the minimum configurations that are need to be provided to configure Read-only LDAP user store manager.
+The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP user store manager.
 
 <table>
 <thead>
@@ -34,7 +34,7 @@ Sample values: ou=Users,dc=wso2,dc=org</td>
 </table>
 </thead>
 
-Following are the minimum user store properties that are need to be provided to configure Read-only LDAP user store 
+Following are the minimum user store properties that are needed to be provided to configure Read-only LDAP user store 
 manager.
 
 <table>
@@ -90,10 +90,10 @@ base_dn = "ou=system"
 "ConnectionPassword" = "admin"
 ```
 Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
-Please refer the following topic. 
+Please refer to the following topic. 
 
 
-## Properties used in Read-write LDAP userstore manager
+## Properties used in Read-write LDAP user store manager
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
 `<IS-HOME>/repository/conf/deployment.toml`.
@@ -418,10 +418,10 @@ will be terminated.
 ### Updating the system administrator
 
 The **admin** user is the super tenant that will be able to manage all
-other users, roles and permissions in the system by using the management
-console of the product. Therefore, the user that should have admin
+other users, roles, and permissions in the system by using the management
+console of the product. Therefore, the user that should have admin
 permissions is required to be stored in the user store when you start
-the system for the first time. Since the LDAP user store can be written
+the system for the first time. Since the LDAP user store can be written
 to, you have the option of creating a new admin user in the user store
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
@@ -432,8 +432,7 @@ These two alternative configurations can be done as explained below.
 
 -   If you are using a user that is already in the LDAP. Find a valid user that already resides in the user store. For 
     example, say a valid username is
-    AdminSOA.Add the following configuration to the `deployment.toml` as shown below. You do not have to update the
-    password element as it is already set in the user store.
+    AdminSOA.Add the following configuration to the `deployment.toml` as shown below. You do not have to update the password element as it is already set in the user store.
     
     ```toml
     [super_admin]
