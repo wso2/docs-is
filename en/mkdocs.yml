@@ -566,7 +566,7 @@ nav:
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
     - 'Getting Support': develop/getting-support.md 
   - 'Setup':
-    - 'Installation Guide': 
+    - 'Installation':
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
@@ -579,16 +579,15 @@ nav:
       - 'Getting Started with the Management Console':
         - 'Overview': setup/getting-started-with-the-management-console.md
         - 'Customizing the Management Console': setup/customizing-the-management-console.md
-    - 'Deployment Guide':
-      - 'Deployment Guide': setup/deploying-the-identity-server.md
-      - 'Deployment Patterns': 
-        - 'Overview': setup/deployment-patterns.md
+    - 'Deployment':
+      - 'Overview': setup/deploying-the-identity-server.md
+      - 'Deployment Guide':
+        - 'Deploying the Identity Server': setup/deployment-guide.md
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
-      - 'Token Persistence': setup/token-persistence.md
     - 'Data Stores':
       - 'Working with Databases':
         - 'Overview': administer/working-with-databases.md
@@ -624,6 +623,31 @@ nav:
                 - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
                 - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
                 - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
+      - "Working with Tokens":
+        - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
+        - 'Token Persistence': setup/token-persistence.md
+        - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
+      - 'Data Purging': administer/data-purging.md
+      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
+    - 'Monitor':
+        - 'Monitoring':
+          - 'Overview': administer/monitoring-the-identity-server.md
+          - 'Monitoring Logs':
+            - 'Monitoring Logs': administer/monitoring-logs.md
+            - 'HTTP Access Logging': administer/http-access-logging.md
+            - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
+          - 'System Statistics': administer/system-statistics.md
+          - 'Monitoring TCP-Based Messages':
+            - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+            - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+            - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
+          - 'Monitoring Server Health': administer/monitoring-server-health.md
+          - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+        - 'Working with Product Observability': administer/working-with-product-observability.md
+        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
+    - 'Performance':
+      - 'Performance Tuning': administer/performance-tuning-recommendations.md
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Migration Guide':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
@@ -666,16 +690,11 @@ nav:
           - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
           - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
-      - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
-      - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
-      - 'Data Purging': administer/data-purging.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
-      - 'Working with Product Observability': administer/working-with-product-observability.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
@@ -685,7 +704,6 @@ nav:
       - 'Production Deployment Guidelines': 
         - 'Production Deployment Guidelines': administer/production-deployment-guidelines.md
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
-        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Security':
       - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
@@ -710,22 +728,6 @@ nav:
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
-    - 'Monitoring':
-        - 'Monitoring': administer/monitoring-the-identity-server.md
-        - 'Monitoring Logs':
-          - 'Monitoring Logs': administer/monitoring-logs.md
-          - 'HTTP Access Logging': administer/http-access-logging.md
-          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-        - 'System Statistics': administer/system-statistics.md
-        - 'Monitoring TCP-Based Messages':
-          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-        - 'Monitoring Server Health': administer/monitoring-server-health.md
-        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-    - 'Performance':
-      - 'Performance Tuning': administer/performance-tuning-recommendations.md
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  
