@@ -472,6 +472,8 @@ nav:
             - 'Fido': develop/fido-rest-api.md
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
+            - 'Identity Governance': develop/identity-governance-rest-api.md
+            - 'Email Templates': develop/email-templates-rest-api.md
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
@@ -492,9 +494,9 @@ nav:
               - 'Managing Users and Roles': develop/managing-users-and-roles-with-apis.md
               - 'Managing Claims': develop/managing-claims-with-apis.md
               - 'Managing Permissions': develop/managing-permissions-with-apis.md
-              - 'Counting Users and User Roles': develop/counting-users-and-roles-using-management-console-and-admin-services.md
+              - 'Counting users and roles using Management Console and Admin Services': develop/counting-users-and-roles-using-management-console-and-admin-services.md
               - 'Managing User Stores': develop/managing-user-stores-with-apis.md
-            - 'User Information Recovery': develop/user-information-recovery-service.md
+            - 'User Information Recovery Service': develop/user-information-recovery-service.md
             - 'Identity Application Management':
               - 'Identity Application Management': develop/identity-application-management-api.md
               - 'Using the Service Provider': develop/using-the-service-provider-api.md
@@ -793,4 +795,4 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.9.0
+  site_version: 5.10.0
