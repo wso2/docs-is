@@ -22,7 +22,7 @@ of 2 WSO2 Identity Server nodes.
 As a first step in planning your deployment, ensure that you have the
 necessary system requirements and a compatible environment.
 
-**System requirements**
+### System requirements
 
 <table>
 <tbody>
@@ -37,7 +37,10 @@ necessary system requirements and a compatible environment.
 </tbody>
 </table>
 
-**Environment compatibility**
+!!! note
+    For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites)
+
+### Environment compatibility
 
 <table>
 <tbody>
