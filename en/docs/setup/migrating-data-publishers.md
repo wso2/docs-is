@@ -86,8 +86,8 @@ instead.
     ```
 
 3.  To enable the new event handler, add handler and relevant property
-    to the `deployment.toml` file found in
-    the`<NEW_IS_HOME>/repository/conf` folder. For example, following
+    to the `deployment.toml` file found in the 
+    `<NEW_IS_HOME>/repository/conf` folder. For example, following
     property is added to enable the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
     .

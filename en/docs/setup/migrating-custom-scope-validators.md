@@ -83,7 +83,7 @@ validators to IS 5.9.0, follow the instructions below:
 3.  If you want to use the XACML based scope validator introduced in
     WSO2 IS 5.5.0 together with your custom scope validators, add the
     following configuration to the ` deployment.toml ` file in the `
-    <IS_HOME>/repository/conf/ ` file:
+    <IS_HOME>/repository/conf/ ` folder:
 
     ``` toml
     [oauth.scope_validator.xacml]

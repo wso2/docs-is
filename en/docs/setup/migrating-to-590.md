@@ -3,7 +3,7 @@
 Before you follow this section, see
 [Before you begin](../../setup/migrating-before-you-begin) and
 [Preparing for migration](../../setup/migrating-preparing-for-migration)
-sections to read on prerequisites.
+sections to read the prerequisites.
 
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
@@ -115,8 +115,8 @@ sections to read on prerequisites.
     `           <NEW_IS_HOME>/repository/deployment/server/userstores          `
     directory.
     
-6. Make sure that you have migrated the configurations into NEW version
-   as advised in
+6. Ensure that you have migrated the configurations into NEW version as
+   advised in
    [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
    
 7. Migrate [Log4j2 configurations](../../setup/migrating-to-log4j2).
@@ -169,11 +169,11 @@ sections to read on prerequisites.
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-10.  Stop the server once the task of migration client is completed.
+10.  Stop the server once the migration client execution is completed.
 
    
     !!! Tip 
-        If you are migrating from WSO2 Identity Server 5.8.0, then you can skip the steps 8-10 and run following the following DB script against the IDENTITY_DB.
+        If you are migrating from WSO2 Identity Server 5.8.0, then you can skip steps 8-10 and run following the following DB script against the IDENTITY_DB.
     
         ```tab="H2" 
         CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (

@@ -58,7 +58,7 @@ browse through it.
       </tr>
       <tr class="even">
       <td><strong>JDBC URL</strong></td>
-      <td>location of the H2 database. All the default databases are located at `<IS_HOME>/repository/database` location.</IS_HOME></td>
+      <td>location of the H2 database. All the default databases are located at `<IS_HOME>/repository/database` location.</td>
       </tr>
       </table>  
     
