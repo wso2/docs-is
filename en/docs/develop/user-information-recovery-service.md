@@ -1,821 +1,645 @@
-# User Information Recovery Service
+# User Information Recovery
 
-This section lists out and describes the service methods available in
-the user information recovery API.
+This section lists out and describes the operations that are available in the **User Information Recovery API**. 
+
+## About User Information Recovery API
+
+The **User Information Recovery API** enables recovering user information during user authentication through various features such as captcha and challenge questions.
+
+## API operations
 
 ### confirmUserSelfRegistration
 
-This method is used to confirm the self registered user account and
-unlock it.
-
-Permission level: `         /permission/admin/login        `
-
-**Request**
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:confirmUserSelfRegistration>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:code>?</ser:code>
-         <!--Optional:-->
-         <ser:captcha>
-            <!--Optional:-->
-            <xsd:imagePath></xsd:imagePath>
-            <!--Optional:-->
-            <xsd:secretKey></xsd:secretKey>
-            <!--Optional:-->
-            <xsd:userAnswer></xsd:userAnswer>
-         </ser:captcha>
-         <!--Optional:-->
-         <ser:tenantDomain></ser:tenantDomain>
-      </ser:confirmUserSelfRegistration>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>code</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>captcha</td>
-<td>Captcha</td>
-<td>Captcha code. Includes <code>             imagePath, secretKey and UserAnswer            </code></td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation confirms the self registered user account and unlocks it.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <li><code>userName</code> <code>[String]</code>: This the user name of the user.</li>
+               <li><code>code</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
+               <li><code>captcha</code> <code>[Captcha]</code>: This the captcha code. It uncludes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+                  <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:confirmUserSelfRegistration&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:code>?&lt;/ser:code&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:captcha&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:imagePath&gt;&lt;/xsd:imagePath&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:secretKey&gt;&lt;/xsd:secretKey&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:userAnswer&gt;>&lt;/xsd:userAnswer&gt;
+      &lt;/ser:captcha&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:tenantDomain&gt;&lt;/ser:tenantDomain&gt;
+   &lt;/ser:confirmUserSelfRegistration&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+               </div>
+            </td>
+        </tr>
+    </tbody>    
 </table>
+
 
 ### getAllChallengeQuestions
 
-This method is used to get all challenge questions.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getAllChallengeQuestions/>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+<table>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation retrieves all the challenge questions.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:getAllChallengeQuestions/&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+            </td>
+        </tr>        
+    </tbody>    
+</table>
 
 ### getCaptcha
 
-This method is used to get the captcha code.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getCaptcha/>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+<table>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation retrieves the captcha code.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:getCaptcha/&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+            </td>
+        </tr>
+    </tbody>    
+</table>
 
 ### getUserChallengeQuestion
 
-This method is used to get the challenge question for the user.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getUserChallengeQuestion>
-         <!--Optional:-->
-         <ser:userName></ser:userName>
-         <!--Optional:-->
-         <ser:confirmation></ser:confirmation>
-         <!--Optional:-->
-         <ser:questionId></ser:questionId>
-      </ser:getUserChallengeQuestion>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>confirmation</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>questionId</td>
-<td>String</td>
-<td>Question ID.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation retrieves the challenge question for the user.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
+                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
+               </ul>
+            </td>           
+        </tr>
+        <tr class="odd">
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:getUserChallengeQuestion&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:userName&gt;&lt;/ser:userName&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:confirmation&gt;&lt;/ser:confirmation&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:questionI&gt;&lt;/ser:questionId&gt;
+   &lt;/ser:getUserChallengeQuestion&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+            </td>
+        </tr>        
+    </tbody>    
 </table>
+
 
 ### getUserChallengeQuestionIds
 
-This method is used to get the challenge question IDs.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getUserChallengeQuestionIds>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:confirmation>?</ser:confirmation>
-      </ser:getUserChallengeQuestionIds>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>confirmation</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation retrieves the challenge question Ids.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code send to the user.</li>
+               </ul>                        
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:getUserChallengeQuestionIds&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:confirmation&gt;?&lt;/ser:confirmation&gt;
+   &lt;/ser:getUserChallengeQuestionIds&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>        
+    </tbody>    
 </table>
+
 
 ### getUserIdentitySupportedClaims
 
-This method is used to get the user supported claims.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:getUserIdentitySupportedClaims>
-         <!--Optional:-->
-         <ser:dialect></ser:dialect>
-      </ser:getUserIdentitySupportedClaims>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dialect</td>
-<td>String</td>
-<td>Claim dialect.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation retrieves the the user-supported claims.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>dialect</code> <code>[String]</code>: This is the claim dialect.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:getUserIdentitySupportedClaims&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:dialect&gt;&lt;/ser:dialect&gt;
+   &lt;/ser:getUserIdentitySupportedClaims&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>        
+    </tbody>    
 </table>
 
 ### registerUser
 
-This method is used to register a user in the system. The account will
-be locked if the
-`         Authentication.Policy.Account.Lock.On.Creation        `
-property is set to true, otherwise the user will be able to login after
-registration.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:registerUser>
-         <!--Optional:-->
-         <ser:userName></ser:userName>
-         <!--Optional:-->
-         <ser:password></ser:password>
-         <!--Zero or more repetitions:-->
-         <ser:claims>
-            <!--Optional:-->
-            <xsd:claimUri></xsd:claimUri>
-            <!--Optional:-->
-            <xsd:claimValue></xsd:claimValue>
-         </ser:claims>
-         <!--Optional:-->
-         <ser:profileName></ser:profileName>
-         <!--Optional:-->
-         <ser:tenantDomain></ser:tenantDomain>
-      </ser:registerUser>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>password</td>
-<td>String</td>
-<td>Password of the user.</td>
-</tr>
-<tr class="odd">
-<td><p>claims</p></td>
-<td><pre><code>UserIdentityClaim[]</code></pre></td>
-<td>User claims. Includes <code>             claimUri            </code> and <code>             claimValue            </code> .</td>
-</tr>
-<tr class="even">
-<td>profileName</td>
-<td>String</td>
-<td>User profile name.</td>
-</tr>
-<tr class="odd">
-<td>tenantDomain</td>
-<td>String</td>
-<td>Tenant domain of the user.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation registers a user in the system. The account will be locked if the <code>Authentication.Policy.Account.Lock.On.Creation</code> property is set to <code>true</code>, otherwise the user will be able to login after registration.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
+                  <li><code>password</code> <code>[String]</code>: This is the user password.</li>
+                  <li><code>claims</code> <code>[UserIdentityClaim[]]</code>: These are user claims. Includes <code>claimUri</code> and <code>claimValue</code>.</li>
+                  <li><code>profileName</code> <code>[String]</code>: This is the user profile name.</li>
+                  <li><code>tenantDomain</code> <code>[String]</code>: This is the user's tenant domain.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ser:registerUser&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:userName&gt;&lt;/ser:userName&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:password&gt;&lt;/ser:password&gt;
+         &lt;!--Zero or more repetitions:--&gt;
+         &lt;ser:claims&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:claimUri&gt;&lt;/xsd:claimUri&gt;
+            &lt;!--Optional:--&gt;
+            &lt;xsd:claimValue&gt;&lt;/xsd:claimValue&gt;>
+         &lt;/ser:claims&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:profileName&gt;&lt;/ser:profileName&gt;
+         &lt;!--Optional:--&gt;
+         &lt;ser:tenantDomain&gt;&lt;/ser:tenantDomain&gt;
+      &lt;/ser:registerUser&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>        
+    </tbody>    
 </table>
 
 ### resendSignUpConfirmationCode
 
-This method is used to resend the self sign up confirmation code when
-the user has not received the email properly.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:resendSignUpConfirmationCode>
-         <!--Optional:-->
-         <ser:userName></ser:userName>
-         <!--Optional:-->
-         <ser:code>?</ser:code>
-         <!--Optional:-->
-         <ser:profileName></ser:profileName>
-         <!--Optional:-->
-         <ser:tenantDomain></ser:tenantDomain>
-      </ser:resendSignUpConfirmationCode>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>code</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>tenantDomain</td>
-<td>String</td>
-<td>Tenant domain of the user.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation resend the self sign up confirmation code when the user has not received the email properly.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
+                  <li><code>tenantDomain</code> <code>[String]</code>: This is user's tenant domain.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:resendSignUpConfirmationCode&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:userName&gt;&lt;/ser:userName&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:code>?&lt;/ser:code&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:profileName&gt;&lt;/ser:profileName&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:tenantDomain&gt;&lt;/ser:tenantDomain&gt;
+   &lt;/ser:resendSignUpConfirmationCode&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>        
+    </tbody>    
 </table>
 
 ### sendRecoveryNotification
 
-This method is used to send the recovery notification.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:sendRecoveryNotification>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:key>?</ser:key>
-         <!--Optional:-->
-         <ser:notificationType></ser:notificationType>
-      </ser:sendRecoveryNotification>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>key</td>
-<td>String</td>
-<td>Confirmation key send to the user.</td>
-</tr>
-<tr class="odd">
-<td>notificationType</td>
-<td>String</td>
-<td>Notification type.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation sends the recovery notification.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>key</code> <code>[String]</code>: This is the confirmation key that is sent to the user.</li>
+                  <li><code>notificationType</code> <code>[String]</code>: This is the notification type.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:sendRecoveryNotification&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;>
+      &lt;ser:key>?&lt;/ser:key&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:notificationType&gt;&lt;/ser:notificationType&gt;
+   &lt;/ser:sendRecoveryNotification&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>        
+    </tbody>    
 </table>
 
 ### updatePassword
 
-This method is used to update the password in the system for
-password recovery process. Before calling this method, the caller needs
-to call the `         verifyConfirmationCode()        ` method and get
-the newly generated confirmation code.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:updatePassword>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:confirmationCode></ser:confirmationCode>
-         <!--Optional:-->
-         <ser:newPassword></ser:newPassword>
-      </ser:updatePassword>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>confirmationCode</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>newPassword</td>
-<td>String</td>
-<td>New password for the user.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation updates the password in the system for password recovery process. <br>Before calling this method, the caller needs to call the <code>verifyConfirmationCode()</code> method and get the newly generated confirmation code.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>confirmationCode</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
+                  <li><code>newPassword</code> <code>[String]</code>: This is the user's new password.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:updatePassword&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:confirmationCode&gt;&lt;/ser:confirmationCode&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:newPassword&gt;&lt;/ser:newPassword&gt;
+   &lt;/ser:updatePassword&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>        
+    </tbody>    
 </table>
 
 ### verifyAccount
 
-Verifies the user against the provided claims and captcha information.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd" xmlns:xsd1="http://beans.mgt.captcha.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:verifyAccount>
-         <!--Zero or more repetitions:-->
-         <ser:claims>
-            <!--Optional:-->
-            <xsd:claimUri></xsd:claimUri>
-            <!--Optional:-->
-            <xsd:claimValue></xsd:claimValue>
-         </ser:claims>
-         <!--Optional:-->
-         <ser:captcha>
-            <!--Optional:-->
-            <xsd1:imagePath></xsd1:imagePath>
-            <!--Optional:-->
-            <xsd1:secretKey></xsd1:secretKey>
-            <!--Optional:-->
-            <xsd1:userAnswer></xsd1:userAnswer>
-         </ser:captcha>
-         <!--Optional:-->
-         <ser:tenantDomain></ser:tenantDomain>
-      </ser:verifyAccount>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>claims</td>
-<td><code>             UserIdentityClaim[]            </code></td>
-<td>User claims. Includes <code>             claimUri            </code> and <code>             claimValue            </code> .</td>
-</tr>
-<tr class="even">
-<td>captcha</td>
-<td>Captcha</td>
-<td>Captcha code. Includes <code>             imagePath, secretKey and UserAnswer            </code></td>
-</tr>
-<tr class="odd">
-<td>tenantDomain</td>
-<td>String</td>
-<td>Tenant domain of the user.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation verifies the user against the provided claims and captcha information.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>claims</code> <code>[UserIdentityClaim[] ]</code>: These are user claims. Includes <code>claimUri</code> and <code>claimValue</code>.</li>
+                  <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
+                  <li><code>tenantDomain</code> <code>[String]</code>: This is the user's tenant domain.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd" xmlns:xsd1="http://beans.mgt.captcha.carbon.wso2.org/xsd"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:verifyAccount&gt;
+      &lt;!--Zero or more repetitions:--&gt;
+      &lt;ser:claims&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:claimUri&gt;&lt;/xsd:claimUri&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:claimValue&gt;&lt;/xsd:claimValue&gt;
+      &lt;/ser:claims&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:captcha&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd1:imagePath&gt;&lt;/xsd1:imagePath&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd1:secretKey&gt;&lt;/xsd1:secretKey&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd1:userAnswer&gt;&lt;/xsd1:userAnswer&gt;
+      &lt;/ser:captcha&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:tenantDomain&gt;&lt;/ser:tenantDomain&gt;
+   &lt;/ser:verifyAccount&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>        
+    </tbody>    
 </table>
 
 ### verifyConfirmationCode
 
-This method is used to verify the confirmation code supplied by user.
-This invalidates the current code, generates a new code and sends it to
-the user.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:verifyConfirmationCode>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:code>?</ser:code>
-         <!--Optional:-->
-         <ser:captcha>
-            <!--Optional:-->
-            <xsd:imagePath></xsd:imagePath>
-            <!--Optional:-->
-            <xsd:secretKey></xsd:secretKey>
-            <!--Optional:-->
-            <xsd:userAnswer></xsd:userAnswer>
-         </ser:captcha>
-      </ser:verifyConfirmationCode>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>code</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>captcha</td>
-<td>Captcha</td>
-<td>Captcha code. Includes <code>             imagePath, secretKey and UserAnswer            </code></td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation verifies the confirmation code supplied by user. This invalidates the current code, generates a new code and sends it to the user.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>code</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
+                  <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:verifyConfirmationCode&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:code>?&lt;/ser:code&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:captcha&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:imagePath&gt;&lt;/xsd:imagePath&gt;>
+         &lt;!--Optional:--&gt;
+         &lt;xsd:secretKey&gt;&lt;/xsd:secretKey&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:userAnswer&gt;&lt;/xsd:userAnswer&gt;
+      &lt;/ser:captcha&gt;
+   &lt;/ser:verifyConfirmationCode&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>
+        <tr>
+            <th>Response</th>
+            <td>See below</td>
+        </tr>
+    </tbody>    
 </table>
 
 ### verifyUser
 
-This method is used to verify the user against the captcha code.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:verifyUser>
-         <!--Optional:-->
-         <ser:username></ser:username>
-         <!--Optional:-->
-         <ser:captcha>
-            <!--Optional:-->
-            <xsd:imagePath></xsd:imagePath>
-            <!--Optional:-->
-            <xsd:secretKey></xsd:secretKey>
-            <!--Optional:-->
-            <xsd:userAnswer></xsd:userAnswer>
-         </ser:captcha>
-      </ser:verifyUser>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>captcha</td>
-<td>Captcha</td>
-<td>Captcha code. Includes <code>             imagePath, secretKey and UserAnswer            </code></td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation verifies the user against the captcha code.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>captcha</code> <code>[Captcha]</code>: This is the captcha code. Includes <code>imagePath</code>, <code>secretKey</code>, and <code>UserAnswer</code>.</li>
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org" xmlns:xsd="http://beans.mgt.captcha.carbon.wso2.org/xsd"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:verifyUser&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:username&gt;&lt;/ser:username&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:captcha&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:imagePath&gt;&lt;/xsd:imagePath&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:secretKey&gt;&lt;/xsd:secretKey&gt;
+         &lt;!--Optional:--&gt;
+         &lt;xsd:userAnswer&gt;&lt;/xsd:userAnswer&gt;
+      &lt;/ser:captcha&gt;
+   &lt;/ser:verifyUser&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>        
+    </tbody>    
 </table>
 
 ### verifyUserChallengeAnswer
 
-This method is used to verify the user against the challenge question.
-
-Permission level: `         /permission/admin/login        `
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ser:verifyUserChallengeAnswer>
-         <!--Optional:-->
-         <ser:userName></ser:userName>
-         <!--Optional:-->
-         <ser:confirmation></ser:confirmation>
-         <!--Optional:-->
-         <ser:questionId></ser:questionId>
-         <!--Optional:-->
-         <ser:answer></ser:answer>
-      </ser:verifyUserChallengeAnswer>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-#### Parameters
-
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><div>
-<p>Parameter</p>
-</div></th>
-<th><div>
-<p>Type</p>
-</div></th>
-<th><div>
-<p>Description</p>
-</div></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>userName</td>
-<td>String</td>
-<td>Username of the user.</td>
-</tr>
-<tr class="even">
-<td>confirmation</td>
-<td>String</td>
-<td>Confirmation code send to the user.</td>
-</tr>
-<tr class="odd">
-<td>questionId</td>
-<td>String</td>
-<td>Question ID.</td>
-</tr>
-<tr class="even">
-<td>answer</td>
-<td>String</td>
-<td>Answer to the question.</td>
-</tr>
-</tbody>
+    <tbody>        
+        <tr class="even">
+            <th>Description</th>
+            <td>This operation verifies the user against the challenge question.</td>
+        </tr>
+        <tr class="odd">
+            <th>Permission Level</th>
+            <td>/permission/admin/login</td>  
+        </tr>
+        <tr class="even">
+            <th>Input Parameters</th>
+            <td>
+               <ul>
+                  <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
+                  <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
+                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
+                  <li><code>answer</code> <code>[String]</code>: This is the answer to the question.</li>                  
+               </ul>             
+            </td>
+        </tr>
+        <tr>
+            <th>Request</th>
+            <td>
+               <div style="width: 100%; display: block; overflow: auto;">
+               <pre><code>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.identity.carbon.wso2.org"&gt;
+&lt;soapenv:Header/&gt;
+&lt;soapenv:Body&gt;
+   &lt;ser:verifyUserChallengeAnswer&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:userName&gt;&lt;/ser:userName&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:confirmation&gt;&lt;/ser:confirmation&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:questionId&gt;&lt;/ser:questionId&gt;
+      &lt;!--Optional:--&gt;
+      &lt;ser:answer&gt;&lt;/ser:answer&gt;
+   &lt;/ser:verifyUserChallengeAnswer&gt;
+&lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+             </div>
+         </td>
+        </tr>        
+    </tbody>    
 </table>

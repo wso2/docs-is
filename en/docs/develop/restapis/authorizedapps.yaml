@@ -37,7 +37,7 @@ paths:
       summary: "list authorized applications for the authenticated user"
       operationId: listLoggedInUserAuthorizedApps
       description: |
-        List approved OAuth applications of the authenticated user
+        Lists approved OAuth applications of the authenticated user
       responses:
         200:
           description: search results matching criteria
@@ -74,7 +74,7 @@ paths:
       summary: "retrieve authorized app by app ID for the authenticated user"
       operationId: getLoggedInUserAuthorizedAppByAppId
       description: |
-        Retrived autherized OAuth app by an app ID for for the authenticated user
+        Retrieves authorized OAuth app by an app ID for the authenticated user
       parameters:
         - $ref: '#/parameters/applicationNamePathParam'
       responses:
@@ -96,12 +96,12 @@ paths:
       summary: "removes authorized app by app ID for the authenticated user"
       operationId: deleteLoggedInUserAuthorizedAppByAppId
       description: |
-        Removes autherized OAuth app by an app ID for for the authenticated user
+        Removes authorized OAuth app by an app ID for the authenticated user
       parameters:
         - $ref: '#/parameters/applicationNamePathParam'
       responses:
         204:
-          $ref: '#/responses/Deleted'
+          $ref: '#/responses/Deleted' 
         401:
           $ref: '#/responses/Unauthorized'
         403:

@@ -3,7 +3,7 @@
 In prior versions of WSO2 Identity Server, data publishers were
 implementations of the
 [AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java)
-that are invoked iteratively by the
+which were invoked iteratively by the
 [AuthnDataPublisherProxy](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AuthnDataPublisherProxy.java)
 when a session changes, such that the data publishers send events to
 their corresponding destinations. From WSO2 Identity Server 5.8.0
@@ -11,36 +11,36 @@ onwards, all data publishers have been migrated to act as event handlers
 that subscribe to authentication events.
 
 One of the main reasons for this is because the current implementation
-causes the DASSessionDataPublisherImpl, AuthenticationAuditLogger and
-DASLoginDataPublisherImpl classes to unnecessarily implement all the
+causes the _DASSessionDataPublisherImpl, AuthenticationAuditLogger_ and
+_DASLoginDataPublisherImpl_ classes to unnecessarily implement all the
 methods of the
-[AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java)
-. This change provides the capability for the data publishers to
+[AbstractAuthenticationDataPublisher](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/AbstractAuthenticationDataPublisher.java). 
+This change provides the capability for the data publishers to
 subscribe only to the relevant events of interest and act upon them.
 
 The new design approach is as follows:
 
 -   When a session changes, the identity-framework publishes an event to
-    the `            AuthnDataPublisherProxy           ` .
+    the `AuthnDataPublisherProxy`.
 
--   `            AuthnDataPublisherProxy           ` uses the
-    `            IdentityEventService           ` in
-    the identity-framework to invoke corresponding handlers to handle
+-   `AuthnDataPublisherProxy` uses the `IdentityEventService` in
+    the identity framework to invoke corresponding handlers to handle
     the event.
 
 -   These event handlers extend the
     [AbstractEventHandler](https://github.com/wso2/carbon-identity-framework/blob/master/components/identity-event/org.wso2.carbon.identity.event/src/main/java/org/wso2/carbon/identity/event/handler/AbstractEventHandler.java)
-    and override its `            handleEvent           ` method.
+    and override its `handleEvent` method.
 
-The diagrams given below illustrate the difference between the design
-approach in versions prior to WSO2 IS 5.8.0 and the new design approach.
+The following diagrams illustrate the difference between the design
+approach in the versions prior to WSO2 IS 5.9.0 and the new design approach.
 
 -   **Old design approach**
     ![<Old design approach>](/assets/img/setup/old-design-approach.png)
 -   **New design approach**
     ![<New design approach>](/assets/img/setup/new-design-approach.png)
 
-This section guides you through migrating an existing data publisher to
+
+The following section will guide you through migrating an existing data publisher to
 an event handler.
 
 ## Migrating data publisher to event handler
@@ -52,33 +52,24 @@ and migrating it to use the
 [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
 instead.
 
-1.  Open the `deployment` file found in the
-    `<IS_HOME>/repository/conf` folder 
-    and add the lister attributes. For example, refer the following
-    listener configuration corresponding to the
-    [DASSessionDataPublisherImpl](https://github.com/wso2-support/identity-data-publisher-authentication/blob/support-5.1.7/components/org.wso2.carbon.identity.data.publisher.application.authentication/src/main/java/org/wso2/carbon/identity/data/publisher/application/authentication/impl/DASSessionDataPublisherImpl.java).
-
-    ``` 
-    [[event_listener]]
-    id="abstract_identity_message_handler"
-    type="org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"
-    name="org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl"
-    orderId=11
-    enable="false"
-    ```
+1.  If you have enabled `org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl`
+    in `<OLD_IS_HOME>/repository/conf/identity.xml` do not enable it in
+    the WSO2 Identity Server 5.9.0 configurations. Simply, skip
+    migrating this particular configuration and it will disable the old
+    event listener.
     
     !!! note 
-        The above example is for the new configuration model in WSO2 Identity Server 5.9.0, see 
+        For the new configuration model in WSO2 Identity Server 5.9.0, see 
         [New Configuration Model](../../references/new-configuration-model) for more information.
         
         If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
         your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa) for assiatance.
 
-2.  In order to support backward compatibility, override the
-    `isEnabled` method in the event handler class
-    that extends the `AbstractEventHandler`, such
-    that if the listener property is not defined in the
-    `identity.xml` it will return false.  
+2.  In order to support backward compatibility, override the `isEnabled`
+    method in the event handler class that extends the
+    `AbstractEventHandler`, such that if the listener property is not
+    defined in the `deployment.toml` (previously in `identity.xml`) it
+    will return false.
 
     ``` java
         @Override
@@ -94,20 +85,16 @@ instead.
         }
     ```
 
-3.  To enable the new event handler, add handler and relevant property to the
-    `default.json` file found in the`<IS_HOME>/repository/resources/conf` folder.
-    For example, following properties were added to define the
+3.  To enable the new event handler, add handler and relevant property
+    to the `deployment.toml` file found in the 
+    `<NEW_IS_HOME>/repository/conf` folder. For example, following
+    property is added to enable the
     [AnalyticsSessionDataPublishHandler](https://github.com/wso2-extensions/identity-data-publisher-authentication/blob/master/components/org.wso2.carbon.identity.data.publisher.authentication.analytics.session/src/main/java/org/wso2/carbon/identity/data/publisher/authentication/analytics/session/AnalyticsSessionDataPublishHandler.java)
     .
 
-    ``` xml
-    "identity_mgt.events.schemes.analyticsSessionDataPublisher.module_index": "15",
-    "identity_mgt.events.schemes.analyticsSessionDataPublisher.subscriptions": [
-        "SESSION_CREATE",
-        "SESSION_UPDATE",
-        "SESSION_TERMINATE"
-    ],
-    "identity_mgt.events.schemes.analyticsSessionDataPublisher.properties.enable": true,
+    ``` toml
+    [identity_mgt.events.schemes.analyticsSessionDataPublisher.properties]
+    enable = true
     ```
     
     !!! note 
