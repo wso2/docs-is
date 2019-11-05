@@ -216,19 +216,6 @@ nav:
       - 'Setting Up An LDAP User Store': learn/setting-up-an-ldap-user-store.md
     - 'Using WSO2 Identity Server':     
       - 'Identity Administration and Provisioning':
-        - 'Configuring the Realm':
-          - 'Configuring the Realm': learn/configuring-the-realm.md
-          - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
-          - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
-          - 'Configuring User Stores': 
-            - 'Overview': learn/configuring-user-stores.md
-            - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
-            - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-            - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-            - 'Configuring a Read-write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-            - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-            - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
-            - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
           - 'Configuring Users': learn/configuring-users.md
@@ -472,10 +459,12 @@ nav:
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
       - 'Using APIs': 
+          - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
+            - 'REST APIs': develop/rest-apis.md
             - 'Challenge Question': develop/challenge-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
@@ -579,7 +568,7 @@ nav:
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
     - 'Getting Support': develop/getting-support.md 
   - 'Setup':
-    - 'Installation Guide': 
+    - 'Installation':
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
@@ -592,24 +581,85 @@ nav:
       - 'Getting Started with the Management Console':
         - 'Overview': setup/getting-started-with-the-management-console.md
         - 'Customizing the Management Console': setup/customizing-the-management-console.md
-    - 'Deployment Guide':
-      - 'Deployment Guide': setup/deploying-the-identity-server.md
-      - 'Deployment Patterns': 
-        - 'Deployment Patterns': setup/deployment-patterns.md
+    - 'Deployment':
+      - 'Overview': setup/deploying-the-identity-server.md
+      - 'Deployment Guide':
+        - 'Deploying the Identity Server': setup/deployment-guide.md
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
-        - 'Configuring the Datasource' : setup/configuring-the-datasources.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
-      - 'Token Persistence': setup/token-persistence.md
+    - 'Data Stores':
+      - 'Working with Databases':
+        - 'Overview': administer/working-with-databases.md
+        - 'Changing the Carbon Database':
+          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
+          - 'Changing to MariaDB': administer/changing-to-mariadb.md
+          - 'Changing to MSSQL': administer/changing-to-mssql.md
+          - 'Changing to MySQL': administer/changing-to-mysql.md
+          - 'Changing to Oracle': administer/changing-to-oracle.md
+          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
+          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
+          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
+          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
+        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
+      - 'Working with the Registry':
+        - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
+      - 'Working with Users, Roles and Permissions':
+            - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
+            - 'Introduction to User Management': administer/introduction-to-user-management.md
+            - 'Configuring the User Realm':
+              - 'Configuring the User Realm': learn/configuring-the-realm.md
+              - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
+              - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
+              - 'Configuring User Stores':
+                - 'Configuring User Stores': learn/configuring-user-stores.md
+                - 'Configuring the Primary User Store':
+                  - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
+                  - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
+                  - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
+                  - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
+                  - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
+                - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
+                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
+                - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
+      - "Working with Tokens":
+        - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
+        - 'Token Persistence': setup/token-persistence.md
+        - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
+      - 'Data Purging': administer/data-purging.md
+      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
+    - 'Monitor':
+        - 'Monitoring':
+          - 'Overview': administer/monitoring-the-identity-server.md
+          - 'Monitoring Logs':
+            - 'Monitoring Logs': administer/monitoring-logs.md
+            - 'HTTP Access Logging': administer/http-access-logging.md
+            - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
+          - 'System Statistics': administer/system-statistics.md
+          - 'Monitoring TCP-Based Messages':
+            - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
+            - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
+            - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
+          - 'Monitoring Server Health': administer/monitoring-server-health.md
+          - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
+        - 'Working with Product Observability': administer/working-with-product-observability.md
+        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
+    - 'Performance':
+      - 'Performance Tuning': administer/performance-tuning-recommendations.md
+      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Migration Guide':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Migrating to 5.9.0': setup/migration-guide.md
-      - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
-      - 'Migrating Data Publishers': setup/migrating-data-publishers.md
-      - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
+      - 'Migration':
+          - "Before you begin" : setup/migration-guide.md
+          - "Preparing for migration" : setup/migrating-preparing-for-migration.md
+          - "Migrating to 5.9.0" : setup/migrating-to-590.md
+          - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
+          - 'Migrating Data Publishers': setup/migrating-data-publishers.md
+          - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
     - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
@@ -627,7 +677,7 @@ nav:
         - 'Configuring Transport Level Security': administer/transport-level-security.md
         - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
         - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-csrf-attacks.md
+        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
         - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
         - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Using Tools':
@@ -642,16 +692,11 @@ nav:
           - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
           - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
-      - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
-      - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
-      - 'Data Purging': administer/data-purging.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
         - 'Mutual TLS with client id and secret using OIDC': administer/mutual-tls-with-client-id-and-secret-using-oidc.md
       - 'Invoking an Endpoint from a Different Domain': administer/invoking-an-endpoint-from-a-different-domain.md
-      - 'Working with Product Observability': administer/working-with-product-observability.md
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
@@ -661,41 +706,7 @@ nav:
       - 'Production Deployment Guidelines': 
         - 'Production Deployment Guidelines': administer/production-deployment-guidelines.md
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
-        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
-    - 'Data Stores':
-      - 'Working with Databases':
-        - 'Overview': administer/working-with-databases.md
-        - 'Changing the Carbon Database':
-          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
-          - 'Changing to MariaDB': administer/changing-to-mariadb.md
-          - 'Changing to MSSQL': administer/changing-to-mssql.md
-          - 'Changing to MySQL': administer/changing-to-mysql.md
-          - 'Changing to Oracle': administer/changing-to-oracle.md
-          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
-          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
-          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
-        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
-      - 'Working with the Registry': 
-        - 'Working with the Registry': administer/working-with-the-registry.md
-        - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Working with Users, Roles and Permissions':
-        - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
-        - 'Introduction to User Management': administer/introduction-to-user-management.md
-        - 'Configuring the User Realm': 
-          - 'Configuring the User Realm': administer/configuring-user-realm.md
-          - 'Configuring User Stores':
-            - 'Configuring User Stores': administer/configuring-user-stores.md
-            - 'Configuring the Primary User Store':
-              - 'Configuring the Primary User Store': administer/configuring-the-primary-user-store.md
-              - 'Configuring a JDBC User Store': administer/configuring-a-jdbc-user-store.md
-              - 'Configuring a Read-Only LDAP User Store': administer/configuring-a-read-only-ldap-user-store.md
-              - 'Configuring a Read-Write Active Directory User Store': administer/configuring-a-read-write-active-directory-user-store.md
-              - 'Configuring a Read-Write LDAP User Store': administer/configuring-a-read-write-ldap-user-store.md
-            - 'Configuring Secondary User Stores': administer/configuring-secondary-user-stores.md 
-            - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-            - 'Writing a Custom User Store Manager': administer/writing-a-custom-user-store-manager.md
     - 'Security':
       - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
       - 'Securing Passwords in Configuration Files':
@@ -719,22 +730,6 @@ nav:
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
-    - 'Monitoring':
-        - 'Monitoring': administer/monitoring-the-identity-server.md
-        - 'Monitoring Logs':
-          - 'Monitoring Logs': administer/monitoring-logs.md
-          - 'HTTP Access Logging': administer/http-access-logging.md
-          - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-        - 'System Statistics': administer/system-statistics.md
-        - 'Monitoring TCP-Based Messages':
-          - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-          - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-          - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-        - 'Monitoring Server Health': administer/monitoring-server-health.md
-        - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-    - 'Performance':
-      - 'Performance Tuning': administer/performance-tuning-recommendations.md
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
     - 'Reference Guide':
       - 'Reference Guide': administer/reference-guide.md  

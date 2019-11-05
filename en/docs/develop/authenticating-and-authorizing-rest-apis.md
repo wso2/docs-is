@@ -55,7 +55,7 @@ Let's learn how to authenticate and authorize REST APIs:
 
         !!! example
             ```toml
-            [[resource.access_control]]
+            [resource.access_control]
             context = "/api/identity/*"
             secured = true
             http_method = "all"

@@ -11,7 +11,7 @@ that contains authentication related pages.
 
 Follow the steps below to customize the authentication endpoint URL:
 
-1.  Edit the `<IS_HOME>/repository/conf/identity/application-authentication.properties`  file, and change the value of the following parameter depending on the URL that the web application should run. 
+1.  Add the following configurations to the `<IS_HOME>/repository/conf/deployment.toml`  file, and change the value of the login_url parameter depending on the URL on which the web application should run. 
 
     ```toml
     [authentication.endpoints] 
@@ -30,9 +30,9 @@ Follow the steps below to customize the authentication endpoint URL:
 
 Additional request parameters can be added and customized for the
 request sent to the authentication endpoint. To customize this,
-uncomment the following configurations in the
-`         <IS_HOME>/repository/conf/identity/application-authentication.properties        `
-file, under the `         [authentication.endpoint.query_params]        ` element.
+add the following configurations in the
+`         <IS_HOME>/repository/conf/deployment.toml        `
+file.
 
 ```toml
 [authentication.endpoint.query_params] 
@@ -65,8 +65,8 @@ textbox on the login page, without having to type it with
   
 Do the following configurations to enable this feature.
 
-1.  Open the
-    `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
+1.  Add the following configuration to the
+    `           <IS_HOME>/repository/conf/tomcat/deployment.toml          `
     file and ensure that the `           clientAuth          ` attribute
     in the `           Connector          ` tag is set to “
                want           ” as shown below. This is done to
@@ -74,7 +74,8 @@ Do the following configurations to enable this feature.
     when working on mobile apps). This makes two-way SSL authentication
     optional.
 
-    ``` xml
+    ``` toml
+    [transport.https.properties]
     clientAuth="want"
     ```
 
@@ -89,22 +90,15 @@ Do the following configurations to enable this feature.
 
 2.  Open the
     `           <IS-HOME>/repository/conf/deployment.toml          `
-    file and add the
-    `                       enable="true"                     `
-    for enable the
-    Mutual SSL Authenticator.
+    file and add the following parameter to enable the Mutual SSL Authenticator.
 
     ```toml
     [admin_console.authenticator.mutual_ssl_authenticator]
     enable = true
-    priority = 5 
-    username_header = UserName
-    white_list_enabled = false
-    white_list =
     ```
 
-3.  If the `           SAML2SSOAuthenticator          ` is enabled in the
-    `           <IS_HOME>/repository/conf/security/authenticators.properties          `
+3.  If the `           saml_sso_authenticator          ` is enabled in the
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file, set its priority to 0. Otherwise ignore this step.
 
     ```toml
@@ -148,29 +142,30 @@ Do the following configurations to enable this feature.
 
 6.  Once the server is restarted, the **authenticationendpoint.war**
     file is deployed. The
-    `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
-    file has to be changed with the required values for properties. The
+    `           <IS_HOME>/repository/conf/deployment.toml         `
+    file has to be configured with the required values for properties. The
     following are the default values for the properties to be used in
     this file.
 
-    ``` xml
-    tenantListEnabled=false
-    hostname.verification.enabled=true
-    mutual.ssl.username=admin
-    client.keyStore=./repository/resources/security/wso2carbon.jks
-    Carbon.Security.KeyStore.Password=wso2carbon
-    client.trustStore=./repository/resources/security/client-truststore.jks
-    Carbon.Security.TrustStore.Password=wso2carbon
-    #identity.server.serviceURL=https://localhost:9443/services/
-    username.header=UserName
+    ``` toml
+    [identity.auth_framework.endpoint] 
+    tenant_list_enabled="false"
+    hostname_verification_enabled="true"
+    mutual_ssl_username="admin"
+    client_keystore="wso2carbon.jks"
+    carbon_security_keystore_password="wso2carbon"
+    client_truststore="client-truststore.jks"
+    carbon_security_truststore_password="wso2carbon"
+    identity_server_service_url="https://localhost:9443/services/"
+    username_header="UserName"
     ```
 
     Do the following updates to this configuration.
 
-    1.  Set `            tenantListEnabled           ` to
+    1.  Set `            tenant_list_enabled           ` to
         `            true           ` in order to enable the tenants to
         display as a list.
-    2.  For the `             mutual.ssl.username            ` property,
+    2.  For the `             mutual_ssl_username            ` property,
         set the username that is to be used for mutual SSL
         authentication. This user needs to have permission to list down
         tenants. You can add a new username here provided that you
@@ -185,8 +180,8 @@ Do the following configurations to enable this feature.
         truststore of the Identity Server itself. A new keystore can be
         created and used for the client if necessary, however, you
         must set the passwords for
-        `             client.keyStore.password            ` and
-        `             client.trustStore.password            `
+        `             carbon_security_keystore_password          ` and
+        `             carbon_security_truststore_password            `
         appropriately.
 
     !!! note
@@ -195,7 +190,7 @@ Do the following configurations to enable this feature.
         `           autheticationendpoint.war          ` webapp outside the
         Identity Server (i.e in a different Tomcat or WSO2 Application
         Server), then you cannot use the
-        `           <IS_HOME>/repository/conf/identity/EndpointConfig.properties          `
+        `           <IS_HOME>/repository/conf/deployment.toml          `
         file because the webapp does not have access to this file. Instead,
         the same property file can be found at
         `           <WebApp_HOME>/          `
@@ -203,7 +198,7 @@ Do the following configurations to enable this feature.
     
         In this scenario, do the following:
     
-        -   Open the `<WebApp_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            ` file and p rovide the full URL to WSO2 Identity Server’s admin services endpoint in the
+        -   Open the `<WebApp_HOME>/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            ` file and provide the full URL to WSO2 Identity Server’s admin services endpoint in the
             `             identity.server.serviceURL            ` property following the format below.
             <code>identity.server.serviceURL=https://<ip>:<port>/services</code>
     
@@ -244,14 +239,14 @@ Do the following configurations to enable this feature.
     !!! note
     
         If you are not using mutual SSL authentication, you can stop the
-        `           MutualSSLManager          ` from loading the keystore by
-        disabling the `           mutualSSLManagerEnabled          `
-        property in the `           EndpointConfig.properties          `
-        file in `           <IS_HOME>/repository/conf/identity.          `
+        **MutualSSLManager** from loading the keystore by
+        setting the `           mutual_ssl_manager_enabled          `
+        property in the `           deployment.toml         `
+        file to false.
         This property is enabled by default.
     
-        ``` java
-        mutualSSLManagerEnabled=true
+        ``` toml
+        mutual_ssl_manager_enabled="false"
         ```
     
 
@@ -261,35 +256,21 @@ If it is required to remove the tenant domain dropdown list in SSO Login
 page, follow the steps below.
 
 1.  Shutdown the server if it is already started.
-2.  Set the property
-    **`            tenantListEnabled=false           `** in the
-    `           EndpointConfig.properties          ` file.
+2.  Set the
+    `            tenant_list_enabled           ` property to **false**.
 
-    -   If you are hosting the
-        **`               authenticationendpoint.war              `**
-        webapp within WSO2 Identity Server, set this property in the
-        `              <IS_HOME>/repository/conf/identity/EndpointConfig.properties             `
-        file.  
+3.  Set following parameter to
+    `           false          `.
 
-    -   If you are hosting it outside the WSO2 Identity Server (i.e.,
-        external Tomcat or WSO2 Application Server), set this property
-        in the
-        `             <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/EndpointConfig.properties            `
-        file.
-
-3.  Set `           TenantDomainDropDownEnabled          ` parameter to
-    `           false          ` in the
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
-    file.
-
-    ``` xml
-    <TenantDomainDropDownEnabled>false</TenantDomainDropDownEnabled>
+    ``` toml
+    [tenant.domain_drop_down]
+    enable = true
     ```
 
 4.  If the `           MutualSSLAuthenticator          ` is only used
     for the purpose of listing tenant domains in the drop down, disable
     it in the
-    `           <IS_HOME>/repository/conf/security/authenticators.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml          `
     file.
 
     ``` toml
@@ -373,12 +354,12 @@ below steps:
             - Relying party for Oauth2 = OAuth Client Key  
 
         - Following are two sample values for Name and value:
-            - Name : [wso2.my](http://wso2.my/).dashboard
-            - Value : <https://localhost:9443/dashboard/index.jag>         
+            - Name : wso2.mydashboard
+            - Value : https://localhost:9443/dashboard/index.jag         
 
         - If you are using travelocity as the sample app, you can use the below values:
             - Name : travelocity.com
-            - Value : <http://localhost:8080/travelocity.com/home.jsp>
+            - Value : http://localhost:8080/travelocity.com/home.jsp
 
 11. Once you fill name and the value, click the **Add** button.
 

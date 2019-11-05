@@ -18,6 +18,15 @@ topics:
 -   Workflow Requests
 
 !!! info "Recommended reading" 
-    -   For a detailed list of monitoring options, see [Monitoring Mechahisms.](../../administer/monitoring-mechanisms).       
-    -   For information on the Carbon Health Check API to monitor server health, see [Monitoring Server Health.](../../administer/monitoring-server-health). 
+    -   For a detailed list of monitoring options, see 
+        -   [Monitoring Logs](../../administer/monitoring-logs-using-management-console)
+        -   [System Statistics](../../administer/system-statistics)
+        -   [Monitoring TCP-Based Messages](../../administer/monitoring-tcp-based-messages)
+        -   [Monitoring Server Health](../../administer/monitoring-server-health)
+        -   [JMX-Based Monitoring](../../administer/jmx-based-monitoring)       
     -   For information on monitoring workflows, see [Monitoring Workflow Requests](../../learn/monitoring-workflow-requests).
+    -   [Product observability](../../administer/working-with-product-observability/)
+        and [Troubleshooting guide](../../administer/troubleshooting-in-production-environments)
+        discuss more WSO2 Identity Server's monitoring capabilities.
+
+

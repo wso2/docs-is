@@ -12,7 +12,7 @@ directory). The following steps describe how you can configure this:
 
 1.  Navigate to
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/         `
-2.  Take a copy of the Resources.properties file, rename it with the
+2.  Take a copy of the `Resources.properties` file, rename it with the
     required locale suffix as follows:  
     - For British English:
     `           Resources_en_GB.properties          `  
