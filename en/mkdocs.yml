@@ -610,30 +610,19 @@ nav:
             - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
             - 'Introduction to User Management': administer/introduction-to-user-management.md
             - 'Configuring the User Realm':
-              - 'Configuring the User Realm': administer/configuring-user-realm.md
-              - 'Configuring User Stores':
-                - 'Configuring User Stores': administer/configuring-user-stores.md
-                - 'Configuring the Primary User Store':
-                  - 'Configuring the Primary User Store': administer/configuring-the-primary-user-store.md
-                  - 'Configuring a JDBC User Store': administer/configuring-a-jdbc-user-store.md
-                  - 'Configuring a Read-Only LDAP User Store': administer/configuring-a-read-only-ldap-user-store.md
-                  - 'Configuring a Read-Write Active Directory User Store': administer/configuring-a-read-write-active-directory-user-store.md
-                  - 'Configuring a Read-Write LDAP User Store': administer/configuring-a-read-write-ldap-user-store.md
-                - 'Configuring Secondary User Stores': administer/configuring-secondary-user-stores.md
-                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-                - 'Writing a Custom User Store Manager': administer/writing-a-custom-user-store-manager.md
-            - 'Configuring the Realm':
-              - 'Configuring the Realm': learn/configuring-the-realm.md
+              - 'Configuring the User Realm': learn/configuring-the-realm.md
               - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
               - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
               - 'Configuring User Stores':
-                - 'Overview': learn/configuring-user-stores.md
-                - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
+                - 'Configuring User Stores': learn/configuring-user-stores.md
+                - 'Configuring the Primary User Store':
+                  - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
+                  - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
+                  - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
+                  - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
+                  - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
                 - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-                - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-                - 'Configuring a Read-write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-                - 'Configuring a Read-only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-                - 'Configuring a Read-write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
+                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
                 - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
     - 'Migration Guide':
       - 'Migration Process': setup/migration-process.md

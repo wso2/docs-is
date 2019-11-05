@@ -21,7 +21,7 @@ You can use either the management console to create secondary user stores or you
 2.  From the User Store Manager Class drop-down list, select the user
     store manager class that suits your user store.
     
-    ![add-a-secondary-user-store](/assets/img/tutorials/add-secondary-user-store.png)
+    ![add-a-secondary-user-store](../assets/img/tutorials/add-secondary-user-store.png)
 
     The following table lists the available User store manager
     implementations and their usage:
