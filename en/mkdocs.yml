@@ -639,7 +639,7 @@ nav:
             - 'Monitoring Logs': setup/monitoring-logs.md
             - 'HTTP Access Logging': setup/http-access-logging.md
             - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
-          - 'System Statistics': setup/system-statistics.md.md
+          - 'System Statistics': setup/system-statistics.md
           - 'Monitoring TCP-Based Messages':
             - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
             - 'Message Monitoring with TCPMon': setup/message-monitoring-with-tcpmon.md
