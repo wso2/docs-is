@@ -46,8 +46,7 @@ database structure for a logical separation of data.
 <li>Contains authorization manager configurations, internal permissions and roles.</li>
 <li>In the default database configuration, user data and registry data are located inside <code>SHARED_DB</code>
 .</li>
-<li>For more information, see <a href="../../setup/working-with-databases">Changing the Default Datasource for 
-User Database</a>.</li>
+<li>For more information, see <a href="../../learn/configuring-user-stores">Configuring User Stores</a>.</li>
 </td>
 </tr>
 <tr class="even">
