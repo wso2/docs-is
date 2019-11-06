@@ -3,7 +3,7 @@
 This section provides details on Fast IDentity Online (FIDO) and instructions on how to configure multi-factor authentication (MFA) in WSO2 Identity Server using FIDO.
 
 !!! info 
-    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication-for-wso2-is#about-mfa). 
+    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
 
 !!! tip "Before you Begin"
     Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:

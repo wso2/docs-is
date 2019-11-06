@@ -66,6 +66,30 @@ nav:
   - 'Learn':
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
+      - 'Single Sign-On':
+        - 'Single Sign-On': learn/single-sign-on.md
+        - 'Configuring Single Sign-On':
+          - 'Configuring Single Sign-On': learn/configuring-single-sign-on.md
+          - 'Configuring reCaptcha for Single Sign On': learn/configuring-recaptcha-for-single-sign-on.md
+        - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+        - 'SAML 2.0 Web SSO':
+          - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
+          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml2-web-single-sign-on.md
+          - 'Querying SAML Assertions': learn/querying-saml-assertions.md
+          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
+        - 'WS-Trust':
+          - 'WS-Trust': learn/ws-trust.md
+          - 'Configuring WS-Trust Security Token Service': learn/configuring-ws-trust-security-token-service.md
+        - 'WS-Federation':
+          - 'WS-Federation': learn/ws-federation.md
+          - 'Configuring WS-Federation Single Sign-On': learn/configuring-ws-federation-single-sign-on.md
+        - 'Integrated Windows Authentication':
+          - 'Integrated Windows Authentication Overview': learn/integrated-windows-authentication-overview.md
+          - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
+        - 'OAuth2-OpenID Connect':
+          - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
+          - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
+          - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -96,6 +120,12 @@ nav:
         - 'Testing OIDC Encrypted ID Token with IS': learn/testing-oidc-encrypted-id-token-with-is.md
         - 'Passing OIDC Authentication Request Parameters in a Request Object': learn/passing-oidc-authentication-request-parameters-in-a-request-object.md
         - 'Enforcing Signature Validation for Request Objects': learn/enforcing-signature-validation-for-request-objects.md
+      - "Multi-factor Authentication" :
+        - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
+        - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
+        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
+        - 'Configuring SMS OTP': learn/configuring-sms-otp.md
+        - 'Configuring Email OTP': learn/configuring-email-otp.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
@@ -113,31 +143,7 @@ nav:
           - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
         - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
-      - 'Single Sign-On':
-        - 'Single Sign-On': learn/single-sign-on.md
-        - 'Configuring Single Sign-On': 
-          - 'Configuring Single Sign-On': learn/configuring-single-sign-on.md
-          - 'Configuring reCaptcha for Single Sign On': learn/configuring-recaptcha-for-single-sign-on.md
-        - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
-        - 'SAML 2.0 Web SSO':
-          - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
-          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml2-web-single-sign-on.md
-          - 'Querying SAML Assertions': learn/querying-saml-assertions.md
-          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
-        - 'WS-Trust':
-          - 'WS-Trust': learn/ws-trust.md
-          - 'Configuring WS-Trust Security Token Service': learn/configuring-ws-trust-security-token-service.md
-        - 'WS-Federation':
-          - 'WS-Federation': learn/ws-federation.md
-          - 'Configuring WS-Federation Single Sign-On': learn/configuring-ws-federation-single-sign-on.md 
-        - 'Integrated Windows Authentication':
-          - 'Integrated Windows Authentication Overview': learn/integrated-windows-authentication-overview.md
-          - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
-        - 'OAuth2-OpenID Connect':
-          - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
-          - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
-          - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
-      - 'Identity Federation': 
+      - 'Identity Federation':
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
           - 'Configuring Federated Authentication': learn/configuring-federated-authentication.md
@@ -150,8 +156,6 @@ nav:
           - 'Configuring IWA on Linux': learn/configuring-iwa-on-linux.md
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md
-          - 'Configuring SMS OTP': learn/configuring-sms-otp.md
-          - 'Configuring Email OTP': learn/configuring-email-otp.md
           - 'Configuring Apple': learn/configuring-apple.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
@@ -304,8 +308,6 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'MFA for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
-            - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
             - 'Request Path Authentication': learn/request-path-authentication.md
             - 'Writing a Post-Authentication Handler': learn/writing-post-authentication-handler.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
@@ -527,7 +529,6 @@ nav:
         - 'Duo Security Authenticator and Provisioning Connector':
           - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
           - 'Duo Security Authenticator': develop/duo-security-authenticator.md
-        - 'EmailOTP Authenticator': learn/configuring-email-otp.md
         - 'Facebook Authenticator': develop/facebook-authenticator.md
         - 'Foursquare Authenticator': develop/foursquare-authenticator.md
         - 'Github Authenticator': develop/github-authenticator.md
@@ -586,49 +587,49 @@ nav:
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
       - 'Changing the hostname': setup/changing-the-hostname.md
-      - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+      - 'Data Stores':
+        - 'Working with Databases':
+          - 'Overview': administer/working-with-databases.md
+          - 'Changing the Carbon Database':
+            - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
+            - 'Changing to MariaDB': administer/changing-to-mariadb.md
+            - 'Changing to MSSQL': administer/changing-to-mssql.md
+            - 'Changing to MySQL': administer/changing-to-mysql.md
+            - 'Changing to Oracle': administer/changing-to-oracle.md
+            - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
+            - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
+            - 'Changing to Remote H2': administer/changing-to-remote-h2.md
+            - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
+          - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
+        - 'Working with the Registry':
+          - 'Working with the Registry': administer/working-with-the-registry.md
+          - 'Browsing the Registry': administer/browsing-the-registry.md
+        - 'Working with Users, Roles and Permissions':
+              - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
+              - 'Introduction to User Management': administer/introduction-to-user-management.md
+              - 'Configuring the User Realm':
+                - 'Configuring the User Realm': learn/configuring-the-realm.md
+                - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
+                - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
+                - 'Configuring User Stores':
+                  - 'Configuring User Stores': learn/configuring-user-stores.md
+                  - 'Configuring the Primary User Store':
+                    - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
+                    - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
+                    - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
+                    - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
+                    - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
+                  - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+                  - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
+                  - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
+                  - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
+        - "Working with Tokens":
+          - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
+          - 'Token Persistence': setup/token-persistence.md
+          - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
+        - 'Data Purging': administer/data-purging.md
+        - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
-    - 'Data Stores':
-      - 'Working with Databases':
-        - 'Overview': administer/working-with-databases.md
-        - 'Changing the Carbon Database':
-          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
-          - 'Changing to MariaDB': administer/changing-to-mariadb.md
-          - 'Changing to MSSQL': administer/changing-to-mssql.md
-          - 'Changing to MySQL': administer/changing-to-mysql.md
-          - 'Changing to Oracle': administer/changing-to-oracle.md
-          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
-          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
-          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
-        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
-      - 'Working with the Registry':
-        - 'Working with the Registry': administer/working-with-the-registry.md
-        - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Working with Users, Roles and Permissions':
-            - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
-            - 'Introduction to User Management': administer/introduction-to-user-management.md
-            - 'Configuring the User Realm':
-              - 'Configuring the User Realm': learn/configuring-the-realm.md
-              - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
-              - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
-              - 'Configuring User Stores':
-                - 'Configuring User Stores': learn/configuring-user-stores.md
-                - 'Configuring the Primary User Store':
-                  - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
-                  - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-                  - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-                  - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-                  - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
-                - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-                - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
-      - "Working with Tokens":
-        - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
-        - 'Token Persistence': setup/token-persistence.md
-        - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
-      - 'Data Purging': administer/data-purging.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
     - 'Monitor':
         - 'Monitoring':
           - 'Overview': administer/monitoring-the-identity-server.md
