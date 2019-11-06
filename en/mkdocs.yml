@@ -651,10 +651,10 @@ nav:
     - 'Performance':
       - 'Performance Tuning': setup/performance-tuning-recommendations.md
       - 'Configuring Cache Layers': setup/configuring-cache-layers.md
-    - 'Migration Guide':
+    - 'Migration':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Migration':
+      - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.9.0" : setup/migrating-to-590.md
