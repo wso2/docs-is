@@ -598,7 +598,7 @@ nav:
             - 'Changing to Oracle': setup/changing-to-oracle.md
             - 'Changing to Oracle RAC': setup/changing-to-oracle-rac.md
             - 'Changing to PostgreSQL': setup/changing-to-postgresql.md
-            - 'Changing to Remote H2': setup/changing-to-remote-h2.md.md
+            - 'Changing to Remote H2': setup/changing-to-remote-h2.md
             - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
           - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
         - 'Working with the Registry':
@@ -639,7 +639,7 @@ nav:
             - 'Monitoring Logs': setup/monitoring-logs.md
             - 'HTTP Access Logging': setup/http-access-logging.md
             - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
-          - 'System Statistics': setup/system-statistics.md.md
+          - 'System Statistics': setup/system-statistics.md
           - 'Monitoring TCP-Based Messages':
             - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
             - 'Message Monitoring with TCPMon': setup/message-monitoring-with-tcpmon.md
