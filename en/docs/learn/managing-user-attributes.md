@@ -136,7 +136,7 @@ retrieve/add a user attribute. Other methods can be kept as they are.
     ```
 
 See [Writing a Custom User Store
-Manager](../../learn/writing-a-custom-user-store-manager) for more information on
+Manager](../../setup/writing-a-custom-user-store-manager) for more information on
 this.
 
 ### Authentication using multiple attributes
@@ -183,7 +183,7 @@ LDAP.
 
 1.  Configure the LDAP user store related configurations using the `deployment.toml` file found in the 
     `<IS_HOME>/repository/conf` directory. For more information on configuring user stores, see 
-    [Configuring the Realm](../../learn/configuring-the-realm).
+    [Configuring the Realm](../../setup/configuring-the-realm).
     
     1.  Configure the `user_name_search_filter`
         property as shown below to search for the user object in the
@@ -264,5 +264,5 @@ configured to return any attribute by changing the '
         configure claims when [adding an identity
         provider](../../learn/adding-and-configuring-an-identity-provider).
     -   See [Writing a Custom User Store
-        Manager](../../learn/writing-a-custom-user-store-manager) for instructions on
+        Manager](../../setup/writing-a-custom-user-store-manager) for instructions on
         how to write a custom user store manager.

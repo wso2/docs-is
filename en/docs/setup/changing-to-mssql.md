@@ -1,11 +1,11 @@
-# Changing to PostgreSQL
+# Changing to MSSQL
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use PostgreSQL for this purpose.
+you need to follow in order to use MS SQL for this purpose.
     
 
-### Setting up datasource configurations
+## Setting up datasource configurations
 
 A datasource is used to establish the connection to a database. By
 default, `WSO2_IDENTITY_DB` and `WSO2_SHARED_DB` datasources are used to connect
@@ -16,12 +16,12 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that PostgreSQL database by following below instructions.
+After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that MS SQL database by following below instructions.
 
-#### Changing the default datasource
+### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to PostgreSQL.**
+1.  **Minimum Configurations for changing default datasource to MS SQL.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -63,21 +63,21 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
 
            ``` toml
            [database.identity_db]
-           type = "postgre"
+           type = "mssql"
            hostname = "localhost"
-           name = "testdb"
+           name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "5432"
+           port = "1433"
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/postgresql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/postgresql.sql`
-           - `<IS-HOME>/dbscripts/consent/postgresql.sql`
+           - `<IS-HOME>/dbscripts/identity/mssql.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
+           - `<IS-HOME>/dbscripts/consent/mssql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -85,24 +85,24 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
 
            ``` toml
            [database.shared_db]
-           type = "postgre"
+           type = "mssql"
            hostname = "localhost"
-           name = "testdb"
+           name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "5432"
+           port = "1433"
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/postgresql.sql`
+           - `<IS-HOME>/dbscripts/mssql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the Postgres JDBC driver for the version you are using and
+   4.  Download the MS SQL JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -127,7 +127,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1; COMMIT"
+    validationQuery="SELECT 1"
     validationInterval="30000"
     defaultAutoCommit=false
    ```
@@ -140,7 +140,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1; COMMIT"
+    validationQuery="SELECT 1"
     validationInterval="30000"
     defaultAutoCommit=false
    ```
@@ -181,95 +181,96 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     </tbody>
     </table>
 
-    For more information on other parameters that can be defined in
-    the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
-    JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+    !!! info 
+        For more information on other parameters that can be defined in
+        the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
+        JDBC Connection
+        Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
-   **Configuring the connection pool behavior on return** 
-    When a database connection is returned to the pool, by default 
-    the product rolls back the pending transactions if defaultAutoCommit
-    =true. However, if required you can disable the latter mentioned
-    default behavior by disabling the
-    `            ConnectionRollbackOnReturnInterceptor           `,
-    which is a JDBC-Pool JDBC interceptor, and setting the connection
-    pool behavior on return via the datasource configurations by using
-    the following options.
+   !!! info "Configuring the connection pool behavior on return" 
+        When a database connection is returned to the pool, by default 
+        the product rolls back the pending transactions if defaultAutoCommit
+        =true. However, if required you can disable the latter mentioned
+        default behavior by disabling the
+        `            ConnectionRollbackOnReturnInterceptor           `,
+        which is a JDBC-Pool JDBC interceptor, and setting the connection
+        pool behavior on return via the datasource configurations by using
+        the following options.
     
     
 
-- **Configure the connection pool to commit pending transactions on connection return**  
+### Configure the connection pool to commit pending transactions on connection return  
         
-      1.  Navigate to either one of the following locations based on your OS.
-            -   On Linux/Mac OS:
-                `                 <IS_HOME>/bin/wso2server.sh/                `
-            -   On Windows:
-                `                 <IS_HOME>\bin\wso2server.bat                `
-      2.  Add the following JVM option:
+  1.  Navigate to either one of the following locations based on your OS.
+        -   On Linux/Mac OS:
+            `                 <IS_HOME>/bin/wso2server.sh/                `
+        -   On Windows:
+            `                 <IS_HOME>\bin\wso2server.bat                `
+  2.  Add the following JVM option:
 
-           ``` java
-           -Dndatasource.disable.rollbackOnReturn=true \
-           ```
+       ``` java
+       -Dndatasource.disable.rollbackOnReturn=true \
+       ```
 
-      3.  Navigate to the
-            `               <IS_HOME>/repository/conf/deployment.toml              `
-            file.
-      4.  Disable the `               defaultAutoCommit              `
-            by defining it as `false`.
-      5.  Add the `                commitOnReturn               `
-            property and set it to true.
-                             
-        - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+  3.  Navigate to the
+        `               <IS_HOME>/repository/conf/deployment.toml              `
+        file.
+  4.  Disable the `               defaultAutoCommit              `
+        by defining it as `false`.
+  5.  Add the `                commitOnReturn               `
+        property and set it to true.
+                         
+    - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+        
+       ``` toml
+       [database.identity_db.pool_options]
+        defaultAutoCommit="false"
+        commitOnReturn="true"
+       ```
+       
+    - `WSO2_SHARED_DB` `deployment.toml` Configurations.
             
-           ``` toml
-           [database.identity_db.pool_options]
-            defaultAutoCommit="false"
-            commitOnReturn="true"
-           ```
-           
-        - `WSO2_SHARED_DB` `deployment.toml` Configurations.
-                
-           ``` toml
-           [database.shared_db.pool_options]
-            defaultAutoCommit="false"
-            commitOnReturn="true"
-           ```    
+       ``` toml
+       [database.shared_db.pool_options]
+        defaultAutoCommit="false"
+        commitOnReturn="true"
+       ```    
             
-- **Configure the connection pool to rollback pending transactions on connection return**
+### Configure the connection pool to rollback pending transactions on connection return
 
-      1.  Navigate to the
-            `<IS_HOME>/repository/conf/deployment.toml`            `
-            file.
-      2.  Disable the
-            `                defaultAutoCommit               ` by
-            defining it as `false`.
+  1.  Navigate to the
+        `<IS_HOME>/repository/conf/deployment.toml`            `
+        file.
+  2.  Disable the
+        `                defaultAutoCommit               ` by
+        defining it as `false`.
 
-      3.  Set the `                rollbackOnReturn               `
-            property to the datasources as true.
+  3.  Set the `                rollbackOnReturn               `
+        property to the datasources as true.
 
 
-        - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+    - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
+        
+       ``` toml
+       [database.identity_db.pool_options]
+        defaultAutoCommit="false"
+        rollbackOnReturn="true"
+       ```
+       
+    - `WSO2_SHARED_DB` `deployment.toml` Configurations.
             
-           ``` toml
-           [database.identity_db.pool_options]
-            defaultAutoCommit="false"
-            rollbackOnReturn="true"
-           ```
-           
-        - `WSO2_SHARED_DB` `deployment.toml` Configurations.
-                
-           ``` toml
-           [database.shared_db.pool_options]
-            defaultAutoCommit="false"
-            rollbackOnReturn="true"
-           ```
-    
-    The elements in the above configuration are described below:
-    
-     | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
-     |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-     | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
-     | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
+       ``` toml
+       [database.shared_db.pool_options]
+        defaultAutoCommit="false"
+        rollbackOnReturn="true"
+       ```
+
+The elements in the above configuration are described below:
+
+ | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
+ |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
+ | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 
     

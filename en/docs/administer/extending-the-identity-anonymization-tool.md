@@ -20,7 +20,7 @@ additional modules other than relational databases or log files.
         [here](https://github.com/wso2/identity-anonymization-tool), and
         build the tool. For detailed instructions on how to build the tool,
         see [Building the Identity Anonymization
-        tool](../../administer/removing-references-to-deleted-user-identities-in-wso2-products)
+        tool](../../setup/removing-references-to-deleted-user-identities-in-wso2-products)
         .  
         Once you build the source you can extract the
         `           identity-anonymization-tool-SNAPSHOT          `

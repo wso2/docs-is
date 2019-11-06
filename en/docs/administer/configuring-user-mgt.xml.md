@@ -201,7 +201,7 @@ user.core.jdbc.JDBCUserStoreManager"&gt;</td>
 <td>______ &lt;Property&gt;</td>
 <td><br />
 </td>
-<td>User store configuration specific property values. See <a href="../../learn/configuring-the-primary-user-store">working with primary user store properties</a> for more information.</td>
+<td>User store configuration specific property values. See <a href="../../setup/configuring-the-primary-user-store">working with primary user store properties</a> for more information.</td>
 <td>String</td>
 <td>N/A</td>
 <td>Optional</td>

@@ -1,8 +1,8 @@
-# Changing to MySQL
+# Changing to Oracle
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use MySQL for this purpose.
+you need to follow in order to use Oracle for this purpose.
     
 
 ## Setting up datasource configurations
@@ -16,51 +16,12 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that MySQL database by following below instructions.
-
-!!! note "For MySQL 5.7:"
-        From Carbon kernel 4.4.6 onwards your product will be shipped with
-        two scripts for MySQL as follows (click
-        [here](http://wso2.com/products/carbon/release-matrix/) to see if
-        your product is based on this kernel version or newer):
-    
-        -   `             mysql.sql            ` : Use this script for MySQL
-            versions prior to version 5.7.
-    
-        -   `            mysql5.7.sql           ` : Use this script for
-            MySQL 5.7 and later versions.  
-    
-        Note that if you are automatically creating databases during server
-        startup using the `            -DSetup           ` option, the
-        `            mysql.sql           ` script will be used by default to
-        set up the database. Therefore, if you have MySQL version 5.7 set up
-        for your server, be sure to do the following **before starting the
-        server** :
-    
-        1.  First, change the existing
-            `              mysql.sql             ` file to a different
-            filename.
-    
-        2.  Change the
-            `             <IS_HOME>/dbscripts/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        3.  Change the
-            `             <IS_HOME>/dbscripts/identity/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        4.  Change the
-            `             <IS_HOME>/dbscripts/identity/uma/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        5.  Change the
-            `             <IS_HOME>/dbscripts/consent/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-    
-        MySQL 5.7 is only recommended for products that are based on Carbon
-        4.4.6 or a later version.
+After setting up the Oracle database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that Oracle database by following below instructions.
 
 ### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to MySQL.**
+1.  **Minimum Configurations for changing default datasource to Oracle.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -89,8 +50,8 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
       <td>The port of the database.</td>
       </tr>
       <tr class="even">
-      <td><strong>name</strong></td>
-      <td>The name of the database.</td>
+      <td><strong>SID</strong></td>
+      <td>The SID of the oracle database.</td>
       </tr>
       </table>   
  
@@ -102,21 +63,21 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.identity_db]
-           type = "mysql"
+           type = "oracle"
            hostname = "localhost"
-           name = "regdb"
+           sid = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "3306"
+           port = "	1521"
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mysql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
-           - `<IS-HOME>/dbscripts/consent/mysql.sql`
+           - `<IS-HOME>/dbscripts/identity/oracle.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/oracle.sql`
+           - `<IS-HOME>/dbscripts/consent/oracle.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -124,24 +85,24 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.shared_db]
-           type = "mysql"
+           type = "oracle"
            hostname = "localhost"
-           name = "regdb"
+           sid = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "3306"
+           port = "1521"
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mysql.sql`
+           - `<IS-HOME>/dbscripts/oracle.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the MySQL JDBC driver for the version you are using and
+   4.  Download the Oracle JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -166,7 +127,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1"
+    validationQuery="SELECT 1 FROM DUAL"
     validationInterval="30000"
     defaultAutoCommit=false
    ```
@@ -179,7 +140,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     maxWait = "60000"
     minIdle = "5"
     testOnBorrow = true
-    validationQuery="SELECT 1"
+    validationQuery="SELECT 1 FROM DUAL"
     validationInterval="30000"
     defaultAutoCommit=false
    ```

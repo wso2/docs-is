@@ -163,7 +163,7 @@ create index
 !!! info
     If you want to remove unused tokens from the database, see [Removing
     Unused Tokens from the
-    Database](../../administer/removing-unused-tokens-from-the-database).
+    Database](../../setup/removing-unused-tokens-from-the-database).
 
 
 ### JDBC pool configuration
@@ -184,7 +184,7 @@ validationQuery = ""
 MaxPermSize = ""
 ```
 !!! info
-    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../administer/working-with-databases).
+    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../setup/working-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
