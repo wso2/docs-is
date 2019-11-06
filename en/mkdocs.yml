@@ -459,7 +459,7 @@ nav:
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
-      - 'Using APIs': 
+      - 'Using APIs':
           - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
@@ -630,6 +630,7 @@ nav:
           - 'Enable Assertions In Access Tokens': administer/enable-assertions-in-access-tokens
         - 'Data Purging': administer/data-purging.md
         - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
+      - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
     - 'Monitor':
         - 'Monitoring':
@@ -679,6 +680,9 @@ nav:
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
+        - 'Identity Anonymization tool':
+          - 'Removing References to Deleted User Identities using the standalone tool': administer/removing-references-to-deleted-user-identities-in-wso2-products.md
+          - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
       - 'Working with Multiple Tenants':
           - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
           - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
@@ -701,7 +705,6 @@ nav:
         - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
       - 'Production Deployment Guidelines':
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
-      - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Security':
       - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
       - 'Securing Passwords in Configuration Files':
