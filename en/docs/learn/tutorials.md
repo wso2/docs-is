@@ -10,6 +10,5 @@ demonstrate a common usage scenario of the product.
 -   [Adaptive Authentication](../../learn/adaptive-authentication/)
 -   [Identity Federation](../../learn/identity-federation/)
 -   [Access Control](../../learn/access-control/)
--   [Setting Up An LDAP User Store](../../learn/setting-up-an-ldap-user-store/)
 
 
