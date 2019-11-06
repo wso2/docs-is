@@ -76,7 +76,7 @@ below:
                 -   If you specify the user name as `                user1               `, the user is provisioned to the PRIMARY user store domain.
 
 
-            -   If you want to select a user store domain other than the default primary user store domain, you need to [configure a user store](../../learn/configuring-user-stores) of your preference for it to appear in the list for you to select.
+            -   If you want to select a user store domain other than the default primary user store domain, you need to [configure a user store](../../setup/configuring-user-stores) of your preference for it to appear in the list for you to select.
 
 
     -   When you select **Always provision to User Store Domain**, you
@@ -98,7 +98,7 @@ below:
             `             UsernameJavaRegEx            ` and  
             `             RolenameJavaScriptRegEx            ` in the [user
             store
-            configuration](../../learn/configuring-user-stores)
+            configuration](../../setup/configuring-user-stores)
             .
         
 

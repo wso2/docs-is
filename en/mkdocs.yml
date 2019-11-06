@@ -589,68 +589,68 @@ nav:
       - 'Changing the hostname': setup/changing-the-hostname.md
       - 'Data Stores':
         - 'Working with Databases':
-          - 'Overview': administer/working-with-databases.md
+          - 'Overview': setup/working-with-databases.md
           - 'Changing the Carbon Database':
-            - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
-            - 'Changing to MariaDB': administer/changing-to-mariadb.md
-            - 'Changing to MSSQL': administer/changing-to-mssql.md
-            - 'Changing to MySQL': administer/changing-to-mysql.md
-            - 'Changing to Oracle': administer/changing-to-oracle.md
-            - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
-            - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
-            - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-            - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
-          - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
+            - 'Changing to IBM DB2': setup/changing-to-ibm-db2.md
+            - 'Changing to MariaDB': setup/changing-to-mariadb.md
+            - 'Changing to MSSQL': setup/changing-to-mssql.md
+            - 'Changing to MySQL': setup/changing-to-mysql.md
+            - 'Changing to Oracle': setup/changing-to-oracle.md
+            - 'Changing to Oracle RAC': setup/changing-to-oracle-rac.md
+            - 'Changing to PostgreSQL': setup/changing-to-postgresql.md
+            - 'Changing to Remote H2': setup/changing-to-remote-h2.md.md
+            - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
+          - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
         - 'Working with the Registry':
-          - 'Working with the Registry': administer/working-with-the-registry.md
-          - 'Browsing the Registry': administer/browsing-the-registry.md
+          - 'Working with the Registry': setup/working-with-the-registry.md
+          - 'Browsing the Registry': setup/browsing-the-registry.md
         - 'Working with Users, Roles and Permissions':
-              - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
-              - 'Introduction to User Management': administer/introduction-to-user-management.md
+              - 'Working with Users, Roles and Permissions': setup/working-with-users-roles-and-permissions.md
+              - 'Introduction to User Management': setup/introduction-to-user-management.md
               - 'Configuring the User Realm':
-                - 'Configuring the User Realm': learn/configuring-the-realm.md
-                - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
-                - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
+                - 'Configuring the User Realm': setup/configuring-the-realm.md
+                - 'Configuring the Authorization Manager': setup/configuring-the-authorization-manager.md
+                - 'Configuring the System Administrator': setup/configuring-the-system-administrator.md
                 - 'Configuring User Stores':
-                  - 'Configuring User Stores': learn/configuring-user-stores.md
+                  - 'Configuring User Stores': setup/configuring-user-stores.md
                   - 'Configuring the Primary User Store':
-                    - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
-                    - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-                    - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-                    - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-                    - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
+                    - 'Configuring the Primary User Store': setup/configuring-the-primary-user-store.md
+                    - 'Configuring a JDBC User Store': setup/configuring-a-jdbc-user-store.md
+                    - 'Configuring a Read-Only LDAP User Store': setup/configuring-a-read-only-ldap-user-store.md
+                    - 'Configuring a Read-Write Active Directory User Store': setup/configuring-a-read-write-active-directory-user-store.md
+                    - 'Configuring a Read-Write LDAP User Store': setup/configuring-a-read-write-ldap-user-store.md
                   - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
-                  - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-                  - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-                  - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
+                  - 'Configuring Secondary User Stores': setup/configuring-secondary-user-stores.md
+                  - 'Working with Properties of User Stores': setup/working-with-properties-of-user-stores.md
+                  - 'Writing a Custom User Store Manager': setup/writing-a-custom-user-store-manager.md
         - "Working with Tokens":
-          - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
+          - 'Adding Logs for Tokens': setup/adding-logs-for-tokens.md
           - 'Token Persistence': setup/token-persistence.md
-          - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
-          - 'Enable Assertions In Access Tokens': administer/enable-assertions-in-access-tokens
-        - 'Data Purging': administer/data-purging.md
-        - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
-      - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
+          - 'Removing Unused Tokens from the Database': setup/removing-unused-tokens-from-the-database.md
+          - 'Enable Assertions In Access Tokens': setup/enable-assertions-in-access-tokens.md
+        - 'Data Purging': setup/data-purging.md
+        - 'Removing References to Deleted User Identities': setup/removing-references-to-deleted-user-identities.md
+      - 'Configuring rsync for Deployment Synchronization': setup/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
     - 'Monitor':
         - 'Monitoring':
-          - 'Overview': administer/monitoring-the-identity-server.md
+          - 'Overview': setup/monitoring-the-identity-server.md
           - 'Monitoring Logs':
-            - 'Monitoring Logs': administer/monitoring-logs.md
-            - 'HTTP Access Logging': administer/http-access-logging.md
-            - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-          - 'System Statistics': administer/system-statistics.md
+            - 'Monitoring Logs': setup/monitoring-logs.md
+            - 'HTTP Access Logging': setup/http-access-logging.md
+            - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
+          - 'System Statistics': setup/system-statistics.md.md
           - 'Monitoring TCP-Based Messages':
-            - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-            - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-            - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-          - 'Monitoring Server Health': administer/monitoring-server-health.md
-          - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-        - 'Working with Product Observability': administer/working-with-product-observability.md
-        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
+            - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
+            - 'Message Monitoring with TCPMon': setup/message-monitoring-with-tcpmon.md
+            - 'Other Usages of TCPMon': setup/other-usages-of-tcpmon.md
+          - 'Monitoring Server Health': setup/monitoring-server-health.md
+          - 'JMX-Based Monitoring': setup/jmx-based-monitoring.md
+        - 'Working with Product Observability': setup/working-with-product-observability.md
+        - 'Troubleshooting in Production Environments': setup/troubleshooting-in-production-environments.md
     - 'Performance':
-      - 'Performance Tuning': administer/performance-tuning-recommendations.md
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
+      - 'Performance Tuning': setup/performance-tuning-recommendations.md
+      - 'Configuring Cache Layers': setup/configuring-cache-layers.md
     - 'Migration Guide':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
@@ -681,7 +681,7 @@ nav:
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
         - 'Identity Anonymization tool':
-          - 'Removing References to Deleted User Identities using the standalone tool': administer/removing-references-to-deleted-user-identities-in-wso2-products.md
+          - 'Removing References to Deleted User Identities using the standalone tool': setup/removing-references-to-deleted-user-identities-in-wso2-products.md
           - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
       - 'Working with Multiple Tenants':
           - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md

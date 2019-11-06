@@ -1,8 +1,8 @@
-# Changing to IBM DB2
+# Changing to MySQL
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use DB2 for this purpose.
+you need to follow in order to use MySQL for this purpose.
     
 
 ## Setting up datasource configurations
@@ -16,12 +16,51 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that DB2 database by following below instructions.
+After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that MySQL database by following below instructions.
+
+!!! note "For MySQL 5.7:"
+        From Carbon kernel 4.4.6 onwards your product will be shipped with
+        two scripts for MySQL as follows (click
+        [here](http://wso2.com/products/carbon/release-matrix/) to see if
+        your product is based on this kernel version or newer):
+    
+        -   `             mysql.sql            ` : Use this script for MySQL
+            versions prior to version 5.7.
+    
+        -   `            mysql5.7.sql           ` : Use this script for
+            MySQL 5.7 and later versions.  
+    
+        Note that if you are automatically creating databases during server
+        startup using the `            -DSetup           ` option, the
+        `            mysql.sql           ` script will be used by default to
+        set up the database. Therefore, if you have MySQL version 5.7 set up
+        for your server, be sure to do the following **before starting the
+        server** :
+    
+        1.  First, change the existing
+            `              mysql.sql             ` file to a different
+            filename.
+    
+        2.  Change the
+            `             <IS_HOME>/dbscripts/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
+        3.  Change the
+            `             <IS_HOME>/dbscripts/identity/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
+        4.  Change the
+            `             <IS_HOME>/dbscripts/identity/uma/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
+        5.  Change the
+            `             <IS_HOME>/dbscripts/consent/mysql5.7.sql            `
+            script to **`              mysql.sql             `**.
+    
+        MySQL 5.7 is only recommended for products that are based on Carbon
+        4.4.6 or a later version.
 
 ### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to DB2.**
+1.  **Minimum Configurations for changing default datasource to MySQL.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -43,7 +82,7 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
       </tr>
       <tr class="even">
       <td><strong>hostname</strong></td>
-      <td>The hostname of the hosted database</td>
+      <td>The hostname of the host where database is hosted.</td>
       </tr>
       <tr class="even">
       <td><strong>port</strong></td>
@@ -63,21 +102,21 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.identity_db]
-           type = "db2"
+           type = "mysql"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "50000"
+           port = "3306"
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/db2.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
-           - `<IS-HOME>/dbscripts/consent/db2.sql`
+           - `<IS-HOME>/dbscripts/identity/mysql.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
+           - `<IS-HOME>/dbscripts/consent/mysql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -85,24 +124,24 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.shared_db]
-           type = "db2"
+           type = "mysql"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "50000"
+           port = "3306"
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/db2.sql`
+           - `<IS-HOME>/dbscripts/mysql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the DB2 JDBC driver for the version, you are using and
+   4.  Download the MySQL JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -117,15 +156,15 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
 
    2.**Advanced Database Configurations.**
 
-Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
+Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
 
 - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
     
    ``` toml
    [database.identity_db.pool_options]
     maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
+    maxWait = "60000"
+    minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -137,8 +176,8 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
    ``` toml
    [database.shared_db.pool_options]
     maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
+    maxWait = "60000"
+    minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -161,12 +200,11 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
-    validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
+    <td>Whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Indicates Whether to commit database changes automatically or not.</td>
+    <td>Whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -216,7 +254,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
   3.  Navigate to the
         `               <IS_HOME>/repository/conf/deployment.toml              `
         file.
-  4.  Disable the `               defaultAutoCommit              ` property
+  4.  Disable the `               defaultAutoCommit              `
         by defining it as `false`.
   5.  Add the `                commitOnReturn               `
         property and set it to true.
@@ -243,7 +281,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
         `<IS_HOME>/repository/conf/deployment.toml`            `
         file.
   2.  Disable the
-        `                defaultAutoCommit               ` property by
+        `                defaultAutoCommit               ` by
         defining it as `false`.
 
   3.  Set the `                rollbackOnReturn               `
@@ -270,10 +308,7 @@ The elements in the above configuration are described below:
 
  | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
  |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | **commitOnReturn**   | If `defaultAutoCommit` =false, then you can set `commitOnReturn ` =true, so that the pool 
- |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If the  
- |                      | `  rollbackOnReturn` =true then this attribute is ignored. The default value is false. |
- |                      |
+ | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 

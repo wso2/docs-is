@@ -1,13 +1,15 @@
-# Configuring a Read-write LDAP User Store
+# Configuring a Read-only LDAP User Store
 
 WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
 This document will guide you to change that to a Read-Only LDAP user store.
 
 !!! tip 
-    Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
     Identity Server (WSO2 IS).
     
-## Configuring Read-write LDAP user store manager
+
+        
+## Configuring Read-only LDAP user store manager
 
 The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP user store manager.
 
@@ -59,7 +61,7 @@ Need to import the certificate of user store to the client-truststore.jks of the
 <a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../administer/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
+<a href="../../setup/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -76,24 +78,24 @@ Sample values: uid=admin,ou=system</p></td>
 </table>
 </thead>
 
+
 Replace the default `user_store` configuration in the `         <IS_HOME>/repository/conf/deployment.toml        
 ` file, as per your ldap server configuration. A sample configuration is given below.
 
 ``` toml
 [user_store]
-type = "read_write_ldap"
+type = "read_only_ldap"
 base_dn = "ou=system"
 
 [user_store.properties]
-"ConnectionURL" = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
+"ConnectionURL" = "ldap://localhost:10389"
 "ConnectionName" = "uid=admin,ou=system"
 "ConnectionPassword" = "admin"
 ```
 Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
 Please refer to the following topic. 
 
-
-## Properties used in Read-write LDAP user store manager
+## Properties used in Read-only LDAP user store manager
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
 `<IS-HOME>/repository/conf/deployment.toml`.
@@ -109,7 +111,7 @@ For example :
 "SCIMEnabled" = true
 ```
 
-!!! tip "Below properties can be configured for a secondary user store through the management console."
+_!!! tip "Below properties can be configured for a secondary user store through the management console."
 
 <table>
 <thead>
@@ -413,43 +415,50 @@ will be terminated.
 </td>
 </tr>
 </tbody>
-</table>
+</table>_
 
-### Updating the system administrator
+## Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all
-other users, roles, and permissions in the system by using the management
-console of the product. Therefore, the user that should have admin
+The admin user is the super tenant that will be able to manage all other
+users, roles and permissions in the system by using the management
+the console of the product.
+
+Therefore, the user that should have admin
 permissions is required to be stored in the user store when you start
-the system for the first time. Since the LDAP user store can be written
-to, you have the option of creating a new admin user in the user store
-when you start the system for the first time. Alternatively, you can
-also use a user ID that already exists in the LDAP. For information
-about the system administrator user, see [Configuring the System
-Administrator](../../learn/configuring-the-system-administrator).
+the system for the first time. By default, the system will create an admin
+user in the LDAP that has admin permissions. But this cannot be done it the
+LDAP user store is read-only.Hence that capability should be disabled as follows.
 
-These two alternative configurations can be done as explained below.
+```toml
+[super_admin]
+username = "admin"
+admin_role = "admin"
+create_admin_account = false
+```
 
--   If you are using a user that is already in the LDAP. Find a valid user that already resides in the user store. For 
-    example, say a valid username is
-    AdminSOA.Add the following configuration to the `deployment.toml` as shown below. You do not have to update the password element as it is already set in the user store.
-    
-    ```toml
-    [super_admin]
-    username = "AdminSOA"
-    admin_role = "admin"
-    create_admin_account = false
-    ```
+-   **create_admin_account:** This should be set to 'False' as it will not be
+    allowed to create users and roles in a read-only user store.
+-   **admin_role:** The admin role you enter here should already
+    exist in the read-only user store. Otherwise, you must enter an internal role, which will be saved to the internal database of the system when the system starts the first time.
+-   **username:** Since we are configuring a read-only LDAP as the
+    primary user store, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. For example, say a valid username is AdminSOA.
+    Update the `         username       ` section of your configuration as shown above. You do not have to update the password element as it is already set in the user store.  
 
--   if you are creating a new admin user in the user store when you start the system. you can add the super tenant
-    user to the user store. Add the following configuration to the `deployment.toml` as shown below.
-    
-    ```toml
-    [super_admin]
-    username = "AdminSOA"
-    admin_role = "admin"
-    create_admin_account = true
-    password = admin
-    ```
+For information about the system administrator user, see
+[Configuring the System
+Administrator](../../setup/configuring-the-system-administrator), and for
+information on how keystores are used in WSO2 products, see [Using
+Asymmetric Encryption](../../administer/using-asymmetric-encryption).  
+
+
+
+!!! tip "For more information"
+
+    -   If you want to configure a primary user store for another user store type, you need to follow
+        the steps given in [Configuring the Primary User
+        Store](../../setup/configuring-the-primary-user-store).
+    -   For configuring a secondary user store please read the topic: 
+        [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)
+
 
   

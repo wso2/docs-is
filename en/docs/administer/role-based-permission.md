@@ -134,7 +134,7 @@ follows:
     <tr class="odd">
     <td>Admin</td>
     <td><p>When the <strong>Admin</strong> permission node is selected, the following menus are enabled in the management console:</p>
-    <p><strong>- User Store Management:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../../learn/configuring-user-stores">user store management</a> for more details.<br />
+    <p><strong>- User Store Management:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../../setup/configuring-user-stores">user store management</a> for more details.<br />
     <strong>- Identity Providers:</strong> See the topic on <a href="../../learn/adding-and-configuring-an-identity-provider">working with identity providers</a> for details on how to use this option.</p>
     <p>- Additionally, all permissions listed under <strong>Admin</strong> in the permissions navigator are selected automatically.</p></td>
     </tr>
@@ -198,7 +198,7 @@ follows:
     <td>Admin/Monitor</td>
     <td>When the <strong>Admin/Monitor</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <br />
-    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="../../administer/system-statistics">system statistics</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="../../setup/system-statistics.md">system statistics</a> for information on how to use this option.<br />
     <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="../../administer/soap-tracer">SOAP tracer</a> for information on how to use this option.<br />
     <br />
     - Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</td>

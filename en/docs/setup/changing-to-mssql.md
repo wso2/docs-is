@@ -1,8 +1,8 @@
-# Changing to MySQL
+# Changing to MSSQL
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use MySQL for this purpose.
+you need to follow in order to use MS SQL for this purpose.
     
 
 ## Setting up datasource configurations
@@ -16,51 +16,12 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that MySQL database by following below instructions.
-
-!!! note "For MySQL 5.7:"
-        From Carbon kernel 4.4.6 onwards your product will be shipped with
-        two scripts for MySQL as follows (click
-        [here](http://wso2.com/products/carbon/release-matrix/) to see if
-        your product is based on this kernel version or newer):
-    
-        -   `             mysql.sql            ` : Use this script for MySQL
-            versions prior to version 5.7.
-    
-        -   `            mysql5.7.sql           ` : Use this script for
-            MySQL 5.7 and later versions.  
-    
-        Note that if you are automatically creating databases during server
-        startup using the `            -DSetup           ` option, the
-        `            mysql.sql           ` script will be used by default to
-        set up the database. Therefore, if you have MySQL version 5.7 set up
-        for your server, be sure to do the following **before starting the
-        server** :
-    
-        1.  First, change the existing
-            `              mysql.sql             ` file to a different
-            filename.
-    
-        2.  Change the
-            `             <IS_HOME>/dbscripts/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        3.  Change the
-            `             <IS_HOME>/dbscripts/identity/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        4.  Change the
-            `             <IS_HOME>/dbscripts/identity/uma/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-        5.  Change the
-            `             <IS_HOME>/dbscripts/consent/mysql5.7.sql            `
-            script to **`              mysql.sql             `**.
-    
-        MySQL 5.7 is only recommended for products that are based on Carbon
-        4.4.6 or a later version.
+After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that MS SQL database by following below instructions.
 
 ### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to MySQL.**
+1.  **Minimum Configurations for changing default datasource to MS SQL.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -102,21 +63,21 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.identity_db]
-           type = "mysql"
+           type = "mssql"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "3306"
+           port = "1433"
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mysql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mysql.sql`
-           - `<IS-HOME>/dbscripts/consent/mysql.sql`
+           - `<IS-HOME>/dbscripts/identity/mssql.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
+           - `<IS-HOME>/dbscripts/consent/mssql.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -124,24 +85,24 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.shared_db]
-           type = "mysql"
+           type = "mssql"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "3306"
+           port = "1433"
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mysql.sql`
+           - `<IS-HOME>/dbscripts/mssql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the MySQL JDBC driver for the version you are using and
+   4.  Download the MS SQL JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     

@@ -8,7 +8,7 @@ and SCIM 2.0.
 The following topics in this section define how identity administration
 and provisioning can be done using the WSO2 Identity Server.
 
--   [Configuring the Realm](../../learn/configuring-the-realm)
+-   [Configuring the Realm](../../setup/configuring-the-realm)
 -   [Configuring Users, Roles and
     Permissions](Configuring_Users_Roles_and_Permissions)
 -   [Claim Management](../../learn/claim-management)

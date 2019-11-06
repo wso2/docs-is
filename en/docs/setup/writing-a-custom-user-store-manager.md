@@ -527,7 +527,7 @@ in your WSO2 product.
         configure this as a secondary user store if you already have a
         different primary user store configured. For more information
         configuring user stores in WSO2 products, see [Configuring User
-        Stores](../../learn/configuring-user-stores).
+        Stores](../../setup/configuring-user-stores).
     
 
     You do not need to change anything else since you extend the
@@ -549,5 +549,5 @@ login. This ensures that all your configurations work as intended.
     5.  Click Add.
     
 !!! info "Related Links"
-    -   [Setting up User Stores](../../learn/configuring-user-stores)
+    -   [Setting up User Stores](../../setup/configuring-user-stores)
     -   See [Writing a Custom Attribute](../../learn/managing-user-attributes#writing-custom-attributes) for instructions on how to write custom attributes for users.

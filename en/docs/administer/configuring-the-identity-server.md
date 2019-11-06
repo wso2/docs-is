@@ -9,22 +9,22 @@ the normal flow of events you would follow.
 As per the above diagram, when setting up WSO2 Identity Server, you would
 configure the following in the order mentioned.
 
--   **[Databases](../../administer/working-with-databases)**  
+-   **[Databases](../../setup/working-with-databases)**  
     When configuring WSO2 Identity Server, the first step to do is to
     set up the databases. This includes creating the database and
     populating it with the various tables that are required. Once you
     have set up the databases, configure the datasources to point to the
     databases created. See [Setting up the Physical
-    Database](../../administer/working-with-databases)
+    Database](../../setup/working-with-databases)
     for information on setting up the database with its tables and
     configuring the datasources.  
 
--   **[User stores](../../learn/configuring-the-realm)**  
+-   **[User stores](../../setup/configuring-the-realm)**  
     The next step is to configure user stores. These can be either
     primary or secondary user stores. Instead of using the user store
     that comes inbuilt with the product, you can configure your own user
     store with the Identity Server. See [Configuring User
-    Stores](../../learn/configuring-user-stores) or information on user store
+    Stores](../../setup/configuring-user-stores) or information on user store
     configurations.
 
 -   **[Users, roles and permissions](../../learn/configuring-users-roles-and-permissions)**  

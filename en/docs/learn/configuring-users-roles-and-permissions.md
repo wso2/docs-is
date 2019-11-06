@@ -16,7 +16,7 @@ permissions are added together.
 
     -   Only system administrators can add, modify and remove users and
         roles. To set up administrators, see [Configuring the System
-        Administrator](../../learn/configuring-the-system-administrator).  
+        Administrator](../../setup/configuring-the-system-administrator).  
         
 
     -   Your product has a primary user store where the users/roles that you
@@ -41,8 +41,8 @@ permissions are added together.
         change the `            RegEx           ` configuration or enter
         values that conform to the `            RegEx           ` . If you
         [change the default user
-        store](../../learn/configuring-the-primary-user-store) or [set up a secondary
-        user store](../../learn/configuring-secondary-user-stores), configure the
+        store](../../setup/configuring-the-primary-user-store) or [set up a secondary
+        user store](../../setup/configuring-secondary-user-stores), configure the
         `            RegEx           ` accordingly under the user store
         manager configurations in the
         `            <IS_HOME>/repository/conf/deployment.toml          `
@@ -77,5 +77,5 @@ permissions are added together.
     You can also see the following pages for system administrator related
     configurations:
 
-    -   See [Configuring User Stores](../../learn/configuring-user-stores) for
+    -   See [Configuring User Stores](../../setup/configuring-user-stores) for
         instructions on how to configure primary and secondary user stores.
