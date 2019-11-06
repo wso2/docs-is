@@ -709,7 +709,7 @@ nav:
       - 'Securing Passwords in Configuration Files':
         - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
         - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
-        - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
+        - 'Customizing Secure Vault': administer/customizing-secure-vault.md
         - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
       - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
       - 'Java Security Manager': administer/enabling-java-security-manager.md

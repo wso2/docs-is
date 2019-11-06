@@ -9,4 +9,4 @@ See the following topics:
 
 -   [Encrypting Passwords with Cipher Tool](../../administer/encrypting-passwords-with-cipher-tool)
 -   [Resolving Encrypted Passwords](../../administer/resolving-encrypted-passwords)
--   [Carbon Secure Vault Implementation](../../administer/carbon-secure-vault-implementation)
+-   [Customizing Secure Vault](../../administer/customizing-secure-vault)
