@@ -19,14 +19,14 @@ topics:
 
 !!! info "Recommended reading" 
     -   For a detailed list of monitoring options, see 
-        -   [Monitoring Logs](../../administer/monitoring-logs-using-management-console)
-        -   [System Statistics](../../administer/system-statistics)
-        -   [Monitoring TCP-Based Messages](../../administer/monitoring-tcp-based-messages)
-        -   [Monitoring Server Health](../../administer/monitoring-server-health)
-        -   [JMX-Based Monitoring](../../administer/jmx-based-monitoring)       
+        -   [Monitoring Logs](../../setup/monitoring-logs)
+        -   [System Statistics](../../setup/system-statistics.md)
+        -   [Monitoring TCP-Based Messages](../../setup/monitoring-tcp-based-messages)
+        -   [Monitoring Server Health](../../setup/monitoring-server-health)
+        -   [JMX-Based Monitoring](../../setup/jmx-based-monitoring)       
     -   For information on monitoring workflows, see [Monitoring Workflow Requests](../../learn/monitoring-workflow-requests).
-    -   [Product observability](../../administer/working-with-product-observability/)
-        and [Troubleshooting guide](../../administer/troubleshooting-in-production-environments)
+    -   [Product observability](../../setup/working-with-product-observability/)
+        and [Troubleshooting guide](../../setup/troubleshooting-in-production-environments)
         discuss more WSO2 Identity Server's monitoring capabilities.
 
 

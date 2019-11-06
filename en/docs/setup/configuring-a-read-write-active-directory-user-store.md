@@ -1,17 +1,19 @@
-# Configuring a Read-only LDAP User Store
+# Configuring a Read-write Active Directory User Store
 
 WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
-This document will guide you to change that to a Read-Only LDAP user store.
+This document will guide you to change that to a Read Write Active Directory user store.
 
 !!! tip 
-    Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
     Identity Server (WSO2 IS).
     
+!!! tip    
+    For Read-only Active Directory User Store manager configuration, use
+    Read-only LDAP user store manager configuration properties.
 
-        
-## Configuring Read-only LDAP user store manager
+## Configuring Read-write Active Directory user store manager  
 
-The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP user store manager.
+Following are the minimum configurations that are needed to be provided to configure Read-write Active Directory user store manager.
 
 <table>
 <thead>
@@ -24,7 +26,7 @@ The following are the minimum configurations that are needed to be provided to c
 <td>type</td>
 <td>User Store Type</td>
 <td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap.
+should be active_directory.
 </td>
 </tr>
 <tr class="odd">
@@ -61,7 +63,7 @@ Need to import the certificate of user store to the client-truststore.jks of the
 <a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../administer/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
+<a href="../../setup/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -80,22 +82,22 @@ Sample values: uid=admin,ou=system</p></td>
 
 
 Replace the default `user_store` configuration in the `         <IS_HOME>/repository/conf/deployment.toml        
-` file, as per your ldap server configuration. A sample configuration is given below.
+` file, as per your active directory configuration. A sample configuration is given below.
 
 ``` toml
 [user_store]
-type = "read_only_ldap"
-base_dn = "ou=system"
+type = "active_directory"
+base_dn = "cn=Users,dc=wso2,dc=org"
 
 [user_store.properties]
-"ConnectionURL" = "ldap://localhost:10389"
-"ConnectionName" = "uid=admin,ou=system"
+"ConnectionURL" = "ldaps://10.100.1.102:639"
+"ConnectionName" = "cn=admin,ou=system"
 "ConnectionPassword" = "admin"
-```
-Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
-Please refer to the following topic. 
 
-## Properties used in Read-only LDAP user store manager
+## Properties used in Read-write Active Directory userstore manager
+
+The following table lists the properties used in Read-write Active
+Directory and their descriptions:
 
 Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to 
 `<IS-HOME>/repository/conf/deployment.toml`.
@@ -111,8 +113,9 @@ For example :
 "SCIMEnabled" = true
 ```
 
-_!!! tip "Below properties can be configured for a secondary user store through the management console."
+!!! tip "Below properties can be configured for a secondary user store through the management console."
 
+    
 <table>
 <thead>
 <tr class="header">
@@ -134,13 +137,15 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p>
+<br/>
+sample values: sAMAccountName</td>
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-Default : (&amp;amp;(objectClass=person)(uid=?))</td>
+Default : (&amp;(objectClass=person)(uid=?))</td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -188,7 +193,7 @@ false: Do not write groups to user store, so only internal roles can be created.
 <td>GroupSearchBase</td>
 <td>Group Search Base</td>
 <td><p>DN of the context or object under which the group entries are stored in the user store. When the user store searches for groups, it will start from this location of the directory</p>
-<p>Default: ou=Groups,dc=wso2,dc=org</p></td>
+<p>Default: ou=Groups,cn=Users,dc=wso2,dc=org</p></td>
 </tr>
 <tr class="odd">
 <td>GroupEntryObjectClass</td>
@@ -206,13 +211,13 @@ Default: groupOfNames</td>
 <td>GroupNameSearchFilter</td>
 <td>Group Search Filter</td>
 <td><p>Filtering criteria used to search for a particular group entry.</p>
-<p>Default: (&amp;amp;(objectClass=groupOfNames)(cn=?))</p></td>
+<p>Default: (&amp;(objectClass=groupOfNames)(cn=?))</p></td>
 </tr>
 <tr class="even">
 <td>GroupNameListFilter</td>
 <td>Group List Filter</td>
 <td><p>Filtering criteria for searching group entries in the user store. This query or filter is used when doing search operations on groups with different search attributes.</p>
-<p>Default: ((objectClass=groupOfNames)) In this case, the search operation only provides the objects created from the 
+<p>Default: (objectClass=groupOfNames) In this case, the search operation only provides the objects created from the 
 groupOfName object class.</p></td>
 </tr>
 <tr class="odd">
@@ -231,7 +236,7 @@ groupOfName object class.</p></td>
 <td>MemberOfAttribute</td>
 <td>Member Of Attribute</td>
 <td>Define the attribute that contains the distinguished names (DN ) of group objects that user is assigned to.<br />
-Possible values: memberOf</td>
+Default: memberOf</td>
 </tr>
 <tr class="even">
 <td>BackLinksEnabled</td>
@@ -396,7 +401,7 @@ Default: not configured</td>
 <td>MembershipAttributeRange</td>
 <td>Membership Attribute Range</td>
 <td><p>This is to define the maximum users of role returned by the LDAP/AD user store. This does not depend on the max page size of the user store.</p>
-<p>Default: not configured</p></td>
+<p>Default: 1500</p></td>
 </tr>
 <tr class="even">
 <td>RetryAttempts</td>
@@ -404,61 +409,27 @@ Default: not configured</td>
 <td>Retry the authentication request if a timeout happened
 <p>Default: not configured</p></td>
 </tr>
-<tr class="odd">
-<td>LDAPConnectionTimeout</td>
-<td>LDAP Connection Timeout</td>
-<td>If the connection to the LDAP is inactive for the length of time
-(in milliseconds) specified by this property, the connection
-will be terminated.
-<p>Default: not configured</p><br/>
-<p>Sample: 20</p>
-</td>
+<tr class="even">
+<td>Referral</td>
+<td>Referral</td>
+<td><p>For Active Directory, you can use Property Referral to enable referrals within the user store. The AD user 
+store may be partitioned into multiple domains. However, according to the use store configurations in the deployment
+.toml file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the 
+user store, the  when the `Referral` is set to `follow`
+it ensures that all the domains in the directory will be searched to locate the requested object.</p>
+<p>Default: not configured</p></td>
 </tr>
 </tbody>
-</table>_
-
-## Updating the system administrator
-
-The admin user is the super tenant that will be able to manage all other
-users, roles and permissions in the system by using the management
-the console of the product.
-
-Therefore, the user that should have admin
-permissions is required to be stored in the user store when you start
-the system for the first time. By default, the system will create an admin
-user in the LDAP that has admin permissions. But this cannot be done it the
-LDAP user store is read-only.Hence that capability should be disabled as follows.
-
-```toml
-[super_admin]
-username = "admin"
-admin_role = "admin"
-create_admin_account = false
-```
-
--   **create_admin_account:** This should be set to 'False' as it will not be
-    allowed to create users and roles in a read-only user store.
--   **admin_role:** The admin role you enter here should already
-    exist in the read-only user store. Otherwise, you must enter an internal role, which will be saved to the internal database of the system when the system starts the first time.
--   **username:** Since we are configuring a read-only LDAP as the
-    primary user store, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. For example, say a valid username is AdminSOA.
-    Update the `         username       ` section of your configuration as shown above. You do not have to update the password element as it is already set in the user store.  
-
-For information about the system administrator user, see
-[Configuring the System
-Administrator](../../learn/configuring-the-system-administrator), and for
-information on how keystores are used in WSO2 products, see [Using
-Asymmetric Encryption](../../administer/using-asymmetric-encryption).  
-
+</table>
 
 
 !!! tip "For more information"
 
     -   If you want to configure a primary user store for another user store type, you need to follow
         the steps given in [Configuring the Primary User
-        Store](../../learn/configuring-the-primary-user-store).
+        Store](../../setup/configuring-the-primary-user-store).
     -   For configuring a secondary user store please read the topic: 
-        [Configuring Secondary UserStores](../../learn/configuring-secondary-user-stores)
+        [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)
 
 
   

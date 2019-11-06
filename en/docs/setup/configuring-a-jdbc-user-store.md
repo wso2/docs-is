@@ -9,7 +9,7 @@ user store. If you're going to use default user store tables for the external JD
 Management Related Tables](../../administer/user-management-related-tables) section.
 
 !!! tip 
-    Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Please read the topic [Configuring User Stores](../../setup/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
     Identity Server (WSO2 IS).
   
 In this page, you can find following details related to configuring a
@@ -27,7 +27,7 @@ type = "database"
    configurations in the `         deployment.toml       `  file. As the datasource configuration.
       
    If you have a requirement of changing the `database.shared_db` configuration see 
-   [Working With Databases](../../administer/working-with-databases).
+   [Working With Databases](../../setup/working-with-databases).
   
    `database.shared_db` is used to store both registry and user management related data. If you 
    are having a requirement of using a datasource specified for the user management, you can externalize
@@ -36,7 +36,7 @@ type = "database"
    
 ##Configuring an external database as JDBC user store. 
 
-  1. Create a database on [any supported RDBMS database](../../administer/working-with-databases). 
+  1. Create a database on [any supported RDBMS database](../../setup/working-with-databases). 
     
   2. Following are the example configurations for each database type.
         
@@ -466,6 +466,6 @@ You need to restart the server after doing these changes.
 
     -   If you want to configure a primary user store for another user store type, you need to follow
         the steps given in [Configuring the Primary User
-        Store](../../learn/configuring-the-primary-user-store).
+        Store](../../setup/configuring-the-primary-user-store).
     -   For configuring a secondary user store please read the topic: 
-        [Configuring Secondary UserStores](../../learn/configuring-secondary-user-stores)
+        [Configuring Secondary UserStores](../../setup/configuring-secondary-user-stores)

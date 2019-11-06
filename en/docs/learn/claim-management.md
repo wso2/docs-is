@@ -18,7 +18,7 @@ allows you to map a set of attributes from the underlying user store to
 a set of defined claims. The underlying user store can either be an
 internal or external JDBC user store, Active Directory or LDAP user
 store. You can configure the [primary user store using the deployment.toml
-file](../../learn/configuring-the-primary-user-store#setting-up-the-primary-user-store)
+file](../../setup/configuring-the-primary-user-store#setting-up-the-primary-user-store)
 . Each claim can be uniquely identified within the claim dialect by the
 Claim URI. Claim URIs are independent from the user store and each claim
 URI can be mapped into any desired attribute in the user store.
@@ -34,7 +34,7 @@ application as it is hidden by the claim management.
     claims mapped for SCIM in the super tenant's [management
     console](../../setup/getting-started-with-the-management-console) are not seen by
     a newly created tenant as the [User
-    Realm](../../learn/configuring-the-system-administrator) is always built using the
+    Realm](../../setup/configuring-the-system-administrator) is always built using the
     configuration found in the deployment.toml file. So the recommended
     approach is to do the claim mapping in the
     `          <IS_HOME>/repository/conf/deployment.toml        ` file.

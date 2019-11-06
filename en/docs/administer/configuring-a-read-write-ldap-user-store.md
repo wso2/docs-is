@@ -59,7 +59,7 @@ configuring your external read-write LDAP as the primary user store.
     For more information about each of the properties used in the
     `           user-mgt.xml          ` file for configuring the primary
     user store, see [Properties of User
-    Stores](../../administer/working-with-properties-of-user-stores).
+    Stores](../../setup/working-with-properties-of-user-stores).
 
     ``` xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
@@ -231,7 +231,7 @@ to, you have the option of creating a new admin user in the user store
 when you start the system for the first time. Alternatively, you can
 also use a user ID that already exists in the LDAP. For information
 about the system administrator user, see [Configuring the System
-Administrator](../../learn/configuring-the-system-administrator).
+Administrator](../../setup/configuring-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 

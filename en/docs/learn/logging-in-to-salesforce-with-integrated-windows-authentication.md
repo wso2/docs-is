@@ -205,7 +205,7 @@ Follow the steps below to configure the email address as the user name.
 !!! info "Related Topics"
 	For more information on how to configure primary and secondary user
 	stores, see [Configuring User
-	Stores](../../learn/configuring-user-stores).
+	Stores](../../setup/configuring-user-stores).
 
 
 Now that you have configured the email addresses, let's configure Salesforce.

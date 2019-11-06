@@ -45,7 +45,7 @@ the `          <IS_HOME>/repository/logs         ` directory.
 !!! note  
     WSO2 Identity Server generates other log 
     files in addition to the Carbon logs, Audit logs, HTTP access logs,
-    Patch logs, and Service/Event logs. For more information, see [Moniotring the Identity Server](../../administer/monitoring-the-identity-server).
+    Patch logs, and Service/Event logs. For more information, see [Moniotring the Identity Server](../../setup/monitoring-the-identity-server).
 
 ### Configuring WSO2 Identity Server for log monitoring
 
@@ -115,13 +115,13 @@ can be configured are [listed below](#MonitoringLogs-log4j-levels).
 
 #### Configuring HTTP access logs
 
-See [HTTP Access Logging](../../administer/http-access-logging) for instructions on
+See [HTTP Access Logging](../../setup/http-access-logging) for instructions on
 how to configure and use HTTP access logs.
 
 #### Configuring product observability
 
 WSO2 Identity Server supports logging capabilities for tracking down latencies due to database calls.
-See [Working with Product Observability](../../administer/working-with-product-observability) for instructions on
+See [Working with Product Observability](../../setup/working-with-product-observability) for instructions on
 how to configure and use this capability.
 
 #### Setting the Log4j log level

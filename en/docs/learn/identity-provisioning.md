@@ -11,7 +11,7 @@ user/ role provisioning in WSO2 Identity Server. The WSO2 Identity
 Provisioning framework can be separated into three main components, such
 as [Inbound provisioning](../../learn/inbound-provisioning), [Outbound
 provisioning](../../learn/outbound-provisioning), and [User store
-management](../../learn/configuring-user-stores).
+management](../../setup/configuring-user-stores).
 
 The inbound provisioning component is used by the external applications
 to provision users to WSO2 Identity Server while outbound provisioning

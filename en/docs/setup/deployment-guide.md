@@ -152,7 +152,7 @@ are used.
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Working with Databases](../../administer/working-with-databases)
+    see [Working with Databases](../../setup/working-with-databases)
 
 ## Mounting the shared registry
 
@@ -168,7 +168,7 @@ includes services, service descriptions, endpoints or data sources.
 
 !!! info
     For more information about the registry, 
-    see [Working with the Registry](../../administer/working-with-the-registry).
+    see [Working with the Registry](../../setup/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
@@ -324,7 +324,7 @@ them.
                                 timeout is 15 minutes), there is a security risk in this method. To reduce 
                                 the risk, reduce the default cache timeout period. To learn how to reduce the 
                                 default cache timeout period, 
-                                see [Configuring Cache Layers - timeout](../../administer/configuring-cache-layers#timeout).</li>
+                                see [Configuring Cache Layers - timeout](../../setup/configuring-cache-layers#timeout).</li>
                             </ul>
                         </td>
                     </tr>
