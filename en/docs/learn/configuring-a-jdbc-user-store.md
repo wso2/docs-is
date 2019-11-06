@@ -8,18 +8,9 @@ use internal H2 user store tables or you can use an external database as a
 user store. If you're going to use default user store tables for the external JDBC user store, see [User
 Management Related Tables](../../administer/user-management-related-tables) section.
 
-!!! tip "Before you begin!"  
-    Please read following topics:
-
-    -   Read [Configuring User Stores](../../learn/configuring-user-stores) to get a
-        high-level understanding of the user stores available in WSO2
-        Identity Server (WSO2 IS).
-    -   If you want to configure a primary user store, you need to follow
-        the steps given in [Configuring the Primary User
-        Store](../../learn/configuring-the-primary-user-store).
-    -   If you want to configure a secondary user store, you need to follow
-        the steps given in [Configuring Secondary User
-        Stores](../../learn/configuring-secondary-user-stores).
+!!! tip 
+    Please read the topic [Configuring User Stores](../../learn/configuring-user-stores)  to get a high-level understanding of the user stores available in WSO2
+    Identity Server (WSO2 IS).
   
 In this page, you can find following details related to configuring a
 JDBC user store.
@@ -28,10 +19,10 @@ JDBC user store.
 
 Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
-    ``` toml
-    [user_store]
-    type = "database"
-    ```
+``` toml
+[user_store]
+type = "database"
+```
    By default it will use the  `database.shared_db` 
    configurations in the `         deployment.toml       `  file. As the datasource configuration.
       
@@ -470,3 +461,11 @@ Default : false           <br />
 
 
 You need to restart the server after doing these changes.
+
+!!! tip "For more information"
+
+    -   If you want to configure a primary user store for another user store type, you need to follow
+        the steps given in [Configuring the Primary User
+        Store](../../learn/configuring-the-primary-user-store).
+    -   For configuring a secondary user store please read the topic: 
+        [Configuring Secondary UserStores](../../learn/configuring-secondary-user-stores)

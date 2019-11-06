@@ -2,7 +2,7 @@
 
 The following sections describe the impact of the XSS attack and the
 approaches you can use to mitigate it. **Note** that XSS attacks are
-prevented on the latest WSO2 products by default. This is due to output
+prevented on the WSO2 Identity Server by default. This is due to output
 encoding of the displaying values. However, if additional protection is
 required, an input validation valve can be configured as explained
 below.
@@ -29,28 +29,14 @@ validation on the URL patterns.
 
 ##### Configuring the XSS Valve
 
-1.  Open the
-    `           <IS_HOME>/repository/conf/carbon.xml          `
-    file and add the following code snippet under the
-    `           <Security>          ` tag.
-
-    ``` xml
-    <XSSPreventionConfig>
-        <Enabled>true</Enabled>
-        <Rule>allow</Rule>
-        <Patterns>
-            <Pattern>commonauth</Pattern>
-        </Patterns>
-    </XSSPreventionConfig>
-    ```
-
-2.  Add the following configuration within the
+1.  Add the following configuration within the
     `           <Hosts>          ` element of the
-    `           <IS_HOME>/repository/conf/tomcat/catalina-server.xml          `
+    `           <IS_HOME>/repository/conf/deployment.toml        `
     file.
 
-    ``` xml
-        <Valve className="org.wso2.carbon.ui.valve.XSSValve"/>
+    ``` toml
+    [catalina.valves.valve.properties]
+    className = "org.wso2.carbon.ui.valve.XSSValve"
     ```
 
-3.  Restart the product server.
+2.  Restart the product server.

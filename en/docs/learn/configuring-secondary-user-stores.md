@@ -20,6 +20,8 @@ You can use either the management console to create secondary user stores or you
 
 2.  From the User Store Manager Class drop-down list, select the user
     store manager class that suits your user store.
+    
+    ![add-a-secondary-user-store](../assets/img/tutorials/add-secondary-user-store.png)
 
     The following table lists the available User store manager
     implementations and their usage:
@@ -77,16 +79,16 @@ You can use either the management console to create secondary user stores or you
     and it provides the additional steps and recommendations specific to
     each user store manager.  
       
-    -   [Configuring a JDBC User Store](../../learn/configuring-a-jdbc-user-store)
+    -   [Properties for a JDBC User Store](../../learn/configuring-a-jdbc-user-store#properties-used-in-jdbc-user-store-manager)
 
-    -   [Configuring a Read-only LDAP User
-        Store](../../learn/configuring-a-read-only-ldap-user-store)
+    -   [Properties for a Read-only LDAP User
+        Store](../../learn/configuring-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-userstore-manager)
 
-    -   [Configuring a Read-write Active Directory User
-        Store](../../learn/configuring-a-read-write-active-directory-user-store)
+    -   [Properties for a Read-write Active Directory User
+        Store](../../learn/configuring-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
 
-    -   [Configuring a Read-write LDAP User
-        Store](../../learn/configuring-a-read-write-ldap-user-store)
+    -   [Properties for a Read-write LDAP User
+        Store](../../learn/configuring-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-userstore-manager)
 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying

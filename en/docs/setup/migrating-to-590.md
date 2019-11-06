@@ -1,22 +1,15 @@
 # Migrating to 5.9.0
 
-!!! note
-    Before you follow this section, see [Before you begin](../../setup/migrating-before-you-begin) and [Preparing for 
-    migration](../../setup/migrating-preparing-for-migration) sections to read on prerequisites.
+Before you follow this section, see
+[Before you begin](../../setup/migrating-before-you-begin) and
+[Preparing for migration](../../setup/migrating-preparing-for-migration)
+sections to read the prerequisites.
 
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
     directory that WSO2 Identity Server 5.9.0 resides in. 
 
-### **Executing the migration client**
-
-To upgrade to the latest version of WSO2 Identity Server, you need to
-upgrade the userstore database. **Note** that there are no registry schema
-changes between versions.
-
-Follow the steps below to perform the upgrade.
-    
 ??? note "If you are using DB2"
     Move indexes to the the
     TS32K Tablespace. The index tablespace in the 
@@ -90,9 +83,13 @@ Follow the steps below to perform the upgrade.
     `          <NEW_IS_HOME>/repository/components/dropins         `
     directory.
     
-    !!! note
+    !!! warning "Important" 
         You may need to update the custom components to work with WSO2 Identity Server 5.9.0, 
         refer [Migrating custom components](../../setup/migrating-preparing-for-migration/#migrating-custom-components).
+        If applicable migrate
+        [Data Publishers](../../setup/migrating-data-publishers) and
+        [Custom Scope validators](../../setup/migrating-custom-scope-validators)
+        referring to the corresponding document.
 
 2.  If you manually added any JAR files to the
     `           <OLD_IS_HOME>/repository/components/lib          `
@@ -118,14 +115,17 @@ Follow the steps below to perform the upgrade.
     `           <NEW_IS_HOME>/repository/deployment/server/userstores          `
     directory.
     
-    !!! warning
-        If you are using a version prior to WSO2 Identity Server 5.8.0, then proceed to the steps 6 to 9 
-        otherwise directly proceed to step 9.
-    
-6.  Do the following database updates:  
-    1.  Download the [migration resources](../../assets/attachments/migration/wso2is-5.9.0-migration.zip)
+6. Ensure that you have migrated the configurations into NEW version as
+   advised in
+   [preparing for migration section.](../../setup/migrating-preparing-for-migration/#migrating-the-configurations)
+   
+7. Migrate [Log4j2 configurations](../../setup/migrating-to-log4j2).
+   
+8. Do the following database updates:
+    1.  Download the
+        [migration resources](../../assets/attachments/migration/wso2is-5.9.0-migration.zip)
         and unzip it to a local directory. This directory is referred to
-        as `             <IS5.9.0_MIGRATION_TOOL_HOME>            ` .
+        as ` <IS5.9.0_MIGRATION_TOOL_HOME> ` .
 
     2.  Copy the
         `             org.wso2.carbon.is.migration-5.9.0.jar            `
@@ -154,7 +154,7 @@ Follow the steps below to perform the upgrade.
         !!! note
             Here the `currentVersion` is the current WSO2 Identity Server version that you are using.
 
-7.  Start the WSO2 Identity Server 5.9.0 with the following command to
+9.  Start the WSO2 Identity Server 5.9.0 with the following command to
     execute the migration client.
 
     1.  Linux/Unix:
@@ -169,185 +169,145 @@ Follow the steps below to perform the upgrade.
         wso2server.bat -Dmigrate -Dcomponent=identity
         ```
 
-8. Stop the server once the task of migration client is completed.
+10.  Stop the server once the migration client execution is completed.
 
-9. Run the following DB script against the Identity DB.
-
-    ```tab="H2"
-    CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
-                TENANT_ID INTEGER,
-                DOMAIN_NAME VARCHAR(255) NOT NULL,
-                USER_NAME VARCHAR(45) NOT NULL,
-                TIME_REGISTERED TIMESTAMP,
-                USER_HANDLE VARCHAR(200) NOT NULL,
-                CREDENTIAL_ID VARCHAR(200) NOT NULL,
-                PUBLIC_KEY_COSE VARCHAR(2048) NOT NULL,
-                SIGNATURE_COUNT BIGINT,
-                USER_IDENTITY VARCHAR(200) NOT NULL,
-                PRIMARY KEY (TENANT_ID, DOMAIN_NAME, USER_NAME, USER_HANDLE));
+   
+    !!! Tip 
+        If you are migrating from WSO2 Identity Server 5.8.0, then you can skip steps 8-10 and run following the following DB script against the IDENTITY_DB.
     
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
-                SESSION_ID VARCHAR (100) NOT NULL,
-                SUBJECT VARCHAR (100) NOT NULL,
-                APP_ID INTEGER NOT NULL,
-                INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-                PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE));
+        ```tab="H2" 
+        CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
+                    TENANT_ID INTEGER,
+                    DOMAIN_NAME VARCHAR(255) NOT NULL,
+                    USER_NAME VARCHAR(45) NOT NULL,
+                    TIME_REGISTERED TIMESTAMP,
+                    USER_HANDLE VARCHAR(200) NOT NULL,
+                    CREDENTIAL_ID VARCHAR(200) NOT NULL,
+                    PUBLIC_KEY_COSE VARCHAR(2048) NOT NULL,
+                    SIGNATURE_COUNT BIGINT,
+                    USER_IDENTITY VARCHAR(200) NOT NULL,
+                    PRIMARY KEY (TENANT_ID, DOMAIN_NAME, USER_NAME, USER_HANDLE));
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
+                    SESSION_ID VARCHAR (100) NOT NULL,
+                    SUBJECT VARCHAR (100) NOT NULL,
+                    APP_ID INTEGER NOT NULL,
+                    INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
+                    PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE));
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
+                    SESSION_ID VARCHAR (100) NOT NULL,
+                    PROPERTY_TYPE VARCHAR (100) NOT NULL,
+                    VALUE VARCHAR (255) NOT NULL,
+                    PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE));
+        
+        CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
+                    NAME VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(1023),
+                    TYPE VARCHAR(255) NOT NULL,
+                    TENANT_ID INTEGER NOT NULL,
+                    DATA BLOB NOT NULL,
+                    PRIMARY KEY (TENANT_ID,NAME));
+        
+        CREATE INDEX IF NOT EXISTS IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
+        
+        ```
     
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
-                SESSION_ID VARCHAR (100) NOT NULL,
-                PROPERTY_TYPE VARCHAR (100) NOT NULL,
-                VALUE VARCHAR (255) NOT NULL,
-                PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE));
+        ```tab="DB2"
+        CREATE TABLE FIDO2_DEVICE_STORE (
+                  TENANT_ID INTEGER NOT NULL,
+                  DOMAIN_NAME VARCHAR(255) NOT NULL,
+                  USER_NAME VARCHAR(45) NOT NULL,
+                  TIME_REGISTERED TIMESTAMP,
+                  USER_HANDLE VARCHAR(64) NOT NULL,
+                  CREDENTIAL_ID VARCHAR(200) NOT NULL,
+                  PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
+                  SIGNATURE_COUNT BIGINT,
+                  USER_IDENTITY VARCHAR(512) NOT NULL,
+                PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
+        /
+        
+        CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
+                  SESSION_ID VARCHAR (100) NOT NULL,
+                  SUBJECT VARCHAR (100) NOT NULL,
+                  APP_ID INTEGER NOT NULL,
+                  INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
+                PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
+        )
+        /
+        
+        CREATE TABLE IDN_AUTH_SESSION_META_DATA (
+                  SESSION_ID VARCHAR (100) NOT NULL,
+                  PROPERTY_TYPE VARCHAR (100) NOT NULL,
+                  VALUE VARCHAR (255) NOT NULL,
+                PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
+        )
+        /
+        
+        CREATE TABLE IDN_FUNCTION_LIBRARY (
+                  NAME VARCHAR(255) NOT NULL,
+                  DESCRIPTION VARCHAR(1023),
+                  TYPE VARCHAR(255) NOT NULL,
+                  TENANT_ID INTEGER NOT NULL,
+                  DATA BLOB NOT NULL,
+                PRIMARY KEY (TENANT_ID,NAME)
+        )
+        /
+        
+        CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
+        /
+        
+        ```
     
-    CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
-                NAME VARCHAR(255) NOT NULL,
-                DESCRIPTION VARCHAR(1023),
-                TYPE VARCHAR(255) NOT NULL,
-                TENANT_ID INTEGER NOT NULL,
-                DATA BLOB NOT NULL,
-                PRIMARY KEY (TENANT_ID,NAME));
-    
-    CREATE INDEX IF NOT EXISTS IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="DB2"
-    CREATE TABLE FIDO2_DEVICE_STORE (
-              TENANT_ID INTEGER NOT NULL,
-              DOMAIN_NAME VARCHAR(255) NOT NULL,
-              USER_NAME VARCHAR(45) NOT NULL,
-              TIME_REGISTERED TIMESTAMP,
-              USER_HANDLE VARCHAR(64) NOT NULL,
-              CREDENTIAL_ID VARCHAR(200) NOT NULL,
-              PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-              SIGNATURE_COUNT BIGINT,
-              USER_IDENTITY VARCHAR(512) NOT NULL,
-            PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-              SESSION_ID VARCHAR (100) NOT NULL,
-              SUBJECT VARCHAR (100) NOT NULL,
-              APP_ID INTEGER NOT NULL,
-              INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-            PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    )
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-              SESSION_ID VARCHAR (100) NOT NULL,
-              PROPERTY_TYPE VARCHAR (100) NOT NULL,
-              VALUE VARCHAR (255) NOT NULL,
-            PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    )
-    /
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-              NAME VARCHAR(255) NOT NULL,
-              DESCRIPTION VARCHAR(1023),
-              TYPE VARCHAR(255) NOT NULL,
-              TENANT_ID INTEGER NOT NULL,
-              DATA BLOB NOT NULL,
+        ```tab="MSSQL"
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[FIDO2_DEVICE_STORE]') AND TYPE IN (N'U'))
+        CREATE TABLE FIDO2_DEVICE_STORE (
+          TENANT_ID INTEGER,
+          DOMAIN_NAME VARCHAR(255) NOT NULL,
+          USER_NAME VARCHAR(45) NOT NULL,
+          TIME_REGISTERED DATETIME,
+          USER_HANDLE VARCHAR(64) NOT NULL,
+          CREDENTIAL_ID VARCHAR(200) NOT NULL,
+          PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
+          SIGNATURE_COUNT BIGINT,
+          USER_IDENTITY VARCHAR(512) NOT NULL,
+          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
+        );
+        
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_APP_INFO]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
+          SESSION_ID VARCHAR (100) NOT NULL,
+          SUBJECT VARCHAR (100) NOT NULL,
+          APP_ID INTEGER NOT NULL,
+          INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
+          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
+        );
+        
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_META_DATA]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_AUTH_SESSION_META_DATA (
+          SESSION_ID VARCHAR (100) NOT NULL,
+          PROPERTY_TYPE VARCHAR (100) NOT NULL,
+          VALUE VARCHAR (255) NOT NULL,
+          PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
+        );
+        
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_FUNCTION_LIBRARY]') AND TYPE IN (N'U'))
+        CREATE TABLE IDN_FUNCTION_LIBRARY (
+            NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(1023),
+            TYPE VARCHAR(255) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            DATA VARBINARY(MAX) NOT NULL,
             PRIMARY KEY (TENANT_ID,NAME)
-    )
-    /
+        );
+        
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_FIDO2_STR' and object_id = OBJECT_ID('FIDO2_DEVICE_STORE'))
+        CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE (USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
+        
+        ```
     
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
-    /
-    
-    ```
-
-    ```tab="MSSQL"
-    IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[FIDO2_DEVICE_STORE]') AND TYPE IN (N'U'))
-    CREATE TABLE FIDO2_DEVICE_STORE (
-      TENANT_ID INTEGER,
-      DOMAIN_NAME VARCHAR(255) NOT NULL,
-      USER_NAME VARCHAR(45) NOT NULL,
-      TIME_REGISTERED DATETIME,
-      USER_HANDLE VARCHAR(64) NOT NULL,
-      CREDENTIAL_ID VARCHAR(200) NOT NULL,
-      PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-      SIGNATURE_COUNT BIGINT,
-      USER_IDENTITY VARCHAR(512) NOT NULL,
-      PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_APP_INFO]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      SUBJECT VARCHAR (100) NOT NULL,
-      APP_ID INTEGER NOT NULL,
-      INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_AUTH_SESSION_META_DATA]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      PROPERTY_TYPE VARCHAR (100) NOT NULL,
-      VALUE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_FUNCTION_LIBRARY]') AND TYPE IN (N'U'))
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-    	NAME VARCHAR(255) NOT NULL,
-    	DESCRIPTION VARCHAR(1023),
-    	TYPE VARCHAR(255) NOT NULL,
-    	TENANT_ID INTEGER NOT NULL,
-    	DATA VARBINARY(MAX) NOT NULL,
-    	PRIMARY KEY (TENANT_ID,NAME)
-    );
-    
-    IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_FIDO2_STR' and object_id = OBJECT_ID('FIDO2_DEVICE_STORE'))
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE (USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="MySQL"
-    CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
-      TENANT_ID INTEGER,
-      DOMAIN_NAME VARCHAR(255) NOT NULL,
-      USER_NAME VARCHAR(45) NOT NULL,
-      TIME_REGISTERED TIMESTAMP,
-      USER_HANDLE VARCHAR(64) NOT NULL,
-      CREDENTIAL_ID VARCHAR(200) NOT NULL,
-      PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-      SIGNATURE_COUNT BIGINT,
-      USER_IDENTITY VARCHAR(512) NOT NULL,
-      PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      SUBJECT VARCHAR (100) NOT NULL,
-      APP_ID INTEGER NOT NULL,
-      INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
-      SESSION_ID VARCHAR (100) NOT NULL,
-      PROPERTY_TYPE VARCHAR (100) NOT NULL,
-      VALUE VARCHAR (255) NOT NULL,
-      PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
-    	NAME VARCHAR(255) NOT NULL,
-    	DESCRIPTION VARCHAR(1023),
-    	TYPE VARCHAR(255) NOT NULL,
-    	TENANT_ID INTEGER NOT NULL,
-    	DATA BLOB NOT NULL,
-    	PRIMARY KEY (TENANT_ID,NAME)
-    );
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-    
-    ```
-
-    ```tab="Oracle"
-    CREATE TABLE FIDO2_DEVICE_STORE (
+        ```tab="MySQL"
+        CREATE TABLE IF NOT EXISTS FIDO2_DEVICE_STORE (
           TENANT_ID INTEGER,
           DOMAIN_NAME VARCHAR(255) NOT NULL,
           USER_NAME VARCHAR(45) NOT NULL,
@@ -355,80 +315,122 @@ Follow the steps below to perform the upgrade.
           USER_HANDLE VARCHAR(64) NOT NULL,
           CREDENTIAL_ID VARCHAR(200) NOT NULL,
           PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-          SIGNATURE_COUNT NUMBER(19),
+          SIGNATURE_COUNT BIGINT,
           USER_IDENTITY VARCHAR(512) NOT NULL,
-          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
+          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_APP_INFO (
           SESSION_ID VARCHAR (100) NOT NULL,
           SUBJECT VARCHAR (100) NOT NULL,
           APP_ID INTEGER NOT NULL,
           INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE))
-    /
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
+          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_AUTH_SESSION_META_DATA (
           SESSION_ID VARCHAR (100) NOT NULL,
           PROPERTY_TYPE VARCHAR (100) NOT NULL,
           VALUE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE))
-    /
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
-          NAME VARCHAR(255) NOT NULL,
-          DESCRIPTION VARCHAR(1023),
-          TYPE VARCHAR(255) NOT NULL,
-          TENANT_ID INTEGER NOT NULL,
-          DATA BLOB NOT NULL,
-          PRIMARY KEY (TENANT_ID,NAME))
-    /
-    
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
-    /
-    
-    ```
-    
-    ```tab="PostgreSQL"
-    CREATE TABLE FIDO2_DEVICE_STORE (
-            TENANT_ID INTEGER,
-            DOMAIN_NAME VARCHAR(255) NOT NULL,
-            USER_NAME VARCHAR(45) NOT NULL,
-            TIME_REGISTERED TIMESTAMP,
-            USER_HANDLE VARCHAR(64) NOT NULL,
-            CREDENTIAL_ID VARCHAR(200) NOT NULL,
-            PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
-            SIGNATURE_COUNT BIGINT,
-            USER_IDENTITY VARCHAR(512) NOT NULL,
-          PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE));
-    
-    CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
-            SESSION_ID VARCHAR (100) NOT NULL,
-            SUBJECT VARCHAR (100) NOT NULL,
-            APP_ID INTEGER NOT NULL,
-            INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
-          PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
-    );
-    
-    CREATE TABLE IDN_AUTH_SESSION_META_DATA (
-            SESSION_ID VARCHAR (100) NOT NULL,
-            PROPERTY_TYPE VARCHAR (100) NOT NULL,
-            VALUE VARCHAR (255) NOT NULL,
           PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
-    );
-    
-    CREATE TABLE IDN_FUNCTION_LIBRARY (
+        );
+        
+        CREATE TABLE IF NOT EXISTS IDN_FUNCTION_LIBRARY (
             NAME VARCHAR(255) NOT NULL,
             DESCRIPTION VARCHAR(1023),
             TYPE VARCHAR(255) NOT NULL,
             TENANT_ID INTEGER NOT NULL,
-            DATA BYTEA NOT NULL,
-          PRIMARY KEY (TENANT_ID,NAME)
-    );
+            DATA BLOB NOT NULL,
+            PRIMARY KEY (TENANT_ID,NAME)
+        );
+        
+        CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
+        
+        ```
     
-    CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
-
-    ```
+        ```tab="Oracle"
+        CREATE TABLE FIDO2_DEVICE_STORE (
+              TENANT_ID INTEGER,
+              DOMAIN_NAME VARCHAR(255) NOT NULL,
+              USER_NAME VARCHAR(45) NOT NULL,
+              TIME_REGISTERED TIMESTAMP,
+              USER_HANDLE VARCHAR(64) NOT NULL,
+              CREDENTIAL_ID VARCHAR(200) NOT NULL,
+              PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
+              SIGNATURE_COUNT NUMBER(19),
+              USER_IDENTITY VARCHAR(512) NOT NULL,
+              PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE))
+        /
+        
+        CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
+              SESSION_ID VARCHAR (100) NOT NULL,
+              SUBJECT VARCHAR (100) NOT NULL,
+              APP_ID INTEGER NOT NULL,
+              INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
+              PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE))
+        /
+        
+        CREATE TABLE IDN_AUTH_SESSION_META_DATA (
+              SESSION_ID VARCHAR (100) NOT NULL,
+              PROPERTY_TYPE VARCHAR (100) NOT NULL,
+              VALUE VARCHAR (255) NOT NULL,
+              PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE))
+        /
+        
+        CREATE TABLE IDN_FUNCTION_LIBRARY (
+              NAME VARCHAR(255) NOT NULL,
+              DESCRIPTION VARCHAR(1023),
+              TYPE VARCHAR(255) NOT NULL,
+              TENANT_ID INTEGER NOT NULL,
+              DATA BLOB NOT NULL,
+              PRIMARY KEY (TENANT_ID,NAME))
+        /
+        
+        CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE)
+        /
+        
+        ```
+        
+        ```tab="PostgreSQL"
+        CREATE TABLE FIDO2_DEVICE_STORE (
+                TENANT_ID INTEGER,
+                DOMAIN_NAME VARCHAR(255) NOT NULL,
+                USER_NAME VARCHAR(45) NOT NULL,
+                TIME_REGISTERED TIMESTAMP,
+                USER_HANDLE VARCHAR(64) NOT NULL,
+                CREDENTIAL_ID VARCHAR(200) NOT NULL,
+                PUBLIC_KEY_COSE VARCHAR(1024) NOT NULL,
+                SIGNATURE_COUNT BIGINT,
+                USER_IDENTITY VARCHAR(512) NOT NULL,
+              PRIMARY KEY (CREDENTIAL_ID, USER_HANDLE));
+        
+        CREATE TABLE IDN_AUTH_SESSION_APP_INFO (
+                SESSION_ID VARCHAR (100) NOT NULL,
+                SUBJECT VARCHAR (100) NOT NULL,
+                APP_ID INTEGER NOT NULL,
+                INBOUND_AUTH_TYPE VARCHAR (255) NOT NULL,
+              PRIMARY KEY (SESSION_ID, SUBJECT, APP_ID, INBOUND_AUTH_TYPE)
+        );
+        
+        CREATE TABLE IDN_AUTH_SESSION_META_DATA (
+                SESSION_ID VARCHAR (100) NOT NULL,
+                PROPERTY_TYPE VARCHAR (100) NOT NULL,
+                VALUE VARCHAR (255) NOT NULL,
+              PRIMARY KEY (SESSION_ID, PROPERTY_TYPE, VALUE)
+        );
+        
+        CREATE TABLE IDN_FUNCTION_LIBRARY (
+                NAME VARCHAR(255) NOT NULL,
+                DESCRIPTION VARCHAR(1023),
+                TYPE VARCHAR(255) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                DATA BYTEA NOT NULL,
+              PRIMARY KEY (TENANT_ID,NAME)
+        );
+        
+        CREATE INDEX IDX_FIDO2_STR ON FIDO2_DEVICE_STORE(USER_NAME, TENANT_ID, DOMAIN_NAME, CREDENTIAL_ID, USER_HANDLE);
+    
+        ```
     
 ### **Executing the sync tool**
 

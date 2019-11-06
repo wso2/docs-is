@@ -26,13 +26,11 @@ collectively as "Nginx".)
 
 1.  Install Nginx (NGINX Plus or nginx community) in a server configured
     in your cluster.
-2.  Configure Nginx to direct the HTTP requests to the two worker
-    nodes via the HTTP 80 port using the
-    `                         http://is.wso2.com/>           `
-    . To do this, create a VHost file (
-    `            is.http.conf           ` ) in the
-    `            /etc/nginx/conf.d           ` directory and add the
-    following configurations into it.
+2.  Configure Nginx to direct the HTTP requests to the two worker nodes
+    via the HTTP 80 port using the ` http://is.wso2.com/> ` . To do
+    this, create a VHost file ( ` is.http.conf ` ) in the `
+    /etc/nginx/conf.d ` directory and add the following configurations
+    into it. 
 
     ??? abstract "Click here to view a generic Nginx configuration"
 
@@ -61,89 +59,86 @@ collectively as "Nginx".)
         }
         ```
 
-    ??? example "Click here to view a specific configuration that exposes various
-    endpoints"
+    ??? example "Click here to view a specific configuration that exposes various endpoints"
 
-        ``` java tab="Nginx configuration that exposes /oauth2, /commonauth, and other endpoints"
-            upstream ssl.nginx.com {
-                server xxx.xxx.xxx.xx3:9443;  
-                server xxx.xxx.xxx.xx4:9443  
-            ip_hash; 
+        ```java tab="Nginx configuration that exposes /oauth2, /commonauth, and other endpoints"
+        upstream ssl.nginx.com {
+            server xxx.xxx.xxx.xx3:9443;  
+            server xxx.xxx.xxx.xx4:9443  
+        ip_hash; 
+        }
+    
+        server {
+            listen 443;
+            server_name is.wso2.com;   
+            ssl on;
+            ssl_certificate /home/abc/STAR_wso2is_com.crt; 
+            ssl_certificate_key /home/abc/wso2is.key;
+    
+            location /oauth2/token {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                
+                proxy_pass  https://ssl.nginx.com/oauth2/token ;
+                proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/token https://is.wso2.com/oauth2/token ;
+                proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/token https://is.wso2.com/oauth2/token ; 
             }
-        
-            server {
-                listen 443;
-                server_name is.wso2.com;   
-                ssl on;
-                ssl_certificate /home/abc/STAR_wso2is_com.crt; 
-                ssl_certificate_key /home/abc/wso2is.key;
-        
-                location /oauth2/token {
-                    proxy_set_header X-Forwarded-Host $host;
-                    proxy_set_header X-Forwarded-Server $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
-                    proxy_read_timeout 5m;
-                    proxy_send_timeout 5m;
-                    
-                    proxy_pass  https://ssl.nginx.com/oauth2/token ;
-                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/token https://is.wso2.com/oauth2/token ;
-                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/token https://is.wso2.com/oauth2/token ; 
-                }
-        
-                location /commonauth {
-                    proxy_set_header X-Forwarded-Host $host;
-                    proxy_set_header X-Forwarded-Server $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
-                    proxy_read_timeout 5m;
-                    proxy_send_timeout 5m;
-                    proxy_pass https://ssl.nginx.com/commonauth;
-                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/commonauth https://is.wso2.com/commonauth ;
-                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/commomnauth https://is.wso2.com/commonauth;
-                }
-        
-                location /oauth2/authorize {
-                    proxy_set_header X-Forwarded-Host $host;
-                    proxy_set_header X-Forwarded-Server $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
-                    proxy_read_timeout 5m;
-                    proxy_send_timeout 5m;
-                    proxy_pass https://ssl.nginx.com/oauth2/authorize;
-                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/authorize https://is.wso2.com/oauth2/authorize ;
-                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/authorize https://is.wso2.com/oauth2/ authorize;
-                }
-        
-                location /authenticationendpoint/ {
-                    proxy_set_header X-Forwarded-Host $host;
-                    proxy_set_header X-Forwarded-Server $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
-                    proxy_read_timeout 5m;
-                    proxy_send_timeout 5m;
-                    proxy_pass https://ssl.nginx.com/authenticationendpoint/;
-                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/authenticationendpoint/ https://is.wso2.com/authenticationendpoint/ ;
-                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/authenticationendpoint https://is.wso2.com/ authenticationendpoint;
-                }
-        
-                location /oauth2/userinfo {
-                    proxy_set_header X-Forwarded-Host $host;
-                    proxy_set_header X-Forwarded-Server $host;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
-                    proxy_read_timeout 5m;
-                    proxy_send_timeout 5m;
-                    proxy_pass https://ssl.nginx.com/oauth2/userinfo;
-                    proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/userinfo https://is.wso2.com/oauth2/userinfo ;
-                    proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/userinfo https://is.wso2.com/oauth2/ userinfo;
-                }
+    
+            location /commonauth {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                proxy_pass https://ssl.nginx.com/commonauth;
+                proxy_redirect https://xxx.xxx.xxx.xx3:9443/commonauth https://is.wso2.com/commonauth ;
+                proxy_redirect https://xxx.xxx.xxx.xx4:9443/commomnauth https://is.wso2.com/commonauth;
             }
-            ```
+    
+            location /oauth2/authorize {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                proxy_pass https://ssl.nginx.com/oauth2/authorize;
+                proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/authorize https://is.wso2.com/oauth2/authorize ;
+                proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/authorize https://is.wso2.com/oauth2/ authorize;
+            }
+    
+            location /authenticationendpoint/ {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                proxy_pass https://ssl.nginx.com/authenticationendpoint/;
+                proxy_redirect https://xxx.xxx.xxx.xx3:9443/authenticationendpoint/ https://is.wso2.com/authenticationendpoint/ ;
+                proxy_redirect https://xxx.xxx.xxx.xx4:9443/authenticationendpoint https://is.wso2.com/ authenticationendpoint;
+            }
+    
+            location /oauth2/userinfo {
+                proxy_set_header X-Forwarded-Host $host;
+                proxy_set_header X-Forwarded-Server $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host;
+                proxy_read_timeout 5m;
+                proxy_send_timeout 5m;
+                proxy_pass https://ssl.nginx.com/oauth2/userinfo;
+                proxy_redirect https://xxx.xxx.xxx.xx3:9443/oauth2/userinfo https://is.wso2.com/oauth2/userinfo ;
+                proxy_redirect https://xxx.xxx.xxx.xx4:9443/oauth2/userinfo https://is.wso2.com/oauth2/ userinfo;
+            }
+        }
+        ```
 
 3.  Now that you've configured HTTP requests, you must also configure
-    HTTPS requests. Configure Nginx to direct the HTTPS requests to
-    the two worker nodes via the HTTPS 443 port using
-    `                         https://is.wso2.com/            >           `
-    . To do this, create a VHost file (
-    `            is.https.conf           ` ) in the
-    `            /etc/nginx/conf.d           ` directory and add the
-    following configurations into it.
+    HTTPS requests. Configure Nginx to direct the HTTPS requests to the
+    two worker nodes via the HTTPS 443 port using ` https://is.wso2.com/
+     ` . To do this, create a VHost file ( ` is.https.conf ` ) in the `
+    /etc/nginx/conf.d ` directory and add the following configurations
+    into it.
 
     !!! note
     
