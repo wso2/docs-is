@@ -19,7 +19,7 @@ Email OTP:
     -   The samples run on the Apache Tomcat server and are written based on
         Servlet 3.0. Therefore, download Tomcat 7.x from
         [here](https://tomcat.apache.org/download-70.cgi) .
-    -   Install Apache Maven to build the samples. For more infomation, see
+    -   Install Apache Maven to build the samples. For more information, see
         [Installation Prerequisites](../../setup/installation-prerequisites).
     
 ### Configure the email OTP provider
@@ -66,7 +66,7 @@ set up the email OTP provider.
            <subject>WSO2 IS Email OTP</subject>
            <body>
               Hi,
-              Please use this one time password {OTPCode} to sign in to your application.
+              Please use this one time password {OTPCode} to sign-in to your application.
            </body>
            <footer>
               Best Regards,
@@ -290,7 +290,7 @@ set up the email OTP provider.
     4.  Click **Enable** to enable the Gmail APIs.
     
         !!! info "Why is this needed?"
-            If you do not enable the Gmail APIs, you will run in to a 401 error when
+            If you do not enable the Gmail APIs, you will run into a 401 error when
             trying out [step13](#configuring-emailotp-copy-url).
     
     5.  Click **Credentials** and click **Create** to create a new project.
