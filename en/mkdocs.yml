@@ -575,6 +575,7 @@ nav:
         - 'Installing on Windows': setup/installing-on-windows.md
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
         - 'Installing as a Windows Service': setup/installing-as-a-windows-service.md
+        - 'Uninstalling the Product': setup/uninstalling-the-product.md
       - 'Running the Product': setup/running-the-product.md
       - 'Getting Started with the Management Console':
         - 'Overview': setup/getting-started-with-the-management-console.md
@@ -692,10 +693,12 @@ nav:
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
-        - 'Load Balancing': administer/load-balancing.md
+        - 'Configuring Hazelcast': administer/configuring-hazelcast.md
+        - 'Load Balancing': administer/load-balancing.md   
         - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
-      - 'Production Deployment Guidelines': 
-        - 'Production Deployment Guidelines': administer/production-deployment-guidelines.md
+        - 'Deployment Checklist': administer/deployment-checklist.md
+        - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
+      - 'Production Deployment Guidelines':
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
       - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
     - 'Security':

@@ -47,27 +47,22 @@ These characteristics are essential for enterprise applications deployed
 in a production environment. Therefore, you need a cluster when you go into
 production when performance and reliability are critical.
 
-WSO2 provides [Hazelcast Community
-Edition](http://www.hazelcast.com/products-community.jsp) as its default
-clustering engine. For clustering on a secure channel (i.e., secure
-Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
-Enterprise, there are provisions to provide license key under clustering
-configurations. Advanced users can fine-tune Hazelcast by creating a
-`         <IS_HOME>/repository/conf/hazelcast.properties        `
-file and adding the relevant Hazelcast properties as described in the
-[Hazelcast Advanced Configuration Properties
-documentation](http://www.hazelcast.com/docs/2.0/manual/multi_html/ch13s10.html)
-. If you use Hazelcast Enterprise Edition or Hazelcast Management
-Center, see [the Hazelcast
-documentation](http://docs.hazelcast.org/docs/2.0/manual/html/ch13s10.html)
-for details on configuring those products and also [Advanced
-Configurations and
-Information](https://docs.wso2.com/display/CLUSTER44x/Additional+Configurations+and+Information)
-for further details.
-
-Add the following property to hazelcast.properties file to add the
-license key of Hazelcast Enterprise:
-`         hazelcast.enterprise.license.key        ` .
+!!! info
+    WSO2 provides Hazelcast Community Edition as its default
+    clustering engine. For clustering on a secure channel (i.e., secure
+    Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
+    Enterprise, there are provisions to provide license key under clustering
+    configurations. Advanced users can fine-tune Hazelcast by creating a
+    `         <IS_HOME>/repository/conf/hazelcast.properties        `
+    file and adding the relevant Hazelcast properties as described in the
+    [Hazelcast Advanced Configuration Properties
+    documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html).
+    
+    Add the following property to hazelcast.properties file to add the
+    license key of Hazelcast Enterprise:
+    `         hazelcast.enterprise.license.key        ` .
+    
+    For more details, see [Configuring Hazelcast](../../administer/configuring-hazelcast).
 
 ------------------------------------------------------------------------
 
