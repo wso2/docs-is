@@ -698,8 +698,7 @@ nav:
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
         - 'Configuring Hazelcast': administer/configuring-hazelcast.md
-        - 'Load Balancing': administer/load-balancing.md    
-        - 'Sharing Databases in a Cluster': administer/sharing-databases-in-a-cluster.md
+        - 'Load Balancing': administer/load-balancing.md   
         - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
         - 'Deployment Checklist': administer/deployment-checklist.md
         - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
