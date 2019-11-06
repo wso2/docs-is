@@ -143,7 +143,7 @@ Follow the steps given below to import the CA-signed certificate to your keystor
 
 Now you have a Java keystore, which includes a CA-signed public key certificate that can be used for SSL in a production environment. Next, you may need to add the same CA-signed public key certificate to the `client-truststore.jks` file. This will provide security and trust for backend communication/inter-system communication of WSO2 Identity Server via SSL.
 
-#### Step 3: Importe certificates to the truststore
+#### Step 3: Import certificates to the truststore
 
 In SSL handshake, the client needs to verify the certificate presented by the server. For this purpose, the client usually stores the certificates it trusts, in a trust store. To enable secure and trusted
 backend communication, all WSO2 products are shipped with a trust store named `client-truststore.jks`, which resides in the same directory as the default keystore (`<IS_HOME>/repository/resources/security/`).
