@@ -217,7 +217,6 @@ nav:
             - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': learn/writing-xacml-3-policies-in-wso2-identity-server-7.md
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
-      - 'Setting Up An LDAP User Store': learn/setting-up-an-ldap-user-store.md
     - 'Using WSO2 Identity Server':     
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
@@ -627,6 +626,7 @@ nav:
           - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
           - 'Token Persistence': setup/token-persistence.md
           - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
+          - 'Enable Assertions In Access Tokens': administer/enable-assertions-in-access-tokens
         - 'Data Purging': administer/data-purging.md
         - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
@@ -672,13 +672,6 @@ nav:
           - 'Identity Related Tables': administer/identity-related-tables.md
           - 'Service Provider Related Tables': administer/service-provider-related-tables.md
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
-      - 'Implementing Security in the Identity Server': 
-        - 'Configuring Transport Level Security': administer/transport-level-security.md
-        - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
-        - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
-        - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
-        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
@@ -727,6 +720,9 @@ nav:
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
+      - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
+      - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
+      - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
