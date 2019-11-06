@@ -180,4 +180,4 @@
 !!! info "Related Topics"
 
     For more information on how to configure primary and secondary user
-    stores, see [Configuring User Stores](../../learn/configuring-user-stores).
+    stores, see [Configuring User Stores](../../setup/configuring-user-stores).

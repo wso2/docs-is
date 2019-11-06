@@ -24,19 +24,48 @@ necessary system requirements and a compatible environment.
 
 ### System requirements
 
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
 <tbody>
-<tr>
-<th>Memory</th>
-<td><b>4GB</b> : 2 GB for the Java Virtual Machine (JVM) and 2 GB for the Operating System (OS)</td>
+<tr class="odd">
+<td>Physical</td>
+<td><ul>
+<li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
+<li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
+<li>10 GB free disk space</li>
+<li>~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.</li>
+</ul>
+<p>Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</p></td>
 </tr>
-<tr>
-<th>Disk</th>
-<td>10 GB minimum  </td>
+<tr class="even">
+<td>Virtual Machine (VM)</td>
+<td><ul>
+<li>2 compute units minimum (each unit having 1.0-1.2 GHz Opteron/Xeon processor)</li>
+<li>4 GB RAM</li>
+<li>10 GB free disk space</li>
+<li>One CPU unit for the operating system and one for JVM.</li>
+</ul>
+<p>Three WSO2 product instances running would require VM of 4 compute units, 8 GB RAM, and 30 GBfree space.<br />
+~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and the number of messages processed concurrently.</p></td>
+</tr>
+<tr class="odd">
+<td>EC2</td>
+<td><ul>
+<li>One c5.large instance to run one WSO2 product instance.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Cassandra data nodes</td>
+<td><ul>
+<li>4 core processors</li>
+<li>8 GB RAM</li>
+</ul>
 </tr>
 </tbody>
 </table>
-
 !!! note
     For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites)
 
@@ -123,7 +152,7 @@ are used.
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Working with Databases](../../administer/working-with-databases)
+    see [Working with Databases](../../setup/working-with-databases)
 
 ## Mounting the shared registry
 
@@ -139,7 +168,7 @@ includes services, service descriptions, endpoints or data sources.
 
 !!! info
     For more information about the registry, 
-    see [Working with the Registry](../../administer/working-with-the-registry).
+    see [Working with the Registry](../../setup/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 
@@ -295,7 +324,7 @@ them.
                                 timeout is 15 minutes), there is a security risk in this method. To reduce 
                                 the risk, reduce the default cache timeout period. To learn how to reduce the 
                                 default cache timeout period, 
-                                see [Configuring Cache Layers - timeout](../../administer/configuring-cache-layers#timeout).</li>
+                                see [Configuring Cache Layers - timeout](../../setup/configuring-cache-layers#timeout).</li>
                             </ul>
                         </td>
                     </tr>

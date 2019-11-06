@@ -43,7 +43,7 @@ version.
 test your functional and nonfunctional requirements.
 
 7.  Before starting the migration, run the [token and session 
-cleanup scripts](../../administer/removing-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
+cleanup scripts](../../setup/removing-unused-tokens-from-the-database#using-stored-procedures-for-token-cleanup)
  in the databases of the environment, if you are not doing regular cleanups.
     
     !!! info

@@ -31,8 +31,8 @@
 
 #### Deprecated features and functionalities
 
--	Writing Password Policiy validators 
-
+-	Writing Password Policy validators 
+-   Access token partitioning
 
 ### Compatible versions
 

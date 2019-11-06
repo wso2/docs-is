@@ -28,7 +28,7 @@ following ways:
     Therefore, you can replace this. For instructions on replacing this
     by setting up a new RDBMS and configuring it for your system, see
     [Setting Up the Physical
-    Database](../../administer/working-with-databases).
+    Database](../../setup/working-with-databases).
 
 Therefore, before you begin, ensure that the RDBMS that you want to use
 as the JDBC user store is correctly set up for your system. Then, follow
@@ -54,7 +54,7 @@ change the `         [user_store]        ` section in the
     store properties in the
     `           <IS_HOME>/repository/conf/ deployment.toml `
     file which are used for configuring the primary user store, see
-    [Properties of Primary User Stores](../../administer/working-with-properties-of-user-stores).
+    [Properties of Primary User Stores](../../setup/working-with-properties-of-user-stores).
 
     -   **Internal JDBC User Store**
         The following sample shows how to configure the internal RDBMS as
@@ -207,7 +207,7 @@ super tenant. Otherwise, if the JDBC user store can be written to, you
 have the option of creating a new admin user in the user store when you
 start the system for the first time. For information on configuring the
 system administrator user, see [Configuring the System
-Administrator](../../learn/configuring-the-system-administrator).
+Administrator](../../setup/configuring-the-system-administrator).
 
 These two alternative configurations can be done as explained below.
 
@@ -253,7 +253,7 @@ shipped with WSO2 products by default, is configured in the
 `         master-datasources.xml        ` file, which is stored in the
 `         <IS_HOME>/repository/conf/datasources/        `
 directory. For detailed information on setting up databases, see
-[Setting Up the Physical Database](../../administer/working-with-databases).
+[Setting Up the Physical Database](../../setup/working-with-databases).
 
 1.  There are two possible methods for updating datasources:
     -   Shown below is how the

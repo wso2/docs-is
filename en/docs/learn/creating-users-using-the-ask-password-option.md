@@ -222,7 +222,7 @@ option.
     1.  Select the user store where you want to create this user account
         from the drop-down as the **Domain**.  
         This includes the list of user stores you configured. See
-        [Configuring User Stores](../../learn/configuring-user-stores) for more
+        [Configuring User Stores](../../setup/configuring-user-stores) for more
         information.
     2.  Enter a unique **User Name** that is used by the user to log in.
 

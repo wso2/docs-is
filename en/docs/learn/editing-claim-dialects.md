@@ -38,7 +38,7 @@ dialect link. Follow the instructions below to edit a claim dialect.
     !!! note
     
         When you are using [more than one user
-        store](../../learn/configuring-secondary-user-stores), you must map the
+        store](../../setup/configuring-secondary-user-stores), you must map the
         attributes correctly using claim management. Under “Mapped
         Attribute(s)” you need to follow the pattern.
     
