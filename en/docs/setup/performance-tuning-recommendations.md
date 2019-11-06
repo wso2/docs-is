@@ -196,7 +196,7 @@ connection pool:
 The table below indicates some recommendations on how to configure the
 JDBC pool. For more details about recommended JDBC configurations, see
 [Tomcat JDBC Connection
-Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
+Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 
 <table>
 <thead>

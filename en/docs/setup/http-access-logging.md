@@ -26,7 +26,7 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
 
     The attributes that are used by default are explained below. See the
     descriptions of the Tomcat-supported [Access Log
-    Valve attributes](http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Access_Log_Valve/Attributes).
+    Valve attributes](http://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes).
 
     <table style="width:100%;">
     <colgroup>
@@ -51,7 +51,8 @@ In the Identity Server 5.9.0 only the access log pattern is configurable.
     <td><div class="content-wrapper">
     <p>The attribute defines the format for the log pattern, which consists of the information fields from the requests and responses that should be logged. The pattern format is created using the following attributes:</p>
     <ul>
-    <li><p>A standard value to represent a particular string. For example, "%h" represents the remote host name in the request. See the list of <a href="https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by the Tomcat valve</a> .</p></li>
+    <li><p>A standard value to represent a particular string. For example, "%h" represents the remote host name in 
+    the request. See the list of <a href="https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/valves/AccessLogValve.html">string replacement values supported by the Tomcat valve</a> .</p></li>
     <li><strong>%{xxx}i</strong> is used to represent the header in the incoming request (xxx=header value).</li>
     <li><strong>%{xxx}o</strong> is used to represents the header in the outgoing request (xxx=header value).</li>
     </ul>
