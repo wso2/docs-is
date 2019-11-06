@@ -131,8 +131,8 @@ compatibility information.
 ## Deciding how to set up your cluster
 
 When setting up your cluster, you must decide how you want to set up and
-[share your databases](../../administer/sharing-databases-in-a-cluster), whether to
-front your cluster with a [load balancer](../../administer/load-balancing), and
+[setting up separate databases for clustering](../../setup/setting-up-separate-databases-for-clustering/), 
+whether to front your cluster with a [load balancer](../../administer/load-balancing), and
 whether to use [sticky sessions](../../administer/sticky-sessions-with-manager-nodes).
 You also need to make a decision on whether to [separate the worker and
 manager nodes](../../administer/security-guidelines-for-production-deployment) in the
