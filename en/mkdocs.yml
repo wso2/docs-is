@@ -564,7 +564,6 @@ nav:
         - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
         - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md           
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
-    - 'Getting Support': develop/getting-support.md 
   - 'Setup':
     - 'Installation':
       - 'Installing the Product': 
