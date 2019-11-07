@@ -2,8 +2,7 @@
 
 !!! warning
     
-    **WSO2 recommends using** **[SCIM 2.0
-    APIs](../../references/using-the-scim-2.0-rest-apis)** because of the following
+    **WSO2 recommends using** **[SCIM 2.0 APIs](../../develop/using-the-scim-2.0-rest-apis/)** because of the following
     reasons:
     
     -   SCIM 2.0 APIs provide additional methods that are not available with
@@ -36,13 +35,10 @@ These endpoints are exposed over HTTPS since sensitive information is
 exchanged and also protected with Basic Auth Authentication.
 
 !!! warning
-    
     The following requests use Basic Auth authentication to demonstrate
     sending requests to the REST endpoints of WSO2 Identity Server as a
     quick start. **In a production environment, we recommend that you use
-    OAuth Authentication instead.** For instructions, see [Setting Up
-    Service Provider for Inbound
-    Provisioning](Setting-Up-Service-Provider-for-Inbound-Provisioning).
+    OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning](../../learn/setting-up-service-provider-for-inbound-provisioning/).
     
 
 Before you begin working with SCIM APIs, make sure that the following
@@ -68,10 +64,7 @@ scim_enabled = true
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","password":"hasinitg","emails":[{"primary":true,"value":"hasini_home.com","type":"home"},{"value":"hasini_work.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
 
-    In this request, authentication is done using Basic Auth and the
-    payload is sent in JSON format adhering to the SCIM 1.1
-    specification. You receive a response with 201 CREATED status and
-    the payload response as follows:
+    In this request, authentication is done using Basic Auth and the payload is sent in JSON format adhering to the SCIM 1.1 specification. You receive a response with 201 CREATED status and the payload response as follows:
 
     **Response**
 
@@ -162,10 +155,8 @@ scim_enabled = true
     "hasinitg" through the following cURL command:
 
     !!! note
-    
-        **Note** : You have to use the correct SCIM ID by taking it either
+        You have to use the correct SCIM ID by taking it either
         from the "create user" response or from the "list user" response.
-    
 
     **Request**
 
@@ -186,8 +177,6 @@ scim_enabled = true
     SCIM endpoint to update the user profile of the currently logged-in
     user:
 
-      
-
     ``` curl
     curl -v -k --user hasinitg:hasinitg -X PUT -d '{"schemas":[],"name":{"familyName":"gunasinghe","givenName":"hasinitg"},"userName":"hasinitg","emails":[{"value":"hasini@wso2.com","type":"work"},{"value":"hasi7786@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users/me
     ```
@@ -195,10 +184,7 @@ scim_enabled = true
     For this command, the user credentials of the user created above
     (hasinitg)was used as an example.
 
-    !!! note
-    
-        Updating a resource using PATCH request
-    
+    !!! note "Updating a resource using PATCH request"
         You can also update a resource using a PATCH request. Unlike the PUT
         request (which completely replaces or overwrites the attributes),
         the PATCH modifies only the existing resource. The sample cURL
@@ -214,17 +200,13 @@ scim_enabled = true
         **Response**
     
         ``` json
-            200 OK
-            {"emails":[
-            {"type":"home","value":"hasini_home.com"},
-            {"type":"work","value":"hasini_work.com"}],"meta":
-            {"created":"2017-08-16T10:07:36","location":"https://localhost:9443/wso2/scim/Users/15722a71-3bd1-4864-8460-1e63a2dace65","lastModified":"2017-08-16T12:17:11"},"schemas":["urn:scim:schemas:core:1.0"],"name":
-            {"familyName":"Tester","givenName":"hasinitg"},"id":"15722a71-3bd1-4864-8460-1e63a2dace65","userName":"hasinitg"}
+        200 OK
+        {"emails":[
+        {"type":"home","value":"hasini_home.com"},
+        {"type":"work","value":"hasini_work.com"}],"meta":
+        {"created":"2017-08-16T10:07:36","location":"https://localhost:9443/wso2/scim/Users/15722a71-3bd1-4864-8460-1e63a2dace65","lastModified":"2017-08-16T12:17:11"},"schemas":["urn:scim:schemas:core:1.0"],"name":
+        {"familyName":"Tester","givenName":"hasinitg"},"id":"15722a71-3bd1-4864-8460-1e63a2dace65","userName":"hasinitg"}
         ```
-    
-
-    **  
-    **
 
 -   **Delete User** : Delete the user with username 'pulasthim' that was
     created through the WSO2 Identity Server management console.
@@ -277,8 +259,7 @@ scim_enabled = true
     members. The following command creates a group with a user.
 
     !!! note
-    
-        **Note** : When creating a group with users, you need to have that
+        When creating a group with users, you need to have that
         user already existing in the user store and provide its unique id.
         Create a new group named: 'engineer' with the user 'hasinitg' as a
         member. The attributes you have to include in the cURL command are
@@ -318,7 +299,7 @@ scim_enabled = true
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups
     ```
 
     When you list the groups, you can see both groups are listed.
@@ -326,7 +307,7 @@ scim_enabled = true
     **Response**
 
     ``` java
-        {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":2,"Resources":[{"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","displayName":"PRIMARY/engineer","meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}},{"id":"484cdc26-9136-427b-ad9e-96ea3082e1f5","displayName":"PRIMARY/manager","meta":{"lastModified":"2016-01-26T18:33:33","created":"2016-01-26T18:33:33","location":"https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5"}}]}
+    {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":2,"Resources":[{"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","displayName":"PRIMARY/engineer","meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}},{"id":"484cdc26-9136-427b-ad9e-96ea3082e1f5","displayName":"PRIMARY/manager","meta":{"lastModified":"2016-01-26T18:33:33","created":"2016-01-26T18:33:33","location":"https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5"}}]}
     ```
 
 -   **Update Group** : Rename the group "manager" to "executive":
@@ -334,33 +315,32 @@ scim_enabled = true
     **Request**
 
     ``` java
-        curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": {GROUP_NAME}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": {GROUP_NAME}}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID}
     ```
 
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin -X PATCH -d '{"displayName": "executive"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5
+    curl -v -k --user admin:admin -X PATCH -d '{"displayName": "executive"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5
     ```
 
     You receive a response with `           200 OK          ` status and
     full JSON representation of the updated group.
 
       
-
 -   **Delete Group** : You can delete the group using the unique SCIM Id
     of the group. The following command deletes the group: 'executive'.
 
     **Request**
 
     ``` java
-        curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID} -H "Accept: application/json"
+    curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{SCIM_GROUP_ID} -H "Accept: application/json"
     ```
 
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5 -H "Accept: application/json"
+    curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Groups/484cdc26-9136-427b-ad9e-96ea3082e1f5 -H "Accept: application/json"
     ```
 
 -   **Filter Group** : You can filter groups with the group display name
@@ -370,7 +350,7 @@ scim_enabled = true
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayName+Eq+%22engineer%22
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayName+Eq+%22engineer%22
     ```
 
     OR
@@ -378,7 +358,7 @@ scim_enabled = true
     **Request: Sample**
 
     ``` java
-        curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayNameEqengineer
+    curl -v -k --user admin:admin https://localhost:9443/wso2/scim/Groups?filter=displayNameEqengineer
     ```
 
     You will get the following response.
@@ -386,7 +366,7 @@ scim_enabled = true
     **Response**
 
     ``` java
-        {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":1,"Resources":[{"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","displayName":"PRIMARY/engineer","meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}]}
+    {"schemas":["urn:scim:schemas:core:1.0"],"totalResults":1,"Resources":[{"id":"b4f9bccf-4f79-4288-be21-78e0d4500714","displayName":"PRIMARY/engineer","meta":{"lastModified":"2016-01-26T18:31:57","created":"2016-01-26T18:31:57","location":"https://localhost:9443/wso2/scim/Groups/b4f9bccf-4f79-4288-be21-78e0d4500714"}}]}
     ```
 
     Now, you can use the above commands or similar in a sample scenario.
@@ -395,32 +375,31 @@ You can also filter group names using wild card character "\*". WSO2 IS
 now supports filters like:
 `                     https://localhost:9443/wso2/scim/Groups?filter=displayName                    Eq *a*         `
 
-### Using the SCIM API
+## Using the SCIM API
 
 This sample scenario is to add users and groups to a super tenant and a
 normal tenant so that the users are unique to their domains.
 
 For the super tenant:
-
--   -   **Create group AMRSNGHE/ngioletGR** - This will create a group
+    -   **Create group AMRSNGHE/ngioletGR** - This will create a group
         in a given user store domain.
 
         **Request**
 
         ``` java
-                curl -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": "{USER_STORE_DOMAIN}/{GROUP_NAME}"}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups
+        curl -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": "{USER_STORE_DOMAIN}/{GROUP_NAME}"}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups
         ```
 
         **Request: Sample**
 
         ``` java
-                curl -k --user admin:admin --data '{"displayName": "AMRSNGHE/ngioletGR"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
+        curl -k --user admin:admin --data '{"displayName": "AMRSNGHE/ngioletGR"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
         ```
 
         **Response**
 
         ``` java
-                {"id":"8ee9253e-4fe1-4863-9641-80d807611707","schemas":["urn:scim:schemas:core:1.0"],"displayName":"AMRSNGHE/ngioletGR","meta":{"lastModified":"2015-04-30T10:18:33","created":"2015-04-30T10:18:33","location":"https://localhost:9443/wso2/scim/Groups/8ee9253e-4fe1-4863-9641-80d807611707"}}
+        {"id":"8ee9253e-4fe1-4863-9641-80d807611707","schemas":["urn:scim:schemas:core:1.0"],"displayName":"AMRSNGHE/ngioletGR","meta":{"lastModified":"2015-04-30T10:18:33","created":"2015-04-30T10:18:33","location":"https://localhost:9443/wso2/scim/Groups/8ee9253e-4fe1-4863-9641-80d807611707"}}
         ```
 
     -   **Create user AMRSNGHE/groupUSR001** - This will create a user
@@ -429,19 +408,19 @@ For the super tenant:
         **Request**
 
         ``` java
-                curl -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"familyName": "{LAST_NAME}","givenName":"{FIRST_NAME"},"userName":"{USER_STORE_DOMAIN}/{USERNAME}","password":"{PASSWORD"}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users
+        curl -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"schemas":[],"name":{"familyName": "{LAST_NAME}","givenName":"{FIRST_NAME"},"userName":"{USER_STORE_DOMAIN}/{USERNAME}","password":"{PASSWORD"}' --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Users
         ```
 
         **Request: Sample**
 
         ``` java
-                curl -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+        curl -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
         ```
 
         **Response**
 
         ``` java
-                {"id":"bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","meta":{"lastModified":"2015-04-30T10:19:05","location":"https://localhost:9443/wso2/scim/Users/bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","created":"2015-04-30T10:19:05"}}
+        {"id":"bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","meta":{"lastModified":"2015-04-30T10:19:05","location":"https://localhost:9443/wso2/scim/Users/bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","created":"2015-04-30T10:19:05"}}
         ```
 
     -   **Create user AMRSNGHE/groupUSR002**
@@ -449,13 +428,13 @@ For the super tenant:
         **Request: Sample**
 
         ``` java
-                curl -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+        curl -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
         ```
 
         **Response**
 
         ``` java
-                {"id":"e04e20ca-6321-4c75-88b9-cfa5a600e356","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","meta":{"lastModified":"2015-04-30T10:19:14","location":"https://localhost:9443/wso2/scim/Users/e04e20ca-6321-4c75-88b9-cfa5a600e356","created":"2015-04-30T10:19:14"}}
+        {"id":"e04e20ca-6321-4c75-88b9-cfa5a600e356","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","meta":{"lastModified":"2015-04-30T10:19:14","location":"https://localhost:9443/wso2/scim/Users/e04e20ca-6321-4c75-88b9-cfa5a600e356","created":"2015-04-30T10:19:14"}}
         ```
 
     -   **Add user AMRSNGHE/groupUSR001 to group AMRSNGHE/ngioletGR -**
@@ -464,7 +443,7 @@ For the super tenant:
         **Request**
 
         ``` java
-                curl -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"{id returned in the response when creating the AMRSNGHE/groupUSR001}","display": "AMRSNGHE/groupUSR001"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
+        curl -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"{id returned in the response when creating the AMRSNGHE/groupUSR001}","display": "AMRSNGHE/groupUSR001"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
         ```
 
     -   **Add user AMRSNGHE/groupUSR002 to group AMRSNGHE/ngioletGR**
@@ -472,7 +451,7 @@ For the super tenant:
         **Request**
 
         ``` java
-                curl -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d "{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"{id returned in the response when creating the AMRSNGHE/groupUSR002}","display": "AMRSNGHE/groupUSR002"}]}" --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
+        curl -k --user {IS_USERNAME}:{IS_PASSWORD} -X PATCH -d "{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"{id returned in the response when creating the AMRSNGHE/groupUSR002}","display": "AMRSNGHE/groupUSR002"}]}" --header "Content-Type:application/json" https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
         ```
 
     -   **List the group members -** This will list all the members in
@@ -481,23 +460,22 @@ For the super tenant:
         **Request**
 
         ``` java
-                curl -k --user {IS_USERNAME}:{IS_PASSWORD}  https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
+        curl -k --user {IS_USERNAME}:{IS_PASSWORD}  https://{IS_IP}:{IS_PORT}/wso2/scim/Groups/{id returned in the response when creating the group AMRSNGHE/ngioletGR}
         ```
 
 For a tenant amrsnghe.org:
-
--   -   -   **Create group AMRSNGHE/ngioletGR**
+        -   **Create group AMRSNGHE/ngioletGR**
 
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adming --data '{"displayName": "AMRSNGHE/ngioletGR"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
+            curl -k --user gayashan@amrsnghe.org:adming --data '{"displayName": "AMRSNGHE/ngioletGR"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups
             ```
 
             **Response**
 
             ``` java
-                        {"id":"8ee9253e-4fe1-4863-9641-80d807611707","schemas":["urn:scim:schemas:core:1.0"],"displayName":"AMRSNGHE/ngioletGR","meta":{"lastModified":"2015-04-30T10:18:33","created":"2015-04-30T10:18:33","location":"https://localhost:9443/wso2/scim/Groups/8ee9253e-4fe1-4863-9641-80d807611707"}}
+            {"id":"8ee9253e-4fe1-4863-9641-80d807611707","schemas":["urn:scim:schemas:core:1.0"],"displayName":"AMRSNGHE/ngioletGR","meta":{"lastModified":"2015-04-30T10:18:33","created":"2015-04-30T10:18:33","location":"https://localhost:9443/wso2/scim/Groups/8ee9253e-4fe1-4863-9641-80d807611707"}}
             ```
 
         -   **Create user AMRSNGHE/groupUSR001**
@@ -505,13 +483,13 @@ For a tenant amrsnghe.org:
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adming --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+            curl -k --user gayashan@amrsnghe.org:adming --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
             ```
 
             **Response**
 
             ``` java
-                        {"id":"bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","meta":{"lastModified":"2015-04-30T10:19:05","location":"https://localhost:9443/wso2/scim/Users/bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","created":"2015-04-30T10:19:05"}}
+            {"id":"bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR001","meta":{"lastModified":"2015-04-30T10:19:05","location":"https://localhost:9443/wso2/scim/Users/bbda8f2f-fea7-4a9c-9128-f1e0c3aad475","created":"2015-04-30T10:19:05"}}
             ```
 
         -   **Create user AMRSNGHE/groupUSR002**
@@ -519,22 +497,21 @@ For a tenant amrsnghe.org:
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adming --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+            curl -k --user gayashan@amrsnghe.org:adming --data '{"schemas":[],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","password":"testPwd123"}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
             ```
 
             **Response**
 
             ``` java
-                        {"id":"e04e20ca-6321-4c75-88b9-cfa5a600e356","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","meta":{"lastModified":"2015-04-30T10:19:14","location":"https://localhost:9443/wso2/scim/Users/e04e20ca-6321-4c75-88b9-cfa5a600e356","created":"2015-04-30T10:19:14"}}
+            {"id":"e04e20ca-6321-4c75-88b9-cfa5a600e356","schemas":["urn:scim:schemas:core:1.0"],"name":{"familyName":"John","givenName":"Doe"},"userName":"AMRSNGHE/groupUSR002","meta":{"lastModified":"2015-04-30T10:19:14","location":"https://localhost:9443/wso2/scim/Users/e04e20ca-6321-4c75-88b9-cfa5a600e356","created":"2015-04-30T10:19:14"}}
             ```
 
-        -   **Add user AMRSNGHE/groupUSR001 to group
-            AMRSNGHE/ngioletGR**
+        -   **Add user AMRSNGHE/groupUSR001 to group AMRSNGHE/ngioletGR**
 
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adming -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"<id returned in the response when creating the AMRSNGHE/groupUSR001>","display": "AMRSNGHE/groupUSR001"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
+            curl -k --user gayashan@amrsnghe.org:adming -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"<id returned in the response when creating the AMRSNGHE/groupUSR001>","display": "AMRSNGHE/groupUSR001"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
             ```
 
         -   **Add user AMRSNGHE/groupUSR002 to group
@@ -543,7 +520,7 @@ For a tenant amrsnghe.org:
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adming -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"<id returned in the response when creating the AMRSNGHE/groupUSR002>","display": "AMRSNGHE/groupUSR002"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
+            curl -k --user gayashan@amrsnghe.org:adming -X PATCH -d '{"displayName": "AMRSNGHE/ngioletGR","members": [{"value":"<id returned in the response when creating the AMRSNGHE/groupUSR002>","display": "AMRSNGHE/groupUSR002"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
             ```
 
         -   **List the group members**
@@ -551,39 +528,37 @@ For a tenant amrsnghe.org:
             **Request: Sample**
 
             ``` java
-                        curl -k --user gayashan@amrsnghe.org:adminghttps://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
+            curl -k --user gayashan@amrsnghe.org:adminghttps://localhost:9443/wso2/scim/Groups/<id returned in the response when creating the group AMRSNGHE/ngioletGR>
             ```
 
-### SCIM bulk operations
+## SCIM bulk operations
 
 The WSO2 Identity Server exposes SCIM endpoint **/Bulk** to do bulk
 operations using SCIM.
-
--   -   **Create Users:** This creates a bulk of users at the same time.
+    -   **Create Users:** This creates a bulk of users at the same time.
 
         **Request: Sample**
 
         ``` java
-                curl -v -k --user admin:admin -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{\"failOnErrors\":2,\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"Operations\":[{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Users\",\"userName\":\"hasini\",\"method\":\"POST\",\"emails\":[{\"value\":\"hasini@gmail.com\"},{\"value\":\"hasinig@yahoo.com\"}],\"phoneNumbers\":[{\"value\":\"0772508354\"}],\"displayName\":\"Hasini\",\"externalId\":\"hasini@wso2.com\",\"password\":\"dummyPW1\",\"preferredLanguage\":\"Sinhala\",\"bulkId\":\"bulkIDUser1\"},\"path\":\"/Users\",\"method\":\"POST\",\"bulkId\":\"bulkIDUser1\"},{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Users\",\"userName\":\"dinuka\",\"method\":\"POST\",\"emails\":[{\"value\":\"dinuka.malalanayake@gmail.com\"},{\"value\":\"dinuka_malalanayake@yahoo.com\"}],\"phoneNumbers\":[{\"value\":\"0772508354\"}],\"displayName\":\"Dinuka\",\"externalId\":\"dinukam@wso2.com\",\"password\":\"myPassword\",\"preferredLanguage\":\"Sinhala\",\"bulkId\":\"bulkIDUser2\"},\"path\":\"/Users\",\"method\":\"POST\",\"bulkId\":\"bulkIDUser2\"}]}" https://localhost:9443/wso2/scim/Bulk
+        curl -v -k --user admin:admin -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{\"failOnErrors\":2,\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"Operations\":[{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Users\",\"userName\":\"hasini\",\"method\":\"POST\",\"emails\":[{\"value\":\"hasini@gmail.com\"},{\"value\":\"hasinig@yahoo.com\"}],\"phoneNumbers\":[{\"value\":\"0772508354\"}],\"displayName\":\"Hasini\",\"externalId\":\"hasini@wso2.com\",\"password\":\"dummyPW1\",\"preferredLanguage\":\"Sinhala\",\"bulkId\":\"bulkIDUser1\"},\"path\":\"/Users\",\"method\":\"POST\",\"bulkId\":\"bulkIDUser1\"},{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Users\",\"userName\":\"dinuka\",\"method\":\"POST\",\"emails\":[{\"value\":\"dinuka.malalanayake@gmail.com\"},{\"value\":\"dinuka_malalanayake@yahoo.com\"}],\"phoneNumbers\":[{\"value\":\"0772508354\"}],\"displayName\":\"Dinuka\",\"externalId\":\"dinukam@wso2.com\",\"password\":\"myPassword\",\"preferredLanguage\":\"Sinhala\",\"bulkId\":\"bulkIDUser2\"},\"path\":\"/Users\",\"method\":\"POST\",\"bulkId\":\"bulkIDUser2\"}]}" https://localhost:9443/wso2/scim/Bulk
         ```
 
         **Response**
 
         ``` java
-                {"schemas":["urn:scim:schemas:core:1.0"],"Operations":[{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Users/bcbc6fed-6519-4eeb-a1ff-9b643fdab1b5","method":"POST","bulkId":"bulkIDUser1"},{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Users/ce6cf606-c4de-4260-bfdf-a751161eeae0","method":"POST","bulkId":"bulkIDUser2"}]}
+        {"schemas":["urn:scim:schemas:core:1.0"],"Operations":[{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Users/bcbc6fed-6519-4eeb-a1ff-9b643fdab1b5","method":"POST","bulkId":"bulkIDUser1"},{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Users/ce6cf606-c4de-4260-bfdf-a751161eeae0","method":"POST","bulkId":"bulkIDUser2"}]}
         ```
 
-    -   **Create **Groups**** : This creates a bulk of groups at the
-        same time.  
+    -   **Create **Groups**** : This creates a bulk of groups at the same time.  
 
         **Request: Sample**
 
         ``` java
-                curl -v -k --user admin:admin -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{\"failOnErrors\":2,\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"Operations\":[{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Groups\",\"method\":\"POST\",\"displayName\":\"engineer\",\"externalId\":\"engineer\",\"members\":[{\"value\":\"b1b03cf2-470f-4a73-b517-ae4faed8e61b\"},{\"value\":\"8e2c7178-e5bf-4013-b526-1193e0611d9a\"}],\"bulkId\":\"bulkGroup1\"},\"path\":\"/Groups\",\"method\":\"POST\",\"bulkId\":\"bulkGroup1\"},{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Groups\",\"method\":\"POST\",\"displayName\":\"doctor\",\"externalId\":\"doctor\",\"members\":[{\"value\":\"8e2c7178-e5bf-4013-b526-1193e0611d9a\"},{\"value\":\"b1b03cf2-470f-4a73-b517-ae4faed8e61b\"}],\"bulkId\":\"bulkGroup2\"},\"path\":\"/Groups\",\"method\":\"POST\",\"bulkId\":\"bulkGroup2\"}]}" https://localhost:9443/wso2/scim/Bulk
+        curl -v -k --user admin:admin -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{\"failOnErrors\":2,\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"Operations\":[{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Groups\",\"method\":\"POST\",\"displayName\":\"engineer\",\"externalId\":\"engineer\",\"members\":[{\"value\":\"b1b03cf2-470f-4a73-b517-ae4faed8e61b\"},{\"value\":\"8e2c7178-e5bf-4013-b526-1193e0611d9a\"}],\"bulkId\":\"bulkGroup1\"},\"path\":\"/Groups\",\"method\":\"POST\",\"bulkId\":\"bulkGroup1\"},{\"data\":{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"path\":\"/Groups\",\"method\":\"POST\",\"displayName\":\"doctor\",\"externalId\":\"doctor\",\"members\":[{\"value\":\"8e2c7178-e5bf-4013-b526-1193e0611d9a\"},{\"value\":\"b1b03cf2-470f-4a73-b517-ae4faed8e61b\"}],\"bulkId\":\"bulkGroup2\"},\"path\":\"/Groups\",\"method\":\"POST\",\"bulkId\":\"bulkGroup2\"}]}" https://localhost:9443/wso2/scim/Bulk
         ```
 
         **Response**
 
         ``` java
-                {"schemas":["urn:scim:schemas:core:1.0"],"Operations":[{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/6f008b6c-e990-4f67-9048-0fbcb3b52d5c","method":"POST","bulkId":"bulkGroup1"},{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/1b7c44a8-26b8-4e81-9961-26d90fe68ac5","method":"POST","bulkId":"bulkGroup2"}]}
+        {"schemas":["urn:scim:schemas:core:1.0"],"Operations":[{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/6f008b6c-e990-4f67-9048-0fbcb3b52d5c","method":"POST","bulkId":"bulkGroup1"},{"status":{"code":"201"},"location":"https://localhost:9443/wso2/scim/Groups/1b7c44a8-26b8-4e81-9961-26d90fe68ac5","method":"POST","bulkId":"bulkGroup2"}]}
         ```
