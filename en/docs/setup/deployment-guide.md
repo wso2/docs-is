@@ -168,7 +168,7 @@ includes services, service descriptions, endpoints or data sources.
 
 !!! info
     For more information about the registry, 
-    see [Working with the Registry](../../setup/working-with-the-registry).
+    see [Working with the Registry](../../administer/working-with-the-registry).
 
 In this cluster setup, we use the default h2 database as the local registry in each node individually and the 
 governance and configuration registries should be mounted to share across all nodes. In WSO2 Identity Server 

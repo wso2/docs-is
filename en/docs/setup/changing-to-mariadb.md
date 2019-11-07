@@ -174,7 +174,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
-    <td><p><strong>defaultAutoCommit</strong></p></td>
+    <td><p><strong>defaultAutoCommit</strong></p>git </td>
     <td>Indicates whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
@@ -191,8 +191,7 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tbody>
     </table>
 
-!!! note
-       
+!!! info
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
     JDBC Connection

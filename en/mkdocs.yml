@@ -600,10 +600,8 @@ nav:
             - 'Changing to PostgreSQL': setup/changing-to-postgresql.md
             - 'Changing to Remote H2': setup/changing-to-remote-h2.md
             - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
+            - 'Changing the Default Datasource for Consent Management': setup/changing-datasource-consent-management.md
           - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
-        - 'Working with the Registry':
-          - 'Working with the Registry': setup/working-with-the-registry.md
-          - 'Browsing the Registry': setup/browsing-the-registry.md
         - 'Working with Users, Roles and Permissions':
               - 'Working with Users, Roles and Permissions': setup/working-with-users-roles-and-permissions.md
               - 'Introduction to User Management': setup/introduction-to-user-management.md
@@ -689,6 +687,9 @@ nav:
           - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
           - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
+      - 'Working with the Registry':
+        - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
@@ -709,7 +710,7 @@ nav:
       - 'Securing Passwords in Configuration Files':
         - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
         - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
-        - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
+        - 'Customizing Secure Vault': administer/customizing-secure-vault.md
         - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
       - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
       - 'Java Security Manager': administer/enabling-java-security-manager.md
