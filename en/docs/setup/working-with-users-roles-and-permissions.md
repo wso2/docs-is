@@ -22,5 +22,5 @@ Follow the links given below to understand how user management works in
 WSO2 products, and for step-by-step instructions on how to change/update
 the default configuration:
 
--   [Introduction to User Management](../../administer/introduction-to-user-management)
+-   [Introduction to User Management](../../setup/introduction-to-user-management)
 -   [Configuring the User Realm](../../administer/configuring-the-user-realm)

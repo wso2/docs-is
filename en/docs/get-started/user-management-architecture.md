@@ -109,7 +109,7 @@ is structured to work in WSO2 products:
 
 #### Related Topics
 
--   [Configuring the Realm](../../learn/configuring-the-realm) : The topics in
+-   [Configuring the Realm](../../setup/configuring-the-realm) : The topics in
     this section explain how you can set up and configure the user
     management realm.
 -   [Configuring Users, Roles and

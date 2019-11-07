@@ -146,6 +146,6 @@ GetAllRolesOfUserEnabled = true
 
 
 #### Related Topics
-- [Configuring User Stores](../../learn/configuring-user-stores) : This
+- [Configuring User Stores](../../setup/configuring-user-stores) : This
   topic explains how the repositories for storing information about
   Users and Roles are configured.

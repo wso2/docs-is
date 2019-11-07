@@ -109,7 +109,7 @@ After setting up MariaDB database. You can point the `WSO2_IDENTITY_DB` or
            - `<IS-HOME>/dbscripts/mysql.sql`
            
    3. If you have a requirement in using workflow feature, follow 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
    4.  Download the MariaDB JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
@@ -196,5 +196,5 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
     JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+    Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   

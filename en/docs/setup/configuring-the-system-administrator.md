@@ -99,9 +99,9 @@ Note the following regarding the configuration above.
 
 !!! info "Related Topics"
     -   [Configuring the Primary User
-        Store](../../learn/configuring-the-primary-user-store)
+        Store](../../setup/configuring-the-primary-user-store)
     -   [Configuring the Authorization
-        Manager](../../learn/configuring-the-authorization-manager)
-    -   [Performance tuning](../../administer/performance-tuning-recommendations)
+        Manager](../../setup/configuring-the-authorization-manager)
+    -   [Performance tuning](../../setup/performance-tuning-recommendations)
     -   [Changing a
         Password](../../learn/configuring-users#changing-a-user's-password)

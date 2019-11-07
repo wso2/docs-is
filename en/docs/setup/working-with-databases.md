@@ -43,11 +43,11 @@ updating the relevant configuration files, and create the required
 tables using the scripts provided in the product pack. See the following
 topics for instructions:
 
--   [Changing to MySQL](../../administer/changing-to-mysql)
--   [Changing to Oracle](../../administer/changing-to-oracle)
--   [Changing to MSSQL](../../administer/changing-to-mssql)
--   [Changing to Oracle RAC](../../administer/changing-to-oracle-rac)
--   [Changing to PostgreSQL](../../administer/changing-to-postgresql)
--   [Changing to IBM DB2](../../administer/changing-to-ibm-db2)
--   [Changing to MariaDB](../../administer/changing-to-mariadb)
--   [Changing to Remote H2](../../administer/changing-to-remote-h2)
+-   [Changing to MySQL](../../setup/changing-to-mysql)
+-   [Changing to Oracle](../../setup/changing-to-oracle)
+-   [Changing to MSSQL](../../setup/changing-to-mssql)
+-   [Changing to Oracle RAC](../../setup/changing-to-oracle-rac)
+-   [Changing to PostgreSQL](../../setup/changing-to-postgresql)
+-   [Changing to IBM DB2](../../setup/changing-to-ibm-db2)
+-   [Changing to MariaDB](../../setup/changing-to-mariadb)
+-   [Changing to Remote H2](../../setup/changing-to-remote-h2.md)

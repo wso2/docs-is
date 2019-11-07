@@ -163,7 +163,7 @@ create index
 !!! info
     If you want to remove unused tokens from the database, see [Removing
     Unused Tokens from the
-    Database](../../administer/removing-unused-tokens-from-the-database).
+    Database](../../setup/removing-unused-tokens-from-the-database).
 
 
 ### JDBC pool configuration
@@ -184,7 +184,7 @@ validationQuery = ""
 MaxPermSize = ""
 ```
 !!! info
-    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../administer/working-with-databases).
+    For more information on configuring pooling configurations for other databases, see [Working with Databases](../../setup/working-with-databases).
 
 The following parameters should be considered when tuning the
 connection pool:
@@ -196,7 +196,7 @@ connection pool:
 The table below indicates some recommendations on how to configure the
 JDBC pool. For more details about recommended JDBC configurations, see
 [Tomcat JDBC Connection
-Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html).
+Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html).
 
 <table>
 <thead>

@@ -24,7 +24,7 @@ WSO2 identity server uses an embedded Read/Write LDAP as the primary user store.
 It is recommended to change this default configuration in the production
 system.
 
-see, [Configuring the Primary User Store](../../learn/configuring-the-primary-user-store)
+see, [Configuring the Primary User Store](../../setup/configuring-the-primary-user-store)
 
 ## Secondary User Store(s) (Optional)
 
@@ -35,7 +35,7 @@ You can use the management console to create secondary user stores or
 you can create them manually. These will be stored in a xml with the
 configurations corresponding to the secondary user store.
 
-see, [Configuring a Secondary User Store](../../learn/configuring-secondary-user-stores)
+see, [Configuring a Secondary User Store](../../setup/configuring-secondary-user-stores)
 
 ## User Store Manager
 
@@ -43,7 +43,7 @@ Adapters used to connect with different users stores are called *User
 Store Managers*. By default, there are user store managers for JDBC,
 LDAP and Active Directory user stores. If you need to add a new user
 store implementation, see [Writing a Custom User Store
-Manager](../../learn/writing-a-custom-user-store-manager). When you configure the
+Manager](../../setup/writing-a-custom-user-store-manager). When you configure the
 user store, you have to set the user store manager class name.
 
 !!! info 
@@ -51,6 +51,6 @@ user store, you have to set the user store manager class name.
     the default configurations, permissions are stored in the embedded H2
     database. For information on how to set up a RDBMS repository for
     storing permission, see [Configuring the Authorization
-    Manager](../../learn/configuring-the-authorization-manager)
+    Manager](../../setup/configuring-the-authorization-manager)
 
 The following topics include instructions on setting up different user stores.

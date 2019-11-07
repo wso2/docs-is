@@ -1,8 +1,8 @@
-# Changing to MSSQL
+# Changing to IBM DB2
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
 for storing user management and registry data. Given below are the steps
-you need to follow in order to use MS SQL for this purpose.
+you need to follow in order to use DB2 for this purpose.
     
 
 ## Setting up datasource configurations
@@ -16,12 +16,12 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that MS SQL database by following below instructions.
+After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB` or both to that DB2 database by following below instructions.
 
 ### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to MS SQL.**
+1.  **Minimum Configurations for changing default datasource to DB2.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -43,7 +43,7 @@ After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or
       </tr>
       <tr class="even">
       <td><strong>hostname</strong></td>
-      <td>The hostname of the host where database is hosted.</td>
+      <td>The hostname of the hosted database</td>
       </tr>
       <tr class="even">
       <td><strong>port</strong></td>
@@ -63,21 +63,21 @@ After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.identity_db]
-           type = "mssql"
+           type = "db2"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "1433"
+           port = "50000"
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/mssql.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/mssql.sql`
-           - `<IS-HOME>/dbscripts/consent/mssql.sql`
+           - `<IS-HOME>/dbscripts/identity/db2.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
+           - `<IS-HOME>/dbscripts/consent/db2.sql`
          
    2. `WSO2_SHARED_DB`
         
@@ -85,24 +85,24 @@ After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or
 
            ``` toml
            [database.shared_db]
-           type = "mssql"
+           type = "db2"
            hostname = "localhost"
            name = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "1433"
+           port = "50000"
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/mssql.sql`
+           - `<IS-HOME>/dbscripts/db2.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
-   4.  Download the MS SQL JDBC driver for the version you are using and
+   4.  Download the DB2 JDBC driver for the version, you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -117,15 +117,15 @@ After setting up the MS SQL database. You can point the `WSO2_IDENTITY_DB` or
 
    2.**Advanced Database Configurations.**
 
-Apart from above basic configurations WSO2 Identity Server supports advanced database configurations.
+Apart from the basic configurations specified above, WSO2 Identity Server supports some advanced database configurations as well.
 
 - `WSO2_IDENTITY_DB` `deployment.toml` Configurations.
     
    ``` toml
    [database.identity_db.pool_options]
     maxActive = "80"
-    maxWait = "60000"
-    minIdle = "5"
+    maxWait = "360000"
+    minIdle ="5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -137,8 +137,8 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
    ``` toml
    [database.shared_db.pool_options]
     maxActive = "80"
-    maxWait = "60000"
-    minIdle = "5"
+    maxWait = "360000"
+    minIdle ="5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -161,11 +161,12 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
+    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
+    validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Whether to commit database changes automatically or not.</td>
+    <td>Indicates Whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -185,7 +186,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
         For more information on other parameters that can be defined in
         the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
         JDBC Connection
-        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+        Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
    !!! info "Configuring the connection pool behavior on return" 
         When a database connection is returned to the pool, by default 
@@ -215,7 +216,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
   3.  Navigate to the
         `               <IS_HOME>/repository/conf/deployment.toml              `
         file.
-  4.  Disable the `               defaultAutoCommit              `
+  4.  Disable the `               defaultAutoCommit              ` property
         by defining it as `false`.
   5.  Add the `                commitOnReturn               `
         property and set it to true.
@@ -242,7 +243,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
         `<IS_HOME>/repository/conf/deployment.toml`            `
         file.
   2.  Disable the
-        `                defaultAutoCommit               ` by
+        `                defaultAutoCommit               ` property by
         defining it as `false`.
 
   3.  Set the `                rollbackOnReturn               `
@@ -269,7 +270,10 @@ The elements in the above configuration are described below:
 
  | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
  |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
- | **commitOnReturn**   | If `                defaultAutoCommit               ` =false, then you can set `                commitOnReturn               ` =true, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `                rollbackOnReturn               ` =true then this attribute is ignored. The default value is false. |
+ | **commitOnReturn**   | If `defaultAutoCommit` =false, then you can set `commitOnReturn ` =true, so that the pool 
+ |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If the  
+ |                      | `  rollbackOnReturn` =true then this attribute is ignored. The default value is false. |
+ |                      |
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |
 
 

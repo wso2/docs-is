@@ -100,7 +100,7 @@ After setting up the PostgreSQL database. You can point the `WSO2_IDENTITY_DB` o
            - `<IS-HOME>/dbscripts/postgresql.sql`
            
    3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+       [Changing the default database of BPS database](../../setup/changing-datasource-bpsds)
        
    4.  Download the Postgres JDBC driver for the version you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
@@ -184,7 +184,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
     JDBC Connection
-    Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+    Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
    **Configuring the connection pool behavior on return** 
     When a database connection is returned to the pool, by default 

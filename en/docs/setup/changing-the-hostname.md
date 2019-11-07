@@ -34,21 +34,19 @@ Server.
     ```
 
 3.  If the keystore name and password is changed, all the references to
-    it within the configuration files must be updated as well. Run a
-    `grep` command to find all the places within the WSO2 IS configuration
-    files where the keystore name and password have been used.
+    it within the WSO2 Identity Server must be updated as well. Add
+    following configuration to `deployment.toml` file in the
+    `<IS_HOME>/repository/conf/` folder.
 
-    ``` java
-    grep -i -r wso2carbon.jks .
+    ``` toml
+    [keystore.primary]
+    file_name = "new-keystore.jks"
+    password = "new-keystore-password"
+    alias = "new-private-key-alias"
+    key_password = "new-private-key-password"
     ```
 
-4.  A list of configuration files that refer to `wso2carbon.jks` will be
-    listed on your command prompt window. Open each file and update the
-    keystore name, password, and alias values (e.g., update the keystore
-    name from " `           wso2carbon.jks          ` " to  "
-    `           newkeystore.jks          ` ").
-
-5.  Export the public key from your key store .jks file using the
+4.  Export the public key from your key store .jks file using the
     following command:
 
     **Format**
@@ -67,9 +65,8 @@ Server.
     keytool -export -alias newcert -keystore newkeystore.jks -file pkn.pem
     ```
 
-6.  Import the public key you extracted in the previous step to the
-    `           client-truststore.jks          ` file using the
-    following command:
+5.  Import the public key you extracted in the previous step to the `
+    client-truststore.jks ` file using the following command: 
 
     **Format**
 
@@ -87,18 +84,26 @@ Server.
     keytool -import -alias newcert -file pkn.pem -keystore client-truststore.jks -storepass wso2carbon
     ```
 
-    !!! note
-        If you create a new client-truststore, do a search using the
-        `            grep           ` command and change the name and
-        passwords of the client-truststore in all the places in IS.
+    !!! abstract ""
+        If you create a new client-trust-store, in-place of the
+        default `client-truststore.jks`, place the new trust-store in
+        `<IS_HOME>/repository/resources/security/` folder and add following
+        configuration to `deployment.toml` in `<IS_HOME>/repository/conf/`
+        folder. 
+        
+        ```toml
+        [truststore]
+        file_name = "custome-trustore-name.jks" 
+        password = "password" 
+        ```
     
 
-7.  Verfiy the hostname change by attempting to log into the dashboard,
+6.  Verfiy the hostname change by attempting to log into the dashboard,
     getting a token from any grant type, etc.
 
-8.  If you are trying this out on your local machine, open
-    `etc/hosts/` file and add the following entry to map the new hostname.
-    **NOTE:** `is.dev.wso2.com` is used as an example in the sample entry shown
+7.  If you are trying this out on your local machine, open `etc/hosts/`
+    file and add the following entry to map the new hostname. **NOTE:**
+    `is.dev.wso2.com` is used as an example in the sample entry shown
     below.
 
     ``` java
@@ -120,23 +125,20 @@ you can use the same public and private key pair to generate a new CSR
 with the updated CN (subject). This can be done by adding the `-dname`
 option when `-certreq` is executed. Once the CA certificate is obtained,
 follow the instructions given in the [importing certificates to the
-keystore](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-Step2:Importingcertificatestothekeystore)
-topic to import it correctly. By doing that, you do not need to touch
-the key-pair, and any other operations performed using the same key pair
-will not get affected (encryption, etc.)
+keystore](../../administer/creating-new-keystores/#step-2-import-certificates-to-the-keystore) topic to import it correctly. By doing that, you do
+not need to touch the key-pair, and any other operations performed using
+the same key pair will not get affected (encryption, etc.)
 
 **Option 2**
 
-Create a new keystore with the instructions (as in
-described in the hostname section) for the new hostname and then use
-that keystore for SSL/TLS by changing Tomcat connector configuration as
-described in the [Configuring Keystores in WSO2
-Products](https://docs.wso2.com/display/ADMIN44x/Configuring+Keystores+in+WSO2+Products)
-topic. This approach separates the keystores. The secondary keystore
-with the new hostname will only be used for Tomcat SSL/TLS
-communication, while the primary one is used for all other operations
-(encryption, etc.). By doing this, you can make sure that the existing
-encrypted data is not affected.
+Create a new keystore with the instructions (as in described in the
+hostname section) for the new hostname and then use that keystore for
+SSL/TLS by changing Tomcat connector configuration as described in the
+[Configuring Keystores in WSO2 Products](../../administer/configuring-keystores-in-wso2-products/) topic. This approach
+separates the keystores. The secondary keystore with the new hostname
+will only be used for Tomcat SSL/TLS communication, while the primary
+one is used for all other operations (encryption, etc.). By doing this,
+you can make sure that the existing encrypted data is not affected.
 
 !!! note
     

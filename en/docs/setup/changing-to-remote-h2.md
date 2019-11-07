@@ -1,8 +1,19 @@
-# Changing to IBM DB2
+# Changing to Remote H2
 
 By default, WSO2 Identity Server uses the embedded H2 database as the database
-for storing user management and registry data. Given below are the steps
-you need to follow in order to use DB2 for this purpose.
+for storing user management and registry data.
+The following sections describe how to replace the default H2 databases
+with Remote H2:
+
+!!! warning "H2 is not recommended in production"
+    The embedded H2 database is NOT recommended in enterprise testing and
+    production environments. It has lower performance, clustering
+    limitations, and can cause file corruption failures. Please use an
+    industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL
+    instead.
+    
+    You can use the embedded H2 database in development environments and as
+    the local registry in a registry mount.
     
 
 ## Setting up datasource configurations
@@ -16,12 +27,12 @@ to the default  H2 database.
 - `WSO2_IDENTITY_DB` - The database specific for the identity server which stores
                        identity related data
                        
-After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or 
-`WSO2_SHARED_DB` or both to that DB2 database by following below instructions.
+After setting up the H2 database, You can point the `WSO2_IDENTITY_DB` or 
+`WSO2_SHARED_DB`, or both to that H2 database by following the instructions given below.
 
 ### Changing the default datasource
 
-1.  **Minimum Configurations for changing default datasource to DB2.**
+1.  **Minimum Configurations for changing default datasource to H2.**
  
  Configurations can be done by editing the default configurations in `<IS-HOME>/repository/conf/deployment.toml`. 
  Following are the basic configurations and their descriptions. 
@@ -38,20 +49,12 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
       <td>The name and password of the database user.</td>
       </tr>
       <tr class="even">
-      <td><strong>type</strong></td>
-      <td>The type of the database.</td>
+      <td><strong>driver</strong></td>
+      <td>The jdbc driver of the database.</td>
       </tr>
       <tr class="even">
-      <td><strong>hostname</strong></td>
-      <td>The hostname of the hosted database</td>
-      </tr>
-      <tr class="even">
-      <td><strong>port</strong></td>
-      <td>The port of the database.</td>
-      </tr>
-      <tr class="even">
-      <td><strong>name</strong></td>
-      <td>The name of the database.</td>
+      <td><strong>url</strong></td>
+      <td>The url of the database.</td>
       </tr>
       </table>   
  
@@ -62,47 +65,56 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
        1. `deployment.toml` Configurations
 
            ``` toml
-           [database.identity_db]
-           type = "db2"
-           hostname = "localhost"
-           name = "regdb"
-           username = "regadmin"
-           password = "regadmin"
-           port = "50000"
+            [database.identity_db]
+            url = "jdbc:h2:tcp://localhost/~/registryDB;create=true"
+            username = "regadmin"
+            password = "regadmin"
+            driver = "org.h2.Driver"
+            [database.identity_db.pool_options]
+            maxActive = "80"
+            maxWait = "60000"
+            minIdle = "5"
+            testOnBorrow = true
+            validationQuery="SELECT 1"
+            validationInterval="30000"
+            defaultAutoCommit=false
            ```
        
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
            
-           - `<IS-HOME>/dbscripts/identity/db2.sql`
-           - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
-           - `<IS-HOME>/dbscripts/consent/db2.sql`
+           - `<IS-HOME>/dbscripts/identity/h2.sql`
+           - `<IS-HOME>/dbscripts/identity/uma/h2.sql`
+           - `<IS-HOME>/dbscripts/consent/h2.sql`
          
    2. `WSO2_SHARED_DB`
         
        1. `deployment.toml` Configurations
 
            ``` toml
-           [database.shared_db]
-           type = "db2"
-           hostname = "localhost"
-           name = "regdb"
-           username = "regadmin"
-           password = "regadmin"
-           port = "50000"
+            [database.shared_db]
+            url = "jdbc:h2:tcp://localhost/~/registryDB;create=true"
+            username = "regadmin"
+            password = "regadmin"
+            driver = "org.h2.Driver"
+            [database.identity_db.pool_options]
+            maxActive = "80"
+            maxWait = "60000"
+            minIdle = "5"
+            testOnBorrow = true
+            validationQuery="SELECT 1"
+            validationInterval="30000"
+            defaultAutoCommit=false
            ```
            
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.
                       
-           - `<IS-HOME>/dbscripts/db2.sql`
-           
-   3. If you have a requirement in using workflow feature follow, 
-       [Changing the default database of BPS database](../../administer/changing-datasource-bpsds)
+           - `<IS-HOME>/dbscripts/h2.sql`
        
-   4.  Download the DB2 JDBC driver for the version, you are using and
+   3.  Download the H2 JDBC driver for the version, you are using and
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
@@ -124,8 +136,8 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
    ``` toml
    [database.identity_db.pool_options]
     maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
+    maxWait = "60000"
+    minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -137,8 +149,8 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
    ``` toml
    [database.shared_db.pool_options]
     maxActive = "80"
-    maxWait = "360000"
-    minIdle ="5"
+    maxWait = "60000"
+    minIdle = "5"
     testOnBorrow = true
     validationQuery="SELECT 1"
     validationInterval="30000"
@@ -161,12 +173,12 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tr>
     <tr class="odd">
     <td><p><strong>testOnBorrow</strong></p></td>
-    <td>Indicates Whether objects will be validated before being borrowed from the pool. If the object fails to 
+    <td>Indicates whether objects will be validated before being borrowed from the pool. If the object fails to 
     validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
     </tr>
     <tr class="even">
     <td><p><strong>defaultAutoCommit</strong></p></td>
-    <td>Indicates Whether to commit database changes automatically or not.</td>
+    <td>Indicates whether to commit database changes automatically or not.</td>
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
@@ -181,22 +193,24 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tr>
     </tbody>
     </table>
+!!! note
+       
+    For more information on other parameters that can be defined in
+    the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
+    JDBC Connection
+    Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+    
+!!! note
 
-    !!! info 
-        For more information on other parameters that can be defined in
-        the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
-        JDBC Connection
-        Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
-  
-   !!! info "Configuring the connection pool behavior on return" 
-        When a database connection is returned to the pool, by default 
-        the product rolls back the pending transactions if defaultAutoCommit
-        =true. However, if required you can disable the latter mentioned
-        default behavior by disabling the
-        `            ConnectionRollbackOnReturnInterceptor           `,
-        which is a JDBC-Pool JDBC interceptor, and setting the connection
-        pool behavior on return via the datasource configurations by using
-        the following options.
+    "Configuring the connection pool behavior on return" 
+    When a database connection is returned to the pool, by default 
+    the product rolls back the pending transactions if defaultAutoCommit
+    =true. However, if required you can disable the latter mentioned
+    default behavior by disabling the
+    `            ConnectionRollbackOnReturnInterceptor           `,
+    which is a JDBC-Pool JDBC interceptor, and setting the connection
+    pool behavior on return via the datasource configurations by using
+    the following options.
     
     
 
@@ -271,7 +285,7 @@ The elements in the above configuration are described below:
  | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
  |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
  | **commitOnReturn**   | If `defaultAutoCommit` =false, then you can set `commitOnReturn ` =true, so that the pool 
- |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If the  
+ |                      | can complete the transaction by calling the commit on the connection as it is returned to the pool. However,If the  
  |                      | `  rollbackOnReturn` =true then this attribute is ignored. The default value is false. |
  |                      |
  | **rollbackOnReturn** | If `                defaultAutoCommit               ` =false, then you can set `                rollbackOnReturn               ` =true so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                     |

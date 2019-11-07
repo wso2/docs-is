@@ -202,7 +202,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 		!!! info "Related Topics"
 			For more information on how to configure primary and secondary user
 			stores, see [Configuring User
-			Stores](../../learn/configuring-user-stores).
+			Stores](../../setup/configuring-user-stores).
 
 
 Let's get started!

@@ -10,5 +10,5 @@ TCPMon is not dependent on any third party libraries. Its user interface
 is based on a swing UI and works on almost all platforms that support
 Java.
 
--   [Message Monitoring with TCPMon](../../administer/message-monitoring-with-tcpmon)
--   [Other Usages of TCPMon](../../administer/other-usages-of-tcpmon)
+-   [Message Monitoring with TCPMon](../../setup/message-monitoring-with-tcpmon)
+-   [Other Usages of TCPMon](../../setup/other-usages-of-tcpmon)

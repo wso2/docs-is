@@ -50,7 +50,7 @@ user store:
     `           <IS_HOME>/repository/conf/          `
     `           user-mgt.xml          ` file which are used for
     configuring the primary user store, see [Properties of User
-    Stores](../../administer/working-with-properties-of-user-stores).
+    Stores](../../setup/working-with-properties-of-user-stores).
 
     ``` xml
         <UserManager>
@@ -294,7 +294,7 @@ explained below.
 
 For information information about the system administrator user, see
 [Configuring the System
-Administrator](../../learn/configuring-the-system-administrator), and for
+Administrator](../../setup/configuring-the-system-administrator), and for
 information on how keystores are used in WSO2 products, see [Using
 Asymmetric Encryption](../../administer/using-asymmetric-encryption).  
 
