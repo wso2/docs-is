@@ -55,12 +55,9 @@ To configure SAML2 Web SSO:
     </tr>
     <tr class="even">
     <td><strong>Service Provider Qualifier</strong></td>
-    <td><div class="content-wrapper">
-    <div class="admonition warning">
-    <p class="admonition-title">Warning</p>
-      <p>To configure Service Provider Qualifier described below, apply the <strong>5102 WUM update</strong> to WSO2 IS 5.8.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> in the WSO2 Administration Guide.</p></div>
+    <td>
     <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same Issuer value. When a Service Provider Qualifier is defined here, it will be appended to the end of the Issuer value when registering the SAML SP in the Identity Server.</p> 
-    <p>For example, if you specify `travelocity.com` as the Issuer and <strong>sp1</strong> as the Service Provider Qualifier, the configuration will be registered in IS as <code>                                   travelocity.com                                  :urn:sp:qualifier:sp1                </code></p>
+    <p>For example, if you specify `travelocity.com` as the Issuer and <strong>sp1</strong> as the Service Provider Qualifier, the configuration will be registered in IS as <code>                                   travelocity.com\:urn:sp:qualifier:sp1                </code></p>
     <p>You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.</p>
     <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex : `travelocity.com` ). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
     <div class="code panel pdl" style="border-width: 1px;">
@@ -74,7 +71,7 @@ To configure SAML2 Web SSO:
     </tr>
     <tr class="odd">
     <td><strong>Assertion Consumer URLs</strong></td>
-    <td>Specify the <strong>Assertion Consumer URLs</strong> . This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the <strong>Add</strong> button.</td>
+    <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the <strong>Add</strong> button.</td>
     <td><code>                               http://wso2is.local:8080/travelocity.com/home.jsp                             </code></td>
     </tr>
     <tr class="even">
@@ -234,9 +231,6 @@ To configure SAML2 Web SSO:
     <tr class="even">
     <td><strong>IdP Entity ID Alias</strong></td>
     <td><div class="content-wrapper">
-   <div class="admonition warning">
-   <p class="admonition-title">Warning</p>
-    <p>To configure IdP EntityID Alias described below, apply the <strong>5102 WUM update</strong> to WSO2 IS 5.8.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> in the WSO2 Administration Guide.</p></div>
     <p>This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. But if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this IdP Entity ID Alias value.</p>
     <p>In Travelocity sample SP, this value can be set by modifying SAML2.IdPEntityId value mentioned in the `<travelocity.com-hpme>/WEB-INF/classes/travelocity.properties` file, so that it reflects the value of the IdP Entity ID Alias you define in the SAML SP configuration.</p>
     </div></td>
