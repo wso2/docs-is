@@ -1,210 +1,160 @@
 # Configuring SMS OTP
 
-The SMS provider is the entity that is used to send the SMS. WSO2 Identity Server supports most of the SMS APIs. Some use the GET method with the client secret and API Key encoded in the URL, while some may use the POST method when sending the values in the headers, and the message and telephone number in the payload (e.g., Clickatell). Note that this could change significantly between different SMS providers. The configuration of the connector in the identity provider would also change based on this.
+The SMSOTP authenticator allows you to authenticate user via SMS through WSO2 IS.
 
-This topic provides instructions on how to configure the SMS One Time Password (SMS OTP) connector and the WSO2 Identity Server (IS) using a sample application. This is configured so that SMS OTP is a second authentication factor for the sample application. See the following sections for more information.
+This topic provides instructions on how to configure the SMS OTP connector and the WSO2 
+Identity Server (WSO2 IS) to integrate using a sample app. This is configured so that 
+SMSOTP is a second authentication factor for the sample application. See the following 
+sections for more information.
 
 !!! tip "Before you begin"     
-    -   To ensure you get the full understanding of configuring SMS OTP with WSO2 Identity Server, the sample travelocity application is used in this use case. Therefore, make sure to [download the samples](../../learn/downloading-a-sample).
-    -   The samples run on the Apache Tomcat server and are written based on Servlet 3.0. Therefore, download Tomcat 7.x from [here](https://tomcat.apache.org/download-70.cgi) .
-    -   Install Apache Maven to build the samples. For more information, see [Installation Prerequisites](../../setup/installation-prerequisites).
+    -   To ensure you get the full understanding of configuring SMS OTP with WSO2 Identity Server, 
+        the sample travelocity application is used in this use case. Therefore, make sure to 
+        [download the travelocity 
+        application](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/).
+    -   The samples run on the Apache Tomcat server and are written based on Servlet 3.0. Therefore, 
+        download Tomcat 8.x from [here](https://tomcat.apache.org/download-80.cgi) .
+    -   Install Apache Maven to build the samples. For more information, 
+        see [Installation Prerequisites](../../setup/installation-prerequisites).
 
 
-## Deploying SMSOTP artifacts
+## Enable SMSOTP
 
-1.	Download the artifacts from the [store](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22smsotp%22).
+Add the following configurations to `<IS_HOME>/repository/conf/deployment.toml` file to enable SMSOTP 
+for WSO2 Identity Server.
 
-2. 	Place the smsotpauthenticationendpoint.war file into the `<IS_HOME>/repository/deployment/server/webapps` directory.
+```
+[authentication.authenticator.sms_otp] 
+name ="SMSOTP"
+enable=true
 
-3. 	Place the `org.wso2.carbon.extension.identity.authenticator.smsotp.connector-2.0.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
-	
-	!!! note
-
-		If you want to upgrade the SMSOTP Authenticator in your existing WSO2 Identity Server pack, see [upgrade instructions](https://docs.wso2.com/display/ISCONNECTORS/Authenticator+Upgrade+Instructions).
-
-4. Place the `org.wso2.carbon.extension.identity.helper-1.0.x.jar` file into the `<IS_HOME>/repository/components/dropins` directory.
-
-	!!! note
-
-		If you already has a lower version of `org.wso2.carbon.extension.identity.helper` in `<IS_HOME>/repository/components/dropins` directory. Remove the older `.jar`.
-
-5.	Add the following configurations to the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory. 
-
-	```toml 
-	[authentication.authenticator.sms_otp] 
-	name ="SMSOTP"
-	enable=true
-
-	[authentication.authenticator.sms_otp.parameters]
-	SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-	SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-	MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
-	RetryEnable = true
-	ResendEnable = true
-	BackupCode = true
-	SMSOTPEnableByUserClaim = true
-	SMSOTPMandatory = false
-	CaptureAndUpdateMobileNumber = true
-	SendOTPDirectlyToMobile = false
-	redirectToMultiOptionPageOnFailure = false
-	```
+[authentication.authenticator.sms_otp.parameters]
+SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
+SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
+MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
+RetryEnable = true
+ResendEnable = true
+BackupCode = true
+SMSOTPEnableByUserClaim = true
+SMSOTPMandatory = false
+CaptureAndUpdateMobileNumber = true
+SendOTPDirectlyToMobile = false
+redirectToMultiOptionPageOnFailure = false
+```
 
 
+<table style="width:100%; table-layout: fixed;">
+    <thead>
+        <tr>
+            <th width="40%">Value</th>
+            <th width="60%">Description</th>
+        </tr>			
+    </thead>
+    <tbody>
+        <tr>
+            <td>name</td>
+            <td>Define the authenticator as <code>SMSOTP</code>.</td>
+        </tr>
+        <tr>
+            <td>enable</td>
+            <td>Enable or diable the authenticator.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPAuthenticationEndpointURL</td>
+            <td>Authentication endpoint URL of the authenticator.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPAuthenticationEndpointErrorPage</td>
+            <td>Error page that will be displayed in an authentication failure.</td>
+        </tr>
+        <tr>
+            <td>MobileNumberRegPage</td>
+            <td>Range of usable mobile numbers to send SMSs.</td>
+        <tr>
+            <td>RetryEnable</td>
+            <td>Define whether to retry or not.</td>
+        </tr>
+        <tr>
+            <td>ResendEnable</td>
+            <td>Define whether to enable resending the SMMSOTP or not in case a user 
+            enters an incorrect code.</td>
+        </tr>
+        <tr>
+            <td>BackupCode</td>
+            <td>Define whether to use a backup code instead of the actual SMS code or not.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPMandatory</td>
+            <td>If the value is true, the second step will be enabled by the admin. The user cannot be 
+            authenticated without SMS OTP authentication. This parameter is used for both super tenant 
+            and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td>SMSOTPEnableByUserClaim</td>
+            <td>Disabl the 'SMS OTP disabling by user' functionality. The value can be either <code>true</code> or 
+            <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the 
+            SMS OTP according to what the admin selects in <code>SMSOTPMandatory</code> parameter value.</td>
+        </tr>
+        <tr>
+            <td>CaptureAndUpdateMobileNumber</td>
+            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user forgets to
+             update the mobile number in a specific user profile where this property is set to 
+             <code>true</code>, the user can update a mobile claim with value during the authentication time 
+             and use that mobile number to send OTP. 
+             This update functionality will happen in the first login only. For the next logins, the 
+             updated mobile number will be used.</td>
+        </tr>
+        <tr>
+            <td>SendOTPDirectlyToMobile</td>
+            <td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user does not exist 
+            in the user store and if the admin sets <code>SendOTPDirectlyToMobile</code> to <code>true
+            </code>, the user can enter the mobile number in authentication time in a mobile number 
+            request page; the OTP will be directly sent to that mobile number.</td>
+        </tr>
+        <tr>
+            <td>redirectToMultiOptionPageOnFailure</td>
+            <td>During a failed attempt unable redirect to the Multi Option Page where the user 
+            can select the authentication mechanism.</td>
+    </tbody>
+</table>
 
+!!! note
 
-	<table style="width:100%; table-layout: fixed;">
-		<thead>
-			<tr>
-				<th width="40%">Value</th>
-				<th width="60%">Description</th>
-			</tr>			
-		</thead>
-		<tbody>
-			<tr>
-				<td>name</td>
-				<td>This is to define the authenticator as SMSOTP.</td>
-			</tr>
-			<tr>
-				<td>enable</td>
-				<td>This is to enable or diable the authenticator.</td>
-			</tr>
-			<tr>
-				<td>SMSOTPAuthenticationEndpointURL</td>
-				<td>This is the authentication endpoint URL of the authenticator.</td>
-			</tr>
-			<tr>
-				<td>SMSOTPAuthenticationEndpointErrorPage</td>
-				<td>This is the error page that will be displayed in case of authentication failure.</td>
-			</tr>
-			<tr>
-				<td>MobileNumberRegPage</td>
-				<td>This is to set the range of usable mobile numbers to send SMSs.</td>
-			<tr>
-				<td>RetryEnable</td>
-				<td>This is to define whether to retry or not.</td>
-			</tr>
-			<tr>
-				<td>ResendEnable</td>
-				<td>This is to define whether to enable resending the SMMSOTP or not in case a user enters an incorrect code.</td>
-			</tr>
-			<tr>
-				<td>BackupCode</td>
-				<td>This is to use define whether to use a backup code instead of the actual SMS code or not.</td>
-			</tr>
-			<tr>
-				<td>SMSOTPEnableByUserClaim</td>
-				<td>This facilitates disabling the 'SMS OTP disabling byuser' functionality. The value can be <code>true</code> or <code>false</code>. If the value is set to <code>true</code>, the user can enable and disable the SMS OTP according to what the admin selects (SMSOTPMandatory parameter value).</td>
-			</tr>
-			<tr>
-				<td>SMSOTPMandatory</td>
-				<td>If the value is true, the second step will be enabled by the admin. The user cannot be authenticated without SMS OTP authentication. This parameter is used for both super tenant and tenant in the configuration. The value can be <code>true</code> or <code>false</code>.</td>
-			</tr>
-			<tr>
-				<td>CaptureAndUpdateMobileNumber</td>
-				<td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user forgets to update the mobile number in a specific user profile where this property is set to <code>true</code>, the user can update a mobile claim with value in authentication time (If it is first login) and get the mobile number from the user's profile to send OTP. This update functionality will happen in the first login only. Once the user updates the mobile number, in the next login, the mobile number will take the updated mobile number from that specific user profile.</td>
-			</tr>
-			<tr>
-				<td>SendOTPDirectlyToMobile</td>
-				<td>When <code>SMSOTPMandatory</code> is set to <code>true</code> and the user does not exist in the user store and if the admin sets <code>SendOTPDirectlyToMobile</code> to <code>true</code>, the user can enter the mobile number in authentication time in a mobile number request page; the OTP will be directly sent to that mobile number.</td>
-			</tr>
-			<tr>
-				<td>redirectToMultiOptionPageOnFailure</td>
-				<td></td>
-		</tbody>
-	</table>
-
-	!!! note
-
-		The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured such that it can be used with most types of SMS APIs. Some use the GET method with the client secret and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the values in the headers and the message and telephone number in the payload (e.g., Clickatell). Note that this could change significantly between different SMS providers. The configuration of the connector in the identity provider would also change based on this.
+    The SMS provider is the entity that is used to send the SMS. The SMSOTP connector has been configured 
+    such that it can be used with most types of SMS APIs. Some use the GET method with the client secret 
+    and API Key encoded in the URL (e.g., Nexmo), while some may use the POST method when sending the 
+    values in the headers and the message and telephone number in the payload (e.g., Clickatell). 
+    This could change significantly between different SMS providers. The configuration of the 
+    connector in the identity provider would also change based on this.
 
 ## Deploying travelocity.com sample
 
-Deploy the sample travelocity app in order to use it in this scenario.
+Deploy the sample travelocity app in order to try this scenario.
 
-To obtain and configure the single sign-on travelocity sample, follow
-the steps below.
+1.  [Download the travelocity](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/) 
+sample application.
 
-1.  Add the following entry to the `            /etc/hosts           `
-    file of your machine to configure the hostname.
-
-    !!! info "Why is this step needed?"
-
-		Some browsers do not allow creating cookies for a naked hostname,
-		such as `             localhost            ` . Cookies are required
-		when working with SSO. Therefore, to ensure that the SSO
-		capabilities work as expected in this tutorial, you need to
-		configure the `             etc/host            ` file as explained
-		in this step.
-
-		The `             etc/host            ` file is a read-only file.
-		Therefore, you won't be able to edit it by opening the file via a
-		text editor. To avoid this, edit the file using the terminal
-		commands.  
-		For example, use the following command if you are working on a
-		Mac/Linux environment.
-
-		``` java
-		sudo nano /etc/hosts
-		```
-
-	``` bash
-	127.0.0.1  wso2is.local
-	```
-
-2.  Open the `            travelocity.properties           ` file found
-    in the
-    `            is-samples/modules/samples/sso/sso-agent-sample/src/main/resources           `
-    directory of the samples folder you just checked out. Configure the
-    following property with the hostname (
-    `            wso2is.local           ` ) that you configured above.
-
-    ``` text
-    #The URL of the SAML 2.0 Assertion Consumer
-    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-    ```
-
-3.  In your terminal, navigate to
-    `            is-samples/modules/samples/sso/sso-agent-sample           `
-    folder and build the sample using the following command. You must
-    have Apache Maven installed to do this
-
-    ``` java
-    mvn clean install
-    ```
-
-4.  After successfully building the sample, a
-    `            .war           ` file named **travelocity.com** can be
-    found inside the
-    `            is-samples/sso/sso-agent-sample/           `
-    `            target           ` directory. Deploy this sample web
-    app on a web container. To do this, use the Apache Tomcat server.
+2.  Deploy `travelocity.com.war` on a web container. To do this, use the Apache Tomcat server.
 
     !!! note
-    
         Since this sample is written based on Servlet 3.0 it needs to be
-        deployed on [Tomcat 7.x](https://tomcat.apache.org/download-70.cgi)
-        .
-    
+        deployed on [Tomcat 8.x](https://tomcat.apache.org/download-80.cgi).
 
-    Use the following steps to deploy the web app in the web container:
+    Follow the steps given below to deploy `travelocity.com.war` in Apache Tomcat.
 
     1.  Stop the Apache Tomcat server if it is already running.
-    2.  Copy the
-        `                           travelocity.com.war                         `
-        file to the `             <TOMCAT_HOME>/webapps            `
-        directory.
+    2.  Copy the `travelocity.com.war` file to `<TOMCAT_HOME>/webapps` directory.
     3.  Start the Apache Tomcat server.
 
 !!! tip
-    
     If you wish to change properties like the issuer ID, consumer URL, and
-    IdP URL, you can edit the **travelocity.properties** file found in the
+    IdP URL, you need to edit above properties in the **travelocity.properties** file found in the
     `          travelocity.com/WEB-INF/classes         ` directory. If the
-    service provider is configured in a tenant you can use the
+    service provider is configured in a tenant, you can use the
     `          QueryParams         ` property to send the tenant domain.
     For  example, `          QueryParams=tenantDomain=wso2.com         ` .
     
-    This sample uses the following default values.
+    Following sample uses the following default values.
     
     | Properties                                                                                                  | Description                                                         |
     |-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
@@ -230,15 +180,17 @@ and a [service provider](../../learn/adding-and-configuring-a-service-provider).
 Now you have to configure WSO2 Identity Server by adding a new identity
 provider.
 
-1.  [Start WSO2 Identity Server
-    (IS)](../../setup/running-the-product#starting-the-server)
-    .
+1.  [Start the Server](../../setup/running-the-product).
+
 2.  Download the certificate of the SMS provider by going to the SMS
     providers website on your browser, and clicking the HTTPS trust icon
     on the address bar.  
-    For example, navigate to
-    [https://www.nexmo.com](https://www.nexmo.com/) , and click the
-    padlock next to the URL on Chrome.
+    
+    !!! example
+        If you wish to have NEXMO as your SMS provider, navigate to
+        [https://www.nexmo.com](https://www.nexmo.com/), and click the
+        padlock next to the URL on Chrome and download the certificate.
+        
 3.  Navigate to the
     `           <IS_HOME>/repository/resources/security          `
     directory via the terminal and i mport the downloaded certificate
@@ -255,9 +207,8 @@ provider.
 5.  Log into the [management
     console](../../setup/getting-started-with-the-management-console)
     as an administrator.
-
-6.  In the **Identity** section under the **Main** tab of the management
-    console, click **Add** under **Identity Providers**.
+    
+6.  Navigate to **Main** tab -> **Identity** -> **Identity Providers** -> **Add**.
 
 7.  Give a suitable name (e.g., SMSOTP) as the **Identity Provider
     Name**.
@@ -462,8 +413,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers**.
+2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
 
 3.  Enter **travelocity.com** in the **Service Provider Name** text box,
     and click **Register**.
@@ -491,7 +441,7 @@ The next step is to configure the service provider.
 
     **![edit-service-provider](../assets/img/tutorials/edit-service-provider.png)**
 
-5.  Click **Update** to save the changes.  
+5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
 
 6.  Go to **Claim configuration** and select the
@@ -535,73 +485,72 @@ You have now added and configured the service provider.
 ## Updating the mobile number of the user
 
 Follow the steps given below to update the mobile number of the users in
-WSO2 IS as this field is empty by default if you are [creating the user
-using the WSO2 IS management
-console](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
-.
+WSO2 IS.
 
-1.  Select **List** that is under **Users** **and** **Roles**, and
-    click **Users** in the IS Management Console.
+1.  Navigate to **Main** -> **Identity** ->  **Users and Roles** -> **List** -> 
+    **Users** to view existing users.
+
 2.  Click **User Profile** of the user you want to edit and update the
     mobile number.  
-    The mobile number needs to be in the format given in the samples of
-    the SMS provider. For example, 94778888888.  
-    If the format is wrong you would not get the text message with the
-    code to sign into WSO2 IS.
+    
+    !!! warning
+        The mobile number needs to be in the following format. 
+        
+        **Example:** 94778888888
+         
+        **NOTE:** If the format is wrong you would not get the text message.
 
     !!! note
-    
         Make sure the number is registered with an SMS provider in order to
         send the SMS. For this tutorial, you can use the mobile number that
         was used to register with the SMS provider.
-    
 
-3.  Enter the First Name for the user and click **Update**.
+## Add Disable SMSOTP option for Users
 
-## Configuring claims
+1. Navigate to **Main** -> **Identity** -> **Claims** -> **List** -> Click `http://wso2.org/claims`. 
 
-1.  The SMS OTP extensions requires a claim to disable the SMS OTP. You
-    need to add this claim to WSO2 IS. Else, you run into errors.  
-    1.  In the **Main** menu, click **Add** under **Claims**.
-    2.  Click **Add Local Claim**.
-    3.  Enter
-        `                         http://wso2.org/claims/identity/smsotp_disabled                       `
-        as the value for **Claim Uri**.
-    4.  Add a **Display Name** and **Description**. For example,
-        Disable SMS OTP.
-    5.  Enter title as the **Mapped Attribute**.
-    6.  Enter 0 as the value for **Display Order**.
-    7.  Select **Supported by Default**.
-    8.  Click **Add**.
+2. Find Claim `Disable SMSOTP` and click **Edit**.
 
-    ![configuring-claims](../assets/img/tutorials/configuring-claims.png)
-    
-2.  Optionally , you can add a claim to allow users to use back up codes
-    when SMS OTP is disabled.  
-    Adding the OTP backup codes claim:  
-    1.  In the **Main** menu, click **Add** under **Claims**.
-    
-    2.  Click **Add Local Claim**.
-    
-    3.  Enter
-        `                         http://wso2.org/claims/otpbackupcodes                       `
-        as the value for **Claim Uri**.
-        
-    4.  Add a **Display Name** and **Description**. For example, Backup
-        Code.
-        
-    5.  Enter `            postalcode           ` as the value for
-        **Mapped Attribute**.
-        
-    6.  Select **Supported by Default**.
-    
-    7.  Click **Add**.
+3. Enable `Supported by Default` option and click **Update**.
 
-    ![allow-to-use-back-up-codes](../assets/img/tutorials/allow-to-use-back-up-codes.png)
-    
-3.  Now, click **List** under Users and Roles and click **Users.**
+Now **Disable SMSOTP** option is available for the user. 
 
-4.  **Click User Profile** next to admin or a preferred user and update
+!!! note
+    To verify whether the option is available for the users, navigate to a user 
+    profile of a user and check `Disable SMSOTP` option is available.
+    
+![add-disable-smsotp-option](../../assets/img/tutorials/sms-otp/add-disable-smsotp-option.png)
+
+## Configuring backup codes for SMSOTP
+
+Optionally , you can configure back up codes when SMS OTP is disabled. To configure 
+backup codes, follow the steps given below.
+    
+### Adding OTP backup codes claim  
+
+1.  Navigate to **Main** menu -> **Identity** -> **Claims** -> **Add** -> **Add Local Claim**.
+
+3.  Enter
+    `                         http://wso2.org/claims/otpbackupcodes                       `
+    as the value for **Claim Uri**.
+    
+4.  Add a **Display Name** and **Description**. For example, `Backup
+    Code`.
+    
+5.  Enter `            postalcode           ` as the value for
+    **Mapped Attribute**.
+    
+6.  Select **Supported by Default**.
+
+7.  Click **Add**.
+
+![allow-to-use-back-up-codes](../assets/img/tutorials/allow-to-use-back-up-codes.png)
+
+### Add backup codes for users
+    
+1.  Navigate to **Main** -> **Identity** -> **Users and Roles** -> **List** -> **Users**.
+
+4.  Click **User Profile** of a preferred user and update
     the backup codes so that the user can disable SMS OTP by selecting
     **Disable SMS OTP** if required.
 
