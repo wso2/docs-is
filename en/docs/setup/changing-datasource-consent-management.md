@@ -5,8 +5,8 @@ These default databases are located in the `<IS_HOME>/repository/database` direc
 of the product pack.
 
 By default Consent Management data is stored in the identity database (IDENTITY_DB) with 
-Identity and UMA data. However you can change this to any database type that is 
-supported by WSO2 Identity Server.
+Identity and UMA data. However, you can separate consent specific data into a separate 
+data-source to any database type that is supported by WSO2 Identity Server.
 
 !!! note
     For more information about databases, see 
@@ -110,7 +110,8 @@ Following are the sample configuration for each database type.
             
           - `<IS-HOME>/dbscripts/consent/oracle.sql`
 
-## Advanced Database Configurations
+
+**Advanced Database Configurations**
 
 Apart from above basic configurations, WSO2 Identity Server supports advanced database 
 configurations. Add the following configurations to the `<IS_HOME>/repository/conf/
@@ -223,6 +224,16 @@ as a single transaction.</p>
     JDBC Connection
     Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
+
+Once when we separate out consent database from `WSO2IdentityDB`, we need to add the 
+following configuration to the `deployement.toml` to specify WSO2 Identity Server to 
+use a separate data-source instead of default `IDENTITY_DB`.
+
+```
+[authentication.consent]
+data_source="jdbc/WSO2CONSENT_DB"
+```  
+
 !!! note "Sample Config"
     If you have correctly configured, the `deployment.toml` file should have an entry 
     similar to the following config. 
@@ -245,4 +256,7 @@ as a single transaction.</p>
     pool_options.validationQuery="SELECT 1"
     pool_options.validationInterval="30000"
     pool_options.defaultAutoCommit=false
+    
+    [authentication.consent]
+    data_source="jdbc/WSO2CONSENT_DB"
     ``` 
