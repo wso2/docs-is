@@ -45,7 +45,7 @@ configuration for running a WSO2 product as a Windows Service.
         If you wish to set additional properties from an external registry
         at runtime, store sensitive information like usernames and passwords
         for connecting to the registry in a properties file, and secure it
-        with the [cipher tool](../../administer/encrypting-passwords-with-cipher-tool).
+        with the [cipher tool](../../setup/encrypting-passwords-with-cipher-tool).
 
     ```bash tab="Minimal wrapper.conf configuration"
     #********************************************************************

@@ -9,7 +9,7 @@ Repository. Therefore, the Secret Callback handler is used to resolve
 these passwords. Read about the [Secure Vault
 implementation](../../administer/securing-passwords-in-configuration-files) in WSO2
 products. Also, see how passwords in [configuration files are
-encrypted](../../administer/encrypting-passwords-with-cipher-tool) using Secure Vault.
+encrypted](../../setup/encrypting-passwords-with-cipher-tool) using Secure Vault.
 
 The default secret CallbackHandler in a WSO2 product provides two
 options for reading these encrypted passwords when you start the server:
@@ -72,4 +72,4 @@ start the server in "daemon" mode as explained below.
     ```
 
 !!! info
-    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../administer/customizing-secure-vault).
+    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../setup/customizing-secure-vault).
