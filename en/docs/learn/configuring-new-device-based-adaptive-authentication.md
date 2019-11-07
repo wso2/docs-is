@@ -27,7 +27,7 @@ Follow the instructions given in the sections below to set this up.
 1.  Log in to the management console.
 2.  Create a new user called "Kim".
 3.  Navigate to **Service Providers\>List** and click **Edit** on the
-    `              saml2-web-app-dispatch.com             `
+    `              saml2-web-app-pickup-dispatch.com             `
     service provider.
 4.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
@@ -69,7 +69,7 @@ Follow the instructions given in the sections below to set this up.
 ### Trying out the sample scenario
 
 1.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 2.  Click **Login** and enter Kim's credentials. Note that you are
     prompted for hardware key authentication because Kim has never
     logged in from this device or browser before.  
@@ -83,7 +83,7 @@ Follow the instructions given in the sections below to set this up.
     browser and device is now trusted.  
 5.  Open a new browser window of a different browser and access the
     PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 6.  Click Login and enter Kim's credentials. Note that you are now
     prompted for hardware key authentication again since Kim has never
     logged in using this particular browser before.

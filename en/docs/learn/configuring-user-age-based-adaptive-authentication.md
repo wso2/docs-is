@@ -40,7 +40,7 @@ prevented from logging in to the application.
     Enter the birth date in the following format: &lt;yyyy-mm-dd&gt;.
 
 6.  Navigate to **Service Providers&gt;List** and click **Edit** on
-    the saml2-web-app-dispatch.com service provider.
+    the saml2-web-app-pickup-dispatch.com service provider.
 7.  Expand the **Local and Outbound Authentication Configuration**
     section and click **Advanced Configuration**.
 8.  Click on **Templates** on the right side of the **Script Based
@@ -56,7 +56,7 @@ prevented from logging in to the application.
 ### Trying out the sample scenario
 
 1.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 2.  Click **Login** and enter Kim's credentials. You are successfully
     logged in to the application.  
     ![pickup sign in kim](../assets/img/tutorials/pickup-sign-in-kim.png)

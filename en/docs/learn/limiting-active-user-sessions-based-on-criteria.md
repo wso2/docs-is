@@ -16,7 +16,7 @@ Here, you will use a sample application named **Pickup Dispatch** to deploy and 
 ### Configuring the sample scenario
 
 1.  On the Main menu of WSO2 Identity Server Management Console, click 
-    **Service Providers&gt;List** and click Edit on the **saml2-web-app-dispatch.com** service provider.
+    **Service Providers&gt;List** and click Edit on the **saml2-web-app-pickup-dispatch.com** service provider.
 2.  Expand the **Local and Outbound Configuration** section and click **Advanced Authentication**. 
 3.  Expand **Script Based Conditional Authentication**.
 4.  Click **Templates** on the right side of the  **Script Based Conditional Authentication** field and then click **Concurrent-Session-Management**. 
@@ -40,7 +40,7 @@ Here, you will use a sample application named **Pickup Dispatch** to deploy and 
 
 ### Testing the sample scenario
 
-1.  Access the sample PickUp application using the following URL: http://localhost.com:8080/saml2-web-app-dispatch.com.
+1.  Access the sample PickUp application using the following URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com.
 2.  Click **Login** and enter admin/admin credentials.
     ![limit-active-sessions-step-8](../assets/img/tutorials/limit-active-sessions-step-8.png)
 3.  Repeat the previous two steps in three different web browsers, e.g. Firefox, Safari, and Opera.

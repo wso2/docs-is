@@ -104,7 +104,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 1.  Login to the management console and c reate a new user called "Alex"
     with login permission.
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
+    [saml2-web-app-pickup-dispatch.com](http://saml2-web-app-pickup-dispatch.com)
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
@@ -137,7 +137,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
 
 1.  Start the Tomcat server and a ccess the following sample PickUp
     application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com> .
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
 2.  Port offset the 9443 port in WSO2 Stream Processor. This is required
     because WSO2 IS also runs on the 9443 port.
 
