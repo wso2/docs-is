@@ -388,4 +388,4 @@ of entity configuration.
         Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
 
     See [Using the SAML2
-    Toolkit](../../learn/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
+    Toolkit](../../administer/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
