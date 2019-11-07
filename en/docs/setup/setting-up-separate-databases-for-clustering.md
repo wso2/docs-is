@@ -87,7 +87,7 @@ During a deployment, user data can be configured to a different database <code>U
 <li>In the default database configuration, UMA, consent and identity data are located <code>IDENTITY_DB</code>. 
 In a deplyment both identity and UMA can be seperated for a single database while consent data is configured to a seperate 
 database.</li>
-<li>For more information, see <a href="../../setup/working-with-databases">Changing the Default Datasource for 
+<li>For more information, see <a href="../../setup/changing-datasource-consent-management">Changing the Default Datasource for 
 Consent Management Database</a>.</li>
 </td>
 </tr>
