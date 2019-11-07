@@ -49,7 +49,8 @@ To configure SAML2 Web SSO:
     <tbody>
     <tr class="odd">
     <td><strong>Issuer</strong></td>
-    <td>Specify the <strong>Issuer</strong> . This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the <strong>ServiceProviderID</strong> value mentioned in the <code>               &lt;IS_HOME&gt;/repository/conf/security/authenticators.xml              </code> file of the relying party Carbon server.</td>
+    <td>Specify the <strong>Issuer</strong> . This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. 
+    </td>
     <td><code>               travelocity.com              </code></td>
     </tr>
     <tr class="even">
