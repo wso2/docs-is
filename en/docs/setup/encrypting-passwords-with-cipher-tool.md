@@ -81,4 +81,4 @@ To change any password that we have encrypted already, follow the below steps:
 !!! info
     For information on resolving the encrypted passwords see [Resolving Encrypted Passwords](../../administer/resolving-encrypted-passwords).
 
-    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../administer/customizing-secure-vault).
+    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../setup/customizing-secure-vault).

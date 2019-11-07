@@ -48,7 +48,7 @@ In WSO2 Identity Server, asymmetric encryption is used by default for the follow
 
 -   Authenticating the communication over Secure Sockets Layer (SSL)/Transport Layer Security (TLS) protocols.
 -   Encrypting sensitive data such as plain-text passwords found in both product-level and product feature-level configurations/configuration
-    files using [cipher tool](../../administer/encrypting-passwords-with-cipher-tool). 
+    files using [cipher tool](../../setup/encrypting-passwords-with-cipher-tool). 
 -   Encrypting and signing SOAP messages using WS-Security.
 
 !!! tip 
