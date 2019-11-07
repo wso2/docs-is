@@ -181,6 +181,7 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     </tbody>
     </table>
 
+!!! info
     For more information on other parameters that can be defined in
     the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
     JDBC Connection
