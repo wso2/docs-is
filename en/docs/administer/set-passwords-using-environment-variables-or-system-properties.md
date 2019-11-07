@@ -15,7 +15,7 @@ password="$env{ENV_VAR}"
 [keystore.tls]
 password = "$env{ENV_VAR}" 
 alias = "$env{ENV_VAR}" 
-key_password = "$$env{ENV_VAR}"  
+key_password = "$env{ENV_VAR}"  
 
 [truststore]                  
 password = "$env{ENV_VAR}" 
