@@ -114,7 +114,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="even">
          <td><strong>PKCE Mandatory</strong></td>
-         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../learn/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../administer/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
       </tr>
       <tr class="odd">
          <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>

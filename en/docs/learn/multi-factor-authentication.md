@@ -55,6 +55,6 @@ WSO2 Identity Server enables configuring MFA in the following ways when a federa
 
 
 !!! Tip "Try it out" 
-    Try [authenticating with FIDO](../../learn/multi-factor-authentication-using-fido.md)
+    Try [authenticating with FIDO](../../learn/multi-factor-authentication-using-fido)
     as a second factor and [configuring MFA for management console](../../learn/multi-factor-authentication-for-wso2-is-management-console).
        
