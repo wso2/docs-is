@@ -11,7 +11,7 @@ prompted to reset the password.
     to view the latest documentation.
 
 
-### Deploying Password Policy artifacts
+## Deploying Password Policy artifacts
 
 1.  Download the [Password Policy Authenticator and
     artifacts](https://store.wso2.com/store/assets/isconnector/details/502efeb1-cc59-4b62-a197-8c612797933c)
@@ -79,7 +79,7 @@ prompted to reset the password.
         If the property is not added to the file, by default, the password
         reset time is 30 days.
 
-### Add claim mapping
+## Add claim mapping
 
 A claim is a piece of information about a particular subject. It can be
 anything that the subject is owned by or associated with, such as name,
@@ -111,17 +111,12 @@ is expired or not for this flow to work.
 
     ![](../assets/img/50511336/97551782.png)   
 
-### Deploying travelocity.com sample
+## Deploying travelocity sample application
 
 The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
 in order to use it in this scenario.
 
-Once this is done, the next step is to configure the WSO2 Identity
-Server by adding a [service
-provider](../../learn/adding-and-configuring-a-service-provider)
-.
-
-### Configuring the Service Provider
+## Configuring the Service Provider
 
 The next step is to configure the service provider.
 
@@ -181,7 +176,7 @@ The next step is to configure the service provider.
 
 You have now added and configured the service provider.
 
-### Testing the sample
+## Testing the sample
 
 1.  To test the sample, the password needs be expired. So select
     "Supported by Default" checkbox in the

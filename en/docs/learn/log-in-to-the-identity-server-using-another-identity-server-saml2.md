@@ -112,63 +112,70 @@ in the secondary IS instance.
 ### Setting up an application as the SP in the primary IS
 
 The client application in this scenario is the travelocity sample
-application that can be checked out from the following GitHub repo. See
-[Downloading a
-Sample](../../learn/downloading-a-sample) topic
-for more information.
+application.
 
-``` java
-https://github.com/wso2/product-is/tree/master/modules/samples/sso
-```
-
-1.  The client application must be set up as a service provider in the
-    primary Identity Server instance and this can be done by following
-    the instructions given in the [Configuring Single
-    Sign-On](../../learn/configuring-single-sign-on)
-    topic.
+1.  [Deploy travelocity application](develop/deploying-the-sample-app/) and 
+    [configure as a service provider](develop/deploying-the-sample-app/) in the
+    primary Identity Server instance. 
+ 
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and
     click **List** under **Service Providers**. Click **Edit** next to
     the service provider you created.
+    
 3.  Expand the **Local & Outbound Authentication Configuration**
     section. Here we set the travelocity client to use the primary IS
     instance and the identity provider named 'Secondary' also as its
     identity provider. For this we have to add authentication steps.  
-    ![add-authentication-steps](../assets/img/using-wso2-identity-server/add-authentication-steps.png)   
+    
+    ![add-authentication-steps](../assets/img/using-wso2-identity-server/add-authentication-steps.png)  
+     
     1.  Click **Advanced Configuration** and from next UI, click
         **Add Authentication Step**.
+        
     2.  Under **Local Authenticators** add the “ **basic** ”
         authenticator by selecting it from the combo box and clicking
         **Add Authenticator**.
+        
     3.  Under **Federated Authenticators** select “Secondary” and add
         it.
+        
     4.  Click **Update** to save your changes.
+    
 4.  Click **Update** to save changes to your service provider
     configurations. Now when you log in to the client application it
     can select either the primary IS instance or secondary IS instance
     as the identity provider and therefore has access to both user
     spaces.
+    
 5.  Go to <https://localhost:9443/carbon>, the primary IS instance, and
     create a user named 'primaryuser' and set the password as
     'primepass'.
+    
 6.  Go to <https://localhost:9444/carbon>, the secondary IS instance
     and create a user named 'secondaryuser' and set the password as
     'secondpass'.
+    
 7.  Test your application.
     1.  After copying the "travelocity.war" file to the
         `            <TOMCAT_HOME>/webapps           ` directory, run
         the Tomcat server.
+    
     2.  Go to
         [http://wso2is.local:8080/travelocity.com](http://localhost:8080/travelocity.com)
         . This is the client application.  
+        
         ![client-application](../assets/img/using-wso2-identity-server/client-application.png) 
+    
     3.  Since we are using SAML for authentication, click the link in
         the first line.
+    
     4.  In the resulting screen, log in with the username 'primaryuser'
         and the password 'primepass' for authentication as a local user
         in the primary IS instance.  
           
         ![sign-into-travelocity](../assets/img/using-wso2-identity-server/sign-into-travelocity.png)   
+        
         If you wish to authenticate a user in the secondary IS instance
         which is the secondary IdP, click “Secondary” under **Other
         login options**. In the resulting screen, log in using the

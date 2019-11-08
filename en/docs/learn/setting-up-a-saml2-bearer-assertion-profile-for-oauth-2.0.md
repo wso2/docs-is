@@ -41,7 +41,7 @@ Server and as well as the Resource Server.
 
 2.  Configure single sign-on with the Travelocity sample.
 
-    See [Configuring Single Sign-On](../../learn/configuring-single-sign-on) to
+    See [Deploying the Sample App](../../develop/deploying-the-sample-app) to
     configure Travelocity application with WSO2 Identity Server.
 
 3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to
