@@ -28,10 +28,9 @@ Server and as well as the Resource Server.
     Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
     to configure the OAuth/OpenID Connect service provider. Access token
     will be issued for this application, exchanging with SAML2
-    assertion .
+    assertion.
 
     !!! note
-    
         -   Make sure **SAML2** grant type is enabled under " Allowed Grant
             Types " in configured OAuth/OpenID Connect application.
         -   You can provide any valid URL as the **Callback URL** while
@@ -89,8 +88,7 @@ Server and as well as the Resource Server.
         is set to `            FEDERATED           ` .
 
         Add the following configuration to the
-        `            <CARBON_HOME>/repository/conf/identity/identity.xml           `
-        under the `            <SAML2Grant>           ` configuration to
+        `            <IS_HOME>/repository/conf/deployment.toml           ` file to
         enable this feature.
 
         If your users are local, you can enable user type as,
@@ -110,15 +108,15 @@ Server and as well as the Resource Server.
         If you need backward compatibility, enable user type as,
 
         ``` java
-         [oauth.grant_type.saml_bearer]
-         user_type= "LEGACY"
+        [oauth.grant_type.saml_bearer]
+        user_type= "LEGACY"
         ```
 
         Also, you can set the user type per request as,
 
         ``` java
         [oauth.grant_type.saml_bearer]
-         user_type= "PER_REQUEST"  
+        user_type= "PER_REQUEST"  
         ```
 
         Restart the server to apply the configuration changes.
