@@ -11,12 +11,9 @@ sections for more information.
     -   To ensure you get the full understanding of configuring SMS OTP with WSO2 Identity Server, 
         the sample travelocity application is used in this use case. Therefore, make sure to 
         [download the travelocity 
-        application](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/).
+        application](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/org.wso2.sample.is.sso.agent-5.9.0.war).
     -   The samples run on the Apache Tomcat server and are written based on Servlet 3.0. Therefore, 
         download Tomcat 8.x from [here](https://tomcat.apache.org/download-80.cgi) .
-    -   Install Apache Maven to build the samples. For more information, 
-        see [Installation Prerequisites](../../setup/installation-prerequisites).
-
 
 ## Enable SMSOTP
 
@@ -127,11 +124,11 @@ redirectToMultiOptionPageOnFailure = false
     This could change significantly between different SMS providers. The configuration of the 
     connector in the identity provider would also change based on this.
 
-## Deploying travelocity.com sample
+## Deploying travelocity sample application
 
 Deploy the sample travelocity app in order to try this scenario.
 
-1.  [Download the travelocity](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/) 
+1.  [Download the travelocity](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/org.wso2.sample.is.sso.agent-5.9.0.war) 
 sample application.
 
 2.  Deploy `travelocity.com.war` on a web container. To do this, use the Apache Tomcat server.
@@ -439,7 +436,7 @@ The next step is to configure the service provider.
         4.  **Include Attributes in the Response Always**  
             
 
-    **![edit-service-provider](../assets/img/tutorials/edit-service-provider.png)**
+    ![edit-service-provider](../assets/img/tutorials/sms-otp/edit-service-provider-configs.png)
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
@@ -519,7 +516,7 @@ Now **Disable SMSOTP** option is available for the user.
     To verify whether the option is available for the users, navigate to a user 
     profile of a user and check `Disable SMSOTP` option is available.
     
-![add-disable-smsotp-option](../../assets/img/tutorials/sms-otp/add-disable-smsotp-option.png)
+![add-disable-smsotp-option](../assets/img/tutorials/sms-otp/add-disable-smsotp-option.png)
 
 ## Configuring backup codes for SMSOTP
 
