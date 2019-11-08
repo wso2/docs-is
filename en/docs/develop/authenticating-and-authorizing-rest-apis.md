@@ -8,36 +8,25 @@ valves and authenticated and authorized by an OSGI service. There are
 two OSGi services that provide the authentication and authorization
 service based on its own handlers.
 
--   WSO2 Identity Server supports the following **authentication
-    handlers** :
-    -   OAuth2AccessTokenHandler
-    -   ClientCertificateBasedAuthenticationHandler
-    -   BasicAuthenticationHandler
--   The **authorization handler** is based on the permission specified
-    against a particular user role.
+-   WSO2 Identity Server supports three ways of API authentication. 
+    -   Basic authentication: Uses the user’s credentials in the API invocation
+    -   OAuth 2 common flows: Obtains a token using an oauth2 flow and uses it to invoke the API
+    -   Client certificate-based: Uses Mutual SSL to authenticate in order to consume the APIs
+
+!!! note 
+    Unless one of the above authentication elements is sent in an API invocation request, the 401 Unauthorized HTTP response will be returned.
+    
+-   Authorization for the APIs is enforced at the endpoint level using **permissions**. Each secured endpoint has a predefined minimum level of permission that is required to be able to consume the endpoint. In order to access a particular endpoint, the user has to belong to a **role** that is in or above the defined permission level.
 
 !!! note
+    You can write your own handlers for both authentication and authorization and register them in OSGI.
     
-    You can write your own handlers for both authentication and
-    authorization and register them in OSGI.
-    
-
 Let's learn how to authenticate and authorize REST APIs:
 
-1.  To enable the intercepting of services:
-    1.  Open the `            catalina-server.xml           ` file found
-        in the `            <IS_HOME>/repository/conf/tomcat           `
-        directory.
-    2.  Uncomment the following valves found under the
-        `             <Engine name="Catalina">            ` tag.
+1.  To specify the resources that you want to secure:
 
-        ``` xml
-         <!-- Authentication and Authorization valve for the rest apis and we can configure context for this in identity.xml  -->
-         <!--Valve className="org.wso2.carbon.identity.auth.valve.AuthenticationValve"/>
-         <Valve className = "org.wso2.carbon.identity.authz.valve.AuthorizationValve"/-->
-        ```
-
-2.  To specify the resources that you want to secure:
+!!! note
+    If you are using version 5.9.0 or above, you can skip this step since all the endpoints are secured by default from 5.9.0 onwards. However, the configuration mentioned below can be used to configure the user role permissions as well.  
 
     1.  Open the `             deployment.toml            ` file found in
         the
@@ -61,46 +50,7 @@ Let's learn how to authenticate and authorize REST APIs:
             http_method = "all"
             permissions = ["p1","p2"]
             ```
-
-3.  To configure intermediate certificate validation, configure the
-    following in the `           deployment.toml          ` file as given
-    below.
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Parameter</th>
-    <th>Description</th>
-    <th>Sample Value</th>
-    </tr>
-    </thead>
-    <tbody>    
-    <tr class="even">
-    <td><strong>cert_cns</strong></td>
-    <td>This specifies the context paths of the intermediate certificates.</td>
-    <td><code>               localhost              </code></td>
-    </tr>
-    <tr class="odd">
-    <td><strong>exempt</strong></td>
-    <td>This specifies the context paths that needs to be excempted from intermediate certificate validation.</td>
-    <td><br />
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-    !!! example
-        ```toml
-        [intermediate_cert_validation]
-        cert_cns=[wso2isintcert]
-        exempt_contexts=[scim2]         
-        ```
-
-
     !!! info
-        When using intermediate certificate validation,
-        `            CN           ` will be taken as the
-        `            username           ` instead of retrieving from the
-        header.
+        When using intermediate certificate validation, `            CN           ` will be taken as the `            username           ` instead of retrieving from the header.
 
   
