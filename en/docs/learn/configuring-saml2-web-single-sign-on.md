@@ -232,7 +232,7 @@ To configure SAML2 Web SSO:
     <td><strong>IdP Entity ID Alias</strong></td>
     <td><div class="content-wrapper">
     <p>This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. But if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this IdP Entity ID Alias value.</p>
-    <p>In Travelocity sample SP, this value can be set by modifying SAML2.IdPEntityId value mentioned in the `<travelocity.com-hpme>/WEB-INF/classes/travelocity.properties` file, so that it reflects the value of the IdP Entity ID Alias you define in the SAML SP configuration.</p>
+    <p>In Travelocity sample SP, this value can be set by modifying SAML2.IdPEntityId value mentioned in the `<travelocity.com-home>/WEB-INF/classes/travelocity.properties` file, so that it reflects the value of the IdP Entity ID Alias you define in the SAML SP configuration.</p>
     </div></td>
     <td>any valid URL/URI</td>
     </tr>
