@@ -12,8 +12,8 @@
 
         !!! Tip 
            
-            When configuring single-sign-on for Management Console, "Issuer" value of the SAML request is default to **carbonServer** as mentioned above.
-            You can change this value by adding following configuration to `<IS_HOME>/repository/conf/deployment.toml` file.
+            When configuring single-sign-on for Management Console, "Issuer" value of the SAML request is defaulted to **carbonServer** as mentioned above.
+            You can change this value by adding following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
             ```toml
                 [admin_console.authenticator.saml_sso_authenticator.config]
                 ServiceProviderID = "CustomCarbonServerIssuer"
