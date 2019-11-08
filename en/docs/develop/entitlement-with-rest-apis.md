@@ -17,11 +17,10 @@ endpoint
     ```
 
 !!! note
-    
-    **Note:** The REST APIs are secured with basic authentication. Follow
+    The REST APIs are secured with basic authentication. Follow
     the steps below to add a basic auth header when calling these methods.
     
-    1.  1.  Build a string of the form username:password.
+        1.  Build a string of the form username:password.
         2.  [Encode the string](https://www.base64encode.org/) you created
             above using Base64.
         3.  Define an authorization header with the term "
@@ -29,9 +28,9 @@ endpoint
             string. For example, the basic auth authorization header using
             "admin" as both username and password ( **admin:admin** ) is as
             follows:
-    
+
             ``` java
-                    Authorization: Basic YWRtaW46YWRtaW4=
+            Authorization: Basic YWRtaW46YWRtaW4=
             ```
     
 

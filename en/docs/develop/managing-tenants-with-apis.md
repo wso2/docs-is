@@ -4,12 +4,7 @@ This section guides you through invoking and working with the **Tenant**
 **ManagementService** and the operations you can work within this
 service.
 
--   [Invoking the admin
-    service](#invoking-the-admin-service)
--   [Operations included in the
-    API](#operations-included-in-the-api)
-
-### Invoking the admin service
+## Invoking the admin service
 
 `         TenantMgtAdminService        ` is an admin service of the WSO2
 Carbon platform. As admin services are secured to prevent anonymous
@@ -27,7 +22,7 @@ Follow the steps below to view and invoke it:
 2.  Restart the Identity Server.
 3.  If you have started the server in default configurations, use the
     following URL in your browser to see the WSDL of the admin service:
-    <https://localhost:9443/services/TenantMgtAdminService?wsdl> .
+    <https://localhost:9443/services/TenantMgtAdminService?wsdl>.
 
 For more information on WSO2 admin services and how to invoke an admin
 service using either SoapUI or any other client program, see [Calling
@@ -35,22 +30,12 @@ Admin Services from
 Apps](../../develop/calling-admin-services)
 section in WSO2 Carbon documentation.
 
-### Operations included in the API
+## Operations included in the API
 
 The following operations are available in the **TenantManagement**
 **Service** :
 
--   [addTenant()](#ManagingTenantswithAPIs-addTenant())
--   [activateTenant()](#ManagingTenantswithAPIs-activateTenant())
--   [deactivateTenant()](#ManagingTenantswithAPIs-deactivateTenant())
--   [getTenant()](#ManagingTenantswithAPIs-getTenant())
--   [retrievePaginatedPartialSearchTenants()](#ManagingTenantswithAPIs-retrievePaginatedPartialSearchTenants())
--   [retrievePaginatedTenants()](#ManagingTenantswithAPIs-retrievePaginatedTenants())
--   [retrievePartialSearchTenants()](#ManagingTenantswithAPIs-retrievePartialSearchTenants())
--   [retrieveTenants()](#ManagingTenantswithAPIs-retrieveTenants())
--   [updateTenant()](#ManagingTenantswithAPIs-updateTenant())
-
-##### addTenant()
+#### addTenant()
 
 <table>
 <tbody>
@@ -157,12 +142,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-950873901" class="expand-container">
-<div id="expander-control-950873901" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-950873901" class="expand-content">
-<div class="code panel pdl" style="border-width: 1px;">
+<details class="info">
+<summary> Click here to see the request</summary>
+<p><div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="ot"> xmlns:ser=</span><span class="st">&quot;http://services.mgt.tenant.carbon.wso2.org&quot;</span><span class="ot"> xmlns:xsd=</span><span class="st">&quot;http://beans.common.stratos.carbon.wso2.org/xsd&quot;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">&lt;soapenv:Header/&gt;</span></a>
@@ -198,6 +180,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-32" title="32">        <span class="kw">&lt;/ser:addSkeletonTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-33" title="33">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-34" title="34"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div>
+</p></div></details>
 </div>
 </div>
 </div>
@@ -211,7 +194,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### activateTenant()
+#### activateTenant()
 
 <table>
 <colgroup>
@@ -251,11 +234,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-396288101" class="expand-container">
-<div id="expander-control-396288101" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-396288101" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -268,7 +249,8 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:activateTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>              </a></code></pre></div>
-</div>
+<p></details>
+</div></div>
 </div>
 </div>
 </div>
@@ -277,11 +259,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1600042362" class="expand-container">
-<div id="expander-control-1600042362" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1600042362" class="expand-content">
+<details class="info">
+<summary> Click here to see the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -290,7 +270,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-4" title="4">            <span class="kw">&lt;ns:return</span><span class="ot"> xsi:nil=</span><span class="st">&quot;true&quot;</span><span class="ot"> xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema­instance&quot;</span> <span class="kw">/&gt;</span></a>
 <a class="sourceLine" id="cb2-5" title="5">        <span class="kw">&lt;/ns:activateTenantResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-6" title="6">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details>
 </div>
 </div>
 </div>
@@ -300,7 +280,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### deactivateTenant()
+#### deactivateTenant()
 
 <table>
 <colgroup>
@@ -340,11 +320,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-1672417766" class="expand-container">
-<div id="expander-control-1672417766" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-1672417766" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -356,7 +334,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantDomain&gt;</span>example.com<span class="kw">&lt;/ser:tenantDomain&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:deactivateTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>               </a></code></pre></div>
+<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>               </a></code></pre></div></details>
 </div>
 </div>
 </div>
@@ -366,11 +344,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1904873262" class="expand-container">
-<div id="expander-control-1904873262" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1904873262" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -379,7 +355,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-4" title="4">            <span class="kw">&lt;ns:return</span><span class="ot"> xsi:nil=</span><span class="st">&quot;true&quot;</span><span class="ot"> xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema­instance&quot;</span> <span class="kw">/&gt;</span></a>
 <a class="sourceLine" id="cb2-5" title="5">        <span class="kw">&lt;/ns:deactivateTenantResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-6" title="6">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -389,7 +365,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### getTenant()
+#### getTenant()
 
 <table>
 <colgroup>
@@ -429,11 +405,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-89259404" class="expand-container">
-<div id="expander-control-89259404" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-89259404" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -445,7 +419,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:tenantDomain&gt;</span>example.com<span class="kw">&lt;/ser:tenantDomain&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:getTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>              </a></code></pre></div>
+<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>              </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -455,11 +429,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-601500164" class="expand-container">
-<div id="expander-control-601500164" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-601500164" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -481,7 +453,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-17" title="17">            <span class="kw">&lt;/ns:return&gt;</span></a>
 <a class="sourceLine" id="cb2-18" title="18">        <span class="kw">&lt;/ns:getTenantResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-19" title="19">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -491,7 +463,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### retrievePaginatedPartialSearchTenants()
+#### retrievePaginatedPartialSearchTenants()
 
 <table>
 <tbody>
@@ -532,11 +504,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-957246650" class="expand-container">
-<div id="expander-control-957246650" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-957246650" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="ot"> xmlns:ser=</span><span class="st">&quot;http://services.mgt.tenant.carbon.wso2.org&quot;</span><span class="kw">&gt;</span></a>
@@ -549,7 +519,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-8" title="8">            <span class="kw">&lt;ser:pageNumber&gt;</span>1<span class="kw">&lt;/ser:pageNumber&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">        <span class="kw">&lt;/ser:retrievePaginatedPartialSearchTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-10" title="10">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div>
+<a class="sourceLine" id="cb1-11" title="11"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -559,11 +529,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1949677802" class="expand-container">
-<div id="expander-control-1949677802" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1949677802" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -588,7 +556,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-20" title="20">            <span class="kw">&lt;/ns:return&gt;</span></a>
 <a class="sourceLine" id="cb2-21" title="21">        <span class="kw">&lt;/ns:retrievePaginatedPartialSearchTenantsResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-22" title="22">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-23" title="23"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-23" title="23"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -598,7 +566,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### retrievePaginatedTenants()
+#### retrievePaginatedTenants()
 
 <table>
 <colgroup>
@@ -638,11 +606,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-1376786562" class="expand-container">
-<div id="expander-control-1376786562" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-1376786562" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -654,7 +620,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-7" title="7">            <span class="kw">&lt;ser:pageNumber&gt;</span>1<span class="kw">&lt;/ser:pageNumber&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">        <span class="kw">&lt;/ser:retrievePaginatedTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-9" title="9">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>          </a></code></pre></div>
+<a class="sourceLine" id="cb1-10" title="10"><span class="kw">&lt;/soapenv:Envelope&gt;</span>          </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -664,11 +630,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-248817592" class="expand-container">
-<div id="expander-control-248817592" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-248817592" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -693,7 +657,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-20" title="20">            <span class="kw">&lt;/ns:return&gt;</span></a>
 <a class="sourceLine" id="cb2-21" title="21">        <span class="kw">&lt;/ns:retrievePaginatedTenantsResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-22" title="22">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-23" title="23"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-23" title="23"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -703,7 +667,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### retrievePartialSearchTenants()
+#### retrievePartialSearchTenants()
 
 <table>
 <colgroup>
@@ -743,10 +707,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-288952916" class="expand-container">
-<div id="expander-control-288952916" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
+<details class="info">
+<summary>Click here to see the request</summary>
+<p> 
 <div id="expander-content-288952916" class="expand-content">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
@@ -758,7 +721,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-6" title="6">            <span class="kw">&lt;ser:domain&gt;</span>.com<span class="kw">&lt;/ser:domain&gt;</span></a>
 <a class="sourceLine" id="cb1-7" title="7">        <span class="kw">&lt;/ser:retrievePartialSearchTenants&gt;</span></a>
 <a class="sourceLine" id="cb1-8" title="8">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -768,11 +731,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-456382529" class="expand-container">
-<div id="expander-control-456382529" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-456382529" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -794,7 +755,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-17" title="17">            <span class="kw">&lt;/ns:return&gt;</span></a>
 <a class="sourceLine" id="cb2-18" title="18">        <span class="kw">&lt;/ns:retrievePartialSearchTenantsResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-19" title="19">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -827,11 +788,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-825911550" class="expand-container">
-<div id="expander-control-825911550" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-825911550" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -840,7 +799,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;soapenv:Body&gt;</span></a>
 <a class="sourceLine" id="cb1-5" title="5">        <span class="kw">&lt;ser:retrieveTenants/&gt;</span></a>
 <a class="sourceLine" id="cb1-6" title="6">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span>             </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -850,11 +809,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1567529472" class="expand-container">
-<div id="expander-control-1567529472" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1567529472" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -876,7 +833,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-17" title="17">            <span class="kw">&lt;/ns:return&gt;</span></a>
 <a class="sourceLine" id="cb2-18" title="18">        <span class="kw">&lt;/ns:retrieveTenantsResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-19" title="19">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-20" title="20"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -886,7 +843,7 @@ The following operations are available in the **TenantManagement**
 </tbody>
 </table>
 
-##### updateTenant()
+#### updateTenant()
 
 <table>
 <tbody>
@@ -993,11 +950,9 @@ The following operations are available in the **TenantManagement**
 <tr class="even">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-901107718" class="expand-container">
-<div id="expander-control-901107718" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-901107718" class="expand-content">
+<details class="info">
+<summary>Click here to see the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="er"> </span></a>
@@ -1034,7 +989,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb1-32" title="32">            <span class="kw">&lt;/ser:tenantInfoBean&gt;</span></a>
 <a class="sourceLine" id="cb1-33" title="33">        <span class="kw">&lt;/ser:updateTenant&gt;</span></a>
 <a class="sourceLine" id="cb1-34" title="34">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb1-35" title="35"><span class="kw">&lt;/soapenv:Envelope&gt;</span>            </a></code></pre></div>
+<a class="sourceLine" id="cb1-35" title="35"><span class="kw">&lt;/soapenv:Envelope&gt;</span>            </a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1044,11 +999,9 @@ The following operations are available in the **TenantManagement**
 <tr class="odd">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1011511184" class="expand-container">
-<div id="expander-control-1011511184" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1011511184" class="expand-content">
+<details class="info">
+<summary>Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;soapenv:Envelope</span><span class="ot"> xmlns:soapenv=</span><span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="kw">&gt;</span></a>
@@ -1057,7 +1010,7 @@ The following operations are available in the **TenantManagement**
 <a class="sourceLine" id="cb2-4" title="4">            <span class="kw">&lt;ns:return</span><span class="ot"> xsi:nil=</span><span class="st">&quot;true&quot;</span><span class="ot"> xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema­instance&quot;</span> <span class="kw">/&gt;</span></a>
 <a class="sourceLine" id="cb2-5" title="5">        <span class="kw">&lt;/ns:updateTenantResponse&gt;</span></a>
 <a class="sourceLine" id="cb2-6" title="6">    <span class="kw">&lt;/soapenv:Body&gt;</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">&lt;/soapenv:Envelope&gt;</span></a></code></pre></div></p></details><div>
 </div>
 </div>
 </div>

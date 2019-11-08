@@ -8,35 +8,17 @@ through the Identity Provider Management Service API.
 This is exposed as a web service and the following operations are
 available.
 
--   [addIdp](#UsingtheIdentityProviderAPI-addIdp)
--   [deleteIdp](#UsingtheIdentityProviderAPI-deleteIdp)
--   [getAllFederatedAuthenticators](#UsingtheIdentityProviderAPI-getAllFederatedAuthenticators)
--   [getAllIdPs](#UsingtheIdentityProviderAPI-getAllIdPs)
--   [getAllLocalClaimURIs](#UsingtheIdentityProviderAPI-getAllLocalClaimURIs)
--   [getAllProvisioningConnectors](#UsingtheIdentityProviderAPI-getAllProvisioningConnectors)
--   [getEnabledAllIdPs](#UsingtheIdentityProviderAPI-getEnabledAllIdPs)
--   [getIdPByName](#UsingtheIdentityProviderAPI-getIdPByName)
--   [getResidentIdP](#UsingtheIdentityProviderAPI-getResidentIdP)
--   [updateIdP](#UsingtheIdentityProviderAPI-updateIdP)
--   [updateResidentIdP](#UsingtheIdentityProviderAPI-updateResidentIdP)
-
 The service contract of this admin service can be found at
-https://\<IS\_HOST\>:\<IS\_PORT\>/services/IdentityProviderMgtService?wsdl.
-Replace the tag \<IS\_HOST\>:\<IS\_PORT\> with the relevant host and
+https://<IS_HOST>:<IS_PORT>/services/IdentityProviderMgtService?wsdl.
+Replace the tag \<IS_HOST>:\<IS_PORT> with the relevant host and
 port number, for example:
-https://localhost:9443/services/IdentityProviderMgtService?wsdl .
-
+https://localhost:9443/services/IdentityProviderMgtService?wsdl.
   
-
 !!! note
-    
-    **Note** : Prior to calling any of these admin services, you need to
-    make them discoverable. See [Calling Admin
-    Services](../../develop/calling-admin-services) for information on how to do this.
+    Prior to calling any of these admin services, you need to make them discoverable. See [Calling Admin Services](../../develop/calling-admin-services) for information on how to do this.
     
 
-### addIdp
-
+## addIdp
 To add an Identity Provider, you should add some basic Identity Provider
 information and configuring claims, roles, federated authenticators,
 just-in-time provisioning information, and outbound provisioning
@@ -44,7 +26,7 @@ connectors as seen in the request below.
 
 Permission Level: `         /permission/admin/manage        `
 
-**Request** **:**
+**Request:**
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -59,15 +41,15 @@ Permission Level: `         /permission/admin/manage        `
             <xsd:certificate>?</xsd:certificate>
             <!--Optional:-->
             <xsd:claimConfig>
-               ...
+...
             </xsd:claimConfig>
             <!--Optional:-->
             <xsd:defaultAuthenticatorConfig>
-               ...
+...
             </xsd:defaultAuthenticatorConfig>
             <!--Optional:-->
             <xsd:defaultProvisioningConnectorConfig>
-               ...
+...
             </xsd:defaultProvisioningConnectorConfig>
             <!--Optional:-->
             <xsd:displayName>?</xsd:displayName>
@@ -75,7 +57,7 @@ Permission Level: `         /permission/admin/manage        `
             <xsd:enable>?</xsd:enable>
             <!--Zero or more repetitions:-->
             <xsd:federatedAuthenticatorConfigs>
-               ...
+...
             </xsd:federatedAuthenticatorConfigs>
             <!--Optional:-->
             <xsd:federationHub>?</xsd:federationHub>
@@ -87,21 +69,21 @@ Permission Level: `         /permission/admin/manage        `
             <xsd:identityProviderName>?</xsd:identityProviderName>
             <!--Zero or more repetitions:-->
             <xsd:idpProperties>
-               ...
+...
             </xsd:idpProperties>
             <!--Optional:-->
             <xsd:justInTimeProvisioningConfig>
-               ...
+...
             </xsd:justInTimeProvisioningConfig>
             <!--Optional:-->
             <xsd:permissionAndRoleConfig>
-               ...
+...
             </xsd:permissionAndRoleConfig>
             <!--Optional:-->
             <xsd:primary>?</xsd:primary>
             <!--Zero or more repetitions:-->
             <xsd:provisioningConnectorConfigs>
-               ...
+...
             </xsd:provisioningConnectorConfigs>
             <!--Optional:-->
             <xsd:provisioningRole>?</xsd:provisioningRole>
@@ -111,50 +93,48 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Sample
-Request with Minimum Configuration...
+??? note "Sample Request with Minimum Configuration"
 
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <mgt:addIdP>
-         <!--Optional:-->
-         <mgt:identityProvider>
-            <!--Optional:-->
-            <xsd:alias>https://localhost:9443/oauth2/token</xsd:alias>
-            <!--Optional:-->
-            <xsd:certificate>MIICBTCCAW6gAwIBAgIEHJSJhDANBgkqhkiG9w0BAQQFADBHMREwDwYDVQQDEwh3
-c28yLmNvbTENMAsGA1UECxMETm9uZTEUMBIGA1UEChMLTm9uZSBMPU5vbmUxDTAL
-BgNVBAYTBE5vbmUwHhcNMTcxMDA5MDM0ODI1WhcNMjcxMTA2MDM0ODI1WjBHMREw
-DwYDVQQDEwh3c28yLmNvbTENMAsGA1UECxMETm9uZTEUMBIGA1UEChMLTm9uZSBM
-PU5vbmUxDTALBgNVBAYTBE5vbmUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB
-AJ3FIXGHktsreizN3khqeFw/F8xb/V2lon3QyNfpwgieTFZovqrBG0SpaYT/v5yR
-GBSIcPfl6BaZ7seVjYWgXUPscNNu0v0z4Nyx5UOkUIRE6uQ0F7szHVuPgEmNDvFJ
-MLryopQ32x9ctG4N7sHruWGfiCs5ksdqz1aidViOS1bNAgMBAAEwDQYJKoZIhvcN
-AQEEBQADgYEAe0FdpjY9JLISt/ctSwwilV0zF6q8ID6NRcxAGNtCCFcunVirdxGK
-eyyFZDWGwkh2URpKHXdjU320zLS37MdB8wJR02DRGtx1/Dq5Xs+XWJqrr3F46iRK
-4hPfXwFXkRWBiIku/Ne9z2TW0Kh7z2z6rfzgZ2KazJwzmJ95bGrqc0g=</xsd:certificate>
-            <!--Optional:-->
-            <xsd:displayName>My IdP</xsd:displayName>
-            <!--Optional:-->
-            <xsd:enable>true</xsd:enable>
-            <!--Optional:-->
-            <xsd:federationHub>false</xsd:federationHub>
-            <!--Optional:-->
-            <xsd:homeRealmId>MyIdP</xsd:homeRealmId>
-            <!--Optional:-->
-            <xsd:identityProviderDescription>Sample IdP</xsd:identityProviderDescription>
-            <!--Optional:-->
-            <xsd:identityProviderName>MyIdP</xsd:identityProviderName>
-         </mgt:identityProvider>
-      </mgt:addIdP>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
+	``` xml
+	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org" xmlns:xsd="http://model.common.application.identity.carbon.wso2.org/xsd">
+		<soapenv:Header/>
+		<soapenv:Body>
+			<mgt:addIdP>
+			<!--Optional:-->
+			<mgt:identityProvider>
+				<!--Optional:-->
+				<xsd:alias>https://localhost:9443/oauth2/token</xsd:alias>
+				<!--Optional:-->
+				<xsd:certificate>MIICBTCCAW6gAwIBAgIEHJSJhDANBgkqhkiG9w0BAQQFADBHMREwDwYDVQQDEwh3
+	c28yLmNvbTENMAsGA1UECxMETm9uZTEUMBIGA1UEChMLTm9uZSBMPU5vbmUxDTAL
+	BgNVBAYTBE5vbmUwHhcNMTcxMDA5MDM0ODI1WhcNMjcxMTA2MDM0ODI1WjBHMREw
+	DwYDVQQDEwh3c28yLmNvbTENMAsGA1UECxMETm9uZTEUMBIGA1UEChMLTm9uZSBM
+	PU5vbmUxDTALBgNVBAYTBE5vbmUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB
+	AJ3FIXGHktsreizN3khqeFw/F8xb/V2lon3QyNfpwgieTFZovqrBG0SpaYT/v5yR
+	GBSIcPfl6BaZ7seVjYWgXUPscNNu0v0z4Nyx5UOkUIRE6uQ0F7szHVuPgEmNDvFJ
+	MLryopQ32x9ctG4N7sHruWGfiCs5ksdqz1aidViOS1bNAgMBAAEwDQYJKoZIhvcN
+	AQEEBQADgYEAe0FdpjY9JLISt/ctSwwilV0zF6q8ID6NRcxAGNtCCFcunVirdxGK
+	eyyFZDWGwkh2URpKHXdjU320zLS37MdB8wJR02DRGtx1/Dq5Xs+XWJqrr3F46iRK
+	4hPfXwFXkRWBiIku/Ne9z2TW0Kh7z2z6rfzgZ2KazJwzmJ95bGrqc0g=</xsd:certificate>
+				<!--Optional:-->
+				<xsd:displayName>My IdP</xsd:displayName>
+				<!--Optional:-->
+				<xsd:enable>true</xsd:enable>
+				<!--Optional:-->
+				<xsd:federationHub>false</xsd:federationHub>
+				<!--Optional:-->
+				<xsd:homeRealmId>MyIdP</xsd:homeRealmId>
+				<!--Optional:-->
+				<xsd:identityProviderDescription>Sample IdP</xsd:identityProviderDescription>
+				<!--Optional:-->
+				<xsd:identityProviderName>MyIdP</xsd:identityProviderName>
+			</mgt:identityProvider>
+			</mgt:addIdP>
+		</soapenv:Body>
+	</soapenv:Envelope>
+	```
 
-**  
-Response:**
+**Response:**
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
@@ -173,17 +153,15 @@ provisioning connectors details to the addIdp request body. Properties
 related to those configurations are listed below. However, even without
 these details, an IdP can be added and updated later on.
 
-#### **Claim configuration**
+### Claim configuration
 
 ``` xml
 <xsd:claimConfig>
 <localClaimDialect>true</localClaimDialect>
-            <roleClaimURI>http://wso2.org/claims/role</roleClaimURI>
-            <userClaimURI>http://wso2.org/claims/organization</userClaimURI>
+	<roleClaimURI>http://wso2.org/claims/role</roleClaimURI>
+	<userClaimURI>http://wso2.org/claims/organization</userClaimURI>
 </xsd:claimConfig>
 ```
-
-  
 
 When configuring advance claims to the custom claim dialect, the
 following parameters can be added to the
@@ -194,8 +172,8 @@ configurations is similiar to the following:
 ``` xml
 <xsd:claimConfig>
 <localClaimDialect>true</localClaimDialect>
-            <roleClaimURI>http://wso2.org/claims/role</roleClaimURI>
-            <userClaimURI>http://wso2.org/claims/organization</userClaimURI>
+	<roleClaimURI>http://wso2.org/claims/role</roleClaimURI>
+	<userClaimURI>http://wso2.org/claims/organization</userClaimURI>
 <claimMappings>
     <defaultValue>defaultVal</defaultValue>
     <localClaim>
@@ -219,7 +197,7 @@ configurations is similiar to the following:
 </xsd:claimConfig>
 ```
 
-#### **Just-in-time (JiT) provisioning**
+### **Just-in-time (JiT) provisioning**
 
 With Just-in-Time provisioning, you can create users on the fly without
 having to create user accounts in advance. To configure JiT
@@ -234,9 +212,7 @@ request body.
 </xsd:justInTimeProvisioningConfig>
 ```
 
-#### **Role configuration**
-
-  
+### **Role configuration**
 
 ``` xml
 <permissionAndRoleConfig xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
@@ -254,20 +230,13 @@ request body.
 
 The `          <federatedAuthenticatorConfigs>         ` parameter can
 be used to configure zero or more federated authenticators. For sample
-federated authenticator configurations, see [Federated Authenticator
-Configuration
-Samples](../../develop/identity-provider-configurations-used-with-apis_103330047.html#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfig)
-.
+federated authenticator configurations, see [Federated Authenticator Configuration Samples](../../develop/identity-provider-configurations-used-with-apis#federated-authenticator-configuration-samples).
 
 **Outbound provisioning connectors**
 
 The `         <provisioningConnectorConfigs>        ` parameter can be
 used to configure zero or more outbound provisioning connectors. For
-sample outbound provisioning connector configurations, see [Outbound
-Provisioning Connectors Configuration
-Samples.](../../develop/identity-provider-configurations-used-with-apis_103330047.html#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfig)
-
-  
+sample outbound provisioning connector configurations, see [Outbound Provisioning Connectors Configuration Samples.](../../develop/identity-provider-configurations-used-with-apis#outbound-provisioning-connector-configuration-samples)
 
 <table>
 <thead>
@@ -298,9 +267,7 @@ Samples.](../../develop/identity-provider-configurations-used-with-apis_10333004
 </tbody>
 </table>
 
-  
-
-### deleteIdp
+## deleteIdp
 
 To delete an identity provider, call the
 `          deleteIdp()         ` operation. The IdP name should be
@@ -328,15 +295,11 @@ Permission Level: `          /permission/admin/manage         `
 
 **Response**
 
-  
-
 ``` xml
 None
 ```
 
-  
-
-### getAllFederatedAuthenticators
+## getAllFederatedAuthenticators
 
 The `           getAllFederatedAuthenticators()          ` operation
 returns a detailed list of available federated authenticators in WSO2
@@ -442,18 +405,14 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-### getAllIdPs
+## getAllIdPs
 
 Use the `          getAlIdPs()         ` operation to obtain a detailed
 list of Identity Providers registered in WSO2 Identity Server.
 
 Permission Level: `          /permission/admin/login         `
 
-  
-
 **Request**
-
-  
 
 ``` xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mgt="http://mgt.idp.carbon.wso2.org">
@@ -497,7 +456,7 @@ Permission Level: `          /permission/admin/login         `
 </soapenv:Envelope>
 ```
 
-### getAllLocalClaimURIs
+## getAllLocalClaimURIs
 
 Use the `           getAlILocalClaimUris()          ` operation to
 obtain a list of local claim URIs available in IS.
@@ -554,7 +513,7 @@ Permission Level: `           /permission/admin/manage          `
 </soapenv:Envelope>
 ```
 
-### getAllProvisioningConnectors
+## getAllProvisioningConnectors
 
 Use the `           getAlIProvisioningConnectors()          ` operation
 to obtain a detailed list of Outbound Provisioning Connectors available
@@ -609,7 +568,7 @@ Permission Level: `          /permission/admin/manage         `
 </soapenv:Envelope>
 ```
 
-### getEnabledAllIdPs
+## getEnabledAllIdPs
 
 Use the `         getEnabledAllIdPs()        ` operation to obtain a
 detailed list of IdPs which are enabled in WSO2 Identity Server.
@@ -655,7 +614,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-### getIdPByName
+## getIdPByName
 
 Use the `         getIdPByName        ` operation to retrieve an
 identity provider by including the IdP name in the request.
@@ -862,7 +821,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-### getResidentIdP
+## getResidentIdP
 
 Permission Level: `         /permission/admin/manage        `
 
@@ -1044,7 +1003,7 @@ Permission Level: `         /permission/admin/manage        `
 </soapenv:Envelope>
 ```
 
-### updateIdP
+## updateIdP
 
 The `         updateIdP()        ` operation can be used to update an
 existing identity provider. The `         <oldIdPName>        ` element
@@ -1111,7 +1070,7 @@ Permission Level: `         /permission/admin/manage        `
 None
 ```
 
-### updateResidentIdP
+## updateResidentIdP
 
 The `         updateResidentIdP()        ` operation can be used to
 alter certain parameters of the resident identity provider. These
