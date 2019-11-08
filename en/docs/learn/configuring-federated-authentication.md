@@ -4,7 +4,7 @@ This topic includes information on how to configure federated
 authenticators in WSO2 Identity Server.
 
 !!! Info "Before you begin"
-	For more information on what federated authenticators are, see [Outbound/federated authenticators in the Identity Server architecture](../../get-started/architecture#outbound/federated-authenticators).
+	For more information on what federated authenticators are, see [Outbound/federated authenticators in the Identity Server architecture](../../get-started/architecture#outboundfederated-authenticators).
 
 To navigate to the federated authenticators configuration section, do the following.
 
