@@ -1,9 +1,7 @@
 # Encrypting Passwords with Cipher Tool
 
 
-The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into WSO2 Identity Server. 
-
-You can customize the default secure vault configurations in the product by implementing a new secret repository, call back handler etc.   
+The instructions on this page explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into WSO2 Identity Server.  
 
 !!! tip "Before you begin"
     - If you are using Windows, you need to have **Ant** (<http://ant.apache.org/>) installed before using the Cipher Tool.
@@ -15,11 +13,11 @@ You can customize the default secure vault configurations in the product by impl
 
     ```toml
     [secrets]
-    admin_password = "password_2"
-    keystore_password = "password_3"
-    key_password = "password_4"
-    truststrore_password = "password_5"
-    log4j.appender.LOGEVENT.password = "password_6"
+    admin_password = "[password_2]"
+    keystore_password = "[password_3]"
+    key_password = "[password_4]"
+    truststrore_password = "[password_5]"
+    log4j.appender.LOGEVENT.password = "[password_6]"
     ```
 
 2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
@@ -40,7 +38,7 @@ When you have [encrypted passwords](#encrypting-passwords), you can refer them f
 
 ### Passwords in deployment.toml
 
-You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$ref{alias}`. 
+You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
     You can also replace your passwords by refering values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../administer/set-passwords-using-environment-variables-or-system-properties)
@@ -73,43 +71,14 @@ To change any password that we have encrypted already, follow the below steps:
 1. Be sure to shut down the server.
 2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, where the cipher tool scripts (for Windows and Linux) are stored.
 3. Execute the following command for your OS:
-    * On Linux: `./ciphertool.sh -Dconfigure`
-    * On Windows: `./ciphertool.bat -Dconfigure`
+    * On Linux: `./ciphertool.sh -Dchange`
+    * On Windows: `./ciphertool.bat -Dchange`
    It will prompt for the primary keystore password. Enter the keystore password (which is `wso2carbon` for the default keystore).
 5. The alias values of all the passwords that you encrypted will now be shown in a numbered list.
 6. The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
 7. The system will then prompt you (twice) to enter the new password. Enter your new password.
 
-## Resolving encrypted passwords
+!!! info
+    For information on resolving the encrypted passwords see [Resolving Encrypted Passwords](../../administer/resolving-encrypted-passwords).
 
-There are two ways to resolve encrypted passwords:
-
-!!! note 
-    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore](../../administer/configuring-keystores-in-wso2-products) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. Read more about [Secure Vault concepts](../../administer/carbon-secure-vault-implementation).
-
-### Enter password in command-line
-1. Start the server by running the product start up script from the `<IS_HOME>/bin/` directory as shown below.
-   ```
-   ./server.sh
-   ```
-2. When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`. This is because, in order to connect to the default user store, the encrypted passwords should be decrypted. The administrator starting the server must provide the private key and keystore passwords using the command-line. Note that passwords are hidden from the terminal and log files.
-
-### Start server as a background job
-
-If you start the Micro Integrator as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in "daemon" mode as explained below.
-
-1. Create a new file in the <IS_HOME> directory. The file should be named according to your OS as explained below.
-
-    * For Linux: The file name should be `password-tmp`.
-    * For Windows: The file name should be `password-tmp.txt`.
-
-2. Add the primary keystore password (which is "wso2carbon" by default) to the new file and save. By default, the password provider assumes that both private key and keystore passwords are the same. If not, the private key password must be entered in the second line of the file.
-
-3. Now, start the server as a background process by running the following command.
-   ```
-   ./server.sh start
-   ```
-4. Start the server by running the product start-up script from the MI_HOME/bin directory by executing the following command:
-   ```
-   daemon. sh server.sh -start
-   ```
+    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../setup/customizing-secure-vault).

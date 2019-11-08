@@ -245,7 +245,7 @@ Supported By Default checkbox to enable the birth date claim.
 8. Create another user called "Kim" and edit the user profile. Enter a birth date that specifies Kim as over 18 years of age. 
 
 9. In the Main menu, click Service Providers > List and click Edit on the 
-saml2-web-app-dispatch.com service provider.
+saml2-web-app-pickup-dispatch.com service provider.
 
 10. Expand the Local and Outbound Authentication Configuration section and 
 click Advanced Configuration.
@@ -308,7 +308,7 @@ click Advanced Configuration.
 
 ##### Testing the sample scenario
 
-1. Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-dispatch.com
+1. Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com
 2. Click Login and enter Kim's credentials. 
 3. You are successfully logged in to the application.
 

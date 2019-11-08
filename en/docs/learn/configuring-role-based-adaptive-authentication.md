@@ -28,7 +28,7 @@ sample authenticators required to try out the scenario.
 1.  Log in to the management console and create a new user named 'Alex'.
     Do not assign any roles.
 2.  Navigate to **Service Providers&gt;List** and click **Edit** on
-    the saml2-web-app-dispatch.com service provider.
+    the saml2-web-app-pickup-dispatch.com service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
 4.  Expand **Script Based Conditional Authentication**.
@@ -59,7 +59,7 @@ sample authenticators required to try out the scenario.
 ### Testing the sample scenario
 
 1.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
     
 2.  Click **Login** and enter admin/admin credentials.  You are prompted
     to use the hardware key after basic authentication according to the

@@ -566,7 +566,6 @@ nav:
         - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
         - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md           
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
-    - 'Getting Support': develop/getting-support.md 
   - 'Setup':
     - 'Installation':
       - 'Installing the Product': 
@@ -602,10 +601,8 @@ nav:
             - 'Changing to PostgreSQL': setup/changing-to-postgresql.md
             - 'Changing to Remote H2': setup/changing-to-remote-h2.md
             - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
+            - 'Changing the Default Datasource for Consent Management': setup/changing-datasource-consent-management.md
           - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
-        - 'Working with the Registry':
-          - 'Working with the Registry': setup/working-with-the-registry.md
-          - 'Browsing the Registry': setup/browsing-the-registry.md
         - 'Working with Users, Roles and Permissions':
               - 'Working with Users, Roles and Permissions': setup/working-with-users-roles-and-permissions.md
               - 'Introduction to User Management': setup/introduction-to-user-management.md
@@ -653,17 +650,26 @@ nav:
     - 'Performance':
       - 'Performance Tuning': setup/performance-tuning-recommendations.md
       - 'Configuring Cache Layers': setup/configuring-cache-layers.md
-    - 'Migration Guide':
+    - 'Security':
+        - 'Maintaining Logins and Passwords': setup/maintaining-logins-and-passwords.md
+        - 'Securing Passwords in Configuration Files':
+            - 'Encrypting Passwords with Cipher Tool': setup/encrypting-passwords-with-cipher-tool.md
+            - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
+            - 'Customizing Secure Vault': setup/customizing-secure-vault.md
+            - 'Set Passwords using Environment Variables/System Properties': setup/set-passwords-using-environment-variables-or-system-properties.md
+        - 'Configuring Transport Level Security': setup/configuring-transport-level-security.md
+        - 'Java Security Manager': setup/enabling-java-security-manager.md
+    - 'Environment Compatibilty': setup/environment-compatibility.md
+    - 'Migration':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Migration':
+      - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.9.0" : setup/migrating-to-590.md
           - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
-    - 'Environment Compatibilty': setup/environment-compatibility.md  
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
     - 'Product Administration': 
@@ -691,6 +697,9 @@ nav:
           - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
           - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
+      - 'Working with the Registry':
+        - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
@@ -706,15 +715,6 @@ nav:
         - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
       - 'Production Deployment Guidelines':
         - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
-    - 'Security':
-      - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
-      - 'Securing Passwords in Configuration Files':
-        - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
-        - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
-        - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
-        - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
-      - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
-      - 'Java Security Manager': administer/enabling-java-security-manager.md
       - 'Encryption':
         - 'Asymmetric Encryption':
           - 'Asymmetric Encryption': administer/using-asymmetric-encryption.md

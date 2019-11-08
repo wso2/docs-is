@@ -48,7 +48,7 @@ The diagram below shows the process of SAML Artifact Binding.
 
 2.  Navigate to **Service Providers \> Add** in the **Main** menu of the
     management console and add a new service provider called "
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
+    [saml2-web-app-pickup-dispatch.com](http://saml2-web-app-pickup-dispatch.com)
     ". For more information about configuring a service provider, see
     [Adding and Configuring a Service
     Provider](../../learn/adding-and-configuring-a-service-provider)
@@ -57,9 +57,9 @@ The diagram below shows the process of SAML Artifact Binding.
     configuration** section, and click **Configure**.
 
 4.  Fill in the following fields.  
-    -   **Issuer:** saml2-web-app-dispatch.com
+    -   **Issuer:** saml2-web-app-pickup-dispatch.com
     -   **Assertion Consumer URL:**
-        http://localhost.com:8080/saml2-web-app-dispatch.com/consumer
+        http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer
 
 5.  Select **Enable SAML2 Artifact Binding** to enable SAML2 artifact
     binding. Once this is enabled, WSO2 Identity Server responds to each
@@ -110,17 +110,17 @@ or with an existing service provider.
 
 
 1.  Download the following
-    [saml2-web-app-dispatch.com.war](../../assets/attachments/saml2-web-app-dispatch.com.war)
+    [saml2-web-app-pickup-dispatch.com.war](../../assets/attachments/saml2-web-app-pickup-dispatch.com.war)
     file and paste it inside the
     `           <TOMCAT_HOME>/webapps          ` directory.
 
 2.  Restart the Tomcat server.
 
 3.  Once you deploy the sample application and start the tomcat server,
-    a folder named **saml2-web-app-dispatch.com** is created inside the
+    a folder named **saml2-web-app-pickup-dispatch.com** is created inside the
     `           <TOMCAT_HOME>/webapps          ` directory. Navigate to
     the
-    `           <TOMCAT_HOME>/webapps/saml2-web-app-dispatch.com/WEB-INF/classes          `
+    `           <TOMCAT_HOME>/webapps/saml2-web-app-pickup-dispatch.com/WEB-INF/classes          `
     folder and open the `           sso.properties          ` file.
 
 4.  The following properties inside the sso.properties file are related
@@ -138,7 +138,7 @@ or with an existing service provider.
     | SAML2.EnableArtifactResolveSigning | When this property is set to true, the sample application signs the artifact resolve requests that are send to the IdP.       | true                                  |
 
 5.  Access the PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>.
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>.
 
 6.  Enter admin/admin credentials and click **Login**. Provide the
     required consent.

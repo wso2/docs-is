@@ -9,7 +9,7 @@ Repository. Therefore, the Secret Callback handler is used to resolve
 these passwords. Read about the [Secure Vault
 implementation](../../administer/securing-passwords-in-configuration-files) in WSO2
 products. Also, see how passwords in [configuration files are
-encrypted](../../administer/encrypting-passwords-with-cipher-tool) using Secure Vault.
+encrypted](../../setup/encrypting-passwords-with-cipher-tool) using Secure Vault.
 
 The default secret CallbackHandler in a WSO2 product provides two
 options for reading these encrypted passwords when you start the server:
@@ -17,9 +17,9 @@ options for reading these encrypted passwords when you start the server:
 ### Enter password in command-line
 
 1.  Start the server by running the product start up script from the
-    `           <IS_HOME>/bin/          ` directory as shown below.
+    `<IS_HOME>/bin/` directory as shown below.
 
-    ``` java
+    ``` console
     ./wso2server.sh 
     ```
 
@@ -37,13 +37,13 @@ If you start the WSO2 Carbon server as a background job, you will not be
 able to provide password values on the command line. Therefore, you must
 start the server in "daemon" mode as explained below.
 
-1.  Create a new file in the `          <IS_HOME>         `
+1.  Create a new file in the `<IS_HOME>`
     directory. The file should be named according to your OS as
     explained below.
     -   For **Linux** : The file name should be
-        `            password-           ` tmp.
+        `password-tmp`.
     -   For **Windows** : The file name should be
-        `            password-tmp.txt           ` .
+        `password-tmp.txt`.
 
     !!! info 
         When you start the server (see step 3 below), the keystore password
@@ -56,26 +56,20 @@ start the server in "daemon" mode as explained below.
         server starts, the file should be named as follows:
 
         -   For **Linux** : The file name should be
-            `             password-persist            ` .
+            `password-persist`.
         -   For **Windows** : The file name should be
-            `             password-persist.txt            ` .
+            `password-persist.txt`.
 
 2.  Add "wso2carbon" (the primary keystore password) to the new file and
     save. By default, the password provider assumes that both private
     key and keystore passwords are the same. If not, the private key
     password must be entered in the second line of the file.
-    
-3.  Now, start the server as a background process by running the
-    following command.
 
-    ``` java
-        ./wso2server.sh start
+3.  Start the server as a background process by running the product start-up script from `<IS_HOME>/bin` directory by executing the following command:
+
+    ```console
+    wso2server.sh start
     ```
 
-4.  Start the server by running the product start-up script from the
-    `           <IS_HOME>/bin          ` directory by executing the
-    following command:
-
-    ``` java
-        daemon. sh wso2server.sh -start
-    ```
+!!! info
+    For information on customizing secure vault implementaion see [Customizing Secure Vault](../../setup/customizing-secure-vault).

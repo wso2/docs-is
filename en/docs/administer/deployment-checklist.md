@@ -65,7 +65,7 @@ by setting the relavent parameter in the <code>               &lt;PRODUCT_HOME&g
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../administer/working-with-databases/">Working with Databases</a></li>
+<li><a href="../../setup/working-with-databases/">Working with Databases</a></li>
 </div>
 </div>
 </div></td>
@@ -82,7 +82,7 @@ of product-specific features.</p>
 <div class="panelContent">
 <div>
 <ul>
-<li><a href="../../administer/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
+<li><a href="../../setup/performance-tuning-recommendations">Performance Tuning Recommendations</a> </li>
 </div></td>
 </tr>
 <tr class="odd">
@@ -98,7 +98,7 @@ of product-specific features.</p>
 <strong>Related links</strong>
 </div>
 <div class="panelContent">
-<li><a href="../../administer/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> </li>
+<li><a href="../../references/default-ports-of-wso2-products">Default Ports of WSO2 Products</a> </li>
 </div>
 </div>
 </div></td>

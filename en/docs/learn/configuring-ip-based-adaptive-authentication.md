@@ -27,7 +27,7 @@ Follow the instructions given below:
 
 1.  Log in to the management console.
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
-    `              saml2-web-app-dispatch.com             `
+    `              saml2-web-app-pickup-dispatch.com             `
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
@@ -66,14 +66,14 @@ Follow the instructions given below:
 
 1.  Create a new user named Alex with login permissions.
 2.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com> .
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
 3.  Click **Login** and enter Alex's credentials. Note that you are
     successfully logged in after only the basic authentication step
     because you are logging in from an IP address that is within the
     configured network.
 4.  On the management console, navigate to **Service Providers\>List**
     and click **Edit** on the
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com/)
+    [saml2-web-app-pickup-dispatch.com](http://saml2-web-app-pickup-dispatch.com/)
     service provider.
 5.  Edit the authentication script in the **Script Based Conditional
     Authentication** field and enter an IP address that is outside your
@@ -85,7 +85,7 @@ Follow the instructions given below:
 
 6.  Click **Update**.
 7.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com> .
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
 8.  Click **Login** and enter Alex's credentials. Note that you are now
     prompted to provide hardware key authentication because you are
     logging in from an IP address that is external to the configured

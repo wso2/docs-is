@@ -182,11 +182,11 @@ Apart from the basic configurations specified above, WSO2 Identity Server suppor
     </tbody>
     </table>
 
-    !!! info 
-        For more information on other parameters that can be defined in
-        the `<IS_HOME>/repository/conf/deployment.toml` file, see [Tomcat
-        JDBC Connection
-        Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+!!! info 
+    For more information on other parameters that can be defined in
+    the `<IS_HOME>/repository/conf/deployment.toml` file, 
+    see [Tomcat JDBC Connection
+    Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
    !!! info "Configuring the connection pool behavior on return" 
         When a database connection is returned to the pool, by default 

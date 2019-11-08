@@ -10,6 +10,16 @@
     2.  **Assertion Consumer URLs**: `https://localhost:9443/acs`
     3.  **Enable Response Signing**: `true`
 
+        !!! Tip 
+           
+            When configuring single-sign-on for Management Console, "Issuer" value of the SAML request is defaulted to **carbonServer** as mentioned above.
+            You can change this value by adding following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file.
+            ```toml
+                [admin_console.authenticator.saml_sso_authenticator.config]
+                ServiceProviderID = "CustomCarbonServerIssuer"
+            ```
+    
+    
     ![enable-response-signing](../assets/img/using-wso2-identity-server/enable-response-signing.png)
 
 6.  Expand **Local and Outbound Authentication Configuration** and select **Advanced Configuration** to configure MFA. There are two types of MFA that you can configure here.

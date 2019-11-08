@@ -123,7 +123,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 	party.
 	
 !!! note "Before you begin"
-	Configure a service provider. For instructions, see [Configuring a Service Provider](../../learn/configuring-a-service-provider).	
+	Configure a service provider. For instructions, see [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider).	
 
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
