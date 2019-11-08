@@ -74,12 +74,12 @@ public class ValidateRSASignature {
 }
 ```
 
-Configuration to switch between signed and unsigned ID tokens. With default configurations, the ID token is always signed. If you want to switch off ID token signing, add the following configuration changes in the <IS_HOME>/repository/conf/deployment.toml file.
+Configuration to switch between signed and unsigned ID tokens. With default configurations, the ID token is always signed. If you want to switch off ID token signing, add the following configuration changes in the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 ```xml
-    [oauth.token.validation]
-    include_validation_context_as_jwt_in_reponse= true
-    validation_response_signing_algorithm= "NONE"
+[oauth.token.validation]
+include_validation_context_as_jwt_in_reponse= true
+validation_response_signing_algorithm= "NONE"
 ```
 
 !!! note 
