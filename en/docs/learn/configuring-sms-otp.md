@@ -8,10 +8,6 @@ SMSOTP is a second authentication factor for the sample application. See the fol
 sections for more information.
 
 !!! tip "Before you begin"     
-    -   To ensure you get the full understanding of configuring SMS OTP with WSO2 Identity Server, 
-        the sample travelocity application is used in this use case. Therefore, make sure to 
-        [download the travelocity 
-        application](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/org.wso2.sample.is.sso.agent-5.9.0.war).
     -   The samples run on the Apache Tomcat server and are written based on Servlet 3.0. Therefore, 
         download Tomcat 8.x from [here](https://tomcat.apache.org/download-80.cgi) .
 
@@ -128,7 +124,7 @@ redirectToMultiOptionPageOnFailure = false
 
 Deploy the sample travelocity app in order to try this scenario.
 
-1.  [Download the travelocity](https://maven.wso2.org/nexus/content/groups/public/org/wso2/is/org.wso2.sample.is.sso.agent/5.9.0/org.wso2.sample.is.sso.agent-5.9.0.war) 
+1.  [Download the travelocity](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) 
 sample application.
 
 2.  Deploy `travelocity.com.war` on a web container. To do this, use the Apache Tomcat server.
