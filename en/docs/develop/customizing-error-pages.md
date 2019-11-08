@@ -15,7 +15,7 @@ certain throwable exception, error or an HTTP status code are specified
 in the
 `          <IS_HOME>repository/conf/tomcat/carbon/WEB-INF/web.xml ` file. You can customize those error pages as preferred. For example,
 if you try to access a resource that is not available in the Carbon
-server (e.g., https://10.100.5.72:9443/abc), you will see the "Error 404 - Not Found"
+server (e.g., https://localhost:9443/abc), you will see the "Error 404 - Not Found"
 page.
 
 You can customize the above error message by following the instructions
@@ -37,8 +37,7 @@ given below.
         directory of your Maven project.
     
 
-4.  Create a new HTML error page (e.g. `            new_           `
-    `            error_404.html           ` file) as shown below. This
+4.  Create a new HTML error page (e.g. `            new_error_404.html           ` file) as shown below. This
     contains the customized error page.
 
     ``` xml
@@ -133,7 +132,7 @@ given below.
 12. Restart the WSO2 Identity Server.
 
 13. Access the following URL again, to test the error page you
-    customized: https://10.100.5.72:9443/abc.  
+    customized: https://localhost:9443/abc.  
     
     You will view the new error page with the following content: "
                Sorry, this resource is not found.           "

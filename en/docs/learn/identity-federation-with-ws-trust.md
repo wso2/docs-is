@@ -1,6 +1,6 @@
 # Identity Federation with WS-Trust
 
-The "Security Token Service" component of WSO2 Carbon enables you to
+The **Security Token Service** component of WSO2 Carbon enables you to
 configure the generic STS to issue claim-based security tokens. A
 claim-based security token is a common way for applications to acquire
 and authenticate the identity information they need about users inside

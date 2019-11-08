@@ -356,7 +356,7 @@ A message appears to pick a scenario.
 2.  Enter y to confirm that you have already done the folloing steps.
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-setup.png)
 5.  Enter the
-    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
+    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
 6.  Click **Log in**.  
@@ -493,7 +493,7 @@ A message appears to pick a scenario.
     ![qsg-configure-federated-auth-3](../assets/img/getting-started/qsg-configure-federated-auth-3.png)
 
 4.  Enter the
-    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
+    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
 5.  Click **Log in**.
 

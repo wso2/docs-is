@@ -1,10 +1,10 @@
 # WS-Trust
 
-The "Security Token Service" component of WSO2 Carbon enables you to
+The **Security Token Service** component of WSO2 Carbon enables you to
 configure the generic STS to issue claim-based security tokens. A
-claim-based security token is a common way for applications to acquire
+claim-based security token is a common way for applications to acquire
 and authenticate the identity information they need about users inside
-their organization, in other organizations, and on the Internet. This
+their organization, in other organizations, and on the Internet. This
 Security Token Service is capable of issuing SAML 1.1 and SAML 2.0
 tokens as recommended in WS-Trust and SAML Web Service Token Profile
 specifications.

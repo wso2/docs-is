@@ -116,7 +116,7 @@ application by setting up inbound authentication.
 
 1.  On the **Main** tab, click **Service Providers &gt; Add** and add a
     new service provider called
-    `            saml2-web-app-dispatch.com           ` .
+    `            saml2-web-app-pickup-dispatch.com           ` .
 
     For more information about configuring a service provider, see
     [Adding and Configuring a Service

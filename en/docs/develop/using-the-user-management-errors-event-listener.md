@@ -47,5 +47,5 @@ additional activities in an event of failure.
     reserved for the default listener of WSO2 Identity Server.
     
     For more information about the purpose of each method, see the [java
-    docs](https://github.com/wso2/carbon-kernel/blob/4.4.x/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserManagementErrorEventListener.java).
+    docs](https://github.com/wso2/carbon-kernel/tree/v4.5.1/core/org.wso2.carbon.user.core/src/main/java/org/wso2/carbon/user/core/listener/UserManagementErrorEventListener.java).
     
