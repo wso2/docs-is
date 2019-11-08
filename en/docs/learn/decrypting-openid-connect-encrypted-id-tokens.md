@@ -3,28 +3,28 @@ The WSO2 Identity Server provides encrypted ID Tokens to address some
 security vulnerabilities in the production environment.
 
 -   Unencrypted JWT ID tokens can contain only two base64 encoded
-    portions separated by "."
+    portions separated by a "."
 
     ``` xml
     <header>.<body>
     ```
 
     The following is an example where unencrypted ID tokens contain only
-    two base64 encoded portions separated by "."
+    two base64 encoded portions separated by a "."
 
     ``` java
     eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhbGljZSIsImlzcyI6Imh0dHBzOlwvXC9jMmlkLmNvbSIsImlhdCI6MTQxNjE1ODU0MX0
     ```
 
 -   Encrypted ID Tokens containing five base64 encoded portions
-    separated by "."
+    separated by a "."
 
     ``` xml
     <header>.<Encrypted_Key>.<Initialization_Vector>.<Ciphertext>.<Authentication_Tag>
     ```
 
     The following is an example where the encrypted ID token contains
-    five base64 encoded portions separated by "."
+    five base64 encoded portions separated by a "."
 
     ``` java
     eyJ4NXQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJraWQiOiJOVEF4Wm1NeE5ETXlaRGczTVRVMVpHTTBNekV6T0RKaFpXSTRORE5sWkRVMU9HRmtOakZpTVEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBMV81In0.Zwp2xDvYER9lAo43QrYrcaKz-tPLFPYZb2s4RontDDVyvdo-seYl6II2C1Wb4cQhXdipcB_Qj093xvLrJyZXWxeavqYhryeuHi2jgcs59MfV1U9hMaKqqjVN1pcZYSrxDzn5leBF5bw7_YKaD_R6cFY8VtpVv5j_U8WohtyIjM7_n2CsZ55vY8MUHCAYxzXK9_s75e6Ug8L4MEqpgeoJGQzYCxFrBFgGyDMv1jadLwNl4Y3yLhv4RLtQMU5AM6nODI601UfYdrapObF3mpl_74H_YdRqT28LepGMtkEXbjeRgB-FiFGLvYlrK4wygczLBKrcviVyzyhrIrqz3TYV3g.Lf5lECzAdyAGgP8t.SHBUZoWkqwW_7u0GElrUqX1tewqRaUMWdGPHxpLRPmpVuc7FwQ27-kdsQ6O1_twhZ7uzjzZaEkatNhMxy9k10733-r4GT1lTGVqidKiBZq3mRQu7qJpcz7JWUroNFRLxhSoqpLpC8_tAhkohzG-mE42xdEh4tNDy3pBtAG0fe42WrLtWTuyg5lpmOYSppOc2Gb6LcDr4MmxFNPgoatF0edJSgO-CpFJQTcXn-22lU2g7o22x3RcBx9_KZH0At3g9y9uTuBncExOoBRK_ZweKOl0q76TaLiv5faXINW15xz9hILA.RGYIL7FaQqAIMPAiQdkOig
@@ -34,7 +34,7 @@ If you want to see the exact JSON values of the ID Token, you have to
 decrypt it.
 
 The following is a simple Java program to decrypt the ID Token using the
-default wso2carbon.jks key store in WSO2 products.
+default wso2carbon.jks key store in WSO2 Identity Server.
 
 ``` java
 package org.wso2.sample;
@@ -94,27 +94,26 @@ algorithm, which is called the Encryption Method. Then the CEK is
 encrypted again using the public key of the client and an asymmetric
 encryption algorithm, which is called the Encryption Algorithm.
 
-You can read more about these concepts from
-[here](https://tools.ietf.org/html/rfc7516).
+You can read more about these concepts [here](https://tools.ietf.org/html/rfc7516).
 
-You can configure the default values of above-mentioned Encryption
-Method and Encryption Algorithm by making changes in the
+You can configure the default values of the above-mentioned Encryption
+Method and Encryption Algorithm by making changes to the
 `        <IS_HOME>/repository/conf/deployment.toml        ` 
 file.
 
 ```xml
-    [oauth.oidc.id_token]
-    supported_encryption_algorithms= "RSA-OAEP"
-    supported_encryption_methods= "A128GCM" 
+[oauth.oidc.id_token]
+supported_encryption_algorithms= "RSA-OAEP"
+supported_encryption_methods= "A128GCM" 
 ```
 
-For Encryption Algorithm, currently, WSO2 IS supports following
+For Encryption Algorithm, currently WSO2 IS supports the following
 algorithms.
 
 -   RSA1\_5
 -   RSA-OAEP
 
-For Encryption Method, currently, WSO2 IS supports following algorithms.
+For Encryption Method, currently WSO2 IS supports the following algorithms.
 
 -   A128GCM
 -   A192GCM
@@ -124,14 +123,13 @@ For Encryption Method, currently, WSO2 IS supports following algorithms.
       
 
 ``` xml
-    [oauth.oidc.id_token]
-    supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
-    supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
+[oauth.oidc.id_token]
+supported_encryption_algorithms=["RSA1_5","RSA-OAEP"]
+supported_encryption_methods=["A128GCM","A192GCM","A256GCM","A128CBC-HS256","A128CBC+HS256"]
 ```
 
 !!! note
-    
-    By default WSO2 products ship with wso2carbon.jks. The password for the
+    By default WSO2 products are shipped with wso2carbon.jks. The password for the
     keystore is "wso2carbon" and the certificate alias is also "wso2carbon".
-    In a production environment, we recommend that you change those values.
+    In a production environment, we recommend that you change these values.
     
