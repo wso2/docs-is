@@ -65,13 +65,6 @@ information in the following sections.
 The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
 in order to use it in this scenario.
 
-Once this is done, the next step is to configure the WSO2 Identity
-Server by adding an [identity
-provider](../../learn/adding-and-configuring-an-identity-provider)
-and [service
-provider](../../learn/adding-and-configuring-a-service-provider)
-.
-
 ### Configuring the identity provider
 
 Now you have to configure WSO2 Identity Server by [adding a new identity

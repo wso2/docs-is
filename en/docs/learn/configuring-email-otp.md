@@ -11,16 +11,9 @@ Email OTP:
 
 !!! tip "Before you begin"
     
-    -   To ensure you get the full understanding of configuring Email OTP
-        with WSO2 IS, the sample travelocity application is used in this use
-        case. Therefore, make sure to [download the
-        samples](../../learn/downloading-a-sample)
-        before you begin.
     -   The samples run on the Apache Tomcat server and are written based on
-        Servlet 3.0. Therefore, download Tomcat 7.x from
+        Servlet 3.0. Therefore, download Tomcat 8.x from
         [here](https://tomcat.apache.org/download-70.cgi) .
-    -   Install Apache Maven to build the samples. For more information, see
-        [Installation Prerequisites](../../setup/installation-prerequisites).
     
 ### Configure the email OTP provider
 
@@ -513,111 +506,10 @@ set up the email OTP provider.
     	
 ------------------------------------------------------------------------
 
-### Deploy the travelocity.com sample
+### Deploying travelocity sample application
 
-!!! abstract ""
-    Now that you have set up WSO2 IS or Gmail as the Email
-    OTP provider, follow the steps below to deploy the travelocity.com
-    sample application, which you can use to try out the Email OTP scenario.
-    
-    To obtain and configure the single sign-on travelocity sample, follow
-    the steps below.
-    
-    1.  Add the following entry to the `            /etc/hosts           `
-        file of your machine to configure the hostname.
-    
-        !!! info "Why is this step needed?"
-    
-            Some browsers do not allow creating cookies for a naked hostname,
-            such as `             localhost            ` . Cookies are required
-            when working with SSO. Therefore, to ensure that the SSO
-            capabilities work as expected in this tutorial, you need to
-            configure the `             etc/host            ` file as explained
-            in this step.
-    
-            The `             etc/host            ` file is a read-only file.
-            Therefore, you won't be able to edit it by opening the file via a
-            text editor. To avoid this, edit the file using the terminal
-            commands.  
-            For example, use the following command if you are working on a
-            Mac/Linux environment.
-    
-            ``` java
-            sudo nano /etc/hosts
-            ```
-    
-        ``` bash
-        127.0.0.1  wso2is.local
-        ```
-    
-    2.  Open the `            travelocity.properties           ` file found
-        in the
-        `            is-samples/modules/samples/sso/sso-agent-sample/src/main/resources           `
-        directory of the samples folder you just checked out. Configure the
-        following property with the hostname (
-        `            wso2is.local           ` ) that you configured above.
-    
-        ``` text
-        #The URL of the SAML 2.0 Assertion Consumer
-        SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-        ```
-    
-    3.  In your terminal, navigate to
-        `            is-samples/modules/samples/sso/sso-agent-sample           `
-        folder and build the sample using the following command. You must
-        have Apache Maven installed to do this
-    
-        ``` java
-        mvn clean install
-        ```
-    
-    4.  After successfully building the sample, a
-        `            .war           ` file named **travelocity.com** can be
-        found inside the
-        `            is-samples/sso/sso-agent-sample/           `
-        `            target           ` directory. Deploy this sample web
-        app on a web container. To do this, use the Apache Tomcat server.
-    
-        !!! note
-        
-            Since this sample is written based on Servlet 3.0 it needs to be
-            deployed on [Tomcat 7.x](https://tomcat.apache.org/download-70.cgi)
-            .
-        
-    
-        Use the following steps to deploy the web app in the web container:
-    
-        1.  Stop the Apache Tomcat server if it is already running.
-        2.  Copy the
-            `                           travelocity.com.war                         `
-            file to the `             <TOMCAT_HOME>/webapps            `
-            directory.
-        3.  Start the Apache Tomcat server.
-    
-    !!! tip
-        
-        If you wish to change properties like the issuer ID, consumer URL, and
-        IdP URL, you can edit the **travelocity.properties** file found in the
-        `          travelocity.com/WEB-INF/classes         ` directory. If the
-        service provider is configured in a tenant you can use the
-        `          QueryParams         ` property to send the tenant domain.
-        For  example, `          QueryParams=tenantDomain=wso2.com         ` .
-        
-        This sample uses the following default values.
-        
-        | Properties                                                                                                  | Description                                                         |
-        |-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-        | `              SAML2.SPEntityId=travelocity.com             `                                               | A unique identifier for this SAML 2.0 Service Provider application. |
-        | `               SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp              ` | The URL of the SAML 2.0 Assertion Consumer.                         |
-        | `               SAML2.IdPURL=https://localhost:9443/samlsso              `                                  | The URL of the SAML 2.0 Identity Provider.                          |
-        
-        If you edit the
-        `                     travelocity.properties                   ` file,
-        you must restart the Apache Tomcat server for the changes to take
-        effect.
-        
-    
-    Now the web application is successfully deployed on a web container.
+To deploy the travelocity sample application, see 
+[Deploying the Sample App](../../develop/deploying-the-sample-app/).
 
 ------------------------------------------------------------------------
 

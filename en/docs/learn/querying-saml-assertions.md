@@ -61,11 +61,11 @@ authority.
 !!! tip "What's Next?"   
     To query the assertion, you can do one of the following:
     
-    -   Follow the steps under the [Try out
-        scenario](#try-out-scenario) section to try out
+    -   Follow the steps in [Try out
+        scenario](#try-out-scenario) section to try
         an AssertionID request with the travelocity sample application
         **OR**
-    -   Follow the steps under the [Querying an
+    -   Follow the steps in [Querying an
         assertion](#querying-an-assertion) section for
         instructions on querying an assertion with your own application.
     
@@ -120,15 +120,19 @@ AssertionID for the travelocity sample application.
 1.  Follow the steps in the [Configuring WSO2 Identity
     Server](#configuring-wso2-identity-server) section to configure
     the WSO2 Identity Server.
-2.  [Set up the travelocity sample application and configure the service
-    provider.](../../learn/configuring-single-sign-on#configure-the-sso-web-application)  
+2.  [Set up the travelocity sample application](../../develop/deploying-the-sample-app/) and [configure the service
+    provider](../../develop/deploying-the-sample-app/).  
+    
     1.  Expand the **SAML2 Web SSO Configuration** and click
         **Configure**.
+    
     2.  Configure the required fields. Select
         `            soa.cert           ` as the **Certificate Alias**
         and tick the **Enable Assertion Query Request Profile**
         checkbox.  
+    
         ![enable-assertion-query-request](../assets/img/tutorials/enable-assertion-query-request.png)
+        
 3.  Click **Update**.
 4.  You have to use a custom assertion builder with the capability to
     persist assertions to the database for this profile.  

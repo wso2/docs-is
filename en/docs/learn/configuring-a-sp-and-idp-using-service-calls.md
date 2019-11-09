@@ -351,7 +351,7 @@ console](../../setup/getting-started-with-the-management-console) user interface
 
       -   See [Configuring SAML
       SSO](../../learn/configuring-single-sign-on)
-      for information on using the travelocity.com application for single
+      for information on using the pickup-dispatch application for single
       sign-on. This provides insight on some parameters used.
       -   See [Configuring a Service
       Provider](../../learn/adding-and-configuring-a-service-provider)

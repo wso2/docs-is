@@ -61,13 +61,12 @@ You can find more information in the following sections.
     Now you have finished configuring Wordpress so copy the **Client ID** and **Client Secret** for use in the Identity Server.  
     ![](../assets/img/49092145/49226414.png) 
 
-### Deploying travelocity.com sample app
+### Deploying travelocity sample application
 
 The next step is to deploy the travelocity.com sample app in order to
 use it in this scenario.
 
-To configure this, see [deploying travelocity.com sample
-app](../../develop/deploying-the-sample-app).
+For deployment and configuration, see [Deploying the Sample App](../../develop/deploying-the-sample-app).
 
 ### Configuring the identity provider
 

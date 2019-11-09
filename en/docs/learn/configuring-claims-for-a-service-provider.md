@@ -112,7 +112,6 @@ To register a service provider, do the following.
                 ![enable-attribute-profile](../assets/img/using-wso2-identity-server/enable-attribute-profile.png)
             
                 !!! info "Why?"
-            
                         This is required since Identity Server include user claims
                         in the SAML2 response only if SAML2 attribute profile is
                         enabled.
@@ -132,31 +131,29 @@ To register a service provider, do the following.
                 to provide them at the time of login as shown in the image
                 below.  
 
-                ??? note "Expand for steps to test out mandatory claims"
-                    !!! tip "Testing mandatory claims"
-                        To test out mandatory claims,
+                ??? tip "Testing mandatory claims"
+                    To test out mandatory claims,
                     
-                        1.  Configure the travelocity sample application by
-                            following the steps in the [Configuring Single
-                            Sign-On](../../learn/single-sign-on) topic.
-            
-                        2.  Configure a few claims and select the checkbox for
-                            mandatory claims.
-            
-                        3.  Ensure that there are one or more claims which are
-                            missing in the user profile of the user you wish to
-                            login with.
-            
-                        4.  Run the travelocity sample and try the SAML login.
-            
-                        5.  Log in with the user credentials of the user who has a
-                            few mandatory claims missing, and click **Submit**.
-                        6.  A claim request will be prompted, Similiar to the image
-                            below. At this point, the mandatory claim rule is
-                            enforced and you cannot proceed without providing the
-                            necessary claim values. Provide the necessary claim
-                            values and click **Submit**.
-                        7.  You will be successfully logged in to the application.
+                    1.  Configure the travelocity sample application by
+                        following the steps in the [Deploying the Sample App](../../develop/deploying-the-sample-app/). 
+                        
+                    2.  Configure a few claims and select the checkbox for
+                        mandatory claims.
+        
+                    3.  Ensure that there are one or more claims which are
+                        missing in the user profile of the user you wish to
+                        login with.
+        
+                    4.  Run the travelocity sample and try the SAML login.
+        
+                    5.  Log in with the user credentials of the user who has a
+                        few mandatory claims missing, and click **Submit**.
+                    6.  A claim request will be prompted, Similiar to the image
+                        below. At this point, the mandatory claim rule is
+                        enforced and you cannot proceed without providing the
+                        necessary claim values. Provide the necessary claim
+                        values and click **Submit**.
+                    7.  You will be successfully logged in to the application.
         
 
                 Marking a mapped claim as a **Requested Claim** would ensure

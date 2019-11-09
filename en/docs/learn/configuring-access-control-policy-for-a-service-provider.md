@@ -81,7 +81,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 6.  Configure an inbound authentication protocol for the service
     provider (i.e, SAML, OpenID Connect etc).
 
-    !!! info
+    ??? info "Configure travelocity"
 		The responsibility of the inbound authentication protocol is to
 		identify and parse all the incoming authentication requests and then
 		helps in building the correct response. As Inbound Authentication
@@ -89,21 +89,20 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 		etc.
 
 		For this tutorial, we will set up the travelocity sample application
-		by following the instructions in [Configuring Single
-		Sign-On](../../learn/configuring-single-sign-on)
-		. Here we use **SAML2** as the inbound authentication protocol.
+		by following the instructions in [Deploying the Sample App](../../develop/deploying-the-sample-app). 
+		Here we use **SAML2** as the inbound authentication protocol. The following screenshot 
+		shows the SAML configuration for the travelocity sample service provider. 
+		
+		![inbound-authentication-protocol](../assets/img/tutorials/inbound-authentication-protocol.png)
+		
+    !!! note
+        If your service provider needs any claims of the authenticated user to
+        provide the service, you can [configure claims of the service
+        provider](../../configuring-single-sign-on/#configuring-claims). Then once the access is
+        provided after evaluating the XACML policy, the Service Provider can
+        get those claim details of the authorized user from the Identity
+        Provider side.
 
-		Since this is the only available configuration that we have for
-		travelocity.com service provider. The screenshot below shows the
-		SAML configuration for the travelocity sample service provider. If
-		your service provider needs any claims of the authenticated user to
-		provide the service, you can [configure claims of the service
-		provider](../../learn/configuring-single-sign-on). Then once the access is
-		provided after evaluating the XACML policy, the Service Provider can
-		get those claim details of the authorized user from the Identity
-		Provider side.
-
-    ![inbound-authentication-protocol](../assets/img/tutorials/inbound-authentication-protocol.png)
 
 7.  Expand the **Local and Outbound Authentication Configuration**
     section and select the authenticator used to authenticate users in
