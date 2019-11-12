@@ -145,7 +145,7 @@ The next step is to configure the service provider.
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
+        refer, [Configuring SAML2 WEB Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
@@ -198,8 +198,6 @@ The next step is to configure the service provider.
     **Configure.**   
     
 5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
-    
-    ![configure-oauth-oidc](../assets/img/tutorials/configure-oauth-oidc.png)
         
     !!! note
     
@@ -213,6 +211,10 @@ The next step is to configure the service provider.
         Type](../../learn/writing-a-custom-oauth-2.0-grant-type).
         
 6.  Fill the `Callback Url` field. 
+
+    Example : `http://wso2is.local:8080/playground2/oauth2client`
+    
+    ![configure-oauth-oidc](../assets/img/tutorials/configure-oauth-oidc.png)
 
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
@@ -286,7 +288,7 @@ The next step is to configure the service provider.
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
+        refer, [Configuring SAML2 WEB Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
@@ -359,7 +361,7 @@ The next step is to configure the service provider.
     
     !!! tip
         For more information on the advanced configurations
-        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
+        refer, [Configuring SAML2 WEB Single-Sign-On](../../learn/configuring-saml2-web-single-sign-on)
 
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
