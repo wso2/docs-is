@@ -197,18 +197,14 @@ similar to the following
 ``` toml
 [[cache.manager]]
 name = "LocalClaimInvalidationCache"
-enable = "true"
 timeout = "300"
 capacity = "5000"
-isDistributed = "false"
 ```
 
 Here, you need to specify values as follows:
 
 -   ` timeout ` : The cache timeout value in seconds.
 -   ` capacity ` : The maximum cache size.
--   ` isDistributed ` : Set this to
-    ` false ` .
 
 
 !!! info "Related Topics"
