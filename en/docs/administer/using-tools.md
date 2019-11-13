@@ -8,3 +8,4 @@ the following topics.
 
 -   Using the SAML2 Toolkit
 -   Using the XACML TryIt Tool
+-   Identity Anonymization tool

@@ -1,14 +1,10 @@
-# Working with ACR and AMR
+# Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
 
-Explore the following sections to learn about Authentication Class Reference (ACR) and Authentication Method Reference (AMR) and how they are used in WSO2 Identity Server for adaptive authentication. 
+!!! Tip 
+    You may first try the sample [Configuring ACR-Based Adaptive
+    Authentication](../../learn/configuring-acr-based-adaptive-authentication) as a quick start
 
-### About ACR and AMR
-
-Let's learn about ACR and AMR.
-
-#### What is ACR
-
-ACR is an optional parameter that is used in SAML and OpenID Connect (OIDC) requests. This parameter enables the service providers to send additional information to the identity provider so that the identity provider can enforce additional assurance in the user authentication flow, i.e., it would indicate the business rules that are required to be satisfied during authentication. In certain contexts, ACR is referred to as the level of assurance (LoA).
+Authentication Context Class Reference (ACR) is an optional parameter that is used in SAML and OpenID Connect (OIDC) requests. This parameter enables the service providers to send additional information to the identity provider so that the identity provider can enforce additional assurance in the user authentication flow, i.e., it would indicate the business rules that are required to be satisfied during authentication. In certain contexts, ACR is referred to as the level of assurance (LoA).
 
 Even though the ACR values and their interpretations are not defined by any specification, there are common, recommended ACR values widely-accepted by the industry (see below). 
 
@@ -50,7 +46,7 @@ Even though the ACR values and their interpretations are not defined by any spec
 You can also define new ACR values and their meanings to fit your requirements.
 
 #### What is AMR
-AMR provides information about the authentication methods that are used to assert users authenticity. It provides information about the session activities that took place while authenticating a user.
+Authentication Method Reference (AMR) provides information about the authentication methods that are used to assert users authenticity. It provides information about the session activities that took place while authenticating a user.
 
 #### ACR vs. AMR
 While ACR denotes the set of business rules that must be satisfied during authentication, AMR denotes the authentication methods that can be used to satisfy these business rules.
