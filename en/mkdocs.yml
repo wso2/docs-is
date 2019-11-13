@@ -405,7 +405,6 @@ nav:
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
-          - '2-legged OAuth for Securing a RESTful Service': learn/2-legged-oauth-for-securing-a-restful-service.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
             - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
