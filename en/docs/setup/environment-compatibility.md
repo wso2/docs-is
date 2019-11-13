@@ -44,6 +44,7 @@ WSO2 Identity Server supports the following DBMSs.
 				<li>Oracle 12c</li>
 				<li>Microsoft SQL Server 2016</li>
 				<li>DB2 10.5 (Compatibility mode: MYS)</li>
+				<li>Postgres 11</li>
 			</ul>
 		</td>
 	</tr>
@@ -65,15 +66,6 @@ WSO2 Identity Server supports the following DBMSs.
 <li>Chrome Version 67.0.3396.87 (Official Build) (64-bit)</li>
 <li>Firefox 61.0 (64-bit)</li>
 <li>Internet Explorer 11.576.14393</li>
-</ul>
-
-### Tested WSO2 Products
-
-Following is a list of other WSO2 products that is tested with WSO2 Identity Server 5.9.0.
-
-<ul>
-	<li>WSO2 Enterprise Integrator 6.1.0</li>
-	<li>WSO2 APP Manager 1.2.0</li>
 </ul>
 
 ### Tested LDAPs
