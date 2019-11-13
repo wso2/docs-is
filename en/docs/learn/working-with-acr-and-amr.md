@@ -272,54 +272,6 @@ Follow the steps below to try the scenario without using an application:
 	
 	Note that the AMR values in this example are 	`DemoFaceIdAuthenticator`	, 	`BasicAuthenticator`	, and 	`DemoFingerprintAuthenticator`. These are the authenticators that are used in the authentication process.
 
-#### Translating AMR values
-Follow the steps below to translate the AMR values that get returned to the authentication process.
-
-1. Open the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory.
-
-2. Add the following fragment to the root level, i.e., `<Server>` level. 
-
-	!!!	note 
-
-	   	-	The uri should either be according to the [AMR draft specification](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-04) or should be the value you prefer to have as the amr in the ID token. 
-
-	   	-	You may add the `xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance` attribute to prevent the relevant AMR being available on the ID token.
-
-		```
-		<AuthenticationContext>
-		        <MethodRefs>
-		            <MethodRef uri="pwd" method="BasicAuthenticator"  />
-		            <MethodRef uri="fpt" method="DemoFingerprintAuthenticator"  />
-		            <MethodRef uri="user" method="DemoFaceIdAuthenticator"  />
-		            <MethodRef uri="hwk" method="DemoHardwareKeyAuthenticator"  />
-		            <MethodRef method="AuthenticatorToBeHiddenFromAMR" xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-		        </MethodRefs>
-		</AuthenticationContext>
-		```
-3. Restart WSO2 Identity Server.
-
-4. To generate an ID token, repeat steps in the previous section. Note that an ID token similar to below gets generated.
-
-	``` 
-	{
-	  "at_hash": "6OXwfxJaTWYC56RccEhSJg",
-	  "aud": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-	  "acr": "LOA3",
-	  "c_hash": "lDj9nihZGSUmgNmz_lxxXA",
-	  "sub": "admin",
-	  "nbf": 1548396413,
-	  "azp": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-	  "amr": [
-	    "pwd",
-	    "hwk",
-	    “user”
-	  ],
-	  "iss": "https://localhost:9443/oauth2/token",
-	  "exp": 1548400013,
-	  "iat": 1548396413
-	}
-	```
-
 ### FAQ
 
 1. **Can I define my own URI as the ACR**
@@ -327,11 +279,6 @@ Follow the steps below to translate the AMR values that get returned to the auth
 
 	!!! note 
 		When sending the URI via HTTP URL, make sure to encode with URL encoding.
-
-2. **Can I define my own URI as the AMR**
-	Yes. Any internal representation that is available in the AMR array, e.g. BasicAuthenticator can be translated to any URI of your choice. This is a system-wide configuration. For more information, see [Translating AMR](#translating-amr-values) values above. 
-
-
 
 
 
