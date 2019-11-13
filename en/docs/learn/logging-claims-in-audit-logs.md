@@ -5,28 +5,25 @@ audit logs.
 
 Follow the steps given below in order to configure this feature.
 
-Make the following changes in the `         identitiy.xml        ` file
-in `         <CARBON_HOME>/repository/conf/identity        ` to enable
+Make the following changes in the `         deployment.toml       ` file
+in `         <IS_HOME>/repository/conf/       ` to enable
 the audit logger.
 
-1.  Add the following entry within
-    `           <EventListeners>          ` to enable the listener.
+1.  Add the following configuration to  `         deployment.toml       ` file.
 
-    ``` java
-    <EventListener type="org.wso2.carbon.user.core.listener.UserOperationEventListener"
-    name="org.wso2.carbon.user.mgt.listeners.UserClaimsAuditLogger"
-    orderId="9" enable="true"/>
+    ``` toml
+    [event.default_listener.user_claim_audit_logger]     
+    priority = 9
+    enable = true
     ```
 
-2.  Before the `           </Server>          ` element, add the
-    following entry to define the claims that should be logged into the
+2.  Add the following entry to define the claims that should be logged into the
     audit log.
 
-    ``` java
-        <LoggableUserClaims>
-                <LoggableUserClaim>http://wso2.org/claims/identity/accountLocked</LoggableUserClaim>
-                <LoggableUserClaim>http://wso2.org/claims/role</LoggableUserClaim>
-            </LoggableUserClaims>
+    ```toml
+    [audit.log.loggable_user_claim]
+    claim1 = "http://wso2.org/claims/identity/accountLocked"
+    claim2 = "http://wso2.org/claims/role"
     ```
 
     !!! note

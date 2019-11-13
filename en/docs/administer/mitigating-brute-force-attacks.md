@@ -19,7 +19,7 @@ address will not work against these attacks.
 
 Setting up the system to prompt the password recovery process after a
 few failed attempts so that the user has to provide answers to secret
-questions, can mitigate this risk. However, similiar to using these
+questions, can mitigate this risk. However, similar to using these
 tools to guess a user's credentials, it can also be used to guess
 answers to secret questions. To further mitigate this attack, you can
 use the following approaches:

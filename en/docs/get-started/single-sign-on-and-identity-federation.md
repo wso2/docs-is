@@ -437,7 +437,7 @@ management, when it makes sense for them.
 
 ### WS-Trust
 
-The "Security Token Service" (STS) component of WSO2 Identity Server
+The **Security Token Service** (STS) component of WSO2 Identity Server
 enables you to configure the generic STS to issue claim-based security
 tokens. A claim-based security token is a common way for applications to
 acquire and authenticate the identity information they need about users

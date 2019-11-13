@@ -45,7 +45,7 @@ primary user store:
     Change the values according to your requirement. For more
     information on each of the properties used in the user-mgt.xml file
     for configuring the primary user store, see [Properties of User
-    Stores](../../administer/working-with-properties-of-user-stores).
+    Stores](../../setup/working-with-properties-of-user-stores).
 
     ``` xml
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
@@ -103,7 +103,7 @@ primary user store:
             `             GetAllRolesOfUserEnabled            ` property in
             the `             AuthorizationManager            ` as follows.
             See the documentation on [configuring the Authorization
-            Manager](../../learn/configuring-the-authorization-manager)
+            Manager](../../setup/configuring-the-authorization-manager)
             for more information.
     
             ``` xml

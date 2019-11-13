@@ -431,7 +431,7 @@ Server is shipped with a DefaultAttributeFinder that communicates with
 the underlying user store of the Identity Server. The default user store
 of the Identity Server is ApacheDS where it can be changed using
 user-mgt.xml file. See [Configuring the
-Realm](../../learn/configuring-the-realm) for
+Realm](../../setup/configuring-the-realm) for
 more information.
 
 All modules would be initialized and supported attribute Ids are

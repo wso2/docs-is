@@ -59,7 +59,7 @@ For instance, you can set up google as a federated authenticator and then set up
 For more information on Identity Federation on it's own (without SSO), see the [Identity Federation](../../learn/identity-federation) topic.
 
 !!! warning "Removed Feature!"
-    OpenID 2.0 has been removed from the base product in WSO2 Identity Server version 5.3.0 onwards as it is now an obsolete specification and has been superseded by OpenID Connect. Alternatively, we recommend that you use [OpenID Connect](../../learn/oauth2-openid-connect) instead. 
+    OpenID 2.0 has been removed from the base product in WSO2 Identity Server version 5.3.0 onwards as it is now an obsolete specification and has been superseded by OpenID Connect. Alternatively, we recommend that you use [OpenID Connect](../../learn/oauth2-openid-connect-overview/) instead. 
 
 !!! info "Related Topics"
     -   See [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) for more information on using single sign-on with a service provider. 

@@ -251,7 +251,3 @@
     -   [Creating a Third Party Authenticator or Connector and
         Publishing in WSO2
         Store](../../develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store)
-
-    <!-- -->
-
-    -   [Getting Support](../../develop/getting-support)

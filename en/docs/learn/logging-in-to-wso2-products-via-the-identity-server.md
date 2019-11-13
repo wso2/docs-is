@@ -30,7 +30,7 @@ needs to be done in order to enable SSO:
 !!! note "Before you begin"
 	For single sign-on to work, you need to configure the WSO2 products to
 	share a common user store. For more information on configuring this, see
-	[Configuring the Primary UserStore](../../learn/configuring-the-primary-user-store).
+	[Configuring the Primary UserStore](../../setup/configuring-the-primary-user-store).
 
 ## Configuring WSO2 Enterprise Service Bus
 

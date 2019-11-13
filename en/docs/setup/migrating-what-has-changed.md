@@ -34,7 +34,7 @@ user authentication,  has to be explicitly mentioned in the
     
     ```toml
     [resource_access_control]
-    default_access = ”allow”
+    default_access = "allow"
     ```
         
 ## Log printing

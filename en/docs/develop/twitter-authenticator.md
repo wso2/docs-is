@@ -19,7 +19,7 @@ information in the following sections.
     This is tested with the Twitter API version 1.1 which uses OAuth 1.0a.
     Twitter Authenticator is supported by Identity Server 5.1.0 upwards.
 
-### Deploying Twitter artifacts
+## Deploying Twitter artifacts
 
 -   Download the WSO2 Identity Server from
     [here](http://wso2.com/products/identity-server/).
@@ -38,7 +38,7 @@ information in the following sections.
         instructions.](../../develop/upgrading-an-authenticator)
     
 
-### Configuring the Twitter App
+## Configuring the Twitter App
 
 1.  Create an account at <https://twitter.com> and log in.
 2.  Navigate to https://apps.twitter.com/ and click **Create New App**.
@@ -79,15 +79,16 @@ information in the following sections.
     Example:  
     ![](../assets/img/50515587/75109896.png) 
 
-### Deploying travelocity.com sample app
+## Deploying travelocity sample application
 
-The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
-in order to use it in this scenario.
+The next step is to deploy and configure travelocity application. See 
+[deploy the sample app](../../develop/deploying-the-sample-app) for more information 
+on configuring travelocity application. 
 
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an identity provider and service provider as shown below.
 
-### Configuring the identity provider
+## Configuring the identity provider
 
 Now you have to configure WSO2 Identity Server by adding a new identity
 provider. For more information about the Identity Providers, see
@@ -121,7 +122,7 @@ Provider](../../learn/adding-and-configuring-an-identity-provider)
 
 You have now added the identity provider.
 
-### Configuring the service provider
+## Configuring the service provider
 
 The next step is to configure the service provider.
 
@@ -169,7 +170,7 @@ The next step is to configure the service provider.
 
 You have now added and configured the service provider.
 
-### Testing the sample
+## Testing the sample
 
 1.  To test the sample, go to the following URL:
     `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp          `

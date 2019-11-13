@@ -240,9 +240,9 @@ outbound provisioning connector.
 
         ``` xml
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
+            <groupId>org.wso2.carbon.identity.framework</groupId>
             <artifactId>org.wso2.carbon.identity.provisioning</artifactId>
-            <version>5.8.113</version>
+            <version>5.14.97</version>
         </dependency>
         ```
 

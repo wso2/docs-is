@@ -3,42 +3,13 @@
 This section lists out some sample configurations that can be used when
 configuring an Identity Provider.
 
--   [Federated authenticator configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-federatedauthconfigFederatedauthenticatorconfigurationsamples)
-    -   [SAML2 Web SSO
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SAML2WebSSOconfiguration)
-    -   [OAuth2/OpenID Connect
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-OAuth2/OpenIDConnectconfiguration)
-    -   [WS-Federation (Passive)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-WS-Federation(Passive)configuration)
-    -   [Facebook
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Facebookconfiguration)
-    -   [Yahoo
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Yahooconfiguration)
-    -   [Google
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleconfiguration)
-    -   [Microsoft (Hotmail,MSN,Live)
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Microsoft(Hotmail,MSN,Live)configuration)
--   [Outbound provisioning connector configuration
-    samples](#IdentityProviderConfigurationsusedwithAPIs-outboundprovconfigOutboundprovisioningconnectorconfigurationsamples)
-    -   [SalesForce provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SalesForceprovisioningconfiguration)
-    -   [Google provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-Googleprovisioningconfiguration)
-    -   [SCIM provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SCIMprovisioningconfiguration)
-    -   [SPML provisioning
-        configuration](#IdentityProviderConfigurationsusedwithAPIs-SPMLprovisioningconfiguration)
-
-### Federated authenticator configuration samples
+## Federated authenticator configuration samples
 
 A federated authenticator is used to authenticate a user through an
 external system (e.g. Yahoo, MSN, OpenIDConnect). To write your own
-custom federated authenticator, see [Writing a Custom Federated
-Authenticator](Writing-a-Custom-Federated-Authenticator).
+custom federated authenticator, see [Writing a Custom Federated Authenticator](../../develop/writing-a-custom-federated-authenticator/).
 
 !!! warning
-    
     The `         <federatedAuthenticatorConfigs>        ` and
     `         <defaultAuthenticatorConfig>        ` tags have similar
     attributes. To configure a federated authenticator as the default
@@ -50,62 +21,62 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
     .
     
 
-#### SAML2 Web SSO configuration
+### SAML2 Web SSO configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>samlsso</displayName>
-               <enabled>true</enabled>
-               <name>SAMLSSOAuthenticator</name>
-               <properties>
-                  <name>IdPEntityId</name>
-                  <value>Identity Provider Entity Id</value>
-               </properties>
-               <properties>
-                  <name>SPEntityId</name>
-                  <value>Service Provider Entity Id</value>
-               </properties>
-               <properties>
-                  <name>SSOUrl</name>
-                  <value>https://localhost:9443/samlsso/</value>
-               </properties>
-               <properties>
-                  <name>ISAuthnReqSigned</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>IsLogoutEnabled</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>LogoutReqUrl</name>
-                  <value>https://example.com/logout/url</value>
-               </properties>
-               <properties>
-                  <name>IsLogoutReqSigned</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>IsAuthnRespSigned</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>IsUserIdInClaims</name>
-                  <value>false</value>
-               </properties>
-               <properties>
-                  <name>IsAssertionEncrypted</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>isAssertionSigned</name>
-                  <value>true</value>
-               </properties>
-               <properties>
-                  <name>commonAuthQueryParams</name>
-                  <value>paramName1=value1&paramName2=value2</value>
-               </properties>
-            </federatedAuthenticatorConfigs>
+   <displayName>samlsso</displayName>
+   <enabled>true</enabled>
+   <name>SAMLSSOAuthenticator</name>
+   <properties>
+      <name>IdPEntityId</name>
+      <value>Identity Provider Entity Id</value>
+   </properties>
+   <properties>
+      <name>SPEntityId</name>
+      <value>Service Provider Entity Id</value>
+   </properties>
+   <properties>
+      <name>SSOUrl</name>
+      <value>https://localhost:9443/samlsso/</value>
+   </properties>
+   <properties>
+      <name>ISAuthnReqSigned</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>IsLogoutEnabled</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>LogoutReqUrl</name>
+      <value>https://example.com/logout/url</value>
+   </properties>
+   <properties>
+      <name>IsLogoutReqSigned</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>IsAuthnRespSigned</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>IsUserIdInClaims</name>
+      <value>false</value>
+   </properties>
+   <properties>
+      <name>IsAssertionEncrypted</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>isAssertionSigned</name>
+      <value>true</value>
+   </properties>
+   <properties>
+      <name>commonAuthQueryParams</name>
+      <value>paramName1=value1&paramName2=value2</value>
+   </properties>
+</federatedAuthenticatorConfigs>
 ```
 
 <table>
@@ -171,41 +142,39 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 </tbody>
 </table>
 
-  
-
-#### OAuth2/OpenID Connect configuration
+### OAuth2/OpenID Connect configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>openidconnect</displayName>
-               <enabled>true</enabled>
-               <name>OpenIDConnectAuthenticator</name>
-               <properties>
-                  <name>ClientId</name>
-                  <value>ClientID</value>
-               </properties>
-               <properties>
-                  <name>OAuth2AuthzUrl</name>
-                  <value>https://localhost:9443/oauth2/authorize/</value>
-               </properties>
-               <properties>
-                  <name>OAUTH2TokenUrl</name>
-                  <value>https://localhost:9443/oauth2/token/</value>
-               </properties>
-               <properties>
-                  <confidential>true</confidential>
-                  <name>ClientSecret</name>
-                  <value>ClientSecret</value>
-               </properties>
-               <properties>
-                  <name>IsUserIdInClaims</name>
-                  <value>false</value>
-               </properties>
-               <properties>
-                  <name>commonAuthQueryParams</name>
-                  <value>paramName1=value1&paramName2=value2</value>
-               </properties>
-            </federatedAuthenticatorConfigs>
+   <displayName>openidconnect</displayName>
+   <enabled>true</enabled>
+   <name>OpenIDConnectAuthenticator</name>
+   <properties>
+      <name>ClientId</name>
+      <value>ClientID</value>
+   </properties>
+   <properties>
+      <name>OAuth2AuthzUrl</name>
+      <value>https://localhost:9443/oauth2/authorize/</value>
+   </properties>
+   <properties>
+      <name>OAUTH2TokenUrl</name>
+      <value>https://localhost:9443/oauth2/token/</value>
+   </properties>
+   <properties>
+      <confidential>true</confidential>
+      <name>ClientSecret</name>
+      <value>ClientSecret</value>
+   </properties>
+   <properties>
+      <name>IsUserIdInClaims</name>
+      <value>false</value>
+   </properties>
+   <properties>
+      <name>commonAuthQueryParams</name>
+      <value>paramName1=value1&paramName2=value2</value>
+   </properties>
+</federatedAuthenticatorConfigs>
 ```
 
   
@@ -251,31 +220,29 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 </tbody>
 </table>
 
-  
-
-#### WS-Federation (Passive) configuration
+### WS-Federation (Passive) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>passivests</displayName>
-               <enabled>true</enabled>
-               <name>PassiveSTSAuthenticator</name>
-               <properties>
-                  <name>RealmId</name>
-                  <value>Passive STS Realm</value>
-               </properties>
-               <properties>
-                  <name>PassiveSTSUrl</name>
-                  <value>https://localhost:9443/passivests/</value>
-               </properties>
-               <properties>
-                  <name>IsUserIdInClaims</name>
-                  <value>false</value>
-               </properties>
-               <properties>
-                  <name>commonAuthQueryParams</name>
-                  <value>paramName1=value1</value>
-               </properties>
+   <displayName>passivests</displayName>
+   <enabled>true</enabled>
+   <name>PassiveSTSAuthenticator</name>
+   <properties>
+      <name>RealmId</name>
+      <value>Passive STS Realm</value>
+   </properties>
+   <properties>
+      <name>PassiveSTSUrl</name>
+      <value>https://localhost:9443/passivests/</value>
+   </properties>
+   <properties>
+      <name>IsUserIdInClaims</name>
+      <value>false</value>
+   </properties>
+   <properties>
+      <name>commonAuthQueryParams</name>
+      <value>paramName1=value1</value>
+   </properties>
 </federatedAuthenticatorConfigs>
 ```
 
@@ -288,36 +255,36 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Facebook configuration
+### Facebook configuration
 
   
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>facebook</displayName>
-               <enabled>true</enabled>
-               <name>FacebookAuthenticator</name>
-               <properties>
-                  <name>ClientId</name>
-                  <value>clientID</value>
-               </properties>
-               <properties>
-                  <confidential>true</confidential>
-                  <name>ClientSecret</name>
-                  <value>secret</value>
-               </properties>
-               <properties>
-                  <name>UserInfoFields</name>
-                  <value>id,first_name,middle_name,gender,email</value>
-               </properties>
-               <properties>
-                  <name>Scope</name>
-                  <value>email</value>
-               </properties>
-               <properties>
-                  <name>callBackUrl</name>
-                  <value>https://localhost:9443/commonauth</value>
-               </properties>
+   <displayName>facebook</displayName>
+   <enabled>true</enabled>
+   <name>FacebookAuthenticator</name>
+   <properties>
+      <name>ClientId</name>
+      <value>clientID</value>
+   </properties>
+   <properties>
+      <confidential>true</confidential>
+      <name>ClientSecret</name>
+      <value>secret</value>
+   </properties>
+   <properties>
+      <name>UserInfoFields</name>
+      <value>id,first_name,middle_name,gender,email</value>
+   </properties>
+   <properties>
+      <name>Scope</name>
+      <value>email</value>
+   </properties>
+   <properties>
+      <name>callBackUrl</name>
+      <value>https://localhost:9443/commonauth</value>
+   </properties>
 </federatedAuthenticatorConfigs>
 ```
 
@@ -331,19 +298,19 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Yahoo configuration
+### Yahoo configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>yahoo</displayName>
-               <enabled>true</enabled>
-               <name>YahooOpenIDAuthenticator</name>
-            </federatedAuthenticatorConfigs>
+   <displayName>yahoo</displayName>
+   <enabled>true</enabled>
+   <name>YahooOpenIDAuthenticator</name>
+</federatedAuthenticatorConfigs>
 ```
 
   
 
-#### Google configuration
+### Google configuration
 
 ``` xml
 <federatedAuthenticatorConfigs
@@ -356,25 +323,25 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-#### Microsoft (Hotmail,MSN,Live) configuration
+### Microsoft (Hotmail,MSN,Live) configuration
 
 ``` xml
 <federatedAuthenticatorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <displayName>microsoft(hotmail,</displayName>
-               <enabled>true</enabled>
-               <name>MicrosoftWindowsLive</name>
-               <properties>
-                  <name>ClientSecret</name>
-                  <value>clientsecret</value>
-               </properties>
-               <properties>
-                  <name>windows-live-callback-url</name>
-                  <value>https://example.com/callback/url</value>
-               </properties>
-               <properties>
-                  <name>ClientId</name>
-                  <value>clientID</value>
-               </properties>
+   <displayName>microsoft(hotmail,</displayName>
+   <enabled>true</enabled>
+   <name>MicrosoftWindowsLive</name>
+   <properties>
+      <name>ClientSecret</name>
+      <value>clientsecret</value>
+   </properties>
+   <properties>
+      <name>windows-live-callback-url</name>
+      <value>https://example.com/callback/url</value>
+   </properties>
+   <properties>
+      <name>ClientId</name>
+      <value>clientID</value>
+   </properties>
 </federatedAuthenticatorConfigs>
 ```
 
@@ -407,17 +374,15 @@ Authenticator](Writing-a-Custom-Federated-Authenticator).
 
   
 
-### Outbound provisioning connector configuration samples
+## Outbound provisioning connector configuration samples
 
 An outbound provisioning connector is used to provision users to
 external systems (e.g. Google, SalesForce).  To write your own custom
 outbound provisioning connector, see [Writing an Outbound Provisioning
-Connector](Writing-an-Outbound-Provisioning-Connector).
+Connector](../../develop/writing-an-outbound-provisioning-connector/).
 
 !!! warning
-    
-    The `              <provisioningConnectorConfigs>             ` and
-    `              <defaultProvisioningConnectorConfig>             ` tags
+    The `              <provisioningConnectorConfigs>             ` and `              <defaultProvisioningConnectorConfig>             ` tags
     have similar attributes. To configure an outbound provisioning connector
     as the default provisioning connector, use the desired configuration
     found below with the
@@ -430,38 +395,38 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
     `              <provisioningConnectorConfigs>             ` .
     
 
-#### SalesForce provisioning configuration
+### SalesForce provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <enabled>true</enabled>
-               <name>salesforce</name>
-               <provisioningProperties>
-                  <name>sf-username</name>
-                  <value>testuser</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <confidential>true</confidential>
-                  <name>sf-password</name>
-                  <value>testpw</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>sf-clientid</name>
-                  <value>clientID</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <confidential>true</confidential>
-                  <name>sf-client-secret</name>
-                  <value>clientsecret</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>sf-api-version</name>
-                  <value>1.0.0</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>sf-domain-name</name>
-                  <value>example.com</value>
-               </provisioningProperties>
+   <enabled>true</enabled>
+   <name>salesforce</name>
+   <provisioningProperties>
+      <name>sf-username</name>
+      <value>testuser</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <confidential>true</confidential>
+      <name>sf-password</name>
+      <value>testpw</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>sf-clientid</name>
+      <value>clientID</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <confidential>true</confidential>
+      <name>sf-client-secret</name>
+      <value>clientsecret</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>sf-api-version</name>
+      <value>1.0.0</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>sf-domain-name</name>
+      <value>example.com</value>
+   </provisioningProperties>
 </provisioningConnectorConfigs>
 ```
 
@@ -506,41 +471,41 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### Google provisioning configuration
+### Google provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <enabled>true</enabled>
-               <name>googleapps</name>
-               <provisioningProperties>
-                  <name>google_prov_application_name</name>
-                  <value>TestApp</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_admin_email</name>
-                  <value>test@mygoogledomain.com</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_service_acc_email</name>
-                  <value>test@developer.gserviceaccount.com</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_familyname_claim_dropdown</name>
-                  <value>ClaimB</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_givenname_claim_dropdown</name>
-                  <value>ClaimB</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_email_claim_dropdown</name>
-                  <value>ClaimA</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>google_prov_domain_name</name>
-                  <value>mygoogledomain.com</value>
-               </provisioningProperties>
-            </provisioningConnectorConfigs>
+   <enabled>true</enabled>
+   <name>googleapps</name>
+   <provisioningProperties>
+      <name>google_prov_application_name</name>
+      <value>TestApp</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_admin_email</name>
+      <value>test@mygoogledomain.com</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_service_acc_email</name>
+      <value>test@developer.gserviceaccount.com</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_familyname_claim_dropdown</name>
+      <value>ClaimB</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_givenname_claim_dropdown</name>
+      <value>ClaimB</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_email_claim_dropdown</name>
+      <value>ClaimA</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>google_prov_domain_name</name>
+      <value>mygoogledomain.com</value>
+   </provisioningProperties>
+</provisioningConnectorConfigs>
 ```
 
 <table>
@@ -588,34 +553,34 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### SCIM provisioning configuration
+### SCIM provisioning configuration
 
 ``` xml
-   <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <enabled>true</enabled>
-               <name>scim</name>
-               <provisioningProperties>
-                  <name>scim-username</name>
-                  <value>testuser</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <confidential>true</confidential>
-                  <name>scim-password</name>
-                  <value>testpw</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>scim-user-ep</name>
-                  <value>example.com</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>scim-group-ep</name>
-                  <value>example.com</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>scim-user-store-domain</name>
-                  <value>example.com</value>
-               </provisioningProperties>
-   </provisioningConnectorConfigs>
+<provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
+   <enabled>true</enabled>
+   <name>scim</name>
+   <provisioningProperties>
+      <name>scim-username</name>
+      <value>testuser</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <confidential>true</confidential>
+      <name>scim-password</name>
+      <value>testpw</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>scim-user-ep</name>
+      <value>example.com</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>scim-group-ep</name>
+      <value>example.com</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>scim-user-store-domain</name>
+      <value>example.com</value>
+   </provisioningProperties>
+</provisioningConnectorConfigs>
 ```
 
   
@@ -659,29 +624,29 @@ Connector](Writing-an-Outbound-Provisioning-Connector).
 
   
 
-#### SPML provisioning configuration
+### SPML provisioning configuration
 
 ``` xml
 <provisioningConnectorConfigs xmlns="http://model.common.application.identity.carbon.wso2.org/xsd">
-               <enabled>true</enabled>
-               <name>spml</name>
-               <provisioningProperties>
-                  <name>spml-username</name>
-                  <value>testuser</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <confidential>true</confidential>
-                  <name>spml-password</name>
-                  <value>testpw</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>spml-ep</name>
-                  <value>example.com</value>
-               </provisioningProperties>
-               <provisioningProperties>
-                  <name>spml-oc</name>
-                  <value>spml2person</value>
-               </provisioningProperties>
+   <enabled>true</enabled>
+   <name>spml</name>
+   <provisioningProperties>
+      <name>spml-username</name>
+      <value>testuser</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <confidential>true</confidential>
+      <name>spml-password</name>
+      <value>testpw</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>spml-ep</name>
+      <value>example.com</value>
+   </provisioningProperties>
+   <provisioningProperties>
+      <name>spml-oc</name>
+      <value>spml2person</value>
+   </provisioningProperties>
 </provisioningConnectorConfigs>
 ```
 

@@ -36,7 +36,7 @@ embedded H2 database is used for storing permissions as well as users
 and roles. The instructions in this section explain how you can change
 the default user store. F or information on how to set up an RDBMS
 repository for storing permission, see [Configuring the Authorization
-Manager](../../learn/configuring-the-authorization-manager).
+Manager](../../setup/configuring-the-authorization-manager).
 
 The following topics include instructions on setting up user stores.
 

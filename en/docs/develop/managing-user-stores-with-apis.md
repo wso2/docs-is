@@ -60,10 +60,10 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <p class="admonition-title">Tip</p>
                         <p>For a full list of possible input parameters including optional parameters, see the relevant topic from the following list depending on the type of user store you are creating:</p>
                             <ul>    
-                                <li><a href="../../learn/configuring-a-jdbc-user-store">Properties used in JDBC user store manager</a></li>
-                                <li><a href="../../learn/configuring-a-read-write-active-directory-user-store">Properties used in Read-write Active Directory user store manager</a></li>
-                                <li><a href="../../learn/configuring-a-read-only-ldap-user-store">Properties used in Read-only LDAP user store manager</a></li>
-                                <li><a href="../../learn/configuring-a-read-write-ldap-user-store">Properties used in Read-write LDAP user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-jdbc-user-store">Properties used in JDBC user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-write-active-directory-user-store">Properties used in Read-write Active Directory user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-only-ldap-user-store">Properties used in Read-only LDAP user store manager</a></li>
+                                <li><a href="../../setup/configuring-a-read-write-ldap-user-store">Properties used in Read-write LDAP user store manager</a></li>
                                 <li><a href="../../develop/carbon-remote-user-store-manager">Properties used in Carbon Remote user store manager</a></li>
                             </ul>
                         <p>Note that some of these parameters such as connection URL, username, password, and driver name are mandatory when creating a secondary keystore. See the relevant sample request in the code block below.</p>

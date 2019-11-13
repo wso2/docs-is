@@ -44,7 +44,7 @@ divided into different sections.
     
     -   See [Configuring Users, Roles and Permissions](../../learn/configuring-users-roles-and-permissions) 
         for configuring users and roles. 
-    -   See [Configuring the Realm](../../learn/configuring-the-realm) for configuring user stores.
+    -   See [Configuring the Realm](../../setup/configuring-the-realm) for configuring user stores.
     -   See [Claim Management](../../learn/claim-management) for configuring claims.
     -   See [Adding and Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) 
         for configuring service providers.
@@ -90,7 +90,7 @@ divided into different sections.
 The monitor menu includes a list of features focused on providing logs
 and statistics related to the Identity Server. For more
 information on these features and their usage, see the topics on
-[monitoring the Identity Server](../../administer/monitoring-the-identity-server).
+[monitoring the Identity Server](../../setup/monitoring-the-identity-server).
 
 
 ![monitor-section-mgt-console](../../assets/img/setup/management-console/monitor-section-mgt-console.png)
