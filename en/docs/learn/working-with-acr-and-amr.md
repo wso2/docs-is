@@ -4,6 +4,8 @@
     You may first try the sample [Configuring ACR-Based Adaptive
     Authentication](../../learn/configuring-acr-based-adaptive-authentication) as a quick start
 
+#### What is ACR 
+
 Authentication Context Class Reference (ACR) is an optional parameter that is used in SAML and OpenID Connect (OIDC) requests. This parameter enables the service providers to send additional information to the identity provider so that the identity provider can enforce additional assurance in the user authentication flow, i.e., it would indicate the business rules that are required to be satisfied during authentication. In certain contexts, ACR is referred to as the level of assurance (LoA).
 
 Even though the ACR values and their interpretations are not defined by any specification, there are common, recommended ACR values widely-accepted by the industry (see below). 
