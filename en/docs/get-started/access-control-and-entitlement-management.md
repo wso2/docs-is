@@ -289,12 +289,14 @@ XACML request. The following is a high-level diagram of how this works.
 Any number of policy finder modules can be plugged with the Carbon
 policy finder. You need to implement the CarbonPolicyFinderModule
 interface to write a new module and register it using the configuration
-file called `entitlement.properties.xml` in 
-`<IS_HOME>/repository/components/features/org.wso2.carbon.identity.xacml.server_5.8.145 directory`
-. By default, WSO2 Identity Server is shipped with a Carbon
-registry-based policy finder module that can retrieve ppoliciesolicies from a
-registry collection, where the collection path is configurable using a
-property value in the entitlement.properties.xml file.
+file called `entitlement.properties.xml` in
+`<IS_HOME>/repository/components/features/org.wso2.carbon.identity.xacml.server_5.8.145
+directory` . 
+
+By default, WSO2 Identity Server is shipped with a Carbon
+registry-based policy finder module that can retrieve policies
+from a registry collection, where the collection path is configurable
+using a property value in the entitlement.properties.xml file.
 
 All modules are initialized and policies are loaded into memory when the
 Carbon policy finder is used. Loaded policies are kept as a policy
