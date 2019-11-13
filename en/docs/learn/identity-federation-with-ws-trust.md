@@ -35,8 +35,6 @@ Security Token Service:
 
 -   [Configuring STS for Obtaining Tokens with Holder-Of-Key Subject
     Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation)
--   [WSO2 Identity Server and Claim Aware Proxy Services with
-    ESB](../../learn/wso2-identity-server-and-claim-aware-proxy-services-with-esb)
 -   [Accessing Claim Aware Services using STS Secured with
     Non-repudiation](../../learn/accessing-claim-aware-services-using-sts-secured-with-non-repudiation)
 -   [Requesting and Renewing Received SAML2 Bearer Type
