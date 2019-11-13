@@ -25,7 +25,7 @@ this scenario:
     this be left as it is. Go to the
     `          <IS_HOME_SECONDARY>/repository/conf         ` directory
     and open the `          deployment.toml         ` file. Change the
-    `          <Offset>         ` value to 1. This changes the
+    `          Offset         ` value to 1. This changes the
     HTTPS port in the secondary IS instance to 9444 to avoid conflicts
     with the primary IS instance.
 5.  Install and run the two Identity Server instances.
@@ -114,9 +114,7 @@ in the secondary IS instance.
 The client application in this scenario is the travelocity sample
 application.
 
-1.  [Deploy travelocity application](develop/deploying-the-sample-app/) and 
-    [configure as a service provider](develop/deploying-the-sample-app/) in the
-    primary Identity Server instance. 
+1.  [Deploy travelocity application and configure it as a service provider](../../develop/deploying-the-sample-app#deploying-travelocity-webapp) in the primary Identity Server instance. 
  
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and
