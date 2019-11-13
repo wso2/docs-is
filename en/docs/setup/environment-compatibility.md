@@ -14,6 +14,7 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 				<li>AdoptOpenJDK 8</li>
 				<li>OpenJDK 8</li>
 				<li>Oracle JDK 8</li>
+				<li>Oracle JDK 11</li>
 			</ul>
 		</td>
 	</tr>
@@ -22,7 +23,8 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 		<td>
 			<ul>
 				<li>Ubuntu 16.04</li>
-				<li>Windows 2016</li>
+				<li>Windows Server 2016</li>
+				<li>Windows Server 2012 R2</li>
 				<li>Mac OS 10.13.6</li>
 			</ul>
 		</td>
@@ -41,9 +43,12 @@ WSO2 Identity Server supports the following DBMSs.
 		<td>
 			<ul>
 				<li>MySQL 5.7</li>
+			    <li>MySQL 8.0</li>
 				<li>Oracle 12c</li>
+				<li>Oracle 19c</li>
 				<li>Microsoft SQL Server 2016</li>
-				<li>DB2 10.5 (Compatibility mode: MYS)</li>
+				<li>DB2 v10.5 (Compatibility mode: MYS)</li>
+				<li>DB2 v11.5.0.0</li>
 				<li>Postgres 11</li>
 			</ul>
 		</td>
@@ -64,8 +69,11 @@ WSO2 Identity Server supports the following DBMSs.
 
 <ul>
 <li>Chrome Version 67.0.3396.87 (Official Build) (64-bit)</li>
+<li>Chrome Version 78.0.3904.87 (Official Build) (64-bit)</li>
 <li>Firefox 61.0 (64-bit)</li>
+<li>Firefox 70.0.1 (64-bit)</li>
 <li>Internet Explorer 11.576.14393</li>
+<li>Safari 13.0.3</li>
 </ul>
 
 ### Tested LDAPs
