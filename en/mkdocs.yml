@@ -398,7 +398,6 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
