@@ -13,7 +13,7 @@ Let's get started with creating new keystores.
 There are two ways to create keystores for WSO2 Identity Server. You can either generate a keystore using an already existing public key certificate (CA-signed), or you can create the public key certificate at the time of generating the keystore. See the instructions given below.
 
 !!! note "Important"
-    If you are creating a new keystore for [data encryption](../../administer/securing-passwords-in-configuration-files), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [recommendations for setting up keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
+    If you are creating a new keystore for [data encryption](../../setup/encrypting-passwords-with-cipher-tool), make sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [recommendations for setting up keystores](../../administer/using-asymmetric-encryption#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
     
     ``` java tab="Error"
     Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:202) at org.wso2.ciphertool.CipherTool.main(CipherTool.java:80) Caused by: java.security.InvalidKeyException: Wrong key usage at javax.crypto.Cipher.init(DashoA13..) at javax.crypto.Cipher.init(DashoA13..) at org.wso2.ciphertool.CipherTool.initCipher(CipherTool.java:200)... 1 more

@@ -308,7 +308,10 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'Request Path Authentication': learn/request-path-authentication.md
+            - 'Request Path Authentication':
+              - 'Request Path Authentication': learn/request-path-authentication.md
+              - 'Basic Auth Request Path Authentication': learn/basic-auth-request-path-authentication.md
+              - 'OAuth Request Path Authenticator': learn/oauth-request-path-authentication.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
           - 'Configuring Inbound Provisioning for a Service Provider': learn/configuring-inbound-provisioning-for-a-service-provider.md
           - 'Configuring Outbound Provisioning for a Service Provider': learn/configuring-outbound-provisioning-for-a-service-provider.md
