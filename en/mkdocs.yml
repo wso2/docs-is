@@ -90,6 +90,7 @@ nav:
           - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
+          - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
