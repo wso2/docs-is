@@ -398,7 +398,6 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
@@ -417,6 +416,7 @@ nav:
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
           - 'Implicit Client Profile with Playground': learn/implicit-client-profile-with-playground.md
+          - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
         - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
