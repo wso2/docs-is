@@ -34,7 +34,7 @@ role explained in
     enabled.
     
     !!! Tip 
-        You can change the default role name '**admin**' of the Administrative role as described in [here](../../learn/configuring-roles-and-permissions#updating-role-names)
+        You can change the default role name '**admin**' of the Administrative role as described [here](../../learn/configuring-roles-and-permissions#updating-role-names)
 
 You can create new users and roles and configure permissions for the
 roles using the management console. However, note that you cannot modify
