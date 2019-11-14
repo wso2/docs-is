@@ -139,6 +139,7 @@ nav:
           - 'Configuring New-Device-Based Adaptive Authentication': learn/configuring-new-device-based-adaptive-authentication.md
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
+          - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
           - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
