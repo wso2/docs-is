@@ -147,6 +147,7 @@ nav:
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
           - 'Configuring Federated Authentication': learn/configuring-federated-authentication.md
+          - 'Configuring SAML 2.0 Web SSO': learn/configuring-saml-2.0-web-sso.md
           - 'Configuring OAuth2-OpenID Connect': learn/configuring-oauth2-openid-connect.md
           - 'Configuring WS-Federation': learn/configuring-ws-federation.md
           - 'Configuring Facebook': learn/configuring-facebook.md
