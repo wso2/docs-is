@@ -1,11 +1,9 @@
 # User Management Architecture
 
 User management functionality is provided by default in all WSO2
-Carbon-based products and is configured in the
-`         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file. The
-following documentation introduces the main concepts in User Management,
-such as users, roles, permissions, user stores etc. and how they are
-used in WSO2 products.
+Carbon-based products. The following documentation introduces the main
+concepts in User Management, such as users, roles, permissions, user
+stores etc. and how they are used in WSO2 products.
 
 User management involves defining and managing users, roles, and their
 access levels in a system. A user management dashboard or console
@@ -62,13 +60,10 @@ is structured to work in WSO2 products:
     permissions.
 
 -   **Realm configuration:** The user realm consists of the
-    configurations required to initialise the user realm. The
-    `            user-mgt.xml           ` file stored in the
-    `            <PRODUCT_HOME>/repository/conf/           ` directory
-    is used as the realm configuration XML. This includes setting up the
-    **User Store Manager**, the **Authorization Manager** and the
-    **System Administrator**. These configurations are explained
-    below.  
+    configurations required to initialise the user realm. This includes
+    setting up the **User Store Manager**, the **Authorization Manager**
+    and the **System Administrator**. These configurations are explained
+    below.
 
     <table>
     <colgroup>
@@ -84,7 +79,7 @@ is structured to work in WSO2 products:
     <li><code>                  LDAPUserStoreManager                 </code> (read-only)</li>
     <li><code>                  ApacheDSUserStoreManager                 </code> (read and write)</li>
     </ul>
-    <p><img src="../assets/img/getting-started/user-store-manager-types.png" title="types of user store managers" alt="types of user store managers" /></p>
+    <p><img src="../../assets/img/getting-started/user-store-manager-types.png" title="types of user store managers" alt="types of user store managers" /></p>
     <p>You can write a custom user store manager implementation by implementing <code>                 UserStoreManager                </code> or by extending <code>                 AbstractUserStoreManager                </code> or one of the default implementations.</p>
     <h5 id="UserManagementArchitecture-UsingJDBCUserStoreManager">Using JDBCUserStoreManager</h5>
     <p>The <code>                 JDBCUserStoreManager                </code> class uses a schema that is specific to WSO2 Carbon. It contains the following tables:</p>
@@ -106,12 +101,12 @@ is structured to work in WSO2 products:
     </tr>
     </tbody>
     </table>
-
+    
 #### Related Topics
 
--   [Configuring the Realm](../../setup/configuring-the-realm) : The topics in
-    this section explain how you can set up and configure the user
-    management realm.
+-   [Configuring the Realm](../../setup/configuring-the-realm) : The
+    topics in this section explain how you can set up and configure the
+    user management realm.
 -   [Configuring Users, Roles and
     Permissions](../../learn/configuring-users-roles-and-permissions) : The topics
     in this section explain how you can manage the Users, Roles and

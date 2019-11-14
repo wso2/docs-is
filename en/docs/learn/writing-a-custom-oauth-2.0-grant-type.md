@@ -106,7 +106,7 @@ directly used as well.
     directory. You can also modify the project and build it using Apache
     Maven 3.
 3.  Configure the following in the 
-`           <IS_HOME>/repository/conf/deployment.xml          `
+`           <IS_HOME>/repository/conf/deployment.toml          `
     file. 
     ```toml
     [[oauth.custom_grant_type]]

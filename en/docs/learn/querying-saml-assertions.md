@@ -120,8 +120,8 @@ AssertionID for the travelocity sample application.
 1.  Follow the steps in the [Configuring WSO2 Identity
     Server](#configuring-wso2-identity-server) section to configure
     the WSO2 Identity Server.
-2.  [Set up the travelocity sample application](../../develop/deploying-the-sample-app/) and [configure the service
-    provider](../../develop/deploying-the-sample-app/).  
+2.  [Set up the travelocity sample application](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp) and [configure the service
+    provider](../../develop/deploying-the-sample-app/#configuring-service-provider).  
     
     1.  Expand the **SAML2 Web SSO Configuration** and click
         **Configure**.
@@ -148,41 +148,9 @@ AssertionID for the travelocity sample application.
 5.  To see the created assertions in the WSO2IS H2 database and access
     the AssertionID, enable browsing of the H2 database.
 
-    ??? note "Click for more information on browsing the H2 Database"
-
-        1.  Logout of the WSO2 Identity Server management console.
-
-        2.  Open the
-            `                 <IS_HOME>/repository/conf/carbon.xml                `
-            file and paste the following configuration.
-
-            !!! warning
-                Do not uncomment the existing
-                `                 <H2DatabaseConfiguration>                `
-                element. Just paste the following configuration below it.
-            
-
-            ``` java
-            <H2DatabaseConfiguration>
-                    <property name="web"/>
-                    <property name="webPort">8082</property>
-                    <property name="webAllowOthers"/>        
-            </H2DatabaseConfiguration>
-            ```
-
-        3.  Restart WSO2 Identity Server and access the following URL via
-            your browser: [http://localhost:8082](http://localhost:8082/)
-
-            !!! tip
-                If you are logged in to the management console, logout
-                before connecting to the database.
-        
-
-        4.  Enter the following details and click **Connect**.
-            1.  JDBC URL : jdbc:h2:\[file path to
-                IS\_HOME\>/repository/database/WSO2CARBON\_DB.h2.db\]
-            2.  username : wso2carbon
-            3.  password  : wso2carbon
+    !!! tip
+        For more information on how to enable browsing of the H2 database,
+        see [Browsing the H2 Database](../../setup/browsing-the-h2-database)
 
 6.  Restart WSO2 IS and access the travelocity.com application by
     accessing this URL:

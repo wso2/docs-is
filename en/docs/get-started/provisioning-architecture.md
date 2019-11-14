@@ -207,15 +207,6 @@ configuration.
 
 ![default-schema-configuration](../assets/img/getting-started/default-schema-configuration.png)
 
-### Enable Extension
-
-1.  Locate the **provisioning-config.xml** file in the path
-    `          [IS-HOME]/repository/conf/identity/provisioning-config.xml         `
-    .
-2.  Open the file and locate the **user-schema-extension-enabled** 
-    property. Ensure that the property value is set to **true**.
-3.  Save the file and restart the server.
-
 ### Claims Mapping
 
 Log into the Identity Server and do the claim mapping for the following
