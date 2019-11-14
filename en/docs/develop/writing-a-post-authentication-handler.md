@@ -106,15 +106,17 @@ Follow the steps given in the [sample post-authentication handler
 readme](https://github.com/wso2/samples-is/blob/master/etc/sample-post-authentication-handler/README.MD)
 to install this sample and get it working with WSO2 Identity Server. You
 can enable and disable this newly written handler using the
-configuration shown below in the
-`          <IS_HOME>/repository/conf/identity.xml         ` . You can
-also change the execution order using the `          orderId         `
-parameter. The handler with the lesser value for the
-`          orderId         ` parameter will be executed first.
+configuration shown below in the `
+<IS_HOME>/repository/conf/deployment.toml ` . You can also change the
+execution order using the ` order ` parameter. The handler with the
+lesser value for the ` order ` parameter will be executed first.
 
-``` xml
-<EventListener type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler" name="org.wso2.carbon.identity.post.authn.handler.disclaimer.DisclaimerPostAuthenticationHandler
-" orderId="899" enable="true" />
+```toml
+[[event_listener]]
+id = "custom_post_auth_listener"
+type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+name = "org.wso2.carbon.identity.post.authn.handler.disclaimer.DisclaimerPostAuthenticationHandler"
+order = 899
 ```
 
 !!! note

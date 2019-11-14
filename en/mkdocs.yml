@@ -440,6 +440,7 @@ nav:
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
+          - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': develop/carbon-remote-user-store-manager.md
           - 'Working with Errors': 
