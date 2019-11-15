@@ -4,7 +4,7 @@ This page describes the default ports that are used for each WSO2
 product when the port offset is 0. If you are running multiple WSO2
 products on the same server, you must set the
 `        offset       ` value in
-`         <PRODUCT_HOME>/repository/conf/deployment.toml      ` file to a
+`         <IS_HOME>/repository/conf/deployment.toml      ` file to a
 different value for each product so that there are no port conflicts.
 
 ``` toml
