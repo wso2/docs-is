@@ -23,15 +23,12 @@ when accessing each application until their session is terminated.
 
 This topic expands on Federated Identity and Single-Sign-On concepts.
 
-### SAML2-based SSO
+## SAML2-based SSO
 
 One of the key features in WSO2 Identity Server is SAML2-based
 Single-Sign-On (SSO) feature. This implementation complies with the
-[SAML2 Web Browser SSO
-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
-and the [Single Logout
-Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
-.
+[SAML2 Web Browser SSO profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
+and the [Single Logout Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf).
 
 Single Sign On (SSO) systems have become very popular since it is a very
 secure and convenient authentication mechanism. Google Apps can be taken
@@ -49,21 +46,7 @@ the Identity Provider in a SSO system.
 
 The following sections expand on SAML2 based SSO:
 
--   [About SSO](#EvolutionofIdentityFederationStandards-AboutSSO)
--   [SSO in
-    reality](#EvolutionofIdentityFederationStandards-SSOinreality)
--   [SAML 2.0 web browser-based SSO
-    profile](#EvolutionofIdentityFederationStandards-SAML2.0webbrowser-basedSSOprofile)
--   [SAML 2.0 SSO assertion
-    consumers](#EvolutionofIdentityFederationStandards-SAML2.0SSOassertionconsumers)
--   [\<AuthnRequest\>
-    Message](#EvolutionofIdentityFederationStandards-%3CAuthnRequest%3EMessage)
--   [\<Response\>
-    Message](#EvolutionofIdentityFederationStandards-%3CResponse%3EMessage)
--   [Identity provider initiated
-    SSO](#EvolutionofIdentityFederationStandards-IdentityproviderinitiatedSSO)
-
-#### About SSO
+### About SSO
 
 In a single sign on system there are two roles; Service Providers and
 Identity Providers (IP). The important characteristic of a single sign
@@ -96,7 +79,7 @@ configurations. This section provides information on how to configure
 the identity server and how your applications can be deployed in a SAML
 2.0 web browser based SSO system.
 
-#### SSO in reality
+### SSO in reality
 
 Single Sign On is widely used in web technologies. Google is one of the
 best examples.
@@ -108,7 +91,7 @@ Try this simple exercise,
 2.  Click on the **SIGN IN** button on the top right of the page.
 3.  Once you sign in, you are redirected to
     [www.google.com/accounts/ServiceLogin](http://www.google.com/accounts/ServiceLogin)
-    . There you are requested to enter your Username and Password. Enter
+. There you are requested to enter your Username and Password. Enter
     your Google credentials there.
 4.  Once you enter your Username and Password, you are directed back to
     [www.google.com](http://www.google.com/) where you started.
@@ -124,16 +107,17 @@ Try this simple exercise,
 9.  You are automatically signed in. You do not have to enter your
     username and password at YouTube.
 
-    **Tip** : Notice the URL of the web browser. Each time you access an
-    application, you see that you are being redirected to
-    [www.google.com/accounts/ServiceLogin](http://www.google.com/accounts/ServiceLogin)
-    and return immediately back to the website.
+    !!! info 
+		Notice the URL of the web browser. Each time you access an
+		application, you see that you are being redirected to
+		[www.google.com/accounts/ServiceLogin](http://www.google.com/accounts/ServiceLogin)
+		and return immediately back to the website.
 
 Single Sign On (SSO) allows you to sign in only once but provides access
 to multiple resources without having to re-enter your username and
 password.
 
-#### SAML 2.0 web browser-based SSO profile
+### SAML 2.0 web browser-based SSO profile
 
 SAML 2.0 Web Browser based SSO profile is defined under the SAML 2.0
 Profiles specification. SAML 2.0 provides five main specifications:
@@ -168,14 +152,12 @@ The message MUST contain an element which uniquely identifies the
 service provider who created the message. Optionally the message may
 contain elements such as, etc. More information regarding the message
 can be found in [SAML Core
-Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf)
-.
+Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf).
 
 The following diagram illustrates the scenario:
+![](..assets/img/103330622/103330623.png)
 
-![](attachments/103330622/103330623.png)
-
-#### SAML 2.0 SSO assertion consumers
+### SAML 2.0 SSO assertion consumers
 
 Service providers act as SAML assertion consumers. They have two basic
 functions:
@@ -219,7 +201,7 @@ The complete source code can be checked out
 [here](http://svn.wso2.org/repos/wso2/carbon/platform/branches/turing/products/is/4.6.0/modules/samples/sso/)
 .
 
-#### \<AuthnRequest\> Message
+### <AuthnRequest> Message
 
 To create an `         <AuthnRequest>        ` message using the
 OpenSAML library:
@@ -227,34 +209,35 @@ OpenSAML library:
 1.  Add the OpenSAML library to the build path of the project. You can
     download the open SAML JAR file from
     [here](http://code.google.com/p/saml2-consumer-module/downloads/detail?name=opensaml2-2.0.0.alpha1-wso2v1.jar)
-    .
-2.  A sample **\<AuthnRequest\>** message can be found
+.
+2.  A sample <AuthnRequest> message can be found
     [here](http://wso2.org/files/AuthRequest.xml).
+
 3.  According to SAML 2.0 specifications, the message must contain an
     element. Create the **Issuer** element first.
 
     ``` java
-        // the issuerUrl is the url of the service provider who generates the  message
-        String issuerUrl = "http://localhost:8080/saml2.demo/consumer";
-        IssuerBuilder issuerBuilder = new IssuerBuilder();
-        Issuer issuer = issuerBuilder.buildObject("urn:oasis:names:tc:SAML:2.0:assertion", "Issuer", "samlp");
-        issuer.setValue(issuerUrl);
+	// the issuerUrl is the url of the service provider who generates the  message
+	String issuerUrl = "http://localhost:8080/saml2.demo/consumer";
+	IssuerBuilder issuerBuilder = new IssuerBuilder();
+	Issuer issuer = issuerBuilder.buildObject("urn:oasis:names:tc:SAML:2.0:assertion", "Issuer", "samlp");
+	issuer.setValue(issuerUrl);
     ```
 
 4.  Create the `           <AuthnRequest>          ` next.
 
     ``` java
-        DateTime issueInstant = new DateTime();
-        AuthnRequestBuilder authnRequestBuilder = new AuthnRequestBuilder();
-        AuthnRequest authnRequest = authnRequestBuilder.buildObject("urn:oasis:names:tc:SAML:2.0:protocol", "AuthnRequest", "samlp");
-        authnRequest.setForceAuthn(new Boolean(false));
-        authnRequest.setIsPassive(new Boolean(false));
-        authnRequest.setIssueInstant(issueInstant);
-        authnRequest.setProtocolBinding("urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST");
-        authnRequest.setAssertionConsumerServiceURL(issuerUrl);
-        authnRequest.setIssuer(issuer);
-        authnRequest.setID(aRandomId);
-        authnRequest.setVersion(SAMLVersion.VERSION_20); 
+	DateTime issueInstant = new DateTime();
+	AuthnRequestBuilder authnRequestBuilder = new AuthnRequestBuilder();
+	AuthnRequest authnRequest = authnRequestBuilder.buildObject("urn:oasis:names:tc:SAML:2.0:protocol", "AuthnRequest", "samlp");
+	authnRequest.setForceAuthn(new Boolean(false));
+	authnRequest.setIsPassive(new Boolean(false));
+	authnRequest.setIssueInstant(issueInstant);
+	authnRequest.setProtocolBinding("urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST");
+	authnRequest.setAssertionConsumerServiceURL(issuerUrl);
+	authnRequest.setIssuer(issuer);
+	authnRequest.setID(aRandomId);
+	authnRequest.setVersion(SAMLVersion.VERSION_20); 
     ```
 
     The message may contain many other elements like, etc. those
@@ -263,73 +246,81 @@ OpenSAML library:
 5.  Next encode the message.
 
     ``` java
-        Marshaller marshaller = Configuration.getMarshallerFactory().getMarshaller(authnRequest);
-        Element authDOM = marshaller.marshall(authnRequest);
-    
-    
-        StringWriter rspWrt = new StringWriter();
-        XMLHelper.writeNode(authDOM, rspWrt);
-        String requestMessage = rspWrt.toString();
-                 
-        Deflater deflater = new Deflater(Deflater.DEFLATED, true);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, deflater);
-        deflaterOutputStream.write(requestMessage.getBytes());
-        deflaterOutputStream.close();
-                 
-        /* Encoding the compressed message */
-        String encodedRequestMessage = Base64.encodeBytes(byteArrayOutputStream.toByteArray(), Base64.DONT_BREAK_LINES);
-        String encodedAuthnRequest = URLEncoder.encode(encodedRequestMessage,"UTF-8").trim();
+	Marshaller marshaller = Configuration.getMarshallerFactory().getMarshaller(authnRequest);
+	Element authDOM = marshaller.marshall(authnRequest);
+
+
+	StringWriter rspWrt = new StringWriter();
+	XMLHelper.writeNode(authDOM, rspWrt);
+	String requestMessage = rspWrt.toString();
+			 
+	Deflater deflater = new Deflater(Deflater.DEFLATED, true);
+	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+	DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, deflater);
+	deflaterOutputStream.write(requestMessage.getBytes());
+	deflaterOutputStream.close();
+			 
+	/* Encoding the compressed message */
+	String encodedRequestMessage = Base64.encodeBytes(byteArrayOutputStream.toByteArray(), Base64.DONT_BREAK_LINES);
+	String encodedAuthnRequest = URLEncoder.encode(encodedRequestMessage,"UTF-8").trim();
     ```
 
 6.  Construct the redirection URL.
 
+	``` java
     redirectionUrl = identitypProviderUrl+ "?SAMLRequest=" +
     encodedRequestMessage;
+	```
 
 7.  Redirect the user to the identity provider.
 
+	``` java
     response.sendRedirect(redirectionUrl);
+	```
 
-#### \<Response\> Message
+### <Response> Message
 
-To read the `         <Response>        ` message issued by the WSO2
-Identity Server:
+To read the `         <Response>        ` message issued by the WSO2 Identity Server:
 
-1.  A sample \<Response\> message can be found
-    [here](http://wso2.org/files/Response.xml).
+1.  A sample \<Response\> message can be found [here](http://wso2.org/files/Response.xml).
+
 2.  The response message must be fetched from the request.
 
-    responseMessage = request.getParameter("SAMLResponse").toString();
+    ``` java
+	responseMessage = request.getParameter("SAMLResponse").toString();
+	```
 
 3.  The fetched “ **responseMessage** ” is unmarshaled and the SAML
     message is retrieved.
 
     ``` java
-        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-        documentBuilderFactory.setNamespaceAware(true);
-        DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = docBuilder.parse(new ByteArrayInputStream(authnReqStr.trim().getBytes()));
-        Element element = document.getDocumentElement();
-        UnmarshallerFactory unmarshallerFactory = Configuration.getUnmarshallerFactory();
-        Unmarshaller unmarshaller = unmarshallerFactory.getUnmarshaller(element);
-        Response response = (Response) unmarshaller.unmarshall(element);
+	DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+	documentBuilderFactory.setNamespaceAware(true);
+	DocumentBuilder docBuilder = documentBuilderFactory.newDocumentBuilder();
+	Document document = docBuilder.parse(new ByteArrayInputStream(authnReqStr.trim().getBytes()));
+	Element element = document.getDocumentElement();
+	UnmarshallerFactory unmarshallerFactory = Configuration.getUnmarshallerFactory();
+	Unmarshaller unmarshaller = unmarshallerFactory.getUnmarshaller(element);
+	Response response = (Response) unmarshaller.unmarshall(element);
     ```
 
 4.  The retrieved SAML 2.0 Response message can be easily processed. For
     example, lets takes the User Name or the Subject's Name Id.
 
-    String subject = response.getAssertions().get(0).getSubject()
-    .getNameID().getValue();
+    ``` java
+	String subject = response.getAssertions().get(0).getSubject()
+.getNameID().getValue();
+	```
 
 5.  Alternatively, you can retrieve the certificate.
 
-    String certificate =
-    response.getSignature().getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue();
+	``` java
+    String certificate = response.getSignature().getKeyInfo().getX509Datas().get(0).getX509Certificates().get(0).getValue();
+	```
 
 Likewise the message from the WSO2 Identity Server can be read easily.
 
-#### Identity provider initiated SSO
+### Identity provider initiated SSO
 
 To initiate IdP Initiated SSO you need to perform a HTTP GET/POST to the
 following URL (assume the registered service provider issuer ID is
@@ -346,8 +337,9 @@ parameter as follows:
 This request will authenticate and redirect the user to the URL in the
 RelayState parameter itself.
 
-Either you could have SP Initiated SSO only, or SP Initiated SSO and IdP
-Initiated SSO. You can't have IdP initiated SSO only. By design, SP
-Initiated SSO is more restrictive and secure. If a service provider is
-allowed to do IdP Initiated SSO, it would automatically imply that this
-service provider is allowed to do SP initiated SSO as well.
+!!! info 
+	Either you could have SP Initiated SSO only, or SP Initiated SSO and IdP
+	Initiated SSO. You can't have IdP initiated SSO only. By design, SP
+	Initiated SSO is more restrictive and secure. If a service provider is
+	allowed to do IdP Initiated SSO, it would automatically imply that this
+	service provider is allowed to do SP initiated SSO as well.
