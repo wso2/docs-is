@@ -10,15 +10,15 @@
 ### Configuring JMX in WSO2 Identity Server
 
 JMX is enabled in WSO2 Identity Server by default ensuring that the JMX
-server starts automatically when you start a particular product. Additionally, you can enable JMX separately for the various datasources
-that are used by the product. Once JMX is enabled, you can log in to the
-JConsole tool and monitor your product as explained in the [Monitoring WSO2 Identity Server with JConsole](#monitoring-wso2-identity-server-with-jconsole) section.
+server starts automatically. Additionally, you can enable JMX separately for the various datasources
+that are used by WSO2 IS. Once JMX is enabled, you can log in to the
+JConsole tool and monitor your WSO2 IS instance as explained in the [Monitoring WSO2 Identity Server with JConsole](#monitoring-wso2-identity-server-with-jconsole) section.
 
 #### Configuring JMX ports for the server
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) are
 configured in the `         deployment.toml        ` file (stored in the
-`         <PRODUCT_HOME>/repository/conf        ` directory) as shown
+`         <IS_HOME>/repository/conf        ` directory) as shown
 below. If required, you can update these default values.
 
 ``` toml
@@ -31,8 +31,8 @@ rmi_server_por = "11111"
 
 #### Disabling JMX for the server
 
-You can disable the JMX server for your product by setting the following
-property to ` false ` in the `deplyment.toml` file.
+You can disable the JMX server by setting the following
+property to ` false ` in the `deployment.toml` file.
 
 ```toml
 [monitoring.jmx]
@@ -43,7 +43,7 @@ rmi_server_start = false
 
 You can enable JMX for a datasource by adding the `jmxEnabled` as `true`
 element to the datasource configuration. For example, to enable JMX for
-the default Carbon datasources in your product, add the following
+the default Carbon datasources, add the following
 property to the ` deployment.toml` file (stored in the `
 <IS_HOME>/repository/conf/ ` directory).
 
@@ -72,8 +72,8 @@ instructions on [Installing the JDK](https://docs.oracle.com/javase/8/docs/techn
 First, start WSO2 Identity Server:
 
 1.  Open a command prompt and navigate to the
-    `          <PRODUCT_HOME>/bin         ` directory.
-2.  Execute the product startup script and start the server.
+    `          <IS_HOME>/bin         ` directory.
+2.  Execute the WSO2 IS startup script and start the server.
 
     ```shell tab="Linux"
     wso2server.sh
@@ -92,7 +92,7 @@ First, start WSO2 Identity Server:
         INFO {org.wso2.carbon.core.init.CarbonServerManager} -  JMX Service URL  : service:jmx:rmi://<your-ip>:11111/jndi/rmi://<your-ip>:9999/jmxrmi
         ```
 
-Once the product server is started, you can start the `JConsole        ` tool as follows:
+Once the identity server has started, you can start the `JConsole        ` tool as follows:
 
 1.  Open a command prompt and navigate to the
     `          <JDK_HOME>/bin         ` directory.
@@ -130,7 +130,7 @@ Once the product server is started, you can start the `JConsole        ` tool as
         !!! tip
             If you are logging in as the administrator, you can use the
             same administrator account that is used to log in to the
-            product's management console (`admin`/`admin`).
+            WSO2 IS management console (`admin`/`admin`).
 
         !!! note
             Make sure that the user ID you are using for JMX monitoring is
@@ -178,7 +178,7 @@ below.
 
 ![](../assets/img/53125400/57746985.png) 
 
-The **ServerAdmin** MBean is used for administering the product server
+The **ServerAdmin** MBean is used for administering the WSO2 Identity Server
 instance. There are several server attributes such as **ServerStatus**,
 **ServerData** and **ServerVersion**. 
 
@@ -210,7 +210,7 @@ The **ServerAdmin** MBean has the following operations:
 
 #### Using the ServiceAdmin MBean
 
-This MBean is used for administering services deployed in your product.
+This MBean is used for administering services deployed in WSO2 IS.
 Its attributes are as follows:
 
 | Attribute                    | Description                                                          |
@@ -268,7 +268,7 @@ Operations available in the **Statistics** MBean:
 #### Using the DataSource MBean
 
 If you have [JMX enabled for a datasource connected to the
-product](#enabling-jmx-for-a-datasource), you can
+WSO2 IS instance](#enabling-jmx-for-a-datasource), you can
 monitor the performance of the datasource using this MBean. The
 **DataSource** MBean will be listed as shown below.  
 ![](../assets/img/53125400/57747100.png) 
@@ -283,14 +283,7 @@ for instructions on how these parameters are configured for a
 datasource.  
 ![](../assets/img/53125400/57747097.png)
 
-#### Using product-specific MBeans
-
-The WSO2 product that you are using may have product-specific MBeans
-enabled for monitoring and managing specific functions. See the
-documentation for your product for detailed instructions on such
-product-specific MBeans.
-
-### Monitoring a WSO2 product with Jolokia
+### Monitoring WSO2 IS with Jolokia
 
 [Jolokia](https://jolokia.org) is a JMX-HTTP bridge, which is an
 alternative to JSR-160 connectors. It is an agent-based approach that
@@ -298,7 +291,7 @@ supports many platforms. In addition to basic JMX operations, it
 enhances JMX monitoring with unique features like bulk requests and
 fine-grained security policies.
 
-Follow the steps below to use Jolokia to monitor a WSO2 product.
+Follow the steps below to use Jolokia to monitor WSO2 IS.
 
 1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html).
     (These instructions are tested with the Jolokia OSGI Agent version
@@ -319,5 +312,5 @@ Following are a few examples.
     `http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage`
 
 For more information on the JMX MBeans that are available in WSO2
-products, see [Monitoring a WSO2 product with
+products, see [Monitoring WSO2 IS with
 JConsole](#monitoring-wso2-identity-server-with-jconsole).
