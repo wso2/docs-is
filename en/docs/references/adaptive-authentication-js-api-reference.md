@@ -6,14 +6,12 @@ user role, etc. WSO2 Identity Server allows you to define a dynamic
 authentication sequence using authentication scripts written in
 JavaScript.
 
-For more information on adaptive authentication, see [Adaptive
-Authentication](../../learn/adaptive-authentication)
+For more information on adaptive authentication, see [Adaptive Authentication](../../learn/adaptive-authentication)
 
 The following sections present the core API reference for the
 JavaScript-based conditional authentication functions and fields.
 
 !!! tip
-    
     As the authentication script is designed as a loosely typed, functional
     language similar to JavaScript, common knowledge on JavaScript may help
     you to compose effective authentication scripts.
@@ -51,7 +49,7 @@ following.
 <tr class="even">
 <td>options</td>
 <td>An optional map that can configure step execution. Authentication option filtering is supported.<br />
-For more information, see <a href="#authentication-step-filtering">authentication step filtering</a> .</td>
+For more information, see <a href="#step-filtering">authentication step filtering</a> .</td>
 </tr>
 <tr class="odd">
 <td>eventCallbacks</td>
@@ -73,11 +71,11 @@ The API can be called in either of the following ways:
     `           eventCallbacks          ` . Example:
 
     ``` java
-        executeStep(1, {
-            onSuccess: function(context) {
-                //Do something on success
-            }
-        });
+    executeStep(1, {
+        onSuccess: function(context) {
+            //Do something on success
+        }
+    });
     ```
 
 -   With the `           stepId          `,
@@ -94,11 +92,11 @@ The API can be called in either of the following ways:
     ``` java
     executeStep(1, {
         authenticatorParams: {
-                local: {
-                    SessionExecutor: {
-                        MaxSessionCount: '1'
-                                      }
-                }
+            local: {
+                SessionExecutor: {
+                    MaxSessionCount: '1'
+                                    }
+            }
         }
     });
     ```
@@ -109,10 +107,10 @@ The API can be called in either of the following ways:
         and `           options          ` .
     
 
-**  
-Authentication step filtering**
+<a name = "step-filtering"></a>
+**Authentication step filtering**
 
-Filters out some of the authentication options of a step based on some
+Filters out some of the authentication options of a step based on a
 condition. This can be achieved by specifying an array named ‘
 `         authenticationOptions        ` ’ to the
 `         options        ` map. Each array item will require an '
@@ -132,10 +130,7 @@ executeStep(1,{
 
 ### Utility functions
 
-The implementation of utility functions can be found in the [WSO2
-extensions code
-repository](https://github.com/wso2-extensions/identity-conditional-auth-functions)
-.
+The implementation of utility functions can be found in the [WSO2 extensions code repository](https://github.com/wso2-extensions/identity-conditional-auth-functions).
 
 ##### hasRole(user, role)
 
@@ -185,7 +180,7 @@ executeStep(1, {
 
 ##### removeUserRoles(user, removingRoles)
 
-This function r emoves each of the roles specified in the ‘
+This function removes each of the roles specified in the ‘
 `                   removingRoles                 ` ’ parameter to the
 given ‘ `                   user                 ` ’ object. It returns
 true if all the roles are successfully removed and returns false if
@@ -194,7 +189,7 @@ not. It includes the following parameters.
 | Parameter     | Description                                                                                      |
 |---------------|--------------------------------------------------------------------------------------------------|
 | user          | An object representing the user details.                                                         |
-| removingRoles | A list of strings that containing roles that are to be removed where each string is a role name. |
+| removingRoles | A list of strings that contains roles that are to be removed where each string is a role name. |
 
 ``` java
 executeStep(1, {
@@ -263,8 +258,7 @@ if (!isAdmin) {
 ```
 
 !!! tip
-    
-    **Tip** : When passing error messages to the error page, it is
+    When passing error messages to the error page, it is
     recommended to use the i18n key so that it can be internationalized
     easily at the page.
     
@@ -301,7 +295,6 @@ This functions sets a new cookie. It includes the following parameters.
 </table>
 
 !!! tip
-    
     The size of the value has to be less than the RSA key pair length if '
     `                   encrypt                 ` ' is enabled (set to
     true).
@@ -494,8 +487,7 @@ accessed as follows.
     information.
 
     !!! note
-    
-        **Note** : The step number is the one configured at the step
+        The step number is the one configured at the step
         configuration, not the actual order in which they get executed.
     
 
@@ -505,7 +497,7 @@ accessed as follows.
     more information.
 -   `          context.response         ` :  Access the HTTP response
     which will be sent back to the client. See [response
-    Object](#responseObject) for
+    Object](#response-object) for
     more information.
 -   `          context.serviceProviderName         ` :  Get the
     application name.
@@ -518,7 +510,7 @@ step number.
 -   `          step.subject         ` :  Contains the authenticated
     user’s information from this step. May be null if the step is not
     yet executed. See [user
-    Object](#userObject) for more
+    Object](#user-object) for more
     information.
 -   `          step.idp         ` :  Gives the Idp name which was used
     to authenticate this user.
@@ -563,14 +555,14 @@ step number.
 ##### session Object
 
 -   `          session.userAgent         ` :  This is userAgent object of the user session.. See [userAgent
-    Object](#AdaptiveAuthenticationJSAPIReference-userAgentObject) for more
+    Object](#userAgent-Object) for more
     information.
 -   `          session.ip         ` :  This is the session’s IP address.
 -   `          session.loginTime         ` :  This is the session’s last login time.
 -   `          session.lastAccessTime         ` :  This is the session’s last accessed time.
 -   `          session.id         ` :  This is the session’s id.
 -   `          session.applications         ` :  This is the list of application objects in the session. See [application
-    Object](#AdaptiveAuthenticationJSAPIReference-applicationObject) for more
+    Object](#application-object) for more
     information.
 
 ##### application Object
