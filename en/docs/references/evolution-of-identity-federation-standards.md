@@ -155,7 +155,7 @@ can be found in [SAML Core
 Specification](http://www.oasis-open.org/committees/download.php/35711/sstc-saml-core-errata-2.0-wd-06-diff.pdf).
 
 The following diagram illustrates the scenario:
-![](..assets/img/103330622/103330623.png)
+![](../assets/img/103330622/103330623.png)
 
 ### SAML 2.0 SSO assertion consumers
 
