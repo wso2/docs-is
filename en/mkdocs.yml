@@ -736,10 +736,10 @@ nav:
     - 'API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
     - 'Error Catalog': references/error-catalog.md
-    - 'Product Startup Options': administer/product-startup-options.md
-    - 'Supported Cipher Suites': administer/supported-cipher-suites.md
-    - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
-    - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
+    - 'Product Startup Options': references/product-startup-options.md
+    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md  
