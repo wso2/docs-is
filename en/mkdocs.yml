@@ -730,19 +730,16 @@ nav:
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
-    - 'Reference Guide':
-      - 'Reference Guide': administer/reference-guide.md  
-      - 'Product Startup Options': administer/product-startup-options.md
-      - 'Supported Cipher Suites': administer/supported-cipher-suites.md
-      - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
-      - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
   - 'References': 
-    - 'References': references/references.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
     - 'Error Catalog': references/error-catalog.md
+    - 'Product Startup Options': administer/product-startup-options.md
+    - 'Supported Cipher Suites': administer/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md  
