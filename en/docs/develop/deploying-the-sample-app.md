@@ -150,6 +150,7 @@ The next step is to configure the service provider.
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
 
+----------------
 
 ## Deploying playground2 webapp
 
@@ -282,6 +283,8 @@ The next step is to configure the service provider.
 7.  Click on add.
 8.  Update the service provider you have created by clicking the update button.
 
+----------------
+
 ##Deploying saml2-web-app-pickup-dispatch webapp
 
 ### Download the samples
@@ -352,6 +355,7 @@ The next step is to configure the service provider.
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
 
+----------------
 
 ## Deploying saml2-web-app-pickup-manager webapp
 

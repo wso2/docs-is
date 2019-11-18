@@ -50,4 +50,4 @@ topics for instructions:
 -   [Changing to PostgreSQL](../../setup/changing-to-postgresql)
 -   [Changing to IBM DB2](../../setup/changing-to-ibm-db2)
 -   [Changing to MariaDB](../../setup/changing-to-mariadb)
--   [Changing to Remote H2](../../setup/changing-to-remote-h2.md)
+-   [Changing to Remote H2](../../setup/changing-to-remote-h2)

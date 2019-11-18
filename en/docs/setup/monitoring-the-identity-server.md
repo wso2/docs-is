@@ -20,7 +20,7 @@ topics:
 !!! info "Recommended reading" 
     -   For a detailed list of monitoring options, see 
         -   [Monitoring Logs](../../setup/monitoring-logs)
-        -   [System Statistics](../../setup/system-statistics.md)
+        -   [System Statistics](../../setup/system-statistics)
         -   [Monitoring TCP-Based Messages](../../setup/monitoring-tcp-based-messages)
         -   [Monitoring Server Health](../../setup/monitoring-server-health)
         -   [JMX-Based Monitoring](../../setup/jmx-based-monitoring)       

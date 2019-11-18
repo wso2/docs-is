@@ -302,7 +302,7 @@ which is also used to sign and encrypt tokens.
 In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
-Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md) 
+Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
 to see the instructions on migrating the secondary userstore password to encrypt using internal keystore. 
 
 
@@ -341,7 +341,7 @@ such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml<
 configurations are handled by the a single file named 
 `deployment.toml` in the `<IS_HOME>/repository/conf` directory.
 
-Refer to the relevant feature documents and [What Has Changed](../setup/migrating-what-has-changed.md)
+Refer to the relevant feature documents and [What Has Changed](../setup/migrating-what-has-changed)
 to add the necessary configurations according to the new configuration model.
 
 !!! info

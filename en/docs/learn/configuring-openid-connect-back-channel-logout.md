@@ -87,96 +87,16 @@ in WSO2 Identity Server:
         out.  
         ![]( ../assets/img/112390325/112391344.png) 
 
-### Downloading the sample applications
+### Configuring the sample applications
 
-Follow the steps below to download playground2 and playground3 sample
-applications:
+1. Follow the steps
+[here](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)
+to download and deployplayground2 applications.
 
-1.  Create a directory called `           is-samples          ` in a
-    preferred location on your local machine.
 
-    ``` java
-    mkdir is-samples
-    ```
+2.  Make a copy of ` playground2.war `it and rename to `
+    playground3.war` in the same location described in step 1.
 
-2.  Navigate to the `           is-samples          ` directory in a
-    command prompt.
-
-    ``` java
-        cd <IS_SAMPLE_HOME>/is-samples
-    ```
-
-3.  Initialize the `           is-samples          ` directory as a Git
-    repository.
-
-    ``` java
-        git init
-        git remote add -f origin https://github.com/wso2/product-is.git
-        git config core.sparseCheckout true
-    ```
-
-4.  Navigate to the `           .git/info          ` directory and list
-    the folders/files you want to check out by executing the echo
-    command.
-
-    ``` java
-        cd .git
-        cd info
-        echo "modules/samples/" >> sparse-checkout
-    ```
-
-5.  Navigate out of the `           .git/info          ` directory and
-    check out the v5.8.0 tag to update the empty repository with the
-    remote one.
-
-    ``` java
-        cd ..
-        cd ..
-        git checkout -b v5.8.0 v5.8.0
-    ```
-
-6.  Navigate to the
-    `           is-samples/modules/samples/sso/sso-agent-sample          `
-    directory.
-
-    ``` java
-        cd <IS_SAMPLES_HOME>/is-samples/modules/samples/oauth2
-    ```
-
-7.  Build the sample applications by executing the following command:
-
-    ``` java
-        mvn clean install
-    ```
-
-    Note that the `           playgroud2.war          ` file of the
-    sample applications is generated in the
-    `           target          ` folder.
-
-8.  Make a copy of it and rename to `          playground3.war         `
-    .
-
-You have successfully created `         .war        ` files. Next, you
-will deploy them in an application server.
-
-### Deploying the sample applications
-
-Follow the steps below to deploy the sample applications:
-
-1.  If you have not downloaded Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi).
-2.  Copy the `          playground2.war         ` and
-    `          playground3.war         ` files into the
-    `          <TOMCAT_HOME>/apache-tomcat-<version>/webapps         `
-    directory.
-3.  Start the Tomcat server. Note that the
-    `          playground2.war         ` and
-    `          playground3.war         ` are deployed in the
-    `          /webapps         ` directory.
-
-You have successfully deployed the sample web applications. Next, you
-will test OpenID Connect back-channel logout with these sample
-applications.
 
 ### Testing OpenID Connect back-channel logout with the sample applications
 

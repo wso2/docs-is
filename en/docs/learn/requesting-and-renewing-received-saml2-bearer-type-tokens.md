@@ -74,8 +74,8 @@ simulation of the scenario.
 Do the following to configure this.
 
 1.  Run WSO2 Identity Server on the default port (9443). See the
-    [Installation Guide](../../setup/installation-guide) guide for information on
-    how to download and run the product.
+    [Installation Guide](../../setup/installing-the-product) guide for
+    information on how to download and run the product.
 2.  Navigate to the resident identity provider section from **Main**
     menu, by clicking **Resident** under **Identity Providers.**
 3.  Expand the **Security Token Service Configuration** section under

@@ -2859,17 +2859,6 @@ given below.
 </tbody>
 </table>
 
-!!! note
-    
-    If the OverrideUsernameClaimFromInternalUsername property in
-    `         user-mgt.xml        ` in
-    `         <IS_HOME>/repository/conf/identity        ` is enabled, the
-    Username claim is populated even when SCIM is not enabled.
-    
-    ``` java
-    <OverrideUsernameClaimFromInternalUsername>true</OverrideUsernameClaimFromInternalUsername>
-    ```
-    
 !!! info
 	More information about how to secure the REST APIs and configure
 	authorization level can be found from [Authenticating and Authorizing
