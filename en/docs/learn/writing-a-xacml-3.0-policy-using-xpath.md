@@ -1,42 +1,39 @@
-# Writing an XACML 3.0 Policy Using XPath
+# Writing a XACML 3.0 Policy Using XPath
 
 XPath is a major element in the XSLT standard and it is a syntax for
 defining parts of an XML document. XPath can be used to navigate
 through elements and attributes in an XML document.
 
-XPath is plays an important role in XACML when policies are evaluated for
-XML based data. When XML data is passed across nodes, PEP can be an
+XPath plays an important role in XACML when policies are evaluated for
+XML-based data. When XML data is passed across nodes, PEP can be an
 interception point that calls the PDP with parsing XML data. Based on
 the XML data, PDP can take decisions.  Let's see how we can develop a
-simple policy that can be used to evaluate an XML data.
+simple policy that can be used to evaluate XML data.
 
   
-
-### Sample scenario
+## Sample scenario
 
 -   There is a healthcare application called "Medicom" where the online registered
-    user (patient, doctor, etc.) can examine patient data.
--   The patient data store returns any data that is requested for given
-    patient id, regardless of the login user to the application.
+    user (patient, doctor, etc.) can examine patients' data.
+-   The patient datastore returns the data that is requested for the given
+    patient id, regardless of the logged in user of the application.
 -   Medicom has an authorization interceptor (PEP) between their web
     application and patient data store.  PEP would authorize the
     requested data by calling to a PDP.
--   One authorization rule is “Users can only read his own patient data”.
+-   The authorization rule here is that **users can only read their own patients' data**.
 
-  
 
-### Sample XACML policy
+## Sample XACML policy
 
-According to our usecase, it says “User can only read his own patient
-data”. For example,  if you log in to the Medicom web application with patient
-id “bob” then you can only read patient data that is stored for “bob”.
+According to our usecase, it says “Users can only read their own patients'
+data”. For example, if you log in to the Medicom web application with patient
+id “bob” then you can only read the data that is stored for “bob”.
 
 The code given below shows a sample policy that is written to match the
 **resources** relevant to a specific **patientId.**
 
 !!! note
-    
-        Here, the XPath evaluation is done with respect to the content element and it checks for a matching value. The content element has been bound to the  custom namespace and prefix eg: Path="//ak:record/ak:patient/ak:patientId/text()"
+	Here, the XPath evaluation is done with respect to the content element and it checks for a matching value. The content element has been bound to the  custom namespace and prefix eg: Path="//ak:record/ak:patient/ak:patientId/text()"
     
 **Policy: XML**
 
@@ -75,35 +72,32 @@ The code given below shows a sample policy that is written to match the
 </Policy>
 ```
 
-### Deploy and publish the policy
+## Deploy and publish the policy
 
 1.  Start WSO2 Identity Server and Log in to the management console.
 
-2.  Go to **Policy Administration** under **PAP** in **Main** and Click
+2.  Go to **Policy Administration** under **PAP** in **Main** and click
     on **Add New Entitlement Policy.**
 
-3.  Next Click on **Import Existing Policy.**  
+3.  Next click on **Import Existing Policy.**  
     ![import-existing- policy-xacml](../assets/img/tutorials/import-existing- policy-xacml.png) 
 
 4.  Save the above sample policy to a file and import it as follows by
-    clicking " **upload** ".  
+    clicking **upload**.  
     ![upload-existing-xacml-policy](../assets/img/tutorials/upload-existing-xacml-policy.png)
 
 5.  Once it is uploaded, you can see the added policy in the policy
-    view. Publish it to PDP so that we can evaluate that policy with
+    view. Publish it to PDP so that we can evaluate the policy with
     sample requests.
     ![publish-xpath-policy-to-pdp](../assets/img/tutorials/publish-xpath-policy-to-pdp.png)  
 
-####    Evaluate the Policy
+###    Evaluate the Policy
 
 The easiest way to evaluate the poilcy is to use the **Try It** tool available in our
 **Tools** menu in WSO2 Identity Server.
 
 !!! note
-    You can follow the following steps given
-    [here](../../learn/evaluating-a-xacml-policy) to
-    try this using the Try It tool.
-    
+    You can follow the steps given [here](../../administer/evaluating-a-xacml-policy) to try this using the Try It tool.
 
 <table>
 <colgroup>
