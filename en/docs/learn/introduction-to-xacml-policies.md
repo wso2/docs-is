@@ -1,19 +1,15 @@
-# Writing XACML policies in WSO2 Identity Server - 1
+# Introduction to XACML Policies
 
-This page explains how to write policies in XACML for WSO2 Identity
+This page guides you through writing XACML policies for WSO2 Identity
 Server.
 
-!!! note
+!!! note "Before you begin"
     
-    Before you begin,
-    
-    Before start writing an XACML policy. It is better to get an
-    understanding of XACML architecture, XACML language, and syntax. If you
-    are a beginner, Please follow the following documentation before you
-    start writing XACML policies.
+    If you are a beginner, follow the documentation given below to gain a better 
+    understanding of XACML architecture, XACML language, and syntax before you start writing XACML policies. 
     
     -   [Why we need XACML and the XACML
-        architecture.](../../get-started/access-control-and-entitlement-management#why-xacml)
+        architecture](../../get-started/access-control-and-entitlement-management#why-xacml)
     -   [XACML Policy language and
         Syntax](../../get-started/access-control-and-entitlement-management#xacml-policy-language-structure-and-syntax)
   
@@ -21,21 +17,21 @@ Server.
 A policy has an identifier, a rule-combining algorithm, a description, a
 target, and a set of rules.
 
-``` java
-<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy"
-      RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable"
-      xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+``` xml
+<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy" 
+RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" 
+xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
 
-      <Description>Sample XACML Authorization Policy.</Description>
+  <Description>Sample XACML Authorization Policy.</Description>
 
-      <Target>...</Target>
+  <Target>...</Target>
 
-      <Rule>...</Rule>
+  <Rule>...</Rule>
 
-    </Policy>
+</Policy>
 ```
 
-A policy may contain multiple "Rules," each of which may evaluate to
+A policy may contain multiple "Rules" - each of which may evaluate to
 different access control decisions. XACML needs some way of reconciling
 the decisions each rule makes.
 
@@ -43,16 +39,16 @@ This reconciliation is achieved through a collection of "Combining
 Algorithms."
 
 Each algorithm represents a different way of combining multiple
-decisions, evaluated through different rules, into a single decision.
+decisions that are evaluated through different rules, into a single decision.
 
 The following rule-combining algorithms are defined in XACML 2.0.
 
-``` java
+``` xml
 urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:deny-overrides
-    urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:permit-overrides
-    urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable
-    urn:oasis:names:tc:xacml:1.1:rule-combining-algorithm:ordered-denyoverrides
-    urn:oasis:names:tc:xacml:1.1:rule-combining-algorithm:ordered-permitoverrides
+urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:permit-overrides
+urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable
+urn:oasis:names:tc:xacml:1.1:rule-combining-algorithm:ordered-denyoverrides
+urn:oasis:names:tc:xacml:1.1:rule-combining-algorithm:ordered-permitoverrides
 ```
 
 When
@@ -60,7 +56,7 @@ When
 is the rule-combining algorithm, it will pick the first applicable rule
 from the defined set of Rules.
 
-Once an XACML request is received at the PDP, it needs to find a policy
+Once a XACML request is received at the PDP, it needs to find a policy
 that applies to the corresponding request.
 
 To do this, XACML uses the element `         Target        ` .
@@ -75,29 +71,29 @@ Once a `         Target        ` is directly defined under the
 `         Policy        ` element, it defines the set of conditions that
 must be met to pick that `         Policy        ` .
 
-``` java
-<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy"
-      RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable"
-      xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+``` xml
+<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy" 
+RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" 
+xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
 
-      <Description>Sample XACML Authorization Policy.</Description>
+  <Description>Sample XACML Authorization Policy.</Description>
 
-      <Target>
+  <Target>
 
-        <Subjects>...</Subjects>
-        <Resources>...</Resources>
-        <Actions>...</Actions>
+    <Subjects>...</Subjects>
+    <Resources>...</Resources>
+    <Actions>...</Actions>
 
-      </Target>
+  </Target>
 
-      <Rule>...</Rule>
+  <Rule>...</Rule>
 
-    </Policy>
+</Policy>
 ```
 
-Please study the examples given below.
+Study the examples given below.
 
-### The first example
+### Scenario one
 
 A policy will be picked for a request having any
 `         Subject        `, `         Action,        ` or
@@ -105,79 +101,79 @@ A policy will be picked for a request having any
 `                   http://localhost:8280/services/echo/                 `
 .
 
-``` java
-<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy"
-      RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable"
-      xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+``` xml
+<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy" 
+RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" 
+xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
 
-      <Description>Sample XACML Authorization Policy.</Description>
+  <Description>Sample XACML Authorization Policy.</Description>
 
-      <Target>
+  <Target>
 
-        <Subjects> <AnySubject/> </Subjects>
+    <Subjects> <AnySubject/> </Subjects>
 
-        <Resources>
-          <Resource>
-            <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
-            <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://localhost:8280/services/echo/</AttributeValue>
-            <ResourceAttributeDesignator
-              AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
-              DataType="http://www.w3.org/2001/XMLSchema#string"/>
-            </ResourceMatch>
-          </Resource>
-        </Resources>
+    <Resources>
+      <Resource>
+        <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
+        <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">http://localhost:8280/services/echo/</AttributeValue>
+        <ResourceAttributeDesignator
+          AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+          DataType="http://www.w3.org/2001/XMLSchema#string"/>
+        </ResourceMatch>
+      </Resource>
+    </Resources>
 
-        <Actions> <AnyAction/> </Actions>
+    <Actions> <AnyAction/> </Actions>
 
-      </Target>
+  </Target>
 
-      <Rule>...</Rule>
+  <Rule>...</Rule>
 
-    </Policy>
+</Policy>
 ```
 
-For the time being, let's not worry too much about the
+For now, let's not worry too much about the
 `         <Resources/>        ` element.
 
 ------------------------------------------------------------------------
 
-### The second example
+### Scenario two
 
 Here, the `         Target        ` is applied to the
 `         Rule        `, not to the entire `         Policy        ` .
 
-``` java
-<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy"
-      RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable"
-      xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
+``` xml
+<Policy PolicyId="urn:sample:xacml:2.0:samplepolicy" 
+RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" 
+xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os">
 
-      <Description>Sample XACML Authorization Policy.</Description>
+  <Description>Sample XACML Authorization Policy.</Description>
 
-      <Rule Effect="Permit" RuleId="primary-access-rule">
+  <Rule Effect="Permit" RuleId="primary-access-rule">
 
-        <Target>
+    <Target>
 
-          <Subjects> <AnySubject/> </Subjects>
+      <Subjects> <AnySubject/> </Subjects>
 
-          <Resources>
-            <Resource>
-              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
-              <AttributeValue
-                DataType="http://www.w3.org/2001/XMLSchema#string">http://localhost:8280/services/echo/</AttributeValue>
-              <ResourceAttributeDesignator
-                AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
-                DataType="http://www.w3.org/2001/XMLSchema#string"/>
-              </ResourceMatch>
-            </Resource>
-          </Resources>
+      <Resources>
+        <Resource>
+          <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-regexp-match">
+          <AttributeValue
+            DataType="http://www.w3.org/2001/XMLSchema#string">http://localhost:8280/services/echo/</AttributeValue>
+          <ResourceAttributeDesignator
+            AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"
+            DataType="http://www.w3.org/2001/XMLSchema#string"/>
+          </ResourceMatch>
+        </Resource>
+      </Resources>
 
-          <Actions> <AnyAction/> </Actions>
+      <Actions> <AnyAction/> </Actions>
 
-        </Target>
+    </Target>
 
-      </Rule>
+  </Rule>
 
-    </Policy>
+</Policy>
 ```
 
 ------------------------------------------------------------------------
@@ -196,13 +192,13 @@ applicable to an incoming request is by evaluating the
 These are ANDed together and the rule's effect is achieved if the ANDed
 value is `         TRUE        ` .
 
-``` java
+``` xml
 <Rule Effect="Permit" RuleId="primary-access-rule">
 
-      <Target>...</Target>
-      <Condition>...</Condition>
+  <Target>...</Target>
+  <Condition>...</Condition>
 
-    </Rule>
+</Rule>
 ```
 
 A policy contains one or more Rules. Each rule has a
@@ -239,23 +235,23 @@ to be applicable to an entire `         Policy        `, then the
 `         Condition        ` must be repeated in every
 `         Rule        ` in that `         Policy        ` .
 
-### The Third Example
+### Scenario three
 
 Let's say you need to restrict users based on their attributes. For
 example, a given user has an `         accessList        ` attribute and
 you want to restrict access to a given resource based on the
 `         accessList        ` .
 
-``` java
+``` xml
 <Condition>
-      <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-at-least-one-member-of">
-        <SubjectAttributeDesignator AttributeId="accessList" DataType="http://www.w3.org/2001/XMLSchema#string"/>
-        <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
-          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">nurses</AttributeValue>
-          <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">doctors</AttributeValue>
-        </Apply>
-      </Apply>
-    </Condition>
+  <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-at-least-one-member-of">
+    <SubjectAttributeDesignator AttributeId="accessList" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+    <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">nurses</AttributeValue>
+      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">doctors</AttributeValue>
+    </Apply>
+  </Apply>
+</Condition>
 ```
 
 ##### The "Apply" element
@@ -273,8 +269,8 @@ applied to the results of the inner function. In other words, the final
 condition says: "If you want to access the resource, you have to be a
 member of `         doctors        ` or `         nurses        ` ."
 
-Since you have got a clear idea of what is an XACML request and the
-elements of an XACML request, Now you can easily write an XACML policy
-using the policy editors available in WSO2 Identity Server. Please read
+Now that you have a clearer idea of what a XACML request is and the
+elements of a XACML request, you can easily write a XACML policy
+using the policy editors available in WSO2 Identity Server. For instructions, see 
 [Creating a XACML
 Policy](../../learn/creating-a-xacml-policy).

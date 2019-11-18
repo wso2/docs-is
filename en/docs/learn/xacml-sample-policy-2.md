@@ -1,6 +1,6 @@
-# Writing XACML policies in WSO2 Identity Server - 3
+# XACML Sample Policy - 2 
 
-This page addresses the following authorization requirements:
+This topic demonstrates an example of a XACML policy that addresses the following authorization requirements:
 
 1.  The operation `          getCustomers         ` in the service "
     http://localhost:8280/services/Customers " should only be accessed
@@ -11,7 +11,7 @@ This page addresses the following authorization requirements:
     by users belonging to the `          admin_emps         ` group.
 3.  Requests to any other service or operation should fail.
 
-``` java
+``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os"  PolicyId="urn:sample:xacml:2.0:samplepolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
    <Description>Sample XACML Authorization Policy</Description>
    <Target></Target>
@@ -78,13 +78,13 @@ This page addresses the following authorization requirements:
 The following are a few valid requests which will result in "Permit/Not
 Applicable/Deny" once evaluated against the above policy.
 
-### The First XACML Request
+### Request one
 
 -   **Resource** - http://localhost:8280/services/Customers/getCustomers
 -   **User** - "admin" belongs only to the "admin\_customers" group
 -   **Result** - Permit
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
@@ -113,13 +113,13 @@ Applicable/Deny" once evaluated against the above policy.
     </Request>
 ```
 
-### The Second XACML Request
+### Request two
 
 -   **Resource** - http://localhost:8280/services/Customers/getCustomers
 -   **User** - "admin" belongs only to the "admin\_emps" group
 -   **Result** - Deny
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
