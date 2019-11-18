@@ -398,14 +398,12 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
-          - '2-legged OAuth for Securing a RESTful Service': learn/2-legged-oauth-for-securing-a-restful-service.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
             - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
@@ -418,6 +416,7 @@ nav:
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
           - 'Implicit Client Profile with Playground': learn/implicit-client-profile-with-playground.md
+          - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
         - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md

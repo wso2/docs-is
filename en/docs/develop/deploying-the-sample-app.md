@@ -16,7 +16,7 @@ sample application (travelocity).
     configuring the authenticators or connectors with this sample
     application.
     
-##Deploying travelocity webapp
+## Deploying travelocity webapp
 
 ### Download the samples
 
@@ -151,7 +151,7 @@ The next step is to configure the service provider.
     Now you are sent back to the Service Providers page.
 
 
-##Deploying playground2 webapp
+## Deploying playground2 webapp
 
 ### Download the samples
 
@@ -173,13 +173,73 @@ Deploy this sample web app on a web container.
     .
 2.  Start the Tomcat server.
 
-To check the sample application, navigate to
-`http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2.jsp`
-on your browser.
+!!! note 
+	To check the sample application, navigate to
+	`http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2.jsp`
+	on your browser.
 
-For example,
-`http://localhost:8080/playground2/oauth2.jsp`
+	For example,
+	`http://localhost:8080/playground2/oauth2.jsp`
 
+3.	Make sure to update the `                    param-value                   `
+	parameter in the
+	`                    WEB-INF/web.xml                   `
+	file with the server URL of the Identity Server if
+	required.  
+	Make sure to enter the port the application is running on,
+	in the URL. If you have started the Identity Server with a
+	port off set, then the respective port needs to be
+	configured here.
+
+	``` java
+	<init-param>
+		<description>serverUrl</description>
+		<param-name>serverUrl</param-name>
+		<param-value>https://localhost:9443/services/</param-value>
+	</init-param>
+	```
+	
+	!!! info 
+		Note that localhost is the server that hosts WSO2 Identity
+		Server and 9443 is the default SSL port of it. Since playground application is accessing the admin
+		service OAuth2TokenValidationService, you should have the
+		correct serverUrl, username and password.
+		
+4.	Update
+	**`                     param-value                    `**
+	parameter with credentials of an admin user if required.
+
+	``` java
+	<init-param>
+		<description>userName</description>
+		<param-name>userName</param-name>
+		<param-value>admin</param-value>
+	</init-param>
+	<init-param>
+		<description>password</description>
+		<param-name>password</param-name>
+		<param-value>admin</param-value>
+	</init-param>
+	```
+
+5.	Restart Apache Tomcat and access
+	`                    http://wso2is.local:8080/playground2/                   `  
+	By default Tomcat runs on port 8080. If you have configured
+	it to run on a different port make sure to update the URL
+	and access the playground application.  
+	You are directed to the landing page of the sample
+	application. Click on **Import Photos** and the following
+	page appears.  
+	![](../assets/img/103329944/103329945.png)
+
+!!! note "Are you getting the error that is given below?"
+	``` java
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: 			sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	```
+	The sample applications do not have a keystore in them.
+	Therefore, after changing the tomcat hostname you might get this
+	error because the public key of the WSO2 Identity Server does
+	not exist in the Java certificate store.
     
 ### Configuring Service Provider
 
@@ -200,7 +260,6 @@ The next step is to configure the service provider.
 5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
         
     !!! note
-    
         The grant type highlighted below is a **custom** grant type. This
         will only appear on the UI if you have [configured the JWT grant
         type](../../develop/jwt-grant-type-for-oauth2). The value specified as the `name`
@@ -294,7 +353,7 @@ The next step is to configure the service provider.
     Now you are sent back to the Service Providers page.
 
 
-##Deploying saml2-web-app-pickup-manager webapp
+## Deploying saml2-web-app-pickup-manager webapp
 
 ### Download the samples
 

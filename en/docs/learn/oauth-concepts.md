@@ -134,9 +134,6 @@ oauth_nonce="kllo9940pd9333jh",
 oauth_version="1.0" 
 ```
 
-See [here](../../learn/2-legged-oauth-for-securing-a-restful-service) to know how
-to use 2-legged OAuth with OAuth 1.0 to secure a RESTful service.
-
 #### OAuth 2.0
 
 [This specification](https://tools.ietf.org/html/rfc6749) defines

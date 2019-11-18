@@ -1,14 +1,12 @@
-# Working with ACR and AMR
+# Authentication Context Class Reference (ACR)  and Authentication Method Reference (AMR)
 
-Explore the following sections to learn about Authentication Class Reference (ACR) and Authentication Method Reference (AMR) and how they are used in WSO2 Identity Server for adaptive authentication. 
+!!! Tip 
+    You may first try the sample [Configuring ACR-Based Adaptive
+    Authentication](../../learn/configuring-acr-based-adaptive-authentication) as a quick start
 
-### About ACR and AMR
+#### What is ACR 
 
-Let's learn about ACR and AMR.
-
-#### What is ACR
-
-ACR is an optional parameter that is used in SAML and OpenID Connect (OIDC) requests. This parameter enables the service providers to send additional information to the identity provider so that the identity provider can enforce additional assurance in the user authentication flow, i.e., it would indicate the business rules that are required to be satisfied during authentication. In certain contexts, ACR is referred to as the level of assurance (LoA).
+Authentication Context Class Reference (ACR) is an optional parameter that is used in SAML and OpenID Connect (OIDC) requests. This parameter enables the service providers to send additional information to the identity provider so that the identity provider can enforce additional assurance in the user authentication flow, i.e., it would indicate the business rules that are required to be satisfied during authentication. In certain contexts, ACR is referred to as the level of assurance (LoA).
 
 Even though the ACR values and their interpretations are not defined by any specification, there are common, recommended ACR values widely-accepted by the industry (see below). 
 
@@ -50,7 +48,7 @@ Even though the ACR values and their interpretations are not defined by any spec
 You can also define new ACR values and their meanings to fit your requirements.
 
 #### What is AMR
-AMR provides information about the authentication methods that are used to assert users authenticity. It provides information about the session activities that took place while authenticating a user.
+Authentication Method Reference (AMR) provides information about the authentication methods that are used to assert users authenticity. It provides information about the session activities that took place while authenticating a user.
 
 #### ACR vs. AMR
 While ACR denotes the set of business rules that must be satisfied during authentication, AMR denotes the authentication methods that can be used to satisfy these business rules.
@@ -276,54 +274,6 @@ Follow the steps below to try the scenario without using an application:
 	
 	Note that the AMR values in this example are 	`DemoFaceIdAuthenticator`	, 	`BasicAuthenticator`	, and 	`DemoFingerprintAuthenticator`. These are the authenticators that are used in the authentication process.
 
-#### Translating AMR values
-Follow the steps below to translate the AMR values that get returned to the authentication process.
-
-1. Open the `identity.xml` file in the `<IS_HOME>/repository/conf/identity` directory.
-
-2. Add the following fragment to the root level, i.e., `<Server>` level. 
-
-	!!!	note 
-
-	   	-	The uri should either be according to the [AMR draft specification](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-04) or should be the value you prefer to have as the amr in the ID token. 
-
-	   	-	You may add the `xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance` attribute to prevent the relevant AMR being available on the ID token.
-
-		```
-		<AuthenticationContext>
-		        <MethodRefs>
-		            <MethodRef uri="pwd" method="BasicAuthenticator"  />
-		            <MethodRef uri="fpt" method="DemoFingerprintAuthenticator"  />
-		            <MethodRef uri="user" method="DemoFaceIdAuthenticator"  />
-		            <MethodRef uri="hwk" method="DemoHardwareKeyAuthenticator"  />
-		            <MethodRef method="AuthenticatorToBeHiddenFromAMR" xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
-		        </MethodRefs>
-		</AuthenticationContext>
-		```
-3. Restart WSO2 Identity Server.
-
-4. To generate an ID token, repeat steps in the previous section. Note that an ID token similar to below gets generated.
-
-	``` 
-	{
-	  "at_hash": "6OXwfxJaTWYC56RccEhSJg",
-	  "aud": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-	  "acr": "LOA3",
-	  "c_hash": "lDj9nihZGSUmgNmz_lxxXA",
-	  "sub": "admin",
-	  "nbf": 1548396413,
-	  "azp": "EUVvhKM28RkwTQL9A52kqXnfCj8a",
-	  "amr": [
-	    "pwd",
-	    "hwk",
-	    “user”
-	  ],
-	  "iss": "https://localhost:9443/oauth2/token",
-	  "exp": 1548400013,
-	  "iat": 1548396413
-	}
-	```
-
 ### FAQ
 
 1. **Can I define my own URI as the ACR**
@@ -331,11 +281,6 @@ Follow the steps below to translate the AMR values that get returned to the auth
 
 	!!! note 
 		When sending the URI via HTTP URL, make sure to encode with URL encoding.
-
-2. **Can I define my own URI as the AMR**
-	Yes. Any internal representation that is available in the AMR array, e.g. BasicAuthenticator can be translated to any URI of your choice. This is a system-wide configuration. For more information, see [Translating AMR](#translating-amr-values) values above. 
-
-
 
 
 
