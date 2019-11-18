@@ -23,14 +23,13 @@ in a different Tomcat Server).
     of the existing `authenticationendpoint` in the
     `<WebApp_HOME>/authenticationendpoint` location.
     
-    !!! Note 
-        Addition to the services available in the
-        `authenticationendpoint` , for its full functionality,
-        `authenticationendpoint` uses set of library services running in the
-        WSo2 Identity Server. As you decouple the web-application from the
-        Identity Server,you need to include those supporting services in the
-        external webapp container. Steps 2 to 7 describe the library
-        services that you need to copy.
+    !!! Note Addition to the services available in the
+    `authenticationendpoint` , for its full functionality,
+    `authenticationendpoint` uses set of library services running in the
+    WSo2 Identity Server. As you decouple the web-application from the
+    Identity Server,you need to include those supporting services in the
+    external webapp container. Steps 2 to 6 describe the library
+    services that you need to copy.
     
 2.  Copy the following .jar files from the
   `<IS_HOME>/repository/components/plugins/` directory to the
@@ -129,20 +128,12 @@ in a different Tomcat Server).
     !!! abstract "`<IS_HOME>/lib/`"
         ```java
         xercesImpl-*.jar
-        ```
-    
-6.  Copy the following .jar files from the `<IS_HOME>/lib/endorsed/`
-    directory to the `<WebApp_HOME>/authenticationendpoint/WEB-INF/lib`
-    directory. 
-    
-    !!! abstract "`<IS_HOME>/lib/endorsed/`"
-        ```java
         xercesImpl-*.jargeronimo-jta_*.jar
         stax2-api-*.jar
         woodstox-core-asl-*.jar
         ```
     
-7.  Copy the following .jar files from the
+6.  Copy the following .jar files from the
     `<IS_HOME>/repository/components/tools/forget-me/lib/` directory to
     the `<WebApp_HOME>/authenticationendpoint/WEB-INF/lib` directory.
 
@@ -157,9 +148,9 @@ in a different Tomcat Server).
         configurations for the externalized endpoint to communicate with
         WSO2 Identity Server and vice versa.
 
-8.  Uncomment following section in `
-    <WebApp_HOME>/authenticationendpoint/WEB-INF/web.xml ` and point to
-    identity server URLs.
+7.   Uncomment following section in `
+     <WebApp_HOME>/authenticationendpoint/WEB-INF/web.xml ` and point to
+     identity server URLs.
     
     !!! abstract "`<WebApp_HOME>/authenticationendpoint/WEB-INF/web.xml`"
             ```xml 
@@ -180,8 +171,8 @@ in a different Tomcat Server).
             ... 
             ```
 
-9.  Set the following configuration in
-    `<IS_HOME>/repository/conf/identity/deployment.toml ` file.
+8.  Set the following configuration in
+   `<IS_HOME>/repository/conf/identity/deployment.toml ` file.
 
     ```toml
     [authentication.endpoints] 
@@ -194,9 +185,9 @@ in a different Tomcat Server).
         hostname of the external webapp container and `$WEB_SERVER_PORT`
         refers to the corresponding port.
 
-10. Change the following configuration in `
-    <IS_HOME>/repository/conf/identity/identity.xml ` file to point to the
-    authentication endpoint hosted outside the wso2 server.
+9. Change the following configuration in `
+  <IS_HOME>/repository/conf/identity/identity.xml ` file to point to the
+  authentication endpoint hosted outside the wso2 server.
 
     !!! abstract "`<IS_HOME>/repository/conf/deployment.toml`"        
         ```toml
@@ -220,7 +211,7 @@ in a different Tomcat Server).
         retry= "https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/retry.do"
         ```
 
-11. Import the public certificate of the identity server to the `javaca
+10. Import the public certificate of the identity server to the `javaca
     certs` (or web-serverstruststore) of the JVM that the
     `authenticationendpoint` is running.
 
@@ -234,8 +225,8 @@ in a different Tomcat Server).
         keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
         ```
 
-7.  Import the public certificate of the Web\_server’s keystore to the
-    Identity Server truststore.
+11.  Import the public certificate of the Web server’s keystore to the
+     Identity Server truststore.
 
     !!! abstract "`export`' the wepbapp server's public key and `import` to WSO2 Identity Server's trust-store"
         
