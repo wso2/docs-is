@@ -16,13 +16,13 @@ Identity Server.
 
 For detailed information, visit the following pages:
 
--   [Introduction to XACML Policies](../../learn/introduction-to-xacml-policies)
--   [XACML Sample Policy - 1](../../learn/xacml-sample-policy-1)
--   [XACML Sample Policy - 2](../../learn/xacml-sample-policy-2)
--   [XACML Sample Policy - 3](../../learn/xacml-sample-policy-3)
--   [XACML Sample Policy - 4](../../learn/xacml-sample-policy-4)
--   [XACML Sample Policy - 5](../../learn/xacml-sample-policy-5)
--   [XACML Sample Policy - 6](../../learn/xacml-sample-policy-6)
+-   [Introduction to XACML 2.0 Policies](../../learn/introduction-to-xacml-2.0-policies)
+-   [XACML 2.0 Sample Policy - 1](../../learn/xacml-2.0-sample-policy-1)
+-   [XACML 2.0 Sample Policy - 2](../../learn/xacml-2.0-sample-policy-2)
+-   [XACML 2.0 Sample Policy - 3](../../learn/xacml-2.0-sample-policy-3)
+-   [XACML 2.0 Sample Policy - 4](../../learn/xacml-2.0-sample-policy-4)
+-   [XACML 2.0 Sample Policy - 5](../../learn/xacml-2.0-sample-policy-5)
+-   [XACML 2.0 Sample Policy - 6](../../learn/xacml-2.0-sample-policy-6)
 
   
 !!! info

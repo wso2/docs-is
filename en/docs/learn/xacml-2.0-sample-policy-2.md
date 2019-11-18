@@ -1,4 +1,4 @@
-# XACML Sample Policy - 2 
+# XACML 2.0 Sample Policy - 2 
 
 This topic demonstrates an example of a XACML policy that addresses the following authorization requirements:
 

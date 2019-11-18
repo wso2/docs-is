@@ -1,4 +1,4 @@
-# Introduction to XACML Policies
+# Introduction to XACML 2.0 Policies
 
 This page guides you through writing XACML policies for WSO2 Identity
 Server.

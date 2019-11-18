@@ -201,13 +201,13 @@ nav:
           - 'Integrating WSO2 Identity Server with Liferay': learn/integrating-wso2-identity-server-with-liferay.md
           - 'Writing XACML2.0 Policies in WSO2 Identity Server':
             - 'Writing XACML2.0 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
-            - 'Introduction to XACML Policies': learn/introduction-to-xacml-policies.md
-            - 'XACML Sample Policy - 1': learn/xacml-sample-policy-1.md
-            - 'XACML Sample Policy - 2': learn/xacml-sample-policy-2.md
-            - 'XACML Sample Policy - 3': learn/xacml-sample-policy-3.md
-            - 'XACML Sample Policy - 4': learn/xacml-sample-policy-4.md
-            - 'XACML Sample Policy - 5': learn/xacml-sample-policy-5.md
-            - 'XACML Sample Policy - 6': learn/xacml-sample-policy-6.md
+            - 'Introduction to XACML 2.0 Policies': learn/introduction-to-xacml-2.0-policies.md
+            - 'XACML 2.0 Sample Policy - 1': learn/xacml-2.0-sample-policy-1.md
+            - 'XACML 2.0 Sample Policy - 2': learn/xacml-2.0-sample-policy-2.md
+            - 'XACML 2.0 Sample Policy - 3': learn/xacml-2.0-sample-policy-3.md
+            - 'XACML 2.0 Sample Policy - 4': learn/xacml-2.0-sample-policy-4.md
+            - 'XACML 2.0 Sample Policy - 5': learn/xacml-2.0-sample-policy-5.md
+            - 'XACML 2.0 Sample Policy - 6': learn/xacml-2.0-sample-policy-6.md
           - 'Writing XACML3 Policies in WSO2 Identity Server':
             - 'Writing XACML3 Policies in WSO2 Identity Server': learn/writing-xacml3-policies-in-wso2-identity-server.md
             - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': learn/writing-xacml-3-policies-in-wso2-identity-server-1.md

@@ -1,4 +1,4 @@
-# Writing XACML policies in WSO2 Identity Server - 3
+# XACML 2.0 Sample Policy - 3
 
 This topic demonstrates an example of a XACML policy that addresses the following authorization requirements.
 
