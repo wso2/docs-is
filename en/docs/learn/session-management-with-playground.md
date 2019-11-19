@@ -22,28 +22,39 @@ for more information.
     of the following options for this:  
     -   The example pseudo-code for the RP iframe provided in the
         official specification.
-    -   The WSO2 Identity Server Playground sample application. Expand
-        the section below to set up.
+    -   The WSO2 Identity Server `playground` sample application. In
+        this guide you will be using sample `playground` application to
+        try out the scenario.
     
-    To obtain and configure the Playground sample, follow the steps [here](../../develop/deploying-the-sample-app/#deploying-playground2-webapp).    
+    !!! Tip "Before you begin" 
+        To deploy and configure the Playground 
+        sample, follow the steps
+        [here](../../develop/deploying-the-sample-app/#deploying-playground2-webapp).
 
-2.  Deploy two relying party applications. To do this, make a copy of
-    the playground2.war file that was generated when you set up the
-    sample webapp, and rename it as " **playground3.war** ".
+2.  For this scenario we need two relying party applications. To do
+    this, make a copy of the `playground2.war` file that was generated
+    when you
+    [set up the sample webapp](../../develop/deploying-the-sample-app/#deploying-playground2-webapp),
+    and rename it as **playground3.war** in the same location.
 
     Navigate to the following URLs to check both were deployed properly.
     You will be able to see the following screen.
 
     -   `             http://wso2is.local:8080/playground2/            `
-    -   `                           http://wso2is.local:8080/playground3/                          /            `
+    -   `             http://wso2is.local:8080/playground3/            `
 
     ![](../assets/img/103329986/103330000.png) 
 
 ### Registering the relying party applications
 
-1.  Start the IS server and log into the management console.
-2.  [Add a new service provider](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider) named "playground2" and click **Register**.  
-    ![](../assets/img/103329986/103329999.png) 
+1.  In the previous section you have
+    [registered the `playground2` webapp](develop/deploying-the-sample-app/#configuring-service-provider_1).
+    If you complete that you can skip steps 2 to 5 below. 
+    
+2.  Log into the management
+    console.[Add a new service provider](../../learn/adding-and-configuring-a-service-provider#adding-a-service-provider)
+    named "playground2" and click **Register**.  
+    ![](../assets/img/103329986/103329999.png)
 
 3.  Expand the **Inbound Authentication Configuration** section and then
     the **OAuth/OpenID Connect Configuration** and click
@@ -82,7 +93,8 @@ for more information.
     
 
 6.  Repeat steps 1- 4 and register a service provider named as
-    "playground3".
+    "playground3". This step is needed because you need to register the
+    second replying party application "playground3`.
 
 ### Testing session management with WSO2 Playground
 
@@ -122,6 +134,7 @@ for more information.
     Provider(OP) will redirect back to the client application with the
     authorization code and the session state. You can see this in the
     logs of the console, as seen below.
+    
 5.  Enter the following values and click **Get Access Token** to receive
     the ID token and access token.  
     -   **Callback URL:**
@@ -132,15 +145,26 @@ for more information.
         application
 
     ![](../assets/img/103329986/103329991.png)
+    
 6.  You will receive the access token. You can also enter the **UserInfo
     Endpoint** as
     `                     https://localhost:9443/oauth2/userinfo?schema=openid                   `
     to use the received access token to obtain user claims if needed.  
     ![](../assets/img/103329986/103329994.png) 
+    
 7.  Access the following URL on a separate window of the browser, and
     click on **Import Photos:**
     `          http://wso2is.local:8080/playground3/         `
-8.  Repeat steps 7-9 to invoke the **playground3** application.
+    
+8.  Repeat steps 2-6 to invoke the **playground3** application. Make
+    sure to change the **Callback URL**, **Client Id** and **Client
+    secret** corresponding to **playground3** application when you
+    follow the steps.
+    
+    !!! Tip 
+        Step 3 will not be prompted to you as there is already a
+        valid session and WSO2 Identity Server will apply SSO for the second
+        application.
 
 9.  Once you receive the authorization code for the playground3 app,
     open the browser console of the playground2 app. You will see that
