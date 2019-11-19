@@ -280,7 +280,9 @@ The next step is to configure the service provider.
         For more information on `Callback Url` field and other advanced configurations
         refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
         
-7.  Click on add.
+7.  Click **Add**. Note that `             client key            ` and
+    `             client secret            ` get generated.  
+    ![generated-key-secret](../assets/img/using-wso2-identity-server/generated-key-secret.png) 
 8.  Update the service provider you have created by clicking the update button.
 
 ----------------
