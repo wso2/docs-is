@@ -60,7 +60,7 @@ configure the following in the order mentioned.
     Once you have configured the user stores, you can configure
     various tools available to you in the [management
     console](../../setup/getting-started-with-the-management-console). See [Using
-    WSO2 Identity Server](../../learn/using-wso2-identity-server) for information
+    WSO2 Identity Server](../../learn/tutorials) for information
     on working with the features in the **Main** menu.
 
 -   **[Identity providers](../../learn/adding-and-configuring-an-identity-provider)**  

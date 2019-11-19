@@ -359,7 +359,7 @@ Services.](../../develop/calling-admin-services)
     ```
 
 !!! info "Related Links"
-    -   See [Role-based Permissions](../../administer/role-based-permissions)
+    -   See [Role-based Permissions](../../learn/role-based-permissions)
         for more information.
     -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a
         complete list of permissions required to invoke admin services.

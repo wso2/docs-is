@@ -112,7 +112,7 @@ the following.
 		- If the certificate is self-signed, import the service
 		provider's public key to the IS client trust store to ensure that the
 		SSL handshake in the SLO request is successful. For more information on
-		how to do this, see [Managing Keystores with the UI]() in
+		how to do this, see [Managing Keystores with the UI](../../administer/managing-keystores-with-the-ui) in
 		the WSO2 Product Administration Guide.
     
 		- Identity Federation is part of the process of configuring an

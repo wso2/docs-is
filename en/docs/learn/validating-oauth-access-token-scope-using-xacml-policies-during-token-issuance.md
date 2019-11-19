@@ -135,10 +135,11 @@ To try out the policy using the XACML TryIt tool:
 		<p>
 			<div class="admonition note">
 				<p class="admonition-title">Note</p>
-				<p>For backward compatibility, you can disable this validation by setting the following property value to true in the <code>identity.xml</code> file in the <code><IS_HOME>/repository/conf</code>directory.</p>
+				<p>For backward compatibility, you can disable this validation by setting the following property value to true in the <code>deployment.toml</code> file in the <code>[IS_HOME]/repository/conf</code> directory.</p>
 				<p>
 					```
-					<ScopeValidationEnabledForAuthzCodeAndImplicitGrant>false</ScopeValidationEnabledForAuthzCodeAndImplicitGrant>
+                    [oauth.scope_validator.authz_implicit]
+                    enable = false
 					```
 				</p>				
 			</div> 

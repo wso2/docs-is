@@ -1,11 +1,14 @@
-# Deploying the Sample App
+# Deploying the Sample Applications
 
 This topic provides instructions on how to download and deploy the
-sample application (travelocity).
+sample application used while trying out sample use cases in WSO2
+Identity Server.
 
-!!! tip "Before you begin"    
-    -   Download Tomcat 8.x from
-        [here](https://tomcat.apache.org/download-80.cgi).
+!!! tip "Before you begin" 
+    Download Apache Tomcat 8.x from
+    [here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+    server installation location will be referred as `<TOMCAT_HOME>` later
+    in this guide.
         
 !!! note
     It is recommended that you use a hostname that is not
@@ -16,9 +19,13 @@ sample application (travelocity).
     configuring the authenticators or connectors with this sample
     application.
     
-##Deploying travelocity webapp
+## Deploying travelocity webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of Identity Server, you need to download
 it onto your machine first.
@@ -26,15 +33,15 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `travelocity.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
+   assets.
 
-### Deploy the sample web app
+### Deploy the sample web application
 
 Deploy this sample web app on a web container.
 
-1.  Copy the .war file into the `webapps`
-    folder. For example,
-    `  <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+1.  Copy the `travelocity.com.war`file into the `webapps` folder. For
+    example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
     
 2.  Open a terminal window and add the following entry to the
     `           /etc/hosts          ` file of your machine to configure
@@ -63,12 +70,11 @@ Deploy this sample web app on a web container.
 		sudo nano /etc/hosts
 		```
 		
-3.  Open the `           travelocity.properties          ` file found
-    in the
-    `           <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes          `
-    directory and configure the following property with the hostname (
-    `           wso2is.local          ` ) that you configured above.
-    Finally restart the tomcat server.
+3.  Open the ` travelocity.properties ` file found in the `
+    <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
+    and configure the following property with the hostname ( `
+    wso2is.local ` ) that you configured above. Finally restart the
+    tomcat server.
 
     ``` text
     #The URL of the SAML 2.0 Assertion Consumer
@@ -150,10 +156,15 @@ The next step is to configure the service provider.
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
 
+----------------
 
-##Deploying playground2 webapp
+## Deploying playground2 webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of Identity Server, you need to download
 it onto your machine first.
@@ -161,25 +172,85 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `playground2.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/playground2.war)
+   the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample web app
 
 Deploy this sample web app on a web container.
 
-1.  Copy the .war file into the `webapps`
-    folder. For example,
-    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps`
-    .
+1.  Copy the the `playground2.war` file from the latest release assets.
+    file into the `webapps` folder. For example,
+    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` .
 2.  Start the Tomcat server.
 
-To check the sample application, navigate to
-`http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2.jsp`
-on your browser.
+!!! note 
+	To check the sample application, navigate to
+	`http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2/oauth2.jsp`
+	on your browser.
 
-For example,
-`http://localhost:8080/playground2/oauth2.jsp`
+	For example,
+	`http://localhost:8080/playground2/oauth2.jsp`
 
+3.	Make sure to update the `                    param-value                   `
+	parameter in the
+	`                    WEB-INF/web.xml                   `
+	file with the server URL of the Identity Server if
+	required.  
+	Make sure to enter the port the application is running on,
+	in the URL. If you have started the Identity Server with a
+	port off set, then the respective port needs to be
+	configured here.
+
+	``` java
+	<init-param>
+		<description>serverUrl</description>
+		<param-name>serverUrl</param-name>
+		<param-value>https://localhost:9443/services/</param-value>
+	</init-param>
+	```
+	
+	!!! info 
+		Note that localhost is the server that hosts WSO2 Identity
+		Server and 9443 is the default SSL port of it. Since playground application is accessing the admin
+		service OAuth2TokenValidationService, you should have the
+		correct serverUrl, username and password.
+		
+4.	Update
+	**`                     param-value                    `**
+	parameter with credentials of an admin user if required.
+
+	``` java
+	<init-param>
+		<description>userName</description>
+		<param-name>userName</param-name>
+		<param-value>admin</param-value>
+	</init-param>
+	<init-param>
+		<description>password</description>
+		<param-name>password</param-name>
+		<param-value>admin</param-value>
+	</init-param>
+	```
+
+5.	Restart Apache Tomcat and access
+	`                    http://wso2is.local:8080/playground2/                   `  
+	By default Tomcat runs on port 8080. If you have configured
+	it to run on a different port make sure to update the URL
+	and access the playground application.  
+	You are directed to the landing page of the sample
+	application. Click on **Import Photos** and the following
+	page appears.  
+	![](../assets/img/103329944/103329945.png)
+
+!!! note "Are you getting the error that is given below?"
+	``` java
+	javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: 			sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	```
+	The sample applications do not have a keystore in them.
+	Therefore, after changing the tomcat hostname you might get this
+	error because the public key of the WSO2 Identity Server does
+	not exist in the Java certificate store.
     
 ### Configuring Service Provider
 
@@ -200,7 +271,6 @@ The next step is to configure the service provider.
 5.  Fill in the form that appears. For the Allowed Grant Types, you can disable the ones you do not require or block.
         
     !!! note
-    
         The grant type highlighted below is a **custom** grant type. This
         will only appear on the UI if you have [configured the JWT grant
         type](../../develop/jwt-grant-type-for-oauth2). The value specified as the `name`
@@ -220,11 +290,19 @@ The next step is to configure the service provider.
         For more information on `Callback Url` field and other advanced configurations
         refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
         
-7.  Click on add.
+7.  Click **Add**. Note that `             client key            ` and
+    `             client secret            ` get generated.  
+    ![generated-key-secret](../assets/img/using-wso2-identity-server/generated-key-secret.png) 
 8.  Update the service provider you have created by clicking the update button.
 
-##Deploying saml2-web-app-pickup-dispatch webapp
+----------------
 
+## Deploying saml2-web-app-pickup-dispatch webapp
+
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
 ### Download the samples
 
 To be able to deploy a sample of Identity Server, you need to download
@@ -233,7 +311,8 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `saml2-web-app-pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.war) the `saml2-web-app-pickup-dispatch.war` file from the
+   latest release assets.
 
 ### Deploy the sample web app
 
@@ -293,10 +372,15 @@ The next step is to configure the service provider.
 5.  Click **Register** to save the changes.  
     Now you are sent back to the Service Providers page.
 
+----------------
 
-##Deploying saml2-web-app-pickup-manager webapp
+## Deploying saml2-web-app-pickup-manager webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of the Identity Server, you need to download
 it onto your machine first.
@@ -304,7 +388,8 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `saml2-web-app-pickup-manager.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.war) the `saml2-web-app-pickup-manager.war` file from the
+   latest release assets.
 
 ### Deploy the sample web app
 

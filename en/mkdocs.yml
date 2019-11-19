@@ -90,6 +90,7 @@ nav:
           - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
+          - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -139,6 +140,7 @@ nav:
           - 'Configuring New-Device-Based Adaptive Authentication': learn/configuring-new-device-based-adaptive-authentication.md
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
+          - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
           - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
@@ -147,6 +149,7 @@ nav:
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
           - 'Configuring Federated Authentication': learn/configuring-federated-authentication.md
+          - 'Configuring SAML 2.0 Web SSO': learn/configuring-saml-2.0-web-sso.md
           - 'Configuring OAuth2-OpenID Connect': learn/configuring-oauth2-openid-connect.md
           - 'Configuring WS-Federation': learn/configuring-ws-federation.md
           - 'Configuring Facebook': learn/configuring-facebook.md
@@ -198,13 +201,13 @@ nav:
           - 'Integrating WSO2 Identity Server with Liferay': learn/integrating-wso2-identity-server-with-liferay.md
           - 'Writing XACML2.0 Policies in WSO2 Identity Server':
             - 'Writing XACML2.0 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
-            - 'Writing XACML policies in WSO2 Identity Server - 1': learn/writing-xacml-policies-in-wso2-identity-server-1.md
-            - 'Writing XACML policies in WSO2 Identity Server - 2': learn/writing-xacml-policies-in-wso2-identity-server-2.md
-            - 'Writing XACML policies in WSO2 Identity Server - 3': learn/writing-xacml-policies-in-wso2-identity-server-3.md
-            - 'Writing XACML policies in WSO2 Identity Server - 4': learn/writing-xacml-policies-in-wso2-identity-server-4.md
-            - 'Writing XACML policies in WSO2 Identity Server - 5': learn/writing-xacml-policies-in-wso2-identity-server-5.md
-            - 'Writing XACML policies in WSO2 Identity Server - 6': learn/writing-xacml-policies-in-wso2-identity-server-6.md
-            - 'Writing XACML policies in WSO2 Identity Server - 7': learn/writing-xacml-policies-in-wso2-identity-server-7.md
+            - 'Introduction to XACML 2.0 Policies': learn/introduction-to-xacml-2.0-policies.md
+            - 'XACML 2.0 Sample Policy - 1': learn/xacml-2.0-sample-policy-1.md
+            - 'XACML 2.0 Sample Policy - 2': learn/xacml-2.0-sample-policy-2.md
+            - 'XACML 2.0 Sample Policy - 3': learn/xacml-2.0-sample-policy-3.md
+            - 'XACML 2.0 Sample Policy - 4': learn/xacml-2.0-sample-policy-4.md
+            - 'XACML 2.0 Sample Policy - 5': learn/xacml-2.0-sample-policy-5.md
+            - 'XACML 2.0 Sample Policy - 6': learn/xacml-2.0-sample-policy-6.md
           - 'Writing XACML3 Policies in WSO2 Identity Server':
             - 'Writing XACML3 Policies in WSO2 Identity Server': learn/writing-xacml3-policies-in-wso2-identity-server.md
             - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': learn/writing-xacml-3-policies-in-wso2-identity-server-1.md
@@ -307,8 +310,10 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'Request Path Authentication': learn/request-path-authentication.md
-            - 'Writing a Post-Authentication Handler': learn/writing-post-authentication-handler.md
+            - 'Request Path Authentication':
+              - 'Request Path Authentication': learn/request-path-authentication.md
+              - 'Basic Auth Request Path Authentication': learn/basic-auth-request-path-authentication.md
+              - 'OAuth Request Path Authenticator': learn/oauth-request-path-authentication.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
           - 'Configuring Inbound Provisioning for a Service Provider': learn/configuring-inbound-provisioning-for-a-service-provider.md
           - 'Configuring Outbound Provisioning for a Service Provider': learn/configuring-outbound-provisioning-for-a-service-provider.md
@@ -399,14 +404,12 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
-          - '2-legged OAuth for Securing a RESTful Service': learn/2-legged-oauth-for-securing-a-restful-service.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
             - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
@@ -419,6 +422,7 @@ nav:
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
           - 'Implicit Client Profile with Playground': learn/implicit-client-profile-with-playground.md
+          - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
         - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
@@ -440,6 +444,7 @@ nav:
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
+          - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': develop/carbon-remote-user-store-manager.md
           - 'Working with Errors': 
@@ -733,19 +738,16 @@ nav:
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
-    - 'Reference Guide':
-      - 'Reference Guide': administer/reference-guide.md  
-      - 'Product Startup Options': administer/product-startup-options.md
-      - 'Supported Cipher Suites': administer/supported-cipher-suites.md
-      - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
-      - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
   - 'References': 
-    - 'References': references/references.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
     - 'Error Catalog': references/error-catalog.md
+    - 'Product Startup Options': references/product-startup-options.md
+    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md  

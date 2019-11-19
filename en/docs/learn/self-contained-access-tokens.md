@@ -122,7 +122,7 @@ self-contained JWT access tokens as below.
     <tr class="odd">
     <td>iss</td>
     <td>string</td>
-    <td>The issuer of the JWT. The ' <em>Identity Provider Entity Id</em> ' value of the OAuth2/OpenID Connect Inbound Authentication configuration of the <a href="../../learn/adding-and-configuring-an-identity-provider.md">Resident Identity Provider</a> is returned here.</td>
+    <td>The issuer of the JWT. The ' <em>Identity Provider Entity Id</em> ' value of the OAuth2/OpenID Connect Inbound Authentication configuration of the <a href="../../learn/adding-and-configuring-an-identity-provider">Resident Identity Provider</a> is returned here.</td>
     </tr>
     <tr class="even">
     <td>aud</td>
@@ -153,7 +153,7 @@ self-contained JWT access tokens as below.
     </table>
     </div>
     <div>
-    <p>In addition, a user claims can be obtained by an authorized user over this JWT as per <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">OpenID Connect claim</a> configurations, by <a href="../../learn/configuring-claims-for-a-service-provider.md">configuring requested user claims</a> in the OAuth service provider. After configuring the service provider you can run the cURL command given below by providing the required details.</p>
+    <p>In addition, a user claims can be obtained by an authorized user over this JWT as per <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">OpenID Connect claim</a> configurations, by <a href="../../learn/configuring-claims-for-a-service-provider">configuring requested user claims</a> in the OAuth service provider. After configuring the service provider you can run the cURL command given below by providing the required details.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">curl -u &lt;CLIENT_ID&gt;:&lt;CLIENT_SECRET&gt; -k -d <span class="st">&quot;grant_type=password&amp;username=&lt;USERNAME&gt;&amp;password=&lt;PASSWORD&gt;&amp;scope=openid&quot;</span> -H <span class="st">&quot;Content-Type:application/x-www-form-urlencoded&quot;</span> https:<span class="co">//&lt;IS_HOST&gt;:&lt;IS_HTTPS_PORT&gt;/oauth2/token</span></a></code></pre></div>

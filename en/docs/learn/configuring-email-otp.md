@@ -1,26 +1,30 @@
 # Configuring Email OTP
 
 This section provides the instructions to configure [multi-factor
-authentication (MFA)](Multi-factor_Authentication_for_WSO2_IS) using
-Email One Time Password (Email OTP) in WSO2 Identity Server (WSO2
-IS). The Email OTP enables a one-time password (OTP) to be used at the
-second step of MFA.
+authentication (MFA)](../../learn/multi-factor-authentication) using
+Email One Time Password (Email OTP) in WSO2 Identity Server (WSO2 IS).
+The Email OTP enables a one-time password (OTP) to be used at the second
+step of MFA.
 
 Follow the instructions in the sections below to configure MFA using
 Email OTP:
 
-!!! tip "Before you begin"
-    
-    -   The samples run on the Apache Tomcat server and are written based on
-        Servlet 3.0. Therefore, download Tomcat 8.x from
-        [here](https://tomcat.apache.org/download-70.cgi) .
-    
+### Deploying travelocity sample application
+
+In this guide we will be using `travelocity.com` as a sample application
+to which we will be enabling MFA for sign-in. To deploy the travelocity
+sample application, follow the steps in
+[Deploying the travelocity.com Sample App](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp).
+
+------------------------------------------------------------------------
+
+
 ### Configure the email OTP provider
 
 You can use WSO2 Identity Server as the email OTP provider or you can
 configure Gmail or SendGrid as the email OTP provider using Gmail or
-SendGrid APIs. Follow the instructions in **one** of these sections to
-set up the email OTP provider.
+SendGrid APIs. Follow the instructions in **one** of **Option1** or
+**Option2** to set up the email OTP provider.
 
 #### Option1: Configure WSO2 IS as the email OTP provider 
 
@@ -506,12 +510,6 @@ set up the email OTP provider.
     	
 ------------------------------------------------------------------------
 
-### Deploying travelocity sample application
-
-To deploy the travelocity sample application, see 
-[Deploying the Sample App](../../develop/deploying-the-sample-app/).
-
-------------------------------------------------------------------------
 
 ### Configure the Identity Provider
 
@@ -541,42 +539,19 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
 ### Configure the Service Provider
 
-Follow the steps below add a service provider:
+In the
+[Deploying travelocity sample application](#deploying-travelocity-sample-application)
+section you have [configured a service provider](../../develop/deploying-the-sample-app/#configuring-service-provider) to register the
+travelocity.com as an application in the WSO2 Identity Server. Follow
+the steps below to modify the same service provider in order to
+configure Email OTP as second authentication step.
 
 1.  Return to the Management Console home screen.
 
-2.  Click **Add** under **Add** under **Main \> Identity \> Service
-    Providers**.  
-    ![add-service-provider](../assets/img/tutorials/add-service-provider.png)
+2.  Click **List** under **Main \> Identity \> Service Providers** and
+    locate the above created service provider and click **Edit**.
 
-3.  Enter `                       travelocity.com                     `
-    as the **Service Provider Name**.  
-    ![](attachments/103331027/name-the-service-provider.png)
-
-4.  Click **Register**.
-
-5.  Expand **SAML2 Web SSO Configuration** under **Inbound
-    Authentication Configuration**.
-
-6.  Click **Configure**.
-
-    ![configuring-the-service-provider](../assets/img/tutorials/configuring-the-service-provider.png)
-
-7.  Now set the configuration as follows:
-
-    1.  **Issuer** : `             travelocity.com            `
-
-    2.  **Assertion Consumer URL** :
-        `                           http://localhost:8080/travelocity.com/home.jsp                         `
-
-    3.  Select the following check-boxes: **Enable Response Signing** ,
-        **Enable Single Logout** , **Enable Attribute Profile** , and
-        **Include Attributes in the Response Always** .
-
-8.  Click **Update** to save the changes. Now you will be sent back to
-    the **Service Providers** page.
-
-9.  Go to **Claim Configuration** and select the
+3.  Go to **Claim Configuration** and select the
     **http://wso2.org/claims/emailaddress** claim.
 
     ![claim-configuration](../assets/img/tutorials/claim-configuration.png)
@@ -683,7 +658,7 @@ Follow the steps below to map the user claims:
 ### Test the sample
 
 1.  To test the sample, go to the following URL:
-    <http://localhost:8080/travelocity.com>
+    <http://wso2is.local:8080/travelocity.com>
 
     ![testing-travelocity-sample](../assets/img/tutorials/testing-travelocity-sample.jpeg)
 

@@ -7,7 +7,7 @@ Secure Vault. This is because the keystore passwords are needed to
 initialise the values encrypted by the Secret Manager in the Secret
 Repository. Therefore, the Secret Callback handler is used to resolve
 these passwords. Read about the [Secure Vault
-implementation](../../administer/securing-passwords-in-configuration-files) in WSO2
+implementation](../../setup/encrypting-passwords-with-cipher-tool) in WSO2
 products. Also, see how passwords in [configuration files are
 encrypted](../../setup/encrypting-passwords-with-cipher-tool) using Secure Vault.
 
