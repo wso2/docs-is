@@ -4,73 +4,6 @@ This section demonstrates the WSO2 Identity Server's OpenID Connect
 Basic Client Profile implementation with the WSO2 OAuth2 playground
 sample.
 
-### Setting up the playground sample
-
-First follow the instructions in the [Deploying the Sample App](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)  to set up
-the playground sample and register it in WSO2 IS. Once you have done so,
-complete the user profile by adding user attributes and try out the
-scenario.
-
-1.  Make sure to update `              param-value             `
-    parameter in the `              web.xml             ` file
-    in `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/playground2/WEB-INF` with the server URL of the Identity Server
-    if required.  Make sure to enter the port the application is running on, in the
-    URL. If you have started the Identity Server with a port off set,
-    then the respective port needs to be configured here.
-
-    ``` java
-    <init-param>
-        <description>serverUrl</description>
-        <param-name>serverUrl</param-name>
-        <param-value>https://localhost:9443/services/</param-value>
-    </init-param>
-    ```
-
-    !!! info 
-        Note that localhost is the server that hosts WSO2 Identity Server
-        and 9443 is the default SSL port of it. In order to access the admin
-        services you should have the values in step 1 and 2. Since
-        playground application is accessing the admin service
-        OAuth2TokenValidationService, you should have the correct
-        serverUrl,username and password as described in step 1 and 2.
-
-2.  Update **`               param-value              `** parameter with
-    credentials of an admin user if required.
-
-    ``` java
-        <init-param>
-            <description>userName</description>
-            <param-name>userName</param-name>
-            <param-value>admin</param-value>
-        </init-param>
-        <init-param>
-            <description>password</description>
-            <param-name>password</param-name>
-            <param-value>admin</param-value>
-        </init-param>
-    ```
-
-3.  Restart Apache Tomcat and access
-    `              http://wso2is.local:8080/playground2/             `  
-    By default Tomcat runs on port 8080. If you have configured it to
-    run on a different port make sure to update the URL and access the
-    playground application.  
-    You are directed to the landing page of the sample application.
-    Click on **Import Photos** and the following page appears.  
-    ![click-on-import-photos](../assets/img/using-wso2-identity-server/click-on-import-photos.png) 
-
-!!! note "Are you getting the error that is given below?"        
-    
-    ``` java
-        javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
-    ```
-    
-    The sample applications do not have a keystore in them. Therefore, after
-    changing the tomcat hostname you might get this error because the public
-    key of the WSO2 Identity Server does not exist in the Java certificate
-    store. 
-    
-
 This application is used to request access tokens using the four OAuth2
 grant types:
 
@@ -92,13 +25,23 @@ on top of OAuth 2.0. OAuth applications can get authentication event
 information over the IDToken and can get the extra claims of the
 authenticated user from the OpenID Connect UserInfo endpoint.  
 
+### Setting up the playground sample
+
+First follow the instructions in the
+[Deploying the Sample App](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)
+to set up the playground sample and
+[register](../../develop/deploying-the-sample-app/#configuring-service-provider_1)
+it in WSO2 IS. Once you have done so, [complete the user profile by
+adding user attributes and try out the scenario](#complete-user-profile).
+
+Once you complete deploying the sample, access `
+http://wso2is.local:8080/playground2/ `     
+
+<a name="complete-user-profile"></a>
+
 !!! tip
     For more information on OAuth2-OpenID Connect
     refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
-
-    After updating the configuration, make sure to restart the server
-    for the changes to be applied on WSO2 IS.
-
 
 ??? note "Complete the user profile"
     1.  [Create a user](../../learn/configuring-users).
