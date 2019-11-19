@@ -74,7 +74,7 @@ Server).
     ```
 
 4.  Set the following configuration in
-    `           <IS_HOME>/repository/conf/identity/application-authentication.properties          `
+    `           <IS_HOME>/repository/conf/deployment.toml       `
     file
 
     ```toml
@@ -84,12 +84,12 @@ Server).
     request_missing_claims_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/claims.do"
     ```
 
-5.  Change the following configuration in
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+5.  Add the following configuration to the
+    `           deployment.toml         `
     file to point to the authentication endpoint hosted outside the wso2
     server.
 
-    ``` xml
+    ``` toml
         ...
         <OpenID>
             ...
@@ -158,7 +158,6 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     not the extracted `         accountrecoveryendpoint        ` in
     `         <IS_HOME>/repository/deployment/server/webapps/        `
     
-
 1.  In
     `           <WebApp_HOME>/accountrecoveryendpoint/WEB-INF/classes/RecoveryEndpointConfig.properties          `
     file, uncomment and change it to identity server.

@@ -1,11 +1,12 @@
-# Writing XACML policies in WSO2 Identity Server - 2
 
-Here is an example of an XACML policy which addresses the following
+# XACML 2.0 Sample Policy - 1 
+
+This topic demonstrates an example of a XACML policy that addresses the following
 requirement: a given resource can be accessed only by a user belonging
 to a particular role, and all requests to access any other resource
 should fail.
 
-``` java
+``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os"  PolicyId="urn:sample:xacml:2.0:samplepolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
    <Description>Sample XACML Authorization Policy</Description>
    <Target></Target>
@@ -41,16 +42,16 @@ should fail.
 </Policy>        
 ```
 
-The following are a few valid requests which will result in "Permit/Not
+The following are a few valid example requests which will result in "Permit/Not
 Applicable/Deny" once evaluated against the above policy.
 
-### The First XACML Request
+### Request one
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs only to the "admin" group
 -   **Result** - Permit
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
@@ -79,14 +80,14 @@ Applicable/Deny" once evaluated against the above policy.
     </Request>
 ```
 
-### The Second XACML Request
+### Request two
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs to the "admin" group and the "business"
     group
 -   **Result** - Permit
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
@@ -119,13 +120,13 @@ Applicable/Deny" once evaluated against the above policy.
     </Request>
 ```
 
-### The Third XACML Request
+### Request three
 
 -   **Resource** - http://localhost:8280/services/test/
 -   **User** - "admin" belongs to the "admin" group
 -   **Result** - Deny
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
@@ -154,13 +155,13 @@ Applicable/Deny" once evaluated against the above policy.
     </Request>
 ```
 
-### The Fourth XACML Request
+### Request four
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs to the "business" group
 -   **Result** - Deny
 
-``` java
+``` xml
 <Request xmlns="urn:oasis:names:tc:xacml:2.0:context:schema:os"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
      <Subject>
