@@ -51,26 +51,24 @@ account locking, expand the section below for instructions.
             !!! note
                   WSO2 Identity Server has the **Internal/system** role configured by
                   default. But generally a new user is not assigned the
-                  **Internal/syste** m role by default. Required roles can be assigned
+                  **Internal/system** role by default. Required roles can be assigned
                   to a user depending on the set of permission a user needs to have.
                   For more information on roles and permission, see [Configuring Roles
                   and
                   Permissions](../../learn/configuring-roles-and-permissions)
-.
-               
+
                   Although the **Internal/system** role is configured by default in
                   WSO2 Identity Server, you can delete the role if necessary. To allow
                   users with the **Internal/system** role to bypass account locking,
                   you need to ensure that the role exists in WSO2 Identity Server.
                
-
+              
       6.  To enable account locking for other tenants, log out and repeat the
          steps given above from [step 2](#lockingaspecificuseraccount)
          onwards.
 
 !!! note 
-    The user accounts that are assigned with the
-    `         Internal/system        ` user role cannot be locked.
+    The user accounts that are assigned with the **Internal/system** user role cannot be locked.
     
 
 ### Enable claims for account locking
@@ -188,10 +186,10 @@ below.
 
        ``` toml
        [output_adapter.email]
-       from_address= "wso2iamtest@gmail.com"
-       username= "wso2iamtest"
-       password= "Wso2@iam70"
-       hostname= smtp.gmail.com
+       from_address= "sampleemail@gmail.com"
+       username= "sampleemail"
+       password= "password"
+       hostname= "smtp.gmail.com"
        port= 587
        enable_start_tls= true
        enable_authentication= true
