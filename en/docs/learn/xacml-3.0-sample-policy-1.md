@@ -1,6 +1,6 @@
-# Writing XACML 3 Policies in WSO2 Identity Server - 2
+# XACML 3.0 Sample Policy - 1
 
-Here is an example of an XACML policy which addresses the following
+This topic demonstrates an example of a XACML policy that addresses the following
 requirement: a given resource can be accessed only by a user belonging
 to a particular role, and all requests to access any other resource
 should fail.
@@ -40,7 +40,7 @@ should fail.
 The following are a few valid requests which will result in `Permit/Not
 Applicable/Deny` once evaluated against the above policy.
 
-### The First XACML Request
+### Request one
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs only to the "admin" group
@@ -73,7 +73,7 @@ Applicable/Deny` once evaluated against the above policy.
 
   
 
-### The Second XACML Request
+### Request two
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs to the "admin" group and the "business"
@@ -106,7 +106,7 @@ Applicable/Deny` once evaluated against the above policy.
 </Request>
 ```
 
-### The Third XACML Request
+### Request three
 
 -   **Resource** - http://localhost:8280/services/test/
 -   **User** - "admin" belongs to the "admin" group
@@ -137,7 +137,7 @@ Applicable/Deny` once evaluated against the above policy.
 </Request> 
 ```
 
-### The Fourth XACML Request
+### Request four
 
 -   **Resource** - http://localhost:8280/services/echo/
 -   **User** - "admin" belongs to the "business" group

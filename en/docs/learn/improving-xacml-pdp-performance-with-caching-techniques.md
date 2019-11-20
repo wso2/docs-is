@@ -96,5 +96,5 @@ PEP must be binded into your application. However, there is an
 implementation called PDP proxy, which would provide a set of APIs for
 the application to deal with. This PDP Proxy source comes along with the
 [entitlement
-mediator](https://docs.wso2.com/display/ESB481/Entitlement+Mediator) in
-[WSO2 ESB](http://wso2.com/products/enterprise-service-bus/).
+mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/entitlement-Mediator/) in
+[WSO2 EI](https://wso2.com/integration/).

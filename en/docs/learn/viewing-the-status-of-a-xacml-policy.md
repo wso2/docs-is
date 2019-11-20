@@ -1,6 +1,6 @@
 # Viewing the Status of a XACML Policy
 
-You can view the current status of an XACML policy using the
+You can view the current status of a XACML policy using the
 instructions in this topic.
 
 1.  Sign in. Enter your username and password to log in to the

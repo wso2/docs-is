@@ -41,7 +41,7 @@ XACML to perform various access control related functions.
     Server](../../learn/configuring-wso2-ei-entitlement-mediator-with-identity-server)
 -   [Enabling REST Notifications For XACML Policy
     Updates](../../learn/enabling-rest-notifications-for-xacml-policy-updates)
--   [Identity Server as an XACML
+-   [Identity Server as a XACML
     Engine](../../learn/identity-server-as-an-xacml-engine)
 -   [Working with XACML Multiple Decision Profile
     Requests](../../learn/working-with-xacml-multiple-decision-profile-requests)
@@ -54,8 +54,8 @@ XACML to perform various access control related functions.
 -   [Writing XACML2.0 Policies in WSO2 Identity
     Server](../../learn/writing-xacml2.0-policies-in-wso2-identity-server)
 -   [Writing XACML3 Policies in WSO2 Identity
-    Server](../../learn/writing-xacml3-policies-in-wso2-identity-server)
+    Server](../../learn/introduction-to-xacml-3.0-policies)
 -   [Sending Notifications to External PEP
     Endpoints](../../learn/sending-notifications-to-external-pep-endpoints)
--   [Writing an XACML 3.0 Policy Using
+-   [Writing a XACML 3.0 Policy Using
     XPath](../../learn/writing-a-xacml-3.0-policy-using-xpath)
