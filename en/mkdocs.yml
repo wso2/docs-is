@@ -246,8 +246,12 @@ nav:
           - 'Inbound Provisioning':
             - 'Inbound Provisioning': learn/inbound-provisioning.md
             - 'Setting Up Service Provider for Inbound Provisioning': learn/setting-up-service-provider-for-inbound-provisioning.md
-            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
-            - 'Configuring Active Directory User Stores for Inbound Provisioning': learn/configuring-active-directory-user-stores-for-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 2.0 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
           - 'Outbound Provisioning':
             - 'Outbound Provisioning': learn/outbound-provisioning.md
             - 'Outbound Provisioning with SCIM': learn/outbound-provisioning-with-scim.md
