@@ -13,13 +13,6 @@ WSO2 Identity Server enables users to log in to applications with their
 Facebook account. To do that, create a Facebook app after registering as
 a Facebook developer.
 
-!!! tip "Before you begin!"
-    
-    Refer [this](../../learn/downloading-a-sample)
-    document to download the `         travelocity.com        ` sample
-    application.
-    
-
 This topic provides instructions on how to configure the Facebook app
 and the Identity Server to integrate using a sample app. See the
 following sections for more information.
@@ -121,7 +114,7 @@ The next step is to configure the `         travelocity.com        ` sample
 app in order to use it in this scenario.
 
 
-Refer to [Deploying the Sample App](../../develop/deploying-the-sample-app/) for the 
+Refer to [Deploying the Sample App](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp) for the 
 instruction on deploying and configuring travelocity sample application.
 
 Once this is done, the next step is to configure the WSO2 Identity
@@ -219,6 +212,12 @@ The next step is to [configure the service
 provider.](../../learn/adding-and-configuring-a-service-provider)
 
 1.  Return to the Management Console.
+    
+    !!! Tip "Before You Proceed" 
+        In the beginning of this guide you have
+        [registered the `ravelocity.com` webapp](develop/deploying-the-sample-app/#configuring-service-provider_1)
+        when setting up the `travelocity.com` sample. If you complete that
+        you can skip steps 2 to 5 below.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
     under **Service Providers**.
