@@ -130,19 +130,19 @@ The next step is to configure the service provider.
     [previous section of this guide](#deploying-travelocity-sample-application)
     you have deployed and
     [registered the `travelocity.com` webapp](develop/deploying-the-sample-app/#configuring-service-provider).
-    Let's edit the same service provider to configure `titter` as the
+    Let's edit the same service provider to configure `twitter` as the
     identity provider.
 
 2.  Locate the "travelocity.com" service provider and navigate to the
     **Local and Outbound Authentication Configuration** section.
 
-8.  Select the identity provider you created from the dropdown list
+3.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
 
     ![](../assets/img/50515587/51249934.png) 
 
-9.  Ensure that the **Federated Authentication** radio button is
-    selected and click **Update** to save the changes.
+4.   Ensure that the **Federated Authentication** radio button is
+     selected and click **Update** to save the changes.
 
 You have now added and configured the service provider.
 
