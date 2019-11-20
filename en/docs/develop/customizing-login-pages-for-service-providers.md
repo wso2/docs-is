@@ -29,30 +29,29 @@ SAML SSO service providers that send authentication requests to it. The
 following steps indicate how to change the default login page into a
 customized one.
 
-!!! tip "Before you begin"
-    -   The samples run on the Apache Tomcat server and are written based on
-        Servlet 3.0. Therefore, download Tomcat 8.x from
-        [here](https://tomcat.apache.org/download-70.cgi).
-    
-    
-
 ### Configuring two service providers
 
-1.  [Deploy traveloctity](../../develop/deploying-the-sample-app/) sample application.
+1.  [Deploy traveloctity](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp) sample application.
 
-    !!! note
-        - Open `           travelocity.properties          ` file and check for following 
+2.  Get a copy of `travelocity.com.war` that
+    [download from here](../../develop/deploying-the-sample-app/#deploy-the-sample-web-application)
+    to the same location `<TOMCAT_HOME>/webapps/` rename as
+    `acis.com.war`. Restart the tomcat server.
+
+    !!! note 
+        -   Open ` <TOMCAT_HOME>/webapps/travelocity.com/
+        travelocity.properties ` file and check for following
         configurations.
-            ```
+            ``` 
             #The URL of the SAML 2.0 Assertion Consumer
             SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-        
+                
         
             #openid.return_to parameter
             OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
             ```
 
-        - Open the `avis.properties` file  and check for following configurations.
+        - Open the `<TOMCAT_HOME>/webapps/avis.com/avis.properties` file  and check for following configurations.
             ```
             #The URL of the SAML 2.0 Assertion Consumer
             SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
@@ -60,8 +59,12 @@ customized one.
             #openid.return_to parameter
             OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
             ```
-
-2.  Start the application server and access following URLs to make sure
+3. Register a new service provider with name `avis.com` simillerly as
+   explained in [configuring service provider for travelocity
+                                                sample](../../deploying-the-sample-app/#configuring-service-provider)
+   while replacing `travelocity.com` references to `avis.com`.
+   
+4.  Start the application server and access following URLs to make sure
     both apps are running.
 
     **travelocity.com**
@@ -138,8 +141,6 @@ specified with the following configurations.
 ```
 [authentication.endpoints] 
 login_url="/authenticationendpoint/login.do"
-
-[authentication.endpoints] 
 retry_url="/authenticationendpoint/retry.do" 
 ```
 
