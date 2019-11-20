@@ -85,9 +85,9 @@ type = "read_write_ldap"
 base_dn = "ou=system"
 
 [user_store.properties]
-"ConnectionURL" = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
-"ConnectionName" = "uid=admin,ou=system"
-"ConnectionPassword" = "admin"
+ConnectionURL = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
+ConnectionName = "uid=admin,ou=system"
+ConnectionPassword = "admin"
 ```
 Apart from above properties WSO2 Identity Server also supports advanced LDAP configurations.
 Please refer to the following topic. 
@@ -106,7 +106,7 @@ For example :
 
 ``` toml
 [user_store.properties]
-"SCIMEnabled" = true
+SCIMEnabled = true
 ```
 
 !!! tip "Below properties can be configured for a secondary user store through the management console."
