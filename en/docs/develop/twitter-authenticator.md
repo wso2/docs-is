@@ -82,7 +82,7 @@ information in the following sections.
 ## Deploying travelocity sample application
 
 The next step is to deploy and configure travelocity application. See 
-[deploy the sample app](../../develop/deploying-the-sample-app) for more information 
+[deploy the sample app](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp) for more information 
 on configuring travelocity application. 
 
 Once this is done, the next step is to configure the WSO2 Identity
@@ -126,39 +126,15 @@ You have now added the identity provider.
 
 The next step is to configure the service provider.
 
-1.  Return to the management console.
+1.  In the
+    [previous section of this guide](#deploying-travelocity-sample-application)
+    you have deployed and
+    [registered the `travelocity.com` webapp](develop/deploying-the-sample-app/#configuring-service-provider).
+    Let's edit the same service provider to configure `titter` as the
+    identity provider.
 
-2.  In the **Service Providers** section, click **Add** under the
-    **Main** tab.
-
-3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register**.
-
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
-
-5.  Now set the configuration as follows:
-
-    1.  **Issuer** : `             travelocity.com            `
-
-    2.  **Assertion Consumer URL** :
-        `                           http://localhost:8080/travelocity.com/home.jsp                         `  
-        Click A **dd** to add the assertion consumer URL.
-
-    3.  Select the following check-boxes:
-        -   **Enable Response Signing**.
-
-        -   **Enable Single Logout**.
-
-        -   **Enable Attribute Profile**.
-
-        -   **Include Attributes in the Response Always**.  
-
-6.  Click **Register** to save the changes. Now you will be sent back to
-    the **Service Providers** page.
-
-7.  Navigate to the **Local and Outbound Authentication Configuration**
-    section.
+2.  Locate the "travelocity.com" service provider and navigate to the
+    **Local and Outbound Authentication Configuration** section.
 
 8.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.
@@ -172,9 +148,8 @@ You have now added and configured the service provider.
 
 ## Testing the sample
 
-1.  To test the sample, go to the following URL:
-    `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp          `
-    . E.g., http://localhost:8080/travelocity.com
+1.  To test the sample, go to the following URL: `http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp ` . ex:
+    `http://wso2is.local:8080/travelocity.com`
 
 2.  Click the option available to log in with SAML from the WSO2
     Identity Server.
