@@ -22,25 +22,15 @@ prompted to reset the password.
     `            <IS_HOME>/repository/conf/identity/           `
     directory `            .           `
 
-    ``` java
-    module.name.13=passwordExpiry
-    passwordExpiry.subscription.1=POST_UPDATE_CREDENTIAL
-    passwordExpiry.subscription.2=POST_UPDATE_CREDENTIAL_BY_ADMIN
-    passwordExpiry.subscription.3=POST_ADD_USER
-    passwordExpiry.passwordExpiryInDays=30
-    passwordExpiry.enableDataPublishing=false
-    passwordExpiry.priorReminderTimeInDays=0
+    ```toml
+    [[event_handler]]
+    name= "passwordExpiry"
+    subscriptions =["POST_UPDATE_CREDENTIAL", "POST_UPDATE_CREDENTIAL_BY_ADMIN", "POST_ADD_USER"]
+    [event_handler.properties]
+    passwordExpiryInDays= "30"
+    enableDataPublishing= false
+    priorReminderTimeInDays= "0"
     ```
-
-    !!! note
-        The value of xx in `            module.name.xx           ` should be
-        decided based on the highest module number that is already available
-        in the `            identity-event.properties           ` file . For
-        example, if the last module number mentioned in the file is
-        `                         module.name                        .11           `
-       , the above entry should be renamed as
-        `            module.name.12=passwordExpiry           ` .
-    
 
 3.  Place the authentication pwd-reset.jsp file  into the
     `            <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint           `
@@ -113,53 +103,18 @@ is expired or not for this flow to work.
 
 ## Deploying travelocity sample application
 
-The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
+Follow this guide to
+[deploy and configure the `travelocity.com` sample app](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp)
 in order to use it in this scenario.
 
 ## Configuring the Service Provider
 
 The next step is to configure the service provider.
 
-1.  Return to the Management Console.
-
-2.  In the **Identity** section under the **Main** tab, click **Add**
-    under **Service Providers**.
-
-3.  Enter travelocity.com in the **Service Provider Name** text box and
-    click **Register**.
-
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
-
-5.  Configure the sample application (travelocity) as the service
-    provider.  
-    ![](../assets/img/50511336/50688127.png)   
-    Do the following configurations.
-
-    1.  **Issuer** : travelocity.com
-
-    2.  **Assertion Consumer URL** :
-        <http://localhost:8080/travelocity.com/home.jsp>
-
-    Select the following check-boxes:
-
-    !!! note "Remember!"
-        The following check-boxes are enabled or disabled according to the
-        properties available in your service provider. For "travelocity.com"
-        the relevant properties file can be seen inside the webapp
-        travelocy.com/WEB-INF/classes/ called "travelocity **.properties**
-        ".
-    
-    1.  **Enable Response Signing**
-
-    2.  **Enable Single Logout**
-
-    3.  **Enable Attribute Profile**
-
-    4.  **Include Attributes in the Response Always**
-
-6.  Click **Register** to save the changes. Now you will be sent back to
-    the **Service Providers** page.
+1.  In the previous section you have
+    [configured a service provider](../../develop/deploying-the-sample-app/#configuring-service-provider)
+    in WSO2 Identity server. Now edit the service provider to configure
+    password reset.
 
 7.  Go to **Local and Outbound Authentication Configuration** section.
 
