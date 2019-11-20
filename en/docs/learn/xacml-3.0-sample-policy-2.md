@@ -1,6 +1,6 @@
-# Writing XACML 3 Policies in WSO2 Identity Server - 3
+# XACML 3.0 Sample Policy - 2
 
-This page addresses the following authorization requirements:
+This topic demonstrates an example of a XACML policy that addresses the following authorization requirements:
 
 1.  The operation `getCustomers` in the service "http://localhost:8280/services/Customers" should only be accessed
     by users belonging to the `admin\_customers` group.
@@ -69,7 +69,7 @@ This page addresses the following authorization requirements:
 The following are a few valid requests which will result in `Permit/Not
 Applicable/Deny` once evaluated against the above policy.
 
-### The First XACML Request
+### Request one
 
 -   **Resource** - http://localhost:8280/services/Customers/getCustomers
 -   **User** - "admin" belongs only to the "admin\_customers" group
@@ -100,7 +100,7 @@ Applicable/Deny` once evaluated against the above policy.
 </Request>
 ```
 
-### The Second XACML Request
+### Request two
 
 -   **Resource** - http://localhost:8280/services/Customers/getCustomers
 -   **User** - "admin" belongs only to the "admin\_emps" group

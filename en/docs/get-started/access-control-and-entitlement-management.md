@@ -458,7 +458,7 @@ XACML defines three top-level policy elements:
     evaluated in isolation, but that is not intended to be accessed in
     isolation by a PDP. So, it is not intended to form the basis of an
     authorization decision by itself. It is intended to exist in
-    isolation only within an XACML PAP, where it may form the basic
+    isolation only within a XACML PAP, where it may form the basic
     unit of management.  
 -   Element that contains a set of elements and a specified procedure
     for combining the results of their evaluation. It is the basic unit

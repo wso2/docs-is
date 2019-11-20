@@ -1,6 +1,6 @@
 # Configuring Access Control Policy for a Service Provider
 
-This topic guides you through configuring and enforcing an XACML access
+This topic guides you through configuring and enforcing a XACML access
 control policy for a service provider. The authorization is done using
 Identity Server’s [XACML
 engine](../../learn/identity-server-as-an-xacml-engine)
@@ -137,7 +137,7 @@ our requirement.
     !!! info 
 		XACML template policies provide a pre-configured template with
 		placeholders for different types of policies. For a full list of the
-		available XACML policy templates, see [Writing an XACML Policy using
+		available XACML policy templates, see [Writing a XACML Policy using
 		a Policy
 		Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
@@ -230,7 +230,7 @@ our requirement.
 
     !!! note
     
-        For more information on Publishing an XACML policy, click
+        For more information on Publishing a XACML policy, click
         [here](../../learn/publishing-a-xacml-policy).
     
 

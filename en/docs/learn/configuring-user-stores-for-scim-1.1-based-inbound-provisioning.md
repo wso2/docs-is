@@ -37,16 +37,20 @@ Attribute" value as indicated below.
     console](../../setup/getting-started-with-the-management-console).
 2.  In the **Main** menu of the management console, click **List** under
     **Claims**. For more information on configuring claims, see [Claim
-    Management](../../learn/claim-management).
-3.  Click on **urn:scim:schemas:core:1.0** claim dialect and find the
-    mapped local claim to the SCIM claim that you need to edit. You can
-    alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim
+    Management](../../learn/claim-management). Click on **urn:scim:schemas:core:1.0** claim dialect and find the
+    mapped local claim to the SCIM claim that you need to edit.
+    ![claim](../assets/img/learn/claim.png)
+
+3.  You can alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim
     you wish to modify is not available.
+    ![add-claim](../assets/img/learn/add-claim.png)
+    ![available-claims](../assets/img/learn/available-claims.png)
+
 4.  Once you found the Mapped Local Claim, select theat claim under
-    **http://wso2.org/claims**
-5.  Click **Edit** and modify the Mapped Attribute field in the
-    resulting page.  
-    ![mapped-attribute](../assets/img/using-wso2-identity-server/mapped-attribute.png) 
+    **http://wso2.org/claims**.
+    
+5.  Click **Edit** and modify the Mapped Attribute field in the resulting page.  
+    ![update-local-claim](../assets/img/update-local-claim.png) 
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for

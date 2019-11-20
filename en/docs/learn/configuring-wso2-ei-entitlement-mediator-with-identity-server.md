@@ -22,12 +22,12 @@ have a full blown authorization scheme in place with minimum effort.
     Enterprise Integrator
     Documentation](https://ei.docs.wso2.com/).
 
-### Configure Identity Server as an XACML Engine
+### Configure Identity Server as a XACML Engine
 
 The first step is to configure the WSO2 Identity Server to act as a
 XACML engine. XACML support for fine-grained authorization comes with
 WSO2 Identity Server. For this, configure your Identity Server as a
-XACML engine as explained in [Identity Server as an XACML
+XACML engine as explained in [Identity Server as a XACML
 Engine](../../learn/identity-server-as-an-xacml-engine).
 
 ### Configuring the EI entitlement mediator

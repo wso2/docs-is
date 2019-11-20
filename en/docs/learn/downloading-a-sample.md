@@ -26,6 +26,7 @@ Follow the instructions below to download a sample from GitHub.
     ``` bash
     cd .git/info
     echo "modules/samples/" >> sparse-checkout
+    echo "/pom.xml" >> sparse-checkout
     ```
 
 4.  Navigate out of `           .git/info          ` directory and

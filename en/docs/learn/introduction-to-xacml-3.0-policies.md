@@ -1,4 +1,4 @@
-# Writing XACML 3 Policies in WSO2 Identity Server - 1
+# Introduction to XACML 3.0 Policies
 
 XACML policies consist of header information, an optional text
 description of the policy, a target, one or more rules and an optional
@@ -23,14 +23,16 @@ XACML, and are retained for compatibility reasons. It is recommended
 that the new combining algorithms are used instead of the legacy
 combining algorithms for new use.
 
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-overrides
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-overrides
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit
--   urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-unless-deny
--   urn:oasis:names:<zero-width space>tc:xacml:1.0:rule-combining-algorithm:first-applicable
--   urn:oasis:names:<zero-width space>tc:xacml:1.0:policy-combining-algorithm:only-one-applicable
+```
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-overrides
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-deny-overrides
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-overrides
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:ordered-permit-overrides
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit
+urn:oasis:names:<zero-width space>tc:xacml:3.0:rule-combining-algorithm:permit-unless-deny
+urn:oasis:names:<zero-width space>tc:xacml:1.0:rule-combining-algorithm:first-applicable
+urn:oasis:names:<zero-width space>tc:xacml:1.0:policy-combining-algorithm:only-one-applicable
+```
 
 The deny overrides combining algorithm is intended for those cases where
 a deny decision should have priority over a permit decision. This
@@ -86,7 +88,7 @@ xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" Version="1.0">
 </Policy>
 ```
 
-**The first example**
+### Scenario one
 
 A policy will be picked for a request having any Subject, Action, or
 Resource: <http://localhost:8280/services/echo/> .
@@ -115,7 +117,7 @@ xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" Version="1.0">
 </Policy>
 ```
 
-**The second example**
+### Scenario two
 
 ``` xml
 <Policy PolicyId="urn:oasis:names:tc:xacml:3.0:example:SimplePolicy"
