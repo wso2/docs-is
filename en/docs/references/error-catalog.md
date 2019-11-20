@@ -769,3 +769,108 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Keystore Management Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+    <tr>  
+      <td>KSS-60001</td>
+      <td>400</td>
+      <td>Provided certificate already exists with the alias: {{alias}}.</td>
+      <td>Server encountered an error while importing the certificate with alias: {{alias}} to the keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-60002</td>
+      <td>400</td>
+      <td>Provided alias {{alias}} is already available in the keystore.</td>
+      <td>Server encountered an error while importing the certificate with alias: {{alias}} to the keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-60003</td>
+      <td>400</td>
+      <td>Unsupported filter: {{filter}}.</td>
+      <td>Server encountered an error while retrieving the list of certificates from keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-60004</td>
+      <td>400</td>
+      <td>Unsupported filter operation {{filter operation}}.</td>
+      <td>Server encountered an error while retrieving the list of certificates from keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-60010</td>
+      <td>400</td>
+      <td>There exists no certificate with alias: {{alias}}.</td>
+      <td>Couldn't find a certificate with alias: {{alias}} from the keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65001</td>
+      <td>500</td>
+      <td>Unable to retrieve the keystore for tenant: {{tenant domain}}.</td>
+      <td>Server error occured while retrieving the keystore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65002</td>
+      <td>500</td>
+      <td>Unable to retrieve keystore information for keystore: {{keystore name}}</td>
+      <td>Server error occured while retrieving the keystore information.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65003</td>
+      <td>500</td>
+      <td>Unable to retrieve client truststore for tenant: {{tenent domain}}</td>
+      <td>Server error occured while retrieving the client truststore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65004</td>
+      <td>500</td>
+      <td>Unable to retrieve the client truststore aliases for tenant: {{tenant domain}}.</td>
+      <td>Server error occured while retrieving the aliases from client truststore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65005</td>
+      <td>500</td>
+      <td>Unable to retrive the client truststore certificate for alias: {{alias}}.</td>
+      <td>Server error occured while retriving the certificate from client truststore.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65006</td>
+      <td>500</td>
+      <td>Unable to add certificate with alias: {{alias}}</td>
+      <td>Server error occured while adding a certificate.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65007</td>
+      <td>500</td>
+      <td>Unable to delete certificate with alias: {{alias}}.</td>
+      <td>Server error occured while removing a certificate.</td>
+    </tr>  
+    <tr>  
+      <td>KSS-65008</td>
+      <td>500</td>
+      <td>Error occurred while validating the certificate.</td>
+      <td>Server error occured while adding a certificate.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65010</td>
+      <td>500</td>
+      <td>Unable to create file: {{filename}}.</td>
+      <td>Server error occured while creating a file to return the certificate.</td>
+    </tr>
+    <tr>  
+      <td>KSS-65011</td>
+      <td>500</td>
+      <td>Unable to encode the certificate with alias: {{alias}}.</td>
+      <td>Server error occured while encoding the certificate.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
