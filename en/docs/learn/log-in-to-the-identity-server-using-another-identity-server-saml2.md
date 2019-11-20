@@ -1,12 +1,13 @@
 # Log in to the Identity Server using another Identity Server - SAML2
 
 This topic demonstrates a scenario where two WSO2 Identity Server
-instances with different user stores can be used for federated
-authentication. The scenario uses the following software.
+instances with different user stores can be used for federated
+authentication.
 
--   [WSO2 Identity Server](http://wso2.com/products/identity-server/)
--   [Apache Tomcat](http://tomcat.apache.org/) -  Required to run the
-    client application
+!!! note "The scenario uses the following software" 
+    -   [WSO2 Identity Server](http://wso2.com/products/identity-server/) as the Identity Provider 
+    -   [Apache Tomcat](http://tomcat.apache.org/) to run the client application
+    
 
 Follow the instructions in the sections below to set up and configure
 this scenario:
