@@ -154,7 +154,7 @@ AssertionID for the travelocity sample application.
 
 6.  Restart WSO2 IS and access the travelocity.com application by
     accessing this URL:
-    <https://localhost:9443/samlsso?spEntityID=travelocity.com.>
+    `http://wso2is.local:8080/travelocity.com/index.jsp`
 
 7.  Login using admin/admin credentials.
 
