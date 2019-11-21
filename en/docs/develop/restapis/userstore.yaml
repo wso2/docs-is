@@ -326,7 +326,7 @@ paths:
           RDBMS connection properties used to connect to the datasource used by a
           JDBC user store manager.
 servers:
-  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+  - url: 'https://localhost:9443/t/carbon.super/api/server/v1'
     variables:
       tenant-domain:
         default: carbon.super
