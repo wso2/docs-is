@@ -124,8 +124,9 @@ The next step is to configure the service provider.
     identity provider.
 
 2.  Locate the "travelocity.com" service provider and navigate to the
-    **Local and Outbound Authentication Configuration** section.
-        the **Service Providers** page.
+    **Local and Outbound Authentication Configuration** section of the
+    service provider.
+    
 3.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
       

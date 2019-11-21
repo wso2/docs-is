@@ -415,7 +415,6 @@ nav:
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
-            - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
             - 'Try Authorization Code Grant': learn/try-authorization-code-grant.md
             - 'Try Client Credentials Grant': learn/try-client-credentials-grant.md
             - 'Try Implicit Grant': learn/try-implicit-grant.md

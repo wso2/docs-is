@@ -8,26 +8,25 @@ Grant](../../learn/resource-owner-password-credentials-grant)
 
 #### **Running the application**
 
-!!! note
-    
-    Before you begin, you must first [set up the sample
-    webapp.](../../learn/setting-up-the-sample-webapp)
-    
+!!! note "Before you begin" 
+    You must first
+    [set up the `playground` sample webapp.](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)
+    in order to try the following scenario.        
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 2.  Enter the following details and click **Authorize**.
 
-    Authorization Grant Type: Resource Owner  
-    Client ID: (the client id received at the application
-    registration)  
-    Client Secret: (client secret received at the application
-    registration)  
-    Resource Owner User Name: (username)  
-    Resource Owner Password: (password of the user)  
-    Authorize Endpoint:
-    [https://localhost:9443/oauth2/](https://localhost:9443/oauth2/authorize)
-    [token](https://localhost:9443/oauth2/token)
+    **Authorization Grant Type:** Resource Owner  
+    **Client ID:** (the client id received at the [application
+                                    registration](../../develop/deploying-the-sample-app/#configuring-service-provider_1))  
+    **Client Secret:** (client secret received at the [application
+                                    registration](../../develop/deploying-the-sample-app/#configuring-service-provider_1))  
+    **Resource Owner User Name:** (username)  
+    **Resource Owner Password:** (password of the user)  
+    **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
+    
+    **Token Endpoint:** https://localhost:9443/oauth2/token
 
     !!! info 
         If you have configured the service provider in a tenant, you have to

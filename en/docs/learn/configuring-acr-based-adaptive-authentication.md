@@ -10,58 +10,34 @@ Follow the instructions given in the sections below to set this up.
 
 !!! tip "Before you begin"
     
-    -   [Download](https://tomcat.apache.org/download-80.cgi) and
-        [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
-        version 7.\*.\* or 8.\*.\*
-    
-    -   Open the `           /etc/hosts          ` file, add the following
-        entry, and restart your computer.
-    
-        ``` xml
-            127.0.0.1       wso2is.local
-    ```
-
-    To avoid any IP address conflicts, be sure that this is the only
-    entry for this IP address in the /etc/hosts file.
-
-
 	-   Set up the OAuth2 Playground sample application for adaptive
 		authentication. For instructions on how to do this, see [Setting Up
-		the Sample Webapp](../../learn/setting-up-the-sample-webapp).
+		the Sample Webapp](../../develop/deploying-the-sample-app/#deploying-playground2-webapp).
 	-   For more information about adaptive authentication with WSO2
 		Identity Server, see [Adaptive Authentication](../../learn/adaptive-authentication).
 
 
 ### Configuring the service provider
 
-1.  Start the WSO2 IS server.
-2.  Navigate to **Service Providers\>Add** in the **Main** menu of the
-    management console and add a new service provider called
-    "playground2".
-3.  Expand the **Inbound Authentication Configuration\>OAuth/OpenID
-    Connect Configuration** section and click **Configure**.  
-4.  Enter the following URL as the **Callback Url**:
-    <http://wso2is.local:8080/playground2/oauth2client>.  
-    ![callback-url](../assets/img/tutorials/callback-url.png)
-5.  Leave the rest of the default configurations as it is and click
-    **Register**. You will see the generated client key and client
-    secret.  
-    ![client-key-secret](../assets/img/tutorials/client-key-secret.png)
-6.  Expand **Local and Outbound Configuration** and click **Advanced
-    Configuration**.
-7.  Click on **Templates** on the right side of the **Script Based
+1.  Before you begin this guide you have deployed and
+    [registered the `playground2` webapp](develop/deploying-the-sample-app/#configuring-service-provider_1).
+    Let's edit the same service provider to configure **ACR-Based**.
+    authentication flow.
+    
+2. Expand **Local and Outbound Configuration** and click **Advanced 
+   Configuration**.
+   
+3.  Click on **Templates** on the right side of the **Script Based
     Conditional Authentication** field and then click **ACR-Based**.  
     ![acr-based-template-config](../assets/img/tutorials/acr-based-template-config.png)
-8.  Click **Ok**. The authentication script and authentication steps
-    are configured.
+4.  Click **Ok**. The authentication script and authentication steps are
+    configured.
 
-9.  The authentication steps that are added are
-    `          totp         ` and `          fido         ` . However,
-    these are authentication steps that you would normally use in
-    production. To try out this scenario sample authenticators with the
-    sample application, delete the `          totp         ` and
-    `          fido         ` authenticators and add the following demo
-    authenticators instead.   
+5.  The authentication steps that are added are ` totp ` and ` fido ` .
+    However, these are authentication steps that you would normally use
+    in production. To try out this scenario sample authenticators with
+    the sample application, delete the ` totp ` and ` fido `
+    authenticators and add the following demo authenticators instead.
     
     1.  Click **Delete** to remove the `            totp           `
         authenticator from Step 2 (the second authentication step).  
@@ -74,7 +50,7 @@ Follow the instructions given in the sections below to set this up.
     4.  Select **Demo FaceID Authenticator** and click **Add**.  
         ![demo-face-id-authenticator](../assets/img/tutorials/demo-face-id-authenticator.png)
         
-10. Click **Update**.
+6. Click **Update**.
 
 
 !!! info

@@ -7,22 +7,21 @@ Grant](../../learn/client-credentials-grant).
 
 **Running the application**
 
-!!! note
-    
-    Before you begin, you must first [set up the sample
-    webapp.](../../learn/setting-up-the-sample-webapp)
-    
+!!! note "Before you begin" 
+    You must first
+    [set up the `playground` sample webapp.](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)
+    in order to try the following scenario.
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 2.  Enter the following details and click **Authorize**.
 
-    Authorization Grant Type: Client Credentials  
-    Client ID: (the client id received at the application
-    registration)  
-    Client Secret: (client secret received at the application
-    registration)  
-    Access Token Endpoint: <https://localhost:9443/oauth2/token>
+    **Authorization Grant Type:** Client Credentials  
+    **Client ID:** (the client id received at the [application
+                                    registration](../../develop/deploying-the-sample-app/#configuring-service-provider_1))  
+    **Client Secret:** (client secret received at the [application
+                                    registration](../../develop/deploying-the-sample-app/#configuring-service-provider_1))  
+    **Access Token Endpoint:** <https://localhost:9443/oauth2/token>
 
     ![client-credentials-grant](../assets/img/using-wso2-identity-server/client-credentials-grant.png) 
 
