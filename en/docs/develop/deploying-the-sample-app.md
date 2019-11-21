@@ -1,11 +1,14 @@
-# Deploying the Sample App
+# Deploying the Sample Applications
 
 This topic provides instructions on how to download and deploy the
-sample application (travelocity).
+sample application used while trying out sample use cases in WSO2
+Identity Server.
 
-!!! tip "Before you begin"    
-    -   Download Tomcat 8.x from
-        [here](https://tomcat.apache.org/download-80.cgi).
+!!! tip "Before you begin" 
+    Download Apache Tomcat 8.x from
+    [here](https://tomcat.apache.org/download-80.cgi) and install. Tomcat
+    server installation location will be referred as `<TOMCAT_HOME>` later
+    in this guide.
         
 !!! note
     It is recommended that you use a hostname that is not
@@ -18,7 +21,11 @@ sample application (travelocity).
     
 ## Deploying travelocity webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of Identity Server, you need to download
 it onto your machine first.
@@ -26,15 +33,15 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `travelocity.com.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
+   assets.
 
-### Deploy the sample web app
+### Deploy the sample web application
 
 Deploy this sample web app on a web container.
 
-1.  Copy the .war file into the `webapps`
-    folder. For example,
-    `  <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
+1.  Copy the `travelocity.com.war`file into the `webapps` folder. For
+    example, ` <TOMCAT_HOME>/apache-tomcat-<version>/webapps`
     
 2.  Open a terminal window and add the following entry to the
     `           /etc/hosts          ` file of your machine to configure
@@ -63,12 +70,11 @@ Deploy this sample web app on a web container.
 		sudo nano /etc/hosts
 		```
 		
-3.  Open the `           travelocity.properties          ` file found
-    in the
-    `           <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes          `
-    directory and configure the following property with the hostname (
-    `           wso2is.local          ` ) that you configured above.
-    Finally restart the tomcat server.
+3.  Open the ` travelocity.properties ` file found in the `
+    <TOMCAT_HOME>/webapps/travelocity.com/WEB-INF/classes ` directory
+    and configure the following property with the hostname ( `
+    wso2is.local ` ) that you configured above. Finally restart the
+    tomcat server.
 
     ``` text
     #The URL of the SAML 2.0 Assertion Consumer
@@ -154,7 +160,11 @@ The next step is to configure the service provider.
 
 ## Deploying playground2 webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of Identity Server, you need to download
 it onto your machine first.
@@ -162,16 +172,16 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `playground2.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/playground2.war)
+   the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample web app
 
 Deploy this sample web app on a web container.
 
-1.  Copy the .war file into the `webapps`
-    folder. For example,
-    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps`
-    .
+1.  Copy the the `playground2.war` file from the latest release assets.
+    file into the `webapps` folder. For example,
+    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps` .
 2.  Start the Tomcat server.
 
 !!! note 
@@ -280,13 +290,19 @@ The next step is to configure the service provider.
         For more information on `Callback Url` field and other advanced configurations
         refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on)
         
-7.  Click on add.
+7.  Click **Add**. Note that `             client key            ` and
+    `             client secret            ` get generated.  
+    ![generated-key-secret](../assets/img/using-wso2-identity-server/generated-key-secret.png) 
 8.  Update the service provider you have created by clicking the update button.
 
 ----------------
 
-##Deploying saml2-web-app-pickup-dispatch webapp
+## Deploying saml2-web-app-pickup-dispatch webapp
 
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
 ### Download the samples
 
 To be able to deploy a sample of Identity Server, you need to download
@@ -295,7 +311,8 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `saml2-web-app-pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.war) the `saml2-web-app-pickup-dispatch.war` file from the
+   latest release assets.
 
 ### Deploy the sample web app
 
@@ -359,7 +376,11 @@ The next step is to configure the service provider.
 
 ## Deploying saml2-web-app-pickup-manager webapp
 
-### Download the samples
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    
+### Download the sample
 
 To be able to deploy a sample of the Identity Server, you need to download
 it onto your machine first.
@@ -367,7 +388,8 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. Download the `saml2-web-app-pickup-manager.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.war) the `saml2-web-app-pickup-manager.war` file from the
+   latest release assets.
 
 ### Deploy the sample web app
 
