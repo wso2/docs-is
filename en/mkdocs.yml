@@ -427,7 +427,6 @@ nav:
           - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
-        - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
         - 'Writing a Web Service Client for Authentication and User Admin Services': learn/writing-a-web-service-client-for-authentication-and-user-admin-services.md
         - 'Testing Passive STS': learn/testing-passive-sts.md
         - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': learn/consuming-scim-rest-endpoints-from-a-java-client-application.md
