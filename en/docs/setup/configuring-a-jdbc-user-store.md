@@ -178,7 +178,7 @@ For example :
 
 ``` toml
 [user_store]
-SCIMEnabled = true
+scim_enabled = true
 ```
 
 !!! tip 
