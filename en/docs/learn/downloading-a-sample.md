@@ -38,5 +38,5 @@ Follow the instructions below to download a sample from GitHub.
     git checkout -b v5.9.0 v5.9.0
     ```
 
-    Access the samples by navigating to the
-    `           is-samples/modules/samples          ` directory.
+    Access the samples by navigating to the ` is-samples/modules/samples
+    ` directory. This location will be referred as `<Sample_Home>`.

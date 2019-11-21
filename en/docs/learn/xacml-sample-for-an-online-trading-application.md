@@ -7,7 +7,7 @@ implementation](https://svn.wso2.org/repos/wso2/trunk/commons/balana).
 
 ### Prerequisites
 
-Requires Java JDK 1.7 or 1.8
+Requires Java 1.8
 
 ### Scenario
 
@@ -93,9 +93,9 @@ sample.
     attributes from custom JDBC user store of the "Kmarket". More
     information on writing a custom PIP attribute finder module for this
     scenario can be found [here](../../develop/writing-a-custom-policy-info-point).
-8.  Run the sample by navigating inside the
-    `           <Sample_Home>/kmarket-trading-sample          `
-    directory on the command line and executing the **run** script.
+8.  Run the sample by navigating inside the `
+    <Sample_Home>/xacml/kmarket-trading-sample/ ` directory on the
+    command line and executing the **run** script.
 
     !!! info 
         UNIX: run.sh
