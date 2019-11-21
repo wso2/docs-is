@@ -329,7 +329,7 @@ servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
       tenant-domain:
-        default: unknown
+        default: carbon.super
 components:
   parameters:
     domainNamePathParam:

@@ -33,3 +33,5 @@ window.onload = function() {
   window.ui = ui
 }
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/60b25b1a87ea8779fc69)
