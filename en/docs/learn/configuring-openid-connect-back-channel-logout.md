@@ -39,8 +39,8 @@ back-channel logout.
    to download, deploy and register `playground2` applications.
 
 
-2.  Make a copy of ` playground2.war `it and rename to `
-    playground3.war` in the same location described in step 1.
+2.  Make a copy of ` playground2.war `and rename to ` playground3.war`
+    in the same location described in step 1.
 
 ### Configuring OpenID Connect back-channel logout
 

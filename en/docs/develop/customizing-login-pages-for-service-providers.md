@@ -36,7 +36,7 @@ customized one.
 2.  Get a copy of `travelocity.com.war` that
     [download from here](../../learn/deploying-the-sample-app/#deploy-the-sample-web-application)
     to the same location `<TOMCAT_HOME>/webapps/` rename as
-    `acis.com.war`. Restart the tomcat server.
+    `avis.com.war`. Restart the tomcat server.
 
     !!! note 
         -   Open ` <TOMCAT_HOME>/webapps/travelocity.com/
@@ -59,7 +59,7 @@ customized one.
             #openid.return_to parameter
             OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
             ```
-3. Register a new service provider with name `avis.com` simillerly as
+3. Register a new service provider with name `avis.com` similarly as
    explained in [configuring service provider for travelocity
                                                 sample](../../deploying-the-sample-app/#configuring-service-provider)
    while replacing `travelocity.com` references to `avis.com`.
