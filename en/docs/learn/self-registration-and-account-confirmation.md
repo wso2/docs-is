@@ -1,12 +1,12 @@
 # Self-Registration and Account Confirmation
 
 WSO2 Identity Server (WSO2 IS) supports self-registration to allow users
-set up their account and receive email confirmation when the account is
+set up their account and receive confirmation when the account is
 created.
 
 When a user self-registers, the self-registration process creates the
 user account and locks the account until the user confirms account
-ownership via the confirmation mail that WSO2 IS sends.
+ownership via a confirmation mail send by WSO2 IS.
 
 If a user does not confirm account ownership before the specified expiry
 period, the user account is locked assuming that the expired account is
@@ -15,24 +15,9 @@ delete such accounts to manage resources better.
 
 The following sections walk you through configuring and trying out
 self-registration.
-
-!!! warning
-    From WSO2 IS 5.3.0 onwards there is a new implementation for identity
-    management features. The steps given below in this document follows the
-    new implementation, which is the **recommended approach** for self
-    registration.
     
-    Alternatively, to see the steps on how to enable this identity
-    management feature using the **old implementation**, see [Self Sign Up
-    and Account Confirmation documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Self-Registration+and+Account+Confirmation). The old
-    implementation has been retained within the WSO2 IS pack for backward
-    compatibility and can still be used if required.
-    
-    
-!!! tip "Before you begin"
-    
-    Ensure that the " `         IdentityMgtEventListener        ` " with the
+!!! Warning 
+    If you have migrated from a previous IS version, ensure that the `IdentityMgtEventListener` with the
     `         orderId=50        ` is set to **false** and that the Identity
     Listeners with `         orderId=95        ` and
     `         orderId=97        ` are set to **true** in the
@@ -56,7 +41,12 @@ self-registration.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
+1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
+configure the the identity server to sent confirmation emails.
+    
+    !!! Note
+        You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
+        emails. Alternatively, you can use your own email managing mechanism.
 
     ``` toml
     [output_adapter.email]
@@ -70,8 +60,7 @@ which is `         carbon.super        `.
     ```
 
     !!! tip
-        The email template used to send this email notification is
-        the **AccountConfirmation** template.
+        The **AccountConfirmation** template is to send this email notifications.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
@@ -83,12 +72,15 @@ which is `         carbon.super        `.
     and [log in to the management
     console](../../setup/running-the-product#accessing-the-management-console)
     : `          https://<IS_HOST>:<IS_PORT>/carbon         `  
-    If you started WSO2 IS previously, make sure to stop it and start it
-    again for the email settings to get updated in the pack.
-3.  Navigate to **Main** tab \> **Identity Providers** \> **Resident**
-    and expand the **Account Management Policie** s section.
+    **NOTE:** If your IS is already running, make sure to stop and start to apply configurations. 
+    
+3.  Navigate to **Main** -> **Identity Providers** -> **Resident** -> **Account Management Policies** section.
+    
 4.  Expand the **User Self Registration** section and configure the
-    following properties as required.
+    following properties.
+    
+    ![user-self-registration](../assets/img/using-wso2-identity-server/user-self-registration.png) 
+    
     <table>
     <thead>
     <tr class="header">
@@ -99,15 +91,20 @@ which is `         carbon.super        `.
     <tbody>
     <tr class="odd">
     <td>Enable Self User Registration</td>
-    <td>Select to enable self registration.</td>
+    <td>Enable self registration.</td>
     </tr>
     <tr class="even">
     <td>Enable Account Lock On Creation Enabled</td>
-    <td>Select to enable account locking during self registration.</td>
+    <td>Enable account lock during self registration. The account will be unclocked upon confirmation.</td>
     </tr>
     <tr class="odd">
     <td>Enable Notification Internally Management</td>
-    <td>Select if you want the notification handling to be managed by the WSO2 Identity Server. If the client application handles notification sending already, unselect it. This check only applies if Security Question Based Password Recovery is enabled.</td>
+    <td>
+    <p>
+    Select to configure Identity server to send confirmation emails to the user.
+    If the client application handles notification sending already, unselect it. 
+    </p>
+    </td>
     </tr>
     <tr class="even">
     <td>Enable reCaptcha</td>
@@ -116,10 +113,11 @@ which is `         carbon.super        `.
     <tr class="odd">
     <td>User self registration code expiry time</td>
     <td><div class="content-wrapper">
-    <p>Set the number of minutes for which the verification code should be valid. The verification code that is provided to the user to initiate the self sign-up flow will be invalid after the time specified here has elapsed.</p>
+    <p>Number of minutes that the confirmation link would be valid. The confirmation link will expire 
+    after the specified time has elapsed.</p>
     <div class="admonition note">
     <p class="admonition-title">Note</p>
-    <p>Alternatively, you can configure the expiry time in the <code>                 deployment.toml                </code>  file.</p>
+    <p>Alternatively, you can configure the expiry time from the <code>deployment.toml</code>  file.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">[identity_mgt.user_self_registration]</a>
@@ -132,24 +130,13 @@ which is `         carbon.super        `.
     </tbody>
     </table>
 
-    ![user-self-registration](../assets/img/using-wso2-identity-server/user-self-registration.png) 
-
-5.  Expand the **Login Policies** tab, then the **Account Locking** tab
-    and select **Account Lock Enabled**.  
-    This allows the account to be locked until the user confirms the
-    account. Once the user activates the account through the email
-    received, the account is unlocked. For more information about
-    account locking, see [Account
-    Locking](../../learn/account-locking-by-failed-login-attempts).
-
-    ![account-locking](../assets/img/using-wso2-identity-server/account-locking.png) 
-
 Now you have set up self registration. Next let's see how you can
 configure self-registration consent purposes via the management console
 of WSO2 Identity Server.
 
 !!! tip
-    For information on the REST APIs for self-registration, see [Self-Registration Using REST APIs](../../develop/using-the-self-sign-up-rest-apis).
+    For information on the REST APIs for self-registration, see 
+    [Self-Registration Using REST APIs](../../develop/using-the-self-sign-up-rest-apis).
     
 
 ## Configuring self-registration consent purposes
@@ -160,50 +147,43 @@ purposes and appropriate user attributes:
 1.  Start WSO2 Identity Server and access the management console via
     `                       https://localhost:9443/carbon/                     `.
 
-2.  Click the **Main** tab, go to **Identity** -\> **Identity
-    Providers** and then click **Resident**. This displays the
-    **Resident Identity Provider** screen.  
-    Expand the **Account Management Policies** section, and then expand
-    the **User Self Registration** section. Under **User Self
-    Registration** you will see Manage self-sign-up purposes.
+2.  Navigate to **Main** -> **Identity** -> **Identity
+    Providers** -> **Resident** ->**Account Management Policies** -> **User Self Registration** section. 
 
-3.  Click to configure self-registration consent purposes and user
-    attributes.  
+3.  Select `Click here` to configure self-registration consent purposes. This displays 
+the **Consent Purposes** screen that allows you to add consent purposes.
+
     ![self-registration](../assets/img/using-wso2-identity-server/self-registration.png)   
-    This displays the **Consent Purposes** screen that allows you to add
-    consent purposes.
+    
 
-4.  Click **Add New Purpose**. This displays the **Add New Purpose**
-    screen.
+4.  Click **Add New Purpose**. 
 
 5.  Specify appropriate values for the **Purpose** and **Description**
-    fields, and then click **Add PII Category** to add a user attribute
-    required to obtain consent for the specified purpose.
+    fields, and then click **Add PII Category** to add user attributes
+    requires to obtain user consent.
 
     !!! tip
         You can add one or more user attributes to obtain consent for a
         particular purpose.
     
-
     ![user-attributes-for-consent](../assets/img/using-wso2-identity-server/user-attributes-for-consent.png) 
 
 6.  If you want consent on a specific user attribute to be mandatory,
     select the **Mandatory** check box for that attribute.
 
     !!! tip    
-        -   When you configure purposes for self-registration, the
+        -   When you configure consent purposes for self-registration, the
             attributes that you specify for a particular purposes are the
             only attributes for which users are prompted to provide consent.
         -   If a user attribute is set as **Mandatory**, a user has to
-            provide consent for the attribute to proceed with
+            provide consent for that attribute to proceed with
             self-registration.
         -   If a user does not provide consent for any of the non-mandatory
             attributes, WSO2 Identity Server will not store those
             attributes.
     
 
-7.  Click **Finish**. This displays details related to the purpose and
-    user attributes you added.
+7.  Click **Finish**. 
 
 8.  Depending on your requirement, you can either add another new
     purpose and related user attributes, or click **Finish** if you have
@@ -236,14 +216,11 @@ Next, you can try out self-registration.
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
 
-4.  Once the user has registered, first you receive an account lock
-    email because the account is locked until you confirm the account
-    and then you receive an account confirmation email.
+4.  Once the user has registered, user will receive a confirmation mail.
 
 5.  Click **Confirm Registration** in the email or copy the link in the
     email to your browser to confirm the account.  
-    Once you confirm the account, the account is unlocked and an email
-    is sent.
+    Once you confirm the account, the account will be unlocked.
 
 !!! info "Want to resend the confirmation email?"
 
@@ -265,7 +242,21 @@ Next, you can try out self-registration.
         You can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
+
+!!! Note
+    If you wish to send a account unlocked email upon account confirmation, please do the following 
+    configurations.
     
+    1. Navigate to **Resident IDP**.
+    
+    2. Expand the **Login Policies** -> **Account Locking** and select **Account Lock Enabled**.  
+        Once the user activates the account via the confirmation email, an **Account Unlocked** email 
+        will be sent by the Identity server.
+        
+        For more information aboutaccount locking, see [Account
+        Locking](../../learn/account-locking-by-failed-login-attempts).
+    
+        ![account-locking](../assets/img/using-wso2-identity-server/account-locking.png)
 
 ## Related Links
 
