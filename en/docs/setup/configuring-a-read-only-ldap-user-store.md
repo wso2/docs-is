@@ -110,7 +110,7 @@ scim_enabled = true
 ```
 
 !!! tip 
-    The properties given below can also be configured for a secondary user store through the management console.
+    The properties given below can be configured for a secondary user store through the management console.
 
 <table>
 <thead>
