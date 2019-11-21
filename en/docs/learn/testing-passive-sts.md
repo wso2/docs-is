@@ -17,7 +17,7 @@ of Identity Server's Passive STS.
 ### Configuring and trying the sample
 
 1. Follow the
-   [guide on how to configure `PassiveSTSSampleApp` ](../../develop/deploying-the-sample-app/#deploying-passivestssampleapp-webapp)
+   [guide on how to configure `PassiveSTSSampleApp` ](../../learn/deploying-the-sample-app/#deploying-passivestssampleapp-webapp)
    to download, deploy and register the sample.
 
 2.   On your browser,access the following link:

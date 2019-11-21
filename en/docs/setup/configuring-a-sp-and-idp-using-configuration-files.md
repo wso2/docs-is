@@ -428,7 +428,7 @@ provider in the **`          service provider IS         `**.
 
 Do the following steps to run the travelocity application.
 
-1.  [Deploy the travelocity](../../develop/deploying-the-sample-app/#download-the-sample)
+1.  [Deploy the travelocity](../../learn/deploying-the-sample-app/#download-the-sample)
     application. No need to register the service provider for
     travelocity as
     [we created service provider via a file](#adding-the-service-provider-in-the-service-provider-is).

@@ -219,7 +219,8 @@ nav:
             - 'XACML3 Sample Policy - 6': learn/xacml-3.0-sample-policy-6.md
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
-    - 'Using WSO2 Identity Server':     
+      - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
@@ -524,7 +525,6 @@ nav:
       - 'Configuring Connectors': 
         - 'Connectors Overview': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
         - 'Configuring Connectors': develop/authenticators-and-connectors.md    
-        - 'Deploying the Sample App': develop/deploying-the-sample-app.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
         - 'Basecamp Authenticator': develop/basecamp-authenticator.md
         - 'Bitly Authenticator': develop/bitly-authenticator.md

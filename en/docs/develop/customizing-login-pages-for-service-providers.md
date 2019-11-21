@@ -31,10 +31,10 @@ customized one.
 
 ### Configuring two service providers
 
-1.  [Deploy traveloctity](../../develop/deploying-the-sample-app/#deploying-travelocity-webapp) sample application.
+1.  [Deploy traveloctity](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) sample application.
 
 2.  Get a copy of `travelocity.com.war` that
-    [download from here](../../develop/deploying-the-sample-app/#deploy-the-sample-web-application)
+    [download from here](../../learn/deploying-the-sample-app/#deploy-the-sample-web-application)
     to the same location `<TOMCAT_HOME>/webapps/` rename as
     `acis.com.war`. Restart the tomcat server.
 
