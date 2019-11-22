@@ -60,9 +60,6 @@ nav:
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
       - 'Cross Protocol Single Logout': get-started/cross-protocol-single-logout.md
-  - 'Compliance':
-    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
-    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
@@ -736,6 +733,9 @@ nav:
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
+  - 'Compliance':
+    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
+    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'References': 
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
