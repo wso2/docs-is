@@ -389,11 +389,10 @@ The port 443 is the Load Balancer frontend port.
 
     !!! example
         ```
-        [transport.http]
-        port = "80"
-
-        [transport.https]
-        proxyPort = "443" 
+        [transport.http.properties]
+        proxyPort = 80
+        [transport.https.properties]
+        proxyPort = 443 
         ```
 
 4. You may change the `<IS_HOME>/repository/conf/deployment.toml` file to access the servers using a 
