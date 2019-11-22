@@ -31,13 +31,31 @@ back-channel logout.
 4.  Upon receiving the logout token, the client application validates
     the logout token and invalidates the user session.
 
+
+### Configuring the sample applications
+
+1. Follow the steps
+   [here](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+   to download, deploy and register `playground2` applications.
+
+
+2.  Make a copy of ` playground2.war `and rename to ` playground3.war`
+    in the same location described in step 1.
+
 ### Configuring OpenID Connect back-channel logout
 
 Follow the steps below to configure OpenID Connect back-channel logout
 in WSO2 Identity Server:
 
 1.  Sign in to the WSO2 Identity Server Management Console.
-2.  To register a web application as a service provider:  
+    <a name="step2"></a>
+    
+    !!! Tip 
+        In the previous section you have
+        [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-service-provider_1).
+        If you complete that you can skip **step 2** below.
+    
+2.  To register a web application as a service provider:
     1.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
         ![]( ../assets/img/112390325/112391328.png) 
@@ -63,16 +81,13 @@ in WSO2 Identity Server:
         created.  
         ![]( ../assets/img/112390325/112391339.png) 
 
-        You have successfully added the playground2 service provider.
-        Similarly, register another service provider with the following
-        data:
+3.  You have successfully added the playground2 service provider.
+    Similarly, register another service provider performing all the
+    sub-steps in above [Step2](#step2) with the following data:
 
-        -   **Service Provider Name** :
-            `              playground3             `
-        -   **Callback URL** :
-            `                             http://localhost:8080/playground3/oauth2client                           `
-        -   **Logout URL** :
-            `                             http://localhost:8080/playground3/bclogout                           `
+    -   **Service Provider Name** :`              playground3             `
+    -   **Callback URL** : `http://localhost:8080/playground3/oauth2client `
+    -   **Logout URL** : ` http://localhost:8080/playground3/bclogout `
 
 3.  To view the identity provider's logout endpoint URL, which gets
     called when the logout is triggered from the service provider:
@@ -87,23 +102,12 @@ in WSO2 Identity Server:
         out.  
         ![]( ../assets/img/112390325/112391344.png) 
 
-### Configuring the sample applications
-
-1. Follow the steps
-[here](../../develop/deploying-the-sample-app/#deploying-playground2-webapp)
-to download and deployplayground2 applications.
-
-
-2.  Make a copy of ` playground2.war `it and rename to `
-    playground3.war` in the same location described in step 1.
-
-
 ### Testing OpenID Connect back-channel logout with the sample applications
 
 Follow the steps below to test OpenID Connect back-channel logout with
 the newly registered service provider:
 
-1.  To sign in to the playgroun2 web application:
+1.  To sign in to the playground2 web application:
     1.  Navigate to
         `              http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2             `
         in your browser, e.g.,
@@ -204,9 +208,9 @@ the newly registered service provider:
         to `             admin.            `  
         ![]( ../assets/img/112390325/112391430.png) 
 
-2.  Similarly, sign in to the playground3 application by navigating to
-    `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3          `
-    in a separated browser window/tab.
+2.  Similarly, sign in to the playground3 application by navigating to `
+    http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3 ` (ex:
+    `http://localhost:8080/playground3`) in a separated browser tab.
 3.  Click **Logout**. A confirmation message appears.  
     ![]( ../assets/img/112390325/112391427.png) 
 4.  Click **Yes**. A success message appears

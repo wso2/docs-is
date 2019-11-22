@@ -62,8 +62,9 @@ information in the following sections.
 
 ### Deploying travelocity.com sample app
 
-The next step is to [deploy the sample app](../../develop/deploying-the-sample-app)
-in order to use it in this scenario.
+The next step is to deploy and configure travelocity application. See 
+[deploy the sample app](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) for more information 
+on configuring travelocity application. 
 
 ### Configuring the identity provider
 
@@ -123,41 +124,18 @@ You have now added the identity provider.
 
 The next step is to configure the service provider.
 
-1.  Return to the management console.
+1.  In the
+    [previous section of this guide](#deploying-travelocity-sample-application)
+    you have deployed and
+    [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-service-provider).
+    Let's edit the same service provider to configure `instagram` as the
+    identity provider.
 
-2.  In the **Service Providers** section, click **Add** under the
-    **Main** tab.
+2.  Locate the "travelocity.com" service provider and navigate to the
+    **Local and Outbound Authentication Configuration** section.
 
-3.  Since you are using Travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click Register.
-
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
-
-5.  Now set the configuration as follows:
-
-    1.  **Issuer** : travelocity.com
-
-    2.  **Assertion Consumer URL** :
-        <http://localhost:8080/travelocity.com/home.jsp>
-
-6.  Select the following check-boxes:
-    1.  **Enable Response Signing**.
-
-    2.  **Enable Single Logout**.
-
-    3.  **Enable Attribute Profile**.
-
-    4.  **Include Attributes in the Response Always**.   
-
-7.  Click **Update** to save the changes. Now you will be sent back to
-    the **Service Providers** page.
-
-8.  Navigate to the **Local and Outbound Authentication Configuration**
-    section.
-
-9.  Select the identity provider you created from the dropdown list
-    under **Federated Authentication**.
+3.   Select the identity provider you created from the dropdown list
+     under **Federated Authentication**.
 
     ![](../assets/img/49091422/49227071.png) 
 
@@ -218,9 +196,9 @@ various user attributes related to Instagram.
 
 ### Testing the sample
 
-1.  To test the sample, go to the following URL:
-    `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp          `
-    . E.g., <http://localhost:8080/travelocity.com>
+1.  To test the sample, go to the following URL: `
+    http://<TOMCAT_HOST>:<TOMCAT_PORT>/travelocity.com/index.jsp ` .
+    E.g., <http://wso2is.local:8080/travelocity.com>
 
 2.  Click the option available to login with SAML from the WSO2 Identity
     Server.
