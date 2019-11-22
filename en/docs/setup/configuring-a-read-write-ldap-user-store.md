@@ -85,7 +85,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 [user_store]
 type = "read_write_ldap"
 base_dn = "ou=system"
-connection_url = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
+connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
 connection_password = "admin"
 ```
