@@ -34,8 +34,7 @@ to configure primary user stores.
 </tr>
 <tr class="odd">
 <td><code>             DisplayNameAttribute            </code></td>
-<td><code>display_name_attribute</code></td>
-<td><code>             
+<td><code>display_name_attribute</code></td>            
 <td>This is an optional property. The Display Name Attribute is the name by which users will be listed when you search for users in the management console (Go to <strong>Configuration -&gt; Users</strong> tab).</td>
 </tr>
 <tr class="even">
