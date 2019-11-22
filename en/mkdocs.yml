@@ -495,6 +495,7 @@ nav:
             - 'Authentication': develop/authentication-data-api.md
             - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
+            - 'Identity Providers': develop/idp-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -749,7 +750,7 @@ nav:
   - 'Compliance':
     - 'GDPR': compliance/general-data-protection-regulation.md
     - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
-  - 'References': 
+  - 'References':
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
