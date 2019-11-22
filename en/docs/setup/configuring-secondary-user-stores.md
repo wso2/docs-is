@@ -82,13 +82,13 @@ You can use either the management console to create secondary user stores or you
     -   [Properties for a JDBC User Store](../../setup/configuring-a-jdbc-user-store#properties-used-in-jdbc-user-store-manager)
 
     -   [Properties for a Read-only LDAP User
-        Store](../../setup/configuring-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-userstore-manager)
+        Store](../../setup/configuring-a-read-only-ldap-user-store#properties-used-in-read-only-ldap-user-store-manager)
 
     -   [Properties for a Read-write Active Directory User
         Store](../../setup/configuring-a-read-write-active-directory-user-store#properties-used-in-read-write-active-directory-userstore-manager)
-
+        
     -   [Properties for a Read-write LDAP User
-        Store](../../setup/configuring-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-userstore-manager)
+        Store](../../setup/configuring-a-read-write-ldap-user-store#properties-used-in-read-write-ldap-user-store-manager)
 
 5.  Make sure that all the mandatory fields are filled and a valid
     domain name is given, and click **Add**. A message appears saying
@@ -96,7 +96,6 @@ You can use either the management console to create secondary user stores or you
     ![configure-userstores](../assets/img/using-wso2-identity-server/configure-userstores.png)
 
     !!! note
-    
         The above message does not imply that the user store is added
         successfully. It simply means that the server is attempting to add
         the new user store to the end of the available chain of stores.
