@@ -22,6 +22,11 @@ self-registration.
     Listeners with `         orderId=95        ` and
     `         orderId=97        ` are set to **true** in the
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
+   
+    !!! Note 
+        If there is no such entries for `event.default_listener.xxx`, in `deployment.toml`, 
+        no need to configure the following.
+    
     
     ``` java
     [event.default_listener.identity_mgt]
@@ -53,7 +58,7 @@ configure the the identity server to sent confirmation emails.
     from_address= "wso2iamtest@gmail.com"
     username= "wso2iamtest"
     password= "Wso2@iam70"
-    hostname= smtp.gmail.com
+    hostname= "smtp.gmail.com"
     port= 587
     enable_start_tls= true
     enable_authentication= true
@@ -244,7 +249,7 @@ Next, you can try out self-registration.
         Emails](../../learn/customizing-automated-emails).
 
 !!! Note
-    If you wish to send a account unlocked email upon account confirmation, please do the following 
+    If you wish to send a account unlocked email upon account confirmation, do the following 
     configurations.
     
     1. Navigate to **Resident IDP**.
@@ -253,7 +258,7 @@ Next, you can try out self-registration.
         Once the user activates the account via the confirmation email, an **Account Unlocked** email 
         will be sent by the Identity server.
         
-        For more information aboutaccount locking, see [Account
+        For more information about account locking, see [Account
         Locking](../../learn/account-locking-by-failed-login-attempts).
     
         ![account-locking](../assets/img/using-wso2-identity-server/account-locking.png)
