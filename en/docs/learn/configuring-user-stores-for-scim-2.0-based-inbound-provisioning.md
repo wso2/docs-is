@@ -22,12 +22,8 @@ Now let's assume you have an AD user store as the primary user store and you hav
 
 ![claim-list-scim2](../assets/img/learn/claim-list-scim2.png)
 
-3.  You can alternatively [Add a New Claim](../../learn/adding-claim-mapping) if the claim you wish to modify is not available.
-    ![add-claim-scim2.png](../assets/img/learn/add-claim-scim2.png)
-    ![available-claims-scim2](../assets/img/learn/available-claims-scim2.png)
-
-4.  Once you found the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
-5.  Click Edit and modify the Mapped Attribute field in the resulting page.
+3.  Once you found the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
+4.  Click Edit and modify the Mapped Attribute field in the resulting page.
     !!! note 
         Here we have configured a claim attribute mapping for a primary user store. If you have a secondary user store, you need to add another mapping for those as well. To do that just click on Add Attribute Mappings and set the corresponding values for user store domain name and mapped attribute.
 
