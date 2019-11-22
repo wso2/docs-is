@@ -226,15 +226,15 @@ Apart from above basic configurations WSO2 Identity Server supports advanced dat
     JDBC Connection
     Pool](http://tomcat.apache.org/tomcat-9.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
   
-   !!! info "Configuring the connection pool behavior on return" 
-        When a database connection is returned to the pool, by default 
-        the product rolls back the pending transactions if defaultAutoCommit
-        =true. However, if required you can disable the latter mentioned
-        default behavior by disabling the
-        `            ConnectionRollbackOnReturnInterceptor           `,
-        which is a JDBC-Pool JDBC interceptor, and setting the connection
-        pool behavior on return via the datasource configurations by using
-        the following options.
+!!! info "Configuring the connection pool behavior on return" 
+    When a
+    database connection is returned to the pool, by default the product
+    rolls back the pending transactions if `defaultAutoCommit =true`.
+    However, if required you can disable the latter mentioned default
+    behavior by disabling the ` ConnectionRollbackOnReturnInterceptor `,
+    which is a JDBC-Pool JDBC interceptor, and setting the connection pool
+    behavior on return via the datasource configurations by using the
+    following options.
     
     
 
