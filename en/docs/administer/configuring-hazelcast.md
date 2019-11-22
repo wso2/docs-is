@@ -30,7 +30,7 @@ Once you enable log4j for hazelcast as explained above, add
 `         log4j.logger.com.hazelcast=INFO        ` to the
 `         <IS_HOME>/repository/conf/log4j.properties        `
 file. For more information on logging, see [Monitoring
-Logs](../../administer/monitoring-logs).
+Logs](../../setup/monitoring-logs).
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
