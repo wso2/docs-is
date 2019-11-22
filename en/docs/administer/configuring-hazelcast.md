@@ -1,15 +1,14 @@
 # Configuring Hazelcast
 
-WSO2 products use
-[Hazelcast](../../administer/clustering-overview)
-as its default clustering engine. The following configuration must be
-placed in the
-`         <IS_HOME>/repository/conf/hazelcast.properties        `
-file. Create this file if it does not exist.
+WSO2 products use [Hazelcast](../../administer/clustering-overview) as
+its default clustering engine. The following configuration must be
+placed in the ` <IS_HOME>/repository/conf/deployment.toml ` file to
+enable advanced cases.
 
-``` java
-    hazelcast.shutdownhook.enabled=false
-    hazelcast.logging.type=log4j
+```toml
+    [hazelcast]
+    "hazelcast.shutdownhook.enabled" = "false"
+    "hazelcast.logging.type"= "log4j"
 ```
 
 The above configurations are explained below.
@@ -26,14 +25,23 @@ The above configurations are explained below.
     logging type to log4j, which allows hazelcast logs to be written to
     the `          wso2carbon.log         ` file.
 
-Once you enable log4j for hazelcast as explained above, add
-`         log4j.logger.com.hazelcast=INFO        ` to the
-`         <IS_HOME>/repository/conf/log4j.properties        `
-file. For more information on logging, see [Monitoring
-Logs](../../setup/monitoring-logs).
+Once you enable advanced logs for hazelcast as explained above, change
+`logger.com-hazelcast.level` configuration in the `
+<IS_HOME>/repository/conf/log4j2.properties ` file. For more information
+on logging, see [Monitoring Logs](../../setup/monitoring-logs).
+
+```toml
+logger.com-hazelcast.name = com.hazelcast
+logger.com-hazelcast.level = INFO
+```
 
 Additionally, Hazelcast indicates that if all members are not mentioned
 in the well-known member list, there can be a split-brain (network
 partition) situation. If the cluster spans across data centers, it is
-important to add all the members to the well-known members list in the
-`         <IS_HOME>/repository/conf/axis2/axis2.xml        ` file.
+important to add all the members to the well-known members list in the `
+<IS_HOME>/repository/conf/delpoyment.toml ` file.
+     ```toml
+     [clustering]
+     ...
+     members = ["<member-x-host>:<member-x-port>", ...]
+     ```
