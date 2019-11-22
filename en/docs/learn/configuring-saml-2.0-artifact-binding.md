@@ -211,12 +211,11 @@ SOAPAction: http://www.oasis-open.org/committees/security
             ID="_6c3a4f8b9c2d" Version="2.0"
             IssueInstant="2004-01-21T19:00:49Z">
             <Issuer>https://ServiceProvider.com/SAML</Issuer>
-            <Artifact>
+            <samlp:Artifact>
                 AAQAADWNEw5VT47wcO4zX/iEzMmFQvGknDfws2ZtqSGdkNSbsW1cmVR0bzU=
-            </Artifact>
+            </samlp:Artifact>
         </samlp:ArtifactResolve>
     </SOAP-ENV:Body>
-</SOAP-ENV:Envelope>
 ```
 
 If signature validation for artifact resolve is enabled, the service
