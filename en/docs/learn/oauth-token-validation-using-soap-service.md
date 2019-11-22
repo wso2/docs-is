@@ -4,11 +4,6 @@ WSO2 Identity Server provides a SOAP service to validate the OAuth2
 token it has issued, which can be used by the resource server. This
 section guides you through calling the SOAP service using the SOAP UI.
 
-The relevant code segment in the sample webapp [WSO2
-playground2](../../learn/downloading-a-sample) for OAuth2 can be found
-[here](https://github.com/wso2/product-is/blob/master/modules/samples/oauth2/playground2/src/main/org/wso2/sample/identity/oauth2/OAuth2ServiceClient.java)
-.
-
 1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf`
     folder to enable admin service WSDLs.
 
@@ -17,7 +12,6 @@ playground2](../../learn/downloading-a-sample) for OAuth2 can be found
         accessible. Once the service WSDL is taken, set the property to **false**
         hide admin service WSDLs.
 
-        
 
     ``` java
     [admin_service.wsdl] 
@@ -34,6 +28,10 @@ playground2](../../learn/downloading-a-sample) for OAuth2 can be found
 4.  Provide the following parameters to call the validate method as seen
     below. ![oauth-token-validation-request]( ../assets/img/using-wso2-identity-server/oauth-token-validation-request.png)
 
+    !!! Tip 
+        You can obtain oauth token by following the tutorial
+        [OAuth 2.0 with WSO2 Playground](http://localhost:8000/learn/oauth-2.0-with-wso2-playground/)
+        
     1.  Since this validation service is an admin service, a valid user
         name and password needs to be provided in order to consume the
         service.

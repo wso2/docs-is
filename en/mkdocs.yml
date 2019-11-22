@@ -219,7 +219,8 @@ nav:
             - 'XACML3 Sample Policy - 6': learn/xacml-3.0-sample-policy-6.md
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
-    - 'Using WSO2 Identity Server':     
+      - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
@@ -415,7 +416,6 @@ nav:
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
-            - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
             - 'Try Authorization Code Grant': learn/try-authorization-code-grant.md
             - 'Try Client Credentials Grant': learn/try-client-credentials-grant.md
             - 'Try Implicit Grant': learn/try-implicit-grant.md
@@ -428,7 +428,6 @@ nav:
           - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
-        - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
         - 'Writing a Web Service Client for Authentication and User Admin Services': learn/writing-a-web-service-client-for-authentication-and-user-admin-services.md
         - 'Testing Passive STS': learn/testing-passive-sts.md
         - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': learn/consuming-scim-rest-endpoints-from-a-java-client-application.md
@@ -526,7 +525,6 @@ nav:
       - 'Configuring Connectors': 
         - 'Connectors Overview': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
         - 'Configuring Connectors': develop/authenticators-and-connectors.md    
-        - 'Deploying the Sample App': develop/deploying-the-sample-app.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
         - 'Basecamp Authenticator': develop/basecamp-authenticator.md
         - 'Bitly Authenticator': develop/bitly-authenticator.md

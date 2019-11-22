@@ -51,13 +51,16 @@ service provider via XACML 3.0
 Sample Scenario: *An Internal finance application in an organization
 needs to be accessed by employees in the finance team only.*
 
-Here, we will permit access to a service provider called
-"travelocity.com" only to users with "finance" role and denies access to
-other users. Please follow the below step to get your configurations
-done to try out this scenario.
-
-
+!!! note 
+    Here, we will permit access to a sample service provider
+    application called "travelocity.com" only for users with "finance" role
+    and denies access for other users. Please follow the below step to get
+    your configurations done to try out this scenario.
+    
 ### Step1: Configuring the service provider
+
+!!! Tip "Deploy the Sample Application"
+    Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) the `travelocity.com` sample application.
 
 You need to define and configure your service provider in the WSO2
 Identity Server so that the authentication and/or provisioning happens
@@ -72,16 +75,22 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 4.  [Create two new users](../../learn/configuring-users#adding-a-new-user-and-assigning-roles)
     and assign User1 to the role you just created. Assign the User2 to
     the "admin" role or any other role.
-5.  Click **Add** under **Service Providers** on the Main tab and [add a
-    new service
-    provider](../../learn/adding-and-configuring-a-service-provider)
-    in the Identity section. Here we can put any name for the service
+    
+    !!! Tip 
+        In the beginning of this guide you have deployed and
+        [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-service-provider).
+        If you complete that you can skip steps 5 and 6 below.
+    
+5.  Click **Add** under **Service Providers** on the Main tab and
+    [add a new service provider](../../learn/adding-and-configuring-a-service-provider)
+    in the Identity section. Here we can put any name for the service
     provider name, but since we are using we can use a name like
-    "travelocityApp".
+    **travelocity.com**.
+    
 6.  Configure an inbound authentication protocol for the service
     provider (i.e, SAML, OpenID Connect etc).
 
-    ??? info "Configure travelocity"
+    !!! info "Configure travelocity"
 		The responsibility of the inbound authentication protocol is to
 		identify and parse all the incoming authentication requests and then
 		helps in building the correct response. As Inbound Authentication
@@ -89,11 +98,8 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 		etc.
 
 		For this tutorial, we will set up the travelocity sample application
-		by following the instructions in [Deploying the Sample App](../../develop/deploying-the-sample-app). 
-		Here we use **SAML2** as the inbound authentication protocol. The following screenshot 
-		shows the SAML configuration for the travelocity sample service provider. 
-		
-		![inbound-authentication-protocol](../assets/img/tutorials/inbound-authentication-protocol.png)
+		by following the instructions in [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp). 
+		Here we use **SAML2** as the inbound authentication protocol.
 		
     !!! note
         If your service provider needs any claims of the authenticated user to

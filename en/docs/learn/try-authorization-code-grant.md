@@ -4,11 +4,10 @@ The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
 [Authorization Code Grant](../../learn/authorization-code-grant).
 
-!!! note
-    
-    Before you begin, you must first [set up the sample
-    webapp.](../../learn/setting-up-the-sample-webapp)
-    
+!!! note "Before you begin" 
+    You must first
+    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+    in order to try the following scenario.   
 
 This section demonstrates the Authorization Code Grant with PKCE and
 without PKCE.
@@ -30,11 +29,12 @@ without PKCE.
     [Configuring OAuth2-OpenID
     Connect](../../learn/configuring-oauth2-openid-connect).
 
-    Authorization Grant Type: Authorization Code  
-    Client ID: (the client id received at the application
-    registration)  
-    Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
-    Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
+    **Authorization Grant Type:** Implicit  
+    **Client ID:** (the client id received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
+    **Callback URL:**
+    <http://wso2is.local:8080/playground2/oauth2client>  
+    **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
 
       
     ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
@@ -55,8 +55,8 @@ without PKCE.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the application
-    registration)
+    Client Secret: (client secret received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
 
     !!! info 
         If you have configured the service provider in a tenant, you have to
@@ -106,8 +106,8 @@ without PKCE.
 2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Authorization Code  
-    Client ID: (the client id received at the application
-    registration)  
+    Client ID: (the client id received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>  
     Use PKCE: Yes  
@@ -128,8 +128,8 @@ without PKCE.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the application
-    registration)  
+    Client Secret: (client secret received at the [application
+                                        registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))    
     PKCE Verifier: (this will be populated using the value generated in
     step 1)
 
