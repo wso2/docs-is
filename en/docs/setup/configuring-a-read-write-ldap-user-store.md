@@ -110,7 +110,7 @@ scim_enabled = true
 ```
 
 !!! tip 
-    The properties given below can be configured for a secondary user store through the management console.
+    Below properties can also be configured for a secondary user store through the management console.
 
 <table>
 <thead>
@@ -264,15 +264,15 @@ Possible values: memberOf</td>
 Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
 </tr>
 <tr class="even">
-<td>UsernameJavaScriptRegEx</td>
-<td>username_java_script_regex</td>
+<td>UsernameJava<br>ScriptRegEx</td>
+<td>username_java_<br>script_regex</td>
 <td>Username RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for username validation.<br />
 Default: ^[\S]{3,30}$</td>
 </tr>
 <tr class="odd">
-<td>UsernameJavaRegExViolationErrorMsg</td>
-<td>username_java_reg_ex_violation_error_msg</td>
+<td>UsernameJavaReg<br>ExViolationErrorMsg</td>
+<td>username_java_reg_<br>ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with UsernameJavaRegEx<br />
 Default: Username pattern policy violated</td>
@@ -285,15 +285,15 @@ Default: Username pattern policy violated</td>
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
-<td>PasswordJavaScriptRegEx</td>
-<td>password_java_script_regex</td>
+<td>PasswordJava<br>ScriptRegEx</td>
+<td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="even">
-<td>PasswordJavaRegExViolationErrorMsg</td>
-<td>password_java_regex_violation_error_msg</td>
+<td>PasswordJavaReg<br>ExViolationErrorMsg</td>
+<td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx<br />
 Default: Password length should be within 5 to 30 characters</td></tr>
@@ -339,8 +339,8 @@ But; if your LDAP does not support to store user password as hashed values. You 
 Default: “,”</td>
 </tr>
 <tr class="odd">
-<td>MaxUserNameListLength </td>
-<td>max_user_name_list_length</td>
+<td>MaxUserName<br>ListLength </td>
+<td>max_user_name<br>_list_length</td>
 <td>Maximum User List Length</td>
 <td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
 Default: 100<br />
@@ -349,8 +349,8 @@ In some user stores, there are policies to limit the number of records that can 
 Eg : Active directory has the MaxPageSize property with the default value 1000.</td>
 </tr>
 <tr class="even">
-<td>MaxRoleNameListLength</td>
-<td>max_role_name_list_length</td>
+<td>MaxRoleName<br>ListLength</td>
+<td>max_role_name<br>_list_length</td>
 <td>Maximum Role List Length</td>
 <td><p>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
 Default: 100<br />
@@ -366,8 +366,8 @@ In some user stores, there are policies to limit the number of records that can 
 Default: false</td>
 </tr>
 <tr class="even">
-<td>UserRolesCacheEnabled</td>
-<td>user_roles_cache_enabled</td>
+<td>UserRoles<br>CacheEnabled</td>
+<td>user_roles<br>_cache_enabled</td>
 <td>Enable User Role Cache</td>
 <td>This is to indicate whether to cache the role list of a user.<br />
 Default: true<br />
@@ -378,8 +378,8 @@ false: Set it to false if the user roles are changed by external means and those
 Default: true<br /></td>
 </tr>
 <tr class="odd">
-<td>ConnectionPoolingEnabled</td>
-<td>connection_pooling_enabled</td>
+<td>ConnectionPooling<br>Enabled</td>
+<td>connection_pooling<br>_enabled</td>
 <td>Enable LDAP Connection Pooling</td>
 <td>Define whether LDAP connection pooling is enabled<br />
 Possible values:<br />
@@ -418,8 +418,8 @@ Default: not configured</td>
 <p>Default: not configured</p></td>
 </tr>
 <tr class="even">
-<td>LDAPConnectionTimeout</td>
-<td>ldap_connection_timeout</td>
+<td>LDAPConnection<br>Timeout</td>
+<td>ldap_connection<br>_timeout</td>
 <td>LDAP Connection Timeout</td>
 <td>If the connection to the LDAP is inactive for the length of time
 (in milliseconds) specified by this property, the connection
