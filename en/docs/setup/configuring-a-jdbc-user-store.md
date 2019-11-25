@@ -171,36 +171,32 @@ those properties as follows.
 Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
-[user_store.properties]
+[user_store]
 <Property-Name> = <Property-Value>
 ```
 For example :
 
 ``` toml
-[user_store.properties]
-"SCIMEnabled" = true
+[user_store]
+scim_enabled = true
 ```
+
+!!! tip 
+    The properties given below can be configured for a secondary user store through the management console.
 
 <table>
 <thead>
 <tr class="header">
-<th>Property Name</th>
-<th>Display Name</th>
+<th>Property Id</th>
+<th>Primary User Store Property</th>
+<th>Secondary User Store Property</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>ReadOnly</td>
-<td>ReadOnly</td>
-<td>Indicates whether user store operates in the read-only mode or not.<br />
-default : false <br/>
-Possible values:<br/>
-true: Operates in read-only mode<br />
-false: Operates in read-write mode</td>
-</tr>
-<tr class="even">
 <td>ReadGroups</td>
+<td>read_groups</td>
 <td>ReadGroups</td>
 <td>When ReadGroups is set to false, it Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
 <br />
@@ -209,8 +205,9 @@ Possible values:<br/>
 true: Read groups from user store<br />
 false: Do not read groups from user store</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>WriteGroups</td>
+<td>write_groups</td>
 <td>WriteGroups</td>
 <td>Indicates whether groups should be written to the user store.<br />
 <br />
@@ -219,63 +216,57 @@ Possible values:<br />
 true : Write groups to user store<br />
 false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>UsernameJavaRegEx</td>
+<td>username_java_regex</td>
 <td>UsernameJavaRegEx</td>
 <td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br/>
 Default: ^[\S]{3,30}$</td> <br/>
 </tr>
-<tr class="odd">
-<td>UsernameJavaScriptRegEx</td> <br/>
+<tr class="even">
+<td>UsernameJava<br>ScriptRegEx</td> 
+<td>username_java_<br>script_regex</td>
 <td>UsernameJavaScriptRegEx</td>
 <td>The regular expression used by the front-end components for username validation.
 <br/> Default: ^[\S]{3,30}$  </td>
 </tr>
-<tr class="even">
-<td>UsernameJavaRegExViolationErrorMsg</td>
+<tr class="odd">
+<td>UsernameJavaReg<br>ExViolationErrorMsg</td>
+<td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with username_java_regex 
 <br/> Default: Username pattern policy violated  </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>PasswordJavaRegEx</td>
+<td>password_java_regex</td>
 <td>Password RegEx (Java)</td>
 <td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters have a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
-<tr class="even">
-<td>PasswordJavaScriptRegEx</td>
+<tr class="odd">
+<td>PasswordJava<br>ScriptRegEx</td>
+<td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
-<tr class="odd">
-<td>PasswordJavaRegExViolationErrorMsg</td>
+<tr class="even">
+<td>PasswordJavaReg<br>ExViolationErrorMsg</td>
+<td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx.<br />
 Default: Password length should be within 5 to 30 characters.</td>
-<tr class="even">
+<tr class="odd">
 <td>RolenameJavaRegEx</td>
+<td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: [a-zA-Z0-9._-|//]{3,30}$</td>
 </tr>
-<tr class="odd">
-<td>RolenameJavaScriptRegEx</td>
-<td>Role Name RegEx (Javascript)</td>
-<td>The regular expression used by the front-end components for role name validation. Default: ^[\S]{3,30}$</td>
-</tr>
 <tr class="even">
-<td>CaseInsensitiveUsername</td>
-<td>Case Insensitive Username</td>
-<td><p>Indicates whether the user name should be case insensitive or not.<br />
-Default: true<br />
-<br />
-Possible values:<br />
-true: If you are not using case-sensitive usernames better to configure this. Please note that enabling this could lead to performance degradation when searching for users as the number of users increases.</p></td>
-</tr>
-<tr class="odd">
 <td>SCIMEnabled </td>
+<td>scim_enabled</td>
 <td>Enable SCIM</td>
 <td>This is to configure whether user store is supported for SCIM provisioning.<br />
 <br />
@@ -284,47 +275,16 @@ Possible values:<br />
 True : User store support for SCIM provisioning.<br />
 False : User does not store support for SCIM provisioning.</td>
 </tr>
-<tr class="even">
-<td>IsBulkImportSupported</td>
-<td>Bulk Import Support</td>
-<td>Define whether the userstore support for bulk user import operation <br/> Default : true </td>
-</tr>
 <tr class="odd">
-<td>PasswordDigest</td>
-<td>Password Hashing Algorithm</td>
-<td><div class="content-wrapper">
-<p>Specifies the Password Hashing Algorithm used the hash the password before storing in the user store.<br />
-Default : SHA-256 <br/> Possible values:<br />
-SHA - Uses SHA digest method. SHA-1, SHA-256<br />
-MD5 - Uses MD 5 digest method.<br />
-PLAIN_TEXT - Plain text passwords.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-    <p>If you enter SHA as the value, it is considered as SHA-1. It is always better to configure an algorithm with a higher bit value so that the digest bit size is higher.</p></div>
-</div></td>
-</tr>
-<tr class="even">
-<td>MultiAttributeSeparator</td>
+<td>MultiAttribute<br>Separator</td>
+<td>multi_attribute<br>_separator</td>
 <td>Multiple Attribute Separator</td>
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
 Default: “,”</td>
 </tr>
-<tr class="odd">
-<td>StoreSaltedPassword</td>
-<td>Enable Salted Passwords</td>
-<td><div class="content-wrapper">
-Indicates whether to stores the password with salted value<br />
-Default: true<br />
-Possible values: false<br />
-
-<p>By default WSO2 IS stores the password with a salted value. The recommended way to protect passwords is to use salted password hashing. Once it is salted, the passwords are less vulnerable to dictionary and brute force attacks.</p>
-<p>Setting this property to false causes passwords to be stored without a salted value. This means that if two users (Bob and Alice) have the same password, it is stored as the same hash value.</p>
-<p><img src="../../assets/img/using-wso2-identity-server/enable-salted-passwords.png" /></p>
-<p>However, if salted passwords are used, WSO2 IS adds a random value to the password and then generates the hash of the password. Therefore if two users have the same password, they would be stored as different hashed values. This is a more secure method of storing passwords.</p>
-</div></td>
-</tr>
 <tr class="even">
-<td>MaxUserNameListLength</td>
+<td>MaxUserName<br>ListLength</td>
+<td>max_user_name_<br>list_length</td>
 <td>Maximum User List Length</td>
 <td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
 <br />
@@ -332,7 +292,8 @@ In some user stores, there are policies to limit the number of records that can 
 Eg: Active directory has the MaxPageSize property with the default value of 100.</td>
 </tr>
 <tr class="odd">
-<td>MaxRoleNameListLength</td>
+<td>MaxRoleName<br>ListLength</td>
+<td>max_role_name_<br>list_length</td>
 <td>Maximum Role List Length</td>
 <td>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and do not want to list them all. Setting this property to 0 displays all roles. (Default: 100)<br />
 <br />
@@ -341,27 +302,12 @@ Eg: Active directory has the MaxPageSize property with the default value of 1000
 </tr>
 <tr class="even">
 <td>UserRolesCacheEnabled</td>
+<td>user_roles_cache_enabled</td>
 <td>Enable User Role Cache</td>
 <td>This is to indicate whether to cache the role list of a user. (Default: true)<br />
 <br />
 Possible values:<br />
 false: Set it to false if the user roles are changed by external means and those changes should be instantly reflected in the Carbon instance.</td>
-</tr>
-<tr class="odd">
-<td>TenantManager</td>
-<td><br />
-</td>
-<td>Define the tenant manager class specific to each user store type. This is only used in primary user store since its shared among tenants.<br />
-Default : <code>             org.wso2.carbon.user.core.tenant.JDBCTenantManager            </code><br />
-</tr>
-<tr class="even">
-<td>UserNameUniqueAcrossTenants</td>
-<td>User Name Unique Across Tenants</td>
-<td><p>This ensures the user name is unique across the tenants.<br />
-</p>
-<br />
-Default : false           <br />
-</td>
 </tr>
 </tbody>
 </table>
@@ -458,8 +404,6 @@ Default : false           <br />
     ```
 
 ## Special requirements
-
-
 You need to restart the server after doing these changes.
 
 !!! tip "For more information"

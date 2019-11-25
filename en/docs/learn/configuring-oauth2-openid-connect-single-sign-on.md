@@ -233,6 +233,6 @@ See [Delegated Access Control](../../learn/delegated-access-control) for more
 information on working with OAuth2/OpenIDConnect. See the following
 topics for samples of configuring delegated access control:
 
--   [OAuth 2.0 with WSO2 Playground](../../learn/setting-up-the-sample-webapp)
+-   [OAuth 2.0 with WSO2 Playground](../../learn/oauth-2.0-with-wso2-playground/)
 -   [Setting up a SAML2 Bearer Assertion Profile for OAuth
     2.0](../../learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)

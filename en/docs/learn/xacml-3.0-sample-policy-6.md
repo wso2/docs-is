@@ -1,6 +1,6 @@
-# Writing XACML 3 Policies in WSO2 Identity Server - 7
+# XACML 3.0 Sample Policy - 6
 
-This page addresses the following authorization requirements.
+This topic demonstrates an example of a XACML policy that addresses the following authorization requirements.
 
 1.  The operations `          getVesrion1         ` and
     `          getVersion2         ` in the service "http://localhost:8280/services/Customers" should be accessed by any
@@ -9,6 +9,8 @@ This page addresses the following authorization requirements.
 2.  Requests to any other service or operation should only be accessed
     by users belonging to the group(s) `          admin_emps         `
     and/or `          admin         ` .
+
+**Request**
 
 ``` xml
 <Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"  PolicyId="testOr" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable" Version="1.0">

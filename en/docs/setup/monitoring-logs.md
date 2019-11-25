@@ -37,10 +37,6 @@ the `          <IS_HOME>/repository/logs         ` directory.
     These logs are configured in the
     `          deployment.toml         ` file in the `<IS_HOME>/repository/conf`
     directory).
--   **Patch logs:** These logs contain details related to patches
-    applied to the product. Patch logs cannot be customized. See [WSO2
-    Patch Application Process](../../administer/wso2-patch-application-process) for
-    more information.
 
 !!! note  
     WSO2 Identity Server generates other log 
@@ -76,8 +72,29 @@ appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
 appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 ```
 
+#### Enable Logs for a Component
+ 
+Add logger in the `<IS_HOME>/repository/conf/log4j2.properties` file to
+define the logger. Then add the <Logger_Name> to the loggers list by comma-separate.
+
+```
+    logger.<Logger_Name>.name = <Component_name>
+    logger.<Logger_Name>.type = INFO
+
+    loggers = AUDIT_LOG, trace-messages, ..., <Logger_Name>
+```
+    
+For example: 
+    
+```toml
+    logger.org-wso2-carbon-identity-core.name = org.wso2.carbon.identity.core
+    logger.org-wso2-carbon-identity-core.level = INFO
+    
+    loggers = org-wso2-carbon-identity-core, trace-messages, org-apache-coyote,com-hazelcast
+```
+    
 The log levels that
-can be configured are [listed below](#MonitoringLogs-log4j-levels).
+can be configured are [listed below](##setting-the-log4j-log-level).
 
 !!! note
     All the changes that are made to the log4j2.properties will be applied at run time.
@@ -111,7 +128,7 @@ appender.AUDIT_LOGFILE.filter.threshold.level = INFO
 ```
 
 The log levels that
-can be configured are [listed below](#MonitoringLogs-log4j-levels).
+can be configured are [listed below](##setting-the-log4j-log-level).
 
 #### Configuring HTTP access logs
 
@@ -134,10 +151,9 @@ below, the root log level (INFO) will apply to all appenders by default.
 Following is how the log level is set to `DEBUG` for the `CARBON_LOGFILE` appender ([Carbon log](#configuring-carbon-logs)): 
 
 !!! example  
-
-   ```toml
-   appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
-   ```
+    ```toml
+    appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
+    ```
 
 Following are the log levels that can be configured:
 

@@ -13,18 +13,18 @@ Software License Version
 2.0,](http://www.apache.org/licenses/LICENSE-2.0) one of the most
 business-friendly licenses available today.
 
-### About identity in the connected world
+### About identity in the digital business
 
-In the connected world of today, the modern enterprises have to offer
+In the digital world of today, the modern enterprises have to offer
 their numerous customers remote access to sizable amounts of sensitive
 and confidential information, while still maintaining access control and
 stringent information security at all times. Additionally, all of this
 needs to take place at the bat of an eyelid.
 
-A typical connected business of today relies on users who are constantly
+A typical digital business of today relies on users who are constantly
 on the move and using various applications and devices. These users are
 now using their own devices for ease of access and prefer to sign in
-just once. Basically, the connected business caters to people who would
+just once. Basically, the digital business caters to people who would
 like to use their Facebook, Google, or LinkedIn credentials to access
 other information on their own devices. Here’s the catch: an
 individual’s identity needs to be validated across these applications,

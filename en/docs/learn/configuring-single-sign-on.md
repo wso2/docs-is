@@ -37,72 +37,19 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
     ``` java tab="Windows"
     wso2server.bat run
     ```
-	
+    
+3. Follow the steps in
+   [deploying **saml2-web-app-pickup-dispatch** webapp](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+   to download, deploy and register **dispatch** sample.
+   
+4. Follow the steps in
+   [deploying **saml2-web-app-pickup-manager** webapp](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-manager-webapp)
+   to download, deploy and register **manager** sample.
 
-3. Open the /etc/hosts file of your machine and add the following entry to configure the hostname
-    ``` bash
-      127.0.0.1  wso2is.local
-    ```
 
-    ??? info "For more information, click to expand"
 
-    	  Some browsers do not allow creating cookies for a naked hostname,
-    	  such as `localhost` . Cookies are required
-    	  when working with SSO. Therefore, to ensure that the SSO
-    	  capabilities work as expected in this tutorial, you need to
-    	  configure the `             etc/host            ` file as explained
-    	  in this step.
-
-    	  The `etc/host` file is a read-only file.
-    	  Therefore, you won't be able to edit it by opening the file via a
-    	  text editor. To avoid this, edit the file using the terminal
-    	  commands.  
-    	  For example, use the following command if you are working on a
-    	  Mac/Linux environment.
-
-   	     ``` java
-    	    sudo nano /etc/hosts
-   	     ```
-
-4. [Download Apache Tomcat server](https://tomcat.apache.org/tomcat-9.0-doc/setup.html) version 8 or above and run the server on port 8080. 
-
-5. Download the [saml2-web-app-pickup-dispatch.war](../assets/attachments/saml2-web-app-pickup-dispatch.com.war) and [saml2-web-app-pickup-manager.war](../assets/attachments/saml2-web-app-pickup-manager.com.war) and deploy them in Tomcat. 
-
-    ??? tip "Click for steps on deploying on tomcat"
-		Use the following steps to deploy the web apps in the web container:
-
-    	1.  Stop the Apache Tomcat server if it is already running.
-    	2.  Copy the
-        `saml2-web-app-pickup-dispatch.war` and the `saml2-web-app-pickup-manager.war`
-        files to the `<TOMCAT_HOME>/webapps`
-        directory.
-    	3.  Start the Apache Tomcat server.
-
-### Configure the sample web applications as service providers
-
-1. Log in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console) at `https://<Server Host>:9443/carbon` using your username and password (e.g. admin:admin).
-
-2. Navigate to the **Service Provider** section under **Main > Identity** and click **Add**.
-
-3. Enter the service provider name (i.e., “dispatch”) and register the service provider.
-
-	![register-dispatch-sp](../assets/img/tutorials/register-dispatch-sp.png)
-
-4. Expand **Inbound Authentication Configuration** and then expand **SAML Configuration**.
-
-5. Enter the following configurations and click **Update** to save the configurations.
-	1. **Issuer** - saml2-web-app-pickup-dispatch.com
-	2. **Assertion Consumer URL** - http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp
-
-	![dispatch-saml-configs](../assets/img/tutorials/dispatch-saml-configs.png)
-
-6. Next, repeat steps 3,5, and 6 to create a new service provider for the "manager" sample application. For this service provider, enter "manager" as the service provider name and use the following SAML configurations. 
-	1. **Issuer** - saml2-web-app-pickup-manager.com
-	2. **Assertion Consumer URL** - http://localhost.com:8080/saml2-web-app-pickup-manager.com/home.jsp
-
-	![manager-saml-configs](../assets/img/tutorials/manager-saml-configs.png).
-
-You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manager sample web applications. 
+You are now ready to try out SAML SSO with the Pickup Dispatch and
+Pickup Manager sample web applications.
 
 ### Try it out
 

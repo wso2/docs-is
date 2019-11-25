@@ -197,42 +197,44 @@ To make sure the configurations were applied correctly:
 Following configurations need to be done to both WSO2 Identity Server nodes in order to enable clustering between 
 them.
 
-1. Enable clustering on node 1 and node 2 by setting the membership scheme that fits your deployment by 
-    editing the `<IS_HOME>/repository/conf/deployment.toml` file.
-    ```
-    [clustering]
-    membership_scheme = "wka"
-    ```
+WSO2 supports the following membership schemes for clustering
+- well-known address (WKA)
+- Multicast membership 
+- AWS membership 
+- Kubernetes membership
+        
+1. Enable clustering on node 1 and node 2 by setting the membership
+   scheme that fits your deployment by editing the
+   `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    !!! info      
-        WSO2 supports the following membership schemes as well.
-            - Multicast membership scheme
-            - AWS membership scheme
-            - Kubernetes membership scheme
-
+    !!! info
         The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
         deployed on machines having static IP addresses.             
-        ```  
-        <parameter name="membershipScheme">wka</parameter>
+        ```
+        [clustering]
+        membership_scheme = "wka"
         ```
         For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
-    
-    ??? tip "Click to see the instructions for WKA scheme"            
-        Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
-                ```
-                [clustering]
-                local_member_host = "192.168.2.1"
-                local_member_port = "4000"
-                ```                    
-        Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes 
-        in our sample cluster configuration, we will configure both nodes as WKA nodes.         
         
-        You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure 
-        that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define 
-        a range only for the last portion of the IP address. You should also keep in mind that the smaller 
-        the range, the faster the time it takes to discover members since each node has to scan a lesser 
-        number of potential members. 
-    
+        ??? tip "Click to see the instructions for WKA scheme"            
+            Edid the <IS_HOME>/repository/conf/deployment.toml file to add following configurations.
+            Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
+                    ```
+                    [clustering]
+                    membership_scheme = "wka"
+                    local_member_host = "192.168.2.1"
+                    local_member_port = "4000"
+                    members = ["192.168.2.1:4000", "192.168.2.2:4001"]
+                    ```                    
+            Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes 
+            in our sample cluster configuration, we will configure both nodes as WKA nodes.         
+            
+            You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure 
+            that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define 
+            a range only for the last portion of the IP address. You should also keep in mind that the smaller 
+            the range, the faster the time it takes to discover members since each node has to scan a lesser 
+            number of potential members. 
+        
         
 2. Configure caching.
 
@@ -387,11 +389,10 @@ The port 443 is the Load Balancer frontend port.
 
     !!! example
         ```
-        [transport.http]
-        port = "80"
-
-        [transport.https]
-        proxyPort = "443" 
+        [transport.http.properties]
+        proxyPort = 80
+        [transport.https.properties]
+        proxyPort = 443 
         ```
 
 4. You may change the `<IS_HOME>/repository/conf/deployment.toml` file to access the servers using a 

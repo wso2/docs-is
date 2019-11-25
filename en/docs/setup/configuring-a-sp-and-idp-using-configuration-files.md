@@ -302,43 +302,36 @@ provider in the **`          service provider IS         `**.
         </ServiceProvider>
         ```
 
-    !!! tip
-    
-        **Tip:** If the incoming SAML requests from the client (e.g.,
-        `                       travelocity.com                     ` ) are
-        signed, and the service provider Identity Server instance needs to
-        validate the signature included in the authentication and logout
-        requests, do the following:
-    
+    !!! Tip 
+        If the incoming SAML requests from the client (e.g., `
+        travelocity.com ` ) are signed, and the service provider Identity
+        Server instance needs to validate the signature included in the
+        authentication and logout requests, do the following:
+        
         1.  Import the public certificate of the client to the primary
-            keystore (e.g., `            wso2carbon.jks           ` )
-        
+            keystore (e.g., `wso2carbon.jks` )
         2.  Add the corresponding certificate alias name to the
-            `             <CertAlias>            ` property and set the
-            `             <ValidateSignatures>            ` property to true
+            `<CertAlias>` property and set the `<ValidateSignatures>` property to true
             in the `             sso-idp-config.xml            ` file.
+        
+        In the above configuration, the single logout is supported by
+        Back-Channel Logout. In order to use SAML Front-Channel Logout, add
+        the following properties under
+        `           <ServiceProvider>          ` tag.
     
-            In the above configuration, the single logout is supported by
-            Back-Channel Logout. In order to use SAML Front-Channel Logout, add
-            the following properties under
-            `           <ServiceProvider>          ` tag.
-        
-            To enable SAML Front-Channel Logout with HTTP Redirect Binding
-        
+        To enable SAML Front-Channel Logout with HTTP Redirect Binding
             ``` xml
             <EnableSingleLogout>true</EnableSingleLogout>
             <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
             <FrontChannelLogoutBinding>HTTPRedirectBinding</FrontChannelLogoutBinding>
             ```
         
-            To enable SAML Front-Channel Logout with HTTP POST Binding
-        
+        To enable SAML Front-Channel Logout with HTTP POST Binding
             ``` xml
                 <EnableSingleLogout>true</EnableSingleLogout>
                 <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
                 <FrontChannelLogoutBinding>HTTPPostBinding</FrontChannelLogoutBinding>
             ```
-        
 
 2.  Create a file named `          travelocity.com.xml         ` in the
     `          <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/service-providers         `
@@ -435,11 +428,14 @@ provider in the **`          service provider IS         `**.
 
 Do the following steps to run the travelocity application.
 
-1.  [Deploy the travelocity](../../develop/deploying-the-sample-app/) application. 
+1.  [Deploy the travelocity](../../learn/deploying-the-sample-app/#download-the-sample)
+    application. No need to register the service provider for
+    travelocity as
+    [we created service provider via a file](#adding-the-service-provider-in-the-service-provider-is).
 
 2.  When you access the following link to the travelocity application,
-    you are directed to the identity provider for authentication:
-    `          http://wso2is.local:8080/travelocity.com/index.jsp         `
+    you are directed to the identity provider for authentication: `
+    http://wso2is.local:8080/travelocity.com/index.jsp `
 
     !!! note
         Check whether you have enabled following configurations while adding the service provider 

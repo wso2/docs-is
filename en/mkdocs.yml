@@ -199,28 +199,30 @@ nav:
           - 'Fine-grained Authorization using XACML Requests in JSON Format': learn/fine-grained-authorization-using-xacml-requests-in-json-format.md
           - 'Improving XACML PDP Performance with Caching Techniques': learn/improving-xacml-pdp-performance-with-caching-techniques.md
           - 'Integrating WSO2 Identity Server with Liferay': learn/integrating-wso2-identity-server-with-liferay.md
-          - 'Writing XACML2.0 Policies in WSO2 Identity Server':
-            - 'Writing XACML2.0 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
-            - 'Introduction to XACML 2.0 Policies': learn/introduction-to-xacml-2.0-policies.md
-            - 'XACML 2.0 Sample Policy - 1': learn/xacml-2.0-sample-policy-1.md
-            - 'XACML 2.0 Sample Policy - 2': learn/xacml-2.0-sample-policy-2.md
-            - 'XACML 2.0 Sample Policy - 3': learn/xacml-2.0-sample-policy-3.md
-            - 'XACML 2.0 Sample Policy - 4': learn/xacml-2.0-sample-policy-4.md
-            - 'XACML 2.0 Sample Policy - 5': learn/xacml-2.0-sample-policy-5.md
-            - 'XACML 2.0 Sample Policy - 6': learn/xacml-2.0-sample-policy-6.md
+          - 'Writing XACML2 Policies in WSO2 Identity Server':
+            - 'Writing XACML2 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
+            - 'Introduction to XACML2 Policies': learn/introduction-to-xacml-2.0-policies.md
+            - 'XACML2 Sample Policy - 1': learn/xacml-2.0-sample-policy-1.md
+            - 'XACML2 Sample Policy - 2': learn/xacml-2.0-sample-policy-2.md
+            - 'XACML2 Sample Policy - 3': learn/xacml-2.0-sample-policy-3.md
+            - 'XACML2 Sample Policy - 4': learn/xacml-2.0-sample-policy-4.md
+            - 'XACML2 Sample Policy - 5': learn/xacml-2.0-sample-policy-5.md
+            - 'XACML2 Sample Policy - 6': learn/xacml-2.0-sample-policy-6.md
           - 'Writing XACML3 Policies in WSO2 Identity Server':
             - 'Writing XACML3 Policies in WSO2 Identity Server': learn/writing-xacml3-policies-in-wso2-identity-server.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': learn/writing-xacml-3-policies-in-wso2-identity-server-1.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': learn/writing-xacml-3-policies-in-wso2-identity-server-2.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': learn/writing-xacml-3-policies-in-wso2-identity-server-3.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': learn/writing-xacml-3-policies-in-wso2-identity-server-4.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': learn/writing-xacml-3-policies-in-wso2-identity-server-5.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': learn/writing-xacml-3-policies-in-wso2-identity-server-6.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': learn/writing-xacml-3-policies-in-wso2-identity-server-7.md
+            - 'Introduction to XACML3 Policies': learn/introduction-to-xacml-3.0-policies.md
+            - 'XACML3 Sample Policy - 1': learn/xacml-3.0-sample-policy-1.md
+            - 'XACML3 Sample Policy - 2': learn/xacml-3.0-sample-policy-2.md
+            - 'XACML3 Sample Policy - 3': learn/xacml-3.0-sample-policy-3.md
+            - 'XACML3 Sample Policy - 4': learn/xacml-3.0-sample-policy-4.md
+            - 'XACML3 Sample Policy - 5': learn/xacml-3.0-sample-policy-5.md
+            - 'XACML3 Sample Policy - 6': learn/xacml-3.0-sample-policy-6.md
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
+      - 'Deploying the Samples': learn/deploying-the-sample-app.md
     - 'Using WSO2 Identity Server':
       - 'User Portal': learn/user-portal.md
+    - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
@@ -247,8 +249,12 @@ nav:
           - 'Inbound Provisioning':
             - 'Inbound Provisioning': learn/inbound-provisioning.md
             - 'Setting Up Service Provider for Inbound Provisioning': learn/setting-up-service-provider-for-inbound-provisioning.md
-            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
-            - 'Configuring Active Directory User Stores for Inbound Provisioning': learn/configuring-active-directory-user-stores-for-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 2.0 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
           - 'Outbound Provisioning':
             - 'Outbound Provisioning': learn/outbound-provisioning.md
             - 'Outbound Provisioning with SCIM': learn/outbound-provisioning-with-scim.md
@@ -293,6 +299,7 @@ nav:
           - 'Monitoring Workflow Requests': learn/monitoring-workflow-requests.md
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
+        - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
         - 'Using the End User Dashboard': learn/using-the-end-user-dashboard.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
@@ -412,7 +419,6 @@ nav:
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
-            - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
             - 'Try Authorization Code Grant': learn/try-authorization-code-grant.md
             - 'Try Client Credentials Grant': learn/try-client-credentials-grant.md
             - 'Try Implicit Grant': learn/try-implicit-grant.md
@@ -425,13 +431,11 @@ nav:
           - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
-        - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
         - 'Writing a Web Service Client for Authentication and User Admin Services': learn/writing-a-web-service-client-for-authentication-and-user-admin-services.md
         - 'Testing Passive STS': learn/testing-passive-sts.md
         - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': learn/consuming-scim-rest-endpoints-from-a-java-client-application.md
         - 'Running an STS Client': learn/running-an-sts-client.md
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
-        - 'Broker Trust Relationships with WSO2 Identity Server': learn/broker-trust-relationships-with-wso2-identity-server.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
       - 'Logging Claims in Audit Logs': learn/logging-claims-in-audit-logs.md
@@ -493,6 +497,7 @@ nav:
             - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication': develop/authentication-data-api.md
+            - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
@@ -526,8 +531,7 @@ nav:
     - 'Connectors':
       - 'Configuring Connectors': 
         - 'Connectors Overview': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
-        - 'Configuring Connectors': develop/authenticators-and-connectors.md    
-        - 'Deploying the Sample App': develop/deploying-the-sample-app.md
+        - 'Configuring Connectors': develop/authenticators-and-connectors.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
         - 'Basecamp Authenticator': develop/basecamp-authenticator.md
         - 'Bitly Authenticator': develop/bitly-authenticator.md

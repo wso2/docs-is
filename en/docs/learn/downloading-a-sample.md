@@ -26,6 +26,7 @@ Follow the instructions below to download a sample from GitHub.
     ``` bash
     cd .git/info
     echo "modules/samples/" >> sparse-checkout
+    echo "/pom.xml" >> sparse-checkout
     ```
 
 4.  Navigate out of `           .git/info          ` directory and
@@ -34,8 +35,8 @@ Follow the instructions below to download a sample from GitHub.
 
     ``` bash
     cd ../..
-    git checkout -b v5.5.0 v5.5.0
+    git checkout -b v5.9.0 v5.9.0
     ```
 
-    Access the samples by navigating to the
-    `           is-samples/modules/samples          ` directory.
+    Access the samples by navigating to the ` is-samples/modules/samples
+    ` directory. This location will be referred as `<Sample_Home>`.

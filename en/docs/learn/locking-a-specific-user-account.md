@@ -51,26 +51,24 @@ account locking, expand the section below for instructions.
             !!! note
                   WSO2 Identity Server has the **Internal/system** role configured by
                   default. But generally a new user is not assigned the
-                  **Internal/syste** m role by default. Required roles can be assigned
+                  **Internal/system** role by default. Required roles can be assigned
                   to a user depending on the set of permission a user needs to have.
                   For more information on roles and permission, see [Configuring Roles
                   and
                   Permissions](../../learn/configuring-roles-and-permissions)
-.
-               
+
                   Although the **Internal/system** role is configured by default in
                   WSO2 Identity Server, you can delete the role if necessary. To allow
                   users with the **Internal/system** role to bypass account locking,
                   you need to ensure that the role exists in WSO2 Identity Server.
                
-
+              
       6.  To enable account locking for other tenants, log out and repeat the
          steps given above from [step 2](#lockingaspecificuseraccount)
          onwards.
 
 !!! note 
-    The user accounts that are assigned with the
-    `         Internal/system        ` user role cannot be locked.
+    The user accounts that are assigned with the **Internal/system** user role cannot be locked.
     
 
 ### Enable claims for account locking
@@ -188,10 +186,10 @@ below.
 
        ``` toml
        [output_adapter.email]
-       from_address= "wso2iamtest@gmail.com"
-       username= "wso2iamtest"
-       password= "Wso2@iam70"
-       hostname= smtp.gmail.com
+       from_address= "sampleemail@gmail.com"
+       username= "sampleemail"
+       password= "password"
+       hostname= "smtp.gmail.com"
        port= 587
        enable_start_tls= true
        enable_authentication= true
@@ -208,5 +206,184 @@ below.
         Emails](../../learn/customizing-automated-emails)
 .
     
+#### Configuring email templates for WUM Updated version
 
-  
+!!! warning
+    To use this feature, apply the `0015` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
+    (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
+    you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
+    WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates)
+    
+WUM Updated WSO2 Identity Server 5.9.0 uses separate email templates for notifying, 
+
+- Account locking by administrator
+- Account unlocking by administrator 
+
+Add the following email templates by referring to the instructions in 
+[Customizing AutomatedEmails](../../learn/customizing-automated-emails).
+
+Following are the sample email templates.
+
+??? example "Account lock by administrator"
+    
+    - Email Template Type: AccountLockAdmin
+    - Template Language: English(United States)
+    - Email Content Type:text/html
+    - Subject : WSO2 - Your Account has been Locked
+    - Email Body: 
+    ```  
+    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
+       <tr>
+       <td style="padding: 30px 30px 20px 30px;">
+           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
+           <tr>
+               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
+                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0"/></a>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
+                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
+                       Account Locked
+                   </h1>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 0px 50px;" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Hi {{user.claim.givenname}},
+                   </p>
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Please note that the account registered with the user name <b>{{user-name}}</b> has been locked. Please Contact the Administrator.<br>
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
+                       Thanks,<br/>WSO2 Identity Server Team
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
+                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
+                       &copy; 2018
+                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
+                       <br>
+                       787 Castro Street, Mountain View, CA 94041.
+                   </p>
+               </td>
+           </tr>
+           </table>
+       </td>
+       </tr>
+       </table>]]>
+    ```
+    - Footer : ---
+
+??? example "Account unlock by administrator"
+
+    - Email Template Type: AccountUnlockAdmin
+    - Template Language: English(United States)
+    - Email Content Type:text/html
+    - Subject : WSO2 - Your Account has been Unlocked
+    - Email Body: 
+    ```  
+    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
+       <tr>
+       <td style="padding: 30px 30px 20px 30px;">
+           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
+           <tr>
+               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
+                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0" /></a>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
+                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
+                       Account Unlocked
+                   </h1>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 0px 50px;" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Hi {{user.claim.givenname}},
+                   </p>
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked by administrator. <br>
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
+                       Thanks,<br/>WSO2 Identity Server Team
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
+                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
+                       &copy; 2018
+                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
+                       <br>
+                       787 Castro Street, Mountain View, CA 94041.
+                   </p>
+               </td>
+           </tr>
+           </table>
+       </td>
+       </tr>
+       </table>]]>
+    <![CDATA[<table align="center" cellpadding="0" cellspacing="0" border="0" width="100%"bgcolor="#f0f0f0">
+       <tr>
+       <td style="padding: 30px 30px 20px 30px;">
+           <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff" style="max-width: 650px; margin: auto;">
+           <tr>
+               <td colspan="2" align="center" style="background-color: #333; padding: 40px;">
+                   <a href="http://wso2.com/" target="_blank"><img src="http://cdn.wso2.com/wso2/newsletter/images/nl-2017/wso2-logo-transparent.png" border="0" /></a>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 50px 50px 0px 50px;">
+                   <h1 style="padding-right: 0em; margin: 0; line-height: 40px; font-weight:300; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 1em;">
+                       Account Unlocked
+                   </h1>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 0px 50px;" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Hi {{user.claim.givenname}},
+                   </p>
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #666; text-align: left; padding-bottom: 3%;">
+                       Please note that the account registered with the user name <b>{{user-name}}</b> has been unlocked by administrator. <br>
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td style="text-align: left; padding: 30px 50px 50px 50px" valign="top">
+                   <p style="font-size: 18px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #505050; text-align: left;">
+                       Thanks,<br/>WSO2 Identity Server Team
+                   </p>
+               </td>
+           </tr>
+           <tr>
+               <td colspan="2" align="center" style="padding: 20px 40px 40px 40px;" bgcolor="#f0f0f0">
+                   <p style="font-size: 12px; margin: 0; line-height: 24px; font-family: 'Nunito Sans', Arial, Verdana, Helvetica, sans-serif; color: #777;">
+                       &copy; 2018
+                       <a href="http://wso2.com/" target="_blank" style="color: #777; text-decoration: none">WSO2</a>
+                       <br>
+                       787 Castro Street, Mountain View, CA 94041.
+                   </p>
+               </td>
+           </tr>
+           </table>
+       </td>
+       </tr>
+       </table>]]>
+    ```
+    - Footer : ---
+

@@ -13,7 +13,7 @@ Algorithms. Each algorithm represents a different way of combining
 multiple decisions into a single decision.
 
 WSO2 Identity Server XACML support will provide two methods of writing
-an XACML Policy.
+a XACML Policy.
 
 -   Some predefined commonly used XACML Policy template samples where
     you can use by editing according to your use case.
@@ -47,7 +47,7 @@ policy using UI according to your preference.
 
 This simple editor provides you the opportunity to create XACML 3.0
 policies without any knowledge of XACML policy language. You can
-define your rules in a simpler manner and create an XACML 3.0 policy
+define your rules in a simpler manner and create a XACML 3.0 policy
 out of them. However, you need to have some knowledge about access
 control rules.  
 

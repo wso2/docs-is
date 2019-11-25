@@ -132,33 +132,12 @@ sections below to set this up.
     instructions in this section if you are using your own application
     instead.
     
-1.  Download the
-    [saml2-web-app-pickup-dispatch.com.war](../../assets/attachments/saml2-web-app-pickup-dispatch.com.war)
-    file.
-2.  Copy the.war file and paste it inside the
-    `          <TOMCAT_HOME>/webapps         ` directory.
-3.  Log in to the WSO2 IS management console.
-
-4.  On the **Main** tab, click **Service Providers \> Add** and add a
-    new service provider called
-    `           saml2-web-app-pickup-dispatch.com          `  
-    For more information about configuring a service provider, see
-    [Adding and Configuring a Service
-    Provider](../../learn/adding-and-configuring-a-service-provider).
-
-5.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
-    configuration** section, and click **Configure**.
-6.  Fill in the following fields.
-
-    -   **Issuer:**
-        `             saml2-web-app-pickup-dispatch.com            `
-    -   **Assertion Consumer URL:**
-        `                           http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/consumer                         `
-
-7.  Leave the rest of the default configurations as it is and click
-    **Register**.
-
-8.  Expand **Local and Outbound Configuration** and select **Federated
+1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+    sample application.
+2.  Edit the above
+    [configured service provider](../../learn/deploying-the-sample-app/#configuring-service-provider_2)
+    to configure **Google** as the federated Identity Provider. Expand
+    **Local and Outbound Configuration** and select **Federated
     Authentication**.
 9.  Select "GoogleIdP" (the identity provider you created before) as the
     federated authenticator.

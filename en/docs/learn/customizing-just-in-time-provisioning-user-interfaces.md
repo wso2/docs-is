@@ -15,8 +15,8 @@ password_provisioning_url= "/accountrecoveryendpoint/signup.do"
 -   If you want to customize the user interface that is displayed when
     you select **Prompt for username, password and consent** as the
     provisioning option, change the value of
-    `          <UserNameProvisioningUI>         ` .
+    `          username_provisioning_url         ` .
 -   If you want to customize the user interface that is displayed when
     you select either **Prompt for password and consent** or **Prompt
     for consent** as the provisioning option, change the value of
-    `          <PasswordProvisioningUI>         ` .
+    `          password_provisioning_url         ` .

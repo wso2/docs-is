@@ -7,10 +7,6 @@ Identity Server (WSO2 IS) to integrate using a sample app. This is configured so
 SMSOTP is a second authentication factor for the sample application. See the following 
 sections for more information.
 
-!!! tip "Before you begin"     
-    -   The samples run on the Apache Tomcat server and are written based on Servlet 3.0. Therefore, 
-        download Tomcat 8.x from [here](https://tomcat.apache.org/download-80.cgi) .
-
 ## Enable SMSOTP
 
 Add the following configurations to `<IS_HOME>/repository/conf/deployment.toml` file to enable SMSOTP 
@@ -122,46 +118,8 @@ redirectToMultiOptionPageOnFailure = false
 
 ## Deploying travelocity sample application
 
-Deploy the sample travelocity app in order to try this scenario.
-
-1.  [Download the travelocity](https://github.com/wso2/samples-is/releases/download/v4.1.0/travelocity.com.war) 
-sample application.
-
-2.  Deploy `travelocity.com.war` on a web container. To do this, use the Apache Tomcat server.
-
-    !!! note
-        Since this sample is written based on Servlet 3.0 it needs to be
-        deployed on [Tomcat 8.x](https://tomcat.apache.org/download-80.cgi).
-
-    Follow the steps given below to deploy `travelocity.com.war` in Apache Tomcat.
-
-    1.  Stop the Apache Tomcat server if it is already running.
-    2.  Copy the `travelocity.com.war` file to `<TOMCAT_HOME>/webapps` directory.
-    3.  Start the Apache Tomcat server.
-
-!!! tip
-    If you wish to change properties like the issuer ID, consumer URL, and
-    IdP URL, you need to edit above properties in the **travelocity.properties** file found in the
-    `          travelocity.com/WEB-INF/classes         ` directory. If the
-    service provider is configured in a tenant, you can use the
-    `          QueryParams         ` property to send the tenant domain.
-    For  example, `          QueryParams=tenantDomain=wso2.com         ` .
-    
-    Following sample uses the following default values.
-    
-    | Properties                                                                                                  | Description                                                         |
-    |-------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-    | `              SAML2.SPEntityId=travelocity.com             `                                               | A unique identifier for this SAML 2.0 Service Provider application. |
-    | `               SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp              ` | The URL of the SAML 2.0 Assertion Consumer.                         |
-    | `               SAML2.IdPURL=https://localhost:9443/samlsso              `                                  | The URL of the SAML 2.0 Identity Provider.                          |
-    
-    If you edit the
-    `                     travelocity.properties                   ` file,
-    you must restart the Apache Tomcat server for the changes to take
-    effect.
-    
-
-Now the web application is successfully deployed on a web container.
+Follow this guide to
+[deploy and configure the `travelocity.com` sample app](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) in order to try this scenario.
 
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
@@ -404,38 +362,10 @@ provider.
 
 The next step is to configure the service provider.
 
-1.  Return to the WSO2 IS management console.
-
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
-
-3.  Enter **travelocity.com** in the **Service Provider Name** text box,
-    and click **Register**.
-
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.
-
-    1.  Now set the configuration as follows:
-
-        1.  **Issuer** : `               travelocity.com              `
-
-        2.  **Assertion Consumer URL** :
-            `                               http://wso2is.local:8080/travelocity.com/home.jsp                             `  
-            Click Yes, in the message that appears.
-
-    2.  Select the following check-boxes:
-        1.  **Enable Response Signing**
-
-        2.  **Enable Single Logout**
-
-        3.  **Enable Attribute Profile**
-
-        4.  **Include Attributes in the Response Always**  
-            
-
-    ![edit-service-provider](../assets/img/tutorials/sms-otp/edit-service-provider-configs.png)
-
-5.  Click **Register** to save the changes.  
-    Now you are sent back to the Service Providers page.
+1.  In the [Deploying travelocity sample application section](#deploying-travelocity-sample-application) you have
+    [configured a service provider](../../learn/deploying-the-sample-app/#configuring-service-provider)
+    in WSO2 Identity server. Now edit the service provider to configure
+    **SMS OTP**.
 
 6.  Go to **Claim configuration** and select the
     **`            http://wso2.org/claims/mobile           `** claim for
