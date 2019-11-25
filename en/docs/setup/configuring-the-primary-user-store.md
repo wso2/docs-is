@@ -80,20 +80,6 @@ There are two steps involved in setting up the primary user store:
     document to find specific information that you need to follow when
     configuring particular user store.
 
-    !!! info 
-        This is only applicable to the WSO2 Identity Server. Once you
-        configure the primary user store, make sure you disable the default
-        embedded user store from the system. To do this, open
-        `            <IS_HOME>/repository/conf/identity/embedded-ldap.xml           `
-        file and make the following change to the enable property.
-
-        ``` xml
-        <EmbeddedLDAP>
-            <Property name="enable">false</Property>
-            .......................
-        </EmbeddedLDAP>
-        ```
-
     !!! warning
         Server system administrator who is capable of all the actions in the
         system is configured within the `deployment.toml`. If you have not

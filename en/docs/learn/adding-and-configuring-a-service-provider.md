@@ -120,7 +120,7 @@ the following:
         The PEM content of a certificate in a JKS file, can be obtained by
         following the steps below:
 
-        1\. Export the certificate from the keystone. The exported certificate
+        1\. Export the certificate from the keystore. The exported certificate
         will be in binary format.
 
         ``` java

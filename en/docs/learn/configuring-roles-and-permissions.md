@@ -246,11 +246,6 @@ some time.
 
 3.  After the changes have been made, restart the server.
 
-    -   [Update before the first startup
-        (recommended)](#update-before-the-first-startup-recommended)
-    -   [Update after the product is used for sometime (advanced
-        configuration)](#update-after-the-product-is-used-for-sometime-advanced-configuration)
-
 ## Searching for roles
 
 Once you have added a role in the Identity Server, you can search for
