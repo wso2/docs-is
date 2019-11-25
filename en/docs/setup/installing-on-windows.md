@@ -50,7 +50,7 @@ by sorting by date.
 You set up `JAVA_HOME` using the System Properties, as described below.
 Alternatively, if you just want to set JAVA_HOME temporarily for the
 current command prompt window, [set it at the command
-prompt](#setting-java_home-temporarily-using-the-windows-command-prompt-(cmd)).
+prompt](../../setup/installing-on-windows#setting-java_home-temporarily-using-the-windows-command-prompt-cmd).
 
 #### Setting up JAVA_HOME using the system properties
 
