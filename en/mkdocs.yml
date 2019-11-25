@@ -516,7 +516,7 @@ nav:
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
             - 'Entitlement with REST APIs': develop/entitlement-with-rest-apis.md
       - 'Customizing User Interfaces':
-        - 'Customizing User Interfaces of WSO2 Identity Server': develop/customizing-user-interfaces.md
+        - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md      
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
