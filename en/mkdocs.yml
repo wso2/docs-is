@@ -498,6 +498,7 @@ nav:
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication': develop/authentication-data-api.md
             - 'Secondary User Store': develop/userstore-rest-api.md
+            - 'Keystore Management': develop/keystore-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
