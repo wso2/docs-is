@@ -110,7 +110,7 @@ template: templates/single-column.html
                 </div>
             </div>
             <!-- end card -->
-            <!-- card fro connectors -->
+            <!-- card for connectors -->
 
             <!-- end card -->
         </div>
