@@ -3,6 +3,8 @@ template: templates/swagger.html
 ---
 ??? Note "Note: Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
+    To try some APIs, a tenant need to be created with the domain name as 'wso2.com'. Please refer 
+    [here](../administer/adding-new-tenant.md).
     
     1.  Expand the relevant API operation and click the **Try It Out** button.  
     2.  Fill in relevant sample values for the input parameters and click **Execute**. 
