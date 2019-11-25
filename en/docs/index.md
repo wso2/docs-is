@@ -111,16 +111,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- card -->
-            <div class="card" onclick="location.href='develop/wso2-identity-server-authenticators-and-connectors-documentation';">
-      	        <div class="line"></div>
-                <div class="icon">
-                    <i class="material-icons md-36">settings_input_component</i>
-                </div>
-                <div class="card-content">
-            		    <p class="title">Connectors</p>
-            		    <p class="hint">Configure third-party authenticators</p>
-                </div>
-            </div>
+
             <!-- end card -->
         </div>
     </div>
