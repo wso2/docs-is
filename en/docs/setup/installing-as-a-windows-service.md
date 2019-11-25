@@ -161,12 +161,10 @@ configuration for running a WSO2 product as a Windows Service.
 ### Setting up CARBON_HOME
 
 Extract the Carbon-based product that you want to run as a Windows
-service, and then set the Windows environment variable
-`         CARBON_HOME        ` to the extracted product directory
-location. For example, if you want to run IS 5.1.0 or  IS 5.3.0 as a
-Windows service, you would set `         CARBON_HOME        ` to the
-extracted `         wso2is-5.1.0        ` or
-`         wso2is-5.3.0        ` directory.
+service, and then set the Windows environment variable ` CARBON_HOME `
+to the extracted product directory location. For example, if you want to
+run IS 5.9.0 as a Windows service, you would set ` CARBON_HOME ` to the
+extracted ` wso2is-5.9.0 ` directory.
 
 ![Edit System Variable window](../../assets/img/setup/edit-system-variable-window.png)
 
