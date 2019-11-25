@@ -98,3 +98,7 @@ Follow the instructions given in the sections below to set this up.
     the **Logout** button to log out and try this flow with different
     ACR values.  
     ![login-successful-acr-based](../assets/img/tutorials/login-successful-acr-based.png)
+
+!!! Tip 
+    Read more about ACR and AMR
+    [here](../../learn/working-with-acr-and-amr)
