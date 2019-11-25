@@ -224,15 +224,15 @@ false : Do not write groups to user store, so only internal roles can be created
 Default: ^[\S]{3,30}$</td> <br/>
 </tr>
 <tr class="even">
-<td>UsernameJavaScriptRegEx</td> 
-<td>username_java_script_regex</td>
+<td>UsernameJava<br>ScriptRegEx</td> 
+<td>username_java_<br>script_regex</td>
 <td>UsernameJavaScriptRegEx</td>
 <td>The regular expression used by the front-end components for username validation.
 <br/> Default: ^[\S]{3,30}$  </td>
 </tr>
 <tr class="odd">
-<td>UsernameJavaRegExViolationErrorMsg</td>
-<td>username_java_reg_ex_violation_error_msg</td>
+<td>UsernameJavaReg<br>ExViolationErrorMsg</td>
+<td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with username_java_regex 
 <br/> Default: Username pattern policy violated  </td>
@@ -245,15 +245,15 @@ Default: ^[\S]{3,30}$</td> <br/>
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="odd">
-<td>PasswordJavaScriptRegEx</td>
-<td>password_java_script_regex</td>
+<td>PasswordJava<br>ScriptRegEx</td>
+<td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
 Default: ^[\S]{5,30}$</td>
 </tr>
 <tr class="even">
-<td>PasswordJavaRegExViolationErrorMsg</td>
-<td>password_java_regex_violation_error_msg</td>
+<td>PasswordJavaReg<br>ExViolationErrorMsg</td>
+<td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx.<br />
 Default: Password length should be within 5 to 30 characters.</td>
@@ -276,15 +276,15 @@ True : User store support for SCIM provisioning.<br />
 False : User does not store support for SCIM provisioning.</td>
 </tr>
 <tr class="odd">
-<td>MultiAttributeSeparator</td>
-<td>multi_attribute_separator</td>
+<td>MultiAttribute<br>Separator</td>
+<td>multi_attribute<br>_separator</td>
 <td>Multiple Attribute Separator</td>
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
 Default: “,”</td>
 </tr>
 <tr class="even">
-<td>MaxUserNameListLength</td>
-<td>max_user_name_list_length</td>
+<td>MaxUserName<br>ListLength</td>
+<td>max_user_name_<br>list_length</td>
 <td>Maximum User List Length</td>
 <td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
 <br />
@@ -292,8 +292,8 @@ In some user stores, there are policies to limit the number of records that can 
 Eg: Active directory has the MaxPageSize property with the default value of 100.</td>
 </tr>
 <tr class="odd">
-<td>MaxRoleNameListLength</td>
-<td>max_role_name_list_length</td>
+<td>MaxRoleName<br>ListLength</td>
+<td>max_role_name_<br>list_length</td>
 <td>Maximum Role List Length</td>
 <td>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and do not want to list them all. Setting this property to 0 displays all roles. (Default: 100)<br />
 <br />
