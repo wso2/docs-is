@@ -432,8 +432,7 @@ nav:
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
-      - 'Logging Claims in Audit Logs': learn/logging-claims-in-audit-logs.md
-  - 'Develop': 
+  - 'Develop':
     - 'Developer Guide': 
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
@@ -640,6 +639,7 @@ nav:
             - 'Monitoring Logs': setup/monitoring-logs.md
             - 'HTTP Access Logging': setup/http-access-logging.md
             - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
+            - 'Logging Claims in Audit Logs': setup/logging-claims-in-audit-logs.md
           - 'System Statistics': setup/system-statistics.md
           - 'Monitoring TCP-Based Messages':
             - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
