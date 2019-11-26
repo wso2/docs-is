@@ -121,9 +121,9 @@ nav:
       - "Multi-factor Authentication" :
         - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
         - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
-        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
         - 'Configuring SMS OTP': learn/configuring-sms-otp.md
         - 'Configuring Email OTP': learn/configuring-email-otp.md
+        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
