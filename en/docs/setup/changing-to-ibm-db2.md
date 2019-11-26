@@ -74,7 +74,13 @@ After setting up DB2 database. You can point the `WSO2_IDENTITY_DB` or
        1. Executing database scripts.
         
           Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.
-           
+          
+		  !!! info 
+		  	  While running the DB2 scripts via the terminal, use the following DB2 command to run the DB2 scripts with the delimeter "/" since the default delimiter script for DB2 is ";". 
+			  
+			  ```xml
+			  db2 -td/ -f db2.sql
+			  ```		
            - `<IS-HOME>/dbscripts/identity/db2.sql`
            - `<IS-HOME>/dbscripts/identity/uma/db2.sql`
            - `<IS-HOME>/dbscripts/consent/db2.sql`
