@@ -71,6 +71,7 @@ nav:
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
         - 'Access Delegation':
           - 'OAuth 2.0': learn/configuring-access-delegation-with-oauth2.md
+        - 'Access Control': learn/fine-grained-authorization-with-xacml.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On':
