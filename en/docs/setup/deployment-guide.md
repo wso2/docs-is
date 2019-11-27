@@ -210,12 +210,8 @@ WSO2 supports the following membership schemes for clustering
 
     !!! info
         The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
-        deployed on machines having static IP addresses.             
-        ```
-        [clustering]
-        membership_scheme = "wka"
-        ```
-        For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
+        deployed on machines having static IP addresses. For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
+        Configurations for each membership scheme are listed below.
         
         ??? tip "Click to see the instructions for WKA scheme"            
             Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add following configurations.
