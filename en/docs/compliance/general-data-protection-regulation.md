@@ -3,11 +3,11 @@
 #### About GDPR compliance
 
 The General Data Protection Regulation (GDPR) is a legal framework
-formalized by the European Union (EU) in 2016. This regulation comes
-into effect from 28, May 2018, and can affect any organization that
-processes Personally Identifiable Information (PII) of individuals who
-live in Europe. Organizations that fail to demonstrate GDPR compliance
-are subjected to financial penalties.
+formalized by the European Union (EU) in 2016. This regulation came into
+effect from 25, May 2018, and affects any organization that processes
+Personally Identifiable Information (PII) of individuals who live in
+Europe. Organizations that fail to demonstrate GDPR compliance are
+subjected to financial penalties.
 
 WSO2 Identity Server (WSO2 IS) is designed based on privacy best
 practices, and is fully compliant with GDPR. GDPR compliance in your IAM
