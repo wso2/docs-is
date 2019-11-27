@@ -276,7 +276,7 @@ WSO2 supports the following membership schemes for clustering
                     vpcCidrBlock = "10.0.*.*"
                     ```                    
             Under the `clustering.properties` section, set the `region`, `clusterName`, and `vpcCidrBlock` based on 
-            the AWS ECS cluster that you crated in the previous step.       
+            the AWS ECS cluster that you created in the previous step.       
 
             !!! note
                 Once all the configurations are complete, build a docker image including the configurations. You can 
