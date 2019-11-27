@@ -240,10 +240,9 @@ WSO2 supports the following membership schemes for clustering
             !!! note
                 AWS ECS membership scheme is only supported from WUM-424342 onwards.  
                       
-            1. First, you need a working AWS ECS Cluster.
-            for instructions on creating a cluster. Please take note of the following things when creating the cluster.
-                -   Note down the `name` and `VPC CIDR block` of the cluster as we will require them for later configurations.
-                -   Make sure the `Container instance IAM role` that you assign to the ECS cluster have permission to the following policy. 
+            1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
+                -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.
+                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached. 
                         ```
                         { "Version": "2012-10-17", 
                              "Statement":
@@ -277,13 +276,13 @@ WSO2 supports the following membership schemes for clustering
                     vpcCidrBlock = "10.0.*.*"
                     ```                    
             Under the `clustering.properties` section, set the `region`, `clusterName`, and `vpcCidrBlock` based on 
-            the AWS ECS cluster that we crated in the previous step.       
+            the AWS ECS cluster that you crated in the previous step.       
 
             !!! note
                 Once all the configurations are complete, build a docker image including the configurations. You can 
                 consume this docker image to 
                 create a `Task Definition` and run a new `Service` or a `Task` 
-                on the `AWS ECS cluster` that we created.
+                on the `AWS ECS cluster` that you created.
             
         
 2. Configure caching.
