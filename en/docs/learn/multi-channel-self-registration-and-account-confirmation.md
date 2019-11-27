@@ -30,8 +30,8 @@ self-registration via SMS and Email Channels.
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
    
     !!! Note 
-        If there is no such entries for `event.default_listener.xxx`, in `deployment.toml`, 
-        no need to configure the following.
+        You can skip this step if there are no entries for `event.default_listener.xxx`, in 
+        the `deployment.toml` file.
     
     
     ``` java
@@ -52,7 +52,7 @@ Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
-configure the the identity server to sent confirmation emails.
+configure the the identity server to send confirmation emails.
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
@@ -92,13 +92,13 @@ self registration to support multiple notification channels.
     <td>
         <ul>
             <li>Default notification channel. If the user has not specified a notification channel
-            user will be notified with the defined channel.</li>
+            user will be notified via the defined channel.</li>
             <div class="admonition warning">
                 <p class="admonition-title">warning</p>
                 <p>
                     Currently, WSO2 IS supports **SMS** and **EMAIL** as Internal Notification channels.
                     **DO NOT** change the values since they are case sensitive. Changing the case will
-                    lead for Errors. 
+                    lead to Errors. 
                 </p>
             </div>
             <li>By default this value is set to <code>EMAIL</code>.</li>
@@ -110,7 +110,7 @@ self registration to support multiple notification channels.
     <td>
         <ul>
         <li>Enable server to determine whether to send notifications via a SMS or an email.</li> 
-        <li>Disabling this property would send  notifications via the channel defined by 
+        <li>Disabling this property would send notifications via the channel defined by 
         <code>default_notification_channel</code>.</li>
         </ul> 
     </td>
@@ -123,9 +123,9 @@ self registration to support multiple notification channels.
             <div class="admonition note">
                 <p class="admonition-title">Note</p>
                 <p>
-                    WSO2 Recommends to verify users after self registration than 
-                    pre verified user self registration. Therefore, it is recommended to set the property to 
-                    <code>false</code>. 
+                    WSO2 recommends verifying users after self registration rather than 
+                    using pre-verified user self registration. Therefore, it is recommended 
+                    to set the property to <code>false</code>. 
                 </p>
             </div>
         </ul>
@@ -144,7 +144,7 @@ self registration to support multiple notification channels.
     
     !!! tip
             The **AccountConfirmation** and **SMSAccountConfirmation** templates are 
-            used to send this email notifications.
+            used to send these email notifications.
         
             You can edit and customize the email template. For more information, 
             see [Customizing Automated Emails](../../learn/customizing-automated-emails).
@@ -175,8 +175,8 @@ to send confirmation codes.
         ``` 
         
         !!! note
-            This publisher users NEXMO as SMS REST service provider. For more information 
-            on a writing custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
+            This publisher uses NEXMO as the SMS REST service provider. For more information 
+            on writing a custom http event publisher, see [HTTP Event Publisher](https://docs.wso2.com
             /display/DAS300/HTTP+Event+Publisher).   
         
 4.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server)
@@ -266,11 +266,11 @@ For more details see,
 
 WSO2 Identity Server provides the functionality to confirm the user account internally or externally.
 
-1. **Internal Notification Management** : Manage notification sending an account confirmation 
-by the Identity Server.
+1. **Internal Notification Management** : Notification sending for account confirmation is managed 
+by WSO2 Identity Server.
     
-2. **External Notification Management** : Manage notification by an external notification management 
-mechanism and confirm the registration flow to the WSO2 Identity Server.
+2. **External Notification Management** : Notification sending and confirming the registration flow 
+to WSO2 Identity Server is managed by an external notification management mechanism.
 
 !!! note
     To configure external notification management, `disable` the property `Enable Notification 
@@ -293,7 +293,7 @@ mechanism and confirm the registration flow to the WSO2 Identity Server.
     ```
     
     !!! note
-        for more information, see 
+        For more information, see 
         [API Requests and Responses](.././learn/extended-self-registration-api-and-account-confirmation-api/#api-requests-and-responses).
    
 2.  Following response will be returned by the API.
@@ -317,18 +317,19 @@ mechanism and confirm the registration flow to the WSO2 Identity Server.
     ```
     
     !!! Note
-        - If the preferred channel is not specified in the request, the server will decide the 
-        notification channel if the `enable_resolve_notification_channel` property is `enabled`.
-        Notified channel will be returned in the `notificationChannel`.
+        - If the preferred channel has not been specified in the request, the server will 
+        decide which notification channel to use. If the `enable_resolve_notification_channel` 
+        property is set to `true`, the notification channel that was used will be returned 
+        in the response with the `notificationChannel` parameter.
         
         - **NOTE:** If the above property is not enabled the user will be notified via 
         the channel specfied by `default_notification_channel` 
-        proerty in `deployement.toml`.
+        proerty in `deployment.toml`.
         
         - For more information, see [Notification channel selection criteria](../.
         ./learn/extended-self-registration-api-and-account-confirmation-api/#notification-channel-selection-criteria).
         
-3. If the notification channel is **EMAIL**, navigate to the email address and and click 
+3. If the notification channel is **EMAIL**, access the relevant email account and and click 
 the button or the confirmation link. Then the user account will be unlocked.
 
     !!! Note
@@ -354,7 +355,7 @@ Use the following command to confirm the user account.
     curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"user": {"username":"kim","realm": "PRIMARY", "password": "Password12!","claims": [{"uri": "http://wso2.org/claims/givenname","value": "kim" },{"uri": "http://wso2.org/claims/emailaddress","value": "kim.anderson@gmail.com"},{"uri": "http://wso2.org/claims/identity/preferredChannel","value": "SMS"},{"uri": "http://wso2.org/claims/lastname","value": "Anderson"},{"uri": "http://wso2.org/claims/mobile","value": "94774747551"} ] },"properties": []}' "https://localhost:9443/api/identity/user/v1.0/me"
     ```
     !!! note
-        for more information, see 
+        For more information, see 
         [API Requests and Responses](.././learn/extended-self-registration-api-and-account-confirmation-api/#api-requests-and-responses).
 
 2.  Following response will be returned by the API.     
@@ -381,8 +382,8 @@ Use the following command to confirm the user account.
     ```
     
     !!! note
-        Note that you can specify the verified channel in the request. So specify the externally 
-        verified channel, enter channel name and the value claim associated to it.
+        Note that you can specify the externally verified channel in the request by entering 
+        the channel name and the value claim associated to it.
         
         <table>
             <tr>

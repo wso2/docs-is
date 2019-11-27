@@ -80,7 +80,7 @@ claim should be in the request).
             </li>    
             <div class="admonition info">
                 <p class="admonition-title">Note</p>
-                <p>To enable this feature add the following config to the 
+                <p>To enable this feature add the following configuration to the 
                 <code>deployment.toml</code>.</p>
                 <p>
                    ```toml
@@ -95,12 +95,12 @@ claim should be in the request).
                 </p>
                 <div class="admonition warning">
                     <p class="admonition-title">warning</p>
-                    <p>WSO2 Recommends to verify users after self registration approach. 
+                    <p>WSO2 recommends verifying users after self registration. 
                     Therefore, it is recommended to set the property to 
                     <code>false</code>.</p>
                 </div>
                 After enabling this feature, if the user has verified channels, the user will not be asked 
-                to verify the account and account will be unclocked on creation.
+                to verify the account and account will be unlocked on creation.
             </div>
             <li>
                 If a channel is verified external to WSO2 Identity Server, 
@@ -250,7 +250,7 @@ triggered, the notification handlers will send notifications to the user.
 
 There are three scenarios associated with user self registration.
 
-1. **Self registration with notifications internally managed and the account is locked on creation.**
+1. **Self registration with internally managed notifications and account lock on creation.**
 
     ??? info "User Self Registers without Verified Claims"
         **Sub scenario:** The user self registers without verified claims.
@@ -312,7 +312,7 @@ There are three scenarios associated with user self registration.
             }
             ```
 
-2. **Self registration with notifications are externally managed and the account is locked on creation.** 
+2. **Self registration with externally managed notifications and account lock on creation.** 
 
     ??? info "User Self Registers without Verified Claims"
         **Sub scenario:** The user self registers without verified claims.
@@ -376,7 +376,7 @@ There are three scenarios associated with user self registration.
         
         
 
-3. **The user self registers and the account is not locked on creation.**
+3. **Self registration with account not locked creation.**
    
     This scenario is almost similar to the above two scenarios. The difference is, 
     the `account lock on creation` is disabled in **Resident IDP Settings**. 
