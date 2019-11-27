@@ -201,6 +201,7 @@ WSO2 supports the following membership schemes for clustering
 - well-known address (WKA)
 - Multicast membership 
 - AWS membership 
+- AWS ECS membership 
 - Kubernetes membership
         
 1. Enable clustering on node 1 and node 2 by setting the membership
@@ -217,7 +218,7 @@ WSO2 supports the following membership schemes for clustering
         For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
         
         ??? tip "Click to see the instructions for WKA scheme"            
-            Edid the <IS_HOME>/repository/conf/deployment.toml file to add following configurations.
+            Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add following configurations.
             Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
                     ```
                     [clustering]
@@ -234,7 +235,56 @@ WSO2 supports the following membership schemes for clustering
             a range only for the last portion of the IP address. You should also keep in mind that the smaller 
             the range, the faster the time it takes to discover members since each node has to scan a lesser 
             number of potential members. 
-        
+            
+        ??? tip "Click to see the instructions for AWS ECS membership scheme"  
+            !!! note
+                AWS ECS membership scheme is only supported from WUM-424342 onwards.  
+                      
+            1. First, you need a working AWS ECS Cluster.
+            for instructions on creating a cluster. Please take note of the following things when creating the cluster.
+                -   Note down the `name` and `VPC CIDR block` of the cluster as we will require them for later configurations.
+                -   Make sure the `Container instance IAM role` that you assign to the ECS cluster have permission to the following policy. 
+                        ```
+                        { "Version": "2012-10-17", 
+                             "Statement":
+                             [
+                             {
+                                 "Effect": "Allow",
+                                 "Action":
+                                     [
+                                     "ec2:DescribeAvailabilityZones",
+                                     "ec2:DescribeInstances"
+                                     ],
+                                     "Resource": [ "*" ]
+                             }
+                             ]
+                        }
+    
+                        ```
+                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming 
+                traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict the access to 
+                instances in the same security group for this inbound rule. 
+            
+            2. Create a `deployment.toml` file in a preferred directory to add following configurations.
+            Configure the following entries.                    
+                    ```
+                    [clustering]
+                    membership_scheme = "aws-ecs"
+                    
+                    [clustering.properties]
+                    region = "us-east-1"
+                    clusterName = "ECS-IS-CLUSTER"
+                    vpcCidrBlock = "10.0.*.*"
+                    ```                    
+            Under the `clustering.properties` section, set the `region`, `clusterName`, and `vpcCidrBlock` based on 
+            the AWS ECS cluster that we crated in the previous step.       
+
+            !!! note
+                Once all the configurations are complete, build a docker image including the configurations. You can 
+                consume this docker image to 
+                create a `Task Definition` and run a new `Service` or a `Task` 
+                on the `AWS ECS cluster` that we created.
+            
         
 2. Configure caching.
 
