@@ -237,8 +237,6 @@ WSO2 supports the following membership schemes for clustering
             number of potential members. 
             
         ??? tip "Click to see the instructions for AWS ECS membership scheme"  
-            !!! note
-                AWS ECS membership scheme is only supported from WUM-424342 onwards.  
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.
