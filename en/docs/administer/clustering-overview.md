@@ -125,8 +125,8 @@ compatibility information.
 
 ## Deciding how to set up your cluster
 
-When setting up your cluster, you must decide how you want to set up and
-[setting up separate databases for clustering](../../setup/setting-up-separate-databases-for-clustering/),
+When setting up your cluster, you must decide how you want to
+[set up separate databases for clustering](../../setup/setting-up-separate-databases-for-clustering/),
 whether to front your cluster with a
 [load balancer](../../administer/load-balancing), and whether to use
 [sticky sessions](../../administer/sticky-sessions-with-manager-nodes).

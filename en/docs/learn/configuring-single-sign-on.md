@@ -93,8 +93,6 @@ This means that you have successfully configured additional claims for your serv
 !!! Info "Related Topics"
 	   To configure single sign on with different standards or protocols,see the following topics:
 
-	   * [Configuring Single Sign-On](../../learn/configuring-single-sign-on)
-
 	   * [SAML 2.0 Web SSO](../../learn/saml-2.0-web-sso)
 
 	   * [WS-Trust](../../learn/ws-trust)

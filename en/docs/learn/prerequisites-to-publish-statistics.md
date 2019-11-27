@@ -5,10 +5,6 @@ the Analytics Dashboard to publish the data processed by WSO2 IS.
 
 ### Step 01: Download WSO2 IS Analytics
 
-You can either download and build the [source
-code](http://docs.wso2.com/data-analytics-server/Building%252520from%252520Source)
-or download the WSO2 IS binary distribution.
-
 The binary distribution contains the binary files for both MS Windows
 and Linux-based operating systems.
 

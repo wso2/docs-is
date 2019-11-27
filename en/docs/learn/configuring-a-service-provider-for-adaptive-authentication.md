@@ -1,12 +1,14 @@
 # Configuring a Service Provider for Adaptive Authentication
 
-Adaptive authentication uses machine learning to enable an identity
-provider to prompt multi-factor authentication steps based on a user's
-risk profile or user behavior, i.e., the authentication adapts to the
-situation or the user during the authentication process. For instance,
-high-risk logins such as a user attempting to log in from an unusual
-location causes the adaptive authentication mechanism to prompt an extra
-authentication in order to increase security.
+Adaptive authentication enables an identity provider to prompt
+multi-factor authentication steps based on a user's risk profile or user
+behavior, i.e., the authentication adapts to the situation or the user during the authentication process.
+
+!!! Tip "Example" 
+    For instance, high-risk logins such as a user
+    attempting to log in from an unusual location causes the adaptive
+    authentication mechanism to prompt an extra authentication in order to
+    increase security.
 
 For more information on adaptive authentication with WSO2 IS, see
 [Adaptive Authentication](../../learn/adaptive-authentication).
