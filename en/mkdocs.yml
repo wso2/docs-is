@@ -60,9 +60,6 @@ nav:
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
       - 'Cross Protocol Single Logout': get-started/cross-protocol-single-logout.md
-  - 'Compliance':
-    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
-    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
@@ -124,9 +121,9 @@ nav:
       - "Multi-factor Authentication" :
         - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
         - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
-        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
         - 'Configuring SMS OTP': learn/configuring-sms-otp.md
         - 'Configuring Email OTP': learn/configuring-email-otp.md
+        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
@@ -438,8 +435,7 @@ nav:
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
-      - 'Logging Claims in Audit Logs': learn/logging-claims-in-audit-logs.md
-  - 'Develop': 
+  - 'Develop':
     - 'Developer Guide': 
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
@@ -522,7 +518,8 @@ nav:
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
             - 'Entitlement with REST APIs': develop/entitlement-with-rest-apis.md
-      - 'Customizing User Interfaces': 
+      - 'Customizing User Interfaces':
+        - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md      
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
@@ -648,6 +645,7 @@ nav:
             - 'Monitoring Logs': setup/monitoring-logs.md
             - 'HTTP Access Logging': setup/http-access-logging.md
             - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
+            - 'Logging Claims in Audit Logs': setup/logging-claims-in-audit-logs.md
           - 'System Statistics': setup/system-statistics.md
           - 'Monitoring TCP-Based Messages':
             - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
@@ -743,6 +741,9 @@ nav:
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
+  - 'Compliance':
+    - 'GDPR': compliance/general-data-protection-regulation.md
+    - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'References': 
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md

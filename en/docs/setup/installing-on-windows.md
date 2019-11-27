@@ -19,8 +19,7 @@ Windows.
 
 ### Installing the Identity Server
 
-1.  Download the latest version of the Identity Server from
-    <http://wso2.com/products/identity-server/>.
+1.  Download the latest version of the Identity Server from [here](http://wso2.com/products/identity-server).
 2.  Extract the archive file to a dedicated directory for the Identity
     Server, which will hereafter be referred to as
     `           <IS_HOME>          `.
@@ -50,7 +49,7 @@ by sorting by date.
 You set up `JAVA_HOME` using the System Properties, as described below.
 Alternatively, if you just want to set JAVA_HOME temporarily for the
 current command prompt window, [set it at the command
-prompt](#setting-java_home-temporarily-using-the-windows-command-prompt-(cmd)).
+prompt](#java-home).
 
 #### Setting up JAVA_HOME using the system properties
 
@@ -95,6 +94,7 @@ set JAVA_HOME
 The system returns the JDK installation path. You are now ready to [run
 the product.](../../setup/running-the-product)
 
+<a name="java-home"></a>
 #### Setting JAVA_HOME temporarily using the Windows command prompt (CMD)
 
 You can temporarily set the `         JAVA_HOME        ` environment

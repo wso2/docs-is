@@ -163,9 +163,10 @@ services, see [Calling Admin Services.](../../develop/calling-admin-services)
     enable = true
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from
+    [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-    ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+                                            ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
     !!! info 
         If you have configured WSO2 IS to use an IP or hostname, replace
@@ -312,7 +313,7 @@ Services.](../../develop/calling-admin-services)
     enable = false
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
