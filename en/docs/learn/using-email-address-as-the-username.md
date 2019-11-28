@@ -85,7 +85,7 @@
     <div class="codeContent panelContent pdl">
     <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=`"(&amp;(objectClass=user)(mail=?))"`</code>
     </pre>
-    <div class="admonition info">
+    <div class="admonition tip">
     <p class="admonition-title">Tip</p>
     <p>you are trying with the default embedded LDAP user store, this configuration change is not needed.</p>
     </div> 
