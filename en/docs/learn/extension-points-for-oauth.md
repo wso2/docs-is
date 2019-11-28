@@ -94,7 +94,7 @@ implement a grant validator and register
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td>This extension point can be used when the client credential authentication needs to be customized when issuing tokens. By default the Identity Server validates the client id and secret.</td>
+<td>This extension point can be used when the client credential authentication needs to be customized when issuing tokens. By default WSO2 Identity Server validates the client id and secret.</td>
 </tr>
 <tr class="even">
 <td>Interface</td>
