@@ -18,6 +18,11 @@ This section guides you through the configurations you can include in a service 
         <td>
             <ul>
                 <li><b>issuer</b> <code>[String]</code> <br>This specifies the issuer. This is the <code>             &lt;saml:Issuer&gt;            </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the <code>ServiceProviderID</code> value mentioned in the <code>             &lt;IS_HOME&gt;/repository/conf/deployment.toml</code> file of the relying party's WSO2 Identity Server.</li>
+                <li><b>issuerQualifier</b> <code>[String]</code> <br>
+                    <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same Issuer value. When a Service Provider Qualifier is defined here, it will be appended to the end of the Issuer value when registering the SAML SP in the Identity Server.</p> 
+                    <p>You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.</p>
+                    <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex : `travelocity.com` ). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
+                </li>
                 <li><b>assertionConsumerUrls</b> <code>[String]</code> <br>This specifies the assertion Consumer URLs that the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs by repeating assertionConsumerUrls element..</li>
                 <li><b>defaultAssertionConsumerUrl  </b> <code>[String]</code> <br>
                     <div class="content-wrapper">
@@ -139,19 +144,13 @@ This section guides you through the configurations you can include in a service 
                 <li><b>idPInitSSOEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable IdP initiated SSO profile for the service provider.</li>
                 <li><b>idPInitSLOEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable IdP initiated SLO profile for the service provider.</li>
                 <li><b>assertionQueryRequestProfileEnabled</b> <code>[Boolean]</code> <br>This is set <code>true</code> to enable Assertion Query Request Profile to query assertions that are persisted to the database when you log in to the service provider application. For more information, see <a href="../../learn/querying-saml-assertions">Querying SAML Assertions</a>.</li>           
+                <li><b>idpEntityIDAlias</strong></b><code>[String]</code><br/>This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. But if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this IdP Entity ID Alias value.</li>
             </ul>                     
         </td>
     </tr>
-    <tr>
-        <th>Request</th>
-        <td>See below</td>
-    </tr>
-    <tr>
-        <th>Response</th>
-        <td>See below</td>
-    </tr>
 </table>
 
+### Sample Request and Response
 
 ??? info "Click to view request and response formats"
 
@@ -387,6 +386,8 @@ This section guides you through the configurations you can include in a service 
     </tr>
 </table>
 
+### Sample Request and Response
+
 ??? info "Click to view request and response formats"
 
     ``` xml tab="Request Format"
@@ -545,6 +546,8 @@ This section guides you through the configurations you can include in a service 
     </tr>
 </table>
 
+### Sample Request and Response
+
 ??? info "Click to view request and response formats"
 
     ``` xml tab="Request Format"
@@ -644,8 +647,7 @@ This section guides you through the configurations you can include in a service 
 ```
 
 !!! info "Related Links"
-
--   For key APIs relevant for developers, see [Using APIs](../../develop/using-apis). 
--   For a list of the operations that can be performed with different permission levelsSee [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services). 
--   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server:
-    [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).
+    -   For key APIs relevant for developers, see [Using APIs](../../develop/using-apis). 
+    -   For a list of the operations that can be performed with different permission levelsSee [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services). 
+    -   The following article guides you through transforming existing SOAP-based services into REST services in WSO2 Identity Server:
+        [Exposing WSO2 Identity Server Admin Services the REST Way](http://wso2.com/library/articles/2016/10/article-exposing-wso2-identity-server-admin-services-the-rest-way/#step2).
