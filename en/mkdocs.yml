@@ -185,7 +185,6 @@ nav:
           - 'Validating OAuth Access Token Scope Using XACML Policies During Token Issuance': learn/validating-oauth-access-token-scope-using-xacml-policies-during-token-issuance.md
         - 'Working with XACML':
           - 'Working with XACML': learn/working-with-xacml.md
-          - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': learn/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
           - 'Enabling REST Notifications For XACML Policy Updates': learn/enabling-rest-notifications-for-xacml-policy-updates.md
           - 'Identity Server as an XACML Engine': learn/identity-server-as-an-xacml-engine.md
           - 'Working with XACML Multiple Decision Profile Requests': 
