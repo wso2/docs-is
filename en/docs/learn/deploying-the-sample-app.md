@@ -483,13 +483,13 @@ Deploy this sample web app on a web container.
 2. Start the Tomcat server.
 
 To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch.com/home.jsp         `
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch/home.jsp         `
 on your browser.
 
 For example,
-`                     http://localhost:8080/pickup-dispatch.com/home.jsp                 .         `
+`                     http://localhost:8080/pickup-dispatch/home.jsp                 .         `
     
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
@@ -548,11 +548,11 @@ Deploy this sample web app on a web container.
 2. Start the Tomcat server.
 
 To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-manager.com/home.jsp        `
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-manager/home.jsp        `
 on your browser.
 
 For example,
-`                     http://localhost:8080/pickup-manager.com/home.jsp                   .         `
+`                     http://localhost:8080/pickup-manager/home.jsp                   .         `
 
 
 ### Configuring the service provider
