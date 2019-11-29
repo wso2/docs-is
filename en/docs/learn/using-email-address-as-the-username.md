@@ -69,10 +69,10 @@
     <tr class="even">
     <td><code>               UserNameSearchFilter              </code></td>
     <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user instead of <code>                 cn                </code> or <code>                 uid                </code> . <strong>LDAP/Active Directory only</strong></p>
+    <p>Use the mail attribute of the user instead of <code>                 cn                </code> or <code>                 uid                </code> . <strong>LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store] <br> user_name_search_filter=&quot;(&amp;(objectClass=person)(mail=?))&quot;</code> <br> In Active Directory, <code>[user_store] <br> user_name_search_filter = &quot;(&amp;(objectClass=user)(mail=?))&quot;</pre></code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store] <br> user_name_search_filter=`"(&amp;(objectClass=person)(mail=?))"`</code> <br> In Active Directory, <code>[user_store] <br> user_name_search_filter = `"(&amp;(objectClass=user)(mail=?))"`</pre></code>
     </div>
     </div>
     </div></td>
@@ -80,11 +80,15 @@
     <tr class="odd">
     <td><code>               UserNameListFilter              </code></td>
     <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user if neccessary. <strong>LDAP/Active Directory only</strong></p>
+    <p>Use the mail attribute of the user if <strong>necessary. LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=&quot;(&amp;(objectClass=user)(mail=?))&quot;</code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=`"(&amp;(objectClass=user)(mail=?))"`</code>
     </pre>
+    <div class="admonition tip">
+    <p class="admonition-title">Tip</p>
+    <p>you are trying with the default embedded LDAP user store, this configuration change is not needed.</p>
+    </div> 
     </div>
     </div>
     </div></td>
@@ -95,7 +99,7 @@
     <p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_javascript_regex = &quot;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&quot;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
@@ -106,7 +110,7 @@
     <p>This is a regular expression to validate usernames. By default, strings have a length of 5 to 30. Only non-empty characters are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_regex=&quot;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&quot;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_regex=&apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&apos;</code></pre></div>
     </div>
     </div>
     </td>

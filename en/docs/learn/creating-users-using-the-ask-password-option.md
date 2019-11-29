@@ -1,41 +1,52 @@
-# Creating Users Using the Ask Password Option
+# Creating Users Using the Ask Password and Email Verification Options
 
-This section is about the user creation flow which allows users to
-decide their own passwords. This process is initiated by the
-administrator when selecting **Ask password from user** during the user
-creation process. This is different from the default flow, in which the
-administrator decides the passwords for users. Using the **Ask
-Password** option is the standard method for user management as the
-administrator does not have to remember and specify passwords when
-creating an account for a user. When selecting this option, the
-administrator must enter an **Email Address**. The Identity Server
-sends an email to this address that provides the users with a
-redirection URL. This directs the users to a screen where they can
-provide the password for the account that was newly created for them by
-the administrator.
+This section is about the user on-boarding flows initiated by
+administrators which allows respective end users to decide their own
+passwords or verify the accounts created by administrators. 
 
-!!! warning "Note the following before you begin:"
-    From 5.3.0 onwards there is a new implementation for identity management
-    features. The steps given below in this document follows the new
-    implementation, which is the **recommended approach** for creating users
-    using the ask password option.
-    
-    Alternatively, to see steps on how to enable this identity management
-    feature using the **old implementation**, see [Creating Users using the
-    Ask Password Option documentation in WSO2 IS
-    5.2.0](https://docs.wso2.com/display/IS520/Creating+Users+using+the+Ask+Password+Option). The old implementation has been retained within the WSO2 IS pack for backward compatibility and can still be used if required.
-    
+## On-boarding with Ask password
 
-Follow the instructions given below to configure this feature.
+This process is initiated by the administrator when selecting **Ask
+password from user** during the user creation process. This is different
+from the default flow, in which the administrator decides the passwords
+for users. Using the **Ask Password** option is the standard method for
+user management as the administrator does not have to remember and
+specify passwords when creating an account for a user.
 
-!!! tip "Before you begin"
-    
-    Ensure that the new Identity Listeners with
-    `         priority=95        ` and `         priority=97        ` are set
-    to **true** by adding the following configuration in the
-    `         <IS_HOME>/repository/conf/deployment.toml       ` file.
-    
-    
+## On-boarding with Email Verification
+There can be other cases where administrators need to on-board user
+accounts to the system along with a default password (that is
+communicated to the end-user via a trusted channel), and still wants end
+user to confirm that the account created for the user is correct. In
+such cases administers can create users with **Verify Email** feature.
+
+When selecting either of these options, the administrator must enter an
+**Email Address**. The Identity Server sends an email to this
+  address that provides the users with a redirection URL.
+
+- In **Ask Password** flow, the URL sent in the email directs the users
+  to a screen where they can provide the password for the account that
+  was newly created for them by the administrator.
+- In **Verify Email** flow, the URL sent in the email is a link which
+  confirms the user upon visiting.
+
+
+## Configuring the Feature
+
+Follow the instructions given below to configure the ask password
+feature.
+
+??? Warning "Click to see instructions specific for a migrated deployment" 
+    If you have migrated from a previous IS version, ensure that
+    the `IdentityMgtEventListener` with the ` orderId=50 ` is set to
+    **false** and that the Identity Listeners with ` orderId=95 ` and `
+    orderId=97 ` are set to **true** in the `
+    <IS_HOME>/repository/conf/deployment.toml ` file.
+       
+    !!! Note 
+        If there is no such entries for `event.default_listener.xxx`, in `deployment.toml`, 
+        no need to configure the following.
+        
     ``` toml
     [event.default_listener.identity_mgt]
     priority= "50"
@@ -50,51 +61,72 @@ Follow the instructions given below to configure this feature.
 
 
 Follow the steps given below to configure WSO2 IS to enable the ask
-password feature:
+password feature: 
 
-1.  Make sure the following configuration is added to the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file to set the redirection URL
-    valid time period in **minutes**.  
-    The redirection link that is provided to the user to set the
-    password is invalid after the time specified here has elapsed.
+<a name="resident-idp-config"></a>
 
-    ``` toml
-    [identity_mgt.user_onboarding]
-    enable_email_verification = false
-    verification_email_validity = "1440"
-    lock_on_creation=true
-    [identity_mgt] 
-    email_sender= "internal"
-    [identity_mgt.user_onboarding]
-    ask_password_email_validity = "1440"
-    password_generator = "org.wso2.carbon.user.mgt.common.DefaultPasswordGenerator"
-    ```
+1.  Start the Identity Server and log in to the Management Console.
 
-    You can also configure the expiry time through the Management
-    Console.
-
-    ??? note "Click to see how to configure this through the management console"
-
-        1.  Start the Identity Server and log in to the Management Console.
-
-        2.  Click **Resident** under **Identity Providers** on the **Main**
+2.  Click **Resident** under **Identity Providers** on the **Main**
             tab and expand the **Account Management Policies** tab.
 
-        3.  Expand the **User Onboarding** tab and configure the **Ask
+3.  Expand the **User Onboarding** tab and configure the **Ask
             password code expiry time** field. Click **Update** to save
             changes.
+4.  In the same **User Onboarding** tab and select **Enable User Email
+    Verification**. Click **Update** to save changes.
+                
+    ![](../assets/img/learn/resident-idp-ask-password-configs.png) 
+    
+    You can also configure the above configurations via the configuration
+    files. 
+    
 
-2.  Optionally, if you are adding users via the management console, the
-    following property needs to be added to the
-    `           <IS_HOME>/repository/conf/deployment-toml` file.
+    ??? note "Click to see how to configure this through the configuration files" 
+        <a name="file-based-config"></a>
+        Make sure the following configuration is added
+        to the ` <IS_HOME>/repository/conf/deployment.toml ` file to set the
+        confirmation URL valid time period in **minutes**.  
+        The confirmation link that is provided to the user to set the
+        password is invalid after the time specified here has elapsed.
+            ``` toml
+            [identity_mgt.user_onboarding]
+            enable_email_verification = true
+            verification_email_validity = "1440"
+            lock_on_creation=true
+            [identity_mgt] 
+            email_sender= "internal"
+            [identity_mgt.user_onboarding]
+            ask_password_email_validity = "1440"
+            password_generator = "org.wso2.carbon.user.mgt.common.DefaultPasswordGenerator"
+            ```
+    
+    !!! info "Configuring Ask Password Feature for tenants" 
+        These
+        properties can be enabled for each tenant at tenant creation by
+        adding the corresponding configuration to the `
+        <IS_HOME>/repository/conf/deployment.toml ` file as explained in
+        [configuring through the configuration files](#file-based-config)
+        section.
+            
+        Optionally, you can login to the Management console as a tenant
+        admin and
+        [change **Resident IDP** configurations](#resident-idp-config)
+        accordingly to enable this feature for a specific tenant.
+
+5.  Additionally, if you are adding users via the management console, to
+    enable ["Ask password" option](#management-console) in the
+    management console the following property needs to be added to the `
+    <IS_HOME>/repository/conf/deployment-toml` file.
 
     ``` toml
     [identity_mgt.user_onboarding]
     ask_password_from_user= true
     ```
 
-3.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
+6.   Add the following properties to the `deployment.toml` file in the
+     `IS_HOME/repository/conf` folder to configure the email server for
+     this service and restart the server.
 
      ``` toml
      [output_adapter.email]
@@ -139,65 +171,12 @@ password feature:
         Emails](../../learn/customizing-automated-emails).
     
 
-4.  Start the Identity Server and log in to the **Management Console**.
-
-5.  In the **Main** tab, click, under **Identity Providers**, click
-    **Resident** and expand the **Account Management Policies** tab.
-6.  Expand the **User Onboarding** tab and select **Enable User Email
-    Verification**. Click **Update** to save changes.
-
-    !!! info 
-        The `            enable_email_verification           ` property can be
-        enabled for each tenant at tenant creation by adding the following
-        configuration to the
-        `            <IS_HOME>/repository/conf/deployment.toml         `
-        file as seen below.
-
-        ``` xml
-        [identity_mgt.user_onboarding]
-        enable_email_verification = true
-        lock_on_creation= true
-        [identity_mgt] 
-        email_sender= "internal" 
-        ```
-
 ## Try it out
 
 You can use one of the following methods to creating a user using the
 ask password option.
 
-!!! note
-    ??? note "Click here for more information If you want to enter any of the !\#$%&'\*+-=?^\_ special characters in the email address"
-        1.  Go to management console click the **Main** tab **\> Claims \>
-            List**.
-        
-        2.  Click **http://wso2.org/claims**.
-        
-        3.  Expand the **Email** claim and click **Edit**.
-        
-        4.  Add the characters you need out of the `             !#$%&'*+-=?^_            ` special characters to the Regular Expression.  
-            **Example**
-            <table>
-            <colgroup>
-            <col style="width: 49%" />
-            <col style="width: 50%" />
-            </colgroup>
-            <tbody>
-            <tr class="odd">
-            <td>Adding the # character to the regex email pattern.</td>
-            <td><code>                 ^([a-zA-Z0-9_\.\-#])+\@(([a-zA-Z0-9#\-])+\.)+([a-zA-Z0-9#]{2,4})+$                </code></td>
-            </tr>
-            <tr class="even">
-            <td>Adding the $ character to the regex email pattern.<br />
-            Make sure to use the appropriate escape characters, such as \\, when using the $ character.</td>
-            <td><code>                 ^([a-zA-Z0-9_\.\-\\$])+\@(([a-zA-Z0-9\\$\-])+\.)+([a-zA-Z0-9\\$]{2,4})+$                </code></td>
-            </tr>
-            </tbody>
-            </table>
-        
-        Now, follow the steps given below to add a new user.
-
-### Management console
+### Ask Password option via the Management console
 
 Do the following steps to test the account creation using the password
 option.
@@ -214,7 +193,7 @@ option.
     !!! note
         If you are using the $ character in the email address, make sure to
         use appropriate escape characters, such as /.  
-        Example: `           abc\$def@gmail.com          `
+        Example: `           abc\$def@somemail.com          `
     
 
 4.  Fill in the form:
@@ -230,31 +209,72 @@ option.
         password from user** option.
 
     4.  Enter a valid **Email Address** and click **Finish**.
+        
+        ??? note "Click here for more information If you want to enter any of the !\#$%&'\*+-=?^\_ special characters in the email address"
+            1.  Go to management console click the **Main** tab **\> Claims \>
+                List**.
+            
+            2.  Click **http://wso2.org/claims**.
+            
+            3.  Expand the **Email** claim and click **Edit**.
+            
+            4.  Add the characters you need out of the `             !#$%&'*+-=?^_            ` special characters to the Regular Expression.  
+                **Example**
+                <table>
+                <colgroup>
+                <col style="width: 49%" />
+                <col style="width: 50%" />
+                </colgroup>
+                <tbody>
+                <tr class="odd">
+                <td>Adding the # character to the regex email pattern.</td>
+                <td><code>                 ^([a-zA-Z0-9_\.\-#])+\@(([a-zA-Z0-9#\-])+\.)+([a-zA-Z0-9#]{2,4})+$                </code></td>
+                </tr>
+                <tr class="even">
+                <td>Adding the $ character to the regex email pattern.<br />
+                Make sure to use the appropriate escape characters, such as \\, when using the $ character.</td>
+                <td><code>                 ^([a-zA-Z0-9_\.\-\\$])+\@(([a-zA-Z0-9\\$\-])+\.)+([a-zA-Z0-9\\$]{2,4})+$                </code></td>
+                </tr>
+                </tbody>
+                </table>
 
 5.  The Identity Server sends an email to the email address provided.
     The email contains a redirect URL that directs the users to a screen
     where they must provide their own password.
 
-#### SCIM 2.0
+### SCIM 2.0
 
-!!! tip "Before you begin!" 
-    Follow the steps given in the [Configuring SCIM 2.0 Provisioning Connector Documentation](../../develop/scim-2.0-provisioning-connector)
-    to configure WSO2 IS with SCIM 2.0.
-
-1.  Add the following configuration to `           <IS_HOME>/repository/conf/deployment.toml          ` file.
-
-    ``` toml
-    [scim2] 
-    enable_schema_extension="true"
+You can use both the **Ask Password** and **Verify Email** features when
+creating a user using SCIM 2.0.
+    
+#### Ask Password
+    
+You need to set the **askPassword** attribute under the`
+urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
+true in the SCIM2 user create request. 
+    ```java
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}
     ```
-
-2.  Now you can use the ask password features using SCIM 2.0. A sample
-    curl commands is given below:
-
-    ``` toml
-    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"dewmi123455@gmail.com"}],"EnterpriseUser":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+    
+!!! Example "A sample curl commands is given below:"
+    ``` java
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"paul@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
-
+    
+#### Verify Email
+    
+You need to set the **verifyEmail** attribute under the`
+urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` schema as
+true in the SCIM2 user create request. 
+    ```java
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}
+    ```
+    
+!!! Example "A sample curl commands is given below:"
+    ``` java
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
+    ```
+    
 !!! info "Related Links"
     -   For information on how to edit an existing email template, see [Email Templates](../../learn/email-templates).
     -   See [Configuring Claims](../../learn/configuring-claims) for more information on how to store

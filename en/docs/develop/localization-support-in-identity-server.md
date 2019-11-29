@@ -12,8 +12,8 @@ directory). The following steps describe how you can configure this:
 
 1.  Navigate to
     `          <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/WEB-INF/classes/org/wso2/carbon/identity/application/authentication/endpoint/i18n/         `
-2.  Take a copy of the `Resources.properties` file, rename it with the
-    required locale suffix as follows:  
+2.  Take a copy of the `Resources.properties` file to the same location,
+    rename it with the required locale suffix as follows:
     - For British English:
     `           Resources_en_GB.properties          `  
     - For French (Standard):
@@ -58,3 +58,11 @@ property. Otherwise use add new property entry to the relevant locale
 based on the Resource file, as explained above. If you don't specify a
 value for the key obtained after \#03, the error message itself will be
 displayed in the UI, as default.
+
+### Configuring Localization for Recovery Endpoints 
+
+Similarly, you can enable localization for accountrecoveryendpoint by
+applying the same above steps 1 through 7 in the previous section
+starting with the following location.
+
+`<IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/classes/org/wso2/carbon/identity/mgt/recovery/endpoint/i18n/`

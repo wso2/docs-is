@@ -49,7 +49,7 @@ as follows.
         token could have been in `             ACTIVE            ` or
         `             EXPIRED            ` state while revoking.
 
-### Invoking the endpoint for the super tenant
+## Invoking the endpoint for the super tenant
 
 Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for the super tenant users.
@@ -75,7 +75,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
         ```
     
 
-##### Get a valid token
+### Get a valid token
 
 <table>
 <tbody>
@@ -109,7 +109,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
 </tbody>
 </table>
 
-**Validate the token**
+### Validate the token
 
 <table>
 <tbody>
@@ -144,7 +144,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
 </tbody>
 </table>
 
-##### Get a valid token with a scope
+### Get a valid token with a scope
 
 <table>
 <tbody>
@@ -178,7 +178,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
 </tbody>
 </table>
 
-**Validate the token**
+### Validate the token
 
 <table>
 <tbody>
@@ -212,7 +212,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
 </tbody>
 </table>
 
-##### Invalid token
+### Invalid token
 
 If the token that you used is invalid, you get the following response:
 
@@ -220,7 +220,7 @@ If the token that you used is invalid, you get the following response:
 {'active':false}
 ```
 
-##### Empty token
+### Empty token
 
 If you leave the token parameter empty as shown below, you get the 
 following response :
@@ -257,7 +257,8 @@ following response :
 </tbody>
 </table>
 
-### Invoking the endpoint for tenants
+
+## Invoking the endpoint for tenants
 
 Use the following cURL commands given in the following sections to
 invoke the OAuth introspection endpoint for tenant users.
@@ -277,7 +278,7 @@ invoke the OAuth introspection endpoint for tenant users.
         "/permission/admin/manage/identity/applicationmgt/view" permissions.
     
 
-##### Get a valid token
+### Get a valid token
 
 <table>
 <tbody>
@@ -311,10 +312,7 @@ invoke the OAuth introspection endpoint for tenant users.
 </tbody>
 </table>
 
-**Validate the token**
-
-You can pass the token type as an optional parameter in the request
-(e.g., `         token_type_hint=bearer        ` ).
+### Validate the token
 
 <table>
 <tbody>
@@ -336,6 +334,7 @@ You can pass the token type as an optional parameter in the request
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k -H &#39;Authorization: Basic &lt;<span class="fu">BASE64ENCODED</span>(USERNAME<span class="at">@TENAND_DOMAIN</span>:PASSWORD)&gt;&#39; -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=&lt;ACCESS_TOKEN&gt;&#39; https:<span class="co">//localhost:9443/t/&lt;TENANT_DOMAIN&gt;/oauth2/introspect</span></a></code></pre></div>
+<p>You can pass the token type as an optional parameter in the request (e.g., <code>              token_type_hint=bearer             </code> ).</p>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -346,10 +345,7 @@ You can pass the token type as an optional parameter in the request
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -k -u admin<span class="at">@foo</span>.<span class="fu">com</span>:admin -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=fbc4e794-23db-<span class="dv">3394</span>-b1e5-f2c3e511d01f&#39; https:<span class="co">//localhost:9443/t/foo.com/oauth2/introspect</span></a></code></pre></div>
 </div>
 </div>
-<p><br />
-</p>
-<p><br />
-</p></td>
+</td>
 </tr>
 <tr class="even">
 <td>Response</td>
@@ -362,7 +358,7 @@ You can pass the token type as an optional parameter in the request
 </tbody>
 </table>
 
-##### Get a valid token with a scope
+### Get a valid token with a scope
 
 <table>
 <tbody>
@@ -396,7 +392,7 @@ You can pass the token type as an optional parameter in the request
 </tbody>
 </table>
 
-**Validate the token**
+### Validate the token
 
 <table>
 <tbody>
@@ -440,7 +436,7 @@ You can pass the token type as an optional parameter in the request
 </tbody>
 </table>
 
-##### Invalid token
+### Invalid token
 
 If the token that you used is invalid, you get the following response:
 
@@ -452,7 +448,7 @@ If the token that you used is invalid, you get the following response:
 {'active':false}
 ```
 
-##### Empty token
+### Empty token
 
 If you leave the token parameter empty as shown below, you get the
 following response:
@@ -489,3 +485,8 @@ following response:
 </tr>
 </tbody>
 </table>
+
+!!! Tip 
+    Above samples only explains validating a token obtained for
+    Client credentials grant using the **introspect endpoint**. Similarly, you may [invoke introspection endpoint](#validate-the-token) with a token
+    obtained from any other grant type as well.

@@ -10,11 +10,11 @@ This REST API implements the SCIM 2.0 Protocol according to the [SCIM
 2.0 specification.](https://tools.ietf.org/html/rfc7644) The following
 endpoints are supported with WSO2 Identity Server.
 
-### Users endpoint
+## Users endpoint
 
 This endpoint is used to create and manage users and their profile attributes.
 
-##### GET/ Get User by ID
+#### GET/ Get User by ID
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/Users/{id                      }          `
 
@@ -150,7 +150,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid user is not found
 
-##### POST/ Create User
+#### POST/ Create User
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Users                     `
 
@@ -301,7 +301,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 	```
 
 
-##### DELETE/ Delete User by ID
+#### DELETE/ Delete User by ID
 
 `           DELETE                       https://localhost/t/{tenant-domain}/scim2/Users/{id                      }          `
 
@@ -393,7 +393,7 @@ This API deletes a user using the user's unique ID. It returns
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid user is not found
 
-##### GET/ Get Users (User Listing/Filtering)
+#### GET/ Get Users (User Listing/Filtering)
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/Users                                `
 
@@ -619,7 +619,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 	    ```
 
 
-##### POST/ Search Users
+#### POST/ Search Users
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Users/.search                     `
 
@@ -714,7 +714,7 @@ the users are not found.
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid users are not found
 
-##### PATCH/ Update User
+#### PATCH/ Update User
 
 `            PATCH                         https://localhost/t/{tenant-domain}/scim2/Users/{id                        }           `
 
@@ -867,7 +867,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
   
 
-##### PUT/ Update User
+#### PUT/ Update User
 
 `            PUT                         https://localhost/t/{tenant-domain}/scim2/Users/{id                        }                       `
 
@@ -1016,14 +1016,14 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
   
 
-### Groups endpoint
+## Groups endpoint
 
 This endpoint is used to create and manage groups and group members.
 
 !!! info
 	From WSO2 5.8.0 onwards, new configurations have been added to support filtering users and groups only from the PRIMARY domain. If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change. For more information, see [behavioral change #4 in the Migration Guide: Understanding What Has Changed topic](../../setup/understanding-what-has-changed#behavioral-changes).
 
-##### GET/ Group by ID
+#### GET/ Group by ID
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }          `
 
@@ -1162,7 +1162,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid group is not found
 
-##### POST/ Create Group
+#### POST/ Create Group
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
 
@@ -1303,7 +1303,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Group is not found
 
-##### POST/ Create Group
+#### POST/ Create Group
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
 
@@ -1455,7 +1455,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 	```
 
 
-##### DELETE/ Delete Group By ID
+#### DELETE/ Delete Group By ID
 
 `           DELETE                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }          `
 
@@ -1548,7 +1548,7 @@ deleted.
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Invalid group
 
-##### GET/ Filter Groups
+#### GET/ Filter Groups
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
 
@@ -1780,7 +1780,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 	    ```
 
 
-##### POST/ Search Groups
+#### POST/ Search Groups
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Groups/.search                     `
 
@@ -1875,7 +1875,7 @@ response if the groups are not found.
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Groups are not found
 
-##### PATCH/ Update User
+#### PATCH/ Update Group
 
 `           PATCH                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }          `
 
@@ -2022,7 +2022,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid group is not found
 
-##### PUT/ Update User
+#### PUT/ Update Group
 
 `           PUT                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }                     `
 
@@ -2167,10 +2167,10 @@ All the of the users dialect and meta dialect are supported. For more informatio
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Valid group is not found
 
-### Me Endpoint 
+## Me Endpoint 
 This endpoint is used to create and manage the currently authenticated user. 
 
-##### POST/ Create Users in Bulk
+#### POST/ Create Users in Bulk
 `POST https://localhost/t/{tenant-domain}/scim2/Me`
 
 This API is used to register a user anonymously. It returns an HTTP 201 response if the user is successfully created. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis). 
@@ -2241,7 +2241,7 @@ curl -v -k --data '{"schemas":[],"name":{"familyName":"Johnson","givenName":"Ale
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Invalid user
 
-#### DELETE/ Delete Me
+### DELETE/ Delete Me
 
 `DELETE https://localhost/t/{tenant-domain}/scim2/Me`
 
@@ -2285,7 +2285,7 @@ HTTP/1.1 204 NOT IMPLEMENTED
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Valid user is not found
 
-#### GET/ Get Me
+### GET/ Get Me
 `GET https://localhost/t/{tenant-domain}/scim2/Me`
 
 This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis).
@@ -2311,7 +2311,7 @@ None
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Schema is not found
 
-#### PATCH/ Update Me
+### PATCH/ Update Me
 
 `PATCH https://localhost/t/{tenant-domain}/scim2/Me`
 
@@ -2390,7 +2390,7 @@ curl -v -k --user kim:kimwso2 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Valid user is not found 
 
-#### PUT/ Update User
+### PUT/ Update User
 
 `PUT https://localhost/t/{tenant-domain}/scim2/Me`
 
@@ -2469,9 +2469,9 @@ curl -v -k --user kim:kimwso2 -X PUT -d '{"schemas":[],"name":{"familyName":"Jac
 
 
 
-### Bulk Endpoint 
+## Bulk Endpoint 
 
-##### POST/ Create Users in Bulk
+#### POST/ Create Users in Bulk
 
 `           POST                       https://localhost/t/{tenant-domain}/scim2/Bulk                     `
 
@@ -2564,9 +2564,9 @@ created.
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Invalid users
 
-### ResourceType Endpoint
+## ResourceType Endpoint
 
-##### GET/ Get Resource Types
+#### GET/ Get Resource Types
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/ResourceType                     `
 
@@ -2631,9 +2631,9 @@ None
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Schema is not found
 
-### ServiceProviderConfig Endpoint
+## ServiceProviderConfig Endpoint
 
-##### GET/ Get Service Provider Config
+#### GET/ Get Service Provider Config
 
 `           GET                       https://localhost/t/{tenant-domain}/scim2/ServiceProviderConfig                     `
 
@@ -2699,7 +2699,7 @@ None
 -   HTTP 401 - Unauthorized
 -   HTTP 404 - Schema is not found
 
-### Required permissions for SCIM 2.0 APIs
+## Required permissions for SCIM 2.0 APIs
 
 The default permissions required to access each resource in SCIM 2.0 are
 given below.
