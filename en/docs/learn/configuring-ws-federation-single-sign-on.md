@@ -7,16 +7,15 @@ WSO2 Identity Server's passive security token service (Passive STS) is used as t
 	 endpoint with the TokenType 'SAMLV2.0' when sending the token request. If there is no RST specified, 
 	 WSO2 Identity Server will issue a SAML 1.1 token by default.
 
-!!! Tip "Before you begin"
-	In order to configure WS-Federation SSO, you must first
-	 [register a service provider for inbound authentication](../../learn/configuring-inbound-authentication-for-a-service-provider). 
-	 To register a service provider:
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
 	 
 	 1. Sign in to WSO2 Identity Server Management Console as an admin.
 	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
 	 3. Enter a service provider name.
 	 4.	Click Register. The Service Provider Details page appears.
-	
 
 To configure WS-Federation SSO:
 

@@ -26,10 +26,9 @@ protocol. For more information on the inbound authentication flow, see
 Let's learn how to configure inbound authentication for a service
 provider.
 
-!!! tip "Before you begin"
-    
-    See [here](../../learn/adding-and-configuring-a-service-provider) to learn the instrructions to register a service provider. 
-    
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
     
 !!! warning "Removed Feature!"
     OpenID 2.0 has been removed from the base product in WSO2 Identity
