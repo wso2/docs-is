@@ -76,12 +76,13 @@ schemes, which are as follows:
 -   Well Known Address (WKA) membership scheme
 -   Multicast membership scheme
 -   AWS membership scheme
+-   AWS ECS membership scheme
 
 All of these membership schemes are ready to be used in production. You
 can select a scheme based on your production environment. Here's a comparison of
 the membership schemes:
 
-| Multicast                                                  | WKA                                                                                                                    | AWS                                                        |
+| Multicast                                                  | WKA                                                                                                                    | AWS/AWS ECS                                                        |
 |------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | All nodes should be in the same subnet                     | Nodes can be in different networks                                                                                     | Amazon EC2 nodes                                           |
 | All nodes should be in the same multicast domain           | No multicasting requirement                                                                                            | No multicasting requirement                                |
