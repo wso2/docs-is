@@ -25,7 +25,7 @@ Server and as well as the Resource Server.
 ### Configure OAuth/OpenID and SAML SSO
 
 1.  See the [Configuring Inbound Authentication for a Service
-    Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     to configure the OAuth/OpenID Connect service provider. Access token
     will be issued for this application, exchanging with SAML2
     assertion.
@@ -55,18 +55,6 @@ Server and as well as the Resource Server.
 
     **Recipient** :
     `                           https://localhost:9443/oauth2/token                         `
-
-    !!! note
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint. If the tenant domain is
-        `             wso2.com            `, enter the following values:
-
-        **Audience** :
-        `                                          https://localhost:9443/oauth2/token?tenantDomain=wso2.com                                       `
-
-        **Recipient** :
-        `                           https://localhost:9443/oauth2/token?tenantDomain=wso2.com                         `
 
     ![enable-audience-restriction](../assets/img/using-wso2-identity-server/enable-audience-restriction.png) 
 
