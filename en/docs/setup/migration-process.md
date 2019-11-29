@@ -6,7 +6,7 @@ Go through the guidelines given below before attempting to migrate the productio
 1.  If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
 your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
-2.  Always migrate to the [latest version](https://support.wso2.com/jira/secure/Dashboard.jspa) 
+2.  Always migrate to the [latest version](https://wso2.com/identity-and-access-management) 
     since latest fixes and new features are available in the newest version. If you have a particular 
     requirement to migrate to an intermediate version, contact 
     [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
