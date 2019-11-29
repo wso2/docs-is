@@ -94,15 +94,15 @@ implement a grant validator and register
 <tbody>
 <tr class="odd">
 <td>Usage</td>
-<td>This extension point can be used when the client credential authentication needs to be customized when issuing tokens. By default the Identity Server validate the client id and secret.</td>
+<td>This extension point can be used when the client credential authentication needs to be customized when issuing tokens. By default WSO2 Identity Server validates the client id and secret.</td>
 </tr>
 <tr class="even">
 <td>Interface</td>
-<td>org.wso2.carbon.identity.oauth2.token.handlers.clientauth.ClientAuthenticationHandler</td>
+<td>org.wso2.carbon.identity.core.handler.AbstractIdentityHandler</td>
 </tr>
 <tr class="odd">
 <td>Abstract Class</td>
-<td>org.wso2.carbon.identity.oauth2.token.handlers.clientauth.AbstractClientAuthHandler</td>
+<td>org.wso2.carbon.identity.oauth2.client.authentication.AbstractOAuthClientAuthenticator</td>
 </tr>
 <tr class="even">
 <td>Default Implementation</td>
@@ -113,11 +113,9 @@ implement a grant validator and register
 <td><div class="content-wrapper">
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;ClientAuthHandlers&gt;</span></a>
-<a class="sourceLine" id="cb1-2" title="2">    ...</a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;ClientAuthHandler</span><span class="ot"> class=</span><span class="st">&quot;full qualified class name of client authentication handler&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="kw">&lt;/ClientAuthHandler&gt;</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw">&lt;/ClientAuthHandlers&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb1-1" title="1">&lt;EventListener type=&quot;org.wso2.carbon.identity.core.handler.AbstractIdentityHandler&quot;  name=&quot;full qualified name of client authentication handler&quot; orderId=&quot;order Id&quot; enable=&quot;true&quot;&gt;
+<br>&lt;Property name=&quot;name&quot;&gt;property value&lt;/Property&gt;<br>
+&lt;/EventListener&gt;</a></code></pre></div>
 </div>
 </div>
 </div></td>
