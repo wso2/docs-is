@@ -152,7 +152,7 @@ the scope of this document.
 
 For more information on the topic, see [Removing References to Deleted
 User
-Identities](../../learn/removing-references-to-deleted-user-identities).
+Identities](../../setup/removing-references-to-deleted-user-identities/).
 
 ####  Exercising individual rights
 

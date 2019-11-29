@@ -574,7 +574,7 @@ nav:
         - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md           
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
   - 'Setup':
-    - 'Installation':
+    - 'Install':
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
@@ -588,7 +588,7 @@ nav:
       - 'Getting Started with the Management Console':
         - 'Overview': setup/getting-started-with-the-management-console.md
         - 'Customizing the Management Console': setup/customizing-the-management-console.md
-    - 'Deployment':
+    - 'Deploy':
       - 'Overview': setup/deploying-the-identity-server.md
       - 'Deployment Guide':
         - 'Deploying the Identity Server': setup/deployment-guide.md
@@ -665,9 +665,11 @@ nav:
             - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
             - 'Customizing Secure Vault': setup/customizing-secure-vault.md
             - 'Set Passwords using Environment Variables/System Properties': setup/set-passwords-using-environment-variables-or-system-properties.md
+        - 'Enabling HSTS Headers': setup/enabling-hsts.md
+        - 'Preventing browser caching': setup/preventing-browser-caching.md
         - 'Configuring Transport Level Security': setup/configuring-transport-level-security.md
         - 'Java Security Manager': setup/enabling-java-security-manager.md
-    - 'Migration':
+    - 'Migrate':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
       - 'Migration Guide':
@@ -721,8 +723,11 @@ nav:
         - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
         - 'Deployment Checklist': administer/deployment-checklist.md
         - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
-      - 'Production Deployment Guidelines':
-        - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
+      - 'Security Guidelines':
+        - 'Security Guidelines': administer/security-guidelines-for-production-deployment.md
+        -  'Product-Level': administer/product-level-security-guidelines.md
+        -  'OS-Level': administer/os-level-security-guidelines.md
+        -  'Network-level': administer/network-level-security-guidelines.md
       - 'Encryption':
         - 'Asymmetric Encryption':
           - 'Asymmetric Encryption': administer/using-asymmetric-encryption.md
