@@ -45,3 +45,21 @@ important to add all the members to the well-known members list in the `
      ...
      members = ["<member-x-host>:<member-x-port>", ...]
      ```
+     
+!!! info
+    WSO2 provides Hazelcast Community Edition as its default
+    clustering engine. For clustering on a secure channel (i.e., secure
+    Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
+    Enterprise, there are provisions to provide license key under clustering
+    configurations. Advanced users can fine-tune Hazelcast by creating a
+    `         <IS_HOME>/repository/conf/hazelcast.properties        `
+    file and adding the relevant Hazelcast properties as described in the
+    [Hazelcast Advanced Configuration Properties
+    documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html).
+    
+    Add the following property to `hazelcast.properties` file to add the
+    license key of Hazelcast Enterprise subscription.
+        ```
+        hazelcast.enterprise.license.key
+        ```
+    
