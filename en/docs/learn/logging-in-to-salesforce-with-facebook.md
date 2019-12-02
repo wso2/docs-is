@@ -124,14 +124,14 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 			</div></td>
 			</tr>
 			<tr class="odd">
-			<td><pre><code>username_javascript_regex</code></pre>
+			<td><pre><code>username_javas_cript_regex</code></pre>
 			<p><code>                                       </code></p></td>
 			<td><div class="content-wrapper">
 			<p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
-			<code>[user_store]<br>username_javascript_regex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"</code></pre>
+			<code>[user_store]<br>username_javas_cript_regex="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"</code></pre>
 			</div>
 			</div></td>
 			</tr>

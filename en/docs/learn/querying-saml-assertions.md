@@ -56,7 +56,8 @@ authority.
 6.  Configure a service provider for SAML and click **Update**.  
     To try querying an assertion using the a sample application,
     configure the service provider for the travelocity sample
-    application and follow the steps in the try out scenario section.
+    application and follow the steps in the
+    [try out scenario](#try-out-scenario) section.
 
 !!! tip "What's Next?"   
     To query the assertion, you can do one of the following:
@@ -124,7 +125,8 @@ AssertionID for the travelocity sample application.
     provider](../../learn/deploying-the-sample-app/#configuring-service-provider).  
     
     1.  Expand the **SAML2 Web SSO Configuration** and click
-        **Configure**.
+        **Configure** of the configured service provider for
+        'travelocity.com'.
     
     2.  Configure the required fields. Select
         `            soa.cert           ` as the **Certificate Alias**

@@ -1,15 +1,21 @@
 # Configuring Session Timeout
 
-In IS 5.9.0, you can configure the `deployment.toml` file (as explained below) to set the global configuration for the 
-SSO session timeout value. The session timeout value can also be configured tenant wise using the management console.
+## Idle Session Time Out
 
-The global configuration should be added in the `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+This is the duration in minutes for which an SSO session can be idle
+for. If WSO2 Identity Server does not receive any SSO authentication
+requests for the given duration, a session time out occurs. The default
+value is `15` minutes.
 
-```
-  [session.timeout]
-  idle_session_timeout= "15m"
-  remember_me_session_timeout= "14d"
-```
+## Remember Me Period
+This is the duration in weeks for which WSO2 Identity Server should
+remember an SSO session given that you have selected the **Remember Me**
+option in the WSO2 Identity Server login screen. The default value is
+`2` weeks.
+
+## Configuration
+The session timeout value can be configured tenant wise using the
+management console.
 
 To configure the **Session Timeout** and **Remember Me period** in tenant
 wise, follow the steps below:
@@ -19,7 +25,17 @@ wise, follow the steps below:
 3.  Fill in the fields as seen below to configure the session timeout
     and RememberMe period.  
     ![session-time-out](../assets/img/using-wso2-identity-server/session-time-out.png) 
-4.  Restart the server to save the changes
+    
+    !!! Tip "You can configure these timeout values globally" 
+        The global configuration can be added in the
+        `<IS_HOME>/repository/conf/deployment.toml` file as shown below.
+        ```
+          [session.timeout]
+          idle_session_timeout= "15m"
+          remember_me_session_timeout= "14d"
+        ```
+    
+        Restart the server to save the changes. Once you add these global configurations, each tenant that is created after adding the configuration will inherit the same configurations.
 
 Now the SSO session is timed out according to the newly configured value
 and users need to be re-authenticated once the session times out. If a

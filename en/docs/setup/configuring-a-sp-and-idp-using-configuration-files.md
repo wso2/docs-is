@@ -78,11 +78,11 @@ for this scenario.
 You have successfully setup the Identity Server instances. Now you can proceed to the
 the configuration steps.
 
-## Adding the service provider in the identity provider IS
+## Configure the Federated Identity Provider
 
-This section involves adding the
-**`          service provider IS         `** as a service provider in
-the **`          identity provider IS         `**.
+This section involves adding the **` service provider IS `** as a
+service provider in the **` identity provider IS `** from the management
+console.
 
 1.  [Start the **`identity provider IS`** and access the Management Console](../../setup/running-the-product).
 2.  Navigate to the **Main** -> **Identity** -> **Service Providers** -> Click **Add**.
@@ -104,11 +104,10 @@ the **`          identity provider IS         `**.
 
 7.  Click **Register** to save your changes.
 
-## Adding the identity provider in the service provider IS
+## Adding an identity provider
 
-This section involves adding the
-**`          identity provider IS         `** as an identity provider in
-the **`          service provider IS         `**.
+This section involves adding the **` identity provider IS `** as an
+identity provider in the **` service provider IS `** via a file.
 
 Create a file named `         identityProviderIDP_IS.xml        ` inside
 the `<SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/identity­-providers`
@@ -254,10 +253,10 @@ file within the `<Certificate>` tag.
         `<Certificate>` tag.
         
 
-## Adding the service provider in the service provider IS
+## Adding a service provider
 
-This section involves adding the travelocity application as a service
-provider in the **`          service provider IS         `**.
+This section involves adding the `travelocity.com` application as a
+service provider in the **` service provider IS `** via a file.
 
 1.  Open the
     `           <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/sso-idp-config.xml          `
