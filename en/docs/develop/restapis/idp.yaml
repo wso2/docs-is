@@ -9,7 +9,7 @@ info:
   contact:
     name: WSO2
     url: 'http://wso2.com/products/identity-server/'
-    email: architecture@wso2.com
+    email: architecture@wso2.org
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -41,16 +41,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityProviderListResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/IdentityProviderListResponse'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -59,16 +53,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -77,16 +65,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '501':
@@ -95,12 +77,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
     post:
       tags:
         - Identity Providers
@@ -169,8 +145,6 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: ''
       requestBody:
         content:
           application/json:
@@ -230,9 +204,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
   '/identity-providers/meta/federated-authenticators/{federated-authenticator-id}':
     get:
       tags:
@@ -287,9 +258,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
   /identity-providers/meta/outbound-provisioning-connectors:
     get:
       tags:
@@ -340,9 +308,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
   '/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}':
     get:
       tags:
@@ -397,9 +362,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
   '/identity-providers/{identity-provider-id}':
     get:
       tags:
@@ -474,9 +436,6 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
     patch:
       tags:
         - Identity Providers
@@ -506,16 +465,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/IdentityProviderResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/IdentityProviderResponse'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -524,16 +477,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -542,27 +489,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/PatchRequest'
-          application/xml:
             schema:
               $ref: '#/components/schemas/PatchRequest'
         required: true
@@ -592,16 +527,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '403':
@@ -610,16 +539,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '500':
@@ -628,12 +551,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
   '/identity-providers/{identity-provider-id}/federated-authenticators':
     get:
       tags:
@@ -749,9 +666,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
     put:
       tags:
         - Federated Authenticators
@@ -787,16 +701,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FederatedAuthenticator'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/FederatedAuthenticator'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -805,16 +713,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -823,27 +725,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/FederatedAuthenticatorPUTRequest'
-          application/xml:
             schema:
               $ref: '#/components/schemas/FederatedAuthenticatorPUTRequest'
         description: This represents the federated authenticator to be updated
@@ -1018,9 +908,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
     put:
       tags:
         - Provisioning
@@ -1056,16 +943,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OutboundConnector'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/OutboundConnector'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -1074,16 +955,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -1092,27 +967,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/OutboundConnectorPUTRequest'
-          application/xml:
             schema:
               $ref: '#/components/schemas/OutboundConnectorPUTRequest'
         description: This represents the outbound provisioning connector to be updated
@@ -1200,16 +1063,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Claims'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Claims'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -1218,16 +1075,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -1236,27 +1087,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Claims'
-          application/xml:
             schema:
               $ref: '#/components/schemas/Claims'
         description: This represents the claim config to be updated
@@ -1344,16 +1183,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Roles'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Roles'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -1362,16 +1195,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -1380,27 +1207,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Roles'
-          application/xml:
             schema:
               $ref: '#/components/schemas/Roles'
         description: This represents the role config to be updated
@@ -1490,16 +1305,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JustInTimeProvisioning'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/JustInTimeProvisioning'
         '400':
           description: Bad Request
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '401':
@@ -1508,16 +1317,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
               schema:
                 $ref: '#/components/schemas/Error'
         '404':
@@ -1526,27 +1329,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Server Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      x-wso2-request: ''
-      x-wso2-response: |
-        "HTTP/1.1 200 Ok"
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/JustInTimeProvisioning'
-          application/xml:
             schema:
               $ref: '#/components/schemas/JustInTimeProvisioning'
         description: This represents the just-in-time provisioning config to be updated
@@ -1605,7 +1396,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 servers:
-  - url: 'https://localhost:9443/t/carbon.super/api/server/v1'
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
       tenant-domain:
         default: carbon.super
