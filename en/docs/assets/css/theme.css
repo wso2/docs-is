@@ -113,6 +113,18 @@ html .md-typeset .superfences-tabs > label:hover {
     background-color: #dedede;
 }
 
+.md-search__input::-webkit-input-placeholder {
+    color: #404040;
+}
+
+.md-search__input:-ms-input-placeholder {
+    color: #404040;
+}
+
+.md-search__input::-ms-input-placeholder {
+    color: #404040;
+}
+
 .md-search__input::placeholder {
     color: #404040;
 }
