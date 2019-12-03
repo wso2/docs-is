@@ -79,31 +79,28 @@ authority.
     assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
     ```
 
-3.  To see the created assertions in the WSO2IS H2 database and access
-    the AssertionID, logout of the WSO2 IS management console and then
-    enable browsing of the H2 database.
-
-    !!! tip
-        For more information on how to enable browsing of the H2 database,
-        see [Browsing the H2 Database](../../setup/browsing-the-h2-database)
+3.  To see the created assertion and access the AssertionID,
+    you need to open up a SAML Tracer(plugin or an application).
     
 4.  Access the application you configured a service provider for via the
     assertion consumer URL you configured in step 3.
-5.  Log in to the application.  
 
-6.  When a user logs in, the created assertion will be persisted to the
-    `           IDN_SAML2_ASSERTION_STORE          ` table on the H2
-    database. Check the database for the new assertion.
+5.  Start the SAML Tracer.
 
-7.  Open the repository source code you cloned from GitHub using an IDE
+6.  Log in to the application.
+
+7.  When a user logs in, the created assertion will be shown at the
+    SAML Tracer.
+
+8.  Open the repository source code you cloned from GitHub using an IDE
     and navigate to
     `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
     . `         `
-8.  Open the relevant java class of the query type you wish to request
+9.  Open the relevant java class of the query type you wish to request
     (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
     enter the required values, and run the main() method of the
     class. An assertion request will be generated.
-9.  You will receive a response according to the query type.
+10.  You will receive a response according to the query type.
 
 You have successfully queried an assertion.
 
@@ -139,34 +136,36 @@ AssertionID for the travelocity sample application.
     assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
     ```
 
-5.  To see the created assertions in the WSO2IS H2 database and access
-    the AssertionID, enable browsing of the H2 database.
-
-    !!! tip
-        For more information on how to enable browsing of the H2 database,
-        see [Browsing the H2 Database](../../setup/browsing-the-h2-database)
+5.  To see the created assertion and access the AssertionID,
+    you need to open up a SAML Tracer(plugin or an application).
 
 6.  Restart WSO2 IS and access the travelocity.com application by
     accessing this URL:
     `http://wso2is.local:8080/travelocity.com/index.jsp`
 
-7.  Login using admin/admin credentials.
+7.  Start the SAML Tracer.
 
-8.  When a user logs in, the created assertion will be persisted to the
-    `          IDN_SAML2_ASSERTION_STORE         ` table on the H2
-    database. Check the database for the new assertion.
-9.  Copy the SAMLID of the created assertion. You can use this ID to
-    query the assertion using a AssertionIDRequest.  
+8.  Login using admin/admin credentials.
+
+9.  When a user logs in, the created assertion will be shown at the
+    SAML Tracer.
+
+10. Copy the value of attribute **ID** located inside the tag
+    `           <saml2:Assertion>         ` of the created assertion.
+    You can use this ID to query the assertion using a AssertionIDRequest.
     ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
-10. Open the repository source code you cloned from GitHub using an IDE
+
+11. Open the repository source code you cloned from GitHub using an IDE
     and navigate to
     `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
     . `         ` `                   `
-11. Open the `          SAMLAssertionIDRequestClient.java         `
+
+12. Open the `          SAMLAssertionIDRequestClient.java         `
     class and assign AssertionID value you copied from the database to
     the `          ASSERTION_ID         ` variable.  
     ![assign-assertionid-value](../assets/img/tutorials/assign-assertionid-value.png)
-12. Run the main() method of the class. You will see a generated request
+
+13. Run the main() method of the class. You will see a generated request
     and a response similiar to the following:
 
     ??? note "AssertionIDRequest Request"
