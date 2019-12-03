@@ -42,3 +42,8 @@ following steps.
 
 3.  Update other fields as required (description is give for each
     property) and click **Add**.
+
+4. Import the public certificate of the remote server to primary
+   IS(IS1)'s
+   `<IS_HOME>/repository/resources/security/client-truststore.jks` file
+   and restart the server.
