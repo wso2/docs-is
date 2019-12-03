@@ -119,7 +119,7 @@ redirectToMultiOptionPageOnFailure = false
 ## Deploying travelocity sample application
 
 Follow this guide to
-[deploy and configure the `travelocity.com` sample app](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) in order to try this scenario.
+[deploy and configure the `travelocity.com` sample app](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) in order to try this scenario.
 
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding an [identity
@@ -363,7 +363,7 @@ provider.
 The next step is to configure the service provider.
 
 1.  In the [Deploying travelocity sample application section](#deploying-travelocity-sample-application) you have
-    [configured a service provider](../../learn/deploying-the-sample-app/#configuring-service-provider)
+    [configured a service provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider)
     in WSO2 Identity server. Now edit the service provider to configure
     **SMS OTP**.
 

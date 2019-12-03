@@ -39,11 +39,11 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
     ```
     
 3. Follow the steps in
-   [deploying **saml2-web-app-pickup-dispatch** webapp](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+   [deploying **saml2-web-app-pickup-dispatch** webapp](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
    to download, deploy and register **dispatch** sample.
    
 4. Follow the steps in
-   [deploying **saml2-web-app-pickup-manager** webapp](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-manager-webapp)
+   [deploying **saml2-web-app-pickup-manager** webapp](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-manager-webapp)
    to download, deploy and register **manager** sample.
 
 

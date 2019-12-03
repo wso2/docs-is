@@ -121,8 +121,8 @@ AssertionID for the travelocity sample application.
 1.  Follow the steps in the [Configuring WSO2 Identity
     Server](#configuring-wso2-identity-server) section to configure
     the WSO2 Identity Server.
-2.  [Set up the travelocity sample application](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) and [configure the service
-    provider](../../learn/deploying-the-sample-app/#configuring-service-provider).  
+2.  [Set up the travelocity sample application](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) and [configure the service
+    provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider).  
     
     1.  Expand the **SAML2 Web SSO Configuration** and click
         **Configure** of the configured service provider for

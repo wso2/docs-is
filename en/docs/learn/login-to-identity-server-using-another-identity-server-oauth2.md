@@ -46,7 +46,7 @@ and login to the other one.
 
     ![create-an-idp](../assets/img/using-wso2-identity-server/create-an-idp.png)   
 
-4.  Setup the [playground sample](../../learn/deploying-the-sample-app/#deploying-playground2-webapp) in the
+4.  Setup the [playground sample](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp) in the
     first Identity Server instance.
 5.  Edit the service provider in the first Identity Server and select
     the Federation Authentication for Authentication type in Local and

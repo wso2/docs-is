@@ -31,7 +31,7 @@ customized one.
 
 ### Configuring two service providers
 
-1.  [Deploy traveloctity](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) sample application.
+1.  [Deploy traveloctity](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) sample application.
 
 2.  Get a copy of `travelocity.com.war` that
     [download from here](../../learn/deploying-the-sample-app/#deploy-the-sample-web-application)
@@ -61,7 +61,7 @@ customized one.
             ```
 3. Register a new service provider with name `avis.com` similarly as
    explained in [configuring service provider for travelocity
-                                                sample](../../deploying-the-sample-app/#configuring-service-provider)
+                                                sample](../../deploying-the-sample-app/#configuring-the-service-provider)
    while replacing `travelocity.com` references to `avis.com`.
    
 4.  Start the application server and access following URLs to make sure
