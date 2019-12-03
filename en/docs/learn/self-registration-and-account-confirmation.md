@@ -16,7 +16,7 @@ delete such accounts to manage resources better.
 The following sections walk you through configuring and trying out
 self-registration.
     
-!!! Warning 
+??? Warning "Click to see instructions specific for a migrated deployment" 
     If you have migrated from a previous IS version, ensure that the `IdentityMgtEventListener` with the
     `         orderId=50        ` is set to **false** and that the Identity
     Listeners with `         orderId=95        ` and
@@ -220,7 +220,24 @@ Next, you can try out self-registration.
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
+    ![self-signup-form](../assets/img/using-wso2-identity-server/self-signup-form.png) 
+        
+    ??? Abstract "Click here to see how to configure above requested attributes for the self registration" 
+        
+        -   Attributes that shows in the
+        self sign up page are the WSO2 [local dialect's](../../learn/adding-claim-mapping/#add-local-claim) claims which has
+        **Supported by Default** configuration enabled. 
+        -   Navigate to claim
+        dialect list page and go to **http://wso2.org/claims** dialect and
+        expand any claim to view the configuration. 
+        -   Mandatory attributes of
+        the self sign-up page are the claims that has **Required**
+        configuration enabled. 
+        -   For example see below configurations of the
+        department claim.
+        ![self-signup-required-claim-config](../assets/img/using-wso2-identity-server/self-signup-required-claim-config.png)
 
+    
 4.  Once the user has registered, user will receive a confirmation mail.
 
 5.  Click **Confirm Registration** in the email or copy the link in the
