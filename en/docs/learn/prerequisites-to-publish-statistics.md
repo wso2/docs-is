@@ -71,11 +71,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     </tbody>
     </table>
 
-3.  Open the `           identity-event.properties          ` file in
-    the `           <IS_HOME>/repository/conf/identity          `
-    directory.
-
-4.  Enable the following event handlers.
+3.  To enable the following event handlers add the following configurations to the same `deployment.toml` file.
 
     <table>
     <tbody>
@@ -92,7 +88,15 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsLoginDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence">
+    <pre class="sourceCode java"><code class="sourceCode java">
+    <a class="sourceLine" id="cb1-1" title="1">
+    [identity_mgt.analytics_login_data_publisher]</br>
+    enable=true
+    </a>
+    </code>
+    </pre>
+    </div>
     </div>
     </div>
     </div></td>
@@ -115,7 +119,10 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <td><div class="content-wrapper">
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">analyticsSessionDataPublisher.<span class="fu">enable</span>=<span class="kw">true</span></a></code></pre></div>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">
+    [identity_mgt.analytics_session_data_publisher] </br>
+    enable=true
+    </a></code></pre></div>
     </div>
     </div>
     </div></td>
@@ -138,12 +145,12 @@ directory.
     
 
 WSO2 Analytics presents the login and/or session data published by WSO2
-IS. For this, you need to configure the event publishers.
+IS. To receive these data by Analytics, you need to configure the event publishers.
 
 Follow the steps below to configure the event publishers:
 
 1.  Configure the login analytics and session analytics using the
-    following files.
+    following files. Update the properties based on the description given in the below table.
 
     1.  **Login analytics** :
         `            <IS_HOME>/repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-AuthenticationData.xml           `
@@ -295,9 +302,9 @@ Follow the steps below to configure the event publishers:
         </tbody>
         </table>
 
-### Step 04: Change the Admin Password
+### Step 04: Change the Admin Password and Add Key-store certificates
 
-Follow the steps below to change the admin password.
+Similar to Step 03, change the admin password and import keystore certificates.
 
 1.  Navigate to the
     `           <IS_HOME>/repository/deployment/server/eventpublishers/IsAnalytics-Publisher-wso2event-AuthenticationData.xml          `
@@ -344,7 +351,7 @@ Follow the steps below to change the admin password.
 
 Follow the steps below to run WSO2 IS and WSO2 IS Analytics.
 
-1.  Run WSO2 IS. For detailed instructions, see [Running the
+1.  Run or restart WSO2 IS. For detailed instructions, see [Running the
     Product](../../setup/running-the-product).
 2.  Run the WSO2 IS Analytics profiles.
 
