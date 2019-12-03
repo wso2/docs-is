@@ -8,7 +8,7 @@ Grant](../../learn/implicit-grant).
 
 !!! note "Before you begin" 
     You must first
-    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
     in order to try the following scenario.
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
@@ -17,7 +17,7 @@ Grant](../../learn/implicit-grant).
 
     **Authorization Grant Type:** Implicit  
     **Client ID:** (the client id received at the [application
-                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
     **Callback URL:**
     <http://wso2is.local:8080/playground2/oauth2client>  
     **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>

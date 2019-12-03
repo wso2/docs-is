@@ -122,9 +122,16 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 	request it wants including that token. The RP trusts that illegitimate
 	party.
 	
-!!! note "Before you begin"
-	Configure a service provider. For instructions, see [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider).	
-
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	 
 1.  Under the **Inbound Authenticatino Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  

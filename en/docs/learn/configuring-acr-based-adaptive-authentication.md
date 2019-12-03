@@ -12,7 +12,7 @@ Follow the instructions given in the sections below to set this up.
     
 	-   Set up the OAuth2 Playground sample application for adaptive
 		authentication. For instructions on how to do this, see [Setting Up
-		the Sample Webapp](../../learn/deploying-the-sample-app/#deploying-playground2-webapp).
+		the Sample Webapp](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp).
 	-   For more information about adaptive authentication with WSO2
 		Identity Server, see [Adaptive Authentication](../../learn/adaptive-authentication).
 
@@ -20,7 +20,7 @@ Follow the instructions given in the sections below to set this up.
 ### Configuring the service provider
 
 1.  Before you begin this guide you have deployed and
-    [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-service-provider_1).
+    [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1).
     Let's edit the same service provider to configure **ACR-Based**.
     authentication flow.
     

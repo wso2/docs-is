@@ -13,8 +13,18 @@ authenticated user from the OpenID Connect UserInfo endpoint.
 
 To enable OAuth support for your client application, you must first
 register your application. Follow the instructions below to add a new
-application.  
+application.
 
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then

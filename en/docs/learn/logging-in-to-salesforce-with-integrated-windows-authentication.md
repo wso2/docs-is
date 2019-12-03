@@ -134,7 +134,7 @@ Follow the steps below to configure the email address as the user name.
 	</div></td>
 	</tr>
 	<tr class="odd">
-	<td><pre><code>username_javascript_regex</code></pre>
+	<td><pre><code>username_javas_cript_regex</code></pre>
 	<p><code>                                       </code></p></td>
 	<td><div class="content-wrapper">
 	<p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
