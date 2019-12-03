@@ -32,28 +32,22 @@ authority.
 !!! note "Before you begin"
 
     1.  Clone or download the client application from [this GitHub
-        location](https://github.com/gayangithub/wso2-is-assertion-query-client)
-        and extract it. This folder location will be referred to as
+        location](https://github.com/wso2/samples-is)
+        , extract it and navigate to
+        `           sample-saml-query-profile/saml-query-profile-client          `.
+        This folder location will be referred to as
         `            <CLIENT_HOME>           ` in this document.
 
     2.  Build the client application by executing the following command on
-        the `             <CLIENT_HOME>            ` root folder.
+        the `             <CLIENT_HOME>            ` folder.
 
         ``` java
         mvn clean install
         ```
 
 1.  Start the WSO2 Identity Server and log in to the management console.
-2.  Navigate to **Keystores** under **Manage** on the **Main** tab of
-    the management console and click **List**.
-3.  Click **Import Cert** to import a certificate to the
-    **wso2carbon.jks** keystore.  
-    ![import-cert-keystore](../assets/img/tutorials/import-cert-keystore.png)
-4.  Upload the certificate found in
-    `          <CLIENT_HOME>/src/test/resources/soa.cert         ` and
-    click **Import**.
-5.  Click **Add** under **Service Providers** on the **Main** tab.
-6.  Configure a service provider for SAML and click **Update**.  
+2.  Click **Add** under **Service Providers** on the **Main** tab.
+3.  Configure a service provider for SAML and click **Update**.
     To try querying an assertion using the a sample application,
     configure the service provider for the travelocity sample
     application and follow the steps in the
@@ -94,7 +88,7 @@ authority.
         see [Browsing the H2 Database](../../setup/browsing-the-h2-database)
     
 4.  Access the application you configured a service provider for via the
-    assertion consumer URL you configured in step 6.
+    assertion consumer URL you configured in step 3.
 5.  Log in to the application.  
 
 6.  When a user logs in, the created assertion will be persisted to the
@@ -103,7 +97,7 @@ authority.
 
 7.  Open the repository source code you cloned from GitHub using an IDE
     and navigate to
-    `          <CLIENT_HOME>          \src\test\java\org\wso2\carbon\identity\query\saml\test         `
+    `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
     . `         `
 8.  Open the relevant java class of the query type you wish to request
     (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
@@ -128,10 +122,8 @@ AssertionID for the travelocity sample application.
         **Configure** of the configured service provider for
         'travelocity.com'.
     
-    2.  Configure the required fields. Select
-        `            soa.cert           ` as the **Certificate Alias**
-        and tick the **Enable Assertion Query Request Profile**
-        checkbox.  
+    2.  Configure the required fields. Tick the **Enable
+        Assertion Query Request Profile** checkbox.
     
         ![enable-assertion-query-request](../assets/img/tutorials/enable-assertion-query-request.png)
         
@@ -168,7 +160,7 @@ AssertionID for the travelocity sample application.
     ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
 10. Open the repository source code you cloned from GitHub using an IDE
     and navigate to
-    `          <CLIENT_HOME>          \src\test\java\org\wso2\carbon\identity\query\saml\test         `
+    `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
     . `         ` `                   `
 11. Open the `          SAMLAssertionIDRequestClient.java         `
     class and assign AssertionID value you copied from the database to
