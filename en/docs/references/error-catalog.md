@@ -967,3 +967,234 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Identity Provider Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>IDP-65001</a></td>
+        <td>500</td>
+        <td>Unexpected Error.</td>
+        <td>Server encountered an unexpected error.</td>
+      </tr>
+      <tr>
+        <td>IDP-65002</a></td>
+        <td>500</td>
+        <td>Error while adding the Identity Provider.</td>
+        <td>Server encountered an error while adding the Identity Provider, {identity-provider-name}.</td>
+      </tr>      
+      <tr>
+        <td>IDP-60001</a></td>
+        <td>409</td>
+        <td>Identity Provider exists.</td>
+        <td>Identity Provider with the name: {identity-provider-name} already exists..</td>
+      </tr>
+      <tr>
+        <td>IDP-6500</a></td>
+        <td>500</td>
+        <td>Error while getting the Identity Provider.</td>
+        <td>Server encountered an error while getting the Identity Provider: {identity-provider-id}</td>
+      </tr>  
+      <tr>
+        <td>IDP-60002</a></td>
+        <td>404</td>
+        <td>Identity Provider does not exist.</td>
+        <td>Identity Provider with resource ID: {identity-provider-id} does not exist</td>
+      </tr>
+      <tr>
+        <td>IDP-65004</a></td>
+        <td>500</td>
+        <td>Error while deleting Identity Provider.</td>
+        <td>Server encountered an error while deleting Identity Provider: {identity-provider-id}.</td>
+      </tr> 
+      <tr>
+        <td>IDP-65005</a></td>
+        <td>500</td>
+        <td>Error while updating Identity Provider.</td>
+        <td>Server encountered an error while updating Identity Provider: {identity-provider-id}</td>
+      </tr> 
+      <tr>
+        <td>IDP-60003</a></td>
+        <td>400</td>
+        <td>Identity Provider add request validation failed.</td>
+        <td>Identity Provider add request validation failed. {identity-provider-name}</td>
+      </tr>
+      <tr>
+        <td>IDP-60004</a></td>
+        <td>400</td>
+        <td>Identity Provider get request validation failed.</td>
+        <td>Identity Provider get request validation failed. {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-60005</a></td>
+        <td>400</td>
+        <td>Identity Provider delete request validation failed.</td>
+        <td>Identity Provider delete request validation failed. {identity-provider-id}</td>
+      </tr>                 
+      <tr>
+        <td>IDP-60007</a></td>
+        <td>400</td>
+        <td>Search request validation failed.</td>
+        <td>Search request validation failed. Invalid search filter {search-filter}</td>
+      </tr> 
+      <tr>
+        <td>IDP-60021</a></td>
+        <td>500</td>
+        <td>Unable to list existing identity providers.</td>
+        <td>Server encountered an error while listing the identity providers</td>
+      </tr>
+      <tr>
+        <td>IDP-65003</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider.</td>
+        <td>Server encountered an error while retrieving the identity provider for identifier {identity-provider-id}</td>
+      </tr> 
+      <tr>
+        <td>IDP-65021</a></td>
+        <td>500</td>
+        <td>Unable to retrieve meta federated authenticator list.</td>
+        <td>Server encountered an error while retrieving the meta federated authenticators</td>
+      </tr> 
+      <tr>
+        <td>IDP-65022</a></td>
+        <td>500</td>
+        <td>Unable to retrieve meta outbound connector list.</td>
+        <td>Server encountered an error while retrieving the meta outbound connector list</td>
+      </tr> 
+      <tr>
+        <td>IDP-65023</a></td>
+        <td>500</td>
+        <td>Unable to retrieve meta federated authenticator.</td>
+        <td>Server encountered an error while retrieving the meta federated authenticator with identifier {federated-authenticator-identifier}."</td>
+      </tr> 
+      <tr>
+        <td>IDP-65024</a></td>
+        <td>500</td>
+        <td>Unable to retrieve meta outbound connector.</td>
+        <td>Server encountered an error while retrieving the meta outbound connector with identifier {outbound-connector-identifier}</td>
+      </tr> 
+      <tr>
+        <td>IDP-65025</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider's federated authenticator list.</td>
+        <td>Server encountered an error while retrieving the federated authenticators of identity provider {identity-provider-id}</td>
+      </tr> 
+      <tr>
+        <td>IDP-65026</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider's outbound connector list.</td>
+        <td>Server encountered an error while retrieving the outbound connectors of identity provider {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65027</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider's federated authenticator.</td>
+        <td>Server encountered an error while retrieving the federated authenticator with identifier {federated-authenticator-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65028</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider's outbound connector.</td>
+        <td>Server encountered an error while retrieving the outbound connector with identifier {outbound-connector-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65029</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider's provisioning config.</td>
+        <td>Server encountered an error while retrieving the provisioning config of identity provider {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65030</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider claim config.</td>
+        <td>Server encountered an error while retrieving the identity provider claim config for identifier {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65031</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider role config.</td>
+        <td>Server encountered an error while retrieving the identity provider role config for identifier {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65032</a></td>
+        <td>500</td>
+        <td>Unable to retrieve identity provider JIT config.</td>
+        <td>Server encountered an error while retrieving the identity provider JIT config for identifier {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65033</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider federated authenticator.</td>
+        <td>Server encountered an error while updating the identity provider federated authenticator for identifier {federated-authenticator-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65034</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider outbound connector.</td>
+        <td>Server encountered an error while updating the identity provider outbound connector for identifier {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65035</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider claims.</td>
+        <td>Server encountered an error while updating the identity provider claim config for identifier {identity-provider-id}</td>
+      </tr>   
+      <tr>
+        <td>IDP-65036</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider roles.</td>
+        <td>Server encountered an error while updating the identity provider role config for identifier {identity-provider-id}</td>
+      </tr>
+      <tr>
+        <td>IDP-65037</a></td>
+        <td>500</td>
+        <td>Unable to update identity provider Just-In-Time provisioning.</td>
+        <td>Server encountered an error while updating the identity provider Just-In-Time provisioning config for identifier {identity-provider-id}.</td>
+      </tr>
+      <tr>
+        <td>IDP-60022</a></td>
+        <td>404</td>
+        <td>Resource not found.</td>
+        <td>Unable to find federated authenticator with identifier {federated-authenticator-id}.</td>
+      </tr>
+      <tr>
+        <td>IDP-60023</a></td>
+        <td>404</td>
+        <td>Resource not found.</td>
+        <td>Unable to find outbound provisioning connector identifier {outbound-connector-id}.</td>
+      </tr>
+      <tr>
+        <td>IDP-65041</a></td>
+        <td>500</td>
+        <td>Attribute filtering not supported.</td>
+        <td>Attribute filtering capability is not supported in this version of the API.</td>
+      </tr>
+      <tr>
+        <td>IDP-60024</a></td>
+        <td>400</td>
+        <td>Invalid claim uri.</td>
+        <td>Invalid claim uri {claim-uri} provided in claim config.</td>
+      </tr> 
+      <tr>
+        <td>IDP-60025</a></td>
+        <td>400</td>
+        <td>Invalid input.</td>
+        <td>One of the given inputs is invalid.</td>
+      </tr>
+      <tr>
+        <td>IDP-60026</a></td>
+        <td>400</td>
+        <td>Invalid SAML metadata.</td>
+        <td>SAML metadata is invalid/empty.</td>
+      </tr>              
+  </tbody>
+</table>
+</div>
