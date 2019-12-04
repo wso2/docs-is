@@ -1,178 +1,96 @@
 # Querying SAML Assertions
 
-The SAML Assertion Query/Request profile enables service providers to
-query dynamic or existing assertions using standard request messages via
-the WSO2 Identity Server. According to the specification the following
+## About SAML assertions
+
+The SAML Assertion Query/Request profile enables service providers to query dynamic or existing assertions using standard request messages via WSO2 Identity Server. According to the [specification](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) the following
 two entities are used for this interaction:
 
-1.  **SAML Requester** -  issues the SAML query/request message.
-2.  **SAML Authority** - returns the SAML2 Assertion based on the above
-    request/query.  
+-   **SAML Requester**: This entity issues the SAML query/request message.
+-   **SAML Authority**: This entity returns the SAML2 Assertion based on the request/query.  
 
-The Assertion Query/Request Profile defines five major request/query
-message types which can be used to request assertions from SAML
-authority.
+The Assertion Query/Request Profile defines five major request/query message types that can be used to request assertions from SAML authority.
 
-1.  **AssertionIDRequest** - used to request an assertion when given
-    it's unique ID.  
-2.  **SubjectQuery** -  used to query the assertion by presenting a
-    subject to the SAML authority and assembling response messages.
-3.  **AuthnQuery** - used to request existing assertions about an
-    existing subject. It is inherited from the SubjectQuery message
-    type.
-4.  **AttributeQuery** - used to request attributes about an existing
-    subject. It is inherited from the SubjectQuery message type.
-5.  **AuthzDecisionQuery** - used to request an authorization decision
-    based on an existing subject.
+-   **AssertionIDRequest**: This is used to request an assertion when given its unique ID.  
+-   **SubjectQuery**:  This is used to query the assertion by presenting a subject to the SAML authority and assembling response messages.
+-   **AuthnQuery**: This is used to request existing assertions about an existing subject. It is inherited from the `SubjectQuery` message type.
+-   **AttributeQuery**: This is used to request attributes about an existing subject. It is inherited from the `SubjectQuery` message type.
+-   **AuthzDecisionQuery**: This is used to request an authorization decision based on an existing subject.
+ 
 
-!!! tip "Before you begin"
+## Try out 
 
-    1.  Clone or download the client application from [this GitHub
-        location](https://github.com/wso2/samples-is),
-        extract it, and navigate to
-        `           sample-saml-query-profile/saml-query-profile-client          `.
-        Hereafter, this folder location will be referred to as
-        `            <CLIENT_HOME>           ` in this document.
+Let's learn how to query SAML assertions using WSO2 Identity Server!
 
-    2.  To build the client application, execute the following command in a command prompt. at
-        the `             <CLIENT_HOME>            ` folder.
+!!! tip "Before you begin" 
+
+    1.  Clone or download the client application from [this GitHub location](https://github.com/wso2/samples-is) and extract it. Note that the `sample-saml-query-profile/saml-query-profile-client` directory are generated. Hereafter, this directory location will be referred to as `<CLIENT_HOME>` in this document.
+
+    2.  To build the client application, navigate to the `<CLIENT_HOME>` directory in a command prompt and execute the following command.
 
         ``` java
         mvn clean install
-        ```
+        ``` 
 
-### Configuring WSO2 Identity Server
+    3. Install a SAML Tracer (plugin/application) that enables searching assertions. 
 
-1.  Start the WSO2 Identity Server and sign in to WSO2 Identity Server Management Console.
-2.  On the **Main** tab, click **Identity > Service Providers > Add**.
-3.  Configure a service provider for SAML and click **Update**.
-    To try querying an assertion using the sample application,
-    configure the service provider for the travelocity sample
-    application and follow the steps in the
-    [try out scenario](#try-out-scenario) section.
+### With default application
 
-!!! tip "What's Next?"   
-    To query the assertion, you can do one of the following:
+Follow the steps below to query assertions with `AssertionID` using a WSO2 Identity Server sample application.
+
+1.  [Set up the Travelocity sample application](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp).
+
+2.  [Configure the Travelocity sample application as a service provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider).  
+
+    1.  In the **Inbound Authentication Configuration** section, click **SAML2 Web SSO Configuration > Configure**.
+        ![SAML2 Web SSO Configuration option](../assets/img/using-wso2-identity-server/saml2-web-sso-configuration-option.png)
     
-    -   Follow the steps in [Try out scenario with default application](#try-out-scenario-with-default-application)
-        section to try
-        an AssertionID request with the travelocity sample application
-        **OR**
-    -   Follow the steps in [Try out scenario with custom application](#try-out-scenario-with-custom-application) section for
-        instructions on querying an assertion with your own application.
-    
+    2.  Configure the required fields.
 
-### Try out scenario with custom application
+        !!! note
 
-1.  Follow the steps above to configure WSO2 Identity Server.
-2.  You have to use a custom assertion builder with the capability to
-    persist assertions to the database for this profile.  
-    Open the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file and add the following configuration.
-
-    ``` java
-    [saml.extensions] 
-    assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
-    ```
-
-3.  To see the created assertion and access the values (e.g., AssertionID, Subject),
-    you should have a SAML Tracer (plugin or an application) installed
-    in your machine.
-    
-4.  Access the application you configured as a service provider via the
-    assertion consumer URL you configured in step 3 at [Configuring WSO2 Identity Server](#configuring-wso2-identity-server).
-
-5.  Start the SAML Tracer.
-
-6.  Log in to the application.
-
-7.  When a user logs in, the created assertion will be persisted at the
-    SAML Tracer.
-
-8.  Open the repository source code you cloned from GitHub using an IDE
-    and navigate to
-    `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
-    . `         `
-
-9.  You can refer [querying assertion](#querying-saml-assertions) to read about
-    the methods which an assertion can be requested. Samples for each requests
-    can be found at
-    `          <CLIENT_HOME>          /sample-request-messages         `.
-
-10.  Open the relevant java class of the query type you wish to request
-    (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
-    enter the required values, and run the main() method of the
-    class. An assertion request will be generated.
-
-11.  You will receive a response according to the query type.
-
-You have successfully queried an assertion.
-
-### Try out scenario with default application
-
-This section guides you through querying an assertion using the
-AssertionID for the travelocity sample application.
-
-1.  Follow the steps in the [Configuring WSO2 Identity
-    Server](#configuring-wso2-identity-server) section to configure
-    the WSO2 Identity Server.
-2.  [Set up the travelocity sample application](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) and [configure the service
-    provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider).  
-    
-    1.  Expand the **SAML2 Web SSO Configuration** and click
-        **Configure** of the configured service provider for
-        'travelocity.com'.
-    
-    2.  Configure the required fields. Tick the **Enable
-        Assertion Query Request Profile** checkbox.
+            Make sure to select the **Enable Assertion Query Request Profile** check box. 
     
         ![enable-assertion-query-request](../assets/img/tutorials/enable-assertion-query-request.png)
         
-3.  Click **Update**.
-4.  You have to use a custom assertion builder with the capability to
-    persist assertions to the database for this profile.  
-    Open the
-    `           <IS_HOME>/repository/conf/deployment.toml         `
-    file and add the following configuration.
+    3.  Click **Update**.
 
-    ``` java
-    [saml.extensions] 
-    assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
-    ```
+    You have now successfully added and configured the service provider. 
 
-5.  To see the created assertion and access the AssertionID,
-    you should have a SAML Tracer (plugin or an application) installed
-    in your machine.
+3.  To use a custom assertion builder with the capability to persist assertions to the database for this profile.
 
-6.  Restart WSO2 IS and access the travelocity.com application by
-    accessing this URL:
-    `http://wso2is.local:8080/travelocity.com/index.jsp`
+    1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 
-7.  Start the SAML Tracer.
+    2.  Add the following configuration. 
 
-8.  Login using admin/admin credentials.
+        ``` toml
+        [saml.extensions] 
+        assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
+        ```
 
-9.  When a user logs in, the created assertion will be persisted at the
-    SAML Tracer.
+4.  Restart WSO2 Identity Server.
 
-10. Copy the value of attribute **ID** located inside the tag
-    `           <saml2:Assertion>         ` of the created assertion.
-    You can use this ID to query the assertion using a AssertionIDRequest.
+5.  Access the Travelocity application via `http://wso2is.local:8080/travelocity.com/index.jsp`.
+
+6.  Start the SAML Tracer.
+
+7.  Log in as an administrator (credentials: `admin`/`admin`).
+
+    !!! note 
+        When a user logs in, the created assertion will be persisted in the SAML Tracer.
+
+8. To query the assertions:
+
+    1.  Copy the attribute **ID** value that is located inside the tag `<saml2:Assertion>` of the created assertion. You may use this Id to query the assertion using a `AssertionIDRequest`.
+
     ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
 
-11. Open the repository source code you cloned from GitHub using an IDE
-    and navigate to
-    `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
-    . `         ` `                   `
+    2. Open the repository source code you cloned from GitHub using an IDE and navigate to `<CLIENT_HOME>/src/test/java/org/wso2/carbon/identity/query/saml/test` directory.
 
-12. Open the `          SAMLAssertionIDRequestClient.java         `
-    class and assign AssertionID value you copied from the database to
-    the `          ASSERTION_ID         ` variable.  
+    3. Open the `SAMLAssertionIDRequestClient.java` class and assign the `AssertionID` that you copied from the assertion to the `ASSERTION_ID` variable.
+
     ![assign-assertionid-value](../assets/img/tutorials/assign-assertionid-value.png)
 
-13. Run the main() method of the class. You will see a generated request
-    and a response similiar to the following:
+    4. Run the `main()` method of the class. Note that a request and response get generated similar to the following.
 
     ??? note "AssertionIDRequest Request"
         ```xml
@@ -279,4 +197,69 @@ AssertionID for the travelocity sample application.
             </saml2p:Response>
         ```
 
-You have successfully queried an assertion using the AssertionIDRequest.
+You have successfully queried an assertion with the `AssertionIDRequest` using the sample application. 
+    
+
+### With custom application
+
+Follow the steps below to query assertions using a custom application. 
+
+1.  To configure the custom application as a service provider:
+
+    1.  Access the WSO2 Identity Server Management Console as an administrator. 
+
+    2.  On the **Main** menu, click **Identity > Service Providers > Add**.
+
+    3.  Enter a name for the custom application in the **Service Provider Name** text box and click **Register**.
+
+    4.  In the **Inbound Authentication Configuration** section, click **SAML2 Web SSO Configuration > Configure**.
+        ![SAML2 Web SSO Configuration option](../assets/img/using-wso2-identity-server/saml2-web-sso-configuration-option.png)
+
+    5.  Enter the required configurations.
+
+    6.  Configure the required fields.
+
+        !!! note
+
+            Make sure to select the **Enable Assertion Query Request Profile** check box. 
+    
+        ![enable-assertion-query-request](../assets/img/tutorials/enable-assertion-query-request.png)
+        
+    7.  Click **Update**.
+
+2.  To use a custom assertion builder that enables persisting assertions in the database for this profile:
+
+    1.  Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
+
+    2.  Add the following configurations.
+
+        ``` toml
+        [saml.extensions] 
+        assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
+        ```
+    
+3.  Access the application that you configured as a service provider via the assertion consumer URL that you configured in step 1.e above.
+
+4.  Start the SAML Tracer.
+
+5.  Log in as an administrator (credentials: `admin`/`admin`).
+
+    !!! note 
+        When a user logs in, the created assertion will be persisted in the SAML Tracer.
+
+6.  To query the assertions:
+
+    1.  Open the repository source code you cloned from GitHub using an IDE and navigate to the `<CLIENT_HOME>/src/test/java/org/wso2/carbon/identity/query/saml/test` directory.
+
+    2.  Open the relevant java class of the query type you wish to request
+        (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
+        enter the required values extracted from the assertion, and run the main() method of the
+        class. An assertion request will be generated.
+
+    3. Note that a request and response get generated according to the given query type.
+
+    !!! tip 
+
+        A sample for each request can be found at the `<CLIENT_HOME>/sample-request-messages` directory.
+
+You have successfully queried an assertion using a custom application. 
