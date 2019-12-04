@@ -76,9 +76,8 @@ Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
 1.  Download the [kerberos grant.jar](../assets/attachments/kerberos-grant-1.0.0.jar) file.
 2.  Copy the JAR into the `<IS_HOME>/repository/components/lib` directory.
-3.  Add the following entry to the `deployment.toml` file in the
-    `<IS_HOME>/repository/conf/` folder to enable **Kerberos** grant
-    type.
+3.  To enable the **Kerberos grant**, add the following entry to the
+    `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.kerberos_grant]

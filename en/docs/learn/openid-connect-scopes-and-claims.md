@@ -44,13 +44,13 @@ under **Manage**. Click **Add** to add a new scope mapping or click
     ![oidc-scope-list](../assets/img/using-wso2-identity-server/oidc-scope-list.png)
     
 !!! Tip 
-    You can add custom claims to any OIDC scope by following steps;
+    To add custom claims to any OIDC scope:
     
     1.  Add [a custom claim to the local dialect](../../learn/adding-claim-mapping/#add-local-claim), `https://wso2.org/claims`
     2.  Add [an external claim](../../learn/adding-claim-mapping/#add-external-claim) into the `http://wso2.org/oidc/claim` dialect referring the local claim created in step1.
     3.  In the **OIDC Scopes** section, add the newly added OIDC claim under the desired *scopes*.
     
-    Read a sample use case of handling custom OIDC claims [here.](https://medium.com/identity-beyond-borders/handling-custom-claims-with-openid-connect-in-wso2-identity-server-56d3b6e4319b)
+    For a sample use case, see [Handling Custom OIDC Claims.](https://medium.com/identity-beyond-borders/handling-custom-claims-with-openid-connect-in-wso2-identity-server-56d3b6e4319b)
     
 ### Database structure for OIDC scope claim mapping
 

@@ -115,5 +115,5 @@ whether to front your cluster with a
 [load balancer](../../administer/load-balancing), and whether to use
 [sticky sessions](../../administer/sticky-sessions-with-manager-nodes).
 WSO2 Identity Server uses
-[Hazelcast](../../administer/configuring-hazelcast) as the underline
+[Hazelcast](../../administer/configuring-hazelcast) as the underlying
 clustering engine.

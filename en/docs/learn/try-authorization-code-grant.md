@@ -41,7 +41,7 @@ without PKCE.
     
     !!! Tip 
         The playground application will invoke the **authorize**
-        endpoint of the WSO2 Identity Server in the following format.
+        endpoint of the WSO2 Identity Server using the following format.
         
         ```java
         https://<host>:<port>/oauth2/authorize?response_type=code&client_id=<client-ID>&redirect_uri=<callback-url>&scope=<scope>
