@@ -119,7 +119,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **travelocity.com** in the **Service Provider Name** text box,
     and click **Register**.
@@ -258,7 +258,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **playground2** in the **Service Provider Name** text box,
     and click **Register**.
@@ -338,7 +338,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-dispatch** in the **Service Provider Name** text box,
     and click **Register**.
@@ -417,7 +417,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -479,7 +479,7 @@ The first step is to configure the service provider.
 
 1. Return to the WSO2 IS management console.
 
-2. Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3. Enter **pickup-dispatch** in the **Service Provider Name** text box,
     and click **Register**.
@@ -549,7 +549,7 @@ The first step is to configure the service provider.
 
 1. Return to the WSO2 IS management console.
 
-2. Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3. Enter **pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -681,7 +681,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **PassiveSTSSampleApp** in the **Service Provider Name** text box,
     and click **Register**.
