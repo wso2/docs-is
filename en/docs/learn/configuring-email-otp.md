@@ -14,7 +14,7 @@ Email OTP:
 In this guide we will be using `travelocity.com` as a sample application
 to which we will be enabling MFA for sign-in. To deploy the travelocity
 sample application, follow the steps in
-[Deploying the travelocity.com Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp).
+[Deploying the travelocity.com Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp).
 
 ------------------------------------------------------------------------
 
@@ -541,7 +541,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
 In the
 [Deploying travelocity sample application](#deploying-travelocity-sample-application)
-section you have [configured a service provider](../../learn/deploying-the-sample-app/#configuring-service-provider) to register the
+section you have [configured a service provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider) to register the
 travelocity.com as an application in the WSO2 Identity Server. Follow
 the steps below to modify the same service provider in order to
 configure Email OTP as second authentication step.

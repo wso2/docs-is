@@ -35,7 +35,7 @@ back-channel logout.
 ### Configuring the sample applications
 
 1. Follow the steps
-   [here](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+   [here](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
    to download, deploy and register `playground2` applications.
 
 
@@ -52,7 +52,7 @@ in WSO2 Identity Server:
     
     !!! Tip 
         In the previous section you have
-        [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-service-provider_1).
+        [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1).
         If you complete that you can skip **step 2** below.
     
 2.  To register a web application as a service provider:

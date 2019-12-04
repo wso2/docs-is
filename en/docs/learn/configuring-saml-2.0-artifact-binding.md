@@ -54,7 +54,7 @@ or with an existing service provider.
     artifact.
 
 
-1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
     sample application.
 
 2.  Access the PickUp application URL at
@@ -87,7 +87,7 @@ or with an existing service provider.
 
 1.  In the [previous section of this guide](#setting-up-the-samples) you
     have deployed and
-    [registered the `saml2-web-app-pickup-dispatch` webapp](../../learn/deploying-the-sample-app/#configuring-service-provider_2).
+    [registered the `saml2-web-app-pickup-dispatch` webapp](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2).
     Let's edit the same service provider to configure artifact binding.
 
 2.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO

@@ -24,7 +24,7 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+    1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
     sample application.
 
     2.  Access the PickUp application URL at
@@ -95,7 +95,7 @@ application by setting up inbound authentication.
 
 !!! Warning "Before you proceed" 
     In the previous step, you have deployed and
-    [registered the `saml2-web-app-pickup-dispatch.com` webapp](../../learn/deploying-the-sample-app/#configuring-service-provider_2).
+    [registered the `saml2-web-app-pickup-dispatch.com` webapp](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2).
     If you complete that you can skip steps 1 to 4 below and directly jump
     to step 5.
             
