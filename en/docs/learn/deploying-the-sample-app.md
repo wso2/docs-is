@@ -522,7 +522,7 @@ To check the sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost:8080/pickup-dispatch/home.jsp                 .         `
+`                     http://localhost.com:8080/pickup-dispatch/home.jsp                 .         `
 
 
 ## Deploying the pickup-manager webapp
@@ -592,7 +592,7 @@ To check the sample application, navigate to
 on your browser.
 
 For example,
-`                     http://localhost:8080/pickup-manager/home.jsp                   .         `
+`                     http://localhost.com:8080/pickup-manager/home.jsp                   .         `
 
 
 ## Deploying the PassiveSTSSampleApp webapp
