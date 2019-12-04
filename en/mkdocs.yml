@@ -64,10 +64,11 @@ nav:
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
       - 'Basic Tutorials':
+        - 'User Management': 
+          - 'Adding Users and Roles': learn/adding-users-and-roles.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
-          - 'WS-Federation': learn/configuring-single-sign-on-wsfed.md
         - 'Access Delegation':
           - 'OAuth 2.0': learn/configuring-access-delegation-with-oauth2.md
       - 'Single Sign-On':
