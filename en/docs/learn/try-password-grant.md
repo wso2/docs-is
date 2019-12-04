@@ -28,18 +28,7 @@ Grant](../../learn/resource-owner-password-credentials-grant)
     
     **Token Endpoint:** https://localhost:9443/oauth2/token
 
-    !!! info 
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint.
-
-        If the tenant domain is *[wso2.com](http://wso2.com)*, access token
-        endpoint will be as follows.
-
-        Access Token Endpoint:
-        <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
-
-    ![tenant-domain-token-endpoint](../assets/img/using-wso2-identity-server/tenant-domain-token-endpoint.png) 
+    ![password-grant-token-endpoint](../assets/img/using-wso2-identity-server/password-grant-token-endpoint.png) 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
