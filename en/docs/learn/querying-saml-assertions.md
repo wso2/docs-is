@@ -32,8 +32,8 @@ authority.
 !!! note "Before you begin"
 
     1.  Clone or download the client application from [this GitHub
-        location](https://github.com/wso2/samples-is)
-        , extract it and navigate to
+        location](https://github.com/wso2/samples-is),
+        extract it and navigate to
         `           sample-saml-query-profile/saml-query-profile-client          `.
         This folder location will be referred to as
         `            <CLIENT_HOME>           ` in this document.
@@ -48,7 +48,7 @@ authority.
 1.  Start the WSO2 Identity Server and log in to the management console.
 2.  Click **Add** under **Service Providers** on the **Main** tab.
 3.  Configure a service provider for SAML and click **Update**.
-    To try querying an assertion using the a sample application,
+    To try querying an assertion using the sample application,
     configure the service provider for the travelocity sample
     application and follow the steps in the
     [try out scenario](#try-out-scenario) section.
@@ -79,28 +79,36 @@ authority.
     assertion_builder= "org.wso2.carbon.identity.sso.saml.builders.assertion.ExtendedDefaultAssertionBuilder"
     ```
 
-3.  To see the created assertion and access the AssertionID,
-    you need to open up a SAML Tracer(plugin or an application).
+3.  To see the created assertion and access the values (e.g., AssertionID, Subject),
+    you should have a SAML Tracer (plugin or an application) installed
+    in your machine.
     
-4.  Access the application you configured a service provider for via the
-    assertion consumer URL you configured in step 3.
+4.  Access the application you configured as a service provider via the
+    assertion consumer URL you configured in step 3 at [Configuring WSO2 Identity Server](#configuring-wso2-identity-server).
 
 5.  Start the SAML Tracer.
 
 6.  Log in to the application.
 
-7.  When a user logs in, the created assertion will be shown at the
+7.  When a user logs in, the created assertion will be persisted at the
     SAML Tracer.
 
 8.  Open the repository source code you cloned from GitHub using an IDE
     and navigate to
     `          <CLIENT_HOME>          /src/test/java/org/wso2/carbon/identity/query/saml/test         `
     . `         `
-9.  Open the relevant java class of the query type you wish to request
+
+9.  You can refer [querying assertion](#querying-saml-assertions) to read about
+    the methods which an assertion can be requested. Samples for each requests
+    can be found at
+    `          <CLIENT_HOME>          /sample-request-messages         `.
+
+10.  Open the relevant java class of the query type you wish to request
     (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
     enter the required values, and run the main() method of the
     class. An assertion request will be generated.
-10.  You will receive a response according to the query type.
+
+11.  You will receive a response according to the query type.
 
 You have successfully queried an assertion.
 
@@ -137,7 +145,8 @@ AssertionID for the travelocity sample application.
     ```
 
 5.  To see the created assertion and access the AssertionID,
-    you need to open up a SAML Tracer(plugin or an application).
+    you should have a SAML Tracer (plugin or an application) installed
+    in your machine.
 
 6.  Restart WSO2 IS and access the travelocity.com application by
     accessing this URL:
@@ -147,7 +156,7 @@ AssertionID for the travelocity sample application.
 
 8.  Login using admin/admin credentials.
 
-9.  When a user logs in, the created assertion will be shown at the
+9.  When a user logs in, the created assertion will be persisted at the
     SAML Tracer.
 
 10. Copy the value of attribute **ID** located inside the tag
