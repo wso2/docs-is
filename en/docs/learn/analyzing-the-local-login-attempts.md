@@ -54,11 +54,11 @@ downtime, etc.
 
 ## Compact Summary
 
-### Description
+### **Description**
 
 This chart presents a **summary of the local login attempts**.
 
-### Purpose
+### **Purpose**
 
 This chart allows identifying the percentages of the successful and
 failed local login attempts.
@@ -67,7 +67,7 @@ failed local login attempts.
 
 ## Map View
 
-### Description
+### **Description**
 
 This chart presents the local login attempts in a map view based on the
 IP addresses.
@@ -79,7 +79,7 @@ IP addresses.
     Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
-### Purpose
+### **Purpose**
 
 -   This chart allows viewing the countries from which the local logins
     were attempted.
@@ -94,14 +94,14 @@ IP addresses.
 
 ## Distribution By Service Providers
 
-### Description
+### **Description**
 
 -   This chart presents the successful and failed local login attempts
     sorted by service provider.
 -   Pagination is available if the statistics involve more than ten
     service providers.
 
-### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 service providers.
@@ -110,14 +110,14 @@ service providers.
 
 ## Distribution By User Store
 
-### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user store domain.
 -   Pagination is available if the statistics involve more than ten user
     store domains.
 
-### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user store domain.
@@ -126,14 +126,14 @@ user store domain.
 
 ## Distribution By User Role
 
-### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user role.
 -   Pagination is available if the statistics involve more than ten user
     roles.
 
-### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user role.
@@ -142,14 +142,14 @@ user role.
 
 ## Distribution By User Name
 
-### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user name.
 -   Pagination is available if the statistics involve more than ten user
     names.
 
-### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user names.
@@ -158,7 +158,7 @@ user names.
 
 ## Detail View
 
-### Description
+### **Description**
 
 -   This widget presents details of each local login attempt including
     the context ID, user name, service provider, subject step, roles,
@@ -167,6 +167,6 @@ user names.
 -   The login attempts can be sorted in the ascending/descending order
     by the fields in the table if required.
 
-### Purpose
+### **Purpose**
 
 This widget allows view the details of each local login attempt.
