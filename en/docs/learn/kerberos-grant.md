@@ -74,15 +74,14 @@ Kerberos ticket for an OAuth2 token.
 
 Follow the instructions below to configure Kerberos Grant with WSO2 IS:
 
-1.  Download the [kerberos grant.jar](../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file.
+1.  Download the [kerberos grant.jar](../assets/attachments/kerberos-grant-1.0.0.jar) file.
 2.  Copy the JAR into the `<IS_HOME>/repository/components/lib` directory.
-3.  Add the following entry to the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
+3.  To enable the **Kerberos grant**, add the following entry to the
+    `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
 
     ``` toml
     [oauth.grant_type.kerberos_grant]
     enable = true
-    grant_handler = "org.wso2.carbon.identity.oauth2.token.handlers.grant.KerberosGrantHandler"
-    grant_validator = ""
     ```
 
 4.  Configure OAuth2 with IWA as an allowed grant type.

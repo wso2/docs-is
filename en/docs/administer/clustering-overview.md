@@ -47,23 +47,6 @@ These characteristics are essential for enterprise applications deployed
 in a production environment. Therefore, you need a cluster when you go into
 production when performance and reliability are critical.
 
-!!! info
-    WSO2 provides Hazelcast Community Edition as its default
-    clustering engine. For clustering on a secure channel (i.e., secure
-    Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
-    Enterprise, there are provisions to provide license key under clustering
-    configurations. Advanced users can fine-tune Hazelcast by creating a
-    `         <IS_HOME>/repository/conf/hazelcast.properties        `
-    file and adding the relevant Hazelcast properties as described in the
-    [Hazelcast Advanced Configuration Properties
-    documentation](https://docs.hazelcast.org/docs/3.0/manual/html/ch12s06.html).
-    
-    Add the following property to hazelcast.properties file to add the
-    license key of Hazelcast Enterprise:
-    `         hazelcast.enterprise.license.key        ` .
-    
-    For more details, see [Configuring Hazelcast](../../administer/configuring-hazelcast).
-
 ------------------------------------------------------------------------
 
 ## About membership schemes
@@ -131,3 +114,6 @@ When setting up your cluster, you must decide how you want to
 whether to front your cluster with a
 [load balancer](../../administer/load-balancing), and whether to use
 [sticky sessions](../../administer/sticky-sessions-with-manager-nodes).
+WSO2 Identity Server uses
+[Hazelcast](../../administer/configuring-hazelcast) as the underlying
+clustering engine.
