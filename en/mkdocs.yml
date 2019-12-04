@@ -85,6 +85,7 @@ nav:
           - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
         - 'OAuth2-OpenID Connect':
           - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
+          - 'Configuring Access Delegation with OAuth 2.0' : learn/configuring-access-delegation-with-oauth2.md
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
