@@ -25,28 +25,26 @@ authority.
 5.  **AuthzDecisionQuery** - used to request an authorization decision
     based on an existing subject.
 
-  
-
-### Configuring WSO2 Identity Server
-
-!!! note "Before you begin"
+!!! tip "Before you begin"
 
     1.  Clone or download the client application from [this GitHub
         location](https://github.com/wso2/samples-is),
-        extract it and navigate to
+        extract it, and navigate to
         `           sample-saml-query-profile/saml-query-profile-client          `.
-        This folder location will be referred to as
+        Hereafter, this folder location will be referred to as
         `            <CLIENT_HOME>           ` in this document.
 
-    2.  Build the client application by executing the following command on
+    2.  To build the client application, execute the following command in a command prompt. at
         the `             <CLIENT_HOME>            ` folder.
 
         ``` java
         mvn clean install
         ```
 
-1.  Start the WSO2 Identity Server and log in to the management console.
-2.  Click **Add** under **Service Providers** on the **Main** tab.
+### Configuring WSO2 Identity Server
+
+1.  Start the WSO2 Identity Server and sign in to WSO2 Identity Server Management Console.
+2.  On the **Main** tab, click **Identity > Service Providers > Add**.
 3.  Configure a service provider for SAML and click **Update**.
     To try querying an assertion using the sample application,
     configure the service provider for the travelocity sample
@@ -56,16 +54,15 @@ authority.
 !!! tip "What's Next?"   
     To query the assertion, you can do one of the following:
     
-    -   Follow the steps in [Try out
-        scenario](#try-out-scenario) section to try
+    -   Follow the steps in [Try out scenario with default application](#try-out-scenario-with-default-application)
+        section to try
         an AssertionID request with the travelocity sample application
         **OR**
-    -   Follow the steps in [Querying an
-        assertion](#querying-an-assertion) section for
+    -   Follow the steps in [Try out scenario with custom application](#try-out-scenario-with-custom-application) section for
         instructions on querying an assertion with your own application.
     
 
-### Querying an assertion
+### Try out scenario with custom application
 
 1.  Follow the steps above to configure WSO2 Identity Server.
 2.  You have to use a custom assertion builder with the capability to
@@ -112,7 +109,7 @@ authority.
 
 You have successfully queried an assertion.
 
-### Try out scenario
+### Try out scenario with default application
 
 This section guides you through querying an assertion using the
 AssertionID for the travelocity sample application.
