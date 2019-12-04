@@ -1,6 +1,6 @@
 # Configuring Access Delegation with OAuth 2.0
 
-### Introduction
+## Introduction
 
 This tutorial demonstrates how WSO2 Identity Server (WSO2 IS) can be used as an OAuth 2.0 authorization server. It guides you through the OAuth 2.0 application configuration, deployment, and the usage scenario.
 
@@ -8,7 +8,7 @@ In this sample scenario, a user tries to login to a vehicle booking web applicat
 
 ![access-delegation-oauth-diagram](../assets/img/learn/access-delegation-oauth-diagram.png)
 
-### Setting up
+## Setting up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
@@ -38,7 +38,7 @@ In this sample scenario, a user tries to login to a vehicle booking web applicat
 
 The setup is now complete and you can proceed to try out the scenario.
 
-### Try it out
+## Try it out
 
 1. Run the application by visting the following URL: `http://localhost.com:8080/pickup-dispatch/index.jsp`
 
