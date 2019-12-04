@@ -591,7 +591,7 @@ configure Email OTP as second authentication step.
     !!! note
     
         For more information on service provider configuration, see
-        [Configuring Single Sign-On](../../learn/configuring-single-sign-on).
+        [Configuring SAML2 Web Single Sign-On](../../learn/configuring-saml2-web-single-sign-on).
     
 ------------------------------------------------------------------------
 

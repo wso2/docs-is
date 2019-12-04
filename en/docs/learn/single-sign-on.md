@@ -5,7 +5,7 @@ Single sign-on (SSO) is one of the key features of WSO2 Identity Server that ena
 WSO2 Identity Server can act as the identity provider of a single sign-on system with minimal configurations. This topic briefly introduces single-sign-on and how to configure the WSO2 Identity Server with different inbound authenticators by [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) to achieve this. 
 
 !!! note
-    For a tutorial on how to configure single sign on with a sample application, see [Configuring Single Sign-On](../../learn/configuring-single-sign-on).
+    For a tutorial on how to configure single sign on with a sample application, see [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml).
 
 ### About SSO
 
@@ -64,7 +64,9 @@ For more information on Identity Federation on it's own (without SSO), see the [
 !!! info "Related Topics"
     -   See [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider) for more information on using single sign-on with a service provider. 
     
-    -   See [Configuring Single Sign-On](../../learn/configuring-single-sign-on) for a tutorial on how this works with a sample application.
+    -   See [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml) for a tutorial on how this works with a sample application using SAML2.
+
+    -   See [Configuring Single Sign-On Using OpenID Connect](../../learn/configuring-single-sign-on-oidc) for a tutorial on how this works with a sample application using OpenID Connect/OAuth2.
     
     -   See [Tutorial](https://wso2.com/library/tutorials/2015/05/tutorial-sso-for-microsoft-sharepoint-web-applications-with-wso2-identity-server/) SSO for Microsoft Sharepoint Web Applications with WSO2 Identity Server to configure single sign on for Microsoft Sharepoint web applications with the WSO2 Identity Server.
 
