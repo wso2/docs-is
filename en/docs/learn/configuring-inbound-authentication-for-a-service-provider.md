@@ -60,10 +60,11 @@ for instructions on configuring inbound authentication with ws-trest security to
 
 !!! info "Related Topics"
 
-    See [Single Sign-On](../../learn/single-sign-on) for details on configuring single
+    See [Single Sign-On](../../learn/configuring-single-sign-on) for details on configuring single
     sign-on for service provider using inbound authentication. See the
     following topics for samples of configuring single sign-on:
 
-    -   [Configuring Single Sign-On](../../learn/configuring-single-sign-on)
+    -   [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml)
+    -   [Configuring Single Sign-On Using OpenID Connect](../../learn/configuring-single-sign-on-oidc)
     -   [Logging in to WSO2 Products via the Identity
         Server](../../learn/logging-in-to-wso2-products-via-the-identity-server)

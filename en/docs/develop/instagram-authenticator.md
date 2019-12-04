@@ -146,9 +146,9 @@ You have now added and configured the service provider.
 
 **Related Topics**
 
-For more information on service provider configuration, see [Configuring
+For more information on service provider configuration, see [Configuring SAML2 Web
 Single
-Sign-On](../../learn/configuring-single-sign-on)
+Sign-On](../../learn/configuring-saml2-web-single-sign-on)
 .
 
 ### Configuring claims
