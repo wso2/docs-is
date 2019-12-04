@@ -4,7 +4,7 @@
 
 This tutorial demonstrates how WSO2 Identity Server (WSO2 IS) can be used as an OAuth 2.0 authorization server. It guides you through the OAuth 2.0 application configuration, deployment, and the usage scenario.
 
-In this sample scenario, a user tries to login to a vehicle booking web application called "pickup-dispatch" via a WSO2 Identity Server and recieves an access token to call the API to view the vehicle bookings.
+In this sample scenario, a user tries to login to a vehicle booking web application called "pickup-dispatch" via WSO2 Identity Server and recieves an access token to call the API to view the vehicle bookings.
 
 ![access-delegation-oauth-diagram](../assets/img/learn/access-delegation-oauth-diagram.png)
 
