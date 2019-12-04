@@ -11,7 +11,7 @@ their credentials.
 The profile specification for Security Assertion Markup Language 2.0
 (SAML 2.0) defines single sign-on based on a web browser. This tutorial allows you to have hands-on experience on how to configure SSO with WSO2 Identity Server using SAML protocol. 
 
-### Scenario
+## Scenario
 
 To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
@@ -25,7 +25,7 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
 	  [saml-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
 	  specification.
 
-### Setting up
+## Setting up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
@@ -51,7 +51,7 @@ To demonstrate the scenario in this tutorial, we are going to use two sample web
 You are now ready to try out SAML SSO with the Pickup Dispatch and
 Pickup Manager sample web applications.
 
-### Try it out
+## Try it out
 
 1. Navigate to <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
 
@@ -62,7 +62,7 @@ You will be redirected to the Pickup Dispatch application home page.
 
 3. Now, if you navigate to <http://localhost.com:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
-### Configuring claims
+## Configuring claims
 
 Additionally, you can also configure claims for the service providers.
 
@@ -71,7 +71,7 @@ Additionally, you can also configure claims for the service providers.
         [Configuring Claims for a Service
         Provider](../../learn/configuring-claims-for-a-service-provider).
 
-1. On the management console, click **List** under **Service Providers** and **Edit** the "dispatch" service provider.
+1. On the **Main** menu of the management console, click **Service Providers**>**List** and **Edit** the "dispatch" service provider.
 2. Expand the **Claim Configuration** section in the service provider form.
 3. You can select the claims that must be sent to the service provider. Select **Use Local Claim Dialect** and click **Add Claim URI**.
 4. Add the following claims as **Requested Claims**. 
