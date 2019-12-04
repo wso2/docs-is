@@ -26,7 +26,7 @@ In this sample scenario, a user tries to login to a vehicle booking web applicat
    [deploying **pickup-dispatch** webapp](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp)
    to download, deploy and register **dispatch** sample.
 
-4. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/backend-service.jar)
+4. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/backend-service-4.1.0.jar)
    the `backend-service.jar` file from the latest release assets.
 
 5. Navigate to where the `backend-service.jar` file is located on a terminal window and run the following command to start the backend service.
@@ -58,14 +58,3 @@ Backend calls are disabled by default. Enable it by selecting the **Backend** bo
 7. Similarly, you can also view stored bookings. This request also contains an Authorization header.
 
     ![authorization-header-pickup-app](../assets/img/learn/authorization-header-pickup-app.png)
-
-
-
-
-
-
-
-
-
-
-
