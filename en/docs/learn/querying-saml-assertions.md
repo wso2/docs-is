@@ -25,15 +25,13 @@ Let's learn how to query SAML assertions using WSO2 Identity Server!
 
     1.  Clone or download the client application from [this GitHub location](https://github.com/wso2/samples-is) and extract it. Note that the `sample-saml-query-profile/saml-query-profile-client` directory are generated. Hereafter, this directory location will be referred to as `<CLIENT_HOME>` in this document.
 
-    2.  To build the client application, navigate to the `<CLIENT_HOME>` directory in a command prompt and execute the following command.
+    2.  Install a SAML Tracer (plugin/application) that enables searching assertions.
 
-        ``` java
-        mvn clean install
-        ``` 
+    !!! note
+            If you are using a product version of **5.9.0 or below** then, you should replace the `wso2carbon.jks` keystore
+            located at `<CLIENT_HOME>/src/test/resources/` with the `wso2carbon.jks` keystore located at `<PRODUCT_HOME>/repository/resources/security`.
 
-    3. Install a SAML Tracer (plugin/application) that enables searching assertions. 
-
-### With default application
+### With the sample
 
 Follow the steps below to query assertions with `AssertionID` using a WSO2 Identity Server sample application.
 
@@ -200,7 +198,7 @@ Follow the steps below to query assertions with `AssertionID` using a WSO2 Ident
 You have successfully queried an assertion with the `AssertionIDRequest` using the sample application. 
     
 
-### With custom application
+### With your application
 
 Follow the steps below to query assertions using a custom application. 
 
