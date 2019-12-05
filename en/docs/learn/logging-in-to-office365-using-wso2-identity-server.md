@@ -27,7 +27,7 @@ any administration overheads.
 !!! info 
     For instructions to try out this fow, see [Configuring Microsoft Azure
     AD Outbound Provisioning
-    Connector](../../develop/microsoft-azure-ad-outbound-provisioning-connector)
+    Connector](https://github.com/wso2-extensions/identity-office365/blob/master/components/org.wso2.carbon.identity.outbound.provisioning.connector.office365/doc/README.md)
     .
 
 The diagram below demonstrates the flow.
@@ -48,7 +48,7 @@ of provisioning users based on role:
     !!! info 
         For instructions, see [Configuring Microsoft Azure AD Outbound
         Provisioning
-        Connector](../../develop/microsoft-azure-ad-outbound-provisioning-connector)
+        Connector](https://github.com/wso2-extensions/identity-office365/blob/master/components/org.wso2.carbon.identity.outbound.provisioning.connector.office365/doc/README.md)
         .
 
 -   **On-demand provisioning**  
