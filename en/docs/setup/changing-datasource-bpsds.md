@@ -5,9 +5,9 @@ used in business process service(BPS) components that support
 [workflow management features](../../learn/workflow-management) of the
 Wso2 Identity Server.
 
-By default WSO2 Identity Server use Embedded
-H2 database as the BPS datasource. However you can change this to any
-database type that is supported by WSO2 Identity Server.
+By default WSO2 Identity Server uses Embedded H2 database as the BPS
+datasource. However, you can change this to any database type that is
+supported by WSO2 Identity Server.
 
 Following are the sample configuration for each database type.
 
@@ -24,7 +24,7 @@ Following are the sample configuration for each database type.
         
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.    
+        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
             
           - `<IS-HOME>/dbscripts/bps/bpel/create/postgresql.sql`
 
@@ -41,7 +41,7 @@ Following are the sample configuration for each database type.
     
     2. Executing database scripts. 
 
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the database created.    
+        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following file, against the created database.    
          
           - `<IS-HOME>/dbscripts/bps/bpel/create/mysql.sql`
 
@@ -57,11 +57,9 @@ Following are the sample configuration for each database type.
         ```    
     2. Executing database scripts. 
     
-        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the database created.    
+        Navigate to `<IS-HOME>/dbscripts`. Execute the scripts in the following files, against the created database.    
          
           - `<IS-HOME>/dbscripts/bps/bpel/create/db2.sql`
-          - `<IS-HOME>/dbscripts/bps/bpel/drop/db2.sql`
-          - `<IS-HOME>/dbscripts/bps/bpel/truncate/db2.sql`
 
 ??? example "MSSQL"
 
@@ -75,7 +73,7 @@ Following are the sample configuration for each database type.
         ```
     2. Executing database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the database created.    
+        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
          
           - `<IS-HOME>/dbscripts/bps/bpel/create/mssql.sql`
     
@@ -92,7 +90,7 @@ Following are the sample configuration for each database type.
         ```
     2. Executing database scripts. 
     
-        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the database created.    
+        Navigate to <IS-HOME>/dbscripts. Execute the scripts in the following file, against the created database.    
          
           - `<IS-HOME>/dbscripts/bps/bpel/create/oracle.sql`
         
