@@ -11,6 +11,7 @@ supported by WSO2 Identity Server.
 -   [Client Credentials Grant](../../learn/client-credentials-grant)
 -   [Refresh Token Grant](../../learn/refresh-token-grant)
 -   [Kerberos Grant](../../learn/kerberos-grant)
+-   [Device Authorization Grant](../../learn/device-flow-grant)
 
 !!! note
     
