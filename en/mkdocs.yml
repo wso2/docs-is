@@ -164,6 +164,7 @@ nav:
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md
           - 'Configuring Apple': learn/configuring-apple.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': leran/handling-saml-single-logout-requests-from-federated-identity-providers.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
           - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
@@ -460,6 +461,7 @@ nav:
         - 'Identity Federation for Developers':
           - 'Writing a Custom Federated Authenticator': develop/writing-a-custom-federated-authenticator.md
           - 'Writing a Custom Local Authenticator': develop/writing-a-custom-local-authenticator.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': develop/handling-saml-single-logout-requests-from-federated-identity-providers.md
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md 
         - 'Workflow Management for Developers':
