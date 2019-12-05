@@ -30,6 +30,7 @@ Both applications will be using WSO2 IS as the identity provider. When SSO is co
     ``` java tab="Windows"
     wso2server.bat run
     ```
+    
 3. Follow the steps in [deploying pickup-dispatch webapp](../../learn/deploying-the-sample-app/#deploying-the-pickup-dispatch-webapp) to download, deploy and register dispatch sample.
 4. Follow the steps in [deploying pickup-manager webapp](../../learn/deploying-the-sample-app/#deploying-the-pickup-manager-webapp) to download, deploy and register manager sample.
 
