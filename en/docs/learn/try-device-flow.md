@@ -8,77 +8,80 @@ specification. For more information about this grant type, see
     You must first set up the `Device Flow Demo App` sample webapp.
     in order to try the following scenario.   
     
-Step 1:
-Start WSO2 identity server by typing `sh wso2server.sh` in a terminal running on <IS_HOME>/bin/ .
+1. Navigate to <IS_HOME>/bin and start the server by executing the following command on a terminal window.
 
-Step 2:
-Login to management console by providing your username and password.
+``` java tab="Linux/MacOS"
+sh wso2server.sh
+```
 
-Step 3:
-Go to `identity->Users and Roles` and add a new user.
+``` java tab="Windows"
+wso2server.bat run
+```
+
+2. Access the [WSO2 Identity Server Management Console] (https://localhost:9443/carbon) and log in using your user
+ name and password.
+
+3. On the Main menu, click Users and Roles>Add and then click Add New User.
 ![register-user](../assets/img/using-wso2-identity-server/register-user.jpg)
 
-Step 4:
-Now go to service providers and register a new service provider by providing a service provider name.
+4. On the Main menu, click Users and Roles>Add and then click Add New User.
 
 ![register-service-provider](../assets/img/using-wso2-identity-server/register-service-provider.png)
 
 ![register-service-provider-name](../assets/img/using-wso2-identity-server/register-sp-name.jpg)
 
-Step 5:
-Go to `Service Providers-->List` and edit your service provider with OAuth.
-
-Step 6:
-Go to `Inbound Authentication Configuration-->OAuth/OpenID Connect Configuration` and click configure.
+5. After registering the service provider, you can directly configure OAuth. So lets combine step 5 and 6 into one step.
+   
+   "Expand Inbound Authentication Configuration and then expand OAuth/OpenID Connect Configuration. Click Configure.
 
 ![register-service-provider-oauth](../assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
 
-Step 7:
-You need to tick `urn:ietf:params:oauth:grant-type:device_code` for use device flow grant type. Since these are 
-treated as public clients, always remember to put a tick on Allow authentication without the client secret. 
-After that update your service provider. Now you can see your OAuth client key and OAuth client secret.
+7. Select `urn:ietf:params:oauth:grant-type:device_code` to enable using the device flow grant type. 
 
-Step 8:
-In your device (this case demo app) you need to configure client id as your OAuth client-key.
+!!! info
+Since these are public clients, ensure that the Allow authentication without the client secret checkbox is selected.
+
+Next, click Update to save the service provider configurations. Note the generated OAuth client key and client secret.
+
+8. On your device (i.e., the demo app), configure the client ID as your OAuth client-key.
 
 ![consumer-key-service-provider-oauth](../assets/img/using-wso2-identity-server/get-oauth-consumer-key.jpg)
 
-Step 9:
-Start the demo app.
+9. Start the demo app.
 
 ![device-demo-login](../assets/img/using-wso2-identity-server/device-demo-login.jpg)
 
-Step 10:
-Now click the login button.
-This device will send a request to `/device_authorize` endpoint along with its client id.
+10. Now, click the Login button. This device will send a request to the /device_authorize endpoint along with it's
+ client ID.
 
-ex: 
+For example:
 
     https://localhost:9443/oauth2/device_authorize?client_id=GyPm7DliFituWP1fvWxhNcQOlGYa&scope=somescope_code
 
 ![device-demo-logged](../assets/img/using-wso2-identity-server/device-demo-logged.jpg)
 
-Now you can see the verification URI and user code. You need to go to verification URI in your secondary device and enter your user code in there or scan the QR code. QR code contains verification URI complete.
+11. Access the provided verification URI on your secondary device. You can either enter the user code there or scan the
+ provided QR code. QR code contains verification URI complete(verification URI + user code).
 
 ![device-code-enter](../assets/img/using-wso2-identity-server/device-code-enter.jpg)
 
-When you click the sign-in button with the correct user code, it will redirect you to enter your credentials. If you enter the wrong user code or expired one it will be asked to re-enter your credentials.
-
+12. Click Sign In. If the user code is correct, you will be prompted to enter your credentials. If you have entered the
+ wrong user code or an expired(user code is one time use code) one, it will ask to re enter your user code. In that case
+  get a new user code and enter the new user code along with your credentials.
+ 
 ![device-username-password](../assets/img/using-wso2-identity-server/device-username-password.jpg)
 
 ![device-scopes](../assets/img/using-wso2-identity-server/device-scopes.jpg)
 
-Then you will be redirected to the device flow success page. In there you can see that your SP has successfully logged and it will instruct you to close the browser.
+You will be redirected to the device flow success page. Note that you are now successfully logged in to the service
+ provider and you are instructed to close the browser.
 
 ![device-success](../assets/img/using-wso2-identity-server/device-success.jpg)
 
-When you go back to your demo app it will show,
+On you demo app, you will see the following screen
 
 ![device-demo-success](../assets/img/using-wso2-identity-server/device-demo-success.jpg)
 
-In the developer tab, you can see your device authorization response and token response. If you want to validate your token, you can use the introspection endpoint for that.
-
-!!! info "Related Topics"
-    -   See [Invoke the OAuth Introspection
-        Endpoint](../../learn/invoke-the-oauth-introspection-endpoint)
-        to invoke the OAuth introspection endpoint using cURL commands.
+To see the device authorization response and token response, navigate to the Developer tab. To validate your token
+, use the introspection endpoint. [Invoke the OAuth Introspection Endpoint](../../learn/invoke-the-oauth
+-introspection-endpoint)
