@@ -28,16 +28,19 @@ pickup-manager.
 The following sections guide you through configuring SAML single logout requests handling and trying it out with 
 the sample applications.
 
--   [Configuring Identity Provider(Secondary IS) in the Primary IS]
--   [Configuring Pickup Dispatch application in the Primary IS]
--   [Configuring Primary IS(Service Provider) in the Secondary IS]
--   [Configuring Pickup Manager application in the Secondary IS]
+-   Configuring Identity Provider(Secondary IS) in the Primary IS
+-   Configuring Pickup Dispatch application in the Primary IS
+-   Configuring Primary IS(Service Provider) in the Secondary IS
+-   Configuring Pickup Manager application in the Secondary IS
 
 ### Configuring Identity Provider(Secondary IS) in the Primary IS
 
 1. Run the WSO2 Identity Server on port 9443 (Primary IS).
+
 2. Log in to the management console as an administration.
+
 3. Navigate to the Main menu to access the Identity menu. Click Add under Identity Providers. 
+
 4. Fill in the details in the Basic Information section. Give a suitable name for Identity Provider Name.
 
 5. Expand the SAML2 Web SSO Configuration section and fill the required details. 
@@ -92,7 +95,7 @@ The next step is to configure the Primary IS as a service provider in the Second
 
 2. Log in to the management console of the Secondary IS.
 
-3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](Configuring Pickup Dispatch application in the Primary IS)
+3. Follow the steps in [Configuring Pickup Dispatch application in the Primary IS](configuring-pickup-dispatch-application-in-the-primary-is)
 and configure the service provider with below details.
 
     - Issuer : SP Entity Id of the Secondary IS
@@ -107,7 +110,7 @@ and configure the service provider with below details.
 
 4. Leave the rest of the default configurations as it is and click Register. 
 
-    ![saml-slo-configuring -wso2is-as-sp](../assets/img/tutorials/saml-slo-configuring-wso2is-as-sp.png)
+    ![saml-slo-configuring-wso2is-as-sp](../assets/img/tutorials/saml-slo-configuring-wso2is-as-sp.png)
  
  
 ### Configuring Pickup Manager application in the Secondary IS
