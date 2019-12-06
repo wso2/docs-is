@@ -23,7 +23,7 @@ Let's learn how to query SAML assertions using WSO2 Identity Server!
 
 !!! tip "Before you begin" 
 
-    1.  Download the client application zip file from [this GitHub location](https://github.com/wso2/samples-is/tree/master/saml-query-profile-target) extract and open it using an IDE. Hereafter, the root directory will be referred to as `<CLIENT_HOME>` in this document.
+    1.  Download the client application zip file from [this GitHub location](https://github.com/wso2/samples-is/tree/master/saml-query-profile-target) extract and open it using an IDE. Hereafter, the root directory of the extracted zip will be referred to as `<CLIENT_HOME>` in this document.
 
     2.  To build the client application, navigate to the `<CLIENT_HOME>` directory in a command prompt and execute the following command.
 
