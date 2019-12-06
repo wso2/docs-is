@@ -36,37 +36,38 @@ Follow the steps below to view the **Local Login Attempts**.
 
 Let's analyze the local login attempts with the following widgets.
 
-### Login Attempts Over Time
+## Login Attempts Over Time
 
-##### **Description**
+### **Description**
 
 This chart presents the **total number of local login attempts** that
 are made during the selected time interval.
 
-##### **Purpose**
+### **Purpose**
 
 This chart allows deriving **the local login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-![]( ../assets/img/103329237/103329248.png) 
+<img src="../../assets/img/103329237/103329248.png" alt="Login Attempts Over Time widget" width="500"> 
 
-### Compact Summary
 
-##### Description
+## Compact Summary
+
+### **Description**
 
 This chart presents a **summary of the local login attempts**.
 
-##### Purpose
+### **Purpose**
 
 This chart allows identifying the percentages of the successful and
 failed local login attempts.
 
-![]( ../assets/img/103329237/103329246.png)
+<img src="../../assets/img/103329237/103329246.png" alt="Compact Summary widget" width="500" height="700">
 
-### Map View
+## Map View
 
-##### Description
+### **Description**
 
 This chart presents the local login attempts in a map view based on the
 IP addresses.
@@ -78,7 +79,7 @@ IP addresses.
     Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
-##### Purpose
+### **Purpose**
 
 -   This chart allows viewing the countries from which the local logins
     were attempted.
@@ -88,75 +89,76 @@ IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../assets/img/103329237/103329238.png)
+<img src="../../assets/img/103329237/103329238.png" alt="Compact Summary widget" width="500">
 
-### Distribution By Service Providers
 
-##### Description
+## Distribution By Service Providers
+
+### **Description**
 
 -   This chart presents the successful and failed local login attempts
     sorted by service provider.
 -   Pagination is available if the statistics involve more than ten
     service providers.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 service providers.
 
-![]( ../assets/img/103329237/103329244.png)
+<img src="../../assets/img/103329237/103329244.png" alt="Compact Summary widget" width="500">
 
-### Distribution By User Store
+## Distribution By User Store
 
-##### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user store domain.
 -   Pagination is available if the statistics involve more than ten user
     store domains.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user store domain.
 
-![]( ../assets/img/103329237/103329243.png)
+<img src="../../assets/img/103329237/103329243.png" alt="Compact Summary widget" width="500">
 
-### Distribution By User Role
+## Distribution By User Role
 
-##### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user role.
 -   Pagination is available if the statistics involve more than ten user
     roles.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user role.
 
-![]( ../assets/img/103329237/103329242.png)
+<img src="../../assets/img/103329237/103329242.png" alt="Compact Summary widget" width="500">
 
-### Distribution By User Name
+## Distribution By User Name
 
-##### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by user name.
 -   Pagination is available if the statistics involve more than ten user
     names.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the local login attempts sorted based on the
 user names.
 
-![]( ../assets/img/103329237/103329241.png)
+<img src="../../assets/img/103329237/103329241.png" alt="Compact Summary widget" width="500">
 
-### Detail View
+## Detail View
 
-##### Description
+### **Description**
 
 -   This widget presents details of each local login attempt including
     the context ID, user name, service provider, subject step, roles,
@@ -165,6 +167,6 @@ user names.
 -   The login attempts can be sorted in the ascending/descending order
     by the fields in the table if required.
 
-##### Purpose
+### **Purpose**
 
 This widget allows view the details of each local login attempt.

@@ -4,7 +4,7 @@
 
 This tutorial demonstrates how WSO2 Identity Server (WSO2 IS) can be used as an OAuth 2.0 authorization server. It guides you through the OAuth 2.0 application configuration, deployment, and the usage scenario.
 
-In this sample scenario, a user tries to login to a vehicle booking web application called "pickup-dispatch" via WSO2 Identity Server and recieves an access token to call the API to view the vehicle bookings.
+In this sample scenario, a user tries to log in to a vehicle booking web application called "pickup-dispatch" via WSO2 Identity Server and recieves an access token to call the API to view the vehicle bookings.
 
 ![access-delegation-oauth-diagram](../assets/img/learn/access-delegation-oauth-diagram.png)
 
@@ -14,7 +14,7 @@ In this sample scenario, a user tries to login to a vehicle booking web applicat
 
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
 
-    ``` java tab="Linux"
+    ``` java tab="Linux/MacOS"
     sh wso2server.sh
     ```
 
@@ -33,7 +33,7 @@ In this sample scenario, a user tries to login to a vehicle booking web applicat
     ```
     java -jar backend-service.jar -introspectionEnabled true
     ```
-!!! Tip 
+!!! info 
     For more information about the backend service, see [Introduction to Backend Service](https://github.com/wso2/samples-is/tree/master/etc/backend-service).
 
 The setup is now complete and you can proceed to try out the scenario.
@@ -42,9 +42,9 @@ The setup is now complete and you can proceed to try out the scenario.
 
 1. Run the application by visting the following URL: `http://localhost.com:8080/pickup-dispatch/index.jsp`
 
-2. Login using the preferred credentials (e.g., admin/admin)
+2. Log in using the preferred credentials (e.g., admin/admin)
 
-3. Next you have to provide consent to use your username.
+3. Next you have to provide consent to use your user name.
 Backend calls are disabled by default. Enable it by selecting the **Backend** box in the drop down list as shown below.
 
     ![enable-backend-calls-pickup-app](../assets/img/learn/enable-backend-calls-pickup-app.png)
@@ -53,7 +53,7 @@ Backend calls are disabled by default. Enable it by selecting the **Backend** bo
 
 5. Click **Add**. On the backend-service log, you will notice that the request sent to `http://localhost:39090/bookings` contains an authorization header.
 
-6. You can click on the gear icon on the top-right corner to view the request and response. 
+6. You may view the request and response by clicking on the gear icon on the top-right corner.
 
 7. Similarly, you can also view stored bookings. This request also contains an Authorization header.
 

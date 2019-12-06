@@ -374,8 +374,8 @@ of entity configuration.
     information on SAML2 single-sign-on and see the following topics for
     samples of configuring single-sign-on using SAML2.
 
-    -   [Configuring Single
-        Sign-On](../../learn/configuring-single-sign-on)
+    -   [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml)
+    -   [Configuring Single Sign-On Using OpenID Connect](../../learn/configuring-single-sign-on-oidc)
     -   [Logging in to WSO2 Products via Identity
         Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2
