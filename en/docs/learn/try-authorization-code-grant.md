@@ -29,23 +29,41 @@ without PKCE.
     [Configuring OAuth2-OpenID
     Connect](../../learn/configuring-oauth2-openid-connect).
 
-    **Authorization Grant Type:** Implicit  
-    **Client ID:** (the client id received at the [application
-                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
+    **Authorization Grant Type:** Authorization Code 
+    
+    **Client ID:** (the client id received at the
+    [application registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1)
+    
     **Callback URL:**
     <http://wso2is.local:8080/playground2/oauth2client>  
+    
     **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
+    
+    **Scope:** Any scope you wish to obtain the token for (Optional)
 
       
     ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
     
     !!! Tip 
-        The playground application will invoke the **authorize**
-        endpoint of the WSO2 Identity Server using the following format.
+        The playground application will send a
+        [authorization request](https://tools.ietf.org/html/rfc6749#section-4.1.1)
+        the **authorize** endpoint of the WSO2 Identity Server using the
+        following format.
         
         ```java
-        https://<host>:<port>/oauth2/authorize?response_type=code&client_id=<client-ID>&redirect_uri=<callback-url>&scope=<scope>
+        https://<host>:<port>/oauth2/authorize?response_type=code
+        &client_id=<client-ID>
+        &redirect_uri=<callback-url>
+        &scope=<scope>
         ```
+        
+        !!! Example
+            ```java
+            https://localhost:9443/oauth2/authorize?response_type=code
+            &client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
+            &redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+            &scope=openid
+            ``` 
 
 3.  Log in with the user credentials.  
     ![log-into-app](../assets/img/using-wso2-identity-server/log-into-app.png) 
