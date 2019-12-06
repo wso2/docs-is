@@ -457,7 +457,6 @@ nav:
         - 'Identity Federation for Developers':
           - 'Writing a Custom Federated Authenticator': develop/writing-a-custom-federated-authenticator.md
           - 'Writing a Custom Local Authenticator': develop/writing-a-custom-local-authenticator.md
-          - 'Handling SAML Single Logout Requests from Federated identity Providers': develop/handling-saml-single-logout-requests-from-federated-identity-providers.md
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md 
         - 'Workflow Management for Developers':
