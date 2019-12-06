@@ -172,6 +172,7 @@ nav:
           - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-saml2-single-sign-on-across-different-wso2-products.md
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': leran/handling-saml-single-logout-requests-from-federated-identity-providers.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
