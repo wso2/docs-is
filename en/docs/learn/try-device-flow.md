@@ -30,9 +30,7 @@ wso2server.bat run
 
 ![register-service-provider-name](../assets/img/using-wso2-identity-server/register-sp-name.jpg)
 
-5. After registering the service provider, you can directly configure OAuth. So lets combine step 5 and 6 into one step.
-   
-   "Expand Inbound Authentication Configuration and then expand OAuth/OpenID Connect Configuration. Click Configure.
+5. Expand Inbound Authentication Configuration and then expand OAuth/OpenID Connect Configuration. Click Configure.
 
 ![register-service-provider-oauth](../assets/img/using-wso2-identity-server/register-sp-oauth.jpg)
 
