@@ -23,13 +23,19 @@ Let's learn how to query SAML assertions using WSO2 Identity Server!
 
 !!! tip "Before you begin" 
 
-    1.  Clone or download the client application from [this GitHub location](https://github.com/wso2/samples-is) and extract it. Note that the `sample-saml-query-profile/saml-query-profile-client` directory are generated. Hereafter, this directory location will be referred to as `<CLIENT_HOME>` in this document.
+    1.  Download the client application zip file from [this GitHub location](https://github.com/wso2/samples-is/tree/master/saml-query-profile-target) extract and open it using an IDE. Hereafter, the root directory will be referred to as `<CLIENT_HOME>` in this document.
 
-    2.  Install a SAML Tracer (plugin/application) that enables searching assertions.
+    2.  To build the client application, navigate to the `<CLIENT_HOME>` directory in a command prompt and execute the following command.
+
+        ``` java
+        mvn clean install
+        ```
+
+    3.  Install a SAML Tracer (plugin/application) that enables searching assertions.
 
     !!! note
             If you are using a product version of **5.9.0 or below** then, you should replace the `wso2carbon.jks` keystore
-            located at `<CLIENT_HOME>/src/test/resources/` with the `wso2carbon.jks` keystore located at `<PRODUCT_HOME>/repository/resources/security`.
+            located at `<CLIENT_HOME>/src/main/resources/` with the `wso2carbon.jks` keystore located at `<PRODUCT_HOME>/repository/resources/security`.
 
 ### With the sample
 
@@ -82,7 +88,7 @@ Follow the steps below to query assertions with `AssertionID` using a WSO2 Ident
 
     ![assertion-samlid](../assets/img/tutorials/assertion-samlid.png)
 
-    2. Open the repository source code you cloned from GitHub using an IDE and navigate to `<CLIENT_HOME>/src/test/java/org/wso2/carbon/identity/query/saml/test` directory.
+    2. Navigate to `<CLIENT_HOME>/src/main/java/org/wso2/carbon/identity/saml/query/profile/test` directory.
 
     3. Open the `SAMLAssertionIDRequestClient.java` class and assign the `AssertionID` that you copied from the assertion to the `ASSERTION_ID` variable.
 
@@ -247,7 +253,7 @@ Follow the steps below to query assertions using a custom application.
 
 6.  To query the assertions:
 
-    1.  Open the repository source code you cloned from GitHub using an IDE and navigate to the `<CLIENT_HOME>/src/test/java/org/wso2/carbon/identity/query/saml/test` directory.
+    1.  Navigate to the `<CLIENT_HOME>/src/main/java/org/wso2/carbon/identity/saml/query/profile/test` directory.
 
     2.  Open the relevant java class of the query type you wish to request
         (e.g., `          SAMLAssertionIDRequestClient.java         ` ),
