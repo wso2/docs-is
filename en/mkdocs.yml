@@ -165,6 +165,7 @@ nav:
           - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-saml2-single-sign-on-across-different-wso2-products.md
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': leran/handling-saml-single-logout-requests-from-federated-identity-providers.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
@@ -456,6 +457,7 @@ nav:
         - 'Identity Federation for Developers':
           - 'Writing a Custom Federated Authenticator': develop/writing-a-custom-federated-authenticator.md
           - 'Writing a Custom Local Authenticator': develop/writing-a-custom-local-authenticator.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': develop/handling-saml-single-logout-requests-from-federated-identity-providers.md
         - 'Access Control for Developers':
           - 'Writing a Custom Policy Info Point': develop/writing-a-custom-policy-info-point.md 
         - 'Workflow Management for Developers':
