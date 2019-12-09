@@ -105,10 +105,11 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
             copy it to the `<IS_HOME>/repository/components/lib` folder  
     
     !!! note     
-        In earlier versions WSO2 Identity Server had the option to create databases automatically using the 
-        -DSetup option  **from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) 
-        WSO2 Identity Server has deprecated the** **`              -DSetup             `** **option**
-        Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA
+        In earlier versions, WSO2 Identity Server had the option to create databases automatically using the 
+        `-DSetup` option.  **From [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) 
+        WSO2 Identity Server has deprecated the** **`              -DSetup             `** **option**.
+
+        Note that the proper practice is for the Database Administrator(DBA) to run the DDL statements manually; so that the DBA
         can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in
         place within the organization.  
            

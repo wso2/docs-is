@@ -41,30 +41,41 @@ under **Manage**. Click **Add** to add a new scope mapping or click
     can add and remove claims from the scope by using the **Add claims**
     and **Update** buttons respectively. You can also delete a scope
     claim mapping.
-
+    ![oidc-scope-list](../assets/img/using-wso2-identity-server/oidc-scope-list.png)
+    
+!!! Tip 
+    To add custom claims to any OIDC scope:
+    
+    1.  Add [a custom claim to the local dialect](../../learn/adding-claim-mapping/#add-local-claim), `https://wso2.org/claims`
+    2.  Add [an external claim](../../learn/adding-claim-mapping/#add-external-claim) into the `http://wso2.org/oidc/claim` dialect referring the local claim created in step1.
+    3.  In the **OIDC Scopes** section, add the newly added OIDC claim under the desired *scopes*.
+    
+    For a sample use case, see [Handling Custom OIDC Claims.](https://medium.com/identity-beyond-borders/handling-custom-claims-with-openid-connect-in-wso2-identity-server-56d3b6e4319b)
+    
 ### Database structure for OIDC scope claim mapping
 
 Two new tables and a new index have been introduced to persist scope
 claim mapping as indicated below.
 
-``` sql
-CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            NAME VARCHAR(255) NOT NULL,
-            TENANT_ID INTEGER DEFAULT -1,
-            PRIMARY KEY (ID)
-);
-
-
-CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE_CLAIM_MAPPING (
-            ID INTEGER NOT NULL AUTO_INCREMENT,
-            SCOPE_ID INTEGER,
-            EXTERNAL_CLAIM_ID INTEGER,
-            PRIMARY KEY (ID),
-            FOREIGN KEY (SCOPE_ID) REFERENCES IDN_OIDC_SCOPE(ID) ON DELETE CASCADE,
-            FOREIGN KEY (EXTERNAL_CLAIM_ID) REFERENCES IDN_CLAIM(ID) ON DELETE CASCADE
-);
-
-
-CREATE INDEX IDX_AT_SI_ECI ON IDN_OIDC_SCOPE_CLAIM_MAPPING(SCOPE_ID, EXTERNAL_CLAIM_ID);
-```
+??? Abstract "Click to view table structure"
+    ``` sql
+    CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                NAME VARCHAR(255) NOT NULL,
+                TENANT_ID INTEGER DEFAULT -1,
+                PRIMARY KEY (ID)
+    );
+    
+    
+    CREATE TABLE IF NOT EXISTS IDN_OIDC_SCOPE_CLAIM_MAPPING (
+                ID INTEGER NOT NULL AUTO_INCREMENT,
+                SCOPE_ID INTEGER,
+                EXTERNAL_CLAIM_ID INTEGER,
+                PRIMARY KEY (ID),
+                FOREIGN KEY (SCOPE_ID) REFERENCES IDN_OIDC_SCOPE(ID) ON DELETE CASCADE,
+                FOREIGN KEY (EXTERNAL_CLAIM_ID) REFERENCES IDN_CLAIM(ID) ON DELETE CASCADE
+    );
+    
+    
+    CREATE INDEX IDX_AT_SI_ECI ON IDN_OIDC_SCOPE_CLAIM_MAPPING(SCOPE_ID, EXTERNAL_CLAIM_ID);
+    ```
