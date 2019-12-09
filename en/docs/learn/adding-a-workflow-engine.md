@@ -3,7 +3,7 @@
 This section demonstrates how to configure the WSO2 Identity Server (IS)
 to connect to the [Business Process Management (BPM) component of WSO2
 Enterprise
-Integrator](https://docs.wso2.com/display/EI650/Working+with+Business+Processes)
+Integrator](https://docs.wso2.com/display/EI650/Working+with+Business+Processes) version 6.5.0
 . This can be done by creating a BPM Workflow Engine and configuring it
 accordingly. You can have many engines configured in different profiles
 and use one of them when creating a workflow.
