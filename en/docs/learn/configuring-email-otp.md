@@ -53,8 +53,14 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         !!! Note
             If you are using Gmail account you have to on "Allow less secure
             apps" in your account respective to the above email sending configurations.
-    
-    3.  Add the following email template to the
+            
+    3. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
+    ```
+    [disable]
+    addressing = true
+    ```
+        
+    4.  Add the following email template to the
         `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
     
         ``` xml
@@ -78,7 +84,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
             You can add email template from the management console
             as described in [this document](../../learn/customizing-automated-emails)
     
-    4.  Add the following configuration to the `deployment.toml` file in the
+    5.  Add the following configuration to the `deployment.toml` file in the
         `<IS_HOME>/repository/conf/` directory.
         
         ```toml
