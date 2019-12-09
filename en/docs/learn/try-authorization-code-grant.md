@@ -45,7 +45,7 @@ without PKCE.
     ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
     
     !!! Tip 
-        The playground application will send a
+        The playground application will send an
         [authorization request](https://tools.ietf.org/html/rfc6749#section-4.1.1)
         the **authorize** endpoint of the WSO2 Identity Server using the
         following format.

@@ -26,15 +26,14 @@ sample implementation to see details.
     repository. To do this, follow the instructions on the [Downloading
     a Sample](../../learn/downloading-a-sample)
     topic.
-2.  Once downloaded the identity server samples, go inside to `
+2.  Once you have downloaded the samples, go to the `
     <Sample_Home>/user-mgt/remote-user-mgt ` directory to
     build the remote user management client.
     
     !!! Tip 
         `<Samples_Home>` is referred to the
         [root directory of the WSO2 Identity Server's samples](https://github.com/wso2/product-is/tree/v5.9.0/modules/samples)
-        that you checkout when following steps to
-        [Download a Sample](../../learn/downloading-a-sample/)
+        that you checkout by following the steps [here](../../learn/downloading-a-sample/)
 
 3.  Make sure the URL of the remote server (`remote.server.url`),
     credentials of the user who performs user management operations
@@ -43,7 +42,7 @@ sample implementation to see details.
     user-mgt/remote-user-mgt/client.propeties` are correct with respect
     to your environment. If you have changed the private key in the
     identity server, import the public certificate of the identity
-    server to truststore (`client-truststore.jks`) of the sample client
+    server to the truststore (`client-truststore.jks`) of the sample client
     in
     `<Samples_Home>/user-mgt/remote-user-mgt/src/main/resources/keystore`.
 
