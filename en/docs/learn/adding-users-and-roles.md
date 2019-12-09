@@ -19,11 +19,11 @@ This tutorial demonstrates how to create a new user, create a role with a set of
     wso2server.bat run
     ```
 
-3. Access the [WSO2 Identity Server Management Console] (https://localhost:9443/carbon) and log in using "admin" as both the username and password. 
+3. Access the [WSO2 Identity Server Management Console] (https://localhost:9443/carbon) as an administrator (credentials: admin/admin).
 
 ### Create a role
 
-1. Click **Add** under **Users and Roles** on the **Main** tab of the Management Console.
+1. On the **Main** menu, click **Users and Roles > Add**. 
 
     ![add-users-roles](../assets/img/learn/add-users-roles.png)
 
@@ -35,7 +35,7 @@ This tutorial demonstrates how to create a new user, create a role with a set of
 
     ![enter-role-details](../assets/img/learn/enter-role-details.png)
 
-4. Click **Finish** or you can click **Next** to specify permissions for the role. For more information about assingning permissions, see the next section. 
+4. Click **Finish** or you can click **Next** to specify permissions for the role. For more information about assigning permissions, see the next section. 
 
 ### Assign permissions
 
@@ -59,10 +59,12 @@ This tutorial demonstrates how to create a new user, create a role with a set of
 
     ![add-new-role](../assets/img/learn/add-new-role.png)
 
-3. In the **Domain** list, select the user store in which you want to create this user account (e.g., “Primary”). This list includes the user stores you have configured. 
+3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 
 4. Enter a unique username and password. These are the credentials that the user will use to log in. 
-Note that by default, the password must be atleast 5 characters.
+
+    !!! note
+        Note that by default, the password must be atleast 5 characters.
 
     ![enter-user-details](../assets/img/learn/enter-user-details.png)
 
