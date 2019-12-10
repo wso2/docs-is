@@ -295,6 +295,9 @@ nav:
           - 'Setting Up ReCaptcha': learn/setting-up-recaptcha.md
         - 'Workflows': 
           - 'Workflows': learn/workflow-management.md
+          - 'Adding a workflow Engine':
+            - 'Adding a workflow Engine': learn/adding-a-workflow-engine.md
+            - 'Configuring the BPM Profile as a Workflow Engine': learn/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine.md
           - 'Adding a New Workflow Definition': learn/adding-a-new-workflow-definition.md
           - 'Engaging a Workflow in an Operation': learn/engaging-a-workflow-in-an-operation.md
           - 'Managing Human Tasks': learn/managing-human-tasks.md
