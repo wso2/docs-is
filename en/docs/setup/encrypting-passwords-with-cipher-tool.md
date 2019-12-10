@@ -17,7 +17,7 @@ The instructions on this page explain how plain text passwords in configuration 
     keystore_password = "[password_3]"
     key_password = "[password_4]"
     truststrore_password = "[password_5]"
-    log4j.appender.LOGEVENT.password = "[password_6]"
+    "log4j.appender.LOGEVENT.password" = "[password_6]"
     ```
 
 2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
@@ -25,12 +25,14 @@ The instructions on this page explain how plain text passwords in configuration 
     * On Windows: `./ciphertool.bat -Dconfigure`
 
 3. Go back to the `deployment.toml` file and see that the alias passwords are encrypted.
+    
     ```toml
     [secrets]
     admin_password = "encrypted_pass_2"
     keystore_password = "encrypted_pass_3"
     key_password = "encrypted_pass_4"
     truststrore_password = "encrypted_pass_5"
+    "log4j.appender.LOGEVENT.password" = "encrypted_pass_6"
     ```
 
 ## Using encrypted passwords
@@ -58,7 +60,7 @@ password = "$secret{keystore_password}"
 ```
 
 ### Passwords in LOG4j properties
-For example, consider the 'log4j.appender.LOGEVENT.password' in the log4j.properties file. You can refer the [encrypted password](#encrypting-passwords) form the log4j.properties file as shown below.
+For example, consider the 'log4j.appender.LOGEVENT.password' in the log4j.properties file. You can refer the [encrypted password](#encrypting-passwords) from the log4j.properties file as shown below.
 
 ```
 log4j.appender.LOGEVENT.password=secretAlias:log4j.appender.LOGEVENT.password
