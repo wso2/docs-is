@@ -37,14 +37,15 @@ using WSO2 IS.
 
     |OS     |Home Directory                                |
     |:------|:---------------------------------------------|
-    |Mac OS | `/Library/WSO2/IdentityServer/5.7.0`         |
-    |Windows| `C:\Program Files\WSO2\IdentityServer\5.7.0` |
-    |Ubuntu | `/usr/lib/wso2/IdentityServer/5.7.0`         |
-    |CentOS | `/usr/lib64/IdentityServer/5.4.70`           |
+    |Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+    |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
+    |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
+    |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
 
-    For the rest of this guide, the installation location of WSO2 IS is referred to as `<IS_HOME>`.
+    In this guide, the installation location of WSO2 IS is referred to as `<IS_HOME>`.
 
-4. [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version you choose.
+[Do   wnload](https://curl.haxx.se/download.html) and install curl. Make
+      sure you install the binary type file of the version you choose.
 
 6. Open the `/etc/hosts` file and add the following entry.        
     
