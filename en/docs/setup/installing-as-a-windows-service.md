@@ -10,7 +10,7 @@ as _Yet Another Java Service Wrapper (YAJSW)_.
     together in a distribution. However, any end-user or customer can freely
     combine components under these two licenses as long as the combined work
     is not distributed. The following instructions will guide you via the process 
-    of using YAJSW to install a WSO2 product as a Windows Service.
+    of using YAJSW to install WSO2 Identity Server as a Windows Service.
 
 Follow the instructions in the sections below to set it up.
 
@@ -20,7 +20,7 @@ Follow the instructions in the sections below to set it up.
     environment variable. For more information, see
     [Installation Prerequisites](../../setup/installation-prerequisites).
 -   Download and install a service wrapper library for running
-    your WSO2 product as a Windows service. WSO2 recommends _Yet Another
+    WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another
     Java Service Wrapper_ (
     [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 11.03, and
     several WSO2 products provide a default
@@ -32,11 +32,11 @@ Follow the instructions in the sections below to set it up.
 
 `         wrapper.conf        ` file is used for wrapping Java Applications by YAJSW.
  The `         wrapper.conf        ` file found in the
-`         <PRODUCT_HOME>/bin/yajsw/        ` directory holds the minimal
+`         <IS_HOME>/bin/yajsw/        ` directory holds the minimal
 configuration for running a WSO2 product as a Windows Service.
 
 1.  Copy the `           wrapper.conf          ` file found in the
-    `           <PRODUCT_HOME>/bin/yajsw/          ` directory and paste
+    `           <IS_HOME>/bin/yajsw/          ` directory and paste
     it in the `           <YAJSW_HOME>/conf/          ` directory.  
     A sample `           wrapper.conf          ` file that is
     packed with the WSO2 product is given below.
