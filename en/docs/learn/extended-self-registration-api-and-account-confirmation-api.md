@@ -85,7 +85,7 @@ claim should be in the request).
                 <p>
                    ```toml
                    [identity_mgt.user_self_registration]
-                   skip_account_lock_on_verified_preferred_channel = true
+                   enable_account_lock_for_verified_preferred_channel = false
                    ```
                 </p>
                 <p>
@@ -94,10 +94,10 @@ claim should be in the request).
                     unclocked on creation.
                 </p>
                 <div class="admonition warning">
-                    <p class="admonition-title">warning</p>
-                    <p>WSO2 recommends verifying users after self registration. 
+                    <p class="admonition-title">Warning</p>
+                    <p>WSO2 recommends verifying users after self registration (Post channel verification).
                     Therefore, it is recommended to set the property to 
-                    <code>false</code>.</p>
+                    <code>true</code>.</p>
                 </div>
                 After enabling this feature, if the user has verified channels, the user will not be asked 
                 to verify the account and account will be unlocked on creation.
