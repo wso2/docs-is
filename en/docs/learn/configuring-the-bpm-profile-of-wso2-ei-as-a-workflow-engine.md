@@ -72,7 +72,7 @@ WSO2 Identity Server to define work flows.
     type = "database"
     ```
 
-6.  Start WSO2 IS if you have not started it already and start the WSO2 EI business-process profile.
+6.  Start WSO2 IS if you have not started it already and the WSO2 EI business-process profile using the following commands. Alternatively for running the products in Windows, execute `wso2server.bat`. 
 
     ```curl
     cd <IS_HOME>/bin 
@@ -83,7 +83,7 @@ WSO2 Identity Server to define work flows.
     cd <EI_HOME>/bin
     ./business-process.sh
     ```
-7.  To test if the BPM profile has been configured properly to the Identity Server, create a user in the WSO2 Identity Server Management Console. Now when you navigate to the list of users in Business Process Server Management Console, the user created previously should be present. 
+7.  To test if the BPM profile has been configured in WSO2 Identity Server, create a user in the WSO2 Identity Server Management Console. Now when you navigate to the list of users in Business Process Server Management Console, the user created previously should be present. 
  
 ### What's Next?
 
