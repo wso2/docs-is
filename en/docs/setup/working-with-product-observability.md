@@ -33,11 +33,11 @@ database calls.
       ```
 3.  Append the loggger `correlation` for list of all loggers as follows.       
 
-      ``` toml
+      ```toml
       loggers = AUDIT_LOG, trace-messages, org-apache-coyote, com-hazelcast, Owasp-CsrfGuard, 
       org-apache-axis2-wsdl-codegen-writer-PrettyPrinter, org-apache-axis2-clustering, org-apache-catalina, 
       org-apache-tomcat, org-wso2-carbon-apacheds, org-apache-directory-server-ldap, org-apache-directory-server-core-event, com-atomikos, org-quartz, org-apache-jackrabbit-webdav, org-apache-juddi, org-apache-commons-digester-Digester, org-apache-jasper-compiler-TldLocationsCache, org-apache-qpid, org-apache-qpid-server-Main, qpid-message, qpid-message-broker-listening, org-apache-tiles, org-apache-commons-httpclient, org-apache-solr, me-prettyprint-cassandra-hector-TimingLogger, org-apache-axis-enterprise, org-apache-directory-shared-ldap, org-apache-directory-server-ldap-handlers, org-apache-directory-shared-ldap-entry-DefaultServerAttribute, org-apache-directory-server-core-DefaultDirectoryService, org-apache-directory-shared-ldap-ldif-LdifReader, org-apache-directory-server-ldap-LdapProtocolHandler, org-apache-directory-server-core, org-apache-directory-server-ldap-LdapSession, DataNucleus, Datastore, Datastore-Schema, JPOX-Datastore, JPOX-Plugin, JPOX-MetaData, JPOX-Query, JPOX-General, JPOX-Enhancer, org-apache-hadoop-hive, hive, ExecMapper, ExecReducer, net-sf-ehcache, axis2Deployment, equinox, tomcat2, StAXDialectDetector, org-apache-directory-api, org-apache-directory-api-ldap-model-entry, TRANSACTION_LOGGER, DELETE_EVENT_LOGGER, org-springframework, org-opensaml-xml-security-credential-criteria, org-wso2-carbon-user-core, org-wso2-carbon-identity, org-wso2-carbon-identity-sso-saml, correlation
-       ```
+      ```
 4.  Following are the default correlation appender configuration. You can change any of these values using the log4j2
 .properties. 
 
