@@ -251,8 +251,8 @@ Management Policies** section.
         
 ## Adding SMS notification templates
 
-The templates for the EMAIL notification are stored in `<IS_HOME</repository/conf/email 
-/email-admin-config.xml` file and the templates can be edited from the management console.
+The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
+file and they can be edited using the Management Console.
 
 !!! tip
     The **AccountConfirmation** template is used to send email notifications.You can edit and 
@@ -263,28 +263,35 @@ The templates for SMS notifications are stored in the registry. Follow the steps
 SMS notification templates.
 
 !!! Warning
-    All the configs are case sensitive. Changing the case might break the functionality
+    All the configurations are case sensitive. Changing the case may break the functionality and 
+    cause errors.
 
-1. Login to the management console and navigate to `Main> Registry> Browse`.
-2. In **tree view tab**, click `system>config>identity`.
-3. Click **Add Collection** and enter collection name as `sms`.
-![add-sms-collection](../assets/img/learn/self-registration/adding-sms-templates/add-sms-collection.png)
-4. Click on the **sms directory** and click **Add Collection** and enter collection name as 
-`accountconfirmation`. This will create another directory inside the sms directory.
-![add-accountconfirmation-collection](../assets/img/learn/self-registration/adding-sms-templates/add-accountconfirmation-collection.png)
+1. Log in to the Management Console and click `Main> Registry> Browse`.
+
+2. On the **tree view** tab, click `system -> config ->identity`.
+
+3. Click **Add Collection**, enter `sms` as the **Name**, and then click **Add**.
+    ![add-sms-collection](../assets/img/learn/self-registration/adding-sms-templates/add-sms-collection.png)
+    
+4. Click `sms` and then click **Add collection**. Enter `accountconfirmation` as the **Name. 
+This will create another directory inside the sms directory.
+    ![add-accountconfirmation-collection](../assets/img/learn/self-registration/adding-sms-templates/add-accountconfirmation-collection.png)
+    
 5. Click on **Add Resource**.
-6. Select **method** as `Create Text Content`.
-7. Provide **name** as `en_us`.
-8. Add the SMS notification template body. **NOTE:** Include `{{confirmation-code}}` placeholder 
+
+6. Select `Create Text Content` as the **Method** and enter `en_us` as the **Name**.
+
+7. Add the SMS notification template body. **NOTE:** Include `{{confirmation-code}}` placeholder 
 in the SMS template body.
-![add-template-resource](../assets/img/learn/self-registration/adding-sms-templates/add-template-resource.png)
-9. Click on en_us resource and add the following properties.
+
+    ![add-template-resource](../assets/img/learn/self-registration/adding-sms-templates/add-template-resource.png)
+8. Click `en_us` resource and add the following properties.
     ```text
     display : accountconfirmation
     type : accountconfirmation
     locale : en_US
     ```
-![sms-template-resource-properties](../assets/img/learn/self-registration/adding-sms-templates/sms-template-resource-properties.png)
+    ![sms-template-resource-properties](../assets/img/learn/self-registration/adding-sms-templates/sms-template-resource-properties.png)
                     
 ## Configuring self-registration consent purposes
     
@@ -296,8 +303,8 @@ For more details see,
 
 WSO2 Identity Server provides the functionality to confirm the user account internally or externally.
 
-!!! note
-    To try out self-registration, above steps needs to be completed. 
+!!! tip "Before you begin"
+    Complete the steps given above before trying out self-registration.
 
 1. **Internal Notification Management** : Notification sending for account confirmation is managed 
 by WSO2 Identity Server.
