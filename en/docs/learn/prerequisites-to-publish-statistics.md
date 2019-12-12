@@ -12,10 +12,15 @@ Follow the steps below to download WSO2 IS Analytics binary
 distribution.
 
 1.  Go to the [WSO2 IS Analytics download
-    page](https://wso2.com/identity-and-access-management/install/analytics/)
-    .
-2.  Download the WSO2 IS Analytics pack.
-
+    page](https://wso2.com/identity-and-access-management/install/analytics/).
+2.  Download the WSO2 Identity Server Analytics 5.8.0 pack.
+    
+    !!! Note 
+        WSO2 Identity Server 5.9.0 analytics capabilities are fully
+        compatible with WSO2 IS Analytics 5.8.0. Please note that **WSO2 IS
+        Analytics 5.8.0 is the recommended version for WSO2 Identity Server
+        5.9.0**.
+    
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
 

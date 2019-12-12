@@ -64,10 +64,11 @@ nav:
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
       - 'Basic Tutorials':
+        - 'User Management':
+          - 'Adding Users and Roles': learn/adding-users-and-roles.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
-          - 'WS-Federation': learn/configuring-single-sign-on-wsfed.md
         - 'Access Delegation':
           - 'OAuth 2.0': learn/configuring-access-delegation-with-oauth2.md
       - 'Single Sign-On':
@@ -297,6 +298,9 @@ nav:
           - 'Setting Up ReCaptcha': learn/setting-up-recaptcha.md
         - 'Workflows': 
           - 'Workflows': learn/workflow-management.md
+          - 'Adding a workflow Engine':
+            - 'Adding a workflow Engine': learn/adding-a-workflow-engine.md
+            - 'Configuring the BPM Profile as a Workflow Engine': learn/configuring-the-bpm-profile-of-wso2-ei-as-a-workflow-engine.md
           - 'Adding a New Workflow Definition': learn/adding-a-new-workflow-definition.md
           - 'Engaging a Workflow in an Operation': learn/engaging-a-workflow-in-an-operation.md
           - 'Managing Human Tasks': learn/managing-human-tasks.md
@@ -761,6 +765,7 @@ nav:
     - 'GDPR': compliance/general-data-protection-regulation.md
     - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'References':
+    - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
