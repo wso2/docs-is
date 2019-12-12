@@ -273,7 +273,7 @@ SMS notification templates.
 3. Click **Add Collection**, enter `sms` as the **Name**, and then click **Add**.
     ![add-sms-collection](../assets/img/learn/self-registration/adding-sms-templates/add-sms-collection.png)
     
-4. Click `sms` and then click **Add collection**. Enter `accountconfirmation` as the **Name. 
+4. Click `sms` and then click **Add collection**. Enter `accountconfirmation` as the **Name**. 
 This will create another directory inside the sms directory.
     ![add-accountconfirmation-collection](../assets/img/learn/self-registration/adding-sms-templates/add-accountconfirmation-collection.png)
     
