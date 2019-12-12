@@ -6,20 +6,14 @@ template: templates/single-column.html
 
 <div>
     <header>
-        <h1>Welcome to WSO2 Identity Server</h1>
+        <h1>Welcome to the WSO2 Identity Server Documentation!</h1>
     </header>
     <div class="md-main md-content" style="float:left; width: 45%;  text-align:justify; max-height:100%; ">
-        <p>As an enterprise's applications, services, and API adoptions grow, managing identities (such as employees, vendors, partners, and customers) across internal, shared, 
-        and SaaS services becomes a significant challenge. The WSO2 Identity Server is a product that can meet this challenge and also provide options to solve identity problems
-         you may encounter in future.</p> 
-        <p>WSO2 Identity Server is fully open source and is released under Apache Software License Version 2.0, one of the most business-friendly licenses available today.
-        WSO2 Identity Server is an identity and access management server that facilitates security, 
-        while connecting and managing multiple identities across different applications. 
-        It enables enterprise architects and developers to improve customer 
-        experience through a secure single sign-on environment.</p>
+        <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML, OAuth and OIDC with the deployment options of on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
+        <p>Within these pages you will find tutorials that help you understand and try out capabilities such as SSO, Identity Federation, Authentication - be it multi-factor authentication or adaptive authentication, and more. You can also browse through our vast API options available. </p>
     </div>
-    <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px;">
-        <iframe width="1000" height="400" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="md-main md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
+        <iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div>
         <div class="content"> 
@@ -110,17 +104,8 @@ template: templates/single-column.html
                 </div>
             </div>
             <!-- end card -->
-            <!-- card -->
-            <div class="card" onclick="location.href='develop/wso2-identity-server-authenticators-and-connectors-documentation';">
-      	        <div class="line"></div>
-                <div class="icon">
-                    <i class="material-icons md-36">settings_input_component</i>
-                </div>
-                <div class="card-content">
-            		    <p class="title">Connectors</p>
-            		    <p class="hint">Configure third-party authenticators</p>
-                </div>
-            </div>
+            <!-- card for connectors -->
+
             <!-- end card -->
         </div>
     </div>

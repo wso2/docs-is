@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -60,12 +60,41 @@ nav:
       - 'Access Control and Entitlement Management': get-started/access-control-and-entitlement-management.md
       - 'Identity Anti-patterns and the Identity Bus': get-started/identity-anti-patterns-and-the-identity-bus.md
       - 'Cross Protocol Single Logout': get-started/cross-protocol-single-logout.md
-  - 'Compliance':
-    - 'General Data Protection Regulation': compliance/general-data-protection-regulation.md
-    - 'Electronic Identification, Authentication and Trust Services Regulation': compliance/electronic-identification-authentication-and-trust-services-regulation.md
   - 'Learn':
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
+      - 'Basic Tutorials':
+        - 'Single Sign-On':
+          - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
+          - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
+          - 'WS-Federation': learn/configuring-single-sign-on-wsfed.md
+        - 'Access Delegation':
+          - 'OAuth 2.0': learn/configuring-access-delegation-with-oauth2.md
+      - 'Single Sign-On':
+        - 'Single Sign-On': learn/single-sign-on.md
+        - 'Configuring Single Sign-On':
+          - 'Configuring Single Sign-On': learn/configuring-single-sign-on.md
+          - 'Configuring reCaptcha for Single Sign On': learn/configuring-recaptcha-for-single-sign-on.md
+        - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
+        - 'SAML 2.0 Web SSO':
+          - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
+          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml2-web-single-sign-on.md
+          - 'Querying SAML Assertions': learn/querying-saml-assertions.md
+          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
+        - 'WS-Trust':
+          - 'WS-Trust': learn/ws-trust.md
+          - 'Configuring WS-Trust Security Token Service': learn/configuring-ws-trust-security-token-service.md
+        - 'WS-Federation':
+          - 'WS-Federation': learn/ws-federation.md
+          - 'Configuring WS-Federation Single Sign-On': learn/configuring-ws-federation-single-sign-on.md
+        - 'Integrated Windows Authentication':
+          - 'Integrated Windows Authentication Overview': learn/integrated-windows-authentication-overview.md
+          - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
+        - 'OAuth2-OpenID Connect':
+          - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
+          - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
+          - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
+          - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
@@ -96,6 +125,12 @@ nav:
         - 'Testing OIDC Encrypted ID Token with IS': learn/testing-oidc-encrypted-id-token-with-is.md
         - 'Passing OIDC Authentication Request Parameters in a Request Object': learn/passing-oidc-authentication-request-parameters-in-a-request-object.md
         - 'Enforcing Signature Validation for Request Objects': learn/enforcing-signature-validation-for-request-objects.md
+      - "Multi-factor Authentication" :
+        - 'MFA in WSO2 Identity Server': learn/multi-factor-authentication.md
+        - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
+        - 'Configuring SMS OTP': learn/configuring-sms-otp.md
+        - 'Configuring Email OTP': learn/configuring-email-otp.md
+        - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
@@ -109,38 +144,16 @@ nav:
           - 'Configuring New-Device-Based Adaptive Authentication': learn/configuring-new-device-based-adaptive-authentication.md
           - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
           - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
+          - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
           - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
           - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
         - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
         - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
-      - 'Single Sign-On':
-        - 'Single Sign-On': learn/single-sign-on.md
-        - 'Configuring Single Sign-On': 
-          - 'Configuring Single Sign-On': learn/configuring-single-sign-on.md
-          - 'Configuring reCaptcha for Single Sign On': learn/configuring-recaptcha-for-single-sign-on.md
-        - 'Single Sign-On for Native iOS Applications with WSO2 Identity Server': learn/single-sign-on-for-native-ios-applications-with-wso2-identity-server.md
-        - 'SAML 2.0 Web SSO':
-          - 'SAML 2.0 Web SSO': learn/saml-2.0-web-sso.md
-          - 'Configuring SAML2 Web Single-Sign-On': learn/configuring-saml2-web-single-sign-on.md
-          - 'Querying SAML Assertions': learn/querying-saml-assertions.md
-          - 'Configuring SAML 2.0 Artifact Binding': learn/configuring-saml-2.0-artifact-binding.md
-        - 'WS-Trust':
-          - 'WS-Trust': learn/ws-trust.md
-          - 'Configuring WS-Trust Security Token Service': learn/configuring-ws-trust-security-token-service.md
-        - 'WS-Federation':
-          - 'WS-Federation': learn/ws-federation.md
-          - 'Configuring WS-Federation Single Sign-On': learn/configuring-ws-federation-single-sign-on.md 
-        - 'Integrated Windows Authentication':
-          - 'Integrated Windows Authentication Overview': learn/integrated-windows-authentication-overview.md
-          - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
-        - 'OAuth2-OpenID Connect':
-          - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
-          - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
-          - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
-      - 'Identity Federation': 
+      - 'Identity Federation':
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
           - 'Configuring Federated Authentication': learn/configuring-federated-authentication.md
+          - 'Configuring SAML 2.0 Web SSO': learn/configuring-saml-2.0-web-sso.md
           - 'Configuring OAuth2-OpenID Connect': learn/configuring-oauth2-openid-connect.md
           - 'Configuring WS-Federation': learn/configuring-ws-federation.md
           - 'Configuring Facebook': learn/configuring-facebook.md
@@ -150,18 +163,16 @@ nav:
           - 'Configuring IWA on Linux': learn/configuring-iwa-on-linux.md
           - 'Configuring AD FS as a Federated Authenticator': learn/configuring-ad-fs-as-a-federated-authenticator.md
           - 'Configuring Twitter': learn/configuring-twitter.md
-          - 'Configuring SMS OTP': learn/configuring-sms-otp.md
-          - 'Configuring Email OTP': learn/configuring-email-otp.md
           - 'Configuring Apple': learn/configuring-apple.md
         - 'Identity Federation with WS-Trust':
           - 'Identity Federation with WS-Trust': learn/identity-federation-with-ws-trust.md
           - 'Configuring STS for Obtaining Tokens with Holder-Of-Key Subject Confirmation': learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation.md
-          - 'WSO2 Identity Server and Claim Aware Proxy Services with ESB': learn/wso2-identity-server-and-claim-aware-proxy-services-with-esb.md
           - 'Accessing Claim Aware Services using STS Secured with Non-repudiation': learn/accessing-claim-aware-services-using-sts-secured-with-non-repudiation.md
           - 'Requesting and Renewing Received SAML2 Bearer Type Tokens': learn/requesting-and-renewing-received-saml2-bearer-type-tokens.md
           - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-saml2-single-sign-on-across-different-wso2-products.md
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': leran/handling-saml-single-logout-requests-from-federated-identity-providers.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
@@ -182,7 +193,6 @@ nav:
           - 'Validating OAuth Access Token Scope Using XACML Policies During Token Issuance': learn/validating-oauth-access-token-scope-using-xacml-policies-during-token-issuance.md
         - 'Working with XACML':
           - 'Working with XACML': learn/working-with-xacml.md
-          - 'Configuring WSO2 EI Entitlement Mediator with Identity Server': learn/configuring-wso2-ei-entitlement-mediator-with-identity-server.md
           - 'Enabling REST Notifications For XACML Policy Updates': learn/enabling-rest-notifications-for-xacml-policy-updates.md
           - 'Identity Server as an XACML Engine': learn/identity-server-as-an-xacml-engine.md
           - 'Working with XACML Multiple Decision Profile Requests': 
@@ -193,28 +203,30 @@ nav:
           - 'Fine-grained Authorization using XACML Requests in JSON Format': learn/fine-grained-authorization-using-xacml-requests-in-json-format.md
           - 'Improving XACML PDP Performance with Caching Techniques': learn/improving-xacml-pdp-performance-with-caching-techniques.md
           - 'Integrating WSO2 Identity Server with Liferay': learn/integrating-wso2-identity-server-with-liferay.md
-          - 'Writing XACML2.0 Policies in WSO2 Identity Server':
-            - 'Writing XACML2.0 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
-            - 'Writing XACML policies in WSO2 Identity Server - 1': learn/writing-xacml-policies-in-wso2-identity-server-1.md
-            - 'Writing XACML policies in WSO2 Identity Server - 2': learn/writing-xacml-policies-in-wso2-identity-server-2.md
-            - 'Writing XACML policies in WSO2 Identity Server - 3': learn/writing-xacml-policies-in-wso2-identity-server-3.md
-            - 'Writing XACML policies in WSO2 Identity Server - 4': learn/writing-xacml-policies-in-wso2-identity-server-4.md
-            - 'Writing XACML policies in WSO2 Identity Server - 5': learn/writing-xacml-policies-in-wso2-identity-server-5.md
-            - 'Writing XACML policies in WSO2 Identity Server - 6': learn/writing-xacml-policies-in-wso2-identity-server-6.md
-            - 'Writing XACML policies in WSO2 Identity Server - 7': learn/writing-xacml-policies-in-wso2-identity-server-7.md
+          - 'Writing XACML2 Policies in WSO2 Identity Server':
+            - 'Writing XACML2 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
+            - 'Introduction to XACML2 Policies': learn/introduction-to-xacml-2.0-policies.md
+            - 'XACML2 Sample Policy - 1': learn/xacml-2.0-sample-policy-1.md
+            - 'XACML2 Sample Policy - 2': learn/xacml-2.0-sample-policy-2.md
+            - 'XACML2 Sample Policy - 3': learn/xacml-2.0-sample-policy-3.md
+            - 'XACML2 Sample Policy - 4': learn/xacml-2.0-sample-policy-4.md
+            - 'XACML2 Sample Policy - 5': learn/xacml-2.0-sample-policy-5.md
+            - 'XACML2 Sample Policy - 6': learn/xacml-2.0-sample-policy-6.md
           - 'Writing XACML3 Policies in WSO2 Identity Server':
             - 'Writing XACML3 Policies in WSO2 Identity Server': learn/writing-xacml3-policies-in-wso2-identity-server.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 1': learn/writing-xacml-3-policies-in-wso2-identity-server-1.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 2': learn/writing-xacml-3-policies-in-wso2-identity-server-2.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 3': learn/writing-xacml-3-policies-in-wso2-identity-server-3.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 4': learn/writing-xacml-3-policies-in-wso2-identity-server-4.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 5': learn/writing-xacml-3-policies-in-wso2-identity-server-5.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 6': learn/writing-xacml-3-policies-in-wso2-identity-server-6.md
-            - 'Writing XACML 3 Policies in WSO2 Identity Server - 7': learn/writing-xacml-3-policies-in-wso2-identity-server-7.md
+            - 'Introduction to XACML3 Policies': learn/introduction-to-xacml-3.0-policies.md
+            - 'XACML3 Sample Policy - 1': learn/xacml-3.0-sample-policy-1.md
+            - 'XACML3 Sample Policy - 2': learn/xacml-3.0-sample-policy-2.md
+            - 'XACML3 Sample Policy - 3': learn/xacml-3.0-sample-policy-3.md
+            - 'XACML3 Sample Policy - 4': learn/xacml-3.0-sample-policy-4.md
+            - 'XACML3 Sample Policy - 5': learn/xacml-3.0-sample-policy-5.md
+            - 'XACML3 Sample Policy - 6': learn/xacml-3.0-sample-policy-6.md
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
-      - 'Setting Up An LDAP User Store': learn/setting-up-an-ldap-user-store.md
-    - 'Using WSO2 Identity Server':     
+      - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Using WSO2 Identity Server':
+      - 'User Portal': learn/user-portal.md
+    - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
           - 'Configuring Users, Roles and Perimissions': learn/configuring-users-roles-and-permissions.md
@@ -241,8 +253,12 @@ nav:
           - 'Inbound Provisioning':
             - 'Inbound Provisioning': learn/inbound-provisioning.md
             - 'Setting Up Service Provider for Inbound Provisioning': learn/setting-up-service-provider-for-inbound-provisioning.md
-            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
-            - 'Configuring Active Directory User Stores for Inbound Provisioning': learn/configuring-active-directory-user-stores-for-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 1.1 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
+            - 'Configuring User Stores for SCIM 2.0 based inbound provisioning':
+                - 'Configuring User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring Active Directory User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
           - 'Outbound Provisioning':
             - 'Outbound Provisioning': learn/outbound-provisioning.md
             - 'Outbound Provisioning with SCIM': learn/outbound-provisioning-with-scim.md
@@ -287,6 +303,7 @@ nav:
           - 'Monitoring Workflow Requests': learn/monitoring-workflow-requests.md
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
+        - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
         - 'Using the End User Dashboard': learn/using-the-end-user-dashboard.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
@@ -304,10 +321,10 @@ nav:
           - 'Configuring Inbound Authentication for a Service Provider': learn/configuring-inbound-authentication-for-a-service-provider.md
           - 'Configuring Local and Outbound Authentication for a Service Provider':
             - 'Configuring Local and Outbound Authentication for a Service Provider': learn/configuring-local-and-outbound-authentication-for-a-service-provider.md
-            - 'MFA for WSO2 IS': learn/multi-factor-authentication-for-wso2-is.md
-            - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
-            - 'Request Path Authentication': learn/request-path-authentication.md
-            - 'Writing a Post-Authentication Handler': learn/writing-post-authentication-handler.md
+            - 'Request Path Authentication':
+              - 'Request Path Authentication': learn/request-path-authentication.md
+              - 'Basic Auth Request Path Authentication': learn/basic-auth-request-path-authentication.md
+              - 'OAuth Request Path Authenticator': learn/oauth-request-path-authentication.md
             - 'Configuring Multi-factor Authentication with Username and Password': learn/configuring-multi-factor-authentication-with-username-and-password.md
           - 'Configuring Inbound Provisioning for a Service Provider': learn/configuring-inbound-provisioning-for-a-service-provider.md
           - 'Configuring Outbound Provisioning for a Service Provider': learn/configuring-outbound-provisioning-for-a-service-provider.md
@@ -338,6 +355,8 @@ nav:
             - 'Client Credentials Grant': learn/client-credentials-grant.md
             - 'Refresh Token Grant': learn/refresh-token-grant.md
             - 'Kerberos Grant': learn/kerberos-grant.md
+            - 'Device Authorization grant': learn/device-flow-grant.md
+            - 'JWT Grant': learn/jwt-grant.md
           - 'SAML2 Bearer Assertion Profile for OAuth 2.0': learn/saml2-bearer-assertion-profile-for-oauth-2.0.md
           - 'Setting Up OAuth Token Hashing': learn/setting-up-oauth-token-hashing.md
           - 'JWT Token Generation': learn/jwt-token-generation.md
@@ -398,39 +417,35 @@ nav:
           - 'Alert Types': learn/alert-types.md
           - 'Configuring Alerts': learn/configuring-alerts.md
           - 'Viewing Alerts': learn/viewing-alerts.md
-      - 'Authenticators and Provisioning Connectors': learn/authenticators-and-provisioning-connectors.md
       - 'Samples':
         - 'Downloading a Sample': learn/downloading-a-sample.md
         - 'OAuth2':
           - 'Writing a Custom OAuth 2.0 Grant Type':
             - 'Writing a Custom OAuth 2.0 Grant Type': learn/writing-a-custom-oauth-2.0-grant-type.md
             - 'Sending Custom Error Codes': learn/sending-custom-error-codes.md
-          - '2-legged OAuth for Securing a RESTful Service': learn/2-legged-oauth-for-securing-a-restful-service.md
           - 'OAuth 2.0 with WSO2 Playground':
             - 'OAuth 2.0 with WSO2 Playground': learn/oauth-2.0-with-wso2-playground.md
-            - 'Setting Up the Sample Webapp': learn/setting-up-the-sample-webapp.md
             - 'Try Authorization Code Grant': learn/try-authorization-code-grant.md
             - 'Try Client Credentials Grant': learn/try-client-credentials-grant.md
             - 'Try Implicit Grant': learn/try-implicit-grant.md
             - 'Try Password Grant': learn/try-password-grant.md
             - 'Try Request Path Authentication': learn/try-request-path-authentication.md
+          - 'Device Flow with WSO2 Device Flow Demo App': learn/try-device-flow.md
           - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0.md
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
           - 'Implicit Client Profile with Playground': learn/implicit-client-profile-with-playground.md
+          - 'Session Management with Playground': learn/session-management-with-playground.md
           - 'Verifying OpenID Connect ID Token Signatures': learn/verifying-openid-connect-id-token-signatures.md
           - 'Decrypting OpenID Connect Encrypted ID Tokens': learn/decrypting-openid-connect-encrypted-id-tokens.md
-        - 'Configuring Sample Application for Identity Management': learn/configuring-sample-application-for-identity-management.md
         - 'Writing a Web Service Client for Authentication and User Admin Services': learn/writing-a-web-service-client-for-authentication-and-user-admin-services.md
         - 'Testing Passive STS': learn/testing-passive-sts.md
         - 'Consuming SCIM Rest Endpoints from a JAVA Client Application': learn/consuming-scim-rest-endpoints-from-a-java-client-application.md
         - 'Running an STS Client': learn/running-an-sts-client.md
         - 'XACML Sample for an Online Trading Application': learn/xacml-sample-for-an-online-trading-application.md
-        - 'Broker Trust Relationships with WSO2 Identity Server': learn/broker-trust-relationships-with-wso2-identity-server.md
         - 'Log in to the Identity Server using another Identity Server - SAML2': learn/log-in-to-the-identity-server-using-another-identity-server-saml2.md
         - 'Login to Identity Server using another Identity Server - OAuth2': learn/login-to-identity-server-using-another-identity-server-oauth2.md    
-      - 'Logging Claims in Audit Logs': learn/logging-claims-in-audit-logs.md
-  - 'Develop': 
+  - 'Develop':
     - 'Developer Guide': 
       - 'Developer guide': develop/developer-guide.md
       - 'Working with the Source Code': develop/working-with-the-source-code.md
@@ -439,6 +454,7 @@ nav:
           - 'Writing a Custom Password Validator': develop/writing-a-custom-password-validator.md
           - 'Writing a Custom Claim Handler': develop/writing-a-custom-claim-handler.md
           - 'User Store Listeners': develop/user-store-listeners.md
+          - 'Writing a Post-Authentication Handler': develop/writing-a-post-authentication-handler.md
           - 'Using the User Management Errors Event Listener': develop/using-the-user-management-errors-event-listener.md
           - 'Carbon Remote User Store Manager': develop/carbon-remote-user-store-manager.md
           - 'Working with Errors': 
@@ -458,7 +474,7 @@ nav:
           - 'Writing a Custom Workflow Template': develop/writing-a-custom-workflow-template.md
         - 'Adaptive Authentication for Developers':
           - 'Writing Custom Functions for Adaptive Authentication': develop/writing-custom-functions-for-adaptive-authentication.md
-      - 'Using APIs': 
+      - 'Using APIs':
           - 'Using APIs': develop/using-apis.md
           - 'Calling Admin Services': 
             - 'Calling Admin Services': develop/calling-admin-services.md
@@ -483,10 +499,14 @@ nav:
               - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
               - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
             - 'SCIM 2.0': develop/using-the-scim-2.0-rest-apis.md
+            - 'SCIM 1.1': develop/scim-1.1-apis.md
             - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
             - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication': develop/authentication-data-api.md
+            - 'Secondary User Store': develop/userstore-rest-api.md
+            - 'Keystore Management': develop/keystore-rest-api.md
+            - 'Identity Providers': develop/idp-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -505,12 +525,12 @@ nav:
               - 'Identity Provider Management': develop/identity-provider-management-api.md
               - 'Using the Identity Provider': develop/using-the-identity-provider-api.md
               - 'Identity Provider Configurations used with APIs': develop/identity-provider-configurations-used-with-apis.md
-          - 'SCIM 1.1 APIs': develop/scim-1.1-apis.md
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
             - 'Entitlement with REST APIs': develop/entitlement-with-rest-apis.md
-      - 'Customizing User Interfaces': 
+      - 'Customizing User Interfaces':
+        - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md      
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
@@ -519,8 +539,7 @@ nav:
     - 'Connectors':
       - 'Configuring Connectors': 
         - 'Connectors Overview': develop/wso2-identity-server-authenticators-and-connectors-documentation.md
-        - 'Configuring Connectors': develop/authenticators-and-connectors.md    
-        - 'Deploying the Sample App': develop/deploying-the-sample-app.md
+        - 'Configuring Connectors': develop/authenticators-and-connectors.md
         - 'Amazon Authenticator': develop/amazon-authenticator.md
         - 'Basecamp Authenticator': develop/basecamp-authenticator.md
         - 'Bitly Authenticator': develop/bitly-authenticator.md
@@ -529,7 +548,6 @@ nav:
         - 'Duo Security Authenticator and Provisioning Connector':
           - 'Duo Security Provisioning Connector': develop/duo-security-provisioning-connector.md
           - 'Duo Security Authenticator': develop/duo-security-authenticator.md
-        - 'EmailOTP Authenticator': learn/configuring-email-otp.md
         - 'Facebook Authenticator': develop/facebook-authenticator.md
         - 'Foursquare Authenticator': develop/foursquare-authenticator.md
         - 'Github Authenticator': develop/github-authenticator.md
@@ -566,9 +584,8 @@ nav:
         - 'Nuxeo Authenticator': develop/nuxeo-authenticator.md
         - 'AWS Cloud Directory User Store': develop/aws-cloud-directory-user-store.md           
       - 'Creating a Third Party Authenticator or Connector and Publishing in WSO2 Store': develop/creating-a-third-party-authenticator-or-connector-and-publishing-in-wso2-store.md
-    - 'Getting Support': develop/getting-support.md 
   - 'Setup':
-    - 'Installation':
+    - 'Install':
       - 'Installing the Product': 
         - 'Installing the Product': setup/installing-the-product.md
         - 'Installation Prerequisites': setup/installation-prerequisites.md
@@ -577,90 +594,103 @@ nav:
         - 'Installing on Windows': setup/installing-on-windows.md
         - 'Installing as a Linux Service': setup/installing-as-a-linux-service.md
         - 'Installing as a Windows Service': setup/installing-as-a-windows-service.md
+        - 'Uninstalling the Product': setup/uninstalling-the-product.md
       - 'Running the Product': setup/running-the-product.md
       - 'Getting Started with the Management Console':
         - 'Overview': setup/getting-started-with-the-management-console.md
         - 'Customizing the Management Console': setup/customizing-the-management-console.md
-    - 'Deployment':
+    - 'Deploy':
       - 'Overview': setup/deploying-the-identity-server.md
       - 'Deployment Guide':
         - 'Deploying the Identity Server': setup/deployment-guide.md
         - 'Fronting with the Nginx load balancer': setup/fronting-with-the-nginx-load-balancer.md
         - 'Setting Up Separate Databases for Clustering': setup/setting-up-separate-databases-for-clustering.md
       - 'Changing the hostname': setup/changing-the-hostname.md
-      - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+      - 'Data Stores':
+        - 'Working with Databases':
+          - 'Overview': setup/working-with-databases.md
+          - 'Changing the Carbon Database':
+            - 'Changing to IBM DB2': setup/changing-to-ibm-db2.md
+            - 'Changing to MariaDB': setup/changing-to-mariadb.md
+            - 'Changing to MSSQL': setup/changing-to-mssql.md
+            - 'Changing to MySQL': setup/changing-to-mysql.md
+            - 'Changing to Oracle': setup/changing-to-oracle.md
+            - 'Changing to Oracle RAC': setup/changing-to-oracle-rac.md
+            - 'Changing to PostgreSQL': setup/changing-to-postgresql.md
+            - 'Changing to Remote H2': setup/changing-to-remote-h2.md
+            - 'Changing default datasource of BPS': setup/changing-datasource-bpsds.md
+            - 'Changing the Default Datasource for Consent Management': setup/changing-datasource-consent-management.md
+          - 'Browsing the H2 Database': setup/browsing-the-h2-database.md
+        - 'Working with Users, Roles and Permissions':
+              - 'Working with Users, Roles and Permissions': setup/working-with-users-roles-and-permissions.md
+              - 'Introduction to User Management': setup/introduction-to-user-management.md
+              - 'Configuring the User Realm':
+                - 'Configuring the User Realm': setup/configuring-the-realm.md
+                - 'Configuring the Authorization Manager': setup/configuring-the-authorization-manager.md
+                - 'Configuring the System Administrator': setup/configuring-the-system-administrator.md
+                - 'Configuring User Stores':
+                  - 'Configuring User Stores': setup/configuring-user-stores.md
+                  - 'Configuring the Primary User Store':
+                    - 'Configuring the Primary User Store': setup/configuring-the-primary-user-store.md
+                    - 'Configuring a JDBC User Store': setup/configuring-a-jdbc-user-store.md
+                    - 'Configuring a Read-Only LDAP User Store': setup/configuring-a-read-only-ldap-user-store.md
+                    - 'Configuring a Read-Write Active Directory User Store': setup/configuring-a-read-write-active-directory-user-store.md
+                    - 'Configuring a Read-Write LDAP User Store': setup/configuring-a-read-write-ldap-user-store.md
+                  - 'Adding High Availability for LDAP': setup/adding-high-availability-for-ldap.md
+                  - 'Configuring Secondary User Stores': setup/configuring-secondary-user-stores.md
+                  - 'Working with Properties of User Stores': setup/working-with-properties-of-user-stores.md
+                  - 'Writing a Custom User Store Manager': setup/writing-a-custom-user-store-manager.md
+        - "Working with Tokens":
+          - 'Adding Logs for Tokens': setup/adding-logs-for-tokens.md
+          - 'Token Persistence': setup/token-persistence.md
+          - 'Removing Unused Tokens from the Database': setup/removing-unused-tokens-from-the-database.md
+          - 'Enable Assertions In Access Tokens': setup/enable-assertions-in-access-tokens.md
+        - 'Data Purging': setup/data-purging.md
+        - 'Removing References to Deleted User Identities': setup/removing-references-to-deleted-user-identities.md
+      - 'Configuring rsync for Deployment Synchronization': setup/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
-    - 'Data Stores':
-      - 'Working with Databases':
-        - 'Overview': administer/working-with-databases.md
-        - 'Changing the Carbon Database':
-          - 'Changing to IBM DB2': administer/changing-to-ibm-db2.md
-          - 'Changing to MariaDB': administer/changing-to-mariadb.md
-          - 'Changing to MSSQL': administer/changing-to-mssql.md
-          - 'Changing to MySQL': administer/changing-to-mysql.md
-          - 'Changing to Oracle': administer/changing-to-oracle.md
-          - 'Changing to Oracle RAC': administer/changing-to-oracle-rac.md
-          - 'Changing to PostgreSQL': administer/changing-to-postgresql.md
-          - 'Changing to Remote H2': administer/changing-to-remote-h2.md
-          - 'Changing default datasource of BPS': administer/changing-datasource-bpsds.md
-        - 'Browsing the H2 Database': administer/browsing-the-h2-database.md
-      - 'Working with the Registry':
-        - 'Working with the Registry': administer/working-with-the-registry.md
-        - 'Browsing the Registry': administer/browsing-the-registry.md
-      - 'Working with Users, Roles and Permissions':
-            - 'Working with Users, Roles and Permissions': administer/working-with-users-roles-and-permissions.md
-            - 'Introduction to User Management': administer/introduction-to-user-management.md
-            - 'Configuring the User Realm':
-              - 'Configuring the User Realm': learn/configuring-the-realm.md
-              - 'Configuring the Authorization Manager': learn/configuring-the-authorization-manager.md
-              - 'Configuring the System Administrator': learn/configuring-the-system-administrator.md
-              - 'Configuring User Stores':
-                - 'Configuring User Stores': learn/configuring-user-stores.md
-                - 'Configuring the Primary User Store':
-                  - 'Configuring the Primary User Store': learn/configuring-the-primary-user-store.md
-                  - 'Configuring a JDBC User Store': learn/configuring-a-jdbc-user-store.md
-                  - 'Configuring a Read-Only LDAP User Store': learn/configuring-a-read-only-ldap-user-store.md
-                  - 'Configuring a Read-Write Active Directory User Store': learn/configuring-a-read-write-active-directory-user-store.md
-                  - 'Configuring a Read-Write LDAP User Store': learn/configuring-a-read-write-ldap-user-store.md
-                - 'Configuring Secondary User Stores': learn/configuring-secondary-user-stores.md
-                - 'Working with Properties of User Stores': administer/working-with-properties-of-user-stores.md
-                - 'Writing a Custom User Store Manager': learn/writing-a-custom-user-store-manager.md
-      - "Working with Tokens":
-        - 'Adding Logs for Tokens': administer/adding-logs-for-tokens.md
-        - 'Token Persistence': setup/token-persistence.md
-        - 'Removing Unused Tokens from the Database': administer/removing-unused-tokens-from-the-database.md
-      - 'Data Purging': administer/data-purging.md
-      - 'Removing References to Deleted User Identities': administer/removing-references-to-deleted-user-identities.md
     - 'Monitor':
         - 'Monitoring':
-          - 'Overview': administer/monitoring-the-identity-server.md
+          - 'Overview': setup/monitoring-the-identity-server.md
           - 'Monitoring Logs':
-            - 'Monitoring Logs': administer/monitoring-logs.md
-            - 'HTTP Access Logging': administer/http-access-logging.md
-            - 'Masking Sensitive Information in Logs': administer/masking-sensitive-information-in-logs.md
-          - 'System Statistics': administer/system-statistics.md
+            - 'Monitoring Logs': setup/monitoring-logs.md
+            - 'HTTP Access Logging': setup/http-access-logging.md
+            - 'Masking Sensitive Information in Logs': setup/masking-sensitive-information-in-logs.md
+            - 'Logging Claims in Audit Logs': setup/logging-claims-in-audit-logs.md
+          - 'System Statistics': setup/system-statistics.md
           - 'Monitoring TCP-Based Messages':
-            - 'Monitoring TCP-Based Messages': administer/monitoring-tcp-based-messages.md
-            - 'Message Monitoring with TCPMon': administer/message-monitoring-with-tcpmon.md
-            - 'Other Usages of TCPMon': administer/other-usages-of-tcpmon.md
-          - 'Monitoring Server Health': administer/monitoring-server-health.md
-          - 'JMX-Based Monitoring': administer/jmx-based-monitoring.md
-        - 'Working with Product Observability': administer/working-with-product-observability.md
-        - 'Troubleshooting in Production Environments': administer/troubleshooting-in-production-environments.md
+            - 'Monitoring TCP-Based Messages': setup/monitoring-tcp-based-messages.md
+            - 'Message Monitoring with TCPMon': setup/message-monitoring-with-tcpmon.md
+            - 'Other Usages of TCPMon': setup/other-usages-of-tcpmon.md
+          - 'Monitoring Server Health': setup/monitoring-server-health.md
+          - 'JMX-Based Monitoring': setup/jmx-based-monitoring.md
+        - 'Working with Product Observability': setup/working-with-product-observability.md
+        - 'Troubleshooting in Production Environments': setup/troubleshooting-in-production-environments.md
     - 'Performance':
-      - 'Performance Tuning': administer/performance-tuning-recommendations.md
-      - 'Configuring Cache Layers': administer/configuring-cache-layers.md
-    - 'Migration Guide':
+      - 'Performance Tuning': setup/performance-tuning-recommendations.md
+      - 'Configuring Cache Layers': setup/configuring-cache-layers.md
+    - 'Security':
+        - 'Maintaining Logins and Passwords': setup/maintaining-logins-and-passwords.md
+        - 'Securing Passwords in Configuration Files':
+            - 'Encrypting Passwords with Cipher Tool': setup/encrypting-passwords-with-cipher-tool.md
+            - 'Resolving Encrypted Passwords': setup/resolving-encrypted-passwords.md
+            - 'Customizing Secure Vault': setup/customizing-secure-vault.md
+            - 'Set Passwords using Environment Variables/System Properties': setup/set-passwords-using-environment-variables-or-system-properties.md
+        - 'Enabling HSTS Headers': setup/enabling-hsts.md
+        - 'Preventing browser caching': setup/preventing-browser-caching.md
+        - 'Configuring Transport Level Security': setup/configuring-transport-level-security.md
+        - 'Java Security Manager': setup/enabling-java-security-manager.md
+    - 'Migrate':
       - 'Migration Process': setup/migration-process.md
       - 'What Has Changed': setup/migrating-what-has-changed.md
-      - 'Migration':
+      - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
           - "Migrating to 5.9.0" : setup/migrating-to-590.md
           - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
-    - 'Environment Compatibilty': setup/environment-compatibility.md  
+    - 'Environment Compatibilty': setup/environment-compatibility.md
   - 'Administer':
     - 'Administer': administer/wso2-administration-guide.md
     - 'Product Administration': 
@@ -673,25 +703,24 @@ nav:
           - 'Identity Related Tables': administer/identity-related-tables.md
           - 'Service Provider Related Tables': administer/service-provider-related-tables.md
           - 'Identity Provider Related Tables': administer/identity-provider-related-tables.md
-      - 'Implementing Security in the Identity Server': 
-        - 'Configuring Transport Level Security': administer/transport-level-security.md
-        - 'Saving Access Tokens in Separate Tables': administer/saving-access-tokens-in-separate-tables.md
-        - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
-        - 'Mitigating Cross Site Request Forgery (CSRF) Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
-        - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
-        - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Using Tools':
         - 'Using Tools': administer/using-tools.md
         - 'Using the SAML2 Toolkit': administer/using-the-saml2-toolkit.md
         - 'Using the XACML TryIt Tool':
           - 'Using the XACML TryIt Tool': administer/using-the-xacml-tryit-tool.md
           - 'Evaluating a XACML Policy': administer/evaluating-a-xacml-policy.md
+        - 'Identity Anonymization tool':
+          - 'Removing References to Deleted User Identities using the standalone tool': setup/removing-references-to-deleted-user-identities-in-wso2-products.md
+          - 'Extending the Identity Anonymization Tool': administer/extending-the-identity-anonymization-tool.md
       - 'Working with Multiple Tenants':
           - 'Working with Multiple Tenants': administer/working-with-multiple-tenants.md
           - 'Introduction to Multitenancy': administer/introduction-to-multitenancy.md
           - 'Configuring the Tenant Loading Policy': administer/configuring-the-tenant-loading-policy.md
           - 'Adding New Tenants': administer/adding-new-tenants.md
       - 'LDAP vs JDBC': administer/ldap-vs-jdbc.md
+      - 'Working with the Registry':
+        - 'Working with the Registry': administer/working-with-the-registry.md
+        - 'Browsing the Registry': administer/browsing-the-registry.md
       - 'Kerberos Security': administer/kerberos-security.md
       - 'Enabling Mutual SSL':
         - 'Enabling Mutual SSL': administer/enabling-mutual-ssl.md
@@ -700,22 +729,16 @@ nav:
     - 'Deployment and Clustering':
       - 'Key Concepts':
         - 'Clustering Overview': administer/clustering-overview.md
-        - 'Load Balancing': administer/load-balancing.md    
-        - 'Sharing Databases in a Cluster': administer/sharing-databases-in-a-cluster.md
+        - 'Configuring Hazelcast': administer/configuring-hazelcast.md
+        - 'Load Balancing': administer/load-balancing.md   
         - 'Sticky Sessions with Manager Nodes': administer/sticky-sessions-with-manager-nodes.md
-      - 'Production Deployment Guidelines': 
-        - 'Production Deployment Guidelines': administer/production-deployment-guidelines.md
-        - 'Security Guidelines for Production Deployment': administer/security-guidelines-for-production-deployment.md
-      - 'Configuring rsync for Deployment Synchronization': administer/configuring-rsync-for-deployment-synchronization.md
-    - 'Security':
-      - 'Maintaining Logins and Passwords': administer/maintaining-logins-and-passwords.md
-      - 'Securing Passwords in Configuration Files':
-        - 'Encrypting Passwords with Cipher Tool': administer/encrypting-passwords-with-cipher-tool.md
-        - 'Resolving Encrypted Passwords': administer/resolving-encrypted-passwords.md
-        - 'Carbon Secure Vault Implementation': administer/carbon-secure-vault-implementation.md
-        - 'Set Passwords using Environment Variables/System Properties': administer/set-passwords-using-environment-variables-or-system-properties.md
-      - 'Configuring Transport Level Security': administer/configuring-transport-level-security.md
-      - 'Java Security Manager': administer/enabling-java-security-manager.md
+        - 'Deployment Checklist': administer/deployment-checklist.md
+        - 'Backup and Recovery Recommendations': administer/backup-and-recovery-recommendations.md
+      - 'Security Guidelines':
+        - 'Security Guidelines': administer/security-guidelines-for-production-deployment.md
+        -  'Product-Level': administer/product-level-security-guidelines.md
+        -  'OS-Level': administer/os-level-security-guidelines.md
+        -  'Network-level': administer/network-level-security-guidelines.md
       - 'Encryption':
         - 'Asymmetric Encryption':
           - 'Asymmetric Encryption': administer/using-asymmetric-encryption.md
@@ -728,22 +751,25 @@ nav:
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
       - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
+      - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
+      - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
+      - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
       - 'Enabling HostName Verification': administer/enabling-hostname-verification.md
       - 'Configuring TLS Termination': administer/configuring-tls-termination.md
     - 'Getting WSO2 Updates': administer/getting-wso2-updates.md
-    - 'Reference Guide':
-      - 'Reference Guide': administer/reference-guide.md  
-      - 'Product Startup Options': administer/product-startup-options.md
-      - 'Supported Cipher Suites': administer/supported-cipher-suites.md
-      - 'Directory Structure of WSO2 Products': administer/directory-structure-of-wso2-products.md
-      - 'WSO2 Patch Application Process': administer/wso2-patch-application-process.md
-  - 'References': 
-    - 'References': references/references.md
+  - 'Compliance':
+    - 'GDPR': compliance/general-data-protection-regulation.md
+    - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
+  - 'References':
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
     - 'API Permissions': references/api-permissions.md
     - 'New Configuration Model': references/new-configuration-model.md
     - 'Error Catalog': references/error-catalog.md
+    - 'Product Startup Options': references/product-startup-options.md
+    - 'Supported Cipher Suites': references/supported-cipher-suites.md
+    - 'Directory Structure of WSO2 Products': references/directory-structure-of-wso2-products.md
+    - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
   - '': page-not-found.md  

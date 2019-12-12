@@ -1,12 +1,14 @@
 # Configuring a Service Provider for Adaptive Authentication
 
-Adaptive authentication uses machine learning to enable an identity
-provider to prompt multi-factor authentication steps based on a user's
-risk profile or user behavior, i.e., the authentication adapts to the
-situation or the user during the authentication process. For instance,
-high-risk logins such as a user attempting to log in from an unusual
-location causes the adaptive authentication mechanism to prompt an extra
-authentication in order to increase security.
+Adaptive authentication enables an identity provider to prompt
+multi-factor authentication steps based on a user's risk profile or user
+behavior, i.e., the authentication adapts to the situation or the user during the authentication process.
+
+!!! Tip "Example" 
+    For instance, high-risk logins such as a user
+    attempting to log in from an unusual location causes the adaptive
+    authentication mechanism to prompt an extra authentication in order to
+    increase security.
 
 For more information on adaptive authentication with WSO2 IS, see
 [Adaptive Authentication](../../learn/adaptive-authentication).
@@ -15,28 +17,6 @@ This tutorial guides you through setting up a sample application to try
 out adaptive authentication and configuring it as a service provider in
 WSO2 IS.
 
-!!! tip
-    
-    **Before you begin**,
-    
-    1.  [Download](https://tomcat.apache.org/download-80.cgi) and
-        [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
-        version 8.\*.\* or higher.
-    
-    2.  Install WSO2 IS latest version by downloading the
-        [installer](https://wso2.com/identity-and-access-management/install/)
-        .
-    3.  Open the `            /etc/hosts           ` file, add the following
-        entry, and restart your computer.
-    
-        ```
-        127.0.0.1       localhost.com
-        ```
-
-    > **Note:** To avoid any IP address conflicts, ensure that this is the only
-    entry for this IP address in the `/etc/hosts` file.
-    
-
 
 ### Step 01: Set Up the Samples
 
@@ -44,12 +24,11 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  Download the [saml2-web-app-pickup-dispatch.com.war](../../assets/attachments/saml2-web-app-pickup-dispatch.com.war)
-        file and paste it inside the
-        `              <TOMCAT_HOME>/webapps             ` directory.
+    1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
+    sample application.
 
-    2.  Start the tomcat server and access the PickUp application URL at
-        <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com.>
+    2.  Access the PickUp application URL at
+        <http://localhost:8080/saml2-web-app-pickup-dispatch.com.>
 
         Note that a login screen appears.
         
@@ -58,10 +37,10 @@ adaptive authentication using a sample application.
 2.  Deploy the sample authenticator dependency and web application in
     WSO2 IS.
 
-    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar) file and paste it inside the
         `              <IS_HOME>/repository/components/dropins             ` directory.
 
-    2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+    2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.1.0/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
         folder.  
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
@@ -114,9 +93,14 @@ application by setting up inbound authentication.
     such as OAuth and WS-Federation, see [Configuring Inbound Authentication
     for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider).
 
+!!! Warning "Before you proceed" 
+    In the previous step, you have deployed and
+    [registered the `saml2-web-app-pickup-dispatch.com` webapp](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2).
+    If you complete that you can skip steps 1 to 4 below and directly jump
+    to step 5.
+            
 1.  On the **Main** tab, click **Service Providers &gt; Add** and add a
-    new service provider called
-    `            saml2-web-app-dispatch.com           ` .
+    new service provider called ` saml2-web-app-pickup-dispatch.com ` .
 
     For more information about configuring a service provider, see
     [Adding and Configuring a Service

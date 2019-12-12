@@ -287,20 +287,15 @@ XACML request. The following is a high-level diagram of how this works.
 ![Carbon policy finder](../assets/img/getting-started/carbon-policy-finder.png)
 
 Any number of policy finder modules can be plugged with the Carbon
-policy finder. You need to implement the CarbonPolicyFinderModule
-interface to write a new module and register it using the configuration
-file called `entitlement.properties.xml` in 
-`<IS_HOME>/repository/components/features/org.wso2.carbon.identity.xacml.server_5.8.145 directory`
-. By default, WSO2 Identity Server is shipped with a Carbon
-registry-based policy finder module that can retrieve ppoliciesolicies from a
-registry collection, where the collection path is configurable using a
-property value in the entitlement.properties.xml file.
+policy finder.  
+
+By default, WSO2 Identity Server is shipped with a Carbon registry-based
+policy finder module that can retrieve policies from a registry
+collection.
 
 All modules are initialized and policies are loaded into memory when the
 Carbon policy finder is used. Loaded policies are kept as a policy
-collection where you can use your own implementation to access them. A
-written policy collection implementation can be registered using the
-entitlement.properties.xml file. The default implementation uses an
+collection where you can use your own implementation to access them. The default implementation uses an
 in-memory cache and creates an effective policy for a given XACML
 request.
 
@@ -429,10 +424,9 @@ interface to write a new module and register it using the
 entitlement.properties configuration file. By default, WSO2 Identity
 Server is shipped with a DefaultAttributeFinder that communicates with
 the underlying user store of the Identity Server. The default user store
-of the Identity Server is ApacheDS where it can be changed using
-user-mgt.xml file. See [Configuring the
-Realm](../../learn/configuring-the-realm) for
-more information.
+of the Identity Server is ApacheDS where it can be changed. Refer
+[Configuring the Realm](../../setup/configuring-the-realm) for more
+information.
 
 All modules would be initialized and supported attribute Ids are
 retrieved for each module. During runtime, the Carbon attribute finder
@@ -464,7 +458,7 @@ XACML defines three top-level policy elements:
     evaluated in isolation, but that is not intended to be accessed in
     isolation by a PDP. So, it is not intended to form the basis of an
     authorization decision by itself. It is intended to exist in
-    isolation only within an XACML PAP, where it may form the basic
+    isolation only within a XACML PAP, where it may form the basic
     unit of management.  
 -   Element that contains a set of elements and a specified procedure
     for combining the results of their evaluation. It is the basic unit

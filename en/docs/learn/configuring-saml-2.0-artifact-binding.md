@@ -42,43 +42,6 @@ The diagram below shows the process of SAML Artifact Binding.
 
 ![saml-artifact-binding](../assets/img/tutorials/saml-artifact-binding.png) 
 
-### Configuring SAML artifact binding
-
-1.  Log in to the management console.
-
-2.  Navigate to **Service Providers \> Add** in the **Main** menu of the
-    management console and add a new service provider called "
-    [saml2-web-app-dispatch.com](http://saml2-web-app-dispatch.com)
-    ". For more information about configuring a service provider, see
-    [Adding and Configuring a Service
-    Provider](../../learn/adding-and-configuring-a-service-provider)
-    .
-3.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
-    configuration** section, and click **Configure**.
-
-4.  Fill in the following fields.  
-    -   **Issuer:** saml2-web-app-dispatch.com
-    -   **Assertion Consumer URL:**
-        http://localhost.com:8080/saml2-web-app-dispatch.com/consumer
-
-5.  Select **Enable SAML2 Artifact Binding** to enable SAML2 artifact
-    binding. Once this is enabled, WSO2 Identity Server responds to each
-    SAML SSO authentication request with an artifact.
-
-    ![enable-artifact-binding](../assets/img/tutorials/enable-artifact-binding.png)
-
-6.  You can also enable signature validation by selecting **Enable
-    Signature Validation in Artifact Resolve Request**. Once this is
-    enabled, WSO2 IS expects to receive signed artifact resolve requests
-    and validates that signature against the service provider
-    certificate. For more information, see the [Resolving SAML2
-    artifacts with WSO2
-    IS](#resolving-saml2-artifacts-with-wso2-is)
-    section.
-
-7.  Leave the rest of the default configurations as it is and click
-    **Register**.
-
 ### Setting up the samples
 
 To try out the functionality using a sample application, you need to set
@@ -87,40 +50,21 @@ you wish to try out the functionality with your own sample application
 or with an existing service provider.
 
 !!! tip "Before you begin"
-
-    -   [Download](https://tomcat.apache.org/download-80.cgi) and
-        [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
-        version 8.\*.\* or higher.
-    
-    -   This tutorial demonstrates SAML2 artifact binding using
-        **localhost.com** as the local domain.  
-        Open the `           etc/hosts          ` file in your machine, a dd
-        the following entry, and restart your computer to map the
-        **localhost.com** domain to your ip address.
-    
-        ``` xml
-            127.0.0.1       localhost.com
-        ```
-
-    To avoid any IP address conflicts, ensure that this is the only
-    entry for this IP address in the /etc/hosts file.
-
--   Enable a SAML tracer on your browser to view the SAML response
+    Enable a SAML tracer on your browser to view the SAML response
     artifact.
 
 
-1.  Download the following
-    [saml2-web-app-dispatch.com.war](../../assets/attachments/saml2-web-app-dispatch.com.war)
-    file and paste it inside the
-    `           <TOMCAT_HOME>/webapps          ` directory.
+1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
+    sample application.
 
-2.  Restart the Tomcat server.
+2.  Access the PickUp application URL at
+        <http://localhost:8080/saml2-web-app-pickup-dispatch.com.>
 
 3.  Once you deploy the sample application and start the tomcat server,
-    a folder named **saml2-web-app-dispatch.com** is created inside the
+    a folder named **saml2-web-app-pickup-dispatch.com** is created inside the
     `           <TOMCAT_HOME>/webapps          ` directory. Navigate to
     the
-    `           <TOMCAT_HOME>/webapps/saml2-web-app-dispatch.com/WEB-INF/classes          `
+    `           <TOMCAT_HOME>/webapps/saml2-web-app-pickup-dispatch.com/WEB-INF/classes          `
     folder and open the `           sso.properties          ` file.
 
 4.  The following properties inside the sso.properties file are related
@@ -137,14 +81,45 @@ or with an existing service provider.
     | SAML2.ArtifactResolveUrl           | This is the Artifact Resolution Endpoint of the identity provider (IdP) which the service provider uses to resolve artifacts. | https://localhost:9443/samlartresolve |
     | SAML2.EnableArtifactResolveSigning | When this property is set to true, the sample application signs the artifact resolve requests that are send to the IdP.       | true                                  |
 
-5.  Access the PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>.
+5. Restart the Tomcat Server once properties are changed.
 
-6.  Enter admin/admin credentials and click **Login**. Provide the
+### Configuring SAML artifact binding
+
+1.  In the [previous section of this guide](#setting-up-the-samples) you
+    have deployed and
+    [registered the `saml2-web-app-pickup-dispatch` webapp](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2).
+    Let's edit the same service provider to configure artifact binding.
+
+2.  Expand the **Inbound Authentication configuration \> SAML2 Web SSO
+    configuration** section, and click **Edit**.
+
+3.  Select **Enable SAML2 Artifact Binding** to enable SAML2 artifact
+   binding. Once this is enabled, WSO2 Identity Server responds to each
+   SAML SSO authentication request with an artifact.
+
+    ![enable-artifact-binding](../assets/img/tutorials/enable-artifact-binding.png)
+
+4.  You can also enable signature validation by selecting **Enable
+    Signature Validation in Artifact Resolve Request**. Once this is
+    enabled, WSO2 IS expects to receive signed artifact resolve requests
+    and validates that signature against the service provider
+    certificate. For more information, see the [Resolving SAML2
+        artifacts with WSO2
+        IS](#resolving-saml2-artifacts-with-wso2-is) section.
+
+5.  Leave the rest of the default configurations as it is and click
+    **Register**.
+
+### Try it
+
+1.  Access the PickUp application URL:
+    <http://localhost:8080/saml2-web-app-pickup-dispatch.com>.
+
+2.  Enter admin/admin credentials and click **Login**. Provide the
     required consent.
 
-7.  You can use a SAML tracer add-on with your browser to view the SAML2
-    response artifact for the SSO authentication request. The code block
+3.  You can use a SAML tracer add-on with your browser to view the SAML2
+    response artifact for the SSO authentication request. The code block
     below shows an example response.
 
     ``` java

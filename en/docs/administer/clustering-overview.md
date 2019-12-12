@@ -47,28 +47,6 @@ These characteristics are essential for enterprise applications deployed
 in a production environment. Therefore, you need a cluster when you go into
 production when performance and reliability are critical.
 
-WSO2 provides [Hazelcast Community
-Edition](http://www.hazelcast.com/products-community.jsp) as its default
-clustering engine. For clustering on a secure channel (i.e., secure
-Hazelcast), use Hazelcast Enterprise. To integrate with Hazelcast
-Enterprise, there are provisions to provide license key under clustering
-configurations. Advanced users can fine-tune Hazelcast by creating a
-`         <IS_HOME>/repository/conf/hazelcast.properties        `
-file and adding the relevant Hazelcast properties as described in the
-[Hazelcast Advanced Configuration Properties
-documentation](http://www.hazelcast.com/docs/2.0/manual/multi_html/ch13s10.html)
-. If you use Hazelcast Enterprise Edition or Hazelcast Management
-Center, see [the Hazelcast
-documentation](http://docs.hazelcast.org/docs/2.0/manual/html/ch13s10.html)
-for details on configuring those products and also [Advanced
-Configurations and
-Information](https://docs.wso2.com/display/CLUSTER44x/Additional+Configurations+and+Information)
-for further details.
-
-Add the following property to hazelcast.properties file to add the
-license key of Hazelcast Enterprise:
-`         hazelcast.enterprise.license.key        ` .
-
 ------------------------------------------------------------------------
 
 ## About membership schemes
@@ -81,12 +59,13 @@ schemes, which are as follows:
 -   Well Known Address (WKA) membership scheme
 -   Multicast membership scheme
 -   AWS membership scheme
+-   AWS ECS membership scheme
 
 All of these membership schemes are ready to be used in production. You
 can select a scheme based on your production environment. Here's a comparison of
 the membership schemes:
 
-| Multicast                                                  | WKA                                                                                                                    | AWS                                                        |
+| Multicast                                                  | WKA                                                                                                                    | AWS/AWS ECS                                                        |
 |------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | All nodes should be in the same subnet                     | Nodes can be in different networks                                                                                     | Amazon EC2 nodes                                           |
 | All nodes should be in the same multicast domain           | No multicasting requirement                                                                                            | No multicasting requirement                                |
@@ -130,10 +109,11 @@ compatibility information.
 
 ## Deciding how to set up your cluster
 
-When setting up your cluster, you must decide how you want to set up and
-[share your databases](../../administer/sharing-databases-in-a-cluster), whether to
-front your cluster with a [load balancer](../../administer/load-balancing), and
-whether to use [sticky sessions](../../administer/sticky-sessions-with-manager-nodes).
-You also need to make a decision on whether to [separate the worker and
-manager nodes](../../administer/security-guidelines-for-production-deployment) in the
-cluster.
+When setting up your cluster, you must decide how you want to
+[set up separate databases for clustering](../../setup/setting-up-separate-databases-for-clustering/),
+whether to front your cluster with a
+[load balancer](../../administer/load-balancing), and whether to use
+[sticky sessions](../../administer/sticky-sessions-with-manager-nodes).
+WSO2 Identity Server uses
+[Hazelcast](../../administer/configuring-hazelcast) as the underlying
+clustering engine.

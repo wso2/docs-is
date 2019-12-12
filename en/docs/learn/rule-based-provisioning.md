@@ -150,7 +150,7 @@ the policy according to our requirement.
     !!! info 
          XACML template policies provide a pre-configured template with
          placeholders for different types of policies. For a full list of the
-         available XACML policy templates, see [Writing an XACML Policy using
+         available XACML policy templates, see [Writing a XACML Policy using
          a Policy
          Template](../../learn/writing-a-xacml-policy-using-a-policy-template).
 
@@ -271,7 +271,7 @@ the policy according to our requirement.
     ![publish-policy](../assets/img/using-wso2-identity-server/publish-policy.png)
 
 !!! note
-    For more information on Publishing an XACML policy, click
+    For more information on Publishing a XACML policy, click
     [here](../../learn/publishing-a-xacml-policy)
     
 9.  Click on **Policy View** under the **Entitlement\>PDP** section on

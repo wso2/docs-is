@@ -74,7 +74,7 @@ prior to autenticating the user using the password.
 ### Try it out
 
 1.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 2.  Enter the username and click **NEXT**.  
     ![enter-username](../assets/img/using-wso2-identity-server/enter-username.png)
 3.  Enter the password and click **SIGN IN**.  

@@ -61,13 +61,13 @@ You can find more information in the following sections.
     Now you have finished configuring Wordpress so copy the **Client ID** and **Client Secret** for use in the Identity Server.  
     ![](../assets/img/49092145/49226414.png) 
 
-### Deploying travelocity.com sample app
+### Deploying travelocity sample application
 
-The next step is to deploy the travelocity.com sample app in order to
-use it in this scenario.
+The next step is to deploy and configure travelocity application. See 
+[deploy the sample app](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) for more information 
+on configuring travelocity application. 
 
-To configure this, see [deploying travelocity.com sample
-app](../../develop/deploying-the-sample-app).
+For deployment and configuration, see [Deploying the Sample App](../../learn/deploying-the-sample-app).
 
 ### Configuring the identity provider
 
@@ -116,33 +116,23 @@ You have now added the identity provider.
 
 The next step is to configure the service provider.
 
-1.  Return to the management console.
-2.  In the **Service Providers** section under the **Main** tab, click
-    **Add**.
-3.  Since you are using travelocity as the sample, enter travelocity.com
-    in the **Service Provider Name** text box and click **Register**.
-4.  In the **Inbound Authentication Configuration** section, click
-    **Configure** under the **SAML2 Web SSO Configuration** section.  
+1.  In the
+    [previous section of this guide](#deploying-travelocity-sample-application)
+    you have deployed and
+    [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider).
+    Let's edit the same service provider to configure `twitter` as the
+    identity provider.
 
-5.  Now set the configuration as follows:  
-    1.  **Issuer** : travelocity.com
-    2.  **Assertion Consumer URL** :
-        <http://localhost:8080/travelocity.com/home.jsp>
-6.  Select the following check-boxes:
-    1.  **Enable Response Signing**.
-    2.  **Enable Single Logout**.
-    3.  **Enable Attribute Profile**.
-    4.  **Include Attributes in the Response Always**.
-7.  Click **Update** to save the changes. Now you will be sent back to
-    the **Service Providers** page.
-8.  Go to the **Local and Outbound Authentication Configuration**
-    section.
-9.  Select the identity provider you created from the dropdown list
+2.  Locate the "travelocity.com" service provider and navigate to the
+    **Local and Outbound Authentication Configuration** section of the
+    service provider.
+    
+3.  Select the identity provider you created from the dropdown list
     under **Federated Authentication**.  
       
     ![](../assets/img/49092145/49226418.png) 
-10. Ensure that the **Federated Authentication** radio button is
-    selected and click **Update** to save the changes.
+4. Ensure that the **Federated Authentication** radio button is selected
+   and click **Update** to save the changes.
 
 You have now added and configured the service provider.
 

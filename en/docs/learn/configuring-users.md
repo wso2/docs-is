@@ -38,7 +38,7 @@ its role.
     1.  In the **Domain** list, specify the user store where you want to
         create this user account. This includes the list of user stores
         you configured. See [Configuring the
-        Realm](../../learn/configuring-the-realm) for more information.
+        Realm](../../setup/configuring-the-realm) for more information.
     2.  Enter a unique username and the password that the person will
         use to log in. By default, the password must be at least five
         characters.
@@ -132,7 +132,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     enable = true
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -239,7 +239,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     enable = true
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -305,7 +305,7 @@ file or Microsoft Excel (.xls) file.
          the JDBC user store configured in the
          `            deployment.toml           ` file (stored in the
          `            <IS_HOME>/repository/conf           ` directory).
-         Please see the [User Store management](../../learn/configuring-the-primary-user-store) section for more
+         Please see the [User Store management](../../setup/configuring-the-primary-user-store) section for more
          information.
 
 		```toml
@@ -614,7 +614,7 @@ methods you can use according to your requirement.
     Once you delete a user, WSO2 IS allows you to remove all references to
     the deleted user's identity. For information on how to remove references
     to a deleted user's identity, see [Removing References to Deleted User
-    Identities](../../administer/removing-references-to-deleted-user-identities).
+    Identities](../../setup/removing-references-to-deleted-user-identities).
     
 
 ### Tracking user deletion on deleting a user
@@ -633,7 +633,7 @@ time a user is deleted:
 You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove
 references to all deleted user
-identities](../../administer/removing-references-to-deleted-user-identities).
+identities](../../setup/removing-references-to-deleted-user-identities).
 
 Follow the steps below to configure WSO2 Identity Server to log details
 related to user deletion each time you delete a user:
@@ -700,6 +700,6 @@ related to user deletion each time you delete a user:
 !!! info "Related Topics"
 
       -   See [Configuring User
-         Stores](../../learn/configuring-user-stores)
+         Stores](../../setup/configuring-user-stores)
          for instructions on how to configure primary and secondary user
          stores.

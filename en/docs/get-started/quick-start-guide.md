@@ -170,7 +170,7 @@ protocol, follow the steps below:
         For more information, see [Creating users and
         roles](../../learn/configuring-users-roles-and-permissions), [Configuring service
         providers](../../learn/adding-and-configuring-a-service-provider), and
-        [Configuring web app for SSO](../../learn/configuring-single-sign-on).
+        [Configuring web app for SSO](../../learn/configuring-single-sign-on-saml).
     
 
 2.  Go to the URL
@@ -314,21 +314,20 @@ Let's use the command-line to check the MFA functionality.
 First deploy the sample authenticator dependency and web application in
     WSO2 IS.
 
-   1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+   1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar) file and paste inside the
         `              <IS_HOME>/repository/components/dropins             ` directory.
 
-   2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+   2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.1.0/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
         folder.  
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
 
-   3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
-        [[resource.access_control]]
-        context = "(.*)/sample-auth/(.*)"
-        secure = false
-        http_method = "all"  
-
-   And restart the identity server          
+3.     Add the followings to the `deployment.tom`l file in the
+       `<IS_HOME>/repository/conf` directory and restart the server.
+       ```toml
+       [[resource.access_control]] context = "(.*)/sample-auth/(.*)"
+       secure = false http_method = "all" 
+       ```
 
 Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
@@ -356,7 +355,7 @@ A message appears to pick a scenario.
 2.  Enter y to confirm that you have already done the folloing steps.
     ![qsg-configure-sso](../assets/img/getting-started/qsg-configure-setup.png)
 5.  Enter the
-    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
+    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Dispatch application.
 
 6.  Click **Log in**.  
@@ -493,7 +492,7 @@ A message appears to pick a scenario.
     ![qsg-configure-federated-auth-3](../assets/img/getting-started/qsg-configure-federated-auth-3.png)
 
 4.  Enter the
-    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-dispatch.com)
+    [http://localhost:8080/saml2-web-app-pickup-dispatch.com](http://localhost:8080/saml2-web-app-pickup-dispatch.com)
     URL on a web browser to access the Pickup Dispatch application.
 5.  Click **Log in**.
 

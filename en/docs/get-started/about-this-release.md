@@ -26,13 +26,14 @@
 
 #### Removed features and functionalities
 
--	Logging Monitor UI
+- Logging Monitor UI
  
 
 #### Deprecated features and functionalities
 
--	Writing Password Policiy validators 
-
+- Writing Password Policy validators 
+- Access token partitioning
+- Support for MySQL versions prior to 5.7
 
 ### Compatible versions
 

@@ -33,7 +33,7 @@ or federated authentication in WSO2 Identity Server (IS).
     
 	-   To configure Active Directory as a user store, see [Configuring a
 		Read-write Active Directory User
-		Store](../../learn/configuring-a-read-write-active-directory-user-store).
+		Store](../../setup/configuring-a-read-write-active-directory-user-store).
 
 ### How IWA with Kerberos works
 
@@ -224,8 +224,7 @@ authenticator.
 1.  Set up IWA as a local authenticator or as a federated authenticator
     by following the steps above.
 2.  Download and set up the Travelocity sample application. To do this,
-    follow the instructions on the [Configuring Single
-    Sign-On](../../learn/configuring-single-sign-on) page.
+    follow the instructions on the [Deploying the Sample Applications](../../learn/deploying-the-sample-app#deploying-the-travelocity-webapp) page.
 
 3.  Edit the service provider you created for the Travelocity sample,
     and expand the **Local and Outbound Authentication** section.

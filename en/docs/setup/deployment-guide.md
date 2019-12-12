@@ -24,19 +24,48 @@ necessary system requirements and a compatible environment.
 
 ### System requirements
 
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 88%" />
+</colgroup>
 <tbody>
-<tr>
-<th>Memory</th>
-<td><b>4GB</b> : 2 GB for the Java Virtual Machine (JVM) and 2 GB for the Operating System (OS)</td>
+<tr class="odd">
+<td>Physical</td>
+<td><ul>
+<li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
+<li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
+<li>10 GB free disk space</li>
+<li>~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.</li>
+</ul>
+<p>Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</p></td>
 </tr>
-<tr>
-<th>Disk</th>
-<td>10 GB minimum  </td>
+<tr class="even">
+<td>Virtual Machine (VM)</td>
+<td><ul>
+<li>2 compute units minimum (each unit having 1.0-1.2 GHz Opteron/Xeon processor)</li>
+<li>4 GB RAM</li>
+<li>10 GB free disk space</li>
+<li>One CPU unit for the operating system and one for JVM.</li>
+</ul>
+<p>Three WSO2 product instances running would require VM of 4 compute units, 8 GB RAM, and 30 GBfree space.<br />
+~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and the number of messages processed concurrently.</p></td>
+</tr>
+<tr class="odd">
+<td>EC2</td>
+<td><ul>
+<li>One c5.large instance to run one WSO2 product instance.</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Cassandra data nodes</td>
+<td><ul>
+<li>4 core processors</li>
+<li>8 GB RAM</li>
+</ul>
 </tr>
 </tbody>
 </table>
-
 !!! note
     For more information on prerequisites, see [Installation Prerequisites](../../setup/installation-prerequisites)
 
@@ -123,7 +152,7 @@ are used.
 !!! note
     For instructions on how to configure the data sources for other databases and 
     more information related to databases, 
-    see [Working with Databases](../../administer/working-with-databases)
+    see [Working with Databases](../../setup/working-with-databases)
 
 ## Mounting the shared registry
 
@@ -168,42 +197,87 @@ To make sure the configurations were applied correctly:
 Following configurations need to be done to both WSO2 Identity Server nodes in order to enable clustering between 
 them.
 
-1. Enable clustering on node 1 and node 2 by setting the membership scheme that fits your deployment by 
-    editing the `<IS_HOME>/repository/conf/deployment.toml` file.
-    ```
-    [clustering]
-    membership_scheme = "wka"
-    ```
-
-    !!! info      
-        WSO2 supports the following membership schemes as well.
-            - Multicast membership scheme
-            - AWS membership scheme
-            - Kubernetes membership scheme
-
-        The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
-        deployed on machines having static IP addresses.             
-        ```  
-        <parameter name="membershipScheme">wka</parameter>
-        ```
-        For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
-    
-    ??? tip "Click to see the instructions for WKA scheme"            
-        Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
-                ```
-                [clustering]
-                local_member_host = "192.168.2.1"
-                local_member_port = "4000"
-                ```                    
-        Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes 
-        in our sample cluster configuration, we will configure both nodes as WKA nodes.         
+WSO2 supports the following membership schemes for clustering
+- well-known address (WKA)
+- Multicast membership 
+- AWS membership 
+- AWS ECS membership 
+- Kubernetes membership
         
-        You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure 
-        that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define 
-        a range only for the last portion of the IP address. You should also keep in mind that the smaller 
-        the range, the faster the time it takes to discover members since each node has to scan a lesser 
-        number of potential members. 
+1. Enable clustering on node 1 and node 2 by setting the membership
+   scheme that fits your deployment by editing the
+   `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    !!! info
+        The simplest is the well-known address (WKA) based clustering method. It only suites where all the nodes are 
+        deployed on machines having static IP addresses. For more information, see [About Membership Schemes](../../administer/clustering-overview/#about-membership-schemes).
+        Configurations for each membership scheme are listed below.
+        
+        ??? tip "Click to see the instructions for WKA scheme"            
+            Edit the `<IS_HOME>/repository/conf/deployment.toml` file to add following configurations.
+            Configure the `localMemberHost` and `localMemberPort` entries. Add the IP of the editing node itself.                    
+                    ```
+                    [clustering]
+                    membership_scheme = "wka"
+                    local_member_host = "192.168.2.1"
+                    local_member_port = "4000"
+                    members = ["192.168.2.1:4000", "192.168.2.2:4001"]
+                    ```                    
+            Under the `members` section, add the `hostName` and `port` for each WKA member. As we have only two nodes 
+            in our sample cluster configuration, we will configure both nodes as WKA nodes.         
+            
+            You can also use IP address ranges for the hostName. For example, `192.168.1.2-10`. This should ensure 
+            that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define 
+            a range only for the last portion of the IP address. You should also keep in mind that the smaller 
+            the range, the faster the time it takes to discover members since each node has to scan a lesser 
+            number of potential members. 
+            
+        ??? tip "Click to see the instructions for AWS ECS membership scheme"  
+                      
+            1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
+                -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.
+                -   Ensure that the `Container instance IAM role` that you assign to the ECS cluster has the following permission policy attached. 
+                        ```
+                        { "Version": "2012-10-17", 
+                             "Statement":
+                             [
+                             {
+                                 "Effect": "Allow",
+                                 "Action":
+                                     [
+                                     "ec2:DescribeAvailabilityZones",
+                                     "ec2:DescribeInstances"
+                                     ],
+                                     "Resource": [ "*" ]
+                             }
+                             ]
+                        }
     
+                        ```
+                -   Make sure that the security group of the cluster instances has an inbound rule to allow incoming 
+                traffic on the Hazelcast default port range `(5701 - 5708)`. It is advised to restrict the access to 
+                instances in the same security group for this inbound rule. 
+            
+            2. Create a `deployment.toml` file in a preferred directory to add following configurations.
+            Configure the following entries.                    
+                    ```
+                    [clustering]
+                    membership_scheme = "aws-ecs"
+                    
+                    [clustering.properties]
+                    region = "us-east-1"
+                    clusterName = "ECS-IS-CLUSTER"
+                    vpcCidrBlock = "10.0.*.*"
+                    ```                    
+            Under the `clustering.properties` section, set the `region`, `clusterName`, and `vpcCidrBlock` based on 
+            the AWS ECS cluster that you created in the previous step.       
+
+            !!! note
+                Once all the configurations are complete, build a docker image including the configurations. You can 
+                consume this docker image to 
+                create a `Task Definition` and run a new `Service` or a `Task` 
+                on the `AWS ECS cluster` that you created.
+            
         
 2. Configure caching.
 
@@ -295,7 +369,7 @@ them.
                                 timeout is 15 minutes), there is a security risk in this method. To reduce 
                                 the risk, reduce the default cache timeout period. To learn how to reduce the 
                                 default cache timeout period, 
-                                see [Configuring Cache Layers - timeout](../../administer/configuring-cache-layers#timeout).</li>
+                                see [Configuring Cache Layers - timeout](../../setup/configuring-cache-layers#timeout).</li>
                             </ul>
                         </td>
                     </tr>
@@ -358,11 +432,10 @@ The port 443 is the Load Balancer frontend port.
 
     !!! example
         ```
-        [transport.http]
-        port = "80"
-
-        [transport.https]
-        proxyPort = "443" 
+        [transport.http.properties]
+        proxyPort = 80
+        [transport.https.properties]
+        proxyPort = 443 
         ```
 
 4. You may change the `<IS_HOME>/repository/conf/deployment.toml` file to access the servers using a 

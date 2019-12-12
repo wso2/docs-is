@@ -13,8 +13,18 @@ authenticated user from the OpenID Connect UserInfo endpoint.
 
 To enable OAuth support for your client application, you must first
 register your application. Follow the instructions below to add a new
-application.  
+application.
 
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	
 Let's get started to configure the service provider you created!
 
 1.  Expand the **Inbound Authentication Configuration** section and then
@@ -114,7 +124,7 @@ Let's get started to configure the service provider you created!
       </tr>
       <tr class="even">
          <td><strong>PKCE Mandatory</strong></td>
-         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../learn/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
+         <td>Select this if you are using the <strong>Code</strong> grant type. PKCE is a recommended security measure used to mitigate a code interception attack. See <a href="../../administer/mitigating-authorization-code-interception-attacks">Mitigating Authorization Code Interception Attacks</a> for more information.</td>
       </tr>
       <tr class="odd">
          <td><strong>Support PKCE 'Plain' Transform Algorithm</strong></td>
@@ -233,6 +243,6 @@ See [Delegated Access Control](../../learn/delegated-access-control) for more
 information on working with OAuth2/OpenIDConnect. See the following
 topics for samples of configuring delegated access control:
 
--   [OAuth 2.0 with WSO2 Playground](../../learn/setting-up-the-sample-webapp)
+-   [OAuth 2.0 with WSO2 Playground](../../learn/oauth-2.0-with-wso2-playground/)
 -   [Setting up a SAML2 Bearer Assertion Profile for OAuth
     2.0](../../learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0)

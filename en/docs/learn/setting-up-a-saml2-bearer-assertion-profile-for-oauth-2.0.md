@@ -25,13 +25,12 @@ Server and as well as the Resource Server.
 ### Configure OAuth/OpenID and SAML SSO
 
 1.  See the [Configuring Inbound Authentication for a Service
-    Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
+        Provider](../../learn/configuring-oauth2-openid-connect-single-sign-on)
     to configure the OAuth/OpenID Connect service provider. Access token
     will be issued for this application, exchanging with SAML2
-    assertion .
+    assertion.
 
     !!! note
-    
         -   Make sure **SAML2** grant type is enabled under " Allowed Grant
             Types " in configured OAuth/OpenID Connect application.
         -   You can provide any valid URL as the **Callback URL** while
@@ -41,7 +40,7 @@ Server and as well as the Resource Server.
 
 2.  Configure single sign-on with the Travelocity sample.
 
-    See [Configuring Single Sign-On](../../learn/configuring-single-sign-on) to
+    See [Deploying the Sample App](../../learn/deploying-the-sample-app) to
     configure Travelocity application with WSO2 Identity Server.
 
 3.  Navigate to **Main\>Service Providers\>List** and click **Edit** to
@@ -56,18 +55,6 @@ Server and as well as the Resource Server.
 
     **Recipient** :
     `                           https://localhost:9443/oauth2/token                         `
-
-    !!! note
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint. If the tenant domain is
-        `             wso2.com            `, enter the following values:
-
-        **Audience** :
-        `                                          https://localhost:9443/oauth2/token?tenantDomain=wso2.com                                       `
-
-        **Recipient** :
-        `                           https://localhost:9443/oauth2/token?tenantDomain=wso2.com                         `
 
     ![enable-audience-restriction](../assets/img/using-wso2-identity-server/enable-audience-restriction.png) 
 
@@ -89,8 +76,7 @@ Server and as well as the Resource Server.
         is set to `            FEDERATED           ` .
 
         Add the following configuration to the
-        `            <CARBON_HOME>/repository/conf/identity/identity.xml           `
-        under the `            <SAML2Grant>           ` configuration to
+        `            <IS_HOME>/repository/conf/deployment.toml           ` file to
         enable this feature.
 
         If your users are local, you can enable user type as,
@@ -110,15 +96,15 @@ Server and as well as the Resource Server.
         If you need backward compatibility, enable user type as,
 
         ``` java
-         [oauth.grant_type.saml_bearer]
-         user_type= "LEGACY"
+        [oauth.grant_type.saml_bearer]
+        user_type= "LEGACY"
         ```
 
         Also, you can set the user type per request as,
 
         ``` java
         [oauth.grant_type.saml_bearer]
-         user_type= "PER_REQUEST"  
+        user_type= "PER_REQUEST"  
         ```
 
         Restart the server to apply the configuration changes.

@@ -163,9 +163,10 @@ services, see [Calling Admin Services.](../../develop/calling-admin-services)
     enable = true
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from
+    [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
-    ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
+                                            ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
     !!! info 
         If you have configured WSO2 IS to use an IP or hostname, replace
@@ -246,11 +247,6 @@ some time.
 
 3.  After the changes have been made, restart the server.
 
-    -   [Update before the first startup
-        (recommended)](#update-before-the-first-startup-recommended)
-    -   [Update after the product is used for sometime (advanced
-        configuration)](#update-after-the-product-is-used-for-sometime-advanced-configuration)
-
 ## Searching for roles
 
 Once you have added a role in the Identity Server, you can search for
@@ -317,7 +313,7 @@ Services.](../../develop/calling-admin-services)
     enable = false
     ```
 
-2.  Open the following Admin Service from SOAP UI:
+2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -359,7 +355,7 @@ Services.](../../develop/calling-admin-services)
     ```
 
 !!! info "Related Links"
-    -   See [Role-based Permissions](../../administer/role-based-permissions)
+    -   See [Role-based Permissions](../../learn/role-based-permissions)
         for more information.
     -   See [Permissions Required to Invoke Admin Services](../../references/permissions-required-to-invoke-admin-services) for a
         complete list of permissions required to invoke admin services.

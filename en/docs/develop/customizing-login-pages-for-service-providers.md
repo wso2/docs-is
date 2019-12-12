@@ -22,67 +22,48 @@ parameter.
 The following is a sample of how to customize the login page for SAML2
 SSO.
 
-### Customizing the login page for SAML SSO service providers
+## Customizing the login page for SAML SSO service providers
 
 Usually WSO2 Identity Server displays a default login page for all the
 SAML SSO service providers that send authentication requests to it. The
 following steps indicate how to change the default login page into a
 customized one.
 
-!!! tip "Before you begin"
-    
-    -   To ensure you get the full understanding of customizing the login
-        page with WSO2 IS, the sample travelocity application is used in
-        this use case. Therefore, make sure to [download the
-        samples](../../learn/downloading-a-sample) before you begin.
-    -   The samples run on the Apache Tomcat server and are written based on
-        Servlet 3.0. Therefore, download Tomcat 7.x from
-        [here](https://tomcat.apache.org/download-70.cgi).
-    -   Install Apache Maven to build the samples. For more information, see
-        [Installation
-        Prerequisites](../../setup/installation-prerequisites).
-    
+### Configuring two service providers
 
-#### Configuring two service providers
+1.  [Deploy traveloctity](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) sample application.
 
-1.  Open a terminal window and add the following entry to the
-    `           /etc/hosts          ` file of your machine to configure
-    the hostname.
+2.  Get a copy of `travelocity.com.war` that
+    [download from here](../../learn/deploying-the-sample-app/#deploy-the-sample-web-application)
+    to the same location `<TOMCAT_HOME>/webapps/` rename as
+    `avis.com.war`. Restart the tomcat server.
 
-    ``` bash
-    127.0.0.1   wso2is.local
-    ```
+    !!! note 
+        -   Open ` <TOMCAT_HOME>/webapps/travelocity.com/
+        travelocity.properties ` file and check for following
+        configurations.
+            ``` 
+            #The URL of the SAML 2.0 Assertion Consumer
+            SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
+                
+        
+            #openid.return_to parameter
+            OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
+            ```
 
-2.  Open the `           travelocity.properties          ` file found in
-    the
-    `           <SAMPLE_HOME>/sso/sso-agent-sample/src/main/resources          `
-    directory of the samples folder you just checked out. Configure the
-    following properties with the hostname (
-    `           wso2is.local          ` ) that you configured above.
-
-    ```xml
-    #The URL of the SAML 2.0 Assertion Consumer
-    SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-
-
-    #openid.return_to parameter
-    OpenId.ReturnToURL=http://wso2is.local:8080/travelocity.com/home.jsp
-    ```
-
-3.  Open the avis.properties file found in the
-    `           <SAMPLE_HOME>/sso/sso-agent-sample/src/main/resources          `
-    directory of the samples folder you just checked out. Configure the
-    following properties with the hostname (
-    `           wso2is.local          ` ).
-
-    ``` xml
-    #The URL of the SAML 2.0 Assertion Consumer
-    SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
-
-    #openid.return_to parameter
-    OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
-    ```
-
+        - Open the `<TOMCAT_HOME>/webapps/avis.com/avis.properties` file  and check for following configurations.
+            ```
+            #The URL of the SAML 2.0 Assertion Consumer
+            SAML2.AssertionConsumerURL=http://wso2.is:8080/avis.com/home.jsp
+        
+            #openid.return_to parameter
+            OpenId.ReturnToURL=http://wso2.is:8080/avis.com/home.jsp
+            ```
+3. Register a new service provider with name `avis.com` similarly as
+   explained in [configuring service provider for travelocity
+                                                sample](../../deploying-the-sample-app/#configuring-the-service-provider)
+   while replacing `travelocity.com` references to `avis.com`.
+   
 4.  Start the application server and access following URLs to make sure
     both apps are running.
 
@@ -100,7 +81,7 @@ customized one.
 
     ![Avis screen](../assets/img/using-wso2-identity-server/avis-screen.png) 
 
-#### Registering the two service providers in WSO2 Identity Server
+### Registering the two service providers in WSO2 Identity Server
 
 1.  Sign in to the WSO2 Identity Server [Management
     Console](../../setup/getting-started-with-the-management-console).
@@ -142,9 +123,9 @@ customized one.
     .  
     ![Identity Server sign in screen](../assets/img/using-wso2-identity-server/identity-server-sign-in-screen.png) 
 
-#### Configuring the login page
+### Configuring the login page
 
-##### Understanding the authenticationendpoint web application
+#### Understanding the authenticationendpoint web application
 
 The login page that is displayed during SAML2 SSO, OAuth, OpenID Connect
 and Passive-STS flows is located inside the webapp named
@@ -160,8 +141,6 @@ specified with the following configurations.
 ```
 [authentication.endpoints] 
 login_url="/authenticationendpoint/login.do"
-
-[authentication.endpoints] 
 retry_url="/authenticationendpoint/retry.do" 
 ```
 
@@ -213,7 +192,7 @@ Server. Additionally, you must point to the correct location via the
 `         <IS_HOME>/repository/conf/identity/application-authentication.xml        `
 file.
 
-##### Customizing the login page
+#### Customizing the login page
 
 When a request comes to the default login page, you can see several
 parameters being passed in the address bar. For this customization, the
@@ -246,7 +225,7 @@ When customizing the pages, ensure that the following is applied.
     <input type="hidden" name="sessionDataKey" value="<%=Encode.forHtmlAttribute(request.getParameter("sessionDataKey"))%>"/>
     ```
 
-##### **Using a JSP to redirect to SP relevant pages**
+#### **Using a JSP to redirect to SP relevant pages**
 
 1.  Rename the existing 'login.jsp' to 'default\_login.jsp'
 2.  Create a new file with the name 'login.jsp' including the following

@@ -57,7 +57,7 @@ you through the entire process.
 -   Configure an Active Directory user store as the primary user store
     in WSO2 Identity Server. For more information on how to do this, see
     [Configuring an Active Directory User
-    Store](../../learn/configuring-a-read-write-active-directory-user-store)
+    Store](../../setup/configuring-a-read-write-active-directory-user-store)
    .  
 -   Configure WSO2 Identity Server to authenticate users using the email
     address as the username. For more information on how to do this, see

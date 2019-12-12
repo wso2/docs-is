@@ -34,7 +34,7 @@ role explained in
     enabled.
     
     !!! Tip 
-        You can change the default role name '**admin**' of the Administrative role as described in [here](../learn/configuring-roles-and-permissions/#updating-role-names)
+        You can change the default role name '**admin**' of the Administrative role as described [here](../../learn/configuring-roles-and-permissions#updating-role-names)
 
 You can create new users and roles and configure permissions for the
 roles using the management console. However, note that you cannot modify
@@ -126,7 +126,6 @@ follows:
     - Main</strong> menu <strong>/PAP:</strong> See the topic on <a href="../../learn/configuring-the-policy-administration-point">working with entitlement</a> for details on how to use this option. <strong><br />
     - Main</strong> menu <strong>/PDP:</strong> See the topic on <a href="../../learn/configuring-the-policy-administration-point">working with entitlement</a> for details on how to use this option.<br />
     <strong><br />
-    - Configure</strong> menu <strong>/Server Roles:</strong> See the topic on <a href="../../administer/server-roles">server roles</a> for more details. <strong><br />
     - Tools</strong> menu <strong>/Tryit (XACML):</strong> See the topic on <a href="../../administer/using-the-xacml-tryit-tool">working with the TryIt tool</a> for details on how to use this option. <strong></strong><br />
     <br />
     - Additionally, all permissions listed under <strong>Configure</strong> in the permissions navigator are selected automatically.</td>
@@ -167,7 +166,7 @@ follows:
     </tr>
     <tr class="even">
     <td>Admin/Manage/Resources/Browse</td>
-    <td>This permission enables the <strong>Browse</strong> option under the <strong>Registr</strong> y menu in the main navigator. This option allows users to browse the resources stored in the registry by using the <strong>Registry</strong> tree navigator. <strong><br />
+    <td>This permission enables the <strong>Browse</strong> option under the <strong>Registry</strong> menu in the main navigator. This option allows users to browse the resources stored in the registry by using the <strong>Registry</strong> tree navigator. <strong><br />
     </strong></td>
     </tr>
     <tr class="odd">
@@ -179,8 +178,7 @@ follows:
     <td>Admin/Monitor</td>
     <td>When the <strong>Admin/Monitor</strong> permission node is selected, the following menus are enabled in the management console:<br />
     <br />
-    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="../../administer/system-statistics">system statistics</a> for information on how to use this option.<br />
-    <strong>- Monitor</strong> menu <strong>/SOAP Message Tracer:</strong> See the topic on the <a href="../../administer/soap-tracer">SOAP tracer</a> for information on how to use this option.<br />
+    <strong>- Monitor</strong> menu <strong>/System Statistics:</strong> See the topic on <a href="../../setup/system-statistics">system statistics</a> for information on how to use this option.<br />
     <br />
     - Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</td>
     </tr>
@@ -191,7 +189,7 @@ follows:
     <strong>- Monitor</strong> menu <strong>/Application Logs</strong><br />
     <strong>- Monitor</strong> menu <strong>/System Logs</strong><br />
     <br />
-    See the topic on <a href="../../administer/system-logs">system logs</a> for information on how to use these options.</td>
+    See the topic on <a href="../../setup/monitoring-logs">system logs</a> for information on how to use these options.</td>
     </tr>
     </tbody>
     </table>

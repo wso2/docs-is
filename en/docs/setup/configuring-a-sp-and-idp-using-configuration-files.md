@@ -78,11 +78,11 @@ for this scenario.
 You have successfully setup the Identity Server instances. Now you can proceed to the
 the configuration steps.
 
-## Adding the service provider in the identity provider IS
+## Configure the Federated Identity Provider
 
-This section involves adding the
-**`          service provider IS         `** as a service provider in
-the **`          identity provider IS         `**.
+This section involves adding the **` service provider IS `** as a
+service provider in the **` identity provider IS `** from the management
+console.
 
 1.  [Start the **`identity provider IS`** and access the Management Console](../../setup/running-the-product).
 2.  Navigate to the **Main** -> **Identity** -> **Service Providers** -> Click **Add**.
@@ -104,11 +104,10 @@ the **`          identity provider IS         `**.
 
 7.  Click **Register** to save your changes.
 
-## Adding the identity provider in the service provider IS
+## Adding an identity provider
 
-This section involves adding the
-**`          identity provider IS         `** as an identity provider in
-the **`          service provider IS         `**.
+This section involves adding the **` identity provider IS `** as an
+identity provider in the **` service provider IS `** via a file.
 
 Create a file named `         identityProviderIDP_IS.xml        ` inside
 the `<SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/identity­-providers`
@@ -254,10 +253,10 @@ file within the `<Certificate>` tag.
         `<Certificate>` tag.
         
 
-## Adding the service provider in the service provider IS
+## Adding a service provider
 
-This section involves adding the travelocity application as a service
-provider in the **`          service provider IS         `**.
+This section involves adding the `travelocity.com` application as a
+service provider in the **` service provider IS `** via a file.
 
 1.  Open the
     `           <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/sso-idp-config.xml          `
@@ -302,43 +301,36 @@ provider in the **`          service provider IS         `**.
         </ServiceProvider>
         ```
 
-    !!! tip
-    
-        **Tip:** If the incoming SAML requests from the client (e.g.,
-        `                       travelocity.com                     ` ) are
-        signed, and the service provider Identity Server instance needs to
-        validate the signature included in the authentication and logout
-        requests, do the following:
-    
+    !!! Tip 
+        If the incoming SAML requests from the client (e.g., `
+        travelocity.com ` ) are signed, and the service provider Identity
+        Server instance needs to validate the signature included in the
+        authentication and logout requests, do the following:
+        
         1.  Import the public certificate of the client to the primary
-            keystore (e.g., `            wso2carbon.jks           ` )
-        
+            keystore (e.g., `wso2carbon.jks` )
         2.  Add the corresponding certificate alias name to the
-            `             <CertAlias>            ` property and set the
-            `             <ValidateSignatures>            ` property to true
+            `<CertAlias>` property and set the `<ValidateSignatures>` property to true
             in the `             sso-idp-config.xml            ` file.
+        
+        In the above configuration, the single logout is supported by
+        Back-Channel Logout. In order to use SAML Front-Channel Logout, add
+        the following properties under
+        `           <ServiceProvider>          ` tag.
     
-            In the above configuration, the single logout is supported by
-            Back-Channel Logout. In order to use SAML Front-Channel Logout, add
-            the following properties under
-            `           <ServiceProvider>          ` tag.
-        
-            To enable SAML Front-Channel Logout with HTTP Redirect Binding
-        
+        To enable SAML Front-Channel Logout with HTTP Redirect Binding
             ``` xml
             <EnableSingleLogout>true</EnableSingleLogout>
             <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
             <FrontChannelLogoutBinding>HTTPRedirectBinding</FrontChannelLogoutBinding>
             ```
         
-            To enable SAML Front-Channel Logout with HTTP POST Binding
-        
+        To enable SAML Front-Channel Logout with HTTP POST Binding
             ``` xml
                 <EnableSingleLogout>true</EnableSingleLogout>
                 <EnableFrontChannelLogout>true</EnableFrontChannelLogout>
                 <FrontChannelLogoutBinding>HTTPPostBinding</FrontChannelLogoutBinding>
             ```
-        
 
 2.  Create a file named `          travelocity.com.xml         ` in the
     `          <SERVICE_PROVIDER_IS_HOME>/repository/conf/identity/service-providers         `
@@ -435,64 +427,14 @@ provider in the **`          service provider IS         `**.
 
 Do the following steps to run the travelocity application.
 
-1.  Check out the single sign on sample from the following GitHub
-    repository. See the [Downloading a Sample](../../learn/downloading-a-sample)
-    topic for more information.
+1.  [Deploy the travelocity](../../learn/deploying-the-sample-app/#download-the-sample)
+    application. No need to register the service provider for
+    travelocity as
+    [we created service provider via a file](#adding-the-service-provider-in-the-service-provider-is).
 
-    ``` java
-    https://github.com/wso2/product-is/tree/master/modules/samples/sso
-    ```
-
-2.  Remove the parent entry in the **pom.xml** file that comes along
-    with the sample. Once you are done with this step, the contents of
-    the **pom.xml** file will look similar to the following.
-
-    ``` xml
-        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-            <groupId>org.wso2.is</groupId>
-            <version>5.5.0</version> 
-            <modelVersion>4.0.0</modelVersion>
-            <artifactId>wso2is-identity-samples</artifactId>
-            <packaging>pom</packaging>
-            <name>Identity Server : SSO Samples</name>
-            <modules>
-                <module>SSOAgentSample</module>
-            </modules>
-        </project>
-    ```
-
-3.  In your command line, navigate to
-    `           <SAMPLE_HOME>/sso/          ` in the folder you checked
-    out and build the sample using the following command. You must have
-    Apache Maven installed to do this (see [Installation
-    Prerequisites](_Installation_Prerequisites_) for the appropriate
-    version to use).
-
-    ``` java
-        mvn clean install
-    ```
-
-4.  After successfully building the sample, a .war file named
-    **travelocity.com** can be found inside the
-    `           <SAMPLE_HOME>/sso/sso-agent-sample/target` folder. Deploy this sample web app on
-    a web container. To do this, use the Apache Tomcat server.
-
-    !!! note
-    
-        **Note** : Since this sample is written based on Servlet 3.0 it
-        needs to be deployed on Tomcat 7.x.
-    
-
-    Use the following steps to deploy the web app in the web container:
-
-    1.  Stop the Apache Tomcat server if it is already running.
-    2.  Copy the **travelocity.war** file to the
-        `            <TOMCAT_HOME>/webapps           ` folder.
-    3.  Start the Apache Tomcat server.
-
-5.  When you access the following link to the travelocity application,
-    you are directed to the identity provider for authentication:
-    `          http://wso2is.local:8080/travelocity.com/index.jsp         `
+2.  When you access the following link to the travelocity application,
+    you are directed to the identity provider for authentication: `
+    http://wso2is.local:8080/travelocity.com/index.jsp `
 
     !!! note
         Check whether you have enabled following configurations while adding the service provider 
@@ -639,13 +581,11 @@ scenario.
         OpenId.EnableDumbMode=false
         ```
 
-3.  In the travelocity.properties file, locate and uncomment the
-    following value. Replace the tenant domain (
-    `           tenant.domain          ` ) with your newly created
-    tenant domain.
+3.  In the `travelocity.properties` file update `tenantDomain` query param with the 
+    newly created tenant domain.
 
     ``` java
-    #QueryParams=tenantDomain=tenant.domain
+    QueryParams=tenantDomain=tenant.domain
     ```
 
     !!! tip

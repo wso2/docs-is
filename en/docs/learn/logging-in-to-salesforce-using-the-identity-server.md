@@ -118,14 +118,14 @@ Server credentials.
 			</div></td>
 			</tr>
 			<tr class="odd">
-			<td><code>					username_javascript_regex			</code></td>
+			<td><code>					username_javas_cript_regex			</code></td>
 			<td><div class="content-wrapper">
 			<p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
 			<div class="code panel pdl" style="border-width: 1px;">
 			<div class="codeContent panelContent pdl">
 			<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence">
 
-			<code>[user_store]<br>username_javascript_regex = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$"</code></pre>
+			<code>[user_store]<br>username_javas_cript_regex = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}\$"</code></pre>
 			</div>
 			</div>
 			</div></td>
@@ -155,7 +155,7 @@ Server credentials.
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username admin and password admin was considered the super administrator. The super administrator user cannot be deleted.</p>
 			<p>After this configuration, the user having the username admin@wso2.com is considered the super administrator. The user having the username admin is considered as a normal administrator.</p>
-			<img src="../../assets/img/tutorials/realm-config.png"
+			<img src="../../assets/img/tutorials/realm-config.png" width="1200">
 			</div>
 			<div class="admonition tip">
 			<p class="admonition-title">Tip</p>
@@ -190,7 +190,7 @@ Server credentials.
 
 			For more information on how to configure primary and secondary user
 			stores, see [Configuring User
-			Stores](../../learn/configuring-user-stores).
+			Stores](../../setup/configuring-user-stores).
 
 
 Let's get started!

@@ -31,13 +31,31 @@ back-channel logout.
 4.  Upon receiving the logout token, the client application validates
     the logout token and invalidates the user session.
 
+
+### Configuring the sample applications
+
+1. Follow the steps
+   [here](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
+   to download, deploy and register `playground2` applications.
+
+
+2.  Make a copy of ` playground2.war `and rename to ` playground3.war`
+    in the same location described in step 1.
+
 ### Configuring OpenID Connect back-channel logout
 
 Follow the steps below to configure OpenID Connect back-channel logout
 in WSO2 Identity Server:
 
 1.  Sign in to the WSO2 Identity Server Management Console.
-2.  To register a web application as a service provider:  
+    <a name="step2"></a>
+    
+    !!! Tip 
+        In the previous section you have
+        [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1).
+        If you complete that you can skip **step 2** below.
+    
+2.  To register a web application as a service provider:
     1.  On the **Main** menu, click **Identity \> Service Providers \>
         Add**.  
         ![]( ../assets/img/112390325/112391328.png) 
@@ -63,16 +81,13 @@ in WSO2 Identity Server:
         created.  
         ![]( ../assets/img/112390325/112391339.png) 
 
-        You have successfully added the playground2 service provider.
-        Similarly, register another service provider with the following
-        data:
+3.  You have successfully added the playground2 service provider.
+    Similarly, register another service provider performing all the
+    sub-steps in above [Step2](#step2) with the following data:
 
-        -   **Service Provider Name** :
-            `              playground3             `
-        -   **Callback URL** :
-            `                             http://localhost:8080/playground3/oauth2client                           `
-        -   **Logout URL** :
-            `                             http://localhost:8080/playground3/bclogout                           `
+    -   **Service Provider Name** :`              playground3             `
+    -   **Callback URL** : `http://localhost:8080/playground3/oauth2client `
+    -   **Logout URL** : ` http://localhost:8080/playground3/bclogout `
 
 3.  To view the identity provider's logout endpoint URL, which gets
     called when the logout is triggered from the service provider:
@@ -87,103 +102,12 @@ in WSO2 Identity Server:
         out.  
         ![]( ../assets/img/112390325/112391344.png) 
 
-### Downloading the sample applications
-
-Follow the steps below to download playground2 and playground3 sample
-applications:
-
-1.  Create a directory called `           is-samples          ` in a
-    preferred location on your local machine.
-
-    ``` java
-    mkdir is-samples
-    ```
-
-2.  Navigate to the `           is-samples          ` directory in a
-    command prompt.
-
-    ``` java
-        cd <IS_SAMPLE_HOME>/is-samples
-    ```
-
-3.  Initialize the `           is-samples          ` directory as a Git
-    repository.
-
-    ``` java
-        git init
-        git remote add -f origin https://github.com/wso2/product-is.git
-        git config core.sparseCheckout true
-    ```
-
-4.  Navigate to the `           .git/info          ` directory and list
-    the folders/files you want to check out by executing the echo
-    command.
-
-    ``` java
-        cd .git
-        cd info
-        echo "modules/samples/" >> sparse-checkout
-    ```
-
-5.  Navigate out of the `           .git/info          ` directory and
-    check out the v5.8.0 tag to update the empty repository with the
-    remote one.
-
-    ``` java
-        cd ..
-        cd ..
-        git checkout -b v5.8.0 v5.8.0
-    ```
-
-6.  Navigate to the
-    `           is-samples/modules/samples/sso/sso-agent-sample          `
-    directory.
-
-    ``` java
-        cd <IS_SAMPLES_HOME>/is-samples/modules/samples/oauth2
-    ```
-
-7.  Build the sample applications by executing the following command:
-
-    ``` java
-        mvn clean install
-    ```
-
-    Note that the `           playgroud2.war          ` file of the
-    sample applications is generated in the
-    `           target          ` folder.
-
-8.  Make a copy of it and rename to `          playground3.war         `
-    .
-
-You have successfully created `         .war        ` files. Next, you
-will deploy them in an application server.
-
-### Deploying the sample applications
-
-Follow the steps below to deploy the sample applications:
-
-1.  If you have not downloaded Apache Tomcat already, download it from
-    [here](https://tomcat.apache.org/download-70.cgi).
-2.  Copy the `          playground2.war         ` and
-    `          playground3.war         ` files into the
-    `          <TOMCAT_HOME>/apache-tomcat-<version>/webapps         `
-    directory.
-3.  Start the Tomcat server. Note that the
-    `          playground2.war         ` and
-    `          playground3.war         ` are deployed in the
-    `          /webapps         ` directory.
-
-You have successfully deployed the sample web applications. Next, you
-will test OpenID Connect back-channel logout with these sample
-applications.
-
 ### Testing OpenID Connect back-channel logout with the sample applications
 
 Follow the steps below to test OpenID Connect back-channel logout with
 the newly registered service provider:
 
-1.  To sign in to the playgroun2 web application:
+1.  To sign in to the playground2 web application:
     1.  Navigate to
         `              http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground2             `
         in your browser, e.g.,
@@ -284,9 +208,9 @@ the newly registered service provider:
         to `             admin.            `  
         ![]( ../assets/img/112390325/112391430.png) 
 
-2.  Similarly, sign in to the playground3 application by navigating to
-    `           http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3          `
-    in a separated browser window/tab.
+2.  Similarly, sign in to the playground3 application by navigating to `
+    http://<TOMCAT_HOST>:<TOMCAT_PORT>/playground3 ` (ex:
+    `http://localhost:8080/playground3`) in a separated browser tab.
 3.  Click **Logout**. A confirmation message appears.  
     ![]( ../assets/img/112390325/112391427.png) 
 4.  Click **Yes**. A success message appears

@@ -7,7 +7,8 @@ and login to the other one.
 1.  Start 2 Identity Servers. Start the 2nd Identity Server with its hostname set as "wso2is" with a relevant certificate added to the primary IS client-truststore and a port
     offset of 1.  
     For more information on how to do this, see [Default Ports of WSO2
-    Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports)
+    Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports) and [Changing the 
+    hostname](../../setup/changing-the-hostname)
     .
 2.  Configure an OAuth/OIDC service provider in the 2nd Identity
     Server.  
@@ -45,7 +46,7 @@ and login to the other one.
 
     ![create-an-idp](../assets/img/using-wso2-identity-server/create-an-idp.png)   
 
-4.  Setup the [playground sample](../../learn/setting-up-the-sample-webapp) in the
+4.  Setup the [playground sample](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp) in the
     first Identity Server instance.
 5.  Edit the service provider in the first Identity Server and select
     the Federation Authentication for Authentication type in Local and

@@ -4,11 +4,10 @@ The Authorization Code Grant is one of the grant types in the OAuth 2.0
 specification. For more information about this grant type, see
 [Authorization Code Grant](../../learn/authorization-code-grant).
 
-!!! note
-    
-    Before you begin, you must first [set up the sample
-    webapp.](../../learn/setting-up-the-sample-webapp)
-    
+!!! note "Before you begin" 
+    You must first
+    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
+    in order to try the following scenario.   
 
 This section demonstrates the Authorization Code Grant with PKCE and
 without PKCE.
@@ -30,14 +29,23 @@ without PKCE.
     [Configuring OAuth2-OpenID
     Connect](../../learn/configuring-oauth2-openid-connect).
 
-    Authorization Grant Type: Authorization Code  
-    Client ID: (the client id received at the application
-    registration)  
-    Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
-    Authorize Endpoint: <https://localhost:9443/oauth2/authorize>
+    **Authorization Grant Type:** Implicit  
+    **Client ID:** (the client id received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
+    **Callback URL:**
+    <http://wso2is.local:8080/playground2/oauth2client>  
+    **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
 
       
     ![running-app-without-pkce](../assets/img/using-wso2-identity-server/running-app-without-pkce.png) 
+    
+    !!! Tip 
+        The playground application will invoke the **authorize**
+        endpoint of the WSO2 Identity Server using the following format.
+        
+        ```java
+        https://<host>:<port>/oauth2/authorize?response_type=code&client_id=<client-ID>&redirect_uri=<callback-url>&scope=<scope>
+        ```
 
 3.  Log in with the user credentials.  
     ![log-into-app](../assets/img/using-wso2-identity-server/log-into-app.png) 
@@ -55,19 +63,8 @@ without PKCE.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the application
-    registration)
-
-    !!! info 
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint.
-
-        If the tenant domain is *[wso2.com](http://wso2.com)*, access token
-        endpoint will be as follows.
-
-        Access Token Endpoint:
-        <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
+    Client Secret: (client secret received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
 
     ![access-token-endpoint](../assets/img/using-wso2-identity-server/access-token-endpoint.png)   
       
@@ -106,8 +103,8 @@ without PKCE.
 2.  Enter the following details and click **Authorize**.
 
     Authorization Grant Type: Authorization Code  
-    Client ID: (the client id received at the application
-    registration)  
+    Client ID: (the client id received at the [application
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Authorize Endpoint: <https://localhost:9443/oauth2/authorize>  
     Use PKCE: Yes  
@@ -128,21 +125,10 @@ without PKCE.
 
     Callback URL: <http://wso2is.local:8080/playground2/oauth2client>  
     Access Token Endpoint: <https://localhost:9443/oauth2/token>  
-    Client Secret: (client secret received at the application
-    registration)  
+    Client Secret: (client secret received at the [application
+                                        registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))    
     PKCE Verifier: (this will be populated using the value generated in
     step 1)
-
-    !!! info 
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint.
-
-        If the tenant domain is *[wso2.com](http://wso2.com)*, access token
-        endpoint will be as follows.
-
-        Access Token Endpoint:
-        <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
 
     ![access-token-end-point](../assets/img/using-wso2-identity-server/access-token-end-point.png)  
       

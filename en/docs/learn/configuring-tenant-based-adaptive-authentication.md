@@ -36,7 +36,7 @@ credentials (basic authentication) to access a resource.
 
 6.  Navigate to the **Main** tab of the management console and click
     **List** under **Service Providers**.
-7.  Edit the **saml2-web-app-dispatch.com** service provider and select
+7.  Edit the **saml2-web-app-pickup-dispatch.com** service provider and select
     **Saas application**. This enables users from other tenant domains
     such as **abc.com** or **123.com** to log in to the application.  
     ![enable-saas-app](../assets/img/tutorials/enable-saas-app.png)
@@ -71,7 +71,7 @@ credentials (basic authentication) to access a resource.
 2.  Create a new user in the abc.com tenant named "chris" and ensure
     that he has login permissions.
 3.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 4.  Click **Login** and enter Chris's credentials. Enter the username
     with the appended tenant domain (i.e., chris@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  

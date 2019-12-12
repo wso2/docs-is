@@ -1,4 +1,4 @@
-# Identity Server as an XACML Engine
+# Identity Server as a XACML Engine
 
 WSO2 Identity Server comes with XACML support for fine-grained
 authorization. It includes full support for policies based on XACML
@@ -10,7 +10,7 @@ authorization. It includes full support for policies based on XACML
     Management](../../get-started/access-control-and-entitlement-management).
 
 The following steps describe how you can configure the Identity Server
-as an XACML engine.
+as a XACML engine.
 
 1.  Log in to the [Management
     Console](../../setup/getting-started-with-the-management-console) using your

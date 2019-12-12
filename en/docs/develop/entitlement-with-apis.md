@@ -7,22 +7,18 @@ The following section guides you on invoking the two admin service and
 describes the operations available in the WSO2 Identity Server
 Entitlement Mangement APIs.
 
-!!! note
-    
-    Before you begin
-    
+!!! note "Before you begin"
     As admin services are secured to prevent anonymous invocations, you
     cannot view the WSDL of the admin service by default. Follow the steps
     below to view and invoke it:
     
-    1.  Set the `           <HideAdminServiceWSDLs>          ` element to
-        `           false          ` in
-        `           <IS_HOME>/repository/conf/carbon.xml          ` file.
-    
-          
+    1.  Set the `           admin_service.wsdl          ` element to
+        `           true          ` in
+        `           <IS_HOME>/repository/conf/deployment.toml         ` file.
     
         ``` xml
-        <HideAdminServiceWSDLs>false</HideAdminServiceWSDLs>
+        [admin_service.wsdl]
+        enable = true
         ```
     
     2.  Restart the Identity Server.
@@ -39,10 +35,6 @@ Entitlement Mangement APIs.
 The following section guides you on entitlement management in two
 different areas,
 
--   [Policy Administration
-    API](#EntitlementwithAPIs-PolicyAdministrationAPI)
--   [Policy Evaluation API](#EntitlementwithAPIs-PolicyEvaluationAPI)
-
 ## Policy Administration API
 
 Policy administration includes all the actions that should be done to
@@ -54,10 +46,8 @@ manage policy administration stuff.
 -   You can use the following URL in your browser to see the WSDL of the
     EntitlementPolicyAdminService admin service.
 
-      
-
     ``` java
-      https://localhost:9443/services/EntitlementPolicyAdminService?wsdl
+    https://localhost:9443/services/EntitlementPolicyAdminService?wsdl
     ```
 
     By using any SoapUI, you can call this admin SOAP service.
@@ -65,9 +55,6 @@ manage policy administration stuff.
       
 
     !!! note
-    
-        **Note:**
-    
         All the APIs are secured with basic authentication. Follow the steps
         below to add a basic auth header when calling these methods.
     
@@ -78,14 +65,10 @@ manage policy administration stuff.
             `             Basic_            ` ", followed by the encoded
             string. For example, the basic auth authorization header using
             "admin" as both username and password is as follows:
-    
+
             ``` java
-                    Authorization: Basic YWRtaW46YWRtaW4=
+            Authorization: Basic YWRtaW46YWRtaW4=
             ```
-    
-
-      
-
       
 
 #### Operations included in the EntitlementPolicyAdminService SOAP API
@@ -93,11 +76,7 @@ manage policy administration stuff.
 The following commonly used operations are available in the
 EntitlementPolicyAdminService.
 
-  
-
 ###### addPolicy()
-
-  
 
 <table>
 <tbody>
@@ -139,11 +118,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-156500384" class="expand-container">
-<div id="expander-control-156500384" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-156500384" class="expand-content">
+<details class="info">
+<summary> Click here to see the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span> xmlns:xsd1=<span class="st">&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;</span>&gt;</a>
@@ -186,7 +163,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb4-38" title="38">         &lt;/xsd:policyDTO&gt;</a>
 <a class="sourceLine" id="cb4-39" title="39">      &lt;/xsd:addPolicy&gt;</a>
 <a class="sourceLine" id="cb4-40" title="40">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb4-41" title="41">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb4-41" title="41">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -196,11 +173,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-430766187" class="expand-container">
-<div id="expander-control-430766187" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the sample response
-</div>
-<div id="expander-content-430766187" class="expand-content">
+<details class="info">
+<summary> Click here to see the sample response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -209,7 +184,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb5-4" title="4">         &lt;ns:<span class="kw">return</span> xsi:nil=<span class="st">&quot;true&quot;</span> xmlns:xsi=<span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>/&gt;</a>
 <a class="sourceLine" id="cb5-5" title="5">      &lt;/ns:addPolicyResponse&gt;</a>
 <a class="sourceLine" id="cb5-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb5-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb5-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -220,8 +195,6 @@ EntitlementPolicyAdminService.
 </table>
 
 ###### getAllPolicyIds()
-
-  
 
 <table>
 <tbody>
@@ -238,11 +211,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-27253142" class="expand-container">
-<div id="expander-control-27253142" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-27253142" class="expand-content">
+<details class="info">
+<summary> Click here to see the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -251,7 +222,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb1-4" title="4">      &lt;xsd:getAllPolicyIds&gt;    </a>
 <a class="sourceLine" id="cb1-5" title="5">      &lt;/xsd:getAllPolicyIds&gt;</a>
 <a class="sourceLine" id="cb1-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb1-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb1-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -261,11 +232,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-719105164" class="expand-container">
-<div id="expander-control-719105164" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-719105164" class="expand-content">
+<details class="info">
+<summary> Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -291,7 +260,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-21" title="21">         &lt;ns:<span class="kw">return</span>&gt;samplepolicy_template&lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb2-22" title="22">      &lt;/ns:getAllPolicyIdsResponse&gt;</a>
 <a class="sourceLine" id="cb2-23" title="23">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-24" title="24">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-24" title="24">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -304,8 +273,6 @@ EntitlementPolicyAdminService.
   
 
 ###### getPolicy()
-
-  
 
 <table>
 <tbody>
@@ -343,11 +310,8 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-1780310605" class="expand-container">
-<div id="expander-control-1780310605" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-1780310605" class="expand-content">
+<details class="info">
+<summary> Click here to see the request</summary>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -360,7 +324,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb3-8" title="8">         &lt;xsd:isPDPPolicy&gt;<span class="kw">false</span>&lt;/xsd:isPDPPolicy&gt;</a>
 <a class="sourceLine" id="cb3-9" title="9">      &lt;/xsd:getPolicy&gt;</a>
 <a class="sourceLine" id="cb3-10" title="10">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-11" title="11">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-11" title="11">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -370,11 +334,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1616824936" class="expand-container">
-<div id="expander-control-1616824936" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the response
-</div>
-<div id="expander-content-1616824936" class="expand-content">
+<details class="info">
+<summary> Click here to see the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -430,7 +392,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb4-51" title="51">         &lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb4-52" title="52">      &lt;/ns:getPolicyResponse&gt;</a>
 <a class="sourceLine" id="cb4-53" title="53">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb4-54" title="54">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb4-54" title="54">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -443,8 +405,6 @@ EntitlementPolicyAdminService.
   
 
 ###### getPolicyVersions()
-
-  
 
 <table>
 <tbody>
@@ -478,11 +438,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-320700726" class="expand-container">
-<div id="expander-control-320700726" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to see the request
-</div>
-<div id="expander-content-320700726" class="expand-content">
+<details class="info">
+<summary> Click here to see the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -493,7 +451,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-6" title="6">         &lt;xsd:policyId&gt;authn_time_and_user_claim_based_policy_template&lt;/xsd:policyId&gt;</a>
 <a class="sourceLine" id="cb2-7" title="7">      &lt;/xsd:getPolicyVersions&gt;</a>
 <a class="sourceLine" id="cb2-8" title="8">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-9" title="9">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-9" title="9">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -503,11 +461,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Responae</td>
 <td><div class="content-wrapper">
-<div id="expander-412678091" class="expand-container">
-<div id="expander-control-412678091" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand...
-</div>
-<div id="expander-content-412678091" class="expand-content">
+<details class="info">
+<summary> Click here to expand</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -516,7 +472,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span>&gt;<span class="dv">1</span>&lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:getPolicyVersionsResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -547,11 +503,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-853092870" class="expand-container">
-<div id="expander-control-853092870" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-853092870" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -559,7 +513,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb1-3" title="3">   &lt;soapenv:Body&gt;</a>
 <a class="sourceLine" id="cb1-4" title="4">      &lt;xsd:getPublisherModuleData/&gt;</a>
 <a class="sourceLine" id="cb1-5" title="5">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb1-6" title="6">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb1-6" title="6">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -569,11 +523,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1509424055" class="expand-container">
-<div id="expander-control-1509424055" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-1509424055" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -620,7 +572,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-42" title="42">         &lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb2-43" title="43">      &lt;/ns:getPublisherModuleDataResponse&gt;</a>
 <a class="sourceLine" id="cb2-44" title="44">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-45" title="45">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-45" title="45">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -670,11 +622,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-200174208" class="expand-container">
-<div id="expander-control-200174208" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-200174208" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -691,7 +641,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-12" title="12">         &lt;xsd:order&gt;<span class="dv">30</span>&lt;/xsd:order&gt;</a>
 <a class="sourceLine" id="cb2-13" title="13">      &lt;/xsd:publishToPDP&gt;</a>
 <a class="sourceLine" id="cb2-14" title="14">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-15" title="15">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-15" title="15">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -701,11 +651,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1735507693" class="expand-container">
-<div id="expander-control-1735507693" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-1735507693" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -714,7 +662,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span> xsi:nil=<span class="st">&quot;true&quot;</span> xmlns:xsi=<span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>/&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:publishToPDPResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -725,8 +673,6 @@ EntitlementPolicyAdminService.
 </table>
 
 ###### removePolicy()
-
-  
 
 <table style="width:100%;">
 <colgroup>
@@ -764,11 +710,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-1635448021" class="expand-container">
-<div id="expander-control-1635448021" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-1635448021" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -781,7 +725,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-8" title="8">         &lt;xsd:dePromote&gt;<span class="kw">true</span>&lt;/xsd:dePromote&gt;</a>
 <a class="sourceLine" id="cb2-9" title="9">      &lt;/xsd:removePolicy&gt;</a>
 <a class="sourceLine" id="cb2-10" title="10">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-11" title="11">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-11" title="11">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -791,11 +735,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-495798490" class="expand-container">
-<div id="expander-control-495798490" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-495798490" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -804,7 +746,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span> xsi:nil=<span class="st">&quot;true&quot;</span> xmlns:xsi=<span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>/&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:removePolicyResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -815,8 +757,6 @@ EntitlementPolicyAdminService.
 </table>
 
 ###### updatePolicy()
-
-  
 
 <table style="width:100%;">
 <colgroup>
@@ -854,11 +794,9 @@ EntitlementPolicyAdminService.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-301590820" class="expand-container">
-<div id="expander-control-301590820" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-301590820" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span> xmlns:xsd1=<span class="st">&quot;http://dto.entitlement.identity.carbon.wso2.org/xsd&quot;</span>&gt;</a>
@@ -905,7 +843,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb2-42" title="42">         &lt;/xsd:policyDTO&gt;</a>
 <a class="sourceLine" id="cb2-43" title="43">      &lt;/xsd:updatePolicy&gt;</a>
 <a class="sourceLine" id="cb2-44" title="44">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-45" title="45">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-45" title="45">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -915,11 +853,9 @@ EntitlementPolicyAdminService.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1644250968" class="expand-container">
-<div id="expander-control-1644250968" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-1644250968" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -928,7 +864,7 @@ EntitlementPolicyAdminService.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span> xsi:nil=<span class="st">&quot;true&quot;</span> xmlns:xsi=<span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>/&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:updatePolicyResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -953,7 +889,7 @@ an admin service called **EntitlementService** to evaluate a policy.
       
 
     ``` java
-      https://localhost:9443/services/EntitlementService?wsdl
+    https://localhost:9443/services/EntitlementService?wsdl
     ```
 
     By using any SoapUI, you can call this admin SOAP service.
@@ -976,23 +912,16 @@ an admin service called **EntitlementService** to evaluate a policy.
             "admin" as both username and password is as follows:
     
             ``` java
-                    Authorization: Basic YWRtaW46YWRtaW4=
+            Authorization: Basic YWRtaW46YWRtaW4=
             ```
-    
-
-      
-
-      
 
 #### Operations included in **EntitlementService SOAP** API
-
-  
 
 !!! note
     
     Before you begin,
     
-    In order to try this EntitlementService using SOAP UI, You need to
+    In order to try this EntitlementService using [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html), You need to
     publish a Policy to the PDP. For this, you can use
     EntitlementPolicyAdminService or management console UI.
     
@@ -1014,17 +943,11 @@ an admin service called **EntitlementService** to evaluate a policy.
         <Rule Effect="Permit" RuleId="permit"/>
     </Policy>
     ```
-    
-
-  
 
 The following commonly used operations are available in the
 EntitlementPolicyAdminService. A sample SOAP request and response will
 be available with each of the operation.
 
-  
-
-  
 
 ###### getDecision()
 
@@ -1066,11 +989,9 @@ be available with each of the operation.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-969584415" class="expand-container">
-<div id="expander-control-969584415" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-969584415" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -1099,7 +1020,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb2-24" title="24">         ]]&gt;&lt;/xsd:request&gt;</a>
 <a class="sourceLine" id="cb2-25" title="25">      &lt;/xsd:getDecision&gt;</a>
 <a class="sourceLine" id="cb2-26" title="26">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-27" title="27">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-27" title="27">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1109,11 +1030,9 @@ be available with each of the operation.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-407515014" class="expand-container">
-<div id="expander-control-407515014" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the responase
-</div>
-<div id="expander-content-407515014" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -1122,7 +1041,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span>&gt;&lt;![CDATA[&lt;<span class="bu">Response</span> xmlns=<span class="st">&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;</span>&gt;&lt;<span class="bu">Result</span>&gt;&lt;Decision&gt;Permit&lt;/Decision&gt;&lt;Status&gt;&lt;StatusCode Value=<span class="st">&quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;</span>/&gt;&lt;/Status&gt;&lt;/<span class="bu">Result</span>&gt;&lt;/<span class="bu">Response</span>&gt;]]&gt;&lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:getDecisionResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1184,11 +1103,8 @@ be available with each of the operation.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-1611078564" class="expand-container">
-<div id="expander-control-1611078564" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-1611078564" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -1203,7 +1119,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb4-10" title="10">         &lt;xsd:action&gt;read&lt;/xsd:action&gt;</a>
 <a class="sourceLine" id="cb4-11" title="11">      &lt;/xsd:getBooleanDecision&gt;</a>
 <a class="sourceLine" id="cb4-12" title="12">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb4-13" title="13">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb4-13" title="13">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1213,11 +1129,9 @@ be available with each of the operation.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-1139067836" class="expand-container">
-<div id="expander-control-1139067836" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-1139067836" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -1226,7 +1140,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb5-4" title="4">         &lt;ns:<span class="kw">return</span>&gt;<span class="kw">true</span>&lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb5-5" title="5">      &lt;/ns:getBooleanDecisionResponse&gt;</a>
 <a class="sourceLine" id="cb5-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb5-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb5-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1236,13 +1150,7 @@ be available with each of the operation.
 </tbody>
 </table>
 
-  
-
-  
-
 ###### getDecisionByAttributes()
-
-  
 
 <table>
 <colgroup>
@@ -1288,11 +1196,9 @@ be available with each of the operation.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-966344863" class="expand-container">
-<div id="expander-control-966344863" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-966344863" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -1307,7 +1213,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb2-10" title="10">         &lt;xsd:action&gt;read&lt;/xsd:action&gt;</a>
 <a class="sourceLine" id="cb2-11" title="11">      &lt;/xsd:getDecisionByAttributes&gt;</a>
 <a class="sourceLine" id="cb2-12" title="12">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb2-13" title="13">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb2-13" title="13">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1317,11 +1223,9 @@ be available with each of the operation.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-274330802" class="expand-container">
-<div id="expander-control-274330802" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-274330802" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -1330,7 +1234,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb3-4" title="4">         &lt;ns:<span class="kw">return</span>&gt;&lt;![CDATA[&lt;<span class="bu">Response</span> xmlns=<span class="st">&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot;</span>&gt;&lt;<span class="bu">Result</span>&gt;&lt;Decision&gt;Permit&lt;/Decision&gt;&lt;Status&gt;&lt;StatusCode Value=<span class="st">&quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;</span>/&gt;&lt;/Status&gt;&lt;/<span class="bu">Result</span>&gt;&lt;/<span class="bu">Response</span>&gt;]]&gt;&lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb3-5" title="5">      &lt;/ns:getDecisionByAttributesResponse&gt;</a>
 <a class="sourceLine" id="cb3-6" title="6">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb3-7" title="7">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1343,8 +1247,6 @@ be available with each of the operation.
   
 
 ###### getEntitledAttributes()
-
-  
 
 <table>
 <colgroup>
@@ -1398,11 +1300,9 @@ be available with each of the operation.
 <tr class="odd">
 <td>Request</td>
 <td><div class="content-wrapper">
-<div id="expander-699549610" class="expand-container">
-<div id="expander-control-699549610" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the request
-</div>
-<div id="expander-content-699549610" class="expand-content">
+<details class="info">
+<summary> Click here to expand the request</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span> xmlns:xsd=<span class="st">&quot;http://org.apache.axis2/xsd&quot;</span>&gt;</a>
@@ -1421,7 +1321,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb6-14" title="14">         &lt;xsd:enableChildSearch&gt;<span class="kw">true</span>&lt;/xsd:enableChildSearch&gt;</a>
 <a class="sourceLine" id="cb6-15" title="15">      &lt;/xsd:getEntitledAttributes&gt;</a>
 <a class="sourceLine" id="cb6-16" title="16">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb6-17" title="17">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb6-17" title="17">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1431,11 +1331,9 @@ be available with each of the operation.
 <tr class="even">
 <td>Response</td>
 <td><div class="content-wrapper">
-<div id="expander-757725560" class="expand-container">
-<div id="expander-control-757725560" class="expand-control">
-<img src="images/icons/grey_arrow_down.png" class="expand-control-image" /> Click here to expand the response
-</div>
-<div id="expander-content-757725560" class="expand-content">
+<details class="info">
+<summary> Click here to expand the response</summary>
+<p> 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb7" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1">&lt;soapenv:Envelope xmlns:soapenv=<span class="st">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>&gt;</a>
@@ -1455,7 +1353,7 @@ be available with each of the operation.
 <a class="sourceLine" id="cb7-15" title="15">         &lt;/ns:<span class="kw">return</span>&gt;</a>
 <a class="sourceLine" id="cb7-16" title="16">      &lt;/ns:getEntitledAttributesResponse&gt;</a>
 <a class="sourceLine" id="cb7-17" title="17">   &lt;/soapenv:Body&gt;</a>
-<a class="sourceLine" id="cb7-18" title="18">&lt;/soapenv:Envelope&gt;</a></code></pre></div>
+<a class="sourceLine" id="cb7-18" title="18">&lt;/soapenv:Envelope&gt;</a></code></pre></div></p></details></div>
 </div>
 </div>
 </div>
@@ -1465,11 +1363,9 @@ be available with each of the operation.
 </tbody>
 </table>
 
-REST API
-
-WSO2 Identity Server provides a REST API and a REST endpoint for the
-policy evaluation. Please Read more about REST API from
-[here](https://docs.wso2.com/display/IS540/Entitlement+with+REST+APIs).
+!!! info "REST API"
+    WSO2 Identity Server provides a REST API and a REST endpoint for the
+    policy evaluation. Please read more about this REST API from [here](../../develop/entitlement-with-rest-apis).
 
   
 

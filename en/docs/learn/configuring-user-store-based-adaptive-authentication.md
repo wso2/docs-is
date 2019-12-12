@@ -35,7 +35,7 @@ of authentication.
 1.  Login to the mangement console.
 
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
-    `              saml2-web-app-dispatch.com             `
+    `              saml2-web-app-pickup-dispatch.com             `
     service provider.
 3.  Expand the **Local and Outbound Configuration** section and click
     **Advanced Authentication**.
@@ -111,7 +111,7 @@ of authentication.
         accordingly.
     -   For more information about secondary user store properties, see
         [Configuring Secondary User
-        Stores](../../learn/configuring-secondary-user-stores).
+        Stores](../../setup/configuring-secondary-user-stores).
 
 1.  **Connection URL:** ldap://localhost:10390
 2.  **Connection Name:** uid=admin,ou=system
@@ -143,7 +143,7 @@ of authentication.
     ![creating-users](../assets/img/tutorials/creating-users.png)
     
 3.  Access the following sample PickUp application URL:
-    <http://localhost.com:8080/saml2-web-app-dispatch.com>
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
     
 4.  Click **Login** and enter Alex's credentials. Note that Alex is
     successfully logged in to the application after going through only

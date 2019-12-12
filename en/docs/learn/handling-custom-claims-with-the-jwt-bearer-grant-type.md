@@ -26,10 +26,10 @@ self contained access token with the JWT bearer grant type.
         `          deployment.toml         ` file, claims are handled in the
         default OIDC flow. This means that claims are converted to OIDC
         dialect depending on service provider and Identity provider level
-        claim mappings, and also based on claims configured in OIDC registry
-        path. Only the claims that are specified in the
+        claim mappings, and also based on claims configured in OIDC Scopes. Only the claims that are specified in the
         `          openid         ` scope are copied to the self contained
         access token.
+        ![](../assets/img/learn/oidc-scopes.png)
     -   If you want to copy the attributes that do not have a mapping, you
         need to add the `           enable_unmapped_user_attributes          `
         element as follows under the `           [oauth.oidc.claims]         `

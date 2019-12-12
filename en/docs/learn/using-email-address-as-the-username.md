@@ -15,31 +15,10 @@
     enable_email_domain= true
     ```
 
-3.  Open the 
-    `           <IS_HOME>/repository/conf/claim-config.xml          `
-    file and configure the `           AttributeID          ` property
-    of the
-    `                       http://wso2.org/claims/username                     `
-    claim ID that is under
-    `           <Dialect dialectURI="                       http://wso2.org/claims                      ">          `
-    to `           mail          ` .
-
-    ``` java
-        <Claim>
-           <ClaimURI>http://wso2.org/claims/username</ClaimURI>
-           <DisplayName>Username</DisplayName>
-           <AttributeID>mail</AttributeID>
-           <Description>Username</Description>
-        </Claim>
-    ```
-
-    !!! note
-    
-        This file is checked only when WSO2 IS is starting for the first
-        time. Therefore, if you haven't configured this property at the time
-        of starting up the server for the first time, you will get errors at
-        the start up.
-    
+3.  Login to the management console and configure the ` Mapped Attribute
+    ` property of the ` http://wso2.org/claims/username ` claim ID that
+    is under **Dialect dialectURI** `http://wso2.org/claims` to ` mail
+    `.
 
 4.  Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties           `
     file and set the following property to `           true          ` .
@@ -90,10 +69,10 @@
     <tr class="even">
     <td><code>               UserNameSearchFilter              </code></td>
     <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user instead of <code>                 cn                </code> or <code>                 uid                </code> . <strong>LDAP/Active Directory only</strong></p>
+    <p>Use the mail attribute of the user instead of <code>                 cn                </code> or <code>                 uid                </code> . <strong>LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store] <br> user_name_search_filter=&quot;(&amp;(objectClass=person)(uid=?))&quot;</code> <br> In Active Directory, <code>[user_store] <br> user_name_search_filter = &quot;(&amp;(objectClass=user)(cn=?))&quot;</pre></code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store] <br> user_name_search_filter=`"(&amp;(objectClass=person)(mail=?))"`</code> <br> In Active Directory, <code>[user_store] <br> user_name_search_filter = `"(&amp;(objectClass=user)(mail=?))"`</pre></code>
     </div>
     </div>
     </div></td>
@@ -101,11 +80,15 @@
     <tr class="odd">
     <td><code>               UserNameListFilter              </code></td>
     <td><div class="content-wrapper">
-    <p>Use the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
+    <p>Use the mail attribute of the user if <strong>necessary. LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=&quot;(objectClass=person)&quot;</code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=`"(&amp;(objectClass=user)(mail=?))"`</code>
     </pre>
+    <div class="admonition tip">
+    <p class="admonition-title">Tip</p>
+    <p>you are trying with the default embedded LDAP user store, this configuration change is not needed.</p>
+    </div> 
     </div>
     </div>
     </div></td>
@@ -116,7 +99,7 @@
     <p>Change this property that is under the relevant user store manager tag as follows. This property allows you to add special characters like "@" in the username.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_javascript_regex = &quot;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&quot;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_script_regex = &apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$&apos;</code></pre></div>
     </div>
     </div>
     </div></td>
@@ -127,7 +110,7 @@
     <p>This is a regular expression to validate usernames. By default, strings have a length of 5 to 30. Only non-empty characters are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_regex=&quot;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&quot;</code></pre></div>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>username_java_regex=&apos;^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&apos;</code></pre></div>
     </div>
     </div>
     </td>
@@ -146,14 +129,6 @@
     <p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
     <p>After this configuration, the user having the username <strong><code>                  admin@wso2.com                 </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
     <img src="../../assets/img/using-wso2-identity-server/super-admin.png" width="600" /></p></div>
-    <div class="admonition tip">
-    <p class="admonition-title">Tip</p>
-    <p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb10" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1">sh wso2server.<span class="fu">sh</span> -Dsetup</a></code></pre></div>
-    </div></div>
-    </div>
     </div></td>
     </tr>
     </tbody>
@@ -169,7 +144,7 @@
     !!! note
     
         You can configure email user name without enabling
-        **`            EnableEmailUserName           `** property, then
+        **`            enable_email_domain           `** property, then
         users can login to both super tenant and tenant using email and
         non-email user names. But super tenant users should always use
         ***@carbon.super*** at the end of user names.
@@ -180,4 +155,4 @@
 !!! info "Related Topics"
 
     For more information on how to configure primary and secondary user
-    stores, see [Configuring User Stores](../../learn/configuring-user-stores).
+    stores, see [Configuring User Stores](../../setup/configuring-user-stores).

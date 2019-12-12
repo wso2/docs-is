@@ -4,17 +4,16 @@ SAML stands for Security Assertion Markup Language which is a XML based data for
 
 Let's start configuring SAML2 Web SSO.
 
-!!! tip "Before you begin"
-    In order to configure Single-Sign-On (SSO) for SAML2, you must first [register a service provider for inbound authentication](../../learn/configuring-inbound-authentication-for-a-service-provider). To register a service provider:
-
-    1.  Sign in to WSO2 Identity Server Management Console as an admin.
-
-    2.  On the Main menu, click Identity > Service Providers > Add.
-
-    3.  Enter a service provider name.
-
-    4.  Click Register. The Service Provider Details page appears.
-
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	 
 To configure SAML2 Web SSO:
 
 1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
@@ -49,31 +48,29 @@ To configure SAML2 Web SSO:
     <tbody>
     <tr class="odd">
     <td><strong>Issuer</strong></td>
-    <td>Specify the <strong>Issuer</strong> . This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. When configuring single-sign-on across Carbon servers, ensure that this value is equal to the <strong>ServiceProviderID</strong> value mentioned in the <code>               &lt;IS_HOME&gt;/repository/conf/security/authenticators.xml              </code> file of the relying party Carbon server.</td>
+    <td>Specify the <strong>Issuer</strong> . This is the <code>               &lt;saml:Issuer&gt;              </code> element that contains the unique identifier of the service provider. This is also the issuer value specified in the SAML Authentication Request issued by the service provider. 
+    </td>
     <td><code>               travelocity.com              </code></td>
     </tr>
     <tr class="even">
     <td><strong>Service Provider Qualifier</strong></td>
-    <td><div class="content-wrapper">
-    <div class="admonition warning">
-    <p class="admonition-title">Warning</p>
-      <p>To configure Service Provider Qualifier described below, apply the <strong>5102 WUM update</strong> to WSO2 IS 5.8.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> in the WSO2 Administration Guide.</p></div>
+    <td>
     <p>This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same Issuer value. When a Service Provider Qualifier is defined here, it will be appended to the end of the Issuer value when registering the SAML SP in the Identity Server.</p> 
-    <p>For example, if you specify <a href="http://travelocity.com/">travelocity.com</a> as the Issuer and <strong>sp1</strong> as the Service Provider Qualifier, the configuration will be registered in IS as <code>                                   travelocity.com                                  :urn:sp:qualifier:sp1                </code></p>
+    <p>For example, if you specify `travelocity.com` as the Issuer and <strong>sp1</strong> as the Service Provider Qualifier, the configuration will be registered in IS as <code>                                   travelocity.com\:urn:sp:qualifier:sp1                </code></p>
     <p>You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.</p>
-    <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex : <a href="http://travelocity.com/">travelocity.com</a> ). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
+    <p>When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (ex : `travelocity.com` ). The service provider qualifier value should be sent as a query parameter, spQualifier with the HTTP request in the following format.</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">https:<span class="co">//{Hostname}:{Port}/samlsso?spQualifier={Service Provider Qualifier}</span></a></code></pre></div>
     </div>
     </div>
-    <p>In Travelocity sample SP, this query parameter can be set by modifying <code>                 SAML2.IdPURL                </code> value mentioned in the <a href="http://travelocity.com/WEB-INF/classes/travelocity.properties">travelocity.com/WEB-INF/classes/travelocity.properties</a> file as <a href="https://localhost:9443/samlsso?spQualifier=sp1">https://localhost:9443/samlsso?spQualifier=sp1</a> .</p>
+    <p>In Travelocity sample SP, this query parameter can be set by modifying <code>                 SAML2.IdPURL                </code> value mentioned in the `<travelocity.com-home>/WEB-INF/classes/travelocity.properties` file as `https://localhost:9443/samlsso?spQualifier=sp1` .</p>
     </div></td>
     <td><code>               sp1              </code></td>
     </tr>
     <tr class="odd">
     <td><strong>Assertion Consumer URLs</strong></td>
-    <td>Specify the <strong>Assertion Consumer URLs</strong> . This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the <strong>Add</strong> button.</td>
+    <td>This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. It should have this format: https://(host-name):(port)/acs . You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the <strong>Add</strong> button.</td>
     <td><code>                               http://wso2is.local:8080/travelocity.com/home.jsp                             </code></td>
     </tr>
     <tr class="even">
@@ -233,11 +230,8 @@ To configure SAML2 Web SSO:
     <tr class="even">
     <td><strong>IdP Entity ID Alias</strong></td>
     <td><div class="content-wrapper">
-   <div class="admonition warning">
-   <p class="admonition-title">Warning</p>
-    <p>To configure IdP EntityID Alias described below, apply the <strong>5102 WUM update</strong> to WSO2 IS 5.8.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see <a href="https://docs.wso2.com/display/updates/Getting+Started">Getting Started with WUM</a> in the WSO2 Administration Guide.</p></div>
     <p>This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. But if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this IdP Entity ID Alias value.</p>
-    <p>In Travelocity sample SP, this value can be set by modifying SAML2.IdPEntityId value mentioned in the <a href="http://travelocity.com/WEB-INF/classes/travelocity.properties">travelocity.com/WEB-INF/classes/travelocity.properties</a> file, so that it reflects the value of the IdP Entity ID Alias you define in the SAML SP configuration.</p>
+    <p>In Travelocity sample SP, this value can be set by modifying SAML2.IdPEntityId value mentioned in the `<travelocity.com-home>/WEB-INF/classes/travelocity.properties` file, so that it reflects the value of the IdP Entity ID Alias you define in the SAML SP configuration.</p>
     </div></td>
     <td>any valid URL/URI</td>
     </tr>
@@ -380,12 +374,12 @@ of entity configuration.
     information on SAML2 single-sign-on and see the following topics for
     samples of configuring single-sign-on using SAML2.
 
-    -   [Configuring Single
-        Sign-On](../../learn/configuring-single-sign-on)
+    -   [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml)
+    -   [Configuring Single Sign-On Using OpenID Connect](../../learn/configuring-single-sign-on-oidc)
     -   [Logging in to WSO2 Products via Identity
         Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2
         Products](../../learn/configuring-saml2-single-sign-on-across-different-wso2-products)
 
     See [Using the SAML2
-    Toolkit](../../learn/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.
+    Toolkit](../../administer/using-the-saml2-toolkit) for support on debugging issues with SAML2 configurations.

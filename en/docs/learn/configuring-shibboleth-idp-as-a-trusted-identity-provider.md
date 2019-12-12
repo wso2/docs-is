@@ -383,9 +383,7 @@ provider as a federated identity provider.
 
 To configure the service provider, do the following.
 
-1.  Register the service provider. See [Configuring a Service
-    Provider](../../learn/adding-and-configuring-a-service-provider)
-    for more information on how to do this.
+1.  Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) the `travelocity.com` sample application.
     
 2.  Expand the **Local and Inbound Authentication** section and do one
     of the following configurations.
@@ -405,10 +403,8 @@ To configure the service provider, do the following.
 
 ### Testing the scenario
 
-1.  [Set up the travelocity web
-    application](../../learn/configuring-single-sign-on#configuring-the-sso-web-application)
-    and access it from
-    `                     http://wso2is.local:8080/travelocity.com                   `.
+1.  Access `travelocity.com` sample from `
+    http://wso2is.local:8080/travelocity.com `.
     
 2.  You should see the following login page if you configured
     multi-option authentication.  

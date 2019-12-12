@@ -13,19 +13,12 @@ WSO2 Identity Server enables users to log in to applications with their
 Facebook account. To do that, create a Facebook app after registering as
 a Facebook developer.
 
-!!! tip "Before you begin!"
-    
-    Refer [this](../../learn/downloading-a-sample)
-    document to download the `         travelocity.com        ` sample
-    application.
-    
-
 This topic provides instructions on how to configure the Facebook app
 and the Identity Server to integrate using a sample app. See the
 following sections for more information.
 
 
-### Configuring the Facebook app
+## Configuring the Facebook app
 
 1.  Go to <https://developers.facebook.com/> and log in using your
     Facebook credentials.
@@ -115,96 +108,19 @@ Now you have finished configuring Facebook as an Identity Provider.
 
 	![submit-fb-app-for-review](../assets/img/tutorials/submit-fb-app-for-review.png)
 
-### Deploying travelocity.com sample app
+## Deploying travelocity sample application
 
-The next step is to deploy the `         travelocity.com        ` sample
+The next step is to configure the `         travelocity.com        ` sample
 app in order to use it in this scenario.
 
-!!! tip "Before you begin!"
-    If you haven't downloaded the samples, refer
-    [this](../../learn/downloading-a-sample)
-    document to download the `         travelocity.com        ` sample
-    application.  
-    Once the samples are downloaded, you can find the
-    `         travelocity.com        ` sample in the
-    `         <IS_SAMPLES>/modules/samples/sso/sso-agent-sample/target        `
-    directory.
-    
 
-1.  Open a terminal window and add the following entry to the
-    `           /etc/hosts          ` file of your machine to configure
-    the hostname.
-
-    ``` bash
-    127.0.0.1   wso2is.local
-    ```
-
-    !!!info "Why is this step needed?"
-		Some browsers do not allow you to create cookies for a naked
-		hostname, such as `            localhost           `. Cookies are
-		required when working with SSO . Therefore, to ensure that the SSO
-		capabilities work as expected in this tutorial, you need to
-		configure the `            etc/host           ` file as explained in
-		this step.
-
-		The `            etc/host           ` file is a read-only file.
-		Therefore, you won't be able to edit it by opening the file via a
-		text editor. Instead, edit the file using the terminal commands.  
-		For example, use the following command if you are working on a
-		Mac/Linux environment.
-
-		``` java
-		sudo nano /etc/hosts
-		```
-
-2.  Deploy this sample web app on a web container.
-    1.  Use the Apache Tomcat server to do this.
-    2.  Since this sample is written based on Servlet 3.0, it needs to
-        be deployed on Tomcat 7.x.
-    3.  Copy the .war file into the webapps folder. For example,
-        `             <APACHE_HOME>/apache-tomcat-7.0.50/webapps            `
-        .
-
-    4.  Start the tomcat server.
-
-3.  Open the `           travelocity.properties          ` file found
-    in the
-    `           <APACHE_HOME>/webapps/travelocity.com/WEB-INF/classes          `
-    directory and configure the following property with the hostname (
-    `           wso2is.local          ` ) that you configured above.
-    Finally restart the tomcat server.
-
-    ``` text
-        #The URL of the SAML 2.0 Assertion Consumer
-        SAML2.AssertionConsumerURL=http://wso2is.local:8080/travelocity.com/home.jsp
-    ```
-
-!!! tip
-    
-    If you wish to change properties like the issuer ID, consumer
-    URL, and IdP URL, you can edit the **travelocity.properties** file found
-    in the `         travelocity.com/WEB-INF/classes        ` directory.
-    Also if the service provider is configured in a tenant you can use
-    "QueryParams" property to send the tenant domain. As an example
-    "QueryParams=tenantDomain=wso2.com".
-    
-    This sample uses the following default values.
-    
-    | Properties                                                                                                                                                                          | Description                                                        |
-    |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-    | `             SAML2.SPEntityId=travelocity.com                         `                                                                                                            | A unique identifier for this SAML 2.0 Service Provider application |
-    | `              SAML2.AssertionConsumerURL=                                             http://wso2is.local:8080/travelocity.com/home.jsp                                          ` | The URL of the SAML 2.0 Assertion Consumer                         |
-    | `              SAML2.IdPURL=                                             https://localhost:9443/samlsso                                          `                                  | The URL of the SAML 2.0 Identity Provider                          |
-    | `             SAML2.IsPassiveAuthn=true                         `                                                                                                                   | Set this to send SAML2 passive authentication requests             |
-    
-    If you edit the **travelocity.properties** file, you must restart the
-    Apache Tomcat server for the changes to take effect.
-    
+Refer to [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) for the 
+instruction on deploying and configuring travelocity sample application.
 
 Once this is done, the next step is to configure the WSO2 Identity
 Server by adding a service provider and identity provider.
 
-### Configuring the identity provider
+## Configuring the identity provider
 
 Follow the steps given below to [add a new identity
 provider](../../learn/adding-and-configuring-an-identity-provider)
@@ -290,12 +206,18 @@ in WSO2 Identity Server.
 
 You have now added the identity provider.
 
-### Configuring the service provider
+## Configuring the service provider
 
 The next step is to [configure the service
 provider.](../../learn/adding-and-configuring-a-service-provider)
 
 1.  Return to the Management Console.
+    
+    !!! Tip "Before You Proceed" 
+        In the beginning of this guide you have
+        [registered the `ravelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1)
+        when setting up the `travelocity.com` sample. If you complete that
+        you can skip steps 2 to 5 below.
 
 2.  In the **Identity** section under the **Main** tab, click **Add**
     under **Service Providers**.
@@ -349,7 +271,7 @@ You have now added and configured the service provider.
 
 	For more information on SSO, see [Single Sign-On](../../learn/single-sign-on).
 
-### Configuring claim mappings for Facebook (optional)
+## Configuring claim mappings for Facebook (optional)
 
 All the basic information of a user/application is stored in the form of
 claims. But for the same information, different Identity Providers(IDP)
@@ -404,7 +326,7 @@ them with Facebook.
     this through **User ID Claim URI** (e.g., email).
 9.  Click **Update** to save changes.
 
-### Configuring requested claims for travelocity.com (optional)
+## Configuring requested claims for travelocity.com (optional)
 
 Generally, the service providers need some information from the Identity
 Provider side after the authentication process in order to provide their
@@ -446,7 +368,7 @@ For that follow the below steps:
 
 Now you have configured the Identity Server.
 
-### Testing the sample
+## Testing the sample
 
 1.  To test the sample, go to the following URL:
     `                     http://wso2is.local:8080/travelocity.com                   `.  

@@ -1,3 +1,0 @@
-# Working with Keystores
-
-WSO2 Identity Server uses asymmetric encryption by default for the authentication and protection of data. In asymmetric encryption, **keystores** (with private keys and public key certificates) and **truststores** (with only public key certificates) are created and stored for a product. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. The following sections explain more details on keystores and truststores, and how they are used in WSO2 Identity Server.
