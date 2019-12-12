@@ -119,7 +119,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **travelocity.com** in the **Service Provider Name** text box,
     and click **Register**.
@@ -258,7 +258,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **playground2** in the **Service Provider Name** text box,
     and click **Register**.
@@ -338,7 +338,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-dispatch** in the **Service Provider Name** text box,
     and click **Register**.
@@ -417,7 +417,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -472,30 +472,14 @@ Follow the instructions below to download a sample from GitHub.
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
 
-### Deploy the sample web app
-
-Deploy this sample web app on a web container.
-
-1. Copy the .war file into the `           webapps          `
-    folder. For example,
-    `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
-    .
-2. Start the Tomcat server.
-
-To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch/home.jsp         `
-on your browser.
-
-For example,
-`                     http://localhost:8080/pickup-dispatch/home.jsp                 .         `
     
 ### Configuring the service provider
 
-The next step is to configure the service provider.
+The first step is to configure the service provider.
 
 1. Return to the WSO2 IS management console.
 
-2. Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3. Enter **pickup-dispatch** in the **Service Provider Name** text box,
     and click **Register**.
@@ -508,7 +492,7 @@ The next step is to configure the service provider.
     !!! Tip
         The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
 
-6. Click **Add**. 
+6. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
 
     !!! Tip
         For more information on the advanced configurations
@@ -518,6 +502,28 @@ The next step is to configure the service provider.
     Now you are sent back to the Service Providers page.
 
 ----------------
+
+### Deploy the sample web app
+
+Next, deploy the sample web app on a web container.
+
+1. Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+2. Replace the `consumerKey` and `consumerSecret` values with the OAuth client key and OAuth client secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret](../assets/img/learn/pickup-key-secret.png)
+
+3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
+
+4. Start the Tomcat server.
+
+To check the sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch/home.jsp         `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/pickup-dispatch/home.jsp                 .         `
+
 
 ## Deploying the pickup-manager webapp
 
@@ -537,31 +543,13 @@ Follow the instructions below to download a sample from GitHub.
 2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the
    latest release assets.
 
-### Deploy the sample web app
-
-Deploy this sample web app on a web container.
-
-1. Copy the .war file into the `           webapps          `
-    folder. For example,
-    `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
-    .
-2. Start the Tomcat server.
-
-To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-manager/home.jsp        `
-on your browser.
-
-For example,
-`                     http://localhost:8080/pickup-manager/home.jsp                   .         `
-
-
 ### Configuring the service provider
 
-The next step is to configure the service provider.
+The first step is to configure the service provider.
 
 1. Return to the WSO2 IS management console.
 
-2. Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3. Enter **pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -574,7 +562,7 @@ The next step is to configure the service provider.
     !!! Tip
         The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
 
-6. Click **Add**. 
+6. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
 
     !!! Tip
         For more information on the advanced configurations
@@ -584,6 +572,28 @@ The next step is to configure the service provider.
     Now you are sent back to the Service Providers page.
     
 ----------------
+
+### Deploy the sample web app
+
+Next, deploy the sample web app on a web container.
+
+1. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+2. Replace the `consumerKey` and `consumerSecret` values with the OAuth client key and OAuth client secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret](../assets/img/learn/pickup-key-secret-2.png)
+
+3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
+
+4. Start the Tomcat server.
+
+To check the sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-manager/home.jsp        `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/pickup-manager/home.jsp                   .         `
+
 
 ## Deploying the PassiveSTSSampleApp webapp
 
@@ -671,7 +681,7 @@ The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **PassiveSTSSampleApp** in the **Service Provider Name** text box,
     and click **Register**.

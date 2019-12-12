@@ -40,37 +40,39 @@ Follow the steps below to view the **Federated Login Attempts**.
 
 Let's analyze the federated login attempts with the following widgets.
 
-### Login Attempts Over Time
+## Login Attempts Over Time
 
-##### **Description**
+### **Description**
 
 This chart presents the **total number of federated login attempts**
 that are made during the selected time interval.
 
-##### **Purpose**
+### **Purpose**
 
 This chart allows deriving the **federated login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-![]( ../assets/img/103329263/103329271.png)
+<img src="../../assets/img/103329263/103329271.png" alt="Compact Summary widget" width="500">
 
-### Compact Summary
 
-##### Description
+## Compact Summary
+
+### **Description**
 
 This chart presents a **summary of the federated login attempts**.
 
-##### Purpose
+### **Purpose**
 
 This chart allows identifying the percentages of the successful and
 failed federated login attempts.
 
-![]( ../assets/img/103329263/103329270.png)
+<img src="../../assets/img/103329263/103329270.png" alt="Compact Summary widget" width="500">
 
-### Map View
 
-##### Description
+## Map View
+
+### **Description**
 
 This chart presents the federated login attempts in a map view based on
 the IP addresses.
@@ -82,7 +84,7 @@ the IP addresses.
     Statistics](../../learn/enabling-geolocation-based-statistics).
     
 
-##### Purpose
+### **Purpose**
 
 -   This chart allows viewing the countries from which the federated
     logins were attempted.
@@ -92,59 +94,61 @@ the IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../assets/img/103329263/103329269.png)
+<img src="../../assets/img/103329263/103329269.png" alt="Compact Summary widget" width="500">
 
-### Distribution By Service Providers
 
-##### Description
+## Distribution By Service Providers
+
+### **Description**
 
 -   This chart presents the successful and failed federated login
     attempts sorted by service provider.
 -   Pagination is available if the statistics involve more than ten
     service providers.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the federated login attempts sorted based on
 the service providers.
 
-![]( ../assets/img/103329263/103329267.png)
+<img src="../../assets/img/103329263/103329267.png" alt="Compact Summary widget" width="500">
 
-### Distribution By Identity Provider
 
-##### Description
+## Distribution By Identity Provider
+
+### **Description**
 
 -   This chart presents the successful and failed federated login
     attempts sorted by identity provider.
 -   Pagination is available if the statistics involve more than ten
     identity providers.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the federated login attempts sorted based on
 the identity provider.
 
-![]( ../assets/img/103329263/103329266.png)
+<img src="../../assets/img/103329263/103329266.png" alt="Compact Summary widget" width="500">
 
-### Distribution By User Name
+## Distribution By User Name
 
-##### Description
+### **Description**
 
 -   This chart presents the successful and failed federated login
     attempts sorted by user name.
 -   Pagination is available if the statistics involve more than ten user
     names.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the federated login attempts sorted based on
 the user names.
 
-![]( ../assets/img/103329263/103329265.png)
+<img src="../../assets/img/103329263/103329265.png" alt="Compact Summary widget" width="500">
 
-### Detail View
+## Detail View
 
-##### Description
+### **Description**
 
 -   This widget presents details of each federated login attempt
     including the context ID, user name, service provider, identity
@@ -153,6 +157,6 @@ the user names.
 -   The login attempts can be sorted in the ascending/descending order
     by the fields in the table if required.
 
-##### Purpose
+### **Purpose**
 
 This widget allows view the details of each federated login attempt.

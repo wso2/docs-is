@@ -133,7 +133,7 @@ paths:
     delete:
       summary: Delete all my user associations
       description: |
-        This API is used to delete all associations of the auhtentiated user.
+        This API is used to delete all associations of the authenticated user.
 
           <b>Permission required:</b>
 

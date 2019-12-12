@@ -24,6 +24,30 @@ Grant](../../learn/client-credentials-grant).
     **Access Token Endpoint:** <https://localhost:9443/oauth2/token>
 
     ![client-credentials-grant](../assets/img/using-wso2-identity-server/client-credentials-grant.png) 
+    
+    !!! Tip 
+        The playground application will send a token request to the
+        **token** endpoint of the WSO2 Identity Server using the following
+        format.
+        
+         ```java
+         POST
+         https://<host>:<port>/oauth2/token
+         Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
+         Content-Type: application/x-www-form-urlencoded
+         
+         grant_type=client_credentials
+         ```
+        
+        !!! Example
+            ```java
+            POST
+            https://localhost:9443/oauth2/token
+            Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
+            Content-Type: application/x-www-form-urlencoded
+            
+            grant_type=client_credentials
+            ``` 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
