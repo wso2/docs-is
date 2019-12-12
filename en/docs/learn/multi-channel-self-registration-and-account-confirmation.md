@@ -78,7 +78,7 @@ self registration to support multiple notification channels.
     enable_resolve_notification_channel = true
     
     [identity_mgt.user_self_registration]
-    SkipAccountLockOnVerifiedPreferredChannel = false
+    enable_account_lock_for_verified_preferred_channel = false
     enable_detailed_api_response = true
     ```    
     
@@ -116,16 +116,16 @@ self registration to support multiple notification channels.
     </td>
     </tr>
     <tr>
-    <td>skip_account_lock_on_verified_preferred_channel</td>
+    <td>enable_account_lock_for_verified_preferred_channel</td>
     <td>
         <ul>
             <li>Allows a user to skip account confirmation if the user is already veirifed.</li>
-            <div class="admonition note">
-                <p class="admonition-title">Note</p>
+            <div class="admonition warning">
+                <p class="admonition-title">Warning</p>
                 <p>
                     WSO2 recommends verifying users after self registration rather than 
                     using pre-verified user self registration. Therefore, it is recommended 
-                    to set the property to <code>false</code>. 
+                    to set the property to <code>true</code>. 
                 </p>
             </div>
         </ul>
@@ -141,13 +141,6 @@ self registration to support multiple notification channels.
     </td>
     </tr>
     </table>
-    
-    !!! tip
-            The **AccountConfirmation** and **SMSAccountConfirmation** templates are 
-            used to send these email notifications.
-        
-            You can edit and customize the email template. For more information, 
-            see [Customizing Automated Emails](../../learn/customizing-automated-emails).
 
 3.  Add an event publisher to `<IS_HOME/repository/deployment/server/eventpublishers`. For this 
 sample, `http output adapter` is used. Following is a sample publisher to call a REST Service 
@@ -256,6 +249,50 @@ Management Policies** section.
         </tbody>
         </table>
         
+## Adding SMS notification templates
+
+The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
+file and they can be edited using the Management Console.
+
+!!! tip
+    The **AccountConfirmation** template is used to send email notifications.You can edit and 
+    customize the email template. For more information, 
+    see [Customizing Automated Emails](../../learn/customizing-automated-emails).
+    
+The templates for SMS notifications are stored in the registry. Follow the steps below to add
+SMS notification templates.
+
+!!! Warning
+    All the configurations are case sensitive. Changing the case may break the functionality and 
+    cause errors.
+
+1. Log in to the Management Console and click `Main> Registry> Browse`.
+
+2. On the **tree view** tab, click `system -> config ->identity`.
+
+3. Click **Add Collection**, enter `sms` as the **Name**, and then click **Add**.
+    ![add-sms-collection](../assets/img/learn/self-registration/adding-sms-templates/add-sms-collection.png)
+    
+4. Click `sms` and then click **Add collection**. Enter `accountconfirmation` as the **Name**. 
+This will create another directory inside the sms directory.
+    ![add-accountconfirmation-collection](../assets/img/learn/self-registration/adding-sms-templates/add-accountconfirmation-collection.png)
+    
+5. Click on **Add Resource**.
+
+6. Select `Create Text Content` as the **Method** and enter `en_us` as the **Name**.
+
+7. Add the SMS notification template body. **NOTE:** Include `{{confirmation-code}}` placeholder 
+in the SMS template body.
+
+    ![add-template-resource](../assets/img/learn/self-registration/adding-sms-templates/add-template-resource.png)
+8. Click `en_us` resource and add the following properties.
+    ```text
+    display : accountconfirmation
+    type : accountconfirmation
+    locale : en_US
+    ```
+    ![sms-template-resource-properties](../assets/img/learn/self-registration/adding-sms-templates/sms-template-resource-properties.png)
+                    
 ## Configuring self-registration consent purposes
     
 For more details see, 
@@ -265,6 +302,9 @@ For more details see,
 ## Try out self-registration  
 
 WSO2 Identity Server provides the functionality to confirm the user account internally or externally.
+
+!!! tip "Before you begin"
+    Complete the steps given above before trying out self-registration.
 
 1. **Internal Notification Management** : Notification sending for account confirmation is managed 
 by WSO2 Identity Server.
