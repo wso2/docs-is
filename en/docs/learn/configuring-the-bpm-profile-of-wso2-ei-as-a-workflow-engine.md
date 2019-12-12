@@ -18,7 +18,7 @@ WSO2 Identity Server to define work flows.
     ```
 2.  Configure the user management database in both the IS and the BPM server. Add the following configurations with appropriate values in both the servers. Make sure that the URLs mention the name of the database you created in the previous step and the username and password are corresponding to your MySQL instance.     
 
-    1.  <IS_HOME>/repository/conf/deployment.toml 
+    1.  In <IS_HOME>/repository/conf/deployment.toml, 
 
         ```toml
         [database.identity_db]
@@ -36,9 +36,10 @@ WSO2 Identity Server to define work flows.
         password = "Jan@1234"
         driver = "com.mysql.jdbc.Driver"
         validationQuery = "SELECT 1"
+        ```
 
     
-    2.  <EI_HOME>/wso2/business-process/conf/datasources/master-datasources.xml
+    2.  In <EI_HOME\>/wso2/business-process/conf/datasources/master-datasources.xml,
 
         ```xml
         <datasource>
