@@ -22,7 +22,27 @@ Grant](../../learn/implicit-grant).
     <http://wso2is.local:8080/playground2/oauth2client>  
     **Authorize Endpoint:** <https://localhost:9443/oauth2/authorize>
 
-    ![running-implicit-grant-type](../assets/img/using-wso2-identity-server/running-implicit-grant-type.png) 
+    ![running-implicit-grant-type](../assets/img/using-wso2-identity-server/running-implicit-grant-type.png)
+    
+    !!! Tip 
+        The playground application will send a authorization request
+        the **authorize** endpoint of the WSO2 Identity Server using the
+        following format.
+        
+        ```java
+        https://<host>:<port>/oauth2/authorize?response_type=token
+        &client_id=<client-ID>
+        &redirect_uri=<callback-url>
+        &scope=<scope>
+        ```
+        
+        !!! Example
+            ```java
+            https://localhost:9443/oauth2/authorize?response_type=id_token+token
+            &client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
+            &redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+            &scope=openid
+            ```  
 
 3.  Log in with the user.  
     ![sign-in-with-pkce](../assets/img/using-wso2-identity-server/sign-in-with-pkce.png)
