@@ -5,11 +5,10 @@ The SMSOTP authenticator allows you to authenticate user via SMS through WSO2 IS
 !!! info 
     For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
     
-This document provides instructions on how to configure the SMS OTP
-connector and the WSO2 Identity Server (WSO2 IS) to integrate using a
-sample app. This is configured so that SMSOTP is a second authentication
-factor for the sample application. See the following sections for more
-information.
+This document explains how to configure the SMS OTP connector and WSO2
+Identity Server using a sample application—SMS OTP is the second
+authentication factor of the sample application.
+Let's get started!
 
 ## Enable SMSOTP
 
