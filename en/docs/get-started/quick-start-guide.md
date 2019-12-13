@@ -576,14 +576,8 @@ Pickup Manager applications using WSO2 Identity Server.
 
     A message appears to pick a scenario.
 
-2.  Add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
-
-    ``` java
-    [output_adapter.email] 
-    from_address = 
-    username = 
-    password =       
-    ```
+2.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
 4.  Restart WSO2 Identity Server.
 
