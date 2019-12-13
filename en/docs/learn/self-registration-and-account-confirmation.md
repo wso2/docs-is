@@ -6,7 +6,7 @@ created.
 
 When a user self-registers, the self-registration process creates the
 user account and locks the account until the user confirms account
-ownership via a confirmation mail send by WSO2 IS.
+ownership via a confirmation mail sent by WSO2 IS.
 
 If a user does not confirm account ownership before the specified expiry
 period, the user account is locked assuming that the expired account is
@@ -17,16 +17,14 @@ The following sections walk you through configuring and trying out
 self-registration.
     
 ??? Warning "Click to see instructions specific for a migrated deployment" 
-    If you have migrated from a previous WSO2 Identity Server version, ensure that the `IdentityMgtEventListener` with the
-    `         orderId=50        ` is set to **false** and that the Identity
-    Listeners with `         orderId=95        ` and
-    `         orderId=97        ` are set to **true** in the
+    If you have migrated from a previous WSO2 Identity Server version, ensure that the `event.default_listener.identity_mgt` with the
+    `         priority=50        ` is set to **false** and that the Identity
+    Listeners with `         priority=95        ` and
+    `         priority=97        ` are set to **true** in the
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
    
     !!! Note 
-        If there is no such entries for `event.default_listener.xxx`, in `deployment.toml`, 
-        no need to configure the following.
-    
+        If the following configurations are not present in the `deployment.toml ` file already, you do not have to add it. 
     
     ``` java
     [event.default_listener.identity_mgt]
@@ -47,7 +45,7 @@ Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
-configure the the identity server to sent confirmation emails.
+configure the the identity server to send confirmation emails.
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
@@ -65,7 +63,7 @@ configure the the identity server to sent confirmation emails.
     ```
 
     !!! tip
-        The **AccountConfirmation** template is to send this email notifications.
+        Typically, the **AccountConfirmation** template is to send email notifications.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
