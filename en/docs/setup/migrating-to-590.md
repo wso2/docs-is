@@ -1,7 +1,7 @@
 # Migrating to 5.9.0
 
 Before you follow this section, see
-[Before you begin](../../setup/migrating-before-you-begin) and
+[Before you begin](../../setup/migration-guide) and
 [Preparing for migration](../../setup/migrating-preparing-for-migration)
 sections to read the prerequisites.
 
