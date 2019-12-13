@@ -182,18 +182,8 @@ you can also configure the WSO2 IS to email to the user's email address
 when the user account is locked. To configure this, follow the steps
 below.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
-
-       ``` toml
-       [output_adapter.email]
-       from_address= "sampleemail@gmail.com"
-       username= "sampleemail"
-       password= "password"
-       hostname= "smtp.gmail.com"
-       port= 587
-       enable_start_tls= true
-       enable_authentication= true
-       ```
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
 2.  Restart the server.
 
@@ -203,8 +193,7 @@ below.
         used for account disabling is the **AccountDisable** template. You
         can edit and customize the email template. For more information on
         how to do this, see [Customizing Automated
-        Emails](../../learn/customizing-automated-emails)
-.
+        Emails](../../learn/customizing-automated-emails).
     
 #### Configuring email templates for WUM Updated version
 
