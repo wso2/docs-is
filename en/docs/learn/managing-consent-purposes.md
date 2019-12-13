@@ -56,7 +56,7 @@ management console.
     2.  **Description:** A short, clear explanation of why the PII item
         is required.
     
-    3.  **Associated Flow:** The flow in which the user will be prompted with the PIIs requiring consent.  
+    3.  **Associated Flow:** The flow in which the user will be prompted with the PIIs, requiring consent.  
 
     4.  **Purpose Group Type:** The subtype of the associated flow chosen. 
 

@@ -44,8 +44,8 @@ self-registration.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
-configure the the identity server to send confirmation emails.
+1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to 
+configure WSO2 Identity Server to send confirmation emails.
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
@@ -63,7 +63,7 @@ configure the the identity server to send confirmation emails.
     ```
 
     !!! tip
-        Typically, the **AccountConfirmation** template is to send email notifications.
+        Typically, the **AccountConfirmation** template is used to send email notifications.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
