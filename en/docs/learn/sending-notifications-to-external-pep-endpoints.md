@@ -13,17 +13,9 @@ a policy update or a change in user roles, permissions or
 attributes. This also clears the internal cache when user roles,
 permissions or attributes are updated.
 
-1.  If you are using EMAIL as the notification method, add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
-        ``` toml
-        [output_adapter.email] 
-        from_address = 
-        username = 
-        password =
-        hostname=
-        port
-        enable_start_tls
-        enable_authentication
-        ```
+1.  If you are using EMAIL as the notification method, enable the email
+    sending configurations of the WSO2 Identity Server as explained
+    [here](../../setup/configuring-email-sending).
 
 2.  Create an email template in
     `           <carbon-home>/repository/conf/email          ` directory

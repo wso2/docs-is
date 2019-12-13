@@ -132,6 +132,7 @@ nav:
         - 'MFA using FIDO': learn/multi-factor-authentication-using-fido.md
         - 'Configuring SMS OTP': learn/configuring-sms-otp.md
         - 'Configuring Email OTP': learn/configuring-email-otp.md
+        - 'Configuring TOTP': learn/configuring-totp.md
         - 'MFA for Management Console': learn/multi-factor-authentication-for-wso2-is-management-console.md
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
@@ -203,7 +204,6 @@ nav:
             - 'Working with MDP Requests in JSON Format': learn/working-with-mdp-requests-in-json-format.md
           - 'Fine-grained Authorization using XACML Requests in JSON Format': learn/fine-grained-authorization-using-xacml-requests-in-json-format.md
           - 'Improving XACML PDP Performance with Caching Techniques': learn/improving-xacml-pdp-performance-with-caching-techniques.md
-          - 'Integrating WSO2 Identity Server with Liferay': learn/integrating-wso2-identity-server-with-liferay.md
           - 'Writing XACML2 Policies in WSO2 Identity Server':
             - 'Writing XACML2 Policies in WSO2 Identity Server': learn/writing-xacml2.0-policies-in-wso2-identity-server.md
             - 'Introduction to XACML2 Policies': learn/introduction-to-xacml-2.0-policies.md
@@ -644,6 +644,7 @@ nav:
         - 'Removing References to Deleted User Identities': setup/removing-references-to-deleted-user-identities.md
       - 'Configuring rsync for Deployment Synchronization': setup/configuring-rsync-for-deployment-synchronization.md
       - 'Configuring an SP and IdP Using Configuration Files': setup/configuring-a-sp-and-idp-using-configuration-files.md
+      - 'Configuring the Identity Server to Send Emails': setup/configuring-email-sending.md
     - 'Monitor':
         - 'Monitoring':
           - 'Overview': setup/monitoring-the-identity-server.md
