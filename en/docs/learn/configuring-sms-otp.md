@@ -201,7 +201,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=$ctx.num&text=$ctx.msg </code></td>
+			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=\$ctx.num&text=\$ctx.msg </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
