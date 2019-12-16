@@ -305,7 +305,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=$ctx.msg&msisdn=$ctx.num  </code></td>
+			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=\$ctx.msg&msisdn=\$ctx.num  </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
