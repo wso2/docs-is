@@ -74,6 +74,7 @@ nav:
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
+          - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
