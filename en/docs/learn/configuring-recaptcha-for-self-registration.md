@@ -137,23 +137,11 @@ The instructions for both these approaches are as follows.
     enable = true
     ```
 
-3.  Configure the email settings for the self-registration
-    process. Configure email setting in the
-    `           <IS_HOME>/repository/conf/deployment.toml          `
-    file.
+3.  To configure the sending confirmation email for the
+    self-registration process, enable the email sending configurations
+    of the WSO2 Identity Server as explained
+    [here](../../setup/configuring-email-sending).
     
-    
-    ``` toml
-    [output_adapter.email]
-    from_address=abcd@gmail.com
-    username=abcd
-    password=xxxxx
-    hostname=smtp.gmail.com
-    port=587
-    enable_start_tls=true
-    enable_authentication=true
-    ```
-
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).

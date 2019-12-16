@@ -53,21 +53,8 @@ with the WSO2 IS.
     ```
 
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service. 
-
-    The email address configured here is the email account that will be
-    used to send password recovery email notifications to users.
-
-    ``` toml
-    [output_adapter.email]
-    from_address= "wso2iamtest@gmail.com"
-    username= "wso2iamtest"
-    password= "Wso2@iam70"
-    hostname= smtp.gmail.com
-    port= 587
-    enable_start_tls= true
-    enable_authentication= true
-    ```
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
     !!! tip
         The email template used to send this email notification is

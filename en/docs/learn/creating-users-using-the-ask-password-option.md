@@ -124,44 +124,9 @@ password feature:
     ask_password_from_user= true
     ```
 
-6.   Add the following properties to the `deployment.toml` file in the
-     `IS_HOME/repository/conf` folder to configure the email server for
-     this service and restart the server.
-
-     ``` toml
-     [output_adapter.email]
-     from_address= "wso2iamtest@gmail.com"
-     username= "wso2iamtest"
-     password= "Wso2@iam70"
-     hostname= smtp.gmail.com
-     port= 587
-     enable_start_tls= true
-     enable_authentication= true
-     ```
-
+6.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
       
-    !!! note
-    
-        If you are using a Google mail account, note that Google has
-        restricted third-party apps and less secure apps from sending emails
-        by default. Therefore, you need to configure your account to disable
-        this restriction, as WSO2 IS acts as a third-party application when
-        sending emails to confirm user registrations or notification for
-        password reset WSO2 IS.
-    
-        ??? note "Click here for more information."
-    
-            Follow the steps given below to enable your Google mail account to
-            provide access to third-party applications.
-        
-            1.  Navigate to <https://myaccount.google.com/security>.
-            2.  Click **Signing in to Google** on the left menu and make sure
-                that the **2-step Verification** is disabled or off.  
-                ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-            3.  Click **Connected apps and sites** on the left menu and enable
-                **Allow less secure apps**.  
-                ![enabling-less-secure-app](../assets/img/using-wso2-identity-server/enabling-less-secure-app.png)
-        
     !!! tip 
         The email template used to send this email notification is
         the **AskPassword** template.
@@ -169,7 +134,6 @@ password feature:
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-    
 
 ## Try it out
 

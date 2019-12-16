@@ -6,6 +6,9 @@ Email One Time Password (Email OTP) in WSO2 Identity Server (WSO2 IS).
 The Email OTP enables a one-time password (OTP) to be used at the second
 step of MFA.
 
+!!! info 
+    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
+
 Follow the instructions in the sections below to configure MFA using
 Email OTP:
 
@@ -30,31 +33,10 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
 
 ??? abstract "Expand this section to follow the steps to configure WSO2 IS to send emails once the Email OTP is enabled."
         
-    1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+    1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
     
-        ```toml
-        [output_adapter.email]
-        from_address= "wso2iamtest@gmail.com"
-        username= "wso2iamtest"
-        password= "Wso2@iam70"
-        hostname= smtp.gmail.com
-        port= 587
-        enable_start_tls= true
-        enable_authentication= true
-        ```
-        
-        |                                                   |                                                |
-        |---------------------------------------------------|------------------------------------------------|
-        | `               from_address                `     | Provide the email address of the SMTP account. |
-        | `               username                    `     | Provide the username of the SMTP account.      |
-        | `               password                        ` | Provide the password of the SMTP account.      |
-    
-        !!! Note
-            If you are using Gmail account you have to on "Allow less secure
-            apps" in your account respective to the above email sending configurations.
-    
-    3.  Add the following email template to the
+    2.  Add the following email template to the
         `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
     
         ``` xml
@@ -78,7 +60,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
             You can add email template from the management console
             as described in [this document](../../learn/customizing-automated-emails)
     
-    4.  Add the following configuration to the `deployment.toml` file in the
+    3.  Add the following configuration to the `deployment.toml` file in the
         `<IS_HOME>/repository/conf/` directory.
         
         ```toml
@@ -270,7 +252,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                 </tbody>
             </table>
     
-    6.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
+    4.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
 #### Option2: Configure Gmail as the email OTP provider 
 
