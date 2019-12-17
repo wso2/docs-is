@@ -47,8 +47,6 @@ XACML to perform various access control related functions.
     Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format)
 -   [Improving XACML PDP Performance with Caching
     Techniques](../../learn/improving-xacml-pdp-performance-with-caching-techniques)
--   [Integrating WSO2 Identity Server with
-    Liferay](../../learn/integrating-wso2-identity-server-with-liferay)
 -   [Writing XACML2.0 Policies in WSO2 Identity
     Server](../../learn/writing-xacml2.0-policies-in-wso2-identity-server)
 -   [Writing XACML3 Policies in WSO2 Identity

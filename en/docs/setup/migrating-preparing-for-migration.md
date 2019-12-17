@@ -1,7 +1,7 @@
 # Preparing for migration
 
 !!! note
-    Before you follow this section, see [Before you begin](../../setup/migrating-before-you-begin) to read on 
+    Before you follow this section, see [Before you begin](../../setup/migration-guide) to read on 
     prerequisites.
 
 !!! note
@@ -341,8 +341,14 @@ such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml<
 configurations are handled by the a single file named 
 `deployment.toml` in the `<IS_HOME>/repository/conf` directory.
 
-Refer to the relevant feature documents and [What Has Changed](../setup/migrating-what-has-changed)
-to add the necessary configurations according to the new configuration model.
+!!! warn "Note" 
+    When you are migrating from older version of WSO2
+    Identity Server, you need to convert old configurations to new
+    configuration model as well.
+
+Refer to the relevant feature documents and
+[What Has Changed](../../setup/migrating-what-has-changed) to add the
+necessary configurations according to the new configuration model.
 
 !!! info
     If you have a WSO2 Subscription, it is highly recommended to reach 

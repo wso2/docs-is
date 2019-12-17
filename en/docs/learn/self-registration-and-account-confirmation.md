@@ -44,23 +44,14 @@ self-registration.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
-1.  Add the following properties to the `deployment.toml` file in the `<IS_HOME>/repository/conf` folder to 
-configure WSO2 Identity Server to send confirmation emails.
+
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
+
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
         emails. Alternatively, you can use your own email managing mechanism.
-
-    ``` toml
-    [output_adapter.email]
-    from_address= "wso2iamtest@gmail.com"
-    username= "wso2iamtest"
-    password= "Wso2@iam70"
-    hostname= "smtp.gmail.com"
-    port= 587
-    enable_start_tls= true
-    enable_authentication= true
-    ```
 
     !!! tip
         Typically, the **AccountConfirmation** template is used to send email notifications.

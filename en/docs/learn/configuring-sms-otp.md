@@ -2,10 +2,13 @@
 
 The SMSOTP authenticator allows you to authenticate user via SMS through WSO2 IS.
 
-This topic provides instructions on how to configure the SMS OTP connector and the WSO2 
-Identity Server (WSO2 IS) to integrate using a sample app. This is configured so that 
-SMSOTP is a second authentication factor for the sample application. See the following 
-sections for more information.
+!!! info 
+    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
+    
+This document explains how to configure the SMS OTP connector and WSO2
+Identity Server using a sample application—SMS OTP is the second
+authentication factor of the sample application.
+Let's get started!
 
 ## Enable SMSOTP
 
@@ -201,7 +204,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=$ctx.num&text=$ctx.msg </code></td>
+			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=\$ctx.num&text=\$ctx.msg </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
@@ -302,7 +305,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=$ctx.msg&msisdn=$ctx.num  </code></td>
+			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=\$ctx.msg&msisdn=\$ctx.num  </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
