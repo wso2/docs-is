@@ -3,7 +3,7 @@
 The California Consumer Privacy Act (CCPA) is a bill passed by the California State Legislature, that will come into effect on January 1, 2020. The act ensures that consumers are given more power 
 and control over their personal data. Accordingly, CCPA compliance will be a must for any organization that collects and processes personal information (PI) of California residents. 
 
-One of the most prominent capabilities of WSO2 Identity Server, Consumer Identity and Access Management(CIAM) Solution, 
+One of the most prominent solutions of WSO2 Identity Server, Consumer Identity and Access Management(CIAM), 
 is already GDPR (General Data Protection Regulation) compliant. 
 This made it easier to validate and ensure that WSO2 Identity Server abides by all the rights emphasized in the CCPA compliance.  
 
@@ -17,9 +17,9 @@ This made it easier to validate and ensure that WSO2 Identity Server abides by a
 
     Any user who has given his or her PI to the system should have the following capabilities:
 
-    -   Remove sections of the information.
-    -   Modify information.
-    -   Download any kind of information stored in the system in a human-readable manner.
+    -   Remove sections of the information
+    -   Modify information
+    -   Download any kind of information stored in the system in a human-readable manner
     
     An IAM provider should have at least the above capabilities to provide CCPA compliance. 
     Ideally, an IAM solution should also provide a self-care portal to end-users, capabilities to modify PI 
@@ -43,15 +43,15 @@ This made it easier to validate and ensure that WSO2 Identity Server abides by a
     
     This privacy toolkit provides the following functionalities.
 
-    -   Delete the user by “Identity Admin” of the tenant. This will remove the user from any underlying “Read/Write” user store (JDBC/LDAP/AD).
-    -   Anonymize any retained traces of user activity.
-        1.  Log files.
-        2.  Analytics data and information related to logins, sessions, key validations, etc.
-        3.  Key/token data held at the database layer.
+    1.   Delete the user by “Identity Admin” of the tenant. This will remove the user from any underlying “Read/Write” user store (JDBC/LDAP/AD).
+    2.   Anonymize any retained traces of user activity
+         -  Log files.
+         -  Analytics data and information related to logins, sessions, key validations, etc.
+         -  Key/token data held at the database layer.
 
-    -   Delete any unwanted data retained in the database.
-        1.  Token(s) issued.
-        2.  Password history information.
+    3.   Delete any unwanted data retained in the database
+         -  Token(s) issued.
+         -  Password history information.
 
     Additionally, WSO2 Privacy Toolkit can be extended to clear personal data in any relational database or any textual log file. 
     For further information on the WSO2 privacy toolkit, refer [Removing References to Deleted User Identities](../../setup/removing-references-to-deleted-user-identities).
@@ -73,16 +73,16 @@ A CCPA-compliant system first needs a mechanism to manage user consent of those 
 
 In the following instances, the system should obtain user consent.
 
--   User self-registration.
--   User provisioning to third party systems or from third party systems.
--   Sharing user attributes through single sign-on (SSO).
--   Federating identities.
+-   User self-registration
+-   User provisioning to third party systems or from third party systems
+-   Sharing user attributes through single sign-on (SSO)
+-   Federating identities
 
 The user should have the following capabilities.
 
--   Review given consent.
--   Modify given consent.
--   Revoke given consent.
+-   Review given consent
+-   Modify given consent
+-   Revoke given consent
 
 Currently, there is an open standard regarding [Consent Receipt Management](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification) from the Kantara initiative. 
 An IAM provider who supports such open standards will provide leverage over proprietary protocols when adopting such capabilities to a system.
@@ -90,9 +90,9 @@ An IAM provider who supports such open standards will provide leverage over prop
 WSO2 Identity Server comes with an extensive consent management solution that enables users to conveniently 
 manage consents of their consumers and third-party applications. WSO2 Identity Server’s consent management module consists of the following key features.
 
--   RESTful consent APIs to manage consents remotely. For more information on consent management, please refer to our documentation [here](../../learn/consent-management).
--   Admin portal support for organizations to define and manage consent, data processing purposes, and user attributes per consent.
--   Support for the Kantara consent receipt specification. For more information, see the 
+-   Has RESTful consent APIs to manage consents remotely. For more information on consent management, please refer to our documentation [here](../../learn/consent-management).
+-   Provides an admin portal support for organizations to define and manage consent, data processing purposes, and user attributes per consent.
+-   Supports the Kantara consent receipt specification. For more information, see the 
 [Kantara Consent Receipt Specification](https://kantarainitiative.org/confluence/display/infosharing/Consent+Receipt+Specification).
 -   Any self-care user profile creation, user provisioning to other systems, sharing of user attributes through SSO, and identity federation is fully based on user consent.
 -   Users can review, modify, and revoke previously given consent via the self-care user portal or RESTful Consent API.
