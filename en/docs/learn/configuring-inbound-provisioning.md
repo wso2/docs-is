@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Provisioning is the process of creating, maintaining and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
+Provisioning is the process of creating, maintaining, and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
 
-Inbound provisioning provisions users or groups into the WSO2 Identity Server by an external application. These external applications are referred to as service providers. WSO2 Identity Server supports the SCIM API and SOAP-based Web service API standards for inbound provisioning.
+Inbound provisioning provisions users or groups into WSO2 Identity Server by an external application. These external applications are referred to as service providers. WSO2 Identity Server supports the SCIM API and SOAP-based Web service API standards for inbound provisioning.
 This tutorial guides you to perform inbound provisioning using SCIM2.
 
 ## Try it out
@@ -36,7 +36,7 @@ This tutorial guides you to perform inbound provisioning using SCIM2.
     curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users/<user-id>'
     ```
 
-5. Update a provisioned user's user details. The update profile details are returned with the response. 
+5. Update a provisioned user's profile details. The updated profile details are now returned with the response. 
 
     ```java tab="Request"
     curl -v -k --user admin:admin -X PUT -d '{"schemas":[],"name":{"familyName":"jackson","givenName":"kim"},"userName":"kim","emails":[{"value":"kim_j@wso2.com","type":"work"},{"value":"kim.jack@gmail.com","type":"home"}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd 
