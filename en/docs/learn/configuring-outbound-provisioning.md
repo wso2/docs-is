@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Provisioning is the process of creating, maintaining and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
+Provisioning is the process of creating, maintaining, and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
 
 This section of the tutorial demonstrates configuring Salesforce as the identity provider to provision users from WSO2 Identity Server. This means that once this is configured, new users that are added to WSO2 Identity Server are added to Salesforce as well. 
 
 ## Scenario
 
-To demonstrate the scenario in this tutorial, let's assume a taxi company called "Pickup" are expanding and they are about to hire a new sales team. The drivers employed at Pickup use an application called **Pickup Dispatch** for managing their taxi orders and daily operations. Pickup maintains its employee user accounts using WSO2 Identity Server and has already set up outbound provisioning between WSO2 Identity Server and Pickup Dispatch for the drivers. The new sales team will need to access **Pickup Dispatch** as well but they will also need to use a **Salesforce** application to manage their daily sales activities.
+To demonstrate the scenario in this tutorial, let's assume a taxi company called "Pickup" is expanding and is about to hire a new sales team. The drivers employed at Pickup use an application called **Pickup Dispatch** to manage their taxi orders and daily operations. Pickup maintains its employee user accounts using WSO2 Identity Server and has already set up outbound provisioning between WSO2 Identity Server and Pickup Dispatch for the drivers. The new sales team will need to access **Pickup Dispatch** as well but they will also need to use a **Salesforce** application to manage their daily sales activities.
 
 Pickup now needs to set up outbound provisioning between WSO2 IS and the **Salesforce** application so that whenever a new sales team member is hired and the user account is added to WSO2 IS, the user will be automatically provisioned to **Pickup Dispatch** as well as **Salesforce**.
 
@@ -143,7 +143,7 @@ Pickup now needs to set up outbound provisioning between WSO2 IS and the **Sales
             2. Search for "My Domain" on the Quick Find search box found on the left navigation panel and click **My Domain**.
             3. Enter a name for your domain. You can check if the domain name is available by clicking **Check Availability**. 
             4. Click **Register** to register your new domain. Your domain name will be similar to the following: `wso2-dev-ed.my.salesforce.com`.
-            5. Once the domain is registered, Salesforce will take 2 minutes to test it. Click **Click here to Login** to test it out. 
+            5. Once the domain is registered, Salesforce will take 2 minutes to test it. Once this is done, click **Click here to Login** to test it out yourself. 
     
     4. Enter the **Client ID**. This value is the **Consumer Key** you received in [step 5](#step5) when setting up Salesforce. 
 
