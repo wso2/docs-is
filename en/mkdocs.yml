@@ -711,6 +711,7 @@ nav:
   - 'Compliance':
     - 'GDPR': compliance/general-data-protection-regulation.md
     - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
+    - 'CCPA': compliance/california-consumer-privacy-act.md
   - 'References': 
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
