@@ -62,11 +62,7 @@ You have succesfully created a user in the `pickup-eats` tenant. Now repeat step
     - **Username:** alex@pickup-taxis.com
     - **Password:** alex123
 
-Note the relevant tenant domain appended to the username of each user. You have successfully configured two separate tenants for PickupEats and PickupTaxis with shared access to the dashboard application. 
-
-
-
-
+Note the relevant tenant domain appended to the username of each user. You have successfully configured two separate tenants for PickupEats and PickupTaxis with shared access to the dashboard application.
 
 
 
