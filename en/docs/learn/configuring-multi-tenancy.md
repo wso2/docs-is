@@ -2,8 +2,6 @@
 
 ## Scenario
 
-Consider the following scenario. 
-
 A taxi company called "Pickup" is expanding into the food delivery business and opening a new segment called "PickupEats". Pickup now has two separate business models; one for PickupEats and one for PickupTaxis. Employees and customers will still be using the same Pickup application for both services, but Pickup wishes to manage their users in two isolated environments and have different settings/policies for each. 
 
 In order to do this, Pickup can set up two tenants that share access to the same application but are isolated, so that PickupEats and PickupTaxis can function as two separate segments. This concept is called **multi-tenancy**.  This tutorial demonstrates multi-tenancy in WSO2 Identity Server. 
@@ -12,7 +10,7 @@ In order to do this, Pickup can set up two tenants that share access to the same
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
+2. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
 
     ``` java tab="Linux/MacOS"
     sh wso2server.sh
@@ -34,14 +32,15 @@ In order to do this, Pickup can set up two tenants that share access to the same
     5. **Admin Username** - jane@pickup-eats.com
     6. **Admin Password** - jane123
     7. **Email** - janedoe@gmail.com
+    You have now successfully created a tenant for PickupEats. 
     
-You have now successfully created a tenant for the PickupEats. Repeat steps 4-5 and create a tenant called "pickup-taxis.com" with different admin credentials. 
+Repeat steps 4-5 and create a tenant called "pickup-taxis.com" with different admin credentials. 
 
 ## Add users
 
 You can now log in to each tenant using the relevant tenant admin's credentials and create users and roles in the tenant. Note that you are managing two separate sets of users and roles for each tenant using one instance of WSO2 Identity Server.
 
-1. Log out of the Management Console and log in using the `pickup-eats` admin credentitals.
+1. Sign out of the Management Console and sign in using the `pickup-eats` admin credentitals.
 
     - **Username:** jane@pickup-eats.com
     - **Password:** jane123
@@ -52,7 +51,7 @@ You have succesfully created a user in the `pickup-eats` tenant. Now repeat step
 
 ## Try it out
 
-1. Log in to the [WSO2 Identity Server User Dashboard](https://localhost:9443/dashboard) using pickup-eats user credentials.
+1. Log in to the [WSO2 Identity Server User Dashboard](https://localhost:9443/dashboard) using the pickup-eats user credentials.
 
     - **Username:** cameron@pickup-eats.com
     - **Password:** cameron123
@@ -62,7 +61,7 @@ You have succesfully created a user in the `pickup-eats` tenant. Now repeat step
     - **Username:** alex@pickup-taxis.com
     - **Password:** alex123
 
-Note the relevant tenant domain appended to the username of each user. You have successfully configured two separate tenants for PickupEats and PickupTaxis with shared access to the dashboard application.
+Note the relevant tenant domain appended to the user name of each user. You have successfully configured two separate tenants for PickupEats and PickupTaxis with shared access to the dashboard application.
 
 
 
