@@ -75,7 +75,7 @@ self registration to support multiple notification channels.
     ```toml
     [identity_mgt.notification]
     default_notification_channel = "EMAIL"
-    enable_resolve_notification_channel = true
+    resolve_notification_channel = true
     
     [identity_mgt.user_self_registration]
     enable_account_lock_for_verified_preferred_channel = false
@@ -106,7 +106,7 @@ self registration to support multiple notification channels.
     </td>
     </tr>
     <tr>
-    <td>enable_resolve_notification_channel</td>
+    <td>resolve_notification_channel</td>
     <td>
         <ul>
         <li>Enable server to determine whether to send notifications via a SMS or an email.</li> 
@@ -358,7 +358,7 @@ to WSO2 Identity Server is managed by an external notification management mechan
     
     !!! Note
         - If the preferred channel has not been specified in the request, the server will 
-        decide which notification channel to use. If the `enable_resolve_notification_channel` 
+        decide which notification channel to use. If the `resolve_notification_channel` 
         property is set to `true`, the notification channel that was used will be returned 
         in the response with the `notificationChannel` parameter.
         
