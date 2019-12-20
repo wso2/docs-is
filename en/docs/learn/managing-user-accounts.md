@@ -8,7 +8,7 @@ WSO2 Identity Server enables the following user account management features:
 
 -	[User Registration](../../learn/user-registration)
 -	[Password Policies](../../learn/configuring-password-policies)
--	[Password Reset and Recovery]()
+-	[Password Reset](../../learn/configuring-password-reset)
 -	[Account Recovery]()
 -	[Account Locking, Disabling, and Suspension]() 
 
