@@ -1,11 +1,11 @@
 # Managing User Accounts
 
-A **user account** is the digital representation of a physical user who interacts with an application. It is an entity that comprises the private information such as user name and password of a user. 
+A **user account** is the digital representation of a physical user who interacts with an application. It is an entity that comprises the private information such as the user name and password of a user. 
 
 WSO2 Identity Server enables the following user account management features:
 
 -	[User Registration](../../learn/user-registration)
--	[Password Policies]()
+-	[Password Policies](../../learn/configuring-password-policies)
 -	[Password Reset and Recovery]()
 -	[Account Recovery]()
 -	[Account Locking, Disabling, and Suspension]() 

@@ -6,7 +6,7 @@ Follow the steps below to accommodate email addresses with special character in 
 
 	1.	[Run WSO2 Identity Sever](../../setup/running-the-product/).
 
-	2.	Sign in to the WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 
+	2.	Sign in to WSO2 Identity Server [Management Console](../../setup/getting-started-with-the-management-console/) at `https://<SERVER_HOST>:9443/carbon` as an administrator. 
 				
 
 1.	On the **Main** menu of the Management Console, click **Identity > Claims > List**.
@@ -21,19 +21,19 @@ Follow the steps below to accommodate email addresses with special character in 
 
 	<img src="../../assets/img/learn/email-claim-edit.png" alt="Claim Edit option" width="600" style="border:1px solid grey"> 
 
-4.	Enter the characters you need out of the !#$%&'*+-=?^_ special characters to the **Regular Expression** text box.
+4.	Enter the required special characters (`!#$%&'*+-=?^_`) in the **Regular Expression** text box.
 
 	<img src="../../assets/img/learn/wso2-claim-edit-screen.png" alt="WSO2 Claim Edit screen" width="700" style="border:1px solid grey"> 
 
 
 	!!! example "Using # and $"
 
-		-	To add **`#`** to the regex email pattern: 
+		-	To add **`#`** to the email regex pattern: 
 			```
 			^([a-zA-Z0-9_.-#])+\@(([a-zA-Z0-9#-])+.)+([a-zA-Z0-9#]{2,4})+$`
 			```			
 
-		-	To add **`$`** to the regex email pattern. 
+		-	To add **`$`** to the email regex pattern:
 			```
 			^([a-zA-Z0-9_.-\])+\@(([a-zA-Z0-9\\-])+.)+([a-zA-Z0-9\]{2,4})+
 			```

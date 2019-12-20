@@ -67,10 +67,13 @@ nav:
         - 'Users and Roles': learn/adding-users-and-roles.md
         - 'User Accounts': 
           - 'User Accounts': learn/managing-user-accounts.md
-          - 'User Regisrtation':
+          - 'User Registration':
             - 'User Registration': learn/user-registration.md
             - 'With Password Entry': learn/user-registration-with-password-entry.md
             - 'With Email Verification': learn/user-regisrtation-with-email-verification.md
+          - 'Password Policies':
+            - 'Password Policies': learn/configuring-password-policies.md
+            - 'Password Patterns': learn/configuring-password-patterns.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
