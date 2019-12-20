@@ -129,7 +129,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	3. Click **Update**.
 
-3.	To mimik a forgotten password:
+3.	To mimic a forgotten password:
 
 	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
 
@@ -142,15 +142,4 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 		<img src="../../assets/img/learn/recover-password-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
 
 	4.	Click **Submit**. 
-
-	5.	An email requesting to reset the password is sent to the given email address.		
-
-		<img src="../../assets/img/learn/password-reset-email.png" alt="Password Reset email" width="500" style="border:1px solid grey">  	  
-
-	6.	Click **Reset Password**.
-
-	7.	Enter the new password and click **Submit**.
-
-		<img src="../../assets/img/learn/password-reset-form.png" alt="Password Reset form" width="500" style="border:1px solid grey">  	  
-
-	8.	Enter the user name and new password and click **Sign In**. The User Portal home screen appears. 
+	
