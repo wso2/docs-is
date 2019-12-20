@@ -74,6 +74,7 @@ nav:
           - 'Password Policies':
             - 'Password Policies': learn/configuring-password-policies.md
             - 'Password Patterns': learn/configuring-password-patterns.md
+            - 'Password History': learn/validating-password-history.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md

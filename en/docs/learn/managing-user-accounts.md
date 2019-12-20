@@ -2,6 +2,8 @@
 
 A **user account** is the digital representation of a physical user who interacts with an application. It is an entity that comprises the private information such as the user name and password of a user. 
 
+<img src="../../assets/img/learn/user-account.png" alt="User Account" width="600">    
+
 WSO2 Identity Server enables the following user account management features:
 
 -	[User Registration](../../learn/user-registration)
@@ -9,7 +11,6 @@ WSO2 Identity Server enables the following user account management features:
 -	[Password Reset and Recovery]()
 -	[Account Recovery]()
 -	[Account Locking, Disabling, and Suspension]() 
-
 
 !!! note
 
