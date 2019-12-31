@@ -59,19 +59,18 @@ Follow the steps provided below to configure this.
     !!! note
     
         If you have additional authorization endpoints, you need to include
-        the `login.do` URL paths of these endpoints in the
-        **captcha-config.properties** file in the following pattern. Here,
+        the `login.do` URL paths of these endpoints. Here,
         url\_path is the URL without the host parameters.
     
         ``` toml
-        recaptcha.failed.redirect.urls=url1_path,url2_path
+        redirect_urls="url1_path,url2_path"
         ```
     
         Below is an example of how to include the URL paths of additional
         authorization end points.
     
         ``` toml
-        recaptcha.failed.redirect.urls=/authenticationendpointone/login.do,/authenticationendpointtwo/login.do
+        redirect_urls="/authenticationendpointone/login.do,/authenticationendpointtwo/login.do"
         ```
     
 5.  Restart the WSO2 IS server.
