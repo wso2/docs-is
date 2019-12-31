@@ -40,23 +40,19 @@ Follow the steps provided below to configure this.
     # Google reCAPTCHA settings
 
     # Enable Google reCAPTCHA
-    [identity.recaptcha] 
+    [recaptcha] 
     enabled= true
 
     # reCaptcha API URL
-    [identity.recaptcha] 
     api_url="https://www.google.com/recaptcha/api.js"
 
     # reCaptcha verification URL
-    [identity.recaptcha] 
     verify_url="https://www.google.com/recaptcha/api/siteverify"
 
     # reCaptcha site key
-    [identity.recaptcha] 
     site_key="6Lc8THgUAAAAAPekxT991FGFXRrsiPCMNv5PwZHB"
 
     # reCaptcha secret key
-    [identity.recaptcha] 
     secret_key="6Lc8THgUAAAAAEu83iOwSin_CSt6gqe97aa7EGFd"
     ```
 
