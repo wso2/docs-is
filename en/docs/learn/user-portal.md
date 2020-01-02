@@ -2,9 +2,9 @@
 
 ## Introduction
 
-The new WSO2 Identity Server user portal is packed with a number of new 
-components through which users can manage their user account related 
-preferences with more convenience. The latest set of features that will be 
+The new WSO2 Identity Server user portal is packed with a number of new
+components through which users can manage their user account related
+preferences with more convenience. The latest set of features that will be
 available with the new user portal includes:
 
 - User profile management
@@ -17,21 +17,22 @@ available with the new user portal includes:
 - Consent management
 - Review pending approvals
 
-In this section, we will give a brief explanation of what each of the 
-above-mentioned features are and we are going to guide you through how to use 
+In this section, we will give a brief explanation of what each of the
+above-mentioned features are and we are going to guide you through how to use
 these features in the user portal depending on your preferences and requirements.
 
 ## Accessing the user portal and its components
 
-1.  Go to the dashboard URL: https://(host name):(port name)/user-portal/
+1. Go to the dashboard URL: `https://(host name):(port name)/user-portal/`
 
     (e.g., <https://localhost:9443/user-portal>)
 
-2.  Enter your username and password and click the **Sign In** button.
-3.  The user portal appears.  
+2. Enter your username and password and click the **Sign In** button.
+3. The user portal appears.  
 
-## User Profile Management 
-You can manage your profile details using the user portal by following the instructions given below. 
+## User Profile Management
+
+You can manage your profile details using the user portal by following the instructions given below.
 
 ### Add personal details
 
@@ -46,6 +47,17 @@ You can manage your profile details using the user portal by following the instr
 2. Click the **Personal info** tab on the side panel.
 3. Click on the **pencil icon** aligning with the field you want to edit.
 4. Enter the value you wish to update in the profile and click the **Save** button.
+
+### Adding and updating your profile picture
+
+1. [Access the user portal](#accessing-the-user-portal-and-its-components).
+2. Click the **Personal info** tab on the side panel.
+3. Hover over the profile picture or the placeholder and click on the camera icon.
+
+    ![profile-picture-hover](../assets/img/using-wso2-identity-server/user-portal/user-profile/profile-picture-hover.png)
+4. Enter the URL of the image that you wish to set as the profile picture in the textbox in the pop-up.
+
+    ![profile-picture-url](../assets/img/using-wso2-identity-server/user-portal/user-profile/profile-picture-url.png)
 
 ## Linked Accounts
 
@@ -72,10 +84,10 @@ WSO2 Identity Server (WSO2 IS) allows you to link multiple accounts you may have
 
 ## Export user profile
 
-Using the export user profile feature in the user portal you can download a JSON file in including your personal information, consents, and other claims. This will allow the user to get an idea about what information about them is recorded in the WSO2 identity server. 
+Using the export user profile feature in the user portal you can download a JSON file in including your personal information, consents, and other claims. This will allow the user to get an idea about what information about them is recorded in the WSO2 identity server.
 
 !!! tip
-    
+
         The consent receipts in the
         `           userInfo.json          ` file contain the PII controller information 
         as it is at the time that the receipt is generated. If the PII controller has 
@@ -98,7 +110,7 @@ You can export your profile by following the instructions given below.
 3. Under the Export profile sub section click on the **Download as JSON** button and all your profile details will be             downloaded to your local machine as a JSON file.
 
     ![profile-export](../assets/img/using-wso2-identity-server/user-portal/user-profile/profile-export.png)
-    
+
 ## Reset password
 
 We usually advise the users to reset their passwords regularly as a security measure. Using the user portal now you can change your password without much hassle. In order to change the password using the user portal please follow the instructions given below.
@@ -136,7 +148,7 @@ The user portal allows users to add and update their challenge questions and upd
 1. [Access the user portal](#accessing-the-user-portal-and-its-components).
 2. Click the **Security tab** on the side panel.
 3. Click on the **add** button aligning with the Email recovery section.
-4. Enter an email address that you wish to use as your recovery email and add on the update button. 
+4. Enter an email address that you wish to use as your recovery email and add on the update button.
 
     !!! info
         Please note that this will be added as your email address in your profile.
@@ -162,7 +174,7 @@ Using the latest user portal users can update their mobile numbers through which
 1. [Access the user portal](#accessing-the-user-portal-and-its-components).
 2. Click the **Security tab** on the side panel.
 3. Under the Multi-factor authentication section click on the **edit** button with the pencil icon aligning with via SMS          section.
-4. Enter the mobile number you need to add as MFA factor and click update button. 
+4. Enter the mobile number you need to add as MFA factor and click update button.
 
     !!! info
         Please note that this will also update your mobile number in the user profile.
@@ -203,7 +215,7 @@ Depending on the user’s preference the user portal allows the users either to 
 
 ## Consent management
 
-WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM) and also to manage consents that belong to third party applications. 
+WSO2 IS provides a comprehensive consent management solution that can be used to manage consents related to Identity and Access Management (IAM) and also to manage consents that belong to third party applications.
 The user portal allows users to revoke or edit their consent given to applications registered in the WSO2 Identity Server. In order to edit or revoke application consents please refer to the instructions given below.
 
 ### Revoke consent
@@ -223,7 +235,7 @@ The user portal allows users to revoke or edit their consent given to applicatio
 
 The WSO2 Identity Server enables you to have more control over the tasks that are executed in it by using workflows. This is particularly useful in a scenario where you are approving user accounts in the Identity Server. Workflows provide you with the flexibility to configure this approval process in the way that suits your scenario.
 
-The user portal allows you to review the workflow operations like adding users, updating user claims, deleting users and approve or deny them. For the convenience of the users we have categorised the pending approvals into three states which are ready, reserved and completed. 
+The user portal allows you to review the workflow operations like adding users, updating user claims, deleting users and approve or deny them. For the convenience of the users we have categorised the pending approvals into three states which are ready, reserved and completed.
 
 For example, suppose you need to approve all the user creation in the identity server, so whenever a user gets created in the system that task will appear under the ready section waiting for your approval. Whenever you review a task and claim it that task will be listed under reserved section of approvals. Once you approve or deny the task it will appear under the completed section.
 
