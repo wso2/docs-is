@@ -1,4 +1,4 @@
-# Configuring Active Directory User Stores for SCIM 1.1 based Inbound Provisioning
+# Configuring Active Directory User Stores for SCIM 2.0 based Inbound Provisioning
 
 WSO2 Identity Server can act both as a SCIM Provider and a SCIM consumer at the same time. You can test the WSO2 Identity Server's SCIM 2.0 Provider API as described here. The WSO2 Identity Server build includes the ApacheDS embedded LDAP server. The LDAP server's schema is customized to have the mandatory SCIM attributes, therefore SCIM implementation works by default with the WSO2 Identity Server.
 
