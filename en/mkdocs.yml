@@ -534,9 +534,9 @@ nav:
               - 'Managing Users and Roles': develop/managing-users-and-roles-with-apis.md
               - 'Managing Claims': develop/managing-claims-with-apis.md
               - 'Managing Permissions': develop/managing-permissions-with-apis.md
-              - 'Counting users and roles using Management Console and Admin Services': develop/counting-users-and-roles-using-management-console-and-admin-services.md
+              - 'Counting Users and User Roles': develop/counting-users-and-roles-using-management-console-and-admin-services.md
               - 'Managing User Stores': develop/managing-user-stores-with-apis.md
-            - 'User Information Recovery Service': develop/user-information-recovery-service.md
+            - 'User Information Recovery': develop/user-information-recovery-service.md
             - 'Identity Application Management':
               - 'Identity Application Management': develop/identity-application-management-api.md
               - 'Using the Service Provider': develop/using-the-service-provider-api.md
@@ -734,7 +734,7 @@ nav:
     - 'GDPR': compliance/general-data-protection-regulation.md
     - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
     - 'CCPA': compliance/california-consumer-privacy-act.md
-  - 'References':
+  - 'References': 
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
     - 'Permissions Required to Invoke Admin Services': references/permissions-required-to-invoke-admin-services.md
