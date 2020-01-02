@@ -68,7 +68,7 @@ After setting up the Oracle database. You can point the `WSO2_IDENTITY_DB` or
            sid = "regdb"
            username = "regadmin"
            password = "regadmin"
-           port = "	1521"
+           port = "1521"
            ```
        
        1. Executing database scripts.
