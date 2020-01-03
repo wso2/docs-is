@@ -266,7 +266,7 @@ New users can do the following actions from this screen:
 
 ### Terminating user sessions
 
-You can click on **View details** in **My Login Sessions** to view your active sessions. 
+To view the active sessions, click **View Details** under **My Login Sessions**. 
 
 ![My login sessions](../assets/img/learn/view-details.png)
 
@@ -278,13 +278,13 @@ Following are the details of the active sessions that can be found in **My login
 | User Agent   | The device, browser, and OS in which the session is active.|
 | Started Time | The time at which the session was activated.|
 
-Along with the above details, each active session has a **Terminate** button which can be clicked to terminate each individual session. 
+To terminate an active session, click the corresponding **Terminate** button. 
 
 Click on the **Terminate** button adjacent to the session you want to terminate. 
 
 ![Terminate](../assets/img/learn/terminate-session.png)
 
-Click **yes** in the pop up that appears next to proceed with the termination. 
+Click **Yes** in the pop up that appears next to proceed with the termination. 
 
 ![confirmation](../assets/img/learn/confirm-termination.png)
 
