@@ -10,6 +10,10 @@ To do this, the developers need to view authentication statistics about the logi
 
 ## Setup 
 
+1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
+
+2. [Download WSO2 Identity Server Analytics distribution](https://wso2.com/identity-and-access-management/install/analytics/).
+
 ## Enable analytics
 
 Open the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder and add the following event listeners to enable analytics in WSO2 Identity Server. 
