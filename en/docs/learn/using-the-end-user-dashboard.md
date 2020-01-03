@@ -263,3 +263,31 @@ New users can do the following actions from this screen:
     attributes and the corresponding service will not be able to receive
     those attributes in new authentication requests.  
     ![consent-expiry](../assets/img/using-wso2-identity-server/consent-expiry.png) 
+
+### Terminating user sessions
+
+You can click on **View details** in **My Login Sessions** to view your active sessions. 
+
+![My login sessions](../assets/img/learn/view-details.png)
+
+Following are the details of the active sessions that can be found in **My login Sessions**.
+
+| Fields       |            Descriptions                              |
+|--------------|------------------------------------------------------|
+| IP Address   | The IP address of the device the session is active on.|
+| User Agent   | The device, browser, and OS in which the session is active.|
+| Started Time | The time at which the session was activated.|
+
+Along with the above details, each active session has a **Terminate** button which can be clicked to terminate each individual session. 
+
+Click on the **Terminate** button adjacent to the session you want to terminate. 
+
+![Terminate](../assets/img/learn/terminate-session.png)
+
+Click **yes** in the pop up that appears next to proceed with the termination. 
+
+![confirmation](../assets/img/learn/confirm-termination.png)
+
+You have successfully revoked your session! 
+ 
+![successful](../assets/img/learn/termination-successful.png)
