@@ -124,44 +124,9 @@ password feature:
     ask_password_from_user= true
     ```
 
-6.   Add the following properties to the `deployment.toml` file in the
-     `IS_HOME/repository/conf` folder to configure the email server for
-     this service and restart the server.
-
-     ``` toml
-     [output_adapter.email]
-     from_address= "wso2iamtest@gmail.com"
-     username= "wso2iamtest"
-     password= "Wso2@iam70"
-     hostname= smtp.gmail.com
-     port= 587
-     enable_start_tls= true
-     enable_authentication= true
-     ```
-
+6.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
       
-    !!! note
-    
-        If you are using a Google mail account, note that Google has
-        restricted third-party apps and less secure apps from sending emails
-        by default. Therefore, you need to configure your account to disable
-        this restriction, as WSO2 IS acts as a third-party application when
-        sending emails to confirm user registrations or notification for
-        password reset WSO2 IS.
-    
-        ??? note "Click here for more information."
-    
-            Follow the steps given below to enable your Google mail account to
-            provide access to third-party applications.
-        
-            1.  Navigate to <https://myaccount.google.com/security>.
-            2.  Click **Signing in to Google** on the left menu and make sure
-                that the **2-step Verification** is disabled or off.  
-                ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-            3.  Click **Connected apps and sites** on the left menu and enable
-                **Allow less secure apps**.  
-                ![enabling-less-secure-app](../assets/img/using-wso2-identity-server/enabling-less-secure-app.png)
-        
     !!! tip 
         The email template used to send this email notification is
         the **AskPassword** template.
@@ -169,7 +134,6 @@ password feature:
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-    
 
 ## Try it out
 
@@ -190,12 +154,6 @@ option.
 
     ![add-a-new-user](../assets/img/using-wso2-identity-server/add-a-new-user.png)
 
-    !!! note
-        If you are using the $ character in the email address, make sure to
-        use appropriate escape characters, such as /.  
-        Example: `           abc\$def@somemail.com          `
-    
-
 4.  Fill in the form:
 
     1.  Select the user store where you want to create this user account
@@ -209,34 +167,10 @@ option.
         password from user** option.
 
     4.  Enter a valid **Email Address** and click **Finish**.
-        
-        ??? note "Click here for more information If you want to enter any of the !\#$%&'\*+-=?^\_ special characters in the email address"
-            1.  Go to management console click the **Main** tab **\> Claims \>
-                List**.
-            
-            2.  Click **http://wso2.org/claims**.
-            
-            3.  Expand the **Email** claim and click **Edit**.
-            
-            4.  Add the characters you need out of the `             !#$%&'*+-=?^_            ` special characters to the Regular Expression.  
-                **Example**
-                <table>
-                <colgroup>
-                <col style="width: 49%" />
-                <col style="width: 50%" />
-                </colgroup>
-                <tbody>
-                <tr class="odd">
-                <td>Adding the # character to the regex email pattern.</td>
-                <td><code>                 ^([a-zA-Z0-9_\.\-#])+\@(([a-zA-Z0-9#\-])+\.)+([a-zA-Z0-9#]{2,4})+$                </code></td>
-                </tr>
-                <tr class="even">
-                <td>Adding the $ character to the regex email pattern.<br />
-                Make sure to use the appropriate escape characters, such as \\, when using the $ character.</td>
-                <td><code>                 ^([a-zA-Z0-9_\.\-\\$])+\@(([a-zA-Z0-9\\$\-])+\.)+([a-zA-Z0-9\\$]{2,4})+$                </code></td>
-                </tr>
-                </tbody>
-                </table>
+
+        !!! tip "Using special characters in the email address"
+
+                If you are using special characters such as `$` in your email address, see [Configuring Emails with Special Characters](../../learn/adding-email-special-characters). 
 
 5.  The Identity Server sends an email to the email address provided.
     The email contains a redirect URL that directs the users to a screen

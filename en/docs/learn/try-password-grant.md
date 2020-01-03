@@ -29,6 +29,29 @@ Grant](../../learn/resource-owner-password-credentials-grant)
     **Token Endpoint:** https://localhost:9443/oauth2/token
 
     ![password-grant-token-endpoint](../assets/img/using-wso2-identity-server/password-grant-token-endpoint.png) 
+    
+    !!! Tip 
+        The playground application will send a token request to the
+        **token** endpoint of the WSO2 Identity Server using the following
+        format.
+        ```java
+        POST
+        https://<host>:<port>/oauth2/token
+        Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
+        Content-Type: application/x-www-form-urlencoded
+        
+        grant_type=password&username=<Resource Owner User Name>&password=<Resource Owner Password>
+        ```
+            
+        !!! Example
+            ```java
+            POST
+            https://localhost:9443/oauth2/token
+            Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
+            Content-Type: application/x-www-form-urlencoded
+            
+            grant_type=password&username=admin&password=admin
+            ``` 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,
