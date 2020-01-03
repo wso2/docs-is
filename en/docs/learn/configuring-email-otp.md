@@ -37,6 +37,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     as explained [here](../../setup/configuring-email-sending).
     
     2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
+    
     ```
     [server]
     disable_addressing = true
