@@ -20,29 +20,7 @@
     is under **Dialect dialectURI** `http://wso2.org/claims` to ` mail
     `.
 
-4.  Open the `<IS_HOME>/repository/conf/identity/identity-mgt.properties           `
-    file and set the following property to `           true          ` .
-
-    !!! info 
-        This step is required due to a known issue that prevents the
-        confirmation codes from being removed after they are used when email
-        usernames are enabled. This occurs because the '@' character (and
-        some special characters) are not allowed in the registry. To
-        overcome this issue, enable hashed usernames when saving the
-        confirmation codes by configuring the properties below.
-
-    ``` xml
-    UserInfoRecovery.UseHashedUserNames=true
-    ```
-
-    Optionally, you can also configure the following property to
-    determine which hash algorithm to use.
-
-    ``` xml
-    UserInfoRecovery.UsernameHashAlg=SHA-1
-    ```
-
-5.  Configure the following set of parameters in the user store
+4.  Configure the following set of parameters in the user store
     configuration, depending on the type of user store you are connected
     to (LDAP/Active Directory/ JDBC).
     <table>
@@ -150,7 +128,7 @@
         ***@carbon.super*** at the end of user names.
     
 
-6.  Restart the server.
+5.  Restart the server.
 
 !!! info "Related Topics"
 

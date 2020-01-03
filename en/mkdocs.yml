@@ -64,8 +64,17 @@ nav:
     - 'Tutorials':
       - 'Tutorials': learn/tutorials.md
       - 'Basic Tutorials':
-        - 'User Management': 
-          - 'Adding Users and Roles': learn/adding-users-and-roles.md
+        - 'Users and Roles': learn/adding-users-and-roles.md
+        - 'User Accounts': 
+          - 'User Accounts': learn/managing-user-accounts.md
+          - 'User Registration':
+            - 'User Registration': learn/user-registration.md
+            - 'With Password Entry': learn/user-registration-with-password-entry.md
+            - 'With Email Verification': learn/user-regisrtation-with-email-verification.md
+          - 'Password Policies':
+            - 'Password Policies': learn/configuring-password-policies.md
+            - 'Password Patterns': learn/configuring-password-patterns.md
+            - 'Password History': learn/validating-password-history.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
@@ -262,7 +271,7 @@ nav:
                 - 'Configuring User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
                 - 'Configuring Active Directory User Stores for SCIM 1.1 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning.md
             - 'Configuring User Stores for SCIM 2.0 based inbound provisioning':
-                - 'Configuring User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-user-stores-for-scim-1.1-based-inbound-provisioning.md
+                - 'Configuring User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-user-stores-for-scim-2.0-based-inbound-provisioning.md
                 - 'Configuring Active Directory User Stores for SCIM 2.0 based inbound provisioning': learn/configuring-active-directory-user-stores-for-scim-2.0-based-inbound-provisioning.md
           - 'Outbound Provisioning':
             - 'Outbound Provisioning': learn/outbound-provisioning.md
@@ -285,8 +294,9 @@ nav:
             - 'Managing Challenge Questions': learn/managing-challenge-questions.md
           - 'Self-Registration and Account Confirmation': 
             - 'Self-Registration and Account Confirmation': learn/self-registration-and-account-confirmation.md
-            - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md
+            - 'Configuring reCaptcha for Self Registration': learn/configuring-recaptcha-for-self-registration.md 
           - 'Creating Users Using the Ask Password Option': learn/creating-users-using-the-ask-password-option.md
+          - 'Emails with Special Characters': learn/adding-email-special-characters.md
           - 'Forced Password Reset': learn/forced-password-reset.md
           - 'User Account Suspension': learn/user-account-suspension.md
           - 'Resending Account Recovery Confirmation Emails': learn/resending-account-recovery-confirmation-emails.md
@@ -714,6 +724,7 @@ nav:
   - 'Compliance':
     - 'GDPR': compliance/general-data-protection-regulation.md
     - 'eIDAS': compliance/electronic-identification-authentication-and-trust-services-regulation.md
+    - 'CCPA': compliance/california-consumer-privacy-act.md
   - 'References': 
     - 'Overview': references/references-overview.md
     - 'Default Ports of WSO2 Products': references/default-ports-of-wso2-products.md
