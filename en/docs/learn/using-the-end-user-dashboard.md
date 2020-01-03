@@ -278,8 +278,6 @@ Following are the details of the active sessions that can be found in **My login
 | User Agent   | The device, browser, and OS in which the session is active.|
 | Started Time | The time at which the session was activated.|
 
-To terminate an active session, click the corresponding **Terminate** button. 
-
 Click on the **Terminate** button adjacent to the session you want to terminate. 
 
 ![Terminate](../assets/img/learn/terminate-session.png)
