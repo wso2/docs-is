@@ -36,7 +36,13 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     
-    2.  Add the following email template to the
+    2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
+    ```
+    [server]
+    disable_addressing = true
+    ```
+    
+    3.  Add the following email template to the
         `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
     
         ``` xml
@@ -60,7 +66,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
             You can add email template from the management console
             as described in [this document](../../learn/customizing-automated-emails)
     
-    3.  Add the following configuration to the `deployment.toml` file in the
+    4.  Add the following configuration to the `deployment.toml` file in the
         `<IS_HOME>/repository/conf/` directory.
         
         ```toml
@@ -252,7 +258,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                 </tbody>
             </table>
     
-    4.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
+    5.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
 #### Option2: Configure Gmail as the email OTP provider 
 
