@@ -348,7 +348,7 @@ provider.
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Payload</strong></td>
-			<td><code> Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM_NUM} </code></td>
+			<td><code> Body=\$ctx.msg&To=\$ctx.num&From=urlencode{FROM_NUM} </code></td>
 			</tr>
 			</tbody>
 			</table></html>
