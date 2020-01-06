@@ -121,18 +121,23 @@ sections to read the prerequisites.
    
 7. Migrate [Log4j2 configurations](../../setup/migrating-to-log4j2).
    
-8. Do the following database updates:
-    1.  Download the
-        [migration resources](../../assets/attachments/migration/wso2is-5.9.0-migration.zip)
-        and unzip it to a local directory. This directory is referred to
-        as ` <IS5.9.0_MIGRATION_TOOL_HOME> ` .
+8. Do the following to perform database updates:
+    1.     To download the **migration resources** visit
+          [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest).
+          [From there](https://github.com/wso2-extensions/identity-migration-resources/releases/latest)
+          download the `wso2is-migration-x.x.x.zip` under the **Assets** and unzip it to a
+          local directory.
+        
+        !!! Note 
+            - **x.x.x** of `wso2is-migration-x.x.x.zip` denoted the
+            version of the latest released migration resources. 
+            - The
+            directory where the `wso2is-migration-x.x.x.zip` is unziped
+            will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
 
-    2.  Copy the
-        `             org.wso2.carbon.is.migration-5.9.0.jar            `
-     found in the
-        `             <IS5.9.0_MIGRATION_TOOL_HOME>/dropins            `
-        directory, and paste it in the
-        `             <NEW_IS_HOME>/repository/components/dropins            `
+    2.   Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` found in the
+        ` <IS_MIGRATION_TOOL_HOME>/dropins ` directory, and paste it
+        in the ` <NEW_IS_HOME>/repository/components/dropins `
         directory.
 
     3.  Copy migration-resources directory to the
