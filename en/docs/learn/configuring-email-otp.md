@@ -39,14 +39,14 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     !!! tip 
         The email template used to send this email notification is
         the **EmailOTP** template.
-
+        
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
         
-    2.  Add the following configuration to the `deployment.toml` file in the
+    2.  Add the following configuration to the `deployment.toml` file in the 
         `<IS_HOME>/repository/conf/` directory.
-        
+
         ```toml
         [authentication.authenticator.email_otp]
         name ="EmailOTP"
