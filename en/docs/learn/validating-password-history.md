@@ -90,13 +90,13 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
 
-	4.	Under **Change Password**, click **View details**.
+	4.	Under **Change Password**, click **View details**. 
 
-		<img src="../../assets/img/learn/change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
+		<img src="../../assets/img/learn/dashboard-change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
 
 	5.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm New Password** text boxes.
 
-		<img src="../../assets/img/learn/change-password-form.png" alt="Change Passwrod form" width="700" style="border:1px solid grey">
+		<img src="../../assets/img/learn/change-password-form.png" alt="Change Password form" width="700" style="border:1px solid grey"> 
 
 	6.	Click **Update**. An error message appears. 
 
