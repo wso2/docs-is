@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -189,6 +189,7 @@ nav:
           - 'Configuring SAML2 Single-Sign-On Across Different WSO2 Products': learn/configuring-saml2-single-sign-on-across-different-wso2-products.md
           - 'Client-side Support for SAML Artifact Binding': learn/client-side-support-for-saml-artifact-binding.md
           - 'eIDAS SAML Attribute Profile Support via WSO2 Identity Server': learn/eidas-saml-attribute-profile-support-via-wso2-identity-server.md
+          - 'Handling SAML Single Logout Requests from Federated identity Providers': leran/handling-saml-single-logout-requests-from-federated-identity-providers.md
       - 'Access Control':
         - 'Access Control Overview': learn/access-control.md
         - 'Working with Entitlement':
@@ -239,6 +240,8 @@ nav:
           - 'Sending Notifications to External PEP Endpoints': learn/sending-notifications-to-external-pep-endpoints.md
           - 'Writing an XACML 3.0 Policy Using XPath': learn/writing-a-xacml-3.0-policy-using-xpath.md
       - 'Deploying the Samples': learn/deploying-the-sample-app.md
+    - 'Using WSO2 Identity Server':
+      - 'User Portal': learn/user-portal.md
     - 'Using WSO2 Identity Server':
       - 'Identity Administration and Provisioning':
         - 'Users, Roles and Permissions':
@@ -320,6 +323,7 @@ nav:
           - 'Monitoring Workflow Requests': learn/monitoring-workflow-requests.md
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
+        - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
         - 'Using the End User Dashboard': learn/using-the-end-user-dashboard.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
@@ -371,6 +375,7 @@ nav:
             - 'Client Credentials Grant': learn/client-credentials-grant.md
             - 'Refresh Token Grant': learn/refresh-token-grant.md
             - 'Kerberos Grant': learn/kerberos-grant.md
+            - 'Device Authorization grant': learn/device-flow-grant.md
             - 'JWT Grant': learn/jwt-grant.md
           - 'SAML2 Bearer Assertion Profile for OAuth 2.0': learn/saml2-bearer-assertion-profile-for-oauth-2.0.md
           - 'Setting Up OAuth Token Hashing': learn/setting-up-oauth-token-hashing.md
@@ -445,6 +450,7 @@ nav:
             - 'Try Implicit Grant': learn/try-implicit-grant.md
             - 'Try Password Grant': learn/try-password-grant.md
             - 'Try Request Path Authentication': learn/try-request-path-authentication.md
+          - 'Device Flow with WSO2 Device Flow Demo App': learn/try-device-flow.md
           - 'Setting up a SAML2 Bearer Assertion Profile for OAuth 2.0': learn/setting-up-a-saml2-bearer-assertion-profile-for-oauth-2.0.md
         - 'OpenIDConnect':
           - 'Basic Client Profile with Playground': learn/basic-client-profile-with-playground.md
@@ -502,6 +508,8 @@ nav:
             - 'Fido': develop/fido-rest-api.md
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
+            - 'Identity Governance': develop/identity-governance-rest-api.md
+            - 'Email Templates': develop/email-templates-rest-api.md
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
@@ -517,6 +525,8 @@ nav:
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Authentication': develop/authentication-data-api.md
             - 'Secondary User Store': develop/userstore-rest-api.md
+            - 'Keystore Management': develop/keystore-rest-api.md
+            - 'Identity Providers': develop/idp-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -786,4 +796,4 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 5.9.0
+  site_version: 5.10.0

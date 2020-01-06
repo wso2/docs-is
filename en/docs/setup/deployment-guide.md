@@ -233,11 +233,6 @@ WSO2 supports the following membership schemes for clustering
             number of potential members. 
             
         ??? tip "Click to see the instructions for AWS ECS membership scheme"  
-            !!! warning
-                 To use this feature, apply the `0017` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
-                 (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
-                 you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
-                 WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates) 
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.

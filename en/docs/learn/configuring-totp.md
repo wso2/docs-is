@@ -337,66 +337,23 @@ https://localhost:9443/services/TOTPAdminService?wsdl
 
 ###  Send email with TOTP
 
-Additionally, users may receive an email consisting of the TOTP code during
+Additionally, users may receive an email consisting the TOTP code during
 the authentication flow.
 
-1.  Enable the email sending configurations of the WSO2 Identity Server
+-  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending)
 
-2.  Add the email template that must be sent to the user when the server
-    generate the token. 
-    
-    1.  Sign in to the Management Console and click **Add** Under **Email
-        Templates** in the **Home** tab.
-    2.  Click **Add Email Template Type**.
-    3.  In the next form add **TOTP** as "Template Type Display Name"
-        and **Add**.
-        ![email-type](../assets/img/tutorials/email-template-type.png)
-    4.  In the next form to add **Add a New Email Template**, enter
-        below values.
-        ![email-type](../assets/img/tutorials/email-template-totp.png)
+    !!! tip 
+        The email template used to send this email notification is
+        the **TOTP** template.
         
-        | Field        |   Possible Values                                        |
-        |--------------------------------|-------------------------------------------|
-        |Template Type| Select **TOTP** |
-        |Email Template Locale Email    | Select **English (United States)     |     
-        |Content Type    | html     | 
-        |Email Template Subject*    | WSO2 Carbon - Time-Based One Time Password    | 
-        |Email Email Body*    | Hi {{ user.claim.givenname}}, <br/> Please use the token {{token}} as the password for your login.    | 
-        |Email Footer*    | Best Regards, <br/>Identity Server Team <br/> http://www.wso2.com |
-                
-    !!! Tip 
-        You can change the Email Subject, Body and Footer as
-        required. however, Please note that you must include `{{token}}`
+        You can edit and customize the email template. For more information
+        on how to do this, see [Customizing Automated
+        Emails](../../learn/customizing-automated-emails). 
+        
+        Please note that you must include `{{token}}`
         in the email body as a placeholder for the token generated during
         the authentication flow.
     
-    ??? Expand "Click here to see how to add email template from configuration file"
-        
-        Instead of adding the email template from the management console, 
-        you can configure the same email template to add from the 
-        `<IS_HOME>/repository/conf/email/email-admin-config.xml ` file as well.
-        
-        Add following email template to `<IS_HOME>/repository/conf/email/email-admin-config.xml ` file inside `<configurations> ` tag.
     
-        **Email Template**
-    
-            ``` xml
-                ...
-                <configuration type="totp" display="TOTP" locale="en_US">
-                    <targetEpr></targetEpr>
-                    <subject>WSO2 Carbon - Time-Based One Time Password</subject>
-                    <body>
-                        Hi {{ user.claim.givenname}},
-                        Please use the token {{token}} as the password for your login.
-                    </body>
-                    <footer>
-                        Best Regards,
-                        WSO2 Identity Server Team
-                        http://www.wso2.com
-                    </footer>
-                    <redirectPath></redirectPath>
-                </configuration>  
-                ...
-            ```
     

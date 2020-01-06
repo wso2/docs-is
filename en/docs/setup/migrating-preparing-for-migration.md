@@ -343,7 +343,7 @@ configurations are handled by the a single file named
 
 !!! warn "Note" 
     When you are migrating from older version of WSO2
-    Identity Server, you need to convert old configurations to new
+    Identity Server that 5.9.0, you need to convert old configurations to new
     configuration model as well.
 
 Refer to the relevant feature documents and

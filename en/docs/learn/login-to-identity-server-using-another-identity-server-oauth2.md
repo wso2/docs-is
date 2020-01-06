@@ -4,10 +4,11 @@ This tutorial guides you through setting up two instances of WSO2
 Identity Server and using one Identity Server to authenticate the user
 and login to the other one.
 
-1.  Start 2 Identity Servers. Start the 2nd Identity Server with a port
+1.  Start 2 Identity Servers. Start the 2nd Identity Server with its hostname set as "wso2is" with a relevant certificate added to the primary IS client-truststore and a port
     offset of 1.  
     For more information on how to do this, see [Default Ports of WSO2
-    Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports)
+    Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports) and [Changing the 
+    hostname](../../setup/changing-the-hostname)
     .
 2.  Configure an OAuth/OIDC service provider in the 2nd Identity
     Server.  
@@ -35,11 +36,13 @@ and login to the other one.
         in second identity server)
 
     -   Authorization Endpoint URL:
-        <https://localhost:9444/oauth2/authorize>
+        <https://wso2is:9444/oauth2/authorize>
 
-    -   Token Endpoint URL: <https://localhost:9444/oauth2/token>
+    -   Token Endpoint URL: <https://wso2is:9444/oauth2/token>
 
     -   Callback Url: <https://localhost:9443/commonauth>
+    
+    -   Logout Endpoint URL: <https://wso2is:9444/oidc/logout>
 
     ![create-an-idp](../assets/img/using-wso2-identity-server/create-an-idp.png)   
 
