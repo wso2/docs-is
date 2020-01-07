@@ -79,6 +79,7 @@ nav:
             - 'Password Reset': learn/configuring-password-reset.md            
             - 'With Email': learn/configuring-password-reset-with-email.md
             - 'With Challenge': learn/configuring-password-reset-with-challenge.md
+          - 'User Name Recovery': learn/configuring-user-name-recovery.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
