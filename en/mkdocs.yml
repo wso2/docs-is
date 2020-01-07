@@ -773,7 +773,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - markdown_include.include
     
 # Extra
 extra_css:
