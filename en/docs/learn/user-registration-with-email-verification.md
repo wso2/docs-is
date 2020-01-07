@@ -104,6 +104,6 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 2.	An email requesting to confirm the user creation is sent to the given email address. 
 
-	<img src="../../assets/img/learn/user-regisrtation-verification-email.png" alt="Account Creation verification email" width="500" style="border:1px solid grey">  	  
+	<img src="../../assets/img/learn/user-registration-verification-email.png" alt="Account Creation verification email" width="500" style="border:1px solid grey">  	  
 
 3.	To verify account creation, click **Confirm Account**. 
