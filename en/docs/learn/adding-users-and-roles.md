@@ -6,8 +6,7 @@ This tutorial demonstrates how to create a new user, create a role with a set of
 
 ## Scenario
 
-Pickup is a cab company that has many employees. Each of these employees have a particular designation such as "Manager", 
-"Driver" etc., and depending on their designation within the company, they will have different permissions and access levels. 
+Pickup is a cab company that has many employees. Each of these employees have a particular designation such as "Manager", "Driver" etc., and depending on their designation within the company, they will have different permissions and access levels. 
 
 To achieve this, Pickup's administrator can create user roles for each designation and specify the required permissions for each. Then, the admin can add a user account for each of the employees and assign them to a user role such as "Manager" role according to their respective designations. 
 
