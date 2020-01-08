@@ -8,7 +8,7 @@ A taxi company called "Pickup" has launched a new application to be used by thei
 
 To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can setup WSO2 IS Analytics to view login attempts to the Pickup application. 
 
-## Setup 
+## Set up 
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 

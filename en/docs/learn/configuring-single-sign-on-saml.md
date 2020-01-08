@@ -19,7 +19,7 @@ Pickup is a cab company that has two SAML web applications called **pickup-dispa
 	  [saml-profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
 	  specification.
 
-## Setting up
+## Set up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
@@ -54,7 +54,7 @@ You will be redirected to the Pickup Dispatch application home page.
 
 3. Now, if you navigate to <http://localhost.com:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
-## Configuring claims
+## Configure claims
 
 Additionally, you can also configure claims for the service providers.
 

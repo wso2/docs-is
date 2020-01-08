@@ -10,7 +10,7 @@ Pickup is a cab company that has many employees. Each of these employees have a 
 
 To achieve this, Pickup's administrator can create user roles for each designation and specify the required permissions for each. Then, the admin can add a user account for each of the employees and assign them to a user role such as "Manager" role according to their respective designations. 
 
-## Setting up
+## Set up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 

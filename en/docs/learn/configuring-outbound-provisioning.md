@@ -1,19 +1,17 @@
 # Configuring Outbound Provisioning 
 
-## Introduction
-
 Provisioning is the process of creating, maintaining, and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
 
 This section of the tutorial demonstrates configuring Salesforce as the identity provider to provision users from WSO2 Identity Server. This means that once this is configured, new users that are added to WSO2 Identity Server are added to Salesforce as well. 
 
 ## Scenario
 
-To demonstrate the scenario in this tutorial, let's assume a taxi company called "Pickup" is expanding and is about to hire a new sales team. The drivers employed at Pickup use an application called **Pickup Dispatch** to manage their taxi orders and daily operations. Pickup maintains its employee user accounts using WSO2 Identity Server and has already set up outbound provisioning between WSO2 Identity Server and Pickup Dispatch for the drivers. The new sales team will need to access **Pickup Dispatch** as well but they will also need to use a **Salesforce** application to manage their daily sales activities.
+Pickup is a cab company that is expanding and is about to hire a new sales team. The drivers employed at Pickup use an application called **Pickup Dispatch** to manage their taxi orders and daily operations. Pickup maintains its employee user accounts using WSO2 Identity Server and has already set up outbound provisioning between WSO2 Identity Server and Pickup Dispatch for the drivers. The new sales team will need to access **Pickup Dispatch** as well but they will also need to use a **Salesforce** application to manage their daily sales activities.
 
 Pickup now needs to set up outbound provisioning between WSO2 IS and the **Salesforce** application so that whenever a new sales team member is hired and the user account is added to WSO2 IS, the user will be automatically provisioned to **Pickup Dispatch** as well as **Salesforce**.
 
 
-## Setting up Salesforce
+## Set up Salesforce
 
 1. Log in to [Salesforce Developer](https://login.salesforce.com/)
 
@@ -61,7 +59,7 @@ Pickup now needs to set up outbound provisioning between WSO2 IS and the **Sales
     3. Specify the `Label` and `Unique Name` for the certificate. 
     4. Click **Save** and then click **Download Certificate**.
         
-## Setting up WSO2 Identity Server
+## Set up WSO2 Identity Server
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 

@@ -11,7 +11,7 @@ Pickup is a cab company that has two SAML web applications called **pickup-dispa
 
 ![oidc-sso-scenario](../assets/img/tutorials/oidc-sso-scenario-diagram.png)
 
-## Setting up
+## Set up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
