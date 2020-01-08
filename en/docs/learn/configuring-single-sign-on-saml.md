@@ -1,19 +1,13 @@
 # Configuring Single Sign-On Using SAML2
 
 Single sign-on is a key feature of the WSO2 Identity Server that enables
-users to access multiple applications using the same set of credentials.
-Additionally, the user can access all these applications without having
-to log into each application individually. For instance, if users log
-into application A, they would automatically have access to application
-B as well for the duration of that session without having to re-enter
-their credentials.
+users to access multiple applications using the same set of credentials. This tutorial allows you to have hands-on experience on how to configure SSO with WSO2 Identity Server using SAML protocol.
 
-The profile specification for Security Assertion Markup Language 2.0
-(SAML 2.0) defines single sign-on based on a web browser. This tutorial allows you to have hands-on experience on how to configure SSO with WSO2 Identity Server using SAML protocol. 
+To read more about single sign on with WSO2 Identity Server, see [Single Sign On](../../learn/configuring-single-sign-on).
 
 ## Scenario
 
-To demonstrate the scenario in this tutorial, we are going to use two sample web applications called **pickup-dispatch** and **pickup-manager**. Both will be using WSO2 IS as the identity provider. When SSO is configured for both these applications, a user is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
+Pickup is a cab company that has two SAML web applications called **pickup-dispatch** and **pickup-manager**. Both applications use WSO2 IS as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
 ![saml-sso-scenario](../assets/img/tutorials/saml-sso-scenario-diagram.png)
 
