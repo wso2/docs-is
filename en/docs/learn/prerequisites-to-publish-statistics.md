@@ -68,6 +68,7 @@ Follow the steps below to enable event publishing in WSO2 IS.
     <a class="sourceLine" id="cb1-3" title="3">type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"</a>
     <a class="sourceLine" id="cb1-4" title="4">name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" </a>
     <a class="sourceLine" id="cb1-5" title="5">order = 11 </a>
+    <a class="sourceLine" id="cb1-5" title="5">enable = true </a>
     </code></pre></div>
     </div>
     </div>
