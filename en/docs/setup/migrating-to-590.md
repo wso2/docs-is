@@ -26,13 +26,25 @@ sections to read the prerequisites.
     
 
     ??? info "Click here to see the stored procedure" 
-        ``` java
+
+        Replace the `<TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>` and `<TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>` tags with the respective schema for the table. 
+
+
+        ``` sql
+        CREATE BUFFERPOOL BP32K IMMEDIATE SIZE 250 AUTOMATIC PAGESIZE 32K
+
+        CREATE LARGE TABLESPACE TS32K PAGESIZE 32K MANAGED by AUTOMATIC STORAGE BUFFERPOOL BP32K
+
         CALL SYSPROC.ADMIN_MOVE_TABLE(
         <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
         'IDN_OAUTH2_ACCESS_TOKEN',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
+        (SELECT TBSPACE FROM SYSCAT.TABLES WHERE 
+        TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND 
+        TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
         'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
+        (SELECT TBSPACE FROM SYSCAT.TABLES WHERE 
+        TABNAME = 'IDN_OAUTH2_ACCESS_TOKEN' AND 
+        TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>),
         '',
         '',
         '',
@@ -43,19 +55,19 @@ sections to read the prerequisites.
         CALL SYSPROC.ADMIN_MOVE_TABLE(
         <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>,
         'IDN_OAUTH2_AUTHORIZATION_CODE',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
+        (SELECT TBSPACE FROM SYSCAT.TABLES WHERE 
+        TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND 
+        TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
         'TS32K',
-        (SELECT TBSPACE FROM SYSCAT.TABLES where TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
+        (SELECT TBSPACE FROM SYSCAT.TABLES WHERE 
+        TABNAME = 'IDN_OAUTH2_AUTHORIZATION_CODE' AND 
+        TABSCHEMA = <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE>),
         '',
         '',
         '',
         '',
         '',
         'MOVE');
-
-        Where,
-
-        <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
         ```
 
     If you recieve an error due to missing
@@ -67,7 +79,7 @@ sections to read the prerequisites.
     spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
     in the IBM documentation.           
 
-    ``` java
+    ``` sql
         CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
           MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
           EXTENTSIZE 4;
@@ -121,18 +133,19 @@ sections to read the prerequisites.
    
 7. Migrate [Log4j2 configurations](../../setup/migrating-to-log4j2).
    
-8. Do the following database updates:
-    1.  Download the
-        [migration resources](../../assets/attachments/migration/wso2is-5.9.0-migration.zip)
-        and unzip it to a local directory. This directory is referred to
-        as ` <IS5.9.0_MIGRATION_TOOL_HOME> ` .
+8. Do the following to perform database updates:
+    1.     To download the **migration resources**, visit [the latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the wso2is-migration-x.x.x.zip under **Assets**.
+          Unzip it to a local directory.
+        
+        !!! Note 
+            - **x.x.x** of `wso2is-migration-x.x.x.zip` denotes the
+            version number of the latest released migration resources. 
+            - The
+            directory where the `wso2is-migration-x.x.x.zip` is unziped
+            will be referred to as ` <IS_MIGRATION_TOOL_HOME> `.
 
-    2.  Copy the
-        `             org.wso2.carbon.is.migration-5.9.0.jar            `
-     found in the
-        `             <IS5.9.0_MIGRATION_TOOL_HOME>/dropins            `
-        directory, and paste it in the
-        `             <NEW_IS_HOME>/repository/components/dropins            `
+    2.   Copy the ` org.wso2.carbon.is.migration-x.x.x.jar ` file in the
+        ` <IS_MIGRATION_TOOL_HOME>/dropins ` directory into the ` <NEW_IS_HOME>/repository/components/dropins `
         directory.
 
     3.  Copy migration-resources directory to the

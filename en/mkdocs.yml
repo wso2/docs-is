@@ -70,11 +70,20 @@ nav:
           - 'User Registration':
             - 'User Registration': learn/user-registration.md
             - 'With Password Entry': learn/user-registration-with-password-entry.md
-            - 'With Email Verification': learn/user-regisrtation-with-email-verification.md
+            - 'With Email Verification': learn/user-registration-with-email-verification.md
           - 'Password Policies':
             - 'Password Policies': learn/configuring-password-policies.md
             - 'Password Patterns': learn/configuring-password-patterns.md
             - 'Password History': learn/validating-password-history.md
+          - 'Password Reset':
+            - 'Password Reset': learn/configuring-password-reset.md            
+            - 'With Email': learn/configuring-password-reset-with-email.md
+            - 'With Challenge': learn/configuring-password-reset-with-challenge.md
+          - 'User Name Recovery': learn/configuring-user-name-recovery.md
+          - 'Account Locking': 
+            - 'Account Locking': learn/configuring-account-locking.md
+            - 'Admin-Initiated': learn/configuring-admin-initiated-account-locking.md
+            - 'Failed Login Attempts': learn/configuring-account-locking-due-to-failed-login-attempts.md
         - 'Single Sign-On':
           - 'SAML 2.0': learn/configuring-single-sign-on-saml.md
           - 'OpenID Connect/OAuth 2.0': learn/configuring-single-sign-on-oidc.md
@@ -86,6 +95,7 @@ nav:
           - 'Outbound Provisioning': learn/configuring-outbound-provisioning.md
         - 'Access Control': learn/fine-grained-authorization-with-xacml.md
         - 'Multi-Tenancy': learn/configuring-multi-tenancy.md
+        - 'Analytics': learn/configuring-identity-analytics.md
       - 'Single Sign-On':
         - 'Single Sign-On': learn/single-sign-on.md
         - 'Configuring Single Sign-On':

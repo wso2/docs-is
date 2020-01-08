@@ -1,6 +1,6 @@
 # Configuring Multi-Tenancy
 
-The goal of multitenancy is to maximize resource sharing by allowing multiple users (tenants) to log in and use a single server/cluster at the same time, in a tenant-isolated manner. For more information, see [Introduction to Multitenancy](../../administer/introduction-to-multitenancy)
+The goal of multitenancy is to maximize resource sharing by allowing multiple users (tenants) to log in and use a single server/cluster at the same time, in a tenant-isolated manner. For more information, see [Introduction to Multitenancy](../../administer/introduction-to-multitenancy).
 
 ## Scenario
 
