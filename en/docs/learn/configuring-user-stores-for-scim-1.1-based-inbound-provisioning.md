@@ -40,7 +40,7 @@ Attribute" value as indicated below.
     ![add-claim](../assets/img/learn/add-claim.png)
     ![available-claims](../assets/img/learn/available-claims.png)
 
-4.  Once you found the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
+4.  Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
     
 5.  Click **Edit** and modify the Mapped Attribute field in the resulting page.  
     ![update-local-claim](../assets/img/learn/update-local-claim.png) 
