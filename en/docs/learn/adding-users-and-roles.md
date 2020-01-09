@@ -2,7 +2,7 @@
 
 User management involves defining and managing users, roles, and access levels in a system. A typical user management implementation involves a wide range of functionality such as adding/deleting users, controlling user activity through permissions, and managing user roles.  
 
-This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the dashboard as the newly created user. 
+This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the WSO2 Identity Server dashboard using the newly created user's credentials. 
 
 ## Scenario
 

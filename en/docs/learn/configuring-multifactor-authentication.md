@@ -12,21 +12,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
-
-    ``` java tab="Linux/MacOS"
-    sh wso2server.sh
-    ```
-
-    ``` java tab="Windows"
-    wso2server.bat run
-    ```
-
-3. Access the [management console]() and login using admin/admin credentials. 
-
-## Configure SMSOTP
-
-1. Add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. 
+2. Add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. 
         ```toml 
         [authentication.authenticator.sms_otp] 
         name ="SMSOTP"
@@ -49,17 +35,29 @@ To ensure that only their own drivers can log into the application, Pickup decid
     !!! info
         For more information about these configurations, see [Configuring SMS OTP](../../learn/configuring-sms-otp).
 
-2. Download the certificate of the SMS provider by going to the SMS providers website on your browser, and clicking the HTTPS trust icon on the address bar. 
+3. Download the certificate of the SMS provider by going to the SMS provider's website on your browser, and clicking the HTTPS trust icon on the address bar. 
 
     In this scenario, we are using Nexmo as the SMS provider. Go to [Nexmo][https://www.nexmo.com], and click the padlock next to the URL on Chrome and download the certificate.
 
-3. Navigate to the `<IS_HOME>/repository/resources/security` directory via the terminal and import the downloaded certificate into the WSO2 IS client keystore. 
+4. Navigate to the `<IS_HOME>/repository/resources/security` directory via the terminal and import the downloaded certificate into the WSO2 IS client keystore. 
 
     ``` bash
     keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Nexmo" 
     ```
 
-4. You are prompted to enter the keystore password. The default client-truststore.jks password is **wso2carbon**.
+5. You are prompted to enter the keystore password. The default client-truststore.jks password is **wso2carbon**.
+
+## Enable SMSOTP
+
+1. Navigate to `<IS_HOME>/bin` directory via a command prompt and start the server by executing one of the following commands.
+
+    ``` java tab="Linux/MacOS"
+    sh wso2server.sh
+    ```
+
+    ``` java tab="Windows"
+    wso2server.bat run
+    ```
 
 5. Log into the [Management Console](../../setup/getting-started-with-the-management-console) using admin/admin credentials.
     
