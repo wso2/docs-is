@@ -1,11 +1,15 @@
 # Configuring Inbound Provisioning 
 
-## Introduction
-
 Provisioning is the process of creating, maintaining, and deleting digital identities (accounts) for users of a system(s) and linking appropriate rights to identities in the form of rules and roles. 
 
 Inbound provisioning provisions users or groups into WSO2 Identity Server by an external application. These external applications are referred to as service providers. WSO2 Identity Server supports the SCIM API and SOAP-based Web service API standards for inbound provisioning.
 This tutorial guides you to perform inbound provisioning using SCIM2.
+
+## Scenario
+
+Pickup is a cab company with many employees. So far they have been maintaining employee details in an external application but Pickup now wishes to use WSO2 Identity Server for user management so that they can easily configure account management policies such as password recovery.
+
+Pickup can provision the users from the external application to WSO2 Identity Server using SCIM2. 
 
 ## Try it out
 
