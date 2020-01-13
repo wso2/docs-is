@@ -133,5 +133,4 @@ to https://\<orgname\>.crmdomain.com.
 
 !!! info "Related Topics"
 	To test out WSO2 Identity Server's passive security token service
-    using a sample, see [Testing Identity Server's Passive
-    STS](../../learn/testing-passive-sts).
+    using a sample, see [Configuring Single Sign On Using WS-Federation](../../learn/configuring-single-sign-on-wsfed).
