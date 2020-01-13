@@ -88,4 +88,4 @@ function onLoginRequest(context) {
 }
 ```
 
-Now you can access the sample app using any of the configured federated authenticators by entering the username followed by the authenticator (for example, jake@facebook.com or jake@yahoo.com).
+Now you can access the sample app using any of the configured federated authenticators, by entering the username followed by the authenticator (for example, jake@gmail.com). You can either disable the `validate_username` property and test it with any name or you can create a user in the console. See more details on how to use an email address as the username [here](../../learn/using-email-address-as-the-username).
