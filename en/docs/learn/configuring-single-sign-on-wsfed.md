@@ -7,9 +7,9 @@ To read more about single sign on with WSO2 Identity Server, see [Single Sign On
 
 ## Scenario
 
-Pickup is a cab company that has two SAML web applications called **pickup-dispatch** and **pickup-manager**. Both applications use WSO2 IS as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
+Pickup is a cab company that has two web applications that use WS-Federation. Both applications use WSO2 IS as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
-![saml-sso-scenario](../assets/img/tutorials/saml-sso-scenario-diagram.png) FIX THIS!!!!
+This tutorial demonstrates configuring WS-Federation for one application and retrieving a SAML token that can be used for single sign-on. 
 
 ## Set up
 
@@ -25,12 +25,14 @@ Pickup is a cab company that has two SAML web applications called **pickup-dispa
     wso2server.bat run
     ```
     
-3. Log in using admin/admin credentials and create a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles).
+3. Log in using admin/admin credentials and create a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
 
     !!! info
         `admin` is the default administrative user in WSO2 Identity Server.
 
-4. Follow the steps in [deploying **Passive STS** webapp](../../learn/deploying-the-sample-app/#deploying-the-passivestssampleapp-webapp) to download, deploy and register **dispatch** sample.
+4. Click **List** under **Users and Roles** and edit Alex's user profile. Enter an email address for Alex.
+
+5. Follow the steps in [deploying **Passive STS** webapp](../../learn/deploying-the-sample-app/#deploying-the-passivestssampleapp-webapp) to download, deploy and register **dispatch** sample.
 
 You are now ready to try out WS-Federation SSO with the Passive STS sample application.
 
@@ -44,7 +46,6 @@ You are now ready to try out WS-Federation SSO with the Passive STS sample appli
     - **wreply={replyUrl}**: specifies where the response should be sent to.
 
     It is recommended to use a Network tracer such as a SAML tracer to analyze the HTTP request and responses in this scenario. With a tracer, you will be able to view the parameters mentioned above and also see the SAML token that is issued from WSO2 IS. 
-    ![saml-tracer-logs-passive-sts](../assets/img/learn/saml-tracer-logs-passive-sts.png)
 
 1. Navigate to one of the following links on your browser and click **Login**.
     - To get a SAML 1.1 token: <http://localhost:8080/PassiveSTSSampleApp/index.jsp>
