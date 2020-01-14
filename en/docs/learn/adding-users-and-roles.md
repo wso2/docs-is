@@ -1,11 +1,16 @@
 # Adding Users and Roles
 
+User management involves defining and managing users, roles, and access levels in a system. A typical user management implementation involves a wide range of functionality such as adding/deleting users, controlling user activity through permissions, and managing user roles.  
+
+This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the WSO2 Identity Server dashboard using the newly created user's credentials. 
+
 ## Scenario
-This tutorial demonstrates user and role management in WSO2 Identity Server. User management involves defining and managing users, roles, and access levels in a system. A typical user management implementation involves a wide range of functionality such as adding/deleting users, controlling user activity through permissions, and managing user roles.  
 
-This tutorial demonstrates how to create a new user, create a role with a set of permissions, and then log in to the dashboard as the newly created user. 
+Pickup is a cab company that has many employees. Each of these employees have a particular designation such as "Manager", "Driver" etc., and depending on their designation within the company, they will have different permissions and access levels. 
 
-## Setting up
+To achieve this, Pickup's administrator can create user roles for each designation and specify the required permissions for each. Then, the admin can add a user account for each of the employees and assign them to a user role such as "Manager" role according to their respective designations. 
+
+## Set up
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 

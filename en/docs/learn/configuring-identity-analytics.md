@@ -8,7 +8,7 @@ A taxi company called "Pickup" has launched a new application to be used by thei
 
 To do this, the developers need to view authentication statistics about the login attempts to the application. This tutorial demonstrates how the Pickup developers can setup WSO2 IS Analytics to view login attempts to the Pickup application. 
 
-## Setup 
+## Set up 
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
@@ -89,8 +89,8 @@ Let's create some basic authentication statistics. To do this, log in to the WSO
 
     ![is-analytics](../assets/img/learn/is-analytics.png)
 
-Note that there is 1 successful login attempt published on the dashboard. 
+    Note that there is 1 successful login attempt published on the dashboard. 
 
-![is-analytics-login-attempts](../assets/img/learn/is-analytics-login-attempts.png)
+    ![is-analytics-login-attempts](../assets/img/learn/is-analytics-login-attempts.png)
 
 You have succesfully enabled WSO2 IS Analytics and published statistics to the dashboard. For more information on what you can do with IS analytics, see [Analytics](../../learn/analytics).

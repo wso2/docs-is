@@ -621,13 +621,13 @@ Deploy this sample web app on a web container.
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
 2.  Start the Tomcat server.
-
-!!! Tip "Configure Sample Properties" 
-    Perform step 3 to 6 in
-    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml`
-    file
     
-3.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
+
+### Configure sample properties
+
+Open the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml` file and configure the following. 
+    
+1.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
     following is an example.
 
     ``` xml
@@ -637,7 +637,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
 
-4.  Specify the ` replyURL ` as the URL of the web app. The following
+2.  Specify the ` replyURL ` as the URL of the web app. The following
     specifies ` PassiveSTSSampleApp ` as the web app.
 
     ``` xml
@@ -647,7 +647,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
 
-5.  Specify the ` realm ` . This should be a unique identifier for the
+3.  Specify the ` realm ` . This should be a unique identifier for the
     web app as seen in the example below.
 
     ``` xml
@@ -657,7 +657,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
     
-6.  For tenant user logins, specify the ` tenantDomain ` .
+4.  For tenant user logins, specify the ` tenantDomain ` .
 
     ``` xml
     <init-param>
@@ -666,7 +666,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
     
-7. Restart the tomcat server.
+5. Restart the tomcat server.
 
 To check the sample application, navigate to `
 http://<TOMCAT_HOST>:<TOMCAT_PORT>/PassiveSTSSampleApp/home.jsp ` on
@@ -702,7 +702,15 @@ The next step is to configure the service provider.
         For more information on the advanced configurations refer,
         [Configuring WS-Federation](../../learn/configuring-ws-federation-single-sign-on/)
 
-5.  Click **Register** to save the changes.  
+5. Expand the **Claim Configuration** section and click **Add Requested Claim** to add the following claims. 
+    1. http://wso2.org/claims/username
+    2. http://wso2.org/claims/emailaddress
+
+6. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**. 
+
+    ![passive-sts-claims](../assets/img/learn/passive-sts-claims.png)
+
+7.  Click **Update** to save the changes.  
     Now you are sent back to the Service Providers page.
     
     
