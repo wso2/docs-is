@@ -9,15 +9,15 @@ The instructions on this page explain how plain text passwords in configuration 
 
 ### Encrypting passwords
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files. Make sure to add the section to the *end of the file*.
 
     ```toml
     [secrets]
-    admin_password = "[password_2]"
-    keystore_password = "[password_3]"
-    key_password = "[password_4]"
-    truststrore_password = "[password_5]"
-    "log4j.appender.LOGEVENT.password" = "[password_6]"
+    admin_password = "[password_1]"
+    keystore_password = "[password_2]"
+    key_password = "[password_3]"
+    truststrore_password = "[password_4]"
+    "log4j.appender.LOGEVENT.password" = "[password_5]"
     ```
 
 2. Navigate to the <IS_HOME>/bin/ directory in a command prompt, and execute the following command (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
@@ -28,11 +28,11 @@ The instructions on this page explain how plain text passwords in configuration 
     
     ```toml
     [secrets]
-    admin_password = "encrypted_pass_2"
-    keystore_password = "encrypted_pass_3"
-    key_password = "encrypted_pass_4"
-    truststrore_password = "encrypted_pass_5"
-    "log4j.appender.LOGEVENT.password" = "encrypted_pass_6"
+    admin_password = "[encrypted_pass_1]"
+    keystore_password = "[encrypted_pass_2]"
+    key_password = "[encrypted_pass_3]"
+    truststrore_password = "[encrypted_pass_4]"
+    "log4j.appender.LOGEVENT.password" = "[encrypted_pass_5]"
     ```
 
 ## Using encrypted passwords
@@ -43,7 +43,7 @@ When you have [encrypted passwords](#encrypting-passwords), you can refer them f
 You can add the encrypted password to the relevant sections in the `deployment.toml` file by using a place holder: `$secret{alias}`. 
 
 !!! note 
-    You can also replace your passwords by refering values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../administer/set-passwords-using-environment-variables-or-system-properties)
+    You can also replace your passwords by referring values passed by environment variables and system properties. See [Set Passwords using Environment Variables/System Properties](../../administer/set-passwords-using-environment-variables-or-system-properties)
 
 ```toml
 [super_admin]
