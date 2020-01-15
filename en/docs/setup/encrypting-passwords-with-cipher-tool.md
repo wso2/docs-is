@@ -9,7 +9,7 @@ The instructions on this page explain how plain text passwords in configuration 
 
 ### Encrypting passwords
 
-1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
+1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` directory and add the `[secrets]` configuration section **at the bottom of the file** as shown below. Give an alias for the password type followed by the actual password. The following example lists the most common passwords in configuration files.
 
     ```toml
     [secrets]
