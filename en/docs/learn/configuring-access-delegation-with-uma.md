@@ -1,10 +1,10 @@
 # Configuring Access Delegation with OAuth 2.0
 
-User Managed Access (UMA) enables controlled access to a user's protected digital resources using a centralized authorization server with authorization policies. This tutorial demonstrates giving access to a user's photo resources in a sample application by configuring UMA 2.0 in WSO2 Identity Server.
+User Managed Access (UMA) enables controlled access to a user's protected digital resources using a centralized authorization server with authorization policies. This tutorial demonstrates giving access to a user's photo resources in a sample application by configuring UMA 2.0 in WSO2 Identity Server (WSO2 IS).
 
 ## Scenario 
 
-Lily, Oliver and Pam are three users in WSO2 IS. Lily has a photo album in the "Photo-editer" application and wants to share the Family photos album with her family members; Oliver and Pam . Oliver and Pam can view this photo album using the "Photo-viewer" application. Photo-editor and Photo-viewer applications are using WSO2 IS as their identity provider.
+Lily, Oliver and Pam are three users in WSO2 IS. Lily has a photo album in the **Photo-editer** application and wants to share the Family photos album with her family members; Oliver and Pam . Oliver and Pam can view this photo album using the **Photo-viewer** application. The **Photo-editor** and **Photo-viewer** applications are using WSO2 IS as their identity provider.
     
 ![uma-scenario-diagram](../assets/img/learn/uma-scenario-diagram.png)
 
@@ -12,7 +12,7 @@ Lily, Oliver and Pam are three users in WSO2 IS. Lily has a photo album in the "
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands.
+2. Navigate to `<IS_HOME>/bin` and start the server by executing one of the following commands on a terminal window.
 
     ``` java tab="Linux/MacOS"
     sh wso2server.sh
@@ -23,10 +23,9 @@ Lily, Oliver and Pam are three users in WSO2 IS. Lily has a photo album in the "
     ```
 	
 3. Follow the steps in
-   [deploying the **photo-editor** and **photo-view** webapps](../../learn/deploying-the-sample-app/#deploying-the-photo-editor-and-photo-view-webapps)
-   to download, deploy and register **Photo Editor** sample.
+   [deploying the **photo-editor** and **photo-view** webapps](../../learn/deploying-the-sample-app/#deploying-the-photo-editor-and-photo-viewer-webapps) to download, deploy, and register **Photo Editor** sample.
 
-Once you have deployed the samples, note that two service providers have been created using dynamic client registration. You can access or edit them through the management console. 
+Once you have deployed the samples, note that two service providers have been created on the [management console](https://localhost:9443/carbon) using dynamic client registration. You can access or edit them through the management console. 
     ![photo-samples-service-providers](../assets/img/learn/photo-samples-service-providers.png)
 
 ## Create users
@@ -50,7 +49,12 @@ The setup is now complete and you can proceed to try out the scenario.
 
     ![photo-editor-share](../assets/img/learn/photo-editor-share.png)
 
-4. Navigate to the following URL in an incognito browser window to access the Photo Viewer application: <http://localhost.com:8080/photo-view/>.
+    !!! info
+        Once the resources are shared, a XACML policy is created to configure the access control policy in the authorization server. 
+        
+        To view the policy, return to the [management console](https://localhost:9443/carbon) and click **Entitlement > PAP > Policy > album-1-policy**. 
+
+4. Navigate to the following URL in an incognito browser window to access the **Photo Viewer** application: <http://localhost.com:8080/photo-view/>.
 
 5. Log in to the **Photo Viewer** application using Oliver's credentials and provide the requested consent. 
 

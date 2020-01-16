@@ -594,7 +594,7 @@ on your browser.
 For example,
 `                     http://localhost.com:8080/pickup-manager/home.jsp                   .         `
 
-## Deploying the photo-editor and photo-view webapps
+## Deploying the photo-editor and photo-viewer webapps
 
 !!! tip "Before you begin" 
     Install Apache Tomcat 8.x as explained in the
