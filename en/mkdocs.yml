@@ -69,8 +69,10 @@ nav:
           - 'User Accounts': learn/managing-user-accounts.md
           - 'User Registration':
             - 'User Registration': learn/user-registration.md
-            - 'With Password Entry': learn/user-registration-with-password-entry.md
-            - 'With Email Verification': learn/user-registration-with-email-verification.md
+            - 'Admin-Initiated':
+              - 'With Password Entry': learn/user-registration-with-password-entry.md
+              - 'With Email Verification': learn/user-registration-with-email-verification.md
+            - 'Self-Registration': learn/self-registration.md
           - 'Password Policies':
             - 'Password Policies': learn/configuring-password-policies.md
             - 'Password Patterns': learn/configuring-password-patterns.md
