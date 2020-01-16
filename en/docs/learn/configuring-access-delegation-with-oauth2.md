@@ -40,7 +40,7 @@ The setup is now complete and you can proceed to try out the scenario.
 
 ## Try it out
 
-1. Run the application by visting the following URL: `http://localhost.com:8080/pickup-dispatch/index.jsp`
+1. Run the application by visting the following URL: <http://localhost.com:8080/pickup-dispatch/index.jsp>
 
 2. Log in using the preferred credentials (e.g., admin/admin)
 

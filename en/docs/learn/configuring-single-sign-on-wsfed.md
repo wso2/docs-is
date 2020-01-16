@@ -25,7 +25,7 @@ This tutorial demonstrates configuring WS-Federation for one application and ret
     wso2server.bat run
     ```
     
-3. Log in using admin/admin credentials and create a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
+3. Log in to the management console using admin/admin credentials and create a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
 
     !!! info
         `admin` is the default administrative user in WSO2 Identity Server.
@@ -55,9 +55,3 @@ You are now ready to try out WS-Federation SSO with the Passive STS sample appli
 
 3. On the screen, you will see the passive STS response with the requested claims. Click **Logout** to logout from the application.
     ![passive-sts-response](../assets/img/learn/passive-sts-response.png)
-
-
-
-
-
-
