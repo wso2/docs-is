@@ -166,21 +166,20 @@ nav:
       - 'Adaptive Authentication':
         - 'Adaptive Authentication': learn/adaptive-authentication.md
         - 'Configuring a Service Provider for Adaptive Authentication': learn/configuring-a-service-provider-for-adaptive-authentication.md
-        - 'Adaptive Authentication Scenarios':
-          - 'Adaptive Authentication Scenarios': learn/adaptive-authentication-scenarios.md
-          - 'Configuring Role-Based Adaptive Authentication': learn/configuring-role-based-adaptive-authentication.md
-          - 'Configuring User-Age-Based Adaptive Authentication': learn/configuring-user-age-based-adaptive-authentication.md
-          - 'Configuring Tenant-Based Adaptive Authentication': learn/configuring-tenant-based-adaptive-authentication.md
-          - 'Configuring User Store-Based Adaptive Authentication': learn/configuring-user-store-based-adaptive-authentication.md
-          - 'Configuring IP-Based Adaptive Authentication': learn/configuring-ip-based-adaptive-authentication.md
-          - 'Configuring New-Device-Based Adaptive Authentication': learn/configuring-new-device-based-adaptive-authentication.md
-          - 'Configuring ACR-Based Adaptive Authentication': learn/configuring-acr-based-adaptive-authentication.md
-          - 'Configuring Risk-Based Adaptive Authentication': learn/configuring-risk-based-adaptive-authentication.md
-          - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
-          - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
-          - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
-        - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md
-        - 'Adaptive Authentication with Function Library': learn/adaptive-authentication-with-function-library.md
+        - 'Scenarios':
+          - 'Scenarios': learn/adaptive-authentication-scenarios.md
+          - 'Role-Based': learn/configuring-role-based-adaptive-authentication.md
+          - 'User-Age-Based': learn/configuring-user-age-based-adaptive-authentication.md
+          - 'Tenant-Based': learn/configuring-tenant-based-adaptive-authentication.md
+          - 'User Store-Based': learn/configuring-user-store-based-adaptive-authentication.md
+          - 'IP-Based': learn/configuring-ip-based-adaptive-authentication.md
+          - 'New-Device-Based': learn/configuring-new-device-based-adaptive-authentication.md
+          - 'ACR-Based': learn/configuring-acr-based-adaptive-authentication.md
+          - 'Risk-Based': learn/configuring-risk-based-adaptive-authentication.md
+          - 'With Function Library': learn/adaptive-authentication-with-function-library.md         
+          - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md 
+        - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
+        - 'Working with ACR and AMR': learn/working-with-acr-and-amr.md         
       - 'Identity Federation':
         - 'Identity Federation': learn/identity-federation.md 
         - 'Configuring Federated Authentication':
