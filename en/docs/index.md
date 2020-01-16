@@ -41,7 +41,7 @@ This is the current stable version of the project.
 ---
 
 ### Pre-release versions
-These are the latest changes that have yet to be released.
+These are the latest changes that are yet to be released.
 
 <table>
     <tbody>
