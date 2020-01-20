@@ -28,7 +28,7 @@ This tutorial demonstrates configuring WS-Federation for one application and ret
 3. Log in to the management console using admin/admin credentials and create a new user called "Alex" with login permission. For instructions, see [Adding Users and Roles](../../learn/adding-users-and-roles#create-a-user).
 
     !!! info
-        `admin` is the default administrative user in WSO2 Identity Server.
+        'admin' is the default administrative user in WSO2 Identity Server.
 
 4. Click **List** under **Users and Roles** and edit Alex's user profile. Enter an email address for Alex.
 
