@@ -93,6 +93,7 @@ nav:
           - 'WS-Federation (Passive STS)': learn/configuring-single-sign-on-wsfed.md
         - 'Access Delegation':
           - 'OAuth 2.0': learn/configuring-access-delegation-with-oauth2.md
+          - 'User Managed Access (UMA)': 'learn/configuring-access-delegation-with-uma.md'
         - 'Provisioning':
           - 'Provisioning Overview': learn/provisioning-tutorials.md
           - 'Inbound Provisioning': learn/configuring-inbound-provisioning.md
