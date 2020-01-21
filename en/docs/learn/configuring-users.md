@@ -361,18 +361,12 @@ name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.
 ```
 
 !!! note
-    
-    In WSO2 IS, you can choose to leave the password empty as shown by the
-    third line in the below sample file. To use this option, you need to
-    first enable the [Ask Password
-    option](../../learn/creating-users-using-the-ask-password-option)
-    for the server.
+    The Ask Password option can be enabled for bulk user creation by passing a value for password and setting the `askPassword` claim to true as shown below.
     
     ``` java
     UserName,Password,Claims
     name1,Password1,http://wso2.org/claims/emailaddress=name1@gmail.com,http://wso2.org/claims/country=France
-    name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France
-    name3,,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France
+    name2,Password2,http://wso2.org/claims/emailaddress=name2@gmail.com,http://wso2.org/claims/country=France     	     name3,Password3,http://wso2.org/claims/emailaddress=name3@gmail.com,http://wso2.org/claims/country=France,http://wso2.org/claims/identity/askPassword
     ```
     
 
