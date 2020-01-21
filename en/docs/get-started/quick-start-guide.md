@@ -87,7 +87,7 @@ using WSO2 Identity Server.
     server.host.port=8080
     ```
 
-5.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
+3.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
     ``` java
     Linux   --> sh wso2server.sh
@@ -101,13 +101,14 @@ using WSO2 Identity Server.
         Note that following log appears in the command prompt after the server shutdown.
         ![qsg-stop-server](../assets/img/getting-started/qsg-stop-server.png)
 
-6.  Navigate to <IS_SAMPLE_DISTR>/IS-QSG/bin and execute either of the following commands to start the sample application. 
+4.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
        
      ``` 
          Linux   --> sh app-server.sh
          Windows --> app-server.bat
     ```
-5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/samples/QSG-bundle/QSG/bin`
+
+5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin`
     and execute the following commands to start the Quick Start samples
     accordingly.
 
@@ -119,8 +120,8 @@ using WSO2 Identity Server.
     A message appears to pick a scenario, which indicates that the
     samples are deployed and the WSO2 Identity Server is up and running.
 
-9.  When prompted, confirm the configurations.
-10. Note that a message appears to pick a scenario, which indicates that
+6.  When prompted, confirm the configurations.
+7. Note that a message appears to pick a scenario, which indicates that
     the samples are deployed and WSO2 Identity Server is up and running.
 
 Let's try out the samples.
