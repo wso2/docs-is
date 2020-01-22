@@ -491,6 +491,7 @@ nav:
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
         - 'Provisioning for Developers':
+          - 'Provisioning with SCIM 2.0': develop/scim-2.0-provisioning.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extensible-scim-user-schemas-with-wso2-identity-server.md
         - 'Identity Federation for Developers':
