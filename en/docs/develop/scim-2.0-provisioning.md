@@ -122,5 +122,5 @@ user schema extension, do the following:
 
 Once you have successfully configured the SCIM 2.0 extensions with WSO2
 Identity Server, you can test any SCIM 2.0 REST call with WSO2 Identity
-Server using cURL commands in the
+Server using CURL commands in the
 [SCIM 2.0 API document](../../develop/using-the-scim-2.0-rest-apis).
