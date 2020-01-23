@@ -486,6 +486,7 @@ nav:
         - 'Provisioning for Developers':
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extensible-scim-user-schemas-with-wso2-identity-server.md
+          - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
         - 'Identity Federation for Developers':
           - 'Writing a Custom Federated Authenticator': develop/writing-a-custom-federated-authenticator.md
           - 'Writing a Custom Local Authenticator': develop/writing-a-custom-local-authenticator.md
