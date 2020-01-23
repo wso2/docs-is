@@ -24,10 +24,10 @@ Now let's assume you have an AD user store as the primary user store and you hav
 
 3.  Once you found the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
 4.  Click Edit and modify the Mapped Attribute field in the resulting page.
+    
     !!! note 
         Here we have configured a claim attribute mapping for a primary user store. If you have a secondary user store, you need to add another mapping for those as well. To do that just click on Add Attribute Mappings and set the corresponding values for user store domain name and mapped attribute.
-
-        ![update-local-claim-scim2.png](../assets/img/update-local-claim-scim2.png)
+        ![update-local-claim-scim2.png](../assets/img/learn/update-local-claim-scim2.png)
 
 !!! info 
     For information about Local Claim Dialect attributes, click [here](../../learn/adding-claim-mapping).

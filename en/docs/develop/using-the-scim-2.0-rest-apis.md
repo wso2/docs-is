@@ -11,146 +11,9 @@ This REST API implements the SCIM 2.0 Protocol according to the [SCIM 2.0 specif
 
 This endpoint is used to create and manage users and their profile attributes.
 
-### GET/ Get User by ID
-
-This API is used to retrieve users by their user ID. It returns an `           HTTP 200          ` response if the user is not found. 
-
-```
-GET https://localhost/t/{tenant-domain}/scim2/Users/{id}
-``` 
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password] https:<span class="co">//localhost:9443/scim2/Users/[user ID]</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&#39;</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Response</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;emails&quot;</span>:[{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;work&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;kim_j@wso2.com&quot;</span>},{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;home&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;kim.jackson@gmail.com&quot;</span>}],<span class="st">&quot;meta&quot;</span>:{<span class="st">&quot;created&quot;</span>:<span class="st">&quot;2018-08-15T14:55:23Z&quot;</span>,<span class="st">&quot;location&quot;</span>:<span class="st">&quot;https://localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&quot;</span>,<span class="st">&quot;lastModified&quot;</span>:<span class="st">&quot;2018-08-15T14:55:23Z&quot;</span>,<span class="st">&quot;resourceType&quot;</span>:<span class="st">&quot;User&quot;</span>},<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>,<span class="st">&quot;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User&quot;</span>],<span class="st">&quot;roles&quot;</span>:[{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;default&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;Internal/everyone&quot;</span>}],<span class="st">&quot;name&quot;</span>:{<span class="st">&quot;givenName&quot;</span>:<span class="st">&quot;kim&quot;</span>,<span class="st">&quot;familyName&quot;</span>:<span class="st">&quot;jackson&quot;</span>},<span class="st">&quot;id&quot;</span>:<span class="st">&quot;c8c821ba-1200-495e-a775-79b260e717bd&quot;</span>,<span class="st">&quot;userName&quot;</span>:<span class="st">&quot;kim&quot;</span>}</a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-
-**Parameters**
-
-<table style="width:100%;">
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 10%" />
-<col style="width: 68%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Name</th>
-<th>Description</th>
-<th>Schema</th>
-<th>Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Path</td>
-<td><p>id</p>
-<p>(required)</p></td>
-<td><div class="content-wrapper">
-<p>Unique ID of the resource type.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&#39;</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Query</td>
-<td><p>attributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-Attribute names of attributes that are to be included in the response.
-<p>All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?attributes=userName,name.familyName’</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Query</td>
-<td><p>excludedAttributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>Attribute names of attributes that are to be exclused from the response.<br />
-All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?excludedAttributes=userName,name.familyName’</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-
-**Responses**
-
--   HTTP 200 - Valid user is found
--   HTTP 401 - Unauthorized
--   HTTP 404 - Valid user is not found
-
 ### POST/ Create User
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Users                     `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Users                     `
 
 This API creates a user and returns the user details along with the
 user's unique ID. It returns `           HTTP 201          ` if the user
@@ -298,10 +161,147 @@ All the of the users dialect and meta dialect are supported. For more informatio
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackson","givenName":"kim"},"userName":"WSO2/kim","password":"kimwso2","emails":[{"primary":true,"value":"kim.jackson@gmail.com","type":"home"},{"value":"kim_j@wso2.com","type":"work"}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
 	```
 
+### GET/ Get User by ID
+
+This API is used to retrieve users by their user ID. It returns an `           HTTP 200          ` response if the user is not found. 
+
+```
+GET https://localhost:9443/t/{tenant-domain}/scim2/Users/{id}
+``` 
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password] https:<span class="co">//localhost:9443/scim2/Users/[user ID]</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+<tr class="even">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample cURL</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&#39;</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+<tr class="odd">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Response</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;emails&quot;</span>:[{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;work&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;kim_j@wso2.com&quot;</span>},{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;home&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;kim.jackson@gmail.com&quot;</span>}],<span class="st">&quot;meta&quot;</span>:{<span class="st">&quot;created&quot;</span>:<span class="st">&quot;2018-08-15T14:55:23Z&quot;</span>,<span class="st">&quot;location&quot;</span>:<span class="st">&quot;https://localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&quot;</span>,<span class="st">&quot;lastModified&quot;</span>:<span class="st">&quot;2018-08-15T14:55:23Z&quot;</span>,<span class="st">&quot;resourceType&quot;</span>:<span class="st">&quot;User&quot;</span>},<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:User&quot;</span>,<span class="st">&quot;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User&quot;</span>],<span class="st">&quot;roles&quot;</span>:[{<span class="st">&quot;type&quot;</span>:<span class="st">&quot;default&quot;</span>,<span class="st">&quot;value&quot;</span>:<span class="st">&quot;Internal/everyone&quot;</span>}],<span class="st">&quot;name&quot;</span>:{<span class="st">&quot;givenName&quot;</span>:<span class="st">&quot;kim&quot;</span>,<span class="st">&quot;familyName&quot;</span>:<span class="st">&quot;jackson&quot;</span>},<span class="st">&quot;id&quot;</span>:<span class="st">&quot;c8c821ba-1200-495e-a775-79b260e717bd&quot;</span>,<span class="st">&quot;userName&quot;</span>:<span class="st">&quot;kim&quot;</span>}</a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+**Parameters**
+
+<table style="width:100%;">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 10%" />
+<col style="width: 68%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Path</td>
+<td><p>id</p>
+<p>(required)</p></td>
+<td><div class="content-wrapper">
+<p>Unique ID of the resource type.</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd&#39;</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Query</td>
+<td><p>attributes</p>
+<p>(optional)</p></td>
+<td><div class="content-wrapper">
+Attribute names of attributes that are to be included in the response.
+<p>All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?attributes=userName,name.familyName’</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Query</td>
+<td><p>excludedAttributes</p>
+<p>(optional)</p></td>
+<td><div class="content-wrapper">
+<p>Attribute names of attributes that are to be exclused from the response.<br />
+All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?excludedAttributes=userName,name.familyName’</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+**Responses**
+
+-   HTTP 200 - Valid user is found
+-   HTTP 401 - Unauthorized
+-   HTTP 404 - Valid user is not found
+
 
 ### DELETE/ Delete User by ID
 
-`           DELETE                       https://localhost/t/{tenant-domain}/scim2/Users/{id                      }          `
+`           DELETE                       https://localhost:9443/t/{tenant-domain}/scim2/Users/{id                      }          `
 
 This API deletes a user using the user's unique ID. It returns
 `           HTTP 204          ` if the user is successfully deleted.
@@ -393,7 +393,7 @@ This API deletes a user using the user's unique ID. It returns
 
 ### GET/ Get Users (User Listing/Filtering)
 
-`           GET                       https://localhost/t/{tenant-domain}/scim2/Users                                `
+`           GET                       https://localhost:9443/t/{tenant-domain}/scim2/Users                                `
 
 This API returns users according to the filter, sort and pagination
 parameters. It returns an `           HTTP 404          ` response if
@@ -619,7 +619,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 ### POST/ Search Users
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Users/.search                     `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Users/.search                     `
 
 This API returns users according to the filter, sort and pagination
 parameters. It returns an `           HTTP 404          ` response if
@@ -714,7 +714,7 @@ the users are not found.
 
 ### PATCH/ Update User
 
-`            PATCH                         https://localhost/t/{tenant-domain}/scim2/Users/{id                        }           `
+`            PATCH                         https://localhost:9443/t/{tenant-domain}/scim2/Users/{id                        }           `
 
 This API updates user details and returns the updated user details using
 a PATCH operation. It returns an `            HTTP 404           `
@@ -867,7 +867,8 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 ### PUT/ Update User
 
-`            PUT                         https://localhost/t/{tenant-domain}/scim2/Users/{id                        }                       `
+`            PUT                         https://localhost:9443/t/{tenant-domain}/scim2/Users/{id                        
+}                       `
 
 This API updates user details and returns the updated user details using
 a PUT operation. It returns an `            HTTP 404           `
@@ -1023,151 +1024,11 @@ This endpoint is used to create and manage groups and group members.
 
 	If these properties are enabled, the responses recieved for the users endpoint and groups endpoint will change. For more information, see [Migrate - What Has Changed](../../setup/migrating-what-has-changed).
 
-### GET/ Group by ID
 
-```
-GET https://localhost/t/{tenant-domain}/scim2/Groups/{id}
-```
-
-
-This API returns the group details of a particular group using its
-unique ID. It returns an `           HTTP 200          ` response if the
-group is found.
-
-  
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password]  https:<span class="co">//localhost:9443/scim2/Groups/[group ID]</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Response</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>,<span class="st">&quot;meta&quot;</span>:{<span class="st">&quot;created&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>,<span class="st">&quot;location&quot;</span>:<span class="st">&quot;https://localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>,<span class="st">&quot;lastModified&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>},<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:Group&quot;</span>],<span class="st">&quot;id&quot;</span>:<span class="st">&quot;a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>}</a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-
-  
-
-**Parameters**
-
-<table style="width:100%;">
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 75%" />
-<col style="width: 5%" />
-<col style="width: 4%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Name</th>
-<th>Description</th>
-<th>Schema</th>
-<th>Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Path</td>
-<td><p>id</p>
-<p>(required)</p></td>
-<td><div class="content-wrapper">
-<p>Unique ID of the resource type.</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Query</td>
-<td><p>attributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>Attribute names of attributes that are to be included in the response.</p>
-<p>All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36?attributes=displayName’</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Query</td>
-<td><p>excludedAttributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>Attribute names of attributes that are to be exclused from the response.<br />
-All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36?excludedAttributes=displayName’</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-
-**Responses**
-
--   HTTP 200 - Valid group is found
--   HTTP 401 - Unauthorized
--   HTTP 404 - Valid group is not found
 
 ### POST/ Create Group
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
 
 This API creates a group and returns the details of the created group
 including its unique ID. It returns an `           HTTP 201          `
@@ -1308,7 +1169,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 ### POST/ Create Group
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
 
 This API creates a group and returns the details of the created group
 including its unique ID. It returns an `           HTTP 201          `
@@ -1457,10 +1318,152 @@ All the of the users dialect and meta dialect are supported. For more informatio
     curl -v -k --user admin:admin --data '{"displayName":"WSO2DOMAIN/manager"}' --header "Content-Type:application/json" https://localhost:9443/scim2/Groups
 	```
 
+### GET/ Group by ID
+
+```
+GET https://localhost:9443/t/{tenant-domain}/scim2/Groups/{id}
+```
+
+
+This API returns the group details of a particular group using its
+unique ID. It returns an `           HTTP 200          ` response if the
+group is found.
+
+  
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password]  https:<span class="co">//localhost:9443/scim2/Groups/[group ID]</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+<tr class="even">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample cURL</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+<tr class="odd">
+<td><div class="content-wrapper">
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Response</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>,<span class="st">&quot;meta&quot;</span>:{<span class="st">&quot;created&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>,<span class="st">&quot;location&quot;</span>:<span class="st">&quot;https://localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>,<span class="st">&quot;lastModified&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>},<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:Group&quot;</span>],<span class="st">&quot;id&quot;</span>:<span class="st">&quot;a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>}</a></code></pre></div>
+</div>
+</div>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+  
+
+**Parameters**
+
+<table style="width:100%;">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 9%" />
+<col style="width: 75%" />
+<col style="width: 5%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Path</td>
+<td><p>id</p>
+<p>(required)</p></td>
+<td><div class="content-wrapper">
+<p>Unique ID of the resource type.</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Query</td>
+<td><p>attributes</p>
+<p>(optional)</p></td>
+<td><div class="content-wrapper">
+<p>Attribute names of attributes that are to be included in the response.</p>
+<p>All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36?attributes=displayName’</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Query</td>
+<td><p>excludedAttributes</p>
+<p>(optional)</p></td>
+<td><div class="content-wrapper">
+<p>Attribute names of attributes that are to be exclused from the response.<br />
+All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+<strong>Sample Request</strong>
+</div>
+<div class="codeContent panelContent pdl">
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36?excludedAttributes=displayName’</span></a></code></pre></div>
+</div>
+</div>
+</div></td>
+<td>String</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+**Responses**
+
+-   HTTP 200 - Valid group is found
+-   HTTP 401 - Unauthorized
+-   HTTP 404 - Valid group is not found
+
 
 ### DELETE/ Delete Group By ID
 
-`           DELETE                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }          `
+`           DELETE                       https://localhost:9443/t/{tenant-domain}/scim2/Groups/{id                      }          `
 
 This API deletes a particular group using its unique ID. It returns an
 `           HTTP 204          ` reponse if the group is successfully
@@ -1553,7 +1556,7 @@ deleted.
 
 ### GET/ Filter Groups
 
-`           GET                       https://localhost/t/{tenant-domain}/scim2/Groups                                `
+`           GET                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
 
 This API deletes a particular group using its unique ID. It returns an
 `           HTTP 204          ` reponse if the group is successfully
@@ -1785,7 +1788,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 ### POST/ Search Groups
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Groups/.search                     `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Groups/.search                     `
 
 This API returns groups according to the specified filter, sort and
 pagination parameters. It returns an `           HTTP 404          `
@@ -1881,7 +1884,7 @@ response if the groups are not found.
 ### PATCH/ Update Group
 
 ```
-PATCH https://localhost/t/{tenant-domain}/scim2/Groups/{id}
+PATCH https://localhost:9443/t/{tenant-domain}/scim2/Groups/{id}
 ```
 
 This API updates the group details and returns the updated group details using a PATCH operation. It returns an `HTTP 404` response if the group is not found.   
@@ -2028,7 +2031,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 This API removes group member and returns the updated group details using a PATCH operation. It returns an `HTTP 404` response if the group is not found. 
 
 ```
-PATCH https://localhost/t/{tenant-domain}/scim2/Groups/{id}
+PATCH https://localhost:9443/t/{tenant-domain}/scim2/Groups/{id}
 ```
 
 **Parameters**
@@ -2134,7 +2137,7 @@ curl -v -k --user [user name]:[password] -X PATCH -d '{"schemas":["urn:ietf:para
 
 ### PUT/ Update Group
 
-`           PUT                       https://localhost/t/{tenant-domain}/scim2/Groups/{id                      }                     `
+`           PUT                       https://localhost:9443/t/{tenant-domain}/scim2/Groups/{id                      }                     `
 
 This API updates the group details and returns the updated group details
 using a PUT operation. It returns an `           HTTP 404          `
@@ -2280,8 +2283,8 @@ All the of the users dialect and meta dialect are supported. For more informatio
 ## Me Endpoint 
 This endpoint is used to create and manage the currently authenticated user. 
 
-### POST/ Create Users in Bulk
-`POST https://localhost/t/{tenant-domain}/scim2/Me`
+### POST/ Create Me
+`POST https://localhost:9443/t/{tenant-domain}/scim2/Me`
 
 This API is used to register a user anonymously. It returns an HTTP 201 response if the user is successfully created. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis). 
 
@@ -2351,9 +2354,35 @@ curl -v -k --data '{"schemas":[],"name":{"familyName":"Johnson","givenName":"Ale
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Invalid user
 
+### GET/ Get Me
+`GET https://localhost:9443/t/{tenant-domain}/scim2/Me`
+
+This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis).
+
+```cur tab="Request"
+curl -v -k --user [username]:[password] https://localhost:9443/scim2/Me
+```
+
+```curl tab="Sample cURL"
+curl -v -k --user kim:kimwso2 https://localhost:9443/scim2/Me
+```
+
+```curl tab="Response"
+{"schemas":["urn:ietf:params:scim:schemas:core:2.0:ResourceType"],"resourceType":[{"schema":"urn:ietf:params:scim:schemas:core:2.0:User","endpoint":"/Users","meta":{"location":"https://localhost:9443/scim2/ResourceType/User","resourceType":"ResourceType"},"name":"User","description":"User Account","schemaExtensions":{"schema":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User","required":false},"id":"User"},{"schema":"urn:ietf:params:scim:schemas:core:2.0:Group","endpoint":"/Groups","meta":{"location":"https://localhost:9443/scim2/ResourceType/Group","resourceType":"ResourceType"},"name":"Group","description":"Group","id":"Group"}]}
+```
+
+**Parameters**
+None
+
+**Responses**
+
+-	HTTP 200 - Schema is found
+-	HTTP 401 - Unauthorized
+-	HTTP 404 - Schema is not found
+
 ### DELETE/ Delete Me
 
-`DELETE https://localhost/t/{tenant-domain}/scim2/Me`
+`DELETE https://localhost:9443/t/{tenant-domain}/scim2/Me`
 
 This API is used to delete the currently authenticated user. It returns `HTTP 204` if the user is successfully deleted.
 
@@ -2395,35 +2424,10 @@ HTTP/1.1 204 NOT IMPLEMENTED
 -	HTTP 401 - Unauthorized
 -	HTTP 404 - Valid user is not found
 
-### GET/ Get Me
-`GET https://localhost/t/{tenant-domain}/scim2/Me`
-
-This API returns the user details of the currently authenticated user. These endpoints are secured by default. Therefore, to invoke this API anonymously, set the secured property for the SCIM2 resource in the identity.xml file to false. For more information, see [Authenticating and Authorizing REST APIs](../../develop/authenticating-and-authorizing-rest-apis).
-
-```cur tab="Request"
-curl -v -k --user [username]:[password] https://localhost:9443/scim2/Me
-```
-
-```curl tab="Sample cURL"
-curl -v -k --user kim:kimwso2 https://localhost:9443/scim2/Me
-```
-
-```curl tab="Response"
-{"schemas":["urn:ietf:params:scim:schemas:core:2.0:ResourceType"],"resourceType":[{"schema":"urn:ietf:params:scim:schemas:core:2.0:User","endpoint":"/Users","meta":{"location":"https://localhost:9443/scim2/ResourceType/User","resourceType":"ResourceType"},"name":"User","description":"User Account","schemaExtensions":{"schema":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User","required":false},"id":"User"},{"schema":"urn:ietf:params:scim:schemas:core:2.0:Group","endpoint":"/Groups","meta":{"location":"https://localhost:9443/scim2/ResourceType/Group","resourceType":"ResourceType"},"name":"Group","description":"Group","id":"Group"}]}
-```
-
-**Parameters**
-None
-
-**Responses**
-
--	HTTP 200 - Schema is found
--	HTTP 401 - Unauthorized
--	HTTP 404 - Schema is not found
 
 ### PATCH/ Update Me
 
-`PATCH https://localhost/t/{tenant-domain}/scim2/Me`
+`PATCH https://localhost:9443/t/{tenant-domain}/scim2/Me`
 
 This API uses a PATCH operation to update user details Returns `HTTP 404` if the user is not found.
 
@@ -2502,7 +2506,7 @@ curl -v -k --user kim:kimwso2 -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 ### PUT/ Update User
 
-`PUT https://localhost/t/{tenant-domain}/scim2/Me`
+`PUT https://localhost:9443/t/{tenant-domain}/scim2/Me`
 
 This API uses a PUT operation to update user details. It returns `HTTP 404` if the user is not found.
 
@@ -2583,7 +2587,7 @@ curl -v -k --user kim:kimwso2 -X PUT -d '{"schemas":[],"name":{"familyName":"Jac
 
 ### POST/ Create Users in Bulk
 
-`           POST                       https://localhost/t/{tenant-domain}/scim2/Bulk                     `
+`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Bulk                     `
 
 This API is used to create multiple users at once. It returns an
 `           HTTP 201          ` response if the users are successfully
@@ -2678,7 +2682,7 @@ created.
 
 ### GET/ Get Resource Types
 
-`           GET                       https://localhost/t/{tenant-domain}/scim2/ResourceType                     `
+`           GET                       https://localhost:9443/t/{tenant-domain}/scim2/ResourceType                     `
 
 This API lists and returns metadata about resource types. It returns an
 `           HTTP 200          ` response if the schema is found.
@@ -2745,7 +2749,7 @@ None
 
 ### GET/ Get Service Provider Config
 
-`           GET                       https://localhost/t/{tenant-domain}/scim2/ServiceProviderConfig                     `
+`           GET                       https://localhost:9443/t/{tenant-domain}/scim2/ServiceProviderConfig                     `
 
 This API is used to create multiple users at once. It returns an
 `           HTTP 201          ` response if the users are successfully

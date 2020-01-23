@@ -1,12 +1,8 @@
 # Configuring User Stores for SCIM 1.1 based inbound provisioning
 
-For this inbound provisioning WSO2 Identity server supports for SCIM 1.1
-and SCIM 2.0 this document we provide the additional steps that need to
-follow when you used SCIM 1.1 as inbound provisioning mechanism.  And if
-you need more information on SCIM see [SCIM
-APIs](../../develop/scim-1.1-apis)
+WSO2 Identity server supports inbound provisioning based on both SCIM 1.1 and SCIM 2.0. This document provides the additional steps that need to be followed if you are using SCIM 1.1 for inbound provisioning. If you need more information on SCIM 2.0 APIs, see [SCIM APIs](../../develop/scim-1.1-apis).
 
-When a user or a group is created with SCIM, there are set of mandatory
+When a user or a group is created with SCIM, there is a set of mandatory
 SCIM  claim values that need to be saved along with the user or group.
 Some of these values are as follows.
 
@@ -21,14 +17,12 @@ comes with IS), you need to map how these values are stored in your user
 store. This mapping can be done using the claim mapping setup in the
 Identity Server. This mapping can be done in the claim mapping setup in
 the Identity Server. You can find Active directory specific claim
-configuration in [Configuring Active Directory User Stores for Inbound
-Provisioning](../../learn/configuring-active-directory-user-stores-for-inbound-provisioning)
-.
+configuration in [Configuring Active Directory User Stores for Inbound Provisioning](../../learn/configuring-active-directory-user-stores-for-scim-1.1-based-inbound-provisioning).
 
 Now let's assume you have an AD user store as the primary user store and
 you have done the claim mappings for the SCIM attributes. Then you need
 to add a secondary user store and this will be an OpenLDAP. In this
-scenario, claim mappings done for AD may not be suited for OpenLDAP
+scenario, claim mappings done for AD may not suit OpenLDAP
 attributes. Therefore it should be possible to map claim attributes to
 the secondary user store. For this, you need to change the "Mapped
 Attribute" value as indicated below.
@@ -46,11 +40,10 @@ Attribute" value as indicated below.
     ![add-claim](../assets/img/learn/add-claim.png)
     ![available-claims](../assets/img/learn/available-claims.png)
 
-4.  Once you found the Mapped Local Claim, select theat claim under
-    **http://wso2.org/claims**.
+4.  Once you find the Mapped Local Claim, select that claim under **http://wso2.org/claims**.
     
 5.  Click **Edit** and modify the Mapped Attribute field in the resulting page.  
-    ![update-local-claim](../assets/img/update-local-claim.png) 
+    ![update-local-claim](../assets/img/learn/update-local-claim.png) 
 
 Here we have configure a claim attribute mapping for primary user store,
 if you have a secondary user store you need to add another mapping for

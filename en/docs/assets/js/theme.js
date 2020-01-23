@@ -296,3 +296,10 @@ window.addEventListener('scroll', function() {
         editIcon.classList.remove('active');
     }
 });
+
+/*
+* For clicks to land on the titles
+*/
+window.addEventListener("hashchange", function () {
+    window.scrollTo(window.scrollX, window.scrollY - 40, 'smooth');
+});

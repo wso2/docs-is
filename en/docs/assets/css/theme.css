@@ -1006,3 +1006,9 @@ html .md-footer-meta.md-typeset a,
 .md-sidebar__scrollwrap {
     margin: 0;
 }
+
+/* add padding to avoid 'copy to clipboard' being covered */
+
+.md-typeset .codehilite {
+    padding-right: 50px;
+}
