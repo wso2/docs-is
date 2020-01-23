@@ -30,7 +30,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
 
     ``` java
         {
-        "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:askPassword",
+        "attributeURI":"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:customClaim",
         "attributeName":"customClaim",
         "dataType":"boolean",
         "multiValued":"false",
@@ -46,7 +46,7 @@ WSO2 Identity Server allows users to define their own user schema in addition to
         }
     ```
 
-2.  Add the attribute names of the attributes that you added to the
+3.  Add the attribute names of the attributes that you added to the
     `           scim2-schema-extension.config          ` file as
     `                       subAttributes                     ` of the
     `           wso2Extension          ` attribute as seen in the code
