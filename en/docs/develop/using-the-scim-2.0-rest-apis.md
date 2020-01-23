@@ -500,7 +500,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <strong>Sample Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users?startIndex=1&amp;count=10&amp;domain=PRIMARY&amp;filter=userName+sw+ki+and+name.familyName+co+ack&amp;attributes=userName,name.familyName&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?excludedAttributes=userName,name.familyName’</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
