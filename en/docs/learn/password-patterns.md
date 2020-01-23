@@ -65,7 +65,7 @@ multi-tenant environment.
 !!! warning "Ask Password and JIT Provisioning"
     When registering users with [Password Entry (ask password)](../../learn/creating-users-using-the-ask-password-option/) or [JIT Provisioning](../../get-started/provisioning-architecture/#jit-provisioning), temporary passwords are automatically generated and validated against a predefined PasswordJavaRegEx regular expression in the user store configurations. For complex regex patterns, the password validation could fail causing an unsuccessful user registration.
 
-    Follow the steps below resolve this issue:  
+    Follow the steps below to resolve this issue:  
 
     **JIT Provisioning**
     
@@ -716,8 +716,6 @@ multi-tenant environment.
     b.  Implement this logic within the `generatePassword()` method.   
     c.  Build the OSGI bundle of the custom handler and place the .jar file in the `<IS_HOME>/repository/components/dropins` directory.
     d.  Restart WSO2 Identity Server.
-
-    To check whether the generated password is a randomly generated password, use the http://wso2.org/claims/identity/askPassword claim. 
 
 
 !!! info "Related Links"
