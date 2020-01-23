@@ -594,7 +594,66 @@ on your browser.
 For example,
 `                     http://localhost.com:8080/pickup-manager/home.jsp                   .         `
 
+## Deploying the photo-editor and photo-viewer webapps
 
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+
+    
+### Download the samples
+
+To be able to deploy a WSO2 Identity Server sample, you need to download
+it onto your machine first.
+
+Follow the instructions below to download the samples from GitHub.
+
+1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-edit.war) the `photo-edit.war` file from the
+   latest release assets.
+3. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-view.war) the `photo-view.war` file from the
+   latest release assets.
+
+### Deploy the sample web app
+
+Deploy the sample web apps on a web container.
+
+1.  Copy the .war files into the `           webapps          `
+    folder. For example,
+    `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
+    .
+2.  Start the Tomcat server.
+
+To check the **photo-edit** sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/photo-edit/index.jsp         `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
+    
+### Configuring the service provider
+
+Once the application is deployed, the relevant service providers are created on the management console using dynamic client registration. Follow the steps below to view the service providers and the configurations.
+
+1.  Return to the WSO2 IS management console.
+
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **List**. Note that the `photo-editor` and `photo-view` service providers have been created using dynamic client registration. 
+
+    ![photo-samples-service-providers](../assets/img/learn/photo-samples-service-providers.png)
+
+3.  Click **Edit** to view the photo-editor and photo-view service provider configurations. 
+
+3.  Expand **Inbound Authentication Configuration** section and then expand **OAuth/OpenID Connect Configuration**. 
+
+    ![oauth-configs-for-photo-app](../assets/img/learn/oauth-configs-for-photo-app.png)
+
+4. Click **Edit** to view the OAuth/OpenID Connect configurations. 
+
+    Note that the `urn:ietf:params:oauth:grant-type:uma-ticket` grant type has been enabled for the photo-viewer application along with the `code` and  `password` grant types. 
+
+    ![enable-uma-grant-type](../assets/img/learn/enable-uma-grant-type.png)
+
+----------------
 ## Deploying the PassiveSTSSampleApp webapp
 
 !!! tip "Before you begin" 
@@ -621,13 +680,13 @@ Deploy this sample web app on a web container.
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
 2.  Start the Tomcat server.
-
-!!! Tip "Configure Sample Properties" 
-    Perform step 3 to 6 in
-    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml`
-    file
     
-3.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
+
+### Configure sample properties
+
+Open the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml` file and configure the following. 
+    
+1.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
     following is an example.
 
     ``` xml
@@ -637,7 +696,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
 
-4.  Specify the ` replyURL ` as the URL of the web app. The following
+2.  Specify the ` replyURL ` as the URL of the web app. The following
     specifies ` PassiveSTSSampleApp ` as the web app.
 
     ``` xml
@@ -647,7 +706,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
 
-5.  Specify the ` realm ` . This should be a unique identifier for the
+3.  Specify the ` realm ` . This should be a unique identifier for the
     web app as seen in the example below.
 
     ``` xml
@@ -657,7 +716,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
     
-6.  For tenant user logins, specify the ` tenantDomain ` .
+4.  For tenant user logins, specify the ` tenantDomain ` .
 
     ``` xml
     <init-param>
@@ -666,7 +725,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
     
-7. Restart the tomcat server.
+5. Restart the tomcat server.
 
 To check the sample application, navigate to `
 http://<TOMCAT_HOST>:<TOMCAT_PORT>/PassiveSTSSampleApp/home.jsp ` on
@@ -702,7 +761,15 @@ The next step is to configure the service provider.
         For more information on the advanced configurations refer,
         [Configuring WS-Federation](../../learn/configuring-ws-federation-single-sign-on/)
 
-5.  Click **Register** to save the changes.  
+5. Expand the **Claim Configuration** section and click **Add Requested Claim** to add the following claims. 
+    1. http://wso2.org/claims/username
+    2. http://wso2.org/claims/emailaddress
+
+6. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**. 
+
+    ![passive-sts-claims](../assets/img/learn/passive-sts-claims.png)
+
+7.  Click **Update** to save the changes.  
     Now you are sent back to the Service Providers page.
     
     

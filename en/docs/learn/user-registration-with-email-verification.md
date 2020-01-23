@@ -91,7 +91,7 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 ## Try out 
 
-1.	To create the user account for Mark, execute the following cURL. 
+1.	To create the user account for Mark, execute the following cURL.
 
 	!!! tip
 
