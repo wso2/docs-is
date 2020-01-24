@@ -130,13 +130,6 @@ scim_enabled = true
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>UserIdAttribute</td>
-<td>user_id_attribute</td>
-<td>User ID Attribute</td>
-<td>This uniquely identifies the user entry.<br />
-Default: scimId</td>
-</tr>
 <tr class="even">
 <td>UserEntryObjectClass</td>
 <td>user_entry_object_class</td>
@@ -434,27 +427,20 @@ Default: not configured</td>
 <p>Default: not configured</p></td>
 </tr>
 <tr class="even">
-<td>UserIdSearchFilter</td>
-<td>user_id_search_filter</td>
-<td>UserID Search Filter</td>
-<td>This is a filtering criteria that is used to search a user entry.<br />
-Default : (&amp;(objectClass=person)(uid=?))</td>
-</tr>
-<tr class="odd">
 <td>java.naming.ldap.attributes.binary</td>
 <td>ldap_binary_attributes</td>
 <td>LDAP Binary Attributes</td>
 <td>Configure this to define the LDAP binary attributes separated by a space.
 <p>Default: not configured</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ImmutableAttributes</td>
 <td>immutable_attributes</td>
 <td>Immutable Attributes</td>
 <td>This is a comma-separated list of immutable attributes that are maintained in the user store.
 <p>Default: not configured</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>TimestampAttributes</td>
 <td>timestamp_attributes</td>
 <td>Timestamp Attributes</td>
