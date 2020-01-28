@@ -150,10 +150,11 @@ paths:
       tags:
         - Applications
       summary: |
-        Create an application from an exported XML file.
+        Create application from an exported XML file
       operationId: importApplication
       description: >
-        This API provides the capability to create an application from an exported XML file of an application.
+        This API provides the capability to store the application information,
+        provided as a file.
       requestBody:
         content:
           multipart/form-data:
@@ -202,10 +203,10 @@ paths:
       tags:
         - Applications
       summary: |
-        Update an application from an exported XML file.
+        Update application from an exported XML file
       operationId: importApplicationForUpdate
       description: >
-        This API provides the capability to update an application from information exported as a file.
+        This API provides the capability to update an application from information that has been exported as an XML file.
       requestBody:
         content:
           multipart/form-data:
@@ -261,15 +262,15 @@ paths:
       tags:
         - Applications
       summary: |
-        Retrieve application by id
+        Retrieve application by ID
       operationId: getApplication
       description: >
         This API provides the capability to retrieve the application information
-        by id.
+        by ID.
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -330,14 +331,14 @@ paths:
       tags:
         - Applications
       summary: |
-        Partially update an application by id
+        Partially update application by ID
       operationId: patchApplication
       description: |
-        This API provides the capability to partially update an application by id.
+        This API provides the capability to partially update an application by ID.
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -385,14 +386,14 @@ paths:
       tags:
         - Applications
       summary: |
-        Delete an application by id
+        Delete application by ID
       operationId: deleteApplication
       description: |
-        This API provides the capability to delete an application by id.
+        This API provides the capability to delete an application by ID.
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -435,13 +436,13 @@ paths:
         - Applications
       operationId: exportApplication
       summary: |
-        Export an application as an XML file.
+        Export application as an XML file
       description: |
         This API provides the capability to retrieve the application as an XML file.
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -488,10 +489,10 @@ paths:
       tags:
         - Resident Application
       summary: |
-        Get Resident Service Provider Information.
+        Get Resident application
       operationId: getResidentApplication
       description: |
-        This API provides the capability to retrieve the resident SP information.
+        This API provides the capability to retrieve the resident application information.
       responses:
         '200':
           description: OK
@@ -533,11 +534,10 @@ paths:
       tags:
         - Resident Application
       summary: |
-        Update Resident Application's provisioning configuration.
+        Update Resident Application
       operationId: updateResidentApplication
       description: >
-        This API provides the capability to update Resident Service Provider
-        Configuration.
+        This API provides the capability to update Resident Application Configuration.
       responses:
         '200':
           description: Successful
@@ -600,7 +600,7 @@ paths:
       tags:
         - Inbound Protocols
       summary: |
-        Retrieve inbound protocol configurations of an application.
+        Retrieve inbound protocol configurations of application
       operationId: getInboundAuthenticationConfigurations
       description: >
         This API provides the capability to retrieve authentication protocol
@@ -608,7 +608,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -648,7 +648,7 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Retrieve SAML2 authentication protocol parameters of an application.
+        Retrieve SAML2 authentication protocol parameters of application
       operationId: getInboundSAMLConfiguration
       description: >
         This API provides the capability to retrieve SAML2 authentication
@@ -656,7 +656,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -696,20 +696,20 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Update SAML2 authentication protocol parameters of an application.
+        Update SAML2 authentication protocol parameters of application
       operationId: updateInboundSAMLConfiguration
       description: >
         This API provides the capability to store SAML2 authentication protocol
         parameters of an application.
 
         - There are three methods to create/update SAML2 authentication protocol configuration.
-            1. Metadata File (Need to send Base64 encoded content of the metadata file.)
-            2. Metadata URL.
-            3. Manual configuration.
+            1. Metadata File (by sending the Base64 encoded content of the metadata file.)
+            2. Metadata URL
+            3. Manual configuration
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -770,7 +770,7 @@ paths:
       tags:
         - Inbound Protocols - SAML
       summary: |
-        Delete SAML2 authentication protocol parameters of an application.
+        Delete SAML2 authentication protocol parameters of application
       operationId: deleteInboundSAMLConfiguration
       description: >
         This API provides the capability to delete SAML2 authentication protocol
@@ -778,7 +778,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -822,7 +822,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Retrieve OIDC authentication protocol parameters of an application.
+        Retrieve OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve OIDC authentication
         protocol parameters of an application.
@@ -830,7 +830,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -875,7 +875,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Update OIDC authentication protocol parameters of an application.
+        Update OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to store OIDC authentication protocol
         parameters of an application.
@@ -883,7 +883,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -946,7 +946,7 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Delete OIDC authentication protocol parameters of an application.
+        Delete OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to delete OIDC authentication protocol
         parameters of an application.
@@ -954,7 +954,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -998,14 +998,14 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Regenerate the OAuth2/OIDC client secret.
+        Regenerate the OAuth2/OIDC client secret of application
       description: |
-        This API provides regenerate the OAuth2/OIDC client secret.
+        This API regenerates the OAuth2/OIDC client secret.
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -1052,14 +1052,14 @@ paths:
       tags:
         - Inbound Protocols - OAuth / OIDC
       summary: |
-        Revokes the OAuth2/OIDC client.
+        Revoke the OAuth2/OIDC client of application
       description: |
-        This API provides revokes the OAuth2/OIDC client secret. To re-activate the client the client secret needs to be regenerated.
+        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.
       operationId: revokeOAuthClient
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -1102,8 +1102,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: >
-        Retrieve Passive STS authentication protocol parameters of an
-        application.
+        Retrieve Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application.
@@ -1111,7 +1110,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -1157,7 +1156,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Update Passive STS authentication protocol parameters of an application.
+        Update Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to store passive STS authentication
         protocol parameters of an application.
@@ -1165,7 +1164,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1231,7 +1230,7 @@ paths:
       tags:
         - Inbound Protocols - Passive STS
       summary: |
-        Delete Passive STS authentication protocol parameters of an application.
+        Delete Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to delete Passive STS authentication
         protocol parameters of an application.
@@ -1239,7 +1238,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1282,7 +1281,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Retrieve WS Trust authentication protocol parameters of an application.
+        Retrieve WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
         protocol parameters of an application.
@@ -1290,7 +1289,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -1336,7 +1335,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Update WS Trust authentication protocol parameters of an application.
+        Update WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to store WS Trust authentication
         protocol parameters of an application.
@@ -1344,7 +1343,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1410,7 +1409,7 @@ paths:
       tags:
         - Inbound Protocols - WS Trust
       summary: |
-        Delete WS Trust authentication protocol parameters of an application.
+        Delete WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to delete WS Trust authentication
         protocol parameters of an application.
@@ -1418,7 +1417,7 @@ paths:
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1461,16 +1460,15 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Retrieve Custom Inbound authentication protocol parameters of an
-        application.
+        Retrieve custom Inbound authentication protocol parameters of application.
       description: >
-        This API provides the capability to retrieve Custom Inbound
+        This API provides the capability to retrieve custom inbound
         authentication protocol parameters of an application.
       operationId: getCustomInboundConfiguration
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application
+          description: ID of the application
           required: true
           schema:
             type: string
@@ -1521,15 +1519,14 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: |
-        Update the Custom Inbound authentication protocol parameters of an application.
+        Update the custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to store WS Trust authentication
-        protocol parameters of an application.
+        This API provides the capability to store custom inbound authentication protocol parameters of an application.
       operationId: updateCustomInboundConfiguration
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1600,16 +1597,14 @@ paths:
       tags:
         - Inbound Protocols - Custom
       summary: >
-        Delete Custom Inbound authentication protocol parameters of an
-        application.
+        Delete custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to delete Custom Inbound authentication
-        protocol of an application.
+        This API provides the capability to delete custom inbound authentication protocol of an application.
       operationId: deleteCustomInboundConfiguration
       parameters:
         - name: applicationId
           in: path
-          description: Id of the application.
+          description: ID of the application.
           required: true
           schema:
             type: string
@@ -1658,7 +1653,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve the list of inbound authentication protocols available.
+        Retrieve the list of inbound authentication protocols available
       description: >
         This API provides the capability to retrieve the list of inbound authentication protocols available.
         If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
@@ -1790,7 +1785,7 @@ paths:
       tags:
         - Application Metadata
       summary: |
-        Retrieve all the metadata related to the auth protocol WS_Trust
+        Retrieve all the metadata related to the auth protocol WS Trust
       description: >
         This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust.
       operationId: getWSTrustMetadata
@@ -2206,7 +2201,7 @@ components:
         saas:
           type: boolean
           example: false
-          description: Decides whether the application is allowed to be accessed across tenants.
+          description: Decides whether the application is accessible across tenants.
         discoverableByEndUsers:
           type: boolean
           example: false
@@ -2220,7 +2215,7 @@ components:
         returnAuthenticatedIdpList:
           type: boolean
           example: false
-          description: Decides whether the list of authenticated identity providers need to returned in the authentication response.
+          description: Decides whether the list of authenticated identity providers need to be returned in the authentication response.
         enableAuthorization:
           type: boolean
           description: Decides whether authorization policies needs to be engaged during authentication flows.
@@ -2662,7 +2657,7 @@ components:
           format: int64
           example: 86400
         renewRefreshToken:
-          description: "Decideds the refresh token needs to renewed during refresh grant flow"
+          description: "Decides whether the refresh token needs to renewed during refresh grant flow"
           type: boolean
           example: true
     IdTokenConfiguration:
@@ -2756,6 +2751,10 @@ components:
       properties:
         type:
           type: string
+          description: "
+          - DEFAULT type indicates that the application will use the default authentication sequence specified at the tenant level. When DEFAULT type is used the information given other fields of the AuthenticationSequence will be ignored and overriden with values defined at the tenant level.
+
+           - USER_DEFINED type indicates that the application will use a user defined authentication sequence."
           enum:
             - DEFAULT
             - USER_DEFINED
