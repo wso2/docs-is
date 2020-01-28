@@ -1198,3 +1198,92 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
+## Script Libraries Errors
+
+<div class="errorcode">
+<table>
+  <thead>
+    <th>Error Code</th>
+    <th>HTTP Status Code</th>
+    <th>Error Message</th>
+    <th>Possible Cause</th>
+  </thead>
+  <tbody>
+      <tr>
+        <td>SCL-65001</a></td>
+        <td>500</td>
+        <td>Unexpected Error.</td>
+        <td>Server encountered an unexpected error.</td>
+      </tr>
+      <tr>
+        <td>SCL-65002</a></td>
+        <td>500</td>
+        <td>Unable to add Script library.</td>
+        <td>Error while creating the script library: {script-library-name}.</td>
+      </tr>
+      <tr>
+         <td>SCL-65003</a></td>
+         <td>500</td>
+         <td>Unable to add Script library.</td>
+         <td>An error occurred while processing content stream of script library script: {script-library-name}.</td>
+       </tr>      
+      <tr>
+        <td>SCL-65005</a></td>
+        <td>500</td>
+        <td>Unable to update Script library.</td>
+        <td>Error while getting the script library: {script-library-name}.</td>
+      </tr>
+      <tr>
+        <td>SCL-65006</a></td>
+        <td>500</td>
+        <td>Unable to list existing script libraries.</td>
+        <td>Error while reading script libraries.</td>
+      </tr>  
+      <tr>
+        <td>SCL-65007</a></td>
+        <td>500</td>
+        <td>Unable to update script library.</td>
+        <td>Failed to update Script library: {script-library-name}.</td>
+      </tr>
+      <tr>
+        <td>SCL-65008</a></td>
+        <td>500</td>
+        <td>Unable to delete script library.</td>
+        <td>Error while deleting script library: {script-library-name}.</td>
+      </tr>      
+      <tr>
+        <td>SCL-60002</a></td>
+        <td>400</td>
+        <td>Unable to add Script library.</td>
+        <td>Script library script of {script-library-name} contains errors.</td>
+      </tr> 
+      <tr>
+        <td>SCL-60006</a></td>
+        <td>400</td>
+        <td>Script library not found.</td>
+        <td>Script library cannot be found for the provided name: {script-library-name} in the tenantDomain: {tenat
+        -domain}.</td>
+      </tr>
+      <tr>
+        <td>SCL-60007</a></td>
+        <td>409</td>
+        <td>Script library already exist.</td>
+        <td>Script library already exist for the provided name: {script-library-name} in the tenantDomain: {tenant
+        -domain} </td>
+      </tr>  
+      <tr>
+        <td>SCL-60008</a></td>
+        <td>400</td>
+        <td>Invalid script library name.</td>
+        <td>Script library name should include the .js extension.</td>
+      </tr> 
+      <tr>
+        <td>SCL-60009</a></td>
+        <td>400</td>
+        <td>Invalid offset.</td>
+        <td>Offset should be greater than or equal to 0.</td>
+      </tr>                   
+  </tbody>
+</table>
+</div>
