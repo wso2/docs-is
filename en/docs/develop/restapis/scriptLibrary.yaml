@@ -23,8 +23,10 @@ paths:
         - Script Libraries
       summary: |
         Add a new script library.
-      description: >
-        This API provides the capability to create a new Script library.
+      description: |
+        This API provides the capability to create a new Script library.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/create
       operationId: addScriptLibrary
       responses:
         '201':
@@ -72,7 +74,9 @@ paths:
       summary: |
         List script libraries.
       description: >
-        This API provides the capability to list Script Libraries.
+        This API provides the capability to list Script Libraries.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -123,8 +127,10 @@ paths:
         - Script Libraries
       summary: |
         Get script library.
-      description: >
-        This API provides the capability to retrive the script library details by using its name.
+      description: |
+        This API provides the capability to retrive the script library details by using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -175,8 +181,10 @@ paths:
         - Script Libraries
       summary: |
         Delete a script library.
-      description: >
-        This API provides the capability to delete an script library by  giving its name.
+      description: |
+        This API provides the capability to delete an script library by  giving its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/delete
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -223,8 +231,10 @@ paths:
         - Script Libraries
       summary: |
         Update a script library.
-      description: >
-        This API provides the capability to Update a script library of an script library by using name.
+      description: |
+        This API provides the capability to Update a script library of an script library by using name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/update
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -284,8 +294,10 @@ paths:
         - Script Libraries
       summary: |
         Get the content of the script library.
-      description: >
-        This API provides the capability to retrive the content of script library by using its name.
+      description: |
+        This API provides the capability to retrive the content of script library by using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
@@ -383,27 +395,34 @@ components:
       properties:
         name:
           type: string
+          description: 'Name of the script library.'
           example: 'script library name'
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content-ref:
           type: string
+          description: 'Reference of the content of the script library.'
           example: 'script library content reference'
     ScriptLibraryListResponse:
       type: object
       properties:
         totalResults:
           type: integer
+          description: 'Total number of script libraries.'
           example: 10
         startIndex:
           type: integer
+          description: 'Starting index of the script library.'
           example: 1
         count:
           type: integer
+          description: 'Number of script libraries in the list.'
           example: 10
         scriptLibraries:
           type: array
+          description: 'Set of script libraries.'
           items:
             $ref: '#/components/schemas/ScriptLibrary'
     scriptLibraryPOSTRequest:
@@ -414,12 +433,15 @@ components:
       properties:
         name:
           type: string
+          description: 'Name of the script library.'
           example: 'script library name'
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content:
           type: string
+          description: 'Content or the code of the script library.'
           format: binary
     scriptLibraryPUTRequest:
       type: object
@@ -428,9 +450,11 @@ components:
       properties:
         description:
           type: string
+          description: 'Description of the script library.'
           example: 'script library description'
         content:
           type: string
+          description: 'Content or the code of the script library.'
           format: binary
     Error:
       type: object
