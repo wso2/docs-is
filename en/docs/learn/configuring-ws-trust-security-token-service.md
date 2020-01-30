@@ -132,7 +132,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 	 3. Enter a service provider name.
 	 4.	Click Register. The Service Provider Details page appears.
 	 
-1.  Under the **Inbound Authenticatino Configuration** section, click
+1.  Under the **Inbound Authentication Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
     ![sts-config](../assets/img/tutorials/sts-config.png)
@@ -156,7 +156,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 					  <p>The endpoint must be used as the service <code>                  URL                 </code> to which the token gets delivered by the STS client. Then select the public certificate imported. Tokens issued are encrypted using the public certificate of the trusted relying party. Therefore, the consumer who obtains this token, to invoke the RP service, will not be able to see the token.</p> 
 		    		   <div class="admonition note">
 						<p class="admonition-title">Note</p>
-		    		   		 Make sure to upload the certificate of the relying party to the truststore. For instructions, see <a href="https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores">Adding CA-signed ceritificates to keystores</a>.</div>
+		    		   		 Make sure to upload the certificate of the relying party to the truststore. For instructions, see <a href="https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores">Adding CA-signed certificates to keystores</a>.</div>
 					  <br/>
 				   </div>
 				</div>
