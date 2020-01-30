@@ -112,7 +112,7 @@ The next step is to add a service provider to consume the STS.
 Do the following steps if you are using a Holder of Key **subject
 confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
-Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-key-subject-confirmation).
+Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
 
 !!! info
 	The **Subject confirmation methods** define how a relying party (RP),
