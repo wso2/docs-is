@@ -148,6 +148,7 @@ authentication.
 
 ### Disabling consent management for SSO
 
+#### Disable consent management globally.
 You can disable consent management for the product using the following
 global configuration (applies to all tenants). Once consent management
 is disabled, the user will not be prompted to provide consent during
@@ -164,3 +165,13 @@ prompt= false
 
 To re-enable consent management for SSO, you can set the above
 configuration to **true**.
+
+#### Disable consent management per Service Provider.
+
+You can disable the consent during the login and logout flow separately per service provider 
+under 'Local & Outbound Authentication Configuration'.
+
+   ![consent-per-sp](../assets/img/learn/consent-per-sp.png)
+       
+But note that, if the global property is set to disable the consent management.
+Then the service provider level configurations will be skipped.
