@@ -1,0 +1,1 @@
+# Configure Passive STS Application for SSO
