@@ -128,7 +128,7 @@ paths:
       summary: |
         Get script library.
       description: |
-        This API provides the capability to retrive the script library details by using its name.<br>
+        This API provides the capability to retrive the details of the script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/view
       operationId: getScriptLibraryByName
@@ -182,7 +182,7 @@ paths:
       summary: |
         Delete a script library.
       description: |
-        This API provides the capability to delete an script library by  giving its name.<br>
+        This API provides the capability to delete a script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/delete
       operationId: deleteScriptLibrary
@@ -232,7 +232,7 @@ paths:
       summary: |
         Update a script library.
       description: |
-        This API provides the capability to Update a script library of an script library by using name.<br>
+        This API provides the capability to update a script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/update
       operationId: updateScriptLibrary
@@ -295,7 +295,7 @@ paths:
       summary: |
         Get the content of the script library.
       description: |
-        This API provides the capability to retrive the content of script library by using its name.<br>
+        This API provides the capability to retrive the content of script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/view
       operationId: getScriptLibraryContentByName
