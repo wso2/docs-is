@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.9.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -42,50 +42,52 @@ theme:
   feature:
     tabs: true
   language: 'en'
-  
+
 # Navigation
 nav:
   - 'Home': index.md
   - 'Quick Start':
-    - 'Overview': get-started/overview.md
-    - 'Mobile':
-      - 'Android': get-started/android.md
-      - 'iOS': get-started/ios.md
-    - 'Frontend':
-      - 'Angular': get-started/angular.md
-      - 'React': get-started/react.md
-    - 'Backend':
-      - 'Java': get-started/java.md
-      - 'NodeJs': get-started/nodejs.md
+      - 'Overview': get-started/overview.md
+      - 'Mobile':
+          - 'Android': get-started/android.md
+          - 'iOS': get-started/ios.md
+      - 'Frontend':
+          - 'Angular': get-started/angular.md
+          - 'React': get-started/react.md
+      - 'Backend':
+          - 'Java': get-started/java.md
+          - 'NodeJs': get-started/nodejs.md
   - 'Guides':
-    - 'Get Started': guides/before-you-start.md
-    - 'Authentication':
-      - 'Web Application': sso/sso-for-traditional-web-app.md
-    - 'Multifactor Authentication':
-      - guides/mfa.md
-    - 'Adaptive Authentication':
-      - guides/adaptive.md
-    - 'Federation':
-      - guides/federation.md
+      - 'Get Started': guides/before-you-start.md
+      - 'Authentication':
+          - 'Web Application': sso/sso-for-traditional-web-app.md
+          - 'Mobile Application': sso/sso-for-mobile-app.md
+          - 'Single Page Application': sso/sso-for-spa-app.md
+      - 'Multifactor Authentication':
+          - guides/mfa.md
+      - 'Adaptive Authentication':
+          - guides/adaptive.md
+      - 'Federation':
+          - guides/federation.md
   - 'APIs':
-    - 'Overview': develop/rest-apis.md
+      - 'Overview': develop/rest-apis.md
   - 'Deploy':
-    - 'Deploy': deploy/deploying-wso2-identity-server.md
-    - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
+      - 'Deploy': deploy/deploying-wso2-identity-server.md
+      - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
-    - concepts/overview.md
+      - concepts/overview.md
   - 'Samples':
-    - samples/overview.md
-    - 'Android': samples/android.md
+      - samples/overview.md
+      - 'Android': samples/android.md
   - 'Authentication':
-    - 'OAuth Grant Types': guides/oauth-grant-types.md
-    - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
-    - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
-    - 'Configure Client Application': guides/configure-client-app.md
-    - 'Manage User Sessions': guides/manage-user-sessions.md
-    - 'OpenID Connect Logout': guides/sso-oidc-logout.md
-  - '': page-not-found.md  
-  
+      - 'OAuth Grant Types': guides/oauth-grant-types.md
+      - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
+      - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
+      - 'Configure Client Application': guides/configure-client-app.md
+      - 'Manage User Sessions': guides/manage-user-sessions.md
+      - 'OpenID Connect Logout': guides/sso-oidc-logout.md
+  - '': page-not-found.md
+
 
 # Extensions
 markdown_extensions:
@@ -116,7 +118,7 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_include.include:
       base_path: docs
-    
+
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css
@@ -135,3 +137,11 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 5.9.0
+
+  nav_list:
+    - Home
+    - Deploy
+    - Guides
+    - Quick Start
+    - APIs
+    - Concepts
