@@ -1012,3 +1012,55 @@ html .md-footer-meta.md-typeset a,
 .md-typeset .codehilite {
     padding-right: 50px;
 }
+
+.md-typeset ol, .md-typeset ul {
+    margin-left: .625em;
+    padding: 0;
+    line-height: 2;
+}
+
+/* button styles for read concept and try sample buttons */
+
+.conceptbtn_a {
+    color: #fff !important;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #24a6e2;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.conceptbtn_a:hover {
+    background: #1fd3c4;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    }
+
+.samplebtn_a {
+    color: #fff !important;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #3d4242;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.samplebtn_a:hover {
+    background: #e2350a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    }
+

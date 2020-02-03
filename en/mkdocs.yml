@@ -61,8 +61,6 @@ nav:
     - 'Get Started': guides/before-you-start.md
     - 'Authentication':
       - 'Web Application': sso/sso-for-traditional-web-app.md
-      - 'Mobile Application': sso/sso-for-mobile-app.md
-      - 'Single Page Application': sso/sso-for-spa-app.md
     - 'Multifactor Authentication':
       - guides/mfa.md
     - 'Adaptive Authentication':
@@ -72,14 +70,20 @@ nav:
   - 'APIs':
     - 'Overview': develop/rest-apis.md
   - 'Deploy':
-    - deploy/overview.md
-    - 'Environment Compatibilty': setup/environment-compatibility.md
+    - 'Deploy': deploy/deploying-wso2-identity-server.md
+    - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
     - concepts/overview.md
   - 'Samples':
     - samples/overview.md
     - 'Android': samples/android.md
-
+  - 'Authentication':
+    - 'OAuth Grant Types': guides/oauth-grant-types.md
+    - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
+    - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
+    - 'Configure Client Application': guides/configure-client-app.md
+    - 'Manage User Sessions': guides/manage-user-sessions.md
+    - 'OpenID Connect Logout': guides/sso-oidc-logout.md
   - '': page-not-found.md  
   
 
