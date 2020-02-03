@@ -61,6 +61,8 @@ nav:
     - 'Get Started': guides/before-you-start.md
     - 'Authentication':
       - 'Web Application': sso/sso-for-traditional-web-app.md
+      - 'Mobile Application': sso/sso-for-mobile-app.md
+      - 'Single Page Application': sso/sso-for-spa-app.md
     - 'Multifactor Authentication':
       - guides/mfa.md
     - 'Adaptive Authentication':
