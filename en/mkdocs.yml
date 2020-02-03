@@ -72,8 +72,8 @@ nav:
   - 'APIs':
     - 'Overview': develop/rest-apis.md
   - 'Deploy':
-    - deploy/overview.md
-    - 'Environment Compatibilty': setup/environment-compatibility.md
+    - 'Deploy': deploy/deploying-wso2-identity-server.md
+    - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
     - concepts/overview.md
   - 'Samples':
