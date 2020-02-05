@@ -29,8 +29,7 @@ To configure Single Sign-On (SSO) for an OAuth/OpenID Connect application, follo
 
 4. Note the **OAuth Client Key** and **Client Secret** that appear. 
 
-    [![configure-sp-oidc](../assets/img/guides/configure-sp-oidc.gif)](../assets/img/restructure/configure-sp-oidc.gif)
-
+   <img name='configure-sp-oidc' src='../../assets/img/guides/configure-sp-oidc.gif' class='img-zoomable'/>
 
 ## What's Next? 
 
