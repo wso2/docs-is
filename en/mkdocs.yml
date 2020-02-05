@@ -76,11 +76,11 @@ nav:
     - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
     - concepts/overview.md
+    - 'OAuth Grant Types': guides/oauth-grant-types.md
   - 'Samples':
     - samples/overview.md
     - 'Android': samples/android.md
-  - 'Authentication':
-    - 'OAuth Grant Types': guides/oauth-grant-types.md
+  - 'Enable Authentication to a web application using Authorization code grant':
     - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
     - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
     - 'Configure Client Application': guides/configure-client-app.md
