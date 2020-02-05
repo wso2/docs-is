@@ -15,7 +15,7 @@ references >
 
  < Description on web app specific config >
 
-{!sso/oauth-app-config-basic.md!}
+{!authenticate/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -41,4 +41,4 @@ references >
 !!! Tip "What's Next?"
 
     - [Enable single sign-on with another web application]()
-    - [Check out Detailed guide](../sso/sso-for-mobile-app.md)    
+    - [Check out Detailed guide](../authenticate/mobile-app.md)    

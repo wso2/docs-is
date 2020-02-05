@@ -1,4 +1,4 @@
-# Enable Authentication to a web application using Authorization code grant in WSO2 IS.
+# Enable Authentication to a web application using Authorization code grant.
 
 < Introduction - This document contains an step by Step guide on to enable authentication
 for a traditional web application. >
@@ -15,7 +15,7 @@ for a traditional web application. >
 
  < Description on web app specific config >
 
-{!sso/oauth-app-config-basic.md!}
+{!authenticate/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -23,15 +23,13 @@ for a traditional web application. >
 | Description           | This is a traditional web application  | 
 | Call Back Url         | https://somehost/url  | 
 
-{!sso/oauth-app-config-advance.md!}
+{!authenticate/configure-client-regular-webapp.md!}
 
-{!sso/configure-traditional-client-web-app.md!}
+{!authenticate/get-user-information-to-the-application.md!}
 
-{!sso/get-user-information-to-the-application.md!}
+{!authenticate/oidc-session-management.md!}
 
-{!sso/oidc-session-management.md!}
-
-{!sso/oidc-logout.md!}
+{!authenticate/oidc-logout.md!}
 
 !!! Tip "What's Next?"
 

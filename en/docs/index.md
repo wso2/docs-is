@@ -3,7 +3,6 @@ template: templates/single-column.html
 ---
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    {!overview.md!}
 <div>
     <header>
         <h1>Welcome to the WSO2 Identity Server Documentation!</h1>
