@@ -88,26 +88,26 @@ nav:
                   - 'Password complexity': guides/user-mgt/password-complexity.md
                   - 'Password history': guides/user-mgt/password-history.md
                   - 'Password expiration': guides/user-mgt/password-expiration.md
-      
+
   - 'APIs':
       - 'REST APIs': reference/rest-api-reference.md
       - 'Authentication Script API': reference/authentication-script-reference.md
       - 'Configuration Catalog': reference/configuration-catalogue.md
   - 'Deploy':
-      - 'Deploy': deploy/deploying-wso2-identity-server.md
-      - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
+    - 'Deploy': deploy/deploying-wso2-identity-server.md
+    - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
-      - concepts/overview.md
+    - concepts/overview.md
+    - 'OAuth Grant Types': guides/oauth-grant-types.md
   - 'Samples':
-      - samples/overview.md
-      - 'Android': samples/android.md
-  - 'Authentication':
-      - 'OAuth Grant Types': guides/oauth-grant-types.md
-      - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
-      - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
-      - 'Configure Client Application': guides/configure-client-app.md
-      - 'Manage User Sessions': guides/manage-user-sessions.md
-      - 'OpenID Connect Logout': guides/sso-oidc-logout.md
+    - samples/overview.md
+    - 'Android': samples/android.md
+  - 'Enable Authentication to a web application using Authorization code grant':
+    - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
+    - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
+    - 'Configure Client Application': guides/configure-client-app.md
+    - 'Manage User Sessions': guides/manage-user-sessions.md
+    - 'OpenID Connect Logout': guides/sso-oidc-logout.md
   - '': page-not-found.md
 
 
