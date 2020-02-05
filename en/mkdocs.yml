@@ -60,16 +60,24 @@ nav:
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
       - 'Authentication':
-          - 'Single Sign On':
-              - 'Web Application': sso/sso-for-traditional-web-app.md
-              - 'Mobile Application': sso/sso-for-mobile-app.md
-              - 'Single Page Application': sso/sso-for-spa-app.md
-              - 'Multifactor Authentication':
-                  - guides/mfa.md
-          - 'Adaptive Authentication':
-              - guides/adaptive.md
-          - 'Federation':
-              - guides/federation.md
+        - 'Web Application':
+          - 'OAuth/OIDC': authenticate/regular-webapp-oidc.md
+          - 'SAML': authenticate/regular-webapp-saml.md
+          - 'STS': authenticate/regular-webapp-sts.md
+        - 'Mobile Application': authenticate/mobile-app.md
+        - 'Single Page Application': authenticate/spa-app.md
+      - 'Single Sign On':
+        - sso/overview.md
+        - 'Same Protocol':
+          - 'Oauth/OIDC': sso/oauth-apps.md
+          - 'SAML': sso/saml-apps.md
+        - 'Cross Protocol': sso/oauth-and-saml-apps.md
+      - 'Multifactor Authentication':
+        - guides/mfa.md
+      - 'Adaptive Authentication':
+        - guides/adaptive.md
+      - 'Federation':
+        - guides/federation.md
       - 'User Management':
           - 'Managing User Stores':
               - 'Connecting a Database Userstore': user/connect-database-userstore.md
