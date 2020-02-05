@@ -60,9 +60,12 @@ nav:
   - 'Guides':
     - 'Get Started': guides/before-you-start.md
     - 'Authentication':
-      - 'Web Application': sso/sso-for-traditional-web-app.md
-      - 'Mobile Application': sso/sso-for-mobile-app.md
-      - 'Single Page Application': sso/sso-for-spa-app.md
+      - 'Web Application':
+        - 'OAuth/OIDC': authenticate/regular-webapp-oidc.md
+        - 'SAML': authenticate/regular-webapp-saml.md
+        - 'STS': authenticate/regular-webapp-sts.md
+      - 'Mobile Application': authenticate/mobile-app.md
+      - 'Single Page Application': authenticate/spa-app.md
     - 'Multifactor Authentication':
       - guides/mfa.md
     - 'Adaptive Authentication':
