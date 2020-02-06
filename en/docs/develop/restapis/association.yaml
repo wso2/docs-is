@@ -497,12 +497,29 @@ definitions:
       id:
         type: string
         example: eeqweisfhkdfik
-      idpId:
-        type: string
-        example: google.com
+      Idp:
+        $ref: '#/definitions/Idp'
       federatedUserId:
         type: string
         example: john@google.com
+  #-----------------------------------------------------
+  # The Federated Identity Provider Response object
+  #-----------------------------------------------------
+  Idp:
+    type: object
+    properties:
+      id:
+        type: string
+        example: eeqweisfhkdfikaefcqwesfceqwqas
+      name:
+        type: string
+        example: google.com
+      displayName:
+        type: string
+        example: Google
+      imageUrl:
+        type: string
+        example: https://is.example.com/sample.jpg
   #-----------------------------------------------------
   # The Property  object
   #-----------------------------------------------------
