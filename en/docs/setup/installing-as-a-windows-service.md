@@ -22,7 +22,7 @@ Follow the instructions in the sections below to set it up.
 -   Download and install a service wrapper library for running
     WSO2 Identity Server as a Windows service. WSO2 recommends _Yet Another
     Java Service Wrapper_ (
-    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 11.03, and
+    [YAJSW](http://sourceforge.net/projects/yajsw/) ) version 12.14, and
     several WSO2 products provide a default
     `          wrapper.conf         ` file in their
     `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The
