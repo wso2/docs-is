@@ -78,25 +78,29 @@ nav:
         - guides/adaptive.md
       - 'Federation':
         - guides/federation.md
+      - 'Access Delegation' : access-delegation/overview.md
+      - 'Authorization' : authorization/overview.md
       - 'User Management':
-          - 'Managing User Stores':
-              - 'Connecting a Database Userstore': user/connect-database-userstore.md
-              - 'Connecting a LDAP Userstore': user/connect-ldap-userstore.md
-              - 'Connecting a Active Directory Userstore': user/connect-ldap-userstore.md
-          - 'Managing Users':
-              - 'Add a user': guides/user-mgt/user-add.md
-              - 'Bulk add users': guides/user-mgt/user-bulk-add.md
-              - 'View and Update Profile': guides/user-mgt/user-view-profile.md
-              - 'Assign Roles': guides/user-mgt/user-assign-role.md
-              - 'Change Password': guides/user-mgt/change-password.md
-              - 'Locking and Unlocking': guides/user-mgt/user-lock-account.md
-          - 'Configuring Policies':
-              - 'Password Policies':
-                  - 'Password length': guides/user-mgt/password-length.md
-                  - 'Password complexity': guides/user-mgt/password-complexity.md
-                  - 'Password history': guides/user-mgt/password-history.md
-                  - 'Password expiration': guides/user-mgt/password-expiration.md
-
+          - 'Onboarding Users':
+              - 'Connecting a Userstore':
+                  - 'Connecting a Database Userstore': user-mgt/connect-database-userstore.md
+                  - 'Connecting a LDAP Userstore': user-mgt/connect-ldap-userstore.md
+                  - 'Connecting a Active Directory Userstore': user-mgt/connect-active-directory-userstore.md
+              - 'Bulk importing users': user-mgt/user-bulk-add.md
+              - 'Enabling Self Sign Up': user-mgt/user-sign-up.md
+          - 'Managing Roles': user-mgt/managing-roles.md
+          - 'Managing User Accounts':
+              - 'Adding users from portal': user-mgt/user-add.md
+              - 'View and Update Profile': user-mgt/user-view-profile.md
+              - 'Assign Roles': user-mgt/user-assign-role.md
+              - 'Change Password': user-mgt/change-password.md
+              - 'Locking and Unlocking': user-mgt/user-lock-account.md
+          - 'Password Policies':
+              - 'Password length': user-mgt/password-length.md
+              - 'Password complexity': user-mgt/password-complexity.md
+              - 'Password history': user-mgt/password-history.md
+              - 'Password expiration': user-mgt/password-expiration.md
+          - 'Using workflows': user-mgt/configuring-workflows.md
   - 'APIs':
       - 'REST APIs': reference/rest-api-reference.md
       - 'Authentication Script API': reference/authentication-script-reference.md
