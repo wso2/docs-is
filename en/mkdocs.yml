@@ -541,6 +541,7 @@ nav:
             - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
+            - 'Script Libraries': develop/script-library-rest-api.md
             - 'Application Management' : develop/application-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
