@@ -1,10 +1,10 @@
 # Enable Authentication to a web application using Authorization code grant.
 
-< Introduction - This document contains an step by Step guide on to enable authentication
-for a traditional web application. >
+< Introduction - This document contains an step by step guide on to
+enable authentication for a traditional web application. >
 
 !!! Tip 
-    [Try Quick Starts](../../get-started/overview)
+    [Try Quick Starts](../../get-started/overview/#mobilenative-application)
 
 ## Overview
  < Explain the use case with diagrams - can be links to concepts > 
