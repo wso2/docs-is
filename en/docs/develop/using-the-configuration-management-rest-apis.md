@@ -67,6 +67,7 @@ met.
     ID        VARCHAR(255) NOT NULL,
     VALUE     BLOB         NULL,
     RESOURCE_ID VARCHAR(255) NOT NULL,
+    NAME        VARCHAR(255) NULL,
     PRIMARY KEY (ID)
     );
     ALTER TABLE IDN_CONFIG_FILE
@@ -173,6 +174,10 @@ The section below describes each concept in more detail.
      An attribute is created for an already existing resource. It
     contains a key and a value.
 
+-   **File -**
+    A file is a file with configurations that required for identity server functionality.
+    examples are, Publisher Files, Email Templates.  
+    
 ### APIs and supported operations
 
 !!! note
@@ -192,7 +197,7 @@ This section guides you through a sample scenario using the WSO2 IS
 configuration manager.
 
 **Sample scenario** - Consider a scenario where you need to store the
-SMTP email configurations. Assume that the simple SMTP configuration has
+SMTP email configurations. With a EmailPublisher file.Assume that the simple SMTP configuration has
 only one property.
 
 | Property | Value            | Description                                                          |
@@ -241,6 +246,23 @@ To store the SMTP email configuration, follow the steps given below:
         ``` groovy
         {"resourceId":"6e45c661-7671-4ee9-805c-8d3d1df46cbc","tenantDomain":"carbon.super","resourceName":"smtp","resourceType":"e-mail","lastModified":"2019-02-07T09:30:12.963Z","created":"2019-02-07T09:30:12.963Z","attributes":[{"key":"from","value":"admin@wso2.com"}],"files":[]}
         ```
+        
+    3.  Create a file named `EmailPublisher` under resource `smtp` and resource type `email` by using following curl 
+        command.
+        
+        **Sample Request**
+
+        ``` groovy
+        curl -X POST "https://localhost/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
+        "Content-Type: multipart/form-data" -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
+        ```
+        
+         **Sample Response** 
+         
+         | Header   |Value                                                          |
+         |----------|----------------------------------------------------------------------|
+         | location |`https://localhost:9443/api/identity/config-mgt/v1.0/resource/email/smtp/file/dbcf0a4f-9b27-4b5b-8d16-330752d0d905` |
+         
 
 3.  Next, assume that you now need to add an additional attribute named
     "to" to the "smtp" email configuration. To do this, create a new

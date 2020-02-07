@@ -681,7 +681,9 @@ This document describes all the REST API error codes that are used in WSO2 Ident
     </tbody>
 </table>
 </div>
+
 ## Email Template Management Errors
+
 <div class="errorcode">
 <table>
   <thead>
@@ -790,7 +792,9 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
 ## Identity Governance Errors
+
 <div class="errorcode">
 <table>
   <thead>
@@ -857,7 +861,9 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
 ## Keystore Management Errors
+
 <div class="errorcode">
 <table>
   <thead>
@@ -960,7 +966,9 @@ This document describes all the REST API error codes that are used in WSO2 Ident
   </tbody>
 </table>
 </div>
+
 ## Identity Provider Errors
+
 <div class="errorcode">
 <table>
   <thead>

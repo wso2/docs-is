@@ -72,6 +72,8 @@ the users with an authorization server-based authentication.
     | Userinfo Endpoint URL           | This is the URL of the federated identity provider's userinfo URL                                                                         | <https://localhost:9443/oauth/userinfo>        |
     | OpenID Connect User ID Location | Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request or if it is found among claims.                                                                                              | User ID found in 'sub' attribute           |
     | Additional Query Parameters     | This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.                                                 | paramName1=value1                          |
+    | Enable HTTP basic auth for      | Selecting this option enables HTTP basic authentication to be used for client authentication, else client credentials will be included in the request body                                                                           | Selected                                   |
+    | client authentication           |                                                                                                                                                                                                                                      |                                            |
 
 !!! info "Related Topics"
 
