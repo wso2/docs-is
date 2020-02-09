@@ -1,1 +1,1 @@
-Thuje Kithna Chahne Lage hum
+*    Thuje Kithna Chahne Lage hum
