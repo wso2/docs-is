@@ -1,95 +1,141 @@
-# Overview
+{!get-started/quick-download-and-install.md!}
 
-As an enterprise's applications, services, and API adoptions grow,
-managing identities (such as employees, vendors, partners, and
-customers) across internal, shared, and SaaS services becomes a
-significant challenge. The [WSO2 Identity
-Server](http://wso2.com/products/identity-server/) is a product that can
-meet this challenge and also provide options to solve identity problems
-you may encounter in future.
+## Start Connecting Your Applications
 
-WSO2 Identity Server is fully open source and is released under [Apache
-Software License Version
-2.0,](http://www.apache.org/licenses/LICENSE-2.0) one of the most
-business-friendly licenses available today.
+Choose your application type
 
-### About identity in the digital business
+### Mobile/Native Application
 
-In the digital world of today, the modern enterprises have to offer
-their numerous customers remote access to sizable amounts of sensitive
-and confidential information, while still maintaining access control and
-stringent information security at all times. Additionally, all of this
-needs to take place at the bat of an eyelid.
+Authentication for your mobile or desktop native application that run on
+the device .
 
-A typical digital business of today relies on users who are constantly
-on the move and using various applications and devices. These users are
-now using their own devices for ease of access and prefer to sign in
-just once. Basically, the digital business caters to people who would
-like to use their Facebook, Google, or LinkedIn credentials to access
-other information on their own devices. Here’s the catch: an
-individual’s identity needs to be validated across these applications,
-and this needs to take place in a manner that will ensure security as
-well as speed of access and ease of use.
+<div class="content"> 
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/android';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/android.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">Android</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/ios';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/apple.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">iOS</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/react-native';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/react.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">React Native</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+</div>
 
-### Identity management
+### Frontend Application
 
-Identity management is used to directly influence the security and
-productivity of an organization. This can enforce consistency in
-security policies across the organization. Identity management is
-particularly advantageous when complying with rules and regulations
-enforced in some critical domains by governments. This can also be a
-means to provide access to resources to outside parties without
-compromising security. Controlling access to resources increases
-organizational security. A system that uses a proper identity management
-solution is easier to audit. Additionally, there are automated password
-reset capabilities.
+Authentication for your front-end application that run on the browser.
 
-An identity management system would typically have the following.
+<div class="content"> 
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/react';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/react.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">React</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/angular';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/angular.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">angular</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/javascript';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/javascript.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">javascript</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+</div>
 
--   User stores and directories
--   Authentication of users
--   Authorization of users
--   Single sign-on
--   Provisioning
--   Access delegation
--   Password reset
--   Self-registration
--   Account locking
+### Backend Application
 
-### The Identity Server and the solution it provides
+Authentication for your back-end application that run on the server.
 
-WSO2 Identity Server provides secure identity management for enterprise
-web applications, services, and APIs by managing identity and
-entitlements of the users securely and efficiently. The Identity Server
-enables enterprise architects and developers to reduce identity
-provisioning time, guarantee secure online interactions, and deliver a
-reduced single sign-on environment. The WSO2 Identity Server decreases
-the identity management and entitlement management administration burden
-by including the role-based access control (RBAC) convention,
-fine-grained policy-based access control, and Single-Sign-On (SSO)
-bridging.
-
-The Identity Server enables you to create, maintain and terminate user
-accounts along with user identities across multiple systems including
-Cloud applications. When there are multiple applications that
-require authentication, users should be able to log in at one place and
-still have seamless access to all the other applications.
-
-Additionally, the Identity Server brings about a new and improved
-approach to federation. There is a centralized Identity as a Service
-Provider. It is still an overall n to n relationship. There is a 1 to n
-relationship from a federation partner to consumer services (where
-multiple consumer services rely on a single centralized federated
-Identity Provider for security) and a 1 to n relationship from consumer
-service to federation partners (where a single consumer service can rely
-on multiple Identity providers for security). This model ensures greater
-efficiency.
-
-WSO2 Identity Server has the ‘ [Jaggery](http://jaggeryjs.org/) ’ user
-interface for end users. Apart from the [Management
-Console](../../setup/getting-started-with-the-management-console), an [end user
-view](../../learn/using-the-end-user-dashboard) is available to manage profiles,
-to recover accounts and to manage authorized apps. The log in and
-consent pages in the UI can be completely customized because they run on
-a separate context as a separate web application. These web applications
-can even be dropped into a separate application server if required.
+<div class="content"> 
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/java';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/java.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">Java</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/nodejs';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/node.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">NodeJS</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->    <!-- begin card -->
+    <div class="card" onclick="location.href='../../get-started/python';">
+      <div class="icon">
+        <i class="material-icons md-24">
+            <img src="../../assets/img/icons/technology/python.png">
+        </i>
+      </div>
+      <div class="card-content" >
+         <p class="title">python</p>
+         <p class="hint"/>
+      </div>
+    </div>
+    <!-- end card -->
+</div>
