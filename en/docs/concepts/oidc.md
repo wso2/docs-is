@@ -1,11 +1,11 @@
-# Introduction to OIDC
+# Introduction to OpenID Connect
 
-### What is OIDC?
+### What is OpenID Connect?
 OpenID Connect is an authentication protocol which builds on top of the OAuth2.0 protocol. This is not a replacement to OAuth2.0, 
 but an extension which the clients can request by including the 'openid' scope value in the Authorization Request. 
 This protocol verifies user identity by authenticating the end user against the Authorization Server.
 
-### Why OIDC?
+### Why OpenID Connect?
 When authenticating to an online system, a user should be able to prove his identity to the system. 
 A single user can have multiple identites (Passport number, NIC number, finger print) and proving identity to a system
 can be done in many ways such as using credentials, biometric information, or any other mechanism. OpenID Connect provides a 
@@ -40,7 +40,11 @@ The different flows target different types of application clients.
 The exact flow differs based on the authentication flow or the grant type.  However, OIDC in general allows web applications to authenticate users with an external server (OpenID Connect Provider - OP). Usually, the user information is picked from an external Identity Provider or sometimes the Identity Provider (IDP) may act as the OP as well. In this OIDC flow, all communication takes place via tokens.
 
 The following steps explain how this protocol works in a simple manner.
-    
+
+  ![oidc-flow](../assets/img/concepts/oidc-basic-flow.png)
+  
+  When a user needs to access an application and once he initiates the flow,
+  
 1. The client sends a request to the OP.
 2. The OP authenticates the user and obtains the authorization.
 3. The OP responds with an ID token and an access token.
