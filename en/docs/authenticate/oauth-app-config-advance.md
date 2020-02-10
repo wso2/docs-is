@@ -1,4 +1,0 @@
-### Advance Configurations
-
-Token Expiry
-
