@@ -118,7 +118,7 @@ nav:
                              - 'OIDC Profiles': concepts/profiles.md
                              - 'End User Authentication': concepts/end-user-authentication.md
                              - 'User Information': concepts/user-information.md
-                             - 'Parameter Catalogue': concepts/parameter-catalogue.md
+                             - 'Parameter Catalogue': concepts/parameter-catalog.md
                              - 'Client Authentication': user/client-authentication.md
                              - 'Token Introspection': user/intorspection.md
                              - 'JWKS': user/jwks.md
@@ -127,7 +127,7 @@ nav:
                              - 'Session Management and Logout': user/session-management.md
                              - 'OIDC Federated Logout': user/federated-logout.md
                              - 'OIDC Device Flow': user/device-flow.md
-                             - 'OAuth 2.0 and OIDC comparison': user/oauth2-oidc-comparision.md
+                             - 'OAuth 2.0 vs OIDC': user/oauth2-oidc-comparision.md
                              - 'Security Considerations': user/security-considerations.md
   - 'Samples':
     - samples/overview.md
