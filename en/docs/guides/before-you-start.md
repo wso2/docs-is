@@ -1,3 +1,7 @@
+---
+template: templates/2-column.html
+---
+
 {!get-started/quick-download-and-install.md!}
 
 ## Architecture

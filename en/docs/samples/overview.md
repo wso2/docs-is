@@ -1,4 +1,6 @@
-{!temp/page-under-construction.md!} 
+---
+template: templates/2-column.html
+---
 
 # Select Sample
  
