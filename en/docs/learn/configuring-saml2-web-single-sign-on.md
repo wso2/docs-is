@@ -36,7 +36,7 @@ To configure SAML2 Web SSO:
 #### Manual configuration
 
 1.  Select **Manual Configuration** and enter the required details as
-    giveb below. ![manual-config](../assets/img/tutorials/manual-config.png)
+    given below. ![manual-config](../assets/img/tutorials/manual-config.png)
     <table>
     <thead>
     <tr class="header">
