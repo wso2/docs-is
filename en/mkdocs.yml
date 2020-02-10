@@ -105,8 +105,30 @@ nav:
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
   - 'Concepts':
-    - concepts/overview.md
-    - 'OAuth Grant Types': guides/oauth-grant-types.md
+            - concepts/overview.md
+            - 'Identity and Access Management Protocols':
+                - 'Introduction to protocols': concepts/protocols.md
+                - 'OAuth2/OIDC Overview':
+                             - 'Introduction to OAuth2': user/oauth.md
+                             - 'Introduction to OIDC': concepts/oidc.md
+                             - 'OAuth 2.0 Client Types': concepts/oauth2-client-types.md
+                             - 'Grant Types': concepts/grant-types.md
+                             - 'Extended Grant Types': concepts/extended-grant-types.md
+                             - 'Tokens': concepts/tokens.md
+                             - 'OIDC Profiles': concepts/profiles.md
+                             - 'End User Authentication': concepts/end-user-authentication.md
+                             - 'User Information': concepts/user-information.md
+                             - 'Parameter Catalogue': concepts/parameter-catalogue.md
+                             - 'Client Authentication': user/client-authentication.md
+                             - 'Token Introspection': user/intorspection.md
+                             - 'JWKS': user/jwks.md
+                             - 'Discovery': user/dicscovery.md
+                             - 'DCR': user/dcr.md
+                             - 'Session Management and Logout': user/session-management.md
+                             - 'OIDC Federated Logout': user/federated-logout.md
+                             - 'OIDC Device Flow': user/device-flow.md
+                             - 'OAuth 2.0 and OIDC comparison': user/oauth2-oidc-comparision.md
+                             - 'Security Considerations': user/security-considerations.md
   - 'Samples':
     - samples/overview.md
     - 'Android': samples/android.md
