@@ -5,6 +5,15 @@ OpenID Connect is an authentication protocol which builds on top of the OAuth2.0
 but an extension which the clients can request by including the 'openid' scope value in the Authorization Request. 
 This protocol verifies user identity by authenticating the end user against the Authorization Server.
 
+!!! info "WSO2 Identity Server is Open ID Certified !!!"
+    Open ID foundation holds a certification program and grants Open ID Connect certificate for Open ID Providers who 
+    conform with OIDC Profiles. WSO2 Identity Server is Open ID certified for following profiles. 
+    
+      - Basic OP
+      - Impicit OP
+      - Hybrid OP
+      - Form Post OP
+
 ### Why OpenID Connect?
 When authenticating to an online system, a user should be able to prove his identity to the system. 
 A single user can have multiple identites (Passport number, NIC number, finger print) and proving identity to a system
@@ -41,7 +50,7 @@ The exact flow differs based on the authentication flow or the grant type.  Howe
 
 The following steps explain how this protocol works in a simple manner.
 
-  ![oidc-flow](../assets/img/concepts/oidc-basic-flow.png)
+  ![oidc-flow](../../assets/img/concepts/oidc-basic-flow.png)
   
   When a user needs to access an application and once he initiates the flow,
   
