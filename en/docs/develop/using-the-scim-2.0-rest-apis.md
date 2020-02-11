@@ -1418,9 +1418,8 @@ deleted.
 
 `           GET                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
 
-This API deletes a particular group using its unique ID. It returns an
-`           HTTP 204          ` reponse if the group is successfully
-deleted.
+This API filters groups using a given query. It returns an
+`           HTTP 200          ` reponse if filtered group list is successfully retrieved.
 
   
 
@@ -1531,7 +1530,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <td><p>filter</p>
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
-<p>A filter expression used to filter users.</p>
+<p>A filter expression used to filter groups.</p>
 <p>Supported filter operators are ‘ <code>                  EQ                 </code> ’, ' <code>                  EW'                 </code>, ‘ <code>                  CO                 </code> ’, ‘ <code>                  SW                 </code> ’, and ‘ <code>                  AND                 </code> ’.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1614,9 +1613,9 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 **Responses**
 
--   HTTP 204 - Valid group has been successfully deleted.
--   HTTP 401 - Unauthorized
--   HTTP 404 - Invalid group
+-   HTTP 200 - Filtered group list successfully returned.
+-   HTTP 403 - Unauthorized
+-   HTTP 500 - Invalid group
 
 !!! tip
     
