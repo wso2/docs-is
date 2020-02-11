@@ -543,6 +543,7 @@ nav:
             - 'Identity Providers': develop/idp-rest-api.md
             - 'Script Libraries': develop/script-library-rest-api.md
             - 'Application Management' : develop/application-rest-api.md
+            - 'Permission Management' : develop/permission-management-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
