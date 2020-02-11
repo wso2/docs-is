@@ -115,3 +115,4 @@ When using the **Authorization Code** grant type, the recieved authorization cod
 [oauth.token_validation]
 authorization_code_validity= "300"
 ```
+

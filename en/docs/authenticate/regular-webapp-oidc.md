@@ -1,4 +1,4 @@
-# Enable Authentication to OAuth/OpenID Connect Web Application
+# Enable Authentication for OAuth/OpenID Connect Web Application
 
 This page guides you through enabling authentication to an OAuth/OpenID Connect web application. 
 
@@ -22,7 +22,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 Make the following requests via your application to connect your application to WSO2 IS. 
 
-1. Obtain the authorization code by sending an authorization request to the authorization endpoint.
+1. Obtain the `authorization_code` by sending an authorization request to the authorization endpoint.
 
     !!! tip
         If you have made PKCE mandatory, include the `code_challenge` and `code_challenge_method` parameters in the request. You can use [an online tool](https://tonyxu-io.github.io/pkce-generator/) to generate PKCE code challenges.
@@ -43,7 +43,7 @@ Make the following requests via your application to connect your application to 
     &code_challenge_method=S256
     ```
 
-2. Obtain the access token by sending a token request to the token endpoint using the authorization code recieved in step 1, and the client ID and client secret obtained when configuring the service provider.
+2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `Client_ID` and `<Client_Secret>` obtained when configuring the service provider.
 
     !!! tip
         If you are using PKCE, include the `code_verifier` parameter in the request.

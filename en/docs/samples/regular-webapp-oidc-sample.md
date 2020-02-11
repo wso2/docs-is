@@ -1,4 +1,4 @@
-# Enable Authentication to OAuth/OpenID Connect Web Application
+# Enable Authentication for OAuth/OpenID Connect Web Application
 
 This page guides you through enabling authentication to an OAuth/OpenID Connect web application using a **sample Playground application**. 
 
