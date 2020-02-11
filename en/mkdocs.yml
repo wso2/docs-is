@@ -532,7 +532,7 @@ nav:
             - 'Configuration Management':
               - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
               - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
-            - 'SCIM 2.0': develop/using-the-scim-2.0-rest-apis.md
+            - 'SCIM 2.0': develop/scim2-rest-apis.md
             - 'SCIM 1.1': develop/scim-1.1-apis.md
             - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
             - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
