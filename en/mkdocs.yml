@@ -73,7 +73,12 @@ nav:
           - 'SAML': sso/saml-apps.md
         - 'Cross Protocol': sso/oauth-and-saml-apps.md
       - 'Multifactor Authentication':
-        - guides/mfa.md
+        - mfa/mfa.md
+        - '2FA with FIDO': mfa/2fa-fido.md
+        - '2FA with TOTP': mfa/2fa-totp.md
+        - '2FA with SMS OTP': mfa/2fa-sms-otp.md
+        - '2FA with Email OTP': mfa/2fa-sms-otp.md
+        - '3FA': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - guides/adaptive.md
       - 'Federation':
@@ -115,13 +120,14 @@ nav:
     - 'OAuth Grant Types': guides/oauth-grant-types.md
   - 'Samples':
     - samples/overview.md
-    - 'Android': samples/android.md
-  - 'Enable Authentication to a web application using Authorization code grant':
-    - 'Connect an OAuth/OpenID Connect Application': guides/configuring-sso-oidc.md
-    - 'OAuth2/ OpenID Connect Configurations': guides/oauth-oidc-configurations.md
-    - 'Configure Client Application': guides/configure-client-app.md
-    - 'Manage User Sessions': guides/manage-user-sessions.md
-    - 'OpenID Connect Logout': guides/sso-oidc-logout.md
+    - 'Authentication':
+      - 'Android': samples/android.md
+      - 'iOS': samples/ios.md
+      - 'Angular': samples/angular.md
+      - 'React': samples/react.md
+      - 'Java': samples/java.md
+      - 'NodeJs': samples/nodejs.md
+      - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
   - '': page-not-found.md
 
 
