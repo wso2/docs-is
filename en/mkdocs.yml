@@ -107,9 +107,9 @@ nav:
   - 'Concepts':
       - 'User Management': concepts/user-management.md
       - 'Authentication':
-          - 'Introduction': concepts/intro-authorization.md
+          - 'Introduction': concepts/intro-authentication.md
           - 'Authentication Protocols':
-                  - 'Introduction to protocols': concepts/intro-protocols.md
+                  - 'Introduction': concepts/intro-protocols.md
                   - 'OIDC':
                           - 'Introduction': concepts/oidc/intro-oidc.md
                           - 'OIDC Tokens': concepts/oidc/oidc-tokens.md
@@ -135,6 +135,7 @@ nav:
           - 'Adaptive Authentication': concepts/adaptive-auth.md
           - 'Multi Factor Authentication': concepts/mfa.md
       - 'Authorization':
+          - 'Introduction': concepts/intro-authorization.md
           - 'Authorization Protocols':
                         - 'OAuth2':
                                     - 'Introduction': concepts/oauth2/intro-oauth2.md

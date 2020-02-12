@@ -30,7 +30,7 @@ web , mobile , desktop and  JavaScript clients.
 In simple terms, OIDC is the solution and a single platform which performs both authentication and authorization.
 
 ### When to choose OIDC for which application ?
-OIDC represents three flows of authentication
+OIDC represents three flows of authentication :
 
     - Authorization code flow
     - Impicit flow
