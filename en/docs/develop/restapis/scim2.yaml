@@ -47,7 +47,6 @@ paths:
 
 
           <b>Permission required:</b>
-
             * /permission/admin/login
 
       parameters:
@@ -84,8 +83,8 @@ paths:
         This API is used to register a user anonymously.
 
          <b>Permission required:</b>
-
             * /permission/admin/manage/identity/usermgt/create
+
       operationId: createUserMe
       consumes:
         - application/scim+json
@@ -142,8 +141,7 @@ paths:
         This API uses a PUT operation to update user details.
 
           <b>Permission required:</b>
-
-            * /permission/admin/login
+          * /permission/admin/login
 
       operationId: updateUserMe
       consumes:
@@ -187,8 +185,7 @@ paths:
         This API is used to delete the currently authenticated user.
 
           <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/delete
+           * /permission/admin/manage/identity/usermgt/delete
 
       operationId: deleteUserMe
       produces:
@@ -217,8 +214,7 @@ paths:
         This API uses a PATCH operation to update user details.
 
           <b>Permission required:</b>
-
-            * /permission/admin/login
+           * /permission/admin/login
 
       operationId: patchUserMe
       consumes:
@@ -263,8 +259,7 @@ paths:
         This API returns groups according to the specified filter, sort and pagination parameters.
 
           <b>Permission required:</b>
-
-            * / permission/admin/manage/identity/rolemgt/view
+          * / permission/admin/manage/identity/rolemgt/view
 
       operationId: getGroup
       produces:
@@ -339,8 +334,7 @@ paths:
         This API creates a group and returns the details of the created group including its unique ID.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/create
+        * /permission/admin/manage/identity/rolemgt/create
       operationId: createGroup
       consumes:
         - application/scim+json
@@ -392,8 +386,7 @@ paths:
         This API returns groups according to the specified filter, sort and pagination parameters.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/create
+        * /permission/admin/manage/identity/rolemgt/create
       operationId: getGroupsByPost
       consumes:
         - application/scim+json
@@ -431,8 +424,7 @@ paths:
         This API returns the group details of a particular group using its unique ID.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/view
+        * /permission/admin/manage/identity/rolemgt/view
       operationId: getGroup by id
       produces:
         - application/scim+json
@@ -478,8 +470,7 @@ paths:
         This API updates the group details and returns the updated group details using a PUT operation.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/update
+        * /permission/admin/manage/identity/rolemgt/update
       operationId: updateGroup
       consumes:
         - application/scim+json
@@ -531,8 +522,7 @@ paths:
         This API deletes a particular group using its unique ID.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/delete
+        * /permission/admin/manage/identity/rolemgt/delete
       operationId: deleteGroup
       produces:
         - application/scim+json
@@ -565,8 +555,7 @@ paths:
         This API updates the group details and returns the updated group details using a PATCH operation.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/update
+        * /permission/admin/manage/identity/rolemgt/update
 
       operationId: patchGroup
       consumes:
@@ -621,8 +610,7 @@ paths:
         This API returns the permission list of a particular group using its unique ID.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/view
+        * /permission/admin/manage/identity/rolemgt/view
       operationId: getPermissionbyGroup
       consumes:
         - application/scim+json
@@ -659,8 +647,7 @@ paths:
         This API returns the permission list of a particular group after updating the permissions.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/update
+         * /permission/admin/manage/identity/rolemgt/update
       operationId: updatePermissions
       consumes:
         - application/scim+json
@@ -711,8 +698,7 @@ paths:
         This API returns the permission list of a particular group after patching the permissions.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/rolemgt/update
+        * /permission/admin/manage/identity/rolemgt/update
 
       operationId: patchPermissions
       consumes:
@@ -770,8 +756,7 @@ paths:
         This API returns users according to the filter, sort and pagination parameters. Pagination is not supported across user stores and LDAP multi-attribute group filtering. However, filtering is supported across multiple user stores.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/view
+        * /permission/admin/manage/identity/usermgt/view
       operationId: getUser
       produces:
         - application/scim+json
@@ -846,8 +831,7 @@ paths:
         This API creates a user and returns the user details along with the user's unique ID.
 
         <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/view
+        * /permission/admin/manage/identity/usermgt/view
       operationId: createUser
       consumes:
         - application/scim+json
@@ -906,8 +890,7 @@ paths:
         This API returns users according to the filter, sort and pagination parameters.
 
          <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/create
+          * /permission/admin/manage/identity/usermgt/create
       operationId: getUsersByPost
       consumes:
         - application/scim+json
@@ -945,8 +928,7 @@ paths:
       description: |
         Return user details if a user found.
         <b>Permission required:</b>
-
-           * /permission/admin/manage/identity/usermgt/view
+        * /permission/admin/manage/identity/usermgt/view
       operationId: getUser by id
       produces:
         - application/scim+json
@@ -991,8 +973,7 @@ paths:
       description: |
         This API updates user details and returns the updated user details using a PUT operation.
          <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/update
+          * /permission/admin/manage/identity/usermgt/update
       operationId: updateUser
       consumes:
         - application/scim+json
@@ -1045,8 +1026,7 @@ paths:
         This API deletes a user using the user's unique ID.
 
          <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/delete
+         * /permission/admin/manage/identity/usermgt/delete
 
       operationId: deleteUser
       produces:
@@ -1080,8 +1060,7 @@ paths:
         This API updates user details and returns the updated user details using a PATCH operation.
 
          <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt/update
+         * /permission/admin/manage/identity/usermgt/update
 
         <b>Supported Operations:</b>
 
@@ -1140,8 +1119,7 @@ paths:
       description: |
         This API is used to create multiple users at once.
          <b>Permission required:</b>
-
-            * /permission/admin/manage/identity/usermgt
+         * /permission/admin/manage/identity/usermgt
 
       operationId: createBulkUsers
       consumes:
@@ -1205,8 +1183,7 @@ paths:
         This API returns the service provider's configuration details.
 
         <b>Permission required:</b>
-
-            * No permissions required
+        * No permissions required
       operationId: getServiceProviderConfig
       produces:
         - application/scim+json
