@@ -1,6 +1,9 @@
 ---
 template: templates/swagger.html
 ---
+
+# WSO2 Identity Server - governance connectors admin API
+
 ??? Note "Note: Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
