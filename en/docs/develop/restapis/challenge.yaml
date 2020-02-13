@@ -33,8 +33,7 @@ paths:
       tags:
         - me
       summary: Retrieve challenges available for the authenticated user.
-      operationId: getChallengesFor
-      User
+      operationId: getChallengesForUser
       description: |
         Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.
 
