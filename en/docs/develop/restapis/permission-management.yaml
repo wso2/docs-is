@@ -4,7 +4,7 @@ info:
     This document specifies a **UI Permission Management RESTful API** for
     **WSO2 Identity Server**
   version: "1.0.0-oas3"
-  title: WSO2 Identity Server - Identity Provider Management API definition
+  title: WSO2 Identity Server - Permission Management API definition
   contact:
     name: WSO2
     url: 'http://wso2.com/products/identity-server/'
