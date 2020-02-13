@@ -1,6 +1,9 @@
 ---
 template: templates/swagger.html
 ---
+
+# User Account Associations API Definition - V1
+
 ??? Note "Click For Instructions"
     #### Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
