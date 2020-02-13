@@ -88,7 +88,7 @@ Identity Server:
 !!! tip
     
     You can either use the PEP TryIt tool to invoke the PDP, or invoke the
-    `         getDecision        ` method of the PDP API using [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html).
+    `         getDecision        ` method of the PDP API using [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
     
 
 ``` java

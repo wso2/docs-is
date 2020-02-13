@@ -164,7 +164,7 @@ services, see [Calling Admin Services.](../../develop/calling-admin-services)
     ```
 
 2.  Open the following Admin Service from
-    [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
+    [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
                                             ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -313,7 +313,7 @@ Services.](../../develop/calling-admin-services)
     enable = false
     ```
 
-2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
+2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 

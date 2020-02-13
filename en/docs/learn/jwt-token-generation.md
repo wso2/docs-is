@@ -70,7 +70,7 @@ needed.
 After configuring the elements mentioned above, see the 
 [OAuth2 Token Validation and Introspection](../../learn/oauth2-token-validation-and-introspection) 
 topic to call the `OAuth2ValidationService` . The following screenshot is the request and response of the
-`OAuth2ValidationService` from the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html). Additionally, it shows the required claims of the user as required
+`OAuth2ValidationService` from the [SOAP UI](https://www.soapui.org/downloads/latest-release.html). Additionally, it shows the required claims of the user as required
 claim URIs. In the response, you can see the received JWT token under
 the `<tokenString>` element.
 
