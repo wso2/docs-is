@@ -1,6 +1,9 @@
 ---
 template: templates/swagger.html
 ---
+
+# User's Session Management API Definition - V1
+
 ??? Note "Click to view"
     Before invoking the session management REST APIs, create some sessions for the user. You can create active 
     sessions for the users as follows.

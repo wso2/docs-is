@@ -1,6 +1,9 @@
 ---
 template: templates/swagger.html
 ---
+
+# TOTP API Definition - V1
+
 ??? note "Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
