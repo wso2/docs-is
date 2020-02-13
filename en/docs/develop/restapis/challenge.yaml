@@ -35,7 +35,8 @@ paths:
       tags:
         - me
       summary: Retrieve challenges available for the authenticated user.
-      operationId: getChallengesForLoggedInUser
+      operationId: getChallengesFor
+      User
       description: |
         Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.
 
@@ -173,7 +174,7 @@ paths:
       summary: Answers a specific new challenge.
       operationId: addChallengeAnswerOfLoggedInUser
       description: |
-        Provide an **answer** to **a specific challenge** in the system for loggedin user. The user can at most select one question from a challenge set of interest.
+        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
 
         <b>Permission required:</b>
          * /permission/admin/login
