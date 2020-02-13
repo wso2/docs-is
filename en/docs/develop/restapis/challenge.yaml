@@ -22,8 +22,6 @@ tags:
     description: >
       Operations available for privileged users, to be invoked on behalf of another user.
 
-      **These endpoints are not released in WSO2 Identity Server - 5.9.0 version and will be released in the next product version.**
-
 # Applicable authentication mechanisms
 security:
   - OAuth2: []
