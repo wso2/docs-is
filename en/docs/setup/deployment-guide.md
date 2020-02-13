@@ -444,7 +444,7 @@ Identity Server endpoints. The `hostName` should be resolved to the Load Balance
 
     ```
     [server]
-    hostname = "wso2.is.com<"
+    hostname = "wso2.is.com"
     ```
 
     !!! note 
