@@ -1,8 +1,11 @@
 ---
 template: templates/swagger.html
 ---
-??? Note "Click For Instructions"
-    #### Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
+
+# User Account Associations API Definition - V1
+
+??? Note "Click to view"
+    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
        1.  Click on **Authorize** button and provide desired values for authentication. 
        2.  Expand the relevant API operation and click the **Try It Out** button.  
