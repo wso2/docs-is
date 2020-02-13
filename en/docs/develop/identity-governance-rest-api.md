@@ -2,11 +2,12 @@
 template: templates/swagger.html
 ---
 
-# WSO2 Identity Server - governance connectors admin API
+# Governance Connectors Management API Definition - v1
      
-This is the RESTful API for managing identity governance configurations in WSO2 Identity Server. These configurations
- are grouped into five main categories. Each category has subcategories which are called connectors, and 
- properties of connectors as mentioned below. <br>
+This is the RESTful API for managing identity governance configurations
+in WSO2 Identity Server. These configurations are grouped into five main
+categories. Each category has subcategories which are called connectors,
+and properties of connectors as mentioned below. <br>
 
 ??? "Password Policies"
 
@@ -153,7 +154,7 @@ This is the RESTful API for managing identity governance configurations in WSO2 
 
 The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values..
 
-??? Note "How to try out the API"
+??? Note "Click For Instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
     1.  Click **Authorize** and provide desired values for authentication. 

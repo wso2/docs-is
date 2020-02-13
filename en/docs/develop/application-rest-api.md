@@ -1,6 +1,8 @@
 ---
 template: templates/swagger.html
 ---
+# Application Management Rest API Definition - v1
+
 ??? Note "Note: Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server.
 

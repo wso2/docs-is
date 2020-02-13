@@ -1,7 +1,10 @@
 ---
 template: templates/swagger.html
 ---
-??? Note "Click to view"
+
+# Script Library Management API definition - v1
+
+??? Note "Click For Instructions"
     Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server.
 
     1.  Expand the relevant API operation and click the **Try it out** button.
