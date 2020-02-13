@@ -112,8 +112,12 @@ nav:
                   - 'Introduction': concepts/intro-protocols.md
                   - 'OIDC':
                           - 'Introduction': concepts/oidc/intro-oidc.md
+                          - 'OIDC Client Profiles':
+                                    - 'Introduction': concepts/oidc/intro-profiles.md
+                                    - 'Basic Client Profile': concepts/oidc/basic-client-profile.md
+                                    - 'Implicit Profile': concepts/oidc/implicit.md
+                                    - 'Hybrid Profile': concepts/oidc/hybrid.md
                           - 'OIDC Tokens': concepts/oidc/oidc-tokens.md
-                          - 'OIDC Profiles': concepts/oidc/oidc-profiles.md
                           - 'End User Authentication': concepts/oidc/end-user-authentication.md
                           - 'User Information': concepts/oidc/user-information.md
                           - 'JWKS': concepts/oidc/jwks.md
