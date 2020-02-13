@@ -68,3 +68,13 @@ Make the following requests via your application to connect your application to 
 ----
 
 
+{!authenticate/get-user-information-to-the-application.md!}
+
+{!authenticate/oidc-session-management.md!}
+
+{!authenticate/oidc-logout.md!}
+
+!!! Tip "What's Next?"
+    - [Enable single sign-on with another web application]()
+    - [Enable single logout with the other web application]()
+    - [Check our SDKs]()

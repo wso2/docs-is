@@ -128,6 +128,26 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
+  - 'Configure Authentication':
+    - 'Register an Application': authenticate/register-an-sp.md
+    - 'OAuth/OIDC':
+      - 'Basic' : authenticate/oauth-app-config-basic.md
+      - 'Advance' : authenticate/oauth-app-config-advanced.md
+      - 'Client Configurations':
+        - 'Regular OAuth/OIDC Application' : authenticate/configure-client-regular-webapp.md
+        - 'SPA Application' : authenticate/configure-client-spa.md
+        - 'Mobile Application' : authenticate/configure-mobile-app.md
+        - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application.md
+        - 'OIDC Logout' : authenticate/oidc-logout.md
+        - 'OIDC Session Management' : authenticate/oidc-session-management.md
+    - 'SAML':
+      - 'Basic' : authenticate/saml-app-config-basic.md
+      - 'Advance' : authenticate/saml-app-config-advance.md
+      - 'Client Configurations':
+        - 'SAML Application' : authenticate/configure-client-regular-saml.md
+        - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
+
+
   - '': page-not-found.md
 
 

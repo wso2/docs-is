@@ -4,5 +4,4 @@
 
 2. Click **Service Providers >Add** and enter a **Service Provider Name** and **Description**.
 
-[![register-oidc-service-provider](../assets/img/guides/register-oidc-service-provider.gif)](../assets/img/guides/register-oidc-service-provider.gif)
-
+<img name='register-oidc-service-provider' src='../../assets/img/guides/register-oidc-service-provider.gif' class='img-zoomable'/>
