@@ -10,7 +10,7 @@ When users update their email addresses in the user profile, an email verificati
 
 ##Step 01 - Configure the email adapter to send emails
 
-See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.9.0/setup/configuring-email-sending/) to configure the email adapter. 
+See [Configuring the Email Sending Module](../../setup/configuring-email-sending) to configure the email adapter. 
 
 ##Step 02 - Enable the feature in the management console
 
@@ -60,4 +60,4 @@ Upon receiving the response as given above, the user will receive an email notif
 ```
 
 !!! info "Related Topics"
-    See [Using the SCIM 2.0 Rest APIs](https://is.docs.wso2.com/en/5.9.0/develop/using-the-scim-2.0-rest-apis/) for instructions on using SCIM 2.0 REST APIs.
+    See [Using the SCIM 2.0 Rest APIs](../../develop/using-the-scim-2.0-rest-apis) for instructions on using SCIM 2.0 REST APIs.
