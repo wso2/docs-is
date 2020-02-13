@@ -5,7 +5,7 @@ template: templates/swagger.html
 # WSO2 Identity Server - governance connectors admin API
      
 This is the RESTful API for managing identity governance configurations in WSO2 Identity Server. These configurations
- are grouped in to main 5 categories. Each category will have sub categories which are called connectors, and 
+ are grouped into five main categories. Each category has subcategories which are called connectors, and 
  properties of connectors as mentioned below. <br>
 
 ??? "Password Policies"
@@ -15,7 +15,8 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Enable Password History Feature   | passwordHistory.enable   | Enable to disallow previously used passwords |
-    | Password History validation count   | passwordHistory.count   | Restrict reusing last x number of password during password update |
+    | Password History validation count   | passwordHistory.count   | Restrict reusing last x number of passwords 
+    when updating the password |
     
     * Password Patterns
     
@@ -34,7 +35,7 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Account Lock Enabled   | account.lock.handler.enable   | Enable account locking for failed logins |
-    | Maximum Failed Login Attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed attempts allows without locking the account |
+    | Maximum Failed Login Attempts   | account.lock.handler.On.Failure.Max.Attempts   | Number of failed attempts allowed before locking the account |
     | Account Unlock Time   | account.lock.handler.Time   | Account locked time span in minutes |
     | Lock Timeout Increment Factor   | account.lock.handler.login.fail.timeout.ratio   |  |
     | Internal Notification Management   | account.lock.handler.notification.manageInternally   | Error message for invalid password patterns |
@@ -50,9 +51,9 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
-    | Enable captcha always   | sso.login.recaptcha.enable.always   | Enable captcha verification always during SSO login |
-    | Enable captcha after the Max failed attempts   | sso.login.recaptcha.enable   | Enable captcha verification during SSO login after allowed number of failed attempts |
-    | Max failed attempts   | sso.login.recaptcha.on.max.failed.attempts   | Number of failed attempts allows without showing the captcha |
+    | Enable captcha always   | sso.login.recaptcha.enable.always   | Always enable captcha verification during SSO login |
+    | Enable captcha after the Max failed attempts   | sso.login.recaptcha.enable   | Enable captcha verification during SSO login after allowing a certain number of failed attempts |
+    | Max failed attempts   | sso.login.recaptcha.on.max.failed.attempts   | Number of failed attempts allowed without showing the captcha |
 
 ??? "Account Management Policies"
 
@@ -76,7 +77,7 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Max Failed Attempts for ReCaptcha   | Recovery.Question.Password.ReCaptcha.MaxFailedAttempts   |  |
     | Enable Username Recovery   | Recovery.Notification.Username.Enable   |  |
     | Enable reCaptcha for Username Recovery   |  Recovery.ReCaptcha.Username.Enable  |  |
-    | Enable Internal Notification Management   | Recovery.Notification.InternallyManage  | Set false if the client application handles notification sending |
+    | Enable Internal Notification Management   | Recovery.Notification.InternallyManage  | Set to false if the client application handles notification sending |
     | Notify when Recovery Success   | Recovery.NotifySuccess   |  |
     | Notify when Questions Based Recovery Starts   | Recovery.Question.Password.NotifyStart   |  |
     | Recovery Link Expiry Time   | Recovery.ExpiryTime   |  |
@@ -89,9 +90,9 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | ------- | -------|---|
     | Enable Self User Registration  | SelfRegistration.Enable  | Enable self user registration |
     | Enable Account Lock On Creation | SelfRegistration.LockOnCreation  | Lock user account during user registration |
-    | Internal Notification Management  | SelfRegistration.Notification.InternallyManage  | Set false if the client application handles notification sending |
+    | Internal Notification Management  | SelfRegistration.Notification.InternallyManage  | Set to false if the client application handles notification sending |
     | Enable reCaptcha  | SelfRegistration.ReCaptcha  | Enable captcha verification during self registration |
-    | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Set the number of minutes the user self registration verification mail would be valid |
+    | User self registration verification link expiry time  | SelfRegistration.VerificationCode.ExpiryTime  | Set the number of minutes for which the user self registration verification mail is valid |
     | User self registration SMS OTP expiry time  | SelfRegistration.VerificationCode.SMSOTP.ExpiryTime  | Set the number of minutes that the SMS OTP would be valid |
     | User self registration callback URL regex  | SelfRegistration.CallbackRegex  | User self registration callback URL regex |
     | Manage Self-Sign-Up purposes  | _url_listPurposeSelfSignUp  | Click here to manage Self-Sign-Up purposes |
@@ -102,8 +103,8 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | ------- | -------|---|
     | Enable User Email Verification  | EmailVerification.Enable  | Enable to trigger a verification notification during user creation |
     | Enable Account Lock On Creation  | EmailVerification.LockOnCreation  | Lock user account during user creation |
-    | Internal Notification Management  | EmailVerification.Notification.InternallyManage  | Set false if the client application handles notification sending |
-    | Email verification code expiry time  | EmailVerification.ExpiryTime  | Set the number of minutes the email verification mail would be valid.(Negative value for infinite validity) |
+    | Internal Notification Management  | EmailVerification.Notification.InternallyManage  | Set to false if the client application handles notification sending |
+    | Email verification code expiry time  | EmailVerification.ExpiryTime  | Set the number of minutes for which the email verification mail is valid. Setting it to a negative value results in infinite validity) |
     | Ask password code expiry time  | EmailVerification.AskPassword.ExpiryTime  | Set the number of minutes the ask password mail would be valid. (Negative value for infinite validity) |
     | Temporary password generation extension class  | EmailVerification.AskPassword.PasswordGenerator  | Temporary password generation extension point in ask password feature) |
     | Manage Just In Time Provisioning purposes  | _url_listPurposeJITProvisioning  | Click here to manage JIT purposes |
@@ -113,7 +114,7 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | Property display name | Property name | Purpose |
     | ------- | -------|---|
     | Enable Password Reset via Recovery Email |  Recovery.AdminPasswordReset.RecoveryLink | User gets notified with a link to reset password |
-    | Enable Password Reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try with SSO login |
+    | Enable Password Reset via OTP  | Recovery.AdminPasswordReset.OTP  | User gets notified with a one time password to try out SSO login |
     | Enable Password Reset Offline  | Recovery.AdminPasswordReset.Offline  | An OTP generated and stored in users claims |
 
 ??? "Consent Management"
@@ -150,13 +151,13 @@ This is the RESTful API for managing identity governance configurations in WSO2 
     | HTTP Connection Request Timeout | adaptive_authentication.analytics.HTTPConnectionRequestTimeout | HTTP Connection Request Timeout in milliseconds |
     | Hostname verification | adaptive_authentication.analytics.hostnameVerfier | Hostname verification. (STRICT, ALLOW_ALL) |
 
-The APIs can be used to retrieve the above mentioned categories, connectors of the categories and properties of the categories and update the property values.
+The APIs can be used to retrieve the above mentioned categories, connectors of the categories, properties of the categories, and update the property values..
 
 ??? Note "How to try out the API"
-    Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
+    Follow the steps given below to try out the REST APIs with your local instance of WSO2 Identity Server. 
     
-    1.  Click on **Authorize** button and provide desired values for authentication. 
-    2.  Expand the relevant API operation and click the **Try It Out** button.  
+    1.  Click **Authorize** and provide desired values for authentication. 
+    2.  Expand the relevant API operation and click the **Try it Out**.  
     3.  Fill in relevant sample values for the input parameters and click **Execute**. 
         You will receive a sample curl command with the sample values you filled in. 
     4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
