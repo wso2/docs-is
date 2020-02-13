@@ -495,6 +495,7 @@ nav:
             - 'Customizing Authentication Error Messages': develop/customizing-authentication-error-messages.md
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
+          - 'Support Email Account Verification for an Updated Email Address' : develop/support-email-account-verification-for-an-updated-email-address.md
         - 'Provisioning for Developers':
           - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
