@@ -115,7 +115,7 @@ nav:
                           - 'OIDC Client Profiles':
                                     - 'Introduction': concepts/oidc/intro-profiles.md
                                     - 'Basic Client Profile': concepts/oidc/basic-client-profile.md
-                                    - 'Implicit Profile': concepts/oidc/implicit.md
+                                    - 'Implicit Profile': concepts/oidc/implicit-client-profile.md
                                     - 'Hybrid Profile': concepts/oidc/hybrid.md
                           - 'OIDC Tokens': concepts/oidc/oidc-tokens.md
                           - 'End User Authentication': concepts/oidc/end-user-authentication.md

@@ -10,6 +10,6 @@ The following are the main OIDC client profiles.
 
 [Basic Client Profile](basic-client-profile.md)
 
-[Implicit Profile]()
+[Implicit Profile](implicit-client-profile.md)
 
 [Hybrid Flow]()

@@ -14,7 +14,7 @@ agents this flow is more secure, so it allows for [refresh tokens]() which guara
 
 The following diagram shows how the authentication happens using this client profile.
 
-![basic-oidc-profile](../../assets/img/concepts/basic-oidc-profile.png)
+![basic-client-profile](../../assets/img/concepts/basic-oidc-profile.png)
 
 
 1. The client prepares an authentication request containing the desired request parameters and send client sends the 
