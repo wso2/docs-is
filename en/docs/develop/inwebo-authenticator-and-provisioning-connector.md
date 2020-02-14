@@ -7,7 +7,7 @@ federated authenticator
 
   
 
-![](attachments/48276415/76746223.png?effects=border-simple,blur-border)   
+![](../assets/img/48276415/76746223.png?effects=border-simple,blur-border)   
 
 This is tested with the Inwebo API version 3.1
 
