@@ -1,18 +1,21 @@
 # Introduction to Authentication
 
 ### User Identity
-The way in which a user can be uniquely identified is called ‘User Identity’. A user’s identity can differ on the 
-platform and the use case. Considering the digital world a single user can have different identities as user name, user 
-id, biometric information, etc.
+The way in which a user can be uniquely identified is called ‘User
+Identity’. A user’s identity can differ on the platform and the use
+case. In the digital world a single user can have different identities
+as user name, user id, email id, biometric information and etc.
 
 ### Authentication
-Simply ‘Authentication’ is validating the user’s identity. In the initial registration process, the user’s identity 
-should be shared and stored with the system. When a user needs to access the system later, the system checks and verifies
-whether it is really the particular user who is trying to access the system by using that shared identity. It can be 
-introduced several factors of authentication based on the security level the server or the system needs to achieve.
+Simply **Authentication** is validating the user’s identity. In the user
+on-boarding process, the user’s identity should be shared and stored
+with the system. When a user needs to access the system later, the
+system checks and verifies whether it is really the particular user who
+is trying to access the system by using that shared identity. Several
+factors for authentication can be applied based on the security level
+the server or the system needs to achieve.
 
     - Single Factor Authentication
-    - Two Factor Authentication
     - Two Factor Authentication
     
 #### Single Factor Authentication

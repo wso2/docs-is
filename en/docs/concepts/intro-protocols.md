@@ -5,9 +5,12 @@ A protocol is a set of pre-defined rules used when two or multiple parties are c
 is a type of computer communications protocol, that is designed to transfer authentication data between two or more entities.
 
 ### Password authentication protocol
-This is one of the oldest protocols used in the authentication. When using this protocol the authentication happens 
-using typical user-name and password approach. Even though this approach is simple to use and deploy it has some security
-considerations. If a malicious user is able to guess or obtain the password of a legitimate user, he can access the system.
+This is one of the oldest protocols used in the authentication. When
+using this protocol the authentication happens using typical **username
+and password** approach. Even though this approach is simple to use and
+deploy it has some security considerations. If a malicious can able to
+guess or obtain the password of a legitimate user, he can access the
+system.
 
 ![password-authentication](../assets/img/concepts/password-authentication-protocol.png)
 
