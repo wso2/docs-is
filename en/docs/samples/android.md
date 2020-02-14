@@ -1,5 +1,3 @@
-{!temp/page-under-construction.md!} 
-
 ## Authenticate to Android Sample Application
 
 < Intro - to the Sample >
