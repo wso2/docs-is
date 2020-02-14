@@ -1,6 +1,6 @@
-# Password Grant with OAuth Playground
+# Password Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth/OpenID Connect web application using the [Password](insertlink) grant type.
+This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Password](insertlink) grant type.
 
 ----
 

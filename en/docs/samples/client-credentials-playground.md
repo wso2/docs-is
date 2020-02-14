@@ -1,6 +1,6 @@
-# Client Credentials Grant with OAuth Playground
+# Client Credentials Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth/OpenID Connect web application using the [Client Credentials](insertlink) grant type.
+This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Client Credentials](insertlink) grant type.
 
 ----
 

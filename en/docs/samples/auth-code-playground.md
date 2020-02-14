@@ -1,6 +1,6 @@
-# Authorization Code Grant with OAuth Playground
+# Authorization Code Grant with OAuth 2.0 Playground
 
-This page guides you through using a **sample Playground application** to try out authentication to an OAuth/OpenID Connect web application using the [Authorization Code](insertlink) grant type.
+This page guides you through using a **sample Playground application** to try out authentication to an OAuth 2.0/OpenID Connect web application using the [Authorization Code](insertlink) grant type.
 
 ----
 
@@ -20,7 +20,7 @@ This page guides you through using a **sample Playground application** to try ou
     
     - **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
     
-    - **Scope:** Any scope you wish to obtain the token for (e.g., `openid`). This field is optional. 
+    - **Scope:** Any scope you wish to obtain the token for. To use the sample application with OpenID Connect, enter the value `openid` as the scope. This field is optional. 
 
 	![auth-code-without-pkce.png](../assets/img/guides/auth-code-without-pkce.png) 
 
