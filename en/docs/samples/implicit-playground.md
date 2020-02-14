@@ -20,9 +20,8 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
     
-
-	![implicit-with-playground](../assets/img/guides/implicit-with-playground.png) 
-    
+    <img name='implicit-with-playground' src='../../assets/img/guides/implicit-with-playground.png' class='img-zoomable'/>
+	
 2. Click **Authorize**. 
 
 	The playground application will send an
@@ -52,5 +51,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 5.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![access-token-info](../assets/img/guides/access-token-info.png)
+
+	<img name='access-token-info' src='../../assets/img/guides/access-token-info.png' class='img-zoomable'/>
+	
 

@@ -20,7 +20,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **Access Token Endpoint:** https://localhost:9443/oauth2/token
 
-	![password-with-playground](../assets/img/guides/password-with-playground.png) 
+	<img name='client-credentials-with-playground' src='../../assets/img/guides/client-credentials-with-playground.png' class='img-zoomable'/>
     
 2. Click **Authorize**. 
 
@@ -55,5 +55,6 @@ This page guides you through using a **sample Playground application** to try ou
 
 5.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
-    ![access-token-info](../assets/img/guides/access-token-info.png)
+
+	<img name='access-token-info' src='../../assets/img/guides/access-token-info.png' class='img-zoomable'/>
 
