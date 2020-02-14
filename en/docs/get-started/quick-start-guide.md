@@ -503,7 +503,7 @@ A message appears to pick a scenario.
 5.  Click **Log in**.
 
     ![qsg-sso-dispatch-login](../assets/img/getting-started/qsg-sso-dispatch-login.png)  
-    The Twitter login page appears.
+    The Google login page appears.
 
 6.  Enter your Google `               username              ` and
     `               password              ` and click **Sign In**.
@@ -530,7 +530,7 @@ A message appears to pick a scenario.
 
     ![qsg-sso-dispatch-home](../assets/img/getting-started/qsg-sso-dispatch-home.png)
     You have just signed in to the Pickup Dispatch application
-    as an external consultant using your Twitter credentials.
+    as an external consultant using your Google credentials.
 
 8.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter

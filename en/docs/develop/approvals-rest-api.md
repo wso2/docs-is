@@ -1,7 +1,10 @@
 ---
 template: templates/swagger.html
 ---
-??? note "Click to view"
+
+# Workflow Approval API Definition - v1 
+
+??? note "Click For Instructions"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
       1. [Add a new workflow definition](../../learn/adding-a-new-workflow-definition/) 
@@ -20,6 +23,7 @@ window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
     url: "../../develop/restapis/approvals.yaml",
+    name: "Download the yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,

@@ -115,6 +115,27 @@ sections to read the prerequisites.
     `           <NEW_IS_HOME>/repository/resources/security          `
     directory.
 
+    !!! note
+        In WSO2 Identity Server 5.9.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous IS version, add the following configuration to `<NEW_IS_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. 
+
+        ```toml
+        [keystore.primary]
+        file_name = "primary.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+
+        [keystore.internal]
+        file_name = "internal.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+        ```
+
+        Make sure to point the internal keystore to the keystore that is copied from the previous WSO2 Identity Server version. The primary keystore can be pointed to a keystore with a certificate that has a strong RSA key.
+
 4.  If you have created tenants in the previous WSO2 Identity Server
     version and if there are any resources in the
     `          <OLD_IS_HOME>/repository/tenants         ` directory,

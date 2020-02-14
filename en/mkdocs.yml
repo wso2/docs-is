@@ -495,7 +495,9 @@ nav:
             - 'Customizing Authentication Error Messages': develop/customizing-authentication-error-messages.md
             - 'Customizing Error Pages': develop/customizing-error-pages.md
             - 'Error Codes and Descriptions': develop/error-codes-and-descriptions.md
+          - 'Support Email Account Verification for an Updated Email Address' : develop/support-email-account-verification-for-an-updated-email-address.md
         - 'Provisioning for Developers':
+          - 'Extending SCIM 2.0 User Schemas': develop/extending-scim2-user-schemas.md
           - 'Writing an Outbound Provisioning Connector': develop/writing-an-outbound-provisioning-connector.md
           - 'Extensible SCIM User Schemas With WSO2 Identity Server': develop/extensible-scim-user-schemas-with-wso2-identity-server.md
         - 'Identity Federation for Developers':
@@ -514,37 +516,36 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
-            - 'REST APIs': develop/rest-apis.md
-            - 'Challenge Question': develop/challenge-rest-api.md
+            - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
+            - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
+            - 'Application Management' : develop/application-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
+            - 'Authentication': develop/authentication-data-api.md
+            - 'Authentication': develop/using-the-authentication-rest-apis.md
             - 'Authorized Apps': develop/authorized-apps-rest-api.md
+            - 'Challenge Question': develop/challenge-rest-api.md
+            - 'Claim Management' : develop/claim-management-rest-api.md
+            - 'Configuration Management':
+                - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
+                - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
+            - 'Consent Management': develop/using-the-consent-management-rest-apis.md
+            - 'Email Templates': develop/email-templates-rest-api.md
             - 'Fido': develop/fido-rest-api.md
+            - 'Identity Governance': develop/identity-governance-rest-api.md
+            - 'Identity Providers': develop/idp-rest-api.md
+            - 'Keystore Management': develop/keystore-rest-api.md
+            - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
+            - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
+            - 'Permission Management' : develop/permission-management-rest-api.md
+            - 'Personal Information Export': develop/using-the-personal-information-export-rest-apis.md
+            - 'SCIM 1.1': develop/scim-1.1-apis.md
+            - 'SCIM 2.0': develop/scim2-rest-apis.md
+            - 'Script Libraries': develop/script-library-rest-api.md
+            - 'Secondary User Store': develop/userstore-rest-api.md
+            - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
-            - 'Identity Governance': develop/identity-governance-rest-api.md
-            - 'Email Templates': develop/email-templates-rest-api.md
-            - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
-            - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
-            - 'Authentication': develop/using-the-authentication-rest-apis.md
-            - 'Consent Management': develop/using-the-consent-management-rest-apis.md
-            - 'Personal Information Export': develop/using-the-personal-information-export-rest-apis.md
-            - 'Configuration Management':
-              - 'Configuration Management': develop/using-the-configuration-management-rest-apis.md
-              - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
-            - 'SCIM 2.0': develop/scim2-rest-apis.md
-            - 'SCIM 1.1': develop/scim-1.1-apis.md
-            - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
-            - 'OAuth2 Scopes': develop/using-oauth2-scopes-rest-apis.md
-            - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
-            - 'Authentication': develop/authentication-data-api.md
-            - 'Secondary User Store': develop/userstore-rest-api.md
-            - 'Keystore Management': develop/keystore-rest-api.md
-            - 'Identity Providers': develop/idp-rest-api.md
-            - 'Script Libraries': develop/script-library-rest-api.md
-            - 'Application Management' : develop/application-rest-api.md
-            - 'Permission Management' : develop/permission-management-rest-api.md
-            - 'Claim Management' : develop/claim-management-rest-api.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
