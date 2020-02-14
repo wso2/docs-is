@@ -8,7 +8,7 @@ is the most straightforward method of scaling out a server infrastructure. Load
 balancing is the process of efficiently distributing network traffic across 
 multiple servers of a service.
 
-![load-balancing](../../assets/img/administer/load balancing/load-balancing.png)
+![load-balancing](../assets/img/administer/load balancing/load-balancing.png)
 
 ## Load Balancer
 
@@ -18,7 +18,7 @@ to minimize the traffic in roads. A load balancer sits in between the clients an
 accepting incoming network traffic and routing those requests backend servers so that minimum 
 traffic is available.
 
-![load-balancing](../../assets/img/administer/load balancing/load-balancer.png)
+![load-balancing](../assets/img/administer/load balancing/load-balancer.png)
 
 A load balancer to is used to distribute requests among the nodes in a
 cluster. The nodes that receive incoming traffic are a set of backend
