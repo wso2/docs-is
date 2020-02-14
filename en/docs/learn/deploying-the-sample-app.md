@@ -557,7 +557,7 @@ The first step is to configure the service provider.
 4. In the **Inbound Authentication Configuration** section, click
     **Configure** under the **OAuth/OpenID Connect Configuration** section.
     
-5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-dispatch/oauth2client
+5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-manager/oauth2client
 
     !!! Tip
         The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
