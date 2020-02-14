@@ -49,7 +49,7 @@ This chart allows deriving **the local login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-<img src="../../assets/img/103329237/103329248.png" alt="Login Attempts Over Time widget" width="500"> 
+<img src="../assets/img/103329237/103329248.png" alt="Login Attempts Over Time widget" width="500"> 
 
 
 ## Compact Summary
@@ -63,7 +63,7 @@ This chart presents a **summary of the local login attempts**.
 This chart allows identifying the percentages of the successful and
 failed local login attempts.
 
-<img src="../../assets/img/103329237/103329246.png" alt="Compact Summary widget" width="500" height="700">
+<img src="../assets/img/103329237/103329246.png" alt="Compact Summary widget" width="500" height="700">
 
 ## Map View
 
@@ -89,7 +89,7 @@ IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-<img src="../../assets/img/103329237/103329238.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329237/103329238.png" alt="Compact Summary widget" width="500">
 
 
 ## Distribution By Service Providers
@@ -106,7 +106,7 @@ IP addresses.
 This chart allows viewing the local login attempts sorted based on the
 service providers.
 
-<img src="../../assets/img/103329237/103329244.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329237/103329244.png" alt="Compact Summary widget" width="500">
 
 ## Distribution By User Store
 
@@ -122,7 +122,7 @@ service providers.
 This chart allows viewing the local login attempts sorted based on the
 user store domain.
 
-<img src="../../assets/img/103329237/103329243.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329237/103329243.png" alt="Compact Summary widget" width="500">
 
 ## Distribution By User Role
 
@@ -138,7 +138,7 @@ user store domain.
 This chart allows viewing the local login attempts sorted based on the
 user role.
 
-<img src="../../assets/img/103329237/103329242.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329237/103329242.png" alt="Compact Summary widget" width="500">
 
 ## Distribution By User Name
 
@@ -154,7 +154,7 @@ user role.
 This chart allows viewing the local login attempts sorted based on the
 user names.
 
-<img src="../../assets/img/103329237/103329241.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329237/103329241.png" alt="Compact Summary widget" width="500">
 
 ## Detail View
 

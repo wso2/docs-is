@@ -62,7 +62,7 @@ external claim:
     <p>When you have multiple user stores connected to the Identity Server, this maps the equivalent attribute in all of them to the Claim URI you are configuring.<br />
     For example, if you specify the <code>                 cn                </code> attribute, this is mapped to the <code>                 cn                </code> attribute in all the connected user stores. If you want to specify the attribute in a specific user store, you must add the domain name in addition to the mapped claim. For example, in a scenario where you have a primary user store configured called PRIMARY and secondary user stores called AD (representing Active Directory), you can map an attribute from each of these user stores to the Claim URI value by clicking <strong>Add Attribute Mapping</strong>, selecting the respective user store from the drop-down list, and mentioning the attribute of the userstore the attribute needs to be mapped to.<br />
     Example:<br />
-    <img src="../../assets/img/103330409/103330410.png"/></p>
+    <img src="../assets/img/103330409/103330410.png"/></p>
     </div></td>
     </tr>
     <tr class="odd">

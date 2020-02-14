@@ -21,7 +21,7 @@ Following are three Pickup employees:
 -	**Jane**: An executive officer who is responsible of allocating new vehicles to drivers via Pickup Dispatch. He also has permission to view old and current driver allocations. 
 -	**Richard**: An HR manager who only has access to Pickup Manager.  
 
-<img src="../../assets/img/learn/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
+<img src="../assets/img/learn/pickup-access-control-with-xacml.png" alt="Scenario Diagram" width="800">  
 
 Let's creat a XACML policy that controls access to Pickup Dispatch accordingly!  
 
@@ -38,19 +38,19 @@ Follow the steps below to create a XACML policy that controls access of John, Ja
 
 1.	On the **Main** menu of the Management Console, click **Entitlement > PAP > Policy Adminisration**.
 
-	<img src="../../assets/img/learn/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/policy-administration-menu-item.png" alt="Policy Administration menu-item" width="200" style="border:1px solid grey">  
 
 2.	Click **Add New Entitlement Policy**.
 
-	<img src="../../assets/img/learn/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/add-new-entitlement-policy-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 3.	Click **Standard Policy Editor**. 
 
-	<img src="../../assets/img/learn/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/standard-policy-editor-option.png" alt="Policy Administration menu-item" width="700" style="border:1px solid grey"> 
 
 4.	Enter the required values as given below.
 
-	<img src="../../assets/img/learn/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/create-a-xacml-policy.png" alt="Create a XACML Policy screen" width="700" style="border:1px solid grey"> 
 
 	1.	**Entitlement Policy Name**: This is the XACML policy name. Enter `Pickup_Access_Control`.
 
@@ -112,7 +112,7 @@ Follow the steps below to create a XACML policy that controls access of John, Ja
 
 				Click **Add**. Note that the rule appears at the bottom of the screen. 
 
-				<img src="../../assets/img/learn/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
+				<img src="../assets/img/learn/first-xacml-rule.png" alt="First XACML Rule" width="700" style="border:1px solid grey">
 
 		2.	Similarly, to grant edit access to Jane, add the following rule element values and click **Add**.
 
@@ -246,11 +246,11 @@ Follow the steps below to test the XACML policy that you created above.
 
 1.	On the **Policy Administration** screen of the Management Console, locate the newly added XACML policy.
 
-	<img src="../../assets/img/learn/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/xacml-policy-location.png" alt="XACML Policy Location" width="700" style="border:1px solid grey"> 
 
 2.	Click **Try**. Note that the **TryIt** screen appears.
 
-	<img src="../../assets/img/learn/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
+	<img src="../assets/img/learn/tryit-screen.png" alt="XACML Policy Location" width="700" style="border:1px solid grey">  
 
 3.	To mimic a GET request to the `/pickup-dispatch/protected/index.jsp` resource by John, 
 	1.	Enter the following request element values. 

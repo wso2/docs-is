@@ -23,7 +23,7 @@ Let's get started.
     <head>        
     </head>
     <body>
-        <img src="../../assets/img/using-wso2-identity-server/add-workflow-definitions.png" width="500">
+        <img src="../assets/img/using-wso2-identity-server/add-workflow-definitions.png" width="500">
     
     </body>
     </html> 

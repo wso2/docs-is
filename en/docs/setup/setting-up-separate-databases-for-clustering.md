@@ -26,7 +26,7 @@ database structure for a logical separation of data.
 
 <div>
     <center>
-        <img src="../../assets/img/setup/setting-up-separate-databases-for-clustering/separate-databases-for-clustering.png"
+        <img src="../assets/img/setup/setting-up-separate-databases-for-clustering/separate-databases-for-clustering.png"
          alt="separate-databases-for-clustering ">
     </center>
 </div>

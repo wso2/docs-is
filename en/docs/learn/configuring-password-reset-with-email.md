@@ -70,15 +70,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
 5.	Under the **Account Management Policies** section, click **Account Recovery**.
 
-	<img src="../../assets/img/learn/account-recovery-option.png" alt="Account Recovery Option" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/account-recovery-option.png" alt="Account Recovery Option" width="700" style="border:1px solid grey">  	
 
 6.	Select **Enable Notification Based Password Recovery** check box.
 
-	<img src="../../assets/img/learn/notification-based-password-recovery-option.png" alt="Notification-Based Password Recovery Option" width="600" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/notification-based-password-recovery-option.png" alt="Notification-Based Password Recovery Option" width="600" style="border:1px solid grey">  	
 
 7.	Click **Update**. 
 
@@ -88,15 +88,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
-		<img src="../../assets/img/learn/add-users-and-roles-menu-item.png" alt="Add Users and Roles menu-item" width="200" style="border:1px solid grey">  
+		<img src="../assets/img/learn/add-users-and-roles-menu-item.png" alt="Add Users and Roles menu-item" width="200" style="border:1px solid grey">  
 
 	2.	Click **Add New User**.
 
-		<img src="../../assets/img/learn/add-new-user-option.png" alt="Add New User option" width="700" style="border:1px solid grey">  
+		<img src="../assets/img/learn/add-new-user-option.png" alt="Add New User option" width="700" style="border:1px solid grey">  
 
 	3.	Enter the required data as follows.
 
-		<img src="../../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
+		<img src="../assets/img/learn/add-new-user-screen.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
 		-	**Username**: `Larry`
@@ -107,25 +107,25 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 	
 	1.	Click the **View Roles** option of Larry.
 
-		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
+		<img src="../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
 	2.	Click **Permissions**.
 
-		<img src="../../assets/img/learn/role-permissions-option.png" alt="Role Permissions option" width="700" style="border:1px solid grey"> 	 		 		
+		<img src="../assets/img/learn/role-permissions-option.png" alt="Role Permissions option" width="700" style="border:1px solid grey"> 	 		 		
 
 	3.	Select **Login** and click **Update**.
 
-		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey"> 
+		<img src="../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey"> 
 
 2.	To add Larry's email Id:
 	
 	1.	Click **User Profile** option of Patrick.
 
-		<img src="../../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
+		<img src="../assets/img/learn/user-profile-option.png" alt="User Profile option" width="700" style="border:1px solid grey">   
 
 	2.	Enter an email address to which Larry's password recovery emails will be sent.
 
-		<img src="../../assets/img/learn/user-email.png" alt="User Email option" width="700" style="border:1px solid grey">   
+		<img src="../assets/img/learn/user-email.png" alt="User Email option" width="700" style="border:1px solid grey">   
 
 	3. Click **Update**.
 
@@ -135,11 +135,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	2.	Click **Password**.
 
-		<img src="../../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../assets/img/learn/forgotten-password-option.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
 	3.	Enter the user name as `Larry` and select the **Recover with Mail** option.
 
-		<img src="../../assets/img/learn/recover-password-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
+		<img src="../assets/img/learn/recover-password-screen.png" alt="Consent form" width="600" style="border:1px solid grey">
 
 	4.	Click **Submit**. 
 	

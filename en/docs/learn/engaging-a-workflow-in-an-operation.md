@@ -22,14 +22,14 @@ Workflows can be engaged in certain operations such as engaging the approval wor
             <li><b>Apply to all Requests</b>: If this option is selected, the selected workflow will be triggered for all the requests of the selected operation.</li>
             <li>
                 <p><b>Apply If</b>: If this option is selected, the selected workflow only get triggered if the condition is satisfied. As an example, following configuration will select add user operations where username contains 'sys'. (This option supports simple conditions. If the condition is complex where multiple conditions are evaluated with connectors (and/or) use the Advance section.)</p>
-                <p><img src="../../assets/img/using-wso2-identity-server/apply-if.png"></p>
+                <p><img src="../assets/img/using-wso2-identity-server/apply-if.png"></p>
             </li>
             <li>
                 <p><b>Advanced</b>: If this option is selected, you can define an XPath expression to filter the requests that need to go through the selected workflow. As an example, following configuration will select add user operations where username contains 'sys'.</p>
                 ```
                 boolean(//*[local-name()='parameter'][@name='Username']/*[local-name()='value']/*[local-name()='itemValue'][contains(text(),'sys')])
                 ```
-                <p><img src="../../assets/img/using-wso2-identity-server/advanced-workflow.png"></p>
+                <p><img src="../assets/img/using-wso2-identity-server/advanced-workflow.png"></p>
             </li>
         </ul> 
     

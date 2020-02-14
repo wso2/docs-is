@@ -25,7 +25,7 @@ Let's analyze the login sessions with the following widgets.
 This widget presents the **currently active sessions** and gets updated
 for each event that is coming from WSO2 IS.
 
-<img src="../../assets/img/103329312/103329313.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329312/103329313.png" alt="Compact Summary widget" width="500">
 
   
 
@@ -69,7 +69,7 @@ application is particularly high, you can allocate more resources to
 handle the increased load. Similarly, you can allocate less resources
 during time intervals when the load is relatively low.
 
-<img src="../../assets/img/103329312/103329320.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329312/103329320.png" alt="Compact Summary widget" width="500">
 
 
 ## Top Longest Session
@@ -89,7 +89,7 @@ session is displayed.
     enables to identify the users who are most active during different
     time intervals.
 
-<img src="../../assets/img/103329312/103329319.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329312/103329319.png" alt="Compact Summary widget" width="500">
 
 
 ### Average Session Duration
@@ -121,7 +121,7 @@ actions where necessary, e.g., increase/decrease the efficiency of the
 application and enhance/reduce user experience features that results in
 users spending more/less time on the application.
 
-<img src="../../assets/img/103329312/103329318.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329312/103329318.png" alt="Compact Summary widget" width="500">
 
 
 ## Session Count
@@ -151,7 +151,7 @@ changes and take necessary steps, e.g., increase/decrease the efficiency
 of the application and enhance/reduce user experience features that
 results in users spending more/less time on the application.
 
-<img src="../../assets/img/103329312/103329317.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329312/103329317.png" alt="Compact Summary widget" width="500">
 
 
 ## Detail View

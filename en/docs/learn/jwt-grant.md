@@ -186,11 +186,11 @@ To configure the trusted identity provider:
 
 1.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**. 
 
-	<img src="../../assets/img/tutorials/add-new-idp.jpeg" alt="Add New Identity Provider menu-item" width="200"/>
+	<img src="../assets/img/tutorials/add-new-idp.jpeg" alt="Add New Identity Provider menu-item" width="200"/>
 
 2.	Enter the following information.
 
-	<img src="../../assets/img/tutorials/add-new-identity-provider-screen.jpeg" alt="Add New Identity Provider screen" width="700" />  
+	<img src="../assets/img/tutorials/add-new-identity-provider-screen.jpeg" alt="Add New Identity Provider screen" width="700" />  
 	
 	<table>
 		<thead>
@@ -247,22 +247,22 @@ To add the application as a service provider in WSO2 Identity Server:
 
 1.	On the **Main** menu, click **Identity > Service Providers > Add**.
 
-	<img src="../../assets/img/tutorials/add-sp-menu-item.jpeg" alt="Add New Service Provider menu-item" width="200"/>
+	<img src="../assets/img/tutorials/add-sp-menu-item.jpeg" alt="Add New Service Provider menu-item" width="200"/>
 
 2. 	Enter a name for the service provider in the **Service Provider Name** text box and click **Register**.
 
-	<img src="../../assets/img/tutorials/add-sp-screen.jpeg" alt="Add New Service Provider screen" width="700"/> 		
+	<img src="../assets/img/tutorials/add-sp-screen.jpeg" alt="Add New Service Provider screen" width="700"/> 		
 
 
 3. 	In the **Inbound Authentication Configuration** section, click **OAuth/OpenID Connect Configuration > Configure**.
 
-	<img src="../../assets/img/tutorials/oauth-openid-connect-configure-option.png" alt="OAuth OpenID Connect Configure option" width="700"/>
+	<img src="../assets/img/tutorials/oauth-openid-connect-configure-option.png" alt="OAuth OpenID Connect Configure option" width="700"/>
 
 4.	Enter the following configurations and click **Add**. 
 	
 	<a name="step3d"></a>
 
-	<img src="../../assets/img/tutorials/reg-new-app-screen.png" alt="Register New Application scree" width="700"/>
+	<img src="../assets/img/tutorials/reg-new-app-screen.png" alt="Register New Application scree" width="700"/>
 
 	<table>
 		<thead>
@@ -310,7 +310,7 @@ To add the application as a service provider in WSO2 Identity Server:
 
 	Note that the `client key` and `client secret` are generated. 
 
-	<img src="../../assets/img/tutorials/oidc-clientkey-clientsecret 2.png" alt="Client Key and Client Secret" width="700"/> 	
+	<img src="../assets/img/tutorials/oidc-clientkey-clientsecret 2.png" alt="Client Key and Client Secret" width="700"/> 	
 
 	!!! note
 

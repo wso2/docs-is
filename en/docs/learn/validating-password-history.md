@@ -2,7 +2,7 @@
 
 WSO2 Identity Server enables restricting the user from re-entering recently used passwords as a new password. For example, if we have set this configuration to 5, the user will not be able to re-use any of the five most recently used passwords when setting a new password.
 
-<img src="../../assets/img/learn/password-history.png" alt="Password History" width="700">
+<img src="../assets/img/learn/password-history.png" alt="Password History" width="700">
 
 ## Scenario
 
@@ -20,15 +20,15 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 1.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident Identity Provider menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident Identity Provider menu-item" width="200" style="border:1px solid grey">  
 
 2.	Under **Password Policies**, click **Password History**.
 
-	<img src="../../assets/img/learn/password-history-option.png" alt="Passwrod History option" width="700" style="border:1px solid grey">  
+	<img src="../assets/img/learn/password-history-option.png" alt="Passwrod History option" width="700" style="border:1px solid grey">  
 
 3.	Enter the required values as given below.
 
-	<img src="../../assets/img/learn/password-history-form.png" alt="Passwrod History form" width="700" style="border:1px solid grey">
+	<img src="../assets/img/learn/password-history-form.png" alt="Passwrod History form" width="700" style="border:1px solid grey">
 
 	<table>
 		<thead>
@@ -68,15 +68,15 @@ Follow the steps below to define the password policy that Robert wants to enforc
 	
 	1.	Click the **View Roles** option of Larry.
 
-		<img src="../../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
+		<img src="../assets/img/learn/view-roles-option.png" alt="View Roles option" width="700" style="border:1px solid grey"> 	 		 		
 
 	2.	Click **Permissions**.
 
-		<img src="../../assets/img/learn/role-permissions-option.png" alt="Role Permissions option" width="700" style="border:1px solid grey"> 	 		 		
+		<img src="../assets/img/learn/role-permissions-option.png" alt="Role Permissions option" width="700" style="border:1px solid grey"> 	 		 		
 
 	3.	Select **Login** and click **Update**.
 
-		<img src="../../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey"> 	 		
+		<img src="../assets/img/learn/login-permission.png" alt="Login permission" width="700" style="border:1px solid grey"> 	 		
 
 3.	To change the password:
 
@@ -84,23 +84,23 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 	2.	Log in with the credentials of the user account that you created.
 
-		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
 	3.	Consent to share the shown attributes with the given service provider.
 
-		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
+		<img src="../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
 
 	4.	Under **Change Password**, click **View details**. 
 
-		<img src="../../assets/img/learn/dashboard-change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
+		<img src="../assets/img/learn/dashboard-change-password-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
 
 	5.	Enter `testwso2is` in **Current Password**, **New Password**, and **Confirm New Password** text boxes.
 
-		<img src="../../assets/img/learn/change-password-form.png" alt="Change Password form" width="700" style="border:1px solid grey"> 
+		<img src="../assets/img/learn/change-password-form.png" alt="Change Password form" width="700" style="border:1px solid grey"> 
 
 	6.	Click **Update**. An error message appears. 
 
-		<img src="../../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
+		<img src="../assets/img/learn/passwore-history-error-message.png" alt="Passwrod History Validation error message" width="600" style="border:1px solid grey">
 
 	7.	To mimic three consecutive password changes, change Larry's password to the following sequentially. 
 

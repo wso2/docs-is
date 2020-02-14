@@ -36,17 +36,17 @@ To configure WSO2 Identity Server as an identity provider that uses Apple for fe
 
 1.	On the **Main** tab of the Management Console, click **Identity > Identity Providers > Add**. 
 	
-	<img src="../../assets/img/tutorials/add-new-idp.jpeg" alt="Add Identity Provider menu-item" style="width:200px;"/> 
+	<img src="../assets/img/tutorials/add-new-idp.jpeg" alt="Add Identity Provider menu-item" style="width:200px;"/> 
 
 	The **Add New Identity Provider** screen appears.
 
-	<img src="../../assets/img/tutorials/add-new-identity-provider-screen.jpeg" alt="Add New Identity Provider screen" style="width:600px;">
+	<img src="../assets/img/tutorials/add-new-identity-provider-screen.jpeg" alt="Add New Identity Provider screen" style="width:600px;">
 
 2.	Enter a meaningful name in the **Identity Provider Name** text box, e.g., `AppleSignIn`. 
 
 3.	Under **Federated Authenticators**, click **OAuth2/OpenID Connect Configuration**, and enter the required values as given below. 
 	
-	<img src="../../assets/img/tutorials/oauth2-oidc-federated-authenticator-configuration-screen.jpeg" alt="OAuth2/OpenID Connect Federated Authenticator Configuration screen" style="width:600px;">
+	<img src="../assets/img/tutorials/oauth2-oidc-federated-authenticator-configuration-screen.jpeg" alt="OAuth2/OpenID Connect Federated Authenticator Configuration screen" style="width:600px;">
 
 	<table>
 		<thead>
@@ -130,20 +130,20 @@ To configure the client application as a service provider in WSO2 Identity Serve
 
 1.	In the **Main** menu of the WSO2 Identity Server Management Console, click **Identity > Service Providers > Add**. 
 
-	<img src="../../assets/img/tutorials/add-sp-menu-item.jpeg" alt="Add Service Provider menu-item" style="width:200px;" />
+	<img src="../assets/img/tutorials/add-sp-menu-item.jpeg" alt="Add Service Provider menu-item" style="width:200px;" />
 
 
 	The **Add New Service Provider** screen appears. 
 
-	<img src="../../assets/img/tutorials/add-new-sp-screen.jpeg" alt="Add New Service Provider screen" style="width:600px;" />
+	<img src="../assets/img/tutorials/add-new-sp-screen.jpeg" alt="Add New Service Provider screen" style="width:600px;" />
 	
 2.	Enter a meaningful name for the client application in the **Service Provider Name** text box and click **Register**. The **Service Providers** screen appears. 
 
-	<img src="../../assets/img/tutorials/sps-screen.jpeg" alt="Service Providers screen" style="width:600px;" />
+	<img src="../assets/img/tutorials/sps-screen.jpeg" alt="Service Providers screen" style="width:600px;" />
 
 3. Click **Inbound Authentication Configuration** section and configure based on the authentication protocol that is required for the client application. 
 
-	<img src="../../assets/img/tutorials/inbound-auth-section.jpeg" alt="Inbound Authentication Configuration options" style="width:600px;" /> 
+	<img src="../assets/img/tutorials/inbound-auth-section.jpeg" alt="Inbound Authentication Configuration options" style="width:600px;" /> 
 
 	!!! tip 
 		
@@ -158,7 +158,7 @@ To configure the client application as a service provider in WSO2 Identity Serve
 
 4. Under **Local and Outbound Authentication Configuration** section, select **Federated Authentication** as the **Federated Authentication** radio button and select the identity provider as `AppleSignIn`. 
 
-	<img src="../../assets/img/tutorials/local-and-outbound-auth-conf.jpeg" alt="Local and Outbound Authentication Configuration" style="width:600px;" />
+	<img src="../assets/img/tutorials/local-and-outbound-auth-conf.jpeg" alt="Local and Outbound Authentication Configuration" style="width:600px;" />
 
 5. Click Update to save the changes.
 

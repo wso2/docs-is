@@ -155,7 +155,7 @@ Server credentials.
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username admin and password admin was considered the super administrator. The super administrator user cannot be deleted.</p>
 			<p>After this configuration, the user having the username admin@wso2.com is considered the super administrator. The user having the username admin is considered as a normal administrator.</p>
-			<img src="../../assets/img/tutorials/realm-config.png" width="1200">
+			<img src="../assets/img/tutorials/realm-config.png" width="1200">
 			</div>
 			<div class="admonition tip">
 			<p class="admonition-title">Tip</p>
@@ -428,8 +428,8 @@ provider in WSO2 IS.
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="../../learn/logging-in-to-salesforce-using-the-identity-server#configuring-salesforce">Configuring Salesforce</a>.</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../../assets/img/tutorials/Click-sso-setting-name.png" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
+    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong></br>. <img src="../assets/img/tutorials/Click-sso-setting-name.png" /></li>
+    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../assets/img/tutorials/login-url-to-access-salesforce.png" /></li>
     </ol>
     </td>
     <td width="40%">This is the URL to which the browser should be redirected to after the authentication is successful. This is the Assertion Consumer Service (ACS) URL of the service provider. The identity provider redirects the SAML2 response to this ACS URL. However, if the SAML2 request is signed and SAML2 request contains the ACS URL, the Identity Server will honor the ACS URL of the SAML2 request. In this case, you must use your Salesforce login URL. In Salesforce, click <strong>Security Controls</strong> on your left menu and then click <strong>Single Sign-On Settings</strong>. In the page that appears, click on the SSO settings that you created to view the details. Use the <strong>Salesforce Login URL</strong> listed there for this value.</td>

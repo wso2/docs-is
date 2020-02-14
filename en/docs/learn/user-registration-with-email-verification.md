@@ -10,7 +10,7 @@ In this approach, an administrator first creates a user account with a default p
 
 Robert wants to register a user account with a default password for Mark and get it activated by requesting Mark to verify. 
 
-<img src="../../assets/img/learn/pickup-user-registration-with-email-verification.png" alt="Scenario Diagram" width="800">  
+<img src="../assets/img/learn/pickup-user-registration-with-email-verification.png" alt="Scenario Diagram" width="800">  
 
 Let's learn how it's done!  
 
@@ -72,15 +72,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
 5.	Under the **Account Management Policies** section, click **User Onboarding**.
 
-	<img src="../../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
 
 6.	Select the **Enable User Email Verification** check box.
 
-	<img src="../../assets/img/learn/ask-password-enable-email-verification.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	  
+	<img src="../assets/img/learn/ask-password-enable-email-verification.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	  
 
 7.	You may enter the confirmation email validity period (in minutes) in the **Email verification code expiry time** text box.
 
@@ -104,6 +104,6 @@ You have now configured WSO2 Identity Server to send the user account confirmati
 
 2.	An email requesting to confirm the user creation is sent to the given email address. 
 
-	<img src="../../assets/img/learn/user-registration-verification-email.png" alt="Account Creation verification email" width="500" style="border:1px solid grey">  	  
+	<img src="../assets/img/learn/user-registration-verification-email.png" alt="Account Creation verification email" width="500" style="border:1px solid grey">  	  
 
 3.	To verify account creation, click **Confirm Account**. 

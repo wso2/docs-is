@@ -10,7 +10,7 @@ In this approach, when a user self-registers, a user account gets created and an
 
 When Mark self-registers, an email requesting for account creation confirmation is sent to Mark's registered email account. Mark should respond to the confirmation email before the confirmation acceptance window expires. If Mark fails to confirm the account creation, his user account will be locked and Robert will be able to delete his user account. 
 
-<img src="../../assets/img/learn/self-registration.png" alt="Scenario Diagram" width="800">  
+<img src="../assets/img/learn/self-registration.png" alt="Scenario Diagram" width="800">  
 
 Let's learn how it's done!  
 
@@ -85,15 +85,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
 5.	Under the **Account Management Policies** section, click **User Self Registration**.
 
-	<img src="../../assets/img/learn/user-self-registration-option.png" alt="User Self-Registration Option" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/user-self-registration-option.png" alt="User Self-Registration Option" width="700" style="border:1px solid grey">  	
 
 6.	Enter the required information as given below. 
 
-	<img src="../../assets/img/learn/user-self-registration-form.png" alt="User Self-Registration form" width="700" style="border:1px solid grey">
+	<img src="../assets/img/learn/user-self-registration-form.png" alt="User Self-Registration form" width="700" style="border:1px solid grey">
 
 	1.	To enable self-registration, select the **Enable Self User Registration** check box.
 
@@ -109,11 +109,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 		2.	Click **Add New Purpose**.
 
-			<img src="../../assets/img/learn/consent-purpose-form.png" alt="Consent Purpose form" width="700" style="border:1px solid grey">
+			<img src="../assets/img/learn/consent-purpose-form.png" alt="Consent Purpose form" width="700" style="border:1px solid grey">
 
 			The **Add New Purpose** screen appears.
 
-			<img src="../../assets/img/learn/add-new-purpose-form.png" alt="Add New Consent Purpose form" width="700" style="border:1px solid grey">
+			<img src="../assets/img/learn/add-new-purpose-form.png" alt="Add New Consent Purpose form" width="700" style="border:1px solid grey">
 
 		3.	Enter `To send marketing material` in the **Purpose Name** text box.
 
@@ -131,7 +131,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 			-	`http://wso2.org/claims/emailaddress`
 			-	`http://wso2.org/claims/mobile`
 
-			<img src="../../assets/img/learn/pii-category-entry.png" alt="PII Category entry" width="600" style="border:1px solid grey"> 
+			<img src="../assets/img/learn/pii-category-entry.png" alt="PII Category entry" width="600" style="border:1px solid grey"> 
 
 
 		7.	Set the **First Name** and **Email** display names to mandatory.
@@ -151,15 +151,15 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 2.	Click **Register Now**.
 
-	<img src="../../assets/img/learn/register-now-option.png" alt="Register Now option" width="400" style="border:1px solid grey"> 	
+	<img src="../assets/img/learn/register-now-option.png" alt="Register Now option" width="400" style="border:1px solid grey"> 	
 
 3.	Enter the user name as `Mark` and click **Proceed to Self Register**.
 
-	<img src="../../assets/img/learn/start-signing-up-form.png" alt="Start Signing Up form" width="500" style="border:1px solid grey">
+	<img src="../assets/img/learn/start-signing-up-form.png" alt="Start Signing Up form" width="500" style="border:1px solid grey">
 
 	The **Create New Account** screen appears.
 
-	<img src="../../assets/img/learn/create-new-account-screen.png" alt="Create New screen" width="500" style="border:1px solid grey">
+	<img src="../assets/img/learn/create-new-account-screen.png" alt="Create New screen" width="500" style="border:1px solid grey">
 
 	1.	Enter `Mark` in the **First Name** text box.
 
@@ -177,11 +177,11 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 4.	An email requesting to confirm the user account creation is sent to the given email address. 
 
-	<img src="../../assets/img/learn/self-registration-confirmation-email.png" alt="Self-Regisrtation Confirmation email" width="500" style="border:1px solid grey">  	   
+	<img src="../assets/img/learn/self-registration-confirmation-email.png" alt="Self-Regisrtation Confirmation email" width="500" style="border:1px solid grey">  	   
 
 5.	To respond to the account confirmation email, click **Confirm Account**. A confirmation message appears.
 
-	<img src="../../assets/img/learn/account-confirmation-notification.png" alt="Account Confirmation notification" width="400" style="border:1px solid grey">  	   
+	<img src="../assets/img/learn/account-confirmation-notification.png" alt="Account Confirmation notification" width="400" style="border:1px solid grey">  	   
 
 6.	Click **Close**. The WSO2 Identity Server Dashboard Login screen appears.
 

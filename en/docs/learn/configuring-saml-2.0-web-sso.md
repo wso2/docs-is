@@ -28,7 +28,7 @@ Follow the steps below to navigate to the federated authenticators configuration
    
 1.  On the **Main** menu of the Management Console, click **Identity > Identity Providers > Add**.
 
-	<img src="../../assets/img/learn/add-identity-provider-menu-item.png" alt="Add Identity Provider menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/add-identity-provider-menu-item.png" alt="Add Identity Provider menu-item" width="200" style="border:1px solid grey">  
 
     !!! info
 
@@ -36,11 +36,11 @@ Follow the steps below to navigate to the federated authenticators configuration
     
 2.  Enter a suitable name for the identity provider in the **Identity Provider Name** text box.
 
-	<img src="../../assets/img/learn/add-identity-provider-screen.png" alt="Add Identity Provider screen" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/add-identity-provider-screen.png" alt="Add Identity Provider screen" width="700" style="border:1px solid grey"> 
 
 3.	Under the **Federated Authenticators** section, click **SAML2 Web SSO Configuration**.
 
-	<img src="../../assets/img/learn/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/saml2-web-sso-configuration-option.png" alt="SAML2 Web SSO Configuration option" width="700" style="border:1px solid grey"> 
 
 4.	Enter the following values as given below.
 
@@ -86,7 +86,7 @@ To configure manually,
 
 2.	Enter the required values as given below. 
 
-	<img src="../../assets/img/learn/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/saml2-web-sso-configuration-screen.png" alt="SAML2 Web SSO Configuration screen" width="700" style="border:1px solid grey"> 
 
 	<table>
 			<thead>
@@ -347,7 +347,7 @@ To configure through file upload:
 
 2.	Enter the required values as given below. 
 
-	<img src="../../assets/img/learn/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
+	<img src="../assets/img/learn/saml2-web-sso-configuration-file-upload-screen.png" alt="SAML2 Web SSO File Upload Configuration screen" width="700" style="border:1px solid grey"> 
 
 
 	<table>

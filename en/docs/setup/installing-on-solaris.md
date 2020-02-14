@@ -57,7 +57,7 @@ on the computer.
     echo $JAVA_HOME
     ```
 
-    ![Echo command](../../assets/img/setup/echo-command.png)
+    ![Echo command](../assets/img/setup/echo-command.png)
 
 5.  The system returns the JDK installation path.
 

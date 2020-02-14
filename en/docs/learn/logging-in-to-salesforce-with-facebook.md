@@ -165,7 +165,7 @@ exits in Facebook, the user is allowed to log in to Salesforce.
 			<p class="admonition-title">Note</p>
 			<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
 				<p>After this configuration, the user having the username <strong><code>                      admin@wso2.com                     </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-				<img src="../../assets/img/tutorials/super-admin.png"/></p></div>
+				<img src="../assets/img/tutorials/super-admin.png"/></p></div>
 			<div class="admonition tip">
 			<p class="admonition-title">Tips</p>
 			<p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
@@ -538,8 +538,8 @@ Let's get started!
     <li><p>Click My Domain and you are navigated to the domain you created under the section <a href="#configuring-salesforce">Configuring Salesforce</a>.</p></li>
     <li>Click <strong>Edit</strong> under Authentication Configurations and you are navigated to a new page having the following URl: <code>                     https://&lt;DOMAIN_NAME&gt;/domainname/EditLogin.apexp                    </code></li>
     <li>On the left navigation menu, search for <strong>Single Sign-On Settings</strong> , and click it.</li>
-    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong>.</br> <img src="../../assets/img/tutorials/sso-setting-name.png" width="900" /></li>
-    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../../assets/img/tutorials/login-url-for-salesforce.png" /></li>
+    <li>Click on the name of the Single Sign-On Setting you created. In this use case click <strong>SSO</strong>.</br> <img src="../assets/img/tutorials/sso-setting-name.png" width="900" /></li>
+    <li>Copy the URL that is defined for Login URL to access Salesforce.</br> <img src="../assets/img/tutorials/login-url-for-salesforce.png" /></li>
     </ol>
     </div>
     </div>
@@ -767,7 +767,7 @@ new identity provider.
     <td>This refers to the App ID you received from the Facebook app you created.</td>
     <td><div class="content-wrapper">
     <p>&lt;Application ID of the Facebook App&gt;<br />
-    <img src="../../assets/img/tutorials/app-id-of-fb-app.png" /></p>
+    <img src="../assets/img/tutorials/app-id-of-fb-app.png" /></p>
     </div></td>
     </tr>
     <tr class="even">

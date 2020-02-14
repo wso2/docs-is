@@ -2,7 +2,7 @@
 
 WSO2 Identity Server enables defining custom [password policies](../../learn/configuring-password-policies) and enforcing them at the point of user creation. This enables complying with password policies that are deemed necessary through various regulations. 
 
-<img src="../../assets/img/learn/password-pattern.png" alt="Password Pattern" width="700">  
+<img src="../assets/img/learn/password-pattern.png" alt="Password Pattern" width="700">  
 
 ## Scenario
 
@@ -27,15 +27,15 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 1.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident Identity Provider menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident Identity Provider menu-item" width="200" style="border:1px solid grey">  
 
 2.	Under **Password Policies**, click **Password Patterns**.
 
-	<img src="../../assets/img/learn/password-patterns-option.png" alt="Passwrod Patterns option" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/password-patterns-option.png" alt="Passwrod Patterns option" width="700" style="border:1px solid grey">  	
 
 3.	Enter the required values as given below.
 
-	<img src="../../assets/img/learn/password-patterns-form.png" alt="Passwrod Patterns form" width="700" style="border:1px solid grey">  
+	<img src="../assets/img/learn/password-patterns-form.png" alt="Passwrod Patterns form" width="700" style="border:1px solid grey">  
 
 	<table>
 		<colgroup>
@@ -89,4 +89,4 @@ Follow the steps below to define the password policy that Robert wants to enforc
 
 4.	Click **Finish**.  Note that the error message that you added for the password pattern appears.
 
-	<img src="../../assets/img/learn/password-patter-violation-error-message.png" alt="Password Pattern Viloated error message" width="400" style="border:1px solid grey">
+	<img src="../assets/img/learn/password-patter-violation-error-message.png" alt="Password Pattern Viloated error message" width="400" style="border:1px solid grey">

@@ -53,7 +53,7 @@ This chart allows deriving the **federated login patterns and detect
 deviations** that may due to unusual occurrences such as attacks, system
 downtime, etc.
 
-<img src="../../assets/img/103329263/103329271.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329271.png" alt="Compact Summary widget" width="500">
 
 
 ## Compact Summary
@@ -67,7 +67,7 @@ This chart presents a **summary of the federated login attempts**.
 This chart allows identifying the percentages of the successful and
 failed federated login attempts.
 
-<img src="../../assets/img/103329263/103329270.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329270.png" alt="Compact Summary widget" width="500">
 
 
 ## Map View
@@ -94,7 +94,7 @@ the IP addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-<img src="../../assets/img/103329263/103329269.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329269.png" alt="Compact Summary widget" width="500">
 
 
 ## Distribution By Service Providers
@@ -111,7 +111,7 @@ the IP addresses.
 This chart allows viewing the federated login attempts sorted based on
 the service providers.
 
-<img src="../../assets/img/103329263/103329267.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329267.png" alt="Compact Summary widget" width="500">
 
 
 ## Distribution By Identity Provider
@@ -128,7 +128,7 @@ the service providers.
 This chart allows viewing the federated login attempts sorted based on
 the identity provider.
 
-<img src="../../assets/img/103329263/103329266.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329266.png" alt="Compact Summary widget" width="500">
 
 ## Distribution By User Name
 
@@ -144,7 +144,7 @@ the identity provider.
 This chart allows viewing the federated login attempts sorted based on
 the user names.
 
-<img src="../../assets/img/103329263/103329265.png" alt="Compact Summary widget" width="500">
+<img src="../assets/img/103329263/103329265.png" alt="Compact Summary widget" width="500">
 
 ## Detail View
 

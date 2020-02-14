@@ -246,7 +246,7 @@ above figure and video.
 <a name="service-provider-section"></a>
 <td>Service providers</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/service-provider.png" title = "service providers" alt="service providers"></p>
+<p><img src="../assets/img/getting-started/service-provider.png" title = "service providers" alt="service providers"></p>
 <p>A Service Provider (SP) is an entity that provides Web services. A service provider relies on a trusted Identity Provider (IdP) for authentication and authorization. In this case, the Identity Server acts as the IdP and does the task of authenticating and authorizing the user of the service provider.</p>
 <p>Salesforce and Google Apps are examples of service providers and are used as such in this case.</p>
 <div class="admonition info">
@@ -262,15 +262,15 @@ above figure and video.
 <li>Passive STS</li>
 </ul>
 <p>The service provider receives the authentication confirmation from the Identity Server once it follows all the specified processes required in order to authenticate the SP's user.</p>
-<p><img src="../../assets/img/getting-started/sp-inbound-authentication.png" title = "service provider inbound authentication" alt = "service provider inbound authentication"></p>
+<p><img src="../assets/img/getting-started/sp-inbound-authentication.png" title = "service provider inbound authentication" alt = "service provider inbound authentication"></p>
 <p>Additionally, if a user registers in the service provider's application, a Simple Object Access Protocol ( SOAP) or System for Cross-domain Identity Management ( SCIM) request can be sent to the Identity Server. The request is met by the Inbound Provisioning component of the Identity Server.</p>
-<p><img src="../../assets/img/getting-started/sp-inbound-provisioning.png" title = "service provider inbound provisioning" alt = "service provider inbound provisioning"></p>
+<p><img src="../assets/img/getting-started/sp-inbound-provisioning.png" title = "service provider inbound provisioning" alt = "service provider inbound provisioning"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Inbound authentication</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/inbound-authentication.png" title = "inbound authentication" alt = "inbound authentication"></p>
+<p><img src="../assets/img/getting-started/inbound-authentication.png" title = "inbound authentication" alt = "inbound authentication"></p>
 <p>The Inbound Authentication component of the Identity Server can handle any of the following requests.</p>
 <ul>
 <li><strong>SAML SSO</strong> : <a href="http://saml.xml.org/saml-specifications/">Security Assertion Markup Language (SAML)</a> is an OASIS open standard for representing and exchanging user identity and authentication data between parties. SAML provides the web-based Single-Sign-On capability. WSO2 IS supports SAML 2.0.</li>
@@ -287,17 +287,17 @@ above figure and video.
 <td><div class="content-wrapper">
 <p>The inbound authentication component of the Identity Server receives the authentication request from the service provider. You can configure the Identity Server to receive either SAML SSO, OAuth/OpenID Connect, or WS-Federation requests. Your configuration depends on the service provider in question.</p>
 <p>Once the conditions are met in the inbound authentication component, the request is sent on to the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/inbound-authentication-request.png" title = "inbound authentication request" alt = "inbound authentication request"></p>
+<p><img src="../assets/img/getting-started/inbound-authentication-request.png" title = "inbound authentication request" alt = "inbound authentication request"></p>
 <p>Once the request is acted upon, a response from the OUT channel of the authentication framework is received by the inbound authentication component .</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-response.png" title="authentication framework response" alt="authentication framework response"></p>
+<p><img src="../assets/img/getting-started/authentication-framework-response.png" title="authentication framework response" alt="authentication framework response"></p>
 <p>This response is sent back to the service provider.</p>
-<p><img src="../../assets/img/getting-started/response-to-sp.png" title="inbound authentication response to the service provider" alt="inbound authentication response to the service provider"></p>
+<p><img src="../assets/img/getting-started/response-to-sp.png" title="inbound authentication response to the service provider" alt="inbound authentication response to the service provider"></p>
 </div></td>
 </tr>
 <tr class="odd">
 <td>Authentication framework</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/authentication-framework.png" title="authentication framework" alt="authentication framework"></p>
+<p><img src="../assets/img/getting-started/authentication-framework.png" title="authentication framework" alt="authentication framework"></p>
 <p>Claim management is a key aspect of the Identity Server, which helps to map local claims to service provider claims and vice versa. It also enables you to map local claims to identity provider claims and vice versa.</p>
 <p>Just-in-Time (JIT) provisioning allows you to create users on the fly without having to create user accounts in advance. For example, if you recently added a user to your application, you don't need to manually create the user in the Identity Server. When they log in with single sign-on, their account is automatically created for them, eliminating the time and effort related to creating the account. Just-in-Time provisioning works with your identity provider to pass the correct user information to the Identity Server.</p>
 <div class="panel" style="border-width: 1px;">
@@ -315,22 +315,22 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The inbound authentication component sends the authentication request to the IN channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/inbound-authentication-request.png" title="request to the authentication framework" alt="request to the authentication framework"></p>
+<p><img src="../assets/img/getting-started/inbound-authentication-request.png" title="request to the authentication framework" alt="request to the authentication framework"></p>
 <p>Here claim mapping is checked based on the configurations. Once this is done, the authentication request is sent onwards to either the local authenticators, the federated authenticators or both.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-request.png" title="request to local or federated authenticators" alt="request to local or federated authenticators"></p>
+<p><img src="../assets/img/getting-started/authentication-framework-request.png" title="request to local or federated authenticators" alt="request to local or federated authenticators"></p>
 <p>Once the authentication is complete, a response is sent from the local and/or federated authenticators to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/local-federated-response.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../assets/img/getting-started/local-federated-response.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p>The authentication framework handles mapping local claims to the IdP as required.</p>
 <p>Then the JIT provisioning component within the authentication framework sends this on to the provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
+<p><img src="../assets/img/getting-started/provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
 <p>Once the request is acted upon, a response is sent from the OUT channel of the authentication framework back to the inbound authentication.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-to-inbound-authentication.png" title="response to the inbound authentication" alt="response to the inbound authentication"></p>
+<p><img src="../assets/img/getting-started/authentication-framework-to-inbound-authentication.png" title="response to the inbound authentication" alt="response to the inbound authentication"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Local authenticators</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/local-authenticators.png" title="local authenticators" alt="local authenticators"></p>
+<p><img src="../assets/img/getting-started/local-authenticators.png" title="local authenticators" alt="local authenticators"></p>
 <p>Local authenticators are authentication processes available within the Identity Server itself. User name /password authentication happens by authenticating the credentials entered against the values in the user store connected to the Identity Server.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
@@ -344,9 +344,9 @@ above figure and video.
 </td>
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the local authenticators component.</p>
-<p><img src="../../assets/img/getting-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
+<p><img src="../assets/img/getting-started/in-channel-to-local-authenticator.png" title="request to the local authenticators" alt="request to the local authenticators"></p>
 <p>The local authenticator does the authentication by checking the user name and password or by using <a href="../../learn/integrated-windows-authentication-overview">Integrated Windows Authentication (IWA)</a> . Once this is authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../assets/img/getting-started/out-channel-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 <p><br/>
 </p>
 </div></td>
@@ -354,7 +354,7 @@ above figure and video.
 <tr class="odd">
 <td>Federated authenticators</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/federated-authenticators.png" title="federated authenticators" alt="federated authenticators"></p>
+<p><img src="../assets/img/getting-started/federated-authenticators.png" title="federated authenticators" alt="federated authenticators"></p>
 <p>Federated authenticators are authentication processes that are not available within the Identity Server. These need to be configured to reach out to external applications to do the authentication process and send the response back to the Identity Server.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
@@ -363,20 +363,20 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The IN channel of the authentication framework sends the authentication request to the federated authenticators component.</p>
-<p><img src="../../assets/img/getting-started/in-channel-to-federated-authenticators.png" title="request to the federated authenticators" alt="request to the federated authenticators"></p>
+<p><img src="../assets/img/getting-started/in-channel-to-federated-authenticators.png" title="request to the federated authenticators" alt="request to the federated authenticators"></p>
 <p>The federated authenticators do the authentication by checking the authentication request in the specified authenticator. For example, if Facebook is configured, the authentication process will reflect that. Once this authentication is done, it provides the authentication response to the OUT channel of the authentication framework.</p>
-<p><img src="../../assets/img/getting-started/federated-authenticators-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
+<p><img src="../assets/img/getting-started/federated-authenticators-to-authentication-framework.png" title="response to the authentication framework" alt="response to the authentication framework"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Identity providers</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/identity-providers.png" title="identity providers" alt="identity providers"></p>
+<p><img src="../assets/img/getting-started/identity-providers.png" title="identity providers" alt="identity providers"></p>
 <p>Identity providers perform authentication. To receive authentication requests from the Identity Server, configurations need to be done at the identity provider side as well . Identity providers are also known as external applications. The protocol specific authenticators (SAML2, OpenID Connect, WS-Federation (Passive)) represent applications that use these protocols for authentication requests.</p>
 </div></td>
 <td><div class="content-wrapper">
 <p>The authentication request comes in from the federated authenticators component and is sent to the relevant identity provider (External application). The user is authenticated and logged in to the relevant external application.</p>
-<p><img src="../../assets/img/getting-started/federated-authenticators-to-external-applications.png" title="request to external applications" alt="request to external applications"></p>
+<p><img src="../assets/img/getting-started/federated-authenticators-to-external-applications.png" title="request to external applications" alt="request to external applications"></p>
 <p>A single authentication request can require authentication from multiple external applications.</p>
 </div></td>
 </tr>
@@ -387,11 +387,11 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The JIT provisioning component of the OUT channel in the authentication framework sends on the request to the provisioning framework. This occurs if the user is not added into the user store and needs to be added in on-the-fly.</p>
-<p><img src="../../assets/img/getting-started/authentication-framework-to-provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
+<p><img src="../assets/img/getting-started/authentication-framework-to-provisioning-framework.png" title="request to the provisioning framework" alt="request to the provisioning framework"></p>
 <p>The provisioning framework sends the user details to the user store manager and the user is added. Once the user is added, the user store manager contacts the provisioning framework with the response.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to the user store manager and response" alt="request to the user store manager and response"></p>
+<p><img src="../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to the user store manager and response" alt="request to the user store manager and response"></p>
 <p>The SCIM and SOAP requests that arrive from the service provider are added to the user store manager. This information is also sent on the provisioning framework. The provisioning framework sends this along to the outbound provisioning component.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="passing on the scim and soap requests to outbound provisioning" alt="passing on the scim and soap requests to outbound provisioning"></p>
+<p><img src="../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="passing on the scim and soap requests to outbound provisioning" alt="passing on the scim and soap requests to outbound provisioning"></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -409,7 +409,7 @@ above figure and video.
 <tr class="odd">
 <td>IdP and SP configurations</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/idp-and-sp-configurations.png" title="idp and sp configurations" alt="idp and sp configurations"></p>
+<p><img src="../assets/img/getting-started/idp-and-sp-configurations.png" title="idp and sp configurations" alt="idp and sp configurations"></p>
 <p>The identity provider and service provider configurations provide the basis for all actions that happen within the authentication framework and provisioning framework.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
@@ -421,14 +421,14 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The identity provider and service provider configurations go to both the authentication framework and provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/idp-and-sp-to-authentication-framework.png" title="idp and sp configurations for authentication activities" alt="idp and sp configurations for authentication activities"></p>
-<p><img src="../../assets/img/getting-started/idp-and-sp-to-provisioning-framework.png" title="idp and sp configurations for provisioning activities" alt="idp and sp configurations for provisioning activities"></p>
+<p><img src="../assets/img/getting-started/idp-and-sp-to-authentication-framework.png" title="idp and sp configurations for authentication activities" alt="idp and sp configurations for authentication activities"></p>
+<p><img src="../assets/img/getting-started/idp-and-sp-to-provisioning-framework.png" title="idp and sp configurations for provisioning activities" alt="idp and sp configurations for provisioning activities"></p>
 </div></td>
 </tr>
 <tr class="even">
 <td>Inbound provisioning</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/inbound-provisioning.png" title="inbound provisioning" alt="inbound provisioning"></p>
+<p><img src="../assets/img/getting-started/inbound-provisioning.png" title="inbound provisioning" alt="inbound provisioning"></p>
 <p>Inbound provisioning requests can come in the form of SCIM or SOAP.</p>
 <p>The System for Cross-domain Identity Management (SCIM) specification is designed to make managing user identities in the WSO2 Identity Server easier. Identity provisioning is a key aspect of any Identity Management Solution. In simple terms, it is to create, maintain and delete user accounts and related identities in one or more systems or applications in response to business processes which are initiated either by humans directly or by automated tasks.</p>
 <p>Simple Object Access Protocol (SOAP) is a protocol for exchanging XML-based messages over a network, normally using HTTP. SOAP forms the foundation layer of the Web services stack, providing a basic messaging framework that more abstract layers can build on. SOAP services are defined using Web Services Definition Language (WSDL) and are accessible using a URL that is known as a SOAP endpoint. Here, a SOAP API is used to provision users to the Identity Server.</p>
@@ -439,15 +439,15 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The SCIM or SOAP request comes into the inbound provisioning component from the service provider.</p>
-<p><img src="../../assets/img/getting-started/service-provider-to-inbound-provisioning.png" title="request to inbound provisioning" alt="request to inbound provisioning"></p>
+<p><img src="../assets/img/getting-started/service-provider-to-inbound-provisioning.png" title="request to inbound provisioning" alt="request to inbound provisioning"></p>
 <p>The inbound provisioning component receives this request, processes it based on the configurations and sends the request on to the user store manager.</p>
-<p><img src="../../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="request to the user store manager" alt="request to the user store manager"></p>
+<p><img src="../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="request to the user store manager" alt="request to the user store manager"></p>
 </div></td>
 </tr>
 <tr class="odd">
 <td>User store manager</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/user-store-manager.png" title="user store manager" alt="user store manager"></p>
+<p><img src="../assets/img/getting-started/user-store-manager.png" title="user store manager" alt="user store manager"></p>
 <p>WSO2 Identity Server implements flexible user store via built-in LDAP (powered by ApacheDS), external LDAP, Microsoft Active Directory or any JDBC database. It provides an API for integrating identity management to any application. WSO2 Identity Server allows tenants/organizations to configure their user stores through the admin console. WSO2 Identity Server supports multiple profiles per user using its flexible profile management feature.</p>
 <div class="admonition info">
 <p class="admonition-title">Related Links</p>
@@ -460,11 +460,11 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The user store manager receives provisioning requests from the provisioning framework. These provisioning requests are handled and the relevant user store is updated. The request can affect multiple user stores if the configuration is such. Once this request has been handled, an update is sent back to the provisioning framework.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to user store manager and response" alt="request to user store manager and response"></p>
+<p><img src="../assets/img/getting-started/provisioning-framework-user-store-manager-interaction.png" title="request to user store manager and response" alt="request to user store manager and response"></p>
 <p>The inbound provisioning component sends SCIM and SOAP provisioning requests on to the user store manager.</p>
-<p><img src="../../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="scim and soap requests to user store manager" alt="scim and soap requests to user store manager"></p>
+<p><img src="../assets/img/getting-started/inbound-provisioning-to-user-store-manager.png" title="scim and soap requests to user store manager" alt="scim and soap requests to user store manager"></p>
 <p>The user store manager receives the provisioning request, acts on it and sends it on to the provisioning framework where it has to be sent on for outbound provisioning.</p>
-<p><img src="../../assets/img/getting-started/user-store-manager-to-provisioning-framework.png" title="response to provisioning framework" alt="response to provisioning framework"></p>
+<p><img src="../assets/img/getting-started/user-store-manager-to-provisioning-framework.png" title="response to provisioning framework" alt="response to provisioning framework"></p>
 </div></td>
 </tr>
 <tr class="even">
@@ -521,7 +521,7 @@ above figure and video.
 <tr class="even">
 <td>Outbound provisioning</td>
 <td><div class="content-wrapper">
-<p><img src="../../assets/img/getting-started/outbound-provisioning.png" title="outbound provisioning" alt="outbound provisioning" /></p>
+<p><img src="../assets/img/getting-started/outbound-provisioning.png" title="outbound provisioning" alt="outbound provisioning" /></p>
 <p>The Outbound Provisioning component of the Identity Server can send provisioning requests to applications that support the following connectors.</p>
 <ul>
 <li>SCIM</li>
@@ -537,7 +537,7 @@ above figure and video.
 </div></td>
 <td><div class="content-wrapper">
 <p>The provisioning request comes into the outbound provisioning component from the provisioning framework. This request will go to the relevant connector.</p>
-<p><img src="../../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="request to outbound provisioning" alt="request to outbound provisioning"></p>
+<p><img src="../assets/img/getting-started/provisioning-framework-to-outbound-provisioning.png" title="request to outbound provisioning" alt="request to outbound provisioning"></p>
 </div></td>
 </tr>
 </tbody>

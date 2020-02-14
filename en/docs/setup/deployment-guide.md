@@ -185,7 +185,7 @@ To make sure the configurations were applied correctly:
     <li>Log in to the management console.</li>
     <li>
         <p>Navigate to <b>Home > Registry > Browse</b>.</p>
-        <p><img src="../../assets/img/setup/registry-browser-2.png" alt="Registry browser"></p>
+        <p><img src="../assets/img/setup/registry-browser-2.png" alt="Registry browser"></p>
         <p>Note that the governance collection is shown with the symlink icon.</p>
     </li>    
 </ol>

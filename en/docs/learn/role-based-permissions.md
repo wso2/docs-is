@@ -69,21 +69,21 @@ follows:
     <tbody>
     <tr class="odd">
     <td><strong>Configuration</strong> permissions:<br />
-    <img src="../../assets/img/53125499/53287372.png" /></td>
+    <img src="../assets/img/53125499/53287372.png" /></td>
     <td>The <strong>Super Admin/Configuration</strong> permissions are used to grant permission to the key functions in a product server, which are common to all the tenants. In each WSO2 product, several configuration permissions will be available depending on the type of features that are installed in the product.<br />
     <br />
     <strong>- Feature Management</strong> permission ensures that a user can control the features installed in the product using the management console. That is, the <strong>Features</strong> option will be enabled under the <strong>Configure</strong> menu.<br />
     <strong>- Logging</strong> permission enables the possibility to configure server logging from the management console. That is, the <strong>Logging</strong> option will be enabled under the <strong>Configure</strong> menu.</td>
     </tr>
     <tr class="even">
-    <td><strong>Management</strong> permissions:<br /> <img src="../../assets/img/44826804/45088796.png" /></td>
+    <td><strong>Management</strong> permissions:<br /> <img src="../assets/img/44826804/45088796.png" /></td>
     <td><p>The <strong>Super Admin/Manage</strong> permissions are used for adding new tenants and monitoring them.</p>
     <p><strong>- Modify/Tenants</strong> permission enables the <strong>Add New Tenant</strong> option in the <strong>Configure</strong> menu of the management console, which allows users to add new tenants.<br />
     <strong>- Monitor/Tenants</strong> permission enables the <strong>View Tenants</strong> option in the <strong>Configure</strong> menu of the management console.</p></td>
     </tr>
     <tr class="odd">
     <td><strong>Server Admin</strong> permissions:<br />
-    <img src="../../assets/img/44826804/45088797.png" /></td>
+    <img src="../assets/img/44826804/45088797.png" /></td>
     <td>Selecting the <strong>Server Admin</strong> permission enables the <strong>Shutdown/Restart</strong> option in the <strong>Main</strong> menu of the management console.</td>
     </tr>
     </tbody>

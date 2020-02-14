@@ -10,7 +10,7 @@ In this approach, an administrator first creates a user account in the system up
 
 Robert wants to register a user account for Jane and get it activated by requesting Jane to enter a password. 
 
-<img src="../../assets/img/learn/pickup-user-registration-with-password.png" alt="Scenario Diagram" width="800">  
+<img src="../assets/img/learn/pickup-user-registration-with-password.png" alt="Scenario Diagram" width="800">  
 
 Let's learn how it's done! 
 
@@ -69,19 +69,19 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 4.	On the **Main** menu of the Management Console, click **Identity > Identity Providers > Resident**.
 
-	<img src="../../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
+	<img src="../assets/img/learn/resident-menu-item.png" alt="Resident menu-item" width="200" style="border:1px solid grey">  
 
 5.	Under the **Account Management Policies** section, click **User Onboarding**.
 
-	<img src="../../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/user-onboarding-option.png" alt="User Onboarding Option" width="700" style="border:1px solid grey">  	
 
 6.	Select the **Enable User Email Verification** check box.
 
-	<img src="../../assets/img/learn/ask-password-enable-email-verification.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	  
+	<img src="../assets/img/learn/ask-password-enable-email-verification.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	  
 
 7.	You may enter the password entry validity period (in minutes) in the **Ask password code expiry time** text box.
 
-	<img src="../../assets/img/learn/ask-password-expiry-time.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	
+	<img src="../assets/img/learn/ask-password-expiry-time.png" alt="Ask password code expiry time text box" width="700" style="border:1px solid grey">  	
 
 8.	Click **Update**.
 
@@ -94,15 +94,15 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 	1.	On the **Main** menu of the Management Console, click **Identity > Users and Roles > Add**.
 
-		<img src="../../assets/img/learn/add-users-and-roles-menu-item.png" alt="Add Users and Roles menu-item" width="200" style="border:1px solid grey">  
+		<img src="../assets/img/learn/add-users-and-roles-menu-item.png" alt="Add Users and Roles menu-item" width="200" style="border:1px solid grey">  
 
 	2.	Click **Add New User**.
 
-		<img src="../../assets/img/learn/add-new-user-option.png" alt="Add New User option" width="700" style="border:1px solid grey">  
+		<img src="../assets/img/learn/add-new-user-option.png" alt="Add New User option" width="700" style="border:1px solid grey">  
 
 	3.	Enter the required data as follows.
 
-		<img src="../../assets/img/learn/add-new-user-ask-password.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
+		<img src="../assets/img/learn/add-new-user-ask-password.png" alt="Add New User screen" width="700" style="border:1px solid grey">   
 
 		-	**Domain**: `Primary`
 		-	**Username**: `Jane`
@@ -119,10 +119,10 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 
 	5.	A confirmation email requesting to enter the password is sent to the given email address. 
 
-		<img src="../../assets/img/learn/ask-password-email.png" alt="Ask Password email" width="500" style="border:1px solid grey"> 
+		<img src="../assets/img/learn/ask-password-email.png" alt="Ask Password email" width="500" style="border:1px solid grey"> 
 
 	6.	Click **Create Password**. The **Reset Password** screen appears.
 
-		<img src="../../assets/img/learn/reset-password-screen.png" alt="Reset Password screen" width="600" style="border:1px solid grey">  
+		<img src="../assets/img/learn/reset-password-screen.png" alt="Reset Password screen" width="600" style="border:1px solid grey">  
 
 	7.	Enter a preferred password and click **Submit**. 

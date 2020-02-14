@@ -73,7 +73,7 @@ instructions in this topic.
 	<tr class="even">
 	<td>Enable Policy</td>
 	<td><div class="content-wrapper">
-	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="../../assets/img/tutorials/enable-policy.png"></p>
+	<p>The target action of the policy is "ENABLE". This option enables the policy in the PDP. <img src="../assets/img/tutorials/enable-policy.png"></p>
 	<p>This is not relevant for the initial policy publishing process.<br/>
 	</p>
 	</div></td>
@@ -82,7 +82,7 @@ instructions in this topic.
 	<td>Disable Policy</td>
 	<td><div class="content-wrapper">
 	<p>The target action of the policy is "DISABLE". This option disables the policy in the PDP.</p>
-	<p><img src="../../assets/img/tutorials/disable-policy.png"><br/>
+	<p><img src="../assets/img/tutorials/disable-policy.png"><br/>
 	</p>
 	<p>This is not relevant for the initial policy publishing process.</p>
 	</div></td>

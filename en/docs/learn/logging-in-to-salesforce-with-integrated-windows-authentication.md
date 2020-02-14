@@ -167,7 +167,7 @@ Follow the steps below to configure the email address as the user name.
 	<p class="admonition-title">Note</p>
 	<p>Before this configuration, the user having the username <strong>admin</strong> and password <strong>admin</strong> was considered the super administrator. The super administrator user cannot be deleted.</p>
 	<p>After this configuration, the user having the username <strong><code>                      admin@wso2.com                     </code></strong> is considered the super administrator. The user having the username admin is considered as a normal administrator.<br />
-	<img src="../../assets/img/tutorials/super-admin-config.png" /></p></div>
+	<img src="../assets/img/tutorials/super-admin-config.png" /></p></div>
 	<div class="admonition title">
 	<p class="admonition-title">Tip</p>
 	<p>If you changed the password of the admin user to something other than 'admin', start the WSO2 IS server using the -Dsetup parameter as shown in the command below.</p>
