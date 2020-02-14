@@ -198,7 +198,7 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
-  - 'OAuth Playground':
+  - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
       - 'Client Credentials Grant': samples/client-credentials-playground.md
