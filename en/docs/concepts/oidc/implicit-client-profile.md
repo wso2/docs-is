@@ -1,7 +1,7 @@
 # Implicit Client Profile
 
 In this flow, the client doesn't make a request to the token endpoint but instead 
-receives the access token directly from the authorize endpoint without explicit client authentication. The targeted 
+receives the access token directly from the authorize endpoint without explicit client authentication (front channel communication). The targeted 
 clients for this profile should be user agent-based clients which are [public clients]() (Ex: Single page  applications)
 that can not maintain the confidentiality of their clients. Comparatively this flow has a less security, thus refresh 
 tokens are not allowed and do not guarantee the long-lived access tokens. 
