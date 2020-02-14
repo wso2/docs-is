@@ -560,7 +560,6 @@ nav:
         - 'Customizing the SSO Redirection Page': develop/customizing-the-sso-redirection-page.md      
       - 'Customizing the Authentication Endpoint': develop/customizing-the-authentication-endpoint.md
       - 'Localization Support in Identity Server': develop/localization-support-in-identity-server.md
-      - 'Hosting Authentication Endpoint on a Different Server': develop/hosting-authentication-endpoint-on-a-different-server.md      
   - 'Setup':
     - 'Install':
       - 'Installing the Product': 
