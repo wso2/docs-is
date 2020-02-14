@@ -16,7 +16,7 @@ usable. When working with the tokens it guarantees API security by relying on Se
 data between the web server and browsers remain private. If a user can log in to a single OAuth 2.0 provider then he can
 log in to other web services without login to those web services differently.
 
-### When to choose OAuth2.0 is for which application?
+### Which OAuth2.0 grant type to choose?
 OAuth 2.0 supports different grant types.
 
     - Authorization code
@@ -28,8 +28,8 @@ These different grant types target different application types.
 | Flow                 | Usage         | 
 | --------------------- | ------------- | 
 | Authorization code grant | Mostly recommended for web applications and single-page applications(SPA). This method is very safe in web applications, as tokens are passed directly to the web server and stored there without exposing the tokens to the resource owners. For Single page applications (JavaScript clients) it is recommended to use this grant type with PKCE.  |                            
-| Client credential grant  | Recommended for a machine to machine communications (CLIs), if a machine needs to access a resource without human interaction, this grant type is recommended to use.  |                              
-| Implicit grant            | Used for single-page applications (SPA) to retrieve the access tokens directly without spending several round trips. Anyway, there is a security consideration, as the access token is exposed to the client-side.  | 
+| Client credential grant  | Recommended for **machine to machine** communications (CLIs), if a machine needs to access a resource without human interaction, this grant type is recommended.  |                              
+| Implicit grant            | Used for single-page applications (SPA) to retrieve the access tokens directly without spending several round trips. However, there is a security consideration, as the access token is exposed to the client-side.  | 
 
 ### How does it work?
 The exact flow differs based on the OAuth 2.0 the grant type. However, the abstract protocol flow is as below.

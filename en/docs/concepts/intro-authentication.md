@@ -3,8 +3,8 @@
 ### User Identity
 The way in which a user can be uniquely identified is called ‘User
 Identity’. A user’s identity can differ on the platform and the use
-case. In the digital world a single user can have different identities
-as user name, user id, email id, biometric information and etc.
+case. In the digital world a single user can have different identities 
+such as user name, user id, email id, biometric information and etc.
 
 ### Authentication
 Simply **Authentication** is validating the user’s identity. In the user
