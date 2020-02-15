@@ -152,7 +152,7 @@ sample values: sAMAccountName</td>
 <td>UserIDAttribute</td>
 <td>user_id_attribute</td>
 <td>User ID Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the user ID.</p>
+<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
 <p>Default: scimId <br /></p></td>
 </tr>
 <tr class="even">
