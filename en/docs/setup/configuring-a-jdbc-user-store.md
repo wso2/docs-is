@@ -178,7 +178,7 @@ For example :
 
 ``` toml
 [user_store]
-scim_enabled = true
+read_groups = true
 ```
 
 !!! tip 
@@ -263,17 +263,6 @@ Default: Password length should be within 5 to 30 characters.</td>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: [a-zA-Z0-9._-|//]{3,30}$</td>
-</tr>
-<tr class="even">
-<td>SCIMEnabled </td>
-<td>scim_enabled</td>
-<td>Enable SCIM</td>
-<td>This is to configure whether user store is supported for SCIM provisioning.<br />
-<br />
-Default : false <br/>
-Possible values:<br />
-True : User store support for SCIM provisioning.<br />
-False : User does not store support for SCIM provisioning.</td>
 </tr>
 <tr class="odd">
 <td>MultiAttribute<br>Separator</td>
