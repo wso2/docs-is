@@ -14,7 +14,7 @@ version SCIM 2.0 was released as IETF RFC in September 2015.
     SCIM 2.0 is supported by default in WSO2 Identity Server
     version 5.4.0 onwards. If you are using WSO2 Identity Server 5.4.0 or a
     later version, see
-    [SCIM 2.0 REST     APIs](../../develop/using-the-scim-2.0-rest-apis) for
+    [SCIM 2.0 REST     APIs](../develop/scim2-rest-apis.md) for
     instructions on how to use SCIM 2.0 OOTB.
     
 ## Extending the SCIM 2.0 API 
