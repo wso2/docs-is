@@ -29,7 +29,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password entr
 		lock_on_creation=true
 		```
 
-	2.	To configure the email server to send emails requesting a passwor entry, add the following configurations.
+	2.	To configure the email server to send emails requesting a password entry, add the following configurations.
 
 		-	**from_address**: This is the email address from which the confirmation email will be sent.
 		-	**username**: This is the user name of the given email address.
