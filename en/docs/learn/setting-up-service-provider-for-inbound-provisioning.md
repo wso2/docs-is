@@ -67,7 +67,7 @@ To confirm that the provisioning works, do the following.
     new user).
 
     ``` java
-    curl -v -k --user admin:admin --data "{"schemas":[],"name":{"familyName":"mervyn","givenName":"samuel"},"userName":"samuel","password":"samuel","emails":[{"primary":true,"value":"samuel@wso2.com"}]}" --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
+    curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"mervyn","givenName":"samuel"},"userName":"samuel","password":"samuel","emails":[{"primary":true,"value":"samuel@wso2.com"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim/Users
     ```
     
     !!! info 
