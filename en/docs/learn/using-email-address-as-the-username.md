@@ -39,7 +39,7 @@
     <p>Set the mail attribute of the user. <strong>LDAP/Active Directory only</strong></p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store] <br> user_name_attribute=&quot;mail&quot;</code></pre>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>[user_store]<br>user_name_attribute = &quot;mail&quot;</code></pre>
     </div>
     </div>
     </div></td>
@@ -50,7 +50,7 @@
     <p>Use the mail attribute of the user instead of <code>                 cn                </code> or <code>                 uid                </code> . <strong>LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store] <br> user_name_search_filter=`"(&amp;(objectClass=person)(mail=?))"`</code> <br> In Active Directory, <code>[user_store] <br> user_name_search_filter = `"(&amp;(objectClass=user)(mail=?))"`</pre></code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> In LDAP,<code>[user_store]<br>user_name_search_filter = `"(&amp;(objectClass=person)(mail=?))"`</code> <br> In Active Directory, <code>[user_store]<br>user_name_search_filter = `"(&amp;(objectClass=user)(mail=?))"`</pre></code>
     </div>
     </div>
     </div></td>
@@ -61,7 +61,7 @@
     <p>Use the mail attribute of the user if <strong>necessary. LDAP/Active Directory only</strong> <br/>For example:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store] <br> user_name_list_filter=`"(&amp;(objectClass=user)(mail=?))"`</code>
+    <pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"> <code>[user_store]<br>user_name_list_filter = `"(&amp;(objectClass=user)(mail=?))"`</code>
     </pre>
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
