@@ -16,10 +16,10 @@ distribution.
 2.  Download the WSO2 Identity Server Analytics 5.8.0 pack.
     
     !!! Note 
-        WSO2 Identity Server 5.9.0 analytics capabilities are fully
+        WSO2 Identity Server 5.10.0 analytics capabilities are fully
         compatible with WSO2 IS Analytics 5.8.0. Please note that **WSO2 IS
         Analytics 5.8.0 is the recommended version for WSO2 Identity Server
-        5.9.0**.
+        5.10.0**.
     
     1.  To download the pack with updates, click **SIGN-IN & DOWNLOAD**
         .
@@ -344,8 +344,8 @@ Similar to Step 03, change the admin password and import keystore certificates.
         in plain text in WSO2 IS event publishers.
     
 
-2.  If you created a new keystore for WSO2 IS Analytics, import the
-    `           public certificate          ` of that keystore to the
+2.  Import the
+    `           public certificate          ` of each keystore to the
     `           client­-truststore.jks          ` of the WSO2 IS using
     the following command.
 
