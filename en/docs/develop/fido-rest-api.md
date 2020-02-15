@@ -1,6 +1,9 @@
 ---
 template: templates/swagger.html
 ---
+
+# FIDO 2 Rest API Definition - V1
+
 ??? Note "Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
     

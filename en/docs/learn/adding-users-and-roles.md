@@ -62,7 +62,7 @@ To achieve this, Pickup's administrator can create user roles for each designati
 
 2. Click **Add New User**. 
 
-    ![add-new-role](../assets/img/learn/add-new-role.png)
+    ![add-new-user](../assets/img/learn/add-new-user.png)
 
 3. In the **Domain** list, select the user store in which you want to create this user account (e.g., `Primary`). This list includes the user stores you have configured. 
 

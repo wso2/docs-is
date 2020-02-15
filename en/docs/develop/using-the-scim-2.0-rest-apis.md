@@ -500,7 +500,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <strong>Sample Request</strong>
 </div>
 <div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users?startIndex=1&amp;count=10&amp;domain=PRIMARY&amp;filter=userName+sw+ki+and+name.familyName+co+ack&amp;attributes=userName,name.familyName&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin &#39;https:<span class="co">//localhost:9443/scim2/Users/c8c821ba-1200-495e-a775-79b260e717bd?excludedAttributes=userName,name.familyName’</span></a></code></pre></div>
 </div>
 </div>
 </div></td>
@@ -1026,146 +1026,6 @@ This endpoint is used to create and manage groups and group members.
 
 
 
-### POST/ Create Group
-
-`           POST                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
-
-This API creates a group and returns the details of the created group
-including its unique ID. It returns an `           HTTP 201          `
-response if the group is successfully created.
-
-  
-
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user [username]:[password] --data &#39;{<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:Group&quot;</span>],<span class="st">&quot;displayName&quot;</span>: [group name], <span class="st">&quot;members&quot;</span>: [{<span class="st">&quot;value&quot;</span>: [user ID],<span class="st">&quot;$ref&quot;</span>:[ref url],<span class="st">&quot;display&quot;</span>: [user name] }]}&#39; --header <span class="st">&quot;Content-Type:application/json&quot;</span> https:<span class="co">//localhost:9443/scim2/Groups</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="even">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample cURL</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin --data &#39;{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>}&#39; --header <span class="st">&quot;Content-Type:application/json&quot;</span> https:<span class="co">//localhost:9443/scim2/Groups</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-<tr class="odd">
-<td><div class="content-wrapper">
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Response</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;PRIMARY/manager&quot;</span>,<span class="st">&quot;meta&quot;</span>:{<span class="st">&quot;created&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>,<span class="st">&quot;location&quot;</span>:<span class="st">&quot;https://localhost:9443/scim2/Groups/a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>,<span class="st">&quot;lastModified&quot;</span>:<span class="st">&quot;2018-08-16T15:27:42Z&quot;</span>,<span class="st">&quot;resourceType&quot;</span>:<span class="st">&quot;Group&quot;</span>},<span class="st">&quot;schemas&quot;</span>:[<span class="st">&quot;urn:ietf:params:scim:schemas:core:2.0:Group&quot;</span>],<span class="st">&quot;id&quot;</span>:<span class="st">&quot;a43fe003-d90d-43ca-ae38-d2332ecc0f36&quot;</span>}</a></code></pre></div>
-</div>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-
-  
-
-**Parameters**
-
-<table style="width:100%;">
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 9%" />
-<col style="width: 75%" />
-<col style="width: 5%" />
-<col style="width: 4%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Name</th>
-<th>Description</th>
-<th>Schema</th>
-<th>Default Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Query</td>
-<td><p>attributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>Attribute names of attributes that are to be included in the response.</p>
-<p>All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1">curl -v -k --user admin:admin --data &#39;{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>}&#39; --header <span class="st">&quot;Content-Type:application/json&quot;</span> https:<span class="co">//localhost:9443/scim2/Groups?attributes=displayName</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Query</td>
-<td><p>excludedAttributes</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>Attribute names of attributes that are to be exclused from the response.<br />
-All the of the users dialect and meta dialect are supported. For more information about this parameter, see <a href="https://tools.ietf.org/html/rfc7644#section-3.4.2.5">the SCIM 2.0 specification</a> .</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k --user admin:admin --data &#39;{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>}&#39; --header <span class="st">&quot;Content-Type:application/json&quot;</span> https:<span class="co">//localhost:9443/scim2/Groups?excludedAttributes=displayName</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Body</td>
-<td><p>body</p>
-<p>(optional)</p></td>
-<td><div class="content-wrapper">
-<p>This is a JSON object that contains relevant values used to create a group.</p>
-<div class="code panel pdl" style="border-width: 1px;">
-<div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-<strong>Sample Request</strong>
-</div>
-<div class="codeContent panelContent pdl">
-<div class="sourceCode" id="cb3" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1">curl -v -k --user admin:admin --data &#39;{<span class="st">&quot;displayName&quot;</span>:<span class="st">&quot;manager&quot;</span>}&#39; --header <span class="st">&quot;Content-Type:application/json&quot;</span> https:<span class="co">//localhost:9443/scim2/Groups</span></a></code></pre></div>
-</div>
-</div>
-</div></td>
-<td>String</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-
-**Responses**
-
--   HTTP 201 - Valid group is created
--   HTTP 401 - Unauthorized
--   HTTP 404 - Group is not found
 
 ### POST/ Create Group
 
@@ -1558,9 +1418,8 @@ deleted.
 
 `           GET                       https://localhost:9443/t/{tenant-domain}/scim2/Groups                                `
 
-This API deletes a particular group using its unique ID. It returns an
-`           HTTP 204          ` reponse if the group is successfully
-deleted.
+This API filters groups using a given query. It returns an
+`           HTTP 200          ` reponse if filtered group list is successfully retrieved.
 
   
 
@@ -1671,7 +1530,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 <td><p>filter</p>
 <p>(optional)</p></td>
 <td><div class="content-wrapper">
-<p>A filter expression used to filter users.</p>
+<p>A filter expression used to filter groups.</p>
 <p>Supported filter operators are ‘ <code>                  EQ                 </code> ’, ' <code>                  EW'                 </code>, ‘ <code>                  CO                 </code> ’, ‘ <code>                  SW                 </code> ’, and ‘ <code>                  AND                 </code> ’.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1754,9 +1613,9 @@ All the of the users dialect and meta dialect are supported. For more informatio
 
 **Responses**
 
--   HTTP 204 - Valid group has been successfully deleted.
--   HTTP 401 - Unauthorized
--   HTTP 404 - Invalid group
+-   HTTP 200 - Filtered group list successfully returned.
+-   HTTP 403 - Unauthorized
+-   HTTP 500 - Invalid group
 
 !!! tip
     
