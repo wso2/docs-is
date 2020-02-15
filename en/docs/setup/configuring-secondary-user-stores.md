@@ -67,9 +67,9 @@ You can use either the management console to create secondary user stores or you
     also be available in this drop-down menu.
 
     !!! tip
-        From WSO2 IS 5.10.0 onwards, all userstore managers have **`UniqueID`** prepended before the userstore manager name (e.g., **`UniqueIDJDBCUserStoreManager`**). When you are selecting the userstore manager, it is recommended to use these.
+        From WSO2 IS 5.10.0 onwards, all user store managers have **`UniqueID`** included as part of the user store manager name (e.g., **`UniqueIDJDBCUserStoreManager`**). Use one of these when selecting the user store manager. 
         
-        The userstore managers that donot have **`**UniqueID`** as part of the userstore manager name are only available for backward compatibility purposes and can be used if you are migrating from a previous version of WSO2 Identity Server. 
+        The user store managers that do not have **`**UniqueID`** as part of the user store manager name are **only** available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. 
 
 3.  Enter a unique domain name with no underscore ( \_ ) characters, and a
     description (optional) for this user store.
