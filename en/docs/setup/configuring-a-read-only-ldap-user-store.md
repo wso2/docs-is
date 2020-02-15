@@ -127,7 +127,7 @@ read_groups = true
 <td>user_entry_object_class</td>
 <td>User Entry Object Class</td>
 <td>Object class used to construct user entries.<br />
-Default: identityPerson( Is a custom object class defined in WSO2 Identity Server)</td>
+<p>Default: identityPerson( Is a custom object class defined in WSO2 Identity Server)</p></td>
 </tr>
 <tr class="odd">
 <td>UserNameAttribute</td>
@@ -150,7 +150,7 @@ Note: email address is considered as a special case in WSO2 products, if you wan
 <td>user_name_search_filter</td>
 <td>User Search Filter</td>
 <td>Filtering criteria used to search for a particular user entry.<br />
-Default : (&amp;amp;(objectClass=person)(uid=?))</td>
+<p>Default : (&amp;amp;(objectClass=person)(uid=?))</p></td>
 </tr>
 <tr class="odd">
 <td>UserNameListFilter</td>
@@ -158,7 +158,7 @@ Default : (&amp;amp;(objectClass=person)(uid=?))</td>
 <td>User List Filter</td>
 <td>Filtering criteria for searching user entries in the user store. This query or filter is used when doing search operations on users with different search attributes.<br />
 <br />
-Default: (objectClass=person)<br />
+<p>Default: (objectClass=person)</p><br />
 In this case, the search operation only provides the objects created from the person object class.</td>
 </tr>
 <tr class="even">
@@ -218,7 +218,7 @@ Default: groupOfNames</td>
 <td>group_name_attribute</td>
 <td>Group Name Attribute</td>
 <td>Attribute used for uniquely identifying a group entry. This attribute is to be treated as the group name.
-<br/>Default: cn</td>
+<br/><p>Default: cn</p></td>
 </tr>
 <tr class="odd">
 <td>GroupNameSearchFilter</td>
@@ -261,55 +261,55 @@ Possible values: memberOf</td>
 <td>back_links_enabled</td>
 <td>Enable Back Links</td>
 <td>Defines whether the backlink support is enabled. If you are using MemberOfAttribute attributes this should be set to 'true'.
-<br/>Default : false</td>
+<br/><p>Default : false</p></td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>Username RegEx (Java)</td>
 <td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
+<p>Default: [a-zA-Z0-9._\-|//]{3,30}$</p></td>
 </tr>
 <tr class="even">
 <td>UsernameJava<br>ScriptRegEx</td>
 <td>username_java<br>_script_regex</td>
 <td>Username RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for username validation.<br />
-Default: ^[\S]{3,30}$</td>
+<p>Default: ^[\S]{3,30}$</p></td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with UsernameJavaRegEx<br />
-Default: Username pattern policy violated</td>
+<p>Default: Username pattern policy violated</p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaRegEx</td>
 <td>password_java_regex</td>
 <td>Password RegEx (Java)</td>
 <td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters have a length of 5 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-Default: ^[\S]{5,30}$</td>
+<p>Default: ^[\S]{5,30}$</p></td>
 </tr>
 <tr class="odd">
 <td>PasswordJava<br>ScriptRegEx</td>
 <td>password_java<br>_script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
-Default: ^[\S]{5,30}$</td>
+<p>Default: ^[\S]{5,30}$</p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
 <td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx<br />
-Default: Password length should be within 5 to 30 characters</td></tr>
+<p>Default: Password length should be within 5 to 30 characters</p></td></tr>
 <tr class="odd">
 <td>RolenameJavaRegEx</td>
 <td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
+<p>Default: [a-zA-Z0-9._\-|//]{3,30}$</p></td>
 </tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
@@ -331,15 +331,14 @@ But; if your LDAP does not support to store user password as hashed values. You 
 <td>multi_attribute<br>_separator</td>
 <td>Multiple Attribute Separator</td>
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
-Default: “,”</td>
+<p>Default: “,”</p></td>
 </tr>
 <tr class="odd">
 <td>MaxUserName<br>ListLength </td>
 <td>max_user_name<br>_list_length</td>
 <td>Maximum User List Length</td>
 <td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and don't want to list them all. Setting this property to 0 displays all users.<br />
-Default: 100<br />
-<br />
+<p>Default: 100</p><br />
 In some user stores, there are policies to limit the number of records that can be returned from the query. Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it in the user store level.<br />
 Eg : Active directory has the MaxPageSize property with the default value 1000.</td>
 </tr>
@@ -348,8 +347,7 @@ Eg : Active directory has the MaxPageSize property with the default value 1000.<
 <td>max_role_name_<br>list_length</td>
 <td>Maximum Role List Length</td>
 <td><p>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and don't want to list them all. Setting this property to 0 displays all roles.<br />
-Default: 100<br />
-<br />
+<p>Default: 100</p><br />
 In some user stores, there are policies to limit the number of records that can be returned from the query, Setting the value 0 it will list the maximum results returned by the user store. If you need to increase that you need to set it n the user store level.</p>
 <p>Eg: Active directory has the MaxPageSize property with the default value 1000.</p></td>
 </tr>
@@ -358,7 +356,7 @@ In some user stores, there are policies to limit the number of records that can 
 <td>kdc_enabled</td>
 <td>Enable KDC</td>
 <td>If your user store is capable of acting as a Kerberos, Key Distribution Center (KDC) and if you like to enable it, set this property to true.<br />
-Default: false</td>
+<p>Default: false</p></td>
 </tr>
 <tr class="even">
 <td>UserRoles<br>CacheEnabled</td>
@@ -381,14 +379,14 @@ Possible values:<br />
 True: Enable connection pooling. Enabling it will improve the performance<br />
 False: Disable connection pooling
 <br />
-Default: false<br /></td>
+<p>Default: false</p><br /></td>
 </tr>
 <tr class="even">
 <td>LDAPConnection<br>Timeout</td>
 <td>ldap_connection<br>_timeout</td>
 <td>LDAP Connection Timeout</td>
 <td>Timeout in making the initial LDAP connection. This is configured in milliseconds.<br />
-Default: 5000</td>
+<p>Default: 5000</p></td>
 </tr>
 <tr class="odd">
 <td>ReadTimeout</td>
@@ -396,7 +394,7 @@ Default: 5000</td>
 <td>LDAP Read Timeout</td>
 <td>The value of this property is the read timeout in milliseconds for LDAP operations. If the LDAP provider cannot get a LDAP response within that period, it aborts the read attempt. The integer should be greater than zero. An integer less than or equal to zero means no read timeout is specified which is equivalent to waiting for the response infinitely until it is received.
 <br />
-Default: not configured</td>
+<p>Default: not configured</p></td>
 </tr>
 <tr class="odd">
 <td>Membership<br>AttributeRange</td>
@@ -419,7 +417,7 @@ Default: not configured</td>
 <td>If the connection to the LDAP is inactive for the length of time
 (in milliseconds) specified by this property, the connection
 will be terminated.
-<p>Default: not configured</p><br/>
+<p>Default: not configured</p>
 <p>Sample: 20</p>
 </td>
 </tr>
