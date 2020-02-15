@@ -141,12 +141,19 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td>UserNameAttribute</td>
 <td>user_name_attribute</td>
 <td>Username Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
+<td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p>
 <br/>
 sample values: sAMAccountName</td>
+</tr>
+<tr class="odd">
+<td>UserIDAttribute</td>
+<td>user_id_attribute</td>
+<td>User ID Attribute</td>
+<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the user ID.</p>
+<p>Default: scimId <br /></p></td>
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
