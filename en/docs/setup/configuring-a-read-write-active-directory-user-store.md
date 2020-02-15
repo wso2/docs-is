@@ -415,6 +415,13 @@ Default: not configured</td>
 <p>Default: not configured</p></td>
 </tr>
 <tr class="even">
+<td>UserIdSearchFilter</td>
+<td>user_id_search_filter</td>
+<td>UserID Search Filter</td>
+<td>This is a filtering criteria that is used to search a user entry.<br />
+<p>Default : (&amp;(objectClass=person)(uid=?))</p></td>
+</tr>
+<tr class="even">
 <td>java.naming.ldap.attributes.binary</td>
 <td>ldap_binary_attributes</td>
 <td>LDAP Binary Attributes</td>
