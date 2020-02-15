@@ -210,6 +210,6 @@ true in the SCIM2 user create request.
     ```
     
 !!! info "Related Links"
-    -   For information on how to edit an existing email template, see [Email Templates](../../learn/email-templates).
+    -   For information on how to edit an existing email template, see [Email Templates](../../learn/customizing-automated-emails).
     -   See [Configuring Claims](../../learn/configuring-claims) for more information on how to store
         the claim values in the user store.
