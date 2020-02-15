@@ -354,8 +354,8 @@ below steps:
             - Relying party for Oauth2 = OAuth Client Key  
 
         - Following are two sample values for Name and value:
-            - Name : wso2.mydashboard
-            - Value : https://localhost:9443/dashboard/index.jag         
+            - Name : USER_PORTAL
+            - Value : https://localhost:9443/user-portal/overview        
 
         - If you are using travelocity as the sample app, you can use the below values:
             - Name : travelocity.com

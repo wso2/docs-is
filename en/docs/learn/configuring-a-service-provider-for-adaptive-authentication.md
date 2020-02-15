@@ -24,7 +24,7 @@ Follow the steps below to set up the sample application to try out
 adaptive authentication using a sample application.
 
 1.  PickUp sample web application (SAML).
-    1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+    1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
     sample application.
 
     2.  Access the PickUp application URL at
@@ -37,13 +37,25 @@ adaptive authentication using a sample application.
 2.  Deploy the sample authenticator dependency and web application in
     WSO2 IS.
 
-    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+    1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar) file and paste it inside the
         `              <IS_HOME>/repository/components/dropins             ` directory.
-
-    2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
-        folder.  
-        This `             .war            ` file contains the WEB UI
-        for the sample authenticators used in this tutorial.
+        
+        !!! Note 
+            The 
+            `org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar`
+            contains implementation of the sample authenticators (Demo
+            HardwareKey authenticator, Demo Fingerprint authenticator, Demo
+            FaceID authenticator) used in this tutorial.
+            
+    2.  Download the
+        [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.1.0/sample-auth.war)
+        file and paste it inside the `
+        <IS_HOME>/repository/deployment/server/webapps ` folder.  
+        
+        !!! Note 
+            This `sample-auth.war ` file contains the WEB UI for
+            the sample authenticators used in this tutorial.
+            
     3.  Start the WSO2 IS server and test whether all the samples are
         configured successfully.
 
@@ -95,7 +107,7 @@ application by setting up inbound authentication.
 
 !!! Warning "Before you proceed" 
     In the previous step, you have deployed and
-    [registered the `saml2-web-app-pickup-dispatch.com` webapp](../../learn/deploying-the-sample-app/#configuring-service-provider_2).
+    [registered the `saml2-web-app-pickup-dispatch.com` webapp](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2).
     If you complete that you can skip steps 1 to 4 below and directly jump
     to step 5.
             

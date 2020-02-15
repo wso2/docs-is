@@ -383,7 +383,7 @@ provider as a federated identity provider.
 
 To configure the service provider, do the following.
 
-1.  Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) the `travelocity.com` sample application.
+1.  Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) the `travelocity.com` sample application.
     
 2.  Expand the **Local and Inbound Authentication** section and do one
     of the following configurations.

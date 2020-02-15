@@ -37,8 +37,6 @@ WSO2 Identity Server.
 The following topics provide information and instructions on how to use
 XACML to perform various access control related functions.
 
--   [Configuring WSO2 EI Entitlement Mediator with Identity
-    Server](../../learn/configuring-wso2-ei-entitlement-mediator-with-identity-server)
 -   [Enabling REST Notifications For XACML Policy
     Updates](../../learn/enabling-rest-notifications-for-xacml-policy-updates)
 -   [Identity Server as a XACML
@@ -49,8 +47,6 @@ XACML to perform various access control related functions.
     Format](../../learn/fine-grained-authorization-using-xacml-requests-in-json-format)
 -   [Improving XACML PDP Performance with Caching
     Techniques](../../learn/improving-xacml-pdp-performance-with-caching-techniques)
--   [Integrating WSO2 Identity Server with
-    Liferay](../../learn/integrating-wso2-identity-server-with-liferay)
 -   [Writing XACML2.0 Policies in WSO2 Identity
     Server](../../learn/writing-xacml2.0-policies-in-wso2-identity-server)
 -   [Writing XACML3 Policies in WSO2 Identity

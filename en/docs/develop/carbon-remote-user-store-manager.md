@@ -42,3 +42,9 @@ following steps.
 
 3.  Update other fields as required (description is give for each
     property) and click **Add**.
+
+4.  Import the public certificate of the remote WSO2 Identity Server
+    (IS2) to the primary WSO2 Identity Server's (IS1) truststore
+    (`client-truststore.jks`) that is in the
+    `<IS_HOME>/repository/resources/security` directory and restart WSO2
+    Identity Server.

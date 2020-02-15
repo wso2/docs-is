@@ -12,7 +12,7 @@ sections below to set this up.
     2.  [Download](https://tomcat.apache.org/download-80.cgi) and
         [install](https://tomcat.apache.org/download-80.cgi) Apache Tomcat
         version 8.\*.\* or higher.
-    3.  Install WSO2 IS version 5.7.0. by downloading the
+    3.  Install WSO2 IS version 5.9.0. by downloading the
         [installer](https://wso2.com/identity-and-access-management/install/).
     4.  Open the `           /etc/hosts          ` file, add the following
         entry, and restart your computer.  
@@ -132,10 +132,10 @@ sections below to set this up.
     instructions in this section if you are using your own application
     instead.
     
-1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-saml2-web-app-pickup-dispatch-webapp)
+1.  [Deploy and configure `saml2-web-app-pickup-dispatch`](../../learn/deploying-the-sample-app/#deploying-the-saml2-web-app-pickup-dispatch-webapp)
     sample application.
 2.  Edit the above
-    [configured service provider](../../learn/deploying-the-sample-app/#configuring-service-provider_2)
+    [configured service provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider_2)
     to configure **Google** as the federated Identity Provider. Expand
     **Local and Outbound Configuration** and select **Federated
     Authentication**.

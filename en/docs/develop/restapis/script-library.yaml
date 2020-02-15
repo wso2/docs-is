@@ -1,0 +1,473 @@
+openapi: 3.0.0
+info:
+  description: >
+    This document specifies a **Script Library Management RESTful API** for
+    **WSO2 Identity Server**
+  version: "1.0.0-oas3"
+  title: WSO2 Identity Server - Script Library Management API definition
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /script-libraries:
+    post:
+      tags:
+        - Script Libraries
+      summary: |
+        Add a new script library.
+      description: |
+        This API provides the capability to create a new Script library.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/create
+      operationId: addScriptLibrary
+      responses:
+        '201':
+          description: Successful response
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/scriptLibraryPOSTRequest'
+        description: This represents the script library to be created
+        required: true
+    get:
+      tags:
+        - Script Libraries
+      summary: |
+        List script libraries.
+      description: >
+        This API provides the capability to list Script Libraries.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
+      operationId: getScriptLibraries
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScriptLibraryListResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ScriptLibraryListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /script-libraries/{script-library-name}:
+    get:
+      tags:
+        - Script Libraries
+      summary: |
+        Get script library.
+      description: |
+        This API provides the capability to retrive the details of the script library using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
+      operationId: getScriptLibraryByName
+      parameters:
+        - name: script-library-name
+          in: path
+          description: Name of the script library
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScriptLibraryResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Script Libraries
+      summary: |
+        Delete a script library.
+      description: |
+        This API provides the capability to delete a script library using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/delete
+      operationId: deleteScriptLibrary
+      parameters:
+        - name: script-library-name
+          in: path
+          description: Name of the script library
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Script Libraries
+      summary: |
+        Update a script library.
+      description: |
+        This API provides the capability to update a script library using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/update
+      operationId: updateScriptLibrary
+      parameters:
+        - name: script-library-name
+          in: path
+          description: Name of the script library
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully Updated
+          headers:
+            Location:
+              description: Location of the updated script library.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/scriptLibraryPUTRequest'
+        description: This represents the script library details to be updated.
+        required: true
+  /script-libraries/{script-library-name}/content:
+    get:
+      tags:
+        - Script Libraries
+      summary: |
+        Get the content of the script library.
+      description: |
+        This API provides the capability to retrive the content of script library using its name.<br>
+        <b>Permission required:</b>
+         * /permission/admin/manage/functionsLibrarymgt/view
+      operationId: getScriptLibraryContentByName
+      parameters:
+        - name: script-library-name
+          in: path
+          description: Name of the script library
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/javascript:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+servers:
+  - url: 'https://{server-url}/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: "carbon.super"
+      server-url:
+        default: "localhost:9443"
+
+components:
+  parameters:
+    limitQueryParam:
+      in: query
+      name: limit
+      required: false
+      description: |
+        Maximum number of records to return.
+      schema:
+        type: integer
+        minimum: 1
+        default: 30
+    offsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      description: |
+        Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+  schemas:
+    ScriptLibrary:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'script library name'
+        description:
+          type: string
+          example: 'script library description'
+        self:
+          type: string
+          example: "/t/wso2.com/api/server/v1/script-libraries/test.js"
+
+    ScriptLibraryResponse:
+      type: object
+      required:
+        - "name"
+        - "content-ref"
+      properties:
+        name:
+          type: string
+          description: 'Name of the script library.'
+          example: 'script library name'
+        description:
+          type: string
+          description: 'Description of the script library.'
+          example: 'script library description'
+        content-ref:
+          type: string
+          description: 'Reference of the content of the script library.'
+          example: 'script library content reference'
+    ScriptLibraryListResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          description: 'Total number of script libraries.'
+          example: 10
+        startIndex:
+          type: integer
+          description: 'Starting index of the script library.'
+          example: 1
+        count:
+          type: integer
+          description: 'Number of script libraries in the list.'
+          example: 10
+        scriptLibraries:
+          type: array
+          description: 'Set of script libraries.'
+          items:
+            $ref: '#/components/schemas/ScriptLibrary'
+    scriptLibraryPOSTRequest:
+      type: object
+      required:
+        - name
+        - content
+      properties:
+        name:
+          type: string
+          description: 'Name of the script library.'
+          example: 'script library name'
+        description:
+          type: string
+          description: 'Description of the script library.'
+          example: 'script library description'
+        content:
+          type: string
+          description: 'Content or the code of the script library.'
+          format: binary
+    scriptLibraryPUTRequest:
+      type: object
+      required:
+        - content
+      properties:
+        description:
+          type: string
+          description: 'Description of the script library.'
+          example: 'script library description'
+        content:
+          type: string
+          description: 'Content or the code of the script library.'
+          format: binary
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: SLC-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047

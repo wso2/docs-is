@@ -28,9 +28,9 @@ authenticated user from the OpenID Connect UserInfo endpoint.
 ### Setting up the playground sample
 
 First follow the instructions in the
-[Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+[Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
 to set up the playground sample and
-[register](../../learn/deploying-the-sample-app/#configuring-service-provider_1)
+[register](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1)
 it in WSO2 IS. Once you have done so, [complete the user profile by
 adding user attributes and try out the scenario](#complete-user-profile).
 

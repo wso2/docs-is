@@ -21,6 +21,7 @@ Following are the minimum configurations that are needed to be provided to confi
 <th>Display Name</th>
 <th>Description</th>
 </tr>
+</thead>
 <tr class="even">
 <td>type</td>
 <td>User Store Type</td>
@@ -35,7 +36,6 @@ should be active_directory.
 Sample values: ou=Users,dc=wso2,dc=org</td>
 </tr>
 </table>
-</thead>
 
 Following are the minimum user store properties that need to be provided to configure Read-only LDAP user store manager.
 
@@ -79,8 +79,8 @@ Sample values: uid=admin,ou=system</p></td>
 <td>Connection Password</td>
 <td>Password for the ConnectionName user.</td>
 </tr>
+</tbody>
 </table>
-</thead>
 
 
 Replace the default `user_store` configuration in the `         <IS_HOME>/repository/conf/deployment.toml        
@@ -188,7 +188,6 @@ In this case, the search operation only provides the objects created from the pe
 Possible values:<br />
 true: Read groups from user store<br />
 false: Don’t read groups from user store</td>
-</td>
 </tr>
 <tr class="odd">
 <td>WriteGroups</td>
@@ -425,6 +424,28 @@ Default: not configured</td>
 <td>retry_attempts</td>
 <td>Retry Attempts</td>
 <td>Retry the authentication request if a timeout happened
+<p>Default: not configured</p></td>
+</tr>
+<tr class="even">
+<td>java.naming.ldap.attributes.binary</td>
+<td>ldap_binary_attributes</td>
+<td>LDAP Binary Attributes</td>
+<td>Configure this to define the LDAP binary attributes separated by a space.
+<p>Default: not configured</p></td>
+</tr>
+<tr class="odd">
+<td>ImmutableAttributes</td>
+<td>immutable_attributes</td>
+<td>Immutable Attributes</td>
+<td>This is a comma-separated list of immutable attributes that are maintained in the user store.
+<p>Default: not configured</p></td>
+</tr>
+<tr class="even">
+<td>TimestampAttributes</td>
+<td>timestamp_attributes</td>
+<td>Timestamp Attributes</td>
+<td>This is a comma-separated list of user store attributes that have the data type of Timestamp and may require a 
+conversion when reading from/writing to user store.
 <p>Default: not configured</p></td>
 </tr>
 </tbody>

@@ -41,7 +41,7 @@ the `          <IS_HOME>/repository/logs         ` directory.
 !!! note  
     WSO2 Identity Server generates other log 
     files in addition to the Carbon logs, Audit logs, HTTP access logs,
-    Patch logs, and Service/Event logs. For more information, see [Moniotring the Identity Server](../../setup/monitoring-the-identity-server).
+    Patch logs, and Service/Event logs. For more information, see [Monitoring the Identity Server](../../setup/monitoring-the-identity-server).
 
 ### Configuring WSO2 Identity Server for log monitoring
 

@@ -1,7 +1,10 @@
 ---
 template: templates/swagger.html
 ---
-??? Note "Click to view"
+
+# User's Session Management API Definition - v1
+
+??? Note "Click For Instructions"
     Before invoking the session management REST APIs, create some sessions for the user. You can create active 
     sessions for the users as follows.
        1. Register a service provider in the WSO2 Identity Server so that the authentication for the application will

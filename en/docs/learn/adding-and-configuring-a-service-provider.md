@@ -95,7 +95,7 @@ the following:
         Therefore, the certificate is used for the following scenarios:
 
         -   [Configuring single
-            sign-on](../../learn/configuring-single-sign-on#configuring-the-service-provider) -
+            sign-on](../../learn/configuring-single-sign-on-saml#setting-up) -
             the certificate is used to validate the signature of the SAML2
             authentication requests and the SAML2 logout requests that are
             sent by the service provider.

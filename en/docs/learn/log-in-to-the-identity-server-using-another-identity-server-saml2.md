@@ -115,7 +115,7 @@ in the secondary IS instance.
 The client application in this scenario is the travelocity sample
 application.
 
-1.  [Deploy travelocity application and configure it as a service provider](../../learn/deploying-the-sample-app#deploying-travelocity-webapp) in the primary Identity Server instance. 
+1.  [Deploy travelocity application and configure it as a service provider](../../learn/deploying-the-sample-app#deploying-the-travelocity-webapp) in the primary Identity Server instance. 
  
 2.  After adding the client application as a service provider in the
     primary Identity Server instance, navigate to the **Main** menu and

@@ -4,17 +4,16 @@ SAML stands for Security Assertion Markup Language which is a XML based data for
 
 Let's start configuring SAML2 Web SSO.
 
-!!! tip "Before you begin"
-    In order to configure Single-Sign-On (SSO) for SAML2, you must first [register a service provider for inbound authentication](../../learn/configuring-inbound-authentication-for-a-service-provider). To register a service provider:
-
-    1.  Sign in to WSO2 Identity Server Management Console as an admin.
-
-    2.  On the Main menu, click Identity > Service Providers > Add.
-
-    3.  Enter a service provider name.
-
-    4.  Click Register. The Service Provider Details page appears.
-
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	 
 To configure SAML2 Web SSO:
 
 1.  Expand the **SAML2 Web SSO Configuration** and click **Configure**.
@@ -375,8 +374,8 @@ of entity configuration.
     information on SAML2 single-sign-on and see the following topics for
     samples of configuring single-sign-on using SAML2.
 
-    -   [Configuring Single
-        Sign-On](../../learn/configuring-single-sign-on)
+    -   [Configuring Single Sign-On Using SAML](../../learn/configuring-single-sign-on-saml)
+    -   [Configuring Single Sign-On Using OpenID Connect](../../learn/configuring-single-sign-on-oidc)
     -   [Logging in to WSO2 Products via Identity
         Server](../../learn/logging-in-to-salesforce-with-integrated-windows-authentication)
     -   [Configuring SAML2 Single-Sign-On Across Different WSO2

@@ -113,6 +113,18 @@ html .md-typeset .superfences-tabs > label:hover {
     background-color: #dedede;
 }
 
+.md-search__input::-webkit-input-placeholder {
+    color: #404040;
+}
+
+.md-search__input:-ms-input-placeholder {
+    color: #404040;
+}
+
+.md-search__input::-ms-input-placeholder {
+    color: #404040;
+}
+
 .md-search__input::placeholder {
     color: #404040;
 }
@@ -864,6 +876,22 @@ html .md-footer-meta.md-typeset a,
     display: none;
 }
 
+.swagger-ui .info .title {
+    display: none;
+}
+
+.swagger-ui .info .info__contact {
+    display: none;
+}
+
+.swagger-ui .info .info__license {
+    display: none;
+}
+
+.swagger-ui .info .info__tos {
+    display: none;
+}
+
 @media screen and (max-width: 767px) {
    .wrapper {
         height: 700px;
@@ -993,4 +1021,10 @@ html .md-footer-meta.md-typeset a,
 
 .md-sidebar__scrollwrap {
     margin: 0;
+}
+
+/* add padding to avoid 'copy to clipboard' being covered */
+
+.md-typeset .codehilite {
+    padding-right: 50px;
 }

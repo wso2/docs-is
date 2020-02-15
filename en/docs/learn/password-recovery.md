@@ -53,30 +53,16 @@ with email notification.
     ```
 
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service. 
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
     
-    The email address configured here is the email account that will be
-    used to send password recovery email notifications to users.
-
-    ``` toml
-    [output_adapter.email]
-    from_address= "wso2iamtest@gmail.com"
-    username= "wso2iamtest"
-    password= "Wso2@iam70"
-    hostname= smtp.gmail.com
-    port= 587
-    enable_start_tls= true
-    enable_authentication= true
-    ```
-
     !!! tip
         The email template used to send this email notification is
         the **PasswordReset** template.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
-        Emails](../../learn/customizing-automated-emails)
-.
+        Emails](../../learn/customizing-automated-emails).
     
 2.  Start the WSO2 Identity Server and log in to the management console.
 3.  Click on **Resident** found under the **Identity Providers** section

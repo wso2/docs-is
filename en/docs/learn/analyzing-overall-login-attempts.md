@@ -34,35 +34,38 @@ visualization.
 Let's analyze the overall authentication activities with the following
 widgets.
 
-##### **Description**
+## Overall Login Attempts Over Time
+
+### **Description**
 
 This chart presents the **total number of login attempts** that are made
 during the selected time interval.
 
-##### **Purpose**
+### **Purpose**
 
 This chart allows deriving **the login patterns and detect deviations**
 that may due to unusual occurrences such as attacks, system downtime,
 etc.
 
-![]( ../assets/img/103329291/103329299.png) 
+<img src="../../assets/img/103329291/103329299.png" alt="Login Attempts Over Time widget" width="500"> 
 
-  
+## Compact Summary of Overall Login Attempts  
 
-  
-
-##### Description
+### **Description**
 
 This chart presents a **summary of the overall login attempts**.
 
-##### Purpose
+### **Purpose**
 
 This chart allows identifying the percentages of the successful and
 failed login attempts.
 
-![]( ../assets/img/103329291/103329302.png) 
+<img src="../../assets/img/103329291/103329302.png" alt="Login Attempts Over Time widget" width="500"> 
 
-##### Description
+
+## Map View of Overall Login Attempts    
+
+### **Description**
 
 This chart presents the login attempts in a map view based on the IP
 addresses.
@@ -74,9 +77,9 @@ addresses.
     In order for this widget to work, configure the gel location database.
     For more information, see [Enabling Geolocation Based
     Statistics](../../learn/enabling-geolocation-based-statistics).
-    
 
-##### Purpose
+
+### **Purpose**
 
 -   This chart allows viewing the countries from which the logins were
     attempted.
@@ -86,45 +89,49 @@ addresses.
 -   The **toggle key** helps to switch from the success view and failure
     view.
 
-![]( ../assets/img/103329291/103329292.png) 
+<img src="../../assets/img/103329291/103329292.png" alt="Login Attempts Over Time widget" width="500"> 
 
-##### Description
+
+
+## Details Of Login Attempts By Service Provider
+
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by service provider.
 -   Pagination is available if the statistics involve more than ten
     service providers.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the login attempts sorted based on the service
 providers.
 
-![]( ../assets/img/103329291/103329297.png) 
+
+<img src="../../assets/img/103329291/103329297.png" alt="Login Attempts Over Time widget" width="500"> 
 
   
-
+## Details Of Login Attempts By User
   
 
-##### Description
+### **Description**
 
 -   This chart presents the successful and failed login attempts sorted
     by users.
 -   Pagination is available if the statistics involve more than ten
     users.
 
-##### Purpose
+### **Purpose**
 
 This chart allows viewing the login attempts sorted based on the user
 names.
 
-![]( ../assets/img/103329291/103329296.png) 
+<img src="../../assets/img/103329291/103329296.png" alt="Login Attempts Over Time widget" width="500"> 
 
-  
+ 
+## Full Details Of Each Login Attempt 
 
-  
-
-##### Description
+### **Description**
 
 -   This widget presents details of each login attempt including the
     context ID, user name, service provider, subject step, roles, tenant
@@ -133,9 +140,8 @@ names.
 -   The login attempts can be sorted in the ascending/descending order
     by the fields in the table if required.
 
-##### Purpose
+### **Purpose**
 
 This widget allows view the details of each login attempt.
 
-  
-![]( ../assets/img/103329291/103329294.png) 
+<img src="../../assets/img/103329291/103329294.png" alt="Login Attempts Over Time widget" width="500"> 

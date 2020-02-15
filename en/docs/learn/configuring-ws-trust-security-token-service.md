@@ -112,7 +112,7 @@ The next step is to add a service provider to consume the STS.
 Do the following steps if you are using a Holder of Key **subject
 confirmation method**. For more information, see [Configuring STS for
 Obtaining Tokens with Holder-Of-Key Subject
-Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-key-subject-confirmation).
+Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-of-key-subject-confirmation).
 
 !!! info
 	The **Subject confirmation methods** define how a relying party (RP),
@@ -122,10 +122,17 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 	request it wants including that token. The RP trusts that illegitimate
 	party.
 	
-!!! note "Before you begin"
-	Configure a service provider. For instructions, see [Configuring a Service Provider](../../learn/adding-and-configuring-a-service-provider).	
-
-1.  Under the **Inbound Authenticatino Configuration** section, click
+!!! Tip "Before you begin"	
+    You must first
+    [register a service provider](../../learn/adding-and-configuring-a-service-provider/#adding-a-service-provider).
+    To register a service provider:
+	 
+	 1. Sign in to WSO2 Identity Server Management Console as an admin.
+	 2. On the Main menu, click **Identity** > **Service Providers** > **Add**.
+	 3. Enter a service provider name.
+	 4.	Click Register. The Service Provider Details page appears.
+	 
+1.  Under the **Inbound Authentication Configuration** section, click
     **WS-Trust Security Token Service Configuration** **\>**
     **Configure**. The STS Configuration page appears.  
     ![sts-config](../assets/img/tutorials/sts-config.png)
@@ -149,7 +156,7 @@ Confirmation](../../learn/configuring-sts-for-obtaining-tokens-with-holder-Of-ke
 					  <p>The endpoint must be used as the service <code>                  URL                 </code> to which the token gets delivered by the STS client. Then select the public certificate imported. Tokens issued are encrypted using the public certificate of the trusted relying party. Therefore, the consumer who obtains this token, to invoke the RP service, will not be able to see the token.</p> 
 		    		   <div class="admonition note">
 						<p class="admonition-title">Note</p>
-		    		   		 Make sure to upload the certificate of the relying party to the truststore. For instructions, see <a href="https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores">Adding CA-signed ceritificates to keystores</a>.</div>
+		    		   		 Make sure to upload the certificate of the relying party to the truststore. For instructions, see <a href="https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores">Adding CA-signed certificates to keystores</a>.</div>
 					  <br/>
 				   </div>
 				</div>

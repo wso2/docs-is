@@ -160,10 +160,10 @@ Follow the below steps to enable ID Token Encryption:
 ## Testing the flow - Implicit Grant Type
 
 1.  Follow the steps
-    [here](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+    [here](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
     to download,
     [deploy](../../learn/deploying-the-sample-app/#deploy-the-sample-web-app)
-    and [register](../../learn/deploying-the-sample-app/#deploy-the-sample-web-application) `playground2` application.
+    and [register](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1) `playground2` application.
 
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
@@ -212,7 +212,7 @@ Follow the below steps to enable ID Token Encryption:
 ## Testing the flow - Password Grant Type
 
 1.  You must first
-    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
     in order to try this scenario.
 
 2.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to

@@ -7,6 +7,23 @@ configuration files. The controls in the Management Console are usually
 self-explanatory. This page provides an overview of the User Interface of the 
 management console. 
 
+!!! Info 
+    You can access the management console of the WSO2 Identity
+    server at `https://<server-host>:<server-port>/carbon`. When the server
+    is [running](../../setup/running-the-product/#starting-the-server)
+    running in your local setup:
+            
+    ```
+    https://localhost:9443/carbon
+    ```
+    The default credentials for a administrative user is as follows. It is a
+    must that you change this administrator credentials in your deployment.
+    
+    ```java
+    username = admin
+    password = admin
+    ```
+
 The following screen depicts the home screen of the management console.
 
 ![server-home-management-console](../../assets/img/setup/management-console/server_home_management_console.png)

@@ -10,69 +10,9 @@ The configuration differs based on the type of notifications you want to
 send to the external endpoint. The following instructions provide
 information on how to send an email when a user operation takes place.
 
-1.  Enable axis2 email transport sender by addig your SMTP provider values to `deployment.toml` as the following
-    example.
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending)
     
-    -   **mail.smtp.from** - The mail address from where you want to
-        send the notification. It can be any working mail address.
-
-    -   **mail.smtp.user** - User name of the the mail you have provide
-        in **mail.smtp.from.**
-
-    -   **mail.smtp.password** - Password of the mail you have provided
-        in **mail.smtp.from.**
-
-    -   **mail.smtp.host** - The SMTP server to connect to.
-
-    -   **mail.smtp.port** - The SMTP server port to connect to, if the
-        connect() method does not explicitly specify one. Defaults
-        to 25.
-
-    -   **mail.smtp.starttls.enable** - If true, enables the use of the
-        `             STARTTLS            ` command (if supported by the
-        server) to switch the connection to a TLS-protected connection
-        before issuing any login commands. Note that an appropriate
-        trust store must configured so that the client will trust the
-        server's certificate. Defaults to false.
-
-    -   **mail.smtp.auth** - If true, attempt to authenticate the user
-        using the AUTH command. Defaults to false.
-
-    For information about the SMTP, see
-    [here](https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html)
-    .
-
-    ``` xml
-    [output_adapter.email]
-    from_address = "wso2demomail@gmail.com"
-    username = "wso2demomail"
-    password = "mailpassword"
-    hostname = "smtp.gmail.com"
-    port = "587"
-    enable_start_tls = true
-    enable_authentication = true
-    ```
-
-    !!! note
-    
-        If you are using a Google mail account, note that Google has
-        restricted third-party apps and less secure apps from sending emails
-        by default. Therefore, you need to configure your account to disable
-        this restriction, as WSO2 Identity Server acts as a third-party application when
-        sending emails to confirm user registrations or notification for
-        password reset WSO2 Identity Server.     
-           
-        Follow the steps given below to enable your Google mail account to
-        provide access to third-party applications.
-    
-        1.  Navigate to <https://myaccount.google.com/security>.
-        2.  Click **Signing in to Google** on the left menu and make sure
-            that the **2-step Verification** is disabled or off.  
-            ![google-2-step-verification](../assets/img/using-wso2-identity-server/google-2-step-verification.png)
-        3.  Click **Connected apps and sites** on the left menu and enable
-            **Allow less secure apps**.  
-            ![allow-less-secure-apps](../assets/img/using-wso2-identity-server/allow-less-secure-apps.png)
-
 2.  Configure the
     `           <IS_HOME>/repository/conf/identity/msg-mgt.properties          `
     file with the desired destination configurations and template

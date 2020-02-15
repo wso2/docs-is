@@ -10,7 +10,7 @@ Grant](../../learn/resource-owner-password-credentials-grant)
 
 !!! note "Before you begin" 
     You must first
-    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+    [set up the `playground` sample webapp.](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
     in order to try the following scenario.        
 
 1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
@@ -19,27 +19,39 @@ Grant](../../learn/resource-owner-password-credentials-grant)
 
     **Authorization Grant Type:** Resource Owner  
     **Client ID:** (the client id received at the [application
-                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
     **Client Secret:** (client secret received at the [application
-                                    registration](../../learn/deploying-the-sample-app/#configuring-service-provider_1))  
+                                    registration](../../learn/deploying-the-sample-app/#configuring-the-service-provider_1))  
     **Resource Owner User Name:** (username)  
     **Resource Owner Password:** (password of the user)  
     **Authorize Endpoint:** https://localhost:9443/oauth2/authorize
     
     **Token Endpoint:** https://localhost:9443/oauth2/token
 
-    !!! info 
-        If you have configured the service provider in a tenant, you have to
-        add the tenant domain as a query parameter to the access token
-        endpoint.
-
-        If the tenant domain is *[wso2.com](http://wso2.com)*, access token
-        endpoint will be as follows.
-
-        Access Token Endpoint:
-        <https://localhost:9443/oauth2/token?tenantDomain=wso2.com>
-
-    ![tenant-domain-token-endpoint](../assets/img/using-wso2-identity-server/tenant-domain-token-endpoint.png) 
+    ![password-grant-token-endpoint](../assets/img/using-wso2-identity-server/password-grant-token-endpoint.png) 
+    
+    !!! Tip 
+        The playground application will send a token request to the
+        **token** endpoint of the WSO2 Identity Server using the following
+        format.
+        ```java
+        POST
+        https://<host>:<port>/oauth2/token
+        Authorization: Basic [Base64encode(Client-ID>:<ClientSecret>)]
+        Content-Type: application/x-www-form-urlencoded
+        
+        grant_type=password&username=<Resource Owner User Name>&password=<Resource Owner Password>
+        ```
+            
+        !!! Example
+            ```java
+            POST
+            https://localhost:9443/oauth2/token
+            Authorization: Basic Q3g0TEtGTk9iZXVYb2N4N3hnT3B6NXZmekZvYTogVWRUNm5XbnFXWkdnNDFHWnI5TXBTWGs5eU04YQ==
+            Content-Type: application/x-www-form-urlencoded
+            
+            grant_type=password&username=admin&password=admin
+            ``` 
 
 3.  At this point the application receives the Access Token. Enter the
     introspection endpoint (i.e,

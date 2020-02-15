@@ -12,7 +12,7 @@ This application is used to request access tokens using the four OAuth2 grant ty
 
 To obtain and configure the Playground sample, follow the instructions
 included in the following pages. Start by [setting up the
-sample playground webapp](../../learn/deploying-the-sample-app/#deploying-playground2-webapp)
+sample playground webapp](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp)
 and proceed on to try it with any of the following OAuth 2.0 grant types
 supported with WSO2 Identity Server.
 

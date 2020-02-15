@@ -109,8 +109,8 @@ For example :
 scim_enabled = true
 ```
 
-!!! tip 
-    Below properties can also be configured for a secondary user store through the management console.
+!!! note 
+    In the table given below, the `Primary User Store Property` column has the `PRIMARY` userstore properties that can be configured in the `deployment.toml` file. The `Secondary User Store Property` column has the properties that can be configured for a secondary user store through the Management Console.
 
 <table>
 <thead>

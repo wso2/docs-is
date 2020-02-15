@@ -2,10 +2,13 @@
 
 The SMSOTP authenticator allows you to authenticate user via SMS through WSO2 IS.
 
-This topic provides instructions on how to configure the SMS OTP connector and the WSO2 
-Identity Server (WSO2 IS) to integrate using a sample app. This is configured so that 
-SMSOTP is a second authentication factor for the sample application. See the following 
-sections for more information.
+!!! info 
+    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
+    
+This document explains how to configure the SMS OTP connector with WSO2
+Identity Server.
+
+Let's get started!
 
 ## Enable SMSOTP
 
@@ -116,16 +119,6 @@ redirectToMultiOptionPageOnFailure = false
     This could change significantly between different SMS providers. The configuration of the 
     connector in the identity provider would also change based on this.
 
-## Deploying travelocity sample application
-
-Follow this guide to
-[deploy and configure the `travelocity.com` sample app](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) in order to try this scenario.
-
-Once this is done, the next step is to configure the WSO2 Identity
-Server by adding an [identity
-provider](../../learn/adding-and-configuring-an-identity-provider)
-and a [service provider](../../learn/adding-and-configuring-a-service-provider).
-
 ## Configuring the identity provider
 
 Now you have to configure WSO2 Identity Server by adding a new identity
@@ -144,7 +137,7 @@ provider.
         
 3.  Navigate to the
     `           <IS_HOME>/repository/resources/security          `
-    directory via the terminal and i mport the downloaded certificate
+    directory via the terminal and import the downloaded certificate
     into the WSO2 IS client keystore.
 
     ``` java
@@ -201,7 +194,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=$ctx.num&text=$ctx.msg </code></td>
+			<td><code> https://rest.nexmo.com/sms/json?api_key=&api_secret=&from=NEXMO&to=\$ctx.num&text=\$ctx.msg </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
@@ -302,7 +295,7 @@ provider.
 			<tbody>
 			<tr class="odd">
 			<td><strong>SMS URL</strong></td>
-			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=$ctx.msg&msisdn=$ctx.num  </code></td>
+			<td><code> https://bulksms.vsms.net/eapi/submission/send_sms/2/2.0?username=&password=&message=\$ctx.msg&msisdn=\$ctx.num  </code></td>
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Method</strong></td>
@@ -345,7 +338,7 @@ provider.
 			</tr>
 			<tr class="even">
 			<td><strong>HTTP Payload</strong></td>
-			<td><code> Body=$ctx.msg&To=$ctx.num&From=urlencode{FROM_NUM} </code></td>
+			<td><code> Body=\$ctx.msg&To=\$ctx.num&From=urlencode{FROM_NUM} </code></td>
 			</tr>
 			</tbody>
 			</table></html>
@@ -362,10 +355,11 @@ provider.
 
 The next step is to configure the service provider.
 
-1.  In the [Deploying travelocity sample application section](#deploying-travelocity-sample-application) you have
-    [configured a service provider](../../learn/deploying-the-sample-app/#configuring-service-provider)
-    in WSO2 Identity server. Now edit the service provider to configure
-    **SMS OTP**.
+1. Navigate to **Main** tab -> **Identity** -> **Identity Providers** -> **Add**.
+
+2. Give a suitable name (e.g., saml-dispatch) as the **Service Provider Name**.
+
+3. Configure Inbound Authentication for the service provider. For instructions, see [Configuring Inbound Authentication for a Service Provider](../../learn/configuring-inbound-authentication-for-a-service-provider)
 
 6.  Go to **Claim configuration** and select the
     **`            http://wso2.org/claims/mobile           `** claim for
@@ -460,8 +454,7 @@ backup codes, follow the steps given below.
 4.  Add a **Display Name** and **Description**. For example, `Backup
     Code`.
     
-5.  Enter `            postalcode           ` as the value for
-    **Mapped Attribute**.
+5.  Enter `postalcode ` as the value for **Mapped Attribute**.
     
 6.  Select **Supported by Default**.
 
@@ -483,30 +476,5 @@ backup codes, follow the steps given below.
 
     ![define-backup-codes](../assets/img/tutorials/define-backup-codes.png)
 
-## Testing the sample
-
-1.  To test the sample, go to the following URL:
-    <http://wso2is.local:8080/travelocity.com>  
-
-    ![testing-travelocity](../assets/img/tutorials/testing-travelocity.jpeg)
-
-2.  Click the link to log in with SAML from WSO2 Identity Server.
-
-3.  The basic authentication page will be visible. Use your WSO2
-    Identity Server credentials to sign in.  
-    ![basic-authentication-page](../assets/img/tutorials/basic-authentication-page.jpeg)
-
-4.  You will get a token to your mobile phone.Type the code to
-    authenticate, You will be taken to the home page of the
-    travelocity.com app.
-
-    !!! note
-    
-        If you do not have access to your mobile phone, you can
-        use the [backup codes defined for the
-        user](#ConfiguringSMSOTP-backup) to authenticate the user and you
-        are taken to the home page of the travelocity.com application
-    
-
-    ![authenticating-with-sms-otp](../assets/img/tutorials/authenticating-with-sms-otp.jpeg)
-    ![travelocity-home-page](../assets/img/tutorials/travelocity-home-page.jpeg)
+!!! info
+    For a full tutorial demonstrating multi-factor authentication with SMSOTP using a sample application, see  [Configuring Multifactor Authentication](../../learn/configuring-multifactor-authentication). 

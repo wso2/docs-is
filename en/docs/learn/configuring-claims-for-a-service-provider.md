@@ -147,7 +147,7 @@ below.
     To test out mandatory claims,
         
     1.  Configure the travelocity sample application by
-        following the steps in the [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp). 
+        following the steps in the [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp). 
         
     2.  Configure a few claims and select the checkbox for
         mandatory claims.
