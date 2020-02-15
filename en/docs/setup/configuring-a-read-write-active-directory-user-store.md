@@ -26,7 +26,7 @@ Following are the minimum configurations that are needed to be provided to confi
 <td>type</td>
 <td>User Store Type</td>
 <td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be active_directory.
+should be active_directory_unique_id.
 </td>
 </tr>
 <tr class="odd">
@@ -88,7 +88,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 
 ```toml
 [user_store]
-type = "active_directory"
+type = "active_directory_unique_id"
 base_dn = "cn=Users,dc=wso2,dc=org"
 connection_url = "ldaps://10.100.1.102:639"
 connection_name = "cn=admin,ou=system"

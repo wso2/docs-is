@@ -211,19 +211,19 @@ that you have in your environment.
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>               org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager              </code></td>
+<td><code>               org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager              </code></td>
 <td><p>If your user details are stored in a database, you must use this user store manager implementation. With the abstraction provided in this implementation, most of the JDBC based scenarios can be handled without writing a custom user store manager.</p></td>
 </tr>
 <tr class="even">
-<td><code>               org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager              </code></td>
 <td><p>You can use this class if you have an LDAP user store. This implementation does not allow you to insert or update users from the WSO2 product side. Instead you can only read and use them in the product.</p></td>
 </tr>
 <tr class="odd">
-<td><code>               org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager              </code></td>
 <td><p>If you want to allow the WSO2 product to manipulate user store data, you need to use this implementation.</p></td>
 </tr>
 <tr class="even">
-<td><code>               org.wso2.carbon.user.core.ldap.ActiveDirectoryLDAPUserStoreManager              </code></td>
+<td><code>               org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryLDAPUserStoreManager              </code></td>
 <td><p>Active Directory also can be used as the user store of a WSO2 product and you can configure it using this user store manager implementation.</p></td>
 </tr>
 </tbody>

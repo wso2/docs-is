@@ -21,7 +21,7 @@ The following are the minimum configurations that are needed to be provided to c
 <td>type</td>
 <td>User Store Type</td>
 <td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap.
+should be read_only_ldap_unique_id.
 </td>
 </tr>
 <tr class="odd">
@@ -83,7 +83,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 
 ``` toml
 [user_store]
-type = "read_write_ldap"
+type = "read_write_ldap_unique_id"
 base_dn = "ou=system"
 connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"

@@ -40,22 +40,22 @@ There are two steps involved in setting up the primary user store:
     <tbody>
     <tr class="odd">
     <td><p>LDAP ActiveDirectory</p></td>
-    <td><code>               org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager              </code></td>
+    <td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager              </code></td>
     <td>Used to do read-only operations for external LDAP or ActiveDirectory user stores.</td>
     </tr>
     <tr class="even">
     <td>LDAP</td>
-    <td><code>               org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager              </code></td>
+    <td><code>               org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager              </code></td>
     <td>Used for external LDAP user stores to do both read and write operations.This is the default primary user store configuration in the deployment.toml file for WSO2 Identity Server.</td>
     </tr>
     <tr class="odd">
     <td>ActiveDirectory</td>
-    <td><code>               org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager              </code></td>
-    <td>Used to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used only for read/write operations. If you need to use AD as read-only, you must use <code>               org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager.              </code></td>
+    <td><code>               org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager              </code></td>
+    <td>Used to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used only for read/write operations. If you need to use AD as read-only, you must use <code>               org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager.              </code></td>
     </tr>
     <tr class="even">
     <td>JDBC</td>
-    <td><code>               org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager              </code></td>
+    <td><code>               org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager              </code></td>
     <td>Used for JDBC user stores. This is the default primary user store configuration in the deployment.toml file for all WSO2 Servers, except WSO2 Identity Server.</td>
     </tr>
     </tbody>
@@ -63,6 +63,11 @@ There are two steps involved in setting up the primary user store:
 
     Or you can configure your own custom user store manager as well
     [Writing a custom user store manager](../../setup/writing-a-custom-user-store-manager)
+
+    !!! tip
+        From WSO2 IS 5.10.0 onwards, all user store managers have **`UniqueID`** included as part of the user store manager name (e.g., **`UniqueIDJDBCUserStoreManager`**). Use one of these when selecting the user store manager. 
+        
+        The user store managers that do not have **`**UniqueID`** as part of the user store manager name are **only** available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 Identity Server. 
 
 2.  Configure user store manager properties.  
     In the following pages, you can find the information on the

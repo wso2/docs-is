@@ -21,7 +21,7 @@ Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]
-type = "database"
+type = "database_unique_id"
 ```
    By default it will use the  `database.shared_db` 
    configurations in the `         deployment.toml       `  file. As the datasource configuration.
