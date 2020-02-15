@@ -110,7 +110,7 @@ For example :
 
 ``` toml
 [user_store]
-scim_enabled = true
+read_groups = true
 ```
 
 !!! tip 
@@ -141,12 +141,19 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td>UserNameAttribute</td>
 <td>user_name_attribute</td>
 <td>Username Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
+<td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p>
 <br/>
 sample values: sAMAccountName</td>
+</tr>
+<tr class="odd">
+<td>UserIDAttribute</td>
+<td>user_id_attribute</td>
+<td>User ID Attribute</td>
+<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID.</p>
+<p>Default: ObjectGUID <br /></p></td>
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
@@ -313,18 +320,6 @@ Default: Password length should be within 5 to 30 characters</td></tr>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
 </tr>
-<tr class="even">
-<td>SCIMEnabled</td>
-<td>scim_enabled</td>
-<td>Enable SCIM</td>
-<td>This is to configure whether user store is supported for SCIM provisioning.<br />
-<br />
-Possible values:<br />
-True : User store support for SCIM provisioning.<br />
-False: User does not store support for SCIM provisioning.
-<br />
-Default: false</td>
-</tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>
 <td>password_hash_method</td>
@@ -425,6 +420,13 @@ Default: not configured</td>
 <td>Retry Attempts</td>
 <td>Retry the authentication request if a timeout happened
 <p>Default: not configured</p></td>
+</tr>
+<tr class="even">
+<td>UserIdSearchFilter</td>
+<td>user_id_search_filter</td>
+<td>UserID Search Filter</td>
+<td>This is a filtering criteria that is used to search a user entry.<br />
+<p>Default : (&amp;(objectClass=person)(uid=?))</p></td>
 </tr>
 <tr class="even">
 <td>java.naming.ldap.attributes.binary</td>

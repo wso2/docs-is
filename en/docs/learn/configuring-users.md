@@ -93,16 +93,6 @@ be done using a SCIM request as seen below.
       an email to that email address to confirm the account and set the
       password.
 
-!!! info 
-      Before running the SCIM APIs, make sure you change the SCIMEnabled
-      property to "true" for the primary userstore in the
-      `           <IS_HOME>/repository/conf/deployment.toml        ` file.
-
-      ``` toml
-      [user_store]
-      scim_enabled  =  true
-      ```
-
 **Request**
 
 ``` xml

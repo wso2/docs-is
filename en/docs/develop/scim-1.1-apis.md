@@ -39,15 +39,6 @@ exchanged and also protected with Basic Auth Authentication.
     sending requests to the REST endpoints of WSO2 Identity Server as a
     quick start. **In a production environment, we recommend that you use
     OAuth Authentication instead.** For instructions, see [Setting Up Service Provider for Inbound Provisioning](../../learn/setting-up-service-provider-for-inbound-provisioning/).
-    
-
-Before you begin working with SCIM APIs, make sure that the following
-UserStoreManager configuration is set in the `<IS_HOME>/repository/conf/deployment.toml` file.
-
-``` toml
-[user_store]
-scim_enabled = true
-```
 
 -   **Create User** : The following command can be used to create a
     user.
