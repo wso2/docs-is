@@ -2,33 +2,32 @@
 
 Clustering services in production environments will enable applications to scale up
 and achieve high availability. By scaling up, the application can
-support more user requests and via high availability, the service will 
-be seamlessly available even when a several servers are down. Load balancing 
-is the most straightforward method of scaling out a server infrastructure. Load 
-balancing is the process of efficiently distributing network traffic across 
+support more user requests and via high availability, the service will
+be seamlessly available even when a several servers are down. Load balancing
+is the most straightforward method of scaling out a server infrastructure. Load
+balancing is the process of efficiently distributing network traffic across
 multiple servers of a service.
 
-![load-balancing](../../assets/img/administer/load balancing/load-balancing.png)
+![load-balancing](../assets/img/administer/load-balancing/load-balancing.png)
 
 ## Load Balancer
 
-A load balancer can be a device or software which is capable of distributing network 
-traffic across a cluster of servers. Simply, a load balancer acts a cop whose is trying 
-to minimize the traffic in roads. A load balancer sits in between the clients and the servers 
-accepting incoming network traffic and routing those requests backend servers so that minimum 
+A load balancer can be a device or software which is capable of distributing network
+traffic across a cluster of servers. Simply, a load balancer acts a cop whose is trying
+to minimize the traffic in roads. A load balancer sits in between the clients and the servers
+accepting incoming network traffic and routing those requests backend servers so that minimum
 traffic is available.
 
-![load-balancing](../../assets/img/administer/load balancing/load-balancer.png)
-
+![load-balancer](../assets/img/administer/load-balancing/load-balancer.png)
 A load balancer to is used to distribute requests among the nodes in a
 cluster. The nodes that receive incoming traffic are a set of backend
 worker nodes. They can be either,
 
- - Pre-defined (static) nodes or 
+ - Pre-defined (static) nodes or
  - Dynamically discovered nodes. 
 
-In the static mode, you won't be able to add any new nodes at runtime since all the 
-set of worker nodes are pre-defined. In dynamic mode, you will be able to 
+In the static mode, you won't be able to add any new nodes at runtime since all the
+set of worker nodes are pre-defined. In dynamic mode, you will be able to
 add nodes at runtime to the load balancer without knowing the IPs and
 other connection details.
 

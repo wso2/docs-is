@@ -167,7 +167,7 @@ to the extracted product directory location. For example, if you want to
 run IS 5.9.0 as a Windows service, you would set ` carbon_home ` to the
 extracted ` wso2is-5.9.0 ` directory.
 
-![Edit System Variable window](../../assets/img/setup/edit-system-variable-window.png)
+![Edit System Variable window](../assets/img/setup/edit-system-variable-window.png)
 
 ### Running the product in console mode
 
@@ -191,7 +191,7 @@ Carbon-based product as a Windows service.
     output similar to the following. Now you can access the WSO2 management
     console from your web browser via <https://localhost:9443/carbon>.
 
-    ![Console output](../../assets/img/setup/console-output.png)
+    ![Console output](../assets/img/setup/console-output.png)
 
 ### Working with the WSO2CARBON service
 
@@ -205,7 +205,7 @@ installService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been installed.
 
-![Service installation confirmation](../../assets/img/setup/service-installation-confirmation.png)
+![Service installation confirmation](../assets/img/setup/service-installation-confirmation.png)
 
 To start the service, execute the following command in the same console
 window:
@@ -217,7 +217,7 @@ startService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been started.
 
-![Service startup message](../../assets/img/setup/service-startup-message.png)
+![Service startup message](../assets/img/setup/service-startup-message.png)
 
 To stop the service, execute the following command in the same console
 window:
@@ -229,7 +229,7 @@ stopService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been stopped.
 
-![Service stop message](../../assets/img/setup/service-stop-message.png)
+![Service stop message](../assets/img/setup/service-stop-message.png)
 
 To uninstall the service, execute the following command in the same
 console window:
@@ -241,4 +241,4 @@ uninstallService.bat
 The console will display a message confirming that
 the WSO2CARBON service has been removed.
 
-![Service removal message](../../assets/img/setup/service-removal-message.png)
+![Service removal message](../assets/img/setup/service-removal-message.png)

@@ -187,7 +187,7 @@ server.
 2.  Click on the shutdown or restart option as applicable. The available
     options are:  
     
-    ![Shut-Down and Restart screen](../../assets/img/setup/shutdown-restart.png)  
+    ![Shut-Down and Restart screen](../assets/img/setup/shutdown-restart.png)  
     
     -   **Graceful shutdown** - Stops accepting new requests, continues
         to process already received requests, and then shuts down the

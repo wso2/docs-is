@@ -2,7 +2,7 @@
 
 WSO2 Identity Server provides a SOAP service to validate the OAuth2
 token it has issued, which can be used by the resource server. This
-section guides you through calling the SOAP service using the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html).
+section guides you through calling the SOAP service using the [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
 
 1.  Add the following configuration property to the `deployment.toml` file in the ` <IS_HOME>/repository/conf`
     folder to enable admin service WSDLs.
@@ -20,7 +20,7 @@ section guides you through calling the SOAP service using the [SOAP UI](../../ht
 
 2.  Restart the server to make the changes effective.
 
-3.  Go to the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) and give the WSDL location.
+3.  Go to the [SOAP UI](https://www.soapui.org/downloads/latest-release.html) and give the WSDL location.
     1.  **Service Name:** OAuth2TokenValidationService
 
     2.  **WSDL location:** https://localhost:9443/services/OAuth2TokenValidationService?wsdl

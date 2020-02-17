@@ -48,7 +48,7 @@ done through one of the following admin services:
 -   `          TenantMgtAdminService         `
 -   `          RemoteTenantManagerService         `
 
-You can invoke these operations using a SOAP client like [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) as
+You can invoke these operations using a SOAP client like [SOAP UI](https://www.soapui.org/downloads/latest-release.html) as
 follows:
 
 1.  Add the property in `<IS_HOME>/repository/conf/deployment.toml` to
@@ -93,7 +93,7 @@ follows:
     This will give the list of admin services for your product.
 
 
-3.  Start the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) client, and import the WSDL of the admin service
+3.  Start the [SOAP UI](https://www.soapui.org/downloads/latest-release.html) client, and import the WSDL of the admin service
     that you are using:
 
     -   For
@@ -102,16 +102,16 @@ follows:
     -   For
         `             RemoteTenantManagerService:                           https://localhost:9443/services/RemoteTenantManagerService?wsdl                         `
 
-    This assumes that you are running the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) client from the same
+    This assumes that you are running the [SOAP UI](https://www.soapui.org/downloads/latest-release.html) client from the same
     machine as the product instance. Note that there are several
-    operations shown in the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html) after importing the wsdl file:
+    operations shown in the [SOAP UI](https://www.soapui.org/downloads/latest-release.html) after importing the wsdl file:
 
     ![](../assets/img/53125481/92516206.png) 
 
     !!! warning "Before invoking an operation"
     
         -   Be sure to set the admin user's credentials for authorization in
-            the [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html).
+            the [SOAP UI](https://www.soapui.org/downloads/latest-release.html).
         -   Note that it is **not recommended** to delete tenants.
     
 

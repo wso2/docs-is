@@ -921,7 +921,7 @@ an admin service called **EntitlementService** to evaluate a policy.
     
     Before you begin,
     
-    In order to try this EntitlementService using [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html), You need to
+    In order to try this EntitlementService using [SOAP UI](https://www.soapui.org/downloads/latest-release.html), You need to
     publish a Policy to the PDP. For this, you can use
     EntitlementPolicyAdminService or management console UI.
     

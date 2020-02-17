@@ -56,18 +56,18 @@ prompt](#java-home).
 1.  Right-click the **My Computer** icon on the desktop and choose
     **Properties**.  
 
-    ![Properties option](../../assets/img/setup/properties-option.png) 
+    ![Properties option](../assets/img/setup/properties-option.png) 
 
 2.  In the System Properties window, click the **Advanced** tab, and
     then click the **Environment Variables** button.  
 
-    ![Advanced tab](../../assets/img/setup/advanced-tab.png) 
+    ![Advanced tab](../assets/img/setup/advanced-tab.png) 
 
 3.  Click the **New** button under **System variables** (for all users) or
     under **User variables** (just for the user who is currently logged
     in).  
 
-    ![New button](../../assets/img/setup/new-button.png) 
+    ![New button](../assets/img/setup/new-button.png) 
 
 4.  Enter the following information:  
     -   In the **Variable name** field, enter:

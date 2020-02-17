@@ -8,7 +8,7 @@ WSO2 Identity Server by default has one keystore. To mitigate security incidents
 
 Ideally, the internal keystore should be used for encrypting internal critical data. However, currently, the secondary userstore passwords are encrypted using the primary keystore, which is also used to sign and encrypt tokens. Thus, it is preferable to move the secondary userstore password encryption functionality from the primary keystore to the internal keystore.
 
-![](../../assets/img/administer/keystore-migration.png)
+![](../assets/img/administer/keystore-migration.png)
 
 After moving the secondary userstore password encryption functionality to the internal keystore, WSO2 Identity Server secondary userstore password encryption tool allows you to decrypt all the existing secondary userstore passwords using the primary keystore and re-encrypt them using the internal keystore.
 

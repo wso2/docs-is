@@ -26,7 +26,7 @@ management console.
 
 The following screen depicts the home screen of the management console.
 
-![server-home-management-console](../../assets/img/setup/management-console/server_home_management_console.png)
+![server-home-management-console](../assets/img/setup/management-console/server_home_management_console.png)
 
 The main menu items of the console appear in the left hand side of the 
 home screen. Each of these menus carry a list of sub menus. These menus and subsections will 
@@ -54,7 +54,7 @@ divided into different sections.
 
 #### Identity section
 
-![identity-section-mgt-console](../../assets/img/setup/management-console/identity-section-mgt-console.png)
+![identity-section-mgt-console](../assets/img/setup/management-console/identity-section-mgt-console.png)
 
 !!! info "Related Links"
     Refer to the following topics for instructions to use sub menu items.
@@ -71,7 +71,7 @@ divided into different sections.
 
 #### Entitlement section
 
-![entitlement-section-mgt-console](../../assets/img/setup/management-console/entitlement-section-mgt-console.png)
+![entitlement-section-mgt-console](../assets/img/setup/management-console/entitlement-section-mgt-console.png)
 
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
@@ -83,7 +83,7 @@ divided into different sections.
 
 #### Manage section
 
-![manage-section-mgt-console](../../assets/img/setup/management-console/manage-section-mgt-console.png)
+![manage-section-mgt-console](../assets/img/setup/management-console/manage-section-mgt-console.png)
 
 !!! info "Related links"  
     Refer to the following topics for instructions to use sub menu items.
@@ -110,7 +110,7 @@ information on these features and their usage, see the topics on
 [monitoring the Identity Server](../../setup/monitoring-the-identity-server).
 
 
-![monitor-section-mgt-console](../../assets/img/setup/management-console/monitor-section-mgt-console.png)
+![monitor-section-mgt-console](../assets/img/setup/management-console/monitor-section-mgt-console.png)
 
 
 ### **Configure menu**
@@ -119,7 +119,7 @@ The configure menu is mainly a list of administration features which can
 help you customize and configure the Identity Server to suit your
 specific requirements.
 
-![configure-section-mgt-console](../../assets/img/setup/management-console/configure-section-mgt-console.png)
+![configure-section-mgt-console](../assets/img/setup/management-console/configure-section-mgt-console.png)
 
 !!! info "Related links"
     Refer to the following topics for instructions to use sub menu items.
@@ -139,4 +139,4 @@ The tools menu includes SAML and XACML tools. For more details on each
 of these tools and their usage, see the topics on [working with tools](../../administer/using-tools).
 
 
-![tools-section-mgt-console](../../assets/img/setup/management-console/tools-section-mgt-console.png)
+![tools-section-mgt-console](../assets/img/setup/management-console/tools-section-mgt-console.png)
