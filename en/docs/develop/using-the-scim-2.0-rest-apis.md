@@ -1628,7 +1628,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
         **Sample Request**
     
         ``` java
-        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=3&count=20&domain=WSO2’
+        curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?domain=WSO2’
     	```
 
 	2.  **Adding the “ `              {domain}/             ` ” prefix in
@@ -1641,7 +1641,7 @@ All the of the users dialect and meta dialect are supported. For more informatio
 	    filter value, an ERROR is thrown if the two values are not equal.
 
 	    ``` java
-	    curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?startIndex=2&count=20&filter=displayName+eq+WSO2/manager'
+	    curl -v -k --user admin:admin 'https://localhost:9443/scim2/Groups?filter=displayName+eq+WSO2/manager'
 	    ```
 
 
