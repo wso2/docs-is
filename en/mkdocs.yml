@@ -68,7 +68,7 @@ nav:
         - 'Single Page Application': authenticate/spa-app.md
       - 'Single Sign On': sso/enable-single-sign-on.md
       - 'Multifactor Authentication':
-        - mfa/mfa.md
+        - 'Overview': mfa/overview.md
         - '2FA with FIDO': mfa/2fa-fido.md
         - '2FA with TOTP': mfa/2fa-totp.md
         - '2FA with SMS OTP': mfa/2fa-sms-otp.md
@@ -220,6 +220,11 @@ nav:
       - 'Client Configurations':
         - 'SAML Application' : authenticate/configure-client-regular-saml.md
         - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
+  - 'Configure Authenticators':
+    - 'FIDO Authenticator': mfa/advance-config-for-fido.md
+    - 'EMail OTP Authenticator': mfa/advance-config-for-email-otp.md
+    - 'SMS OTP': mfa/advance-config-for-sms-otp.md
+    - 'TOTP': mfa/advance-config-for-totp.md
   - '': page-not-found.md
 
 
