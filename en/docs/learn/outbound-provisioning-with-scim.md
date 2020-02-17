@@ -64,6 +64,9 @@ identity provider in the Identity Server.
 
     -   Select the **User Endpoint** and **Group Endpoint**, which are
         SCIM endpoints.
+        
+            User Endpoint : https://localhost:9443/wso2/scim/Users
+            Group Endpoint : https://localhost:9443/wso2/scim/Groups
 
     -   **User Store Domain** is the user store that you need to
         provision users to.
@@ -94,14 +97,16 @@ like Salesforce and Google Apps.
 2.  In the **Main** menu under the **Identity** section, click
     **Resident** under **Service Providers**.
 3.  In the resulting screen, expand the **Outbound Provisioning
-    Configuration** section.  
-    ![config-outbound-provisioning](../assets/img/using-wso2-identity-server/config-outbound-provisioning.png) 
+    Configuration** section.   
 4.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
         possible. ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png)
+        
+        ![config-outbound-provisioning](../assets/img/using-wso2-identity-server/config-outbound-provisioning.png) 
+        
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
@@ -128,14 +133,16 @@ provider if your application supports OAuth.
     **Description** of the service provider. Only **Service Provider
     Name** is a required field.
 4.  In the screen that appears, expand the **Outbound Provisioning
-    Configuration** section.  
-    ![expand-outbound-provisioning](../assets/img/using-wso2-identity-server/expand-outbound-provisioning.png) 
+    Configuration** section.   
 5.  In the **Outbound Provisioning Configuration** section, do the
     following.
     1.  Select the identity provider you added from the drop-down menu
         available and click the following sign to add it. If you have
         not added an identity provider as yet, this step is not
         possible. ![outbound-provisioning-icon](../assets/img/using-wso2-identity-server/outbound-provisioning-icon.png)
+        
+        ![expand-outbound-provisioning](../assets/img/using-wso2-identity-server/expand-outbound-provisioning.png)
+        
     2.  Once added, the identity provider is displayed as an entry in a
         list. Select **scim** from the drop-down to ensure that the SCIM
         operation is used for provisioning.
