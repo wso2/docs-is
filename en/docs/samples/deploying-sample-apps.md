@@ -11,7 +11,7 @@ in this guide.
 - It is recommended that you use a hostname that is not
 `          localhost         ` to avoid browser errors. Modify the
 `          /etc/hosts         ` entry in your machine to reflect this.
-Note that `          localhost         ` is used in
+Note that `          wso2is.local         ` is used in
 this documentation as an example, but you must modify this when
 configuring the authenticators or connectors with this sample
 application.

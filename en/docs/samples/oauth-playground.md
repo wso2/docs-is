@@ -59,7 +59,7 @@ Deploy this sample web app on a web container.
 		on your browser.
 
 		For example,
-		`http://localhost:8080/playground2/oauth2.jsp`
+		`http://wso2is.local:8080/playground2/oauth2.jsp`
 
 3.	Update the `                    param-value                   `
 	parameter in the
