@@ -66,12 +66,7 @@ nav:
           - 'STS': authenticate/regular-webapp-sts.md
         - 'Mobile Application': authenticate/mobile-app.md
         - 'Single Page Application': authenticate/spa-app.md
-      - 'Single Sign On':
-        - sso/overview.md
-        - 'Same Protocol':
-          - 'Oauth/OIDC': sso/oauth-apps.md
-          - 'SAML': sso/saml-apps.md
-        - 'Cross Protocol': sso/oauth-and-saml-apps.md
+      - 'Single Sign On': sso/enable-single-sign-on.md
       - 'Multifactor Authentication':
         - mfa/mfa.md
         - '2FA with FIDO': mfa/2fa-fido.md
@@ -198,6 +193,10 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
+    - 'Single Sign On':
+      - 'OAuth/OIDC Apps': samples/sso-for-oidc-apps.md
+      - 'SAML Apps': samples/sso-for-saml-apps.md
+      - 'Different Authentication Protocols': samples/cross-protocol-sso.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
