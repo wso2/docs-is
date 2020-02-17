@@ -198,6 +198,11 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
+  - 'OAuth 2.0/Open ID Connect Playground':
+      - 'Authorization Code Grant': samples/auth-code-playground.md
+      - 'Implicit Grant': samples/implicit-playground.md
+      - 'Client Credentials Grant': samples/client-credentials-playground.md
+      - 'Password Grant': samples/password-playground.md
   - 'Configure Authentication':
     - 'Register an Application': authenticate/register-an-sp.md
     - 'OAuth/OIDC':
@@ -216,8 +221,6 @@ nav:
       - 'Client Configurations':
         - 'SAML Application' : authenticate/configure-client-regular-saml.md
         - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
-
-
   - '': page-not-found.md
 
 

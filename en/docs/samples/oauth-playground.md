@@ -1,13 +1,4 @@
-# Enable Authentication for OAuth/OpenID Connect Web Application
 
-This page guides you through enabling authentication to an OAuth/OpenID Connect web application using a **sample Playground application**. 
-
-----
-If you have have your own application, click the button below.
-
-<a class="samplebtn_a" href="../../authenticate/regular-webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
-
-----
 
 {!samples/deploying-sample-apps.md!}
 
@@ -18,7 +9,7 @@ If you have have your own application, click the button below.
 1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
 
 2. Click **Service Providers >Add** and enter "playground2" as the **Service Provider Name** and click **Register**.
-        ![add-playground-sp]( ../assets/img/guides/add-playground-sp.png) 
+		<img name='add-playground-sp' src='../../assets/img/guides/add-playground-sp.png' class='img-zoomable'/>
     
 3.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
     **Configure.**   
@@ -27,16 +18,15 @@ If you have have your own application, click the button below.
         
 5.  Enter `http://wso2is.local:8080/playground2/oauth2client` as the **Callback Url**.
     
-    ![configure-playground-sp](../assets/img/guides/configure-playground-sp.png)
+	<img name='configure-playground-sp' src='../../assets/img/guides/configure-playground-sp.png' class='img-zoomable'/>
 
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
         refer, [Advanced OpenID Connect Configurations](../../authenticate/oauth-app-config-advanced)
         
-6.  Click **Add**. Note that the `             client key            ` and
-    `             client secret            ` get generated.  
+6.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-7.  Click the **Update** button to finish creating the service provider.
+7.  Click the **Register** button to finish creating the service provider.
 
 ----
 
@@ -123,7 +113,7 @@ Deploy this sample web app on a web container.
 6. You are directed to the landing page of the sample application. Click on **Import Photos** and the following
 page appears.  
 
-	![playground-app.png](../assets/img/guides/playground-app.png)
+	<img name='playground-app' src='../../assets/img/guides/playground-app.png' class='img-zoomable'/>
 
 	!!! tip "Troubleshooting tip"
 
@@ -134,31 +124,6 @@ page appears.
 		``` java
 		javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: 			sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 		```
-----
-
-## Try Authorization Code grant type
-
-> steps for playground app with authorization code grant type
-
-----
-
-## Try Client Credentials grant type
-
-> steps for playground app with client credentials grant type
-
-----
-
-## Try Implicit grant type
-
-> steps for playground app with implicit grant type
-
-----
-
-## Try Password grant type
-
-> steps for playground app with password grant type
-
-----
 
 
 
