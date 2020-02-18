@@ -26,7 +26,7 @@ this scenario:
     this be left as it is. Go to the
     `          <IS_HOME_SECONDARY>/repository/conf         ` directory
     and open the `          deployment.toml         ` file. Change the
-    `          Offset         ` value to 1. This changes the
+    `          offset         ` value to 1. This changes the
     HTTPS port in the secondary IS instance to 9444 to avoid conflicts
     with the primary IS instance.
 5.  Install and run the two Identity Server instances.
