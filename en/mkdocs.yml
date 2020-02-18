@@ -66,7 +66,19 @@ nav:
           - 'STS': authenticate/regular-webapp-sts.md
         - 'Mobile Application': authenticate/mobile-app.md
         - 'Single Page Application': authenticate/spa-app.md
+        - 'SaaS Applications':
+          - 'Google': authenticate/google.md
+          - 'Microsoft Services':
+            - 'Dynamics CRM': authenticate/microsoft-dynamic-crm.md
+            - 'Office365': authenticate/office365.md
+            - 'SharePoint': authenticate/microsoft-sharepoint.md
+            - 'Workday': authenticate/microsoft-workday.md
+          - 'Salesforce': authenticate/salesforce.md
+          - 'Shiboleth': authenticate/google.md
       - 'Single Sign On': sso/enable-single-sign-on.md
+      - 'Authentication Methods':
+        - 'X509': authenticate/x509.md
+        - 'IWA': authenticate/iwa.md
       - 'Multifactor Authentication':
         - 'Overview': mfa/overview.md
         - '2FA with FIDO': mfa/2fa-fido.md

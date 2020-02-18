@@ -1,11 +1,10 @@
-# What is Single Sign On (SSO)?
+# Enable Single Sign On for your applications
+
+## What is Single Sign On (SSO)?
 
 < Brief intro for Single sign on section>
 
-- Same Protocol
-- Cross Protocol
-
-## Enable Single Sign On for your applications
+## How to Enable SSO for your Applications?
 
 < Explain by default SSO is enabled between apps configured in IS >
 
