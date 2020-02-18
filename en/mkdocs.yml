@@ -87,23 +87,23 @@ nav:
       - 'Authorization' : authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
-              - 'Overview' : user-mgt/user-onboarding-overview.md
+              - 'Overview': user-mgt/user-onboarding-overview.md
               - 'Connecting a Userstore':
                   - 'Connecting a Database Userstore': user-mgt/connect-database-userstore.md
                   - 'Connecting a LDAP Userstore': user-mgt/connect-ldap-userstore.md
                   - 'Connecting a Active Directory Userstore': user-mgt/connect-active-directory-userstore.md
-              - 'Bulk importing users': user-mgt/user-bulk-add.md
+              - 'Importing users from a file': user-mgt/user-bulk-import.md
               - 'Enabling Self Sign Up': user-mgt/user-sign-up.md
           - 'Managing Roles': user-mgt/managing-roles.md
           - 'Managing User Accounts':
-              - 'Overview' : user-mgt/manage-users-overview.md
+              - 'Overview': user-mgt/manage-users-overview.md
               - 'Adding users from portal': user-mgt/user-add.md
               - 'View and Update Profile': user-mgt/user-view-profile.md
               - 'Assign Roles': user-mgt/user-assign-role.md
               - 'Change Password': user-mgt/change-password.md
               - 'Locking and Unlocking': user-mgt/user-lock-account.md
           - 'Password Policies':
-              - 'Overview' : user-mgt/password-policy-overview.md
+              - 'Overview': user-mgt/password-policy-overview.md
               - 'Password complexity': user-mgt/password-complexity.md
               - 'Password history': user-mgt/password-history.md
               - 'Password expiration': user-mgt/password-expiration.md
