@@ -59,10 +59,3 @@ After decoding the payload value of the ID Token looks as follows.  The Payload 
 2. To have a finite and short expiry time.
 3. Sign/encrypt the JWT properly and validate it from the client side.
 4. To include any additional optional parameters based on the use case.
-
-
-
-
-
-
-

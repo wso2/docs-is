@@ -104,7 +104,6 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- card for connectors -->
-
             <!-- end card -->
         </div>
     </div>

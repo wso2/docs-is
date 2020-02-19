@@ -14,4 +14,3 @@ In OAuth2.0 flow there two types of tokens engage in the authorization process.
 Apart of the above two token types, in Open ID Connect flow it introduces,
 
 [ID Token](id-token.md)
-

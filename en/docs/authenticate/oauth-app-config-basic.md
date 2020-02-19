@@ -1,8 +1,11 @@
-### Basic Configurations
-    
-This explains minimum set of configs to create the SP 
+## Basic OpenID Connect Configurations
 
-    - Name 
-    - Description
-    - callback 
-    - Obtain ClientID/Client Secret
+1. Expand **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click **Configure**.
+
+2. Enter the **Callback URL** and click **Add**. 
+
+    The **Callback URL** is the exact location in the service provider's application where an access token would be sent. This URL should be the URL of the page that the user is redirected to after successful authentication.
+    
+3. To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../authenticate/oauth-app-config-advanced). 
+
+4. Note the **OAuth Client Key** and **Client Secret** that appear. 

@@ -43,5 +43,4 @@ strategies.
   access tokens lag, whereas access tokens with string identifiers can be revoked with almost immediate effect. The 
   common practice is to have a short expiration time with self-contained access tokens, but that may result in more 
   refresh token requests at the Authorization Server.
-  
 
