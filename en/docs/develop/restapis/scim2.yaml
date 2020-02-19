@@ -116,7 +116,7 @@ paths:
         400:
           description: Invalid Input
           schema:
-            $ref: '#/definitions/ErrorIvalidInput'
+            $ref: '#/definitions/ErrorInvalidInput'
 
         401:
           description: Unauthorized
@@ -502,6 +502,10 @@ paths:
           description: Group is updated
           schema:
             $ref: '#/definitions/GroupPutResponseObject'
+        400:
+          description: Invalid Input
+          schema:
+            $ref: '#/definitions/ErrorInvalidInput'
         401:
           description: Unauthorized
           schema:
@@ -725,7 +729,7 @@ paths:
         400:
           description: Invalid Input
           schema:
-            $ref: '#/definitions/ErrorIvalidInput'
+            $ref: '#/definitions/ErrorInvalidInput'
         401:
           description: Unauthorized
           schema:
@@ -860,7 +864,7 @@ paths:
         400:
           description: Invalid Input
           schema:
-            $ref: '#/definitions/ErrorIvalidInput'
+            $ref: '#/definitions/ErrorInvalidInput'
 
         401:
           description: Unauthorized
@@ -2098,7 +2102,7 @@ definitions:
   #-----------------------------------------------------
   # The Error Invalid Input
   #-----------------------------------------------------
-  ErrorIvalidInput:
+  ErrorInvalidInput:
     type : object
     required:
       - status
