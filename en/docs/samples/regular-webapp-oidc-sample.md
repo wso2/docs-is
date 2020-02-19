@@ -27,6 +27,7 @@ If you have have your own application, click the button below.
 
 You have successfully configured authentication for an OpenID Connect application.
 
+----
 
 ## Configure single logout
 

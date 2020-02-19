@@ -198,6 +198,9 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
+    - 'Single Sign-On':
+      - 'OpenID Connect': samples/configuring-sso-oidc-sample.md
+      - 'SAML': samples/configuring-sso-saml-sample.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
@@ -216,6 +219,11 @@ nav:
         - 'OIDC Logout' : authenticate/oidc-logout.md
         - 'OIDC Session Management' : authenticate/oidc-session-management.md
     - 'SAML':
+      - 'Basic' : authenticate/saml-app-config-basic.md
+      - 'Advance' : authenticate/saml-app-config-advance.md
+      - 'Client Configurations':
+        - 'SAML Application' : authenticate/configure-client-regular-saml.md
+        - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
       - 'Basic' : authenticate/saml-app-config-basic.md
       - 'Advance' : authenticate/saml-app-config-advance.md
       - 'Client Configurations':

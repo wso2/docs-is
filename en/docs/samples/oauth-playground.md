@@ -9,7 +9,7 @@
 1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
 
 2. Click **Service Providers >Add** and enter "playground2" as the **Service Provider Name** and click **Register**.
-		<img name='add-playground-sp' src='../../assets/img/guides/add-playground-sp.png' class='img-zoomable'/>
+		<img name='add-playground-sp' src='../../assets/img/samples/add-playground-sp.png' class='img-zoomable'/>
     
 3.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
     **Configure.**   
@@ -18,7 +18,7 @@
         
 5.  Enter `http://wso2is.local:8080/playground2/oauth2client` as the **Callback Url**.
     
-	<img name='configure-playground-sp' src='../../assets/img/guides/configure-playground-sp.png' class='img-zoomable'/>
+	<img name='configure-playground-sp' src='../../assets/img/samples/configure-playground-sp.png' class='img-zoomable'/>
 
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
@@ -113,7 +113,7 @@ Deploy this sample web app on a web container.
 6. You are directed to the landing page of the sample application. Click on **Import Photos** and the following
 page appears.  
 
-	<img name='playground-app' src='../../assets/img/guides/playground-app.png' class='img-zoomable'/>
+	<img name='playground-app' src='../../assets/img/samples/playground-app.png' class='img-zoomable'/>
 
 	!!! tip "Troubleshooting tip"
 

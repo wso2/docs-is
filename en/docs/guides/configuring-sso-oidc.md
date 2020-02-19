@@ -34,5 +34,3 @@ To configure Single Sign-On (SSO) for an OAuth/OpenID Connect application, follo
 ## What's Next? 
 
 - Configure advanced configurations for the OAuth/OpenID Connect application. For information, see [OAuth/OpenID Connect Configurations](../../guides/oauth-oidc-configurations). 
-
-

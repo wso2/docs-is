@@ -67,7 +67,6 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-
 {!authenticate/get-user-information-to-the-application.md!}
 
 {!authenticate/oidc-session-management.md!}

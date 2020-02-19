@@ -1,9 +1,7 @@
 
 {!samples/deploying-sample-apps.md!}
 
-----
-
-## Register a service provider
+### Register a service provider
 
 1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
 
@@ -24,9 +22,7 @@
 
 7.  Click the **Register** button to finish creating the service provider.
 
-----
-
-## Download the sample
+### Download the sample
 
 To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
@@ -37,9 +33,7 @@ Follow the instructions below to download the sample from GitHub.
 
 2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
 
-----
-
-## Deploy the sample web app
+### Deploy the sample web app
 
 Next, deploy the sample web app on a web container.
 
@@ -47,6 +41,6 @@ Next, deploy the sample web app on a web container.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret](../assets/img/guides/pickup-key-secret.png)
+    ![pickup-key-secret](../assets/img/samples/pickup-key-secret.png)
 
 3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
