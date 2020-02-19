@@ -117,7 +117,7 @@ nav:
                                     - 'Basic Client Profile': concepts/oidc/basic-client-profile.md
                                     - 'Implicit Profile': concepts/oidc/implicit-client-profile.md
                                     - 'Hybrid Profile': concepts/oidc/hybrid-client-profile.md
-                          - 'OIDC Tokens': concepts/oidc/oidc-tokens.md
+                          - 'OIDC Tokens': concepts/oidc/id-token.md
                           - 'End User Authentication': concepts/oidc/end-user-authentication.md
                           - 'User Information': concepts/oidc/user-information.md
                           - 'JWKS': concepts/oidc/jwks.md
@@ -146,7 +146,10 @@ nav:
                                     - 'OAuth 2.0 Client Types': concepts/oauth2/oauth2-client-types.md
                                     - 'Grant Types': concepts/oauth2/grant-types.md
                                     - 'Extended Grant Types': concepts/oauth2/extended-grant-types.md
-                                    - 'Tokens': concepts/oauth2/tokens.md
+                                    - 'Tokens':
+                                          - 'Overview': concepts/oauth2/overview.md
+                                          - 'Access Tokens': concepts/oauth2/access-token.md
+                                          - 'Refresh Tokens': concepts/oauth2/refresh-token.md
                                     - 'Client Authentication': concepts/oauth2/client-authentication.md
                                     - 'Token Introspection': concepts/oauth2/intorspection.md
                                     - 'DCR': concepts/oauth2/dcr.md
