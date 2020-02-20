@@ -497,7 +497,7 @@ definitions:
       id:
         type: string
         example: eeqweisfhkdfik
-      Idp:
+      idp:
         $ref: '#/definitions/Idp'
       federatedUserId:
         type: string
