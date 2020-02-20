@@ -136,7 +136,9 @@ nav:
                                     - 'Implicit Profile': concepts/oidc/implicit-client-profile.md
                                     - 'Hybrid Profile': concepts/oidc/hybrid-client-profile.md
                           - 'OIDC Tokens': concepts/oidc/id-token.md
-                          - 'End User Authentication': concepts/oidc/end-user-authentication.md
+                          - 'End-User Authentication':
+                                    - 'Overview': concepts/oidc/end-user-authentication.md
+                                    - 'Request Object': concepts/oidc/request-object.md
                           - 'User Information': concepts/oidc/user-information.md
                           - 'JWKS': concepts/oidc/jwks.md
                           - 'Discovery': concepts/oidc/discovery.md
