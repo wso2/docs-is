@@ -27,16 +27,17 @@ Follow the steps below to deploy two sample applications and see how this works.
 You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 
 ----
+
 ## Try it out
 
-1. Navigate to <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
+1. Navigate to <http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
 
     ![dispatch-login](../assets/img/samples/dispatch-login.png)
 
 2. You will be redirected to the login page of WSO2 Identity Server. Log in using your WSO2 Identity Server credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
 
-3. Now, if you navigate to <http://localhost.com:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
+3. Now, if you navigate to <http://wso2is.local:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
 
 You have successfully configured SAML Single Sign-On for two web applications using WSO2 Identity Server as the identity provider. 
 
@@ -67,7 +68,7 @@ Additionally, you can also configure claims for the service providers.
 
 6. Now, logout of the **Pickup Dispatch** and **Pickup Manager** applications.
 
-7. Access <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
+7. Access <http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com> on your browser and click **Login**.
 
 8. Note that the user is now prompted for consent to share the **Email Address** claim value with the sample application.  
 

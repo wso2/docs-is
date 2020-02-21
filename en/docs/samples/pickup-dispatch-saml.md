@@ -12,7 +12,7 @@
 4. Enter the following configurations:
     1.  **Issuer** : saml2-web-app-pickup-dispatch.com
 
-    2.  **Assertion Consumer URL** : http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp                     
+    2.  **Assertion Consumer URL** : http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com/home.jsp                     
         Click **Yes**, in the message that appears.
 
         !!! tip
