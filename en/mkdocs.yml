@@ -66,14 +66,21 @@ nav:
           - 'STS': authenticate/regular-webapp-sts.md
         - 'Mobile Application': authenticate/mobile-app.md
         - 'Single Page Application': authenticate/spa-app.md
-      - 'Single Sign On':
-        - sso/overview.md
-        - 'Same Protocol':
-          - 'Oauth/OIDC': sso/oauth-apps.md
-          - 'SAML': sso/saml-apps.md
-        - 'Cross Protocol': sso/oauth-and-saml-apps.md
+        - 'SaaS Applications':
+          - 'Google': authenticate/google.md
+          - 'Microsoft Services':
+            - 'Dynamics CRM': authenticate/microsoft-dynamic-crm.md
+            - 'Office365': authenticate/office365.md
+            - 'SharePoint': authenticate/microsoft-sharepoint.md
+            - 'Workday': authenticate/microsoft-workday.md
+          - 'Salesforce': authenticate/salesforce.md
+          - 'Shiboleth': authenticate/google.md
+      - 'Single Sign On': sso/enable-single-sign-on.md
+      - 'Authentication Methods':
+        - 'X509': authenticate/x509.md
+        - 'IWA': authenticate/iwa.md
       - 'Multifactor Authentication':
-        - mfa/mfa.md
+        - 'Overview': mfa/overview.md
         - '2FA with FIDO': mfa/2fa-fido.md
         - '2FA with TOTP': mfa/2fa-totp.md
         - '2FA with SMS OTP': mfa/2fa-sms-otp.md
@@ -87,23 +94,23 @@ nav:
       - 'Authorization' : authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
-              - 'Overview' : user-mgt/user-onboarding-overview.md
+              - 'Overview': user-mgt/user-onboarding-overview.md
               - 'Connecting a Userstore':
                   - 'Connecting a Database Userstore': user-mgt/connect-database-userstore.md
                   - 'Connecting a LDAP Userstore': user-mgt/connect-ldap-userstore.md
                   - 'Connecting a Active Directory Userstore': user-mgt/connect-active-directory-userstore.md
-              - 'Bulk importing users': user-mgt/user-bulk-add.md
+              - 'Importing users from a file': user-mgt/user-bulk-import.md
               - 'Enabling Self Sign Up': user-mgt/user-sign-up.md
           - 'Managing Roles': user-mgt/managing-roles.md
           - 'Managing User Accounts':
-              - 'Overview' : user-mgt/manage-users-overview.md
+              - 'Overview': user-mgt/manage-users-overview.md
               - 'Adding users from portal': user-mgt/user-add.md
               - 'View and Update Profile': user-mgt/user-view-profile.md
               - 'Assign Roles': user-mgt/user-assign-role.md
               - 'Change Password': user-mgt/change-password.md
               - 'Locking and Unlocking': user-mgt/user-lock-account.md
           - 'Password Policies':
-              - 'Overview' : user-mgt/password-policy-overview.md
+              - 'Overview': user-mgt/password-policy-overview.md
               - 'Password complexity': user-mgt/password-complexity.md
               - 'Password history': user-mgt/password-history.md
               - 'Password expiration': user-mgt/password-expiration.md
@@ -198,9 +205,10 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
-    - 'Single Sign-On':
-      - 'OpenID Connect': samples/configuring-sso-oidc-sample.md
-      - 'SAML': samples/configuring-sso-saml-sample.md
+    - 'Single Sign On':
+      - 'OAuth/OIDC Apps': samples/configuring-sso-oidc-sample.md
+      - 'SAML Apps': samples/configuring-sso-saml-sample.md
+      - 'Different Authentication Protocols': samples/cross-protocol-sso.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
@@ -229,6 +237,11 @@ nav:
       - 'Client Configurations':
         - 'SAML Application' : authenticate/configure-client-regular-saml.md
         - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
+  - 'Configure Authenticators':
+    - 'FIDO Authenticator': mfa/advance-config-for-fido.md
+    - 'EMail OTP Authenticator': mfa/advance-config-for-email-otp.md
+    - 'SMS OTP': mfa/advance-config-for-sms-otp.md
+    - 'TOTP': mfa/advance-config-for-totp.md
   - '': page-not-found.md
 
 
