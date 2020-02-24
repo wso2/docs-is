@@ -19,7 +19,7 @@ You can configure a number of SAML SPs with the same Issuer and different Servic
 When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (e.g., "saml-pickup-dispatch.com"). The service provider qualifier value should be sent as a query parameter, `spQualifier` with the HTTP request in the following format.
 
 ```
-https://{Hostname}:{Port}/samlsso?spQualifier={Service Provider Qualifier}
+https://{host-name}:{Port}/samlsso?spQualifier={Service Provider Qualifier}
 ```
 
 ----

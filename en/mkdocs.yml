@@ -221,7 +221,7 @@ nav:
       - 'Pickup Manager OIDC': samples/pickup-manager-oidc.md
       - 'Pickup Manager SAML': samples/pickup-manager-saml.md
   - 'Configure Authentication':
-    - 'Register an Application': authenticate/register-an-sp.md
+    - 'Register an Application': authenticate/register-a-service-provider.md
     - 'OAuth/OIDC':
       - 'Basic' : authenticate/oauth-app-config-basic.md
       - 'Advanced' : authenticate/oauth-app-config-advanced.md

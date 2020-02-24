@@ -17,7 +17,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!authenticate/register-an-sp.md!}
+{!authenticate/register-a-service-provider.md!}
 
 ----
 

@@ -18,7 +18,7 @@ If you have have your own application, click the button below.
 1. Start the Tomcat server and access the following URL on your browser: <http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com>.
 
 	```
-	http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-dispatch.com
+	http://<TOMCAT_host>:<TOMCAT_port>/saml2-web-app-pickup-dispatch.com
 	```
 
 2. Click **Login**. You will be redirected to the login page of WSO2 Identity Server. 
@@ -38,8 +38,3 @@ You have successfully configured authentication for a SAML application.
 3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
 4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../authenticate/saml-app-config-advanced#enable-single-logout).
-
-
-
-
-
