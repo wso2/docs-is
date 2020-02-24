@@ -1,4 +1,4 @@
-## Advanced SAML Configurations 
+# Advanced SAML Configurations 
 
 ----
 
@@ -12,15 +12,16 @@ This is the `<saml:Issuer>` element that contains the unique identifier of the s
 
 This value is needed only if you have to configure multiple SAML SSO inbound authentication configurations for the same Issuer value. When a Service Provider Qualifier is defined here, it will be appended to the end of the **Issuer** value when registering the SAML SP in the Identity Server.
 
-> For example, if you specify `saml-pickup-dispatch.com` as the Issuer and `sp1` as the Service Provider Qualifier, the configuration will be registered in IS as `saml-pickup-dispatch.com:urn:sp:qualifier:sp1`.
+For example, if you specify "saml-pickup-dispatch.com" as the **Issuer** and "sp1" as the **Service Provider Qualifier**, the configuration will be registered in IS as `saml-pickup-dispatch.com:urn:sp:qualifier:sp1`.
 
 You can configure a number of SAML SPs with the same Issuer and different Service Provider Qualifiers.
 
-When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (e.g., `saml-pickup-dispatch.com`). The service provider qualifier value should be sent as a query parameter, `spQualifier` with the HTTP request in the following format.
+When a Service Provider Qualifier is defined, the issuer of the SAML SSO authentication request is the value specified as the Issuer in the configuration (e.g., "saml-pickup-dispatch.com"). The service provider qualifier value should be sent as a query parameter, `spQualifier` with the HTTP request in the following format.
 
 ```
 https://{Hostname}:{Port}/samlsso?spQualifier={Service Provider Qualifier}
 ```
+
 ----
 
 #### Assertion Consumer URLs
@@ -33,29 +34,29 @@ It should have this format:
 https://(host-name):(port)/acs
 ```
 
-You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the Add button.
+You can add multiple assertion consumer URLs for the service provider by entering the URL and clicking the **Add** button.
 
 ----
 
 #### Default Assertion Consumer URL
 
-Since there can be multiple assertion consumer URLs, you must define a Default Assertion Consumer URL in case you are unable to retrieve it from the authentication request.
+Since there can be multiple assertion consumer URLs, you must define a **Default Assertion Consumer URL** in case you are unable to retrieve it from the authentication request.
 
 
 !!! tip
      In a service provider initiated single sign-on setup, the following needs to be considered.
 
-          - If no ACS URL is given in the `< AuthnRequest >` , the Identity Server sends the response to the default ACS URL of the service provider (whether the request is signed or not).
+     - If no ACS URL is given in the `< AuthnRequest >` , the Identity Server sends the response to the default ACS URL of the service provider (whether the request is signed or not).
 
-          - If the ACS URL in `< AuthnRequest >` matches with one of the registered URLs, the Identity Server sends the response to the matched one.
+     - If the ACS URL in `< AuthnRequest >` matches with one of the registered URLs, the Identity Server sends the response to the matched one.
 
-          - If the ACS URL in `< AuthnRequest >` does not match any of the registered ACS URLs and if the request is signed, the Identity Server sends the response to the ACS URL in the request only if the signature is valid. Alternatively, the `< AuthnRequest >` is rejected.
+     - If the ACS URL in `< AuthnRequest >` does not match any of the registered ACS URLs and if the request is signed, the Identity Server sends the response to the ACS URL in the request only if the signature is valid. Alternatively, the `< AuthnRequest >` is rejected.
 
      In an identity provider initiated single sign-on setup, the following needs to be considered.
 
-          - If the “acs” query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.
+     - If the “acs” query parameter is not present in the request, the Identity Server sends the response to default ACS URL of the service provider.
 
-          - If the "acs” parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.
+     - If the "acs” parameter is present and the value of that parameter matches with any of the registered ACS URLs of the service provider, then the Identity Server sends the response to the matched one.
 
 ----
 
@@ -65,17 +66,20 @@ Specify the **NameID** format. This defines the name identifier formats supporte
 
 !!! tip
      For SSO interactions, you can use the following types of NameID formats.
-          - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
-          - urn:oasis:names:tc:SAML:2.0:nameid-format:transient
-          - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
-          - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
-          - urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName
-          - urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName
-          - urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos
-          - urn:oasis:names:tc:SAML:2.0:nameid-format:entity
+
+     - urn:oasis:names:<zero-space-width>tc:SAML:2.0:nameid-format:persistent
+     - urn:oasis:names:<zero-space-width>tc:SAML:2.0:nameid-format:transient
+     - urn:oasis:names:<zero-space-width>tc:SAML:1.1:nameid-format:emailAddress
+     - urn:oasis:names:<zero-space-width>tc:SAML:1.1:nameid-format:unspecified
+     - urn:oasis:names:<zero-space-width>tc:SAML:1.1:nameid-format:X509SubjectName
+     - urn:oasis:names:<zero-space-width>tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName
+     - urn:oasis:names:<zero-space-width>tc:SAML:2.0:nameid-format:kerberos
+     - urn:oasis:names:<zero-space-width>tc:SAML:2.0:nameid-format:entity
 
      This specifies the name identifier format that the Identity Server wants to receive in the subject of an assertion from a particular identity provider. The following is the default format used by the identity provider.
-          - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+
+     - urn:oasis:names:<zero-space-width>tc:SAML:1.1:nameid-format:emailAddress
+
 ----
 
 #### Certificate Alias
@@ -124,7 +128,7 @@ The algorithm that the SAML2 assertion is encrypted. The default value can be co
 assertion_encryption_alg="assertion encryption algorithm"
 ```
 
-The default is http://www.w3.org/2001/04/xmlenc#aes256-cbc. 
+The default is `http://www.w3.org/2001/04/xmlenc#aes256-cbc` . 
 
 ----
 
@@ -137,7 +141,7 @@ The algorithm that the SAML2 key is encrypted. The default value can be configur
 key_encryption_alg="key encryption algorithm"
 ```
 
-The default algorithm is http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p. 
+The default algorithm is `http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p`. 
 
 ----
 
@@ -213,6 +217,8 @@ This is to define SAML2 artifact binding is enabled or not so that WSO2 Identity
 
 #### IdP Entity ID Alias
 
-This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. However, if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this **IdP Entity ID Alias** value.
+This value can override the value of Identity Provider Entity ID specified under SAML SSO Inbound Authentication configuration in Resident IdP. The Identity Provider Entity ID is used as the issuer of the SAML responses generated from IS. 
+
+By default, all the SAML responses issued by IS will have the issuer value similar to the Identity Provider Entity ID in Resident IdP’s SAML SSO inbound authentication configuration. However, if you want that value to be unique for your SAML SP configuration, you can specify the value here, so that the IdP Entity ID will be overridden with this **IdP Entity ID Alias** value.
 
 In the Pickup Dispatch sample SP, this value can be set by modifying `SAML2.IdPEntityId` value mentioned in the `<SAMPLE_HOME>/WEB-INF/classes/sso.properties` file, so that it reflects the value of the **IdP Entity ID Alias** you define in the SAML SP configuration.
