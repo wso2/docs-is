@@ -10,7 +10,7 @@ WSO2 Identity Server supports multiple ways of on boarding users to the server.
     * [Database](connect-database-userstore.md)
     * [Custom](connect-custom-userstore.md)
 
-* **[Importing user accounts](user-bulk-add.md)** : If you already have an exported list of details of the users, you can perform a
+* **[Importing user accounts](user-bulk-import.md)** : If you already have an exported list of details of the users, you can perform a
  bulk
  import of those user accounts.
  
