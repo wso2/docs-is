@@ -10,16 +10,13 @@ when performing an authentication request based on the authentication flow.
 
 End User Authentication can be done in two main ways.
 
-1.[Traditional request](#traditional-request)
+- Traditional request
 
-2.[Request Object](#request-object)
-
-
-### Traditional Request
 When using the traditional authentication request, the client has to pass the required parameters to invoke the 
 Authorization Endpoint based on the authentication flow.
 
-### [Request Object](request-object.md)
+- [Request Object](request-object.md)
+
 When using the request object, it should be associated with either one of the following additional parameters.
 
 - request parameter

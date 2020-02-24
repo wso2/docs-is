@@ -90,8 +90,8 @@ nav:
         - guides/adaptive.md
       - 'Federation':
         - guides/federation.md
-      - 'Access Delegation' : access-delegation/overview.md
-      - 'Authorization' : authorization/overview.md
+      - 'Access Delegation': access-delegation/overview.md
+      - 'Authorization': authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
               - 'Overview': user-mgt/user-onboarding-overview.md
@@ -178,16 +178,11 @@ nav:
                                     - 'Introduction to XACML': concepts/xacml/xacml.md
                         - 'UMA':
                                     - 'Introduction to UMA': concepts/uma/uma.md
-      - 'Protocol Comparisions':
-          - 'OAuth2 vs OIDC vs SAML': concepts/oauth-oidc-saml.md
-          - 'NTLM vs Kerberos': concepts/ntlm-kerberos.md
-          - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
       - 'Single Sign On':
           - 'Introduction': concepts/intro-sso.md
           - 'Inbound SSO': concepts/inbound-sso.md
           - 'Outbound SSO': concepts/outbound-sso.md
       - 'Identity Federation': concepts/identity-federation.md
-      - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
       - 'Identity Provisioning':
           - 'Introduction': concepts/intro-provisioning.md
           - 'Provisioning Framework': concepts/provisioning-framework.md
@@ -197,6 +192,11 @@ nav:
       - 'Consent Management': concepts/consent-management.md
       - 'Identity Anti-Patterns': concepts/identity-anti-patterns.md
       - 'Identity Bus': concepts/identity-bus.md
+      - 'Comparisions':
+                - 'OAuth2 vs OIDC vs SAML': concepts/oauth-oidc-saml.md
+                - 'NTLM vs Kerberos': concepts/ntlm-kerberos.md
+                - 'WS-Federation vs WS-Trust': concepts/federation-trust.md
+                - 'SSO vs Identity Federation': concepts/sso-vs-federation.md
       - 'Compliance':
           - 'GDPR': concepts/gdpr.md
           - 'eIDAS': concepts/eidas.md
