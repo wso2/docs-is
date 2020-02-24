@@ -2,11 +2,11 @@
 template: templates/swagger.html
 ---
 
-# OAuth2 Scope Management API Definition 
+# OAuth 2.0 Scope Management Rest API Definition - v1
 
 The OAuth2 scope API in WSO2 Identity Server can be used to manage oauth2 scopes and scope bindings(role, permission 
 etc). OIDC scope is a sub category of OAuth2 scopes. Hence Identity Server won't allow same scope name across these 
-two (OAUTH2 Scopes & OIDC Scopes) endpoints. To refer OIDC Scope endpoint click [here](oidc-scope-rest-apis.md).
+two (OAUTH2 Scopes & OIDC Scopes) endpoints. To refer OIDC Scope endpoint click [here](oidc-scope-management-rest-apis.md).
 
 ??? Note "Click For Instructions"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -25,7 +25,7 @@ two (OAUTH2 Scopes & OIDC Scopes) endpoints. To refer OIDC Scope endpoint click 
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../../develop/restapis/oauth2-scope.yaml",
+    url: "../../develop/restapis/oauth2-scope-management.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [

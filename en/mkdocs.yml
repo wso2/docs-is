@@ -535,8 +535,8 @@ nav:
             - 'Identity Governance': develop/identity-governance-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
             - 'Keystore Management': develop/keystore-rest-api.md
-            - 'OAuth2 Scope Management': develop/oauth2-scope-rest-apis.md
-            - 'OIDC Scope Management': develop/oidc-scope-rest-apis.md
+            - 'OAuth2 Scope Management': develop/oauth2-scope-management-rest-apis.md
+            - 'OpenID Connect Scope Management': develop/oidc-scope-management-rest-apis.md
             - 'OIDC Dynamic Client Registration': develop/using-the-openid-connect-dynamic-client-registration-rest-apis.md
             - 'Permission Management' : develop/permission-management-rest-api.md
             - 'Personal Information Export': develop/using-the-personal-information-export-rest-apis.md
