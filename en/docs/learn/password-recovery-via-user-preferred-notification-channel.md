@@ -71,11 +71,11 @@ configure the the identity server to send confirmation emails.
 
     ```
     [identity_mgt.notification_channel_recovery]
-    recovery_code_validity=2
-    resend_code_validity=2
+    recovery_code_validity=1
+    resend_code_validity=5
     
     [identity_mgt.password_reset_sms]
-    sms_otp_validity=10
+    sms_otp_validity=2
     ```
     <table>
        <tr>
@@ -216,16 +216,20 @@ to send confirmation codes.
 
 ## Managing Notification templates
 
+### Managing EMAIL Notification templates
+
 The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
 file and they can be edited using the Management Console.
 
 !!! tip
     The **PasswordReset**, **passwordResetSucess** and **resendPasswordReset** templates are used to 
-    send email notifications. You can edit and customize the email template. For more information, 
+    send email notifications. You can edit and customize the email templates. For more information, 
     see [Customizing Automated Emails](../../learn/customizing-automated-emails).
-    
-The templates for SMS notifications are stored in the registry. Follow the following steps to edit the
-sms notification template.
+
+### Managing SMS Notification templates  
+  
+The templates for SMS notifications are stored in the registry. Follow the steps below to edit the existing 
+sms notification templates.
 
 1. Log in to the Management Console and click `Main> Registry> Browse`.
 
@@ -239,25 +243,31 @@ available SMS notification templates.
 4. Click `Display as text` to view the template or click `Edit as text` to edit the template.
     
     ![edit-sms-notification-template](../assets/img/learn/account-recovery/password-recovery/edit-sms-template.png)
+
+!!! tip
+    The **passwordreset**, **passwordresetsucess** and **resendpasswordreset** templates are used to 
+    send SMS notifications. You can edit and customize the SMS templates. For more information, 
+    see [Managing SMS Notification Templates From the Registry](../../learn/managing-sms-templates-from-the-registry).      
     
 ## Try out password recovery 
-
-WSO2 Identity Server provides the functionality to receive account recovery notifications 
-internally or externally.
 
 !!! tip "Before you begin"
     Complete the steps given to configure the identity server.
 
-1. **Internal Notification Management** : Notification sending is managed by WSO2 Identity Server.
+!!! info "Notification Mechanisms"
+    WSO2 Identity Server provides the functionality to receive account recovery notifications 
+    internally or externally.
     
-2. **External Notification Management** : Notification sending is managed by an external 
-notification management mechanism.
-
-!!! note
-    To configure external notification management, `disable` the property `Enable Internal 
-    Notification Management` in `Account Recovery` configurations.
+    1. **Internal Notification Management** : Notification sending is managed by WSO2 Identity Server.
+        
+    2. **External Notification Management** : Notification sending is managed by an external 
+    notification management mechanism.
     
-    ![disable-internal-notifications](../assets/img/learn/account-recovery/username-recovery/disable-internal-notification.png)
+    !!! note
+        To configure external notification management, `disable` the property `Enable Internal 
+        Notification Management` in `Account Recovery` configurations.
+        
+        ![disable-internal-notifications](../assets/img/learn/account-recovery/username-recovery/disable-internal-notification.png)
     
 ### Creating a user for recovery
 
@@ -304,7 +314,7 @@ update the Email and Mobile of the user.
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d {"claims":[{"uri":"http://wso2.org/claims/givenname","value":"user1"}],"properties":[{"key":"key","value":"value"}]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
      
 2.  Following response will be returned by the API.
@@ -354,11 +364,15 @@ update the Email and Mobile of the user.
     !!! note
         The validity period of the recovery code is determined by the 2nd step of 
         Configuring Password Recovery.  
+        
+    !!! info
+        To tryout password recovery with challenge question, refer [Configuring Password Reset with Challenge 
+        Questions](../../learn/configuring-password-reset-with-challenge/).
     
 3. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "accept: application/json" -H "Content-Type: application/json" -d {"recoveryCode":"1234-5678-2455-3433","channelId":"1","properties":[{"key":"key","value":"value"}]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```      
     
 4. The API will return the following response upon a successful recovery and the user will be notified 
@@ -385,14 +399,77 @@ via the selected channel.
     }
     ```
     
-5. If         
+5. If you want to resend the notifications to the user via the notified channel in the above step, use the 
+`resendCode` with the resend notifications API.
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```        
+
+6. The API will send the following response upon successful notification.
+
+    ```
+    {
+    "code": "UAR-02001",
+    "message": "Confirmation code resent to the user.",
+    "notificationChannel": "EMAIL",
+    "resendCode": "8ebefae5-0a80-4edf-ac2d-6034384e45c0",
+    "links": [
+        {
+            "rel": "next",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+            "type": "POST"
+        },
+        {
+            "rel": "resend",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+            "type": "POST"
+        }
+    ]
+    }
+    ```
+
+7. Use the confirmation code received by the user to verify the confirmation code.
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```   
+
+8. The API will return the following response.
+
+    ```
+    {
+        "resetCode": "90b9ce11-7642-4f50-aa06-386011b7de66",
+        "links": [
+            {
+                "rel": "next",
+                "href": "/t/carbon.super/api/users/v1/recovery/password/reset",
+                "type": "POST"
+            }
+        ]
+    }
+    ```    
+9. Use the `resetCode` and the new password to update the existing password and recover the account.
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"string\",\"password\":\"string\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```
+    
+10. The API will return the following response upon successful password reset.
+
+    ```
+    {
+        "code": "PWR-02005",
+        "message": "Successful password reset."
+    }
+    ```    
     
 ### **Password recovery with External Notification Management**   
 
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d {"claims":[{"uri":"http://wso2.org/claims/givenname","value":"user1"}],"properties":[{"key":"key","value":"value"}]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```    
     
 2.  Following response will be returned by the API.
@@ -427,17 +504,94 @@ via the selected channel.
 3. Use the `recoveryCode` and a channel `id` to get the recovered username.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d {"recoveryCode":"1234-5678-2455-3433","channelId":"1","properties":[]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
     
-4. The API will return the following response upon a successful recovery.
+4. The API will return the following response upon a successful notification.
 
     ```
     {
-        "code": "UNR-02002",
-        "message": "Username recovery information sent externally.",
-        "notificationChannel": "EXTERNAL",
-        "username": "sominda2@carbon.super"
+    "code": "PWR-02001",
+    "message": "Password recovery information sent via user preferred notification channel.",
+    "notificationChannel": "EXTERNAL",
+    "confirmationCode": "90b9ce11-7642-4f50-aa06-386011b7de66",
+    "resendCode": "b24bcfc0-3ee3-4a7d-964c-e3e6e3098c08",
+    "links": [
+        {
+            "rel": "next",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+            "type": "POST"
+        },
+        {
+            "rel": "resend",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+            "type": "POST"
+        }
+    ]
     }
     ```
-        
+
+5. If you want to resend the notifications, use the `resendCode` with the resend notifications API.
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```            
+    
+6. The API will return the following response.
+
+    ```
+    {
+    "code": "UAR-02001",
+    "message": "Confirmation code resent to the user.",
+    "notificationChannel": "EXTERNAL",
+    "confirmationCode": "8ebcf3a1-b278-415c-b077-9b15fbf9bfdf",
+    "resendCode": "b037478d-15e1-4f3d-ab7b-ad917dc73904",
+    "links": [
+        {
+            "rel": "next",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/confirm",
+            "type": "POST"
+        },
+        {
+            "rel": "resend",
+            "href": "/t/carbon.super/api/users/v1/recovery/password/resend",
+            "type": "POST"
+        }
+    ]
+    }
+    ```    
+    
+7. Use the `confirmationCode` to verify the password reset..
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```   
+
+8. The API will return the following response.
+
+    ```
+    {
+        "resetCode": "90b9ce11-7642-4f50-aa06-386011b7de66",
+        "links": [
+            {
+                "rel": "next",
+                "href": "/t/carbon.super/api/users/v1/recovery/password/reset",
+                "type": "POST"
+            }
+        ]
+    }
+    ```    
+9. Use the `resetCode` and the new password to update the existing password and recover the account.
+
+    ```
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"string\",\"password\":\"string\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    ```
+    
+10. The API will return the following response upon successful password reset.
+
+    ```
+    {
+        "code": "PWR-02005",
+        "message": "Successful password reset."
+    }
+    ```        

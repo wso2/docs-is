@@ -143,6 +143,8 @@ to send confirmation codes.
 
 ## Managing Notification templates
 
+### Managing EMAIL Notification templates
+
 The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
 file and they can be edited using the Management Console.
 
@@ -151,7 +153,9 @@ file and they can be edited using the Management Console.
     customize the email template. For more information, 
     see [Customizing Automated Emails](../../learn/customizing-automated-emails).
     
-The templates for SMS notifications are stored in the registry. Follow the following steps to edit the
+### Managing SMS Notification templates      
+    
+The templates for SMS notifications are stored in the registry. Follow the steps below to edit the
 sms notification template.
 
 1. Log in to the Management Console and click `Main> Registry> Browse`.
@@ -164,24 +168,33 @@ sms notification template.
     
     ![edit-sms-notification-template](../assets/img/learn/account-recovery/username-recovery/edit-sms-template.png)
     
+!!! tip
+    The **accountidrecovery**, template is used to send SMS notifications. You can edit and customize the SMS template. 
+    For more information, 
+    see [Managing SMS Notification Templates From the Registry](../../learn/managing-sms-templates-from-the-registry).     
+    
 ## Try out username recovery 
 
-WSO2 Identity Server provides the functionality to receive account recovery notifications 
-internally or externally.
 
 !!! tip "Before you begin"
     Complete the steps given to configure the identity server.
 
-1. **Internal Notification Management** : Notification sending is managed by WSO2 Identity Server.
-    
-2. **External Notification Management** : Notification sending is managed by an external 
-notification management mechanism.
 
-!!! note
-    To configure external notification management, `disable` the property `Enable Internal 
-    Notification Management` in `Account Recovery` configurations.
+!!! info "Notification Mechanisms"
+
+    WSO2 Identity Server provides the functionality to receive account recovery notifications 
+    internally or externally.
     
-    ![disable-internal-notifications](../assets/img/learn/account-recovery/username-recovery/disable-internal-notification.png)
+    1. **Internal Notification Management** : Notification sending is managed by WSO2 Identity Server.
+        
+    2. **External Notification Management** : Notification sending is managed by an external 
+    notification management mechanism.
+    
+    !!! note
+        To configure external notification management, `disable` the property `Enable Internal 
+        Notification Management` in `Account Recovery` configurations.
+        
+        ![disable-internal-notifications](../assets/img/learn/account-recovery/username-recovery/disable-internal-notification.png)
     
 ### Creating a user for recovery
 
@@ -228,7 +241,7 @@ update the Email and Mobile of the user.
 1. Use the following command to create a username recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d {"claims":[{"uri":"http://wso2.org/claims/givenname","value":"user1"}],"properties":[{"key":"key","value":"value"}]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
      
 2.  Following response will be returned by the API.
@@ -270,7 +283,7 @@ update the Email and Mobile of the user.
 3. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d {"recoveryCode":"1234-5678-2455-3433","channelId":"1","properties":[]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```      
     
 4. The API will return the following response upon a successful recovery and the user will be notified 
@@ -289,7 +302,7 @@ via the selected channel.
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d {"claims":[{"uri":"http://wso2.org/claims/givenname","value":"user1"}],"properties":[{"key":"key","value":"value"}]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```    
     
 2.  Following response will be returned by the API.
@@ -324,7 +337,7 @@ via the selected channel.
 3. Use the `recoveryCode` and a channel `id` to get the recovered username.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d {"recoveryCode":"1234-5678-2455-3433","channelId":"1","properties":[]}
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
     
 4. The API will return the following response upon a successful recovery.
