@@ -198,6 +198,7 @@ nav:
       - 'Java': samples/java.md
       - 'NodeJs': samples/nodejs.md
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
+      - 'SAML': samples/regular-webapp-saml-sample.md
     - 'Single Sign-On':
       - 'OpenID Connect': samples/configuring-sso-oidc-sample.md
       - 'SAML': samples/configuring-sso-saml-sample.md
@@ -206,6 +207,11 @@ nav:
       - 'Implicit Grant': samples/implicit-playground.md
       - 'Client Credentials Grant': samples/client-credentials-playground.md
       - 'Password Grant': samples/password-playground.md
+  - 'Pickup Samples':
+      - 'Pickup Dispatch OIDC': samples/pickup-dispatch-oidc.md
+      - 'Pickup Dispatch SAML': samples/pickup-dispatch-saml.md
+      - 'Pickup Manager OIDC': samples/pickup-manager-oidc.md
+      - 'Pickup Manager SAML': samples/pickup-manager-saml.md
   - 'Configure Authentication':
     - 'Register an Application': authenticate/register-an-sp.md
     - 'OAuth/OIDC':
@@ -225,7 +231,7 @@ nav:
         - 'SAML Application' : authenticate/configure-client-regular-saml.md
         - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
       - 'Basic' : authenticate/saml-app-config-basic.md
-      - 'Advance' : authenticate/saml-app-config-advance.md
+      - 'Advance' : authenticate/saml-app-config-advanced.md
       - 'Client Configurations':
         - 'SAML Application' : authenticate/configure-client-regular-saml.md
         - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md

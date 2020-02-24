@@ -1,22 +1,29 @@
-# Enable Authentication to a web application using SAML.
+# Enable Authentication for a SAML web application
 
-< Introduction - This document contains an step by step guide on to
-enable authentication for a traditional web application using SAML
-protocol. >
+This page guides you through enabling authentication to a SAML web application. 
 
-!!! Tip 
-    [Try Quick Starts](../../get-started/overview/#mobilenative-application)
+---
+
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
+
+<a class="samplebtn_a" href="../../samples/regular-webapp-saml-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+
+----
 
 ## Overview
  < Explain the use case with diagrams - can be links to concepts > 
  
  < Image explaining the scenario>
 
-## Register Application
+----
 
- < Description on web app specific config >
+{!authenticate/register-an-sp.md!}
+
+----
 
 {!authenticate/saml-app-config-basic.md!}
+
+----
 
 {!authenticate/configure-client-regular-webapp-saml.md!}
 
