@@ -33,12 +33,11 @@ You have successfully configured authentication for a SAML application.
 
 1. Access the [management console]() and click **List** under **Service Providers**. 
 
-2. Click **Edit** to edit the OIDC service provider you created.
+2. Click **Edit** to edit the SAML service provider you created.
 
-3. Expand **Inbound Authentication Configuration** and then expand **OAuth/OpenID Connect Configuration**. Edit the configuration.
+3. Expand **Inbound Authentication Configuration** and then expand **SAML2 Web SSO Configuration**. Edit the configuration.
 
-4. Select **Enable OIDC Backchannel Logout** and give the Logout URI. 
-
+4. Select **Enable Single Logout**. For more information, see [SAML Advanced Configurations](../../authenticate/saml-app-config-advanced#enable-single-logout).
 
 
 
