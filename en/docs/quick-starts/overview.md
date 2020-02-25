@@ -2,7 +2,7 @@
 template: templates/2-column.html
 ---
 
-{!get-started/quick-download-and-install.md!}
+{!quick-starts/quick-download-and-install.md!}
 
 ## Start Connecting Your Applications
 
@@ -15,7 +15,7 @@ the device .
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/android';">
+    <div class="card" onclick="location.href='../../quick-starts/android';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/android.png">
@@ -28,7 +28,7 @@ the device .
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/ios';">
+    <div class="card" onclick="location.href='../../quick-starts/ios';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/apple.png">
@@ -40,7 +40,7 @@ the device .
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/react-native';">
+    <div class="card" onclick="location.href='../../quick-starts/react-native';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/react.png">
@@ -60,7 +60,7 @@ Authentication for your front-end application that run on the browser.
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/react';">
+    <div class="card" onclick="location.href='../../quick-starts/react';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/react.png">
@@ -73,7 +73,7 @@ Authentication for your front-end application that run on the browser.
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/angular';">
+    <div class="card" onclick="location.href='../../quick-starts/angular';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/angular.png">
@@ -85,7 +85,7 @@ Authentication for your front-end application that run on the browser.
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/javascript';">
+    <div class="card" onclick="location.href='../../quick-starts/javascript';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/javascript.png">
@@ -105,7 +105,7 @@ Authentication for your back-end application that run on the server.
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/java';">
+    <div class="card" onclick="location.href='../../quick-starts/java';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/java.png">
@@ -118,7 +118,7 @@ Authentication for your back-end application that run on the server.
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/nodejs';">
+    <div class="card" onclick="location.href='../../quick-starts/nodejs';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/node.png">
@@ -130,7 +130,7 @@ Authentication for your back-end application that run on the server.
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/python';">
+    <div class="card" onclick="location.href='../../quick-starts/python';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/python.png">

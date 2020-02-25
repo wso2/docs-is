@@ -18,7 +18,7 @@
         
 5.  Enter `http://wso2is.local:8080/playground2/oauth2client` as the **Callback Url**.
     
-	<img name='configure-playground-sp' src='../../assets/img/samples/configure-playground-sp.png' class='img-zoomable'/>
+	<img name='configure-playground-sp' src='../../assets/img/fragments/configure-playground-sp.png' class='img-zoomable'/>
 
     !!! tip
         For more information on `Callback Url` field and other advanced configurations

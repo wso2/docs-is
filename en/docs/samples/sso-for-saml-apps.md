@@ -1,6 +1,6 @@
 # Configuring Single Sign On Using SAML
 
-This page guides you through configuring [single sign on authentication](insertlink) between two SAML web applications using two **sample applications** called Pickup Dispatch and Pickup Manager. 
+This page guides you through configuring [single sign on authentication](insertlink) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
 ----
 If you have have your own application, click the button below.
@@ -11,7 +11,7 @@ If you have have your own application, click the button below.
 
 ## Scenario
 
-Pickup is a cab company that has two SAML web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 IS as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
+Pickup is a cab company that has two SAML web applications called pickup-dispatch and pickup-manager. Both applications use WSO2 Identity Server (IS) as the identity provider. When SSO is configured for both these applications, an employee is only required to provide their credentials to the first application and the user will be automatically logged in to the second application.
 
 ![saml-sso-scenario](../assets/img/samples/saml-sso-scenario-diagram.png)
 
@@ -39,12 +39,12 @@ You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manage
 
     ![dispatch-login](../assets/img/samples/dispatch-login.png)
 
-2. You will be redirected to the login page of WSO2 Identity Server. Log in using your WSO2 Identity Server credentials (admin/admin). Provide the required consent.
+2. You will be redirected to the login page of WSO2 IS. Log in using your WSO2 IS credentials (admin/admin). Provide the required consent.
 You will be redirected to the Pickup Dispatch application home page.
 
-3. Now, if you navigate to <http://wso2is.local:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that user has been automatically logged in to this application without being prompted for user credentials.
+3. Now, if you navigate to <http://wso2is.local:8080/saml2-web-app-pickup-manager.com> and click **Login**, you can see that the user has been automatically logged in to this application without being prompted for user credentials.
 
-You have successfully configured SAML Single Sign-On for two web applications using WSO2 Identity Server as the identity provider. 
+You have successfully configured SAML Single Sign-On for two web applications using WSO2 IS as the identity provider. 
 
 ----
 
@@ -57,7 +57,7 @@ Additionally, you can also configure claims for the service providers.
         [Configuring Claims for a Service
         Provider](insertlink).
 
-1. On the **Main** menu of the management console, click **Service Providers**>**List** and **Edit** the "pickup-dispatch" service provider.
+1. On the **Main** menu of the management console, click **Service Providers**>**List**, and **Edit** the "pickup-dispatch" service provider.
 
 2. Expand the **Claim Configuration** section in the service provider form.
 
@@ -79,4 +79,4 @@ Additionally, you can also configure claims for the service providers.
 
     ![dispatch-email-consent](../assets/img/samples/dispatch-email-consent.png)
 
-This means that you have successfully configured additional claims for your service provider.
+Now you have successfully configured additional claims for your service provider.

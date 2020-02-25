@@ -46,17 +46,17 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Quick Start':
-      - 'Overview': get-started/overview.md
+  - 'Quick Starts':
+      - 'Overview': quick-starts/overview.md
       - 'Mobile':
-          - 'Android': get-started/android.md
-          - 'iOS': get-started/ios.md
+          - 'Android': quick-starts/android.md
+          - 'iOS': quick-starts/ios.md
       - 'Frontend':
-          - 'Angular': get-started/angular.md
-          - 'React': get-started/react.md
+          - 'Angular': quick-starts/angular.md
+          - 'React': quick-starts/react.md
       - 'Backend':
-          - 'Java': get-started/java.md
-          - 'NodeJs': get-started/nodejs.md
+          - 'Java': quick-starts/java.md
+          - 'NodeJs': quick-starts/nodejs.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
       - 'Authentication':
@@ -116,9 +116,9 @@ nav:
               - 'Password expiration': guides/user-mgt/password-expiration.md
           - 'Using workflows': guides/user-mgt/configuring-workflows.md
   - 'Develop':
-      - 'REST APIs': develop/rest-api-reference.md
-      - 'Authentication Script API': develop/authentication-script-reference.md
-      - 'Configuration Catalog': develop/configuration-catalog.md
+    - 'REST APIs': develop/rest-api-reference.md
+    - 'Authentication Script API': develop/authentication-script-reference.md
+    - 'Configuration Catalog': develop/configuration-catalog.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
@@ -297,8 +297,8 @@ extra:
 
   nav_list:
     - Home
-    - Deploy
+    - Quick Starts
     - Guides
-    - Quick Start
-    - APIs
+    - Develop
+    - Deploy
     - Concepts
