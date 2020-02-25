@@ -3,16 +3,16 @@
 WSO2 Identity Server enables recovering user accounts where the user has forgotten the user name.
 
 !!! Note
-    This feature is only available via Account Recovery REST APis. Currently, WSO2 IS does not 
+    This feature is only available via Account Recovery REST APIs. Currently, WSO2 IS does not 
     support this feature via the User Portal.    
 
 **Username Recovery Flow**
 
- - User provides a set of unique claims to identify the user account.
- - Then the server will prompt available notification channels to the user to receive username 
- recovery notification.
- - User selects a notification channel.
- - Sever send the recovery notification to the user via the preferred notification channel.
+ - The user provides a set of unique claims to identify the user account.
+ - Next, the API prompts the user to select a channel from the available notification channels for receiving the 
+ username recovery notification.
+ - The user selects a notification channel.
+ - The sever send the recovery notification to the user via the preferred notification channel.
 
 The following sections walk you through configuring and trying out username recovery via SMS and Email 
 Channels.   
@@ -43,10 +43,10 @@ Channels.
     
 ## Configuring username recovery
 
-Following steps given below are to recover a user in the the super tenant, which is `carbon.super`.
+Follow the steps given below to recover a user in the super tenant (i.e., carbon.super).
 
 1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
-configure the the identity server to send confirmation emails.
+configure the configure WSO2 Identity Server to send confirmation emails.
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
@@ -63,7 +63,7 @@ configure the the identity server to send confirmation emails.
     enable_authentication= true
     ```    
     
-2. Add the following properties to the `deployemnt.toml`. Property `recovery_code_validity` will 
+2. Add the following properties to the `deployment.toml`. The `recovery_code_validity` property will 
 determine the validity period of the recovery code given after initiating username/password recovery.
 
     ```toml
@@ -111,9 +111,9 @@ to send confirmation codes.
     : ` https://<IS_HOST>:<IS_PORT>/carbon `.  
     **NOTE:** If your IS is already running, make sure to restart to apply above configurations. 
     
-5.  Navigate to `Main -> Identity Providers -> Resident -> Account Management Policies` section.
+5.  Navigate to **Main -> Identity Providers -> Resident -> Account Management Policies** section.
 
-6.  Expand the `Account Recovery` section and configure the following properties. 
+6.  Expand the **Account Recovery** section and configure the following properties. 
 
     ![username-recovery-configs](../assets/img/learn/account-recovery/username-recovery/username-recovery-configs.png)
     
@@ -133,7 +133,7 @@ to send confirmation codes.
                 <td>Enable Internal Notification Management</td>
                 <td>
                     <p>
-                        Select to configure Identity server to send confirmation emails to the user.
+                        Select to configure WSO2 Identity Server to send confirmation emails to the user.
                         If the client application handles notification sending already, unselect it. 
                     </p>
                 </td>
@@ -141,9 +141,9 @@ to send confirmation codes.
         </tbody>    
     </table>
 
-## Managing Notification templates
+## Manage Notification templates
 
-### Managing EMAIL Notification templates
+### Manage EMAIL Notification templates
 
 The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
 file and they can be edited using the Management Console.
@@ -153,18 +153,18 @@ file and they can be edited using the Management Console.
     customize the email template. For more information, 
     see [Customizing Automated Emails](../../learn/customizing-automated-emails).
     
-### Managing SMS Notification templates      
+### Manage SMS Notification templates      
     
 The templates for SMS notifications are stored in the registry. Follow the steps below to edit the
 sms notification template.
 
-1. Log in to the Management Console and click `Main> Registry> Browse`.
+1. Log in to the Management Console and click **Main> Registry> Browse**.
 
-2. On the **tree view** tab, click `system -> config ->identity -> sms -> accountidrecovery`.
+2. On the **tree view** tab, click **system -> config ->identity -> sms -> accountidrecovery**.
 
-3. Click on `en_us` to view the template.
+3. Click on **en_us** to view the template.
 
-4. Click `Display as text` to view the template or click `Edit as text` to edit the template.
+4. Click **Display as text** to view the template or click **Edit as text** to edit the template.
     
     ![edit-sms-notification-template](../assets/img/learn/account-recovery/username-recovery/edit-sms-template.png)
     
@@ -174,11 +174,6 @@ sms notification template.
     see [Managing SMS Notification Templates From the Registry](../../learn/managing-sms-templates-from-the-registry).     
     
 ## Try out username recovery 
-
-
-!!! tip "Before you begin"
-    Complete the steps given to configure the identity server.
-
 
 !!! info "Notification Mechanisms"
 
@@ -203,9 +198,9 @@ sms notification template.
     a user, skip to the next heading. 
     If not follow the steps below to create a new user and assign notification channels.
 
-1. Log in to the Management Console and click `Main -> Identity -> Users and Roles -> Add`.
+1. Log in to the Management Console and click **Main -> Identity -> Users and Roles -> Add**.
 
-2. Click on `Add New User` and enter user credentials.
+2. Click on **Add New User** and enter user credentials.
 
     ![create-user](../assets/img/learn/account-recovery/add-user/create-user.png)
     
@@ -213,17 +208,17 @@ sms notification template.
         For more details on creating users and roles Click [Adding Users and Roles](../.
         ./learn/adding-users-and-roles/)
     
-3. Navigate to `Main -> Identity -> Users and Roles -> List -> Users`.
+3. Navigate to **Main -> Identity -> Users and Roles -> List -> Users**.
 
-4. Find the user from the list and click `View Roles`.     
+4. Find the user from the list and click **View Roles**.     
     
     ![user-entry](../assets/img/learn/account-recovery/add-user/navogate-to-default-profile.png)
 
-5. Click on `Permissions` to edit the default permissions.
+5. Click on **Permissions** to edit the default permissions.
 
     ![get-list-of-permissions](../assets/img/learn/account-recovery/add-user/get-role-permissions.png)
 
-6. From the list of permissions select `Login` permission and click `Update`.     
+6. From the list of permissions select **Login** permission and click **Update**.     
 
     ![add-login-permissions](../assets/img/learn/account-recovery/add-user/add-login-permissions.png) 
     
@@ -231,7 +226,7 @@ sms notification template.
         This will update the permissions of the role. Therefore, all the users with the current role 
         will receive login permissions.
 
-7. Navigate to `Main -> Identity -> Users and Roles -> List -> Users` and click on `User Profile` to 
+7. Navigate to **Main -> Identity -> Users and Roles -> List -> Users** and click on **User Profile** to 
 update the Email and Mobile of the user.
 
     ![update-email-and-mobile](../assets/img/learn/account-recovery/add-user/add-email-and-mobile.png)
@@ -286,7 +281,7 @@ update the Email and Mobile of the user.
     curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```      
     
-4. The API will return the following response upon a successful recovery and the user will be notified 
+4. The API will return the following response upon successful recovery and the user will be notified 
 via the selected channel.
 
     ```
@@ -340,7 +335,7 @@ via the selected channel.
     curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
     
-4. The API will return the following response upon a successful recovery.
+4. The API will return the following response upon successful recovery.
 
     ```
     {

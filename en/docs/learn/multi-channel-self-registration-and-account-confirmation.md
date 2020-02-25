@@ -252,9 +252,9 @@ Management Policies** section.
         </tbody>
         </table>
         
-## Managing notification templates
+## Manage notification templates
 
-### Managing EMAIL Notification templates
+### Manage EMAIL Notification templates
 
 The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
 file and they can be edited using the Management Console.
@@ -264,10 +264,10 @@ file and they can be edited using the Management Console.
     customize the email template. For more information, 
     see [Customizing Automated Emails](../../learn/customizing-automated-emails).
 
-### Managing SMS Notification templates 
+### Manage SMS Notification templates 
     
 The templates for SMS notifications are stored in the registry. You can edit the default template using the 
-management console or using the configurations files.
+management console or using the configuration files.
 
 !!! tip
     The **accountconfirmation**, template is used to send SMS notifications. You can edit and customize the SMS 
