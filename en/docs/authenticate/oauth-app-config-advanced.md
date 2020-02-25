@@ -1,4 +1,4 @@
-## Advanced OpenID Connect Configurations
+# Advanced OpenID Connect Configurations
 
 --- 
 

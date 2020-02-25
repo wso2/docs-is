@@ -8,4 +8,4 @@
     
 3. To configure more advanced configurations, see [OAuth/OpenID Connect Configurations](../../authenticate/oauth-app-config-advanced). 
 
-4. Note the **OAuth Client Key** and **Client Secret** that appear. 
+4. Note the **OAuth Client Key** and **OAuth Client Secret** that appear. 

@@ -10,7 +10,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!authenticate/register-an-sp.md!}
+{!authenticate/register-a-service-provider.md!}
 
 ----
 
@@ -30,7 +30,7 @@ Make the following requests via your application to connect your application to 
     ```tab="Request Format"
     https://<host>/oauth2/authorize?scope=openid&response_type=code
     &redirect_uri=<redirect_uri>
-    &client_id=<client_id>
+    &client_id=<OAuth Client Key>
     &code_challenge=<PKCE_code_challenge>
     &code_challenge_method=<PKCE_code_challenge_method>
     ```
@@ -43,13 +43,13 @@ Make the following requests via your application to connect your application to 
     &code_challenge_method=S256
     ```
 
-2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `Client_ID` and `<Client_Secret>` obtained when configuring the service provider.
+2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `OAuth Client Key` and `<OAuth Client Secret>` obtained when configuring the service provider.
 
     !!! tip
         If you are using PKCE, include the `code_verifier` parameter in the request.
 
     ```tab="Request Format"
-    curl -i -X POST -u <Client_ID>:<Client_Secret> -k -d 
+    curl -i -X POST -u <OAuth Client Key>:<Client Secret> -k -d 
     'grant_type=authorization_code&redirect_uri=<redirect_uri>
     &code=<authorization_code>&code_verifier=<PKCE_code_verifier>' 
     https://localhost:9443/oauth2/token
@@ -66,7 +66,6 @@ Make the following requests via your application to connect your application to 
 3. Validate the ID token. For the token request, you will receive a response containing the access token, scope, and ID token. The ID token contains basic user information. To check what is encoded within the ID token, you can use a tool such as <jwt.io>.
 
 ----
-
 
 {!authenticate/get-user-information-to-the-application.md!}
 
