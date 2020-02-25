@@ -14,9 +14,9 @@
 
 		!!! important ""
 			1.	Click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. 
-			Next, click Preferences > Kubernetes > Enable Kubernetes.  
+			Next, click **Preferences > Kubernetes > Enable Kubernetes**.  
 
-			2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. For this, click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. Next, click Preferences > Resources. Set the CPUs to 4 and memory to 4.00 GB.  
+			2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. For this, click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. Next, click **Preferences > Resources**. Set the CPUs to 4 and memory to 4.00 GB.  
 			
 
     5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
@@ -75,11 +75,11 @@ To access the console in the environment,
 	<EXTERNAL-IP>	<RELEASE_NAME>
 	```
 
-3.	Try navigating to `https://<RELEASE_NAME>/carbon` from your favorite browser.
+3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
 
 ### Try it Out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../learn/deploying-the-sample-app) and follow the steps given to deploy the chosen application. 
+You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
 
 Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 
@@ -91,4 +91,4 @@ proxyPort = 443
 ```
 
 !!! important 
-	The host name has to be changed in the URLs related to the identity provider based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<Sample_Application>/WEB-INF/classes` where`<Sample_Application>` refers to the sample application that you have chosen to verify this deployment. 
+	The host name has to be changed in the URLs related to the identity provider based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 
