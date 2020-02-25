@@ -888,15 +888,8 @@ html .md-footer-meta.md-typeset a,
     display: none;
 }
 
-@media screen and (max-width: 767px) {
-   .wrapper {
-        height: 700px;
-   }
-
-   .content {
-        padding-top: 300px;
-        flex-direction: column;
-   }
+.swagger-ui .info .info__tos {
+    display: none;
 }
 
 .content {
@@ -908,8 +901,20 @@ html .md-footer-meta.md-typeset a,
    align-items: center;
 }
 
-.card {
-   width: 350px;
+@media screen and (max-width: 767px) {
+    .wrapper {
+         height: 700px;
+    }
+ 
+    .content {
+         /*padding-top: 300px;*/
+         flex-direction: column;
+         padding-right: 0px;
+    }
+ }
+
+ .card {
+   /*width: 350px;*/
    height: 110px;
    color: #404040;
    margin: 10px;
@@ -928,6 +933,8 @@ html .md-footer-meta.md-typeset a,
    flex-direction: row;
    cursor: pointer;
    transition: all 0.3s ease;
+   width: 30%;
+   max-width: 350px;
 }
 
 .line {
@@ -939,7 +946,7 @@ html .md-footer-meta.md-typeset a,
 
 .card-content {
     justify-content: center;
-    width: 225px;
+    /*width: 225px;*/
     height: 88px;
     display: flex;
     align-items: center;
@@ -966,7 +973,7 @@ html .md-footer-meta.md-typeset a,
 .material-icons.md-48 { font-size: 48px; }
 
 .card .title {
-    width: 225px;
+    /*width: 225px;*/
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-size: 14px;
@@ -1024,3 +1031,81 @@ html .md-footer-meta.md-typeset a,
 .md-typeset .codehilite {
     padding-right: 50px;
 }
+
+.md-typeset ol, .md-typeset ul {
+    margin-left: .625em;
+    padding: 0;
+    line-height: 2;
+}
+/* button styles for read concept and try sample buttons */
+.conceptbtn_a {
+    color: #fff !important;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #24a6e2;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.conceptbtn_a:hover {
+    background: #1fd3c4;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    }
+.samplebtn_a {
+    color: #fff !important;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #3d4242;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.samplebtn_a:hover {
+    background: #e2350a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    }
+    .card-sm {
+        width: 23%;
+        max-width: 350px;
+     }
+    .card-lg {
+        width: 45%;
+        max-width: 350px;
+     }
+     @media only screen and (max-width: 1023px) {
+         .card-sm {
+            width: 45%;
+            max-width: 350px;
+         }
+         .flex-wrap {
+             flex-wrap: wrap;
+         }
+      }
+     @media only screen and (max-width: 767px) {
+        .card {
+            width: 94%;
+            max-width: 94%;
+         }
+         .card-sm {
+            width: 94%;
+            max-width: 94%;
+         }
+         .card-lg {
+            width: 94%;
+            max-width: 94%;
+         }
+      }
