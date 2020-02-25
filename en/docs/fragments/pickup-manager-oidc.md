@@ -1,5 +1,5 @@
 
-{!samples/deploying-sample-apps.md!}
+{!fragments/deploying-sample-apps.md!}
 
 ### Register a service provider
 
@@ -12,7 +12,7 @@
 
 4. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
         
-5.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
+5.  Enter `http://wso2is.local:8080/pickup-manager/oauth2client` as the **Callback Url**.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
@@ -31,16 +31,17 @@ Follow the instructions below to download the sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
 
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the latest release assets.
+
 
 ### Deploy the sample web app
 
 Next, deploy the sample web app on a web container.
 
-1. Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+1. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
 
 2. Replace the `consumerKey` and `consumerSecret` values with the OAuth Client Key and Client Secret values that were generated for the newly created service provider.
 
-    ![pickup-key-secret](../assets/img/samples/pickup-key-secret.png)
+    ![pickup-key-secret-2](../assets/img/samples/pickup-key-secret-2.png)
 
-3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
+3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.

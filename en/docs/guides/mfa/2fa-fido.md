@@ -20,4 +20,4 @@ second factor>
 
 ## Advanced Configurations for FIDO Authenticator
 
-{!guides/mfa/advance-config-for-fido.md!}
+{!guides/mfa/fido-config-advanced.md!}

@@ -12,7 +12,7 @@ enable Authentication to a SPA with Implicit Grant. >
 
  < Description on SPA specific config >
  
-{!guides/authentication/oauth-app-config-basic.md!}
+{!fragments/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -24,11 +24,11 @@ enable Authentication to a SPA with Implicit Grant. >
 
 {!guides/authentication/configure-client-spa.md!}
 
-{!guides/authentication/get-user-information-to-the-application.md!}
+{!fragments/get-user-information-to-the-oidc-application.md!}
 
-{!guides/authentication/oidc-session-management.md!}
+{!fragments/oidc-session-management.md!}
 
-{!guides/authentication/oidc-logout.md!}
+{!fragments/oidc-logout.md!}
 
 !!! Tip "What's Next?"
 

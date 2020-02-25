@@ -14,7 +14,7 @@
 
  < Description on sample android mobile app specific config >
 
-{!guides/authentication/oauth-app-config-basic.md!}
+{!fragments/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 

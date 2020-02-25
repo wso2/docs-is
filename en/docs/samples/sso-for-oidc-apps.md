@@ -21,13 +21,13 @@ Follow the steps below to deploy two sample applications and see how this works.
 
 ## Set up Pickup Dispatch sample
 
-{!samples/pickup-dispatch-oidc.md!}
+{!fragments/pickup-dispatch-oidc.md!}
 
 ----
 
 ## Set up Pickup Manager sample
 
-{!samples/pickup-manager-oidc.md!}
+{!fragments/pickup-manager-oidc.md!}
 
 You are now ready to try out OpenID Connect SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 

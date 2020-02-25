@@ -1,1 +1,1 @@
-{!guides/authentication/configure-client-regular-oidc-app.md!}
+{!fragments/configure-client-regular-oidc-app.md!}

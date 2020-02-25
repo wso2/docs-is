@@ -9,7 +9,7 @@ If you have have your own application, click the button below.
 
 ----
 
-{!samples/pickup-dispatch-oidc.md!}
+{!fragments/pickup-dispatch-oidc.md!}
 
 ----
 
@@ -29,7 +29,7 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 ----
 
-{!guides/authentication/oidc-logout.md!}
+{!fragments/oidc-logout.md!}
 
 
 

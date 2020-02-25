@@ -6,15 +6,15 @@ This page guides you through enabling authentication to an OAuth/OpenID Connect 
 
 This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
 
-<a class="samplebtn_a" href="../../samples/regular-webapp-oidc-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
+<a class="samplebtn_a" href="../../../samples/regular-webapp-oidc-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
-{!guides/authentication/register-a-service-provider.md!}
+{!fragments/register-a-service-provider.md!}
 
 ----
 
-{!guides/authentication/oauth-app-config-basic.md!}
+{!fragments/oauth-app-config-basic.md!}
 
 ----
 
@@ -67,11 +67,11 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-{!guides/authentication/get-user-information-to-the-application.md!}
+{!fragments/get-user-information-to-the-oidc-application.md!}
 
-{!guides/authentication/oidc-session-management.md!}
+{!fragments/oidc-session-management.md!}
 
-{!guides/authentication/oidc-logout.md!}
+{!fragments/oidc-logout.md!}
 
 !!! Tip "What's Next?"
     - [Enable single sign-on with another web application]()

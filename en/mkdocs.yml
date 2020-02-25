@@ -75,7 +75,7 @@ nav:
             - 'Workday': guides/authentication/microsoft-workday.md
           - 'Salesforce': guides/authentication/salesforce.md
           - 'Shiboleth': guides/authentication/google.md
-      - 'Single Sign On': guides/sso/enable-single-sign-on.md
+      - 'Single Sign On': guides/authentication/enable-single-sign-on.md
       - 'Authentication Methods':
         - 'X509': guides/authentication/x509.md
         - 'IWA': guides/authentication/iwa.md
@@ -115,10 +115,10 @@ nav:
               - 'Password history': guides/user-mgt/password-history.md
               - 'Password expiration': guides/user-mgt/password-expiration.md
           - 'Using workflows': guides/user-mgt/configuring-workflows.md
-  - 'APIs':
-      - 'REST APIs': reference/rest-api-reference.md
-      - 'Authentication Script API': reference/authentication-script-reference.md
-      - 'Configuration Catalog': reference/configuration-catalog.md
+  - 'Develop':
+      - 'REST APIs': develop/rest-api-reference.md
+      - 'Authentication Script API': develop/authentication-script-reference.md
+      - 'Configuration Catalog': develop/configuration-catalog.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
@@ -216,33 +216,33 @@ nav:
       - 'Client Credentials Grant': samples/client-credentials-playground.md
       - 'Password Grant': samples/password-playground.md
   - 'Pickup Samples':
-      - 'Pickup Dispatch OIDC': samples/pickup-dispatch-oidc.md
-      - 'Pickup Dispatch SAML': samples/pickup-dispatch-saml.md
-      - 'Pickup Manager OIDC': samples/pickup-manager-oidc.md
-      - 'Pickup Manager SAML': samples/pickup-manager-saml.md
+      - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
+      - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
+      - 'Pickup Manager OIDC': fragments/pickup-manager-oidc.md
+      - 'Pickup Manager SAML': fragments/pickup-manager-saml.md
   - 'Configure Authentication':
-    - 'Register an Application': guides/authentication/register-a-service-provider.md
+    - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
-      - 'Basic' : guides/authentication/oauth-app-config-basic.md
+      - 'Basic' : fragments/oauth-app-config-basic.md
       - 'Advanced' : guides/authentication/oauth-app-config-advanced.md
       - 'Client Configurations':
-        - 'Regular OAuth/OIDC Application' : guides/authentication/configure-client-regular-oidc-app.md
+        - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
         - 'SPA Application' : guides/authentication/configure-client-spa.md
         - 'Mobile Application' : guides/authentication/configure-mobile-app.md
-        - 'Retrieve User Information to the Client Application' : guides/authentication/get-user-information-to-the-application.md
-        - 'OIDC Logout' : guides/authentication/oidc-logout.md
-        - 'OIDC Session Management' : guides/authentication/oidc-session-management.md
+        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-oidc-application.md
+        - 'OIDC Logout' : fragments/oidc-logout.md
+        - 'OIDC Session Management' : fragments/oidc-session-management.md
     - 'SAML':
-      - 'Basic' : guides/authentication/saml-app-config-basic.md
+      - 'Basic' : fragments/saml-app-config-basic.md
       - 'Advanced' : guides/authentication/saml-app-config-advanced.md
       - 'Client Configurations':
-        - 'SAML Application' : guides/authentication/configure-client-regular-saml-app.md
-        - 'Retrieve User Information to the Client Application' : guides/authentication/get-user-information-to-the-application-saml.md
+        - 'SAML Application' : fragments/configure-client-regular-saml-app.md
+        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md
   - 'Configure Authenticators':
-    - 'FIDO Authenticator': mfa/advance-config-for-fido.md
-    - 'EMail OTP Authenticator': mfa/advance-config-for-email-otp.md
-    - 'SMS OTP': mfa/advance-config-for-sms-otp.md
-    - 'TOTP': mfa/advance-config-for-totp.md
+    - 'FIDO Authenticator': guides/mfa/fido-config-advanced.md
+    - 'EMail OTP Authenticator': guides/mfa/email-otp-config-advanced\.md
+    - 'SMS OTP': guides/mfa/sms-otp-config-advanced.md
+    - 'TOTP': guides/mfa/otp-config-advanced.md
   - '': page-not-found.md
 
 

@@ -9,7 +9,7 @@ If you have have your own application, click the button below.
 
 ----
 
-{!samples/pickup-dispatch-saml.md!}
+{!fragments/pickup-dispatch-saml.md!}
 
 ----
 

@@ -12,7 +12,7 @@ mobile/native application>
 
  < Description on mobile app specific config >
 
-{!guides/authentication/oauth-app-config-basic.md!}
+{!fragments/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -24,11 +24,11 @@ mobile/native application>
 
 {!guides/authentication/configure-mobile-app.md!}
 
-{!guides/authentication/get-user-information-to-the-application.md!}
+{!fragments/get-user-information-to-the-oidc-application.md!}
 
-{!guides/authentication/oidc-session-management.md!}
+{!fragments/oidc-session-management.md!}
 
-{!guides/authentication/oidc-logout.md!}
+{!fragments/oidc-logout.md!}
 
 !!! Tip "What's Next?"
 

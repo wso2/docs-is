@@ -1,4 +1,4 @@
-{!samples/deploying-sample-apps.md!}
+{!fragments/deploying-sample-apps.md!}
 
 ### Register a service provider
 

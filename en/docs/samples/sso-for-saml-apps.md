@@ -21,13 +21,13 @@ Follow the steps below to deploy two sample applications and see how this works.
 
 ## Set up Pickup Dispatch sample
 
-{!samples/pickup-dispatch-saml.md!}
+{!fragments/pickup-dispatch-saml.md!}
 
 ----
 
 ## Set up Pickup Manager sample
 
-{!samples/pickup-manager-saml.md!}
+{!fragments/pickup-manager-saml.md!}
 
 You are now ready to try out SAML SSO with the Pickup Dispatch and Pickup Manager sample web applications.
 
