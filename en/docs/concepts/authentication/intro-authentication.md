@@ -25,14 +25,14 @@ this is a password (credential) to a username. As this approach requires a singl
 exposed to the outside anybody can access the system. So considering the other two authentication mechanisms this has 
 less security.
 
-![SFA](../assets/img/concepts/single-factor.png)
+![SFA](../../assets/img/concepts/single-factor.png)
 
 #### Two Factor Authentication
 This authentication requires a two-step verification process. So the party requesting the access should use two 
 credentials. These credentials can be something he knows (answer to a challenge question), something he owns (SMS OTP), 
 etc. This is stronger than the single-factor authentication but weaker than the multi-factor authentication.
 
-![TFA](../assets/img/concepts/two-factor.png)
+![TFA](../../assets/img/concepts/two-factor.png)
 
 #### Multi-Factor Authentication
 This form utilizes factors that are independent of each other such as something you know, something you have and 
@@ -40,4 +40,4 @@ something you are in order to eliminate any data exposure. For example a system 
 authentication (MFA) can use three verification steps such as username-password, SMS OTP, and fingerprint to authenticate
 a user to the system.
 
-![MFA](../assets/img/concepts/multi-factor.png)
+![MFA](../../assets/img/concepts/multi-factor.png)

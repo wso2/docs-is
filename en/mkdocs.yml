@@ -125,59 +125,59 @@ nav:
   - 'Concepts':
       - 'User Management': concepts/user-management.md
       - 'Authentication':
-          - 'Introduction': concepts/intro-authentication.md
+          - 'Introduction': concepts/authentication/intro-authentication.md
           - 'Authentication Protocols':
-                  - 'Introduction': concepts/intro-protocols.md
+                  - 'Introduction': concepts/authentication/intro-protocols.md
                   - 'OIDC':
-                          - 'Introduction': concepts/oidc/intro-oidc.md
+                          - 'Introduction': concepts/authentication/intro-oidc.md
                           - 'OIDC Client Profiles':
-                                    - 'Introduction': concepts/oidc/intro-profiles.md
-                                    - 'Basic Client Profile': concepts/oidc/basic-client-profile.md
-                                    - 'Implicit Profile': concepts/oidc/implicit-client-profile.md
-                                    - 'Hybrid Profile': concepts/oidc/hybrid-client-profile.md
-                          - 'OIDC Tokens': concepts/oidc/id-token.md
+                                    - 'Introduction': concepts/authentication/intro-profiles.md
+                                    - 'Basic Client Profile': concepts/authentication/basic-client-profile.md
+                                    - 'Implicit Profile': concepts/authentication/implicit-client-profile.md
+                                    - 'Hybrid Profile': concepts/authentication/hybrid-client-profile.md
+                          - 'OIDC Tokens': concepts/authentication/id-token.md
                           - 'End-User Authentication':
-                                    - 'Overview': concepts/oidc/end-user-authentication.md
-                                    - 'Request Object': concepts/oidc/request-object.md
-                          - 'User Information': concepts/oidc/user-information.md
-                          - 'JWKS': concepts/oidc/jwks.md
-                          - 'Discovery': concepts/oidc/discovery.md
-                          - 'Session Management and Logout': concepts/oidc/session-management.md
-                          - 'OIDC Device Flow': concepts/oidc/device-flow.md
-                          - 'Parameter Catalogue': concepts/oidc/oidc-parameter-catalog.md
-                          - 'Security Considerations': concepts/oidc/security-considerations.md
+                                    - 'Overview': concepts/authentication/end-user-authentication.md
+                                    - 'Request Object': concepts/authentication/request-object.md
+                          - 'User Information': concepts/authentication/user-information.md
+                          - 'JWKS': concepts/authentication/jwks.md
+                          - 'Discovery': concepts/authentication/discovery.md
+                          - 'Session Management and Logout': concepts/authentication/session-management.md
+                          - 'OIDC Device Flow': concepts/authentication/device-flow.md
+                          - 'Parameter Catalogue': concepts/authentication/oidc-parameter-catalog.md
+                          - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
-                          - 'Introduction': concepts/saml/saml.md
+                          - 'Introduction': concepts/authentication/saml.md
                   - 'WS-Federation':
-                          - 'Introduction': concepts/ws-federation/ws-federation.md
+                          - 'Introduction': concepts/authentication/ws-federation.md
                   - 'WS-Trust':
-                          - 'Introduction': concepts/ws-trust/ws-trust.md
+                          - 'Introduction': concepts/authentication/ws-trust.md
                   - 'NTLM':
-                          - 'Introduction': concepts/ntlm/ntlm.md
+                          - 'Introduction': concepts/authentication/ntlm.md
                   - 'Kerberos':
-                          - 'Introduction to Kerberos': concepts/kerberos/kerberos.md
-          - 'Adaptive Authentication': concepts/adaptive-auth.md
-          - 'Multi Factor Authentication': concepts/mfa.md
+                          - 'Introduction to Kerberos': concepts/authentication/kerberos.md
+          - 'Adaptive Authentication': concepts/authentication/adaptive-auth.md
+          - 'Multi Factor Authentication': concepts/authentication/mfa.md
       - 'Authorization':
-          - 'Introduction': concepts/intro-authorization.md
+          - 'Introduction': concepts/authorization/intro-authorization.md
           - 'Authorization Protocols':
                         - 'OAuth2':
-                                    - 'Introduction': concepts/oauth2/intro-oauth2.md
-                                    - 'OAuth 2.0 Client Types': concepts/oauth2/oauth2-client-types.md
-                                    - 'Grant Types': concepts/oauth2/grant-types.md
-                                    - 'Extended Grant Types': concepts/oauth2/extended-grant-types.md
+                                    - 'Introduction': concepts/authorization/intro-oauth2.md
+                                    - 'OAuth 2.0 Client Types': concepts/authorization/oauth2-client-types.md
+                                    - 'Grant Types': concepts/authorization/grant-types.md
+                                    - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
-                                          - 'Overview': concepts/oauth2/overview.md
-                                          - 'Access Tokens': concepts/oauth2/access-token.md
-                                          - 'Refresh Tokens': concepts/oauth2/refresh-token.md
-                                    - 'Client Authentication': concepts/oauth2/client-authentication.md
-                                    - 'Token Introspection': concepts/oauth2/intorspection.md
-                                    - 'DCR': concepts/oauth2/dcr.md
-                                    - 'Parameter Catalog': concepts/oauth2/oauth2-parameter-catalog.md
+                                          - 'Overview': concepts/authorization/overview.md
+                                          - 'Access Tokens': concepts/authorization/access-token.md
+                                          - 'Refresh Tokens': concepts/authorization/refresh-token.md
+                                    - 'Client Authentication': concepts/authorization/client-authentication.md
+                                    - 'Token Introspection': concepts/authorization/intorspection.md
+                                    - 'DCR': concepts/authorization/dcr.md
+                                    - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
-                                    - 'Introduction to XACML': concepts/xacml/xacml.md
+                                    - 'Introduction to XACML': concepts/authorization/xacml.md
                         - 'UMA':
-                                    - 'Introduction to UMA': concepts/uma/uma.md
+                                    - 'Introduction to UMA': concepts/authorization/uma.md
       - 'Single Sign On':
           - 'Introduction': concepts/intro-sso.md
           - 'Inbound SSO': concepts/inbound-sso.md

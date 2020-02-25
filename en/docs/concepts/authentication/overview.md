@@ -7,9 +7,9 @@ which have a defined lifespan will carry information or act like credentials in 
 
 In OAuth2.0 flow there two types of tokens that are engaged in the authorization process.
 
-[Access Token](access-token.md)
+[Access Token](../authorization/access-token.md)
  
-[Refresh Token](refresh-token.md)
+[Refresh Token](../authorization/refresh-token.md)
 
 Apart from the two token types given above, the OpenID Connect flow also involves the [ID Token]
-[ID Token](../oidc/id-token.md).
+[ID Token](id-token.md).
