@@ -8,7 +8,7 @@ template: templates/2-column.html
  
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/android';">
+    <div class="card" onclick="location.href='../../quick-starts/android';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/android.png">
@@ -21,7 +21,7 @@ template: templates/2-column.html
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/ios';">
+    <div class="card" onclick="location.href='../../quick-starts/ios';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/apple.png">
@@ -33,7 +33,7 @@ template: templates/2-column.html
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/react-native';">
+    <div class="card" onclick="location.href='../../quick-starts/react-native';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/react.png">

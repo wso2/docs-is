@@ -4,7 +4,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 ----
 
-{! samples/oauth-playground.md !}
+{! fragments/oauth-playground.md !}
 
 ----
 

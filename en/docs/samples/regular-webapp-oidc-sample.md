@@ -5,11 +5,11 @@ This page guides you through enabling authentication to an OAuth/OpenID Connect 
 ----
 If you have have your own application, click the button below.
 
-<a class="samplebtn_a" href="../../authenticate/regular-webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
+<a class="samplebtn_a" href="../../guides/authentication/regular-webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
 
 ----
 
-{!samples/pickup-dispatch-oidc.md!}
+{!fragments/pickup-dispatch-oidc.md!}
 
 ----
 
@@ -29,7 +29,7 @@ You have successfully configured authentication for an OpenID Connect applicatio
 
 ----
 
-{!authenticate/configure-oidc-single-logout.md!}
+{!fragments/oidc-logout.md!}
 
 
 

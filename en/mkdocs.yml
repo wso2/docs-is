@@ -46,79 +46,79 @@ theme:
 # Navigation
 nav:
   - 'Home': index.md
-  - 'Quick Start':
-      - 'Overview': get-started/overview.md
+  - 'Quick Starts':
+      - 'Overview': quick-starts/overview.md
       - 'Mobile':
-          - 'Android': get-started/android.md
-          - 'iOS': get-started/ios.md
+          - 'Android': quick-starts/android.md
+          - 'iOS': quick-starts/ios.md
       - 'Frontend':
-          - 'Angular': get-started/angular.md
-          - 'React': get-started/react.md
+          - 'Angular': quick-starts/angular.md
+          - 'React': quick-starts/react.md
       - 'Backend':
-          - 'Java': get-started/java.md
-          - 'NodeJs': get-started/nodejs.md
+          - 'Java': quick-starts/java.md
+          - 'NodeJs': quick-starts/nodejs.md
   - 'Guides':
       - 'Get Started': guides/before-you-start.md
       - 'Authentication':
         - 'Web Application':
-          - 'OAuth/OIDC': authenticate/regular-webapp-oidc.md
-          - 'SAML': authenticate/regular-webapp-saml.md
-          - 'STS': authenticate/regular-webapp-sts.md
-        - 'Mobile Application': authenticate/mobile-app.md
-        - 'Single Page Application': authenticate/spa-app.md
+          - 'OAuth/OIDC': guides/authentication/regular-webapp-oidc.md
+          - 'SAML': guides/authentication/regular-webapp-saml.md
+          - 'STS': guides/authentication/regular-webapp-sts.md
+        - 'Mobile Application': guides/authentication/mobile-app.md
+        - 'Single Page Application': guides/authentication/spa-app.md
         - 'SaaS Applications':
-          - 'Google': authenticate/google.md
+          - 'Google': guides/authentication/google.md
           - 'Microsoft Services':
-            - 'Dynamics CRM': authenticate/microsoft-dynamic-crm.md
-            - 'Office365': authenticate/office365.md
-            - 'SharePoint': authenticate/microsoft-sharepoint.md
-            - 'Workday': authenticate/microsoft-workday.md
-          - 'Salesforce': authenticate/salesforce.md
-          - 'Shiboleth': authenticate/google.md
-      - 'Single Sign On': sso/enable-single-sign-on.md
+            - 'Dynamics CRM': guides/authentication/microsoft-dynamic-crm.md
+            - 'Office365': guides/authentication/office365.md
+            - 'SharePoint': guides/authentication/microsoft-sharepoint.md
+            - 'Workday': guides/authentication/microsoft-workday.md
+          - 'Salesforce': guides/authentication/salesforce.md
+          - 'Shiboleth': guides/authentication/google.md
+      - 'Single Sign On': guides/authentication/enable-single-sign-on.md
       - 'Authentication Methods':
-        - 'X509': authenticate/x509.md
-        - 'IWA': authenticate/iwa.md
+        - 'X509': guides/authentication/x509.md
+        - 'IWA': guides/authentication/iwa.md
       - 'Multifactor Authentication':
-        - 'Overview': mfa/overview.md
-        - '2FA with FIDO': mfa/2fa-fido.md
-        - '2FA with TOTP': mfa/2fa-totp.md
-        - '2FA with SMS OTP': mfa/2fa-sms-otp.md
-        - '2FA with Email OTP': mfa/2fa-sms-otp.md
+        - 'Overview': guides/mfa/overview.md
+        - '2FA with FIDO': guides/mfa/2fa-fido.md
+        - '2FA with TOTP': guides/mfa/2fa-totp.md
+        - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
+        - '2FA with Email OTP': guides/mfa/2fa-sms-otp.md
         - '3FA': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - guides/adaptive.md
       - 'Federation':
         - guides/federation.md
-      - 'Access Delegation' : access-delegation/overview.md
-      - 'Authorization' : authorization/overview.md
+      - 'Access Delegation' : guides/access-delegation/overview.md
+      - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
-              - 'Overview': user-mgt/user-onboarding-overview.md
+              - 'Overview': guides/user-mgt/user-onboarding-overview.md
               - 'Connecting a Userstore':
-                  - 'Connecting a Database Userstore': user-mgt/connect-database-userstore.md
-                  - 'Connecting a LDAP Userstore': user-mgt/connect-ldap-userstore.md
-                  - 'Connecting a Active Directory Userstore': user-mgt/connect-active-directory-userstore.md
-              - 'Importing users from a file': user-mgt/user-bulk-import.md
-              - 'Enabling Self Sign Up': user-mgt/user-sign-up.md
-          - 'Managing Roles': user-mgt/managing-roles.md
+                  - 'Connecting a Database Userstore': guides/user-mgt/connect-database-userstore.md
+                  - 'Connecting a LDAP Userstore': guides/user-mgt/connect-ldap-userstore.md
+                  - 'Connecting a Active Directory Userstore': guides/user-mgt/connect-active-directory-userstore.md
+              - 'Importing users from a file': guides/user-mgt/user-bulk-import.md
+              - 'Enabling Self Sign Up': guides/user-mgt/user-sign-up.md
+          - 'Managing Roles': guides/user-mgt/managing-roles.md
           - 'Managing User Accounts':
-              - 'Overview': user-mgt/manage-users-overview.md
-              - 'Adding users from portal': user-mgt/user-add.md
-              - 'View and Update Profile': user-mgt/user-view-profile.md
-              - 'Assign Roles': user-mgt/user-assign-role.md
-              - 'Change Password': user-mgt/change-password.md
-              - 'Locking and Unlocking': user-mgt/user-lock-account.md
+              - 'Overview': guides/user-mgt/manage-users-overview.md
+              - 'Adding users from portal': guides/user-mgt/user-add.md
+              - 'View and Update Profile': guides/user-mgt/user-view-profile.md
+              - 'Assign Roles': guides/user-mgt/user-assign-role.md
+              - 'Change Password': guides/user-mgt/change-password.md
+              - 'Locking and Unlocking': guides/user-mgt/user-lock-account.md
           - 'Password Policies':
-              - 'Overview': user-mgt/password-policy-overview.md
-              - 'Password complexity': user-mgt/password-complexity.md
-              - 'Password history': user-mgt/password-history.md
-              - 'Password expiration': user-mgt/password-expiration.md
-          - 'Using workflows': user-mgt/configuring-workflows.md
-  - 'APIs':
-      - 'REST APIs': reference/rest-api-reference.md
-      - 'Authentication Script API': reference/authentication-script-reference.md
-      - 'Configuration Catalog': reference/configuration-catalog.md
+              - 'Overview': guides/user-mgt/password-policy-overview.md
+              - 'Password complexity': guides/user-mgt/password-complexity.md
+              - 'Password history': guides/user-mgt/password-history.md
+              - 'Password expiration': guides/user-mgt/password-expiration.md
+          - 'Using workflows': guides/user-mgt/configuring-workflows.md
+  - 'Develop':
+    - 'REST APIs': develop/rest-api-reference.md
+    - 'Authentication Script API': develop/authentication-script-reference.md
+    - 'Configuration Catalog': develop/configuration-catalog.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
@@ -207,8 +207,8 @@ nav:
       - 'OpenID Connect': samples/regular-webapp-oidc-sample.md
       - 'SAML': samples/regular-webapp-saml-sample.md
     - 'Single Sign On':
-      - 'OAuth/OIDC Apps': samples/configuring-sso-oidc-sample.md
-      - 'SAML Apps': samples/configuring-sso-saml-sample.md
+      - 'OAuth/OIDC Apps': samples/sso-for-oidc-apps.md
+      - 'SAML Apps': samples/sso-for-saml-apps.md
       - 'Different Authentication Protocols': samples/cross-protocol-sso.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
@@ -216,33 +216,33 @@ nav:
       - 'Client Credentials Grant': samples/client-credentials-playground.md
       - 'Password Grant': samples/password-playground.md
   - 'Pickup Samples':
-      - 'Pickup Dispatch OIDC': samples/pickup-dispatch-oidc.md
-      - 'Pickup Dispatch SAML': samples/pickup-dispatch-saml.md
-      - 'Pickup Manager OIDC': samples/pickup-manager-oidc.md
-      - 'Pickup Manager SAML': samples/pickup-manager-saml.md
+      - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
+      - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
+      - 'Pickup Manager OIDC': fragments/pickup-manager-oidc.md
+      - 'Pickup Manager SAML': fragments/pickup-manager-saml.md
   - 'Configure Authentication':
-    - 'Register an Application': authenticate/register-a-service-provider.md
+    - 'Register an Application': fragments/register-a-service-provider.md
     - 'OAuth/OIDC':
-      - 'Basic' : authenticate/oauth-app-config-basic.md
-      - 'Advanced' : authenticate/oauth-app-config-advanced.md
+      - 'Basic' : fragments/oauth-app-config-basic.md
+      - 'Advanced' : guides/authentication/oauth-app-config-advanced.md
       - 'Client Configurations':
-        - 'Regular OAuth/OIDC Application' : authenticate/configure-client-regular-webapp.md
-        - 'SPA Application' : authenticate/configure-client-spa.md
-        - 'Mobile Application' : authenticate/configure-mobile-app.md
-        - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application.md
-        - 'OIDC Logout' : authenticate/oidc-logout.md
-        - 'OIDC Session Management' : authenticate/oidc-session-management.md
+        - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
+        - 'SPA Application' : guides/authentication/configure-client-spa.md
+        - 'Mobile Application' : guides/authentication/configure-mobile-app.md
+        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-oidc-application.md
+        - 'OIDC Logout' : fragments/oidc-logout.md
+        - 'OIDC Session Management' : fragments/oidc-session-management.md
     - 'SAML':
-      - 'Basic' : authenticate/saml-app-config-basic.md
-      - 'Advanced' : authenticate/saml-app-config-advanced.md
+      - 'Basic' : fragments/saml-app-config-basic.md
+      - 'Advanced' : guides/authentication/saml-app-config-advanced.md
       - 'Client Configurations':
-        - 'SAML Application' : authenticate/configure-client-regular-saml.md
-        - 'Retrieve User Information to the Client Application' : authenticate/get-user-information-to-the-application-saml.md
+        - 'SAML Application' : fragments/configure-client-regular-saml-app.md
+        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md
   - 'Configure Authenticators':
-    - 'FIDO Authenticator': mfa/advance-config-for-fido.md
-    - 'EMail OTP Authenticator': mfa/advance-config-for-email-otp.md
-    - 'SMS OTP': mfa/advance-config-for-sms-otp.md
-    - 'TOTP': mfa/advance-config-for-totp.md
+    - 'FIDO Authenticator': guides/mfa/fido-config-advanced.md
+    - 'EMail OTP Authenticator': guides/mfa/email-otp-config-advanced\.md
+    - 'SMS OTP': guides/mfa/sms-otp-config-advanced.md
+    - 'TOTP': guides/mfa/otp-config-advanced.md
   - '': page-not-found.md
 
 
@@ -297,8 +297,8 @@ extra:
 
   nav_list:
     - Home
-    - Deploy
+    - Quick Starts
     - Guides
-    - Quick Start
-    - APIs
+    - Develop
+    - Deploy
     - Concepts
