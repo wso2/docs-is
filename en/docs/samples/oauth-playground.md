@@ -22,7 +22,7 @@
 
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
-        refer, [Advanced OpenID Connect Configurations](../../authenticate/oauth-app-config-advanced)
+        refer, [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced)
         
 6.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 

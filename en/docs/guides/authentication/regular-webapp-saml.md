@@ -17,17 +17,17 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!authenticate/register-a-service-provider.md!}
+{!guides/authentication/register-a-service-provider.md!}
 
 ----
 
-{!authenticate/saml-app-config-basic.md!}
+{!guides/authentication/saml-app-config-basic.md!}
 
 ----
 
-{!authenticate/configure-client-regular-webapp-saml.md!}
+{!guides/authentication/configure-client-regular-saml-app.md!}
 
-{!authenticate/get-user-information-to-the-application-saml.md!}
+{!guides/authentication/get-user-information-to-the-application-saml.md!}
 
 ### Session Management
 

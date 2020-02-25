@@ -12,7 +12,7 @@ mobile/native application>
 
  < Description on mobile app specific config >
 
-{!authenticate/oauth-app-config-basic.md!}
+{!guides/authentication/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -20,15 +20,15 @@ mobile/native application>
 | Description           | This is a mobile application  | 
 | Call Back Url         | https://somehost/url  | 
 
-{!authenticate/oauth-app-config-advance.md!}
+{!guides/authentication/oauth-app-config-advanced.md!}
 
-{!authenticate/configure-mobile-app.md!}
+{!guides/authentication/configure-mobile-app.md!}
 
-{!authenticate/get-user-information-to-the-application.md!}
+{!guides/authentication/get-user-information-to-the-application.md!}
 
-{!authenticate/oidc-session-management.md!}
+{!guides/authentication/oidc-session-management.md!}
 
-{!authenticate/oidc-logout.md!}
+{!guides/authentication/oidc-logout.md!}
 
 !!! Tip "What's Next?"
 

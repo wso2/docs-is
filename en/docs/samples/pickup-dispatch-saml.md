@@ -17,7 +17,7 @@
 
         !!! tip
             For more information on these fields and other advanced configurations
-            refer, [Advanced SAML Configurations](../../authenticate/saml-app-config-advanced)
+            refer, [Advanced SAML Configurations](../../guides/authentication/saml-app-config-advanced)
 
 5. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
 

@@ -14,7 +14,7 @@
 
  < Description on mobile app specific config >
 
-{!authenticate/oauth-app-config-basic.md!}
+{!guides/authentication/oauth-app-config-basic.md!}
 
 | Field                 | Value         | 
 | --------------------- | ------------- | 
@@ -40,4 +40,4 @@
 !!! Tip "What's Next?"
 
     - [Enable single sign-on with another mobile application]()
-    - [Check out Detailed guide](../authenticate/mobile-app.md)    
+    - [Check out Detailed guide](../guides/authentication/mobile-app.md)    

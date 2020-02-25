@@ -10,11 +10,11 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!authenticate/register-a-service-provider.md!}
+{!guides/authentication/register-a-service-provider.md!}
 
 ----
 
-{!authenticate/oauth-app-config-basic.md!}
+{!guides/authentication/oauth-app-config-basic.md!}
 
 ----
 
@@ -67,11 +67,11 @@ Make the following requests via your application to connect your application to 
 
 ----
 
-{!authenticate/get-user-information-to-the-application.md!}
+{!guides/authentication/get-user-information-to-the-application.md!}
 
-{!authenticate/oidc-session-management.md!}
+{!guides/authentication/oidc-session-management.md!}
 
-{!authenticate/oidc-logout.md!}
+{!guides/authentication/oidc-logout.md!}
 
 !!! Tip "What's Next?"
     - [Enable single sign-on with another web application]()
