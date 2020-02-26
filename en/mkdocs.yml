@@ -121,7 +121,7 @@ nav:
     - 'Configuration Catalog': develop/configuration-catalog.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
-    - 'choose your model': deploy/deploying-wso2-identity-server/choose-your-model.md
+    - 'choose your model': deploy/choose-your-model.md
   - 'Concepts':
       - 'User Management': concepts/user-management.md
       - 'Authentication':

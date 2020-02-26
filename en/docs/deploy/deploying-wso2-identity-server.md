@@ -11,7 +11,7 @@ template: templates/single-column.html
     <div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='choose-your-model';">
+            <div class="card" onclick="location.href='../../deploy/choose-your-model';">
 	              <div class="line"></div>
          	      <div class="icon">
 		                 <i class="material-icons md-36">how_to_reg</i>

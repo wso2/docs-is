@@ -13,7 +13,7 @@ template: templates/single-column.html
         </header></div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='minikube';">
+            <div class="card" onclick="location.href='../../deploy/minikube';">
 	              <div class="line"></div>
          	      <div class="icon">
 		                 <i class="material-icons md-36">how_to_reg</i>
@@ -25,13 +25,13 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials';">
+            <div class="card" onclick="location.href='../../deploy/docker';">
                 <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">how_to_reg</i>
                 </div>
                 <div class="card-content">
-                    <p class="title">Docker</p>
+                    <p class="title">Docker Desktop</p>
                 </div>
             </div></div>
             <!-- end card -->
