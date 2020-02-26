@@ -13,7 +13,7 @@ info:
   contact:
     name: "WSO2"
     url: "http://wso2.com/identity-and-access-management"
-    email: "architecture@wso2.com"
+    email: "architecture@wso2.org"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -29,7 +29,7 @@ schemes:
 # The domain of the API.
 # This is configured by the customer during deployment.
 # The given host is just an example.
-host: localhost
+host: localhost:9443
 
 # The base path of the API.
 # Will be prefixed to all paths.
@@ -46,9 +46,9 @@ consumes:
   - application/json
 
 # The following media types may be passed as output in message bodies of the API.
-# The media type(s) consumable by the requestor is specified in the Accept header field
+# The media type(s) consumable by the requester is specified in the Accept header field
 # of the corresponding request.
-# The actual media type returned will be specfied in the Content-Type header field
+# The actual media type returned will be specified in the Content-Type header field
 # of the of the response.
 # The default of the Accept header is json, i.e. there is not needed to
 # set the value, but supporting it serves extensibility.
@@ -89,6 +89,10 @@ paths:
           description: Bad Request
           schema:
             $ref: '#/definitions/error'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
         409:
           description: Conflict
           schema:
@@ -126,6 +130,16 @@ paths:
           description: Number of scopes to retrieve from the point of the start index
           required: false
           type: integer
+        - name: includeOIDCScopes
+          in: query
+          description: Retrieve OIDC scopes as well via OAuth2 scopes endpoint.
+          required: false
+          type: boolean
+        - name: requestedScopes
+          in: query
+          description: Request a set of scopes  to be returned.
+          required: false
+          type: string
 
       responses:
         200:
@@ -134,6 +148,10 @@ paths:
             type: array
             items:
               $ref: '#/definitions/scope'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
         404:
           description: Not Found
           schema:
@@ -173,6 +191,10 @@ paths:
           description: Successfully Retrieved
           schema:
             $ref: '#/definitions/scope'
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
         404:
           description: Not Found
           schema:
@@ -212,6 +234,14 @@ paths:
           schema:
             title: key
             type: string
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
+        404:
+          description: Not Found
+          schema:
+            $ref: '#/definitions/error'
         500:
           description: Server Error
           schema:
@@ -253,8 +283,12 @@ paths:
           description: Successfully updated
           schema:
             $ref: '#/definitions/scope'
-        409:
-          description: Conflict
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
+        404:
+          description: Not Found
           schema:
             $ref: '#/definitions/error'
         500:
@@ -264,7 +298,7 @@ paths:
       tags:
         - Scope Management
 
-    # Endpoint used to check scope existance using scope name
+    # Endpoint used to check scope existence using scope name
     head:
       description: |
         This API is used to check a scope's existence using a given scope name.
@@ -292,6 +326,10 @@ paths:
           schema:
             title: key
             type: string
+        401:
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/error'
         404:
           description: Not Found
           schema:
