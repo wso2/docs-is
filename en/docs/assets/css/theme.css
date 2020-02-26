@@ -907,14 +907,12 @@ html .md-footer-meta.md-typeset a,
     }
  
     .content {
-         /*padding-top: 300px;*/
          flex-direction: column;
          padding-right: 0px;
     }
  }
 
  .card {
-   /*width: 350px;*/
    height: 110px;
    color: #404040;
    margin: 10px;
@@ -946,7 +944,6 @@ html .md-footer-meta.md-typeset a,
 
 .card-content {
     justify-content: center;
-    /*width: 225px;*/
     height: 88px;
     display: flex;
     align-items: center;
@@ -973,7 +970,6 @@ html .md-footer-meta.md-typeset a,
 .material-icons.md-48 { font-size: 48px; }
 
 .card .title {
-    /*width: 225px;*/
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-size: 14px;
