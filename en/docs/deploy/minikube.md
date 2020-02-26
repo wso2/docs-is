@@ -44,11 +44,11 @@ minikube start
 
     **MySQL**
     
-    ![persistent](../assets/img/deploy/persistent.png)
+    ![persistent](../../../assets/img/deploy/persistent.png)
 
     **WSO2 IS**
 
-    ![isconfig](../assets/img/deploy/isconfig.png)
+    ![isconfig](../../../assets/img/deploy/isconfig.png)
 
 3.  Make the following changes to run containers as the root user.
 
