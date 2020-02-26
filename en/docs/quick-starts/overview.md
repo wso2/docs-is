@@ -2,10 +2,17 @@
 template: templates/2-column.html
 ---
 
-# Select Sample
- 
-### Mobile Samples 
- 
+{!quick-starts/quick-download-and-install.md!}
+
+## Start Connecting Your Applications
+
+Choose your application type
+
+### Mobile/Native Application
+
+Authentication for your mobile or desktop native application that run on
+the device .
+
 <div class="content"> 
     <!-- begin card -->
     <div class="card" onclick="location.href='../../quick-starts/android';">
@@ -47,11 +54,13 @@ template: templates/2-column.html
     <!-- end card -->
 </div>
 
-### Frontend Application Samples
+### Frontend Application
+
+Authentication for your front-end application that run on the browser.
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/react';">
+    <div class="card" onclick="location.href='../../quick-starts/react';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/react.png">
@@ -64,7 +73,7 @@ template: templates/2-column.html
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/angular';">
+    <div class="card" onclick="location.href='../../quick-starts/angular';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/angular.png">
@@ -76,7 +85,7 @@ template: templates/2-column.html
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/javascript';">
+    <div class="card" onclick="location.href='../../quick-starts/javascript';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/javascript.png">
@@ -90,11 +99,13 @@ template: templates/2-column.html
     <!-- end card -->
 </div>
 
-### Backend Application Samples
+### Backend Application
+
+Authentication for your back-end application that run on the server.
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/java';">
+    <div class="card" onclick="location.href='../../quick-starts/java';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/java.png">
@@ -107,7 +118,7 @@ template: templates/2-column.html
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/nodejs';">
+    <div class="card" onclick="location.href='../../quick-starts/nodejs';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/node.png">
@@ -119,7 +130,7 @@ template: templates/2-column.html
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../samples/python';">
+    <div class="card" onclick="location.href='../../quick-starts/python';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/technology/python.png">

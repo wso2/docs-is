@@ -2,7 +2,7 @@
 template: templates/2-column.html
 ---
 
-{!get-started/quick-download-and-install.md!}
+{!quick-starts/quick-download-and-install.md!}
 
 ## Architecture
 
@@ -14,7 +14,7 @@ template: templates/2-column.html
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../authenticate/regular-webapp-oidc';">
+    <div class="card" onclick="location.href='../../guides/authentication/regular-webapp-oidc';">
       <div class="icon ">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/application/web.png">
@@ -27,7 +27,7 @@ template: templates/2-column.html
     </div>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/mobile-app';">
+    <div class="card" onclick="location.href='../../quick-starts/mobile-app';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/application/mobile.png">
@@ -39,7 +39,7 @@ template: templates/2-column.html
       </div>
     </div>
     <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../get-started/spa-app';">
+    <div class="card" onclick="location.href='../../quick-starts/spa-app';">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../assets/img/icons/application/spa.png">

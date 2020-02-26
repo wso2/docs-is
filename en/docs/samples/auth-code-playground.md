@@ -4,7 +4,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 ----
 
-{! samples/oauth-playground.md !}
+{! fragments/oauth-playground.md !}
 
 ----
 
@@ -22,7 +22,7 @@ This page guides you through using a **sample Playground application** to try ou
     
     - **Scope:** Any scope you wish to obtain the token for. To use the sample application with OpenID Connect, enter the value `openid` as the scope. This field is optional. 
 
-	<img name='auth-code-without-pkce' src='../../assets/img/guides/auth-code-without-pkce.png' class='img-zoomable'/>
+	<img name='auth-code-without-pkce' src='../../assets/img/samples/auth-code-without-pkce.png' class='img-zoomable'/>
 
 2. Fill the following two fields only if you wish to use [PKCE](insertlink). If you are not using PKCE, proceed to step 3.
 
@@ -30,7 +30,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **PKCE Challenge Method:** Select the relevant method. For more information about the PKCE Challenge Methods, see [the specification](https://tools.ietf.org/html/rfc7636#section-4.2)
 
-	<img name='auth-code-with-pkce' src='../../assets/img/guides/auth-code-with-pkce.png' class='img-zoomable'/>
+	<img name='auth-code-with-pkce' src='../../assets/img/samples/auth-code-with-pkce.png' class='img-zoomable'/>
     
 3. Click **Authorize**. 
 
@@ -55,7 +55,7 @@ This page guides you through using a **sample Playground application** to try ou
 
 3. Log in with user credentials (e.g., admin/admin).  
 
-4.  Provide the requested consent and enter the following details on the screen that appears. 
+4. Provide the requested consent and enter the following details on the screen that appears. 
 
     - **Callback URL:** http://wso2is.local:8080/playground2/oauth2client
 
@@ -65,7 +65,6 @@ This page guides you through using a **sample Playground application** to try ou
 
 	- **PKCE Verifier:** This will be populated using the value generated in step 1 only if you are using PKCE. 
       
-
 5. Click **Get Access Token**. At this point, the application receives the access token. 
 
 6. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token   information. 
@@ -75,5 +74,5 @@ This page guides you through using a **sample Playground application** to try ou
 7.  Now you should be able to see the access token information as seen
     below, as long as the provided access token is valid.  
 	
-	<img name='access-token-info' src='../../assets/img/guides/access-token-info.png' class='img-zoomable'/>
+	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable'/>
 

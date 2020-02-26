@@ -17,7 +17,7 @@ template: templates/single-column.html
     <div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='get-started/quick-start-guide';">
+            <div class="card" onclick="location.href='quick-starts/quick-start-guide';">
 	              <div class="line"></div>
          	      <div class="icon">
 		                 <i class="material-icons md-36">timer</i>
