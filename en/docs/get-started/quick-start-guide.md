@@ -90,8 +90,8 @@ using WSO2 Identity Server.
 3.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
     ``` java
-    Linux   --> sh wso2server.sh
-    Windows --> wso2server.bat
+        Linux   --> sh wso2server.sh
+        Windows --> wso2server.bat
     ```
     Note that the following appears in the command prompt after the server start.
     ![qsg-start-server](../assets/img/getting-started/qsg-start-server.png)
@@ -114,7 +114,7 @@ using WSO2 Identity Server.
 
     ``` java
         Linux   --> sh qsg.sh 
-        Windows --> sh qsg.bat 
+        Windows --> qsg.bat 
     ```
 
     A message appears to pick a scenario, which indicates that the
