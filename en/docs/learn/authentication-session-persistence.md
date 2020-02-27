@@ -10,7 +10,7 @@ into either the service provider or the WSO2 Identity Server.
     When you log in to the Web application using WSO2 Identity Server, a
     single sign-on (SSO) session is created by the Identity Server for the
     user of the application. Also, as the user logs in to the Web
-    application, there is session created in the Web application itself for
+    application, there is a session created in the Web application itself for
     the user. These are two separate sessions and they are not synchronized
     with each other.
 
@@ -23,11 +23,11 @@ into either the service provider or the WSO2 Identity Server.
     If the Web application session timeout is 5 minutes and the WSO2 IS SSO
     session timeout is 20 minutes, the users will not see the login page up
     to 20 minutes. This is because even when the Web application container
-    session timeout after 5 minutes, the session was kept alive since WSO2
+    session times out after 5 minutes, the session is kept alive since WSO2
     IS SSO session is still alive. The user will not be redirected to the
     login screen of the SP until the WSO2 IS SSO session is invalidated.
 
-    WSO2 Identity Server creates separate SSO session for SSO login and it
+    WSO2 Identity Server creates a separate SSO session for SSO login and it
     is different from the session that is created when you log in to the
     Identity Server management console.
 
@@ -46,12 +46,12 @@ into either the service provider or the WSO2 Identity Server.
 
     ??? note "Click here to read about the importance of persisting the session"
 
-        SSO sessions have been stored in an in-memory cache. It is recommended
+        SSO sessions are stored in an in-memory cache. It is recommended
         to persist the SSO session due to following reasons.
 
         -   If you are running a single WSO2 Identity Server instance and the
             server is restarted, all SSO session would be removed. If you have
-            multiple nodes of WSO2 instances, It is **not guaranteed** that you
+            multiple nodes of WSO2 instances, it is **not guaranteed** that you
             can recover all the sessions. Although the cache is distributed, it
             is not 100% split to each node.
         -   Cache has a limit. If there are large number of SSO sessions, memory
@@ -64,7 +64,7 @@ into either the service provider or the WSO2 Identity Server.
             However, if you have persistence, you can rely on it as well. This
             increases the reliability of the overall system.
 
-In WSO2 Identity Server has multiple local caching usage in different
+WSO2 Identity Server has multiple local caching usage in different
 layers to improve the product performance. But most of the caches are
 ready to persist in the database if it is required.
 
@@ -72,43 +72,43 @@ There are three type of data objects that are persisted in the database.
 
 #### 1. Session Data
 
-Once the user get authenticated over WSO2 Identity Server, it will
-create a Session data object which is stored the authenticated user and
-the other authentication flow details. This will store in the database
-to share across the cluster nodes.
+Once the user gets authenticated over WSO2 Identity Server, it will
+create a session data object which stores the authenticated user and
+the other authentication flow details. This will be stored in the database
+to be shared across the cluster nodes.
 
 #### 2. Operational Data
 
-This is covered the same session data as in above but the outdated
-records. Ex: Once user get authenticated, there will be a record for
-login status to that session id. Then again that user get logout from
+This covers the same session data as in above but the outdated
+records. Ex: Once user gets authenticated, there will be a record for
+login status to that session id. Then again when that user is logged out from
 the system, we are not removing the above record from the table and
 instead of that we add a new record to the same session id with status
 called logout. So the valid record is the last one and all the other
 records under that session id will be outdated. Those outdated records
-are belong to the Operational Data.
+belong to the Operational Data.
 
 #### 3. Temporary Data
 
-In authentication flow, there are many temporary data object that will
+In authentication flow, there are many temporary data objects that will
 keep for few seconds only. We keep these in cache. But to make
 consistent the cluster environment without having the local cache, we
 store that also in the same database table that we stored the session
 data as in above.
 
-When we consider about the data persistence which is belong to the
-critical path and high concurrency situation, we had to further improved
+Upon considering the persistence of data relevant to the
+critical path and high concurrency situations, we had to further improve
 the following key aspects as well.
 
 #### Data Clean-Up
 
-Since above data are collected over the authentication flow, it will
-grow the database with that data very frequently. So we had to managed
+Since above data are collected over the authentication flow, the database 
+will grow with that data very frequently. So we had to manage
 few tasks to clean the data in the database for some given conditions.
 
 #### Task Pool
 
-We are storing above data within a critical path which is control the
+We are storing above data within a critical path which controls the
 authentication. So we have introduced a pooling mechanism to put the
 data persistence tasks into that pool and continue the critical path
 without blocking it.
