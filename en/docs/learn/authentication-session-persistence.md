@@ -72,15 +72,14 @@ There are three type of data objects that are persisted in the database.
 
 #### 1. Session Data
 
-Once the user gets authenticated over WSO2 Identity Server, it will
-create a session data object which stores the authenticated user and
-the other authentication flow details. This will be stored in the database
-to be shared across the cluster nodes.
+Once the user is authenticated, WSO2 Identity Server creates a session data 
+object that stores the authenticated user and the other authentication flow
+details. This will be stored in the database to be shared across the cluster
+nodes.
 
 #### 2. Operational Data
 
-This covers the same session data as in above but the outdated
-records. Ex: Once user gets authenticated, there will be a record for
+Once user gets authenticated, there will be a record for
 login status to that session id. Then again when that user is logged out from
 the system, we are not removing the above record from the table and
 instead of that we add a new record to the same session id with status
@@ -90,8 +89,8 @@ belong to the Operational Data.
 
 #### 3. Temporary Data
 
-In authentication flow, there are many temporary data objects that will
-keep for few seconds only. We keep these in cache. But to make
+In authentication flow, there are many temporary data objects that are
+kept for few seconds only. We keep these in cache. But to make
 consistent the cluster environment without having the local cache, we
 store that also in the same database table that we stored the session
 data as in above.
