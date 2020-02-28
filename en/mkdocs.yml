@@ -140,6 +140,7 @@ nav:
                                     - 'Overview': concepts/authentication/end-user-authentication.md
                                     - 'Request Object': concepts/authentication/request-object.md
                           - 'User Information': concepts/authentication/user-information.md
+                          - 'Scopes And Claims': concepts/authentication/scopes-claims.md
                           - 'JWKS': concepts/authentication/jwks.md
                           - 'Discovery': concepts/authentication/discovery.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
