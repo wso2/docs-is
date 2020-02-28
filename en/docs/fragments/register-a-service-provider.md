@@ -2,6 +2,10 @@
 
 1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
 
-2. Click **Service Providers >Add** and enter a **Service Provider Name** and **Description**.
+2. Click **Service Providers >Add**.
 
-<img name='register-service-provider' src='../../../assets/img/fragments/register-service-provider.gif' class='img-zoomable'/>
+    ![add-service-provider](../../../assets/img/fragments/add-service-provider.png)
+
+3. Enter a **Service Provider Name** and **Description**.
+
+    ![register-service-provider](../../../assets/img/fragments/register-service-provider.png)
