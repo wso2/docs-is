@@ -8,12 +8,12 @@ In the previous versions of WSO2 Identity Server, the Last login time claim(used
 as a default claim. From IS 5.10.0 onwards it will be handled as an identity claim. 
 
 !!! note "NOTE" 
-If you want to have the previous behaviour please add the following property in the deployment.toml file located at 
-<IS_HOME>/repository/conf/ directory.
-```toml
-[identity_mgt_account_suspension]
-use_identity_claims =true
-```
+    If you want to have the previous behaviour please add the following property in the deployment.toml file located at 
+    <IS_HOME>/repository/conf/ directory.
+    ```toml
+    [identity_mgt_account_suspension]
+    use_identity_claims =true
+    ```
 
 ## SCIM has been enabled by default
 From WSO2 Identity Server 5.10.0 onwards SCIM has been enabled by default for all the User Store Manager types. 
@@ -33,7 +33,7 @@ If you wish to have the new templates, then please add the following templates a
 instructions at [Customizing AutomatedEmails](../../learn/customizing-automated-emails). Consider that you should
  migrate the customization done to the previous templates to the newly added templates. 
  
- ??? Sample template for "AccountLockFailedAttempt"
+??? Sample template for "AccountLockFailedAttempt"
      
      - Email Template Type: AccountLockFailedAttempt
      - Email Template Locale: English(United States)
@@ -93,7 +93,7 @@ instructions at [Customizing AutomatedEmails](../../learn/customizing-automated-
      ```
      - Email Footer: ---
  
- ??? Sample template for "AccountUnlockTimeBased"
+??? Sample template for "AccountUnlockTimeBased"
  
      - Email Template Type: AccountUnlockTimeBased
      - Email Template Locale: English(United States)
@@ -319,23 +319,24 @@ From IS 5.10.0 onwards, internal scopes validation while accessing internal reso
 but this will break existing applications using some APIs such as scim2/Me.
 
 !!! note "NOTE"
-We can go back to the previous behaviour and disable scope based permissions with the following config in the 
-deployment.toml file.
-```toml
-[resource_access_control]
-disable_scope_validation=true
-```
+    We can go back to the previous behaviour and disable scope based permissions with the following config in the 
+    deployment.toml file.
+    ```toml
+    [resource_access_control]
+    disable_scope_validation=true
+    ```
 
 ## Handling Role-based or XACML-based scope validation for Implicit and Authorization Code 
 Scope validation has been enforced for authorization code grant and implicit grants. 
 
 !!! note "NOTE"
-If you have implemented any apps which works without the scope validation so if you want to disable 
-the behaviour, then add the following configuration at deployment.toml file.
-```toml
-[oauth]
-scope_validator.authz_implicit.enable = false
-```
+    If you have implemented any apps which works without the scope validation so if you want to disable 
+    the behaviour, then add the following configuration at deployment.toml file.
+    ```toml
+    [oauth]
+    scope_validator.authz_implicit.enable = false
+    ```
+    
 ## Introducing two separate configuration to manage OIDC consent flow
 This will introduce the following two new properties in the identity.xml inside OpenIDConnect tag to manage the 
 consent during OIDC login and logout flows.
@@ -350,6 +351,7 @@ These properties can be managed by adding the below configuration to deployment.
 prompt_login_consent = false
 prompt_logout_consent = false
 ```
+
 ## WSDL of the Application Management service has been changed
 In IS 5.10.0, there are significant changes has been introduced to the WSDL of the Application Management Admin Service 
 with the addition of new properties to the service provider model object. Therefore SOAP API consumers should 
