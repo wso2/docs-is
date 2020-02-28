@@ -73,6 +73,8 @@ paths:
 
          <b>Permission required:</b>
          * /permission/admin/login
+         <b>Scope required:</b>
+          * internal_login
       summary: |
         Refresh, validate the QR code URL
       parameters:
@@ -118,6 +120,8 @@ paths:
           <b>Permission required:</b>
 
           * /permission/admin/login
+          <b>Scope required:</b>
+          * internal_login
       responses:
         200:
           description: OK
@@ -141,6 +145,8 @@ paths:
           <b>Permission required:</b>
 
           * /permission/admin/login
+          <b>Scope required:</b>
+          * internal_login
       responses:
         200:
           description: Credentials deleted successfully
@@ -163,6 +169,8 @@ paths:
           <b>Permission required:</b>
 
           * /permission/admin/login
+          <b>Scope required:</b>
+          * internal_login
       responses:
         200:
           description: OK
