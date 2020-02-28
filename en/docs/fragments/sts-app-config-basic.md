@@ -8,4 +8,6 @@
 
     - The **Certificate Alias** is the name given to the CA certificate that is imported to the keystore.  
 
+        ![configure-sts](../../../assets/img/fragments/configure-sts.png)
+
 3. Click **Update** to save the changes. 
