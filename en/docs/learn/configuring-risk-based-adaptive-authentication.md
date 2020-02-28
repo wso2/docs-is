@@ -101,7 +101,7 @@ Next, configure WSO2 IS to communicate with the Siddhi application.
         Authentication](../../learn/adaptive-authentication).
     
 
-1.  Login to the management console and c reate a new user called "Alex"
+1.  Login to the management console and create a new user called "Alex"
     with login permission.
 2.  Navigate to **Service Providers\>List** and click **Edit** on the
     [saml2-web-app-pickup-dispatch.com](http://saml2-web-app-pickup-dispatch.com)
