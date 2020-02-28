@@ -45,11 +45,13 @@ Following diagram represents the flow.
 - Once the end-user needs to login to the RP, the RP sends an authentication request to the OP.
 - The OP responds back with the **session_state**.
 - The RP iframe continuously polls the OP iframe to detect any state changes.
-- The OP iframe responds back either with the following states.
+- The OP iframe responds back with one of the following status.
 
-           -  unchanged
-           -  changed
-           -  error
+The status can be either;
+
+    - changed
+    - unchanged
+    - error
     
 - If the state is `unchanged`, this indicates that user-session is still valid at the OP. RP will continue to poll
   OP iframe to detect any session changes. 
