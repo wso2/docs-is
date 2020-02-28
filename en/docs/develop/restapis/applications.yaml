@@ -2378,10 +2378,10 @@ components:
       properties:
         metadataFile:
           type: string
-          example: 'Base64 encoded metadata file content'
+          description: 'Base64 encoded metadata file content'
         metadataURL:
           type: string
-          example: 'https://example.com/samlsso/meta'
+          description: 'Meta data URL'
         manualConfiguration:
           $ref: '#/components/schemas/SAML2ServiceProvider'
 
@@ -2588,14 +2588,6 @@ components:
           description: Authorized redirect URIs
           example:
             - 'https://app.example.com/callback1'
-            - 'https://app.example.com/callback2'
-          items:
-            type: string
-        allowedOrigins:
-          type: array
-          description: Authorized JavaScript origins
-          example:
-            - 'https://app.example.com/js'
           items:
             type: string
         publicClient:
@@ -2622,8 +2614,8 @@ components:
         scopeValidators:
           type: array
           example:
-            - XACMLScopeValidator
-            - RoleBasedScopeValidator
+            - XACML Scope Validator
+            - Role based scope validator
           items:
             type: string
     OAuth2PKCEConfiguration:
