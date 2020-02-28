@@ -12,4 +12,4 @@ The following are the main OIDC client profiles.
 
 [Implicit Profile](implicit-client-profile.md)
 
-[Hybrid Flow]()
+[Hybrid Flow](hybrid-client-profile.md)

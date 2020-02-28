@@ -4,13 +4,13 @@ OpenID connect basic client profile is based on the authorization code flow. Thi
 
 These calls are to:
 
-1. obtain the one-time-use code by sharing the user credentials calling authorization endpoint. 
-2. exchange the one-time-use code with an access token calling token endpoint. This flow requires 
+1. Obtain the one-time password by calling the authorization endpoint and sharing the user credentials. This flow uses the [front channel](insertlink). 
+2. exchange the one-time password with an [access token](insertlink) access token calling token endpoint. This flow requires (back channel)
 client authentication using ‘client id’ and ‘client secret’. 
 
-This approach is recommended for [confidential clients]() 
+This approach is recommended for [confidential clients](insertlink) 
 who can maintain the confidentiality of their credentials (ex: web apps). As the tokens are not visible via the user 
-agents this flow is more secure, so it allows for [refresh tokens]() which guarantees long-lived access.
+agents this flow is more secure, so it allows for [refresh tokens](insertlink) which guarantees long-lived access.
 
 The following diagram shows how the authentication happens using this client profile.
 

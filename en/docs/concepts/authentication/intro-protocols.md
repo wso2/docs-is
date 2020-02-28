@@ -8,20 +8,20 @@ is a type of computer communications protocol, that is designed to transfer auth
 This is one of the oldest protocols used in the authentication. When
 using this protocol the authentication happens using typical **username
 and password** approach. Even though this approach is simple to use and
-deploy it has some security considerations. If a malicious can able to
-guess or obtain the password of a legitimate user, he can access the
-system.
+deploy it has some security considerations. If a malicious user is able
+to guess or obtain the password of a legitimate user, he/she will be able to 
+access the system.
 
-![password-authentication](../assets/img/concepts/password-authentication-protocol.png)
+![password-authentication](../../assets/img/concepts/password-authentication-protocol.png)
 
 As a solution for the security issues raised in the typical password authentication protocol, to securely transmit the 
 authentication data between entities, advanced authentication protocols came into play.
 
 ### Advance Authentication Protocols
 
-1. [Open ID Connect]()
-2. [SAML2.0]()
-3. [NTLM]()
-4. [Kerberos]()
-5. [WS-Trust]()
-6. [WS-Federation]()
+1. [Open ID Connect](intro-oidc.md)
+2. [SAML2.0](insertlink)
+3. [NTLM](insertlink)
+4. [Kerberos](insertlink)
+5. [WS-Trust](insertlink)
+6. [WS-Federation](insertlink)

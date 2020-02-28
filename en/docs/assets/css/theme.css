@@ -656,7 +656,7 @@ html .md-typeset .superfences-tabs > label:hover {
     background-color: #3c464c;
 }
 
-.md-footer-nav__inner {
+/* .md-footer-nav__inner {
     overflow: hidden;
 }
 .md-footer-nav {
@@ -686,7 +686,7 @@ html .md-typeset .superfences-tabs > label:hover {
 
 .md-footer-nav .md-flex__cell {
     vertical-align: baseline;
-}
+} */
 
 .md-footer-copyright__highlight,
 html .md-footer-meta.md-typeset a,
