@@ -207,7 +207,7 @@ provider.
 		Follow the steps given below if Clickatell is used as the SMS
 		provider:
 
-		1.  Go to <https://secure.clickatell.com/#/login> and create
+		1.  Go to <https://www.clickatell.com/sign-up/> and create
 			an account.
 		2.  The Auth token is provided when you register with Clickatell.
 
