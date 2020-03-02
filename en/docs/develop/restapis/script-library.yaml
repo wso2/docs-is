@@ -27,6 +27,8 @@ paths:
         This API provides the capability to create a new Script library.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/create
+        <b>Scopes required:</b>
+         * internal_functional_lib_create
       operationId: addScriptLibrary
       responses:
         '201':
@@ -77,6 +79,8 @@ paths:
         This API provides the capability to list Script Libraries.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/view
+        <b>Scopes required:</b>
+         * internal_functional_lib_view
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -131,6 +135,8 @@ paths:
         This API provides the capability to retrive the details of the script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/view
+        <b>Scopes required:</b>
+         * internal_functional_lib_view
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -185,6 +191,8 @@ paths:
         This API provides the capability to delete a script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/delete
+        <b>Scopes required:</b>
+         * internal_functional_lib_delete
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -235,6 +243,8 @@ paths:
         This API provides the capability to update a script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/update
+        <b>Scopes required:</b>
+         * internal_functional_lib_update
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -298,6 +308,8 @@ paths:
         This API provides the capability to retrive the content of script library using its name.<br>
         <b>Permission required:</b>
          * /permission/admin/manage/functionsLibrarymgt/view
+         <b>Scopes required:</b>
+         * internal_functional_lib_view
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
