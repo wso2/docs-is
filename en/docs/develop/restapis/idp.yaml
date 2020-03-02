@@ -26,6 +26,10 @@ paths:
       description: >
         This API provides the capability to retrive the list of identity
         providers
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getIDPs
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -84,6 +88,10 @@ paths:
         Add a new Identity Provider
       description: |
         This API provides the capability to create a new Identity Provider
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/create
+        <b>Scopes required:</b>
+            * internal_idp_create
       operationId: addIDP
       responses:
         '201':
@@ -164,6 +172,10 @@ paths:
       description: >-
         This API provides the list of supported federated authenticators for an
         identity provider in Identity Server
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getMetaFederatedAuthenticators
       responses:
         '200':
@@ -213,6 +225,10 @@ paths:
       description: >
         'This API provides the details of a single supported federated
         authenticator for an identity provider in Identity Server'
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getMetaFederatedAuthenticator
       parameters:
         - name: federated-authenticator-id
@@ -268,6 +284,10 @@ paths:
       description: >-
         This API provides the list of supported federated authenticators for an
         IDP in Identity Server
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getMetaOutboundConnectors
       responses:
         '200':
@@ -317,6 +337,10 @@ paths:
       description: >-
         This API provides the details of a single supported outbound
         provisioning connectors for an IDP in Identity Server
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getMetaOutboundConnector
       parameters:
         - name: outbound-provisioning-connector-id
@@ -373,6 +397,10 @@ paths:
         details by using its id. Furthermore, by specifying the "Accept :
         application/xml" header, it provides the ability to export IDP data as
         XML'
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getIDP
       parameters:
         - name: identity-provider-id
@@ -445,6 +473,10 @@ paths:
       description: >
         This API provides the capability to update an identity provider property
         using patch request. IDP patch is supported only for key-value pairs
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: patchIDP
       parameters:
         - name: identity-provider-id
@@ -509,6 +541,10 @@ paths:
       description: >
         This API provides the capability to delete an identity provider by
         giving it id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/delete
+        <b>Scopes required:</b>
+            * internal_idp_delete
       operationId: deleteIDP
       parameters:
         - name: identity-provider-id
@@ -560,6 +596,10 @@ paths:
       description: >
         This API provides a list of federated authenticators enabled for a
         specific identity provider identified by its id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getFederatedAuthenticators
       parameters:
         - name: identity-provider-id
@@ -615,6 +655,10 @@ paths:
         This API provides the capability to retrive the federated authenticator
         information of an identity provider by giving the federated
         authenticator id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getFederatedAuthenticator
       parameters:
         - name: identity-provider-id
@@ -675,6 +719,10 @@ paths:
       description: >
         This API provides the capability to update an identity provider's
         federated authenticator config by specifying authenticator id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: updateFederatedAuthenticator
       parameters:
         - name: identity-provider-id
@@ -748,6 +796,10 @@ paths:
         'This API provides a list of available provisioning entities of an
         identity provider. This includes just-in-time provisioning config and
         outbound provisioning connectors'
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getProvisioningConfig
       parameters:
         - name: identity-provider-id
@@ -802,6 +854,10 @@ paths:
       description: >
         This API provides a list of outbound provisioning connectors enabled for
         an identity provider
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getOutboundConnectors
       parameters:
         - name: identity-provider-id
@@ -857,6 +913,10 @@ paths:
         This API provides the capability to retrive the outbount provisioning
         connector information of an identity provider by specifying provisioning
         connector id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getOutboundConnector
       parameters:
         - name: identity-provider-id
@@ -917,6 +977,10 @@ paths:
         This API provides the capability to update an outbound provisioning
         connector config of an identity provider by specifying the provisioning
         connector id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: updateOutboundConnector
       parameters:
         - name: identity-provider-id
@@ -990,6 +1054,10 @@ paths:
         This API provides the claim config for an identity provider. This
         includes idp-to-local claim mappings, claims to be outbound
         provisioning, userID claim URI and role claim URI
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getClaimConfig
       parameters:
         - name: identity-provider-id
@@ -1043,6 +1111,10 @@ paths:
       description: >
         This API provides the capability to update the claim config of an
         existing identity provider
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: updateClaimConfig
       parameters:
         - name: identity-provider-id
@@ -1110,6 +1182,10 @@ paths:
         This API provides the role config of an identity provider. This includes
         idp-to-local role mappings and/or a list of roles to be
         outbound-provisioned
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getRoleConfig
       parameters:
         - name: identity-provider-id
@@ -1163,6 +1239,10 @@ paths:
       description: >
         This API provides the capability to update the role config of an
         identity provider by specifying identity provider id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: updateRoleConfig
       parameters:
         - name: identity-provider-id
@@ -1229,6 +1309,10 @@ paths:
       description: >
         This API retrives the Just-In-Time provisioning config of an identity
         provider by specifying identity provider id
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getJITConfig
       parameters:
         - name: identity-provider-id
@@ -1285,6 +1369,10 @@ paths:
         includes the ability to enable/disable JIT provisioning, change
         provisioning userstore and enable/disable user prompts for username,
         password and consent
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/update
+        <b>Scopes required:</b>
+            * internal_idp_update
       operationId: updateJITConfig
       parameters:
         - name: identity-provider-id
@@ -1350,6 +1438,10 @@ paths:
         Connected applications of an identity provider
       description: >
         This API provides the list of applications which are using this identity provider for federated/provisioning.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/idpmgt/view
+        <b>Scopes required:</b>
+            * internal_idp_view
       operationId: getConnectedApps
       parameters:
         - name: identity-provider-id
