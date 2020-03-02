@@ -32,6 +32,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/view
+        
+        <b>Scopes required:</b>
+        * internal_email_mgt_view
+        
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -64,6 +68,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/create
+        
+        <b>Scopes required:</b>
+        * internal_email_mgt_create
+        
       requestBody:
         content:
           application/json:
@@ -103,6 +111,9 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/view
+       
+        <b>Scopes required:</b>
+        * internal_email_mgt_view
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -138,6 +149,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/create
+        
+        <b>Scopes required:</b>
+        * internal_email_mgt_create
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       requestBody:
@@ -179,6 +194,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/update
+        
+        <b>Scopes required:</b>
+        * internal_email_mgt_update
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       requestBody:
@@ -213,6 +232,10 @@ paths:
 
         <b>Permission required:</b>
         * /permission/admin/manage/identity/emailmgt/delete
+        
+        <b>Scopes required:</b>
+        * internal_email_mgt_delete
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
       responses:
@@ -239,6 +262,10 @@ paths:
 
         <b>Permission required:</b>
           * /permission/admin/manage/identity/emailmgt/view
+          
+        <b>Scopes required:</b>
+        * internal_email_mgt_view
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -275,6 +302,10 @@ paths:
 
         <b>Permission required:</b>
           * /permission/admin/manage/identity/emailmgt/view
+                   
+        <b>Scopes required:</b>
+        * internal_email_mgt_view
+          
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'
@@ -308,7 +339,11 @@ paths:
         Replaces the email template identified by the template-type-id and the template-id.
 
         <b>Permission required:</b>
-          * /permission/admin/manage/identity/emailmgt/update
+          * /permission/admin/manage/identity/emailmgt/update          
+          
+        <b>Scopes required:</b>
+        * internal_email_mgt_update
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'
@@ -341,6 +376,10 @@ paths:
 
         <b>Permission required:</b>
           * /permission/admin/manage/identity/emailmgt/delete
+               
+        <b>Scopes required:</b>
+        * internal_email_mgt_delete
+        
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/templateIdPathParam'
