@@ -37,7 +37,7 @@ necessary system requirements and a compatible environment.
 <li>4 GB RAM</li>
 <li>10 GB Disk Space</li>
 </ul>
-<p>Above recommended requirements can changed based on the expected concurrency & performance.</p></td>
+<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
 </tr>
 </tbody>
 </table>
