@@ -122,12 +122,11 @@ We are configuring email-sender configurations by adding the following configura
         ``` 
         
     !!! note
-        You do not need to configure all the configurable parameters. If you havent configured in the `EmailPublisher.xml`,
-        Configurations in the `output-event-adapters.xml` will be used for unconfigured parameters. 
+        You do not need to configure all the configurable parameters. If you have not configured in the `EmailPublisher
+        .xml`, configurations in the `output-event-adapters.xml` will be used for unconfigured parameters. 
     
-5. Configure tenant loading and unloading for your tenant. [Configuring the Tenant Loading Policy](../../administer/configuring-the-tenant-loading-policy) 
-
-6. These configurations will apply on the tenant loading process.
+5. Since these configurations will be applicable during the tenant loading process, [Configure tenant loading and 
+unloading for your tenant](../../administer/configuring-the-tenant-loading-policy) 
 
     !!! tip
         Only one `EmailPublisher.xml` file with the name `EmailPublisher` should be added for a tenant.
