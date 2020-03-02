@@ -1,4 +1,5 @@
 {
+  "staging": "new_restructure",
   "next": "5.10.0",
   "current": "5.9.0",
   "list": [ "5.10.0","5.9.0"],
