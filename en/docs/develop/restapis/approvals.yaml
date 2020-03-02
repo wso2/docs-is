@@ -42,6 +42,12 @@ paths:
          * /permission/admin/manage/humantask/viewtasks
 
          A user can also invoke the endpoint with the following query parameters.
+         
+        <b>Scopes required:</b>
+         * internal_humantask_view
+         
+        <b>internal_humantask_view</b>
+         
       parameters:
         - $ref: '#/parameters/limitQueryParam'
         - $ref: '#/parameters/offsetQueryParam'
