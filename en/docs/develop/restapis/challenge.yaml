@@ -39,6 +39,13 @@ paths:
 
         <b>Permission required:</b>
          * /permission/admin/login
+         
+        <b>Scopes required:</b>
+         * internal_identity_mgt_view
+         * internal_identity_mgt_update
+         * internal_identity_mgt_create
+         * internal_identity_mgt_delete
+         
       parameters:
         - $ref: '#/parameters/limitQueryParam'
         - $ref: '#/parameters/offsetQueryParam'
@@ -68,6 +75,13 @@ paths:
 
         <b>Permission required:</b>
          * /permission/admin/login
+         
+        <b>Scopes required:</b>
+         * internal_identity_mgt_view
+         * internal_identity_mgt_update
+         * internal_identity_mgt_create
+         * internal_identity_mgt_delete
+         
       parameters:
         - in: body
           name: challengeAnswer
@@ -99,6 +113,13 @@ paths:
 
           <b>Permission required:</b>
            * /permission/admin/login
+           
+         <b>Scopes required:</b>
+           * internal_identity_mgt_view
+           * internal_identity_mgt_update
+           * internal_identity_mgt_create
+           * internal_identity_mgt_delete
+           
       responses:
         200:
           description: Array of Challenge(s) that are already answered by the authenticated user.
@@ -122,6 +143,15 @@ paths:
 
         <b>Permission required:</b>
          * /permission/admin/login
+         
+         
+        <b>Scopes required:</b>
+         * internal_identity_mgt_view
+         * internal_identity_mgt_update
+         * internal_identity_mgt_create
+         * internal_identity_mgt_delete
+         
+         
       parameters:
         - in: body
           name: challengeAnswers
@@ -153,6 +183,13 @@ paths:
 
         <b>Permission required:</b>
          * /permission/admin/login
+         
+        <b>Scopes required:</b>
+         * internal_identity_mgt_view
+         * internal_identity_mgt_update
+         * internal_identity_mgt_create
+         * internal_identity_mgt_delete
+         
       responses:
         204:
           $ref: '#/responses/NoContent'
