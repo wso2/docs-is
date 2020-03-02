@@ -42,9 +42,6 @@ paths:
          
         <b>Scopes required:</b>
          * internal_identity_mgt_view
-         * internal_identity_mgt_update
-         * internal_identity_mgt_create
-         * internal_identity_mgt_delete
          
       parameters:
         - $ref: '#/parameters/limitQueryParam'
@@ -77,10 +74,7 @@ paths:
          * /permission/admin/login
          
         <b>Scopes required:</b>
-         * internal_identity_mgt_view
-         * internal_identity_mgt_update
          * internal_identity_mgt_create
-         * internal_identity_mgt_delete
          
       parameters:
         - in: body
@@ -116,9 +110,6 @@ paths:
            
          <b>Scopes required:</b>
            * internal_identity_mgt_view
-           * internal_identity_mgt_update
-           * internal_identity_mgt_create
-           * internal_identity_mgt_delete
            
       responses:
         200:
@@ -146,10 +137,7 @@ paths:
          
          
         <b>Scopes required:</b>
-         * internal_identity_mgt_view
          * internal_identity_mgt_update
-         * internal_identity_mgt_create
-         * internal_identity_mgt_delete
          
          
       parameters:
@@ -185,9 +173,6 @@ paths:
          * /permission/admin/login
          
         <b>Scopes required:</b>
-         * internal_identity_mgt_view
-         * internal_identity_mgt_update
-         * internal_identity_mgt_create
          * internal_identity_mgt_delete
          
       responses:
