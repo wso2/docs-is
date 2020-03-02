@@ -41,43 +41,8 @@ Follow the steps below to enable event publishing in WSO2 IS.
 
 1.  Open the `          deployment.toml         ` file in the
     `          <IS_HOME>/repository/conf/         ` directory.
-2.  Add the following configuration.
 
-    <table>
-    <tbody>
-    <tr class="odd">
-    <td>Listener</td>
-    <td><code>               org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy              </code></td>
-    </tr>
-    <tr class="even">
-    <td>Purpose</td>
-    <td><ul>
-    <li>This event listener is common to all types of analytics in WSO2 IS.</li>
-    <li>It captures all the event statistics sent to WSO2 IS Analytics, and redirects them to the relevant listener based on the type.</li>
-    <li>This listener is required to enable both session analytics and login analytics.</li>
-    </ul></td>
-    </tr>
-    <tr class="odd">
-    <td>Configuration</td>
-    <td><div class="content-wrapper">
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: toml; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java">
-    <a class="sourceLine" id="cb1-1" title="1">[[event_listener]]</a>
-    <a class="sourceLine" id="cb1-2" title="2">id = "authn_data_publisher_proxy"</a>
-    <a class="sourceLine" id="cb1-3" title="3">type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler"</a>
-    <a class="sourceLine" id="cb1-4" title="4">name = "org.wso2.carbon.identity.data.publisher.application.authentication.AuthnDataPublisherProxy" </a>
-    <a class="sourceLine" id="cb1-5" title="5">order = 11 </a>
-    <a class="sourceLine" id="cb1-6" title="5">enable = true </a>
-    </code></pre></div>
-    </div>
-    </div>
-    </div></td>
-    </tr>
-    </tbody>
-    </table>
-
-3.  To enable the following event handlers add the following configurations to the same `deployment.toml` file.
+2.  Enable the following event handlers by adding the following configurations to the same `deployment.toml` file.
 
     <table>
     <tbody>

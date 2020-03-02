@@ -28,7 +28,7 @@ adaptive authentication using a sample application.
     sample application.
 
     2.  Access the PickUp application URL at
-        <http://localhost:8080/saml2-web-app-pickup-dispatch.com.>
+        <http://localhost:8080/saml2-web-app-pickup-dispatch.com>.
 
         Note that a login screen appears.
         

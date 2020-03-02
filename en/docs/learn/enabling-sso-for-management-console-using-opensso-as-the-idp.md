@@ -103,20 +103,23 @@ configure OpenSSO:
 
     ``` xml
     [admin_console.authenticator.saml_sso_authenticator]
-	enable=true
+    enable=true
+    service_provider_id = ""    
+    identity_provider_sso_service_url = ""
+    idp_cert_alias = ""
     ```
 
     Change the following parameters accordingly:
 
-    -   `            ServiceProvideID           ` - This can be any
+    -   **service_provider_id**: This can be any
         identifier and does not have to be a URL. However, the
         configured value should be equal to the value configured in the
         **sp.xml** file.
         
-    -   `            IdentityProviderSSOServiceURL           ` - This is
+    -   **identity_provider_sso_service_url**: This is
         the URL of your IDP.
         
-    -   `            idpCertAlias           ` - This is the certificate
+    -   **idp_cert_alias**: This is the certificate
         that gets used during response validation from the IDP. OpenSSO
         servers’ public key should be imported to the Carbon servers
         keystore with the alias name ‘opensso’.

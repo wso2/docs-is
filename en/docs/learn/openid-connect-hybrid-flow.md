@@ -17,7 +17,7 @@ flow for authentication, you need to add following to the
 ```toml
 [[oauth.custom_response_type]]
 name="code token"
-class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandle"
+class="org.wso2.carbon.identity.oauth2.authz.handlers.HybridResponseTypeHandler"
 
 [[oauth.custom_response_type]]
 name="code id_token"
