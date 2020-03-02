@@ -27,7 +27,9 @@ paths:
         tree as an array of display name and the permission resource path.
 
         <b>Permission required:</b>
-        No
+        * /permission/admin/manage/identity/rolemgt/view	         
+        <b>Scope required:</b>
+        * internal_role_mgt_view
       responses:
         '200':
           description: Successful Response
