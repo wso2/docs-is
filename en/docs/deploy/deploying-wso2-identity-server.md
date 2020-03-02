@@ -11,14 +11,13 @@ template: templates/single-column.html
     <div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/choose-your-model';">
+            <div class="card" onclick="location.href='../../deploy/choose-your-provider';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <i class="material-icons md-36">how_to_reg</i>
+                         <img src="../../assets/img/icons/deploy/kubernetes.png">
 	              </div>
-                <div class="card-content" >
+                <div class="card-content" style="width:100" >
               	    <p class="title">Kubernetes</p>
-              			<a href="http://www.google.com"></a>
               			<p class="hint">Deploy our product using kubernetes resources</p>
                 </div>
             </div>

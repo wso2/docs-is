@@ -5,11 +5,11 @@ template: templates/single-column.html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div>
     <header>
-        <h1>Choose your Kubernetes Model</h1>
+        <h1>Choose your Kubernetes Provider</h1>
     </header>
         <div>
         <header>
-        <h2> Deploy on a Local Environment</h2>
+        <h2> Deploy locally</h2>
         </header></div>
         <div class="content"> 
             <!-- begin card -->
@@ -25,7 +25,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/docker';">
+            <div class="card" onclick="location.href='../../deploy/docker-desktop';">
                 <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">how_to_reg</i>

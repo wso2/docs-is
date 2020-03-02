@@ -1,4 +1,4 @@
-# OpenID Connect Session Management
+# OpenID Connect Session Management - staging
 
 [The OpenID Connect Session Management specification](https://openid.net/specs/openid-connect-session-1_0.html)
 defines methodologies to manage user sessions and log-out end-users at the authorization server using front-channel communication.
