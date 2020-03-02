@@ -24,8 +24,6 @@ enable Authentication to a SPA with Implicit Grant. >
 
 {!guides/authentication/configure-client-spa.md!}
 
-{!fragments/get-user-information-to-the-oidc-application.md!}
-
 {!fragments/oidc-session-management.md!}
 
 {!fragments/oidc-logout.md!}
