@@ -17,6 +17,7 @@ the server or the system needs to achieve.
 
     - Single Factor Authentication
     - Two Factor Authentication
+    - Multi-Factor Authentication
     
 #### Single Factor Authentication
 This is a process for securing access to a given system to identify the party requesting access through only one 
