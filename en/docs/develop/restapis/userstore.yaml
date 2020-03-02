@@ -28,7 +28,9 @@ paths:
         This API provides the capability to add a secondary user store.
 
          <b>Permission required:</b>
-          */permission/admin
+          */permission/admin/manage/identity/userstore/config/create
+          <b>Scope required:</b>
+          * internal_userstore_create
       responses:
         '201':
           description: Successful response
@@ -65,8 +67,11 @@ paths:
       operationId: getSecondaryUserStores
       description: >
         This API provides the capability to list the configured secondary userstores.
+        
         <b>Permission required:</b>
-        */permission/admin
+        */permission/admin/manage/identity/userstore/config/view
+        <b>Scope required:</b>
+        * internal_userstore_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -100,8 +105,10 @@ paths:
         This API provides the capability to retrieve the configurations of
         secondary user store based on its domain id.
 
-          <b>Permission required:</b>
-        */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/view
+        <b>Scope required:</b>
+        * internal_userstore_view
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -126,8 +133,10 @@ paths:
         This API provides the capability to delete a secondary user store
         matching to the given user store domain id.
 
-         <b>Permission required:</b>
-         */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/delete
+        <b>Scope required:</b>
+        * internal_userstore_delete
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -150,8 +159,10 @@ paths:
         This API provides the capability to edit a user store based on its
         domain id.
 
-         <b>Permission required:</b>
-          */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/update
+        <b>Scope required:</b>
+        * internal_userstore_update
       parameters:
         - in: path
           name: userstore-domain-id
@@ -195,8 +206,10 @@ paths:
         This API provides the capability to update the secondary user store's
         property using patch request by using it's domain id.
 
-         <b>Permission required:</b>
-         */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/update
+        <b>Scope required:</b>
+        * internal_userstore_update
       parameters:
         - $ref: '#/components/parameters/domainNamePathParam'
       responses:
@@ -232,9 +245,10 @@ paths:
         This API provides the capability to retrieve the available user store
         types.
 
-         <b>Permission required:</b>
-
-        */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/view
+        <b>Scope required:</b>
+        * internal_userstore_view
       responses:
         '200':
           description: Successful Response.
@@ -259,9 +273,10 @@ paths:
         This API provides the capability to retrieve the properties of secondary
         user store of a given class name.
 
-         <b>Permission required:</b>
-
-        */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/view
+        <b>Scope required:</b>
+        * internal_userstore_view
       parameters:
         - in: path
           name: type-id
@@ -302,8 +317,10 @@ paths:
         This API provides the capability to test the connection to the
         datasource used by a JDBC user store manager.
 
-          <b>Permission required:</b>
-          */permission/admin
+        <b>Permission required:</b>
+        */permission/admin/manage/identity/userstore/config/view
+        <b>Scope required:</b>
+        * internal_userstore_view
       responses:
         '200':
           description: Successful response.
