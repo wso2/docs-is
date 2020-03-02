@@ -33,7 +33,7 @@ the audit logger.
         `           LoggableUserClaim          ` . The **accountLocked** and
         **role** claims have been used here only as examples.
         
-3. Add the following configuration to deployment.toml file to configure the "LogUpdatedClaimsOnly" property.
+3. Add the following configuration to `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
    
    ```
    [event.default_listener.user_claim_audit_logger]     
