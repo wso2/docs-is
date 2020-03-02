@@ -9,7 +9,7 @@ in an authorization request selects the hybrid flow for authentication:
 - [code id_token token](#code-id_token-token)
 
 To configure WSO2 Identity Server to support the OpenID Connect hybrid
-flow for authentication, you need to add following to the
+flow for authentication, you need to add the following to the
 ` <IS_HOME>/repository/conf/deployment.toml ` file.
 
 
@@ -17,6 +17,8 @@ To understand how the ` response_type ` value specified
 in an authorization request selects the hybrid flow to be the
 authentication flow, let's take a look at the following
 ` response_type ` values in detail.
+
+----
 
 ### code token
 
@@ -71,6 +73,8 @@ The decrypted `id_token` is shown below.
 
 There may be instances where two access tokens are received; one from the authorization endpoint, and the other from the
 token endpoint. These two access tokens may or may not be the same.
+
+----
 
 ### code id_token 
 
@@ -166,7 +170,9 @@ specification.
  returned from the token endpoint even when the claims are present in
  the ID token returned from the authorization endpoint.
 
-### ` code id_token token `
+----
+
+### code id_token token
 
 This ` response_type ` requests a code, an access token
 and an ID token from the authorization endpoint.
