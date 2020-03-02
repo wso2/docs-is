@@ -164,7 +164,7 @@ nav:
           - 'Authorization Protocols':
                         - 'OAuth2':
                                     - 'Introduction': concepts/authorization/intro-oauth2.md
-                                    - 'OAuth 2.0 Client Types': concepts/authorization/oauth2-client-types.md
+                                    - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
                                     - 'Grant Types': concepts/authorization/grant-types.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
