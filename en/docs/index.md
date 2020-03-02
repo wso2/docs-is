@@ -5,7 +5,7 @@ template: templates/single-column.html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div>
     <header>
-        <h1>Welcome to the WSO2 Identity Server Documentation!</h1>
+        <h1>Welcome to the WSO2 Identity Server Documentation</h1>
     </header>
     <div class="md-main md-content" style="float:left; width: 45%;  text-align:justify; max-height:100%; ">
         <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML, OAuth and OIDC with the deployment options of on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
