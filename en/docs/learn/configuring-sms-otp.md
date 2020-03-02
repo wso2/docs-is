@@ -49,7 +49,7 @@ redirectToMultiOptionPageOnFailure = false
         </tr>
         <tr>
             <td>enable</td>
-            <td>Enable or diable the authenticator.</td>
+            <td>Enable or disable the authenticator.</td>
         </tr>
         <tr>
             <td>SMSOTPAuthenticationEndpointURL</td>
@@ -68,7 +68,7 @@ redirectToMultiOptionPageOnFailure = false
         </tr>
         <tr>
             <td>ResendEnable</td>
-            <td>Define whether to enable resending the SMMSOTP or not in case a user 
+            <td>Define whether to enable resending the SMSOTP or not in case a user 
             enters an incorrect code.</td>
         </tr>
         <tr>
@@ -105,7 +105,7 @@ redirectToMultiOptionPageOnFailure = false
         </tr>
         <tr>
             <td>redirectToMultiOptionPageOnFailure</td>
-            <td>During a failed attempt unable redirect to the Multi Option Page where the user 
+            <td>During a failed attempt enable redirect to the Multi Option Page where the user 
             can select the authentication mechanism.</td>
     </tbody>
 </table>
@@ -207,7 +207,7 @@ provider.
 		Follow the steps given below if Clickatell is used as the SMS
 		provider:
 
-		1.  Go to <https://secure.clickatell.com/#/login> and create
+		1.  Go to <https://www.clickatell.com/sign-up/> and create
 			an account.
 		2.  The Auth token is provided when you register with Clickatell.
 
@@ -355,7 +355,7 @@ provider.
 
 The next step is to configure the service provider.
 
-1. Navigate to **Main** tab -> **Identity** -> **Identity Providers** -> **Add**.
+1. Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
 
 2. Give a suitable name (e.g., saml-dispatch) as the **Service Provider Name**.
 

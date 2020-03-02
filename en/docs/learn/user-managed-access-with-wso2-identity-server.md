@@ -119,7 +119,7 @@ values to obtain the Protection API Access Token (PAT).
         -   Be sure to replace the `            <CLIENT_ID>           ` and
             `            <CLIENT_SECRET>           ` tags with the values
             you obtained when you [configured the service provider for the
-            client](#clientsp).
+            resource owner](#clientsp).
         -   In this tutorial, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have

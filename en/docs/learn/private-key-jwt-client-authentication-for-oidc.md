@@ -49,15 +49,15 @@ artifacts.
     file by adding a new entry as seen below. 
 
     ``` toml
-    [[event_listener]]                              
-    id = "custom_audit_listener"        
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityMessageHandler" 
-    name = "com.example.identity.AuditListener" 
-    order = 899 
-    [event_listener.properties] 
-    preventTokenReuse= true
-    RejectBeforeInMinutes= 100
-    TokenEndPointAlias= sampleurl
+    [[event_listener]]
+    id = "private_key_jwt_authenticator"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.jwt.PrivateKeyJWTClientAuthenticator"
+    order = "899"
+    [event_listener.properties]
+    PreventTokenReuse= false
+    RejectBeforeInMinutes= "100"
+    TokenEndpointAlias= "sampleurl"
     ```
 
     The following table lists the optional properties that can be added
