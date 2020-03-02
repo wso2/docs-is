@@ -15,10 +15,13 @@ is trying to access the system by using that shared identity. Several
 factors for authentication can be applied based on the security level
 of the server or based on what the system needs to achieve.
 
+
 There are two types of authentication. 
 
 - Single Factor Authentication 
 - Two Factor Authentication
+- Multi-Factor Authentication
+
     
 #### Single Factor Authentication
 This is a process for securing access to a given system to identify the party requesting access through only one 
