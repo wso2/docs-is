@@ -31,38 +31,13 @@ necessary system requirements and a compatible environment.
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Physical</td>
+<td></td>
 <td><ul>
-<li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
-<li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
-<li>10 GB free disk space</li>
-<li>Recommended 4 Cores; Minimum 2 Cores (For lower concurrencies and moderate performances).</li>
-</ul>
-<p>Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</p></td>
-</tr>
-<tr class="even">
-<td>Virtual Machine (VM)</td>
-<td><ul>
-<li>2 compute units minimum (each unit having 1.0-1.2 GHz Opteron/Xeon processor)</li>
+<li>4 vCPUs</li>
 <li>4 GB RAM</li>
-<li>10 GB free disk space</li>
-<li>One CPU unit for the operating system and one for JVM.</li>
+<li>10 GB Disk Space</li>
 </ul>
-<p>Three WSO2 product instances running would require VM of 4 compute units, 8 GB RAM, and 30 GBfree space.<br />
-~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and the number of messages processed concurrently.</p></td>
-</tr>
-<tr class="odd">
-<td>EC2</td>
-<td><ul>
-<li>One c5.large instance to run one WSO2 product instance.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>Cassandra data nodes</td>
-<td><ul>
-<li>4 core processors</li>
-<li>8 GB RAM</li>
-</ul>
+<p>Above recommended requirements can changed based on the expected concurrency & performance.</p></td>
 </tr>
 </tbody>
 </table>
