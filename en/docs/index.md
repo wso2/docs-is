@@ -5,7 +5,7 @@ template: templates/single-column.html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div>
     <header>
-        <h1>Welcome to the WSO2 Identity Server Documentation!</h1>
+        <h1>Welcome to the WSO2 Identity Server Documentation test2</h1>
     </header>
     <div class="md-main md-content" style="float:left; width: 45%;  text-align:justify; max-height:100%; ">
         <p>WSO2 Identity Server is an API-driven open source IAM product designed to help you build effective CIAM solutions. It is based on open standards such as SAML, OAuth and OIDC with the deployment options of on-premise, cloud, and hybrid. It supports complex IAM requirements given its high extensibility.</p> 
@@ -15,9 +15,9 @@ template: templates/single-column.html
         <iframe width="800" height="250" src="https://www.youtube.com/embed/QUlcGOOdXU8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div>
-        <div class="content"> 
+        <div class="content flex-wrap"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='quick-starts/quick-start-guide';">
+            <div class="card card-sm" onclick="location.href='get-started/quick-start-guide';">
 	              <div class="line"></div>
          	      <div class="icon">
 		                 <i class="material-icons md-36">timer</i>
@@ -30,7 +30,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials';">
+            <div class="card card-sm" onclick="location.href='learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials';">
                 <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">how_to_reg</i>
@@ -42,7 +42,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/adaptive-authentication/';">
+            <div class="card card-sm" onclick="location.href='learn/adaptive-authentication/';">
                 <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">call_split</i>
@@ -54,7 +54,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- start card -->
-            <div class="card" onclick="location.href='learn/single-sign-on/';">
+            <div class="card card-sm" onclick="location.href='learn/single-sign-on/';">
                 <div class="line"></div> 
                 <div class="icon">
                     <i class="material-icons md-36">dynamic_feed</i>
@@ -66,9 +66,9 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
         </div>
-        <div class="content">
+        <div class="content flex-wrap">
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/identity-federation/';">
+            <div class="card card-sm"  onclick="location.href='learn/identity-federation/';">
 	              <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">cloud_download</i>
@@ -80,7 +80,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='learn/access-control/';">
+            <div class="card card-sm" onclick="location.href='learn/access-control/';">
 	              <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">security</i>
@@ -92,7 +92,7 @@ template: templates/single-column.html
             </div>
             <!-- end card -->
             <!-- begin card -->
-            <div class="card" onclick="location.href='develop/calling-admin-services/';">
+            <div class="card card-sm" onclick="location.href='develop/calling-admin-services/';">
 	              <div class="line"></div>
                 <div class="icon">
                     <i class="material-icons md-36">settings_applications</i>
