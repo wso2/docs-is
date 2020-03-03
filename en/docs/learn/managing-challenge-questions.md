@@ -152,7 +152,8 @@ additional form of security and account management.
 1.  Log in to the management console using admin credentials.
 2.  In the **Identity** section of the **Main** menu, click **Resident**
     under **Identity Providers**.
-3.  Select the **Enable Force to Add Challenge Questions** setting to
+3.  Navigate to **Account Management Policies>Account Recovery**.
+    Select the **Enable forced challenge questions** setting to
     make this mandatory.
 
 After enabling the above setting, users are redirected during the login
