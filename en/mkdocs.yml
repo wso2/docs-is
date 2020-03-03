@@ -115,13 +115,14 @@ nav:
               - 'Password history': guides/user-mgt/password-history.md
               - 'Password expiration': guides/user-mgt/password-expiration.md
           - 'Using workflows': guides/user-mgt/configuring-workflows.md
-  - 'Develop':
-    - 'REST APIs': develop/rest-api-reference.md
+  - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
   - 'Deploy':
     - 'Deploy': deploy/deploying-wso2-identity-server.md
     - 'choose your model': deploy/choose-your-model.md
+  - 'APIs':
+    - 'REST API Reference': apis/rest-api-reference.md
   - 'Concepts':
       - 'User Management': concepts/user-management.md
       - 'Authentication':
@@ -235,7 +236,6 @@ nav:
         - 'Regular OAuth/OIDC Application' : fragments/configure-client-regular-oidc-app.md
         - 'SPA Application' : guides/authentication/configure-client-spa.md
         - 'Mobile Application' : guides/authentication/configure-mobile-app.md
-        - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-oidc-application.md
         - 'OIDC Logout' : fragments/oidc-logout.md
         - 'OIDC Session Management' : fragments/oidc-session-management.md
     - 'SAML':
@@ -305,6 +305,7 @@ extra:
     - Home
     - Quick Starts
     - Guides
-    - Develop
+    - Extend
     - Deploy
+    - APIs
     - Concepts
