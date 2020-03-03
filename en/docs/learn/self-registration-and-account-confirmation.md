@@ -6,7 +6,7 @@ created.
 
 When a user self-registers, the self-registration process creates the
 user account and locks the account until the user confirms account
-ownership via a confirmation mail send by WSO2 IS.
+ownership via a confirmation mail sent by WSO2 IS.
 
 If a user does not confirm account ownership before the specified expiry
 period, the user account is locked assuming that the expired account is
@@ -16,17 +16,15 @@ delete such accounts to manage resources better.
 The following sections walk you through configuring and trying out
 self-registration.
     
-!!! Warning 
-    If you have migrated from a previous IS version, ensure that the `IdentityMgtEventListener` with the
-    `         orderId=50        ` is set to **false** and that the Identity
-    Listeners with `         orderId=95        ` and
-    `         orderId=97        ` are set to **true** in the
+??? Warning "Click to see instructions specific for a migrated deployment" 
+    If you have migrated from a previous WSO2 Identity Server version, ensure that the `event.default_listener.identity_mgt` with the
+    `         priority=50        ` is set to **false** and that the Identity
+    Listeners with `         priority=95        ` and
+    `         priority=97        ` are set to **true** in the
     `         <IS_HOME>/repository/conf/deployment.toml        ` file.
    
     !!! Note 
-        If there is no such entries for `event.default_listener.xxx`, in `deployment.toml`, 
-        no need to configure the following.
-    
+        If the following configurations are not present in the `deployment.toml ` file already, you do not have to add it. 
     
     ``` java
     [event.default_listener.identity_mgt]
@@ -46,26 +44,17 @@ self-registration.
 Follow the steps given below to register users for the super tenant,
 which is `         carbon.super        `.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to 
-configure the the identity server to sent confirmation emails.
+
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
+
     
     !!! Note
         You need to add this configuration only if you wish to configure WSO2 IS to send confirmation 
         emails. Alternatively, you can use your own email managing mechanism.
 
-    ``` toml
-    [output_adapter.email]
-    from_address= "wso2iamtest@gmail.com"
-    username= "wso2iamtest"
-    password= "Wso2@iam70"
-    hostname= "smtp.gmail.com"
-    port= 587
-    enable_start_tls= true
-    enable_authentication= true
-    ```
-
     !!! tip
-        The **AccountConfirmation** template is to send this email notifications.
+        Typically, the **AccountConfirmation** template is used to send email notifications.
     
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
@@ -220,7 +209,20 @@ Next, you can try out self-registration.
 
 3.  Fill in the user details, provide consent to share the requested
     information and then click **Register**.
+    ![self-signup-form](../assets/img/using-wso2-identity-server/self-signup-form.png) 
+        
+    ??? Abstract "Click to see steps on configuring requested attributes for self registration" 
+        
+        -   The attributes that show up on the self sign up page are WSO2 [local dialect](../../learn/adding-claim-mapping/#add-local-claim) claims that have the Supported by Default configuration enabled.
+        -   From the Management console click **List** under **Claims** and select the **http://wso2.org/claims** dialect. Expand any claim to view the configuration. 
+        -   Mandatory attributes of
+        the self sign-up page are the claims have the **Required**
+        configuration enabled. 
+        -   For example see below configurations of the
+        department claim.
+        ![self-signup-required-claim-config](../assets/img/using-wso2-identity-server/self-signup-required-claim-config.png)
 
+    
 4.  Once the user has registered, user will receive a confirmation mail.
 
 5.  Click **Confirm Registration** in the email or copy the link in the

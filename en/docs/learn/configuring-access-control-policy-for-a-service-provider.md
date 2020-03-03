@@ -60,7 +60,7 @@ needs to be accessed by employees in the finance team only.*
 ### Step1: Configuring the service provider
 
 !!! Tip "Deploy the Sample Application"
-    Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) the `travelocity.com` sample application.
+    Follow [these steps to deploy and configure](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) the `travelocity.com` sample application.
 
 You need to define and configure your service provider in the WSO2
 Identity Server so that the authentication and/or provisioning happens
@@ -78,7 +78,7 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
     
     !!! Tip 
         In the beginning of this guide you have deployed and
-        [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-service-provider).
+        [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider).
         If you complete that you can skip steps 5 and 6 below.
     
 5.  Click **Add** under **Service Providers** on the Main tab and
@@ -98,13 +98,13 @@ the WSO2 IS architecture, see [Architecture](../../get-started/architecture).
 		etc.
 
 		For this tutorial, we will set up the travelocity sample application
-		by following the instructions in [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp). 
+		by following the instructions in [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp). 
 		Here we use **SAML2** as the inbound authentication protocol.
 		
     !!! note
         If your service provider needs any claims of the authenticated user to
         provide the service, you can [configure claims of the service
-        provider](../../configuring-single-sign-on/#configuring-claims). Then once the access is
+        provider](../../configuring-single-sign-on-saml/#configuring-claims). Then once the access is
         provided after evaluating the XACML policy, the Service Provider can
         get those claim details of the authorized user from the Identity
         Provider side.

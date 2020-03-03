@@ -13,6 +13,7 @@ As WSO2 Identity Server is a Java application, you can generally run them on mos
 				<li>CorrettoJDK 8</li>
 				<li>AdoptOpenJDK 8</li>
 				<li>OpenJDK 8</li>
+				<li>OpenJDK 11</li>
 				<li>Oracle JDK 8</li>
 				<li>Oracle JDK 11</li>
 			</ul>

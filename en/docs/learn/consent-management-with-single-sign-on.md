@@ -91,7 +91,7 @@ authentication.
 
     Configure the Travelocity sample app as a service provider in WSO2
     Identity Server. For more information, see the
-    [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) tutorial.
+    [Deploying the Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) tutorial.
     
 
 1.  Edit the above created service provider's **Claim Configuration** to

@@ -19,7 +19,7 @@ Identity Server.
     configuring the authenticators or connectors with this sample
     application.
     
-## Deploying travelocity webapp
+## Deploying the Travelocity webapp
 
 !!! tip "Before you begin" 
     Install Apache Tomcat 8.x as explained in the
@@ -27,7 +27,7 @@ Identity Server.
     
 ### Download the sample
 
-To be able to deploy a sample of Identity Server, you need to download
+To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
 
 Follow the instructions below to download a sample from GitHub.
@@ -113,13 +113,13 @@ For example,
     
 
     
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **travelocity.com** in the **Service Provider Name** text box,
     and click **Register**.
@@ -158,7 +158,7 @@ The next step is to configure the service provider.
 
 ----------------
 
-## Deploying playground2 webapp
+## Deploying the Playground2 webapp
 
 !!! tip "Before you begin" 
     Install Apache Tomcat 8.x as explained in the
@@ -166,7 +166,7 @@ The next step is to configure the service provider.
     
 ### Download the sample
 
-To be able to deploy a sample of Identity Server, you need to download
+To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
 
 Follow the instructions below to download a sample from GitHub.
@@ -252,13 +252,13 @@ Deploy this sample web app on a web container.
 	error because the public key of the WSO2 Identity Server does
 	not exist in the Java certificate store.
     
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **playground2** in the **Service Provider Name** text box,
     and click **Register**.
@@ -297,21 +297,22 @@ The next step is to configure the service provider.
 
 ----------------
 
-## Deploying saml2-web-app-pickup-dispatch webapp
+## Deploying the saml2-web-app-pickup-dispatch webapp
 
 !!! tip "Before you begin" 
-    Install Apache Tomcat 8.x as explained in the
+    - Install Apache Tomcat 8.x as explained in the
     beginning of this document.
+    - Note that this sample uses SAML2.
     
 ### Download the samples
 
-To be able to deploy a sample of Identity Server, you need to download
+To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
 
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.war) the `saml2-web-app-pickup-dispatch.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -325,19 +326,19 @@ Deploy this sample web app on a web container.
 2.  Start the Tomcat server.
 
 To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-dispatch.com/home.jsp         `
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-dispatch.com/index.jsp         `
 on your browser.
 
 For example,
-`                     http://localhost:8080/saml2-web-app-pickup-dispatch.com/home.jsp                 .         `
+`                     http://localhost:8080/saml2-web-app-pickup-dispatch.com/index.jsp                 .         `
     
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-dispatch** in the **Service Provider Name** text box,
     and click **Register**.
@@ -347,7 +348,7 @@ The next step is to configure the service provider.
 
     1.  Now set the configuration as follows:
 
-        1.  **Issuer** : `               saml2-web-app-pickup-dispatch             `
+        1.  **Issuer** : `               saml2-web-app-pickup-dispatch.com             `
 
         2.  **Assertion Consumer URL** :
             `                               http://localhost.com:8080/saml2-web-app-pickup-dispatch.com/home.jsp `                       
@@ -374,21 +375,22 @@ The next step is to configure the service provider.
 
 ----------------
 
-## Deploying saml2-web-app-pickup-manager webapp
+## Deploying the saml2-web-app-pickup-manager webapp
 
 !!! tip "Before you begin" 
-    Install Apache Tomcat 8.x as explained in the
+    - Install Apache Tomcat 8.x as explained in the
     beginning of this document.
+    - Note that this sample uses SAML2.
     
 ### Download the sample
 
-To be able to deploy a sample of the Identity Server, you need to download
+To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
 
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.war) the `saml2-web-app-pickup-manager.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -402,20 +404,20 @@ Deploy this sample web app on a web container.
 2.  Start the Tomcat server.
 
 To check the sample application, navigate to
-`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-manager.com/home.jsp        `
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/saml2-web-app-pickup-manager.com/index.jsp        `
 on your browser.
 
 For example,
-`                     http://localhost:8080/saml2-web-app-pickup-manager.com/home.jsp                   .         `
+`                     http://localhost:8080/saml2-web-app-pickup-manager.com/index.jsp                   .         `
 
 
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **saml2-web-app-pickup-manager** in the **Service Provider Name** text box,
     and click **Register**.
@@ -425,7 +427,7 @@ The next step is to configure the service provider.
 
     1.  Now set the configuration as follows:
 
-        1.  **Issuer** : `               saml2-web-app-pickup-manager             `
+        1.  **Issuer** : `               saml2-web-app-pickup-manager.com             `
 
         2.  **Assertion Consumer URL** :
             `                               http://localhost.com:8080/saml2-web-app-pickup-manager.com/home.jsp`                        
@@ -453,7 +455,206 @@ The next step is to configure the service provider.
     
 ----------------
 
-## Deploying PassiveSTSSampleApp webapp
+## Deploying the pickup-dispatch webapp
+
+!!! tip "Before you begin" 
+    - Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    - Note that this sample uses OpenID Connect.
+    
+### Download the samples
+
+To be able to deploy a WSO2 Identity Server sample, you need to download
+it onto your machine first.
+
+Follow the instructions below to download a sample from GitHub.
+
+1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
+
+    
+### Configuring the service provider
+
+The first step is to configure the service provider.
+
+1. Return to the WSO2 IS management console.
+
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
+
+3. Enter **pickup-dispatch** in the **Service Provider Name** text box,
+    and click **Register**.
+
+4. In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **OAuth/OpenID Connect Configuration** section.
+    
+5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-dispatch/oauth2client
+
+    !!! Tip
+        The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
+
+6. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
+
+    !!! Tip
+        For more information on the advanced configurations
+        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on/)
+
+5.  Click **Register** to save the changes.  
+    Now you are sent back to the Service Providers page.
+
+----------------
+
+### Deploy the sample web app
+
+Next, deploy the sample web app on a web container.
+
+1. Extract the `pickup-dispatch.war` file and open the `dispatch.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+2. Replace the `consumerKey` and `consumerSecret` values with the OAuth client key and OAuth client secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret](../assets/img/learn/pickup-key-secret.png)
+
+3. Next, copy the extracted and modified `pickup-dispatch` folder to the `<TOMCAT_HOME>/webapps` folder.
+
+4. Start the Tomcat server.
+
+To check the sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-dispatch/home.jsp         `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/pickup-dispatch/home.jsp                 .         `
+
+
+## Deploying the pickup-manager webapp
+
+!!! tip "Before you begin" 
+    - Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+    - Note that this sample uses OpenID Connect.
+    
+### Download the sample
+
+To be able to deploy a WSO2 Identity Server sample, you need to download
+it onto your machine first.
+
+Follow the instructions below to download a sample from GitHub.
+
+1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/pickup-manager.war) the `pickup-manager.war` file from the
+   latest release assets.
+
+### Configuring the service provider
+
+The first step is to configure the service provider.
+
+1. Return to the WSO2 IS management console.
+
+2. Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
+
+3. Enter **pickup-manager** in the **Service Provider Name** text box,
+    and click **Register**.
+
+4. In the **Inbound Authentication Configuration** section, click
+    **Configure** under the **OAuth/OpenID Connect Configuration** section.
+    
+5. Enter the following value as the **Callback URL**: http://localhost.com:8080/pickup-manager/oauth2client
+
+    !!! Tip
+        The callback URL is the service provider URL to which the authorization codes are sent. Upon successful authentication, the browser should be redirected to this URL. 
+
+6. Click **Add**. Note the **OAuth Client Key** and **Client Secret** that is displayed. You will need these values later on when deploying the sample application.
+
+    !!! Tip
+        For more information on the advanced configurations
+        refer, [Configuring OAuth2-OpenID Connect Single-Sign-On](../../learn/configuring-oauth2-openid-connect-single-sign-on/)
+
+5.  Click **Register** to save the changes.  
+    Now you are sent back to the Service Providers page.
+    
+----------------
+
+### Deploy the sample web app
+
+Next, deploy the sample web app on a web container.
+
+1. Extract the `pickup-manager.war` file and open the `manager.properties` file located in the `<EXTRACT>/WEB-INF/classes` folder.
+
+2. Replace the `consumerKey` and `consumerSecret` values with the OAuth client key and OAuth client secret values that were generated for the newly created service provider.
+
+    ![pickup-key-secret](../assets/img/learn/pickup-key-secret-2.png)
+
+3. Next, copy the extracted and modified `pickup-manager` folder to the `<TOMCAT_HOME>/webapps` folder.
+
+4. Start the Tomcat server.
+
+To check the sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/pickup-manager/home.jsp        `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/pickup-manager/home.jsp                   .         `
+
+## Deploying the photo-editor and photo-viewer webapps
+
+!!! tip "Before you begin" 
+    Install Apache Tomcat 8.x as explained in the
+    beginning of this document.
+
+    
+### Download the samples
+
+To be able to deploy a WSO2 Identity Server sample, you need to download
+it onto your machine first.
+
+Follow the instructions below to download the samples from GitHub.
+
+1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-edit.war) the `photo-edit.war` file from the
+   latest release assets.
+3. [Download](https://github.com/wso2/samples-is/releases/download/v4.1.0/photo-view.war) the `photo-view.war` file from the
+   latest release assets.
+
+### Deploy the sample web app
+
+Deploy the sample web apps on a web container.
+
+1.  Copy the .war files into the `           webapps          `
+    folder. For example,
+    `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
+    .
+2.  Start the Tomcat server.
+
+To check the **photo-edit** sample application, navigate to
+`          http://<TOMCAT_HOST>:<TOMCAT_PORT>/photo-edit/index.jsp         `
+on your browser.
+
+For example,
+`                     http://localhost.com:8080/photo-edit/index.jsp                 .         `
+    
+### Configuring the service provider
+
+Once the application is deployed, the relevant service providers are created on the management console using dynamic client registration. Follow the steps below to view the service providers and the configurations.
+
+1.  Return to the WSO2 IS management console.
+
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **List**. Note that the `photo-editor` and `photo-view` service providers have been created using dynamic client registration. 
+
+    ![photo-samples-service-providers](../assets/img/learn/photo-samples-service-providers.png)
+
+3.  Click **Edit** to view the photo-editor and photo-view service provider configurations. 
+
+3.  Expand **Inbound Authentication Configuration** section and then expand **OAuth/OpenID Connect Configuration**. 
+
+    ![oauth-configs-for-photo-app](../assets/img/learn/oauth-configs-for-photo-app.png)
+
+4. Click **Edit** to view the OAuth/OpenID Connect configurations. 
+
+    Note that the `urn:ietf:params:oauth:grant-type:uma-ticket` grant type has been enabled for the photo-viewer application along with the `code` and  `password` grant types. 
+
+    ![enable-uma-grant-type](../assets/img/learn/enable-uma-grant-type.png)
+
+----------------
+## Deploying the PassiveSTSSampleApp webapp
 
 !!! tip "Before you begin" 
     Install Apache Tomcat 8.x as explained in the
@@ -461,7 +662,7 @@ The next step is to configure the service provider.
     
 ### Download the sample
 
-To be able to deploy a sample of the Identity Server, you need to download
+To be able to deploy a WSO2 Identity Server sample, you need to download
 it onto your machine first.
 
 Follow the instructions below to download a sample from GitHub.
@@ -479,13 +680,13 @@ Deploy this sample web app on a web container.
     `           <TOMCAT_HOME>/apache-tomcat-<version>/webapps          `
     .
 2.  Start the Tomcat server.
-
-!!! Tip "Configure Sample Properties" 
-    Perform step 3 to 6 in
-    `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml`
-    file
     
-3.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
+
+### Configure sample properties
+
+Open the `<TOMCAT_HOME>/apache-tomcat-<version>/webapps/PassiveSTSSampleApp/WEB-INF/web.xml` file and configure the following. 
+    
+1.  Specify ` idpUrl ` as the URL of Identity Server's Passive STS. The
     following is an example.
 
     ``` xml
@@ -495,7 +696,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
 
-4.  Specify the ` replyURL ` as the URL of the web app. The following
+2.  Specify the ` replyURL ` as the URL of the web app. The following
     specifies ` PassiveSTSSampleApp ` as the web app.
 
     ``` xml
@@ -505,7 +706,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
 
-5.  Specify the ` realm ` . This should be a unique identifier for the
+3.  Specify the ` realm ` . This should be a unique identifier for the
     web app as seen in the example below.
 
     ``` xml
@@ -515,7 +716,7 @@ Deploy this sample web app on a web container.
     </init-param> 
     ```
     
-6.  For tenant user logins, specify the ` tenantDomain ` .
+4.  For tenant user logins, specify the ` tenantDomain ` .
 
     ``` xml
     <init-param>
@@ -524,7 +725,7 @@ Deploy this sample web app on a web container.
     </init-param>
     ```
     
-7. Restart the tomcat server.
+5. Restart the tomcat server.
 
 To check the sample application, navigate to `
 http://<TOMCAT_HOST>:<TOMCAT_PORT>/PassiveSTSSampleApp/home.jsp ` on
@@ -533,13 +734,13 @@ your browser.
 For example, ` http://localhost:8080/PassiveSTSSampleApp/home.jsp . `
 
 
-### Configuring Service Provider
+### Configuring the service provider
 
 The next step is to configure the service provider.
 
 1.  Return to the WSO2 IS management console.
 
-2.  Navigate to **Main** tab -> **Identity** -> **Service Providers** -> **Add**.
+2.  Navigate to **Main**>**Identity**>**Service Providers** and click **Add**.
 
 3.  Enter **PassiveSTSSampleApp** in the **Service Provider Name** text box,
     and click **Register**.
@@ -560,7 +761,15 @@ The next step is to configure the service provider.
         For more information on the advanced configurations refer,
         [Configuring WS-Federation](../../learn/configuring-ws-federation-single-sign-on/)
 
-5.  Click **Register** to save the changes.  
+5. Expand the **Claim Configuration** section and click **Add Requested Claim** to add the following claims. 
+    1. http://wso2.org/claims/username
+    2. http://wso2.org/claims/emailaddress
+
+6. Select `http://wso2.org/claims/emailaddress` as the **Subject Claim URI**. 
+
+    ![passive-sts-claims](../assets/img/learn/passive-sts-claims.png)
+
+7.  Click **Update** to save the changes.  
     Now you are sent back to the Service Providers page.
     
     

@@ -18,18 +18,8 @@ corresponding dialogs or error messages based on account status.
 The below steps describe how you can configure WSO2 Identity Server
 for forced password reset:
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server for this service.
-
-    ``` toml
-    [output_adapter.email]
-    from_address= "wso2iamtest@gmail.com"
-    username= "wso2iamtest"
-    password= "Wso2@iam70"
-    hostname= smtp.gmail.com
-    port= 587
-    enable_start_tls= true
-    enable_authentication= true
-    ```
+1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
     !!! tip
         The email template used to send this email notification is
@@ -114,11 +104,20 @@ to see a sample of how this works.
             </soapenv:Body>
         </soapenv:Envelope>
         ```
-
+        
+        !!! Info 
+            For a user in a secondary user store, you should send
+            the username in the format of `<user-store-domain>/<user-name>`
+            in above SOAP request.
+        
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
         ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        
+        !!! Info 
+            To try the scenario for a tenant user, provide the
+            credentials of a tenant administer in the authentication step.
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in as the user you created above, "Tom". The login
@@ -179,11 +178,20 @@ template for this option can be configured in the
             </soapenv:Body>
         </soapenv:Envelope>
         ```
+        
+        !!! Info 
+            For a user in a secondary user store, you should send
+            the username in the format of `<user-store-domain>/<user-name>`
+            in above SOAP request.
 
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
         ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        
+        !!! Info 
+            To try the scenario for a tenant user, provide the
+            credentials of a tenant administer in the authentication step.
 
 4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to login again as the user you created above, "Tom". The
@@ -247,11 +255,20 @@ template for this option can be configured in the
             </soapenv:Body>
         </soapenv:Envelope>
         ```
+        
+        !!! Info 
+            For a user in a secondary user store, you should send
+            the username in the format of `<user-store-domain>/<user-name>`
+            in above SOAP request.
 
     4.  Add new a new basic authorization from the SOAP-UI request
         window and enter valid credentials to authenticate with the
         identity server.  
         ![add-basic-authorization](../assets/img/using-wso2-identity-server/add-basic-authorization.png)
+        
+        !!! Info 
+            To try the scenario for a tenant user, provide the
+            credentials of a tenant administer in the authentication step.
 
 7.  Log out of the [dashboard](https://localhost:9443/dashboard) and
     attempt to log in again as the user you created above, "Tom". The

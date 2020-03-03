@@ -46,7 +46,7 @@ management console.
     ![add-consent-purposes](../assets/img/using-wso2-identity-server/add-consent-purposes.png)   
     The following window will be displayed.
 
-    ![add-new-purpose](../assets/img/using-wso2-identity-server/add-new-purpose.png) 
+    ![add-new-purpose](../assets/img/learn/add-new-purpose.png) 
 
 3.  Add a **Purpose Name** and a **Description**.
 
@@ -55,6 +55,10 @@ management console.
 
     2.  **Description:** A short, clear explanation of why the PII item
         is required.
+    
+    3.  **Associated Flow:** The flow in which the user will be prompted with the PIIs, requiring consent.  
+
+    4.  **Purpose Group Type:** The subtype of the associated flow chosen. 
 
     3.  **PII Categories:** In WSO2 Identity Server context, PII
         categories are the user claims. Users can give consent to share
@@ -69,6 +73,10 @@ management console.
 
         -   **Description:** For marketing purposes
 
+        -   **Associated Flow:** SELF-SIGNUP
+
+        -   **Purpose Group Type:** SYSTEM
+
         -   **PII Categories:**
             -   http://wso2.org/claims/fullname
             -   http://wso2.org/claims/dob
@@ -78,7 +86,7 @@ management console.
 4.  Click **Finish** to save the purpose.The following screen will be
     displayed:
 
-    ![consent-purpose-list](../assets/img/using-wso2-identity-server/consent-purpose-list.png) 
+    ![consent-purpose-list](../assets/img/learn/consent-list.png) 
 
 ### List consent purposes
 

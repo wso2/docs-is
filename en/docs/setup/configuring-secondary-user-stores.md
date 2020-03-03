@@ -66,7 +66,7 @@ You can use either the management console to create secondary user stores or you
     If you have added a custom user store manager to the system, that
     also be available in this drop-down menu.
 
-3.  Enter a unique domain name with no underscore (\) characters, and a
+3.  Enter a unique domain name with no underscore ( \_ ) characters, and a
     description (optional) for this user store.
 4.  Enter values for the properties, using the descriptions in the
     'Descriptions' column for guidance. The properties that appear, vary

@@ -31,7 +31,7 @@ performed with different permission levels.
 </td>
 </tr>
 <tr style="height: 373px;">
-<td style="height: 488px;" rowspan="6">/admin/configure/security</td>
+<td style="height: 488px;" rowspan="6">/admin/manage/identity</td>
 <td style="height: 373px;">RemoteAuthorizationManagerService</td>
 <td style="height: 373px;">
 <ul>

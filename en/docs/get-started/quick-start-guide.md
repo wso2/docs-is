@@ -1,9 +1,9 @@
 # Quick Start Guide
 
-WSO2 Identity Server (WSO2 IS) is a comprehensive identity and access
-management (IAM) solution. It caters to identity management requirements
-across many platforms such as enterprise applications, services, and
-APIs. This guide gives you a quick walk-through to WSO2 IS using a
+WSO2 Identity Server is a comprehensive identity and access management
+(IAM) solution. It caters to identity management requirements across
+many platforms such as enterprise applications, services, and APIs. This
+guide gives you a quick walk-through to WSO2 Identity Server using a
 sample scenario.
 
 #### Sample Scenario
@@ -21,32 +21,36 @@ Pickup needs to identify the necessary permission levels to be granted
 to the employees and any security vulnerabilities.
 
 **Cameron** is a senior manager at Pickup who is responsible for
-resolving these issues using WSO2 IS. **Alex** is a junior manager
+resolving these issues using WSO2 Identity Server. **Alex** is a junior manager
 attending to day-to-day tasks and **Rowan** is the HR manager.
 
 ![qsg-overall-scenario](../assets/img/getting-started/qsg-overall-scenario.png)
 
 Let's assume that you are Cameron, and you want to resolve these issues
-using WSO2 IS.
+using WSO2 Identity Server.
 
 ### Before you begin
+
+#### Set-up
     
-1. Download and install Oracle Java SE Development Kit (JDK) version 1.7.* or 1.8.
-2. Install WSO2 IS 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
-   The WSO2 IS installation location varies according to the OS as given below.
+1. Download and install Oracle Java SE Development Kit (JDK) version
+   1.7.* or 1.8.
+2. Install WSO2 Identity Server 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
+   The WSO2 Identity Server installation location varies according to the OS as given below.
 
     |OS     |Home Directory                                |
     |:------|:---------------------------------------------|
-    |Mac OS | `/Library/WSO2/IdentityServer/5.7.0`         |
-    |Windows| `C:\Program Files\WSO2\IdentityServer\5.7.0` |
-    |Ubuntu | `/usr/lib/wso2/IdentityServer/5.7.0`         |
-    |CentOS | `/usr/lib64/IdentityServer/5.4.70`           |
+    |Mac OS | `/Library/WSO2/IdentityServer/<IS_HOME>`         |
+    |Windows| `C:\Program Files\WSO2\IdentityServer\<IS_HOME>` |
+    |Ubuntu | `/usr/lib/wso2/IdentityServer/<IS_HOME>`         |
+    |CentOS | `/usr/lib64/IdentityServer/<IS_HOME>`           |
 
-    For the rest of this guide, the installation location of WSO2 IS is referred to as `<IS_HOME>`.
+    In this guide, the installation location of WSO2 Identity Server is referred to as `<IS_HOME>`.
 
-4. [Download](https://curl.haxx.se/download.html) and install curl. Make sure you install the binary type file of the version you choose.
+3. [Download](https://curl.haxx.se/download.html) and install curl. Make
+      sure you install the binary type file of the version you choose.
 
-6. Open the `/etc/hosts` file and add the following entry.        
+4. Open the `/etc/hosts` file and add the following entry.
     
         127.0.0.1        localhost.com    
 
@@ -54,14 +58,15 @@ using WSO2 IS.
         * If you are planning to use Single Sign-On (SSO), do not use `localhost` as it will cause the Tomcat naked host issue. Use `localhost.com` instead. If you are using Windows, `localhost.com` is considered as `127.0.0.1`.<br/>
         * Make sure that this is the only such entry available for this IP address in the `/etc/hosts` file to avoid any conflicts.
 
-7. [Start](../../setup/running-the-product) WSO2 IS. You are now ready to deploy the sample.
+5. [Start](../../setup/running-the-product) WSO2 Identity Server. You
+   are now ready to deploy the sample.
 
-**Steps to configure and run the samples**
+#### Steps to configure and run the samples
 
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/tag/v4.1.0) and unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.1.0/is-samples-distribution-4.1.0.zip) and unzip.
 
     ``` java
-    unzip /home/../is-samples-distribution-4.1.0.zip
+    unzip is-samples-distribution-4.1.0.zip
     ```
 
     !!! note
@@ -70,11 +75,10 @@ using WSO2 IS.
     
         -   `               <IS_HOME>              ` is the directory in
             which the WSO2 Identity Server is installed.
-        -   `               <TOMCAT_HOME>              ` is the directory in
-            which your Apache Tomcat server is installed.
+        -   `               <IS_SAMPLE_DISTR>              ` is the directory where downloaded `is-samples-distribution-4.1.0.zip` archive is extracted.
     
 
-2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/ ` and make sure that wso2is.host.domain and wso2is.host.port are configured as shown below.             
+2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/ ` and make sure that `wso2is.host.domain` and `wso2is.host.port` are configured as shown below.             
     ```
     #localhost.com is used to resolve naked hostname validation issue
     wso2is.host.domain=localhost.com
@@ -83,7 +87,7 @@ using WSO2 IS.
     server.host.port=8080
     ```
 
-5.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
+3.  Navigate to `<IS_HOME>/bin` using the command prompt and start the server.
 
     ``` java
     Linux   --> sh wso2server.sh
@@ -97,16 +101,16 @@ using WSO2 IS.
         Note that following log appears in the command prompt after the server shutdown.
         ![qsg-stop-server](../assets/img/getting-started/qsg-stop-server.png)
 
-6.  Navigate to <IS_SAMPLE_DISTR>/IS-QSG/bin and execute either of the following commands to start the sample application. 
+4.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin` and execute either of the following commands to start the sample application. 
        
      ``` 
          Linux   --> sh app-server.sh
          Windows --> app-server.bat
     ```
-8.  Navigate to
-    `              is-samples-2.0.0/IS-QSG/samples             ` /
-    `              QSG-bundle/QSG/bin             ` and execute either
-    of the following commands to start the Quick Start samples.
+
+5.  Navigate to `<IS_SAMPLE_DISTR>/IS-QSG/bin`
+    and execute the following commands to start the Quick Start samples
+    accordingly.
 
     ``` java
         Linux   --> sh qsg.sh 
@@ -116,9 +120,9 @@ using WSO2 IS.
     A message appears to pick a scenario, which indicates that the
     samples are deployed and the WSO2 Identity Server is up and running.
 
-9.  When prompted, confirm the configurations.
-10. Note that a message appears to pick a scenario, which indicates that
-    the samples are deployed and WSO2 IS is up and running.
+6.  When prompted, confirm the configurations.
+7. Note that a message appears to pick a scenario, which indicates that
+    the samples are deployed and WSO2 Identity Server is up and running.
 
 Let's try out the samples.
 
@@ -138,7 +142,7 @@ With SSO, when a user signs in to one application (authentication), that
 user is automatically authenticated to other applications, eliminating
 the need to maintain multiple credentials.
 
-Cameron decides to use WSO2 IS to configure SSO.
+Cameron decides to use WSO2 Identity Server to configure SSO.
 
 ![qsg-sso-scenario2](../assets/img/getting-started/qsg-sso-scenario2.png)
 
@@ -166,11 +170,11 @@ protocol, follow the steps below:
       
 
     !!! note
-        You can also perform the above using the WSO2 IS Management Console.
+        You can also perform the above using the WSO2 Identity Server Management Console.
         For more information, see [Creating users and
         roles](../../learn/configuring-users-roles-and-permissions), [Configuring service
         providers](../../learn/adding-and-configuring-a-service-provider), and
-        [Configuring web app for SSO](../../learn/configuring-single-sign-on).
+        [Configuring web app for SSO](../../learn/configuring-single-sign-on-saml).
     
 
 2.  Go to the URL
@@ -197,8 +201,8 @@ protocol, follow the steps below:
     !!! note
     
         Obtaining the user consent is one of the fundamental requirements of
-        the GDPR regulation. WSO2 IS facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 IS
+        the GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
+        Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
         Management](../../learn/consent-management)
         .
@@ -268,8 +272,8 @@ follow the steps below:
 
     !!! note
         Obtaining the user consent is one of the fundamental requirements of
-        GDPR regulation. WSO2 IS facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 IS
+        GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
+        Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
         Management](../../learn/consent-management).
     
@@ -292,7 +296,8 @@ follow the steps below:
     command prompt where you ran the Quick Start sample and enter
     `              y             ` to clean the setup.  
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
-
+    
+----------------
 ### Multi-factor Authentication
 ##### Problem Scenario
 
@@ -302,7 +307,7 @@ traditional authentication mechanism that uses a user ID and
 password is not sufficient. Cameron wants to enhance the security
 standards by introducing another level of authentication. As a result,
 Cameron decides to use the Multi-factor Authentication (MFA) capability
-in WSO2 IS using the following factors:
+in WSO2 Identity Server using the following factors:
 
 -   **First factor** : password
 -   **Second factor** : HARDWARE KEY
@@ -312,23 +317,22 @@ Let's use the command-line to check the MFA functionality.
 ##### Configuring Multi-Factor Authentication
 
 First deploy the sample authenticator dependency and web application in
-    WSO2 IS.
+    WSO2 Identity Server.
 
-   1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.7.0.jar) file and paste inside the
+   1.  Download the [org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar](../../assets/attachments/org.wso2.carbon.identity.sample.extension.authenticators-5.9.0.jar) file and paste inside the
         `              <IS_HOME>/repository/components/dropins             ` directory.
 
-   2.  Download the [sample-auth.war](../../assets/attachments/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
+   2.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.1.0/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
         folder.  
         This `             .war            ` file contains the WEB UI
         for the sample authenticators used in this tutorial.
 
-   3.Add the followings to the deployment.toml in <IS_HOME>/repository/conf
-        [[resource.access_control]]
-        context = "(.*)/sample-auth/(.*)"
-        secure = false
-        http_method = "all"  
-
-   And restart the identity server          
+3.     Add the followings to the `deployment.tom`l file in the
+       `<IS_HOME>/repository/conf` directory and restart the server.
+       ```toml
+       [[resource.access_control]] context = "(.*)/sample-auth/(.*)"
+       secure = false http_method = "all" 
+       ```
 
 Follow the steps below to configure MFA on the Pickup Dispatch and
 Pickup Manager applications where HARDWARE KEY is the second authentication
@@ -388,8 +392,8 @@ A message appears to pick a scenario.
     !!! note
     
         Obtaining user consent is one of the fundamental requirements of the
-        GDPR regulation. WSO2 IS facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 IS
+        GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
+        Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
         Management](../../learn/consent-management)
         .
@@ -404,6 +408,7 @@ A message appears to pick a scenario.
     `               y              ` to clean the setup.
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
+----------------
 ### Federated Authentication
 ##### Problem Scenario
 
@@ -412,7 +417,7 @@ them access to the Pickup Dispatch and Pickup Manager applications.
 However, it is a hassle to keep adding and maintaining their accounts in
 the employee database as these consultants are temporary and they keep
 rotating. Therefore, Cameron decides to use the identity federation
-capability of WSO2 IS. This facilitates the external consultants to use
+capability of WSO2 Identity Server. This facilitates the external consultants to use
 their already existing Google account credentials to sign in to the
 Pickup applications.
 
@@ -498,7 +503,7 @@ A message appears to pick a scenario.
 5.  Click **Log in**.
 
     ![qsg-sso-dispatch-login](../assets/img/getting-started/qsg-sso-dispatch-login.png)  
-    The Twitter login page appears.
+    The Google login page appears.
 
 6.  Enter your Google `               username              ` and
     `               password              ` and click **Sign In**.
@@ -514,8 +519,8 @@ A message appears to pick a scenario.
     !!! note
     
         Obtaining the user consent is one of the fundamental requirements of
-        GDPR regulation. WSO2 IS facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 IS
+        GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
+        Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
         Management](../../learn/consent-management)
         .
@@ -525,13 +530,14 @@ A message appears to pick a scenario.
 
     ![qsg-sso-dispatch-home](../assets/img/getting-started/qsg-sso-dispatch-home.png)
     You have just signed in to the Pickup Dispatch application
-    as an external consultant using your Twitter credentials.
+    as an external consultant using your Google credentials.
 
 8.  Next, in order to try out other scenarios, navigate back to the
     command prompt where you ran the Quick Start sample and enter
     `              y             ` to clean the setup.  
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
+----------------
 ### Self Sign-up
 ##### Problem Scenario
 
@@ -544,7 +550,7 @@ is having a hard time doing this one by one for especially when a larger
 number of employees come on-board. Cameron realizes that allowing the
 new employees to self sign-up to Pickup web applications will speed up
 the onboarding process. As a result Cameron sets this up for Pickup HR
-using WSO2 IS.
+using WSO2 Identity Server.
 
 Let's use the command line utility to check out the self sign-up
 functionality.
@@ -552,7 +558,7 @@ functionality.
 ##### Configuring Self-Sign-up
 
 Follow the steps below to configure self sign-up for Pickup Dispatch and
-Pickup Manager applications using WSO2 IS.
+Pickup Manager applications using WSO2 Identity Server.
 
 !!! tip
     
@@ -571,16 +577,10 @@ Pickup Manager applications using WSO2 IS.
 
     A message appears to pick a scenario.
 
-2.  Add and configure the following properties in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. Update the address, username, and password parameters with the values of a valid email account.
+2.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
-    ``` java
-    [output_adapter.email] 
-    from_address = 
-    username = 
-    password =       
-    ```
-
-4.  Restart WSO2 IS.
+4.  Restart WSO2 Identity Server.
 
     ``` java
         Linux   --> sh wso2server.sh
@@ -614,7 +614,7 @@ Pickup Manager applications using WSO2 IS.
         user-provided email address. A confirmation mail is sent to the
         user but user account is locked until the user confirms the
         account by clicking on the account confirmation mail sent by
-        WSO2 IS.
+        WSO2 Identity Server.
 
     ![qsg-configure-self-sign-up](../assets/img/getting-started/qsg-configure-self-sign-up.png)
 2.  Enter `               number              ` that matches with the
@@ -687,6 +687,7 @@ Pickup Manager applications using WSO2 IS.
     `               y              ` to clean the setup.
     ![qsg-sso-cleanup](../assets/img/getting-started/qsg-sso-cleanup.png)
 
+----------------
 ### Workflows
 ##### Problem Scenario
 
@@ -694,7 +695,7 @@ After Cameron sets up self registration for Pickup web applications,
 Rowan is concerned about the security. Rowan prefers to review and
 approve new user accounts before granting access to the Pickup web
 applications. Thus, Rowan reaches out to Cameron with these concerns.
-Cameron realizes the possibility of creating a workflow using WSO2 IS
+Cameron realizes the possibility of creating a workflow using WSO2 Identity Server
 and granting role-based authorization, so that each account registration
 will be subject to approval.
 
@@ -836,8 +837,8 @@ A message appears to pick a scenario.
 
     !!! note
         Obtaining the user consent is one of the fundamental requirements of
-        GDPR regulation. WSO2 IS facilitates this through its **Consent
-        Management** features. To know more about GDPR and how WSO2 IS
+        GDPR regulation. WSO2 Identity Server facilitates this through its **Consent
+        Management** features. To know more about GDPR and how WSO2 Identity Server
         handles consent, see [Consent
         Management](../../learn/consent-management)
         .
@@ -846,8 +847,9 @@ A message appears to pick a scenario.
 
     ![qsg-sso-dispatch-home](../assets/img/getting-started/qsg-sso-dispatch-home.png)
 
+----------------
 This concludes the Quick Start Guide!
 
-You have set up WSO2 IS and gone through the basic use cases of the
+You have set up WSO2 Identity Server and gone through the basic use cases of the
 product. For more advanced use cases, check our
-[Tutorials](../../learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials).
+[Basic Tutorials](../../learn/tutorials).

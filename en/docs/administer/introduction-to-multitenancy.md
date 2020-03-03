@@ -29,14 +29,6 @@ JAVA_OPTS \
     -Dtenant.idle.time=30 \
 ```
 
--   [Architecture](#architecture)
--   [Resource sharing](#resource-sharing)
--   [Tenant loading
-    policy](#tenant-loading-policy)
--   [Restrictions](#restrictions)
--   [Request dispatching](#request-dispatching)
--   [Scaling](#scaling)
-
 ### Architecture
 
 The multi-tenant architecture of WSO2 products allows you to deploy Web

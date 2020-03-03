@@ -187,20 +187,8 @@ failed login attempts, you can also configure the WSO2 IS to send an
 email to the user's email address when the user account is locked due to
 failed login attempts. To configure this, follow the steps below.
 
-1.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
-
-       ```
-       [output_adapter.email]
-       from_address= "wso2iamtest@gmail.com"
-       username= "wso2iamtest"
-       password= "Wso2@iam70"
-       hostname= smtp.gmail.com
-       port= 587
-       enable_start_tls= true
-       enable_authentication= true
-       ```
-
-2.  Restart the Server.
+-  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
 
     !!! tip
     

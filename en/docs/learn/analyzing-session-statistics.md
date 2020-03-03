@@ -18,22 +18,20 @@ Follow the steps below to view the **Login Sessions**.
 
 Let's analyze the login sessions with the following widgets.
 
-### Active Sessions
+## Active Sessions
 
-##### **Description**
+### **Description**
 
 This widget presents the **currently active sessions** and gets updated
 for each event that is coming from WSO2 IS.
 
-![]( ../assets/img/103329312/103329313.png)
+<img src="../../assets/img/103329312/103329313.png" alt="Compact Summary widget" width="500">
 
   
 
-  
+## Session Count Over Time
 
-### Session Count Over Time
-
-##### Description
+### **Description**
 
 -   This chart presents the **session count over time**.
 -   The **Active** line indicates the number of active sessions over the
@@ -46,7 +44,7 @@ for each event that is coming from WSO2 IS.
 -   The **Terminated** line indicates the number of terminated sessions
     over the given time interval.
 
-##### Purpose
+### **Purpose**
 
 This chart allows,
 
@@ -60,7 +58,7 @@ This chart allows,
     different time intervals to identify patterns relating to the usage
     of your applications.
 
-##### Recommended Actions
+#### Recommended Actions
 
 Select different time intervals to identify the correlations between the
 usage of an application and time.
@@ -71,17 +69,18 @@ application is particularly high, you can allocate more resources to
 handle the increased load. Similarly, you can allocate less resources
 during time intervals when the load is relatively low.
 
-![]( ../assets/img/103329312/103329320.png)
+<img src="../../assets/img/103329312/103329320.png" alt="Compact Summary widget" width="500">
 
-### Top Longest Session
 
-##### Description
+## Top Longest Session
+
+### **Description**
 
 This chart presents the longest sessions that took place during a given
 time interval by the length of the session. The time duration for each
 session is displayed.
 
-##### Purpose
+### **Purpose**
 
 -   This chart allows identifying the longest session of each user with
     the respective length of duration.
@@ -90,16 +89,17 @@ session is displayed.
     enables to identify the users who are most active during different
     time intervals.
 
-![]( ../assets/img/103329312/103329319.png)
+<img src="../../assets/img/103329312/103329319.png" alt="Compact Summary widget" width="500">
+
 
 ### Average Session Duration
 
-##### Description
+##### **Description**
 
 This chart presents the average time duration of a session based on the
 most frequent users for the selected time interval.
 
-##### Purpose
+##### **Purpose**
 
 This chart allows:
 
@@ -121,16 +121,17 @@ actions where necessary, e.g., increase/decrease the efficiency of the
 application and enhance/reduce user experience features that results in
 users spending more/less time on the application.
 
-![]( ../assets/img/103329312/103329318.png)
+<img src="../../assets/img/103329312/103329318.png" alt="Compact Summary widget" width="500">
 
-### Session Count
 
-##### Description
+## Session Count
+
+### **Description**
 
 This chart groups the sessions by the duration and displays the number
 of sessions for each group during the given time interval.
 
-##### Purpose
+### **Purpose**
 
 This allows:
 
@@ -150,11 +151,12 @@ changes and take necessary steps, e.g., increase/decrease the efficiency
 of the application and enhance/reduce user experience features that
 results in users spending more/less time on the application.
 
-![]( ../assets/img/103329312/103329317.png)
+<img src="../../assets/img/103329312/103329317.png" alt="Compact Summary widget" width="500">
 
-### Detail View
 
-##### Description
+## Detail View
+
+### **Description**
 
 This widget presents details of each session including
 
@@ -182,6 +184,6 @@ This widget presents details of each session including
 
 -   The time stamp
 
-##### Purpose
+### **Purpose**
 
 This widget allows viewing the details of each individual session.

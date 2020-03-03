@@ -82,7 +82,7 @@ information in the following sections.
 ## Deploying travelocity sample application
 
 The next step is to deploy and configure travelocity application. See 
-[deploy the sample app](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp) for more information 
+[deploy the sample app](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp) for more information 
 on configuring travelocity application. 
 
 Once this is done, the next step is to configure the WSO2 Identity
@@ -129,7 +129,7 @@ The next step is to configure the service provider.
 1.  In the
     [previous section of this guide](#deploying-travelocity-sample-application)
     you have deployed and
-    [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-service-provider).
+    [registered the `travelocity.com` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider).
     Let's edit the same service provider to configure `twitter` as the
     identity provider.
 

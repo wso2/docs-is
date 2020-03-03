@@ -233,10 +233,11 @@ Provider.
     information on registering and configuring an identity provider.
 4.  Upload the Salesforce public certificate that you generated and
     saved in [step 7 under Configuring
-    Salesforce](../../learn/outbound-provisioning-with-salesforce#public)
-.  
-    Do this by clicking the **Choose File** button next to **Identity
-    Provider Public Certificate**.
+                                                                                    Salesforce](../../learn/outbound-provisioning-with-salesforce#public)
+    .  
+    Do this by selecting **Upload IDP certificate** and clicking the
+    **Choose File** button next to **Identity Provider Public
+    Certificate**.
 
     !!! info "Why is the certificate needed?"
 

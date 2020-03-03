@@ -6,6 +6,9 @@ Email One Time Password (Email OTP) in WSO2 Identity Server (WSO2 IS).
 The Email OTP enables a one-time password (OTP) to be used at the second
 step of MFA.
 
+!!! info 
+    For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
+
 Follow the instructions in the sections below to configure MFA using
 Email OTP:
 
@@ -14,7 +17,7 @@ Email OTP:
 In this guide we will be using `travelocity.com` as a sample application
 to which we will be enabling MFA for sign-in. To deploy the travelocity
 sample application, follow the steps in
-[Deploying the travelocity.com Sample App](../../learn/deploying-the-sample-app/#deploying-travelocity-webapp).
+[Deploying the travelocity.com Sample App](../../learn/deploying-the-sample-app/#deploying-the-travelocity-webapp).
 
 ------------------------------------------------------------------------
 
@@ -30,29 +33,15 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
 
 ??? abstract "Expand this section to follow the steps to configure WSO2 IS to send emails once the Email OTP is enabled."
         
-    1.  Shut down the server if it is running.
-    2.  Add the following properties to the `deployment.toml` file in the `IS_HOME/repository/conf` folder to configure the email server.
+    1.  Enable the email sending configurations of the WSO2 Identity Server
+    as explained [here](../../setup/configuring-email-sending).
     
-        ```toml
-        [output_adapter.email]
-        from_address= "wso2iamtest@gmail.com"
-        username= "wso2iamtest"
-        password= "Wso2@iam70"
-        hostname= smtp.gmail.com
-        port= 587
-        enable_start_tls= true
-        enable_authentication= true
-        ```
-        
-        |                                                   |                                                |
-        |---------------------------------------------------|------------------------------------------------|
-        | `               from_address                `     | Provide the email address of the SMTP account. |
-        | `               username                    `     | Provide the username of the SMTP account.      |
-        | `               password                        ` | Provide the password of the SMTP account.      |
+    2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
     
-        !!! Note
-            If you are using Gmail account you have to on "Allow less secure
-            apps" in your account respective to the above email sending configurations.
+    ```
+    [server]
+    disable_addressing = true
+    ```
     
     3.  Add the following email template to the
         `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
@@ -270,7 +259,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                 </tbody>
             </table>
     
-    6.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
+    5.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
 #### Option2: Configure Gmail as the email OTP provider 
 
@@ -541,7 +530,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
 In the
 [Deploying travelocity sample application](#deploying-travelocity-sample-application)
-section you have [configured a service provider](../../learn/deploying-the-sample-app/#configuring-service-provider) to register the
+section you have [configured a service provider](../../learn/deploying-the-sample-app/#configuring-the-service-provider) to register the
 travelocity.com as an application in the WSO2 Identity Server. Follow
 the steps below to modify the same service provider in order to
 configure Email OTP as second authentication step.
@@ -591,7 +580,7 @@ configure Email OTP as second authentication step.
     !!! note
     
         For more information on service provider configuration, see
-        [Configuring Single Sign-On](../../learn/configuring-single-sign-on).
+        [Configuring SAML2 Web Single Sign-On](../../learn/configuring-saml2-web-single-sign-on).
     
 ------------------------------------------------------------------------
 

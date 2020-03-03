@@ -29,12 +29,12 @@ for more information.
     !!! Tip "Before you begin" 
         To deploy and configure the Playground 
         sample, follow the steps
-        [here](../../learn/deploying-the-sample-app/#deploying-playground2-webapp).
+        [here](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp).
 
 2.  For this scenario we need two relying party applications. To do
     this, make a copy of the `playground2.war` file that was generated
     when you
-    [set up the sample webapp](../../learn/deploying-the-sample-app/#deploying-playground2-webapp),
+    [set up the sample webapp](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp),
     and rename it as **playground3.war** in the same location.
 
     Navigate to the following URLs to check both were deployed properly.
@@ -48,7 +48,7 @@ for more information.
 ### Registering the relying party applications
 
 1.  In the previous section you have
-    [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-service-provider_1).
+    [registered the `playground2` webapp](learn/deploying-the-sample-app/#configuring-the-service-provider_1).
     If you complete that you can skip steps 2 to 5 below. 
     
 2.  Log into the management
