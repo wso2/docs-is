@@ -14,6 +14,8 @@ This protocol verifies user identity by authenticating the end user against the 
       - Hybrid OP
       - Form Post OP
 
+----
+
 ### Why OpenID Connect?
 When logging in to an online system, the user should be able to prove his identity to the system. 
 A single user can have multiple identities (e.g., passport number, NIC number, fingerprint) and proving their identity to a system
@@ -29,12 +31,14 @@ web, mobile, desktop, and JavaScript clients.
  
 In simple terms, OIDC is a solution and a single platform that performs both authentication and authorization.
 
+----
+
 ### When to choose OIDC for which application?
 OIDC represents three flows of authentication:
 
-    - Authorization code flow
-    - Impicit flow
-    - Hybrid flow
+  - Authorization code flow
+  - Impicit flow
+  - Hybrid flow
 
 The different flows target different types of application clients.
 
@@ -43,6 +47,8 @@ The different flows target different types of application clients.
 | Authorization code flow | Mostly used by web and mobile applications when the clients can use typical ways to authenticate. (e.g., providing user credentials)  |                            
 | Implicit Flow           | Specially consumed by mobile applications or the client side JavaScript applications that run in the browser where embedded credentials could be compromised. In this case, the client should not be authenticated and tokens should be retrieved via the front channel.  |                              
 | Hybrid Flow             | Front-end and back-end applications use this flow to receive tokens independently (when a client application wants an immediate use of user details which can be obtained through an ID token), while the exchange of the authorization code and the access token happens.  | 
+
+----
 
 ### How does it work?
 
