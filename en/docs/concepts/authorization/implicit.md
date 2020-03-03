@@ -24,3 +24,7 @@ The diagram below illustrates the implicit grant flow.
 
 ![implicit-grant](../../assets/img/concepts/implicit-flow.png)
 
+!!! info "Support for refresh token grant - No"
+	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the refresh token grant.
+	[refresh token grant](insertlink).
+
