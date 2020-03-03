@@ -113,6 +113,7 @@ met.
       ID        VARCHAR(255) NOT NULL,
       VALUE     BLOB   NULL,
       RESOURCE_ID VARCHAR(255) NOT NULL,
+      NAME        VARCHAR(255) NULL,
       PRIMARY KEY (ID)
     );
     ALTER TABLE IDN_CONFIG_FILE ADD CONSTRAINT RESOURCE_ID_FILE_FOREIGN_CONSTRAINT FOREIGN KEY (RESOURCE_ID) REFERENCES IDN_CONFIG_RESOURCE (ID) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -253,7 +254,7 @@ To store the SMTP email configuration, follow the steps given below:
         **Sample Request**
 
         ``` groovy
-        curl -X POST "https://localhost/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
+        curl -X POST "https://localhost:9443/t/{tenant-domain}/api/identity/config-mgt/v1.0/resource/Publisher/EmailPublisher/file" -H 'Authorization: Basic YWRtaW46YWRtaW4='  -H "accept: application/json" -H 
         "Content-Type: multipart/form-data" -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "file-name=EmailPublisher"
         ```
         
