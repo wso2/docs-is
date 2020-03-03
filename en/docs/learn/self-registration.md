@@ -147,9 +147,9 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 ## Try out 
 
-1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+1.	Access WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
-2.	Click **Register Now**.
+2.	Click **Create Account**.
 
 	<img src="../../assets/img/learn/register-now-option.png" alt="Register Now option" width="400" style="border:1px solid grey"> 	
 
@@ -167,13 +167,11 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	3.	Enter your email address in the **Email** text box. Note that as per the PII configurations, this text box appears mandatory.
 
-	4.	You may enter a mobile number in the **Mobile** text box. Note that as per the PII configurations, this text box appears optional.
+	4.	You may enter other details in the given text boxes. Note that as per the PII configurations, those text boxes appear optional.
 
-	5.	Under the consent management frame, select the **First Name**,  **Email**, and **Mobile** check boxes.
+	5.	Read the Privacy Policy and select the **Privacy Policy** check box.
 
-	6.	Read the Privacy Policy and select the **Privacy Policy** check box.
-
-	7. 	Click **Register**. 
+	6. 	Click **Register**. 
 
 4.	An email requesting to confirm the user account creation is sent to the given email address. 
 
