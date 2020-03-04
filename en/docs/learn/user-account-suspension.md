@@ -115,6 +115,11 @@ task that checks for idle accounts is common to all tenants.
     **Main** tab. Expand the **Login Policies** tab.
 3.  Expand the **Account Locking** tab and select the **Account Lock
     Enabled** checkbox. Click **Update** to save changes.  
+    
+    | Field              | Description                                                                                                                                                                                                                                                                                                                                                                                   | Sample Value |
+    |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+    | Lock Timeout Increment Factor | This specifies the increment factor of the lock timeout. If the lock timeout increment factor is set to 2, then the timeout increments by 2 to the power of the number of failed login attempts. [Timeout increment = (Lock Timeout Increment Factor)<sup>(Number of Failed Attempts)</sup>] (If the number of failed login attempts is 3, timeout increment is 2<sup>3</sup>=8)                                                                                                                                                                                                                                          | 2           |
+    
     ![account-lock-enabled](../assets/img/using-wso2-identity-server/account-lock-enabled.png)
     
 4.  Expand the **Account Management Policies** tab.
