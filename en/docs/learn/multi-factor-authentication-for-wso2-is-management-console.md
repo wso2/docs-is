@@ -22,9 +22,11 @@
     
     ![enable-response-signing](../assets/img/using-wso2-identity-server/enable-response-signing.png)
 
-6.  Expand **Local & Outbound Authentication Configuration** and select **Advanced Configuration** to configure MFA. There are two types of MFA that you can configure here.
+6.  Expand **Local & Outbound Authentication Configuration** and select **Advanced Configuration** to configure MFA. 
 
     ![add-auth-step](../assets/img/using-wso2-identity-server/add-auth-step.png)
+    
+    There are two types of MFA that you can configure here.
 
     -   **Multi-option authentication**
         -   This can be configured by clicking **Add Authenticator**. 
