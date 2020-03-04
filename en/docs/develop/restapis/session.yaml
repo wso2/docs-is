@@ -226,8 +226,6 @@ responses:
     description: Resource Not Found
   Unauthorized:
     description: Unauthorized
-    schema:
-      $ref: '#/definitions/Error'
   ServerError:
     description: Internal Server Error
     schema:
