@@ -23,6 +23,23 @@ The diagram below illustrates the authorization code flow.
 
 ![authorization-code](../../assets/img/concepts/authorization-code-flow.png)
 
+The commands below can be used to try this grant type.
+
+The URL to get the authorization code :
+``` powershell
+https://localhost:9443/oauth2/authorize?response_type=code&client_id=<client id>&redirect_uri=<redirect uri>
+```
+
+cURL command to get the access token :
+``` powershell
+curl -v -X POST --basic -u <client id>:<client secret>a -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=authorization_code&code=<authorization code>&redirect_uri=<redirect uri>" https://localhost:9443/oauth2/token
+```
+
+**Response**
+``` java
+{"access_token":"131d4094-b94c-3714-9e73-672aa433248d","refresh_token":"96a6d697-0120-3bec-86be-21b58f600a07","token_type":"Bearer","expires_in":3600}
+```
+
 !!! info "Support for refresh token grant - Yes"
 	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
 

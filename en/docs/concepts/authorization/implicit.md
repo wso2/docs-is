@@ -24,6 +24,18 @@ The diagram below illustrates the implicit grant flow.
 
 ![implicit-grant](../../assets/img/concepts/implicit-flow.png)
 
+The URL below can be used to try this grant type.
+
+``` powershell
+https://localhost:9443/oauth2/authorize?response_type=token&client_id=<client id>&redirect_uri=<redirect uri>
+```
+
+**Response**
+``` java
+http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9e73-672aa433248d&token_type=Bearer&expires_in=3410
+```
+
+
 !!! info "Support for refresh token grant - No"
 	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the refresh token grant.
 	[refresh token grant](insertlink).

@@ -169,6 +169,8 @@ nav:
                                           - 'Overview': concepts/authorization/grant-types.md
                                           - 'Authorization Code Grant Type': concepts/authorization/authorization-code.md
                                           - 'Implicit Grant Type': concepts/authorization/implicit.md
+                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner.md
+                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
