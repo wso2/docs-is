@@ -33,6 +33,10 @@ paths:
       summary: Retrieves the list of scopes
       operationId: getScopes
       description: This REST API can be used to get details of the available scopes.
+      <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/view
+      <b>Scopes required:</b>
+            * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -60,6 +64,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Add a new OIDC Scope
       operationId: addScope
+      description:
+      <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/create
+      <b>Scopes required:</b>
+            * internal_application_mgt_create
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -88,6 +97,10 @@ paths:
       summary: Get a scope
       operationId: getScope
       description: This REST API can be used to get the scope.
+      <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/view
+      <b>Scopes required:</b>
+            * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -119,6 +132,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Update an OIDC Scope
       operationId: updateScope
+      description:
+      <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/update
+      <b>Scopes required:</b>
+            * internal_application_mgt_update
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -153,6 +171,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Delete an OIDC Scope
       operationId: deleteScope
+      description:
+      <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/delete
+      <b>Scopes required:</b>
+            * internal_application_mgt_delete
       security:
         - BasicAuth: []
         - OAuth2: []
