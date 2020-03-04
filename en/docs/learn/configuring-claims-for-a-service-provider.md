@@ -139,7 +139,7 @@ Adding a mapped claim as a **Requested Claim** would ensure
 that the Identity Server sends this claim to the service provider 
 if the requested claim value is available. However, the user will not
 be prompted to enter the values if the Requested Claim values cannot be
-provided by the identity Provider. Requested Claims are useful particularly in cases where
+provided by the identity provider. Requested Claims are useful particularly in cases where
 there are hundreds of claims and only specific ones need to
 be sent to the service provider.
 
