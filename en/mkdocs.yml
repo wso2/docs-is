@@ -217,6 +217,7 @@ nav:
       - 'OAuth/OIDC Apps': samples/sso-for-oidc-apps.md
       - 'SAML Apps': samples/sso-for-saml-apps.md
       - 'Different Authentication Protocols': samples/cross-protocol-sso.md
+    - 'Multi-Factor Authentication': samples/mfa-sample.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
