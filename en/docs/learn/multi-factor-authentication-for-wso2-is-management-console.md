@@ -24,16 +24,23 @@
 
 6.  Expand **Local & Outbound Authentication Configuration** and select **Advanced Configuration** to configure MFA. There are two types of MFA that you can configure here.
 
-![add-auth-step](../assets/img/using-wso2-identity-server/add-auth-step.png)
+    ![add-auth-step](../assets/img/using-wso2-identity-server/add-auth-step.png)
 
     -   **Multi-option authentication**
         -   This can be configured by clicking **Add Authenticator**. 
         -   Clicking this again will enable you to create another authentication option. 
         -   These can be either local or federated authenticators.
+        
+
+    ![add-authenticator](../assets/img/using-wso2-identity-server/add-authenticator.png)
+
     -   **Multi-step authentication**
         -   This is configured by clicking **Add Authentication Step**. 
         -   Clicking this again will enable you to create another authentication step.
         -   These can be either local or federated authenticators.
+        
+    ![add-authentication-step](../assets/img/using-wso2-identity-server/add-authentication-step.png)
+
 
 7.  To add a **Local Authenticator**, click **Add Authenticator**.
     -   You can choose the type of authenticator using the dropdown.
