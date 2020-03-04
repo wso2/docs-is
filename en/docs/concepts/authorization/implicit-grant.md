@@ -22,7 +22,8 @@ on the presence of the resource owner and the registration of the redirection UR
 The diagram below illustrates the implicit grant flow.
 
 
-![implicit-grant](../../assets/img/concepts/implicit-flow.png)
+![implicit-grant](../../assets/img/concepts/implicit-grant-flow.png)
+
 
 The URL below can be used to try this grant type.
 
@@ -38,5 +39,5 @@ http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9
 
 !!! info "Support for refresh token grant - No"
 	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the refresh token grant.
-	[refresh token grant](insertlink).
+	[refresh token grant](refresh-token-grant.md).
 

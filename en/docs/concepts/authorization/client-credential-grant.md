@@ -14,7 +14,7 @@ are used to authenticate a request for an access token.
 The diagram below illustrates the implicit grant flow.
 
 
-![client-credential-grant](../../assets/img/concepts/client-credential.png)
+![client-credential-grant](../../assets/img/concepts/client-credential-flow.png)
 
 One of the following cURL commands can be used to try this grant type.
 
@@ -35,5 +35,5 @@ You will receive a response similiar to the format below.
 ```
 
 !!! info "Support for refresh token grant - No"
-    This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](insertlink)
+    This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the [refresh token grant](refresh-token-grant.md)
 

@@ -21,7 +21,7 @@ authorization server.
 
 The diagram below illustrates the authorization code flow.
 
-![authorization-code](../../assets/img/concepts/authorization-code-flow.png)
+![authorization-code](../../assets/img/concepts/authorization-code-grant-flow.png)
 
 The commands below can be used to try this grant type.
 
@@ -41,6 +41,6 @@ curl -v -X POST --basic -u <client id>:<client secret>a -H "Content-Type:applica
 ```
 
 !!! info "Support for refresh token grant - Yes"
-	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](../../learn/refresh-token-grant).
+	This grant type issues a refresh token which can be used to obtain new access tokens using the [refresh token grant](refresh-token-grant.md).
 
 
