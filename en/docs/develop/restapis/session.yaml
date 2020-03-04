@@ -9,7 +9,7 @@ info:
     email: 'architecture@wso2.com'
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'dbe
 
 schemes:
  - https
@@ -37,7 +37,9 @@ paths:
       description: >
         A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user.
         <b>Permission required:</b>
-         * /permission/admin/login
+         * None
+        <b>Scopes required:</b>
+         * internal_login
       summary: Retrieve active sessions of the authenticated user
       operationId: getSessionsOfLoggedInUser
       produces:
@@ -93,7 +95,9 @@ paths:
       description: >
         A user has multiple active sessions. This API terminates all the active sessions of the authenticated user.
         <b>Permission required:</b>
-         * /permission/admin/login
+         * None
+        <b>Scopes required:</b>
+         * internal_login
       summary: Terminate all the active sessions of the authenticated user
       operationId: terminateSessionsByLoggedInUser
       responses:
@@ -115,7 +119,9 @@ paths:
       description: >
         A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id.
         <b>Permission required:</b>
-         * /permission/admin/login
+         * None
+        <b>Scopes required:</b>
+         * internal_login
       summary: Terminate a given session of the authenticated user
       operationId: terminateSessionByLoggedInUser
       parameters:
@@ -137,6 +143,10 @@ paths:
       tags:
         - admin
       description: Retrieves information related to the active sessions of a user identified by the user-id.
+      <b>Permission required:</b>
+         * /permission/admin/manage/identity/authentication/session/view
+      <b>Scopes required:</b>
+         * internal_session_view
       summary: Get active sessions
       operationId: getSessionsByUserId
       parameters:
@@ -166,6 +176,10 @@ paths:
       tags:
         - admin
       description: Delete all the sessions of a user identified by the user-id.
+      <b>Permission required:</b>
+         * /permission/admin/manage/identity/authentication/session/delete
+      <b>Scopes required:</b>
+         * internal_session_delete
       summary: Terminate all sessions
       operationId: terminateSessionsByUserId
       parameters:
@@ -185,6 +199,10 @@ paths:
       tags:
         - admin
       description: Terminate a specific session of a user by the session-id.
+      <b>Permission required:</b>
+         * /permission/admin/manage/identity/authentication/session/delete
+      <b>Scopes required:</b>
+         * internal_session_delete
       summary: Terminate a session
       operationId: terminateSessionBySessionId
       parameters:
