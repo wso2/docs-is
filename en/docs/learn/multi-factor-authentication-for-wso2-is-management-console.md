@@ -61,23 +61,27 @@
 8.  Select **Use subject identifier from this step**, **Use attributes from this step** or both. In the case of multiple steps, you can have only one step as the subject step and one as the
     attribute step.
 9.  Click the **Update**.
-10.  This navigates you to the previous screen with your newly configured authentication steps. Click **Update** again to save changes.
-11. Shutdown WSO2 Identity Server and open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
-12. Enable the `admin_console.authenticator.saml_sso_authenticator` as follows.
+10. Enable **Use tenant domain in local subject identifier** and **Use user store domain in local subject identifier** under **Local & Outbound Authentication Configuration**.
+
+    ![mfa-mgt-console](../assets/img/using-wso2-identity-server/mfa-mgt-console.png)
+    
+11. This navigates you to the previous screen with your newly configured authentication steps. Click **Update** again to save changes.
+12. Shutdown WSO2 Identity Server and open the `deployment.toml` file in the `<IS_HOME>/repository/conf/` folder.
+13. Enable the `admin_console.authenticator.saml_sso_authenticator` as follows.
 
     ``` toml
     [admin_console.authenticator.saml_sso_authenticator]
     enable=true
     ```
 
-13. Set the value of `priority` to 1.
+14. Set the value of `priority` to 1.
 
     ``` toml
     [admin_console.authenticator.saml_sso_authenticator]
     priority="1"
     ```
 
-14. Save and close the `deployment.toml` file.
+15. Save and close the `deployment.toml` file.
 
 
 ## Try it out
