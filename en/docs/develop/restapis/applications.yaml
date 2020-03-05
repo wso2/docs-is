@@ -26,7 +26,11 @@ paths:
       summary: |
         List applications
       description: |
-        This API provides the capability to retrieve the list of applications.
+        This API provides the capability to retrieve the list of applications.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -49,16 +53,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -85,7 +81,11 @@ paths:
       operationId: createApplication
       description: >
         This API provides the capability to store the application information
-        provided by users.
+        provided by users.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       parameters:
         - in: query
           name: template
@@ -117,16 +117,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
           content:
@@ -154,7 +146,11 @@ paths:
       operationId: importApplication
       description: >
         This API provides the capability to store the application information,
-        provided as a file.
+        provided as a file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       requestBody:
         content:
           multipart/form-data:
@@ -177,16 +173,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
           content:
@@ -206,7 +194,11 @@ paths:
         Update application from an exported XML file
       operationId: importApplicationForUpdate
       description: >
-        This API provides the capability to update an application from information that has been exported as an XML file.
+        This API provides the capability to update an application from information that has been exported as an XML file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       requestBody:
         content:
           multipart/form-data:
@@ -229,16 +221,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -266,7 +250,11 @@ paths:
       operationId: getApplication
       description: >
         This API provides the capability to retrieve the application information
-        by ID.
+        by ID. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -292,22 +280,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -334,7 +308,11 @@ paths:
         Partially update application by ID
       operationId: patchApplication
       description: |
-        This API provides the capability to partially update an application by ID.
+        This API provides the capability to partially update an application by ID.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       parameters:
         - name: applicationId
           in: path
@@ -360,16 +338,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
           content:
@@ -389,7 +359,11 @@ paths:
         Delete application by ID
       operationId: deleteApplication
       description: |
-        This API provides the capability to delete an application by ID.
+        This API provides the capability to delete an application by ID. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       parameters:
         - name: applicationId
           in: path
@@ -408,16 +382,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -438,7 +404,11 @@ paths:
       summary: |
         Export application as an XML file
       description: |
-        This API provides the capability to retrieve the application as an XML file.
+        This API provides the capability to retrieve the application as an XML file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -462,16 +432,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -492,7 +454,11 @@ paths:
         Get Resident application
       operationId: getResidentApplication
       description: |
-        This API provides the capability to retrieve the resident application information.
+        This API provides the capability to retrieve the resident application information. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       responses:
         '200':
           description: OK
@@ -508,16 +474,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -537,7 +495,11 @@ paths:
         Update Resident Application
       operationId: updateResidentApplication
       description: >
-        This API provides the capability to update Resident Application Configuration.
+        This API provides the capability to update Resident Application Configuration. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       responses:
         '200':
           description: Successful
@@ -558,16 +520,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -604,7 +558,11 @@ paths:
       operationId: getInboundAuthenticationConfigurations
       description: >
         This API provides the capability to retrieve authentication protocol
-        configurations of an application.
+        configurations of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -627,10 +585,6 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -652,7 +606,11 @@ paths:
       operationId: getInboundSAMLConfiguration
       description: >
         This API provides the capability to retrieve SAML2 authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -675,10 +633,6 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -700,7 +654,11 @@ paths:
       operationId: updateInboundSAMLConfiguration
       description: >
         This API provides the capability to store SAML2 authentication protocol
-        parameters of an application.
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
 
         - There are three methods to create/update SAML2 authentication protocol configuration.
             1. Metadata File (by sending the Base64 encoded content of the metadata file.)
@@ -731,16 +689,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -774,7 +724,11 @@ paths:
       operationId: deleteInboundSAMLConfiguration
       description: >
         This API provides the capability to delete SAML2 authentication protocol
-        parameters of an application.
+        parameters of an application. <br>
+          <b>Permissi on required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       parameters:
         - name: applicationId
           in: path
@@ -793,16 +747,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -825,7 +771,11 @@ paths:
         Retrieve OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve OIDC authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -849,16 +799,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -878,7 +820,11 @@ paths:
         Update OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to store OIDC authentication protocol
-        parameters of an application.
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -905,16 +851,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -949,7 +887,11 @@ paths:
         Delete OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to delete OIDC authentication protocol
-        parameters of an application.
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -969,16 +911,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1000,7 +934,11 @@ paths:
       summary: |
         Regenerate the OAuth2/OIDC client secret of application
       description: |
-        This API regenerates the OAuth2/OIDC client secret.
+        This API regenerates the OAuth2/OIDC client secret. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -1024,16 +962,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1054,7 +984,11 @@ paths:
       summary: |
         Revoke the OAuth2/OIDC client of application
       description: |
-        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.
+        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       operationId: revokeOAuthClient
       parameters:
         - name: applicationId
@@ -1074,16 +1008,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1105,7 +1031,11 @@ paths:
         Retrieve Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getPassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1129,16 +1059,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1159,7 +1081,11 @@ paths:
         Update Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to store passive STS authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updatePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1188,16 +1114,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1233,7 +1151,11 @@ paths:
         Delete Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to delete Passive STS authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deletePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1253,16 +1175,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1284,7 +1198,11 @@ paths:
         Retrieve WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1308,16 +1226,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1338,7 +1248,11 @@ paths:
         Update WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to store WS Trust authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1367,16 +1281,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1412,7 +1318,11 @@ paths:
         Delete WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to delete WS Trust authentication
-        protocol parameters of an application.
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1432,16 +1342,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1463,7 +1365,11 @@ paths:
         Retrieve custom Inbound authentication protocol parameters of application.
       description: >
         This API provides the capability to retrieve custom inbound
-        authentication protocol parameters of an application.
+        authentication protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1493,16 +1399,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1521,7 +1419,11 @@ paths:
       summary: |
         Update the custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to store custom inbound authentication protocol parameters of an application.
+        This API provides the capability to store custom inbound authentication protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1556,16 +1458,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1599,7 +1493,11 @@ paths:
       summary: >
         Delete custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to delete custom inbound authentication protocol of an application.
+        This API provides the capability to delete custom inbound authentication protocol of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1625,16 +1523,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1656,7 +1546,11 @@ paths:
         Retrieve the list of inbound authentication protocols available
       description: >
         This API provides the capability to retrieve the list of inbound authentication protocols available.
-        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
+        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getInboundProtocols
       parameters:
         - $ref: '#/components/parameters/inboundProtocolsCustomOnly'
@@ -1674,16 +1568,8 @@ paths:
                     displayName: "SAML2 Web SSO Configuration"
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1704,7 +1590,11 @@ paths:
       summary: |
         Retrieve all the metadata related to the auth protocol SAML
       description: >
-        This API provides the capability to retrieve all the metadata related to the auth protocol SAML.
+        This API provides the capability to retrieve all the metadata related to the auth protocol SAML. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getSAMLMetadata
       responses:
         '200':
@@ -1715,16 +1605,8 @@ paths:
                 $ref: '#/components/schemas/SAMLMetaData'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1746,7 +1628,11 @@ paths:
         Retrieve all the metadata related to the authentication protocol OAuth / OIDC
       description: >
         This API provides the capability to retrieve all the metadata related to the authentication
-         protocol OAuth / OIDC.
+         protocol OAuth / OIDC. <br>
+           <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getOIDCMetadata
       responses:
         '200':
@@ -1757,16 +1643,8 @@ paths:
                 $ref: '#/components/schemas/OIDCMetaData'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1787,7 +1665,11 @@ paths:
       summary: |
         Retrieve all the metadata related to the auth protocol WS Trust
       description: >
-        This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust.
+        This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getWSTrustMetadata
       responses:
         '200':
@@ -1798,16 +1680,8 @@ paths:
                 $ref: '#/components/schemas/WSTrustMetaData'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1829,7 +1703,11 @@ paths:
         Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
       description: >
         This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the inboundProtocolId.
+        identified by the inboundProtocolId. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getCustomProtocolMetadata
       parameters:
         - name: inboundProtocolId
@@ -1847,16 +1725,8 @@ paths:
                 $ref: '#/components/schemas/CustomInboundProtocolMetaData'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -1877,7 +1747,11 @@ paths:
       summary: |
         Retrieve the sample adaptive authentication templates.
       description: >
-        This API provides the capability to retrieve the sample adaptive authentication templates.
+        This API provides the capability to retrieve the sample adaptive authentication templates. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getAdaptiveAuthTemplates
       responses:
         '200':
@@ -1888,16 +1762,8 @@ paths:
                 $ref: '#/components/schemas/AdaptiveAuthTemplates'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
