@@ -27,12 +27,9 @@ paths:
         tree as an array of display name and the permission resource path.
         
         
-        <b>Permission required:</b>
-        <br>
-        * /permission/admin/manage/identity/rolemgt/view	  
-        <br>
-        <b>Scope required:</b>
-        <br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/rolemgt/view<br>
+        <b>Scope required:</b><br>
         * internal_role_mgt_view
       responses:
         '200':
