@@ -24,9 +24,11 @@ paths:
       summary: |
         Add a new script library.
       description: |
-        This API provides the capability to create a new Script library.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/create
+        This API provides the capability to create a new Script library. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/create <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_create <br>
       operationId: addScriptLibrary
       responses:
         '201':
@@ -39,16 +41,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '409':
           description: Conflict
           content:
@@ -74,9 +68,11 @@ paths:
       summary: |
         List script libraries.
       description: >
-        This API provides the capability to list Script Libraries.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
+        This API provides the capability to list Script Libraries. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -99,16 +95,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -129,8 +117,10 @@ paths:
         Get script library.
       description: |
         This API provides the capability to retrive the details of the script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -154,16 +144,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -183,8 +165,10 @@ paths:
         Delete a script library.
       description: |
         This API provides the capability to delete a script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/delete
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/delete <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_delete
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -204,16 +188,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -233,8 +209,10 @@ paths:
         Update a script library.
       description: |
         This API provides the capability to update a script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/update
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_update
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -259,16 +237,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:
@@ -296,8 +266,10 @@ paths:
         Get the content of the script library.
       description: |
         This API provides the capability to retrive the content of script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
@@ -322,16 +294,8 @@ paths:
                 $ref: '#/components/schemas/Error'
         '401':
           description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '403':
           description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '404':
           description: Not Found
           content:

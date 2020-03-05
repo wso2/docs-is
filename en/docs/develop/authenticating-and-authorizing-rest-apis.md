@@ -30,7 +30,7 @@ Let's learn how to authenticate and authorize REST APIs:
 
     1.  Open the `             deployment.toml            ` file found in
         the
-        `             <IS_HOME>/repository/conf/identity            `
+        `             <IS_HOME>/repository/conf          `
         directory.
 
     2.  Specify the resource that you want to secure as given below.

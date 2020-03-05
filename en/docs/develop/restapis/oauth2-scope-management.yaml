@@ -60,6 +60,10 @@ paths:
     post:
       description: |
         This API is used to create a scope.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/create
+        <b>Scope required:</b>
+            * internal_application_mgt_create
       x-wso2-request: |
         curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"name": "profile", "displayName": "profile", "description": "get all profile information", "bindings": ["role1", "role2"]}' "https://localhost:9443/api/identity/oauth2/v1.0/scopes"
 
@@ -108,6 +112,10 @@ paths:
     get:
       description: |
         This API is used to get all the available scopes.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/view
+        <b>Scope required:</b>
+            * internal_application_mgt_view
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes"
 
@@ -168,6 +176,10 @@ paths:
     get:
       description: |
         This API is used to retrieve details of a scope by a given scope name.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/view
+        <b>Scope required:</b>
+            * internal_application_mgt_view
       x-wso2-request: |
         curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
 
@@ -210,6 +222,10 @@ paths:
     delete:
       description: |
         This API is used to delete a scope by a given scope name.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/delete
+        <b>Scope required:</b>
+            * internal_application_mgt_delete
       x-wso2-request: |
         curl -X DELETE -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
 
@@ -253,6 +269,10 @@ paths:
     put:
       description: |
         This API is used to update a scope by a given scope name.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/update
+        <b>Scope required:</b>
+            * internal_application_mgt_update
       x-wso2-request: |
         curl -X PUT -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d '{"description": "get all profile information", "displayName": "profile", "bindings": ["role3", "role4"]}' "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
 
@@ -302,6 +322,10 @@ paths:
     head:
       description: |
         This API is used to check a scope's existence using a given scope name.
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/applicationmgt/view
+        <b>Scope required:</b>
+            * internal_application_mgt_view
       x-wso2-request: |
         curl -I -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" "https://localhost:9443/api/identity/oauth2/v1.0/scopes/name/profile"
 

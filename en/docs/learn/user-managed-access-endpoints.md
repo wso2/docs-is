@@ -189,7 +189,7 @@ previous description with the new description using the PUT method.
 
 ``` xml
 PUT : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource/
-2292d2f5-df72-4c2e-a918-5ae18b900855 HTTP/1.1
+2292d2f5-df72-4c2e-a918-5ae18b900855
 HTTP/1.1 Content-Type: application/json
 Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
 ...
@@ -242,7 +242,7 @@ HTTP/1.1 204 No content
 ...
 ```
 
-##### Listing a resource descriptions
+##### Listing resource descriptions
 
 This operation lists down all the resources of a specific resource owner
 using the GET method.
@@ -251,7 +251,6 @@ using the GET method.
 
 ``` xml
 GET : https://localhost:9443/api/identity/oauth2/uma/resourceregistration/v1.0/resource
-Authorization: Bearer 204c69636b6c69
 HTTP/1.1 Content-Type: application/json
 Authorization: Bearer 8ff019ba-4f8e-3ed9-9b13-a077d9d04557
 ```

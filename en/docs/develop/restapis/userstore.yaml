@@ -25,12 +25,14 @@ paths:
       summary: Add a secondary user store.
       operationId: addUserStore
       description: |
-        This API provides the capability to add a secondary user store.
+        This API provides the capability to add a secondary user store
+        
 
-         <b>Permission required:</b><br>
-         */permission/admin/manage/identity/userstore/config/create<br>
+        <b>Permission required:</b><br>
+        */permission/admin/manage/identity/userstore/config/create<br>
         <b>Scope required:</b><br>
         */internal_userstore_create
+
       responses:
         '201':
           description: Successful response
