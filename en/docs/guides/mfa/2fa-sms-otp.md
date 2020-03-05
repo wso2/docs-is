@@ -35,7 +35,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     ??? Note "Click here to configure Nexmo as the service provider."
 
-		Follow the steps given below if Nexmo is used as the SMS provider:
+		Follow the steps given below if **Nexmo** is used as the SMS provider:
 
 		1.  Go to <https://dashboard.nexmo.com/sign-up> and sign up.
 		2.  Once you successfully register, the API **key** and **secret**
@@ -59,7 +59,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 			
     ??? Note "Click here to configure Clickatell as the service provider."
 
-		Follow the steps given below if Clickatell is used as the SMS
+		Follow the steps given below if **Clickatell** is used as the SMS
 		provider:
 
 		1.  Go to <https://www.clickatell.com/sign-up/> and create
@@ -92,7 +92,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     ??? Note "Click here to configure Plivo as the service provider."
 
-		Follow the steps given below if Plivo is used as the SMS provider:
+		Follow the steps given below if **Plivo** is used as the SMS provider:
 
 		1.  Sign up for a free [Plivo trial
 			account](https://manage.plivo.com/accounts/register/?utm_source=send%bulk%20sms&utm_medium=sms-docs&utm_campaign=internal)
@@ -134,7 +134,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
     ??? Note "Click here to configure Bulksms as the service provider."
 
-		Follow the steps given below if Bulksms is used as the SMS provider:
+		Follow the steps given below if **Bulksms** is used as the SMS provider:
 
 		1.  Go to <https://www2.bulksms.com/login.mc> and create an account.
 		2.  While registering the account, verify your mobile number and
@@ -167,7 +167,7 @@ This guide assumes you have your own application. If you wish to try out this fl
         
         You will need a Twilio-enabled phone number (a phone number purchased through Twilio) to send SMS using Twilio.
 
-		Follow the steps given below if Twilio is used as the SMS provider:
+		Follow the steps given below if **Twilio** is used as the SMS provider:
 
 		1.  Go to <https://www.twilio.com/try-twilio> and create an account.
 		2.  While registering the account, verify your mobile number and
