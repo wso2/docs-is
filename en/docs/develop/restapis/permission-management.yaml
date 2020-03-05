@@ -25,13 +25,14 @@ paths:
       description: >
         This API provides the array list of all permissions in the UI permission
         tree as an array of display name and the permission resource path.
-        <br/>
+        
+        
         <b>Permission required:</b>
-        <br/>
+        <br>
         * /permission/admin/manage/identity/rolemgt/view	  
-        <br/>
+        <br>
         <b>Scope required:</b>
-        <br/>
+        <br>
         * internal_role_mgt_view
       responses:
         '200':
