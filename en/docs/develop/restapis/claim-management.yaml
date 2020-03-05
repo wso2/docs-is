@@ -1,6 +1,7 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for claims managment related operations in WSO2 Identity Server
+  description: This is the RESTful API for claims management related operations in WSO2 Identity Server. This API allows
+    adding, retrieving, updating, deleting local/external claims and claim dialects.
   version: "v1"
   title: WSO2 Identity Server - Claim Admin API
   contact:
@@ -31,11 +32,11 @@ paths:
         - management
       summary: Add a local claim.
       operationId: addLocalClaim
-      description: Add a new claim.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/create
-      <b>Scopes required:</b>
-            * internal_claim_meta_create
+      description: Add a new claim. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/create <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_create
       consumes:
         - application/json
       parameters:
@@ -64,11 +65,11 @@ paths:
         - management
       summary: Retrieve local claims.
       operationId: getLocalClaims
-      description: Retrieve local claims.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve local claims. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view
       produces:
         - application/json
       parameters:
@@ -98,11 +99,11 @@ paths:
         - management
       summary: Retrieve local claim.
       operationId: getLocalClaim
-      description: Retrieve a local claim matching the given claim id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve a local claim matching the given claim id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view
       produces:
         - application/json
       parameters:
@@ -129,11 +130,11 @@ paths:
         - management
       summary: Update a local claim.
       operationId: updateLocalClaim
-      description: Update a local claim.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/update
-      <b>Scopes required:</b>
-            * internal_claim_meta_update
+      description: Update a local claim. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/update <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_update
       consumes:
         - application/json
       parameters:
@@ -163,11 +164,11 @@ paths:
         - management
       summary: Delete a local claim.
       operationId: deleteLocalClaim
-      description: Delete a claim by claim id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/delete
-      <b>Scopes required:</b>
-            * internal_claim_meta_delete
+      description: Delete a claim by claim id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_delete
       parameters:
         - $ref : '#/parameters/claimIdPathParam'
       x-wso2-curl: |
@@ -189,11 +190,11 @@ paths:
         - management
       summary: Add a claim dialect.
       operationId: addClaimDialect
-      description: Add a new claim dialect.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/create
-      <b>Scopes required:</b>
-            * internal_claim_meta_create
+      description: Add a new claim dialect. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/create <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_create
       consumes:
         - application/json
       parameters:
@@ -222,11 +223,11 @@ paths:
         - management
       summary: Retrieve claim dialects.
       operationId: getClaimDialects
-      description: Retrieve claim dialects.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve claim dialects. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view
       produces:
         - application/json
       parameters:
@@ -255,11 +256,11 @@ paths:
         - management
       summary: Retrieve claim dialect.
       operationId: getClaimDialect
-      description: Retrieve a claim dialect matching the given dialect id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve a claim dialect matching the given dialect id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view <br>
       produces:
         - application/json
       parameters:
@@ -286,11 +287,11 @@ paths:
         - management
       summary: Update a claim dialect.
       operationId: updateClaimDialect
-      description: Update a claim dialect.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/update
-      <b>Scopes required:</b>
-            * internal_claim_meta_update
+      description: Update a claim dialect. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/update <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_update
       consumes:
         - application/json
       parameters:
@@ -318,11 +319,11 @@ paths:
         - management
       summary: Delete a claim dialect.
       operationId: deleteClaimDialect
-      description: Delete a claim dialect by claim id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/delete
-      <b>Scopes required:</b>
-            * internal_claim_meta_delete
+      description: Delete a claim dialect by claim id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_delete
       parameters:
         - $ref : '#/parameters/dialectIdPathParam'
       x-wso2-curl: |
@@ -344,11 +345,11 @@ paths:
         - management
       summary: Add an external claim.
       operationId: addExternalClaim
-      description: Add a new external claim.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/create
-      <b>Scopes required:</b>
-            * internal_claim_meta_create
+      description: Add a new external claim. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/create <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_create
       consumes:
         - application/json
       parameters:
@@ -378,11 +379,11 @@ paths:
         - management
       summary: Retrieve external claims.
       operationId: getExternalClaims
-      description: Retrieve External claims.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve External claims. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view
       produces:
         - application/json
       parameters:
@@ -414,11 +415,11 @@ paths:
         - management
       summary: Retrieve external claim.
       operationId: getExternalClaim
-      description: Retrieve an external claim matching the given dialect id and claim id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/view
-      <b>Scopes required:</b>
-            * internal_claim_meta_view
+      description: Retrieve an external claim matching the given dialect id and claim id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/view <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_view
       produces:
         - application/json
       parameters:
@@ -446,11 +447,11 @@ paths:
         - management
       summary: Update an external claim.
       operationId: updateExternalClaim
-      description: Update an external claim.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/update
-      <b>Scopes required:</b>
-            * internal_claim_meta_update
+      description: Update an external claim. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/update <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_update
       consumes:
         - application/json
       parameters:
@@ -481,11 +482,11 @@ paths:
         - management
       summary: Delete an external claim.
       operationId: deleteExternalClaim
-      description: Delete a claim by dialect id and claim id.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/claimmgt/metadata/delete
-      <b>Scopes required:</b>
-            * internal_claim_meta_delete
+      description: Delete a claim by dialect id and claim id. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/claimmgt/metadata/delete <br>
+        <b>Scope required:</b> <br>
+              * internal_claim_meta_delete
       parameters:
         - $ref : '#/parameters/dialectIdPathParam'
         - $ref : '#/parameters/claimIdPathParam'
