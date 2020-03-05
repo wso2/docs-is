@@ -26,11 +26,11 @@ paths:
       summary: |
         List applications
       description: |
-        This API provides the capability to retrieve the list of applications.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve the list of applications.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -81,11 +81,11 @@ paths:
       operationId: createApplication
       description: >
         This API provides the capability to store the application information
-        provided by users.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/create
-        <b>Scopes required:</b>
-            * internal_application_mgt_create
+        provided by users.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       parameters:
         - in: query
           name: template
@@ -146,11 +146,11 @@ paths:
       operationId: importApplication
       description: >
         This API provides the capability to store the application information,
-        provided as a file.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/create
-        <b>Scopes required:</b>
-            * internal_application_mgt_create
+        provided as a file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       requestBody:
         content:
           multipart/form-data:
@@ -194,11 +194,11 @@ paths:
         Update application from an exported XML file
       operationId: importApplicationForUpdate
       description: >
-        This API provides the capability to update an application from information that has been exported as an XML file.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        This API provides the capability to update an application from information that has been exported as an XML file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       requestBody:
         content:
           multipart/form-data:
@@ -250,11 +250,11 @@ paths:
       operationId: getApplication
       description: >
         This API provides the capability to retrieve the application information
-        by ID.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        by ID. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -308,11 +308,11 @@ paths:
         Partially update application by ID
       operationId: patchApplication
       description: |
-        This API provides the capability to partially update an application by ID.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        This API provides the capability to partially update an application by ID.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       parameters:
         - name: applicationId
           in: path
@@ -359,11 +359,11 @@ paths:
         Delete application by ID
       operationId: deleteApplication
       description: |
-        This API provides the capability to delete an application by ID.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        This API provides the capability to delete an application by ID. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       parameters:
         - name: applicationId
           in: path
@@ -404,11 +404,11 @@ paths:
       summary: |
         Export application as an XML file
       description: |
-        This API provides the capability to retrieve the application as an XML file.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve the application as an XML file.<br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -454,11 +454,11 @@ paths:
         Get Resident application
       operationId: getResidentApplication
       description: |
-        This API provides the capability to retrieve the resident application information.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve the resident application information. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       responses:
         '200':
           description: OK
@@ -495,11 +495,11 @@ paths:
         Update Resident Application
       operationId: updateResidentApplication
       description: >
-        This API provides the capability to update Resident Application Configuration.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        This API provides the capability to update Resident Application Configuration. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       responses:
         '200':
           description: Successful
@@ -558,11 +558,11 @@ paths:
       operationId: getInboundAuthenticationConfigurations
       description: >
         This API provides the capability to retrieve authentication protocol
-        configurations of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        configurations of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -606,11 +606,11 @@ paths:
       operationId: getInboundSAMLConfiguration
       description: >
         This API provides the capability to retrieve SAML2 authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       parameters:
         - name: applicationId
           in: path
@@ -654,11 +654,11 @@ paths:
       operationId: updateInboundSAMLConfiguration
       description: >
         This API provides the capability to store SAML2 authentication protocol
-        parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
 
         - There are three methods to create/update SAML2 authentication protocol configuration.
             1. Metadata File (by sending the Base64 encoded content of the metadata file.)
@@ -724,11 +724,11 @@ paths:
       operationId: deleteInboundSAMLConfiguration
       description: >
         This API provides the capability to delete SAML2 authentication protocol
-        parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        parameters of an application. <br>
+          <b>Permissi on required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       parameters:
         - name: applicationId
           in: path
@@ -771,11 +771,11 @@ paths:
         Retrieve OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve OIDC authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -820,11 +820,11 @@ paths:
         Update OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to store OIDC authentication protocol
-        parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -887,11 +887,11 @@ paths:
         Delete OIDC authentication protocol parameters of application
       description: >
         This API provides the capability to delete OIDC authentication protocol
-        parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteInboundOAuthConfiguration
       parameters:
         - name: applicationId
@@ -934,11 +934,11 @@ paths:
       summary: |
         Regenerate the OAuth2/OIDC client secret of application
       description: |
-        This API regenerates the OAuth2/OIDC client secret.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/create
-        <b>Scopes required:</b>
-            * internal_application_mgt_create
+        This API regenerates the OAuth2/OIDC client secret. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       operationId: regenerateOAuthClientSecret
       parameters:
         - name: applicationId
@@ -984,11 +984,11 @@ paths:
       summary: |
         Revoke the OAuth2/OIDC client of application
       description: |
-        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/create
-        <b>Scopes required:</b>
-            * internal_application_mgt_create
+        This API revokes the OAuth2/OIDC client secret. To re-activate the client, the client secret needs to be regenerated. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       operationId: revokeOAuthClient
       parameters:
         - name: applicationId
@@ -1031,11 +1031,11 @@ paths:
         Retrieve Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getPassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1081,11 +1081,11 @@ paths:
         Update Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to store passive STS authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updatePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1151,11 +1151,11 @@ paths:
         Delete Passive STS authentication protocol parameters of application
       description: >
         This API provides the capability to delete Passive STS authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deletePassiveStsConfiguration
       parameters:
         - name: applicationId
@@ -1198,11 +1198,11 @@ paths:
         Retrieve WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to retrieve Passive STS authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1248,11 +1248,11 @@ paths:
         Update WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to store WS Trust authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1318,11 +1318,11 @@ paths:
         Delete WS Trust authentication protocol parameters of application
       description: >
         This API provides the capability to delete WS Trust authentication
-        protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteWSTrustConfiguration
       parameters:
         - name: applicationId
@@ -1365,11 +1365,11 @@ paths:
         Retrieve custom Inbound authentication protocol parameters of application.
       description: >
         This API provides the capability to retrieve custom inbound
-        authentication protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        authentication protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1419,11 +1419,11 @@ paths:
       summary: |
         Update the custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to store custom inbound authentication protocol parameters of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-        <b>Scopes required:</b>
-            * internal_application_mgt_update
+        This API provides the capability to store custom inbound authentication protocol parameters of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       operationId: updateCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1493,11 +1493,11 @@ paths:
       summary: >
         Delete custom inbound authentication protocol parameters of application
       description: >
-        This API provides the capability to delete custom inbound authentication protocol of an application.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-        <b>Scopes required:</b>
-            * internal_application_mgt_delete
+        This API provides the capability to delete custom inbound authentication protocol of an application. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       operationId: deleteCustomInboundConfiguration
       parameters:
         - name: applicationId
@@ -1546,11 +1546,11 @@ paths:
         Retrieve the list of inbound authentication protocols available
       description: >
         This API provides the capability to retrieve the list of inbound authentication protocols available.
-        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        If the query parameter 'customOnly' is set to true, only custom inbound protocols will be listed. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getInboundProtocols
       parameters:
         - $ref: '#/components/parameters/inboundProtocolsCustomOnly'
@@ -1590,11 +1590,11 @@ paths:
       summary: |
         Retrieve all the metadata related to the auth protocol SAML
       description: >
-        This API provides the capability to retrieve all the metadata related to the auth protocol SAML.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve all the metadata related to the auth protocol SAML. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getSAMLMetadata
       responses:
         '200':
@@ -1628,11 +1628,11 @@ paths:
         Retrieve all the metadata related to the authentication protocol OAuth / OIDC
       description: >
         This API provides the capability to retrieve all the metadata related to the authentication
-         protocol OAuth / OIDC.
-         <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+         protocol OAuth / OIDC. <br>
+           <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getOIDCMetadata
       responses:
         '200':
@@ -1665,11 +1665,11 @@ paths:
       summary: |
         Retrieve all the metadata related to the auth protocol WS Trust
       description: >
-        This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve all the metadata related to the auth protocol WS_Trust. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getWSTrustMetadata
       responses:
         '200':
@@ -1703,11 +1703,11 @@ paths:
         Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
       description: >
         This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the inboundProtocolId.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        identified by the inboundProtocolId. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getCustomProtocolMetadata
       parameters:
         - name: inboundProtocolId
@@ -1747,11 +1747,11 @@ paths:
       summary: |
         Retrieve the sample adaptive authentication templates.
       description: >
-        This API provides the capability to retrieve the sample adaptive authentication templates.
-        <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-        <b>Scopes required:</b>
-            * internal_application_mgt_view
+        This API provides the capability to retrieve the sample adaptive authentication templates. <br>
+          <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+          <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       operationId: getAdaptiveAuthTemplates
       responses:
         '200':
