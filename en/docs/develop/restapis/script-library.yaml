@@ -24,11 +24,11 @@ paths:
       summary: |
         Add a new script library.
       description: |
-        This API provides the capability to create a new Script library.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/create
-        <b>Scopes required:</b>
-         * internal_functional_lib_create
+        This API provides the capability to create a new Script library. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/create <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_create <br>
       operationId: addScriptLibrary
       responses:
         '201':
@@ -68,11 +68,11 @@ paths:
       summary: |
         List script libraries.
       description: >
-        This API provides the capability to list Script Libraries.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
-        <b>Scopes required:</b>
-         * internal_functional_lib_view
+        This API provides the capability to list Script Libraries. <br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraries
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -117,10 +117,10 @@ paths:
         Get script library.
       description: |
         This API provides the capability to retrive the details of the script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
-        <b>Scopes required:</b>
-         * internal_functional_lib_view
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryByName
       parameters:
         - name: script-library-name
@@ -165,10 +165,10 @@ paths:
         Delete a script library.
       description: |
         This API provides the capability to delete a script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/delete
-        <b>Scopes required:</b>
-         * internal_functional_lib_delete
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/delete <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_delete
       operationId: deleteScriptLibrary
       parameters:
         - name: script-library-name
@@ -209,10 +209,10 @@ paths:
         Update a script library.
       description: |
         This API provides the capability to update a script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/update
-        <b>Scopes required:</b>
-         * internal_functional_lib_update
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_update
       operationId: updateScriptLibrary
       parameters:
         - name: script-library-name
@@ -266,10 +266,10 @@ paths:
         Get the content of the script library.
       description: |
         This API provides the capability to retrive the content of script library using its name.<br>
-        <b>Permission required:</b>
-         * /permission/admin/manage/functionsLibrarymgt/view
-         <b>Scopes required:</b>
-         * internal_functional_lib_view
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/functionsLibrarymgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_functional_lib_view
       operationId: getScriptLibraryContentByName
       parameters:
         - name: script-library-name
