@@ -9,18 +9,10 @@ describes how you can host the authentication endpoint on a different
 server outside the WSO2 Identity Server  (e.g., in a different Tomcat
 Server).
 
--   [Moving the authenticationendpoint from WSO2IS and hosting it on a
-    separate web
-    server](#HostingAuthenticationEndpointonaDifferentServer-MovingtheauthenticationendpointfromWSO2ISandhostingitonaseparatewebserver)
--   [Moving the accountrecoveryendpoint from WSO2IS and hosting it on a
-    separate web
-    server](#HostingAuthenticationEndpointonaDifferentServer-MovingtheaccountrecoveryendpointfromWSO2ISandhostingitonaseparatewebserver)
--   [Running the
-    sample](#HostingAuthenticationEndpointonaDifferentServer-Runningthesample)
-
 ## Moving the authenticationendpoint from WSO2IS and hosting it on a separate web server
 
 !!! tip "Before you begin"
+    
     First, get a copy of
     `         <IS_HOME>/repository/deployment/server/webapps        `
     `         /authenticationendpoin.war        ` to
@@ -37,31 +29,19 @@ Server).
     `           <WebApp_HOME>/authenticationendpoint/WEB-INF/lib          `
     directory.
 
-    -   org.wso2.carbon.base_4.4.11.jar
-
-    -   org.wso2.carbon.identity.base_5.7.5.jar
-
-    -   org.wso2.carbon.ui_4.4.11.jar
-
-    -   org.wso2.carbon.identity.application.authentication.endpoint.util_5.7.5.jar
-
-    -   org.wso2.carbon.identity.core_5.7.5.jar
-
-    -   httpcore_4.3.3.wso2v1.jar
-
-    -   org.wso2.carbon.identity.user.registration.stub_5.7.5.jar 
-
-    -   axis2_1.6.1.wso2v20.jar
-
-    -   org.wso2.carbon.user.api_4.4.11.jar
-
-    -   opensaml_2.6.4.wso2v3.jar
-
-    -   org.wso2.carbon.utils_4.4.11.jar
-
-    -   jettison_1.3.4.wso2v1.jar
-
-    -   org.wso2.carbon.user.core_4.4.11.jar
+    -   `org.wso2.carbon.base_4.4.11.jar`
+    -   `org.wso2.carbon.identity.base_5.7.5.jar`
+    -   `org.wso2.carbon.ui_4.4.11.jar`
+    -   `org.wso2.carbon.identity.application.authentication.endpoint.util_5.7.5.jar`
+    -   `org.wso2.carbon.identity.core_5.7.5.jar`
+    -   `httpcore_4.3.3.wso2v1.jar`
+    -   `org.wso2.carbon.identity.user.registration.stub_5.7.5.jar` 
+    -   `axis2_1.6.1.wso2v20.jar`
+    -   `org.wso2.carbon.user.api_4.4.11.jar`
+    -   `opensaml_2.6.4.wso2v3.jar`
+    -   `org.wso2.carbon.utils_4.4.11.jar`
+    -   `jettison_1.3.4.wso2v1.jar`
+    -   `org.wso2.carbon.user.core_4.4.11.jar`
 
 2.  Copy the following .jar files from the \<
     `          IS_HOME>/lib/runtimes/cxf/         ` directory to the
@@ -94,64 +74,36 @@ Server).
     ...
     ```
 
-4.  Change the following configuration in
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
+4.  Set the following configuration in
+    `           <IS_HOME>/repository/conf/identity/application-authentication.properties          `
     file
 
     ``` xml
-        <AuthenticationEndpointURL>/authenticationendpoint/login.do</AuthenticationEndpointURL>
-        <AuthenticationEndpointRetryURL>/authenticationendpoint/retry.do</AuthenticationEndpointRetryURL>
-        <AuthenticationEndpointMissingClaimsURL>/authenticationendpoint/claims.do</AuthenticationEndpointMissingClaimsURL>
+    [authentication.endpoints] 
+    login_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/login.do"
+    retry_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/retry.do"
+    request_missing_claims_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/claims.do"
     ```
 
-    as follows:
-
-    ``` xml
-        <AuthenticationEndpointURL>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/login.do</AuthenticationEndpointURL>
-        <AuthenticationEndpointRetryURL>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/retry.do</AuthenticationEndpointRetryURL>
-        <AuthenticationEndpointMissingClaimsURL>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/claims.do</AuthenticationEndpointMissingClaimsURL>
-    ```
-
-    You will need to add AuthenticationEndpointMissingClaimsURL
-    configuration, as it is not already available in this configuration
-    file.
-
-5.  Change the following configuration in
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+5.  Add the following configurations to the
+    `           <IS_HOME>/repository/conf/deployment.toml         `
     file to point to the authentication endpoint hosted outside the wso2
     server.
 
-    ``` xml
-        ...
-        <OpenID>
-            ...
-            <OpenIDLoginUrl>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/openid_login.do</OpenIDLoginUrl>
-            ...
-        </OpenID>
-        ...
-        <OAuth>
-            ...
-            <OAuth2ConsentPage>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/oauth2_authz.do</OAuth2ConsentPage>
-            <OAuth2ErrorPage>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/oauth2_error.do</OAuth2ErrorPage>
-            <OIDCConsentPage>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/oauth2_consent.do</OIDCConsentPage>
-            <OIDCLogoutConsentPage>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/oauth2_logout_consent.do</OIDCLogoutConsentPage>
-            <OIDCLogoutPage>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/oauth2_logout.do</OIDCLogoutPage>
-            ...
-        </OAuth>
-        ...
-        <SSOService>
-            ...  
-            <DefaultLogoutEndpoint>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/samlsso_logout.do</DefaultLogoutEndpoint>
-            <NotificationEndpoint>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/samlsso_notification.do</NotificationEndpoint>
-            ...
-        </SSOService>
-        ...
-        <PassiveSTS>
-            ...
-           <RetryURL>https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/retry.do</RetryUR>
-            ...
-        <PassiveSTS>
-        ...
+    ``` toml
+        [oauth.endpoints]
+        oauth2_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_authz.do"
+        oauth2_error_page= "https://localhost:8443/authenticationendpoint/oauth2_error.do"
+        oidc_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_consent.do"
+        oidc_logout_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_logout_consent.do"
+        oidc_logout_page= "https://localhost:8443/authenticationendpoint/oauth2_logout.do"
+
+        [saml.endpoints] 
+        logout= "https://localhost:8443/authenticationendpoint/samlsso_logout.do"
+        notification= "https://localhost:8443/authenticationendpoint/samlsso_notification.do"
+
+        [passive_sts.endpoints] 
+        retry= "https://localhost:8443/authenticationendpoint/retry.do"
     ```
 
 6.  Import the public certificate of the identity server to
@@ -159,22 +111,22 @@ Server).
     the authenticationendpoint is running.
 
     ``` xml
-        keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
+    keytool -export -keystore $IS_HOME/repository/resources/security/wso2carbon.jks -alias wso2carbon -file wso2carbon.cer
     ```
 
     ``` xml
-        keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
+    keytool -import -alias wso2carbon -keystore  $WEB_APP_TRUSTSTORE -file wso2carbon.cer
     ```
 
 7.  Import the public certificate of the Web\_server’s keystore to the
     Identity Server truststore.
 
     ``` xml
-        keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
+    keytool -export -keystore $WEB_APP_KEYSTORE -alias wso2carbon -file webserver.cer
     ```
 
     ``` xml
-        keytool -import -alias <alias> -keystore  $IS_HOME/repository/resources/security/client-trustore.jks -file webserver.cer
+    keytool -import -alias <alias> -keystore  $IS_HOME/repository/resources/security/client-trustore.jks -file webserver.cer
     ```
 
 ## Moving the accountrecoveryendpoint from WSO2IS and hosting it on a separate web server
@@ -182,7 +134,7 @@ Server).
 This is an additional improvement which enables
 hosting accountrecoveryendpoint.war also on a separate web server.
 
-!!! tip "Before you begin"
+!!! tip "Before you begin"    
     Get a copy of
     `         <IS_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint.war        `
     to `         <WebApp_HOME>/        ` and unzip it. Make sure to get the
@@ -203,18 +155,18 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     `           <WebApp_HOME>/accountrecoveryendpoint/WEB-INF/web.xml          `
 
     ``` xml
-        <context-param>
-                <param-name>UserPortalUrl</param-name>
-                <param-value>https://localhost:9443/dashboard/index.jag</param-value>
-        </context-param>
+    <context-param>
+            <param-name>UserPortalUrl</param-name>
+            <param-value>https://localhost:9443/dashboard/index.jag</param-value>
+    </context-param>
     ```
 
 3.  Export the following paths.
 
     ``` xml
-        export WEB_APP_HOME=/Users/userfoo/apache-tomcat-7.0.81/webapps
-        export IS_HOME=/Users/userfoo/wso2is-5.6.0
-        export WEB_APP_LIB=${WEB_APP_HOME}/accountrecoveryendpoint/WEB-INF/lib/
+    export WEB_APP_HOME=/Users/userfoo/apache-tomcat-7.0.81/webapps
+    export IS_HOME=/Users/userfoo/wso2is-5.6.0
+    export WEB_APP_LIB=${WEB_APP_HOME}/accountrecoveryendpoint/WEB-INF/lib/
     ```
 
     Note: `           WEB_APP_HOME          ` and
@@ -225,29 +177,30 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     `           <WebApp_HOME>/authenticationendpoint/WEB-INF/lib          `
 
     ``` xml
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.base_5.7.5.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.ui_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.authentication.endpoint.util_5.7.5.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.core_5.7.5.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.user.registration.stub_5.7.5.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.utils_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.core_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.api_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/org.wso2.carbon.logging_4.4.11.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/httpcore_4.3.3.wso2v1.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/axis2_1.6.1.wso2v20.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/opensaml_2.6.4.wso2v3.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/jettison_1.3.4.wso2v1.jar $WEB_APP_LIB
-        cp $IS_HOME/lib/runtimes/cxf/javax.ws.rs-api-2.0-m10.jar $WEB_APP_LIB
-        cp $IS_HOME/lib/runtimes/cxf/cxf-bundle-2.7.16.wso2v1.jar $WEB_APP_LIB
-        cp $IS_HOME/lib/runtimes/cxf/neethi-3.0.3.jar $WEB_APP_LIB
-        cp $IS_HOME/lib/runtimes/cxf/wsdl4j-1.6.3.jar $WEB_APP_LIB
-        cp $IS_HOME/repository/components/plugins/commons-codec_1.4.0.wso2v1.jar
-        cp $IS_HOME/repository/components/plugins/commons-collections_3.2.2.wso2v1.jar
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.base_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.base_5.7.5.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.ui_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.application.authentication.endpoint.util_5.7.5.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.core_5.7.5.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.identity.user.registration.stub_5.7.5.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.utils_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.core_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.user.api_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/org.wso2.carbon.logging_4.4.11.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/httpcore_4.3.3.wso2v1.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/axis2_1.6.1.wso2v20.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/opensaml_2.6.4.wso2v3.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/jettison_1.3.4.wso2v1.jar $WEB_APP_LIB
+    cp $IS_HOME/lib/runtimes/cxf/javax.ws.rs-api-2.0-m10.jar $WEB_APP_LIB
+    cp $IS_HOME/lib/runtimes/cxf/cxf-bundle-2.7.16.wso2v1.jar $WEB_APP_LIB
+    cp $IS_HOME/lib/runtimes/cxf/neethi-3.0.3.jar $WEB_APP_LIB
+    cp $IS_HOME/lib/runtimes/cxf/wsdl4j-1.6.3.jar $WEB_APP_LIB
+    cp $IS_HOME/repository/components/plugins/commons-codec_1.4.0.wso2v1.jar
+    cp $IS_HOME/repository/components/plugins/commons-collections_3.2.2.wso2v1.jar
     ```
 
     !!! note
+    
         Make sure the WebApp container server (of endpoint apps) is
         running with SSL enabled.
     
@@ -255,8 +208,8 @@ hosting accountrecoveryendpoint.war also on a separate web server.
         `           catalina.sh          ` .
     
         ``` xml
-            JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=$WEB_SERVER_KEYSTORE -Djavax.net.ssl.keyStorePassword=$password"
-            JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$WEBSERVER_TRUSTORE -Djavax.net.ssl.trustStorePassword=$password"
+        JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.keyStore=$WEB_SERVER_KEYSTORE -Djavax.net.ssl.keyStorePassword=$password"
+        JAVA_OPTS="$JAVA_OPTS -Djavax.net.ssl.trustStore=$WEBSERVER_TRUSTORE -Djavax.net.ssl.trustStorePassword=$password"
         ```
     
 
@@ -282,6 +235,7 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     ```
 
     !!! note
+    
         For this sample, we configured the same keystore and truststore in
         WSO2IS as the keystore and truststore in tomcat. In an actual
         environment, you may create a new keystore and truststore for tomcat
@@ -313,70 +267,55 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     file and point to identity server URLs.
 
     ``` xml
-        …...   
+    …...   
+    <context-param>
+            <param-name>IdentityManagementEndpointContextURL</param-name>
+    <param-value>https://localhost:9443/accountrecoveryendpoint</param-value>
+        </context-param>
         <context-param>
-               <param-name>IdentityManagementEndpointContextURL</param-name>
-        <param-value>https://localhost:9443/accountrecoveryendpoint</param-value>
-           </context-param>
-            <context-param>
-               <param-name>AccountRecoveryRESTEndpointURL</param-name>
-             <param-value>https://localhost:9443/t/tenant-domain/api/identity/user/v0.9/</param-value>
-           </context-param>
-        …..
-            <context-param>
-                <param-name>IdentityServerEndpointContextURL</param-name>
-                <param-value>https://localhost:9443</param-value>
-            </context-param>
-        …...
+            <param-name>AccountRecoveryRESTEndpointURL</param-name>
+            <param-value>https://localhost:9443/t/tenant-domain/api/identity/user/v0.9/</param-value>
+        </context-param>
+    …..
+        <context-param>
+            <param-name>IdentityServerEndpointContextURL</param-name>
+            <param-value>https://localhost:9443</param-value>
+        </context-param>
+    …...
     ```
 
-8.  Change the following configuration in
-    `           <IS_HOME>/repository/conf/identity/application-authentication.xml          `
+8.  Add the following configurations to the
+    `           <IS_HOME>/repository/conf/deployment.toml        `
     file.
 
-    ``` xml
-        <AuthenticationEndpointURL>https://localhost:8443/authenticationendpoint/login.do</AuthenticationEndpointURL>
-        <AuthenticationEndpointRetryURL>https://localhost:8443/authenticationendpoint/retry.do</AuthenticationEndpointRetryURL>
-        <AuthenticationEndpointMissingClaimsURL>https://localhost:8443/authenticationendpoint/claims.do</AuthenticationEndpointMissingClaimsURL>
+    ``` toml    
+    [authentication.endpoints] 
+    login_url="https://localhost:8443/authenticationendpoint/login.do"
+    retry_url="https://localhost:8443/authenticationendpoint/retry.do"
+    request_missing_claims_url="https://localhost:8443/authenticationendpoint/claims.do"
     ```
 
-9.  Change the following configuration in
-    `           <IS_HOME>/repository/conf/identity/identity.xml          `
+9.  Add the following configuration to the
+    `           <IS_HOME>/repository/conf/deployment.toml       `
     file to point to the authentication endpoint hosted outside the wso2
     server.
 
-    ``` xml
-        ..
-        <OpenID>
-        ...
-        <OpenIDLoginUrl>https://localhost:8443/authenticationendpoint/openid_login.do</OpenIDLoginUrl>
-        …
-        </OpenID>
-        …
-        <OAuth>
-        ….
-        <OAuth2ConsentPage>https://localhost:8443/authenticationendpoint/oauth2_authz.do</OAuth2ConsentPage>
-        <OAuth2ErrorPage>https://localhost:8443/authenticationendpoint/oauth2_error.do</OAuth2ErrorPage>
-        <OIDCConsentPage>https://localhost:8443/authenticationendpoint/oauth2_consent.do</OIDCConsentPage>
-        <OIDCLogoutConsentPage>https://localhost:8443/authenticationendpoint/oauth2_logout_consent.do</OIDCLogoutConsentPage>
-        <OIDCLogoutPage>https://localhost:8443/authenticationendpoint/oauth2_logout.do</OIDCLogoutPage>
-        ….
-        </OAuth>
-        ...
-        <SSOService>
-        ...  <DefaultLogoutEndpoint>https://localhost:8443/authenticationendpoint/samlsso_logout.do</DefaultLogoutEndpoint>
-           <NotificationEndpoint>https://localhost:8443/authenticationendpoint/samlsso_notification.do</NotificationEndpoint>
-        …
-        </SSOService>
-        ….
-        <PassiveSTS>
-        ...
-           <RetryURL>https://localhost:8443/authenticationendpoint/retry.do</RetryUR>
-        ...
-        <PassiveSTS>
-        ….
     ```
+    [oauth.endpoints]
+    oauth2_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_authz.do"
+    oauth2_error_page= "https://localhost:8443/authenticationendpoint/oauth2_error.do"
+    oidc_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_consent.do"
+    oidc_logout_consent_page= "https://localhost:8443/authenticationendpoint/oauth2_logout_consent.do"
+    oidc_logout_page= "https://localhost:8443/authenticationendpoint/oauth2_logout.do"
 
+    [saml.endpoints] 
+    logout= "https://localhost:8443/authenticationendpoint/samlsso_logout.do"
+    notification= "https://localhost:8443/authenticationendpoint/samlsso_notification.do"
+
+    [passive_sts.endpoints] 
+    retry= "https://localhost:8443/authenticationendpoint/retry.do"
+    ```
+    
 10. Start both Identity Server and tomcat and access
     `                       https://localhost:9443/dashboard                     `
     . Now you can see that the authentication is redirected to:
@@ -395,12 +334,12 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     into tomcat URL.
 
     ``` xml
-        … 
-        <context-param>
-               <param-name>IdentityManagementEndpointContextURL</param-name>
-        <param-value>https://localhost:8443/accountrecoveryendpoint</param-value>
-           </context-param>
-        …
+    … 
+    <context-param>
+            <param-name>IdentityManagementEndpointContextURL</param-name>
+    <param-value>https://localhost:8443/accountrecoveryendpoint</param-value>
+        </context-param>
+    …
     ```
 
 13. In
@@ -408,7 +347,7 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     file, uncomment and change it to identity server.
 
     ``` xml
-        identity.server.service.contextURL=https://localhost:9443/services/
+    identity.server.service.contextURL=https://localhost:9443/services/
     ```
 
 14. Uncomment and change the user portal reference in
@@ -417,10 +356,10 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     `           endpoint/WEB-INF/web.xml          `
 
     ``` xml
-         …
-          <context-param>
-                <param-name>UserPortalUrl</param-name>
-                <param-value>https://localhost:9443/dashboard/index.jag</param-value>
-            </context-param>
-        ...
+    …
+        <context-param>
+            <param-name>UserPortalUrl</param-name>
+            <param-value>https://localhost:9443/dashboard/index.jag</param-value>
+        </context-param>
+    ...
     ```
