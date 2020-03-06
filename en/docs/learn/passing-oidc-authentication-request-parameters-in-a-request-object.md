@@ -134,9 +134,7 @@ parameters in a request object via WSO2 IS:
         		application again. Now you will be prompted to provide
         		consent for all requested claims, including the newly
         		added/changed claims. For more information on
-        		revoking/accepting user consent, see [Configuring consent
-        		for
-        		services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services).
+        		revoking/accepting user consent, see [Consent management](../../learn/user-portal/#consent-management).
 
     4.  Click **Update**.
 
