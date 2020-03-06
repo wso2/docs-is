@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: This is the RESTful API for claims management related operations in WSO2 Identity Server. This API allows
-    adding, retrieving, updating, deleting local/external claims and claim dialects.
+    adding, retrieving, updating, and deleting local/external claims and claim dialects.
   version: "v1"
   title: WSO2 Identity Server - Claim Admin API
   contact:
