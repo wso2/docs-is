@@ -74,11 +74,11 @@ Server).
     ...
     ```
 
-4.  Set the following configuration in
-    `           <IS_HOME>/repository/conf/identity/application-authentication.properties          `
+4.  Add the following configurations to the
+    `           <IS_HOME>/repository/conf/deployment.toml        `
     file
 
-    ``` xml
+    ``` toml
     [authentication.endpoints] 
     login_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/login.do"
     retry_url="https://$WEB_SERVER_HOST:$WEB_SERVER_PORT/authenticationendpoint/retry.do"
