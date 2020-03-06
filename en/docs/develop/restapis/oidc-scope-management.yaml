@@ -32,11 +32,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Retrieves the list of scopes
       operationId: getScopes
-      description: This REST API can be used to get details of the available scopes.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-      <b>Scopes required:</b>
-            * internal_application_mgt_view
+      description: This REST API can be used to get details of the available scopes. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -64,11 +64,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Add a new OIDC Scope
       operationId: addScope
-      description:
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/create
-      <b>Scopes required:</b>
-            * internal_application_mgt_create
+      description: This Rest API can be used to add a new OIDC scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/create <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_create
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -96,11 +96,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Get a scope
       operationId: getScope
-      description: This REST API can be used to get the scope.
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/view
-      <b>Scopes required:</b>
-            * internal_application_mgt_view
+      description: This REST API can be used to get the scope. <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/view <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_view
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -132,11 +132,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Update an OIDC Scope
       operationId: updateScope
-      description:
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/update
-      <b>Scopes required:</b>
-            * internal_application_mgt_update
+      description: This API can be used to update an existing OIDC scope <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/update <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_update
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -171,11 +171,11 @@ paths:
         - OIDC Scope Endpoint
       summary: Delete an OIDC Scope
       operationId: deleteScope
-      description:
-      <b>Permission required:</b>
-            * /permission/admin/manage/identity/applicationmgt/delete
-      <b>Scopes required:</b>
-            * internal_application_mgt_delete
+      description: This API can be used tp delete an existing OIDC scope <br>
+        <b>Permission required:</b> <br>
+              * /permission/admin/manage/identity/applicationmgt/delete <br>
+        <b>Scope required:</b> <br>
+              * internal_application_mgt_delete
       security:
         - BasicAuth: []
         - OAuth2: []
@@ -209,16 +209,8 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Unauthorized.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Forbidden:
       description: Resource Forbidden.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     NotFound:
       description: Resource Not Found.
       content:
