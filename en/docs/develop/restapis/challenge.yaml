@@ -34,14 +34,12 @@ paths:
         - me
       summary: Retrieve challenges available for the authenticated user.
       operationId: getChallengesForUser
-      description: |
-        Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
-         
-        <b>Scopes required:</b>
-         * internal_identity_mgt_view
+      description: >
+        Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login<br>
+        <b>Scopes required:</b><br>
+        * internal_identity_mgt_view<br>
          
       parameters:
         - $ref: '#/parameters/limitQueryParam'
@@ -67,14 +65,12 @@ paths:
         - me
       summary: Answer to a collection of new challenges.
       operationId: addChallengeAnswersForLoggedInUser
-      description: |
-        Provide answer(s) to one or more candidate challenge question set(s) available in the system for the authenticated user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
-         
-        <b>Scopes required:</b>
-         * internal_identity_mgt_create
+      description: >
+        Provide answer(s) to one or more candidate challenge question set(s) available in the system for the authenticated user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login<br>
+        <b>Scopes required:</b><br>
+        * internal_identity_mgt_create
          
       parameters:
         - in: body
@@ -103,13 +99,11 @@ paths:
       summary: Get user's answered challenges.
       operationId: getAnsweredChallengesOfLoggedInUser
       description: >
-        Get previously answered challenge(s) in the system by the authenticated user.
-
-          <b>Permission required:</b>
-           * /permission/admin/login
-           
-         <b>Scopes required:</b>
-           * internal_identity_mgt_view
+        Get previously answered challenge(s) in the system by the authenticated user.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login<br>
+        <b>Scopes required:</b><br>
+        * internal_identity_mgt_view<br>
            
       responses:
         200:
@@ -129,15 +123,12 @@ paths:
         - me
       summary: Answer new challenge question combination over existing answers.
       operationId: updateChallengeAnswersOfLoggedInUser
-      description: |
-        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
-         
-         
-        <b>Scopes required:</b>
-         * internal_identity_mgt_update
+      description: >
+        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login<br>
+        <b>Scopes required:</b><br>
+        * internal_identity_mgt_update
          
          
       parameters:
@@ -166,14 +157,12 @@ paths:
         - me
       summary: Remove challenge question answers.
       operationId: deleteChallengeAnswersOfLoggedInUser
-      description: |
-        Removes all the existing challenge answers of the authenticated user.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
-         
-        <b>Scopes required:</b>
-         * internal_identity_mgt_delete
+      description: >
+        Removes all the existing challenge answers of the authenticated user.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login<br>
+        <b>Scopes required:</b><br>
+        * internal_identity_mgt_delete<br>
          
       responses:
         204:
@@ -193,10 +182,7 @@ paths:
       summary: Answers a specific new challenge.
       operationId: addChallengeAnswerOfLoggedInUser
       description: |
-        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
+        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.<br><b>Permission required:</b><br>* /permission/admin/login<br>
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
@@ -224,11 +210,10 @@ paths:
         - me
       summary: Update challenge answer of an already answered challenge.
       operationId: updateChallengeAnswerOfLoggedInUser
-      description: |
-        Update challenge answer in a specific challenge for authenticated user.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
+      description: >
+        Update challenge answer in a specific challenge for authenticated user.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
@@ -254,11 +239,10 @@ paths:
         - me
       summary: Remove a challenge question answer.
       operationId: deleteChallengeAnswerOfLoggedInUser
-      description: |
-        Removes existing answer provided by the authenticated user to a specific challenge.
-
-        <b>Permission required:</b>
-         * /permission/admin/login
+      description: >
+        Removes existing answer provided by the authenticated user to a specific challenge.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
       responses:
