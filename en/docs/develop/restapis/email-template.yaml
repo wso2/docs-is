@@ -27,14 +27,13 @@ paths:
         - Email Template Types
       summary: Retrieves all the Email Template Types.
       operationId: getAllEmailTemplateTypes
-      description: |
-        Retrieves all the Email Template Types in the system, with limited details of the email templates.
-
-        <b>Permission required:</b>
+      description: >
+        Retrieves all the Email Template Types in the system, with limited details of the email templates. <br>
+        <b>Permission required:</b> <br>
         * /permission/admin/manage/identity/emailmgt/view
-        
-        <b>Scopes required:</b>
-        * internal_email_mgt_view
+         <br> 
+        <b>Scopes required:</b> 
+        <br>* internal_email_mgt_view
         
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
@@ -61,16 +60,15 @@ paths:
         - Email Template Types
       summary: Adds a new email template type.
       operationId: addEmailTemplateType
-      description: |
-        Adds a new email template type to the system. An email template type can have any number of email templates.
-
-        * Attribute _**displayName**_ of the template type should be unique.
-
-        <b>Permission required:</b>
+      description: >
+        Adds a new email template type to the system. An email template type can have any number of email templates. <br>
+        * Attribute _**displayName**_ of the template type should be unique.<br>
+        <b>Permission required:</b> <br>
         * /permission/admin/manage/identity/emailmgt/create
-        
-        <b>Scopes required:</b>
-        * internal_email_mgt_create
+         <br> 
+        <b>Scopes required:</b> 
+        <br>* internal_email_mgt_create
+
         
       requestBody:
         content:
@@ -106,14 +104,12 @@ paths:
         - Email Template Types
       summary: Retrieves the email template type corresponds to the template type id.
       operationId: getEmailTemplateType
-      description: |
-        Retrieves the email template type in the system identified by the template-type-id.
-
-        <b>Permission required:</b>
+      description: >
+        Retrieves the email template type in the system identified by the template-type-id.<br>
+        <b>Permission required:</b><br>
         * /permission/admin/manage/identity/emailmgt/view
-       
-        <b>Scopes required:</b>
-        * internal_email_mgt_view
+        <br><b>Scopes required:</b><br>
+        * internal_email_mgt_view<br>
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
         - $ref: '#/components/parameters/limitQueryParam'
@@ -142,16 +138,13 @@ paths:
         - Email Templates
       summary: Adds a new email template to an existing email template type.
       operationId: addEmailTemplate
-      description: |
+      description: >
         Adds a new email template to an existing email template type in the system.
         Another email template with the same locale should not already exists in the
-        respective email template type.
-
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/emailmgt/create
-        
-        <b>Scopes required:</b>
-        * internal_email_mgt_create
+        respective email template type.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/create <br>
+        <b>Scopes required:</b> <br>* internal_email_mgt_create
         
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -188,14 +181,12 @@ paths:
         - Email Template Types
       summary: Replaces all email templates of the respective email template type
       operationId: updateEmailTemplateType
-      description: |
+      description: >
         Replaces all email templates of the respective email template type with
-        the newly provided email templates.
-
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/emailmgt/update
-        
-        <b>Scopes required:</b>
+        the newly provided email templates.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/update<br>
+        <b>Scopes required:</b><br>
         * internal_email_mgt_update
         
       parameters:
@@ -226,14 +217,12 @@ paths:
         - Email Template Types
       summary: Removes an email template type.
       operationId: deleteEmailTemplateType
-      description: |
+      description: >
         Removes an existing email template type with all it's email templates
-        from the system.
-
-        <b>Permission required:</b>
-        * /permission/admin/manage/identity/emailmgt/delete
-        
-        <b>Scopes required:</b>
+        from the system.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/delete<br>
+        <b>Scopes required:</b><br>
         * internal_email_mgt_delete
         
       parameters:
@@ -257,14 +246,12 @@ paths:
         - Email Templates
       summary: Retrieves the list of email templates in the template type id.
       operationId: getTemplatesListOfEmailTemplateType
-      description: |
-        Retrieves the list of email templates in the template type id.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage/identity/emailmgt/view
-          
-        <b>Scopes required:</b>
-        * internal_email_mgt_view
+      description: >
+        Retrieves the list of email templates in the template type id.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/view<br>
+        <b>Scopes required:</b><br>
+        * internal_email_mgt_view<br>
         
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -298,13 +285,9 @@ paths:
       summary: Retrieves a single email template.
       operationId: getEmailTemplate
       description: |
-        Retrieves the email template that matches to the template-type-id and the template-id.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage/identity/emailmgt/view
-                   
-        <b>Scopes required:</b>
-        * internal_email_mgt_view
+        Retrieves the email template that matches to the template-type-id and the template-id.<br>
+        <b>Permission required:</b><br>* /permission/admin/manage/identity/emailmgt/view<br>
+        <b>Scopes required:</b><br>* internal_email_mgt_view
           
       parameters:
         - $ref: '#/components/parameters/templateTypeIdPathParam'
@@ -335,13 +318,11 @@ paths:
         - Email Templates
       summary: Replaces an existing email template.
       operationId: updateEmailTemplate
-      description: |
-        Replaces the email template identified by the template-type-id and the template-id.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage/identity/emailmgt/update          
-          
-        <b>Scopes required:</b>
+      description: >
+        Replaces the email template identified by the template-type-id and the template-id.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/update<br>
+        <b>Scopes required:</b><br>
         * internal_email_mgt_update
         
       parameters:
@@ -371,13 +352,11 @@ paths:
         - Email Templates
       summary: Removes an email template.
       operationId: deleteEmailTemplate
-      description: |
-        Removes an email template identified by the template-type-id and the template-id.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage/identity/emailmgt/delete
-               
-        <b>Scopes required:</b>
+      description: >
+        Removes an email template identified by the template-type-id and the template-id.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/identity/emailmgt/delete<br>
+        <b>Scopes required:</b><br>
         * internal_email_mgt_delete
         
       parameters:
