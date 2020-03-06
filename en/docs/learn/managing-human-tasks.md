@@ -15,7 +15,7 @@ Human tasks are the steps that require human interaction in order to allow the p
 
     ![workflow-pending-status](../assets/img/using-wso2-identity-server/workflow-pending-status.png)  
 
-    1.  [Sign in to the User Portal](../../learn/using-the-end-user-dashboard#accessing-the-dashboard-and-its-components) as a manager at this link: <https://localhost:9443/dashboard>  
+    1.  [Sign in to the User Portal](../../learn/user-portal/#accessing-the-user-portal-and-its-components) as a manager at this link: <https://localhost:9443/user-portal>  
         ![pending-approvals](../assets/img/using-wso2-identity-server/pending-approvals.png)   
           
     2.  Click **View details** under **Pending Approvals**.
