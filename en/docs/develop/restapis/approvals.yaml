@@ -33,19 +33,15 @@ paths:
       summary: Retrieves available approvals for the authenticated user
       operationId: listApprovalTasksForLoggedInUser
       description: >
-        Retrieve the available approval tasks in the system for the authenticated user. This API returns the following types of approvals:
-          * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to assign the task to himself and complete it.
-          * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.
-          * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.
-
-        <b>Permission required:</b>
-         * /permission/admin/manage/humantask/viewtasks
-
-         A user can also invoke the endpoint with the following query parameters.
-         
-        <b>Scopes required:</b>
-         * internal_humantask_view
-         
+        Retrieve the available approval tasks in the system for the authenticated user. This API returns the following types of approvals:<br>
+        * READY - Tasks that are _claimable_ by the user. If a particular task is in the READY state, the user is eligible to assign the task to himself and complete it.<br>
+        * RESERVED -  Tasks that are _assigned_ to the user and to be approved by this user.<br>
+        * COMPLETED - Tasks that are already _completed_ (approved or denied) by this user.<br>
+        <b>Permission required:</b><br>
+        * /permission/admin/manage/humantask/viewtasks<br>
+        A user can also invoke the endpoint with the following query parameters.<br>
+        <b>Scopes required:</b><br>
+        * internal_humantask_view<br>
         <b>internal_humantask_view</b>
          
       parameters:
@@ -110,9 +106,8 @@ paths:
       description: >
         Retrieves information of a specific approval task identified by the task-id
         <br/>
-
-        <b>Permission required:</b>
-         * /permission/admin/manage/humantask/viewtasks
+        <b>Permission required:</b><br/>
+        * /permission/admin/manage/humantask/viewtasks
       parameters:
         - $ref: '#/parameters/taskIdPathParam'
       responses:
@@ -176,16 +171,14 @@ paths:
         - me
       summary: "Changes the state of an approval task"
       operationId: updateStateOfTask
-      description: |
-        Update the approval task status by defining one of the following actions:
-         * CLAIM - Reserve the task for the user. Status of the task will be changed from READY to RESERVED.
-         * RELEASE - Release the task for other users to claim. Status of the task will be changed from RESERVED to READY.
-         * APPROVE - Approve the task. Status of the task will be changed to COMPLETED.
-         * REJECT - Deny the task. Status of the task will be changed to COMPLETED.
-         <br/>
-
-        <b>Permission required:</b>
-         * /permission/admin/manage/humantask/viewtasks
+      description: >
+        Update the approval task status by defining one of the following actions:<br/>
+        * CLAIM - Reserve the task for the user. Status of the task will be changed from READY to RESERVED.<br/>
+        * RELEASE - Release the task for other users to claim. Status of the task will be changed from RESERVED to READY.<br/>
+        * APPROVE - Approve the task. Status of the task will be changed to COMPLETED.<br/>
+        * REJECT - Deny the task. Status of the task will be changed to COMPLETED.<br/>
+        <b>Permission required:</b><br/>
+        * /permission/admin/manage/humantask/viewtasks
       parameters:
         - $ref: '#/parameters/taskIdPathParam'
         - in: body
