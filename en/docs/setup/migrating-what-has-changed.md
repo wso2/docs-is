@@ -8,8 +8,8 @@ In the previous versions of WSO2 Identity Server, the Last login time claim(used
 as a default claim. From IS 5.10.0 onwards it will be handled as an identity claim. 
 
 !!! note "NOTE" 
-    If you want to have the previous behaviour please add the following property in the deployment.toml file located at 
-    <IS_HOME>/repository/conf/ directory.
+    If you want to have the previous behaviour please add the following property in the `deployment.toml` file located at 
+    `<IS_HOME>/repository/conf/` directory.
     ```toml
     [identity_mgt_account_suspension]
     use_identity_claims = false
@@ -321,21 +321,21 @@ but this will break existing applications using some APIs such as scim2/Me.
 
 !!! note "NOTE"
     We can go back to the previous behaviour and disable scope based permissions with the following config in the 
-    deployment.toml file.
+    `deployment.toml` file.
     ```toml
     [resource_access_control]
     disable_scope_validation=true
     ```
 
 ## Introducing two Separate Configuration to Manage OIDC Consent Flow
-This will introduce the following two new properties in the identity.xml inside OpenIDConnect tag to manage the 
+This will introduce the following two new properties in the `identity.xml` inside OpenIDConnect tag to manage the 
 consent during OIDC login and logout flows.
 - SkipLoginConsent - Skip the OIDC login consent
 - SkipLogoutConsent - Skip the OIDC logout consent
 
 If these properties are not defined, the value will be retrieved from SkipUserConsent
 
-These properties can be managed by adding the below configuration to deployment.toml file
+These properties can be managed by adding the below configuration to `deployment.toml` file
 ```toml
 [oauth]
 prompt_login_consent = false
@@ -363,7 +363,7 @@ SMS provider.
 
 !!! note "NOTE"
     To have the previous behaviour where the SMS-Provider error codes were used by SMS-OTP webapp, please add the 
-    below configuration in the deployment.toml file located at <IS_HOME>/repository/conf/ directory.
+    below configuration in the `deployment.toml` file located at `<IS_HOME>/repository/conf/` directory.
     ```toml
     [authentication.authenticator.sms_otp.parameters]
     UseInternalErrorCodes = false
