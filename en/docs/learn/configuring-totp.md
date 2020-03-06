@@ -95,7 +95,7 @@ Now you have to register for the TOTP authentication from your user
 profile.
 
 1.  Login to the
-    [end user dashboard](../../learn/using-the-end-user-dashboard) and
+    [user portal](../../learn/user-portal) and
     go to **My Profile** by clicking **View details** .  
     ![my-profile-gadget](../assets/img/tutorials/my-profile-gadget.png)
 4.  Update your email address (this email address is used to send the
@@ -273,9 +273,9 @@ configuration change in the `<IS_HOME>/repository/conf/deployment.toml ` file.
         property values.
 
 
-## Obtaining the QR code without using the end user dashboard
+## Obtaining the QR code without using the user portal
 
-If you need to obtain the QR code without using the end user dashboard,
+If you need to obtain the QR code without using the user portal,
 you can call the REST API or call the Admin Service(SOAP) that does
 this.
 
