@@ -73,7 +73,7 @@ paths:
         
         
         <b>Permission required:</b>
-        * /permission/admin/login
+        * none
         
         
         <b>Scope required:</b>
@@ -122,7 +122,7 @@ paths:
 
 
         <b>Permission required:</b><br>
-        * /permission/admin/login<br>
+        * none<br>
         <b>Scope required:</b><br>
         * internal_login
       responses:
@@ -147,7 +147,7 @@ paths:
 
 
         <b>Permission required:</b><br>
-        * /permission/admin/login<br>
+        * none<br>
         <b>Scope required:</b><br>
         * internal_login
       responses:
@@ -171,7 +171,7 @@ paths:
 
 
         <b>Permission required:</b><br>
-        * /permission/admin/login<br>
+        * none<br>
         <b>Scope required:</b><br>
         * internal_login
       responses:
