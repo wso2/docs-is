@@ -114,7 +114,8 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
 	6.	Try logging in with Larry's credentials. Note that an error message appears.
 

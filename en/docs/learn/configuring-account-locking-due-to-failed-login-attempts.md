@@ -97,7 +97,8 @@ Follow the steps below to configure account locking due to failed login attempts
 
 	1.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.  
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
 	2.	To mimic three consecutive erroneous login attempts, log in with Larry's user name and the following as passwords sequentially:
 
