@@ -131,7 +131,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 3.	To mimic a forgotten password:
 
-	1.	Access WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	1.	Access WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
 	2.	Click **Password**.
 

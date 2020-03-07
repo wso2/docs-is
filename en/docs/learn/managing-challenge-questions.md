@@ -122,7 +122,7 @@ follow the steps below.
 
 !!! info "Try it out!"
 
-    Login to the dashboard ( https://localhost:9443/dashboard ) as the user
+    Login to the user portal ( https://localhost:9443/user-portal ) as the user
     you configured in step 12 above, e.g.,kim, and click **View Details**
     under **Account Recovery**. Only the questions matching the locale set
     in the user profile appears (in this example, only the French question
