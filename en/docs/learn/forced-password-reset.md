@@ -41,7 +41,7 @@ for forced password reset:
 
     !!! tip
         You can verify this by logging in to the
-        [dashboard](https://localhost:9443/dashboard) as Tom. The log in
+        [user portal](https://localhost:9443/user-portal) as Tom. The log in
         attempt should be successful. Log out and log back in with admin
         credentials.
     
@@ -119,7 +119,7 @@ to see a sample of how this works.
             To try the scenario for a tenant user, provide the
             credentials of a tenant administer in the authentication step.
 
-4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
+4.  Log out of the [user portal](https://localhost:9443/user-portal) and
     attempt to log in as the user you created above, "Tom". The login
     attempt will fail and a password reset will be prompted in the form
     of an error message saying "Login failed! Please recheck the
@@ -127,7 +127,7 @@ to see a sample of how this works.
 5.  Log in to the email account you provided in Tom's user profile. You
     will see a new email with a password reset request.
 6.  Follow the link provided in the email to reset the password. You can
-    now log in to the [dashboard](https://localhost:9443/dashboard)
+    now log in to the [user portal](https://localhost:9443/user-portal)
     successfully as Tom using the new password.
 
 ## Password Reset via OTP
@@ -193,7 +193,7 @@ template for this option can be configured in the
             To try the scenario for a tenant user, provide the
             credentials of a tenant administer in the authentication step.
 
-4.  Log out of the [dashboard](https://localhost:9443/dashboard) and
+4.  Log out of the [user portal](https://localhost:9443/user-portal) and
     attempt to login again as the user you created above, "Tom". The
     login attempt will fail and a password reset will be prompted in the
     form of an error message saying "Login failed! Please recheck the
@@ -205,7 +205,7 @@ template for this option can be configured in the
     redirected to the password reset UI where you are prompted to set a
     new password. Enter the relevant details to set a new password.
 7.  You can now log in to the
-    [dashboard](https://localhost:9443/dashboard) successfully as Tom
+    [user portal](https://localhost:9443/user-portal) successfully as Tom
     using the new password.
 
 ## Offline Password Reset
@@ -270,19 +270,19 @@ template for this option can be configured in the
             To try the scenario for a tenant user, provide the
             credentials of a tenant administer in the authentication step.
 
-7.  Log out of the [dashboard](https://localhost:9443/dashboard) and
+7.  Log out of the [user portal](https://localhost:9443/user-portal) and
     attempt to log in again as the user you created above, "Tom". The
     log in attempt will fail.
 8.  Log in again to the management console as the admin user and check
     Tom's user profile. You will see that there is now a code value in
     the **One Time Password** field.
 9.  Copy the code and use it as Tom's password to log in to the
-    [dashboard](https://localhost:9443/dashboard).
+    [user portal](https://localhost:9443/user-portal).
 10. You will be redirected to the password reset UI where you are
     prompted to set a new password. Enter the relevant details to set a
     new password.
 11. You can now log in to the
-    [dashboard](https://localhost:9443/dashboard) successfully as Tom
+    [user portal](https://localhost:9443/user-portal) successfully as Tom
     using the new password.
 
 !!! info 

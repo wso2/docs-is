@@ -75,9 +75,8 @@ authentication.
     consent again unless one of the following occurs:
 
     -   The user has revoked consent for the application. For more
-        information on revoking user consent, see [Configuring consent
-        for
-        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
+        information on revoking user consent, see 
+        [Consent management](../../learn/user-portal/#consent-management)
         .
 
     -   The application requires new mandatory claims that the user has
@@ -141,8 +140,7 @@ authentication.
     !!! tip
     
         For more information on revoking/accepting user consent, see
-        [Configuring consent for
-        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
+        [Consent management](../../learn/user-portal/#consent-management)
         .
     
 

@@ -181,7 +181,7 @@ You have now configured WSO2 Identity Server to enable self-registration. Let's 
 
 	<img src="../../assets/img/learn/account-confirmation-notification.png" alt="Account Confirmation notification" width="400" style="border:1px solid grey">  	   
 
-6.	Click **Close**. The WSO2 Identity Server Dashboard Login screen appears.
+6.	Click **Close**. The WSO2 Identity Server User Portal Login screen appears.
 
 7. 	Log in with Mark's credentials and navigate to the Home screen.  
 

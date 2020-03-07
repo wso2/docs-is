@@ -768,11 +768,11 @@ A message appears to pick a scenario.
 
     Even though a new user account is created successfully, it is in
     disabled state. To enable the user, you need to sign in to the WSO2
-    dashboard and approve the pending workflow requests.
+    user portal and approve the pending workflow requests.
 
 7.  Enter the
-    [http://localhost:9443/dashboard](http://localhost:9443/dasjboard)
-    URL on a web browser to access **WSO2 Dashboard**.  
+    [http://localhost:9443/user portal](http://localhost:9443/user-portal)
+    URL on a web browser to access **WSO2 User Portal**.  
     ![qsg-sso-login-credentials](../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 8.  Enter the following credentials to sign in as Alex and click **Sign
@@ -801,7 +801,7 @@ A message appears to pick a scenario.
 
     Click **OK**.
 
-13. Click **Sign out** to sign out of WSO2 Dashboard as Alex.  
+13. Click **Sign out** to sign out of WSO2 User Portal as Alex.  
     ![qsg-sign-out](../assets/img/getting-started/qsg-sign-out.png)
 
 14. Enter the following credentials to sign in as Cameron and click

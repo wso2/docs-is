@@ -91,8 +91,7 @@ divided into different sections.
     -   See [Workflow Management](../../learn/workflow-management) for information on
         working with workflows.
     -   See [Managing Challenge Questions](../../learn/managing-challenge-questions)
-        for information on configuring challenge questions. Also see [Using
-        the End User Dashboard](../../learn/using-the-end-user-dashboard) for
+        for information on configuring challenge questions. Also see [Account Recovery](../../learn/user-portal/#account-recovery) for
         information on challenge questions.
     -   See [Email Templates](../../learn/customizing-automated-emails) for configuring email
         templates. Also see [Customizing Automated
