@@ -79,26 +79,24 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
-	3.	Consent to share the shown attributes with the given service provider.
+	3.	Under **Account Recovery**, click **+** to add or update security questions.
 
-		<img src="../../assets/img/learn/consent-form.png" alt="Consent form" width="400" style="border:1px solid grey">
+		<img src="../../assets/img/learn/userportal-account-recovery-option.png" alt="Change Passwrod option" width="700
+		" style="border:1px solid grey">
 
-	4.	Under **Account Recovery**, click **View details**.
+	4.	Configure the challenge questions as given below:
 
-		<img src="../../assets/img/learn/dashboard-account-recovery-option.png" alt="Change Passwrod option" width="700" style="border:1px solid grey">
+		-	**Challenge Question 1**: `Name of your first pet?`
+		-	**Your Answer**: `Tom`
+		-	**Challenge Question 2**: `Favourite food?`
+		-	**Your Answer**: `Pizza`
 
-	5.	Configure the challenge questions as given below:
+		<img src="../../assets/img/learn/userportal-account-recovery-form.png" alt="Challenge Question form" width="700
+		" style="border:1px solid grey">
 
-		-	**Challenge Question 1**: `City where you were born?`
-		-	**Your Answer**: `Seattle`
-		-	**Challenge Question 2**: `Favourite sport?`
-		-	**Your Answer**: `Baseball`
+	5. Click **Update**.
 
-		<img src="../../assets/img/learn/dashboard-account-recovery-form.png" alt="Challenge Question form" width="700" style="border:1px solid grey">
-
-	6. Click **Update**.
-
-	7. Sign out.  
+	6. Sign out.  
 
 4.	To mimic a forgotten password:
 
@@ -113,11 +111,11 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	4.	Click **Submit**. 
 
-	5.	Enter the first challenge question answer as `Seattle` and click **Submit**.
+	5.	Enter the first challenge question answer as `Tom` and click **Submit**.
 
 		<img src="../../assets/img/learn/first-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">
 
-	6.	Enter the second challenge question answer as `Baseball` and click **Submit**.
+	6.	Enter the second challenge question answer as `Pizza` and click **Submit**.
 
 		<img src="../../assets/img/learn/second-security-question.png" alt="First Security Question" width="400" style="border:1px solid grey">  
 
