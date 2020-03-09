@@ -36,8 +36,12 @@ paths:
         - me
       summary: "list authorized applications for the authenticated user"
       operationId: listLoggedInUserAuthorizedApps
-      description: |
-        Lists approved OAuth applications of the authenticated user
+      description:
+        Lists approved OAuth applications of the authenticated user<br>
+        <b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
       responses:
         200:
           description: search results matching criteria
@@ -56,8 +60,12 @@ paths:
         - me
       summary: "removes authorized applications for the authenticated user"
       operationId: deleteLoggedInUserAuthorizedApps
-      description: |
-        Removes approved OAuth applications of the authenticated user
+      description:
+        Removes approved OAuth applications of the authenticated user<br>
+        <b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
       responses:
         204:
           $ref: '#/responses/Deleted'
@@ -73,8 +81,12 @@ paths:
         - me
       summary: "retrieve authorized app by app ID for the authenticated user"
       operationId: getLoggedInUserAuthorizedAppByAppId
-      description: |
-        Retrieves authorized OAuth app by an app ID for the authenticated user
+      description:
+        Retrieves authorized OAuth app by an app ID for the authenticated user<br>
+        <b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
       parameters:
         - $ref: '#/parameters/applicationNamePathParam'
       responses:
@@ -95,8 +107,12 @@ paths:
         - me
       summary: "removes authorized app by app ID for the authenticated user"
       operationId: deleteLoggedInUserAuthorizedAppByAppId
-      description: |
-        Removes authorized OAuth app by an app ID for the authenticated user
+      description:
+        Removes authorized OAuth app by an app ID for the authenticated user<br>
+        <b>Permission required:</b> <br>
+            * None <br>
+        <b>Scope required:</b> <br>
+            * internal_login
       parameters:
         - $ref: '#/parameters/applicationNamePathParam'
       responses:
@@ -186,8 +202,6 @@ responses:
       $ref: '#/definitions/Error'
   Unauthorized:
     description: Unauthorized
-    schema:
-      $ref: '#/definitions/Error'
   ServerError:
     description: Internal Server Error
     schema:

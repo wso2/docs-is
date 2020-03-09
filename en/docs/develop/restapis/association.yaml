@@ -5,7 +5,11 @@ swagger: '2.0'
 info:
   description: |
     This document specifies a **RESTful API** for WSO2 **Identity Server** .
-    It is written with [swagger 2](http://swagger.io/).
+    It is written with [swagger 2](http://swagger.io/). The APIs provide the
+    capability to add/retrieve/delete associated local/federated accounts of an authenticated user.
+    In addition, APIs are available for privileged users to be invoked on behalf of another user
+    to retrieve/delete associated local/federated accounts.
+
   version: "v1"
   title: "WSO2 Identity Server - User Account Associations API Definition"
   contact:
@@ -73,10 +77,11 @@ paths:
     post:
       description: |
         This API is used to associate a user to the authenticated user. For example if it is required to associate  my
-        user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.
-
-         <b>Permission required:</b>
-         * /permission/admin/login
+        user account to the user account of 'john', this endpoint can be used. userId and the password are required to associate the accounts.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Associate a user to the authenticated user
       parameters:
@@ -113,11 +118,11 @@ paths:
         - me
       summary: Retrive the associations of the authenticated user.
       description: |
-        This API is used to retrieve the associations of the authenticated user.
-
-          <b>Permission required:</b>
-
-          * /permission/admin/login
+        This API is used to retrieve the associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         200:
           description: Successful operation
@@ -139,11 +144,11 @@ paths:
     delete:
       summary: Delete all my user associations
       description: |
-        This API is used to delete all associations of the authenticated user.
-
-          <b>Permission required:</b>
-
-          * /permission/admin/login
+        This API is used to delete all associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           description: No content
@@ -167,11 +172,11 @@ paths:
           type: string
       summary: Delete given user account from my user associations
       description: |
-        This API is used to delete the given user account from the associations of the authenticated user.
-
-          <b>Permission required:</b>
-
-          * /permission/admin/login
+        This API is used to delete the given user account from the associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           description: No content
@@ -192,11 +197,11 @@ paths:
         - me
       summary: Retrive the federated associations of the authenticated user.
       description: |
-        This API is used to retrieve the federated associations of the authenticated user.
-
-          <b>Permission required:</b>
-
-          * /permission/admin/login
+        This API is used to retrieve the federated associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         200:
           description: Successful operation
@@ -217,11 +222,11 @@ paths:
     delete:
       summary: Delete all my federated user associations
       description: |
-        This API is used to delete all the federated associations of the authenticated user.
-
-          <b>Permission required:</b>
-
-          * /permission/admin/login
+        This API is used to delete all the federated associations of the authenticated user.<br>
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           description: No content
@@ -245,10 +250,11 @@ paths:
           type: string
       summary: Delete my federated association
       description: |
-        This API is used to delete a federated association of the authenticated user.
-
+        This API is used to delete a federated association of the authenticated user.<br>
         <b>Permission required:</b>
-          * /permission/admin/manage/identity/user/association/delete
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           description: No content
@@ -273,10 +279,11 @@ paths:
         - admin
       summary: Get user's associations
       description: |
-        This API is used to retrieve the associations of the user.
-
-          <b>Permission required:</b>
-        * /permission/admin/manage/identity/user/association/view
+        This API is used to retrieve the associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/view
+        <b>Scope required:</b>
+            * internal_user_association_view
       parameters:
         -
           name: user-id
@@ -314,10 +321,11 @@ paths:
           type: string
       summary: Delete user's all user associations
       description: |
-        This API is used to delete all associations of the  user.
-
+        This API is used to delete all associations of the user.<br>
         <b>Permission required:</b>
-          * /permission/admin/manage/identity/user/association/delete
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
       responses:
         204:
           description: No content
@@ -342,10 +350,11 @@ paths:
         - admin
       summary: Get user's federated associations
       description: |
-        This API is used to retrieve the federated associations of the user.
-
-          <b>Permission required:</b>
-        * /permission/admin/manage/identity/user/association/view
+        This API is used to retrieve the federated associations of the user.<br>
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/user/association/view
+        <b>Scope required:</b>
+            * internal_user_association_view
       parameters:
         - name: user-id
           in: path
@@ -381,10 +390,11 @@ paths:
           type: string
       summary: Delete user's all user federated associations
       description: |
-        This API is used to delete all federated associations of the  user.
-
+        This API is used to delete all federated associations of the user.<br>
         <b>Permission required:</b>
-          * /permission/admin/manage/identity/user/association/delete
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
       responses:
         204:
           description: No content
@@ -416,10 +426,11 @@ paths:
           type: string
       summary: Delete user's federated association
       description: |
-        This API is used to delete a federated association of the user.
-
+        This API is used to delete a federated association of the user.<br>
         <b>Permission required:</b>
-          * /permission/admin/manage/identity/user/association/delete
+            * /permission/admin/manage/identity/user/association/delete
+        <b>Scope required:</b>
+            * internal_user_association_delete
       responses:
         204:
           description: No content

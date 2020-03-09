@@ -25,10 +25,11 @@ paths:
       summary: Retrieve governance connector categories.
       operationId: getCategories
       description: |
-        Retrieve governance connector categories.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage
+        Retrieve governance connector categories.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/limitQueryParam'
         - $ref: '#/components/parameters/offsetQueryParam'
@@ -56,10 +57,11 @@ paths:
       summary: Retrieve governance connectors of a category.
       operationId: getConnectorCategory
       description: |
-        Retrieve governance connectors of a category.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage
+        Retrieve governance connectors of a category.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -82,10 +84,11 @@ paths:
       summary: Retrieve governance connectors of a category.
       operationId: getConnectorsOfCategory
       description: |
-        Retrieve governance connectors of a category.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage
+        Retrieve governance connectors of a category.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
       responses:
@@ -110,10 +113,11 @@ paths:
       summary: Retrieve governance connector.
       operationId: getConnector
       description: |
-        Retrieve governance connector.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage
+        Retrieve governance connector.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/view <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_view
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'
@@ -136,10 +140,11 @@ paths:
       summary: Patch governance connector.
       operationId: patchConnector
       description: |
-        Patch governance connector.
-
-        <b>Permission required:</b>
-          * /permission/admin/manage
+        Patch governance connector.<br>
+        <b>Permission required:</b> <br>
+            * /permission/admin/manage/identity/idpmgt/update <br>
+        <b>Scope required:</b> <br>
+            * internal_idp_update
       parameters:
         - $ref: '#/components/parameters/categoryIdPathParam'
         - $ref: '#/components/parameters/connectorIdPathParam'

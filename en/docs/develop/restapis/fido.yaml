@@ -5,8 +5,9 @@ swagger: '2.0'
 info:
   version: "v2"
   title: "WSO2 Identity Server FIDO2 Rest API "
-  description: |
-    This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
+  description: >
+    This document specifies a **FIDO 2 RESTful API** for WSO2 **Identity Server** . This API
+    can be used to register and deregister FIDO2 devices, and get device metadata by username.
 
     It is written with [swagger 2](http://swagger.io/).
 
