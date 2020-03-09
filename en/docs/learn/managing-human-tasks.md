@@ -18,7 +18,7 @@ Human tasks are the steps that require human interaction in order to allow the p
     1.  [Sign in to the User Portal](../../learn/user-portal/#accessing-the-user-portal-and-its-components) as a manager at this link: <https://localhost:9443/user-portal>  
         ![pending-approvals](../assets/img/using-wso2-identity-server/pending-approvals.png)   
           
-    2.  Click **View details** under **Pending Approvals**.
+    2.  Click **Reserved** under **Pending Approvals** in **Operations** section.
     3.  In the resulting screen, select the **Workflow Profile engine** you want to access from the drop down menu. You can also filter the tasks from it’s current status by selecting the required       category from the **Task Status** drop down menu. A table of tasks will appear based on the parameters you specified. The “DEFAULT” task status category captures the aggregate task statuses of “READY” and “RESERVED”.
 
         ![workflow-task-status](../assets/img/using-wso2-identity-server/workflow-task-status.png) 

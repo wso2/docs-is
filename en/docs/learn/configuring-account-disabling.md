@@ -112,7 +112,7 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-disabled-email.png" alt="Account Disabled email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
 		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
 		 solid grey"> 	
