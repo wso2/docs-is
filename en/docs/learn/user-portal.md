@@ -23,7 +23,7 @@ these features in the user portal depending on your preferences and requirements
 
 ## Accessing the user portal and its components
 
-1. Go to the dashboard URL: `https://(host name):(port name)/user-portal/`
+1. Go to the user portal URL: `https://(host name):(port name)/user-portal/`
 
     (e.g., <https://localhost:9443/user-portal>)
 
