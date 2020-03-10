@@ -193,7 +193,7 @@ Next, you can try out self-registration.
 ## Try out self-registration
 
 1.  Access the [WSO2 Identity Server user portal](https://localhost:9443/user-portal/).
-2.  Click the **Register Now?** link and then enter the new user's
+2.  Click the **Create Account** link and then enter the new user's
     username.
 
     !!! info "Register Users for a Tenant"

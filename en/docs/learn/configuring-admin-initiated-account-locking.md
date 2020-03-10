@@ -114,7 +114,8 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
 	6.	Try logging in with Larry's credentials. Note that an error message appears.
 

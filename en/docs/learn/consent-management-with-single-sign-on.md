@@ -115,7 +115,7 @@ authentication.
 
 4.  Enter the user credentials and click **Submit**.
 
-    ![user-credentials](../assets/img/using-wso2-identity-server/user-credentials.png)  
+    ![user-credentials](../assets/img/using-wso2-identity-server/register-now-option.png)  
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  

@@ -338,7 +338,6 @@ nav:
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
         - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
-        - 'Using the End User Dashboard': learn/using-the-end-user-dashboard.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
         - 'Creating and Managing Tenants': learn/creating-and-managing-tenants.md

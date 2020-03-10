@@ -47,7 +47,7 @@ use of this **SOAP** endpoint is demonstrated by the WSO2 Identity
 Server’s dashboard under **Authorized Apps** ‘ for resource owners to
 login and revoke application authorization.
 
-1.  Go to the dashboard URL: <https://localhost:9443/dashboard/> .
+1.  Go to the user portal URL: <https://localhost:9443/user-portal/> .
 2.  Click the **Login** button.
 3.  Enter your username and password and click the **Sign In**
     button. The dashboard appears.

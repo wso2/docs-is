@@ -45,8 +45,8 @@ The instructions for both these approaches are as follows.
         hostname accordingly.
     
 
-7.  Click the **Register Now** link.  
-    ![register-now](../assets/img/using-wso2-identity-server/register-now.png)
+7.  Click the **Create Account** link.  
+    ![register-now](../assets/img/using-wso2-identity-server/register-now-option.png)
 8.  At the end of the registration, the following reCaptcha window
     appears.  
     ![recaptcha-window](../assets/img/using-wso2-identity-server/recaptcha-window.png) 
@@ -153,8 +153,8 @@ The instructions for both these approaches are as follows.
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly. 
 
-6.  Click the **Register Now** link.  
-    ![register-now-link](../assets/img/using-wso2-identity-server/register-now-link.png)
+6.  Click the **Create Account** link.  
+    ![register-now-link](../assets/img/using-wso2-identity-server/register-now-option.png)
 7.  Enter the account creation details and note that reCaptcha is
     available.  
     ![account-creation-details](../assets/img/using-wso2-identity-server/account-creation-details.png)

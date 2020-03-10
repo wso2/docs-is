@@ -112,9 +112,10 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-disabled-email.png" alt="Account Disabled email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
 	6.	Try logging in with Larry's credentials. Note that an error message appears.
 
@@ -130,4 +131,5 @@ Follow the steps below to configure account disabling in WSO2 Identity Server.
 
 		<img src="../../assets/img/learn/account-enabled-email.png" alt="Account Enabled email" width="500" style="border:1px solid grey"> 		
 
-	5.	Trying logging in to the WSO2 Identity Server Dashboard with Larry's credentials. The WSO2 Identity Server Dashboard home screen appears.
+	5.	Trying logging in to the WSO2 Identity Server User Portal with Larry's credentials. The WSO2 Identity Server
+	 User Portal home screen appears.
