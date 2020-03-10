@@ -67,9 +67,10 @@ paths:
     post:
       description: |
         This API is used to trigger FIDO2 device registration flow.
-
-         <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Trigger FIDO2 device registration.
       consumes:
@@ -130,9 +131,10 @@ paths:
     post:
       description: |
         This API is used to trigger FIDO2 usernameless device registration flow.
-
-         <b>Permission required:</b>
-         * /permission/admin/login
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Trigger FIDO2 usernameless device registration.
       consumes:
@@ -192,9 +194,10 @@ paths:
     post:
       description: |
         This API is used to complete FIDO2 device registration flow.
-
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Complete FIDO2 device registration.
       # post parameters:
@@ -245,9 +248,10 @@ paths:
     delete:
       description: |
         This API is used to deregister devices by username and credentialId.
-
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Deregister devices by username and credentialId.
       parameters:
@@ -281,9 +285,10 @@ paths:
     patch:
       description: |
         This API is used to update display name of a device by username and credentialId.
-
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Update display name of device by username and credentialId.
       parameters:
@@ -326,9 +331,10 @@ paths:
     get:
       description: |
         This API is used to get fido metadata by username.
-
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Device Metadata
       responses:
