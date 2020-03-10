@@ -1,4 +1,4 @@
-# User Portal Documentation
+# User Portal
 
 ## Introduction
 
