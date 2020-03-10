@@ -8,8 +8,8 @@ Authorization for the APIs in WSO2 Identity Server is enforced
 at the endpoint level using **permissions**. Each secured endpoint
 has a predefined minimum level of permission that is required to be
 able to consume the endpoint. In order to access a particular endpoint,
-the user has to belong to a **role** that is in or above the defined
-permission level. WSO2 Identity Server now supports scope based API
+the user has to belong to a **role** that includes the defined
+permissions. WSO2 Identity Server now supports scope based API
 authorization for internal REST APIs.
 
 When obtaining a token to consume the API, you can define the scope
