@@ -547,6 +547,7 @@ nav:
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
+          - Scope based Authorization for Internal REST APIs: develop/scope-based-authorization-for-internal-rest-apis.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -767,6 +768,7 @@ nav:
     - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
+    - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
   - '': page-not-found.md
 
 
