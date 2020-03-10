@@ -10,7 +10,6 @@
     <li><b>New RESTful APIs for user self-services and server management</b></li>
     <li><b>Scope based authorization for internal REST APIs</b></li>
     <li><b>Unique User ID support</b></li>
-    <li><b>Tenant wise email-sender configuration</b></li>
 </ul>
 
 
