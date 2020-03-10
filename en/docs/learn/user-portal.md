@@ -193,13 +193,42 @@ Using the latest user portal users can update their mobile numbers through which
 
     ![fido-options-list](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-options-list.png)
 
-5. Click the Continue button or you can click on the choose another option dropdown and switch your option.
+5. Click the Continue button. You can also click on the **Choose another option** dropdown and switch your option.
 
     ![fido-option-confirm](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-option-confirm.png)
+ 
+6. Click the Continue button. You can also click on the **Choose another option** dropdown and switch your option.
 
-6. After you successfully added your security device you will see the device registration listed along with its registration      date and time.
+    ![fido-option-allow](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-option-allow.png)
+    
+7. Add the preferred device name.
+
+    ![fido-option-device-name](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-option-device-name.png)
+
+8. Once you have successfully added your device, you will see the device registration listed along with its name.
 
     ![fido-devices-list](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-devices-list.png)
+    
+!!! info "Using an older FIDO device"
+
+    If you are using an older FIDO device when registering the device, an error message mentioning that the device cannot be used will be displayed. 
+    This means the device is not capable of performing [passwordless authentication](../learn/passowrdless-authentication-using-fido2.md) and can only be used as a [second factor](../learn/multi-factor-authentication-using-fido.md). The device will have to be added as an **"Older Device"**.
+    
+    Follow the steps given below to add the device as an older device.
+    
+    1. Click close.
+    
+        ![fido-device-old](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-device-old.png)
+    
+    
+    2. Click on "Try with an older Device"
+    
+        ![fido-device-old-error](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-device-old-error.png)
+    
+    
+    3. From this point onwards the steps to register the device are the same as the steps given in [Add security device](#add-security-device).
+
+
 
 #### Delete security device
 
