@@ -592,15 +592,15 @@ Follow the steps below to map the user claims:
     2.  Click **Edit** in **Disable EmailOTP**.
         ![disable-emailotp-claim](../assets/img/tutorials/disable-emailotp-claim.png)
         
-    3.  Click **Suport by Default** and **Update**.
+    3.  Select **Suport by Default** and click **Update**.
         ![emailotp-support-by-default](../assets/img/tutorials/emailotp-support-by-default.png)
 
     4.  Click **Add**.
 
         To disable this claim for the admin user, navigate to **Users
         and Roles \> List** and click **Users.** Click on the **User
-        Profile** link corresponding to admin account and then write 
-        **false** in **Disable EmailOTP.** This will disable the second factor
+        Profile** link corresponding to admin account and then enter 
+        "false" as the value for the **Disable EmailOTP** field. This will disable the second factor
         authentication for the admin user.
 
 ------------------------------------------------------------------------
