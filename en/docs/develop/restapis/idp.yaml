@@ -2,7 +2,11 @@ openapi: 3.0.0
 info:
   description: >
     This document specifies a **Identity Provider Management RESTful API** for
-    **WSO2 Identity Server**
+    **WSO2 Identity Server**. This supports Restful APIs for identity provider management.
+    The APIs provide the capability to add/update/delete/patch identity providers in Identity Server.
+    In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning
+    connectors that can be configured for any given Identity Provider.
+
   version: "0.1.0-oas3"
   title: WSO2 Identity Server - Identity Provider Management API definition
   termsOfService: 'http://swagger.io/terms/'

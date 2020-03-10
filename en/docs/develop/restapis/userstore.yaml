@@ -1,7 +1,10 @@
 openapi: 3.0.0
 info:
   description: >
-    This is the RESTful API for user store managment related operations in WSO2 Identity Server
+    This is the RESTful API for user store management related operations in WSO2 Identity Server.
+    The APIs provide the capability to add/update/delete/patch secondary user stores in Identity Server.
+    In addition, APIs are available to test the connection to the data source used by a JDBC user store
+    manager, and retrieve available user store types and their properties.
   version: "v1"
   title: WSO2 Identity Server - UserStore Rest API
   contact:
