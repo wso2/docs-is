@@ -5,6 +5,11 @@ This section provides details on Fast IDentity Online (FIDO) and instructions on
 !!! info 
     For information on MFA concepts, see [About MFA](../../learn/multi-factor-authentication). 
 
+??? info "Does your browser support your FIDO devices?"
+    
+    The <https://demo.yubico.com/webauthn-technical/registration> site can be used to check the browser
+    support for FIDO devices.
+    
 !!! tip "Before you Begin"
     Certain changes made to the chrome u2f extension are causing the FIDO device to not register properly as an authentication factor. Additionally, Firefox no longer supports the u2f extension. WSO2 Identity Server resolves this by using the WebAuthn API to enable FIDO-based authentication. The WebAuthn API is already supported by the following browser versions:
     
@@ -96,25 +101,7 @@ The instructions in this section enable you to successfully set up MFA using the
 
 
 ### Setting up an account for MFA
-
-1.  Sign in to [User-portal](../../learn/user-portal).
-2.  Navigate to the **My Profile** section by clicking the associated
-    **View Details** button.
-3.  Plug the FIDO device that you need to add to your computer if you have not already added and click **Manage U2F Authentication**.      
-
-    ![fido-device](../assets/img/using-wso2-identity-server/fido-device.png)
-
-4.  You can add a new U2F device to your account and remove it if needed. Too add the new U2F device, 
-    1. Click the **Attach FIDO Token** button. 
-    2. Touch the 'key' icon on the FIDO device. Note that the added device is listed in the next screen.
-
-    !!! tip
-    
-        You can have multiple devices associated with your account.
-    
-
-    ![u2f-device-config](../assets/img/using-wso2-identity-server/u2f-device-config.png)
-
+To associate a FIDO device with the user account, refer [Add security device](../learn/user-portal.md#add-security-device).
   
 
 ### Configuring FIDO U2F as an authenticator
@@ -146,10 +133,3 @@ The instructions in this section enable you to successfully set up MFA using the
 6.  To add FIDO as the second-step authenticator, click **Add Authentication step** and add **FIDO** authenticator from **Local Authenticators** section. 
     ![add-fido-authenticator](../assets/img/using-wso2-identity-server/add-fido-authenticator.png)
 7.  Click the **Update**. Note that you will be redirected to the previous screen with the newly configured authentication steps.
-
-## Browser support for FIDO devices
-
-The <https://demo.yubico.com/u2f> site can be used to check the browser
-support for FIDO devices.
-
-As for now, Google Chrome (version 38 or later) has support for FIDO devices. Firefox does not support FIDO natively. An add-on must be added to Firefox to support FIDO devices. You can download and  install the add-on from [here](https://addons.mozilla.org/en-US/firefox/addon/u2f-support-add-on/).
