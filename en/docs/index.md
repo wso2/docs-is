@@ -1,4 +1,6 @@
---- template: templates/single-column.html ---
+--- 
+template: templates/single-column.html 
+---
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div>
