@@ -329,8 +329,19 @@ foo.com)
 <https://localhost:9443/samlsso?spEntityID=foo.com>
 
 This request will authenticate and redirect the user to the registered
-Assertion Consumer URL. Optionally you can send in a RelayState
-parameter as follows:
+Assertion Consumer URL. You can use `acs` query parameter in the request
+to specify the Assertion Consumer URL that the browser should be redirected
+to after the authentication is successful. 
+
+-   If the `acs` query parameter is not present in the request, the Identity
+    Server sends the response to default ACS URL of the service provider.
+-   If the `acs` parameter is present and the value of that parameter matches
+    with any of the registered ACS URLs of the service provider, then the
+    Identity Server sends the response to the matched one.
+    
+<https://localhost:9443/samlsso?spEntityID=foo.com&acs=http://localhost:8080/foo.com/my-home.jsp>
+ 
+Optionally, you can send in a `RelayState` parameter as follows:
 
 <https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp>
 
