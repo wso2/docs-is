@@ -99,7 +99,7 @@ After setting up the MySQL database. You can point the `WSO2_IDENTITY_DB` or
            - `<IS-HOME>/dbscripts/mysql.sql`
            
     !!! note     
-            Instead of defining `hostname`, `port`, `name` separately, you can define `url`
+            Instead of defining `hostname`, `port` and `name` separately, you can define `url`
             of the database in the following format as well.
                        
            ``` toml
