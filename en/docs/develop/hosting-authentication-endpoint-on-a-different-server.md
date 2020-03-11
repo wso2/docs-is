@@ -221,7 +221,7 @@ hosting accountrecoveryendpoint.war also on a separate web server.
     `           <TOMCAT_HOME>          `
 
 2.  Get the sample setup scripts from the following location:
-    `                     https://github.com/ayshsandu/samples/tree/master/is_samples/is_5.6.0/hosting-endpoints                   `
+    `                     https://github.com/wso2/samples-is/tree/master/host-endpoints-externally                   `
     .
 3.  Open `           <TOMCAT_HOME>/conf/server.xml          ` file and
     enable the https connector on 8443 port.
