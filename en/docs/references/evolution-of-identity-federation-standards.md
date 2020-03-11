@@ -341,7 +341,7 @@ to after the authentication is successful.
     
 <https://localhost:9443/samlsso?spEntityID=foo.com&acs=http://localhost:8080/foo.com/my-home.jsp>
  
-Optionally, you can send in a `RelayState` parameter as follows:
+Optionally, you can send a `RelayState` parameter as follows:
 
 <https://localhost:9443/samlsso?spEntityID=foo.com&RelayState=http://localhost:8080/foo.com/my-home.jsp>
 
