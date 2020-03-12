@@ -6,7 +6,7 @@
 
 ## Register a service provider
 
-1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
+1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
 2. Click **Service Providers >Add** and enter "playground2" as the **Service Provider Name** and click **Register**.
 		<img name='add-playground-sp' src='../../assets/img/samples/add-playground-sp.png' class='img-zoomable'/>

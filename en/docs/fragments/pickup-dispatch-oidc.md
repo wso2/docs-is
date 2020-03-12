@@ -3,24 +3,28 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
+1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
-2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
+2. Click **Service Providers >Add**. 
+
+3. Enter "pickup-dispatch" as the **Service Provider Name**.
+ 
+4. Click **Register**.
     
-3.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
+5.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
     **Configure.**   
 
-4. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
+6. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
         
-5.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
+7.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
         refer, [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced)
         
-6.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
+8.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-7.  Click the **Register** button to finish creating the service provider.
+9.  Click the **Register** button to finish creating the service provider.
 
 ### Download the sample
 

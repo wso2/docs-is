@@ -2,7 +2,7 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
+1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
 2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
     

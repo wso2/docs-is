@@ -2,14 +2,18 @@
 
 ### Register a service provider
 
-1. Log in to the [Management Console](https://localhost:9443/carbon/) using admin/admin credentials. 
+1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
 
-2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
+2. Click **Service Providers >Add**.
+
+3. Enter "pickup-dispatch" as the **Service Provider Name**.
+
+4. Click **Register**.
     
-3. Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
+5. Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
     **Configure.**   
 
-4. Enter the following configurations:
+6. Enter the following configurations:
     1.  **Issuer** : saml2-web-app-pickup-dispatch.com
 
     2.  **Assertion Consumer URL** : http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com/home.jsp                     
@@ -19,7 +23,7 @@
             For more information on these fields and other advanced configurations
             refer, [Advanced SAML Configurations](../../guides/authentication/saml-app-config-advanced)
 
-5. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
+6. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
 
 ### Download the samples
 
