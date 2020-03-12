@@ -23,7 +23,7 @@ site_url: https://wso2.com/identity-and-access-management/
 # Repository
 repo_name: wso2/docs-is
 repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-is/edit/5.10.0/en/docs/
 
 # Copyright
 copyright: WSO2 Identity Server - Documentation
@@ -531,6 +531,7 @@ nav:
                 - 'Retrieving Tenant Resources Based on Search Parameters': develop/retrieving-tenant-resources-based-on-search-parameters.md
             - 'Consent Management': develop/using-the-consent-management-rest-apis.md
             - 'Email Templates': develop/email-templates-rest-api.md
+            - 'Entitlement': develop/entitlement-with-rest-apis.md
             - 'Fido': develop/fido-rest-api.md
             - 'Identity Governance': develop/identity-governance-rest-api.md
             - 'Identity Providers': develop/idp-rest-api.md
@@ -569,7 +570,6 @@ nav:
           - 'Managing Tenants with APIs': develop/managing-tenants-with-apis.md
           - 'Entitlement with APIs':
             - 'Entitlement with APIs': develop/entitlement-with-apis.md
-            - 'Entitlement with REST APIs': develop/entitlement-with-rest-apis.md
       - 'Customizing User Interfaces':
         - 'Customizing WSO2 Identity Server UIs': develop/customizing-identity-server-uis.md
         - 'Customizing Login Pages for Service Providers': develop/customizing-login-pages-for-service-providers.md
