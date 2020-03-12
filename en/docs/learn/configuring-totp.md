@@ -100,6 +100,7 @@ and security during the authentication for this application.
     Application to generate the one-time passwords (tokens). Click on
     **Security** and go to **Multi-factor authentication**. Click on the eye icon
     to scan the QR-Code using the Google Authenticator mobile app.
+    
     ![my-profile-gadget](../assets/img/tutorials/totp-authenticator-app.png)
     ![my-profile-gadget](../assets/img/tutorials/totp-authenticator-qr-code.png)
 
