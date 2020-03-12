@@ -91,21 +91,17 @@ and security during the authentication for this application.
               
 ## Configuring the user profile
 
-Now you have to register for the TOTP authentication from your user
-profile.
-
 1.  Login to the
-    [user portal](../../learn/user-portal) and
-    go to **My Profile** by clicking **View details** .  
-    ![my-profile-gadget](../assets/img/tutorials/my-profile-gadget.png)
-4.  Update your email address (this email address is used to send the
+    [user portal](../../learn/user-portal) and go to **Personal info**.  
+2.  Update your email address in **Profile**(this email address is used to send the
     token).
-3.  To enable TOTP, select the **Enable TOTP** check box.  
-    ![scan-totp-qr](../assets/img/tutorials/scan-qr.png)
+    ![my-profile-gadget](../assets/img/tutorials/update-email-in-profile.png)
 4.  You can use the [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en)
-    Application to generate the one-time passwords (tokens), click on
-    **Scan QR Code** to scan the QR-Code using the Google Authenticator
-    mobile app.
+    Application to generate the one-time passwords (tokens). Click on
+    **Security** and go to **Multi-factor authentication**. Click on the eye icon
+    to scan the QR-Code using the Google Authenticator mobile app.
+    ![my-profile-gadget](../assets/img/tutorials/totp-authenticator-app.png)
+    ![my-profile-gadget](../assets/img/tutorials/totp-authenticator-qr-code.png)
 
 ## Testing the sample
 
@@ -117,22 +113,8 @@ profile.
 
 2.  Click the link to log in with SAML from the WSO2 Identity Server.  
 3.  The basic authentication page is visible. Use your username and
-    password to log in.  
-4.  If the TOTP is not enabled the user's profile and the user is
-    allowed to enable the TOTP in the authentication flow, this page
-    will appear. You can scan either continue or cancel.  
-    ![](../assets/img/tutorials/totp-register.png)
-5.  You may enroll the user by clicking on the link to show the QR code.
-    Scan the displayed QR code using the mobile application and
-    continue.
-    
-    ??? Abstract "Click here to view QR-Code display page"
-        ![](../assets/img/tutorials/scan-qr-auth-flow.png)
-    
-    !!! Note 
-        Now you are redirected to the TOTP authentication page.
-        
-6.  Enter the verification code from your Google Authenticator Mobile
+    password to log in.      
+4.  Enter the verification code from your Google Authenticator Mobile
     Application to authenticate.
     ![](../assets/img/tutorials/enter-totp.png)
      
@@ -146,23 +128,14 @@ profile.
 7.  If your verification is successful, you are taken to the home page
     of the travelocity.com application.
 
-## Refreshing the secret key
-
-You can refresh the secret key by selecting the **Refresh Secret Key**
-check box in the **My Profile** gadget in the **dashboard**. However, you
-must re-scan the QR code to sync the new secret key with your Google
-Authenticator mobile application.
-
-![refresh-totp](../assets/img/tutorials/refresh-totp.png)
-
 ## Advanced Configurations of TOTP authenticator
 
 ### Disable TOTP
  
-In WSO2 Identity Server 5.9.0 version, TOTP authenticator is enabled by
+From WSO2 Identity Server 5.9.0 onwards, TOTP authenticator is enabled by
 default.
 
-You can disable the TOTP authenticator by adding folowing
+You can disable the TOTP authenticator by adding the following
 configuration to the `deployment.toml` file in the
 `<IS_HOME>/repository/conf` folder.
 
@@ -282,7 +255,7 @@ this.
 ### Using REST API
 
 See the swagger documentation for the TOTP REST API
-[here](../../develop/totp-rest-api/) to understand how to obtain TOTO
+[here](../../develop/totp-rest-api/) to understand how to obtain TOTP
 related information via the API.
 
 ### Using Admin Services
