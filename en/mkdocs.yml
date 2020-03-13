@@ -178,6 +178,7 @@ nav:
           - 'New-Device-Based': learn/configuring-new-device-based-adaptive-authentication.md
           - 'ACR-Based': learn/configuring-acr-based-adaptive-authentication.md
           - 'Risk-Based': learn/configuring-risk-based-adaptive-authentication.md
+          - 'Login-Attempts-Based': learn/configuring-login-attempts-based-adaptive-authentication.md
           - 'With Function Library': learn/adaptive-authentication-with-function-library.md
           - 'Limiting Active User Sessions Based On Criteria': learn/limiting-active-user-sessions-based-on-criteria.md
         - 'Using WSO2 Stream Processor for Adaptive Authentication': learn/using-wso2-stream-processor-for-adaptive-authentication.md
