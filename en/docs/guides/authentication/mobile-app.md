@@ -51,8 +51,9 @@ Make the following requests via your application to connect your application to 
     &code_challenge=5vEtIy2T-G65yXHc8g5zcJDQXICBzZMrtERq0zhx7hM
     &code_challenge_method=S256
     ```
-
+    
 2. Obtain the access token by sending a token request to the token endpoint using the `authorization_code` recieved in step 1, and the `<OAuth Client Key>` and `<OAuth Client Secret>` obtained when configuring the service provider.
+
 
     ```tab="Request Format"
     curl -i -X POST -u <OAuth Client Key>:<Client Secret> -k -d 
