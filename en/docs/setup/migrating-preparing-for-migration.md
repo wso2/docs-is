@@ -7,19 +7,19 @@
 !!! note
     In this section, `<OLD_IS_HOME> ` is the directory that current Identity
     Server resides in, and `<NEW_IS_HOME>` is the
-    directory that WSO2 Identity Server 5.9.0 resides in. 
+    directory that WSO2 Identity Server 5.10.0 resides in. 
     
 ## Disabling versioning in the registry configuration
 If there are frequently updating registry properties, having the versioning enabled for 
 registry resources in the registry can lead to unnecessary growth in the registry related
 tables in the database. To avoid this, we have disabled versioning by default in Identity 
-Server 5.9.0.
+Server 5.10.0.
 
-Therefore, when migrating to IS 5.9.0 it is **required** to turn off the registry versioning in your
+Therefore, when migrating to IS 5.10.0 it is **required** to turn off the registry versioning in your
 current Identity Server and run the below scripts against the database that is used by the registry.
 
 !!! note "NOTE"
-    Alternatively, it is possible to turn on registry versioning in IS 5.9.0 and continue. But this is
+    Alternatively, it is possible to turn on registry versioning in IS 5.10.0 and continue. But this is
     highly **NOTE RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Turning off registry versioning in your current IS and running the scripts"
@@ -299,7 +299,7 @@ Ideally, the internal keystore should be used for encrypting internal critical d
 previous versions, the secondary userstore passwords are encrypted using the primary keystore, 
 which is also used to sign and encrypt tokens.
 
-In WSO2 Identity Server 5.9.0 we have moved the secondary userstore password encryption functionality 
+In WSO2 Identity Server 5.10.0 we have moved the secondary userstore password encryption functionality 
 from the primary keystore to the internal keystore.
 
 Check this [link](../../administer/migrating-the-secondary-userstore-password-to-the-internal-keystore) 
@@ -308,7 +308,7 @@ to see the instructions on migrating the secondary userstore password to encrypt
 
 ## Migrating custom components
 
-In WSO2 Identity Server 5.9.0 we have done a major upgrade to our kernel and our main components. 
+In WSO2 Identity Server 5.10.0 we have done a major upgrade to our kernel and our main components. 
 Any custom OSGI bundles which are added manually should be recompiled with new dependency versions 
 that are relevant to the new WSO2 IS version.  All custom OSGI components reside in the 
 `<OLD_IS_HOME>/repository/components/dropins` directory.
@@ -317,7 +317,7 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
 
 2.  Change the dependency versions in the relevant POM files according to the WSO2 IS version that 
     you are upgrading to, and compile them. The compatible dependency versions can be found 
-    [here](https://github.com/wso2/product-is/blob/v5.9.0/pom.xml). 
+    [here](https://github.com/wso2/product-is/blob/v5.10.0/pom.xml). 
 
 3.  If you come across any compile time errors, refer to the WSO2 IS code base and make the 
     necessary changes related to that particular component version.
@@ -337,13 +337,13 @@ that are relevant to the new WSO2 IS version.  All custom OSGI components reside
 
 Previous WSO2 Identity Server versions supported multiple configuration files 
 such as <code>carbon.xml</code>, <code>identity.xml</code>, and <code>axis2.xml</code>. With the 
-[new configuration model](../../references/new-configuration-model) in WSO2 Identity Server 5.9.0, 
+[new configuration model](../../references/new-configuration-model) in WSO2 Identity Server 5.10.0, 
 configurations are handled by the a single file named 
 `deployment.toml` in the `<IS_HOME>/repository/conf` directory.
 
 !!! warn "Note" 
-    When you are migrating from older version of WSO2
-    Identity Server that 5.9.0, you need to convert old configurations to new
+    When you are migrating from an older version of WSO2
+    Identity Server to 5.10.0, you need to convert old configurations to new
     configuration model as well.
 
 Refer to the relevant feature documents and
@@ -359,7 +359,7 @@ necessary configurations according to the new configuration model.
 
 !!! info
     If you do not require a zero down time migration, then you can directly proceed to the
-    next section, [Migrating to 5.9.0](../../setup/migrating-to-590).
+    next section, [Migrating to 5.10.0](../../setup/migrating-to-5100).
     
 A typical WSO2 Identity Server deployment requires an update or upgrade from time to time, 
 usually when there’s a patch, or critical security upgrade for products used in the solution, 
@@ -396,9 +396,9 @@ All the other data will not be preserved in the new system.
 
 Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 
-1.  Create a new databases for the new WSO2 Identity Server version (5.9.0) 
+1.  Create a new databases for the new WSO2 Identity Server version (5.10.0) 
     that you are migrating to.
-2.  Unzip a WSO2 Identity Server 5.9.0 distribution (use a WUM updated distribution 
+2.  Unzip a WSO2 Identity Server 5.10.0 distribution (use a WUM updated distribution 
     if possible). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
@@ -547,4 +547,4 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
 9.  Create database dumps from the old databases (databases used in the old version of the WSO2 Identity Server) 
 and restore in the new databases created.
 
-10. Proceed to the next section [Migrating to 5.9.0](../../setup/migrating-to-590).
+10. Proceed to the next section [Migrating to 5.10.0](../../setup/migrating-to-5100).

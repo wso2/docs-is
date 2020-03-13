@@ -74,8 +74,7 @@ features.
     infomation, see [Using the Consent Management REST
     APIs](../../develop/using-the-consent-management-rest-apis).
 -   Consent portal for individuals to review, modify, and revoke already
-    given consents. For more information, see [Configuring consent for
-    services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
+    given consents. For more information, see [Consent management](../../learn/user-portal/#consent-management)
     .
 -   Admin portal support for organizations to define and manage consent,
     data processing purposes, and user attributes per consent. For more
@@ -125,7 +124,7 @@ WSO2 IS.
     selectively opt-in/opt-out on each of the purposes.
 
 -   Users can review or revoke already given consent by logging in to
-    WSO2 IS end user dashboard (self-care portal).
+    WSO2 IS user portal (self-care portal).
 
 -   Personal data processing applications can check for consent for each
     user through the consent REST API before carrying out any data
@@ -159,7 +158,7 @@ supported in WSO2 IS.
     the consent that the user approves at this point.
 
 -   Users can review or revoke already given consent by logging in to
-    the WSO2 IS end user dashboard (self-care portal).
+    the WSO2 IS user portal (self-care portal).
 
 !!! tip
     

@@ -4,7 +4,8 @@ info:
   title: WSO2 Identity Server - Email Template API
   description: >-
     This is the RESTful API for managing Email Templates in the WSO2 Identity
-    Server.
+    Server. This API allows adding, retrieving, replacing, and removing email
+    templates and template types.
   contact:
     name: WSO2 Identity Server
     url: 'https://wso2.com/identity-and-access-management/'
@@ -447,16 +448,8 @@ components:
             $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Unauthorized
-      content:
-        'application/json':
-          schema:
-            $ref: '#/components/schemas/Error'
     Forbidden:
       description: Forbidden
-      content:
-        'application/json':
-          schema:
-            $ref: '#/components/schemas/Error'
     ServerError:
       description: Internal Server Error
       content:

@@ -1,6 +1,9 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing Sessions in WSO2 Identity Server
+  description: This is the RESTful API for managing Sessions in WSO2 Identity Server. The APIs provide the
+    capability to retrieve/terminate active sessions of an authenticated user.
+    In addition, APIs are available for privileged users to be invoked on behalf of another user
+    to retrieve/delete sessions of the user.
   version: 'v1'
   title: WSO2 Identity Server - Session Management API
   contact:

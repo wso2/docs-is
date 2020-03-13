@@ -81,7 +81,10 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                         <td>This parameter defines how the email ID will be retrieved.
                             <ul>
                                 <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
-                                <li><code>assocication</code>: The federated username must be associated with the local account in advance in the end user dashboard. The local username is retrieved from the association. To associate the user, log into the  [end user dashboard](../../learn/using-the-end-user-dashboard)  and go to  **Associated Account**  by clicking  **View details**.</li>
+                                <li><code>assocication</code>: The federated username must be associated with the
+                                 local account in advance in the user portal. The local username is retrieved
+                                  from the association. To associate the user, log into the  [user portal](../../learn
+                                  /user-portal)  and go to  **Associated Account**  by clicking  **View details**.</li>
                                 <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
                                 <li>
                                     <p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  ```[authentication.authenticator.email_otp.parameters]```  section in the ```deployment.toml``` file and put the value, e.g., email and screen_name, id.</p>
@@ -583,40 +586,24 @@ Follow the steps given below to update the user's email address.
 
 Follow the steps below to map the user claims:
 
-!!! note
-    
-    For more information about claims, see [Adding Claim
-    Mapping](../../learn/adding-claim-mapping).
-    
-
-1.  Click **Add** under **Main \> Identity \> Claims**.  
-    ![adding-claims](../assets/img/tutorials/adding-claims.png) 
+1.  Click **List** under **Main \> Identity \> Claims**.  
+    ![listing-claims](../assets/img/tutorials/listing-claims.png) 
      
-    1.  Click **Add Local Claim**.  
-        ![add-local-claim](../assets/img/tutorials/add-local-claim.png)
+    1.  Click **http://wso2.org/claims**.  
+        ![available-claim-dialects](../assets/img/tutorials/available-claim-dialects.png)
         
-    2.  Select the **Dialect** from the drop down provided and enter the
-        required information.
+    2.  Click **Edit** in **Disable EmailOTP**.
+        ![disable-emailotp-claim](../assets/img/tutorials/disable-emailotp-claim.png)
         
-    3.  Add the following:
-
-        1.  **Claim URI:**
-            `                             http://wso2.org/claims/identity/emailotp_disabled                           `
-        2.  **Display Name** :
-            `              DisableEmailOTP             `
-        3.  **Description:**
-            `              DisableEmailOTP             `
-        4.  **Mapped Attribute (s):** `              title             `
-        5.  **Supported by Default:** checked
-
-        ![filling-claim-fields](../assets/img/tutorials/filling-claim-fields.png)
+    3.  Select **Suport by Default** and click **Update**.
+        ![emailotp-support-by-default](../assets/img/tutorials/emailotp-support-by-default.png)
 
     4.  Click **Add**.
 
         To disable this claim for the admin user, navigate to **Users
         and Roles \> List** and click **Users.** Click on the **User
-        Profile** link corresponding to admin account and then click
-        **Disable EmailOTP.** This will disable the second factor
+        Profile** link corresponding to admin account and enter 
+        "false" as the value for the **Disable EmailOTP** field. This will disable the second factor
         authentication for the admin user.
 
 ------------------------------------------------------------------------

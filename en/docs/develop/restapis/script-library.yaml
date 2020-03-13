@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   description: >
     This document specifies a **Script Library Management RESTful API** for
-    **WSO2 Identity Server**
+    **WSO2 Identity Server**. This supports Restful APIs for adding, retrieving,
+    updating, and deleting script libraries in WSO2 Identity Server.
   version: "1.0.0-oas3"
   title: WSO2 Identity Server - Script Library Management API definition
   termsOfService: 'http://swagger.io/terms/'

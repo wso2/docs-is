@@ -128,6 +128,7 @@ nav:
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
+        - 'Passwordless authentication using FIDO2': learn/passowrdless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
         - 'Logging in to SimpleSAMLphp using Identity Server': learn/logging-in-to-simplesamlphp-using-identity-server.md
@@ -338,7 +339,6 @@ nav:
         - 'Customizing Automated Emails': learn/customizing-automated-emails.md
         - 'Enabling Notifications for User Operations': learn/enabling-notifications-for-user-operations.md
         - 'Tenant Wise Email Sender Configuration': learn/tenant-wise-email-sender-configuration.md
-        - 'Using the End User Dashboard': learn/using-the-end-user-dashboard.md
         - 'Associating User Accounts': learn/associating-user-accounts.md
         - 'Managing User Attributes': learn/managing-user-attributes.md
         - 'Creating and Managing Tenants': learn/creating-and-managing-tenants.md
@@ -548,6 +548,7 @@ nav:
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
+          - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
@@ -680,7 +681,7 @@ nav:
       - 'Migration Guide':
           - "Before you begin" : setup/migration-guide.md
           - "Preparing for migration" : setup/migrating-preparing-for-migration.md
-          - "Migrating to 5.9.0" : setup/migrating-to-590.md
+          - "Migrating to 5.10.0" : setup/migrating-to-5100.md
           - 'Migrating to Log4j2': setup/migrating-to-log4j2.md
           - 'Migrating Data Publishers': setup/migrating-data-publishers.md
           - 'Migrating Custom Scope Validators': setup/migrating-custom-scope-validators.md
@@ -768,6 +769,7 @@ nav:
     - 'WSO2 Patch Application Process': references/wso2-patch-application-process.md
     - 'Evolution of Identity Federation Standards': references/evolution-of-identity-federation-standards.md
     - 'Adaptive Authentication JS API Reference': references/adaptive-authentication-js-api-reference.md
+    - 'Scopes Corresponding to Permissions Required to Invoke API Calls' : references/scopes-corresponding-to-api-permissions.md
   - '': page-not-found.md
 
 

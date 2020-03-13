@@ -37,16 +37,16 @@ The instructions for both these approaches are as follows.
     ![self-registration-enable-recaptcha](../assets/img/using-wso2-identity-server/self-registration-enable-recaptcha.png)
 6.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
-    end user dashboard using the following link:
-    <https://localhost:9443/dashboard>
+    user portal using the following link:
+    <https://localhost:9443/user-portal>
 
     !!! tip
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly.
     
 
-7.  Click the **Register Now** link.  
-    ![register-now](../assets/img/using-wso2-identity-server/register-now.png)
+7.  Click the **Create Account** link.  
+    ![register-now](../assets/img/using-wso2-identity-server/register-now-option.png)
 8.  At the end of the registration, the following reCaptcha window
     appears.  
     ![recaptcha-window](../assets/img/using-wso2-identity-server/recaptcha-window.png) 
@@ -145,16 +145,16 @@ The instructions for both these approaches are as follows.
 4.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
-5.  Start the WSO2 Identity Server and log in to the end user dashboard
-    using the following link: <https://localhost:9443/dashboard>
+5.  Start the WSO2 Identity Server and log in to the user portal
+    using the following link: <https://localhost:9443/user-portal>
 
     !!! tip
     
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly. 
 
-6.  Click the **Register Now** link.  
-    ![register-now-link](../assets/img/using-wso2-identity-server/register-now-link.png)
+6.  Click the **Create Account** link.  
+    ![register-now-link](../assets/img/using-wso2-identity-server/register-now-option.png)
 7.  Enter the account creation details and note that reCaptcha is
     available.  
     ![account-creation-details](../assets/img/using-wso2-identity-server/account-creation-details.png)

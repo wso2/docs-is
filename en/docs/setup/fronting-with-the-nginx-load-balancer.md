@@ -7,7 +7,7 @@ setting up the cluster following the above instructions).
 !!! tip 
     When clustering WSO2 Identity Server with a load balancer, you may need to
     enable sticky sessions. This is required for the management console and
-    the dashboard to work and if we disable temporary session data
+    the user portal to work and if we disable temporary session data
     persistence in the
     `<IS_HOME>/repository/conf/deployment.toml`
     file. For more information on sticky sessions, see [Sticky Sessions with Manager Nodes](../../administer/sticky-sessions-with-manager-nodes).

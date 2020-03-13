@@ -9,7 +9,7 @@ have logged on.
 
 !!! note
     If you want to associate user accounts of federated users via the
-    dashboard, add the following configuration to the `/repository/conf/deployment.toml`
+    user portal, add the following configuration to the `/repository/conf/deployment.toml`
     file.
     
     ``` toml
@@ -17,7 +17,8 @@ have logged on.
     enable_for_federated_users = true
     ```    
 
-    The **recommended approach** is to have the `enable_for_federated_users` parameter set to `false` so that manual federated user association is not allowed by default via the dashboard.
+    The **recommended approach** is to have the `enable_for_federated_users` parameter set to `false` so that manual
+     federated user association is not allowed by default via the user portal.
         
 
   
@@ -40,7 +41,7 @@ The following actions can be performed using above admin service.
 -   Switch between associated user accounts without re-authenticate with
     the system
 
-## Using the dashboard
+## Using the user portal
 
 The WSO2 Identity Server [user
 portal](../../learn/user-portal) can be used to associate the

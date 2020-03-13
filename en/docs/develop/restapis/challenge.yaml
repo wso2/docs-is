@@ -38,7 +38,9 @@ paths:
         Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/limitQueryParam'
         - $ref: '#/parameters/offsetQueryParam'
@@ -67,7 +69,9 @@ paths:
         Provide answer(s) to one or more candidate challenge question set(s) available in the system for the authenticated user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - in: body
           name: challengeAnswer
@@ -98,7 +102,9 @@ paths:
         Get previously answered challenge(s) in the system by the authenticated user.
 
           <b>Permission required:</b>
-           * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         200:
           description: Array of Challenge(s) that are already answered by the authenticated user.
@@ -121,7 +127,9 @@ paths:
         Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - in: body
           name: challengeAnswers
@@ -152,7 +160,9 @@ paths:
         Removes all the existing challenge answers of the authenticated user.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           $ref: '#/responses/NoContent'
@@ -174,7 +184,9 @@ paths:
         Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
@@ -206,7 +218,9 @@ paths:
         Update challenge answer in a specific challenge for authenticated user.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
@@ -236,7 +250,9 @@ paths:
         Removes existing answer provided by the authenticated user to a specific challenge.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
       responses:
@@ -260,7 +276,9 @@ paths:
         Retrieves the available challenges in the system for the specified user. In the response challenge questions are grouped as **challenge set**s.
 
         <b>Permission required:</b>
-            * /permission/admin/manage/identity
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
       parameters:
         - $ref: '#/parameters/usernamePathParams'
         - $ref: '#/parameters/limitQueryParam'
@@ -292,8 +310,10 @@ paths:
       description: >
         Provide answer(s) to one or more candidate challenge question set(s) available in the system for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
       parameters:
         - $ref: '#/parameters/usernamePathParams'
         - in: body
@@ -326,8 +346,10 @@ paths:
       description: |
         Get previously answered challenge(s) in the system by the user idenrified by user-id.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
       parameters:
         - $ref: '#/parameters/usernamePathParams'
 
@@ -355,7 +377,9 @@ paths:
         Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
 
           <b>Permission required:</b>
-            * /permission/admin/manage/identity
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
       parameters:
         - $ref: '#/parameters/usernamePathParams'
         - in: body
@@ -386,8 +410,10 @@ paths:
       description: |
         Removes all the existing challenge answers of the user identified by user-id.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
       parameters:
         - $ref: '#/parameters/usernamePathParams'
       responses:
@@ -410,8 +436,10 @@ paths:
       description: |
         Provide an **answer** to **a specific challenge** in the system for the user identified by user-id. The user can at most select one question from a challenge set of interest.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - $ref: '#/parameters/usernamePathParams'
@@ -443,8 +471,10 @@ paths:
       description: |
         Update challenge answer in a specific challenge for authenticated user.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - $ref: '#/parameters/usernamePathParams'
@@ -474,8 +504,10 @@ paths:
       description: |
         Removes existing answer provided by the user(identified by user-id) to a specific challenge.
 
-          <b>Permission required:</b>
-            * /permission/admin/manage/identity
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - $ref: '#/parameters/usernamePathParams'

@@ -3,24 +3,25 @@
 WSO2 Identity Server 5.10.0 brings a range of new features and major improvements. In IS 5.10.0 following aspects has 
 been changed compared to the previous IS versions.
 
-## Handling Last login time as an identity claim
+## Handling Last login Time as an Identity Claim
 In the previous versions of WSO2 Identity Server, the Last login time claim(used in account suspension) has been handled 
 as a default claim. From IS 5.10.0 onwards it will be handled as an identity claim. 
 
 !!! note "NOTE" 
-    If you want to have the previous behaviour please add the following property in the deployment.toml file located at 
-    <IS_HOME>/repository/conf/ directory.
+    If you want to have the previous behaviour please add the following property in the `deployment.toml` file located at 
+    `<IS_HOME>/repository/conf/` directory.
     ```toml
     [identity_mgt_account_suspension]
-    use_identity_claims =true
+    use_identity_claims = false
     ```
 
 ## SCIM has been enabled by default
 From WSO2 Identity Server 5.10.0 onwards SCIM has been enabled by default for all the User Store Manager types. 
 
-## Email Templates has been changed for account lock
+## Email Templates has been changed for Account Lock
 From IS 5.10.0 onwards, different set of email templates will be used for account lock feature to notify the below 
 events,
+
 - Account locking by exceeding `Maximum Failed Login Attempts` - **AccountLockFailedAttempt**
 - Account unlocking by exceeding `Account Unlock Time` - **AccountUnlockTimeBased**
 - Account locking by administrator - **AccountLockAdmin**
@@ -320,49 +321,50 @@ but this will break existing applications using some APIs such as scim2/Me.
 
 !!! note "NOTE"
     We can go back to the previous behaviour and disable scope based permissions with the following config in the 
-    deployment.toml file.
+    `deployment.toml` file.
     ```toml
     [resource_access_control]
     disable_scope_validation=true
     ```
 
-## Handling Role-based or XACML-based scope validation for Implicit and Authorization Code 
-Scope validation has been enforced for authorization code grant and implicit grants. 
-
-!!! note "NOTE"
-    If you have implemented any apps which works without the scope validation so if you want to disable 
-    the behaviour, then add the following configuration at deployment.toml file.
-    ```toml
-    [oauth]
-    scope_validator.authz_implicit.enable = false
-    ```
-    
-## Introducing two separate configuration to manage OIDC consent flow
-This will introduce the following two new properties in the identity.xml inside OpenIDConnect tag to manage the 
+## Introducing two Separate Configuration to Manage OIDC Consent Flow
+This will introduce the following two new properties in the `identity.xml` inside OpenIDConnect tag to manage the 
 consent during OIDC login and logout flows.
 - SkipLoginConsent - Skip the OIDC login consent
 - SkipLogoutConsent - Skip the OIDC logout consent
 
 If these properties are not defined, the value will be retrieved from SkipUserConsent
 
-These properties can be managed by adding the below configuration to deployment.toml file
+These properties can be managed by adding the below configuration to `deployment.toml` file
 ```toml
 [oauth]
 prompt_login_consent = false
 prompt_logout_consent = false
 ```
 
-## WSDL of the Application Management service has been changed
+## WSDL of the Application Management Service has been changed
 In IS 5.10.0, there are significant changes has been introduced to the WSDL of the Application Management Admin Service 
 with the addition of new properties to the service provider model object. Therefore SOAP API consumers should 
 regenerate the stub or upgrade the dependency version of the stub.
 
-## WSDL of the Identity Provider Management service has been changed
+## WSDL of the Identity Provider Management Service has been changed
 In IS 5.10.0, there are significant changes has been introduced to the WSDL of the Identity Provider Management 
 Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
 should regenerate the stub or upgrade the dependency version of the stub.
 
-## WSDL of the User Account Association service has been changed 
+## WSDL of the User Account Association Service has been changed 
 In IS 5.10.0, there are significant changes has been introduced to the WSDL of the User Account Association 
 Admin Service with the addition of new properties to the service provider model object. Therefore SOAP API consumers 
 should regenerate the stub or upgrade the dependency version of the stub.
+
+## Handling SMS OTP Error Response using Internal Error Codes 
+From IS 5.10.0 onwards, SMS-OTP webapp uses internal error codes when there is an error response returned from the 
+SMS provider.
+
+!!! note "NOTE"
+    To have the previous behaviour where the SMS-Provider error codes were used by SMS-OTP webapp, please add the 
+    below configuration in the `deployment.toml` file located at `<IS_HOME>/repository/conf/` directory.
+    ```toml
+    [authentication.authenticator.sms_otp.parameters]
+    UseInternalErrorCodes = false
+    ```
