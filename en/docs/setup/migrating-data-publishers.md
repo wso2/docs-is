@@ -32,12 +32,12 @@ The new design approach is as follows:
     and override its `handleEvent` method.
 
 The following diagrams illustrate the difference between the design
-approach in the versions prior to WSO2 IS 5.9.0 and the new design approach.
+approach in the versions prior to WSO2 IS 5.8.0 and the new design approach.
 
 -   **Old design approach**
-    ![<Old design approach>](/assets/img/setup/old-design-approach.png)
+    ![<Old design approach>](../assets/img/setup/old-design-approach.png)
 -   **New design approach**
-    ![<New design approach>](/assets/img/setup/new-design-approach.png)
+    ![<New design approach>](../assets/img/setup/new-design-approach.png)
 
 
 The following section will guide you through migrating an existing data publisher to
@@ -54,12 +54,12 @@ instead.
 
 1.  If you have enabled `org.wso2.carbon.identity.data.publisher.application.authentication.impl.DASSessionDataPublisherImpl`
     in `<OLD_IS_HOME>/repository/conf/identity.xml` do not enable it in
-    the WSO2 Identity Server 5.9.0 configurations. Simply, skip
+    the WSO2 Identity Server 5.10.0 configurations. Simply, skip
     migrating this particular configuration and it will disable the old
     event listener.
     
     !!! note 
-        For the new configuration model in WSO2 Identity Server 5.9.0, see 
+        For the new configuration model introduced in WSO2 Identity Server 5.9.0, see 
         [New Configuration Model](../../references/new-configuration-model) for more information.
         
         If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
