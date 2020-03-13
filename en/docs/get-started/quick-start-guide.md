@@ -35,7 +35,7 @@ using WSO2 Identity Server.
     
 1. Download and install Oracle Java SE Development Kit (JDK) version
    1.7.* or 1.8.
-2. Install WSO2 Identity Server 5.9.0 by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
+2. Install WSO2 Identity Server by downloading the [installer](https://wso2.com/identity-and-access-management/install/). 
    The WSO2 Identity Server installation location varies according to the OS as given below.
 
     |OS     |Home Directory                                |
@@ -194,7 +194,7 @@ protocol, follow the steps below:
     ![qsg-sso-login-credentials](../assets/img/getting-started/qsg-sso-login-credentials.png)
 
 5.  Select the attributes that you want to share with Dispatch and click
-    **Approve**.
+    **Continue**.
 
     ![qsg-sso-consent](../assets/img/getting-started/qsg-sso-consent.png)
 
@@ -387,7 +387,7 @@ A message appears to pick a scenario.
     Dispatch application appears.
 
 9.  Select the attributes that you want to share with Dispatch and click
-    **Approve**.
+    **Continue**.
 
     ![qsg-sso-consent](../assets/img/getting-started/qsg-sso-consent.png)      
 
@@ -514,7 +514,7 @@ A message appears to pick a scenario.
     Dispatch application appears.
 
 7.  Select the attributes that you wish to share with Pickup Dispatch
-    and click **Approve**.
+    and click **Continue**.
 
     ![qsg-sso-consent](../assets/img/getting-started/qsg-sso-consent.png)
 
@@ -630,7 +630,7 @@ Pickup Manager applications using WSO2 Identity Server.
 
 4.  Click **Log in**.  
     ![qsg-sso-dispatch-login](../assets/img/getting-started/qsg-sso-dispatch-login.png)
-5.  Click **Register Now**.
+5.  Click **Create Account**.
 
     ![qsg-self-sign-up-register](../assets/img/getting-started/qsg-self-sign-up-register.png)
 
@@ -782,60 +782,43 @@ A message appears to pick a scenario.
     Username: alex    | Password: alex123
     ```
 
-9.  Provide the consents.
+9. Click **Operations**.  
 
-    ![qsg-workflow-consent](../assets/img/getting-started/qsg-workflow-consent.png)
-
-10. Click **Pending Approvals \> View Details**.  
-    ![qsg-workflow-approvals](../assets/img/getting-started/qsg-workflow-approvals.png)
-
-11. Click the **Task ID**.
+10. Click **Show more** under **Pending approvals**.
 
     ![qsg-user-portal-tasks](../assets/img/getting-started/qsg-user-portal-tasks.png)
 
-12. Click **Approve** to approve the user account creation.  
+11. Click **Approve** to approve the user account creation.
+  
     ![qsg-workflow-approve-task](../assets/img/getting-started/qsg-workflow-approve-task.png)
 
-    Note that a confirmation message appears.  
-    ![qsg-workflow-approval-confirmation](../assets/img/getting-started/qsg-workflow-approval-confirmation.png)
-
-    Click **OK**.
-
-13. Click **Sign out** to sign out of WSO2 User Portal as Alex.  
+12. Click **Sign out** to sign out of WSO2 User Portal as Alex.  
     ![qsg-sign-out](../assets/img/getting-started/qsg-sign-out.png)
 
-14. Enter the following credentials to sign in as Cameron and click
+13. Enter the following credentials to sign in as Cameron and click
     **Sign In**.
 
     ``` java
         Username: cameron    | Password: cameron123
     ```
 
-15. Provide consents.
-
-    ![qsg-workflow-consent](../assets/img/getting-started/qsg-workflow-consent.png)
-
-16. Click **Pending Approvals \> View Details**.
-
-    ![qsg-workflow-approvals](../assets/img/getting-started/qsg-workflow-approvals.png)
-
-17. Click the **Task ID**.
+14. Click **Show more** under **Pending approvals**.
 
     ![qsg-user-portal-tasks](../assets/img/getting-started/qsg-user-portal-tasks.png)
 
-18. Click **Approve** to approve the user account creation.
+15. Click **Approve** to approve the user account creation.
 
     ![qsg-workflow-approve-task-2](../assets/img/getting-started/qsg-workflow-approve-task-2.png)
 
-19. Navigate back to the Pickup Dispatch application and sign in using
+16. Navigate back to the Pickup Dispatch application and sign in using
     the new user credentials.
 
     ![qsg-sso-login-credentials](../assets/img/getting-started/qsg-sso-login-credentials.png)
 
     Select the attributes that you wish to share with Pickup Dispatch
-    and click **Approve**.
+    and click **Continue**.
 
-    ![qsg-workflow-consent](../assets/img/getting-started/qsg-workflow-consent.png)
+    ![qsg-workflow-consent](../assets/img/getting-started/qsg-sso-consent.png)
 
     !!! note
         Obtaining the user consent is one of the fundamental requirements of
