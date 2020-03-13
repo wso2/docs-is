@@ -63,6 +63,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         EmailOTPEnableByUserClaim = true
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
+        useEventHandlerBasedEmailSender = true
         ``` 
     
     
@@ -500,7 +501,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
     2.  Click **Register**.
 
-        ![registering-an-identity-provider](../assets/img/tutorials/registering-an-identity-provider.png)
+        ![registering-an-identity-provider](../assets/img/tutorials/config-idp-email-otp.png)
 
     You have now added the identity provider.
 
