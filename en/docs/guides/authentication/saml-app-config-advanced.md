@@ -1,5 +1,7 @@
 # Advanced SAML Configurations 
 
+This page lists out all the advanced configurations related to SAML authentication. 
+
 ----
 
 #### Issuer 

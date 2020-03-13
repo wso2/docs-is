@@ -1,5 +1,8 @@
 # Advanced OpenID Connect Configurations
 
+This page lists out all the advanced configurations related to OAuth/OpenID Connect authentication. 
+
+
 --- 
 
 #### OAuth Version 

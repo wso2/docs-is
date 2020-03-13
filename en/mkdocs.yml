@@ -84,7 +84,7 @@ nav:
         - '2FA with FIDO': guides/mfa/2fa-fido.md
         - '2FA with TOTP': guides/mfa/2fa-totp.md
         - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
-        - '2FA with Email OTP': guides/mfa/2fa-sms-otp.md
+        - '2FA with Email OTP': guides/mfa/2fa-email-otp.md
         - '3FA': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - guides/adaptive.md

@@ -1,9 +1,35 @@
 # SMS OTP Configurations
 
-----
-#### name
+This page lists out all the advanced configurations related to SMS OTP. 
 
-Define the authenticator as SMSOTP.
+The following code snippet shows a sample SMSOTP configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+```toml
+[authentication.authenticator.sms_otp] 
+enable=true
+
+[authentication.authenticator.sms_otp.parameters]
+SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
+SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
+MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
+RetryEnable = true
+ResendEnable = true
+BackupCode = true
+SMSOTPEnableByUserClaim = true
+SMSOTPMandatory = false
+CaptureAndUpdateMobileNumber = true
+SendOTPDirectlyToMobile = false
+redirectToMultiOptionPageOnFailure = false
+```
+
+The parameter values given above show the **default** configurations in WSO2 Identity Server. 
+
+If you wish to change a parameter value to something other than the default value, add the configuration to the `deployment.toml` file using the following format.
+
+```toml
+[authentication.authenticator.sms_otp.parameters]
+<Property-name> = "<Property-value>"
+```
 
 ----
 
@@ -21,7 +47,7 @@ Authentication endpoint URL of the authenticator.
 
 #### SMSOTPAuthenticationEndpointErrorPage 
 
-Error page that will be displayed case of an authentication failure.
+Error page that will be displayed in case of an authentication failure.
 
 ----
 
