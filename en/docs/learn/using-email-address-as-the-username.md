@@ -8,7 +8,7 @@
 
 1.  Open the 
     `          <IS_HOME>/repository/conf/deployment.toml         ` file.
-2.  Add the followign configuration.
+2.  Add the following configuration.
 
     ``` toml
     [tenant_mgt]
