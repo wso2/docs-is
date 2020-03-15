@@ -884,26 +884,9 @@ html .md-footer-meta.md-typeset a,
 	display: none;
 }
 
-.swagger-ui .info .title {
-    display: none;
-}
-
-.swagger-ui .info .info__contact {
-    display: none;
-}
-
-.swagger-ui .info .info__license {
-    display: none;
-}
-
 .swagger-ui .info .info__tos {
     display: none;
 }
-
-@media screen and (max-width: 767px) {
-   .wrapper {
-        height: 700px;
-   }
 
 .content {
 	width: 100%;
