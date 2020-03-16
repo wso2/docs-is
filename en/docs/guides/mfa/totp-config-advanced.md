@@ -33,19 +33,19 @@ If you wish to change a parameter value to something other than the default valu
 
 #### encodingMethod
 
-The encoding method which is used to generate the TOTP.
+The encoding method used to generate the TOTP.
 
 ----
 
 #### timeStepSize 
 
-The time step size, which is used to validate the TOTP.
+The time step size used to validate the TOTP.
 
 ----
 
 #### windowSize
 
-The window size, which is used to validate the TOTP.
+The window size used to validate the TOTP.
 
 ----
 
@@ -65,7 +65,7 @@ If this value is *true*, it will ask the user to enable the TOTP authenticator i
 
 This field can take one of the following values: local, association, userAttribute, subjectUri. If you do not specify any usecase, the default value is local.
 
-If you have chosen userAttribute as the usecase, add the following parmeter to specify the user attribute.
+If you have chosen userAttribute as the usecase, add the following parameter to specify the user attribute.
 
 ```
 userAttribute = "http://wso2.org/foursquare/claims/email"
@@ -104,7 +104,7 @@ This is the endpoint of the TOTPauthenticator enrollment page.
 
 #### Issuer
 
-This is the issuer name which will be shown the Mobile Application. If this parameter is not configured, the tenant domain will be shown.
+This is the issuer name that will be shown on the mobile application. If this parameter is not configured, the tenant domain will be shown.
 
 ----
 
