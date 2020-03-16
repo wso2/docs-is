@@ -6,14 +6,15 @@ This page guides you through configuring [two-factor authentication](../../../co
 
 ## Configure the Email OTP provider
 
-1. [Configure email sending](../../fragments/configure-email-sending) in WSO2 Identity Server. 
+1. [Configure email sending](../../../fragments/configure-email-sending) in WSO2 Identity Server. 
 
-2. Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+2. Add the following property to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder to avoid syntax errors.
 
     ```toml
     [server]
     disable_addressing = true
     ```
+
 3. Add the following email template to the `email-admin-config.xml` file found in the `<IS_HOME>/repository/conf/email` folder. 
 
     ```xml

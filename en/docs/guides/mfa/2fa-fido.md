@@ -15,7 +15,7 @@ Certain changes made to the chrome u2f extension are causing the FIDO device to 
 !!! info
     See [browser support for FIDO](#browser-support-for-fido) for more information. 
 
-Do the following to define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`). 
+Follow the steps given below to define the set of origin URLs where the WSO2 Identity Server User Portal will be hosted (e.g., `https://localhost:9443`). 
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 2. Add the following configuration.
@@ -24,7 +24,7 @@ Do the following to define the set of origin URLs where the WSO2 Identity Server
     origins=["https://localhost:9443"]
     ``` 
 
-Do the following if you are using a reverse proxy enabled setup to configure the relevant server URL as the AppID.
+Follow the steps given below if you are using a reverse proxy enabled setup to configure the relevant server URL as the AppID.
 
 1. Open the `deployment.toml` file in the `<IS_HOME>/repository/conf` directory.
 2. Add the following configuration.

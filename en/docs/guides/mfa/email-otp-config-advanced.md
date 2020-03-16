@@ -69,18 +69,38 @@ https://localhost:9443/emailotpauthenticationendpoint/emailAddress.jsp
 
 This parameter defines how the email ID will be retrieved. You can configure the following possible values:
 
-- local: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.
+- **local**: This is the default value and is based on the federated username. You must set the federated username in the local userstore. The federated username must be the same as the local username.
 
-- assocication: The federated username must be associated with the local account in advance in the WSO2 Identity Server User Portal. The local username is retrieved from the association. For information on creating an association, see the [user portal help](insertlink).
+- **assocication**: The federated username must be associated with the local account in advance in the WSO2 Identity Server User Portal. The local username is retrieved from the association. For information on creating an association, see the [user portal help](insertlink).
 
-- subjectUri: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in the UI, this is used as the username of the EmailOTP authenticator.
+- **subjectUri**: When configuring the federated authenticator, select the attribute in the subject identifier under the service providers section in the UI. This is used as the username of the EmailOTP authenticator.
 
-- userAttribute : The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the [authentication.authenticator.email_otp.parameters] section in the deployment.toml file and put the value, e.g., email and screen_name, id.
+- **userAttribute**: The name of the federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the `[authentication.authenticator.email_otp.parameters]` section in the `deployment.toml` file and enter the relevant value, e.g., email and screen_name, id.
 
-```toml
-[authentication.authenticator.email_otp.parameters]
-userAttribute = "email"
-```
+    ```toml
+    [authentication.authenticator.email_otp.parameters]
+    userAttribute = "email"
+    ```
+
+    If you use OpenID Connect supported authenticators such as LinkedIn and Foursquare or in the case of multiple social login options as the first step and EmailOTP as second step, you need to add similar configuration for the specific authenticator in the `deployment.toml` file.
+
+    **Examples**
+
+    ```tab="Facebook"
+    [authentication.authenticator.facebook.parameters]
+    EmailOTP-userAttribute = "email"
+    federatedEmailAttributeKey = "email"
+    ```
+
+    ```tab="Foursquare"
+    [[authentication.custom_authenticator]]
+    name= "Foursquare"
+    [authentication.custom_authenticator.parameters]
+    EmailOTP-userAttribute = "http://wso2.org/foursquare/claims/email"
+    federatedEmailAttributeKey = "http://wso2.org/foursquare/claims/email"
+    ```
+
+    Likewise, you can add the Authenticator Config for Amazon, Google, Twitter, and Instagram with the relevant values.
 
 ----
 

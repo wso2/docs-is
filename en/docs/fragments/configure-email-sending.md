@@ -1,6 +1,6 @@
 # Email Configurations 
 
-This page lists out all the advanced configurations related to sending email notifications for email-related identity and access management tasks such as EMAIL OTP, account recovery etc. 
+This page lists out all the advanced configurations related to sending email notifications for email-related identity and access management tasks such as EMAIL OTP, account recovery, etc. 
 
 The following code snippet shows a sample email configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
@@ -62,8 +62,8 @@ If you are using a Google mail account, note that Google has
 restricted third-party apps and less secure apps from sending emails
 by default. Therefore, you need to configure your account to disable
 this restriction, as WSO2 Identity Server acts as a third-party application when
-sending emails to confirm user registrations or notification for
-password reset WSO2 Identity Server.     
+sending emails to confirm user registrations or notifications for
+password reset.     
     
 Follow the steps given below to enable your Google mail account to
 provide access to third-party applications.
