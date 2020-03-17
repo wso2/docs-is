@@ -1,4 +1,4 @@
-# Deploying WSO2 Identity Server on Kubernetes using Minikube
+# Deploying WSO2 Identity Server on Kubernetes using AWS-EKS
 
 !!! info "Prerequisites"
 
@@ -15,7 +15,7 @@
         !!! info 
             After creating the EKS cluster, make sure you install the **aws-iam-authenticator** and create a **kubeconfig** by following the Amazon EKS guide mentioned above, to authenticate and communicate with your cluster respectively. After the communication is established, **add worker nodes** to your cluster before proceeding with the deployment.
 
-    5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install the mandatory.yaml file along with the service-xx.yaml and patch-configmap-xx.yaml files you install for either layer 4 or layer 7.  
+    5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install the mandatory.yaml file along with the service-xx.yaml and patch-configmap-xx.yaml files you installed for either layer 4 or layer 7.  
 
 
     6.  Add the WSO2 Helm chart repository.
@@ -37,7 +37,7 @@ git clone https://github.com/wso2/kubernetes-is.git
 
 1.	The default configurations work well for the basic deployment of the product. However, if there is anything specific that needs to be configured, change the respective files in `<HELM_HOME>/is-pattern-1/`. 
 
-2.	 Open `<HELM_HOME>/is-pattern-1/values.yaml` and provide the values as mentioned in the second step **(Provide configurations)** of the **Quick Start Guide** [here](https://hub.helm.sh/charts/wso2/is-pattern-1).
+2.	 Open `<HELM_HOME>/is-pattern-1/values.yaml` and provide the values as mentioned in the second step **(Provide configurations)** of the **Helm Quick Start Guide** [here](https://hub.helm.sh/charts/wso2/is-pattern-1).
 
 ### Step 3 - Deploy WSO2 Identity Server
 
@@ -73,7 +73,7 @@ To access the console in the environment,
 
 ### Try it Out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. You can alternatively choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
+You can now test the functionalities of WSO2 Identity Server with your app. Alternatively, you can choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
 
 Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 
@@ -85,4 +85,4 @@ proxyPort = 443
 ```
 
 !!! important 
-	The host name has to be changed in the URLs related to the identity provider based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 
+	TThe host name included in the URLs related to the identity provider must be changed based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 
