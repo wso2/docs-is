@@ -48,7 +48,7 @@ Let's get started!
         <td>This is the primary keystore.</td>
     </tr>
     <tr>
-        <td>The internal keystore in the `/repository/security` directory.</td>
+        <td>The internal keystore in the `/repository/resources/security` directory.</td>
         <td>This is the internal keystore.</td>
     </tr>
     </table></div>
