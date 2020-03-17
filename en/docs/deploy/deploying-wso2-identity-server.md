@@ -14,11 +14,12 @@ template: templates/single-column.html
             <div class="card" onclick="location.href='../../deploy/choose-your-provider';">
 	              <div class="line"></div>
          	      <div class="icon">
-                         <img src="../../assets/img/icons/deploy/kubernetes.png">
+                      <i class="material-icons md-20">
+                         <img src="../../assets/img/deploy/k8s.png">
+                      </i>
 	              </div>
-                <div class="card-content" style="width:100" >
+                <div class="card-content">
               	    <p class="title">Kubernetes</p>
-              			<p class="hint">Deploy our product using kubernetes resources</p>
                 </div>
             </div>
             <!-- end card -->
@@ -26,7 +27,7 @@ template: templates/single-column.html
             <div class="card" onclick="location.href='learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials';">
                 <div class="line"></div>
                 <div class="icon">
-                    <i class="material-icons md-36">how_to_reg</i>
+                    <i class="material-icons md-24">how_to_reg</i>
                 </div>
                 <div class="card-content">
                     <p class="title">AWS</p>
@@ -46,5 +47,3 @@ template: templates/single-column.html
                 </div>
             </div>
 </div>  
-
-	
