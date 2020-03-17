@@ -1,30 +1,3 @@
-## Enable SMSOTP
-
-Add the following configurations to `<IS_HOME>/repository/conf/deployment.toml` file to enable SMS OTP for WSO2 Identity Server.
-
-```toml
-[authentication.authenticator.sms_otp] 
-name ="SMSOTP"
-enable=true
-
-[authentication.authenticator.sms_otp.parameters]
-SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
-RetryEnable = true
-ResendEnable = true
-BackupCode = true
-SMSOTPEnableByUserClaim = true
-SMSOTPMandatory = false
-CaptureAndUpdateMobileNumber = true
-SendOTPDirectlyToMobile = false
-redirectToMultiOptionPageOnFailure = false
-```
-
-For information about the configurations given above, see [SMSOTP Configurations](../../../guides/mfa/sms-otp-config-advanced).
-
-----
-
 ## Connect the SMS provider
 
 1.  Download the certificate of the SMS provider by going to the SMS

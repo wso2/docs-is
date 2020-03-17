@@ -1,6 +1,6 @@
 # Configure SMS OTP for 2-Factor Authentication
 
-This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using SMS OTP as the second factor. 
+This page guides you through configuring [two-factor authentication](../../../concepts/authentication/intro-authentication#two-factor-authentication) for a web application using [SMS OTP](insertlink) as the second factor. 
 
 ---
 
@@ -10,7 +10,7 @@ This guide assumes you have your own application. If you wish to try out this fl
 
 ----
 
-{!fragments/enable-smsotp.md!}
+{!fragments/connect-sms-provider.md!}
 
 ----
 
@@ -249,10 +249,13 @@ This guide assumes you have your own application. If you wish to try out this fl
             Example:
             94778888888
             ```
+
+An end-user can also update their own mobile number using the WSO2 Identity Server user portal. For more information, see [user portal help](insertlink).
+
 ----
 
 ## Allow users to disable SMS OTP
-.
+
 1. Click **Main** > **Identity** > **Claims** > **List**.
 
 2. Click `http://wso2.org/claims`. 
@@ -267,6 +270,7 @@ This guide assumes you have your own application. If you wish to try out this fl
     profile of a user and check whether the **Disable SMSOTP** option is available.
     
     ![user-disable-smsotp](../../../assets/img/guides/user-disable-smsotp.png)
+	
 ----
 
 ## Configuring backup codes for SMSOTP
@@ -304,3 +308,17 @@ A backup code can have any number of digits, and you can define many backup code
     **Disable SMS OTP** if required.		
 
     ![define-backup-codes](../../../assets/img/guides/define-backup-codes.png)
+	
+----
+
+## Disable SMSOTP authenticator
+
+The SMS OTP authenticator is enabled by default.
+
+You can disable the SMS OTP authenticator by adding the following configuration to the `deployment.toml` file in the
+`<IS_HOME>/repository/conf` folder.
+
+```toml
+[authentication.authenticator.sms_otp] 
+enable=false
+```

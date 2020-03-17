@@ -84,7 +84,7 @@ nav:
         - '2FA with FIDO': guides/mfa/2fa-fido.md
         - '2FA with TOTP': guides/mfa/2fa-totp.md
         - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
-        - '2FA with Email OTP': guides/mfa/2fa-sms-otp.md
+        - '2FA with Email OTP': guides/mfa/2fa-email-otp.md
         - '3FA': mfa/3fa-basic-fido-biometrics.md
       - 'Adaptive Authentication':
         - guides/adaptive.md
@@ -249,10 +249,10 @@ nav:
         - 'SAML Application' : fragments/configure-client-regular-saml-app.md
         - 'Retrieve User Information to the Client Application' : fragments/get-user-information-to-the-saml-application.md
   - 'Configure Authenticators':
-    - 'FIDO Authenticator': guides/mfa/fido-config-advanced.md
-    - 'EMail OTP Authenticator': guides/mfa/email-otp-config-advanced\.md
-    - 'SMS OTP': guides/mfa/sms-otp-config-advanced.md
-    - 'TOTP': guides/mfa/otp-config-advanced.md
+    - 'FIDO Configurations': guides/mfa/fido-config-advanced.md
+    - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
+    - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
+    - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
   - '': page-not-found.md
 
 

@@ -17,7 +17,7 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 ----
 
-{!fragments/enable-smsotp.md!}
+{!fragments/connect-sms-provider.md!}
 
 ----
 
