@@ -223,6 +223,7 @@ nav:
     - 'Adaptive Authentication':
       - 'Role-Based': samples/role-based-adaptive-auth.md
       - 'User Age-Based': samples/age-based-adaptive-auth.md
+      - 'Tenant-Based': samples/tenant-based-adaptive-auth.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
