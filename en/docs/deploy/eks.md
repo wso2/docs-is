@@ -12,11 +12,37 @@
 
     4.  Set up an [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html) on AWS cloud, if you do not have one set up already. 
     
-        !!! info 
-            After creating the EKS cluster, make sure you install the **aws-iam-authenticator** and create a **kubeconfig** by following the Amazon EKS guide mentioned above, to authenticate and communicate with your cluster respectively. After the communication is established, **add worker nodes** to your cluster before proceeding with the deployment.
+        !!! note 
+            Make sure you have set up the following aspects properly before you set up the cluster. For more information, see [the amazon EKS getting started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-prereqs)
 
-    5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install the mandatory.yaml file along with the service-xx.yaml and patch-configmap-xx.yaml files you installed for either layer 4 or layer 7.  
+			-	The EKS Service Role
+			-	The EKS Cluster VPC
+			-	AWS CLI version 2 
+				!!! note 
+					AWS CLI version 1 works fine as well. However, you need to make sure that you have a python version that you have python3. AWS CLI version 2 is independant of the python version. 
+	
+	5.	Launch a managed node to get started with your instance profile. For instructions to do this, see [here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-launch-workers).
 
+		!!! warning 
+			While configuring the added node group, ensure that the instance type is c5.4xlarge or that of a higher capacity to avoid errors in deployment due to insuffucient CPU. 
+
+    7.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
+
+		!!! warning 
+			To ensure that the NGINX Ingress controller is exposed, download the source code mentioned [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) and apply the following files. Note that you can use the files for layer 7 instead of layer 4 as well. 
+			
+			```curl 
+			kubectl apply -f namespace.yaml
+			```
+			```curl
+			kubectl apply -f mandatory.yaml
+			```
+			```curl
+			kubectl apply -f patch-configmap-14.yaml
+			```
+			```curl
+			kubectl apply -f service-l4.yaml
+			```
 
     6.  Add the WSO2 Helm chart repository.
         ```curl                                                                
@@ -61,13 +87,22 @@ To access the console in the environment,
 	```java 
 	NAME                       HOSTS                  ADDRESS        PORTS     AGE
 	wso2is-ingress             <RELEASE_NAME>         <EXTERNAL-IP>  80, 443   3m
-	```
+	``` 
 
 2.	Add the information obtained above in the /etc/hosts file as an entry. 
 
 	```java
-	<EXTERNAL-IP>	<RELEASE_NAME>
+	<HOST-IP>	<RELEASE_NAME>
 	```
+
+	The IP that needs to be mentioned in the /etc/hosts file can be obtained by pinging the <EXTERNAL-IP> you got in the first step.
+	
+	**Request**
+	```curl
+	ping <EXTERNAL-IP>
+	```
+	**Response**
+	PING <EXTERNAL-IP> <HOST-IP>: xx data bytes
 
 3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
 
@@ -85,4 +120,4 @@ proxyPort = 443
 ```
 
 !!! important 
-	TThe host name included in the URLs related to the identity provider must be changed based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 
+	The host name included in the URLs related to the identity provider must be changed based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 

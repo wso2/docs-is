@@ -48,7 +48,7 @@ template: templates/single-column.html
 		                 <img src="../../assets/img/deploy/amazon-eks.png">
 	              </div>
                 <div class="card-content" >
-              	    <p class="title">AWS</p>
+              	    <p class="title">EKS</p>
               			<a href="http://www.google.com"></a>
                 </div>
             </div>
