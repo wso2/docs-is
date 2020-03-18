@@ -1,10 +1,10 @@
 # Configure Role-Based Adaptive Authentication
 
-This page guides you through configuring role-based adaptive authentication for a sample web application using a sample hardware key authenticators. 
+This page guides you through configuring role-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
 
 ----
 
-If you have have your own application, click the button below.
+If you have your own application, click the button below.
 
 <a class="samplebtn_a" href="../../guides/configure-adaptive-auth" target="_blank" rel="nofollow noopener">I have my own application</a>
 
@@ -12,7 +12,7 @@ If you have have your own application, click the button below.
 
 ## Scenario
 
-Consider a scenario where you want a user who belongs to the 'admin' role to perform an additional level of authentication while any other user can just provide their credentials (basic authentication) to access a resource.
+Consider a scenario where you want a user who belongs to the 'admin' role to perform an additional level of authentication, while other users can access a resource by only providing their credentials (basic authentication).
 
 Role-based adaptive authentication can be used to trigger additional authentication steps for a particular role. 
 
@@ -82,7 +82,7 @@ Role-based adaptive authentication can be used to trigger additional authenticat
     
     ![pickup sign in](../assets/img/samples/pickup-sign-in.png)
     
-3.  Enter the 4 digit key given on the screen and click **Sign In**. 
+3.  Enter the 4-digit key given on the screen and click **Sign In**. 
 
     ![hardware key authenticator](../assets/img/samples/hardware-key-authenticator.png)
     
