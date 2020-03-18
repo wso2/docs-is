@@ -1,6 +1,6 @@
 # Deploying WSO2 Identity Server on Kubernetes using AWS-EKS
 
-### Prerequisites
+## Prerequisites
 
     Install the following applications if you do not have them installed already. Make sure you install the recommended versions for a seamless deployment. 
 
@@ -19,14 +19,14 @@
 			-	The EKS Cluster VPC
 			-	AWS CLI version 2 
 				!!! note 
-					AWS CLI version 1 works fine too. However, you need to make sure that you have python3. AWS CLI version 2 is independant of the python version you are using. 
+					Alternatively, you can also use AWS CLI version 1 however, you need to make sure that you have installed Python3. AWS CLI version 2 is independant of the python version you are using. 
 	
-	5.	Launch a managed node to get started with your instance profile. For instructions to do this, see [here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-launch-workers).
+	5.	Launch a managed node to get started with your instance profile. For instructions to do this, see [the amazon EKS getting started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-launch-workers).
 
 		!!! warning 
-			While configuring the added node group, ensure that the instance type is c5.4xlarge or that of a higher capacity to avoid errors in deployment due to insuffucient CPU. 
+			While configuring the added node group, ensure that the instance type is c5.4xlarge or that of a larger capacity to avoid errors in deployment due to insuffucient CPU. 
 
-    7.  Install NGINX Ingress Controller **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
+    7.  Install NGINX Ingress Controller **version-nginx-0.22.0**. You can get the raw file for the recommended version from the [NGINX Ingress release tag](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
 
 		!!! note 
 			To ensure that the NGINX Ingress controller is exposed, download the source code mentioned [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) and apply the following files. Note that you can use the files for layer 7 instead of layer 4 as well. 
@@ -55,19 +55,19 @@
 
 ---
 
-### Step 1 - Clone the Kubernetes resources from the WSO2 Identity Server git repository
+## Step 1 - Clone the Kubernetes resources from the WSO2 Identity Server git repository
 
 ```java
 git clone https://github.com/wso2/kubernetes-is.git
 ```
 
-### Step 2 - Change the configurations as required 
+## Step 2 - Change the configurations as required 
 
 1.	The default configurations work well for the basic deployment of the product. However, if there is anything specific that needs to be configured, change the respective files in `<HELM_HOME>/is-pattern-1/`. 
 
 2.	 Open `<HELM_HOME>/is-pattern-1/values.yaml` and provide the values as mentioned in the second step **(Provide configurations)** of the **Helm Quick Start Guide** [here](https://hub.helm.sh/charts/wso2/is-pattern-1).
 
-### Step 3 - Deploy WSO2 Identity Server
+## Step 3 - Deploy WSO2 Identity Server
 
 Execute the following command to deploy the product. Here, `NAMESPACE` is the Kubernetes Namespace in which the resources are deployed and the `<RELEASE_NAME>` can be any name that you choose for the deployed instance. 
 
@@ -75,7 +75,7 @@ Execute the following command to deploy the product. Here, `NAMESPACE` is the Ku
 helm install --dep-up --name <RELEASE_NAME> <HELM_HOME>/is-pattern-1 --namespace <NAMESPACE>
 ```
 
-### Step 4 - Access the management console
+## Step 4 - Access the management console
 
 To access the console in the environment,
 
@@ -109,7 +109,7 @@ To access the console in the environment,
 	```
 3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
 
-### Try it Out 
+## Try it Out 
 
 You can now test the functionalities of WSO2 Identity Server with your app. Alternatively, you can choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
 
