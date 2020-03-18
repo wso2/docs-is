@@ -1,6 +1,6 @@
 # Deploying WSO2 Identity Server on Kubernetes using AWS-EKS
 
-!!! info "Prerequisites"
+### Prerequisites
 
     Install the following applications if you do not have them installed already. Make sure you install the recommended versions for a seamless deployment. 
 
@@ -19,16 +19,16 @@
 			-	The EKS Cluster VPC
 			-	AWS CLI version 2 
 				!!! note 
-					AWS CLI version 1 works fine as well. However, you need to make sure that you have a python version that you have python3. AWS CLI version 2 is independant of the python version. 
+					AWS CLI version 1 works fine too. However, you need to make sure that you have python3. AWS CLI version 2 is independant of the python version you are using. 
 	
 	5.	Launch a managed node to get started with your instance profile. For instructions to do this, see [here](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-launch-workers).
 
 		!!! warning 
 			While configuring the added node group, ensure that the instance type is c5.4xlarge or that of a higher capacity to avoid errors in deployment due to insuffucient CPU. 
 
-    7.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
+    7.  Install NGINX Ingress Controller **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
 
-		!!! warning 
+		!!! note 
 			To ensure that the NGINX Ingress controller is exposed, download the source code mentioned [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) and apply the following files. Note that you can use the files for layer 7 instead of layer 4 as well. 
 			
 			```curl 
@@ -52,6 +52,8 @@
 !!! note ""
 	-	The local copy of the `wso2/kubernetes-is` git repository will be referred to as `KUBERNETES_HOME`.
 	-	`<KUBERNETES_HOME>/advanced/` will be referred to as `HELM_HOME`.
+
+---
 
 ### Step 1 - Clone the Kubernetes resources from the WSO2 Identity Server git repository
 
@@ -95,15 +97,16 @@ To access the console in the environment,
 	<HOST-IP>	<RELEASE_NAME>
 	```
 
-	The IP that needs to be mentioned in the /etc/hosts file can be obtained by pinging the <EXTERNAL-IP> you got in the first step.
+	The `<HOST-IP>` that needs to be mentioned in the /etc/hosts file can be obtained by pinging the <EXTERNAL-IP> you got in the first step.
 	
 	**Request**
 	```curl
 	ping <EXTERNAL-IP>
 	```
 	**Response**
+	```curl
 	PING <EXTERNAL-IP> <HOST-IP>: xx data bytes
-
+	```
 3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
 
 ### Try it Out 

@@ -42,7 +42,7 @@ template: templates/single-column.html
         </header></div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='../../deploy/aws';">
+            <div class="card" onclick="location.href='../../deploy/eks';">
 	              <div class="line"></div>
          	      <div class="icon">
 		                 <img src="../../assets/img/deploy/amazon-eks.png">
