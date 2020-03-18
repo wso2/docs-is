@@ -3,7 +3,7 @@
 This page guides you through configuring [single sign on authentication](insertlink) between two SAML web applications. This is demonstrated using two **sample applications** called Pickup Dispatch and Pickup Manager. 
 
 ----
-If you have have your own application, click the button below.
+If you have your own application, click the button below.
 
 <a class="samplebtn_a" href="../../guides/authentication/enable-single-sign-on" target="_blank" rel="nofollow noopener">I have my own application</a>
 

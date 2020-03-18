@@ -3,7 +3,7 @@
 This page guides you through enabling authentication to a SAML web application using a **sample application** called Pickup. 
 
 ----
-If you have have your own application, click the button below.
+If you have your own application, click the button below.
 
 <a class="samplebtn_a" href="../../guides/authentication/regular-webapp-oidc" target="_blank" rel="nofollow noopener">I have my own application</a>
 
