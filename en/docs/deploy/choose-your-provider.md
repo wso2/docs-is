@@ -16,7 +16,7 @@ template: templates/single-column.html
             <div class="card" onclick="location.href='../../deploy/minikube';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <i class="material-icons md-36">how_to_reg</i>
+		                 <img src="../../assets/img/deploy/minikube.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">Minikube</p>
@@ -28,10 +28,11 @@ template: templates/single-column.html
             <div class="card" onclick="location.href='../../deploy/docker-desktop';">
                 <div class="line"></div>
                 <div class="icon">
-                    <i class="material-icons md-36">how_to_reg</i>
+                    <img src="../../assets/img/deploy/free.png">
                 </div>
                 <div class="card-content">
                     <p class="title">Docker Desktop</p>
+                    <a href="http://www.google.com"></a>
                 </div>
             </div></div>
             <!-- end card -->
@@ -41,10 +42,10 @@ template: templates/single-column.html
         </header></div>
         <div class="content"> 
             <!-- begin card -->
-            <div class="card" onclick="location.href='aws';">
+            <div class="card" onclick="location.href='../../deploy/aws';">
 	              <div class="line"></div>
          	      <div class="icon">
-		                 <i class="material-icons md-36">how_to_reg</i>
+		                 <img src="../../assets/img/deploy/amazon-eks.png">
 	              </div>
                 <div class="card-content" >
               	    <p class="title">AWS</p>
