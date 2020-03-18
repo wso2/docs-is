@@ -29,7 +29,7 @@
     7.  Install NGINX Ingress Controller **version-nginx-0.22.0**. You can get the raw file for the recommended version from the [NGINX Ingress release tag](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).   
 
 		!!! note 
-			To ensure that the NGINX Ingress controller is exposed, download the source code mentioned [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) and apply the following files. Note that you can use the files for layer 7 instead of layer 4 as well. 
+			To ensure that the NGINX Ingress controller is exposed, [download the source code](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) and apply the following files. Note that you can use the files for layer 7 instead of layer 4 as well. 
 			
 			```curl 
 			kubectl apply -f namespace.yaml
