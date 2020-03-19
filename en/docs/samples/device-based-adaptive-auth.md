@@ -96,8 +96,7 @@ The instructions below guide you through specifying authentication steps based o
 
 4.  Log out and log in again using Kim's credentials on the same browser window. 
 
-    Note that you are logged in successfully without being prompted for hardware key authentication again. This is because this
-    browser and device is now trusted.  
+    Note that you are logged in successfully without being prompted for hardware key authentication again. This is because this browser and device is now trusted.  
 
 5.  Open a new browser window of a different browser and access the
     PickUp application URL: <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
