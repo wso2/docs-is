@@ -22,7 +22,7 @@ The instructions below guide you through specifying authentication steps based o
 
 ## Configure device-based authentication
 
-1.  Click **Service Providers>List**.
+1.  Click **Service Providers > List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -44,7 +44,7 @@ The instructions below guide you through specifying authentication steps based o
     Once this time period has elapsed, the device is considered as a new device. The time period is set to two years by default.
     
     ``` java
-        var deviceRememberPeriod = 60 * 60 * 24 * 365 * 2; 
+    var deviceRememberPeriod = 60 * 60 * 24 * 365 * 2; 
     ```
 
 8. The authentication steps added are `totp` and `fido`. However, these are authentication steps that you would normally use in production. 

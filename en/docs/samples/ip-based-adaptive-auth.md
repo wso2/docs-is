@@ -22,7 +22,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ## Configure IP-based authentication
 
-1.  Click **Service Providers>List**.
+1.  Click **Service Providers > List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -34,8 +34,7 @@ Consider a scenario where you wish to add security for users logging in from ext
 
     ![ip-based-template](../assets/img/samples/ip-based-template.png)
 
-6.  Click **Ok**. The authentication script and authentication steps
-    are configured. 
+6.  Click **Ok**. The authentication script and authentication steps are configured. 
     
     The authentication script prompts the second step of authentication for users who log in from an IP address that is not included within the network range configured in the script. 
     
@@ -94,14 +93,14 @@ Consider a scenario where you wish to add security for users logging in from ext
     network range.
 
     ``` java
-        var corpNetwork = ['192.168.1.0/24', '10.100.0.0/16'];
+    var corpNetwork = ['192.168.1.0/24', '10.100.0.0/16'];
     ```
 
 7.  Click **Update**.
 
 8.  Access the following sample PickUp application URL:
 
-    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com> .
+    <http://localhost.com:8080/saml2-web-app-pickup-dispatch.com>
 
 9. Click **Login** and enter Alex's credentials. 
 
