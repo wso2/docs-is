@@ -47,7 +47,7 @@ To register a service provider, do the following.
             whether this claim is a **Mandatory Claim** for the service
             provider, using the relevant checkboxes.
 
-            ![mandatory-claim](../assets/img/using-wso2-identity-server/mandatory-claim.png)
+            ![sp-custom-claim](../assets/img/using-wso2-identity-server/sp-custom-claim.png)
 
 2.  Select the **Subject Claim URI** and the **Role Claim URI** (for
             custom claims)from the drop-down. The claims you mapped are listed
