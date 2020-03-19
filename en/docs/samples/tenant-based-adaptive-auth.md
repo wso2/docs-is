@@ -1,6 +1,6 @@
 # Configure Tenant-Based Adaptive Authentication
 
-This page guides you through configuring tenant-based adaptive authentication for a sample web application using sample hardware key and fingerprint authenticators. 
+This page guides you through configuring tenant-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
 
 For more information about tenants, see [multi-tenancy](insertlink). 
 
@@ -50,9 +50,9 @@ Consider a scenario where you wish to add security for users logging in from ext
 
 ----
 
-## Configure user age-based authentication
+## Configure tenant-based authentication
 
-1.  Click **Service Providers>List**.
+1.  Click **Service Providers > List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -114,7 +114,7 @@ Consider a scenario where you wish to add security for users logging in from ext
     Note that you are prompted for hardware key authentication because
     **abc.com** is a whitelisted tenant domain.
 
-5.  Enter the 4 digit key and click **Sign In**. You are successfully
+5.  Enter the 4-digit key and click **Sign In**. You are successfully
     logged in to the application.  
 
     ![hardware-key-authenticator](../assets/img/samples/hardware-key-authenticator.png)
