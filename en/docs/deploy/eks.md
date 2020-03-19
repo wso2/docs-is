@@ -74,7 +74,21 @@ Execute the following command to deploy the product. Here, `NAMESPACE` is the Ku
 ```java
 helm install --dep-up --name <RELEASE_NAME> <HELM_HOME>/is-pattern-1 --namespace <NAMESPACE>
 ```
-
+!!! tip "Trouble Shooting Tip"
+     If you come across the following error while deploying the product, execute the commands given below to resolve it. 
+    
+     **Error**
+     
+     ```curl 
+     	forbidden: User "system:serviceaccount:kube-system:default" cannot get namespaces in the namespace
+     ```
+     **Commands to resolve the above error**
+     
+     ```curl 
+     kubectl create serviceaccount --namespace kube-system tiller
+     kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+     kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":       {"serviceAccount":"tiller"}}}}'
+     ```
 ## Step 4 - Access the management console
 
 To access the console in the environment,
