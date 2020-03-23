@@ -86,7 +86,9 @@ nav:
         - '2FA with SMS OTP': guides/mfa/2fa-sms-otp.md
         - '2FA with Email OTP': guides/mfa/2fa-email-otp.md
         - '3FA': mfa/3fa-basic-fido-biometrics.md
-      - 'Adaptive Authentication': guides/configure-adaptive-auth.md
+      - 'Adaptive Authentication': 
+        - 'Configure Adaptive Authentication': guides/configure-adaptive-auth.md
+        - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
       - 'Federation':
         - guides/federation.md
       - 'Access Delegation' : guides/access-delegation/overview.md
