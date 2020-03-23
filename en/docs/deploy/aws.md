@@ -1,4 +1,4 @@
-# Deploying WSO2 Identity Server on Kubernetes using AWS-EKS
+# Deploying WSO2 Identity Server on Kubernetes using AWS
 
 ## Step 1 - Checkout this repository into your local machine using the following Git command
 
