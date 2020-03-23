@@ -1,7 +1,7 @@
 # Adaptive Authentication Using Function Library
 
 Script-based adaptive authentication in WSO2 Identity Server enables changing the 
-authentication flow based on conditions in JavaScript. For this, each service provider 
+authentication flow based on conditions in the JavaScript. For this, each service provider 
 needs to have its own set of Javascript functions. If the identity admin needs to have 
 the same function for several service providers, the same JavaScript function needs to be 
 duplicated. As a result, the process of managing authentication scripts gets difficult.
@@ -9,6 +9,12 @@ duplicated. As a result, the process of managing authentication scripts gets dif
 This feature supports a set of function libraries that can be imported in authentication 
 scripts. Each function library contains a set of functions. These function libraries can be 
 added, deleted, edited, imported, and exported via the WSO2 Identity Server Management Console.
+
+----
+
+This guide assumes you have your own application. If you wish to try out this flow with a sample application, click the button below. 
+
+<a class="samplebtn_a" href="../../../samples/adaptive-auth-with-function-lib-sample" target="_blank" rel="nofollow noopener">Try it with the sample</a>
 
 ----
 
@@ -38,9 +44,7 @@ or
 exports.<function_name_for_outside> = <function_name_in _the_script>
 ```
 
-For example,
-
-```javascript
+```javascript tab="Example"
 function getAge(birthDate) {
     var today = new Date();
     var age = today.getFullYear() - birthDate.getFullYear();
@@ -170,7 +174,7 @@ Follow the instructions below to delete a function library.
 
 ## Include function libraries in adaptive authentication scripts
 
-1. Register a function library.
+1. [Register a function library](#add-a-function-library).
 
 2. On the management console, click **Service Providers > List > Edit** on the configured service provider.
 
@@ -178,9 +182,19 @@ Follow the instructions below to delete a function library.
 
 4. Write the adaptive authentication script in the editor using the functions written in the added function library.
 
-5. Add `var <module_name> = require('<function library name>');`
+5. Add the following on top of the script/ before the usage of functions in the function library.
 
-    (Eg: `var ageModule = require('age_based.js');)` on top of the script/ before the usage of functions in the function library.
+    ```tab="Format"
+    var <module_name> = require('<function library name>');
+    ```
 
-6. Use the functions exported in the loaded function library, e.g., `ageModule.getAge(birthday)`.
+    ```tab="Example"
+    var ageModule = require('age_based.js');)
+    ```
+
+6. Use the functions exported in the loaded function library.
+    
+    ```tab="Example"
+    ageModule.getAge(birthday)
+    ```
 
