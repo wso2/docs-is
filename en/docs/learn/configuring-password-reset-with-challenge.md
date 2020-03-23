@@ -77,7 +77,7 @@ Follow the steps below to configure WSO2 Identity Server to enable password rese
 
 	2.	Log in with the credentials of the user account that you created.
 
-		<img src="../../assets/img/learn/sign-in-form.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
 
 	3.	Under **Account Recovery**, click **+** to add or update security questions.
 
