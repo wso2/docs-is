@@ -78,11 +78,10 @@ Consider a scenario where you wish to add security for users logging in from ext
     To try out sample authenticators with the sample application, delete the two
     authenticators and add the following sample authenticators instead.
 
-    1.  Click **Delete** to remove the `            totp           ` and
-        `            fido           ` authenticators from Step 2 (the
+    1.  Click **Delete** to remove the `totp` authenticator from Step 2 (the
         second authentication step).
         
-        ![delete authenticators](../assets/img/samples/delete-authenticators.png)
+        ![delete authenticator](../assets/img/samples/delete-authenticator-1.png)
         
     2.  Select **Demo Hardware Key Authenticator** and click **Add**.  
         ![add new authenticator](../assets/img/samples/add-new-authenticator.png)
