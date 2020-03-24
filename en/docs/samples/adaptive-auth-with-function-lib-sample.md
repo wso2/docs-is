@@ -79,19 +79,21 @@ Add a function library with the following properties.
 
     ```javascript
     var ageModule = require('age_based.js');
-    
-    // This script will only allow login to application if the user's age is over configured value
-    // The user will be redirected to an error page if the date of birth is not present or user is below configured value
+
+    //This script provides access to application only if the user's age is greater than the configured value
+
+    //The user will be redirected to an error page if the date of birth is not present or the user's age is below the configured value
     
     var ageLimit = 18;
     
-    // Error page to redirect unauthorized users,
-    // can be either an absolute url or relative url to server root, or empty/null
+    // Error page to redirect unauthorized users.
+    // Can either be an absolute URL or a relative URL to the server root. The value can be empty or null as well.
     // null/empty value will redirect to the default error page
     var errorPage = '';
     
     // Additional query params to be added to the above url.
     // Hint: Use i18n keys for error messages
+    
     var errorPageParameters = {
         'status': 'Unauthorized',
         'statusMsg': 'You need to be over ' + ageLimit + ' years to login to this application.'
