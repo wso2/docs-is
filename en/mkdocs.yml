@@ -229,7 +229,8 @@ nav:
       - 'IP-Based': samples/ip-based-adaptive-auth.md
       - 'Device-Based': samples/device-based-adaptive-auth.md
       - 'ACR-Based': samples/acr-based-adaptive-auth.md
-      - 'Using Function Library': guides/adaptive-auth-with-function-lib-sample.md
+      - 'Using Function Library': samples/adaptive-auth-with-function-lib-sample.md
+      - 'Limiting Active User Sessions': samples/limiting-active-sessions-adaptive-auth.md
   - 'OAuth 2.0/Open ID Connect Playground':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
