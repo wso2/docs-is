@@ -319,13 +319,12 @@ Let's use the command-line to check the MFA functionality.
 First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
 
-1.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.2.0/sample-auth.war) file and paste it inside the `             <IS_HOME>/repository/deployment/server/webapps            `
-        folder.  
-        This `             .war            ` file contains the WEB UI
-        for the sample authenticators used in this tutorial.
+1.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.2.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
-2.     Add the followings to the `deployment.tom`l file in the
-       `<IS_HOME>/repository/conf` directory and restart the server.
+    This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
+
+2.     Add the following configurations to the `deployment.tom`l file in the `<IS_HOME>/repository/conf` directory and restart the server.
+
        ```toml
        [[resource.access_control]]
        context = "(.*)/sample-auth/(.*)"
