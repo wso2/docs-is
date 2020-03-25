@@ -1,16 +1,20 @@
 {
   "staging": "new_restructure",
-  "next": "5.10.0",
-  "current": "5.9.0",
-  "list": [ "5.10.0","5.9.0"],
+  "next": "5.11.0",
+  "current": "5.10.0",
+  "list": [ "5.11.0","5.10.0"],
   "all": {
+    "5.11.0": {
+      "doc": "5.11.0",
+      "notes": "5.11.0/about-this-release"
+    },
     "5.10.0": {
-      "doc": "5.10.0",
-      "notes": "5.10.0/about-this-release"
+        "doc": "5.10.0",
+        "notes": "5.10.0/about-this-release"
     },
     "5.9.0": {
-        "doc": "5.9.0",
-        "notes": "5.9.0/about-this-release"
+      "doc": "5.9.0",
+      "notes": "5.9.0/about-this-release"
     },
     "5.8.0": {
         "doc": "https://docs.wso2.com/display/IS580/WSO2+Identity+Server+Documentation",
