@@ -1,0 +1,213 @@
+openapi: 3.0.0
+info:
+  version: '0.1.0'
+  title: 'WSO2 Identity Server - Configurations API Definition'
+  description: >
+    This document specifies a **Server Configuration Management RESTful API** for **WSO2 Identity Server**. This
+    supports Restful APIs for retrieving server-wide configurations. Currently this API supports to fetch the list of
+     local authenticators supported by the Identity Server.
+  contact:
+    name: WSO2
+    url: 'http://wso2.com/products/identity-server/'
+    email: architecture@wso2.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security:
+  - OAuth2: []
+  - BasicAuth: []
+paths:
+  /configs/authenticators:
+    get:
+      tags:
+        - Local Authenticators
+      summary: List local authenticators in the server
+      operationId: listAuthenticators
+      description: |
+        List available local authenticators of the server
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticatorListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '501':
+          description: Not Implemented
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /configs/authenticators/{authenticator-id}:
+    get:
+      tags:
+        - Local Authenticators
+      summary: Get authenticator by ID
+      operationId: getAuthenticator
+      description: |
+        By passing in the appropriate authenticator ID, you can retrieve authenticator details
+      parameters:
+        - name: authenticator-id
+          in: path
+          description: ID of an authenticator
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authenticator'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+servers:
+  - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
+    variables:
+      tenant-domain:
+        default: carbon.super
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://localhost:9443/oauth2/authorize'
+          tokenUrl: 'https://localhost:9443/oauth2/token'
+          scopes: {}
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: AAA-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+        traceId:
+          type: string
+          example: e0fbcfeb-3617-43c4-8dd0-7b7d38e13047
+    AuthenticatorListResponse:
+        type: array
+        items:
+          $ref: '#/components/schemas/AuthenticatorListItem'
+    AuthenticatorListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: QmFzaWNBdXRoZW50aWNhdG9y
+          readOnly: true
+        name:
+          type: string
+          example: BasicAuthenticator
+        displayName:
+          type: string
+          example: basic
+        isEnabled:
+          type: boolean
+          default: true
+          example: true
+        self:
+          type: string
+          example: /t/carbon.super/api/server/v1/configs/authenticators/QmFzaWNBdXRoZW50aWNhdG9y
+    Authenticator:
+      type: object
+      properties:
+        id:
+          type: string
+          example: QmFzaWNBdXRoZW50aWNhdG9y
+          readOnly: true
+        name:
+          type: string
+          example: BasicAuthenticator
+        displayName:
+          type: string
+          example: basic
+        isEnabled:
+          type: boolean
+          default: true
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticatorProperty'
+      required:
+        - name
+        - displayName
+    AuthenticatorProperty:
+      required:
+        - key
+      type: object
+      properties:
+        key:
+          type: string
+          example: AuthMechanism
+        value:
+          type: string
+          example: basic
