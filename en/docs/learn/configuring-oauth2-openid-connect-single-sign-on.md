@@ -134,6 +134,21 @@ Let's get started to configure the service provider you created!
          <td><strong>Allow Authentication without the client secret</strong></td>
          <td>This enables authenticating the client without the <code>               client secret              </code>.</td>
       </tr>
+            <tr class="even">
+               <td>
+                  <div class="content-wrapper">
+                     <p><strong>Access Token Binding Type</strong></p>
+                  </div>
+               </td>
+               <td>
+                  This section provides the capability to attach the OAuth2 access token and refresh token to an external attribute during the token generation and optionally validate the external attribute during the API invocation.
+                  <ul>
+                     <li><strong>None</strong> : No binding.</li>
+                     <li><strong>Cookie Based</strong> : This binding type is designed to improve the security of Single Page Applications(SPA) where access_token is stored at the browser. With this binding, additionally to the access token validation, a cookie with <code>Secure</code> and <code>HttpOnly</code> parameters will be validated to grant access.  In the current implementation, this binding type can be enabled for authorization code grant with <strong>Allow Authentication without the client secret</strong> option. When this is enabled new cookie named <strong>atbv</strong> will be returned with the authorization code to the client browser. When the application makes the token request with this cookie, that cookie will get validated and attached to the generated tokens. Now, whenever the SPA tries to access the Identity Server API, it needs to present the access token + cookie for successful authorization.</li>
+                     <li><strong>SSO Session Based</strong> : This binding type is designed to <strong>generate different tokens</strong> for each new browser instance. With this, you can avoid the same access token getting shared with multiple browser instances of the same application. Also, you can revoke the access token when you are logging out from one application(browser) instance and not break other instances. This binding type is supported for <strong>authorization code</strong> grant type.</li>
+                  </ul>
+               </td>
+            </tr>
       <tr class="odd">
          <td>
             <p><strong>User Access Token Expiry Time, Application Access Token Expiry Time, Refresh Token Expiry Time, Id Token Expiry Time</strong></p>
