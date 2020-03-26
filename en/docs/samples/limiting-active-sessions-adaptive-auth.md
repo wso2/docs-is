@@ -1,6 +1,6 @@
 # Configure Limiting Active User Sessions 
 
-This page guides you through setting up active user session limiting based on particular criteria for a sample application using sample authenticators. 
+This page guides you through setting up active user session limiting for a sample application based on a particular criteria, using sample authenticators.
 
 ----
 
@@ -42,7 +42,7 @@ Consider a scenario where you want a user who has an administrator role that can
     ![limit-active-sessions](../../assets/img/samples/limit-active-sessions.png)
     
     !!! note
-        You can configure the `MaxSessionCount` variable via the deployment.toml file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. 
+        You can configure the `MaxSessionCount` variable via the the deployment.toml file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through the `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. 
 
         ```
         authentication.authenticator.session_handler.parameters.max_session_count = “3”
@@ -74,7 +74,7 @@ Consider a scenario where you want a user who has an administrator role that can
 4.  Now you can either terminate one or more active sessions or deny the login. 
 
     !!! tip 
-        -   If you select and terminate the active sessions exceeding the maximum limit, you will be naviagated to the application home page. Otherwise you will be re-prompted until the minimum required number of sessions are terminated. 
+        -   If you select and terminate the active sessions exceeding the maximum limit, you will be navigated to the application home page. Otherwise you will be re-prompted until the minimum required number of sessions are terminated. 
         -   You can use the **Refresh Sessions** button to re-check active user sessions.
 
 5.  If you deny the login, the Authentication Error screen appears.
