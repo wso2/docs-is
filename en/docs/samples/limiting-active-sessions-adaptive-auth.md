@@ -37,12 +37,12 @@ Consider a scenario where you want a user who has an administrator role that can
 7.  Click **Ok**. The authentication script and authentication steps
     are configured. 
     
-    The authentication script defines a conditional step that executes session handling prompt only if the user belongs to an 'admin' or 'manager' role.  Here you can specify the value of `MaxSessionCount` variable to indicate the maximum number of allowed sessions. The default value is 1. For the purpose of this demo, change the value to 3. 
+    The authentication script defines a conditional step that executes session handling prompt only if the user belongs to an 'admin' or 'manager' role.  Here you can specify the value of `MaxSessionCount` variable to indicate the maximum number of sessions allowed. The default value is 1. For the purpose of this demo, change the value to 3. 
 
     ![limit-active-sessions](../../assets/img/samples/limit-active-sessions.png)
     
     !!! note
-        You can configure the `MaxSessionCount` variable via the the deployment.toml file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through the `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. 
+        You can configure the `MaxSessionCount` variable via the `deployment.toml` file in the  `<IS_HOME>/repository/conf/` directory as well. Priority will be given to the configuration in the adaptive authentication script. To configure the `MaxSessionCount` variable through the `deployment.toml` file, append the following configuration with the intended value for `MaxSessionCount`. 
 
         ```
         authentication.authenticator.session_handler.parameters.max_session_count = “3”
