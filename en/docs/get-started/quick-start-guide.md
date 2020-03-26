@@ -63,7 +63,7 @@ using WSO2 Identity Server.
 
 #### Steps to configure and run the samples
 
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.2.0/is-samples-distribution-4.2.0.zip) and unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.2.0/is-samples-distribution.zip) and unzip.
 
     ``` java
     unzip is-samples-distribution-4.2.0.zip
