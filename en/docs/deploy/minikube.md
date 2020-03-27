@@ -17,13 +17,13 @@ Install the following applications if you do not have them installed already. Ma
 4.  Set up a [kubernetes cluster](https://kubernetes.io/docs/tasks/tools/install-minikube/#before-you-begin) on minikube, if you do not have one set up already. The recommended version for minikube is **v1.7.3**.
 
     !!! important ""
-        Set the resources in such a way that you do not face any space related issues while testing the deployment. For this, start the minikube cluster with atleast 4 CPUs and a memory of 8192. Also, make sure that the kubernetes version of the server is compatible with the kubernetes client version installed. Since this document recommends the kubernetes client version v1.14.0, let's use the same for the server as well. The recommended hypervisor for this deployment is [virtualBox](https://www.virtualbox.org/wiki/Downloads). An example of how you can start minikube is shown below. 
+        Set the resources in such a way that you do not face any space related issues while testing the deployment. For this, start the minikube cluster with atleast 4 CPUs and a memory of 8192. Also, make sure that the kubernetes version of the server is compatible with the Kubernetes client version installed. Since this document recommends the kubernetes client version v1.14.0, let's use the same for the server as well. The recommended hypervisor for this deployment is [virtualBox](https://www.virtualbox.org/wiki/Downloads). An example of how you can start minikube is shown below. 
 
         ```curl 
         minikube start --kubernetes-version v1.14.0 --vm-driver=virtualbox --cpus 4 --memory 8192
         ```  
   
-5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install only the mandatory.yaml file for this deployment. 
+5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install only the `mandatory.yaml` file for this deployment. 
 
     !!! warning 
         **Do not** enable ingress as an addon in your minikube cluster. If you already have a minikube cluster where ingress is enabled, disable it before proceeding further.
