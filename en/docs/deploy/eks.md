@@ -17,13 +17,13 @@ Install the following applications if you do not have them installed already. Ma
 4.  Set up an [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html) on AWS cloud, if you do not have one set up already. 
 
 	!!! note ""
-		Make sure you have set up the following aspects properly before you set up the cluster. For more information, see [the amazon EKS getting started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-prereqs).
+		Make sure you have set up the following components properly before you set up the cluster. For more information, see [the amazon EKS getting started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-prereqs).
 
 		-	The EKS Service Role
 		-	The EKS Cluster VPC
 		-	AWS CLI version 2 
 			!!! note 
-				Alternatively, you can also use AWS CLI version 1 however, you need to make sure that you have installed Python3. AWS CLI version 2 is independant of the python version you are using. 
+				Alternatively, you can also use AWS CLI version 1 however, you need to make sure that you have installed Python3. AWS CLI version 2 is independant of the Python version you are using. 
 
 5.	Launch a managed node to get started with your instance profile. For instructions to do this, see [the amazon EKS getting started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-launch-workers).
 
