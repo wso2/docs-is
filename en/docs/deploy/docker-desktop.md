@@ -20,7 +20,9 @@ Install the following applications if you do not have them installed already. Ma
 		1.	Click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. 
 		Next, click **Preferences > Kubernetes > Enable Kubernetes**.  
 
-		2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. For this, click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. Next, click **Preferences > Resources**. Set the CPUs to 4 and memory to 4.00 GB.  
+		2.	Set the resources in such a way that you do not face any space related issues while testing the deployment. 
+			a. For this, click on the Docker desktop icon, ![docker](../assets/img/deploy/docker-desktop.png) on your notification panel. 
+			b. Next, click **Preferences > Resources**. Set the CPUs to 4 and memory to 4.00 GB.  
 		
 
 5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
