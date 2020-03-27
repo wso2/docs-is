@@ -1,36 +1,177 @@
-# Deploying WSO2 Identity Server on Kubernetes using AWS
+---
+template: templates/single-column.html
+---
 
-## Step 1 - Checkout this repository into your local machine using the following Git command
+# Deploying WSO2 Identity Server using AWS CloudFormation
 
-```java
-git clone https://github.com/wso2/aws-is.git
+## Prerequisites
+
+1. Make sure you already have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). 
+
+2. Install [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html). Alternatively, you can also use AWS CLI version 1. However, you need to make sure that you have installed Python3 to use AWS CLI version 1.
+
+## Step 1 - Create and upload an SSL certificate into AWS
+In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 Identity Server in AWS, we need not create the load balancer separately since it is taken care of in the template we use. For a secure connection via the load balancer between the web server and the browser, we need an SSL certificate. 
+
+??? note "Creating a self signed certificate"
+	If you are using this for testing purposes and do not want to create a certificate using AWS certificate manager, you can create a self signed certificate instead by following the instructions given below. 
+
+	1. Generate private key as private.pem 
+
+		**Request**
+
+		```curl 
+		openssl genrsa -out private.pem 2048
+		```
+		
+		**Response**
+
+		```curl
+		Generating RSA private key, 2048 bit long modulus
+		...................................................................................+++
+		......................................................................................+++
+		e is 65537 (0x010001)
+		```
+
+	2. Generate public key as public.pem
+
+		**Request**
+
+		```curl 
+		openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+		```
+
+		**Response**
+
+		```curl
+		writing RSA key
+		```
+	3. Create a CSR (Certificate Signing Request) as certificate.csr
+
+		**Request**
+
+		```curl
+		openssl req -new -key private.pem -out certificate.csr
+		```
+
+		**Response**
+
+		```curl
+		You are about to be asked to enter information that will be incorporated
+		into your certificate request.
+		What you are about to enter is what is called a Distinguished Name or a DN.
+		There are quite a few fields but you can leave some blank
+		For some fields there will be a default value,
+		If you enter '.', the field will be left blank.
+		-----
+		Country Name (2 letter code) [AU]:
+		State or Province Name (full name) [Some-State]:
+		Locality Name (eg, city) []:
+		Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+		Organizational Unit Name (eg, section) []:
+		Common Name (e.g. server FQDN or YOUR name) []:*us-east-2.elb.amazonaws.com
+		Email Address []:
+		Please enter the following 'extra' attributes
+		to be sent with your certificate request
+		A challenge password []:
+		An optional company name []:
+		```
+	4. Create a Self-signed certificate as certificate.crt
+
+		**Request**
+
+		```curl
+		openssl x509 -req -days 365 -in certificate.csr -signkey private.pem -out certificate.crt
+		```
+		
+		**Response**
+
+		```curl
+		Signature ok
+		subject=/CN=*us-east-2.elb.amazonaws.com
+		Getting Private key
+		```
+
+	5.	Upload your certificate
+
+		**Request**
+
+		``` curl
+		aws iam upload-server-certificate --server-certificate-name my-server-test --certificate-body file://certificate.crt --private-key file://private.pem
+		```
+
+		**Response**
+
+		```curl
+		ServerCertificateMetadata:
+		Arn: arn:aws:iam::637117764576:server-certificate/my-server-test
+		Expiration: '2021-03-24T07:56:42+00:00'
+		Path: /
+		ServerCertificateId: ASCAZIVZNSPQJ6CPW6YAP
+		ServerCertificateName: my-server-test
+		UploadDate: '2020-03-24T07:57:00+00:00'
+		```
+
+	6.  Validate the uploaded certificate and note down the ServerCertificateName. 
+
+		```curl 
+		aws iam list-server-certificate
+		```
+
+	7.  Obtain the aws_access_key_id and aws_secret_access_key from the credentials file. 
+
+		```curl 
+		vi  ~/.aws/credentials
+		```			
+		
+
+## Step 2 - Create an EC2 key pair for the desired region
+
+```curl
+aws ec2 create-key-pair --key-name <key-pair-name>
 ```
 
-## Step 2 - Specify a key value pair 
+!!! note ""
+	Alternatively, you can also create this using the [AWS EC2 console](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#KeyPairs:sort=keyName). 
+	
+	1. Click on **Create Key Pair**.
 
-Go to [AWS console](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#KeyPairs:sort=keyName) and specify a key value pair for authentication in a preferred region.
-Allowed regions are:
+	2. Enter a key pair name of your choice, choose a file format and click on **Create Key Pair** to create your key pair. 
 
--	ap-southeast-2 (Asia Pacific (Sydney))
--	eu-west-1 (EU (Ireland))
--	us-east-1 (US East (N. Virginia))
--	us-east-2 (US East (Ohio))
--	us-west-1 (US West (N. California))
--	us-west-2 (US West (Oregon))
+## Step 3 - Create a stack
 
-This could be used to ssh into the instances. Add a Server Certificate to AWS using ACM or IAM as explained [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html). This will be used at the load balancer listeners.
+1. [Create an EC2 stack](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template) by choosing **Create Stack > With new resources(standard)**. Specify `https://s3.amazonaws.com/wso2-cloudformation-templates/scalable-is.yaml` as the Amazon S3 URL and click **Next**. 
 
-## Step 3 - Create and launch a cloudformer stack
+	!!! note ""
+		To get a clear idea of the resources the template creates, and the over all flow of this deployment, click **View in Designer** before proceeding. 
 
-Go to [AWS CloudFormation console](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks?filteringText=&filteringStatus=active&viewNested=true&hideStacks=false) and select Launch Cloudformer.
+2. Specify all the stack details as required. Enter the Key ID and Secret Key as obtained in step 1, and the key pair name as obtained in step 2. 
 
+	!!! note ""
+		1. Make sure that the instance type is m3.large or larger. 
 
-## Step 4 - Deploy WSO2 Identity Server
+		2. The DB password that you choose for your DB instance can contain printable ASCII characters besides '/', '@', '"', ' '.
 
-Follow the on screen instructions and provide the SSH key value pair name given in step 2, and other requested information and proceed. Access the web UIs via the URLs available in the Outputs tab.
+3. Click on **Next**. Verify the stack details in the page that appears next. If everything is fine, click **Next** again and then click **Create Stack** on the page that appears. 
 
-!!!note 
-	The services listed through above URLs may take few minutes to become available, after stack creation.
+!!! note "" 
+	The stack resources might take upto 15 minutes to get created. You can veiw the porgress of the creation in the **Events** tab of the AWS console. 
+
+## Step 4 - Access the management console 
+
+You can access the WSO2 Identity Server management console by clicking on the `MgtConsoleUrl` mentioned in the **Outputs** tab of the stack that you created in step 3. 
+
+---
+
+!!! info "Related Topics"
+
+    -  Working with different databases <insert-link>
+    -  Working with different user stores <insert-link>
+    -  Configuring the User Realm <insert-link>
+
+---
+
+To try out deploying WSO2 Identity Server on other platforms, see [here](../../deploy/deploying-wso2-identity-server/).
 
 
 

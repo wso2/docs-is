@@ -27,8 +27,10 @@ template: templates/single-column.html
             <div class="card" onclick="location.href='../../deploy/aws';">
                 <div class="line"></div>
                 <div class="icon">
-                    <i class="material-icons md-24">how_to_reg</i>
-                </div>
+                      <i class="material-icons md-20">
+                         <img src="../../assets/img/deploy/aws.png">
+                      </i>
+	              </div>
                 <div class="card-content">
                     <p class="title">AWS</p>
                     <p class="hint">Deploy our product using AWS resources</p>
