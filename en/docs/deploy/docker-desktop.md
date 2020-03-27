@@ -39,7 +39,7 @@ Once you have kubernetes running on docker, follow the steps given below to depl
 
 ---
 
-## Step 1 - Clone the Kubernetes Resources for WSO2 Identity Server Git repository
+## Step 1 - Clone the Kubernetes Resources from the WSO2 Identity Server Git repository
 
 ```java
 git clone https://github.com/wso2/kubernetes-is.git
