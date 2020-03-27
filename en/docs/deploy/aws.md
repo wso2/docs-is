@@ -11,22 +11,18 @@ template: templates/single-column.html
 2. Install [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html). Alternatively, you can also use AWS CLI version 1. However, you need to make sure that you have installed Python3 to use AWS CLI version 1.
 
 ## Step 1 - Create and upload an SSL certificate into AWS
-In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 Identity Server in AWS, we need not create the load balancer separately since it is taken care of in the template we use. For a secure connection via the load balancer between the web server and the browser, we need an SSL certificate. 
+In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Identity Sever in AWS, it is not required to create the load balancer separately as it is taken care of in the template that you use. To establish a secure connection between the web server and the browser via the load balancer, you will need an SSL certificate. 
 
-??? note "Creating a self signed certificate"
-	If you are using this for testing purposes and do not want to create a certificate using AWS certificate manager, you can create a self signed certificate instead by following the instructions given below. 
+??? note "Creating a self-signed certificate"
+	If you are using this for testing purposes and do not want to create a certificate using the AWS certificate manager, you can create a self signed certificate instead by following the instructions given below. 
 
 	1. Generate private key as private.pem 
 
-		**Request**
-
-		```curl 
+		```curl tab="Request"
 		openssl genrsa -out private.pem 2048
 		```
 		
-		**Response**
-
-		```curl
+		```curl tab="Response"
 		Generating RSA private key, 2048 bit long modulus
 		...................................................................................+++
 		......................................................................................+++
@@ -35,28 +31,20 @@ In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 I
 
 	2. Generate public key as public.pem
 
-		**Request**
-
-		```curl 
+		```curl tab="Request"
 		openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 		```
-
-		**Response**
-
-		```curl
+		
+		```curl tab="Response"
 		writing RSA key
 		```
 	3. Create a CSR (Certificate Signing Request) as certificate.csr
 
-		**Request**
-
-		```curl
+		```curl tab="Request"
 		openssl req -new -key private.pem -out certificate.csr
 		```
-
-		**Response**
-
-		```curl
+		
+		```curl tab="Response"
 		You are about to be asked to enter information that will be incorporated
 		into your certificate request.
 		What you are about to enter is what is called a Distinguished Name or a DN.
@@ -76,17 +64,13 @@ In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 I
 		A challenge password []:
 		An optional company name []:
 		```
-	4. Create a Self-signed certificate as certificate.crt
+	4. Create a self-signed certificate as certificate.crt
 
-		**Request**
-
-		```curl
+		```curl tab="Request"
 		openssl x509 -req -days 365 -in certificate.csr -signkey private.pem -out certificate.crt
 		```
-		
-		**Response**
 
-		```curl
+		```curl tab="Response"
 		Signature ok
 		subject=/CN=*us-east-2.elb.amazonaws.com
 		Getting Private key
@@ -94,15 +78,11 @@ In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 I
 
 	5.	Upload your certificate
 
-		**Request**
-
-		``` curl
+		``` curl tab="Request"
 		aws iam upload-server-certificate --server-certificate-name my-server-test --certificate-body file://certificate.crt --private-key file://private.pem
 		```
 
-		**Response**
-
-		```curl
+		```curl tab="Response"
 		ServerCertificateMetadata:
 		Arn: arn:aws:iam::637117764576:server-certificate/my-server-test
 		Expiration: '2021-03-24T07:56:42+00:00'
@@ -112,7 +92,7 @@ In AWS, web servers are fronted with a Load balancer. While deploying the WSO2 I
 		UploadDate: '2020-03-24T07:57:00+00:00'
 		```
 
-	6.  Validate the uploaded certificate and note down the ServerCertificateName. 
+	6.  Validate the uploaded certificate and note down the `ServerCertificateName`. 
 
 		```curl 
 		aws iam list-server-certificate
