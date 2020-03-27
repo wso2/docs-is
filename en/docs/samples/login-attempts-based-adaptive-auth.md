@@ -103,4 +103,5 @@ Consider a scenario where you want a user who successfully logs in after 3 faile
     ![hardware key authenticator](../assets/img/samples/hardware-key-authenticator.png)
 
 !!! note
-    The failed login attempts need not be made at the same moment. Login attempts based adaptive authentication is still valid even if the user makes two login attempts now and another in a few days time before trying to log in with correct credentials.
+    The failed login attempts need not be made during a given time frame. Login attempts-based adaptive authentication is valid even if the user makes two login attempts now and the other in a few days' time before trying to log in with the correct credentials.
+    
