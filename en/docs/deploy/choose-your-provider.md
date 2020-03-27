@@ -76,3 +76,7 @@ template: templates/single-column.html
         </div>
         <!-- end card -->
             </div></div>
+
+<div style="display:flex;justify-content:center;">
+   <a style="color:orange;" href="../../deploy/deploying-wso2-identity-server"><u>Go Back</u></a>
+</div>
