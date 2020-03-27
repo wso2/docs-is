@@ -74,7 +74,7 @@
 }
 
 .md-header__version-select {
-    width: 3.5rem;
+    width: 7rem;
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
@@ -128,6 +128,15 @@ html .md-typeset .superfences-tabs > label:hover {
 .md-search__input::placeholder {
     color: #404040;
 }
+
+.md-search_output { 
+    display: none; 
+}
+
+.ds-dropdown-menu { 
+    font-size: 14px; 
+}
+
 
 .md-nav-link-wrapper {
     display: block;
