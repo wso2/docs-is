@@ -226,6 +226,7 @@ nav:
       - 'Role-Based': samples/role-based-adaptive-auth.md
       - 'User Age-Based': samples/age-based-adaptive-auth.md
       - 'Tenant-Based': samples/tenant-based-adaptive-auth.md
+      - 'User Store-Based': samples/user-store-based-adaptive-auth.md
       - 'IP-Based': samples/ip-based-adaptive-auth.md
       - 'Device-Based': samples/device-based-adaptive-auth.md
       - 'ACR-Based': samples/acr-based-adaptive-auth.md
