@@ -3,7 +3,7 @@
 This page guides you through configuring user store-based adaptive authentication for a sample web application using a sample hardware key authenticator. 
 
 This is useful if you want to add security for users logging in from other user store domains.
-Using the user-store-based adaptive authentication template, you can whitelist certain user store domains so that users from the whitelisted domains are prompted to perform an additional level of authentication, while users from any other user store domain can simply provide their credentials (basic authentication) to access a resource.
+Using the user store-based adaptive authentication template, you can whitelist certain user store domains so that users from the whitelisted domains are prompted to perform an additional level of authentication, while users from any other user store domain can simply provide their credentials (basic authentication) to access a resource.
 
 ----
 
@@ -25,7 +25,7 @@ The instructions given below guide you through creating a new LDAP database and 
 
 ## Configure user store-based authentication
 
-1.  Click **Service Providers>List**.
+1.  Click **Service Providers > List**.
 
 2.  Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
@@ -63,8 +63,7 @@ The instructions given below guide you through creating a new LDAP database and 
     This database will be connected to WSO2 Identity Server as a user store named `EMPLOYEES`.  If you do not already have an existing database, you can create a new LDAP server using Apache Directory Studio (Apache DS). See the instructions below to set this up.
     
 !!! info
-    **Alternatively**, you can also use a Active Directory or JDBC
-    database or an existing LDAP database.
+    **Alternatively**, you can also use an Active Directory or JDBC database, or an existing LDAP database.
 
 ----
 
