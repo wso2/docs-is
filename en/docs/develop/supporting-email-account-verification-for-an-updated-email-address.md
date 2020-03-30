@@ -27,9 +27,9 @@ See [Configuring the Email Sending Module](../../setup/configuring-email-sending
     2.  Add the following properties to the deployment.toml file in `IS_HOME/repository/conf` to enable the feature and to configure the verification email link expiry time.
 
         ```toml 
-        [Identity_mgt.user_claim_update.email]
+        [identity_mgt.user_claim_update.email]
         enable_verification = true
-        Verification_email_validity = “1440”
+        verification_email_validity = “1440”
         ```
 ##Try it Out 
 

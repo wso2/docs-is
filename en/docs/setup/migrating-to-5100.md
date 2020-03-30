@@ -191,6 +191,13 @@ sections to read the prerequisites.
         !!! note
             Here the `currentVersion` is the current WSO2 Identity Server version that you are using.
 
+    ??? note "If you are using PostgreSQL"
+        During the migration, "uuid-ossp" extension is created in the database. In order to create this extension, 
+        the database user should have '**Superuser**' permission. 
+        If the user is not already a superuser, assign the permission before starting the migration.
+            
+            ALTER USER <user> WITH SUPERUSER;
+            
 10.  Start the WSO2 Identity Server 5.10.0 with the following command to
     execute the migration client.
 

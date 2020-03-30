@@ -549,7 +549,8 @@ nav:
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Session Management': develop/session-mgt-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
-          - Scope based Authorization for Internal REST APIs: develop/scope-based-authorization-for-internal-rest-apis.md
+            - 'User Discoverable Application Management': develop/user-discoverable-applications.md
+          - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
           - 'SOAP APIs':
             - 'SOAP APIs': develop/soap-apis.md
             - 'User Management':
