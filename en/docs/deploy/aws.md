@@ -38,6 +38,7 @@ In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Ident
 		```curl tab="Response"
 		writing RSA key
 		```
+
 	3. Create a CSR (Certificate Signing Request) as certificate.csr
 
 		```curl tab="Request"
@@ -64,6 +65,7 @@ In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Ident
 		A challenge password []:
 		An optional company name []:
 		```
+		
 	4. Create a self-signed certificate as certificate.crt
 
 		```curl tab="Request"
