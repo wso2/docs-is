@@ -1,8 +1,10 @@
-### Introduction
+# Adaptive Authentication with Function Library
+
+## Introduction
 
 
 Script-based adaptive authentication in WSO2 Identity Server enables changing the 
-authentication flow based on conditions in JavaScript. For this, each service provider 
+authentication flow based on conditions in the JavaScript. For this, each service provider 
 needs to have its own set of Javascript functions. If the identity admin needs to have 
 the same function for several service providers, the same JavaScript function needs to be 
 duplicated. As a result, the process of managing authentication scripts gets difficult.
@@ -11,30 +13,29 @@ This feature supports a set of function libraries that can be imported in authen
 scripts. Each function library contains a set of functions. These function libraries can be 
 added, deleted, edited, imported, and exported via the WSO2 Identity Server Management Console.
 
+## Adding a function library
 
-### Adding a function library
+Follow the steps below to add a function library using the Management Console.
 
-Follow the steps below to add a function library using the Management Console,
+1. Sign in to the Management Console.
 
-1. Sign in to in to the Management Console.
-2. On the Main menu, click Manage > Function Libraries >  Add.
+2. On the Main menu, click **Manage > Function Libraries > Add**.
    
     ![](../assets/img/tutorials/functional-lib-menu-manage.png)
    
-3. Fill in the Function Library Name, provide a brief Description and write the
-Function Library Script for the function library.
+3. Fill in the **Function Library Name**, provide a brief Description and write the
+**Function Library Script** for the function library.
 
     ![](../assets/img/tutorials/functional-lib-add-menu.png)
 
-4. Click Register to add the new function library.
+4. Click **Register** to add the new function library.
 
 
 !!! Note
-
-    When adding a function library script, the functions you are supposed to use in authentication 
-    scripts need to be exported as follows.
+    When adding a **Function Library Script**, the functions you are supposed to use in authentication 
+    scripts need to be exported.
     
-    For example, when writing more than one function in one library you can use either of the following functions.
+    When writing more than one function in a library you can use one of the following functions.
     
     **Option 1**
     
@@ -52,6 +53,7 @@ Function Library Script for the function library.
     `
     
     For example,
+    
     ```javascript
     function getAge(birthDate) {
         var today = new Date();
@@ -119,91 +121,89 @@ Function Library Script for the function library.
     module.exports = ageModule;
     ```
 
+## Managing function libraries
 
-### Managing function libraries
-
-#### Viewing function libraries
+### Viewing function libraries
 Follow the instructions below to view the list of function libraries added in the WSO2 Identity Server.
 
 1. Sign in to the Management Console.
 
-2. In the Main menu, click Manage > Function Libraries > List. 
+2. In the **Main** menu, click **Manage > Function Libraries > List**. 
 
     Note that the list of function libraries you added appears.
 
     ![](../assets/img/tutorials/functional-lib-list-menu.png)
 
 
-#### Editing function libraries
+### Editing function libraries
 
 Follow the instructions below to edit a function library's details.
 
 1.  Sign in to the Management Console.
 
-2.  In the Main menu, click Manage > Function Libraries > List.
+2.  In the **Main** menu, click **Manage > Function Libraries > List**.
 
     Note that the list of function libraries you added appears.
 
-3.  Locate the function library you want to edit and click on the corresponding Edit link.
+3.  Locate the function library you want to edit and click on the corresponding **Edit** link.
 
     ![](../assets/img/tutorials/functional-lib-edit-menu.png)
 
-4. The edit screen appears. Function library’s name, description and script could be edited.
+4. The edit screen appears where the function library’s name, description and script can be edited.
 
     ![](../assets/img/tutorials/functional-lib-edit.png)
 
 
-5. Click Update.
+5. Click **Update**.
 
-6. To confirm your request if you have edited the function library name, click the Yes.
+6. Once you have edited the function library name, confirm your request by clicking **Yes**.
 
 
-#### Deleting function libraries
+### Deleting function libraries
 
 Follow the instructions below to delete a function library.
 
 1. Sign in to the Management Console.
 
-2. In the Main menu, click Manage > Function Libraries > List.
+2. In the **Main** menu, click **Manage > Function Libraries > List**.
 
 3. The list of function libraries you added appears.
 
-    Locate the function library you want to delete and click on the corresponding Delete link.
+    Locate the function library you want to delete and click on the corresponding **Delete** link.
 
     ![](../assets/img/tutorials/functional-lib-delete-menu.png)
 
-4. To confirm your request, click the Yes.
+4. To confirm your delete request, click **Yes**.
 
 
 
-##Including function libraries in adaptive authentication scripts
+## Including function libraries in adaptive authentication scripts
 
-1. Register a function library.
+1. [Register](#Adding-a-function-library) a function library.
 
 2. Configure a service provider for adaptive authentication. 
 
     For instructions, see [Configuring a Service Provider for Adaptive Authentication](../../learn/configuring-a-service-provider-for-adaptive-authentication).
 
-3. Under the Main menu of the Management Console, click Service Providers > List > 
-Edit on the configured service provider.
+3. Under the **Main** menu of the Management Console, click **Service Providers > List**. 
 
-4. Expand the Local and Outbound Authentication Configuration section 
-and click Advanced Configuration.
+4. Click **Edit** on the configured service provider.
 
-5. Write the adaptive authentication script in the editor using the functions written in the added function library.
+5. Expand the **Local and Outbound Authentication Configuration** section.
 
-6. Add `var <module_name> = require('<function library name>');`
+6. Click **Advanced Configuration.
 
-    (Eg: var ageModule = require('age_based.js');) on top of the script/ before the usage of functions in the function library.
+7. Write the adaptive authentication script in the editor using the functions written in the added function library.
 
-7. Use the functions exported in the loaded function library, e.g., ageModule.getAge(birthday).
+8. Add `var <module_name> = require('<function library name>');`, for example, `var ageModule = require('age_based.js');`, on top of the script/ before the usage of functions in the function library.
 
+9. Use the functions exported in the loaded function library, e.g., `ageModule.getAge(birthday)`.
 
+## Try it out
 
-#### Try it out
-##### Configuring the sample scenario
+### Configuring the sample scenario
 
-1. Follow the steps in adding a function library with following properties.
+1. Follow the steps in adding a function library with the following properties.
     
     Function Library Name: age_based
     Description: getAge of the user 
@@ -229,28 +229,30 @@ For instructions on how to do this, see [Configuring a Service Provider for Adap
 
 3. Sign in to the Management Console.
 
-4. Click List under Claims and click http://wso2.org/claims. 
+4. Click **List** under **Claims** and click `http://wso2.org/claims`. 
 
-5. Click Edit that corresponds to the BirthDate claim and select the 
-Supported By Default checkbox to enable the birth date claim. 
+5. Click the **Edit** button that corresponds to the `BirthDate` claim and select the 
+**Supported By Default** checkbox to enable the birth date claim. 
 
        ![](../assets/img/tutorials/functional-lib-add-dob-claim.png)
 
 6. Create a user called "Alex" and edit the user profile. 
 
-7. Enter a birth date that specifies Alex as under 18 years of age. 
+7. Enter a birth date that specifies Alex as below 18 years of age. 
+    
     !!! note
         Enter the birth date in the following format: <yyyy-mm-dd>.
 
 8. Create another user called "Kim" and edit the user profile. Enter a birth date that specifies Kim as over 18 years of age. 
 
-9. In the Main menu, click Service Providers > List and click Edit on the 
-saml2-web-app-pickup-dispatch.com service provider.
+9. In the **Main** menu, click **Service Providers > List**.
 
-10. Expand the Local and Outbound Authentication Configuration section and 
-click Advanced Configuration.
+10. Click **Edit** on the `saml2-web-app-pickup-dispatch.com` service provider.
 
-11. Under script based adaptive authentication editor, enter the following script.
+11. Expand the **Local and Outbound Authentication Configuration** section and 
+click **Advanced Configuration**.
+
+12. Under **script based adaptive authentication** editor, enter the following script.
 
     ```javascript
     var ageModule = require('age_based.js');
@@ -297,23 +299,21 @@ click Advanced Configuration.
     }
     ```
     The authentication script and authentication steps get configured. 
-    The authentication script grants access only to users who are 18 years or above 
+    The authentication script grants access only to users who are 18 years or above
     and restricts underage users. Underage users are redirected to an error page. 
     
     !!! note
-        Add var ageModule=require('age_based.js'); before ageModule.getAge(birthDate) and ageModule.validateDOB(dob) functions’ usage.
+        Add `var ageModule=require('age_based.js');` before `ageModule.getAge(birthDate)` and `ageModule.validateDOB(dob) functions’` usage.
 
+13. Click **Ok**, followed by **Update**.
 
-12. Click Ok then Update.
-
-##### Testing the sample scenario
+### Testing the sample scenario
 
 1. Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com
 2. Click Login and enter Kim's credentials. 
 3. You are successfully logged in to the application.
 
     ![](../assets/img/tutorials/functional-lib-login.png)
-
 
 4. Log out and login as Alex. Note that you are now restricted from logging in because Alex is underage.  
 
