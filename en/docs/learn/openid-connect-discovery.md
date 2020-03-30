@@ -32,7 +32,7 @@ the location of the OpenID Provider.
     
     ``` java
     [oauth.endpoints]
-    oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token</"
+    oidc_discovery_url= "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token/"
     ```
 
 
