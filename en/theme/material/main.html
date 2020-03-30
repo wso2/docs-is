@@ -18,7 +18,57 @@
 
 {% extends "base.html" %}
 
-{% block analytics %}
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+  <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome.css' | url }}">
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <a href="#" class="cd-top text--replace js-cd-top">Top</a>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSWTP6" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+    apiKey: '2240a31054e4df21266f8ccf2b5c9fc2',
+    indexName: 'wso2_is',
+    inputSelector: '.md-search__input',
+    debug: false // Set debug to true if you want to inspect the dropdown
+    });
+  </script>
+{% endblock %}
+
+{% block scripts %}
+      <script src="{{ 'assets/javascripts/application.162298c2.js' | url }}"></script>
+      {% if lang.t("search.language") != "en" %}
+        {% set languages = lang.t("search.language").split(",") %}
+        {% if languages | length and languages[0] != "" %}
+          {% set path = "assets/javascripts/lunr/" %}
+          <script src="{{ (path ~ 'lunr.stemmer.support.js') | url }}"></script>
+          {% for language in languages | map("trim") %}
+            {% if language != "en" %}
+              {% if language == "jp" %}
+                <script src="{{ (path ~ 'tinyseg.js') | url }}"></script>
+              {% endif %}
+              {% if language in ("da", "de", "du", "es", "fi", "fr", "hu", "it", "jp", "no", "pt", "ro", "ru", "sv", "tr") %}
+                <script src="{{ (path ~ 'lunr.' ~ language ~ '.js') | url }}"></script>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if languages | length > 1 %}
+            <script src="{{ (path ~ 'lunr.multi.js') | url }}"></script>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+      <script>app.initialize({version:"{{ mkdocs_version }}",url:{base:"{{ base_url }}"}})</script>
+      {% for path in config["extra_javascript"] %}
+        <script src="{{ path | url }}"></script>
+      {% endfor %}
+    {% endblock %}
+
+    {% block analytics %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-103065-9"></script>
 <script>
@@ -51,18 +101,5 @@
   })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 </script>
 <!-- End Google Tag Manager (noscript) -->
-{% endblock %}
 
-
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome.css' | url }}">
-{% endblock %}
-
-{% block content %}
-  {{ super() }}
-  <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSWTP6" height="0" width="0"
-    style="display:none;visibility:hidden"></iframe></noscript>
 {% endblock %}

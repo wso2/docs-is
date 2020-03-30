@@ -16,16 +16,18 @@
     {% set nav_item = nav_item.children | first %}
     {% include "partials/tabs-item.html" %}
   {% else %}
-    <li class="md-tabs__item">
-      {% if nav_item.active %}
+  {% if title in config.extra.nav_list %}
+  <li class="md-tabs__item">
+    {% if nav_item.active %}
         <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link md-tabs__link--active">
           {{ title }}
         </a>
-      {% else %}
+    {% else %}
         <a href="{{ (nav_item.children | first).url | url }}" title="{{ title }}" class="md-tabs__link">
           {{ title }}
         </a>
-      {% endif %}
-    </li>
-  {% endif %}
+    {% endif %}
+  </li>
+{% endif %}
+{% endif %}
 {% endif %}
