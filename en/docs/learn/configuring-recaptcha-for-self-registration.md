@@ -1,7 +1,7 @@
-# Configuring reCaptcha for Self Registration
+# Configuring reCaptcha for Self-Registration
 
-Self registration is an important feature when in comes to commercial
-applications. This feature allows the users the privilege of being a
+Self-registration is an important feature when it comes to commercial
+applications. This feature gives the users the privilege of being a
 part of your community without you having to go through the hassle of
 adding them.
 
@@ -16,26 +16,22 @@ brute force attacks.
     -   For more information on brute force attacks, see [Mitigating Brute
         Force Attacks](../../administer/mitigating-brute-force-attacks).
 
-There are two ways to configure this feature.
+You can either configure the recaptcha for a tenant, or configure it globally. 
 
-The instructions for both these approaches are as follows.
-
-## Configuring self-registration with reCaptcha for a tenant
-
-**To configure self-registration with reCaptcha for a specific tenant:**
+## Configuring self-registration with reCaptcha for a specific tenant
 
 1.  Set up reCaptcha with the WSO2 Identity Server. For instructions on
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
 2.  Start the WSO2 Identity Server and log in to the management console.
-3.  Click on **List** under **Identity Providers** on the **Main** tab
-    and then click **Resident Identity Provider**.
-4.  Expand the **Account Management Policies** tab and then expand the
+3.  Click on **List** under **Identity Providers** on the **Main** tab.
+4.  Click **Resident Identity Provider**.
+5.  Expand the **Account Management Policies** tab and then expand the
     **User Self Registration** tab.
-5.  Select the **Enable reCaptcha** checkbox to enable reCaptcha for the
+6.  Select the **Enable reCaptcha** checkbox to enable reCaptcha for the
     self registration flow.  
     ![self-registration-enable-recaptcha](../assets/img/using-wso2-identity-server/self-registration-enable-recaptcha.png)
-6.  You have now successfully configured reCaptcha for the self
+7.  You have now successfully configured reCaptcha for the self
     registration flow. Start the WSO2 Identity Server and log in to the
     user portal using the following link:
     <https://localhost:9443/user-portal>
@@ -44,16 +40,15 @@ The instructions for both these approaches are as follows.
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly.
     
-
-7.  Click the **Create Account** link.  
+8.  Click the **Create Account** link.  
     ![register-now](../assets/img/using-wso2-identity-server/register-now-option.png)
-8.  At the end of the registration, the following reCaptcha window
+9.  At the end of the registration, the following reCaptcha window
     appears.  
     ![recaptcha-window](../assets/img/using-wso2-identity-server/recaptcha-window.png) 
 
-### Configuring self-registration with reCaptcha globally
+---
 
-**To configure self-registration with reCaptcha globally:**
+## Configuring self-registration with reCaptcha globally
 
 1.  Navigate to the
     `           <IS_HOME>/repository/conf/deployment.toml          `
@@ -61,7 +56,7 @@ The instructions for both these approaches are as follows.
 
     !!! tip
         To avoid any configuration issues, do this before starting
-        up the WSO2 Identity Server product instance.
+        the WSO2 Identity Server product instance.
     
 
     ```toml
@@ -100,7 +95,7 @@ The instructions for both these approaches are as follows.
     </tr>
     <tr class="odd">
     <td><pre><code>manage_internally</code></pre></td>
-    <td>Setting this value to <code>               true              </code> ensures the internal email sending module is enabled. However, setting this to <code>               false              </code> ensures that the email sending data is available to the application via a Web service. The application can send the email using its own email sender.</td>
+    <td>Setting this value to <code>               true              </code> ensures the internal email sending module is enabled. However, setting this to <code>               false              </code> ensures that the email sending data is available to the application via a web service. The application can send the email using its own email sender.</td>
     </tr>
     <tr class="even">
     <td><pre><code>enable_recaptcha</code></pre></td>
@@ -137,8 +132,8 @@ The instructions for both these approaches are as follows.
     enable = true
     ```
 
-3.  To configure the sending confirmation email for the
-    self-registration process, enable the email sending configurations
+3.  To configure sending confirmation email for
+    self-registration, enable the email sending configurations
     of the WSO2 Identity Server as explained
     [here](../../setup/configuring-email-sending).
     
@@ -146,15 +141,12 @@ The instructions for both these approaches are as follows.
     how to do this and more information about reCaptcha, see [Setting Up
     ReCaptcha](../../learn/setting-up-recaptcha).
 5.  Start the WSO2 Identity Server and log in to the user portal
-    using the following link: <https://localhost:9443/user-portal>
+    using the following link: `<https://localhost:9443/user-portal>`
 
     !!! tip
-    
         If you have changed the port offset or modified the hostname, change the port or
         hostname accordingly. 
-
-6.  Click the **Create Account** link.  
+6.  Click **Create Account**.  
     ![register-now-link](../assets/img/using-wso2-identity-server/register-now-option.png)
-7.  Enter the account creation details and note that reCaptcha is
-    available.  
+7.  Enter the account creation details and note that a reCaptcha is available.  
     ![account-creation-details](../assets/img/using-wso2-identity-server/account-creation-details.png)

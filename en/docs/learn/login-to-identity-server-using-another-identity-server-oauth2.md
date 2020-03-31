@@ -4,13 +4,12 @@ This tutorial guides you through setting up two instances of WSO2
 Identity Server and using one Identity Server to authenticate the user
 and login to the other one.
 
-1.  Start 2 Identity Servers. Start the 2nd Identity Server with its hostname set as "wso2is" with a relevant certificate added to the primary IS client-truststore and a port
+1.  Start two Identity Servers. Start the second Identity Server with its hostname as `wso2is` with a relevant certificate added to the primary IS client-truststore, and a port
     offset of 1.  
-    For more information on how to do this, see [Default Ports of WSO2
-    Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports) and [Changing the 
-    hostname](../../setup/changing-the-hostname)
-    .
-2.  Configure an OAuth/OIDC service provider in the 2nd Identity
+    For more information on how to do this, see [Default Ports of WSO2 Products](../../references/default-ports-of-wso2-products#changing-the-offset-for-default-ports) and [Changing the 
+    hostname](../../setup/changing-the-hostname).
+
+2.  Configure an OAuth/OIDC service provider in the second Identity
     Server.  
     For more infomation on how to do this, see [Configuring
     OAuth2-OpenID Connect
@@ -22,8 +21,9 @@ and login to the other one.
     ![configure-oauth-oidc-sp](../assets/img/using-wso2-identity-server/configure-oauth-oidc-sp.png)
 
 3.  Create an identity provider in the first Identity Server.  
-    For more information on how to do this, see [Configuring
-    OAuth2-OpenID Connect](../../learn/configuring-oauth2-openid-connect).
+    For more information on how to do this, see [Configuring OAuth2-OpenID Connect](../../learn/configuring-oauth2-openid-connect). 
+
+    Set the values as follows. 
 
     -   Enable OAuth2/OpenIDConnect: selected
 
@@ -49,13 +49,16 @@ and login to the other one.
 4.  Setup the [playground sample](../../learn/deploying-the-sample-app/#deploying-the-playground2-webapp) in the
     first Identity Server instance.
 5.  Edit the service provider in the first Identity Server and select
-    the Federation Authentication for Authentication type in Local and
-    Outbound Authentication Configuration. Then select the created
-    identity provider from the dropdown menu in Federation
-    Authentication.  
+    the Federation Authentication as the **Authentication type** in the **Local and
+    Outbound Authentication Configuration**. 
+    
+6.  Now select the created identity provider from the dropdown menu in Federation
+    Authentication.      
+
     ![select-federation-authentication](../assets/img/using-wso2-identity-server/select-federation-authentication.png)
-6.  Try the authorization code grant as described
+
+7.  Try the authorization code grant as described
     [here](../../learn/try-authorization-code-grant). You will be redirected to
-    the 2nd Identity Server instead of the 1st Identity Server for
-    authentication.
+    the second Identity Server instead of the first Identity Server for
+    authentication. 
     ![second-idp](../assets/img/using-wso2-identity-server/second-idp.png) 
