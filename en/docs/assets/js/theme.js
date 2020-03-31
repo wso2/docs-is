@@ -130,7 +130,9 @@ request.onload = function() {
        */
       if (checkVersionsPage){
           var previousVersions = [];
-
+          var url = data.all[key].doc;
+          url = docSetUrl + url;
+          
           Object.keys(data.all).forEach(function(key, index){
               if ((key !== data.current) && (key !== data.next)) {
                   var docLinkType = data.all[key].doc.split(':')[0];
@@ -143,11 +145,11 @@ request.onload = function() {
                   previousVersions.push('<tr>' +
                     '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' + 
+                            '<a href="' + url.doc + '" target="' + 
                                 target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' + 
+                            '<a href="' + url.notes + '" target="' + 
                                 target + '">Release Notes</a>' +
                         '</td>' +
                     '</tr>');
