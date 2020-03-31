@@ -9,8 +9,8 @@
         "notes": "5.10.0/get-started/about-this-release"
     },
     "5.9.0": {
-      "doc": "5.9.0",
-      "notes": "5.9.0/get-started/about-this-release"
+      "doc": "https://is.docs.wso2.com/en/5.9.0",
+      "notes": "https://is.docs.wso2.com/en/5.9.0/get-started/about-this-release"
     },
     "5.8.0": {
         "doc": "https://docs.wso2.com/display/IS580/WSO2+Identity+Server+Documentation",
