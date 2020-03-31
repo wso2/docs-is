@@ -132,7 +132,7 @@ request.onload = function() {
           var previousVersions = [];
 
           Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
+              if ((key !== data.current) && (key !== data.next)) {
                   var docLinkType = data.all[key].doc.split(':')[0];
                   var target = '_self';
 
