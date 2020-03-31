@@ -69,7 +69,7 @@ First, let's configure the sample. Follow the steps given below:
 
     -   Add three roles - Debtor, Creditor, and ViewBalance
 
-    -   Add three user - Cameron, Alex, and John
+    -   Add three users - Cameron, Alex, and John
 
     -   Assign roles to users:
         Cameron -\> Debtor  
