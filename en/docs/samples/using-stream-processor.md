@@ -227,7 +227,7 @@ Server and WSO2 Stream Processor.
 
 2.  Click **Identity Providers > Resident** and expand **Adaptive Engine > Analytics Engine**.
 
-3.  Configure the following properties accordingly. For this tutorial scenario, you can leave the default configurations as they are. 
+3.  Configure the following properties accordingly. For this scenario, you can leave the default configurations as they are. 
 
     ![analytics-engine-properties](../assets/img/samples/analytics-engine-properties.png)
 
@@ -299,7 +299,7 @@ Server and WSO2 Stream Processor.
 ## Deploying the Siddhi application
 
 You have successfully created the Siddhi application and tested the functionality using the **Editor**. The **Editor** is useful for
-testing purposes however, you must deploy the application properly in WSO2 SP to use it in production. Follow these instructions to deploy the
+testing purposes. However, you must deploy the application properly in WSO2 SP to use it in production. Follow these instructions to deploy the
 application.
 
 1.  On the Editor, click **File > Export File**.
@@ -334,4 +334,4 @@ application.
 
 ----
 
-Now that you have successfully deployed a Siddhi application for risk based login, you can configure WSO2 Identity Server to receive data from this Siddhi application and set up rules for adaptive authentication. Follow the [Risk-Based Adaptive Authentication tutorial](risk-based-apative-auth.md) to set this up.
+Now that you have successfully deployed a Siddhi application for risk-based login, you can configure WSO2 Identity Server to receive data from this Siddhi application and set up rules for adaptive authentication. Follow the [Risk-Based Adaptive Authentication tutorial(risk-based-apative-auth.md) to set this up.

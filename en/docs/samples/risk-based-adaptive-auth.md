@@ -1,6 +1,6 @@
 # Configure Risk-Based Adaptive Authentication
 
-This page guides you through configuring [risk-based adaptive authentication](insertlink) for a sample web application using a sample hardware key authenticator. This tutorial demonstrates using WSO2 Stream Processor to publish transactional data and assess an end user's risk score based on the user's transaction history in an adaptive authentication scenario. 
+This page guides you through configuring [risk-based adaptive authentication](insertlink) for a sample web application using a sample hardware key authenticator. This tutorial demonstrates using WSO2 Stream Processor (WSO2 SP) to publish transactional data and assess an end user's risk score based on the user's transaction history in an adaptive authentication scenario. 
 
 ----
 
@@ -12,7 +12,7 @@ If you have your own application, click the button below.
 
 ## Scenario
 
-Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after a doing a transaction of over $10,000. This usecase can be achieved by creating a Siddhi application in WSO2 SP and configuring a conditional authentication script in the service provider configuration of the WSO2 Identity Server (WSO2 IS).
+Consider a business use case where a bank wants to prompt an additional authentication step when a user attempts to log in to the system after after performing a transaction of above $10,000. This usecase can be achieved by creating a Siddhi application in WSO2 SP and configuring a conditional authentication script in the service provider configuration of WSO2 Identity Server (WSO2 IS).
 
 ----
 
@@ -24,7 +24,7 @@ Consider a business use case where a bank wants to prompt an additional authenti
 
 First, create a Siddhi application as instructed below. The application has two endpoints; one to publish transactional data, and the other to get the user's risk score.
 
-1. Download the latest version of WSO2 Stream Processor.
+1. Download the latest version of [WSO2 Stream Processor](https://github.com/wso2/product-sp/releases).
 
 2. Create and deploy the following Siddhi application on a WSO2 SP worker node.
     
@@ -140,7 +140,6 @@ First, create a Siddhi application as instructed below. The application has two 
     about a user bank transaction exceeding $10,000.
 
     !!! tip
-    
         Replace the `<username>` tag in the cURL command given below with a valid username and ensure that the WSO2 SP Worker
         profile is running.
     
