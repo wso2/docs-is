@@ -57,6 +57,8 @@ You can manage your profile details using the user portal by following the instr
 
     ![profile-picture-url](../assets/img/using-wso2-identity-server/user-portal/user-profile/profile-picture-url.png)
 
+---
+
 ## Linked Accounts
 
 WSO2 Identity Server (WSO2 IS) allows you to link multiple accounts you may have and switch between accounts, once you link your accounts. WSO2 IS also allows you to connect your federated user credentials with your WSO2 Identity Server account. The user portal allows you to link and manage your other local and federated accounts seamlessly.
@@ -79,6 +81,8 @@ WSO2 Identity Server (WSO2 IS) allows you to link multiple accounts you may have
 2. Click the **Personal info** tab on the side panel.
 3. Click on the **delete** button aligning with the linked account you need to delete.
 4. Confirm the deletion of the linked account by clicking **OK** in the confirmation popup alert.
+
+---
 
 ## Export user profile
 
@@ -108,6 +112,8 @@ You can export your profile by following the instructions given below.
 
     ![profile-export](../assets/img/using-wso2-identity-server/user-portal/user-profile/profile-export.png)
 
+---
+
 ## Reset password
 
 We usually advise the users to reset their passwords regularly as a security measure. Using the user portal, now you can change your password without a hassle. In order to change the password using the user portal, follow the instructions given below.
@@ -116,6 +122,8 @@ We usually advise the users to reset their passwords regularly as a security mea
 2. Click the **Security** tab on the side panel.
 3. Under the **Change password** sub section click **Change your password**.
 4. Enter your current password and your new password twice in order to confirm the new password, and click **Submit**.     
+
+---
 
 ## Account recovery
 
@@ -159,6 +167,8 @@ The user portal allows users to add and update their challenge questions and upd
 
     !!! info
         Please note that this will update the email address in your profile as well.
+
+---
 
 ## Multi-factor authentication
 
@@ -233,11 +243,15 @@ You can simply remove any security devices registered under MFA by clicking the 
 
 ![fido-device-delete](../assets/img/using-wso2-identity-server/user-portal/account-recovery/fido-device-delete.png)
 
+---
+
 ## Monitor active user sessions
 
 The **Active user sessions** section in the user portal enables users to view details relating to the sessions of the different applications that are accessed via WSO2 IS. When you click on the **show more** button aligning with a specific session, it will display a detailed view of the session including the operating system, ip address, applications list, login time, and the last accessed time.
 
 Depending on the user’s preference, the user portal allows the users either to terminate all the sessions at once or terminate sessions one by one. By clicking the **terminate all** button at the top right corner, users can terminate all the active sessions with a single button click. If they wish to terminate a specific session, they can click on the **terminate session** in the **detailed view** section.
+
+---
 
 ## Consent management
 
@@ -258,6 +272,8 @@ The user portal allows users to revoke or edit the consent given to applications
 4. Click and disable the toggle button aligning with any claim you wish, to revoke your consent.
 
 5. Click **update**.
+
+---
 
 ## Review pending approvals
 
