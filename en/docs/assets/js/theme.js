@@ -105,7 +105,7 @@ request.onload = function() {
           });
 
           document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl);
+              .setAttribute('href', docSetUrl + 'versions');
       }
       
       /* 
