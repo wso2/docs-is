@@ -1,6 +1,6 @@
 # Tenant-Wise Email Sender Configuration
 
-When handling the notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
+When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
 
 - [EmailOTP](../../learn/configuring-email-otp)
 - [Password Recovery](../../learn/password-recovery)
@@ -8,7 +8,7 @@ When handling the notifications such as the ones given below, the email-sender c
 - [Creating Users using the Ask PasswordOption](../../learn/creating-users-using-the-ask-password-option)
 
 
-**Changes to the deployment.toml file**
+**Email configurations**
 
  ``` toml
  [output_adapter.email]
@@ -20,7 +20,7 @@ When handling the notifications such as the ones given below, the email-sender c
  enable_start_tls= true
  enable_authentication= true
  ```
- However, this configuration will apply to all the tenants. If you are having a requirement to configure them tenant-wise follow the instructions given below instead. 
+ However, this configuration will apply to all the tenants. If you wish to configure them tenant-wise follow the instructions given below instead. 
  
 1. Configure the [Configuration Management REST API](../../develop/using-the-configuration-management-rest-apis). 
 2. Execute the following curl command for creating a resource type named `Publisher`. 

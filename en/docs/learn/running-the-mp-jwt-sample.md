@@ -21,7 +21,8 @@ First, let's configure the sample. Follow the steps given below:
 3.  Navigate back to
     `           <SAMPLE_HOME>/microprofile/microprofile-jwt          `
     and open `           pom.xml          `. 
-    Uncomment the following section:
+    
+4.  Uncomment the following section:
 
     ``` xml
     <!--<executions>-->
@@ -45,7 +46,7 @@ First, let's configure the sample. Follow the steps given below:
     <!--</executions>-->
     ```
 
-4.  Now, build the sample using the following command:
+5.  Now, build the sample using the following command:
 
     ``` xml
     mvn clean install
@@ -55,10 +56,11 @@ First, let's configure the sample. Follow the steps given below:
     `           microprofile-jwt-<VERSION>-resources.zip          ` in
     the target folder.
 
-5.  Unzip the
+6.  Unzip the
     `           microprofile-jwt-<VERSION>-resources.zip          ` and
     navigate to `           sample-configuration-resources          `.
-    Now run the following command to do the necessary configurations.
+    
+7.  Now run the following command to do the necessary configurations.
 
     ``` xml
     sh configure_sample.sh
@@ -92,7 +94,7 @@ First, let's configure the sample. Follow the steps given below:
     java -jar secure-wallet-service.jar
     ```
 
-    This sample service creates following endpoints:
+    This sample service creates the following endpoints:
 
     -   **`              /wallet/balance             `** which will send
         the current balance
@@ -105,18 +107,18 @@ First, let's configure the sample. Follow the steps given below:
 
     These three endpoints are secured with MP-JWT as follows:
 
-    -   /balance endpoint is allowed to call by users that are assigned one of
+    -   /balance endpoint can be called by users that are assigned one of
         the following roles: admin, ViewBalance, Debtor
 
-    -   /credit endpoint is allowed to call by users that are assigned one of
+    -   /credit endpoint can be called by users that are assigned one of
         the following roles: admin, Creditor
 
-    -   /debit endpoint is allowed to call by users that are assigned one of the 
+    -   /debit endpoint can be called by users that are assigned one of the 
         following roles: admin, Debtor
 
 ## Invoking the endpoints
 
-You can generate the JWT tokens for each user executing the cURL
+You can generate the JWT tokens for each user by executing the cURL
 command given below using the following credentials:
 
 | User    | Username | Password   |
@@ -136,6 +138,6 @@ as a bearer token.
 If you try to invoke the endpoints without an authorization header, you
 will receive an HTTP 401 Unauthorized response.
 
-If you invoke an endpoint with a token obtained for a user that has no access, you can observe an HTTP 403 Forbidden response. For
+If you invoke an endpoint with a token obtained for a user that has no access, you will receive an HTTP 403 Forbidden response. For
 instance, if you try to invoke the /debit endpoint while you only have
 the Creditor role, you will get HTTP 403 response.

@@ -63,12 +63,12 @@ For example:
     ![device-demo-logged](../assets/img/using-wso2-identity-server/device-demo-logged.jpg)
 
 12. Access the provided verification URI on your secondary device. You can either enter the user code there or scan the
- provided QR code. QR code contains the complete verification URI(verification URI + user code).
+ provided QR code. The QR code contains the complete verification URI(verification URI + user code).
 
     ![device-code-enter](../assets/img/using-wso2-identity-server/device-code-enter.jpg)
 
 13. Click **Sign In**. If the user code is correct, you will be prompted to enter your credentials. If you have entered the
- wrong user code or an expired(a user code is for one-time use) one, it will ask to re-enter your user code. In that case
+ wrong user code or an expired(a user code is for one-time use) one, you will be prompted to re-enter your user code. In that case
   get a new user code and enter that along with your credentials.
  
     ![device-username-password](../assets/img/using-wso2-identity-server/device-username-password.jpg)

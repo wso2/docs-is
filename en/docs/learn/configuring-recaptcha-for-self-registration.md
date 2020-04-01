@@ -132,7 +132,7 @@ You can either configure the recaptcha for a tenant, or configure it globally.
     enable = true
     ```
 
-3.  To configure sending confirmation email for
+3.  To configure sending a confirmation email for
     self-registration, enable the email sending configurations
     of the WSO2 Identity Server as explained
     [here](../../setup/configuring-email-sending).
