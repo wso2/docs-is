@@ -1,7 +1,6 @@
 # Scopes Corresponding to Permissions Required to Invoke API Calls
 
-The following table lists out the scopes corresponding to permissions required to 
-call various REST API calls.
+The list of permission levels and the corresponding scopes given below, can be used in various [REST API](../../develop/using-apis) calls. 
 
 <table>
 <tbody>
