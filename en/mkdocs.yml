@@ -128,7 +128,7 @@ nav:
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
-        - 'Passwordless authentication using FIDO2': learn/passowrdless-authentication-using-fido2.md
+        - 'Passwordless authentication using FIDO2': learn/passwordless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
         - 'Logging in to SimpleSAMLphp using Identity Server': learn/logging-in-to-simplesamlphp-using-identity-server.md
