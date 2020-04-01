@@ -91,7 +91,9 @@ nav:
         - 'Using Function Library': guides/adaptive-auth-with-function-lib.md
       - 'Federation':
         - guides/federation.md
-      - 'Access Delegation' : guides/access-delegation/overview.md
+      - 'Access Delegation' : 
+        - 'Overview': guides/access-delegation/overview.md
+        - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':

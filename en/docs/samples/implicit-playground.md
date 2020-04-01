@@ -43,15 +43,9 @@ This page guides you through using a **sample Playground application** to try ou
 	&scope=openid
 	``` 
 
-3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the access token. 
+3. Log in with user credentials (e.g., admin/admin). At this point, the application receives the ID token. 
 
-4. Enter the **Introspection Endpoint** (i.e, https://localhost:9443/oauth2/introspect) and click **Get TokenInfo** to get the token   information. 
-
-	For more information, see [OAuth Token Introspection](insertlink).
-
-5.  Now you should be able to see the access token information as seen
-    below, as long as the provided access token is valid.  
-
-	<img name='access-token-info' src='../../assets/img/samples/access-token-info.png' class='img-zoomable'/>
+	<img name='implicit-id-token' src='../../assets/img/samples/implicit-id-token.png' class='img-zoomable'/>
 	
+
 
