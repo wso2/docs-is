@@ -94,6 +94,7 @@ nav:
       - 'Access Delegation' : 
         - 'Overview': guides/access-delegation/overview.md
         - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
+        - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
