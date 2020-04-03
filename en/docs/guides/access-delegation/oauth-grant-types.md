@@ -22,6 +22,7 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
     Note that the **OAuth Client Key** and **Client Secret** are generated. You will need these values later on when sending the request to the authorization endpoint.
 
 8.  Click **Register**.
+
 ----
 
 ## Authorization code grant type
