@@ -2074,10 +2074,14 @@ components:
           description: Decides whether the application is visible for end users.
         certificate:
           $ref: '#/components/schemas/Certificate'
-        skipConsent:
+        skipLoginConsent:
           type: boolean
           example: false
           description: Decides whether user consent needs to be skipped during login flows.
+        skipLogoutConsent:
+          type: boolean
+          example: false
+          description: Decides whether user consent needs to be skipped during logout flows.
         returnAuthenticatedIdpList:
           type: boolean
           example: false
