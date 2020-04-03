@@ -21,16 +21,16 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 {!fragments/register-a-service-provider.md!}
 
-3.  Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**. 
+3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
 4. Click **Configure**.   
 
-5. Select the **Kerberos** from the **Allowed Grant Types** list.
+5. Select **Kerberos** from the **Allowed Grant Types** list.
         
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced).
+        For more information on the `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
@@ -72,13 +72,13 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 2.  Run `KerbClient.cs` using an IDE.  
 
     !!! tip 
-        You can run it using Visual Studio by downloading and installing the following required libraries and programs.
+        You can run it using Visual Studio by downloading and installing the following libraries and programs.
 
         -   [Visual Studio sdk](https://www.microsoft.com/net/download/visual-studio-sdks)(.NET Core 2.1)
 
         -   [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/)(Professional Edition)
 
-        -   Install the `System.Net.Http.dll` and define the path in the `KerbClientProject.csproj` file.
+        -   Install `System.Net.Http.dll` and define the path in the `KerbClientProject.csproj` file.
 
         Note that you can also use any other IDE to run this project.
     
@@ -116,7 +116,7 @@ curl -v -X POST -H "Authorization: Basic <base64 encoded client id:client secret
 curl -u <client id>:<client secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos realm>&kerberos_token=<kerberos token>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
 ```
 
-You will recieve the following response.
+You will receive the following response.
 
 ``` java
 POST /oauth2/token HTTP/1.1
