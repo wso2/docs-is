@@ -517,6 +517,7 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
+            - 'Rest APIs': develop/rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Application Management' : develop/application-rest-api.md
