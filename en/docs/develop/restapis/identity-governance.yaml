@@ -1,8 +1,7 @@
 openapi: 3.0.0
 info:
-  description: >-
-  This is the RESTful API for identity governance configurations in WSO2	
-    Identity Server
+  description: >
+    This is the RESTful API for identity governance configurations in WSO2 Identity Server.
   version: "v1"
   title: WSO2 Identity Server - Governance connectors Admin API
   contact:

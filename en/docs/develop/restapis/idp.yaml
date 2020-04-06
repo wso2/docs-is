@@ -2335,57 +2335,57 @@ properties:
             type: array
             items:
               $ref: '#/components/schemas/IdentityProviderTemplateListItem'
-      IdentityProviderTemplateListItem:
-        type: object
-        properties:
-          id:
-            type: string
-            readOnly: true
-            example: 123e4567-e89b-12d3-a456-556642440000
-          name:
-            type: string
-            example: 'google'
-          description:
-            type: string
-            example: 'Identity provider template for google federation'
-          image:
-            type: string
-            example: 'google-logo-url'
-          category:
-            type: string
-            enum: [DEFAULT, CUSTOM]
-            example: 'DEFAULT'
-          displayOrder:
-            type: integer
-            example: 10
-          self:
-            type: string
-            example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
-      IdentityProviderTemplate:
-        type: object
-        properties:
-          id:
-            type: string
-            readOnly: true
-            example: 123e4567-e89b-12d3-a456-556642440000
-          name:
-            type: string
-            example: google
-          description:
-            type: string
-            example: 'Google federated connector'
-          image:
-            type: string
-            example: 'google-logo-url'
-          category:
-            type: string
-            enum: [DEFAULT, CUSTOM]
-            example: 'DEFAULT'
-          displayOrder:
-            type: integer
-            example: 10
-          idp:
-            $ref : '#/components/schemas/IdentityProviderPOSTRequest'
-        required:
-          - name
-          - idp        
+    IdentityProviderTemplateListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 123e4567-e89b-12d3-a456-556642440000
+        name:
+          type: string
+          example: 'google'
+        description:
+          type: string
+          example: 'Identity provider template for google federation'
+        image:
+          type: string
+          example: 'google-logo-url'
+        category:
+          type: string
+          enum: [DEFAULT, CUSTOM]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 10
+        self:
+          type: string
+          example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
+    IdentityProviderTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 123e4567-e89b-12d3-a456-556642440000
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+          example: 'Google federated connector'
+        image:
+          type: string
+          example: 'google-logo-url'
+        category:
+          type: string
+          enum: [DEFAULT, CUSTOM]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 10
+        idp:
+          $ref : '#/components/schemas/IdentityProviderPOSTRequest'
+      required:
+        - name
+        - idp        
