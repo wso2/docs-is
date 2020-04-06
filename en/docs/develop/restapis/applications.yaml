@@ -1888,7 +1888,7 @@ paths:
               application/json:	
                 schema:	
                   $ref: '#/components/schemas/Error'	
-  '/applications/templates/{template-id}:	
+  '/applications/templates/{template-id}':	
     get:	
       tags:	
         - Application Templates	
