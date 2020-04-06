@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
   description: >
-    This document specifies a **Identity Provider Management RESTful API** for
+    This document specifies an **Identity Provider Management RESTful API** for
     **WSO2 Identity Server**. This supports Restful APIs for identity provider management.
-    The APIs provide the capability to add/update/delete/patch identity providers in Identity Server.
+    The APIs provide the capability to add/update/delete/patch identity providers in the identity server.
     In addition, APIs are available to retrieve metadata about federated authenticators and outbound provisioning
-    connectors that can be configured for any given Identity Provider.
+    connectors that can be configured for any given identity provider.
 
   version: "0.1.0-oas3"
   title: WSO2 Identity Server - Identity Provider Management API definition
@@ -28,8 +28,8 @@ paths:
       summary: |
         List identity providers
       description: >
-        This API provides the capability to retrive the list of identity
-        providers <br>
+        This API provides the capability to retrieve the list of identity
+        providers. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -41,7 +41,7 @@ paths:
         - $ref: '#/components/parameters/filterQueryParam'
         - $ref: '#/components/parameters/sortQueryParam'
         - $ref: '#/components/parameters/sortByQueryParam'
-        - $ref: '#/components/parameters/attributesQueryParam'
+        - $ref: '#/components/parameters/requiredAttributesQueryParam'
       responses:
         '200':
           description: Successful Response
@@ -81,9 +81,9 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Add a new Identity Provider
+        Add a new identity provider
       description: |
-        This API provides the capability to create a new Identity Provider <br>
+        This API provides the capability to create a new identity provider. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/create <br>
         <b>Scope required:</b> <br>
@@ -94,7 +94,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the newly created identity provider
+              description: Location of the newly created identity provider.
               schema:
                 type: string
           content:
@@ -143,7 +143,7 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/IdentityProviderPOSTRequest'
-        description: This represents the identity provider to be created
+        description: This represents the identity provider to be created.
         required: true
   /identity-providers/meta/federated-authenticators:
     get:
@@ -153,7 +153,7 @@ paths:
         Metadata about supported federated authenticators of identity providers
       description: >-
         This API provides the list of supported federated authenticators for an
-        identity provider in Identity Server <br>
+        identity provider in the the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -190,15 +190,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/federated-authenticators/{federated-authenticator-id}':
+  /identity-providers/meta/federated-authenticators/{federated-authenticator-id}:
     get:
       tags:
         - Metadata
       summary: |
         Metadata about a supported federated authenticator
       description: >
-        'This API provides the details of a single supported federated
-        authenticator for an identity provider in Identity Server' <br>
+        This API provides the details of a single supported federated
+        authenticator for an identity provider in the the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -246,10 +246,10 @@ paths:
         - Metadata
       summary: >
         Metadata about supported outbound provisioning connectors by identity
-        providers in Identity Server
+        providers in the identity server
       description: >-
         This API provides the list of supported federated authenticators for an
-        IDP in Identity Server <br>
+        IdP in the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -286,7 +286,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}':
+  /identity-providers/meta/outbound-provisioning-connectors/{outbound-provisioning-connector-id}:
     get:
       tags:
         - Metadata
@@ -294,7 +294,7 @@ paths:
         Metadata about supported outbound provisioning connectors
       description: >-
         This API provides the details of a single supported outbound
-        provisioning connectors for an IDP in Identity Server <br>
+        provisioning connector for an IdP in the identity server. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -341,12 +341,12 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Retrive identity provider by identity provider's id
+        Retrieve identity provider by identity provider's ID
       description: >
-        'This API provides the capability to retrive the identity provider
-        details by using its id. Furthermore, by specifying the "Accept :
-        application/xml" header, it provides the ability to export IDP data as
-        XML' <br>
+        This API provides the capability to retrieve the identity provider
+        details by using its ID. Furthermore, by specifying the "Accept :
+        application/xml" header, it provides the ability to export IdP data as
+        XML. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -355,7 +355,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -404,11 +404,11 @@ paths:
       tags:
         - Identity Providers
       summary: >
-        Patch an identity provider property by id. Patch is supported only for
+        Patch an identity provider property by ID. Patch is supported only for
         key-value pairs
       description: >
         This API provides the capability to update an identity provider property
-        using patch request. IDP patch is supported only for key-value pairs <br>
+        using patch request. IdP patch is supported only for key-value pairs. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -417,7 +417,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -426,7 +426,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated identity provider
+              description: Location of the updated identity provider.
               schema:
                 type: string
           content:
@@ -465,10 +465,10 @@ paths:
       tags:
         - Identity Providers
       summary: |
-        Delete an identity provider by using identity provider's id
+        Delete an identity provider by using the identity provider's ID.
       description: >
         This API provides the capability to delete an identity provider by
-        giving it id <br>
+        giving its ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/delete <br>
         <b>Scope required:</b> <br>
@@ -477,7 +477,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -515,7 +515,7 @@ paths:
         Federated authenticators of an identity provider
       description: >
         This API provides a list of federated authenticators enabled for a
-        specific identity provider identified by its id <br>
+        specific identity provider identified by its ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -524,7 +524,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -562,11 +562,11 @@ paths:
       tags:
         - Federated Authenticators
       summary: |
-        Retrive federated authenticator config of an identity provider
+        Retrieve federated authenticator config of an identity provider
       description: >
-        This API provides the capability to retrive the federated authenticator
+        This API provides the capability to retrieve the federated authenticator
         information of an identity provider by giving the federated
-        authenticator id <br>
+        authenticator's ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -575,13 +575,13 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
         - name: federated-authenticator-id
           in: path
-          description: Id of the federated authenticator
+          description: ID of the federated authenticator.
           required: true
           schema:
             type: string
@@ -622,7 +622,7 @@ paths:
         authenticator id
       description: >
         This API provides the capability to update an identity provider's
-        federated authenticator config by specifying authenticator id <br>
+        federated authenticator config by specifying the authenticator ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -631,13 +631,13 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
         - name: federated-authenticator-id
           in: path
-          description: Id of the federated authenticator
+          description: ID of the federated authenticator.
           required: true
           schema:
             type: string
@@ -646,7 +646,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated federated authenticator
+              description: Location of the updated federated authenticator.
               schema:
                 type: string
           content:
@@ -689,9 +689,9 @@ paths:
       summary: |
         Provisioning entities of an identity provider
       description: >
-        'This API provides a list of available provisioning entities of an
+        This API provides a list of available provisioning entities for an
         identity provider. This includes just-in-time provisioning config and
-        outbound provisioning connectors' <br>
+        outbound provisioning connectors <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -700,7 +700,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -741,7 +741,7 @@ paths:
         Outbound provisioning connectors of an identity provider
       description: >
         This API provides a list of outbound provisioning connectors enabled for
-        an identity provider <br>
+        an identity provider. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -750,7 +750,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -788,11 +788,11 @@ paths:
       tags:
         - Provisioning
       summary: |
-        Retrive outbount provisioning connector of an identity provider
+        Retrieve outbound provisioning connector of an identity provider
       description: >
-        This API provides the capability to retrive the outbount provisioning
-        connector information of an identity provider by specifying provisioning
-        connector id <br>
+        This API provides the capability to retrieve the outbound provisioning
+        connector information of an identity provider by specifying the provisioning
+        connector's ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -801,13 +801,13 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
         - name: outbound-provisioning-connector-id
           in: path
-          description: Id of the outbound provisioning connector
+          description: ID of the outbound provisioning connector.
           required: true
           schema:
             type: string
@@ -848,7 +848,7 @@ paths:
       description: >
         This API provides the capability to update an outbound provisioning
         connector config of an identity provider by specifying the provisioning
-        connector id <br>
+        connector's ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -857,13 +857,13 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
         - name: outbound-provisioning-connector-id
           in: path
-          description: Id of the outbound provisioning connector
+          description: ID of the outbound provisioning connector.
           required: true
           schema:
             type: string
@@ -872,7 +872,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated outbound provisioning connector
+              description: Location of the updated outbound provisioning connector.
               schema:
                 type: string
           content:
@@ -917,7 +917,7 @@ paths:
       description: >
         This API provides the claim config for an identity provider. This
         includes idp-to-local claim mappings, claims to be outbound
-        provisioning, userID claim URI and role claim URI <br>
+        provisioned, userID claim URI, and role claim URI. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -926,7 +926,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -966,7 +966,7 @@ paths:
         Update the claims of an identity provider
       description: >
         This API provides the capability to update the claim config of an
-        existing identity provider <br>
+        existing identity provider. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -975,7 +975,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -984,7 +984,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated claim config
+              description: Location of the updated claim config.
               schema:
                 type: string
           content:
@@ -1029,7 +1029,7 @@ paths:
       description: >
         This API provides the role config of an identity provider. This includes
         idp-to-local role mappings and/or a list of roles to be
-        outbound-provisioned <br>
+        outbound-provisioned. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -1038,7 +1038,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -1078,7 +1078,7 @@ paths:
         Update the role config of an identity provider
       description: >
         This API provides the capability to update the role config of an
-        identity provider by specifying identity provider id <br>
+        identity provider by specifying the identity provider ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -1087,7 +1087,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -1096,7 +1096,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated role config
+              description: Location of the updated role config.
               schema:
                 type: string
           content:
@@ -1130,7 +1130,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Roles'
-        description: This represents the role config to be updated
+        description: This represents the role config to be updated.
         required: true
   '/identity-providers/{identity-provider-id}/provisioning/jit':
     get:
@@ -1139,8 +1139,8 @@ paths:
       summary: |
         Just-In-Time provisioning config of an identity provider
       description: >
-        This API retrives the Just-In-Time provisioning config of an identity
-        provider by specifying identity provider id <br>
+        This API retrieves the Just-In-Time provisioning config of an identity
+        provider by specifying the identity provider ID. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
@@ -1149,7 +1149,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -1189,10 +1189,10 @@ paths:
         Update the just-in-time provisioning config of an identity provider
       description: >
         This API provides the capability to update the just-in-time provisioning
-        config of an identity provider by specifying identity provider id. This
+        config of an identity provider by specifying the identity provider's ID. This
         includes the ability to enable/disable JIT provisioning, change
         provisioning userstore and enable/disable user prompts for username,
-        password and consent <br>
+        password and consent. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/update <br>
         <b>Scope required:</b> <br>
@@ -1201,7 +1201,7 @@ paths:
       parameters:
         - name: identity-provider-id
           in: path
-          description: Id of the Identity Provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -1210,7 +1210,7 @@ paths:
           description: Successful response
           headers:
             Location:
-              description: Location of the updated just-in-time provisioning config
+              description: Location of the updated just-in-time provisioning config.
               schema:
                 type: string
           content:
@@ -1244,7 +1244,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/JustInTimeProvisioning'
-        description: This represents the just-in-time provisioning config to be updated
+        description: This represents the just-in-time provisioning config to be updated.
         required: true
   '/identity-providers/{identity-provider-id}/connected-apps':
     get:
@@ -1253,16 +1253,18 @@ paths:
       summary: |
         Connected applications of an identity provider
       description: >
-        This API provides the list of applications which are using this identity provider for federated/provisioning. <br>
+        This API provides the list of applications that use this identity provider for federated authentication/provisioning. <br>
         <b>Permission required:</b> <br>
             * /permission/admin/manage/identity/idpmgt/view <br>
         <b>Scope required:</b> <br>
             * internal_idp_view
       operationId: getConnectedApps
       parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
         - name: identity-provider-id
           in: path
-          description: Id of the identity provider
+          description: ID of the identity provider.
           required: true
           schema:
             type: string
@@ -1295,6 +1297,261 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /identity-providers/templates:
+    get:
+      tags:
+        - Template management
+      summary: |
+        List identity provider templates
+      description: >
+        This API provides the list of available identity provider templates.
+      operationId: getIDPTemplates
+      parameters:
+        - $ref: '#/components/parameters/limitQueryParam'
+        - $ref: '#/components/parameters/offsetQueryParam'
+        - $ref: '#/components/parameters/filterQueryParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderTemplateListResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags :
+        - Template management
+      summary: |
+        Create a new IdP template
+      description: >
+        This API provides the capability to create a new IdP template.
+      operationId: addIDPTemplate
+      responses:
+        '201':
+          description: Successful response
+          headers:
+            Location:
+              description: Location of the newly created identity provider template.
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderTemplate'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderTemplate'
+        description: This represents the identity provider template to be created.
+        required: true
+  '/identity-providers/templates/{template-id}':
+    get:
+      tags:
+        - Template management
+      summary: |
+        Retrieve identity provider template by ID
+      description: >
+        This API provides the capability to retrieve an identity provider template using its ID.
+      operationId: getIDPTemplate
+      parameters:
+        - name: template-id
+          in: path
+          description: ID of the IdP template.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderTemplate'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IdentityProviderTemplate'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Template management
+      summary: |
+        Update the IdP template of a given template ID.
+      description: >
+        This API provides the capability to update the IdP template of a given template ID.
+      operationId: updateIDPTemplate
+      parameters:
+        - name: template-id
+          in: path
+          description: ID of the IdP template.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully updated
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderTemplate'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/IdentityProviderTemplate'
+        description: This represents the identity provider template to be created.
+        required: true
+    delete:
+      tags:
+        - Template management
+      summary: |
+        Delete an IdP template using the template ID.
+      description: >
+        This API provides the capability to delete an IdP template using the template ID.
+      operationId: deleteIDPTemplate
+      parameters:
+        - name: template-id
+          in: path
+          description: ID of the IdP template.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully Deleted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'              
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
@@ -1307,7 +1564,7 @@ components:
       name: limit
       required: false
       description: |
-        Maximum number of records to return
+        Maximum number of records to return.
       schema:
         type: integer
         format: int32
@@ -1316,7 +1573,7 @@ components:
       name: offset
       required: false
       description: |
-        Number of records to skip for pagination
+        Number of records to skip for pagination.
       schema:
         type: integer
         format: int32
@@ -1325,9 +1582,9 @@ components:
       name: filter
       required: false
       description: >
-        Condition to filter the retrival of records. Supports 'sw', 'co', 'ew'
+        Condition to filter the retrieval of records. Supports 'sw', 'co', 'ew'
         and 'eq' operations and also complex queries with 'and' operations. E.g.
-        /identity-providers?filter=name+sw+"google"+and+isEnabled+eq+"true"
+        /identity-providers?filter=name+sw+"google"+and+isEnabled+eq+"true".
       schema:
         type: string
     sortQueryParam:
@@ -1335,7 +1592,7 @@ components:
       name: sortOrder
       required: false
       description: |
-        Define the order in which the retrieved records should be sorted
+        Defines the order in which the retrieved records should be sorted.
         _This parameter is not supported yet_
       schema:
         type: string
@@ -1347,16 +1604,16 @@ components:
       name: sortBy
       required: false
       description: |
-        Attribute by which the retrieved records should be sorted
+        Attribute by which the retrieved records should be sorted.
         _This parameter is not supported yet_
       schema:
         type: string
-    attributesQueryParam:
+    requiredAttributesQueryParam:
       in: query
-      name: attributes
+      name: requiredAttributes
       required: false
       description: |
-        Specifies the required parameters in the response
+        Specifies the required parameters in the response.
         _This parameter is not supported yet_
       schema:
         type: string
@@ -1365,9 +1622,9 @@ components:
       name: force
       required: false
       description: >
-        Enforce the forceful deletetion of either an identity provider,
-        federated authenticator or an outbound provisioning connector eventhough
-        it is being reffered by a service provider
+        Enforces the forceful deletion of an identity provider,
+        federated authenticator or an outbound provisioning connector even though
+        it is referred by a service provider.
       schema:
         type: boolean
         default: false
@@ -1461,14 +1718,14 @@ components:
         $ref: '#/components/schemas/Patch'
     Patch:
       description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of
-       an Identity Provider.
+       an identity provider.
       required:
         - operation
         - path
       properties:
         operation:
           type: string
-          description: The operation to be performed
+          description: The operation to be performed.
           enum:
             - ADD
             - REMOVE
@@ -1480,7 +1737,7 @@ components:
           example: '/homeRealmIdentifier'
         value:
           type: string
-          description: The value to be used within the operations
+          description: The value to be used within the operations.
           example: 'google'
     Link:
       type: object
@@ -1492,7 +1749,7 @@ components:
             '/t/carbon.super/api/server/v1/identity-providers/394b8adcce24c64a8a09a8d80abf8c337bd253de'
         rel:
           type: string
-          description: Describes how the current context is related to the target resource
+          description: Describes how the current context is related to the target resource.
           example: identity-providers
       readOnly: true
     Certificate:
@@ -1630,6 +1887,28 @@ components:
         image:
           type: string
           example: "google-logo-url"
+        isPrimary:
+          type: boolean
+          example: false
+        isFederationHub:
+          type: boolean
+          example: false
+        homeRealmIdentifier:
+          type: string
+          example: localhost
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        alias:
+          type: string
+          example: 'https://localhost:9444/oauth2/token'
+        claims:
+          $ref: '#/components/schemas/Claims'
+        roles:
+          $ref: '#/components/schemas/Roles'
+        federatedAuthenticators:
+          $ref: '#/components/schemas/FederatedAuthenticatorListResponse'
+        provisioning:
+          $ref: '#/components/schemas/ProvisioningResponse'  
         self:
           type: string
           example: /t/carbon.super/api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000
@@ -1669,8 +1948,8 @@ components:
         defaultAuthenticatorId:
           type: string
           description: >-
-            Id of the federated authenticator to be used as the default
-            authenticator for the respective identity provider
+            ID of the federated authenticator to be used as the default
+            authenticator for the respective identity provider.
           example: U0FNTDJBdXRoZW50aWNhdG9y
         authenticators:
           type: array
@@ -1679,7 +1958,7 @@ components:
           description: >-
             Includes the list of federated authenticators supported by the
             respective identity provider. This should include the authenticator
-            specified as the defaultAuthenticator
+            specified as the defaultAuthenticator.
     FederatedAuthenticator:
       type: object
       required:
@@ -1988,15 +2267,125 @@ components:
           default: PRIMARY
           example: PRIMARY
     ConnectedApps:
-      type: array
-      items:
-        $ref: '#/components/schemas/ConnectedApp'
+      type: object
+properties:
+  totalResults:
+    type: integer
+    example: 10
+  startIndex:
+    type: integer
+    example: 1
+  count:
+    type: integer
+    example: 10
+  links:
+    type: array
+    items:
+      $ref: '#/components/schemas/Link'
+    example:
+      [
+          {
+              "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=50&limit=10",
+              "rel": "next"
+          },  {
+              "href": "identity-provider/123e4567-e89b-12d3-a456-556642440000/connected-apps?offset=30&limit=10",
+              "rel": "previous"
+          }
+      ]
+  connectedApps:
+    type: array
+    items:
+      $ref: '#/components/schemas/ConnectedApp'
     ConnectedApp:
       type: object
       properties:
         appId:
           type: string
           example: app-id
-        connectedApp:
+        self:
           type: string
           example: connected-app-url
+    IdentityProviderTemplateListResponse:
+        type: object
+        properties:
+          totalResults:
+            type: integer
+            example: 10
+          startIndex:
+            type: integer
+            example: 1
+          count:
+            type: integer
+            example: 10
+          links:
+            type: array
+            items:
+              $ref: '#/components/schemas/Link'
+            example:
+              [
+              {
+                "href": "identity-provider/templates?offset=50&limit=10",
+                "rel": "next",
+              },  {
+                "href": "identity-provider/templates?offset=30&limit=10",
+                "rel": "previous",
+              }
+              ]
+          templates:
+            type: array
+            items:
+              $ref: '#/components/schemas/IdentityProviderTemplateListItem'
+    IdentityProviderTemplateListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 123e4567-e89b-12d3-a456-556642440000
+        name:
+          type: string
+          example: 'google'
+        description:
+          type: string
+          example: 'Identity provider template for google federation'
+        image:
+          type: string
+          example: 'google-logo-url'
+        category:
+          type: string
+          enum: [DEFAULT, CUSTOM]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 10
+        self:
+          type: string
+          example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
+    IdentityProviderTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          example: 123e4567-e89b-12d3-a456-556642440000
+        name:
+          type: string
+          example: google
+        description:
+          type: string
+          example: 'Google federated connector'
+        image:
+          type: string
+          example: 'google-logo-url'
+        category:
+          type: string
+          enum: [DEFAULT, CUSTOM]
+          example: 'DEFAULT'
+        displayOrder:
+          type: integer
+          example: 10
+        idp:
+          $ref : '#/components/schemas/IdentityProviderPOSTRequest'
+      required:
+        - name
+        - idp        

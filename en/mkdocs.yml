@@ -128,7 +128,7 @@ nav:
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
           - 'Configuring OpenID Connect Back-Channel Logout	': learn/configuring-openid-connect-back-channel-logout.md
       - 'Authentication':
-        - 'Passwordless authentication using FIDO2': learn/passowrdless-authentication-using-fido2.md
+        - 'Passwordless authentication using FIDO2': learn/passwordless-authentication-using-fido2.md
         - 'Logging in to your application via Identity Server using Facebook Credentials': learn/logging-in-to-your-application-via-identity-server-using-facebook-credentials.md
         - 'Configuring Shibboleth IdP as a Trusted Identity Provider': learn/configuring-shibboleth-idp-as-a-trusted-identity-provider.md
         - 'Logging in to SimpleSAMLphp using Identity Server': learn/logging-in-to-simplesamlphp-using-identity-server.md
@@ -517,12 +517,13 @@ nav:
             - 'Calling Admin Services': develop/calling-admin-services.md
             - 'Admin Services for One Way Operations': develop/admin-services-for-one-way-operations.md
           - 'REST APIs':
+            - 'Rest APIs': develop/rest-apis.md
             - 'Authenticating and Authorizing': develop/authenticating-and-authorizing-rest-apis.md
             - 'Account Recovery': develop/using-the-account-recovery-rest-apis.md
             - 'Application Management' : develop/application-rest-api.md
             - 'Approvals': develop/approvals-rest-api.md
             - 'Associations': develop/association-rest-api.md
-            - 'Authentication': develop/authentication-data-api.md
+            - 'Authentication Data': develop/authentication-data-api.md
             - 'Authentication': develop/using-the-authentication-rest-apis.md
             - 'Authorized Apps': develop/authorized-apps-rest-api.md
             - 'Challenge Question': develop/challenge-rest-api.md

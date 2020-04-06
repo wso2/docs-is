@@ -3,7 +3,7 @@ info:
   version: "v1-oas3"
   title: WSO2 Identity Server - Email Template API
   description: >-
-    This is the RESTful API for managing Email Templates in the WSO2 Identity
+    This is the RESTful API for managing email templates in WSO2 Identity
     Server. This API allows adding, retrieving, replacing, and removing email
     templates and template types.
   contact:
@@ -26,10 +26,10 @@ paths:
     get:
       tags:
         - Email Template Types
-      summary: Retrieves all the Email Template Types.
+      summary: Retrieves all the email template types.
       operationId: getAllEmailTemplateTypes
       description: >
-        Retrieves all the Email Template Types in the system, with limited details of the email templates. <br>
+        Retrieves all the email template types in the system, with limited details of the email templates. <br>
         <b>Permission required:</b> <br>
         * /permission/admin/manage/identity/emailmgt/view
          <br> 
@@ -82,7 +82,7 @@ paths:
           description: Item Created
           headers:
             self:
-              description: Location of the newly created identity provider
+              description: Location of the newly created identity provider.
               schema:
                 type: string
           content:
@@ -103,9 +103,9 @@ paths:
     get:
       tags:
         - Email Template Types
-      summary: Retrieves the email template type corresponds to the template type id.
+      summary: Retrieves the email template type corresponding to the template type ID.
       operationId: getEmailTemplateType
-      description: >
+      description: |
         Retrieves the email template type in the system identified by the template-type-id.<br>
         <b>Permission required:</b><br>
         * /permission/admin/manage/identity/emailmgt/view
@@ -141,7 +141,7 @@ paths:
       operationId: addEmailTemplate
       description: >
         Adds a new email template to an existing email template type in the system.
-        Another email template with the same locale should not already exists in the
+        Another email template with the same locale should not already exist in the
         respective email template type.<br>
         <b>Permission required:</b><br>
         * /permission/admin/manage/identity/emailmgt/create <br>
@@ -219,7 +219,7 @@ paths:
       summary: Removes an email template type.
       operationId: deleteEmailTemplateType
       description: >
-        Removes an existing email template type with all it's email templates
+        Removes an existing email template type with all its email templates
         from the system.<br>
         <b>Permission required:</b><br>
         * /permission/admin/manage/identity/emailmgt/delete<br>
@@ -286,7 +286,7 @@ paths:
       summary: Retrieves a single email template.
       operationId: getEmailTemplate
       description: |
-        Retrieves the email template that matches to the template-type-id and the template-id.<br>
+        Retrieves the email template that matches the template-type-id and the template-id.<br>
         <b>Permission required:</b><br>* /permission/admin/manage/identity/emailmgt/view<br>
         <b>Scopes required:</b><br>* internal_email_mgt_view
           

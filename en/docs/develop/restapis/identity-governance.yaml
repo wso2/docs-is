@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  description: >-
-
+  description: >
+    This is the RESTful API for identity governance configurations in WSO2 Identity Server.
   version: "v1"
   title: WSO2 Identity Server - Governance connectors Admin API
   contact:
@@ -173,7 +173,7 @@ components:
       in: query
       name: limit
       required: false
-      description: maximum number of records to return
+      description: Maximum number of records to return.
       schema:
         type: integer
         format: int32
@@ -181,7 +181,7 @@ components:
       in: query
       name: offset
       required: false
-      description: number of records to skip for pagination
+      description: Number of records to skip for pagination.
       schema:
         type: integer
         format: int32
@@ -189,14 +189,14 @@ components:
       in: query
       name: filter
       required: false
-      description: Condition to filter the retrival of records.
+      description: Condition to filter the retrieval of records.
       schema:
         type: string
     sortQueryParam:
       in: query
       name: sort
       required: false
-      description: Define the order how the retrieved records should be sorted.
+      description: Define the order in which the retrieved records should be sorted.
       schema:
         type: string
     categoryIdPathParam:
