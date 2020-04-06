@@ -1,6 +1,6 @@
 #Support Email Account Verification for an Updated Email Address 
 
-This feature enables email account verification when the user updates the user profile with a new email address, so that the new email address can be taken into consideration for all further acrtivities performed by the user. 
+This feature enables email account verification when the user updates the user profile with a new email address, so that the new email address can be taken into consideration for all further activities performed by the user. 
 
 When users update their email addresses in the user profile, an email verification is triggered to the new email address. Until the new email address is verified successfully, the user's existing email address is not overridden.
 

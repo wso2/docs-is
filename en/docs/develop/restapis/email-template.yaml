@@ -103,7 +103,7 @@ paths:
     get:
       tags:
         - Email Template Types
-      summary: Retrieves the email template type corresponding to the template type id.
+      summary: Retrieves the email template type corresponding to the template type ID.
       operationId: getEmailTemplateType
       description: |
         Retrieves the email template type in the system identified by the template-type-id.<br>
