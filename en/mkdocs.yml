@@ -821,3 +821,13 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 5.10.0
+  
+  nav_list:
+    - Home
+    - Get Started
+    - Learn
+    - Develop
+    - Setup
+    - Administer
+    - Compliance
+    - References
