@@ -1,6 +1,6 @@
 # Tenant-Wise Email Sender Configuration
 
-This page guides you demonstrates how to setup the email notification configurations tenant-wise. 
+This page demonstrates how to setup the email notification configurations tenant-wise. 
 
 !!! warning
     To use this feature, apply the **0174** and **0196** WUM updates for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating WSO2 Identity Server using WUM, see Updating WSO2 Products
