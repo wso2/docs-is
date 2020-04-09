@@ -194,8 +194,6 @@ paths:
     get:
       tags:
         - Metadata
-      summary: |
-        Metadata about a supported federated authenticator
       description: >
         'This API provides the details of a single supported federated
         authenticator for an identity provider in Identity Server' <br>
@@ -730,8 +728,6 @@ paths:
     get:
       tags:
         - Provisioning
-      summary: |
-        Outbound provisioning connectors of an identity provider
       description: >
         This API provides a list of outbound provisioning connectors enabled for
         an identity provider <br>
