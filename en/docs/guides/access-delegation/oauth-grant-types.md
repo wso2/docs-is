@@ -22,6 +22,7 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
     Note that the **OAuth Client Key** and **Client Secret** are generated. You will need these values later on when sending the request to the authorization endpoint.
 
 8.  Click **Register**.
+
 ----
 
 ## Authorization code grant type
@@ -69,6 +70,8 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
     {"access_token":"190c7f98-1451-310f-9c3c-f2e6de116261","refresh_token":"aeb15689-0fb4-377c-bcdb-161e25857927","scope":"default","token_type":"Bearer","expires_in":3600}
     ```
 
+----
+
 ## Implicit grant type
 
 Send the following request using a browser-based application to obtain the ID token. 
@@ -99,6 +102,8 @@ http://wso2is.local:8080/playground2/oauth2client#id_token=eyJ4NXQiOiJNell4TW1Ga
 expires_in=3600
 ```
 
+----
+
 ## Resource owner / password credentials grant type
 
 Send the following request using a browser-based application to obtain the access token. 
@@ -119,6 +124,8 @@ You will receive the following response with the access token and refresh token.
 ```
 {"access_token":"16ab408c-0f31-3321-8bed-313e836df373","refresh_token":"3c285b4f-ec29-3751-9ced-74c92061b327","token_type":"Bearer","expires_in":3600}
 ```
+
+----
 
 ## Client credentials / password grant type
 
