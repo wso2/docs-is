@@ -2354,6 +2354,10 @@ components:
         displayOrder:
           type: integer
           example: 10
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
         self:
           type: string
           example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
@@ -2385,3 +2389,6 @@ components:
       required:
         - name
         - idp
+    Service:
+      type: string
+      example: 'Authentication'
