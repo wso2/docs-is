@@ -254,7 +254,7 @@ Management Policies** section.
         
 ## Manage notification templates
 
-### Manage EMAIL Notification templates
+### Manage Email Notification templates
 
 The email notification templates are stored in the `IS_HOME>/repository/conf/email/email-admin-config.xml` 
 file and they can be edited using the Management Console.

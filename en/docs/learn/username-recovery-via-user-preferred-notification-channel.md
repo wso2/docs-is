@@ -236,7 +236,7 @@ update the Email and Mobile of the user.
 1. Use the following command to create a username recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Basic YWRtaW46YWRtaW4=" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
      
 2.  Following response will be returned by the API.
@@ -278,7 +278,7 @@ update the Email and Mobile of the user.
 3. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```      
     
 4. The API will return the following response upon successful recovery and the user will be notified 
@@ -297,7 +297,7 @@ via the selected channel.
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```    
     
 2.  Following response will be returned by the API.
@@ -332,7 +332,7 @@ via the selected channel.
 3. Use the `recoveryCode` and a channel `id` to get the recovered username.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/username/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
     
 4. The API will return the following response upon successful recovery.

@@ -10,10 +10,14 @@ forgotten password.
 **Password Recovery Flow**
 
  - The user provides a set of unique claims to identify the user account.
+ 
  - Next, the API prompts the user to select a channel from the available notification channels for receiving the 
  username recovery notification.
+ 
  - The user selects a notification channel.
+ 
  - The server sends the recovery notification to the user via the preferred notification channel.
+ 
  - If the preferred channel is,
     - Email: Click on the reset link in the email and reset the password.
     - SMS: Provide the received One-Time Password(OTP) and reset the password. 
@@ -71,7 +75,7 @@ configure the configure WSO2 Identity Server to send confirmation emails.
 
     ```
     [identity_mgt.notification_channel_recovery]
-    recovery_code_validity=1
+    recovery_code_validity=2
     resend_code_validity=5
     
     [identity_mgt.password_reset_sms]
@@ -311,10 +315,9 @@ update the Email and Mobile of the user.
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
-     
-2.  Following response will be returned by the API.
+    Following response will be returned by the API.
 
     ```
     [
@@ -359,21 +362,20 @@ update the Email and Mobile of the user.
     ``` 
     
     !!! note
-        The validity period of the recovery code is determined by the 2nd step of 
-        Configuring Password Recovery.  
+        The validity period of the recovery code is determined by the [2nd step of 
+        Configuring Password Recovery](#configuring-password-recovery).  
         
     !!! info
         To tryout password recovery with challenge question, refer [Configuring Password Reset with Challenge 
         Questions](../../learn/configuring-password-reset-with-challenge/).
     
-3. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
+2. Use the `recoveryCode` and a preferred channel `id` to get notifications via that channel.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```      
-    
-4. The API will return the following response upon successful recovery and the user will be notified 
-via the selected channel.
+   The API will return the following response upon successful recovery and the user will be notified via the selected 
+   channel.
 
     ```
     {
@@ -396,14 +398,13 @@ via the selected channel.
     }
     ```
     
-5. If you want to resend the notifications to the user via the notified channel in the above step, use the 
+3. If you want to resend the notifications to the user via the notified channel in the above step, use the 
 `resendCode` with the resend notifications API.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```        
-
-6. The API will send the following response upon successful notification.
+    The API will send the following response upon successful notification.
 
     ```
     {
@@ -426,13 +427,12 @@ via the selected channel.
     }
     ```
 
-7. Use the confirmation code received by the user to verify the confirmation code.
+4. Use the confirmation code received by the user to verify the confirmation code.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
-
-8. The API will return the following response.
+    The API will return the following response.
 
     ```
     {
@@ -446,13 +446,13 @@ via the selected channel.
         ]
     }
     ```    
-9. Use the `resetCode` and the new password to update the existing password and recover the account.
+
+5. Use the `resetCode` and the new password to update the existing password and recover the account.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"string\",\"password\":\"string\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"aefaef12-951e-4a42-b01b-3118798f58c3\",\"password\":\"newPassword\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
-    
-10. The API will return the following response upon successful password reset.
+    The API will return the following response upon successful password reset.
 
     ```
     {
@@ -466,10 +466,9 @@ via the selected channel.
 1. Use the following command to create a user name recovery request.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/init" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"claims\":[{\"uri\":\"http://wso2.org/claims/givenname\",\"value\":\"user1\"}],\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```    
-    
-2.  Following response will be returned by the API.
+    Following response will be returned by the API.
 
     ```
     [{
@@ -495,16 +494,15 @@ via the selected channel.
     ```
     
     !!! note
-            The validity period of the recovery code is determined by the 2nd step of 
-            Configuring Username Recovery. 
+            The validity period of the recovery code is determined by the [2nd step of 
+            Configuring Password Recovery](#configuring-password-recovery)
 
-3. Use the `recoveryCode` and a channel `id` to get the recovered username.
+2. Use the `recoveryCode` and a channel `id` to get the recovered username.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/recover" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"recoveryCode\":\"1234-5678-2455-3433\",\"channelId\":\"1\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
-    
-4. The API will return the following response upon successful notification.
+   The API will return the following response upon successful notification.
 
     ```
     {
@@ -528,13 +526,12 @@ via the selected channel.
     }
     ```
 
-5. If you want to resend the notifications, use the `resendCode` with the resend notifications API.
+3. If you want to resend the notifications, use the `resendCode` with the resend notifications API.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/resend" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resendCode\":\"1234-2ws34-1234\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```            
-    
-6. The API will return the following response.
+    The API will return the following response.
 
     ```
     {
@@ -558,13 +555,12 @@ via the selected channel.
     }
     ```    
     
-7. Use the `confirmationCode` to verify the password reset.
+4. Use the `confirmationCode` to verify the password reset.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/confirm" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"confirmationCode\":\"1234-2ws34-12345\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```   
-
-8. The API will return the following response.
+    The API will return the following response.
 
     ```
     {
@@ -578,13 +574,13 @@ via the selected channel.
         ]
     }
     ```    
-9. Use the `resetCode` and the new password to update the existing password and recover the account.
+    
+5. Use the `resetCode` and the new password to update the existing password and recover the account.
 
     ```
-    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"string\",\"password\":\"string\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
+    curl -X POST "https://localhost:9443/api/users/v1/recovery/password/reset" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"resetCode\":\"aefaef12-951e-4a42-b01b-3118798f58c3\",\"password\":\"newPassword\",\"properties\":[{\"key\":\"key\",\"value\":\"value\"}]}"
     ```
-    
-10. The API will return the following response upon successful password reset.
+    The API will return the following response upon successful password reset.
 
     ```
     {
