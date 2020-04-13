@@ -30,7 +30,13 @@ for forced password reset:
         You can edit and customize the email template. For more information
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
-    
+        
+2. Add the following configureation to the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml
+    [identity_mgt.password_reset_by_admin]
+    enable_emailed_link_based_reset= true
+    ```
 
 3.  Start the Identity Server and log in to the management console with
     admin credentials.
