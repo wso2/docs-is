@@ -564,7 +564,7 @@ step number.
 
 ##### response Object
 
--   `          request.headers[“<header_name>”]         ` : (Write)
+-   `          response.headers[“<header_name>”]         ` : (Write)
     Response header value for the given header name by
     &lt;header\_name&gt;
 
