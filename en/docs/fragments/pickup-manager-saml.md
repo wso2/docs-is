@@ -6,8 +6,7 @@
 
 2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
     
-3. Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
-    **Configure.**   
+3. Expand the **Inbound Authentication Configuration** section and then the **SAML2 Web SSO Configuration** and click **Configure.**   
 
 4. Enter the following configurations:
     1.  **Issuer** : saml2-web-app-pickup-manager.com

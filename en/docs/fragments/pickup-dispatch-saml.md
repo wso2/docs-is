@@ -10,8 +10,7 @@
 
 4. Click **Register**.
     
-5. Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
-    **Configure.**   
+5. Expand the **Inbound Authentication Configuration** section and then the **SAML2 Web SSO Configuration** and click **Configure.**   
 
 6. Enter the following configurations:
     1.  **Issuer** : saml2-web-app-pickup-dispatch.com
