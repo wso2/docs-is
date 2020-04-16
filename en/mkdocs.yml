@@ -98,6 +98,7 @@ nav:
         - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
         - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
         - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
+        - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
           - 'Onboarding Users':
