@@ -4,7 +4,7 @@
 
 <div class="content"> 
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../applications/types/spa';">
+    <a class="card" href="../../applications/add/spa">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../../../assets/img/icons/application/spa.png">
@@ -14,10 +14,10 @@
          <p class="title">SPA</p>
          <p class="hint"/>
       </div>
-    </div>
+    </a>
     <!-- end card -->
     <!-- begin card -->
-    <div class="card" onclick="location.href='../../applications/types/oidc';">
+    <a class="card" href="../../applications/add/oidc">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../../../assets/img/icons/application/web.png">
@@ -27,9 +27,10 @@
          <p class="title">OIDC</p>
          <p class="hint"/>
       </div>
-    </div>
-    <!-- end card -->    <!-- begin card -->
-    <div class="card" onclick="location.href='../../applications/types/saml';">
+    </a>
+    <!-- end card -->    
+    <!-- begin card -->
+    <a class="card" href="../../applications/add/saml">
       <div class="icon">
         <i class="material-icons md-24">
             <img src="../../../../assets/img/icons/application/web.png">
@@ -39,6 +40,6 @@
          <p class="title">SAML</p>
          <p class="hint"/>
       </div>
-    </div>
+    </a>
     <!-- end card -->
 </div>

@@ -1,4 +1,4 @@
-# Configure a Single Page Application
+# Edit a Single Page Application
 
 ## General
 Common configuration for all application types. Can use fragments.
@@ -7,11 +7,11 @@ Common configuration for all application types. Can use fragments.
 Application type specific configuration
 
 ## Attributes
-Common for all types. Can use fragments.
+Common configuration for all application types. Can use fragments.
 
 ## Sign-on Method
-Common
+Common configuration for all application types. Can use fragments.
 
 ## Advanced
-Common
+Common configuration for all application types. Can use fragments.
 
