@@ -54,6 +54,26 @@ template.
             `{{user.claim.homeAddress}}`.
     
         Before sending the email, WSO2 Identity Server will retrieve the user details from the user store configured for this tenant and replace the placeholders with the corresponding values of the user.
+        
+        !!! note
+            When you are using an identity claim as a placeholder in the **Account Confirmation** template
+            for User Self Registration, you need to use the notation `{{claimName}}` instead of using 
+            `{{user.claim.identity.claimName}}`. Additionally you need to send the respective value 
+            for the placeholder in the API request payload, under the `properties` section. 
+            A sample request payload is given below.
+            ```
+            {
+            ...
+            "properties": [
+            ...
+                {
+                "key": "claimName",
+                "value": "Value for the claim"
+                }
+            ...
+            ]
+            }
+            ```
     
 
 5.  Click **Add** to add a new email template.
@@ -109,6 +129,26 @@ template.
         Before sending the email, the WSO2 IS will retrieve the user details
         from the user store configured for this tenant and replace the
         placeholders with the corresponding values of the user.
+        
+        !!! note
+            When you are using an identity claim as a placeholder in the **Account Confirmation** template
+            for User Self Registration, you need to use the notation `{{claimName}}` instead of using 
+            `{{user.claim.identity.claimName}}`. Additionally you need to send the respective value 
+            for the placeholder in the API request payload, under the `properties` section. 
+            A sample request payload is given below.
+            ```
+            {
+            ...
+            "properties": [
+            ...
+                {
+                "key": "claimName",
+                "value": "Value for the claim"
+                }
+            ...
+            ]
+            }
+            ```
     
 
 4.  Click **Save** to update.
