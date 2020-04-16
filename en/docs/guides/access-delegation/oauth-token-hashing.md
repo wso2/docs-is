@@ -3,20 +3,22 @@
 WSO2 Identity Server (WSO2 IS) allows you to enable OAuth2 token hashing to protect OAuth2 access tokens, refresh tokens, consumer secrets, and
 authorization codes.
 
-!!! note "Notes"
+!!! note 
     -   Token hashing is only required if there are long lived tokens.
+
     -   If you want to enable this feature, WSO2 recommends using a fresh
         WSO2 Identity Server distribution.  
+
     -   To use this feature with an existing database, you may need to
         perform data migration before you enable the feature. If you have to
-        perform data migration before you enable this feature [Contact
+        perform data migration before you enable this feature, [Contact
         us](https://wso2.com/contact/).
     
 ----
 
 ## Set up OAuth token hashing
 
-1.  Do the following configurations in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
+1.  Add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder.
     -   Add the following token persistence processor to  enable token hashing:
         ``` toml
         [oauth.extensions]
