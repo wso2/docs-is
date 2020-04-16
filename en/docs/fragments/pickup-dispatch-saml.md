@@ -10,9 +10,11 @@
 
 4. Click **Register**.
     
-5. Expand the **Inbound Authentication Configuration** section and then the **SAML2 Web SSO Configuration** and click **Configure.**   
+5. Expand **Inbound Authentication Configuration** section and then **SAML2 Web SSO Configuration**. 
 
-6. Enter the following configurations:
+6. Click **Configure.**   
+
+7. Enter the following configurations:
     1.  **Issuer** : saml2-web-app-pickup-dispatch.com
 
     2.  **Assertion Consumer URL** : http://wso2is.local:8080/saml2-web-app-pickup-dispatch.com/home.jsp                     
@@ -22,7 +24,7 @@
             For more information on these fields and other advanced configurations
             refer, [Advanced SAML Configurations](../../guides/authentication/saml-app-config-advanced)
 
-6. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
+8. Click **Register** to save the changes. Now you are sent back to the Service Providers page.
 
 ### Download the samples
 

@@ -21,7 +21,7 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 
 {!fragments/register-a-service-provider.md!}
 
-3. Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**. 
+3. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
 4. Click **Configure**.   
 
@@ -80,4 +80,4 @@ add config
 	```
 
 !!! tip
-    If you have configured the service provider and identity provider in a tenant, add the tenant domain as a query parameter to the access token endpoint, e.g., if the tenant domain is wso2.com, the access token endpoint should be `https://localhost:9443/oauth2/token tenantDomain=wso2.com.`
+    If you have configured the service provider and identity provider in a tenant, add the tenant domain as a query parameter to the access token endpoint. For example, if the tenant domain is wso2.com, the access token endpoint should be `https://localhost:9443/oauth2/token tenantDomain=wso2.com.`
