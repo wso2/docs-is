@@ -63,10 +63,10 @@ using WSO2 Identity Server.
 
 #### Steps to configure and run the samples
 
-1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.2.0/is-samples-distribution.zip) and unzip.
+1.  Download the samples from [GitHub](https://github.com/wso2/samples-is/releases/download/v4.3.0/is-samples-distribution.zip) and unzip.
 
     ``` java
-    unzip is-samples-distribution-4.2.0.zip
+    unzip is-samples-distribution.zip
     ```
 
     !!! note
@@ -75,7 +75,7 @@ using WSO2 Identity Server.
     
         -   `               <IS_HOME>              ` is the directory in
             which the WSO2 Identity Server is installed.
-        -   `               <IS_SAMPLE_DISTR>              ` is the directory where downloaded `is-samples-distribution-4.2.0.zip` archive is extracted.
+        -   `               <IS_SAMPLE_DISTR>              ` is the directory where downloaded `is-samples-distribution.zip` archive is extracted.
     
 
 2.  Open the server.properties file in `<IS_SAMPLE_DISTR>/IS-QSG/conf/ ` and make sure that `wso2is.host.domain` and `wso2is.host.port` are configured as shown below.             
@@ -319,7 +319,7 @@ Let's use the command-line to check the MFA functionality.
 First deploy the sample authenticator dependency and web application in
     WSO2 Identity Server.
 
-1.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.2.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
+1.  Download the [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war) file and paste it inside the `<IS_HOME>/repository/deployment/server/webapps` folder.  
 
     This `.war` file contains the WEB UI for the sample authenticators used in this tutorial.
 

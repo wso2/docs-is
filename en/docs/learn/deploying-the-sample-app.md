@@ -33,7 +33,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/travelocity.com.war) the `travelocity.com.war` file from the latest release
    assets.
 
 ### Deploy the sample web application
@@ -172,7 +172,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/playground2.war)
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/playground2.war)
    the `playground2.war` file from the latest release assets.
 
 ### Deploy the sample web app
@@ -312,7 +312,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-dispatch.com.war) the `saml2-web-app-pickup-dispatch.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -390,7 +390,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/saml2-web-app-pickup-manager.com.war) the `saml2-web-app-pickup-manager.com.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -470,7 +470,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-dispatch.war) the `pickup-dispatch.war` file from the latest release assets.
 
     
 ### Configuring the service provider
@@ -540,7 +540,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/pickup-manager.war) the `pickup-manager.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/pickup-manager.war) the `pickup-manager.war` file from the
    latest release assets.
 
 ### Configuring the service provider
@@ -609,9 +609,9 @@ it onto your machine first.
 Follow the instructions below to download the samples from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/photo-edit.war) the `photo-edit.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-edit.war) the `photo-edit.war` file from the
    latest release assets.
-3. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/photo-view.war) the `photo-view.war` file from the
+3. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/photo-view.war) the `photo-view.war` file from the
    latest release assets.
 
 ### Deploy the sample web app
@@ -668,7 +668,7 @@ it onto your machine first.
 Follow the instructions below to download a sample from GitHub.
 
 1. Navigate to [WSO2 Identity Server Samples](https://github.com/wso2/samples-is/releases).
-2. [Download](https://github.com/wso2/samples-is/releases/download/v4.2.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
+2. [Download](https://github.com/wso2/samples-is/releases/download/v4.3.0/PassiveSTSSampleApp.war) the `PassiveSTSSampleApp.war` file from the
    latest release assets.
 
 ### Deploy the sample web app

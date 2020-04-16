@@ -290,8 +290,6 @@ paths:
     get:
       tags:
         - Metadata
-      summary: |
-        Metadata about supported outbound provisioning connectors
       description: >-
         This API provides the details of a single supported outbound
         provisioning connector for an IdP in the identity server. <br>
@@ -561,8 +559,6 @@ paths:
     get:
       tags:
         - Federated Authenticators
-      summary: |
-        Retrieve federated authenticator config of an identity provider
       description: >
         This API provides the capability to retrieve the federated authenticator
         information of an identity provider by giving the federated
@@ -617,9 +613,6 @@ paths:
     put:
       tags:
         - Federated Authenticators
-      summary: >
-        Update a federated authenticator of an identity provider by using
-        authenticator id
       description: >
         This API provides the capability to update an identity provider's
         federated authenticator config by specifying the authenticator ID. <br>
@@ -787,8 +780,6 @@ paths:
     get:
       tags:
         - Provisioning
-      summary: |
-        Retrieve outbound provisioning connector of an identity provider
       description: >
         This API provides the capability to retrieve the outbound provisioning
         connector information of an identity provider by specifying the provisioning
@@ -843,8 +834,6 @@ paths:
     put:
       tags:
         - Provisioning
-      summary: |
-        Update an outbound provisioning connector of an identity provider
       description: >
         This API provides the capability to update an outbound provisioning
         connector config of an identity provider by specifying the provisioning
@@ -1297,261 +1286,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /identity-providers/templates:
-    get:
-      tags:
-        - Template management
-      summary: |
-        List identity provider templates
-      description: >
-        This API provides the list of available identity provider templates.
-      operationId: getIDPTemplates
-      parameters:
-        - $ref: '#/components/parameters/limitQueryParam'
-        - $ref: '#/components/parameters/offsetQueryParam'
-        - $ref: '#/components/parameters/filterQueryParam'
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentityProviderTemplateListResponse'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags :
-        - Template management
-      summary: |
-        Create a new IdP template
-      description: >
-        This API provides the capability to create a new IdP template.
-      operationId: addIDPTemplate
-      responses:
-        '201':
-          description: Successful response
-          headers:
-            Location:
-              description: Location of the newly created identity provider template.
-              schema:
-                type: string
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityProviderTemplate'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/IdentityProviderTemplate'
-        description: This represents the identity provider template to be created.
-        required: true
-  '/identity-providers/templates/{template-id}':
-    get:
-      tags:
-        - Template management
-      summary: |
-        Retrieve identity provider template by ID
-      description: >
-        This API provides the capability to retrieve an identity provider template using its ID.
-      operationId: getIDPTemplate
-      parameters:
-        - name: template-id
-          in: path
-          description: ID of the IdP template.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IdentityProviderTemplate'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/IdentityProviderTemplate'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-    put:
-      tags:
-        - Template management
-      summary: |
-        Update the IdP template of a given template ID.
-      description: >
-        This API provides the capability to update the IdP template of a given template ID.
-      operationId: updateIDPTemplate
-      parameters:
-        - name: template-id
-          in: path
-          description: ID of the IdP template.
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successfully updated
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '409':
-          description: Conflict
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IdentityProviderTemplate'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/IdentityProviderTemplate'
-        description: This represents the identity provider template to be created.
-        required: true
-    delete:
-      tags:
-        - Template management
-      summary: |
-        Delete an IdP template using the template ID.
-      description: >
-        This API provides the capability to delete an IdP template using the template ID.
-      operationId: deleteIDPTemplate
-      parameters:
-        - name: template-id
-          in: path
-          description: ID of the IdP template.
-          required: true
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Successfully Deleted
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '401':
-          description: Unauthorized
-        '403':
-          description: Forbidden
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        '500':
-          description: Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'              
+               
 servers:
   - url: 'https://localhost:9443/t/{tenant-domain}/api/server/v1'
     variables:
