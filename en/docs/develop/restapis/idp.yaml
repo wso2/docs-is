@@ -290,8 +290,6 @@ paths:
     get:
       tags:
         - Metadata
-      summary: |
-        Metadata about supported outbound provisioning connectors
       description: >-
         This API provides the details of a single supported outbound
         provisioning connector for an IdP in the identity server. <br>
@@ -561,8 +559,6 @@ paths:
     get:
       tags:
         - Federated Authenticators
-      summary: |
-        Retrieve federated authenticator config of an identity provider
       description: >
         This API provides the capability to retrieve the federated authenticator
         information of an identity provider by giving the federated
@@ -617,9 +613,6 @@ paths:
     put:
       tags:
         - Federated Authenticators
-      summary: >
-        Update a federated authenticator of an identity provider by using
-        authenticator id
       description: >
         This API provides the capability to update an identity provider's
         federated authenticator config by specifying the authenticator ID. <br>
@@ -787,8 +780,6 @@ paths:
     get:
       tags:
         - Provisioning
-      summary: |
-        Retrieve outbound provisioning connector of an identity provider
       description: >
         This API provides the capability to retrieve the outbound provisioning
         connector information of an identity provider by specifying the provisioning
@@ -843,8 +834,6 @@ paths:
     put:
       tags:
         - Provisioning
-      summary: |
-        Update an outbound provisioning connector of an identity provider
       description: >
         This API provides the capability to update an outbound provisioning
         connector config of an identity provider by specifying the provisioning
