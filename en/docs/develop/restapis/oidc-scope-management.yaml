@@ -132,7 +132,7 @@ paths:
         - OIDC Scope Endpoint
       summary: Update an OIDC Scope
       operationId: updateScope
-      description: This API can be used to update an existing OIDC scope <br>
+      description: This API can be used to update an existing OIDC scope. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/update <br>
         <b>Scope required:</b> <br>
@@ -171,7 +171,7 @@ paths:
         - OIDC Scope Endpoint
       summary: Delete an OIDC Scope
       operationId: deleteScope
-      description: This API can be used tp delete an existing OIDC scope <br>
+      description: This API can be used to delete an existing OIDC scope. <br>
         <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/delete <br>
         <b>Scope required:</b> <br>
