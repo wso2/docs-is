@@ -19,6 +19,10 @@ This page guides you through the flow involved in exchanging a Kerberos ticket f
 
 -----
 
+{!fragments/self-contained-access-tokens.md!}
+
+----
+
 {!fragments/register-a-service-provider.md!}
 
 3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
