@@ -272,8 +272,19 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
+  - 'Admin Portal':
+      - 'Applications':
+          - admin-portal/applications/overview.md
+          - 'Create New Application':
+            - admin-portal/applications/new-application.md
+            - 'Single Page Application': admin-portal/applications/add/spa.md
+            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
+            - 'SAML Web Application': admin-portal/applications/add/saml.md
+          - 'Edit Application' :
+            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
+            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
+            - 'SAML Web Application': admin-portal/applications/edit-saml.md
   - '': page-not-found.md
-
 
 # Extensions
 markdown_extensions:
