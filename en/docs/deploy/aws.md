@@ -1,88 +1,160 @@
-# Deploying WSO2 Identity Server on Kubernetes using AWS-EKS
+---
+template: templates/single-column.html
+---
 
-!!! info "Prerequisites"
+# Deploying WSO2 Identity Server using AWS CloudFormation
 
-    Install the following applications if you do not have them installed already. Make sure you install the recommended versions for a seamless deployment. 
+## Prerequisites
 
-    1.  Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). 
-    
-    2.  Install [Helm](https://v2.helm.sh/docs/using_helm/#installing-helm) and [Tiller](https://v2.helm.sh/docs/using_helm/#installing-tiller) **version 2.9.1**.
+1. Make sure you already have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). 
 
-    3.  Install [Kubernetes Client](https://kubernetes.io/docs/tasks/tools/install-kubectl/) **version-v1.17.3**. 
+2. Install [AWS CLI 2](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html). Alternatively, you can also use AWS CLI version 1. However, you need to make sure that you have installed Python3 to use AWS CLI version 1.
 
-    4.  Set up an [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html) on AWS cloud, if you do not have one set up already. 
-    
-        !!! info 
-            After creating the EKS cluster, make sure you install the **aws-iam-authenticator** and create a **kubeconfig** by following the Amazon EKS guide mentioned above, to authenticate and communicate with your cluster respectively. After the communication is established, **add worker nodes** to your cluster before proceeding with the deployment.
+## Step 1 - Create and upload an SSL certificate into AWS
+In AWS, web servers are fronted with a Load balancer. While deploying WSO2 Identity Sever in AWS, it is not required to create the load balancer separately as it is taken care of in the template that you use. To establish a secure connection between the web server and the browser via the load balancer, you will need an SSL certificate. 
 
-    5.  Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **version-nginx-0.22.0**. You can get the raw file for the recommended version [here](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0). Make sure you install the mandatory.yaml file along with the service-xx.yaml and patch-configmap-xx.yaml files you installed for either layer 4 or layer 7.  
+??? note "Creating a self-signed certificate"
+	If you are using this for testing purposes and do not want to create a certificate using the AWS certificate manager, you can create a self signed certificate instead by following the instructions given below. 
 
+	1. Generate private key as private.pem 
 
-    6.  Add the WSO2 Helm chart repository.
-        ```curl                                                                
-        helm repo add wso2 https://helm.wso2.com && helm repo update
-        ```
+		```curl tab="Request"
+		openssl genrsa -out private.pem 2048
+		```
+		
+		```curl tab="Response"
+		Generating RSA private key, 2048 bit long modulus
+		...................................................................................+++
+		......................................................................................+++
+		e is 65537 (0x010001)
+		```
+
+	2. Generate public key as public.pem
+
+		```curl tab="Request"
+		openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+		```
+		
+		```curl tab="Response"
+		writing RSA key
+		```
+
+	3. Create a CSR (Certificate Signing Request) as certificate.csr
+
+		```curl tab="Request"
+		openssl req -new -key private.pem -out certificate.csr
+		```
+		
+		```curl tab="Response"
+		You are about to be asked to enter information that will be incorporated
+		into your certificate request.
+		What you are about to enter is what is called a Distinguished Name or a DN.
+		There are quite a few fields but you can leave some blank
+		For some fields there will be a default value,
+		If you enter '.', the field will be left blank.
+		-----
+		Country Name (2 letter code) [AU]:
+		State or Province Name (full name) [Some-State]:
+		Locality Name (eg, city) []:
+		Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+		Organizational Unit Name (eg, section) []:
+		Common Name (e.g. server FQDN or YOUR name) []:*us-east-2.elb.amazonaws.com
+		Email Address []:
+		Please enter the following 'extra' attributes
+		to be sent with your certificate request
+		A challenge password []:
+		An optional company name []:
+		```
+		
+	4. Create a self-signed certificate as certificate.crt
+
+		```curl tab="Request"
+		openssl x509 -req -days 365 -in certificate.csr -signkey private.pem -out certificate.crt
+		```
+
+		```curl tab="Response"
+		Signature ok
+		subject=/CN=*us-east-2.elb.amazonaws.com
+		Getting Private key
+		```
+
+	5.	Upload your certificate
+
+		``` curl tab="Request"
+		aws iam upload-server-certificate --server-certificate-name my-server-test --certificate-body file://certificate.crt --private-key file://private.pem
+		```
+
+		```curl tab="Response"
+		ServerCertificateMetadata:
+		Arn: arn:aws:iam::637117764576:server-certificate/my-server-test
+		Expiration: '2021-03-24T07:56:42+00:00'
+		Path: /
+		ServerCertificateId: ASCAZIVZNSPQJ6CPW6YAP
+		ServerCertificateName: my-server-test
+		UploadDate: '2020-03-24T07:57:00+00:00'
+		```
+
+	6.  Validate the uploaded certificate and note down the `ServerCertificateName`. 
+
+		```curl 
+		aws iam list-server-certificate
+		```
+
+	7.  Obtain the `aws_access_key_id` and `aws_secret_access_key` from the credentials file. 
+
+		```curl 
+		vi  ~/.aws/credentials
+		```			
+		
+
+## Step 2 - Create an EC2 key pair for the desired region
+
+```curl
+aws ec2 create-key-pair --key-name <key-pair-name>
+```
 
 !!! note ""
-	-	The local copy of the `wso2/kubernetes-is` git repository will be referred to as `KUBERNETES_HOME`.
-	-	`<KUBERNETES_HOME>/advanced/` will be referred to as `HELM_HOME`.
+	Alternatively, you can also create this using the [AWS EC2 console](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#KeyPairs:sort=keyName). 
+	
+	1. Click on **Create Key Pair**.
 
-### Step 1 - Clone the Kubernetes resources from the WSO2 Identity Server git repository
+	2. Enter a key pair name of your choice. Then choose a file format and click on **Create Key Pair** to create your key pair. 
 
-```java
-git clone https://github.com/wso2/kubernetes-is.git
-```
+## Step 3 - Create a stack
 
-### Step 2 - Change the configurations as required 
+1. [Create an EC2 stack](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template) by choosing **Create Stack > With new resources(standard)**. Specify `https://s3.amazonaws.com/wso2-cloudformation-templates/scalable-is.yaml` as the Amazon S3 URL. Then click **Next**. 
 
-1.	The default configurations work well for the basic deployment of the product. However, if there is anything specific that needs to be configured, change the respective files in `<HELM_HOME>/is-pattern-1/`. 
+	!!! note ""
+		To get a clear idea of the resources the template creates, and the overall flow of this deployment, click **View in Designer** before proceeding. 
 
-2.	 Open `<HELM_HOME>/is-pattern-1/values.yaml` and provide the values as mentioned in the second step **(Provide configurations)** of the **Helm Quick Start Guide** [here](https://hub.helm.sh/charts/wso2/is-pattern-1).
+2. Specify all the stack details as required. Enter the **Key ID** and **Secret Key** as obtained in step 1, and the key pair name as obtained in step 2. 
 
-### Step 3 - Deploy WSO2 Identity Server
+	!!! note ""
+		1. Make sure that the instance type is m3.large or larger. 
 
-Execute the following command to deploy the product. Here, `NAMESPACE` is the Kubernetes Namespace in which the resources are deployed and the `<RELEASE_NAME>` can be any name that you choose for the deployed instance. 
+		2. The DB password that you choose for your DB instance can contain printable ASCII characters besides '/', '@', '"', ' '.
 
-```java
-helm install --dep-up --name <RELEASE_NAME> <HELM_HOME>/is-pattern-1 --namespace <NAMESPACE>
-```
+3. Click on **Next**. Verify the stack details in the page that appears next. If everything is fine, click **Next** again and then click **Create Stack** on the page that appears. 
 
-### Step 4 - Access the management console
+!!! note "" 
+	The stack resources might take upto 15 minutes to get created. You can view the porgress of the creation in the **Events** tab of the AWS console. 
 
-To access the console in the environment,
+## Step 4 - Access the management console 
 
-1.	Obtain the external IP of the Ingress resources by listing down the Kubernetes Ingresses as shown below. 
+You can access the WSO2 Identity Server management console by clicking on the `MgtConsoleUrl` mentioned in the **Outputs** tab of the stack that you created in step 3. 
 
-	```java
-	kubectl get ing -n <NAMESPACE>
-	```
-	This gives you the `<RELEASE_NAME>` and `<EXTERNAL-IP>` as shown below. 
+---
 
-	```java 
-	NAME                       HOSTS                  ADDRESS        PORTS     AGE
-	wso2is-ingress             <RELEASE_NAME>         <EXTERNAL-IP>  80, 443   3m
-	```
+!!! info "Related Topics"
 
-2.	Add the information obtained above in the /etc/hosts file as an entry. 
+    -  Working with different databases <insert-link>
+    -  Working with different user stores <insert-link>
+    -  Configuring the User Realm <insert-link>
 
-	```java
-	<EXTERNAL-IP>	<RELEASE_NAME>
-	```
+---
 
-3.	Navigate to `https://<RELEASE_NAME>/carbon` on a new browser window.
+To try out deploying WSO2 Identity Server on other platforms, see [here](../../deploy/deploying-wso2-identity-server/).
 
-### Try it Out 
 
-You can now test the functionalities of WSO2 Identity Server with your app. Alternatively, you can choose a sample app from [here](../../samples/overview) and follow the steps given to deploy the chosen application. 
 
-Make sure you add the proxy port configuration to `<KUBERNETES_HOME>/advanced/is-pattern-1/values.yaml`. 
 
-```toml
-[transport.http.properties]
-proxyPort = 80
-[transport.https.properties]
-proxyPort = 443
-```
-
-!!! important 
-	TThe host name included in the URLs related to the identity provider must be changed based on the `<RELEASE_NAME>` you chose in [step-3](#step-3-deploy-wso2-identity-server). This configuration is present in the properties file in `<SAMPLE_HOME>/WEB-INF/classes` where`<SAMPLE_HOME>` refers to the sample application that you have chosen to verify this deployment. 
