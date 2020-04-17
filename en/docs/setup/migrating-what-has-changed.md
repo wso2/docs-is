@@ -183,8 +183,8 @@ WSO2 Identity Server 5.9.0 has switched from log4j to log4j2. You will notice th
 Scope validation has been enforced for authorization code grant and implicit grants. 
 
 !!! note "NOTE"
-    If you have implemented any apps which works without the scope validation so if you want to disable 
-    the behaviour, then add the following configuration at `deployment.toml` file.
+    If you have implemented any apps that work without scope validation and you wish to disable the behaviour, add the 
+    following configuration to the `deployment.toml` file
     ```toml
     [oauth]
     scope_validator.authz_implicit.enable = false
