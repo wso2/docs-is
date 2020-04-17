@@ -176,8 +176,11 @@ nav:
                                     - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
                                     - 'Grant Types':
                                           - 'Overview': concepts/authorization/grant-types.md
-                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code.md
-                                          - 'Implicit Grant Type': concepts/authorization/implicit.md
+                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code-grant.md
+                                          - 'Implicit Grant Type': concepts/authorization/implicit-grant.md
+                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
+                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
+                                          - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
