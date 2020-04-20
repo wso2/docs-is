@@ -31,7 +31,7 @@ for forced password reset:
         on how to do this, see [Customizing Automated
         Emails](../../learn/customizing-automated-emails).
         
-2. Add the following configureation to the `<IS_HOME>/repository/conf/deployment.toml` file.
+2. If you wish to enable this feature for all tenants by default, add the following configureation to the `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [identity_mgt.password_reset_by_admin]
