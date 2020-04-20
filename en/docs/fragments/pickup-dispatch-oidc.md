@@ -11,20 +11,21 @@
  
 4. Click **Register**.
     
-5.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
-    **Configure.**   
+5. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
-6. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
+6. Click **Configure.**   
+
+7. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
         
-7.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
+8.  Enter `http://wso2is.local:8080/pickup-dispatch/oauth2client` as the **Callback Url**.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
         refer, [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced)
         
-8.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
+9.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-9.  Click the **Register** button to finish creating the service provider.
+10.  Click the **Register** button to finish creating the service provider.
 
 ### Download the sample
 

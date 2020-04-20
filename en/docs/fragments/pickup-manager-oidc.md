@@ -7,20 +7,21 @@
 
 2. Click **Service Providers >Add** and enter "pickup-dispatch" as the **Service Provider Name** and click **Register**.
     
-3.  Expand the **Inbound Authentication Configuration** section and then the **OAuth/OpenID Connect Configuration** and click
-    **Configure.**   
+3. Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**.
 
-4. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
+4. Click **Configure.**   
+
+5. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
         
-5.  Enter `http://wso2is.local:8080/pickup-manager/oauth2client` as the **Callback Url**.
+6.  Enter `http://wso2is.local:8080/pickup-manager/oauth2client` as the **Callback Url**.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
         refer, [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced)
         
-6.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
+7.  Click **Add**. Note that the **OAuth Client Key** and **Client Secret** get generated. You will need these values later on when deploying the sample application.
 
-7.  Click the **Register** button to finish creating the service provider.
+8.  Click the **Register** button to finish creating the service provider.
 
 ### Download the sample
 

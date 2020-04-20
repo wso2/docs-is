@@ -95,6 +95,10 @@ nav:
         - 'Overview': guides/access-delegation/overview.md
         - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
         - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
+        - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
+        - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
+        - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
+        - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
         - 'Manage Users':
@@ -168,8 +172,11 @@ nav:
                                     - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
                                     - 'Grant Types':
                                           - 'Overview': concepts/authorization/grant-types.md
-                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code.md
-                                          - 'Implicit Grant Type': concepts/authorization/implicit.md
+                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code-grant.md
+                                          - 'Implicit Grant Type': concepts/authorization/implicit-grant.md
+                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
+                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
+                                          - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
@@ -264,8 +271,19 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
+  - 'Admin Portal':
+      - 'Applications':
+          - admin-portal/applications/overview.md
+          - 'Create New Application':
+            - admin-portal/applications/new-application.md
+            - 'Single Page Application': admin-portal/applications/add/spa.md
+            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
+            - 'SAML Web Application': admin-portal/applications/add/saml.md
+          - 'Edit Application' :
+            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
+            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
+            - 'SAML Web Application': admin-portal/applications/edit-saml.md
   - '': page-not-found.md
-
 
 # Extensions
 markdown_extensions:
