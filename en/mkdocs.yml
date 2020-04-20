@@ -97,28 +97,24 @@ nav:
         - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
-          - 'Onboarding Users':
-              - 'Overview': guides/user-mgt/user-onboarding-overview.md
-              - 'Connecting a Userstore':
-                  - 'Connecting a Database Userstore': guides/user-mgt/connect-database-userstore.md
-                  - 'Connecting a LDAP Userstore': guides/user-mgt/connect-ldap-userstore.md
-                  - 'Connecting a Active Directory Userstore': guides/user-mgt/connect-active-directory-userstore.md
-              - 'Importing users from a file': guides/user-mgt/user-bulk-import.md
-              - 'Enabling Self Sign Up': guides/user-mgt/user-sign-up.md
-          - 'Managing Roles': guides/user-mgt/managing-roles.md
-          - 'Managing User Accounts':
-              - 'Overview': guides/user-mgt/manage-users-overview.md
-              - 'Adding users from portal': guides/user-mgt/user-add.md
-              - 'View and Update Profile': guides/user-mgt/user-view-profile.md
-              - 'Assign Roles': guides/user-mgt/user-assign-role.md
-              - 'Change Password': guides/user-mgt/change-password.md
-              - 'Locking and Unlocking': guides/user-mgt/user-lock-account.md
-          - 'Password Policies':
-              - 'Overview': guides/user-mgt/password-policy-overview.md
-              - 'Password complexity': guides/user-mgt/password-complexity.md
-              - 'Password history': guides/user-mgt/password-history.md
-              - 'Password expiration': guides/user-mgt/password-expiration.md
-          - 'Using workflows': guides/user-mgt/configuring-workflows.md
+        - 'Manage Users':
+          - 'Add Users': 
+            - 'Add and Assign Password': guides/user-mgt/add-user.md
+            - 'Add and Ask Password': guides/user-mgt/ask-password.md
+          - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
+          - 'Search for a User': guides/user-mgt/search-user.md
+          - 'View/Update User Profile': guides/user-mgt/update-profile.md
+          - 'Lock/Unlock Profile': guides/user-mgt/lock-account.md
+        - 'Manage User Profiles':
+          - 'Configure Roles/Permissions': guides/user-mgt/managing-roles.md
+          - 'Forced Password Reset': guides/user-mgt/forced-password-reset.md
+          - 'User Account Suspension': guides/user-mgt/user-account-suspension.md
+          - 'Enable Notifications': guides/user-mgt/enabling-notifications.md
+          - 'Tenant-wise Email Sender Config': guides/user-mgt/tenant-wise-config.md
+          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md
+          - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
+          - 'Create/Manage Tenants': guides/user-mgt/managing-tenants.md
+          - 'Use Email ID as the Username': guides/user-mgt/email-as-username.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
