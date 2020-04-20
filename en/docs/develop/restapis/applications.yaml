@@ -1703,7 +1703,7 @@ paths:
         Retrieve all the metadata related to the custom auth protocol identified by the inboundProtocolId
       description: >
         This API provides the capability to retrieve all the metadata related to the custom auth protocol
-        identified by the inboundProtocolId. The URL encoded inbound protocol name is used as inboundProtocolId.<br>
+        identified by the inboundProtocolId. The URL-encoded inbound protocol name is used as inboundProtocolId.<br>
           <b>Permission required:</b> <br>
               * /permission/admin/manage/identity/applicationmgt/view <br>
           <b>Scope required:</b> <br>
