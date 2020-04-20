@@ -42,6 +42,11 @@ The refresh token is renewed when the refresh grant is used to get an access tok
 
 -----
 
+
+{!fragments/self-contained-access-tokens.md!}
+
+----
+
 ## Obtain access token 
 
 A refresh token can be obtained when using one of the [OAuth 2.0 grant types](oauth-grant-types.md). 

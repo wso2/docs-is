@@ -59,6 +59,10 @@ add config
 
 ----
 
+{!fragments/self-contained-access-tokens.md!}
+
+----
+
 ## Generate a JWT
 
 1. Generate a request object (JWT) using the following. 
