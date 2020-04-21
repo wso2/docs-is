@@ -41,15 +41,11 @@ These roles are stored in the user stores itself. Only users that belong to a us
 external roles in that user store.  
 Example : user\_A can be assigned to role\_A while user\_B cannot be assigned to role\_A.
 
-In user stores, users are assigned to **groups**. Within the WSO2 servers
-we have roles and directly map one group to a role, then assign the
-permission for that role. There is a one-to-one mapping between groups
-and roles and the same group name is used to represent the role in the
-server.  
+In user stores, users are assigned to **groups**. Within WSO2 IS, one user group is directly mapped to a role and permissions are assigned to the role.
   
 **Internal Roles :**
 
-These roles are stored in the identity server database. Users in all user stores can be assigned to
+These roles are stored in the WSO2 Identity Server database. Users in all user stores can be assigned to
 these roles.
 
 In the above example, both user\_A and user\_B can be assigned to the same internal role.
@@ -59,12 +55,9 @@ directly assign users to these roles.
 
 !!! info 
     **Internal/everyone :** This is a conceptual role that is used to group
-    all the users (across the user stores) together. When you create a new
-    user, automatically the user belongs to the internal/everyone role.
+    all the users (across the user stores) together. When a new user is created, the `internal everyone` role is automatically assigned to the user.
 
-    **Application Role :** This is a special case of internal roles that is 
-    created for a single service provider (SP) application and only users
-    that are assigned this role can manage the relevant SP application.
+    **Application Role :** This role is used for special cases where an internal role is created for a single service provider (SP) application and only users that are assigned to this role can manage the relevant SP application.
 
 ---
 
@@ -80,10 +73,10 @@ In SCIM, creating a role is the same as creating a **group.** For more informati
     [SCIM](insert-scim2-concept).
 
 !!! note
-    When creating a group with users, the users should already exist in the user store, and provide its unique ID.
-    Create a new group named **engineer** with the user 'hasinitg' as a
-    member. The attributes you have to include in the cURL command are
-    the userID, username:password.
+    To create a group with users, the said users should already exist in the user store.
+    
+
+Create a new group named **engineer** with the user 'Mark' as a member. The attributes you have to include in the cURL command are the `userID`, `username:password`.
 
 **Request**
 
@@ -92,11 +85,11 @@ curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} --data '{"displayName": {GROUP_NAM
 ```
 
 ``` tab="Sample Request"
-curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"008bba85-451d-414b-87de-c03b5a1f4217","hasinitg": "hasinitg"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim2/Groups
+curl -v -k --user admin:admin --data '{"displayName": "engineer","members": [{"value":"008bba85-451d-414b-87de-c03b5a1f4217","Mark": "Mark"}]}' --header "Content-Type:application/json" https://localhost:9443/wso2/scim2/Groups
 ```
 
 ``` tab="Sample Response"
-{"id":"7bac6a86-1f21-4937-9fb1-5be4a93ef469","schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"displayName":"PRIMARY/engineer","members":[{"value":"008bba85-451d-414b-87de-c03b5a1f4217","display":"hasinitg"}],"meta":{"lastModified":"2020-04-26T18:31:57","created":"2020-04-26T18:31:57","location":"https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"}}
+{"id":"7bac6a86-1f21-4937-9fb1-5be4a93ef469","schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"displayName":"PRIMARY/engineer","members":[{"value":"008bba85-451d-414b-87de-c03b5a1f4217","display":"Mark"}],"meta":{"lastModified":"2020-04-26T18:31:57","created":"2020-04-26T18:31:57","location":"https://localhost:9443/scim2/Groups/7bac6a86-1f21-4937-9fb1-5be4a93ef469"}}
 ```
 
 You receive a response with the payload as indicated above and a
@@ -140,7 +133,7 @@ services, see [Calling Admin Services.](insert-calling admin services)
                 <!--Optional:-->
                 <ser:roleName>engineer</ser:roleName>
                 <!--Zero or more repetitions:-->
-                <ser:userList>hasinitg</ser:userList>
+                <ser:userList>Mark</ser:userList>
                 <!--Zero or more repetitions:-->
             </ser:addRole>
         </soapenv:Body>
@@ -191,7 +184,7 @@ some time.
 
         !!! info 
             The schema can be located by referring to the data source
-            defined in the deployment.toml file. The data source definition
+            defined in the `deployment.toml` file. The data source definition
             can also be found in the same file. 
 
     -   If you are connected to the
