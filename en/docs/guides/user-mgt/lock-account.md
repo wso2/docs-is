@@ -1,14 +1,14 @@
-## Lock and Unlock User Accounts
+# Lock and Unlock User Accounts
 
 Account locking and account disabling are security features in WSO2 Identity Server (IS) that can be used to prevent users from logging in to their account and from authenticating themselves using their WSO2 IS account. The account locking feature is used to **temporarily** block a user from logging in, for example, in instances where there have been many consecutive, unsuccessful login attempts.
 
-### Lock user accounts using the admin portal
+## Lock user accounts using the admin portal
 
 {!fragments/xxx!}
 
 ---
 
-### Lock user accounts using SOAP
+## Lock user accounts using SOAP
 
 An administrative user (with the permission level /permission/admin/configure/security/usermgt/users ) can lock a user account using the `RemoteUserStoreManagerService`. You can use the `setUserClaimValues` operation to achieve this. The following request is a sample SOAP request that can be sent to the `RemoteUserStoreManagerService` to lock a user account.
 
@@ -33,7 +33,7 @@ An administrative user (with the permission level /permission/admin/configure/se
 </soapenv:Envelope>
 ```
 
-### Unlock user accounts using SOAP
+## Unlock user accounts using SOAP
 
 Similarly, you can use the `setUserClaimValues` operation, `RemoteUserStoreManagerService` AdminService to unlock a locked user account. The following request is a sample SOAP request that can be sent to the `RemoteUserStoreManagerService` to unlock a user account.
 

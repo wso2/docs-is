@@ -1,12 +1,12 @@
-## Search for Users
+# Search for Users
 
-### Search for users using the admin portal
+## Search for users using the admin portal
 
 {!fragments/search-user-fragment!}
 
 ---
 
-### Search for users using SCIM
+## Search for users using SCIM
 
 You can search for users using a SCIM request as shown below. 
 
@@ -28,13 +28,13 @@ curl -v -k --user admin:admin --data '{"schemas": ["urn:ietf:params:scim:api:mes
 
 ---
 
-### Search for users using SOAP
+## Search for users using SOAP
 
-The user also can search user Ids by calling the
+The user also can search user IDs by calling the
 `         RemoteUserStoreManager        ` service. If you are new to
 admin services, see [Calling Admin Services](insert-calling admin services).
 
-The following SOAP method like `         getUserId()        ` will give
+The following SOAP method, `         getUserId()        ` will give
 you the user ID of the relevant username. 
 
 **Request: Sample**

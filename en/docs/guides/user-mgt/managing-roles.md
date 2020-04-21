@@ -1,11 +1,11 @@
-## Creating and Managing Roles
+# Creating and Managing Roles
 
 Roles contain permissions for users to manage the server. You can create different roles with various combinations of permissions and assign them to a user or a group of users. You can also edit and delete an existing user role.
 
 WSO2 supports role-based authentication model where privileges of a user are based on the role it is attached to. By default, WSO2 Identity Server comes with the following roles:
 
 - Admin - Provides full access to all features and controls. By default, the user "admin" is assigned to both the "Admin" and the "Everyone" roles. The Identity Server does not allow you to configure permissions assigned to the 'Admin' role.
-- Everyone - Every new user is assigned to this role by default. It does not include any permission.
+- Internal/Everyone - Every new user is assigned to this role by default. It does not include any permission.
 - System - This role is not visible for modification in the interface. 
 
 If a user has several roles assigned, their permissions are added together.
@@ -209,7 +209,7 @@ some time.
 
 ---
 
-##Editing or deleting a role
+## Editing or deleting a role
 
 ### Editing or deleting a role using the admin portal
 

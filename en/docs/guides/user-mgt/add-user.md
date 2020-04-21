@@ -1,12 +1,12 @@
-## Add a user
+# Add a user
 
-### Add a user using the admin portal
+## Add a user using the admin portal
 
 {!fragments/add-a-user-fragment!}
 
 ---
 
-### Add a user using SCIM
+## Add a user using SCIM
 You can create a new user using a SCIM request as shown below. 
 
 **Request**
@@ -27,7 +27,7 @@ curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"jackso
 
 ---
 
-### Add a user using SOAP
+## Add a user using SOAP
 
 The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
