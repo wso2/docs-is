@@ -147,3 +147,13 @@ You will receive the following response with the access token.
 ```
 {"access_token":"16ab408c-0f31-3321-8bed-313e836df373","token_type":"Bearer","expires_in":2986}
 ```
+
+----
+
+{!fragments/self-contained-access-tokens.md!}
+
+----
+
+{!fragments/oauth-transaction-logs.md!}
+
+
