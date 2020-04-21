@@ -1,12 +1,12 @@
-## View and Update User Profiles
+# View and Update User Profiles
 
-#### View and update a user using the admin portal
+## View and update a user using the admin portal
 
 {!fragments/xxx!}
 
 ---
 
-#### View and update a user using SCIM
+## View and update a user using SCIM
 You can update a user profile using a SCIM request as shown below. 
 
 **Request**
@@ -27,7 +27,7 @@ curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api
 
 ---
 
-#### View and update a user using SOAP
+## View and update a user using SOAP
 
 The users can update their claims by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
