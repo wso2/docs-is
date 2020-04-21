@@ -1,12 +1,12 @@
-## Create users in bulk
+# Create users in bulk
 
-### Import users using the admin portal
+## Import users using the admin portal
 
 {!fragments/xxx!}
 
 ---
 
-### Import users using SCIM
+## Import users using SCIM
 You can create users in bulk using a SCIM request as shown below. 
 
 **Request**
