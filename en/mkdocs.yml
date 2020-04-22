@@ -100,17 +100,17 @@ nav:
         - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
         - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
       - 'Authorization' : guides/authorization/overview.md
-      - 'User Management':
+      - 'User/Role Management':
         - 'Manage Users':
           - 'Add Users': 
             - 'Add and Assign Password': guides/user-mgt/add-user.md
             - 'Add and Ask Password': guides/user-mgt/ask-password.md
           - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
           - 'List/Search Users': guides/user-mgt/search-user.md
+          - 'Configure Roles/Permissions': guides/user-mgt/managing-roles.md
+        - 'Manage User Profiles':
           - 'View/Update User Profile': guides/user-mgt/update-profile.md
           - 'Lock/Unlock Profile': guides/user-mgt/lock-account.md
-        - 'Manage User Profiles':
-          - 'Configure Roles/Permissions': guides/user-mgt/managing-roles.md
           - 'Enable Notifications': guides/user-mgt/enabling-notifications.md
           - 'Tenant-wise Email Sender Config': guides/user-mgt/tenant-wise-config.md
           - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md
