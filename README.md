@@ -12,15 +12,16 @@ To run the project locally, it requires [python](https://www.python.org/download
 
 ### Install Python
 
-Check if you already has Python installed by running the following command.
+Check if you already have Python installed by running the following command.
 
 ```bash
 $ python --version
 Python 2.7.10
 ```
 
-If you see something like above, then `Python 2.7.10` is your default version.
-You should also see if you have Python 3 installed. 
+If you receive a response similar to the one shown above, `Python 2.7.10` is your default version.
+
+You should also check if you have Python 3 installed. 
 
 ```bash
 $ python3 --version
