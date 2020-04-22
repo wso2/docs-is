@@ -106,7 +106,7 @@ nav:
             - 'Add and Assign Password': guides/user-mgt/add-user.md
             - 'Add and Ask Password': guides/user-mgt/ask-password.md
           - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
-          - 'Search for a User': guides/user-mgt/search-user.md
+          - 'List/Search Users': guides/user-mgt/search-user.md
           - 'View/Update User Profile': guides/user-mgt/update-profile.md
           - 'Lock/Unlock Profile': guides/user-mgt/lock-account.md
         - 'Manage User Profiles':
