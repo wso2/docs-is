@@ -8,10 +8,10 @@ This page guides you through configuring and obtaining [refresh tokens](../../co
 
 Configure the following property in the `<IS_HOME>/repository/conf/deployment.toml` file to configure the validity period of the refresh token.
 
-    ``` toml
-    [oauth.token_validation]
-    refresh_token_validity= "86400s"
-    ``
+``` toml
+[oauth.token_validation]
+refresh_token_validity= "86400s"
+```
 
 You can also provide the validity period in minutes, hours, or days using different unit suffixes as follows.
 
@@ -33,10 +33,10 @@ Refresh tokens are renewed by default.
 
 If you wish to change this, add the following property to the `<IS_HOME>repository/conf/deployment.toml` file and set it to **false**. 
 
-    ``` toml
-    [oauth.token_renewal]
-    renew_refresh_token= "false"
-    ```
+``` toml
+[oauth.token_renewal]
+renew_refresh_token= "false"
+```
 
 The refresh token is renewed when the refresh grant is used to get an access token. A new refresh token is issued with a new expiry time and the previous refresh token is made inactive and can no longer be used. Unless the refresh token has expired, the same refresh token will be returned when this element is set to **false**.
 

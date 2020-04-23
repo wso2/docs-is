@@ -100,7 +100,9 @@ nav:
         - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
         - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
         - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/oauth-token-introspection.md
+        - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
         - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
+        - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
         - 'Manage Users':
@@ -241,11 +243,12 @@ nav:
       - 'ACR-Based': samples/acr-based-adaptive-auth.md
       - 'Using Function Library': samples/adaptive-auth-with-function-lib-sample.md
       - 'Limiting Active User Sessions': samples/limiting-active-sessions-adaptive-auth.md
-  - 'OAuth 2.0/Open ID Connect Playground':
+  - 'OAuth 2.0/Open ID Connect Samples':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
       - 'Client Credentials Grant': samples/client-credentials-playground.md
       - 'Password Grant': samples/password-playground.md
+      - 'Microprofile JWT': samples/microprofile-jwt-sample.md
   - 'Pickup Samples':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
