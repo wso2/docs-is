@@ -95,11 +95,11 @@ First, let's configure the sample. Follow the steps given below:
 
     This sample service creates the following endpoints:
 
-    -   **`/wallet/balance`** which will send the current balance
+    -   **`/wallet/balance`** which sends the current balance.
 
-    -   **`/wallet/credit?amount=<amount>`** which adds the given amount to the current balance
+    -   **`/wallet/credit?amount=<amount>`** which adds the given amount to the current balance.
 
-    -   **`/wallet/debit?amount=<amount>`** which subtracts the given amount from the current balance
+    -   **`/wallet/debit?amount=<amount>`** which subtracts the given amount from the current balance.
 
     These three endpoints are secured with MP-JWT as follows:
 

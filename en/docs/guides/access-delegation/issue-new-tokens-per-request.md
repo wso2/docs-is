@@ -3,13 +3,13 @@
 When there are multiple token requests from a combination of the same client ID, user, and scopes, the same access token and refresh token are
 returned for all the token requests until the token expires.
 
-Alternatively, if required, you can also configure a  new access token and refresh token to be issued for each token request after revoking the existing active token. Follow the steps given below to do this. 
+Alternatively, if required, you can also configure a new access token and refresh token to be issued for each token request after revoking the existing active token. Follow the steps given below to do this. 
 
 ----
 
 ## Enable issuing new tokens
 
-Add the following configuration to the `deployment.toml` file in `<IS_home>/repository/conf/` folder to enable issuing a new token per request.
+Add the following configuration to the `deployment.toml` file in `<IS_HOME>/repository/conf/` folder to enable issuing a new token per request.
 
 ``` toml
 [oauth.token_renewal] 
