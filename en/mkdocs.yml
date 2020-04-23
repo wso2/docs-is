@@ -99,6 +99,8 @@ nav:
         - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
         - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
         - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
+        - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/oauth-token-introspection.md
+        - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
         - 'Manage Users':
@@ -183,7 +185,7 @@ nav:
                                           - 'Access Tokens': concepts/authorization/access-token.md
                                           - 'Refresh Tokens': concepts/authorization/refresh-token.md
                                     - 'Client Authentication': concepts/authorization/client-authentication.md
-                                    - 'Token Introspection': concepts/authorization/intorspection.md
+                                    - 'Token Introspection': concepts/authorization/introspection.md
                                     - 'DCR': concepts/authorization/dcr.md
                                     - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
