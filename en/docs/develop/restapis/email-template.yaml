@@ -51,6 +51,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EmailTemplateTypeWithoutTemplates'
+        '400':
+          $ref: '#/components/responses/InvalidInput'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
