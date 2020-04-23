@@ -20,7 +20,7 @@ Follow the steps below to configure a JWKS-based JWT Validator.
 
     You can use customized values for the above HTTP connection configurations. 
     
-    If not customized, the default values will be used for establishing HTTP connections on IDP's jwks\_uri. Also ensure that the `enable` property is set to `true` .
+    If not customized, the default values will be used for establishing HTTP connections on IDP's jwks\_uri. Also, ensure that the `enable` property is set to `true`.
 
 2.  Restart the server.  
       
@@ -60,7 +60,7 @@ Follow the instructions below to invoke the token API to generate access tokens 
 2.  You can now access the Token API using a REST client such as cURL.
 
     For example, the following cURL command generates an access token.
-    Here the JWT signature will be validated using the external IDP’s
+    Here, the JWT signature will be validated using the external IDP’s
     jwks\_uri.
 
     ``` 

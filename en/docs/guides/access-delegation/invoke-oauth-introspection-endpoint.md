@@ -20,8 +20,7 @@ This page guides you through invoking the [OAuth Introspection Endpoint](insertl
 
 ## Invoking the endpoint for the super tenant
 
-Use the following cURL commands given in the following sections to
-invoke the OAuth introspection endpoint for the super tenant users.
+Use the cURL commands given in the following sections to invoke the OAuth introspection endpoint for the super tenant users.
 
 !!! tip
     
