@@ -217,6 +217,7 @@ nav:
             - 'Publishing a XACML Policy': learn/publishing-a-xacml-policy.md
             - 'Viewing the Status of a XACML Policy': learn/viewing-the-status-of-a-xacml-policy.md
             - 'Writing a XACML Policy using a Policy Template': learn/writing-a-xacml-policy-using-a-policy-template.md
+            - 'XACML extension in WSO2 Identity Server': learn/xacml-extensions.md
           - 'Configuring the Policy Decision Point':
             - 'Configuring the Policy Decision Point': learn/configuring-the-policy-decision-point.md
             - 'Clearing a Cache': learn/clearing-a-cache.md
