@@ -10,7 +10,7 @@
 
 WSO2 Identity Server can act as all these 4 components. Hence, there are extensions points available in all 4 modules.
 
-Visit the following blog for get a detail idea on XACML extension points.
+Visit the following blog to get a detail idea on XACML extension points.
 
 -   [Identity Server XACML extension points](http://pushpalankajaya.blogspot.com/2017/07/wso2-identity-server-extension
 -points.html)
