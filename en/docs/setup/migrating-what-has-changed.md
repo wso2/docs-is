@@ -376,3 +376,12 @@ SMS provider.
     [authentication.authenticator.sms_otp.parameters]
     UseInternalErrorCodes = false
     ```
+## New User Store Managers with built in unique ID support. 
+
+New user store managers with inbuilt unique ID support will provide the capability to enhance the user store operations 
+that were initially architecturally impossible. These operations include username rename functionality and a
+ significant performance increase. as well. So migrating to new user store managers will allow us to use those new 
+ features whenever those new features available.  
+
+New user store managers are named with the `UniqueiId` prefix for the old user store managers. For example,
+`JDBCUserStoreManager` with unique ID capabilities will be named as `UniqueIDJDBCUserStoreManager`
