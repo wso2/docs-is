@@ -54,7 +54,7 @@ admin services, see [Calling Admin Services](insert-calling admin services).
 
     **SOAP Request**
 
-    ``` xml
+   ``` xml
    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://common.mgt.user.carbon.wso2.org/xsd">
       <soapenv:Header/>
       <soapenv:Body>
@@ -77,7 +77,7 @@ admin services, see [Calling Admin Services](insert-calling admin services).
          </ser:addUser>
       </soapenv:Body>
    </soapenv:Envelope>
-    ```
+   ```
 
     !!! note
         There will be no SOAP response as this is a one-way SOAP operation.

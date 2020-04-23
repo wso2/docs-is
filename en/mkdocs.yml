@@ -101,20 +101,36 @@ nav:
         - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
-        - 'Manage Users':
+        - 'Overview': guides/user-mgt/user-mgt-overview.md 
+        - 'Manage User Operations':
+          - 'Overview': guides/user-mgt/manage-user-overview.md
           - 'Add Users': 
-            - 'Add and Assign Password': guides/user-mgt/add-user.md
-            - 'Add and Ask Password': guides/user-mgt/ask-password.md
-          - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
-          - 'Search for a User': guides/user-mgt/search-user.md
-          - 'View/Update User Profile': guides/user-mgt/update-profile.md
-          - 'Lock/Unlock Profile': guides/user-mgt/lock-account.md
+            - 'Overview': guides/user-mgt/add-users-overview.md
+            - 'Add Users and Assign Password': guides/user-mgt/add-user.md
+            - 'Add Users and Ask Password': guides/user-mgt/ask-password.md
+            - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
+            - 'Self Register': guides/user-mgt/self-register.md
+            - 'Plug User Stores': guides/user-mgt/plug-userstores.md
+          - 'Import Users': guides/user-mgt/import-users.md
+          - 'List/Search Users': guides/user-mgt/search-user.md
+          - 'Delete Users': guides/user-mgt/delete-users.md
         - 'Manage User Profiles':
-          - 'Configure Roles/Permissions': guides/user-mgt/managing-roles.md
-          - 'Enable Notifications': guides/user-mgt/enabling-notifications.md
-          - 'Tenant-wise Email Sender Config': guides/user-mgt/tenant-wise-config.md
-          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md
+          - 'View/Update User Profiles': guides/user-mgt/update-profile.md
           - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
+        - 'Manage User Accounts'
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
+          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+          - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
+      - 'Manage Roles':
+        - 'Add User Roles': guides/user-mgt/add-user-roles.md
+        - 'Update User Roles': guides/user-mgt/update-roles.md
+        - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
+        - 'Role-Based Permissions': guides/user-mgt/role-based.md
+      - 'Server Configurations': 
+        - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
+        - 'Use Email Address as the Username': guides/user-mgt/email-as-username.md
+      - 'Manage Tenants': 
+        - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
