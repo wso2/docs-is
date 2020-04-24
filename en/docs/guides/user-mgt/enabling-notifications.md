@@ -2,11 +2,13 @@
 
 The primary objective of this is to send a notification to an external endpoint once a user operation has taken place. For example, you want to send an email to an email address once a new user is created or the password of an existing user is changed. This can be achieved by enabling notifications for user operations.
 
-The configuration differs based on the type of notifications you want to send to the external endpoint. The following instructions provide information on how to send an email when a user operation takes place.
+The configuration differs based on the type of notifications you may want to send to the external endpoint. The following instructions provide information on how to send an email when a user operation takes place.
 
-1. Enable the email sending configurations of the WSO2 Identity Server as explained [here](insert-configuring-email-sending-link). 
+{!fragments/configure-email-sending.md!}
 
-2. Configure the `<IS_HOME>/repository/conf/identity/msg-mgt.properties` file with the desired destination configurations and template configurations. The following is a sample configuration for sending an email to an email address on user operation event.
+---
+
+Configure the `<IS_HOME>/repository/conf/identity/msg-mgt.properties` file with the desired destination configurations and template configurations. The following is a sample configuration for sending an email to an email address on user operation event.
 
 For example user operations can be account recovery, account locking/disabling, or ask password.
 

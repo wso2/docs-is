@@ -1,4 +1,4 @@
-# Tenant-Wise Email Sender Configuration
+# Manage Tenant-Wise Email Sender Configurations 
 
 When handling notifications such as the ones given below, the email-sender configuration needs to be changed in `<IS-HOME>/repository/conf/deployment.toml`. 
 
@@ -6,7 +6,6 @@ When handling notifications such as the ones given below, the email-sender confi
 - [Password Recovery](insert-link-admin-portal)
 - [Username Recovery](insert-link-admin-portal)
 - [Creating Users using the Ask PasswordOption](../../guides/user-mgt/ask-password)
-
 
 **Email configurations**
 
@@ -46,7 +45,7 @@ When handling notifications such as the ones given below, the email-sender confi
     .0/resource/Publisher/EmailPublisher/file" -H "accept: application/json" -H 
     "Content-Type: multipart/form-data" -H 'Authorization: Basic YWRtaW46YWRtaW4=' -F "resourceFile=@EmailPublisher.xml;type=text/xml" -F "fileName=EmailPublisher"
     ```
-    This `EmailPublisher.xml` file will be used as the tenant's email publisher file. We can configure the tenant-wise email configurations here. 
+    This `EmailPublisher.xml` file will be used as the tenant's email publisher file. Configure the tenant-wise email configurations in the 'EmailPublisher.xml' file.
     
     Configurable parameters are given below. 
     

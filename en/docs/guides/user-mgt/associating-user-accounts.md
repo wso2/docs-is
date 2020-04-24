@@ -18,12 +18,12 @@ can access this admin service using the following URL: '
 '. If you are new to admin services, see [Calling Admin
 Services](insert-link).
 
-The following actions can be performed using above admin service.
+The following actions can be performed using this admin service.
 
 -   Create a new user account association
 -   Delete an existing user account association
 -   Get all associated user accounts of the logged in user
--   Switch between associated user accounts without re-authenticate with
+-   Switch between associated user accounts without re-authenticating to 
     the system
 
 ## Using the user portal
@@ -32,3 +32,7 @@ The WSO2 Identity Server [user portal](../../guides/user-portal) can be used to 
 accounts. You can associate a local user account or a federated user
 account. See [Linked Accounts](../../guides/user-portal/#linked-accounts) under
 User Portal for details.
+
+## Using SCIM
+
+To carry out operations related to user associations using SCIM 2.0 rest APIs, see [Association Rest API](insert-link-api).

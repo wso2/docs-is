@@ -2,12 +2,8 @@
 
 When using the WSO2 Identity Server (WSO2 IS) for user and role management, it is
 important to understand how to manage the attributes of users within it.
-In WSO2 IS, each user store attribute can be mapped as a
-claim. Therefore, you need to use the claim management functionality
-available in WSO2 IS to properly map your LDAP/AD/JDBC user
-store attributes with the claim URIs defined by WSO2 IS. You
-can also add different claim URIs and manage them using claim
-management.
+The claim management functionality helps to map each user attribute to a relevant claim and thereafter manage it.
+For more information, see [managing user attributes](insert-link-concepts).
 
 The following topics provide instructions on how to manage user
 attributes in WSO2 IS.
@@ -23,8 +19,7 @@ attributes of a user.
 3.  You can use the `           RemoteUserStoreManagerService          `
     API. This is a SOAP-based API and is very easy to use. For more
     information on using this, see [Managing Users and Roles with
-    APIs](insert-link). Supposing you want to
-    set a user attribute, you can call the following method.
+    APIs](insert-link). Call the following method to set a user attribute. 
 
     ``` java
     setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "mark@soasecurity.org", null)
@@ -49,32 +44,6 @@ attributes of a user.
 
 ### Writing custom attributes
 
-Supposing the attributes of a user are stored in both the user store
-(LDAP) and another location (JDBC table), WSO2 IS needs to
-retrieve/add the user’s attribute in both these places. In scenarios
-like this, you can simply extend the current user store manager implementation and write a
-custom implementation to do it. In the custom user store implementation,
-you only need to extend the following three methods that help to
-retrieve/add a user attribute. Other methods can be kept as they are.
-
--   Method 1.
-
-    ``` java
-    public Map<String, String> getUserPropertyValues(String userName, String[] propertyNames, String profileName) throws UserStoreException
-    ```
-
--   Method 2.
-
-    ``` java
-    protected abstract void doSetUserClaimValue(String userName, String claimURI, String claimValue, String profileName) throws UserStoreException;
-    ```
-
--   Method 3.
-
-    ``` java
-    protected abstract void doSetUserClaimValues(String userName, Map<String, String> claims, String profileName) throws UserStoreException;
-    ```
-
 See [Writing a Custom User Store Manager](insert-writing-a-custom-user-store-manager) for more information on
 this.
 
@@ -83,21 +52,9 @@ this.
 !!! warning
     Multi attribute login is only supported for LDAP/AD user stores and is
     **not supported** for JDBC user stores.
-    
 
-WSO2 Identity Server can be deployed with any LDAP based server and it
-can expose authentication via a Web Service API, SAML, OAuth, OpenID,
-etc. By default, WSO2 IS is configured to authenticate with only one
-user attribute in the LDAP.
-
--   In a user store, each user has different attributes such as
-    `          uid         `, `          cn         `, and
-    `          email         `. Some attributes, such as
-    `          uid         ` and `          mail         ` attributes,
-    are unique to the user.
 -   Once you connect your LDAP with an application, generally, the
-    application uses one of the unique attributes in LDAP to
-    authenticate the user.
+    application uses one of the unique attributes in LDAP by default, to authenticate the user.
 -   This is done by specifying the attribute
     in the `deployment.toml` file found in the `<IS_HOME>/repository/conf` directory. For
     example, you can specify either the `uid` or `mail` attribute to authenticate the user.
@@ -110,12 +67,8 @@ user attribute in the LDAP.
     In this case, the `           uid          ` value is used as the
     username to authenticate the user in that application.
 
-It is also possible for the application to use **both** attributes to
-authenticate. This means that end users can be authenticated in the
-application using either their **uid** or **mail** attribute values.
-This section provides instructions on how the WSO2 IS can be extended to
-authenticate users using more than one attribute. For the purposes of
-this example, assume that users are given the flexibility to
+It is also possible for the application to choose amongst **many** attributes to
+authenticate. For example, assume that users are given the flexibility to
 authenticate using either their **uid** and **mail** attributes in the
 LDAP.
 
@@ -170,10 +123,7 @@ LDAP.
 ### Customizing the claim for the user attribute
 
 If you are using multiple attribute authentication and want to customize
-the claim to be used for user name attribute, do the following.
-
-Add the following configuration in the
-`         <IS_HOME>/repository/conf/deployment.toml        `
+the claim to be used for user name attribute, add the following configuration to the `         <IS_HOME>/repository/conf/deployment.toml        `
 file.
 
 ``` toml
@@ -184,12 +134,10 @@ UserNameAttributeClaimUri = "http://wso2.org/claims/emailaddress"
 ```
 
 This will return the email address of the authenticated user. It can be
-configured to return any attribute by changing the '
-`         UserNameAttributeClaimUri        ` ' parameter.
+configured to return any attribute by changing the
+`         UserNameAttributeClaimUri        `  parameter.
 
 !!! info "Related Topics"
-    For more information, see the following links.
-
     -   For working with claim dialects and mapping claims, see [Claim
         Management](insert-claim-management).
     -   See [Configuring Claims for a Service
