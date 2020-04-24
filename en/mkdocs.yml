@@ -104,7 +104,7 @@ nav:
         - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
         - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
       - 'Authorization' : guides/authorization/overview.md
-      - 'User Management':
+      - 'User Management' :
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
         - 'Manage User Operations':
           - 'Overview': guides/user-mgt/manage-user-overview.md
@@ -121,7 +121,7 @@ nav:
         - 'Manage User Profiles':
           - 'View/Update User Profiles': guides/user-mgt/update-profile.md
           - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
-        - 'Manage User Accounts'
+        - 'Manage User Accounts':
           - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
           - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
           - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
