@@ -41,7 +41,7 @@ feature.
     **false** and that the Identity Listeners with ` orderId=95 ` and `orderId=97 ` are set to **true** in the `<IS_HOME>/repository/conf/deployment.toml ` file.
        
     !!! Note 
-        If there is no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
+        If there are no such entries for `event.default_listener.xxx` in `deployment.toml`, you can skip this configuration. 
         
     ``` toml
     [event.default_listener.identity_mgt]
@@ -78,7 +78,7 @@ true in the SCIM2 user create request.
 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}
 ```
     
-!!! Example "A sample curl commands is given below:"
+!!! Example "A sample curl command is given below:"
     ``` java
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Paul"},"userName":"Paul","password":"password","emails":[{"primary":true,"value":"paul@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{askPassword:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
@@ -92,7 +92,7 @@ true in the SCIM2 user create request.
 "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}
 ```
     
-!!! Example "A sample curl commands is given below:"
+!!! Example "A sample curl command is given below:"
     ``` java
     curl -v -k --user admin:admin --data '{"schemas":[],"name":{"familyName":"Smith","givenName":"Peter"},"userName":"Peter","password":"password","emails":[{"primary":true,"value":"peter@somemail.com"}],"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User":{verifyEmail:"true"}}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users
     ```
