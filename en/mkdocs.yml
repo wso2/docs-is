@@ -105,28 +105,36 @@ nav:
         - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
       - 'Authorization' : guides/authorization/overview.md
       - 'User Management':
-          - 'Onboarding Users':
-              - 'Overview': guides/user-mgt/user-onboarding-overview.md
-              - 'Connecting a Userstore':
-                  - 'Connecting a Database Userstore': guides/user-mgt/connect-database-userstore.md
-                  - 'Connecting a LDAP Userstore': guides/user-mgt/connect-ldap-userstore.md
-                  - 'Connecting a Active Directory Userstore': guides/user-mgt/connect-active-directory-userstore.md
-              - 'Importing users from a file': guides/user-mgt/user-bulk-import.md
-              - 'Enabling Self Sign Up': guides/user-mgt/user-sign-up.md
-          - 'Managing Roles': guides/user-mgt/managing-roles.md
-          - 'Managing User Accounts':
-              - 'Overview': guides/user-mgt/manage-users-overview.md
-              - 'Adding users from portal': guides/user-mgt/user-add.md
-              - 'View and Update Profile': guides/user-mgt/user-view-profile.md
-              - 'Assign Roles': guides/user-mgt/user-assign-role.md
-              - 'Change Password': guides/user-mgt/change-password.md
-              - 'Locking and Unlocking': guides/user-mgt/user-lock-account.md
-          - 'Password Policies':
-              - 'Overview': guides/user-mgt/password-policy-overview.md
-              - 'Password complexity': guides/user-mgt/password-complexity.md
-              - 'Password history': guides/user-mgt/password-history.md
-              - 'Password expiration': guides/user-mgt/password-expiration.md
-          - 'Using workflows': guides/user-mgt/configuring-workflows.md
+        - 'Overview': guides/user-mgt/user-mgt-overview.md 
+        - 'Manage User Operations':
+          - 'Overview': guides/user-mgt/manage-user-overview.md
+          - 'Add Users': 
+            - 'Overview': guides/user-mgt/add-users-overview.md
+            - 'Add Users and Assign Password': guides/user-mgt/add-user.md
+            - 'Add Users and Ask Password': guides/user-mgt/ask-password.md
+            - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
+            - 'Self Register': guides/user-mgt/self-register.md
+            - 'Plug User Stores': guides/user-mgt/plug-userstores.md
+          - 'Import Users': guides/user-mgt/import-users.md
+          - 'List/Search Users': guides/user-mgt/search-user.md
+          - 'Delete Users': guides/user-mgt/delete-users.md
+        - 'Manage User Profiles':
+          - 'View/Update User Profiles': guides/user-mgt/update-profile.md
+          - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
+        - 'Manage User Accounts'
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
+          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+          - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
+      - 'Manage Roles':
+        - 'Add User Roles': guides/user-mgt/add-user-roles.md
+        - 'Update User Roles': guides/user-mgt/update-roles.md
+        - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
+        - 'Role-Based Permissions': guides/user-mgt/role-based.md
+      - 'Server Configurations': 
+        - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
+        - 'Use Email Address as the Username': guides/user-mgt/email-as-username.md
+      - 'Manage Tenants': 
+        - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
@@ -180,8 +188,11 @@ nav:
                                     - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
                                     - 'Grant Types':
                                           - 'Overview': concepts/authorization/grant-types.md
-                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code.md
-                                          - 'Implicit Grant Type': concepts/authorization/implicit.md
+                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code-grant.md
+                                          - 'Implicit Grant Type': concepts/authorization/implicit-grant.md
+                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
+                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
+                                          - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
@@ -277,8 +288,19 @@ nav:
     - 'EMail OTP Configurations': guides/mfa/email-otp-config-advanced.md
     - 'SMS OTP Configurations': guides/mfa/sms-otp-config-advanced.md
     - 'TOTP Configurations': guides/mfa/totp-config-advanced.md
+  - 'Admin Portal':
+      - 'Applications':
+          - admin-portal/applications/overview.md
+          - 'Create New Application':
+            - admin-portal/applications/new-application.md
+            - 'Single Page Application': admin-portal/applications/add/spa.md
+            - 'OIDC Web Application': admin-portal/applications/add/oidc.md
+            - 'SAML Web Application': admin-portal/applications/add/saml.md
+          - 'Edit Application' :
+            - 'Single Page Aplication': admin-portal/applications/edit-spa.md
+            - 'OIDC Web Application': admin-portal/applications/edit-oidc.md
+            - 'SAML Web Application': admin-portal/applications/edit-saml.md
   - '': page-not-found.md
-
 
 # Extensions
 markdown_extensions:
