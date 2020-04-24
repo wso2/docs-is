@@ -8,7 +8,7 @@ credentials.
 
 ### How does it work ?
 
-Instead of redirecting the user to the authorization server, the client itself will ask the user for the resource
+Instead of redirecting the user to the authorization server, the client itself will prompt the user for the resource
 owner's username and password. The client will then send these credentials to the authorization server along with the
 client’s own credentials.
 
