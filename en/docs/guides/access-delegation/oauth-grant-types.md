@@ -15,7 +15,7 @@ This page guides you through using one of the [OAuth Grant Types](../../../../co
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 

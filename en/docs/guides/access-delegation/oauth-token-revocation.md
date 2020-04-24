@@ -48,7 +48,8 @@ The token revocation end-point also supports CORS (Cross-Origin Resource Sharing
 
 CORS is supported through the [CORS-Filter](http://software.dzhuvinov.com/cors-filter.html) which is designed to be plugged to a webapp using its deployment descriptor (web.xml). Since the OAuth 2.0 endpoints in WSO2 Identity Server have been written as JAX-RS endpoints, you can add the required CORS configurations to its deployment descriptor. 
 
-You can find this webapp at `<IS_HOME>/repository/deployment/server/webapps/oauth2.war`. Rather than editing the `web.xml` directly in the deployed directory, its easier to copy the `oauth2.war` file into another location, edit the `web.xml` and copy it back into the webapps folder and it gets hot deployed.
+You can find this webapp at `<IS_HOME>/repository/deployment/server/webapps/oauth2.war`. Rather than editing the `web.xml` directly in the deployed directory, it is easier to copy the `oauth2.war` file into another location, edit the `web.xml`, and copy it back into the webapps folder. It will get hot deployed. 
+
 
 **JSON-P**
 
