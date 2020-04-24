@@ -49,7 +49,7 @@ This page guides you through the flow involved in exchanging a JWT assertion wit
 
 ## Configure IAT 
 
-Optionally you can configure the IAT (issued at) claim. It identifies the time at which the JWT was issued and can be used to determine the age of the JWT.
+**Optionally** you can configure the IAT (issued at) claim. It identifies the time at which the JWT was issued and can be used to determine the age of the JWT.
 
 To configure the IAT validity period, add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file. 
 
@@ -73,6 +73,25 @@ add config
     - **iat:** This is the epoch of the token issuance time (e.g., 1575024942).
     - **jit:** This is the epoch of the token expiry time (e.g., 1575107914).
 
+    ```tab="Example"
+    {
+    "alg": "RS256",
+    "type": "JWT"
+    }
+
+    {
+    "iss": "NCkZofT51NVKK2UuQSvxPJhQOWwa",
+    "sub": "NCkZofT51NVKK2UuQSvxPJhQOWwa", 
+    "aud": "https://localhost:9443/oauth2/token"
+    "iat": "1575024942",
+    "jit": "1575107914"
+    }
+
+    {
+    <Signature>
+    }
+    ```
+
 2. Run the following curl command on a terminal window to obtain the access token and refresh token.
 
 	``` powershell tab="Request Format"
@@ -85,3 +104,4 @@ add config
 
 !!! tip
     If you have configured the service provider and identity provider in a tenant, add the tenant domain as a query parameter to the access token endpoint. For example, if the tenant domain is wso2.com, the access token endpoint should be `https://localhost:9443/oauth2/token tenantDomain=wso2.com.`
+

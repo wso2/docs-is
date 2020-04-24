@@ -1,6 +1,6 @@
 # Configuring OAuth Grant Types
 
-This page guides you through using one of the [OAuth Grant Types](../../concepts/authorization/grant-types) to configure authentication for an OAuth/OpenID Connect web application. 
+This page guides you through using one of the [OAuth Grant Types](../../../../concepts/authorization/grant-types) to configure authentication for an OAuth/OpenID Connect web application. 
 
 ----
 
@@ -15,7 +15,7 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
 6. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../guides/authentication/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
         
 7.  Click **Add**. 
 
@@ -30,7 +30,7 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
 1. Send the following request using a browser-based application to obtain the authorization code. 
 
     !!! tip
-        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../samples/auth-code-playground).
+        You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Authorization Code Grant with OAuth 2.0 Playground](../../../samples/auth-code-playground).
 
     ``` tab="Request Format"
     https://<host>:<port>/oauth2/authorize?
@@ -77,7 +77,7 @@ This page guides you through using one of the [OAuth Grant Types](../../concepts
 Send the following request using a browser-based application to obtain the ID token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../samples/implicit-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Implicit Grant with OAuth 2.0 Playground](../../../samples/implicit-playground).
 
 ``` tab="Request Format"
 https://<host>:<port>/oauth2/authorize?
@@ -109,7 +109,7 @@ expires_in=3600
 Send the following request using a browser-based application to obtain the access token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Password Grant with OAuth 2.0 Playground](../../samples/password-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Password Grant with OAuth 2.0 Playground](../../../samples/password-playground).
 
 ``` tab="Request Format"
 curl -v -X POST --basic -u <client_ID>:<client_secret> -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=password&username=<username>&password=<password>" <token_endpoint>
@@ -127,12 +127,12 @@ You will receive the following response with the access token and refresh token.
 
 ----
 
-## Client credentials / password grant type
+## Client credentials grant type
 
 Send the following request using a browser-based application to obtain the access token. 
 
 !!! tip
-    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Client Credentials Grant with OAuth 2.0 Playground](../../samples/client-credentials-playground).
+    You can also use the WSO2 Identity Server Playground sample as the browser-based application to obtain the request. For instructions on using the Playground app, see [Client Credentials Grant with OAuth 2.0 Playground](../../../samples/client-credentials-playground).
 
 ``` tab="Request Format"
 curl -v -X POST --basic -u <client_ID>:<client_secret>_VCQJwa -H "Content-Type:application/x-www-form-urlencoded;charset=UTF-8" -k -d "grant_type=client_credentials" <token_endpoint>

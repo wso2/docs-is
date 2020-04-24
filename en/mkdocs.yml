@@ -97,9 +97,9 @@ nav:
         - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
         - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
         - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
-        - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
+        - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegation/saml2-bearer-assertion-profile.md
         - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
-        - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/oauth-token-introspection.md
+        - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
         - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
         - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
         - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
@@ -318,7 +318,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - markdown_include.include:
-      base_path: docs
+      base_path: docs/
 
 # Extra
 extra_css:
