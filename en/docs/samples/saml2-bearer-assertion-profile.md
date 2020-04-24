@@ -2,6 +2,14 @@
 
 This page guides you through exchanging a SAML2 assertion for a valid OAuth access token in order to access a resource in a sample application.
 
+----
+
+If you have your own application, click the button below.
+
+<a class="samplebtn_a" href="../../guides/access-delegation/saml2-bearer-assertion-profile" target="_blank" rel="nofollow noopener">I have my own application</a>
+
+----
+
 {!fragments/register-a-service-provider.md!}
 
 ----
