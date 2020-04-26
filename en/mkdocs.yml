@@ -122,7 +122,7 @@ nav:
         - 'Integrated Windows Authentication':
           - 'Integrated Windows Authentication Overview': learn/integrated-windows-authentication-overview.md
           - 'Configuring IWA Single-Sign-On': learn/configuring-iwa-single-sign-on.md
-        - 'OAuth2-OpenID Connect':
+        - 'OAuth2-OpenID Connect'
           - 'OAuth2-OpenID Connect Overview': learn/oauth2-openid-connect-overview.md
           - 'Configuring OAuth2-OpenID Connect Single-Sign-On': learn/configuring-oauth2-openid-connect-single-sign-on.md
           - 'Configuring OpenID Connect Single Logout': learn/configuring-openid-connect-single-logout.md
