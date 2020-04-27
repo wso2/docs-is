@@ -142,7 +142,6 @@ nav:
         - 'Role-Based Permissions': guides/user-mgt/role-based.md
       - 'Server Configurations': 
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-        - 'Use Email Address as the Username': guides/user-mgt/email-as-username.md
       - 'Manage Tenants': 
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
   - 'Extend':
