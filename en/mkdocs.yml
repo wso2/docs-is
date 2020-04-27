@@ -123,6 +123,7 @@ nav:
           - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
         - 'Manage User Accounts':
           - 'Overview': guides/user-mgt/user-account-overview.md
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
           - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
           - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
           - 'Enable/Disable User Accounts': guides/user-mgt/enable-account.md
