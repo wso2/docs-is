@@ -131,7 +131,7 @@ invoke the OAuth introspection endpoint for the super tenant users.
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: bash; gutter: false; theme: Confluence"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">curl</span> -k -u admin:admin -H <span class="st">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> -X POST --data <span class="st">&#39;token=fbc4e794-23db-3394-b1e5-f2c3e511d01f&#39;</span> https://localhost:9443/oauth2/introspect</a></code></pre></div>
 </div>
 </div>
-<p>You can pass the token type as an optional parameter in the request (e.g., <code>              token_type_hint=bearer             </code> ).</p></td>
+<p>You can pass the token type as an optional parameter in the request (e.g., <code>token_type_hint=access_token </code> or <code>token_type_hint=refresh_token</code>).</p></td>
 </tr>
 <tr class="even">
 <td>Response</td>
