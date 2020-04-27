@@ -8,15 +8,11 @@
 
 ## Delete a user using SCIM 
 
-**Request**
-
-```curl
+```curl tab="Request"
 curl -v -k --user {IS_USERNAME}:{IS_PASSWORD} -X DELETE https://{IS_IP}:{IS_PORT}/wso2/scim/Users/{SCIM_USER_ID} -H "Accept: application/json"
 ```
 
-**Sample Request**
-
-```curl 
+```curl tab="Sample Request"
 curl -v -k --user admin:admin -X DELETE https://localhost:9443/wso2/scim/Users/b228b59d-db19-4064-b637-d33c31209fae -H "Accept: application/json"
 ```
 
@@ -63,12 +59,12 @@ You can use this log file as an input to the Identity Anonymization tool
 that is packaged with WSO2 Identity Server, to ensure that you [remove references to all deleted user identities](insert-link).
 
 Follow the steps below to configure WSO2 Identity Server to log details
-related to user deletion each time you delete a user:
+related to user deletion each time you delete a user.
 
 1.  Add the following property to the 
     `           <IS_HOME>/repository/conf/deployment.toml          `
     file, and set it to
-    `           true          `
+    `           true          `.
 
     ``` toml
     [event.default_listener.user_deletion]
@@ -76,27 +72,27 @@ related to user deletion each time you delete a user:
     enable = true 
     ```
 
-2.  Add the 
+2.  Add the following property to the
     `           <IS_HOME>/repository/conf/deployment.toml          `
     file, and set `           enable          ` to
-    `           true          ` in the following event recorder:
+    `           true          `.
 
     ``` toml
-	[event.default_recorder.user_delete_event]
-	name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
-	enable = true
+    [event.default_recorder.user_delete_event]
+    name= "org.wso2.carbon.user.mgt.recorder.DefaultUserDeletionEventRecorder"
+    enable = true
     ```
 
-    This writes details related to user deletion in the CSV format to
+    This writes details related to user deletion in the `.csv` format to
     the
     `           <IS_HOME>/repository/logs/delete-event.log          `
     file.
 
     !!! note
-         If necessary, you can write user delete event details to a custom CSV
+         If necessary, you can write user delete event details to a custom `.csv`
          file that you specify. To do this, add the following property in
           the `<IS_HOME>/repository/conf/deployment.toml         `
-         file, and make sure to specify the custom CSV file path.
+         file, and make sure to specify the custom `.csv `file path.
 
          ``` java
          [event.default_recorder.user_delete_event]
@@ -104,7 +100,7 @@ related to user deletion each time you delete a user:
          ```
 
 !!! tip
-    By default, all logs related to user deletion are written in CSV format
+    By default, all logs related to user deletion are written in `.csv` format
     to a specified log file. You can extend this functionality to log the
     details in any other format that you want, and you can also extend the
     functionality to write the details to a text file, database, or any

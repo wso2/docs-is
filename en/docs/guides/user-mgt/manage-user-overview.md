@@ -1,6 +1,6 @@
 # Manage User Operations
 
-This section carries the instruction to perform the following actions on a user in WSO2 Identity Server. 
+his section provides instructions on how to perform the following actions on a user in WSO2 Identity Server. 
 
 - [Add Users](../../user-mgt/add-users-overview)
 

@@ -28,7 +28,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 "HTTP/1.1 202 Accepted"
 ```
 
-### Get Challenge Question of User
+### Get challenge question of user
 This API is used to initiate password recovery using user challenge questions, one at a time. Response will be a random challenge question with a confirmation key.
 
 **Request**
@@ -45,7 +45,7 @@ curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applica
 {"key":"7ced9ef0-7f3f-4f65-a115-ddbcce3a6b49","question":{"question":"Place of birth ?","question-set-id":"http://wso2.org/claims/challengeQuestion1"}
 ```
 
-### Validate user challenge answer/answers.
+### Validate user challenge answer/answers
 
 **Request**
 
@@ -61,9 +61,9 @@ curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: app
 {"key":"c45d7251-59f1-468d-9844-8a6d7c5fe9d9","question":null,"link":{"rel":"set-password","uri":"/api/identity/recovery/v0.9"}}              
 ```
 
-### Get Challenge Questions of User
+### Get challenge questions of user
 
-This API is used to initiate password recovery by answering all the challenge questions at once. The response will have random challenge questions from the one configured and a confirmation key.
+This API is used to initiate password recovery by answering all the challenge questions at once. The response will have random challenge questions from the ones configured and a confirmation key.
 
 **Request**
 
@@ -79,7 +79,7 @@ curl -X GET -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applica
 {"key":"f9f04fd7-3666-4bc6-bc99-9190b04b0ccc","questions":[{"question":"Place of birth?","question-set-id":"http://wso2.org/claims/challengeQuestion1"},{"question":"Model of your first car?","question-set-id":"http://wso2.org/claims/challengeQuestion2"}],"link":{"rel":"validate-answer","uri":"/api/identity/recovery/v0.9"}}
 ```
 
-### Update Password
+### Update password
 
 This API is used to reset user password using the confirmation key recieved through the recovery process. Input the key and the new password.
 
@@ -99,7 +99,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
 
 ---
 
-## Recover password using the SOAP APIs
+## Recover password using SOAP APIs
 
 ### getUserChallengeQuestion
 
@@ -228,7 +228,7 @@ curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: applic
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation updates the password in the system for password recovery process. <br>Before calling this method, the caller needs to call the <code>verifyConfirmationCode()</code> method and get the newly generated confirmation code.</td>
+            <td>This operation updates the password in the system for password recovery process. <br>Before calling this method, call the <code>verifyConfirmationCode()</code> method and get the newly generated confirmation code.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>

@@ -8,13 +8,13 @@
 
 ## Manage challenge questions using REST APIs
 
-There are a number of operations related to challenege questions that you can perform using REST APIS. To manage the challenge questions and answers of a user using REST API, see [Manage Challenge Questions](insert-link).
+There are a number of operations related to challenge questions that you can perform using REST APIs. To manage the challenge questions and answers of a user using REST APIs, see [Manage Challenge Questions](insert-link).
 
 ---
 
 ## Manage challenge questions using SOAP APIs
 
-The following are some of the operations realted to challenge questions that you can perform using SOAP APIs.
+The following are some of the operations related to challenge questions that you can perform using SOAP APIs.
 
 ### getAllChallengeQuestions
 
@@ -49,7 +49,7 @@ This is used to retrieve all the challenge questions at once.
 
 ### getUserChallengeQuestion
 
-This is used to retrieve a particular question using the question id. 
+This is used to retrieve a particular question using the question ID. 
 
 <table>
     <tbody>        
@@ -67,7 +67,7 @@ This is used to retrieve a particular question using the question id.
                <ul>
                   <li><code>userName</code> <code>[String]</code>: This is the user name of the user.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
-                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
+                  <li><code>questionId</code> <code>[String]</code>: This is the question ID.</li>
                </ul>
             </td>           
         </tr>
@@ -97,13 +97,13 @@ This is used to retrieve a particular question using the question id.
 
 ### getUserChallengeQuestionIds
 
-This is used to retrieve all the question ids. 
+This is used to retrieve all the question IDs. 
 
 <table>
     <tbody>        
         <tr class="even">
             <th>Description</th>
-            <td>This operation retrieves the challenge question Ids.</td>
+            <td>This operation retrieves the challenge question IDs.</td>
         </tr>
         <tr class="odd">
             <th>Permission Level</th>
@@ -160,7 +160,7 @@ This is used to validate the responses given by the user against the existing va
                <ul>
                   <li><code>userName</code> <code>[String]</code>: This is the user name.</li>
                   <li><code>confirmation</code> <code>[String]</code>: This is the confirmation code that is sent to the user.</li>
-                  <li><code>questionId</code> <code>[String]</code>: This is the question Id.</li>
+                  <li><code>questionId</code> <code>[String]</code>: This is the question ID.</li>
                   <li><code>answer</code> <code>[String]</code>: This is the answer to the question.</li>                  
                </ul>             
             </td>
