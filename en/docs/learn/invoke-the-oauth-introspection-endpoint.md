@@ -334,7 +334,7 @@ invoke the OAuth introspection endpoint for tenant users.
 </div>
 <div class="codeContent panelContent pdl">
 <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1">curl -v -k -H &#39;Authorization: Basic &lt;<span class="fu">BASE64ENCODED</span>(USERNAME<span class="at">@TENAND_DOMAIN</span>:PASSWORD)&gt;&#39; -H &#39;Content-<span class="bu">Type</span>: application/x-www-form-urlencoded&#39; -X POST --data &#39;token=&lt;ACCESS_TOKEN&gt;&#39; https:<span class="co">//localhost:9443/t/&lt;TENANT_DOMAIN&gt;/oauth2/introspect</span></a></code></pre></div>
-<p>You can pass the token type as an optional parameter in the request (e.g., <code>              token_type_hint=bearer             </code> ).</p>
+<p>You can pass the token type as an optional parameter in the request (e.g., <code>token_type_hint=access_token </code> or <code>token_type_hint=refresh_token</code>).</p>
 </div>
 </div>
 <div class="code panel pdl" style="border-width: 1px;">
