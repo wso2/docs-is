@@ -22,7 +22,7 @@ This page guides you through configuring [token encryption for ID tokens](insert
 
     -   **Encryption Method:** Symmetric encryption algorithm that is used to encrypt the JWT claims set using the CEK.
 
-    Leave these values as they are if you do not have special any requirements.
+    Leave these values as they are if you do not have any specific requirements.
 
 ----
 
@@ -36,7 +36,7 @@ The following steps describe how to configure a service provider public certific
     keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -keystore testkeystore.jks -dname "CN=*.test.com,OU=test,O=test,L=MPL,ST=MPL,C=FR" -storepass wso2carbon -keypass wso2carbon -validity 10950
     ```
 
-2.  Export public key of the new keystore to a file named as the client ID of the OAuth application service provider.
+2.  Create a file and name it as the client ID of the OAuth application service provider. Export the public key of the new keystore to the file you created.
 
     ``` java
     keytool -export -alias wso2carbon -file <client-id> -keystore testkeystore.jks
@@ -79,7 +79,7 @@ The following steps describe how to configure a service provider public certific
 
 5. Select **Upload SP Certificate** under  **Select SP Certificate Type**.
 
-6. Paste the certificate content copied in step4.
+6. Paste the certificate content copied in step 4.
 
     ![upload-sp-cert](../../assets/img/guides/upload-sp-cert.png)
 
@@ -95,7 +95,7 @@ This section guides you through obtaining an encrypted ID token and decrypting i
 
 2. You will recieve an access token and an encrypted ID token. 
 
-3. To decrypt the ID token, provide the private key  of the client. 
+3. To decrypt the ID token, provide the private key of the client. 
 
     1.  Import JKS into a PKCS12 formatted store.
 

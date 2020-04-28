@@ -111,7 +111,6 @@ nav:
           - 'Overview': guides/access-delegation/openid-connect.md
           - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
       - 'Authorization' : guides/authorization/overview.md
-      - 'User Management' :
       - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
         - 'Manage User Operations':
