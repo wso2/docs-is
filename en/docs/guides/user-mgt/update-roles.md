@@ -1,13 +1,11 @@
 # Updating role names
 To make modifications to the role names, do one of the following:
 
-## Updating role names before the first startup (recommended)
+## Update role names before the first startup (recommended)
 
 You can change the default role name before starting the WSO2 Identity
-Server. To do this, change the properties in the
-`         <IS_HOME>/repository/conf/deployment.toml       ` file as shown below.
-
-Change the value of `         admin_role         ` to ` New role name   `. 
+Server. To do this, change the properties in the `         <IS_HOME>/repository/conf/deployment.toml       ` file as shown below.
+Change the value of `admin_role` to ` New role name`. 
 
 ```toml
 [super_admin]
@@ -19,8 +17,7 @@ admin_role = "admin"
 data_source = "jdbc/WSO2CarbonDB"
 ```
 ---
-
-## Updating role names after the product is used for sometime (advanced configuration)
+## Update role names after the product is used for sometime (advanced configuration)
 
 If you have already updated the role names before the first startup of
 the product, these steps are not necessary. The following steps guide
