@@ -2,33 +2,7 @@
 
 This section is about the user on-boarding flows initiated by
 administrators which allow respective end users to decide their own
-passwords or verify the accounts created by administrators. 
-
-## On-boarding with Ask password
-
-This process is initiated by the administrator when selecting **Ask
-password from user** during the user creation process. This is different
-from the default flow, in which the administrator decides the passwords
-for users. Using the **Ask Password** option is the standard method for
-user management as the administrator does not have to specify or remember passwords when creating an account for a user.
-
-## On-boarding with email verification
-There can be other cases where administrators need to on-board user
-accounts to the system along with a default password (that is
-communicated to the end-user via a trusted channel), and still wants the end
-user to confirm that the account created for the user is correct. In
-such cases administers can create users with the **Verify Email** feature.
-
-When selecting either of these options, the administrator must enter an
-**Email Address**. WSO2 Identity Server sends an email to this
-  address with a redirection URL.
-
-- In **Ask Password** flow, the URL sent in the email directs the users
-  to a screen where they can provide the password for the account that
-  was newly created for them by the administrator.
-- In **Verify Email** flow, the URL sent in the email is a link which
-  confirms the user upon access.
-
+passwords or verify the accounts created by administrators. For more information, see [Ask Password and Email Verification](insert-link-concepts)
 
 ## Configuring the feature
 
@@ -54,7 +28,6 @@ feature.
     priority= "97"
     enable = true
     ```
-
 ---
 
 ## Enable the ask password feature using the admin portal

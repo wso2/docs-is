@@ -104,35 +104,43 @@ nav:
         - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
         - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
       - 'Authorization' : guides/authorization/overview.md
-      - 'User Management' :
+      - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
         - 'Manage User Operations':
           - 'Overview': guides/user-mgt/manage-user-overview.md
           - 'Add Users': 
             - 'Overview': guides/user-mgt/add-users-overview.md
             - 'Add Users and Assign Password': guides/user-mgt/add-user.md
-            - 'Add Users and Ask Password': guides/user-mgt/ask-password.md
-            - 'Add Users in Bulk': guides/user-mgt/bulk-users.md
+            - 'Add Users and Invite': guides/user-mgt/ask-password.md
             - 'Self Register': guides/user-mgt/self-register.md
-            - 'Plug User Stores': guides/user-mgt/plug-userstores.md
           - 'Import Users': guides/user-mgt/import-users.md
           - 'List/Search Users': guides/user-mgt/search-user.md
           - 'Delete Users': guides/user-mgt/delete-users.md
         - 'Manage User Profiles':
+          - 'Overview': guides/user-mgt/user-profile.md
           - 'View/Update User Profiles': guides/user-mgt/update-profile.md
           - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
         - 'Manage User Accounts':
+          - 'Overview': guides/user-mgt/user-account-overview.md
           - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
           - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
+          - 'Enable/Disable User Accounts': guides/user-mgt/enable-account.md
           - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
+          - 'Manage Challenge Questions': guides/user-mgt/challenge-question.md
+          - 'Perform Self Services':
+            - 'Overview': guides/user-mgt/self-services.md
+            - 'Recover Username': guides/user-mgt/recover-username.md
+            - 'Recover Password': guides/user-mgt/recover-password.md
+            - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
       - 'Manage Roles':
+        - 'Overview': guides/user-mgt/roles.md
         - 'Add User Roles': guides/user-mgt/add-user-roles.md
         - 'Update User Roles': guides/user-mgt/update-roles.md
         - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
         - 'Role-Based Permissions': guides/user-mgt/role-based.md
       - 'Server Configurations': 
         - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
-        - 'Use Email Address as the Username': guides/user-mgt/email-as-username.md
       - 'Manage Tenants': 
         - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
   - 'Extend':
