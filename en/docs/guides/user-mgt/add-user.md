@@ -33,7 +33,7 @@ The user can also be created by calling the
 `          RemoteUserStoreManager         ` service. If you are new to
 admin services, see [Calling Admin Services](insert-calling admin services).
 
-1.  Enable the hidden admin service property. 
+1. Enable the hidden admin service property. 
     By default, admin services WSDLs are not exposed in a product. We need to add the following configuration in  `            <IS_HOME>/repository/conf/deployment.toml           ` to access the WSDLs.
      
     ```toml
@@ -41,7 +41,7 @@ admin services, see [Calling Admin Services](insert-calling admin services).
     enable = true
     ```
 
-2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
+2. Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -49,40 +49,35 @@ admin services, see [Calling Admin Services](insert-calling admin services).
          If you have configured WSO2 IS to use an IP or hostname, replace
          `             localhost            ` with your IP or hostname.
 
-3.  Call the `            addUser()           ` method to create the
+3. Call the `            addUser()           ` method to create the
     user and make sure to give the email address of the user. Following is a sample SOAP request.
 
-    **SOAP Request**
+      **SOAP Request**
 
-   ``` xml
-   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://common.mgt.user.carbon.wso2.org/xsd">
-      <soapenv:Header/>
-      <soapenv:Body>
-         <ser:addUser>
+      ```xml
+      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.ws.um.carbon.wso2.org" xmlns:xsd="http://common.mgt.user.carbon.wso2.org/xsd">
+         <soapenv:Header/>
+         <soapenv:Body>
+            <ser:addUser>
 
-            <ser:userName>username</ser:userName>
+               <ser:userName>username</ser:userName>
 
-            <!--Zero or more repetitions:-->
-            <ser:roleList>admin</ser:roleList>
+               <!--Zero or more repetitions:-->
+               <ser:roleList>admin</ser:roleList>
 
-            <!--Zero or more repetitions:-->
-            <ser:claims>
-               <xsd:claimURI>http://wso2.org/claims/emailaddress</xsd:claimURI>
-               <xsd:value>wso2demomail@gmail.com</xsd:value>
-            </ser:claims>
+               <!--Zero or more repetitions:-->
+               <ser:claims>
+                  <xsd:claimURI>http://wso2.org/claims/emailaddress</xsd:claimURI>
+                  <xsd:value>wso2demomail@gmail.com</xsd:value>
+               </ser:claims>
 
-            <ser:profileName>default</ser:profileName>
+               <ser:profileName>default</ser:profileName>
 
-            <ser:requirePasswordChange>true</ser:requirePasswordChange>
-         </ser:addUser>
-      </soapenv:Body>
-   </soapenv:Envelope>
-   ```
+               <ser:requirePasswordChange>true</ser:requirePasswordChange>
+            </ser:addUser>
+         </soapenv:Body>
+      </soapenv:Envelope>
+      ```
 
-    !!! note
-        There will be no SOAP response as this is a one-way SOAP operation.
-        You can validate that the user creation is successful using the
-        adin portal by clicking on <admin-portal-user-list-path> section.
-
-!!! info 
-    User can be added in bulk by importing them from a CSV/Excel file. For more information, see [Importing users in bulk](admin-portal-bulk-section).
+!!! Note
+    There will be no SOAP response as this is a one-way SOAP operation. You can validate that the user creation is successful using the admin portal by clicking on <admin-portal-user-list-path> section.
