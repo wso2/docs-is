@@ -2,7 +2,7 @@
 
 ## View and update a user using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ---
 
