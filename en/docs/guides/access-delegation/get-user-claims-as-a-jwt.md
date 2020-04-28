@@ -87,6 +87,24 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 ## Get JWT token with claims
 
+**Using the REST API**
+
+1. Use the following curl command to send a request with required user claims and recieve a JWT token. 
+
+    You can add more required claims as a comma-separated list. 
+
+    ```tab="Request Format"
+    curl -k -u <username>:<password> -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=<access_token>&required_claims=http://wso2.org/claims/emailaddress' https://localhost:9443/oauth2/introspect
+    ```
+
+    ```tab="Sample Request"
+    curl -k -u admin:admin -H 'Content-Type: application/x-www-form-urlencoded' -X POST --data 'token=fe12a966-5fd5-3b4c-97b1-31ac3e1a31e6&required_claims=http://wso2.org/claims/emailaddress' https://localhost:9443/oauth2/introspect
+    ```
+
+**Using the SOAP service**
+
+Alternatively, you can also use the `OAuth2ValidationService` to send the request. 
+
 1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service](../oauth-token-validation)
 
     Note that the response contains the recieved JWT token under the `<tokenString>` element. 
@@ -106,7 +124,6 @@ You can configure this for all tenants by configuring the `deployment.toml` file
     WRo2p92f-pt1vH9xfLgmrPWNKJfmST2QSPYcth7gXKz64LdP9zAMUtfAk9DVRdHTIQR3gX0jF4Ohb4UbNN4Oo97a35oTL1iRxIRTKUkh8L1dpt3H03Z0Ze7Q2giHGZikMIQv3gavHRYKjNMoU\_1MuB90jiK7
     ```
 
-
 2. Decode the payload. You will notice that the user claim values have been included in the payload. 
 
     ```java tab="Decoded Payload"
@@ -123,7 +140,6 @@ You can configure this for all tenants by configuring the `deployment.toml` file
     "http://wso2.org/claims/organization":"WSO2"
     }
     ```
-
 
 -----
 
