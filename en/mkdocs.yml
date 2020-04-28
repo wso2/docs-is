@@ -150,8 +150,9 @@ nav:
                                     - 'Request Object': concepts/authentication/request-object.md
                           - 'User Information': concepts/authentication/user-information.md
                           - 'Scopes And Claims': concepts/authentication/scopes-claims.md
-                          - 'JWKS': concepts/authentication/jwks.md
                           - 'Discovery': concepts/authentication/discovery.md
+                          - 'JWKS': concepts/authentication/jwks.md
+                          - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
                           - 'Parameter Catalogue': concepts/authentication/oidc-parameter-catalog.md
@@ -188,7 +189,6 @@ nav:
                                           - 'Refresh Tokens': concepts/authorization/refresh-token.md
                                     - 'Client Authentication': concepts/authorization/client-authentication.md
                                     - 'Token Introspection': concepts/authorization/introspection.md
-                                    - 'DCR': concepts/authorization/dcr.md
                                     - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
                                     - 'Introduction to XACML': concepts/authorization/xacml.md
