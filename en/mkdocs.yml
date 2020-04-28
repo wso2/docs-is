@@ -118,7 +118,7 @@ nav:
           - 'Add Users': 
             - 'Overview': guides/user-mgt/add-users-overview.md
             - 'Add Users and Assign Password': guides/user-mgt/add-user.md
-            - 'Add Users and Invite': guides/user-mgt/ask-password.md
+            - 'Add and Invite Users': guides/user-mgt/ask-password.md
             - 'Self Register': guides/user-mgt/self-register.md
           - 'Import Users': guides/user-mgt/import-users.md
           - 'List/Search Users': guides/user-mgt/search-user.md
