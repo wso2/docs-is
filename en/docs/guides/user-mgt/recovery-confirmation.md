@@ -8,7 +8,7 @@
 
 ## Resend confirmation Email using REST APIs
 
-The following CURL command can be used to resend the confirmation code. 
+The following curl command can be used to resend the confirmation code. 
 
 ```curl     
 curl -X POST -H "Authorization: Basic <Base64Encoded_username:password>" -H "Content-Type: application/json" -d '{"user":{"username": "<username>","realm": "<user_store_name>"},"properties": []}' "https://localhost:9443/api/identity/user/v1.0/resend-code"
