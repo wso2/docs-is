@@ -728,7 +728,6 @@ nav:
           - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
-      - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
