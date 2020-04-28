@@ -2,18 +2,18 @@
 
 This page provides instructions on how to get user claims of the authorized user as a [JWT token](insertlink) with the validation response. 
 
-You can configure this for all tenants using the file configurations by configuring the `deployment.toml` file or you can configure it tenant-wise using the management console. 
+You can configure this for all tenants by configuring the `deployment.toml` file or configure it tenant-wise using the management console. 
 
 {!fragments/register-a-service-provider.md!}
 
-3.  Expand **Inbound Authentication Configuration** section and then **OAuth/OpenID Connect Configuration**. 
+3.  Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
 
 4. Click **Configure.**   
  
 5. Enter the **Callback Url**.
 
     !!! tip
-        For more information on `Callback Url` field and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
+        For more information on `Callback Url` and other advanced configurations, see [Advanced OpenID Connect Configurations](../../authentication/oauth-app-config-advanced).
 
 6. Select **JWT** as the **Token Issuer**.
  
@@ -21,7 +21,7 @@ You can configure this for all tenants using the file configurations by configur
 
 7.  Click **Add**. 
 
-    Note that the **OAuth Client Key** and **Client Secret** are generated. You will need these values later on when sending the request to the authorization endpoint.
+    Note the **OAuth Client Key** and **Client Secret** that are generated. You will need these values later on when sending the request to the authorization endpoint.
 
 8.  Click **Register**.
 
@@ -60,7 +60,7 @@ You can configure this for all tenants using the file configurations by configur
 **Optional configurations**
 
 
-1.  See the [Extension Points for OAuth](insertlink) topic for more details about the usage of the `TokenGeneratorImplClass` and `ClaimsRetrieverImplClass`.
+1.  See [Extension Points for OAuth](insertlink) for more details about the usage of the `TokenGeneratorImplClass` and `ClaimsRetrieverImplClass`.
 
 2.  **Context Dialect URI**: Defines the URI for the claim dialect under which the user attributes need to be retrieved.
 
@@ -87,7 +87,7 @@ You can configure this for all tenants using the file configurations by configur
 
 ## Get JWT token with claims
 
-1. Call the `validate` method of the `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service](../oauth-token-validation)
+1. Call the `validate` method of `OAuth2ValidationService` to send a request with the user claims and recieve a JWT token as shown below. For more information, see [OAuth Token Validation Using SOAP Service](../oauth-token-validation)
 
     Note that the response contains the recieved JWT token under the `<tokenString>` element. 
     If there are no requested claim URIs defined, all the claims that carry values for the user are returned.
@@ -107,7 +107,7 @@ You can configure this for all tenants using the file configurations by configur
     ```
 
 
-2. Decode the payload. You will notice the user claim values have been included in the payload. 
+2. Decode the payload. You will notice that the user claim values have been included in the payload. 
 
     ```java tab="Decoded Payload"
     {  
@@ -129,7 +129,7 @@ You can configure this for all tenants using the file configurations by configur
 
 ## Validate the signature
 
-The following code segment is a simple Java program that can be used to validate the ID token signature against the default `wso2carbon.jks` public key in WSO2 products.
+The following code segment is a simple Java program that can be used to validate the ID token signature against the default `wso2carbon.jks` public key in WSO2 Identity Server.
 
 !!! note
     This program uses a third-party library called `nimbusds` to check if the JWT is a signed token or an unsigned token.
