@@ -92,37 +92,64 @@ nav:
       - 'Federation':
         - guides/federation.md
       - 'Access Delegation' : 
-        - 'Overview': guides/access-delegation/overview.md
-        - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
-        - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
-        - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
-        - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
-        - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegations/configure-saml2-bearer-assertion-profile.md
-        - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
+        - 'OAuth':
+          - 'Overview': guides/access-delegation/overview.md
+          - 'Configure OAuth Grant Types': guides/access-delegation/oauth-grant-types.md
+          - 'Configure Refresh Token Grant': guides/access-delegation/configure-refresh-token.md
+          - 'Configure Kerberos Grant': guides/access-delegation/configure-kerberos-grant.md
+          - 'Configure JWT Grant': guides/access-delegation/configure-jwt-grant.md
+          - 'Configure SAML2 Bearer Assertion Profile': guides/access-delegation/saml2-bearer-assertion-profile.md
+          - 'Set Up OAuth Token Hashing': guides/access-delegation/oauth-token-hashing.md
+          - 'Invoke OAuth Token Introspection Endpoint': guides/access-delegation/invoke-oauth-introspection-endpoint.md
+          - 'OAuth Token Validation Using SOAP': guides/access-delegation/oauth-token-validation.md
+          - 'Get User Claims as a JWT': guides/access-delegation/get-user-claims-as-a-jwt.md
+          - 'Issue New Tokens Per Request': guides/access-delegation/issue-new-tokens-per-request.md
+          - 'Validate JWT Based On JWKS ': guides/access-delegation/validate-jwt-based-on-jwks.md
+          - 'Configure Microprofile JWT 1.0': guides/access-delegation/microprofile-jwt.md
+          - 'Dynamic Client Regisration': guides/access-delegation/oauth-dynamic-client-registration.md
+        - 'OpenID Connect':
+          - 'Overview': guides/access-delegation/openid-connect.md
+          - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
       - 'Authorization' : guides/authorization/overview.md
-      - 'User Management':
-          - 'Onboarding Users':
-              - 'Overview': guides/user-mgt/user-onboarding-overview.md
-              - 'Connecting a Userstore':
-                  - 'Connecting a Database Userstore': guides/user-mgt/connect-database-userstore.md
-                  - 'Connecting a LDAP Userstore': guides/user-mgt/connect-ldap-userstore.md
-                  - 'Connecting a Active Directory Userstore': guides/user-mgt/connect-active-directory-userstore.md
-              - 'Importing users from a file': guides/user-mgt/user-bulk-import.md
-              - 'Enabling Self Sign Up': guides/user-mgt/user-sign-up.md
-          - 'Managing Roles': guides/user-mgt/managing-roles.md
-          - 'Managing User Accounts':
-              - 'Overview': guides/user-mgt/manage-users-overview.md
-              - 'Adding users from portal': guides/user-mgt/user-add.md
-              - 'View and Update Profile': guides/user-mgt/user-view-profile.md
-              - 'Assign Roles': guides/user-mgt/user-assign-role.md
-              - 'Change Password': guides/user-mgt/change-password.md
-              - 'Locking and Unlocking': guides/user-mgt/user-lock-account.md
-          - 'Password Policies':
-              - 'Overview': guides/user-mgt/password-policy-overview.md
-              - 'Password complexity': guides/user-mgt/password-complexity.md
-              - 'Password history': guides/user-mgt/password-history.md
-              - 'Password expiration': guides/user-mgt/password-expiration.md
-          - 'Using workflows': guides/user-mgt/configuring-workflows.md
+      - 'Manage Users':
+        - 'Overview': guides/user-mgt/user-mgt-overview.md 
+        - 'Manage User Operations':
+          - 'Overview': guides/user-mgt/manage-user-overview.md
+          - 'Add Users': 
+            - 'Overview': guides/user-mgt/add-users-overview.md
+            - 'Add Users and Assign Password': guides/user-mgt/add-user.md
+            - 'Add and Invite Users': guides/user-mgt/ask-password.md
+            - 'Self Register': guides/user-mgt/self-register.md
+          - 'Import Users': guides/user-mgt/import-users.md
+          - 'List/Search Users': guides/user-mgt/search-user.md
+          - 'Delete Users': guides/user-mgt/delete-users.md
+        - 'Manage User Profiles':
+          - 'Overview': guides/user-mgt/user-profile.md
+          - 'View/Update User Profiles': guides/user-mgt/update-profile.md
+          - 'Manage User Attributes': guides/user-mgt/managing-user-attributes.md
+        - 'Manage User Accounts':
+          - 'Overview': guides/user-mgt/user-account-overview.md
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
+          - 'Associate User Accounts': guides/user-mgt/associating-user-accounts.md 
+          - 'Lock/Unlock Accounts': guides/user-mgt/lock-account.md
+          - 'Enable/Disable User Accounts': guides/user-mgt/enable-account.md
+          - 'Force Password Reset': guides/user-mgt/forced-password-reset.md
+          - 'Manage Challenge Questions': guides/user-mgt/challenge-question.md
+          - 'Perform Self Services':
+            - 'Overview': guides/user-mgt/self-services.md
+            - 'Recover Username': guides/user-mgt/recover-username.md
+            - 'Recover Password': guides/user-mgt/recover-password.md
+            - 'Resend Account Recovery Confirmation Email': guides/user-mgt/recovery-confirmation.md
+      - 'Manage Roles':
+        - 'Overview': guides/user-mgt/roles.md
+        - 'Add User Roles': guides/user-mgt/add-user-roles.md
+        - 'Update User Roles': guides/user-mgt/update-roles.md
+        - 'Edit/Delete Roles': guides/user-mgt/edit-delete-roles.md
+        - 'Role-Based Permissions': guides/user-mgt/role-based.md
+      - 'Server Configurations': 
+        - 'Enable Notifications for User Operations': guides/user-mgt/enabling-notifications.md
+      - 'Manage Tenants': 
+        - 'Tenant-wise Email Sender Configuration': guides/user-mgt/tenant-wise-config.md
   - 'Extend':
     - 'Authentication Script API': develop/authentication-script-reference.md
     - 'Configuration Catalog': develop/configuration-catalog.md
@@ -176,15 +203,18 @@ nav:
                                     - 'OAuth 2.0 Client Types': concepts/authorization/client-types.md
                                     - 'Grant Types':
                                           - 'Overview': concepts/authorization/grant-types.md
-                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code.md
-                                          - 'Implicit Grant Type': concepts/authorization/implicit.md
+                                          - 'Authorization Code Grant Type': concepts/authorization/authorization-code-grant.md
+                                          - 'Implicit Grant Type': concepts/authorization/implicit-grant.md
+                                          - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
+                                          - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
+                                          - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
                                     - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
                                           - 'Access Tokens': concepts/authorization/access-token.md
                                           - 'Refresh Tokens': concepts/authorization/refresh-token.md
                                     - 'Client Authentication': concepts/authorization/client-authentication.md
-                                    - 'Token Introspection': concepts/authorization/intorspection.md
+                                    - 'Token Introspection': concepts/authorization/introspection.md
                                     - 'DCR': concepts/authorization/dcr.md
                                     - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
@@ -240,11 +270,13 @@ nav:
       - 'ACR-Based': samples/acr-based-adaptive-auth.md
       - 'Using Function Library': samples/adaptive-auth-with-function-lib-sample.md
       - 'Limiting Active User Sessions': samples/limiting-active-sessions-adaptive-auth.md
-  - 'OAuth 2.0/Open ID Connect Playground':
+    - 'Access Delegation':
       - 'Authorization Code Grant': samples/auth-code-playground.md
       - 'Implicit Grant': samples/implicit-playground.md
       - 'Client Credentials Grant': samples/client-credentials-playground.md
       - 'Password Grant': samples/password-playground.md
+      - 'Microprofile JWT': samples/microprofile-jwt-sample.md
+      - 'SAML2 Bearer Assertion Profile': samples/saml2-bearer-assertion-profile.md
   - 'Pickup Samples':
       - 'Pickup Dispatch OIDC': fragments/pickup-dispatch-oidc.md
       - 'Pickup Dispatch SAML': fragments/pickup-dispatch-saml.md
@@ -314,7 +346,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - markdown_include.include:
-      base_path: docs
+      base_path: docs/
 
 # Extra
 extra_css:
