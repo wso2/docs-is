@@ -89,7 +89,7 @@ You can configure this for all tenants by configuring the `deployment.toml` file
 
 **Using the REST API**
 
-1. Use the following curl command to send a request with required user claims and recieve a JWT token. 
+1. Use the following curl command to send a request with the required user claims and recieve a JWT token. 
 
     You can add more required claims as a comma-separated list. 
 

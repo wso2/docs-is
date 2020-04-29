@@ -35,7 +35,7 @@ This page guides you through configuring [token encryption for ID tokens](insert
 
 ----
 
-You have successfully set up token encryption and the sample Playground application. You can now try out one of the grant type flows to recieve an encrypted ID token and decrypt it.
+You have successfully set up token encryption and the sample Playground application. You can now try out one of the grant type flows to receive an encrypted ID token and decrypt it.
 
 - [Authorization grant flow](#try-authorization-grant-flow)
 - [Implicit grant flow](#try-implicit-grant-flow)
@@ -45,7 +45,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
 ## Try authorization grant flow
 
-1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
+1.  Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
 
 2.  Enter the following details and click **Authorize**.
 
@@ -99,7 +99,7 @@ You have successfully set up token encryption and the sample Playground applicat
 
 ## Try implicit grant flow
 
-1.  Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to
+1.  Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to
     start the application.
 
 2.  Enter the following details and click **Authorize**.
@@ -148,7 +148,7 @@ You have successfully set up token encryption and the sample Playground applicat
 ## Try password grant flow 
 
 
-1. Visit the URL <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
+1. Visit the URL, <http://wso2is.local:8080/playground2/oauth2.jsp> to start the application.
 
 2. Enter the following details and click **Authorize**.
 
