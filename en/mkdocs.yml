@@ -547,6 +547,7 @@ nav:
             - 'Secondary User Store': develop/userstore-rest-api.md
             - 'Self Sign-Up': develop/using-the-self-sign-up-rest-apis.md
             - 'Session Management': develop/session-mgt-rest-api.md
+            - 'Tenant Management': develop/tenant-management-rest-api.md
             - 'TOTP': develop/totp-rest-api.md
             - 'User Discoverable Application Management': develop/user-discoverable-applications.md
           - 'Scope based Authorization for Internal REST APIs': develop/scope-based-authorization-for-internal-rest-apis.md
@@ -746,7 +747,6 @@ nav:
           - 'Migrating the Secondary Userstore Password to the Internal Keystore': administer/migrating-the-secondary-userstore-password-to-the-internal-keystore.md
         - 'Symmetric Encryption': administer/using-symmetric-encryption.md
       - 'Mitigating Cross Site Request Forgery Attacks': administer/mitigating-cross-site-request-forgery-attacks.md
-      - 'Mitigating Cross Site Scripting Attacks': administer/mitigating-cross-site-scripting-attacks.md
       - 'Mitigating Authorization Code Interception Attacks': administer/mitigating-authorization-code-interception-attacks.md
       - 'Mitigating Brute Force Attacks': administer/mitigating-brute-force-attacks.md
       - 'Timestamp in WS-Security to Mitigate Replay Attacks': administer/timestamp-in-ws-security-to-mitigate-replay-attacks.md
