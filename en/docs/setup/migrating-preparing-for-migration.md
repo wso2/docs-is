@@ -402,7 +402,7 @@ Now let's see how to do the blue-green deployment with WSO2 Identity Server.
     if possible). This will be used as the data sync tool between the Identity 
     Server versions. We will refer to WSO2 Identity Server distribution as 
     “**data sync tool**” and location as `<SYNC-TOOL-HOME>`. 
-3.  Copy the [sync client jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.23/org.wso2.is.data.sync.client-1.0.23.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
+3.  Copy the [sync client jar]( https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/identity/migration/resources/org.wso2.is.data.sync.client/1.0.92/org.wso2.is.data.sync.client-1.0.92.jar) file to the `<SYNC-TOOL-HOME>/repository/components/dropins` directory.
 4.  Replace the `log4j2.properties` file located in `<SYNC-TOOL-HOME>/repository/conf` 
     with the log4j2.properties file from [here](../assets/attachments/migration/log4j2.properties). 
     This will create a separate log file `syn.log` in the `<SYNC-TOOL-HOME>/repository/logs` directory 
