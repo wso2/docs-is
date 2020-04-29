@@ -194,8 +194,6 @@ paths:
     get:
       tags:
         - Metadata
-      summary: |
-        Metadata about a supported federated authenticator
       description: >
         'This API provides the details of a single supported federated
         authenticator for an identity provider in Identity Server' <br>
@@ -730,8 +728,6 @@ paths:
     get:
       tags:
         - Provisioning
-      summary: |
-        Outbound provisioning connectors of an identity provider
       description: >
         This API provides a list of outbound provisioning connectors enabled for
         an identity provider <br>
@@ -2358,6 +2354,10 @@ components:
         displayOrder:
           type: integer
           example: 10
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
         self:
           type: string
           example: '/t/carbon.super/api/server/v1/identity-providers/templates/123e4567-e89b-12d3-a456-556642440000'
@@ -2389,3 +2389,6 @@ components:
       required:
         - name
         - idp
+    Service:
+      type: string
+      example: 'Authentication'
