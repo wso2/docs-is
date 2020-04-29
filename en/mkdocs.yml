@@ -182,7 +182,8 @@ nav:
                                           - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
                                           - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
-                                    - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
+                                    - 'JWT Bearer Grant Type': concepts/authorization/jwt_bearer_grant.md
+                                    - 'SAML2 Bearer Assertion Profile': concepts/authorization/saml2_bearer_assertion_profile.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
                                           - 'Access Tokens': concepts/authorization/access-token.md
