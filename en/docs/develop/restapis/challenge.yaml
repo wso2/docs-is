@@ -12,12 +12,15 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 schemes:
- - https
+  - https
 
 # Tags are used for organizing operations
 tags:
-- name: me
-  description: Operations for the authenticated user.
+  - name: me
+    description: Operations for the authenticated user.
+  - name: admin
+    description: >
+      Operations available for privileged users, to be invoked on behalf of another user.
 
 # Applicable authentication mechanisms
 security:
@@ -30,12 +33,14 @@ paths:
       tags:
         - me
       summary: Retrieve challenges available for the authenticated user.
-      operationId: getChallengesForLoggedInUser
+      operationId: getChallengesForUser
       description: |
-        Retrieves the available challenges in the system for the authenticated user. In the response, challenge questions are grouped as **challenge sets**.
+        Retrieves the available challenges in the system for the authenticated user. In the response challenge questions are grouped as **challenge set**s.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/limitQueryParam'
         - $ref: '#/parameters/offsetQueryParam'
@@ -64,7 +69,9 @@ paths:
         Provide answer(s) to one or more candidate challenge question set(s) available in the system for the authenticated user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - in: body
           name: challengeAnswer
@@ -95,7 +102,9 @@ paths:
         Get previously answered challenge(s) in the system by the authenticated user.
 
           <b>Permission required:</b>
-           * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         200:
           description: Array of Challenge(s) that are already answered by the authenticated user.
@@ -118,7 +127,9 @@ paths:
         Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for logged In user. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - in: body
           name: challengeAnswers
@@ -149,7 +160,9 @@ paths:
         Removes all the existing challenge answers of the authenticated user.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       responses:
         204:
           $ref: '#/responses/NoContent'
@@ -168,10 +181,12 @@ paths:
       summary: Answers a specific new challenge.
       operationId: addChallengeAnswerOfLoggedInUser
       description: |
-        Provide an **answer** to **a specific challenge** in the system for a logged in user. The user can at the most select one question from a challenge set of interest.
+        Provide an **answer** to **a specific challenge** in the system for logged-in user. The user can at most select one question from a challenge set of interest.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
@@ -197,20 +212,22 @@ paths:
     put:
       tags:
         - me
-      summary: Update the challenge answer of an already answered challenge.
+      summary: Update challenge answer of an already answered challenge.
       operationId: updateChallengeAnswerOfLoggedInUser
       description: |
-        Update a challenge answer in a specific challenge for an authenticated user.
+        Update challenge answer in a specific challenge for authenticated user.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
         - in: body
           name: challenge-answer
           description: The challenge answer with the challenge-question.
           schema:
-           $ref: '#/definitions/UserChallengeAnswer'
+            $ref: '#/definitions/UserChallengeAnswer'
       responses:
         200:
           $ref: '#/responses/OK'
@@ -233,7 +250,9 @@ paths:
         Removes existing answer provided by the authenticated user to a specific challenge.
 
         <b>Permission required:</b>
-         * /permission/admin/login
+            * None
+        <b>Scope required:</b>
+            * internal_login
       parameters:
         - $ref: '#/parameters/questionSetIdPathParam'
       responses:
@@ -247,50 +266,305 @@ paths:
           $ref: '#/responses/NotFound'
         500:
           $ref: '#/responses/ServerError'
+  /{user-id}/challenges:
+    get:
+      tags:
+        - admin
+      summary: Retrieve challenges available for a user identified by the user-id.
+      operationId: getChallengesForAUser
+      description: |
+        Retrieves the available challenges in the system for the specified user. In the response challenge questions are grouped as **challenge set**s.
 
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
+      parameters:
+        - $ref: '#/parameters/usernamePathParams'
+        - $ref: '#/parameters/limitQueryParam'
+        - $ref: '#/parameters/offsetQueryParam'
+      responses:
+        200:
+          description:  >
+            All the available challenges in the system that can be answered by the user.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChallengeSet'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+  /{user-id}/challenge-answers:
+    post:
+      tags:
+        - admin
+      summary: Answer to a collection of new challenges.
+      operationId: addChallengeAnswersOfAUser
+      description: >
+        Provide answer(s) to one or more candidate challenge question set(s) available in the system for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **set(s)**.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
+      parameters:
+        - $ref: '#/parameters/usernamePathParams'
+        - in: body
+          name: challenge-answer
+          description: One or more challenge(s) with the answer.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChallengeAnswer'
+      responses:
+        201:
+          $ref: '#/responses/Created'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        409:
+          $ref: '#/responses/Conflict'
+        500:
+          $ref: '#/responses/ServerError'
+    get:
+      tags:
+        - admin
+      summary: Get user's answered challenges.
+      operationId: getAnsweredChallengesOfAUser
+      description: |
+        Get previously answered challenge(s) in the system by the user idenrified by user-id.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/view
+        <b>Scope required:</b>
+            * internal_identity_mgt_view
+      parameters:
+        - $ref: '#/parameters/usernamePathParams'
+
+      responses:
+        200:
+          description: Array of Challenge(s) that are already answered by the authenticated user.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserChallengeAnswerResponse'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+    put:
+      tags:
+        - admin
+      summary: Answer new challenge question combination over existing answers.
+      operationId: updateChallengeAnswersOfAUser
+      description: |
+        Overrides the *already answered challenges* in the system with a set of *new challenge question answers* for the user identified by user-id. A user can pick at maximum one question from each set to answer. A user may answer **one or more distinct** challenge question **sets**.
+
+          <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
+      parameters:
+        - $ref: '#/parameters/usernamePathParams'
+        - in: body
+          name: challengeAnswers
+          description: Set of challenges with answer.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChallengeAnswer'
+      responses:
+        200:
+          $ref: '#/responses/OK'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+    delete:
+      tags:
+        - admin
+      summary: Remove challenge question answers.
+      operationId: deleteChallengeAnswersOfAUser
+      description: |
+        Removes all the existing challenge answers of the user identified by user-id.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
+      parameters:
+        - $ref: '#/parameters/usernamePathParams'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+  /{user-id}/challenge-answers/{challenge-set-id}:
+    post:
+      tags:
+        - admin
+      summary: Answers a specific new challenge.
+      operationId: addChallengeAnswerOfAUser
+      description: |
+        Provide an **answer** to **a specific challenge** in the system for the user identified by user-id. The user can at most select one question from a challenge set of interest.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/create
+        <b>Scope required:</b>
+            * internal_identity_mgt_create
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/usernamePathParams'
+        - in: body
+          name: challengeAnswer
+          description: The answer to the challenge along with the question.
+          schema:
+            $ref: '#/definitions/UserChallengeAnswer'
+      responses:
+        201:
+          $ref: '#/responses/Created'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        409:
+          $ref: '#/responses/Conflict'
+        500:
+          $ref: '#/responses/ServerError'
+    put:
+      tags:
+        - admin
+      summary: Update challenge answer of an already answered challenge.
+      operationId: updateChallengeAnswerOfAUser
+      description: |
+        Update challenge answer in a specific challenge for authenticated user.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/update
+        <b>Scope required:</b>
+            * internal_identity_mgt_update
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/usernamePathParams'
+        - in: body
+          name: challengeAnswer
+          description: The challenge answer with the challenge-question.
+          schema:
+            $ref: '#/definitions/UserChallengeAnswer'
+      responses:
+        200:
+          $ref: '#/responses/OK'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
+    delete:
+      tags:
+        - admin
+      summary: Remove a challenge question answer.
+      operationId: deleteChallengeAnswerOfAUser
+      description: |
+        Removes existing answer provided by the user(identified by user-id) to a specific challenge.
+
+        <b>Permission required:</b>
+            * /permission/admin/manage/identity/identitymgt/delete
+        <b>Scope required:</b>
+            * internal_identity_mgt_delete
+      parameters:
+        - $ref: '#/parameters/questionSetIdPathParam'
+        - $ref: '#/parameters/usernamePathParams'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/ServerError'
 parameters:
-    usernamePathParams:
-      in: path
-      name: user-id
-      required: true
-      type: string
-      description: Uniquely identifiable user ID
-    questionSetIdPathParam:
-      in: path
-      name: challenge-set-id
-      required: true
-      type: string
-      description: Challenge Question Set ID
-    questionIdPathParam:
-      in: path
-      name: question-id
-      required: true
-      type: string
-      description: Challenge Question ID
-    localeQueryParam:
-      in: query
-      name: locale
-      description: An optional search string for looking up challenge-questions based on locale
-      required: false
-      type: string
-    offsetQueryParam:
-      in: query
-      name: offset
-      description: Number of records to skip for pagination. _*This filtering is not yet supported._
-      type: integer
-      format: int32
-      minimum: 0
-    limitQueryParam:
-      in: query
-      name: limit
-      description: Maximum number of records to return. _*This filtering is not yet supported._
-      type: integer
-      format: int32
-      minimum: 0
+  usernamePathParams:
+    in: path
+    name: user-id
+    required: true
+    type: string
+    description: Uniquely identifiable user ID
+  questionSetIdPathParam:
+    in: path
+    name: challenge-set-id
+    required: true
+    type: string
+    description: Challenge Question Set ID
+  questionIdPathParam:
+    in: path
+    name: question-id
+    required: true
+    type: string
+    description: Challenge Question ID
+  localeQueryParam:
+    in: query
+    name: locale
+    description: An optional search string for looking up challenge-questions based on locale
+    required: false
+    type: string
+  offsetQueryParam:
+    in: query
+    name: offset
+    description: Number of records to skip for pagination. _*This filtering is not yet supported._
+    type: integer
+    format: int32
+    minimum: 0
+  limitQueryParam:
+    in: query
+    name: limit
+    description: Maximum number of records to return. _*This filtering is not yet supported._
+    type: integer
+    format: int32
+    minimum: 0
 definitions:
-    #-----------------------------------------------------
-    # ChallengeSet Properties object
-    #-----------------------------------------------------
+  #-----------------------------------------------------
+  # ChallengeSet Properties object
+  #-----------------------------------------------------
   ChallengeSet:
     type: object
     required:
@@ -340,8 +614,8 @@ definitions:
         example: challengeQuestionSet1
         description: A unique ID to identify the challenge set.
       challengeQuestion:
-          $ref: '#/definitions/ChallengeQuestion'
-          description: A challenge question that is selected to answer from the set.
+        $ref: '#/definitions/ChallengeQuestion'
+        description: A challenge question that is selected to answer from the set.
       answer:
         type: string
         example: Colombo
@@ -356,7 +630,7 @@ definitions:
       - challenge
     properties:
       challengeQuestion:
-          $ref: '#/definitions/ChallengeQuestion'
+        $ref: '#/definitions/ChallengeQuestion'
       answer:
         type: string
         example: Colombo

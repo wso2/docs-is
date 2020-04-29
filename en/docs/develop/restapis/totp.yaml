@@ -70,9 +70,14 @@ paths:
         * <b>INIT</b>- Generate TOTP QR code URL for the authenticated user
         * <b>REFRESH</b> - Refresh TOTP secret key of the authenticated user
         * <b>VALIDATE</b> - Validate the user entered verification code
-
-         <b>Permission required:</b>
-         * /permission/admin/login
+        
+        
+        <b>Permission required:</b>
+        * none
+        
+        
+        <b>Scope required:</b>
+        * internal_login
       summary: |
         Refresh, validate the QR code URL
       parameters:
@@ -112,12 +117,14 @@ paths:
       tags:
         - me
       summary: Retrieve the QR Code URL of the authenticated user.
-      description: |
+      description: 
         This API is used to retrieve the QR code URL of the authenticated user.
 
-          <b>Permission required:</b>
 
-          * /permission/admin/login
+        <b>Permission required:</b><br>
+        * none<br>
+        <b>Scope required:</b><br>
+        * internal_login
       responses:
         200:
           description: OK
@@ -135,12 +142,14 @@ paths:
       tags:
         - me
       summary: Resets TOTP credentials of the authenticated user.
-      description: |
+      description: >
         This API is used to delete the TOTP credentials of the authenticated user.
 
-          <b>Permission required:</b>
 
-          * /permission/admin/login
+        <b>Permission required:</b><br>
+        * none<br>
+        <b>Scope required:</b><br>
+        * internal_login
       responses:
         200:
           description: Credentials deleted successfully
@@ -157,12 +166,14 @@ paths:
       tags:
         - me
       summary: Retrieve the TOTP secret of the authenticated user.
-      description: |
+      description: >
         This API is used to retrieve the TOTP secret of the authenticated user.
 
-          <b>Permission required:</b>
 
-          * /permission/admin/login
+        <b>Permission required:</b><br>
+        * none<br>
+        <b>Scope required:</b><br>
+        * internal_login
       responses:
         200:
           description: OK

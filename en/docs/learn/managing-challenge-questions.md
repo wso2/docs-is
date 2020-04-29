@@ -122,7 +122,7 @@ follow the steps below.
 
 !!! info "Try it out!"
 
-    Login to the dashboard ( https://localhost:9443/dashboard ) as the user
+    Login to the user portal ( https://localhost:9443/user-portal ) as the user
     you configured in step 12 above, e.g.,kim, and click **View Details**
     under **Account Recovery**. Only the questions matching the locale set
     in the user profile appears (in this example, only the French question
@@ -152,7 +152,8 @@ additional form of security and account management.
 1.  Log in to the management console using admin credentials.
 2.  In the **Identity** section of the **Main** menu, click **Resident**
     under **Identity Providers**.
-3.  Select the **Enable Force to Add Challenge Questions** setting to
+3.  Navigate to **Account Management Policies>Account Recovery**.
+    Select the **Enable forced challenge questions** setting to
     make this mandatory.
 
 After enabling the above setting, users are redirected during the login

@@ -1,6 +1,9 @@
 swagger: '2.0'
 info:
-  description: This is the RESTful API for managing Sessions in WSO2 Identity Server
+  description: This is the RESTful API for managing Sessions in WSO2 Identity Server. The APIs provide the
+    capability to retrieve/terminate active sessions of an authenticated user.
+    In addition, APIs are available for privileged users to be invoked on behalf of another user
+    to retrieve/delete sessions of the user.
   version: 'v1'
   title: WSO2 Identity Server - Session Management API
   contact:
@@ -16,10 +19,15 @@ schemes:
 host: localhost:9443
 basePath: /t/carbon.super/api/users/v1
 
+# Tags are used for organizing operations.
 tags:
 - name: me
-  description: Operations for the authenticated user.
+  description: Session management operations for the authenticated user.
+- name: admin
+  description: >
+    Operations available for privileged users, to be invoked on behalf of another user.
 
+# Applicable authentication mechanisms
 security:
   - OAuth2: []
   - BasicAuth: []
@@ -29,8 +37,13 @@ paths:
     get:
       tags:
         - me
-      description: Retrieve information related to the active sessions of the logged in user.
-      summary: get active sessions
+      description: >
+        A user can have multiple active sessions. This API retrieves information of all the active sessions of the authenticated user. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      summary: Retrieve active sessions of the authenticated user
       operationId: getSessionsOfLoggedInUser
       produces:
         - application/json
@@ -44,8 +57,36 @@ paths:
           description: Successfully retrieved session information
           schema:
             $ref: '#/definitions/Sessions'
+          examples:
+            application/json:
+              {
+                "userId": "81fae417-13f6-4db6-9501-7ce128608cb5",
+                "sessions": [
+                  {
+                    "applications": [
+                      {
+                        "subject": "admin",
+                        "appName": "travelocity-requestpath",
+                        "appId": "4"
+                      },
+                      {
+                        "subject": "admin",
+                        "appName": "avis-basic",
+                        "appId": "5"
+                      }
+                    ],
+                    "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1",
+                    "ip": "127.0.0.1",
+                    "loginTime": "1565586399249",
+                    "lastAccessTime": "1565586435955",
+                    "id": "30e775bcc2c858ff88584b38b017d6c703a6657f38320804a071ff82fce1a0fe"
+                  }
+                ]
+              }
         401:
             $ref: '#/responses/Unauthorized'
+        403:
+            $ref: '#/responses/Forbidden'
         404:
             $ref: '#/responses/NotFound'
         500:
@@ -54,9 +95,98 @@ paths:
     delete:
       tags:
         - me
-      description: Delete all the sessions of the logged in user
-      summary: Terminate all sessions
+      description: >
+        A user has multiple active sessions. This API terminates all the active sessions of the authenticated user. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      summary: Terminate all the active sessions of the authenticated user
       operationId: terminateSessionsByLoggedInUser
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        400:
+          $ref: '#/responses/InvalidInput'
+        403:
+          $ref: '#/responses/Forbidden'
+        401:
+          $ref: '#/responses/Unauthorized'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /me/sessions/{session-id}:
+    delete:
+      tags:
+        - me
+      description: >
+        A user has multiple active sessions. This API terminates a specific session of the authenticated user identified by the session-id. <br>
+        <b>Permission required:</b> <br>
+        * None <br>
+        <b>Scope required:</b> <br>
+        * internal_login
+      summary: Terminate a given session of the authenticated user
+      operationId: terminateSessionByLoggedInUser
+      parameters:
+        - $ref: '#/parameters/sessionIdPathParam'
+      responses:
+        204:
+          $ref: '#/responses/NoContent'
+        400:
+          $ref: '#/responses/InvalidInput'
+        401:
+          $ref: '#/responses/Unauthorized'
+        403:
+          $ref: '#/responses/Forbidden'
+        500:
+          $ref: '#/responses/ServerError'
+
+  /{user-id}/sessions:
+    get:
+      tags:
+        - admin
+      description: Retrieves information related to the active sessions of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+           * /permission/admin/manage/identity/authentication/session/view <br>
+        <b>Scope required:</b> <br>
+           * internal_session_view
+      summary: Get active sessions
+      operationId: getSessionsByUserId
+      parameters:
+        - $ref: '#/parameters/userIdPathParam'
+        - $ref: '#/parameters/limitQueryParam'
+        - $ref: '#/parameters/offsetQueryParam'
+        - $ref: '#/parameters/filterQueryParam'
+        - $ref: '#/parameters/sortQueryParam'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Successfully retrieved session information.
+          schema:
+            $ref: '#/definitions/Sessions'
+        400:
+            $ref: '#/responses/InvalidInput'
+        401:
+            $ref: '#/responses/Unauthorized'
+        403:
+            $ref: '#/responses/Forbidden'
+        404:
+            $ref: '#/responses/NotFound'
+        500:
+            $ref: '#/responses/ServerError'
+    delete:
+      tags:
+        - admin
+      description: Delete all the sessions of a user identified by the user-id. <br>
+        <b>Permission required:</b> <br>
+           * /permission/admin/manage/identity/authentication/session/delete <br>
+        <b>Scope required:</b> <br>
+           * internal_session_delete
+      summary: Terminate all sessions
+      operationId: terminateSessionsByUserId
+      parameters:
+        - $ref: '#/parameters/userIdPathParam'
       responses:
         204:
           $ref: '#/responses/NoContent'
@@ -67,14 +197,19 @@ paths:
         500:
           $ref: '#/responses/ServerError'
 
-  /me/sessions/{session-id}:
+  /{user-id}/sessions/{session-id}:
     delete:
       tags:
-        - me
-      description: Terminate a given session of the logged in user
+        - admin
+      description: Terminate a specific session of a user by the session-id. <br>
+        <b>Permission required:</b> <br>
+           * /permission/admin/manage/identity/authentication/session/delete <br>
+        <b>Scope required:</b> <br>
+           * internal_session_delete
       summary: Terminate a session
-      operationId: terminateSessionByLoggedInUser
+      operationId: terminateSessionBySessionId
       parameters:
+        - $ref: '#/parameters/userIdPathParam'
         - $ref: '#/parameters/sessionIdPathParam'
       responses:
         204:
@@ -91,29 +226,27 @@ paths:
 #-----------------------------------------------------
 responses:
   NotFound:
-    description: The specified resource is not found.
-    schema:
-      $ref: '#/definitions/Error'
+    description: Resource Not Found
   Unauthorized:
-    description: Unauthorized.
-    schema:
-      $ref: '#/definitions/Error'
+    description: Unauthorized
   ServerError:
-    description: Internal Server Error.
+    description: Internal Server Error
     schema:
       $ref: '#/definitions/Error'
   NotImplemented:
-    description: Not Implemented.
+    description: Not Implemented
     schema:
       $ref: '#/definitions/Error'
   InvalidInput:
-    description: Invalid input request.
+    description: Invalid input request
     schema:
       $ref: '#/definitions/Error'
+  Forbidden:
+    description: Resource Forbidden
   OK:
-    description: OK.
+    description: OK
   NoContent:
-    description: No Content.
+    description: No Content
 
 definitions:
   #-----------------------------------------------------
@@ -128,15 +261,15 @@ definitions:
     properties:
       subject:
         type: string
-        description: Username for the application
+        description: Username of the logged in user for the application.
         example: apiuser01
       appName:
         type: string
-        description: Name of the application
+        description: Name of the application.
         example: sampleApp
       appId:
         type: string
-        description: ID of the application
+        description: ID of the application.
         example: '012'
 
   #-----------------------------------------------------
@@ -147,28 +280,28 @@ definitions:
     properties:
       applications:
         type: array
-        description: List of active applications in the session
+        description: List of applications in the session.
         items:
           $ref: '#/definitions/Application'
       userAgent:
         type: string
-        description: User agent of the session
+        description: User agent of the session.
         example: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1'
       ip:
         type: string
-        description: IP address of the session
+        description: IP address of the session.
         example: '172.95.192.63'
       loginTime:
         type: string
-        description: Login time of the session
+        description: Login time of the session.
         example: '1560412617'
       lastAccessTime:
         type: string
-        description: Last access time of the session
+        description: Last access time of the session.
         example: '1560416196'
       id:
         type: string
-        description: ID of the session
+        description: ID of the session.
         example: '8d9806d1-4efc-483e-a96a-a0fa77d4328b'
 
   #-----------------------------------------------------
@@ -176,15 +309,13 @@ definitions:
   #-----------------------------------------------------
   Sessions:
     type: object
-    required:
-      - userId
     properties:
       userId:
         type: string
         example: '00000001'
       sessions:
         type: array
-        description: List of active sessions
+        description: List of active sessions.
         items:
           $ref: '#/definitions/Session'
 
@@ -218,38 +349,46 @@ parameters:
       in: query
       name: limit
       required: false
-      description: maximum number of records to return
+      description: |
+        Maximum number of records to return.
+        _This parameter is not supported yet._
       type: integer
       format: int32
     offsetQueryParam:
       in: query
       name: offset
       required: false
-      description: number of records to skip for pagination
+      description: |
+        Number of records to skip for pagination.
+        _This parameter is not supported yet._
       type: integer
       format: int32
     filterQueryParam:
       in: query
       name: filter
       required: false
-      description: Condition to filter the retrieval of records
+      description: |
+        Condition to filter the retrival of records.
+        _This parameter is not supported yet._
       type: string
     sortQueryParam:
       in: query
       name: sort
       required: false
-      description: Define the order of how the retrieved records should be sorted
+      description: |
+        Define the order in which the retrieved records should be sorted.
+        _This parameter is not supported yet._
       type: string
     userIdPathParam:
       in: path
       name: user-id
-      description: id of the user
+      description: ID of the user.
       required: true
       type: string
     sessionIdPathParam:
       in: path
       name: session-id
-      description: id of the session
+      description: ID of the session.
       required: true
       type: string
 
@@ -259,8 +398,6 @@ parameters:
 securityDefinitions:
   BasicAuth:
     type: basic
-  # ClientCertificate:
-  #   type: custom
   OAuth2:
     type: oauth2
     flow: accessCode
@@ -270,3 +407,4 @@ securityDefinitions:
       read: Grants read access
       write: Grants write access
       admin: Grants read and write access to administrative information
+

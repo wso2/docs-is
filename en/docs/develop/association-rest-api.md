@@ -2,7 +2,7 @@
 template: templates/swagger.html
 ---
 
-# User Account Associations API Definition - V1
+# User Account Associations API Definition - v1
 
 ??? Note "Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
@@ -13,6 +13,19 @@ template: templates/swagger.html
             You will receive a sample curl command with the sample values you filled in. 
        4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2
          IS. 
+         
+    #### If you want to try-out the embedded postman collection with "Run in Postman" option, following state is expected in the testing Identity Server.
+    
+       1. A user named `john`, with the password `pass123`, exists in the tenant `carbon.super`.
+       2. The id value for the local user association `john` is used for some API calls, which is assumed as 
+       `UFJJTUFSWS9qb2hu`(This value is returned when a GET request is made to `/me/associations`(or 
+       `/{user-id}/association`) API, once the association between `john` and `admin` users are created with the POST 
+       request to the `/me/associations` API).
+       3. An IdP with the name `ExternalIdP`, exists in the tenant `carbon.super`.
+       4. A federated association with a user in the above IdP, exists for the `admin` user. The id of this 
+       association(which is equal to `2e053351-0d69-476e-81df-04a9cfdfb50e` in the provided postman samples) is used 
+       for some API calls. This id can be retrieved by making a GET request to the `/me/federated-association`(or 
+       `/{user-id}/federated-association`) API.
      
 <div id="swagger-ui"></div>
 <script>
@@ -37,3 +50,5 @@ window.onload = function() {
   window.ui = ui
 }
 </script>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ecd26c008975ebf4eafa)

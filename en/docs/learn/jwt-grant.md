@@ -180,7 +180,7 @@ Follow the steps below to configure the trusted identity provider and service pr
 
 	Access the WSO2 Identity Server Management Console.
 
-### Trsuted identity provider
+### Trusted identity provider
 
 To configure the trusted identity provider:
 

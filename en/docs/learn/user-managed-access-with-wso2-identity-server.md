@@ -119,7 +119,7 @@ values to obtain the Protection API Access Token (PAT).
         -   Be sure to replace the `            <CLIENT_ID>           ` and
             `            <CLIENT_SECRET>           ` tags with the values
             you obtained when you [configured the service provider for the
-            client](#clientsp).
+            resource owner](#clientsp).
         -   In this tutorial, the grant type that is used to obtain the PAT
             is the password grant type. Therefore, you need to pass the
             resource owners credentials in the curl command. Since [you have
@@ -129,7 +129,7 @@ values to obtain the Protection API Access Token (PAT).
             command.
 
     ``` java
-    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=kate&password=kate123&scope=uma_protection" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -u <CLIENT_ID>:<CLIENT_SECRET> -k -d "grant_type=password&username=kate&password=kate123&scope=uma_protection internal_application_mgt_view" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
     ```
 
     You will get a response similar to the following:
@@ -138,7 +138,7 @@ values to obtain the Protection API Access Token (PAT).
     {
         "access_token":"b8df48ff-feab-3632-b3dc-68ae6b4c62e2",
         "refresh_token":"1037ccad-f45a-38e7-96ad-40c00fbc7ca4",
-        "scope":"uma_protection",
+        "scope":"internal_application_mgt_view uma_protection",
         "token_type":"Bearer",
         "expires_in":3600
     }

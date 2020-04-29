@@ -989,11 +989,6 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <ax2384:value>true</ax2384:value>
                     </ax2384:optionalProperties>
                     <ax2384:optionalProperties xsi:type="ax2384:Property">
-                        <ax2384:description>Enable SCIM#Whether SCIM is enabled for the user store</ax2384:description>
-                        <ax2384:name>SCIMEnabled</ax2384:name>
-                        <ax2384:value>false</ax2384:value>
-                    </ax2384:optionalProperties>
-                    <ax2384:optionalProperties xsi:type="ax2384:Property">
                         <ax2384:childProperties xsi:type="ax2384:Property">
                             <ax2384:description>Group Search Base#DN of the context under which user entries are stored in LDAP</ax2384:description>
                             <ax2384:name>GroupSearchBase</ax2384:name>

@@ -21,7 +21,7 @@ Add the following configuration to `<IS-HOME>/repository/conf/deployment.toml`.
 
 ``` toml
 [user_store]
-type = "database"
+type = "database_unique_id"
 ```
    By default it will use the  `database.shared_db` 
    configurations in the `         deployment.toml       `  file. As the datasource configuration.
@@ -178,7 +178,7 @@ For example :
 
 ``` toml
 [user_store]
-scim_enabled = true
+read_groups = true
 ```
 
 !!! tip 
@@ -200,10 +200,10 @@ scim_enabled = true
 <td>ReadGroups</td>
 <td>When ReadGroups is set to false, it Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
 <br />
-default : true <br/>
+<p>Default : true <br/>
 Possible values:<br/>
 true: Read groups from user store<br />
-false: Do not read groups from user store</td>
+false: Do not read groups from user store</p></td>
 </tr>
 <tr class="even">
 <td>WriteGroups</td>
@@ -211,31 +211,31 @@ false: Do not read groups from user store</td>
 <td>WriteGroups</td>
 <td>Indicates whether groups should be written to the user store.<br />
 <br />
-default : true <br/>
+<p>Default : true <br/>
 Possible values:<br />
 true : Write groups to user store<br />
-false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</td>
+false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</p></td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaRegEx</td>
 <td>username_java_regex</td>
 <td>UsernameJavaRegEx</td>
 <td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br/>
-Default: ^[\S]{3,30}$</td> <br/>
+<p>Default: ^[\S]{3,30}$</td></p> <br/>
 </tr>
 <tr class="even">
 <td>UsernameJava<br>ScriptRegEx</td> 
 <td>username_java_<br>script_regex</td>
 <td>UsernameJavaScriptRegEx</td>
 <td>The regular expression used by the front-end components for username validation.
-<br/> Default: ^[\S]{3,30}$  </td>
+<br/><p> Default: ^[\S]{3,30}$  </p></td>
 </tr>
 <tr class="odd">
 <td>UsernameJavaReg<br>ExViolationErrorMsg</td>
 <td>username_java_reg<br>_ex_violation_error_msg</td>
 <td>Username RegEx Violation Error Message</td>
 <td>Error message when the Username is not matched with username_java_regex 
-<br/> Default: Username pattern policy violated  </td>
+<br/><p> Default: Username pattern policy violated  </p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaRegEx</td>
@@ -249,38 +249,27 @@ Default: ^[\S]{5,30}$</td>
 <td>password_java_<br>script_regex</td>
 <td>Password RegEx (Javascript)</td>
 <td>The regular expression used by the front-end components for password validation.<br />
-Default: ^[\S]{5,30}$</td>
+<p>Default: ^[\S]{5,30}$</p></td>
 </tr>
 <tr class="even">
 <td>PasswordJavaReg<br>ExViolationErrorMsg</td>
 <td>password_java_reg<br>ex_violation_error_msg</td>
 <td>Password RegEx Violation Error Message</td>
 <td>Error message when the Password is not matched with passwordJavaRegEx.<br />
-Default: Password length should be within 5 to 30 characters.</td>
+<p>Default: Password length should be within 5 to 30 characters.</p></td>
 <tr class="odd">
 <td>RolenameJavaRegEx</td>
 <td>rolename_java_regex</td>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
-Default: [a-zA-Z0-9._-|//]{3,30}$</td>
-</tr>
-<tr class="even">
-<td>SCIMEnabled </td>
-<td>scim_enabled</td>
-<td>Enable SCIM</td>
-<td>This is to configure whether user store is supported for SCIM provisioning.<br />
-<br />
-Default : false <br/>
-Possible values:<br />
-True : User store support for SCIM provisioning.<br />
-False : User does not store support for SCIM provisioning.</td>
+<p>Default: [a-zA-Z0-9._-|//]{3,30}$</p></td>
 </tr>
 <tr class="odd">
 <td>MultiAttribute<br>Separator</td>
 <td>multi_attribute<br>_separator</td>
 <td>Multiple Attribute Separator</td>
 <td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
-Default: “,”</td>
+<p>Default: “,”</p></td>
 </tr>
 <tr class="even">
 <td>MaxUserName<br>ListLength</td>

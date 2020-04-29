@@ -2,9 +2,9 @@
 template: templates/swagger.html
 ---
 
-# Workflow Approval API Definition - V1 
+# Workflow Approval API Definition - v1 
 
-??? note "Click to view"
+??? note "Click For Instructions"
     Do the following to try out the REST APIs with your local instance of WSO2 Identity Server. 
       
       1. [Add a new workflow definition](../../learn/adding-a-new-workflow-definition/) 

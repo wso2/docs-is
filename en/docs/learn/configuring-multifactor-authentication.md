@@ -12,40 +12,20 @@ To ensure that only their own drivers can log into the application, Pickup decid
 
 1. [Download WSO2 Identity Server](https://wso2.com/identity-and-access-management/).
 
-2. Add the following configurations to the `deployment.toml` file found in the `<IS_HOME>/repository/conf` folder. 
-        ```toml 
-        [authentication.authenticator.sms_otp] 
-        name ="SMSOTP"
-        enable=true
-
-        [authentication.authenticator.sms_otp.parameters]
-        SMSOTPAuthenticationEndpointURL= "smsotpauthenticationendpoint/smsotp.jsp"
-        SMSOTPAuthenticationEndpointErrorPage= "smsotpauthenticationendpoint/smsotpError.jsp"
-        MobileNumberRegPage = "smsotpauthenticationendpoint/mobile.jsp"
-        RetryEnable = true
-        ResendEnable = true
-        BackupCode = true
-        SMSOTPEnableByUserClaim = true
-        SMSOTPMandatory = false
-        CaptureAndUpdateMobileNumber = true
-        SendOTPDirectlyToMobile = false
-        redirectToMultiOptionPageOnFailure = false
-        ```
-
-    !!! info
-        For more information about these configurations, see [Configuring SMS OTP](../../learn/configuring-sms-otp).
-
-3. Download the certificate of the SMS provider by going to the SMS provider's website on your browser, and clicking the HTTPS trust icon on the address bar. 
+2. Download the certificate of the SMS provider by going to the SMS provider's website on your browser, and clicking the HTTPS trust icon on the address bar. 
 
     In this scenario, we are using Nexmo as the SMS provider. Go to [Nexmo][https://www.nexmo.com], and click the padlock next to the URL on Chrome and download the certificate.
 
-4. Navigate to the `<IS_HOME>/repository/resources/security` directory via the terminal and import the downloaded certificate into the WSO2 IS client keystore. 
+3. Navigate to the `<IS_HOME>/repository/resources/security` directory via the terminal and import the downloaded certificate into the WSO2 IS client keystore. 
 
     ``` bash
     keytool -importcert -file <CERTIFICATE_FILE_PATH> -keystore client-truststore.jks -alias "Nexmo" 
     ```
 
-5. You are prompted to enter the keystore password. The default client-truststore.jks password is **wso2carbon**.
+4. You are prompted to enter the keystore password. The default client-truststore.jks password is **wso2carbon**.
+
+    !!! info
+        For more information about these configurations, see [Configuring SMS OTP](../../learn/configuring-sms-otp).
 
 ## Enable SMSOTP
 
@@ -162,4 +142,4 @@ You have now added and configured the service provider.
 
     ![authenticate-with-smsotp](../assets/img/tutorials/authenticating-with-smsotp.png)
 
-You are redirected to the Pickup Dispatch home page. You have succesfully configured and logged in using multifactor authentication.
+You are redirected to the Pickup Dispatch home page. You have successfully configured and logged in using multifactor authentication.

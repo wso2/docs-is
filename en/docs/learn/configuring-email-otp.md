@@ -36,40 +36,17 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
     1.  Enable the email sending configurations of the WSO2 Identity Server
     as explained [here](../../setup/configuring-email-sending).
     
-    2. Add following property to `deployment.toml` file in the `IS_HOME/repository/conf` folder to comment out the <module ref="addressing"/> property inorder to avoid syntax errors.
-    
-    ```
-    [server]
-    disable_addressing = true
-    ```
-    
-    3.  Add the following email template to the
-        `           <IS_HOME>/repository/conf/email/email-admin-config.xml.          `
-    
-        ``` xml
-        <configuration type="EmailOTP" display="EmailOTP" locale="en_US" emailContentType="text/html">
-           <targetEpr></targetEpr>
-           <subject>WSO2 IS Email OTP</subject>
-           <body>
-              Hi,
-              Please use this one time password {OTPCode} to sign-in to your application.
-           </body>
-           <footer>
-              Best Regards,
-              WSO2 Identity Server Team
-              http://www.wso2.com
-           </footer>
-           <redirectPath></redirectPath>
-        </configuration>
-        ```
+    !!! tip 
+        The email template used to send this email notification is
+        the **EmailOTP** template.
         
-        !!! Tip 
-            You can add email template from the management console
-            as described in [this document](../../learn/customizing-automated-emails)
-    
-    4.  Add the following configuration to the `deployment.toml` file in the
+        You can edit and customize the email template. For more information
+        on how to do this, see [Customizing Automated
+        Emails](../../learn/customizing-automated-emails).
+        
+    2.  Add the following configuration to the `deployment.toml` file in the 
         `<IS_HOME>/repository/conf/` directory.
-        
+
         ```toml
         [authentication.authenticator.email_otp]
         name ="EmailOTP"
@@ -86,6 +63,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
         EmailOTPEnableByUserClaim = true
         CaptureAndUpdateEmailAddress = true
         showEmailAddressInUI = true
+        useEventHandlerBasedEmailSender = true
         ``` 
     
     
@@ -104,7 +82,10 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                         <td>This parameter defines how the email ID will be retrieved.
                             <ul>
                                 <li><code>local</code>: This is the default value and is based on the federated username. You must set the federated username in the local userstore . The federated username must be the same as the local username.</li>
-                                <li><code>assocication</code>: The federated username must be associated with the local account in advance in the end user dashboard. The local username is retrieved from the association. To associate the user, log into the  [end user dashboard](../../learn/using-the-end-user-dashboard)  and go to  **Associated Account**  by clicking  **View details**.</li>
+                                <li><code>assocication</code>: The federated username must be associated with the
+                                 local account in advance in the user portal. The local username is retrieved
+                                  from the association. To associate the user, log into the  [user portal](../../learn
+                                  /user-portal)  and go to  **Associated Account**  by clicking  **View details**.</li>
                                 <li><code>subjectUri</code>: When configuring the federated authenticator, select the attribute in the subject identifier under the service provider section in UI, this is used as the username of the  <code>EmailOTP</code> authenticator.</li>
                                 <li>
                                     <p><code>userAttribute </code>: The name of the  federated authenticator's user attribute. That is the local username that is contained in a federated user's attribute. When using this, add the following parameter under the  ```[authentication.authenticator.email_otp.parameters]```  section in the ```deployment.toml``` file and put the value, e.g., email and screen_name, id.</p>
@@ -259,7 +240,7 @@ SendGrid APIs. Follow the instructions in **one** of **Option1** or
                 </tbody>
             </table>
     
-    5.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
+    3.  [Start WSO2 IS](../../setup/running-the-product#starting-the-server).
 
 #### Option2: Configure Gmail as the email OTP provider 
 
@@ -520,7 +501,7 @@ provider](../../learn/adding-and-configuring-an-identity-provider):
 
     2.  Click **Register**.
 
-        ![registering-an-identity-provider](../assets/img/tutorials/registering-an-identity-provider.png)
+        ![registering-an-identity-provider](../assets/img/tutorials/config-idp-email-otp.png)
 
     You have now added the identity provider.
 
@@ -606,40 +587,24 @@ Follow the steps given below to update the user's email address.
 
 Follow the steps below to map the user claims:
 
-!!! note
-    
-    For more information about claims, see [Adding Claim
-    Mapping](../../learn/adding-claim-mapping).
-    
-
-1.  Click **Add** under **Main \> Identity \> Claims**.  
-    ![adding-claims](../assets/img/tutorials/adding-claims.png) 
+1.  Click **List** under **Main \> Identity \> Claims**.  
+    ![listing-claims](../assets/img/tutorials/listing-claims.png) 
      
-    1.  Click **Add Local Claim**.  
-        ![add-local-claim](../assets/img/tutorials/add-local-claim.png)
+    1.  Click **http://wso2.org/claims**.  
+        ![available-claim-dialects](../assets/img/tutorials/available-claim-dialects.png)
         
-    2.  Select the **Dialect** from the drop down provided and enter the
-        required information.
+    2.  Click **Edit** in **Disable EmailOTP**.
+        ![disable-emailotp-claim](../assets/img/tutorials/disable-emailotp-claim.png)
         
-    3.  Add the following:
-
-        1.  **Claim URI:**
-            `                             http://wso2.org/claims/identity/emailotp_disabled                           `
-        2.  **Display Name** :
-            `              DisableEmailOTP             `
-        3.  **Description:**
-            `              DisableEmailOTP             `
-        4.  **Mapped Attribute (s):** `              title             `
-        5.  **Supported by Default:** checked
-
-        ![filling-claim-fields](../assets/img/tutorials/filling-claim-fields.png)
+    3.  Select **Suport by Default** and click **Update**.
+        ![emailotp-support-by-default](../assets/img/tutorials/emailotp-support-by-default.png)
 
     4.  Click **Add**.
 
         To disable this claim for the admin user, navigate to **Users
         and Roles \> List** and click **Users.** Click on the **User
-        Profile** link corresponding to admin account and then click
-        **Disable EmailOTP.** This will disable the second factor
+        Profile** link corresponding to admin account and enter 
+        "false" as the value for the **Disable EmailOTP** field. This will disable the second factor
         authentication for the admin user.
 
 ------------------------------------------------------------------------

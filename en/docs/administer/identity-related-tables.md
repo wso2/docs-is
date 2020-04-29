@@ -241,9 +241,7 @@ the values it contains.
 
 ####  IDN_SCIM_GROUP
 
-When creating a new role in the user store,  if the
-`         SCIMEnabled        ` property in the user store configuration
-is set to true, the SCIM attributes for the created role are stored in
+When creating a new role in the user store, the SCIM attributes for the created role are stored in
 this table.  For each role that is created, there are multiple rows
 stored since multiple SCIM attributes are associated with a role
 (GROUP). The following table lists out the columns and a description of

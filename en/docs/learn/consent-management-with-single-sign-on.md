@@ -75,9 +75,8 @@ authentication.
     consent again unless one of the following occurs:
 
     -   The user has revoked consent for the application. For more
-        information on revoking user consent, see [Configuring consent
-        for
-        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
+        information on revoking user consent, see 
+        [Consent management](../../learn/user-portal/#consent-management)
         .
 
     -   The application requires new mandatory claims that the user has
@@ -116,7 +115,7 @@ authentication.
 
 4.  Enter the user credentials and click **Submit**.
 
-    ![user-credentials](../assets/img/using-wso2-identity-server/user-credentials.png)  
+    ![user-credentials](../assets/img/using-wso2-identity-server/register-now-option.png)  
 
 5.  Once you have provided the correct credentials, you are redirected
     to the consent request screen for approval.  
@@ -141,13 +140,13 @@ authentication.
     !!! tip
     
         For more information on revoking/accepting user consent, see
-        [Configuring consent for
-        services](../../learn/using-the-end-user-dashboard#configuring-consent-for-services)
+        [Consent management](../../learn/user-portal/#consent-management)
         .
     
 
 ### Disabling consent management for SSO
 
+#### Disable consent management globally.
 You can disable consent management for the product using the following
 global configuration (applies to all tenants). Once consent management
 is disabled, the user will not be prompted to provide consent during
@@ -164,3 +163,13 @@ prompt= false
 
 To re-enable consent management for SSO, you can set the above
 configuration to **true**.
+
+#### Disable consent management per Service Provider.
+
+You can disable the consent during the login and logout flow separately per service provider 
+under 'Local & Outbound Authentication Configuration'.
+
+   ![consent-per-sp](../assets/img/learn/consent-per-sp.png)
+       
+But note that, if the global property is set to disable the consent management.
+Then the service provider level configurations will be skipped.

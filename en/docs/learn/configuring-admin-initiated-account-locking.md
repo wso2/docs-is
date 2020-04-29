@@ -112,13 +112,14 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-locked-email.png" alt="Account Locked email" width="500" style="border:1px solid grey"> 
 
-	5.	Access the WSO2 Identity Server Dashboard at `https://localhost:9443/dashboard/`.
+	5.	Access the WSO2 Identity Server User Portal at `https://localhost:9443/user-portal/`.
 
-		<img src="../../assets/img/learn/dashboard-login-screen.png" alt="Sign In form" width="400" style="border:1px solid grey"> 	
+		<img src="../../assets/img/learn/userportal-login-screen.png" alt="Sign In form" width="400" style="border:1px
+		 solid grey"> 	
 
 	6.	Try logging in with Larry's credentials. Note that an error message appears.
 
-	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server Dashboard home screen appears.  
+	7.	Wait for 15 minutes and try to log in again. The WSO2 Identity Server User Portal home screen appears.  
 
 4. To unlock Larry's user account:
 
@@ -132,4 +133,5 @@ Follow the steps below to configure admin-initiated account locking in WSO2 Iden
 
 		<img src="../../assets/img/learn/account-unlocked-email.png" alt="Account Unlocked email" width="500" style="border:1px solid grey"> 		
 
-	5.	Try logging in to the WSO2 Identity Server Dashboard with Larry's credentials. The WSO2 Identity Server Dashboard home screen appears.
+	5.	Try logging in to the WSO2 Identity Server User Portal with Larry's credentials. The WSO2 Identity Server
+	 User Portal home screen appears.

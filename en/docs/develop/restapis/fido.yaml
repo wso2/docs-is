@@ -3,10 +3,11 @@ swagger: '2.0'
 # Prolog
 ######################################################
 info:
-  version: "v1"
-  title: "WSO2 Identity Server FIDO 2 Rest API "
-  description: |
-    This document specifies a **FIDO 2 RESTfulAPI** for WSO2 **Identity Server** .
+  version: "v2"
+  title: "WSO2 Identity Server FIDO2 Rest API "
+  description: >
+    This document specifies a **FIDO 2 RESTful API** for WSO2 **Identity Server** . This API
+    can be used to register and deregister FIDO2 devices, and get device metadata by username.
 
     It is written with [swagger 2](http://swagger.io/).
 
@@ -18,14 +19,10 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 
-security:
-  - OAuth2: []
-  - BasicAuth: []
-
 # Tags are used for organizing operations
 tags:
-- name: me
-  description: Operations for the authenticated user.
+  - name: me
+    description: Operations for the authenticated user.
 
 ######################################################
 # The fixed parts of the URLs of the API
@@ -43,7 +40,7 @@ schemes:
 # The base path of the API.
 # Will be prefixed to all paths.
 
-basePath: /t/carbon.super/api/users/v1
+basePath: /t/{tenant_context}/api/users/v2/me/webauthn
 
 # The following media types can be passed as input in message bodies of the API.
 # The actual media type must be specified in the Content-Type header field of the request.
@@ -61,15 +58,22 @@ consumes:
 # set the value, but supporting it serves extensibility.
 produces:
   - application/json
+# Applicable authentication mechanisms
+security:
+  - OAuth2: []
+  - BasicAuth: []
 paths:
   # Endpoint used to start registration
-  /me/webauthn/start-registration:
+  /start-registration:
     post:
       description: |
-        This API is used to start the fido device registration process.
+        This API is used to trigger FIDO2 device registration flow.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
-        Start FIDO registration
-
+        Trigger FIDO2 device registration.
       consumes:
         - application/x-www-form-urlencoded
       # post parameters:
@@ -77,22 +81,41 @@ paths:
         -
           name: appId
           in: formData
-          description:  This represents the appId of the FIDO request initiator
+          description:  Represents the host name of FIDO request initiator.
           required: true
           type: string
       responses:
         201:
           description: Successful response
           schema:
-            type: string
+            type: object
+            example:
+              requestId: veiLaU2yg0-pAhn1sRlXZBbxS5KaidyAyfWt-sQUajU
+              publicKeyCredentialCreationOptions:
+                rp:
+                  name: WSO2 Identity Server
+                  id: localhost
+                user:
+                  name: admin@carbon.super
+                  displayName: admin
+                  id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
+                challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
+                pubKeyCredParams:
+                  - alg: -7
+                    type: public-key
+                  - alg: -257
+                    type: public-key
+                excludeCredentials: []
+                attestation: none
+                extensions: {}
         400:
           description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         401:
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+        403:
+          description: Resource Forbidden
         409:
           description: Conflict
           schema:
@@ -103,38 +126,60 @@ paths:
             $ref: '#/definitions/Error'
       tags:
         - me
-  /me/webauthn/finish-registration:
+
+  # Endpoint used to start usernameless registration
+  /start-usernameless-registration:
     post:
       description: |
-        This API is used to complete the device registration
+        This API is used to trigger FIDO2 usernameless device registration flow.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
-        complete device registration
+        Trigger FIDO2 usernameless device registration.
+      consumes:
+        - application/x-www-form-urlencoded
       # post parameters:
       parameters:
         -
-          name: response
-          in: body
-          description:  Response from the client
+          name: appId
+          in: formData
+          description:  Represents the host name of FIDO request initiator.
           required: true
-          schema:
-            type: string
+          type: string
       responses:
         201:
           description: Successful response
           schema:
-            type: string
-          headers:
-            Location:
-              type: 'string'
-              description: 'Location of the newly created purpose category.'
+            type: object
+            example:
+              requestId: veiLaU2yg0-pAhn1sRlXZBbxS5KaidyAyfWt-sQUajU
+              publicKeyCredentialCreationOptions:
+                rp:
+                  name: WSO2 Identity Server
+                  id: localhost
+                user:
+                  name: admin@carbon.super
+                  displayName: admin
+                  id: iAgKlKucOIjxUoUq510BXTI9_p3NENmQo2ZM5gQMcoA
+                challenge: tvyJuz16drO390L5VPheOG5zpY9zEcSVbc1QNeFv0Fs
+                pubKeyCredParams:
+                  - alg: -7
+                    type: public-key
+                  - alg: -257
+                    type: public-key
+                excludeCredentials: []
+                attestation: none
+                extensions: {}
         400:
           description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         401:
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
+        403:
+          description: Resource Forbidden
         409:
           description: Conflict
           schema:
@@ -145,12 +190,71 @@ paths:
             $ref: '#/definitions/Error'
       tags:
         - me
-  /me/webauthn/{credentialId}:
+
+  /finish-registration:
+    post:
+      description: |
+        This API is used to complete FIDO2 device registration flow.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      summary: |
+        Complete FIDO2 device registration.
+      # post parameters:
+      parameters:
+        -
+          name: challengeResponse
+          in: body
+          description:  Response from the client.
+          required: true
+          schema:
+            type: string
+            example:
+              { "requestId":"GzNnMTGdZjfS80BbYmGnXuJBwAV2Qbwb0vws47DCYLk", "credential":{ "id":"CnLte9JzbTY_NDpGatGAAGD2VfTQHJD8COjAU3w", "response":{ "attestationObject": "o2b2uUzV0ifaiSsnIPVh3FGSgELyCQJIMIICRDC", "clientDataJSON": "eyJjaGFsbGVuZ2UiOiJUZ0pfdXVra3FuUG1C"},"clientExtensionResults":{},"type":"public-key"} }
+      responses:
+        201:
+          description: Device registered successfully.
+          schema:
+            type: object
+            example:
+              requestId: GzNnMTGdZjfS80BbYmGnXuJBwAV2Qbwb0vws47DCYLk
+              credential:
+                id: CnLte9JzbTY_NDpGatGAAGD2VfTQHJD8COjAU3w
+                response:
+                  attestationObject: o2b2uUzV0ifaiSsnIPVh3FGSgELyCQJIMIICRDC
+                  clientDataJSON: eyJjaGFsbGVuZ2UiOiJUZ0pfdXVra3FuUG1C
+                clientExtensionResults: {}
+                type: public-key
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        409:
+          description: Conflict
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+
+  /{credentialId}:
     delete:
       description: |
         This API is used to deregister devices by username and credentialId.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
-        Deregister devices by username and credentialId
+        Deregister devices by username and credentialId.
       parameters:
         -
           name: credentialId
@@ -159,8 +263,8 @@ paths:
           required: true
           type: string
       responses:
-        200:
-          description: OK
+        204:
+          description: No Content
         404:
           description: Not Found
           schema:
@@ -171,6 +275,49 @@ paths:
             $ref: '#/definitions/Error'
         401:
           description: Unauthorized
+        403:
+          description: Resource Forbidden
+        500:
+          description: Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      tags:
+        - me
+    patch:
+      description: |
+        This API is used to update display name of a device by username and credentialId.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
+      summary: |
+        Update display name of device by username and credentialId.
+      parameters:
+        - name: credentialId
+          in: path
+          description:  credentialId
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/PatchRequest'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/RegistrationObject'
+        400:
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Resource Forbidden
+        404:
+          description: Not Found
           schema:
             $ref: '#/definitions/Error'
         500:
@@ -179,43 +326,31 @@ paths:
             $ref: '#/definitions/Error'
       tags:
         - me
+
   # Endpoint used to get device metadata by username
-  /me/webauthn:
+  /:
     get:
       description: |
         This API is used to get fido metadata by username.
+        <b>Permission required:</b>
+            * None
+        <b>Scope required:</b>
+            * internal_login
       summary: |
         Device Metadata
-      consumes:
-        - application/x-www-form-urlencoded
-      parameters:
-        -
-          name: username
-          in: query
-          description:  This represents the username
-          required: true
-          type: string
       responses:
-        201:
-          description: Successful response
+        200:
+          description: All available fido metadata for a user.
           schema:
-            type: string
-          headers:
-            Location:
-              type: 'string'
-              description: 'Metadata of devices registerd to the user'
+            $ref: '#/definitions/RegistrationObject'
         400:
           description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         401:
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/Error'
-        409:
-          description: Conflict
-          schema:
-            $ref: '#/definitions/Error'
+        403:
+          description: Resource Forbidden
         500:
           description: Server Error
           schema:
@@ -232,14 +367,70 @@ definitions:
     properties:
       code:
         type: string
+        example: "some_error_code"
       message:
         type: string
+        example: "Some Error Message"
       description:
         type: string
-#-----------------------------------------------------
+        example: "Some Error Description"
 
-#-----------------------------------------------------
-# Security Definitions
+  #-----------------------------------------------------
+  # Patch Request object
+  #-----------------------------------------------------
+  PatchRequest:
+    type: array
+    items:
+      $ref: '#/definitions/Patch'
+
+  #-----------------------------------------------------
+  # JSONPatch
+  #-----------------------------------------------------
+  Patch:
+    description: A JSONPatch as defined by RFC 6902. Patch operation is supported only for root level attributes of
+      an Identity Provider.
+    required:
+      - operation
+      - path
+    properties:
+      operation:
+        type: string
+        description: The operation to be performed
+        enum:
+          - ADD
+          - REMOVE
+          - REPLACE
+        example: REPLACE
+      path:
+        type: string
+        description: A JSON-Pointer
+        example: '/displayName'
+      value:
+        type: string
+        description: The value to be used within the operations
+        example: 'Device01'
+
+  #-----------------------------------------------------
+  # The Registration Object
+  #-----------------------------------------------------
+  RegistrationObject:
+    type: array
+    items:
+      type: object
+      example:
+        signatureCount: 0
+        userIdentity:
+          name: admin@carbon.super
+          displayName: admin
+          id: uq99g9NLogr-k3OC6i1UDhmfeiZeKbygGPBcKoq96UI
+        credential:
+          credentialId: S2_HP9mz3wt0_XFrF4QEqcCOn-mblJ2e6YBX79MqU3cwEH-7UXd0oxn0-QKpB4HsRpe3jerAyT233hKdq3vfrQ
+          userHandle: uq99g9NLogr-k3OC6i1UDhmfeiZeKbygGPBcKoq96UI
+          publicKeyCose: pSJYIDbPBKVOQWaZAraIPfggBxVHVGuYPROvWR5WigNbh5iiAyYBAiFYIIbF8aqhhWrQYbQnQJY7WrjiQD84qvQulLfGjbUgk1yAIAE
+          signatureCount: 0
+        registrationTime: "2019-11-26T05:16:19.932Z"
+        isUsernamelessSupported : false
+        displayName : "My Device"
 #-----------------------------------------------------
 securityDefinitions:
   BasicAuth:
@@ -249,7 +440,4 @@ securityDefinitions:
     flow: accessCode
     authorizationUrl: https://localhost:9443/oauth2/authorize
     tokenUrl: https://localhost:9443/oauth2/token
-    scopes:
-      read: Grants read access
-      write: Grants write access
-      admin: Grants read and write access to administrative information
+host: localhost:9443

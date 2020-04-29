@@ -28,7 +28,7 @@ adaptive authentication using a sample application.
     sample application.
 
     2.  Access the PickUp application URL at
-        <http://localhost:8080/saml2-web-app-pickup-dispatch.com.>
+        <http://localhost:8080/saml2-web-app-pickup-dispatch.com>.
 
         Note that a login screen appears.
         
@@ -48,7 +48,7 @@ adaptive authentication using a sample application.
             FaceID authenticator) used in this tutorial.
             
     2.  Download the
-        [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.1.0/sample-auth.war)
+        [sample-auth.war](https://github.com/wso2/samples-is/releases/download/v4.3.0/sample-auth.war)
         file and paste it inside the `
         <IS_HOME>/repository/deployment/server/webapps ` folder.  
         

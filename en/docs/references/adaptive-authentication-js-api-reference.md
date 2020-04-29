@@ -472,6 +472,22 @@ if (sessions.length > 0) {
 }
 
 ```
+##### getValueFromDecodedAssertion(String jwt, String parameterName,boolean isParameterInPayload)
+
+This function returns a string which contains the value of the parameter in a decoded JWT. 
+It includes the following parameters:
+
+
+| Parameter            | Description                                                                  |
+|----------------------|------------------------------------------------------------------------------|
+| jwt                  | The jwt to be decoded.                                                       |
+| parameterName        | The name of the parameter in the jwt for which the value should be retrieved.|
+| isParameterInPayload | Indicates whether the parameter to be retrieved is in the jwt header or body.<br> Value should be true if the parameter to be retrieved is in the body .      |                                                   
+ 
+ The following example shows how to obtain a parameter from the request object, which is a signed jwt. 
+``` java
+var state = getValueFromDecodedAssertion(context.request.params.request[0],"state",true);
+```
 
 ### Object Reference
 
@@ -548,7 +564,7 @@ step number.
 
 ##### response Object
 
--   `          request.headers[“<header_name>”]         ` : (Write)
+-   `          response.headers[“<header_name>”]         ` : (Write)
     Response header value for the given header name by
     &lt;header\_name&gt;
 

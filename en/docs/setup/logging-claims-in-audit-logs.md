@@ -32,7 +32,15 @@ the audit logger.
         the <http://wso2.org/claims> dialect as a
         `           LoggableUserClaim          ` . The **accountLocked** and
         **role** claims have been used here only as examples.
-    
+        
+3. Add the following configuration to `deployment.toml` file to configure the `"LogUpdatedClaimsOnly"` property.
+   
+   ```
+   [event.default_listener.user_claim_audit_logger]     
+   priority = 9
+   enable = true
+   LogUpdatedClaimsOnly = true
+   ```
 
     On making the above mentioned changes, claims will be logged into
     the `           audit.log          ` file in

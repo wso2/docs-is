@@ -23,9 +23,12 @@ its role.
 3.  Click **Add New User**. The following screen appears.  
     ![new-user-in-management-console](../assets/img/using-wso2-identity-server/new-user-in-management-console.png) 
 
+    !!! warning
+    	**Do not** use the special character, "#" while defining any of the user naming attirbutes since it is reserved for a specific functionality. This condition applies across all user stores. 
+	
     !!! info 
          When giving a username, it should not contain backslash (“/”) or any
-         special character ("&", "$", "%"), in 
+         special character ("&", "$", "%").  In the
          `             <IS_HOME>/repository/conf/deployment.toml           ` file you can set a simple configuration according to your requirements.
          
          For example,
@@ -93,16 +96,6 @@ be done using a SCIM request as seen below.
       an email to that email address to confirm the account and set the
       password.
 
-!!! info 
-      Before running the SCIM APIs, make sure you change the SCIMEnabled
-      property to "true" for the primary userstore in the
-      `           <IS_HOME>/repository/conf/deployment.toml        ` file.
-
-      ``` toml
-      [user_store]
-      scim_enabled  =  true
-      ```
-
 **Request**
 
 ``` xml
@@ -132,7 +125,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     enable = true
     ```
 
-2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
+2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 
@@ -239,7 +232,7 @@ admin services, see [Calling Admin Services](../../develop/calling-admin-service
     enable = true
     ```
 
-2.  Open the following Admin Service from [SOAP UI](../../https://www.soapui.org/downloads/latest-release.html):
+2.  Open the following Admin Service from [SOAP UI](https://www.soapui.org/downloads/latest-release.html):
     [https://localhost:9443/services/RemoteUserStoreManagerService?wsdl  
     ](https://localhost:9443/services/RemoteUserStoreManagerService?wsdl)
 

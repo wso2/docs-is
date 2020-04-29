@@ -1,16 +1,16 @@
 # Running the MP-JWT Sample
 
-This section describes how to configure and run the MP-JWT sample. This
+This section describes how to configure and run the MP-JWT sample. It
 also describes how to generate JWT tokens by invoking the endpoints.
 
-#### Configuring the sample
+## Configuring the sample
 
 !!! note "Pre-requisites" 
     Before running the samples, make sure you have [maven
     3.x](https://maven.apache.org/download.cgi) installed.
     
 
-First, let's configure the sample. Follow the steps below:
+First, let's configure the sample. Follow the steps given below:
 
 1.  Navigate to
     `          <SAMPLE_HOME>/microprofile/microprofile-jwt/         `
@@ -20,8 +20,9 @@ First, let's configure the sample. Follow the steps below:
     the Identity Server is installed.
 3.  Navigate back to
     `           <SAMPLE_HOME>/microprofile/microprofile-jwt          `
-    and open `           pom.xml          ` and uncomment the following
-    section:
+    and open `           pom.xml          `. 
+    
+4.  Uncomment the following section:
 
     ``` xml
     <!--<executions>-->
@@ -45,7 +46,7 @@ First, let's configure the sample. Follow the steps below:
     <!--</executions>-->
     ```
 
-4.  Now, build the sample using the following command:
+5.  Now, build the sample using the following command:
 
     ``` xml
     mvn clean install
@@ -55,10 +56,11 @@ First, let's configure the sample. Follow the steps below:
     `           microprofile-jwt-<VERSION>-resources.zip          ` in
     the target folder.
 
-5.  Unzip the
+6.  Unzip the
     `           microprofile-jwt-<VERSION>-resources.zip          ` and
-    navigate to `           sample-configuration-resources          `
-    and run the following command to do the necessary configurations.
+    navigate to `           sample-configuration-resources          `.
+    
+7.  Now run the following command to do the necessary configurations.
 
     ``` xml
     sh configure_sample.sh
@@ -67,24 +69,24 @@ First, let's configure the sample. Follow the steps below:
     This configuration script will add the following configurations to
     the Identity Server:
 
-    -   Add three roles Debtor, Creditor and ViewBalance
+    -   Add three roles - Debtor, Creditor, and ViewBalance
 
-    -   Add three roles Cameron, Alex, and John
+    -   Add three users - Cameron, Alex, and John
 
-    -   Assign roles to users as the following:  
+    -   Assign roles to users:
         Cameron -\> Debtor  
         Alex -\> Creditor  
         John -\> ViewBalance
 
     -   Create a service provider named
         `             microprofile_jwt_sample            ` with the
-        necessary configurations to generate an MP-JWT compatible JWT
+        necessary configurations to generate an MP-JWT-compatible JWT
         Token
 
-#### Running the sample
+## Running the sample
 
 1.  Navigate to the target folder which was generated when the sample
-    was built
+    was built.
 2.  Run the following command to start the wallet service written using
     Eclipse Microprofile Framework:
 
@@ -92,7 +94,7 @@ First, let's configure the sample. Follow the steps below:
     java -jar secure-wallet-service.jar
     ```
 
-    This sample service creates following three endpoints:
+    This sample service creates the following endpoints:
 
     -   **`              /wallet/balance             `** which will send
         the current balance
@@ -105,19 +107,19 @@ First, let's configure the sample. Follow the steps below:
 
     These three endpoints are secured with MP-JWT as follows:
 
-    -   /balance endpoint is allowed to call by users which has one of
+    -   /balance endpoint can be called by users that are assigned one of
         the following roles: admin, ViewBalance, Debtor
 
-    -   /credit endpoint is allowed to call by users which has one of
+    -   /credit endpoint can be called by users that are assigned one of
         the following roles: admin, Creditor
 
-    -   /debit endpoint is allowed to call by users which has one of the
+    -   /debit endpoint can be called by users that are assigned one of the 
         following roles: admin, Debtor
 
-##### Invoking the endpoints
+## Invoking the endpoints
 
-You can generate the JWT tokens for each user using the below cURL
-command and the credentials listed below:
+You can generate the JWT tokens for each user by executing the cURL
+command given below using the following credentials:
 
 | User    | Username | Password   |
 |---------|----------|------------|
@@ -129,15 +131,13 @@ command and the credentials listed below:
 curl -H "Authorization: Basic bGk2Sk1ialc2V0RNS1RXc1JuR2NqcDV6Y0doaTpOTUIzRUFmeGg0WXZTVHFiYjNpTWtvbmdBSGpX" -H "Content-Type: application/x-www-form-urlencoded" -k -d "grant_type=password&username=<username>&password=<password>&scope=openid" https://localhost:9443/oauth2/token
 ```
 
-Then you can invoke the endpoints using a REST client such as Postman.
-You need to provide the obtained JWT token in the Authorization header
-as a Bearer token.
+Now you can invoke the endpoints using a REST client such as Postman.
+You need to provide the obtained JWT token in the authorization header
+as a bearer token.
 
-If you try to invoke the endpoints without an Authorization header, you
+If you try to invoke the endpoints without an authorization header, you
 will receive an HTTP 401 Unauthorized response.
 
-
-If you invoke an endpoint with a token obtained for a user which does
-not have access to, you can observe an HTTP 403 Forbidden response. For
-instance, If you try to invoke the /debit endpoint while you only have
+If you invoke an endpoint with a token obtained for a user that has no access, you will receive an HTTP 403 Forbidden response. For
+instance, if you try to invoke the /debit endpoint while you only have
 the Creditor role, you will get HTTP 403 response.

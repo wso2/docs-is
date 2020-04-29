@@ -147,7 +147,7 @@ purposes and appropriate user attributes:
 3.  Select `Click here` to configure self-registration consent purposes. This displays 
 the **Consent Purposes** screen that allows you to add consent purposes.
 
-    ![self-registration](../assets/img/using-wso2-identity-server/self-registration.png)   
+    ![self-registration](../assets/img/learn/account-policies.png)   
     
 
 4.  Click **Add New Purpose**. 
@@ -192,8 +192,8 @@ Next, you can try out self-registration.
 
 ## Try out self-registration
 
-1.  Access the [WSO2 Identity Server dashboard](https://localhost:9443/dashboard/).
-2.  Click the **Register Now?** link and then enter the new user's
+1.  Access the [WSO2 Identity Server user portal](https://localhost:9443/user-portal/).
+2.  Click the **Create Account** link and then enter the new user's
     username.
 
     !!! info "Register Users for a Tenant"
@@ -234,7 +234,7 @@ Next, you can try out self-registration.
     Follow the steps given below to resend the confirmation email.
 
     1.  Access the [WSO2 Identity Server
-        dashboard](https://localhost:9443/dashboard/) and try to login with
+        user portal](https://localhost:9443/user-portal/) and try to login with
         the user you just registered.  
         The user account should not be activated for the user, which means
         you should not have confirmed the account.

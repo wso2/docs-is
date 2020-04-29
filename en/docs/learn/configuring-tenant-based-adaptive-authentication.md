@@ -75,7 +75,7 @@ credentials (basic authentication) to access a resource.
 4.  Click **Login** and enter Chris's credentials. Enter the username
     with the appended tenant domain (i.e., chris@abc.com).  
     ![pickup-sign-in-chris](../assets/img/tutorials/pickup-sign-in-chris.png)  
-    Note that you are prompted for harware key authentication because
+    Note that you are prompted for hardware key authentication because
     **abc.com** is a whitelisted tenant domain.
 5.  Enter the 4 digit key and click **Sign In**. You are successfully
     logged in to the application.  

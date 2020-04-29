@@ -29,6 +29,16 @@ the users with an authorization server-based authentication.
 4.  Expand the **Federated Authenticators** section and then the
     **OAuth2/OpenID Connect Configuration** form.  
     ![oauth2-openid-connect-configuration](../assets/img/tutorials/oauth2-openid-connect-configuration.png)
+        
+    !!! note
+        WSO2 Identity Server supports RP-initiated logout requests to OpenID Connect identity providers.
+
+        To use this feature, apply the **0147** WUM update for WSO2 Identity Server 5.9.0 using the WSO2
+        Update Manager (WUM). To deploy a WUM update into production, you need to have a paid subscription. If
+        you do not have a paid subscription, you can use this feature with the next version of WSO2 Identity Server
+        when it is released. For more information on updating WSO2 Identity Server using WUM, see [Getting
+        Started with WUM.](../../administer/getting-wso2-updates)
+        ![oauth2-openid-connect-federated-logout](../assets/img/tutorials/oidc-federated-logout.png)
     
 5.  Fill in the following fields where relevant.
 
@@ -72,6 +82,8 @@ the users with an authorization server-based authentication.
     | Userinfo Endpoint URL           | This is the URL of the federated identity provider's userinfo URL                                                                         | <https://localhost:9443/oauth/userinfo>        |
     | OpenID Connect User ID Location | Select whether the User ID is found in the 'sub' attribute that is sent with the OpenID Connect request or if it is found among claims.                                                                                              | User ID found in 'sub' attribute           |
     | Additional Query Parameters     | This is necessary if you are connecting to another Identity Server or application. Sometimes extra parameters are required by this IS or application so these can be specified here.                                                 | paramName1=value1                          |
+    | Enable HTTP basic auth for      | Selecting this option enables HTTP basic authentication to be used for client authentication, else client credentials will be included in the request body                                                                           | Selected                                   |
+    | client authentication           |                                                                                                                                                                                                                                      |                                            |
 
 !!! info "Related Topics"
 

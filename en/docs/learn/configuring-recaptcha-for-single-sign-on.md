@@ -45,7 +45,7 @@ attacks.
 5.  Select **Enable** and enter a value for the **Max failed attempts**
     field. For example, if you enter 3, reCaptcha will be re-enabled
     after 3 failed attempts.  
-    ![configure-captcha-for-sso](../assets/img/tutorials/configure-captcha-sso.png)
+    ![configure-captcha-for-sso](../assets/img/learn/recaptcha-sso.png)
 
     !!! note
     

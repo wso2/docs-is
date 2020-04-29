@@ -31,38 +31,13 @@ necessary system requirements and a compatible environment.
 </colgroup>
 <tbody>
 <tr class="odd">
-<td>Physical</td>
+<td></td>
 <td><ul>
-<li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
-<li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
-<li>10 GB free disk space</li>
-<li>~ Recommended minimum - 2 Cores. For high concurrencies and better performances - 4 Cores.</li>
-</ul>
-<p>Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</p></td>
-</tr>
-<tr class="even">
-<td>Virtual Machine (VM)</td>
-<td><ul>
-<li>2 compute units minimum (each unit having 1.0-1.2 GHz Opteron/Xeon processor)</li>
+<li>4 vCPUs</li>
 <li>4 GB RAM</li>
-<li>10 GB free disk space</li>
-<li>One CPU unit for the operating system and one for JVM.</li>
+<li>10 GB Disk Space</li>
 </ul>
-<p>Three WSO2 product instances running would require VM of 4 compute units, 8 GB RAM, and 30 GBfree space.<br />
-~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and the number of messages processed concurrently.</p></td>
-</tr>
-<tr class="odd">
-<td>EC2</td>
-<td><ul>
-<li>One c5.large instance to run one WSO2 product instance.</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>Cassandra data nodes</td>
-<td><ul>
-<li>4 core processors</li>
-<li>8 GB RAM</li>
-</ul>
+<p>The above recommendations can change based on the expected concurrency & performance.</p></td>
 </tr>
 </tbody>
 </table>
@@ -233,11 +208,6 @@ WSO2 supports the following membership schemes for clustering
             number of potential members. 
             
         ??? tip "Click to see the instructions for AWS ECS membership scheme"  
-            !!! warning
-                 To use this feature, apply the `0017` WUM update for WSO2 Identity Server 5.9.0 using the WSO2 Update Manager 
-                 (WUM). To deploy a WUM update into production, you need to have a paid subscription. If you do not have a paid subscription, 
-                 you can use this feature with the next version of WSO2 Identity Server when it is released. For more information on updating 
-                 WSO2 Identity Server using WUM, see [Updating WSO2 Products](../../administer/getting-wso2-updates) 
                       
             1. Create a working AWS ECS Cluster. Note the following when creating a cluster.
                 -   Note the `name` and `VPC CIDR block` of the cluster as you will require them later for configurations.

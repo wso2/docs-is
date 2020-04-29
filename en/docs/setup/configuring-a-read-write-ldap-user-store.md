@@ -21,7 +21,7 @@ The following are the minimum configurations that are needed to be provided to c
 <td>type</td>
 <td>User Store Type</td>
 <td>Type of the user store manager that we are using.For Read-only LDAP user store manager this value
-should be read_only_ldap.
+should be read_only_ldap_unique_id.
 </td>
 </tr>
 <tr class="odd">
@@ -83,7 +83,7 @@ Replace the default `user_store` configuration in the `         <IS_HOME>/reposi
 
 ``` toml
 [user_store]
-type = "read_write_ldap"
+type = "read_write_ldap_unique_id"
 base_dn = "ou=system"
 connection_url = "ldap://localhost:10389"
 connection_name = "uid=admin,ou=system"
@@ -106,7 +106,7 @@ For example :
 
 ``` toml
 [user_store]
-scim_enabled = true
+read_groups = true
 ```
 
 !!! note 
@@ -133,10 +133,17 @@ Default: identityPerson( Is a custom object class defined in WSO2 Identity Serve
 <td>UserNameAttribute</td>
 <td>user_name_attribute</td>
 <td>Username Attribute</td>
-<td><p>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.</p>
+<td><p>A uniquely identifying attribute that represents the username of the user. Users can be authenticated using their email address, UID, etc. The value of the attribute is considered as the username.</p>
 <p>Default: uid<br />
 <br />
 Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
+</tr>
+<tr class="odd">
+<td>UserIDAttribute</td>
+<td>user_id_attribute</td>
+<td>User ID Attribute</td>
+<td><p>The attribute used for uniquely identifying a user entry. The value of the attribute is considered as the unique user ID. </p>
+<p>Default: scimId <br /></p></td>
 </tr>
 <tr class="even">
 <td>UserNameSearchFilter</td>
@@ -303,18 +310,6 @@ Default: Password length should be within 5 to 30 characters</td></tr>
 <td>Role Name RegEx (Java)</td>
 <td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
 Default: [a-zA-Z0-9._\-|//]{3,30}$</td>
-</tr>
-<tr class="even">
-<td>SCIMEnabled</td>
-<td>scim_enabled</td>
-<td>Enable SCIM</td>
-<td>This is to configure whether user store is supported for SCIM provisioning.<br />
-<br />
-Possible values:<br />
-True : User store support for SCIM provisioning.<br />
-False: User does not store support for SCIM provisioning.
-<br />
-Default: false</td>
 </tr>
 <tr class="odd">
 <td>PasswordHashMethod</td>

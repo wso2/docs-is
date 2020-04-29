@@ -12,8 +12,16 @@ To run the project on local, it requires [python](https://www.python.org/downloa
 
 ## Run project locally (Dev Mode)
 
-1. Clone repo
-2. Run `mkdocs serve` command in `<Lang folder>`. E.g. `cd en && mkdocs serve`
+1. Clone the repo.
+2. Install python and pip (If not already installed).
+3. Install mkdocs through pip (`pip install mkdocs`).
+4. Install the material theme for mkdocs (`pip install mkdocs-material`).
+5. Run `mkdocs serve` command in `<Lang folder>`. E.g. `cd en && mkdocs serve`.
+
+**NOTE:**
+
+If you are doing changes and want to see them on the fly, running the server with `mkdocs serve --dirtyreload` option
+ will make the server load only the changed items and display the changes faster. 
 
 ## License
 
