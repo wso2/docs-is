@@ -110,6 +110,8 @@ nav:
         - 'OpenID Connect':
           - 'Overview': guides/access-delegation/openid-connect.md
           - 'Encrypt ID Tokens': guides/access-delegation/oidc-token-encryption.md
+          - 'Discover OpenID Connect Provider': guides/access-delegation/openid-connect-discovery.md
+          - 'Call JWKS Endpoint': guides/access-delegation/call-jwks-endpoint.md
       - 'Authorization' : guides/authorization/overview.md
       - 'Manage Users':
         - 'Overview': guides/user-mgt/user-mgt-overview.md 
