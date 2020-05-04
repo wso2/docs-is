@@ -302,8 +302,8 @@ false: Set it to false if the user roles are changed by external means and those
 <td>CaseInsensitiveUsername</td>
 <td>properties.CaseInsensitiveUsername</td>
 <td>Case Insensitive Username</td>
-<td>Enables the case insensitivity of the user's username. Default value is ``` true ``` for this configuration. 
-<br />Eg: If a user's username is ``` test ```, that user can also use the username as ``` TEST ```.
+<td>Enables the case insensitivity of the user's username. Default value is `true` for this configuration. 
+<br />Eg: If a user's username is `test`, that user can also use the username as `TEST`.
 </td>
 </tr>
 </tbody>
