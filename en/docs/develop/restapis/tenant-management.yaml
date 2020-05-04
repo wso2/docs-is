@@ -176,7 +176,7 @@ paths:
       summary: Retrieve tenant's owners.
       operationId: getOwners
       description: |
-        Retrieve owners of the tenant which are identified by the provided tenant id.
+        Retrieve owners of the tenant which are identified by the provided tenant ID.
 
         <b>Permission required:</b>
         * /permission/protected/manage/monitor/tenants/list
@@ -218,7 +218,7 @@ components:
       in: path
       name: tenant-id
       required: true
-      description: tenant id
+      description: tenant ID
       schema:
         type: string
     offsetQueryParam:
@@ -336,7 +336,7 @@ components:
         id:
           type: string
           example: "123e4567-e89b-12d3-a456-556642440000"
-          description: tenant id of the tenant owner.
+          description: tenant ID of the tenant owner.
         domain:
           type: string
           example: abc.com
@@ -395,7 +395,7 @@ components:
         id:
           type: string
           example: "123e4567-e89b-12d3-a456-556642440000"
-          description: tenant id of the tenant owner.
+          description: tenant ID of the tenant owner.
         domain:
           type: string
           example: abc.com
@@ -462,7 +462,7 @@ components:
         id:
           type: string
           example: "4875-jhgr-454hb"
-          description: id of the tenant owner.
+          description: ID of the tenant owner.
         username:
           type: string
           example: "kim"

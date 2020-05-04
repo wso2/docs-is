@@ -330,7 +330,7 @@ First deploy the sample authenticator dependency and web application in
 3.     Add the followings to the `deployment.tom`l file in the
        `<IS_HOME>/repository/conf` directory and restart the server.
        ```toml
-       [[resource.access_control]]
+       [resource.access_control]
        context = "(.*)/sample-auth/(.*)"
        secure = false
        http_method = "all" 
