@@ -148,6 +148,7 @@ nav:
                           - 'End-User Authentication':
                                     - 'Overview': concepts/authentication/end-user-authentication.md
                                     - 'Request Object': concepts/authentication/request-object.md
+                                    - 'Traditional Authentication Request': concepts/authentication/traditional-authentication-request.md
                           - 'User Information': concepts/authentication/user-information.md
                           - 'Scopes And Claims': concepts/authentication/scopes-claims.md
                           - 'Discovery': concepts/authentication/discovery.md
@@ -190,7 +191,6 @@ nav:
                                           - 'Refresh Tokens': concepts/authorization/refresh-token.md
                                     - 'Client Authentication': concepts/authorization/client-authentication.md
                                     - 'Token Introspection': concepts/authorization/introspection.md
-                                    - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
                                     - 'Introduction to XACML': concepts/authorization/xacml.md
                         - 'UMA':
