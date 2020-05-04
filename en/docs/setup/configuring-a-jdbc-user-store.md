@@ -298,6 +298,14 @@ Eg: Active directory has the MaxPageSize property with the default value of 1000
 Possible values:<br />
 false: Set it to false if the user roles are changed by external means and those changes should be instantly reflected in the Carbon instance.</td>
 </tr>
+<tr class="odd">
+<td>CaseInsensitiveUsername</td>
+<td>properties.CaseInsensitiveUsername</td>
+<td>Case Insensitive Username</td>
+<td>Enables the case insensitivity of the user's username. Default value is ``` true ``` for this configuration. 
+<br />Eg: If a user's username is ``` test ```, that user can also use the username as ``` TEST ```.
+</td>
+</tr>
 </tbody>
 </table>
 
