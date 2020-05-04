@@ -17,22 +17,10 @@ references >
 
 {!fragments/oauth-app-config-basic.md!}
 
-1. Log in to the [Management Console](insertlink) using admin/admin credentials. 
-
-2. Click **Service Providers >Add**. 
-
-3. Enter "sample-app" as the **Service Provider Name**.
- 
-4. Click **Register**.
-    
-5. Expand **Inbound Authentication Configuration** and then **OAuth/OpenID Connect Configuration**. 
-
-6. Click **Configure.**   
-
-7. Select the relevant grant types that you wish to try out from the **Allowed Grant Types** list. 
         
-8.  Enter `regexp=(http://localhost:8080/oauth-login|http://localhost:8080/login/oauth2/code/wso2)
-` as the **Callback Url**.
+     !!! tip
+     Enter `regexp=(http://localhost:8080/oauth-login|http://localhost:8080/login/oauth2/code/wso2)
+    ` as the **Callback Url**.
     
     !!! tip
         For more information on `Callback Url` field and other advanced configurations
@@ -58,9 +46,12 @@ we need to change the Identity Provider Entity ID as https://localhost:9443/oaut
 
 ## Configure the JAVA SDK
 
+### Initialize the SDK
+
 1. This is using spring-boot framework and provides OAuth2 login with WSO2 Identity Server.
 2. Add the following dependencies in the pom file in your spring-boot-project.
- ```xml
+
+```xml
 <dependencies>
    <dependency>
        <groupId>org.springframework.boot</groupId>
@@ -80,11 +71,13 @@ we need to change the Identity Provider Entity ID as https://localhost:9443/oaut
    </dependency>
 </dependencies>
 ```
+
 3. Add the configurations in the application.properties file in your spring-boot-project.
 
     - Add the client-id, client- secret and the discovery endpoint of WSO2 Identity server.
     - If you have hosted Identity Server in a different host and port, change the **localhost:9443** to **{HOSTNAME
     }:{PORT}**
+
 
 ```properties
 spring.security.oauth2.client.registration.wso2.client-name=WSO2 Identity Server
@@ -128,18 +121,16 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                .oauth2Login().loginPage("/login");
    }
 }
-
 ```
 
 2.Add redirection to ```"/oauth2/authorization/wso2"``` in your Controller and that would skip the login page.
-```java
 
+```java
 @GetMapping("/login")
 public String getLoginPage(Model model) {
 
    return "redirect:/oauth2/authorization/wso2";
 }
-
 ```
 
 #### Customizing the login page and uses another login endpoint
@@ -172,7 +163,6 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 2. Have a Login Controller Class and render your Login page when the browser is redirected to /oauth-login 
 
 ```java
-
 @Controller
 public class LoginController {
 
@@ -201,8 +191,8 @@ public class LoginController {
 }
 ```
 3. Have a login.html page inside resources/templates folder
-```html
 
+```html
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -224,8 +214,8 @@ public class LoginController {
 #### Use the Default /logout endpoint
 
 1. Have a ConfigSecurity class by extending WebSecurityConfigurerAdapter
-```java
 
+```java
 @EnableWebSecurity
 public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
@@ -255,8 +245,8 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
        return oidcLogoutSuccessHandler;
    }
 }
-
 ```
+
 2. Have a Logout button and redirect it to /logout url
 
 ```html
@@ -265,21 +255,19 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
        <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
    </form>
 </div>
-
 ```
 
 #### Customizing the logout endpoint
 
 1. Have a ConfigSecurity class by extending WebSecurityConfigurerAdapter and configure the logoutUrl
+
 ```java
-
-
 @EnableWebSecurity
 public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
    protected void configure(HttpSecurity http) throws Exception {
 
-       http.authorizeRequests()
+        http.authorizeRequests()
                .antMatchers("/oauth-login")
                .permitAll()
                .anyRequest()
@@ -289,33 +277,32 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                .logoutSuccessHandler(oidcLogoutSuccessHandler());
 
    }
-@Autowired
-   private ClientRegistrationRepository clientRegistrationRepository;
 
-   private LogoutSuccessHandler oidcLogoutSuccessHandler() {
+    @Autowired
+    private ClientRegistrationRepository clientRegistrationRepository;
+    
+    private LogoutSuccessHandler oidcLogoutSuccessHandler() {
        OidcClientInitiatedLogoutSuccessHandler oidcLogoutSuccessHandler =
                new OidcClientInitiatedLogoutSuccessHandler(
                        this.clientRegistrationRepository);
-
+    
        oidcLogoutSuccessHandler.setPostLogoutRedirectUri(
                URI.create("http://localhost:8080/oauth-login"));
-
+    
        return oidcLogoutSuccessHandler;
    }
 
 }
-
 ```
+
 2. Have a Logout button and redirect to custom logout (“/applogout”) url
 
 ```html
-
 <div style="float:right">
    <form method="post" th:action="@{/applogout}"  class="navbar-form navbar-right">
        <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
    </form>
 </div>
-
 ```
 
 ### Read User Information
@@ -325,7 +312,6 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 1. Add a method in your controller class to get the user infromation from authentication object.
   
 ```java
-
 public String getUser(Authentication authentication, Model model) {  
   DefaultOidcUser oidcUser = (DefaultOidcUser) authentication.getPrincipal();
   String username = oidcUser.getName();
