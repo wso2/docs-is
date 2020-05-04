@@ -1,12 +1,12 @@
 # JWT Grant Type
 
-### Recommended Use
+## Recommended Use
 
 OAuth 2.0 Authorization Server can accept JWT assertions from OAuth 2.0 clients as a means of
 resource owner authentication and authorization. Additionally, it can exchange it with OAuth 2.0 access tokens in order 
 to access protected resources on behalf of the resource owner.
 
-### How does it work ?
+## How does it work ?
 
 When an entity initiates a request to gain access to an application:
 

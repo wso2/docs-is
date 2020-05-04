@@ -1,6 +1,6 @@
 # Traditional Authentication
 
-### Authentication Parameters
+## Authentication Parameters
 
 **Required Parameters**
 

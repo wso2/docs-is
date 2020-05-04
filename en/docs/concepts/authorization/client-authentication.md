@@ -1,13 +1,13 @@
 # OAuth2.0 Client Authentication
 
-If the client type is [confidential](client-types.md), the client and authorization server should establish a client authentication method 
+If the client type specified in the request is [confidential](client-types.md), the client and authorization server should establish a client authentication method 
 suitable for the security requirements of the authorization server. This needs to be done ;
 
 - To ensure the tokens are issued only to legitimate clients.
 
-- Audit purposes.
+- Audit purposes
 
-There are few ways of client authentication.
+There are a few client authentication methods.
 
 - Basic Authentication (client_secret_basic)
 
@@ -17,7 +17,7 @@ There are few ways of client authentication.
 
 - Mutual TLS Authentication (tls_client_auth)
 
-### client_secret_basic
+## client_secret_basic
 
 In this client authentication method, the OAuth client uses [HTTP Basic Authentication Scheme](https://tools.ietf.org/html/rfc2617).
 
@@ -25,21 +25,21 @@ When deriving the authorization header value, it should be according to the foll
 
 `Authorization: Basic Base64encoded({client_id}:{client_secret})`
 
-### client_secret_post
+## client_secret_post
 
 In this method, the credentials are passed in the request body as form parameters as follows.
 
 `client_id=s6BhdRkqt3&client_secret=7Fjfp0ZBr1KtDRbnfVdmIw`
 
-### private_key_jwt
+## private_key_jwt
 
 Private Key JWT Client Authentication is an authentication method that can be used by clients to authenticate to the 
-authorization server when using the token endpoint. In this authentication mechanism, it can be authenticated the clients
-that have registered a public key with the authorization server and signed a JWT using that key.
+authorization server when using the token endpoint. In this authentication mechanism, it can authenticate clients that
+have registered a public key with the authorization server and signed a JWT using that key.
 
-The main steps of the flow are;
+The main steps of the flow are as follows.
 
-1. OAuth2 Client shares its public key with the Authorization Server.
+1. OAuth2 client shares its public key with the Authorization Server.
 
 2. OAuth2 client sends the JWT data signed with its private key to the token API.
 

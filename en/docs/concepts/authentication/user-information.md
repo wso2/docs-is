@@ -10,7 +10,7 @@ The following two options are available to obtain the actual user information.
   -   [Invoking the userinfo endpoint](#invoking-the-userinfo-endpoint)
 
 
-### Decoding the id_token
+## Decoding the id_token
 
 By decoding the id_token , a payload similar to the following can be obtained, with user information such as email.
 
@@ -33,7 +33,7 @@ By decoding the id_token , a payload similar to the following can be obtained, w
     }
     
 
-### Invoking the userinfo endpoint
+## Invoking the userinfo endpoint
 
 An access token can be used to invoke the userinfo endpoint to obtain user information as a payload. These Claims in the
 payload are normally represented by a JSON object that contains a collection of name and value pairs for the Claims.

@@ -21,5 +21,5 @@ Apart from the above four grant types, WSO2 Identity Server supports a few exten
 [- Kerberos grant type](insertlink)
 
 
-To renew the existing access token, WSO2 Identity Server supports for the [Refresh token grant type](refresh-token-grant.md)
+To renew the existing access token, WSO2 Identity Server supports the [Refresh token grant type](refresh-token-grant.md)
 
