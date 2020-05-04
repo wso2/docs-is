@@ -144,7 +144,9 @@ nav:
                                     - 'Basic Client Profile': concepts/authentication/basic-client-profile.md
                                     - 'Implicit Profile': concepts/authentication/implicit-client-profile.md
                                     - 'Hybrid Profile': concepts/authentication/hybrid-client-profile.md
-                          - 'OIDC Tokens': concepts/authentication/id-token.md
+                          - 'OIDC Tokens':
+                                    - 'Overview':  concepts/authentication/oidc-tokens.md
+                                    - 'ID Tokens':  concepts/authentication/id-token.md
                           - 'End-User Authentication':
                                     - 'Overview': concepts/authentication/end-user-authentication.md
                                     - 'Request Object': concepts/authentication/request-object.md
@@ -156,7 +158,6 @@ nav:
                           - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Parameter Catalogue': concepts/authentication/oidc-parameter-catalog.md
                           - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
