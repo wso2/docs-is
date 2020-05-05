@@ -12,7 +12,7 @@ that should be used when performing an authentication request based on the authe
 
 End-user authentication can be done in two main ways.
 
-1. **Traditional request**
+1. **[Traditional request](traditional-authentication-request.md)**
 
     When using the traditional authentication request, the client has to pass the required parameters to invoke the 
     Authorization Endpoint based on the authentication flow.

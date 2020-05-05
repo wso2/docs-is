@@ -1,14 +1,4 @@
-# Tokens
-
-In OpenID Connect flow there three types of tokens that are engaged in the authorization process.
-
-[1. Access Token](../authorization/access-token.md)
-
-[2. Refresh Token](../authorization/refresh-token.md)
-
-[3. ID Token](#id-token)
-
-### ID Token
+# ID Token
 ID Token is a security token, introduced by the OpenID Connect specification that contains claims about the authentication
 of an end-user by an Authorization Server. This token is presented as a JWT (Json Web Kit) and contains user claims to 
 identify who the user is. The ID Token is issued from the authorization server and the audience
