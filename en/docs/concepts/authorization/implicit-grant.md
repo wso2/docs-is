@@ -38,6 +38,6 @@ http://localhost:8080/playground2/oauth2client#access_token=131d4094-b94c-3714-9
 
 
 !!! info "Support for refresh token grant - No"
-	This grant type doesn't issue a refresh token which can be used to obtain new access tokens using the refresh token grant.
+	This grant type does not issue a refresh token which can be used to obtain new access tokens using the refresh token grant.
 	[refresh token grant](refresh-token-grant.md).
 

@@ -124,7 +124,7 @@ nav:
           - 'Add Users': 
             - 'Overview': guides/user-mgt/add-users-overview.md
             - 'Add Users and Assign Password': guides/user-mgt/add-user.md
-            - 'Add Users and Invite': guides/user-mgt/ask-password.md
+            - 'Add and Invite Users': guides/user-mgt/ask-password.md
             - 'Self Register': guides/user-mgt/self-register.md
           - 'Import Users': guides/user-mgt/import-users.md
           - 'List/Search Users': guides/user-mgt/search-user.md
@@ -177,17 +177,20 @@ nav:
                                     - 'Basic Client Profile': concepts/authentication/basic-client-profile.md
                                     - 'Implicit Profile': concepts/authentication/implicit-client-profile.md
                                     - 'Hybrid Profile': concepts/authentication/hybrid-client-profile.md
-                          - 'OIDC Tokens': concepts/authentication/id-token.md
+                          - 'OIDC Tokens':
+                                    - 'Overview':  concepts/authentication/oidc-tokens.md
+                                    - 'ID Tokens':  concepts/authentication/id-token.md
                           - 'End-User Authentication':
                                     - 'Overview': concepts/authentication/end-user-authentication.md
                                     - 'Request Object': concepts/authentication/request-object.md
+                                    - 'Traditional Authentication Request': concepts/authentication/traditional-authentication-request.md
                           - 'User Information': concepts/authentication/user-information.md
                           - 'Scopes And Claims': concepts/authentication/scopes-claims.md
-                          - 'JWKS': concepts/authentication/jwks.md
                           - 'Discovery': concepts/authentication/discovery.md
+                          - 'JWKS': concepts/authentication/jwks.md
+                          - 'Dynamic Client Registration': concepts/authorization/dcr.md
                           - 'Session Management and Logout': concepts/authentication/session-management.md
                           - 'OIDC Device Flow': concepts/authentication/device-flow.md
-                          - 'Parameter Catalogue': concepts/authentication/oidc-parameter-catalog.md
                           - 'Security Considerations': concepts/authentication/security-considerations.md
                   - 'SAML':
                           - 'Introduction': concepts/authentication/saml.md
@@ -214,15 +217,14 @@ nav:
                                           - 'Resource Owner Password Credentials Grant Type': concepts/authorization/resource-owner-grant.md
                                           - 'Client Credentials Grant Type': concepts/authorization/client-credential-grant.md
                                           - 'Refresh Token Grant Type': concepts/authorization/refresh-token-grant.md
-                                    - 'Extended Grant Types': concepts/authorization/extended-grant-types.md
+                                    - 'JWT Bearer Grant Type': concepts/authorization/jwt_bearer_grant.md
+                                    - 'SAML2 Bearer Assertion Profile': concepts/authorization/saml2_bearer_assertion_profile.md
                                     - 'Tokens':
                                           - 'Overview': concepts/authorization/overview.md
                                           - 'Access Tokens': concepts/authorization/access-token.md
                                           - 'Refresh Tokens': concepts/authorization/refresh-token.md
                                     - 'Client Authentication': concepts/authorization/client-authentication.md
                                     - 'Token Introspection': concepts/authorization/introspection.md
-                                    - 'DCR': concepts/authorization/dcr.md
-                                    - 'Parameter Catalog': concepts/authorization/oauth2-parameter-catalog.md
                         - 'XACML':
                                     - 'Introduction to XACML': concepts/authorization/xacml.md
                         - 'UMA':

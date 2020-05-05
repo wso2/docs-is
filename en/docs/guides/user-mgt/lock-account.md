@@ -4,7 +4,7 @@ Account locking and account disabling are security features in WSO2 Identity Ser
 
 ## Lock user accounts using the admin portal
 
-{!fragments/xxx!}
+{insert-fragment}
 
 ---
 
@@ -56,13 +56,13 @@ Before locking/unlocking users using SCIM, you need to do the following.
    **Sample**
 
    ```curl
-   curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+vihanga'
+   curl -v -k --user admin:admin 'https://localhost:9443/scim2/Users?filter=userName+Eq+cameron'
    ```
 
-2. After obtaining the SCIM ID of the user, invoke below cURL command with the `accountLock` attribute set to `true` or `false` to lock or unlock the user account respectively.
+2. After obtaining the SCIM ID of the user, invoke below curl command with the `accountLock` attribute set to `true` or `false` to lock or unlock the user account respectively.
 
    ```curl 
-   curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"EnterpriseUser":{"accountLock":"false"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<USER_ID>
+   curl -v -k --user admin:admin -X PATCH -d '{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"Operations":[{"op":"replace","value":{"EnterpriseUser":{"accountLock":"true"}}}]}' --header "Content-Type:application/json" https://localhost:9443/scim2/Users/<SCIM-ID>
    ```
 
 After setting the lock status to `true` for a particular user, the server should reject any authentication attempts done by that account.
